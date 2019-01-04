@@ -1,5 +1,5 @@
 ---
-title: 'Backup do Azure: preparação para backup de máquinas virtuais'
+title: 'Serviço de Backup do Azure: Preparação para backup de máquinas virtuais'
 description: Assegure-se de que o ambiente esteja preparado para fazer backup de máquinas virtuais no Azure.
 services: backup
 author: rayne-wiselman
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422789"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255067"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparar-se para fazer backup de VMs do Azure
 
@@ -34,12 +34,12 @@ Se essas condições já existem em seu ambiente, prossiga para o artigo [Fazer 
 
 ## <a name="supported-operating-systems-for-backup"></a>Versões de sistema operacional compatíveis para backup
 
- * **Linux**: o Backup do Azure oferece suporte a [uma lista de distribuições que o Azure endossa](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto o CoreOS Linux e o sistema operacional de 32 bits. Para a lista de sistemas operacionais Linux que possuem suporte para restauração de arquivos, consulte [Recuperação de arquivos para backup de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: O Backup do Azure oferece suporte a [uma lista de distribuições que o Azure endossa](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto o CoreOS Linux e o sistema operacional de 32 bits. Para a lista de sistemas operacionais Linux que possuem suporte para restauração de arquivos, consulte [Recuperação de arquivos para backup de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Outras distribuições personalizadas do Linux devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python. No entanto, não há suporte para essas distribuições.
     >
- * **Windows Server**, **Windows client**: não há suporte para versões anteriores ao Windows Server 2008 R2 ou Windows 7.
+ * **Windows Server**, **Windows client**:  Não há suporte para versões anteriores Windows Server 2008 R2 ou Windows 7.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações durante o backup e a restauração de uma VM
@@ -177,7 +177,7 @@ Para a extensão de backup funcionar, o [agente de VM](../virtual-machines/exten
 
 As informações a seguir são fornecidas para situações em que você *não* está usando uma VM criada por meio do Azure Marketplace. **Por exemplo, você migrou uma VM de um datacenter local. Nesse caso, o agente de VM precisa ser instalado para proteger a máquina virtual.**
 
-**Observação**: depois de instalar o agente de VM, você também deve usar o Azure PowerShell para atualizar a propriedade ProvisionGuestAgent para o Azure saber que a VM tem o agente instalado.
+**Observação**: Depois de instalar o agente de VM, você também deve usar o Azure PowerShell para atualizar a propriedade ProvisionGuestAgent para o Azure saber que a VM tem o agente instalado.
 
 Se você tiver problemas para fazer backup da VM do Azure, use a tabela a seguir para verificar se o agente de VM do Azure está instalado corretamente na máquina virtual. A tabela fornece informações adicionais sobre o agente de VM para VMs Windows e Linux.
 
@@ -283,7 +283,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Etapa 2: Permitir conexões de entrada no servidor proxy
+#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Etapa 2: Permitir conexões de entrada no servidor de proxy
 1. No servidor proxy, abra o Firewall do Windows. A maneira mais fácil de acessar o firewall é pesquisar o **Firewall do Windows com Segurança Avançada**.
 1. Na caixa de diálogo **Firewall do Windows com Segurança Avançada**, clique com o botão direito do mouse em **Regras de Entrada** e selecione **Nova Regra**.
 1. No Assistente de Nova Regra de Entrada, na página **Tipo de Regra**, selecione a opção **Personalizado** e selecione **Avançar**.

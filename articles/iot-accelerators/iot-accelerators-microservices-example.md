@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219403"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315750"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplantar um microsserviço
 
-Este tutorial mostra como editar um dos microsserviços na solução de Monitoramento Remoto, criar uma imagem de seu microsserviço, implantar a imagem em seu hub do docker e, em seguida, usá-lo na solução de Monitoramento Remoto. Para apresentar este conceito, o tutorial usa um cenário básico em que você pode chamar uma API de microsserviço e alterar o status da mensagem de "Alive and Well" para "New Edits Made Here!"
+Este tutorial mostra como editar um dos [microsserviços](http://azure.com/microservices) na solução de Monitoramento Remoto, criar uma imagem do microsserviço, implantar a imagem no hub do Docker e, em seguida, usá-la na solução de Monitoramento Remoto. Para apresentar este conceito, o tutorial usa um cenário básico em que você pode chamar uma API de microsserviço e alterar o status da mensagem de "Alive and Well" para "New Edits Made Here!"
 
 A solução de Monitoramento Remoto usa microsserviços que são criados usando imagens do docker que são extraídas de um hub do docker. 
 
@@ -45,7 +45,7 @@ Nesta parte, você deve chamar a API de microsserviço do gerenciador do hub IoT
 1. Verifique se a solução de Monitoramento Remoto está sendo executada localmente em seu computador.
 2. Localize onde você baixou o Postman e abra-o.
 3. No Postman, digite o seguinte no GET: http://localhost:8080/iothubmanager/v1/status.
-4. Exiba o retorno e você deverá ver: "Status": "OK:Alive and Well".
+4. Exiba o retorno e você deverá ver "Status": "OK: Ativo e em Funcionamento".
 
     ![Mensagem “Alive and Well” do Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
@@ -54,25 +54,31 @@ Nesta parte, você deve chamar a API de microsserviço do gerenciador do hub IoT
 Agora, altere a mensagem de status de microsserviço do Gerenciador do Hub IoT para "New Edits Made Here!" e, em seguida, recrie a imagem do docker com esse novo status. Se você tiver problemas aqui, consulte a nossa seção de [Solução de problemas](#Troubleshoot).
 
 1. Verifique se o terminal está aberto e altere para o diretório onde você clonou a solução de Monitoramento Remoto. 
-2. Mude seu diretório para “azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers”.
-3. Abra StatusController.cs em qualquer editor de texto ou o IDE que desejar. 
-4. Localize o código a seguir:
+1. Altere o diretório para "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services".
+1. Abra StatusService.cs em qualquer editor de texto ou IDE que desejar. 
+1. Localize o código a seguir:
 
     ```csharp
-    return new StatusApiModel(true, "Alive and well");
+    var result = new StatusServiceModel(true, "Alive and well!");
     ```
 
     e altere-o para o código abaixo e salve-o.
 
     ```csharp
-    return new StatusApiModel(true, "New Edits Made Here!");
+    var result = new StatusServiceModel(true, "New Edits Made Here!");
     ```
 
 5. Volte para o terminal, mas agora, mude para o seguinte diretório: “azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker”.
 6. Para compilar sua nova imagem do docker, digite
 
-    ```cmd/sh
+    ```sh
     sh build
+    ```
+    
+    ou, no Windows:
+    
+    ```
+    ./build.cmd
     ```
 
 7. Para verificar que a nova imagem foi criada com êxito, digite
@@ -138,7 +144,7 @@ Finalize reimplantando uma instância local da solução de Monitoramento Remoto
     ```
 
 3. Localize onde você baixou o Postman e abra-o.
-4. No Postman, digite a seguinte solicitação no GET: http://localhost:8080/iothubmanager/v1/status. Agora você deve ver: "Status": "OK: New Edits Made Here!".
+4. No Postman, digite a seguinte solicitação no GET: http://localhost:8080/iothubmanager/v1/status. Agora você deverá ver "Status": "OK: Novas Edições Feitas Aqui!".
 
 ![Mensagem do Postman New Edits Made Here](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

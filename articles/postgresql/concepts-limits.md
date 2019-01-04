@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/12/2018
+ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299599"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311653"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
 As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
@@ -31,10 +31,12 @@ O número máximo de conexões por tipo de preço e vCores é o seguinte:
 |Uso geral| 8| 480|
 |Uso geral| 16| 950|
 |Uso geral| 32| 1500|
+|Uso geral| 64| 1900|
 |Otimizado para memória| 2| 300|
 |Otimizado para memória| 4| 500|
 |Otimizado para memória| 8| 960|
 |Otimizado para memória| 16| 1900|
+|Otimizado para memória| 32| 3000|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > FATAL: já existem muitos clientes
@@ -56,6 +58,9 @@ O sistema do Azure exige cinco conexões para monitorar o Banco de Dados do Azur
 - Ao usar o recurso PITR, o novo servidor é criado com as mesmas configurações de camadas de preços que o servidor em que é baseado.
 - O novo servidor criado durante uma restauração não possui as regras de firewall existentes no servidor original. As regras de firewall precisam ser configuradas separadamente para esse novo servidor.
 - Não há suporte para restaurar um servidor eliminado.
+
+### <a name="utf-8-characters-on-windows"></a>Caracteres UTF-8 no Windows
+- Em alguns cenários, não há suporte completo para caracteres UTF-8 no PostgreSQL de software livre no Windows, o que afeta o Banco de Dados do Azure para PostgreSQL. Confira o thread [Bug nº 15476 nos arquivos do PostgreSQL](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Entenda [o que está disponível em cada tipo de preço](concepts-pricing-tiers.md)

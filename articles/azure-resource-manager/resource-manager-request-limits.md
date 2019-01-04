@@ -1,5 +1,5 @@
 ---
-title: Limites de solicitação do Azure Resource Manager | Microsoft Docs
+title: Limites de solicitação - Azure Resource Manager
 description: Descreve como usar a limitação com solicitações Azure Resource Manager quando os limites de assinatura tiverem sido atingidos.
 services: azure-resource-manager
 documentationcenter: na
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdc98c6d88b18f770d1869acbea5998ad4571287
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981806"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136882"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
 Para cada assinatura e inquilino do Azure, o Gerenciador de Recursos permite até 12.000 solicitações de leitura por hora e 1.200 solicitações de gravação por hora. Esses limites são definidos para o ID principal que faz as solicitações e o ID da assinatura ou o ID do inquilino. Se suas solicitações vierem de mais de uma ID principal, seu limite na assinatura ou no inquilino será maior que 12.000 e 1.200 por hora.

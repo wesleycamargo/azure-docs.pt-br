@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 463a7fc51cac6160fbb97fc53077d0b5eda80533
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: cb68b71eece998fa72fccc00de45f81e6d2d778c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215184"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848384"
 ---
 # <a name="about-recovery-plans"></a>Sobre planos de recuperação
 
@@ -60,11 +60,11 @@ Com essa personalização estabelecida, veja o que acontece ao executar um failo
 
 Recuperar aplicativos grandes pode ser uma tarefa complexa. Etapas manuais tornam o processo propenso a erros e a pessoa que estiver executando o failover pode não estar ciente de todas as complexidades do aplicativo. É possível usar um plano de recuperação para impor uma ordem e automatizar as ações necessárias em cada etapa, usando runbooks de Automação do Azure para failover no Azure, ou scripts. Para tarefas que não podem ser automatizadas, é possível inserir pausas para ações manuais nos planos de recuperação. Há alguns tipos de tarefas que você pode configurar:
 
-* **Tarefas na VM do Azure após failover**: ao fazer failover para o Azure, normalmente é necessário executar ações para poder conectar-se à VM após o failover. Por exemplo:  
+* **Tarefas na VM do Azure após failover**: Ao fazer failover para o Azure, normalmente é necessário executar ações para poder conectar-se à VM após o failover. Por exemplo:  
     * Crie um endereço IP público na VM do Azure.
     * Atribua um grupo de segurança de rede ao adaptador de rede da VM do Azure.
     * Adicione um balanceador de carga a um conjunto de disponibilidade.
-* **Tarefas na VM após o failover**: essas tarefas normalmente reconfiguram o aplicativo em execução no computador para que continue funcionando corretamente no novo ambiente. Por exemplo: 
+* **Tarefas dentro da Vm após failover**: Essas tarefas normalmente reconfiguram o aplicativo em execução no computador para que continue funcionando corretamente no novo ambiente. Por exemplo: 
     * Modifique a cadeia de conexão do banco de dados no computador.
     * Altere as regras ou a configuração do servidor Web.
 

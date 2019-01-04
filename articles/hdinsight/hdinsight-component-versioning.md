@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 2ae0450be420edeb4ef18d0c9e5ca6e1dacaf50d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497021"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321879"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões do Apache Hadoop disponíveis com o HDInsight?
 
@@ -28,7 +28,7 @@ O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem 
 
 As versões do componente associadas às versões do cluster HDInsight são listadas na tabela a seguir: 
 
-> [!NOTE]
+> [!NOTE]  
 > A versão padrão para o serviço HDInsight pode ser alterada sem aviso prévio. Se você tiver uma dependência de versão, especifique a versão do HDInsight ao criar clusters com o SDK do .NET com o Azure PowerShell e a CLI Clássica do Azure.
 
 | Componente | HDInsight 4.0 (Versão Prévia) | HDInsight 3.6 (Padrão) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
@@ -60,9 +60,7 @@ As versões do componente associadas às versões do cluster HDInsight são list
 
 As versões de componente do ecossistema Hadoop associadas às versões do cluster HDInsight podem ser alteradas com atualizações ao HDInsight. Para verificar os componentes do Hadoop e verificar quais versões estão sendo usadas para um cluster é usar a API REST do Ambari. O comando **GetComponentInformation** recupera informações sobre componentes de serviço. Para detalhes, veja a documentação do [Apache Ambari][ambari-docs].
 
-Para clusters do Windows, outra maneira de verificar a versão do componente é fazer logon em um cluster usando a Área de Trabalho Remota e examinar diretamente o conteúdo do diretório C:\apps\dist\.
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [Baixa do Windows no HDInsight](#hdinsight-windows-retirement).
 
 ### <a name="release-notes"></a>Notas de versão
@@ -78,13 +76,13 @@ A tabela a seguir lista as versões do HDInsight estão disponíveis no Portal d
 
 | Versão do HDInsight | Versão do HDP | SO da VM | Data do lançamento | Data de expiração do suporte | Data de baixa | Alta disponibilidade |  Disponibilidade no Portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 <br>  (Visualização) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |SIM |SIM |
+| HDInsight 4.0 <br> (Visualização) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |SIM |SIM |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017 | | |SIM |SIM |
 | HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |13 de março de 2019 |13 de março de 2019 |SIM |SIM |
 
 *&ast; O suporte ao HDInsight 3.5 foi estendido apenas para tipos de cluster do Spark*
 
-> [!NOTE]
+> [!NOTE]  
 > Depois que o suporte para uma versão tiver expirado, ela poderá não estar disponível por meio do Portal do Microsoft Azure. No entanto, as versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) e o SDK .NET até a data de baixa da versão.
 >
 
@@ -104,7 +102,7 @@ A tabela a seguir lista as versões do HDInsight que **não** estão disponívei
 | HDInsight 2.1 |HDP 1,3 |Windows Server 2012 R2 |28 de outubro de 2013 |12 de maio de 2014 |31 de maio de 2015 |SIM |Não  |
 | HDInsight 1.6 |HDP 1.1 | |28 de outubro de 2013 |26 de abril de 2014 |31 de maio de 2015 |Não  |Não  |
 
-> [!NOTE]
+> [!NOTE]  
 > Clusters altamente disponíveis com dois headnodes são implantados por padrão para clusters HDInsight versão 2.1 e posterior. Eles não estão disponíveis para clusters HDInsight versão 1.6.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Pacote de Segurança Enterprise para HDInsight
@@ -198,7 +196,7 @@ O Contrato de Nível de Serviço (SLA) é definido em termos de uma _Janela de S
 
 A _data de baixa_ é a data após a qual a versão do cluster não pode ser criada no HDInsight. Desde 31 de julho de 2017, você não pode redimensionar um cluster HDInsight após sua data de baixa. 
 
-> [!NOTE]
+> [!NOTE]  
 > Os clusters HDInsight do Windows (incluindo as versões 2.1, 3.0, 3.1, 3.2 e 3.3) são executados na Família 4 de SOs Convidados do Azure, que usa a versão de 64 bits do Windows Server 2012 R2. A Família de SOs Convidados do Azure versão 4 dá suporte ao .NET Framework 4.0, 4.5, 4.5.1 e 4.5.2.
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Notas de versão do Hortonworks associadas a versões do HDInsight
@@ -214,7 +212,7 @@ A seção fornece links para notas de versão para as distribuições do Hortonw
   * As [notas de versão do Apache Hive](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) estão disponíveis no site do Apache.
 * O cluster do HDInsight versão 3.2 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 2.2][hdp-2-2].
 
-  * Notas de versão para componentes específicos do Apache estão disponíveis conforme a seguir: [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) e [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
+  * Notas sobre a versão de componentes específicos do Apache estão disponíveis da seguinte maneira: [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) e [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 * O cluster HDInsight versão 3.1 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Os clusters do HDInsight 3.1 criados antes de 7 de novembro de 2014 são baseados no [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
 * O cluster do HDInsight versão 3.0 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 2.0][hdp-2-0-8].
 * O cluster do HDInsight versão 2.1 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 1.3][hdp-1-3-0].
@@ -222,41 +220,36 @@ A seção fornece links para notas de versão para as distribuições do Hortonw
 
 
 
-
-
-
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Tamanhos de máquina virtual e configuração de nó de padrão para clusters
-As tabelas abaixo listam os tamanhos de VM (máquina virtual) padrão para clusters HDInsight.
+As tabelas abaixo listam os tamanhos de VM (máquina virtual) padrão para clusters HDInsight.  Este gráfico é necessário para entender quais tamanhos de VM usar durante a criação de scripts do PowerShell ou da CLI do Azure para implantar clusters do HDInsight.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Se você precisa de mais de 32 nós de trabalho em um cluster, você precisa selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
-> 
-> 
 
 * Todas as regiões com suporte, exceto Sul do Brasil e Oeste do Japão:
 
-  | Tipo de cluster | O Hadoop | HBase | Consulta Interativa | Storm | Spark | ML Server |
+  | Tipo de cluster | O Hadoop | HBase | Consulta Interativa | Storm | Spark  | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Cabeçalho: tamanho padrão da VM |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
-  | Cabeçalho: tamanhos de VM recomendados |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 v2, A8 v2, A2m v2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Trabalho: tamanho de VM padrão |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Trabalho: tamanhos de VM recomendados |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Cabeçalho: tamanho padrão da VM |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | Cabeçalho: tamanhos de VM recomendados |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
+  | Trabalho: tamanho de VM padrão |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | Trabalho: tamanhos de VM recomendados |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
   | Zookeeper: tamanho de VM padrão | |A4 v2 | |A2 v2 | | |
-  | Zookeeper: tamanhos de VM recomendados | |A4 v2, A8 v2, A2m v2 | | A2 v2, A4 v2, A8 v2 | | |
-  | Borda: tamanho padrão da VM | | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Borda: tamanho de VM recomendado | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Zookeeper: tamanhos de VM recomendados | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | | |
+  | Borda: tamanho padrão da VM | | | | | |D4 v2 |
+  | Borda: tamanho de VM recomendado | | | | | |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
 * Apenas Sul do Brasil e Oeste do Japão (sem tamanhos v2):
 
   | Tipo de cluster | O Hadoop | HBase | Consulta Interativa |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Cabeçalho: tamanho padrão da VM |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | Cabeçalho: tamanhos de VM recomendados |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Trabalho: tamanho de VM padrão |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Trabalho: tamanhos de VM recomendados |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Cabeçalho: tamanho padrão da VM |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | Cabeçalho: tamanhos de VM recomendados |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
+  | Trabalho: tamanho de VM padrão |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | Trabalho: tamanhos de VM recomendados |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | Zookeeper: tamanho de VM padrão | |A2 | | A2 | | |
-  | Zookeeper: tamanhos de VM recomendados | |A2, A3, A4 | |A2, A3, A4 | | |
-  | Borda: tamanhos padrão da VM | | | | | |Windows: D12; Linux: D4 |
-  | Borda: tamanhos de VM recomendados | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Zookeeper: tamanhos de VM recomendados | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
+  | Borda: tamanhos padrão da VM | | | | | |D4 |
+  | Borda: tamanhos de VM recomendados | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - O cabeçalho é conhecido como *Nimbus* para o tipo de cluster Storm.
@@ -271,7 +264,7 @@ As tabelas abaixo listam os tamanhos de VM (máquina virtual) padrão para clust
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/support/forums/
+[wa-forums]: https://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 

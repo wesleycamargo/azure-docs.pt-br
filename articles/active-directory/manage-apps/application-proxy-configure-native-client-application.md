@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621081"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135519"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Como habilitar aplicativos clientes nativos para interagir com aplicativos de proxy
 
@@ -34,10 +34,10 @@ Use a Biblioteca de Autenticação do Azure AD, que trata da autenticação e d�
 
 Este artigo explica as quatro etapas para publicar um aplicativo nativo com o Proxy de Aplicativo e a Biblioteca de Autenticação do Azure AD. 
 
-## <a name="step-1-publish-your-application"></a>Etapa 1: publicar seu aplicativo
-Publique seu aplicativo de proxy como faria com qualquer outro aplicativo e atribua aos usuários acesso a ele. Para saber mais, consulte [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-publish-azure-portal.md).
+## <a name="step-1-publish-your-application"></a>Etapa 1: Publicar seu aplicativo
+Publique seu aplicativo de proxy como faria com qualquer outro aplicativo e atribua aos usuários acesso a ele. Para saber mais, consulte [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-add-on-premises-application.md).
 
-## <a name="step-2-configure-your-application"></a>Etapa 2: configurar seu aplicativo
+## <a name="step-2-configure-your-application"></a>Etapa 2: Configurar seu aplicativo
 Configure seu aplicativo nativo da seguinte maneira:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
@@ -51,12 +51,12 @@ Configure seu aplicativo nativo da seguinte maneira:
 Para obter informações mais detalhadas sobre como criar um novo registro de aplicativo, confira [Integrando aplicativos ao Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 
-## <a name="step-3-grant-access-to-other-applications"></a>Etapa 3: conceder acesso a outros aplicativos
+## <a name="step-3-grant-access-to-other-applications"></a>Etapa 3: Conceder acesso a outros aplicativos
 Habilite o aplicativo nativo para ser exposto a outros aplicativos no seu diretório:
 
 1. Ainda nos **Registros de aplicativo**, selecione o novo aplicativo nativo que você acabou de criar.
-2. Selecione **Permissões necessárias**.
-3. Selecione **Adicionar**.
+2. Selecione **Permissões de API**.
+3. Selecione **Adicionar uma permissão**.
 4. Abra a primeira etapa, **Selecionar uma API**.
 5. Use a barra de pesquisa para encontrar o aplicativo Proxy de Aplicativo que você publicou na primeira seção. Escolha esse aplicativo e clique em **Selecionar**. 
 
@@ -68,7 +68,7 @@ Habilite o aplicativo nativo para ser exposto a outros aplicativos no seu diret�
 8. Selecione **Concluído**.
 
 
-## <a name="step-4-edit-the-active-directory-authentication-library"></a>Etapa 4: Edite a Biblioteca de Autenticação do Active Directory
+## <a name="step-4-edit-the-active-directory-authentication-library"></a>Etapa 4: Editar a Biblioteca de Autenticação do Active Directory
 Edite o código de aplicativo nativo no contexto de autenticação da ADAL (Biblioteca de Autenticação do Active Directory) para incluir o seguinte texto:
 
 ```

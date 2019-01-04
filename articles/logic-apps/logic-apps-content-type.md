@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 07/19/2018
 ms.locfileid: "39159084"
 ---
-# <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em Aplicativo Lógico do Azure
+# <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em Aplicativos Lógicos do Azure
 
 Vários tipos de conteúdo podem fluir por meio de um aplicativo lógico, por exemplo, JSON, XML, arquivos simples e dados binários. Embora os Aplicativos Lógicos deem suporte a todos os tipos de conteúdo, alguns têm suporte nativo e não exigem transmissão ou conversão nos aplicativos lógicos. Outros tipos podem exigir transmissão ou conversão conforme necessário. Este artigo descreve como os Aplicativos Lógicos manipulam tipos de conteúdo e como é possível transmitir ou converter corretamente esses tipos quando necessário.
 

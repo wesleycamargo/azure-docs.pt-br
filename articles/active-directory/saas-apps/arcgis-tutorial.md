@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 12ab224481c519db36ae21dd11916649ff0bfbe3
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3284202ffaa6767a8dd4a6a5050dbdc928075237
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269027"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutorial: Integração do Azure Active Directory ao ArcGIS Online
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o ArcGIS Online por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -113,22 +113,22 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![image](./media/arcgis-tutorial/b1_b2_saml_sso.png)
 
-4. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Configuração básica de SAML**.
+4. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
     ![image](./media/arcgis-tutorial/b1-domains_and_urlsedit.png)
 
-5. Na seção **Configuração básica de SAML**, execute as etapas a seguir:
+5. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    a. Na caixa de texto **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<companyname>.maps.arcgis.com`.
+     a. Na caixa de texto **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<companyname>.maps.arcgis.com`.
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `<companyname>.maps.arcgis.com`.
 
     ![image](./media/arcgis-tutorial/b1-domains_and_urls.png)
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do ArcGIS Online](http://support.esri.com/en/) para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do ArcGIS Online](https://support.esri.com/en/) para obter esses valores.
 
-6. Na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de metadados de federação** e, em seguida, salve o arquivo xml em seu computador.
+6. Sobre o **certificado de autenticação SAML** seção, clique em **baixar** para fazer o dowload**XML de metadados de Federação** e, em seguida, salve o arquivo xml em seu computador.
 
     ![image](./media/arcgis-tutorial/federationxml.png)
 
@@ -156,7 +156,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Definir Provedor de Identidade](./media/arcgis-tutorial/ic784745.png "Definir Provedor de Identidade")
 
-    a. Na caixa de texto **Nome**, digite o nome de sua organização.
+     a. Na caixa de texto **Nome**, digite o nome de sua organização.
 
     b. Para **Os metadados do Provedor de Identidade Corporativo serão fornecidos usando**, selecione **Um Arquivo**.
 
@@ -168,7 +168,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![image](./media/arcgis-tutorial/d_users_and_groups.png)
 
@@ -180,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![image](./media/arcgis-tutorial/d_userproperties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -210,7 +210,7 @@ No caso do ArcGIS Online, o provisionamento é uma tarefa manual.
    
      ![Adicionar e examinar](./media/arcgis-tutorial/ic784749.png "Adicionar e examinar")
     
-     a. Insira o **Email**, o **Nome** e o **Sobrenome** de uma conta válida do AAD que deseja provisionar.
+      a. Insira o **Email**, o **Nome** e o **Sobrenome** de uma conta válida do AAD que deseja provisionar.
   
      b. Clique em **ADICIONAR E EXAMINAR**.
 5. Examine os dados inseridos e, depois, clique em **ADICIONAR MEMBROS**.
@@ -224,7 +224,7 @@ No caso do ArcGIS Online, o provisionamento é uma tarefa manual.
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao ArcGIS Online.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
     ![image](./media/arcgis-tutorial/d_all_applications.png)
 
@@ -240,7 +240,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![image](./media/arcgis-tutorial/d_assign_user.png)
 
-4. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
 5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
 
@@ -249,7 +249,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco ArcGIS Online no Painel de Acesso, deverá ser automaticamente conectado ao aplicativo ArcGIS Online.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

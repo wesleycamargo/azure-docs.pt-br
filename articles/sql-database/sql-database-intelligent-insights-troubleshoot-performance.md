@@ -8,20 +8,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230029"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273928"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Insights inteligentes
 
-Esta página fornece informações sobre problemas de desempenho do Banco de Dados SQL do Azure e da Instância Gerenciada por meio do log de diagnóstico de desempenho de banco de dados do recurso [Intelligent Insights](sql-database-intelligent-insights.md). A telemetria do log de diagnóstico pode ser transmitida para o [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), os [Hubs de Eventos do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), o [Armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
+Esta página fornece informações sobre problemas de desempenho do Banco de Dados SQL do Azure e da Instância Gerenciada por meio do log de diagnóstico de desempenho de banco de dados do recurso [Intelligent Insights](sql-database-intelligent-insights.md). A telemetria do log de diagnóstico pode ser transmitida para o [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), os [Hubs de Eventos do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), o [Armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 > [!NOTE]
 > Para obter um guia rápido de solução de problemas de desempenho do Banco de Dados SQL usando o Intelligent Insights, confira o fluxograma [Fluxo recomendado para solução de problemas](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) neste documento.
@@ -109,7 +109,7 @@ Você pode otimizar ou remover consultas relacionadas aos administradores com o 
 
 Você também pode reduzir a carga de trabalho otimizando-a ou distribuindo-a em vários bancos de dados. Ou você pode distribuir sua carga de trabalho entre vários bancos de dados. Se essas soluções não forem possíveis, considere aumentar o tipo de preço da sua assinatura do banco de dados SQL para aumentar a quantidade de recursos de memória disponíveis ao banco de dados.
 
-Para sugestões adicionais de solução de problemas, consulte [Reflexão sobre concessões de memória: o misterioso consumidor de memória do SQL Server com vários nomes](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Para obter sugestões de solução de problemas adicionais, confira [Reflexão sobre concessões de memória: o misterioso consumidor de memória do SQL Server com vários nomes](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Bloqueio
 

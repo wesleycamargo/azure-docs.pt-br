@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321726"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190978"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
@@ -27,7 +27,7 @@ Este artigo descreve as políticas de senha e os requisitos de complexidade asso
 
 Com uma política de duas portas, os **administradores não podem usar perguntas de segurança**.
 
-Uma política de entrada de duas portas requer dois tipos de dados de autenticação, como um endereço de email *e* um número de telefone. Uma política de duas portas aplica-se nas seguintes circunstâncias:
+A política de duas portas requer dois tipos de dados de autenticação, como um **endereço de email**, **aplicativo autenticador** ou um **número de telefone**. Uma política de duas portas aplica-se nas seguintes circunstâncias:
 
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de assistência técnica
@@ -80,9 +80,9 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Caracteres não permitidos |<ul><li>Caracteres Unicode.</li><li>Espaços.</li><li> Somente senhas fortes</li></ul> |
-| Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 caracteres.</li><li>Somente senhas fortes: requer três de quatro dos seguintes itens:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (veja as restrições de senha acima).</li></ul></li></ul> |
-| Tempo de expiração da senha |<ul><li>Valor padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do Módulo do Azure Active Directory para Windows PowerShell.</li></ul> |
-| Notificação de expiração de senha |<ul><li>Valor padrão: **14** dias (antes do vencimento de senha).</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
+| Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 caracteres.</li><li>Somente senhas fortes: Requer três de quatro dos seguintes itens:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (veja as restrições de senha acima).</li></ul></li></ul> |
+| Tempo de expiração da senha |<ul><li>Valor Padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do Módulo do Azure Active Directory para Windows PowerShell.</li></ul> |
+| Notificação de expiração de senha |<ul><li>Valor Padrão: **14** dias (antes do vencimento de senha).</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
 | Expiração de senha |<ul><li>Valor padrão: **false** dias (indica que a expiração de senha está habilitada).</li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet `Set-MsolUser`.</li></ul> |
 | Histórico de alteração de senha |A última senha *não pode* ser usada novamente quando o usuário alterar uma senha. |
 | Histórico de redefinição de senha | A última senha *pode* ser usada novamente quando o usuário redefine uma senha esquecida. |

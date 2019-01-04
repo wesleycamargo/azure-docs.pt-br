@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025252"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139258"
 ---
 <a name="azure-resource-manager-test-drive"></a>Test Drive do Azure Resource Manager
 =================================
@@ -177,7 +177,7 @@ Você poderá usar esse parâmetro para identificar exclusivamente a sessão de 
 
 Alguns recursos do Azure, como contas de armazenamento ou nomes DNS, requerem nomes globalmente exclusivos.
 
-Isso significa que, sempre que o Test Drive implanta o modelo do Resource Manager, ele cria um **novo grupo de recursos com um nome exclusivo** para todos os seus\' recursos **.** Portanto, é necessário usar a função [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) concatenada com seus nomes variáveis nos IDs do grupo de recursos para gerar valores exclusivos aleatórios:
+Isso significa que sempre que o Test Drive implantar o modelo do Resource Manager, será criado um **novo grupo de recursos com um nome exclusivo** para todos os seus\' recursos. Portanto, é necessário usar a função [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) concatenada com seus nomes variáveis nos IDs do grupo de recursos para gerar valores exclusivos aleatórios:
 
       "variables": {
       ...
@@ -298,7 +298,7 @@ Agora que você compilou seu Test Drive, esta seção mostra cada um dos campos 
 
 O primeiro campo (e o mais importante) é decidir se quer o Test Drive habilitado para sua oferta ou não. Quando você seleciona **Sim,** o restante do formulário com todos os campos obrigatórios é apresentado para que você preencha. Quando você seleciona **Não,** o formulário é desabilitado. Se você publicar novamente com o Test Drive desabilitado, seu Test Drive será removido da produção.
 
-Observação: se houver Test Drives ativamente usados por usuários, eles continuarão sendo executados até a sessão expirar.
+Observação: Se houver Test Drives ativamente usados por usuários, eles continuarão sendo executados até a sessão expirar.
 
 ### <a name="details"></a>Detalhes
 
@@ -361,7 +361,7 @@ Caso contrário, crie um novo Locatário no Azure Active Directory.
 
 ![Lista de locatários do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definir a organização, o domínio e o país do locatário do Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definir a organização, o domínio e o país/região do locatário do Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirmar a seleção](./media/azure-resource-manager-test-drive/subdetails6.png)
 
@@ -382,15 +382,13 @@ Clique em Salvar. O último passo é pegar o ID do aplicativo para esse aplicati
 Como estamos usando o aplicativo para implantar a assinatura, precisamos adicionar o aplicativo como colaborador na assinatura. Estas são as instruções:
 
 1. Navegue até a folha Assinaturas e selecione a assinatura adequada que você usa apenas para o Test Drive.
-2. Clique em Controle de Acesso (IAM).
-3. Pressione + Adicionar na nova folha.
-4. Defina a função como Colaborador.
-5. Digite o nome do aplicativo Azure Active Directory e selecione o aplicativo Azure Active Directory para atribuir a função.
-6. Clique em Salvar.
-
-![Adicionar uma nova entidade de segurança para Controle de Acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Adicionar as permissões](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Clique em **Controle de acesso (IAM)**.
+1. Clique na guia **Atribuições de função**.  ![Adicionar uma nova entidade de segurança para Controle de Acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Clique em **Adicionar atribuição de função**.
+1. Defina a função como **Colaborador**.
+1. Digite o nome do aplicativo Azure AD e selecione o aplicativo para atribuir a função.
+    ![Adicione as permissões](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Clique em **Salvar**.
 
 **Chave do Aplicativo Azure AD -** *Obrigatório* O campo final é para a geração de uma chave de autenticação. Em chaves, adicione uma Descrição da chave, defina a duração para nunca expirar e, em seguida, selecione Salvar. É **importante** evitar ter uma chave expirada, que interromperá seu Test Drive na produção. Copie esse valor e cole-o no campo Test Drive obrigatório.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6dc66e551c1bce94b473a356cf4648e5c2353a2b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433782"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271293"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Configurar alertas de integridade do serviço com o ServiceNow
 
@@ -154,15 +154,15 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Criar um alerta usando o ServiceNow no portal do Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga as etapas 1 a 8 [deste artigo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) para criar um alerta com um novo grupo de ação.
+1. Siga as etapas 1 a 8 [deste artigo](../azure-monitor/platform/alerts-activity-log-service-notifications.md) para criar um alerta com um novo grupo de ação.
 
 1. Defina na lista de **Ações**:
 
-    a. **Tipo de Ação:** *Webhook*
+     a. **Tipo de Ação:** *Webhook*
 
-    b. **Detalhes:** a **URL de Integração** do ServiceNow salva anteriormente.
+    b. **Detalhes:** A **URL de Integração** do ServiceNow salva anteriormente.
 
-    c. **Nome:** o nome, alias ou identificador do webhook.
+    c. **Nome:** Nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a criação do alerta.
 
@@ -175,16 +175,16 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 1. Adicione à lista de **Ações**:
 
-    a. **Tipo de Ação:** *Webhook*
+     a. **Tipo de Ação:** *Webhook*
 
-    b. **Detalhes:** a **URL de Integração** do ServiceNow salva anteriormente.
+    b. **Detalhes:** A **URL de Integração** do ServiceNow salva anteriormente.
 
-    c. **Nome:** o nome, alias ou identificador do webhook.
+    c. **Nome:** Nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a atualização do grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testando a integração de webhook por meio de uma solicitação HTTP POST
-1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Crie uma solicitação HTTP POST, da seguinte maneira:
 
@@ -201,6 +201,6 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
-- Examine o [esquema do webhook de alertas de log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Saiba mais sobre [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

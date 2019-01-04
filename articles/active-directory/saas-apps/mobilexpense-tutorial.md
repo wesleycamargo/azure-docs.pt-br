@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: fd35cb67d0555919a1340c428bac042b67239469
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d51ced3f264a486288c951def7c23a0d95609ac0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427332"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutorial: Integração do Azure Active Directory com o Mobile Xpense
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Mobile Xpense através da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do Mobile Xpense](./media/mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL: `https://mobilexpense.com/ServiceProvider`
+     a. Na caixa de texto **Identificador**, digite uma URL: `https://mobilexpense.com/ServiceProvider`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
@@ -121,7 +121,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.mobilexpense.com/<customername>`
      
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon. Entre em contato com a [equipe de suporte ao cliente do Mobile Xpense](http://www.mobilexpense.net/contact) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon. Entre em contato com a [equipe de suporte ao cliente do Mobile Xpense](https://www.mobilexpense.net/contact) para obter esses valores. 
 
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -131,10 +131,10 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Botão Salvar em Configurar Logon Único](./media/mobilexpense-tutorial/tutorial_general_400.png)
 
-1. Para configurar o logon único no lado do **Mobile Xpense**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do Mobile Xpense](http://www.mobilexpense.net/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **Mobile Xpense**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do Mobile Xpense](https://www.mobilexpense.net/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -170,7 +170,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-mobile-xpense-test-user"></a>Criar um usuário de teste do Mobile Xpense
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no MobileXpense. Trabalhe com a [equipe de suporte do MobileXpense](http://www.mobilexpense.net/contact) para adicionar os usuários na plataforma do MobileXpense. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no MobileXpense. trabalhe com a  [equipe de suporte do MobileXpense](https://www.mobilexpense.net/contact) para adicionar os usuários na plataforma do MobileXpense. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -207,7 +207,7 @@ Nesta seção, você habilitará a Brenda Fernandes a usar o logon único do Azu
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Mobile Xpense no Painel de Acesso, você será automaticamente conectado ao aplicativo Mobile Xpense.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -1,6 +1,6 @@
 ---
-title: Conectar ao Dropbox – Aplicativo Lógico do Azure | Microsoft Docs
-description: Carregar e gerenciar arquivos com as APIs REST do Dropbox e o Aplicativo Lógico do Azure
+title: Conectar ao Dropbox – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Carregar e gerenciar arquivos com as APIs REST do Dropbox e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

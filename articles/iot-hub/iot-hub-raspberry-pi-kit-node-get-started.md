@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 3f34167cfe689734ec5d5954a1c24a09a1e8d3bd
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8a533b3bf90ac2635ee05c6511c28d18784ddfec
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515005"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343846"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (Node.js)
 
@@ -67,7 +67,7 @@ Os itens a seguir são opcionais:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia de caracteres de conexão para o hub IoT
+### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -240,6 +240,6 @@ Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT. Para ver as mensagens que seu Raspberry Pi enviou ao hub IoT ou enviar mensagens para o Raspberry Pi, confira [Usar extensão do kit de ferramentas do Azure IoT para Visual Studio Code para enviar e receber mensagens entre o dispositivo e hub IoT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT. Para ver as mensagens que seu Raspberry Pi enviou ao hub IoT ou enviar mensagens para o Raspberry Pi, consulte [Usar extensão do kit de ferramentas do Hub IoT para Visual Studio Code para enviar e receber mensagens entre o dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

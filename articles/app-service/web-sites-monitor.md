@@ -1,5 +1,5 @@
 ---
-title: Monitorar aplicativos no Serviço de Aplicativo do Azure | Microsoft Docs
+title: Monitorar aplicativos – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como monitorar Aplicativos no Serviço de Aplicativo do Azure usando o Portal do Azure.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 9c58e5c64ea3689634d7afb4c5fef08c9b21798c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 103b5c1d2bc70f187b6e65a9fa9d80a35ad8e0c1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244365"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321572"
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>Como monitorar aplicativos Web no Serviço de Aplicativo do Azure
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>Como: Monitorar aplicativos no Serviço de Aplicativo do Azure
 O [Serviço de Aplicativo](https://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade de monitoramento no [Portal do Azure](https://portal.azure.com).
 O portal do Azure inclui a capacidade de examinar **cotas** e **métricas** para um aplicativo, bem como o Plano do Serviço de Aplicativo, configurar **alertas** e até mesmo **dimensionar** automaticamente de acordo com essas métricas.
 
@@ -53,7 +54,7 @@ Se o aplicativo estiver hospedado em um plano **Básico**, **Standard** ou **Pre
 
 A única cota aplicável aos aplicativos hospedados no plano **Básico**, **Standard** e **Premium** é **Sistema de arquivos**.
 
-Para saber mais sobre cotas, limites e recursos específicos disponíveis para SKUs de Serviço de Aplicativo diferentes, confira: [Limites do serviço de assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits)
+Para saber mais sobre cotas, limites e recursos específicos disponíveis para SKUs diferentes do Serviço de Aplicativo, confira: [Limites de Serviço da assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Aplicação de cota
 Se um aplicativo exceder a cota **CPU (curto)**, **CPU (dia)** ou **largura de banda**, o aplicativo será interrompido até que a cota seja redefinida. Durante esse tempo, todas as solicitações de entrada resultarão em um **HTTP 403**.
@@ -75,7 +76,7 @@ Para um **Aplicativo**, as métricas disponíveis são:
 * **Conjunto de trabalho de memória média**
   * A quantidade média de memória em MiBs usada pelo aplicativo.
 * **Tempo de CPU**
-  * A quantidade de CPU em segundos consumida pelo aplicativo. Para saber mais sobre essa métrica, consulte: [Tempo de CPU versus percentual de CPU](#cpu-time-vs-cpu-percentage)
+  * A quantidade de CPU em segundos consumida pelo aplicativo. Para obter mais Informações sobre essa métrica, confira: [Tempo de CPU versus percentual de CPU](#cpu-time-vs-cpu-percentage)
 * **Entrada de Dados**
   * A quantidade de largura de banda de entrada consumida pelo aplicativo em MiBs.
 * **Saída de dados**
@@ -144,23 +145,23 @@ Você pode examinar o status das diferentes **cotas** e **métricas** que afetam
 **Cotas** podem ser encontradas em Configurações >**Cotas**. A experiência do usuário permite que você examine: (1) o nome das cotas, (2) o intervalo de redefinição, (3) o limite atual e (4) o valor atual.
 
 ![][metrics]
-**Métricas** podem ser acessadas diretamente da página do recurso. Você também pode personalizar o gráfico da seguinte maneira: (1) **clique** nele e (2) selecione **editar gráfico**.
+**Métricas** podem ser acessadas diretamente da página do recurso. Também é possível personalizar o gráfico: (1) **clicando** nele e selecionando (2) **editar gráfico**.
 A partir daqui, você pode alterar (3) o **intervalo de tempo**, (4) o **tipo de gráfico** e (5) as **métricas** a serem exibidas.  
 
-Saiba mais sobre métricas aqui: [Monitorar as métricas do serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Você pode aprender mais sobre as métricas aqui: [Monitorar métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertas e dimensionamento automático
 As métricas para um Aplicativo ou Plano do Serviço de Aplicativo podem ser vinculadas a alertas. Para saber mais, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Aplicativos do Serviço de Aplicativo hospedados em Planos do Serviço de Aplicativo Básico, Standard ou Premium oferecem suporte ao **Dimensionamento Automático**. O dimensionamento automático permite que você configure regras que monitoram as métricas do Plano do serviço de aplicativo. As regras podem aumentar ou diminuir a contagem de instâncias fornecendo os recursos adicionais conforme necessário. As regras também podem ajudar a economizar dinheiro quando o aplicativo está excessivamente provisionado. Saiba mais sobre o dimensionamento automático aqui: [Como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e aqui [Práticas recomendadas para o dimensionamento automático do Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+Aplicativos do Serviço de Aplicativo hospedados em Planos do Serviço de Aplicativo Básico, Standard ou Premium oferecem suporte ao **Dimensionamento Automático**. O dimensionamento automático permite que você configure regras que monitoram as métricas do Plano do serviço de aplicativo. As regras podem aumentar ou diminuir a contagem de instâncias fornecendo os recursos adicionais conforme necessário. As regras também podem ajudar a economizar dinheiro quando o aplicativo está excessivamente provisionado. Você pode aprender mais sobre o dimensionamento automático aqui: [Como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e aqui, [Práticas recomendadas para dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
 
 > [!NOTE]
 > Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
-[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
+[fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
 
 
 

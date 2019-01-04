@@ -261,7 +261,7 @@ Estes são os limites que se aplicam a protocolos B2B:
 
 ## <a name="configuration-ip-addresses"></a>Configuração: endereços IP
 
-### <a name="azure-logic-apps-service"></a>Serviço de Aplicativo Lógico do Azure
+### <a name="azure-logic-apps-service"></a>Serviço de Aplicativos Lógicos do Azure
 
 Todos os aplicativos lógicos em uma região usam os mesmos intervalos de endereços IP. Para dar suporte às chamadas que os aplicativos lógicos fazem diretamente com [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) e outras solicitações HTTP, defina suas configurações de firewall para que elas incluam esses endereços IP de saída e de entrada, com base no local em que os aplicativos lógicos existem:
 

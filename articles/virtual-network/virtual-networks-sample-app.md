@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 7a0f1313f8b22aba0a153563bd804435c3ef53f2
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 1ccdb8254551d0009a71cc047b8399a539edb8e2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52159858"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866841"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Aplicativo de exemplo para uso com DMZs
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -142,7 +142,7 @@ Esse script do PowerShell deve ser executado localmente com RDP em IIS01.
     Restart-Service -Name W3SVC
 
     Write-Host
-    Write-Host "Web App Creation Successfull!" -ForegroundColor Green
+    Write-Host "Web App Creation Successful!" -ForegroundColor Green
     Write-Host
 ```
 
@@ -156,7 +156,7 @@ Esse script configura o back-end para esse aplicativo simples. Este script:
 5. Desativará a Segurança Aprimorada do IE para permitir a navegação mais fácil por meio deste servidor 
 
 > [!IMPORTANT]
-> **Práticas recomendadas**: nunca desative a Segurança Aprimorada do IE em um servidor de produção, além disso, costuma não ser boa ideia surfar na web por meio de um servidor de produção. Além disso, abrir compartilhamentos de arquivos para acesso anônimo é uma ideia ruim, mas que foi executado aqui para simplificar.
+> **Melhor prática**: Nunca desative a Segurança Aprimorada do IE em um servidor de produção, além disso, costuma não ser boa ideia surfar na web por meio de um servidor de produção. Além disso, abrir compartilhamentos de arquivos para acesso anônimo é uma ideia ruim, mas que foi executado aqui para simplificar.
 > 
 > 
 
@@ -189,7 +189,7 @@ Esse script do PowerShell deve ser executado localmente com RDP em AppVM01. O Po
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0
 
     Write-Host
-    Write-Host "File Server Set up Successfull!" -ForegroundColor Green
+    Write-Host "File Server Set up Successful!" -ForegroundColor Green
     Write-Host
 ```
 

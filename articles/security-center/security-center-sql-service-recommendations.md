@@ -3,7 +3,7 @@ title: Protegendo os dados e o serviço SQL do Azure na Central de Segurança do
 description: Este documento aborda as recomendações na Central de Segurança do Azure que ajudam a proteger seus dados e o serviço SQL do Azure, bem como a cumprir as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: terrylan
-ms.openlocfilehash: ea014aae49ec322e9a1f1222c881885b84e87584
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: rkarlin
+ms.openlocfilehash: 977c464e0c172a25d069fa7db55d8aefb78d89d9
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311765"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339086"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários.  As recomendações se aplicam aos tipos de recurso do Azure: VMs (máquinas virtuais), rede, SQL e dados, e aplicativos.
@@ -54,7 +54,7 @@ Para habilitar a auditoria, selecione **ATIVADO** na opção **Auditoria**.
 |Tipo de recurso|Classificação de segurança|Recomendações|DESCRIÇÃO|
 |----|----|----|----|
 |Conta de armazenamento|20|Exigir transferência segura para a conta de armazenamento|A transferência segura é uma opção que força a sua conta de armazenamento a aceitar somente solicitações de conexões seguras (HTTPS). O uso de HTTPS garante a autenticação entre o servidor e o serviço e protege dados em trânsito de ataques de camada de rede, como ataques intermediários, interceptação e sequestro de sessão.|
-|Redis|20|Habilitar apenas conexões seguras para seu Cache Redis|Habilite somente conexões via SSL para o Cache Redis. O uso de conexões seguras garante a autenticação entre o servidor e o serviço e protege dados em trânsito de ataques de camada de rede, como ataques intermediários, interceptação e sequestro de sessão.|
+|Redis|20|Habilitar apenas conexões seguras para seu Cache Redis do Azure|Habilite apenas conexões via SSL para o Cache Redis do Azure. O uso de conexões seguras garante a autenticação entre o servidor e o serviço e protege dados em trânsito de ataques de camada de rede, como ataques intermediários, interceptação e sequestro de sessão.|
 |SQL|15|Habilitar Transparent Data Encryption em bancos de dados SQL|Habilite a criptografia transparente de dados para proteger dados em repouso e atender aos requisitos de conformidade.|
 |SQL|15|Habilitar auditoria em servidores SQL|Habilite auditoria para servidores SQL do Azure. (Apenas o serviço do SQL Azure. Não inclui o SQL em execução nas suas máquinas virtuais.)|
 |SQL|15|Habilitar auditoria em bancos de dados SQL|Habilite auditoria para bancos de dados SQL do Azure. (Apenas o serviço do SQL Azure. Não inclui o SQL em execução nas suas máquinas virtuais.)|
@@ -79,6 +79,6 @@ Para saber mais sobre as recomendações que se aplicam aos outros tipos de recu
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.

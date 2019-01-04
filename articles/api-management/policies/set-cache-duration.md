@@ -1,6 +1,6 @@
 ---
-title: Exemplo de política de gerenciamento de API do Azure – Definir duração do cache de resposta | Microsoft Docs
-description: Exemplo de política de gerenciamento de API do Azure – Demonstra como definir a duração do cache de resposta usando o valor de maxAge no cabeçalho Cache-Control enviado pelo back-end.
+title: Exemplo de política de gerenciamento de API do Azure - Definir duração do cache de resposta | Microsoft Docs
+description: Exemplo de política de gerenciamento de API do Azure - Demonstra como definir a duração do cache de resposta usando o valor de maxAge no cabeçalho Controle de Cache enviado pelo back-end.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f7126f5cd6bf6f142c603e4b1baee4a6c20dea2
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 042fab72da2d4b890314b6ee9c7237241b492fba
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287544"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869212"
 ---
 # <a name="set-response-cache-duration"></a>Definir duração do cache de resposta
 

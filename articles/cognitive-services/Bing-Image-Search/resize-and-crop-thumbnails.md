@@ -1,6 +1,7 @@
 ---
-title: Redimensionar e recortar miniaturas do Bing - API de pesquisa de imagens do Bing
-description: Saiba como redimensionar e recortar miniaturas incluídas em uma resposta da API de pesquisa de imagens do Bing.
+title: Redimensionar e recortar miniaturas de imagens – API de Pesquisa de Imagem do Bing
+titleSuffix: Azure Cognitive Services
+description: Redimensionar e recortar miniaturas de imagens incluídas em respostas da API de Pesquisa de Imagem do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 3bb360cd95dcbfb95464b2b259dcebfce7065256
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296220"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256376"
 ---
-# <a name="resizing-and-cropping-thumbnail-images"></a>Redimensionamento e recorte de imagens em miniatura
+# <a name="resize-and-crop-thumbnail-images"></a>Redimensionar e recortar miniaturas de imagens
 
 Após o processamento de uma consulta de pesquisa, o Bing gerará as informações em miniatura para todas as imagens na sua [resposta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Essas informações podem ser usadas para exibir todas as miniaturas retornadas ou um subconjunto delas. Se você exibir um subconjunto, forneça uma opção para exibir as imagens restantes.
 

@@ -5,16 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: bc671a598d975fb732b668d579561a253f04ded3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317714"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342707"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
 
@@ -41,9 +40,9 @@ Este artigo resume as configurações e os componentes com suporte quando você 
 **Migre as VMs pelas regiões dos clusters geográficos suportados (dentro e entre assinaturas)** | Com suporte no mesmo locatário do Azure Active Directory.
 **Migrar máquinas virtuais na mesma região** | Sem suporte.
 
-# <a name="region-support"></a>Suporte de regiões
+## <a name="region-support"></a>Suporte de regiões
 
-É possível replicar e recuperar VMs entre duas regiões quaisquer dentro do mesmo cluster geográfico.
+É possível replicar e recuperar VMs entre duas regiões quaisquer dentro do mesmo cluster geográfico. Clusters geográficos são definidos mantendo a latência de dados e a soberania em mente.
 
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
@@ -53,21 +52,21 @@ Europa | Oeste do Reino Unido, Sul do Reino Unido, Norte da Europa, Europa Ocide
 Austrália   | Leste da Austrália, Sudeste da Austrália, Austrália Central, Austrália Central 2
 Azure Government    | US Gov Virginia, US Gov Iowa, US Gov – Arizona, US Gov – Texas, US DoD Leste, US DoD Central
 Alemanha | Centro da Alemanha, Nordeste da Alemanha
-China | Leste da China, Norte da China
+China | Leste da China, Norte da China, Norte da China2, Leste da China2
 
 >[!NOTE]
 >
-> Para a região Sul do Brasil, é possível apenas replicar e fazer failover para uma das regiões Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e Centro-Norte dos EUA e fazer failback.
+> Para a região Sul do Brasil, você pode replicar e fazer failover para um dos seguintes: Centro-Sul dos EUA, Centro-oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e regiões do Centro-Norte dos EUA.</br>
+> Deve-se observar que o Site Recovery habilitou apenas Sul do Brasil para ser usado como uma região de origem da qual as VMs podem ser protegidas. Não pode ser usada como uma região de recuperação de desastre de destino para nenhuma das regiões do Azure, como o Centro-Sul dos EUA. O motivo é a latência observada devido à distância geográfica, sendo recomendável selecionar qualquer outra região da América que não seja o Sul do Brasil.  
 
 ## <a name="cache-storage"></a>Armazenamento em cache
 
 Esta tabela resume o suporte para a conta de armazenamento em cache usada pelo Site Recovery durante a replicação.
 
-**Configuração** | **Detalhes**
---- | ---
+**Configuração** | **Suporte** | **Detalhes**
+--- | --- | ---
 Contas de armazenamento do uso geral V2 (quente e a camada fria) | Sem suporte. | A limitação existe para o armazenamento em cache porque os custos de transação para V2 são substancialmente maiores que as contas de armazenamento V1.
-Firewalls de Armazenamento do Azure para redes virtuais  | Não  | Permitir o acesso a redes virtuais específicas do Azure em contas de armazenamento em cache usadas para armazenar dados replicados não é suportado.
-
+Firewalls de Armazenamento do Azure para redes virtuais  | Com suporte | Caso esteja usando a conta de armazenamento de destino ou a conta de armazenamento de cache habilitada para firewall, escolha ['Permitir serviços confiáveis da Microsoft'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas Operacionais Replicados de Máquinas
@@ -128,16 +127,16 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.140-94.69-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default até 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default a 4.4.126-94.22-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas - sistema de arquivos Linux / armazenamento convidado
 
-* Sistemas de arquivos: ext3, ext4, ReiserFS (somente Suse Linux Enterprise Server), XFS
-* Gerenciador de volumes: LVM2
-* Software Multipath: Mapeador de dispositivos
+* Sistemas de arquivos: ext3, ext4, ReiserFS (somente Suse Linux Enterprise Server), XFS, BTRFS
+* Gerenciador de volume: LVM2
+* Software de múltiplos caminhos: Mapeador de Dispositivos
 
 
 ## <a name="replicated-machines---compute-settings"></a>Máquinas replicadas - configurações de computação
@@ -146,7 +145,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default a 
 --- | --- | ---
 Tamanho | Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1 GB de RAM | Verifique se [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md).
 Conjuntos de disponibilidade | Com suporte | Se você habilitar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade será criado automaticamente com base nas configurações da região de origem. Você pode modificar essas configurações.
-Zonas de disponibilidade | Sem suporte | Atualmente, você não pode replicar VMs implantadas em zonas de disponibilidade.
+Zonas de disponibilidade | Com suporte |  
 Benefício de uso híbrido (HUB) | Com suporte | Se a VM de origem tiver uma licença do HUB ativada, um failover de teste ou falha na VM também usará a licença do HUB.
 Conjuntos de dimensionamento da VM | Sem suporte |
 Imagens da galeria do Azure - Microsoft publicada | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
@@ -180,6 +179,7 @@ Disco de dados - conta de armazenamento padrão | Com suporte |
 Disco de dados - conta de armazenamento premium | Com suporte | Se uma VM tiver discos distribuídos em contas de armazenamento premium e padrão, você poderá selecionar uma conta de armazenamento de destino diferente para cada disco, para garantir que você tenha a mesma configuração de armazenamento na região de destino.
 Disco gerenciado - standard | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. |  
 Disco gerenciado - premium | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. |
+SSD Standard | Sem suporte |
 Redundância | Há suporte para LRS e GRS.<br/><br/> Não há suporte para ZRS.
 Armazenamento frio e quente | Sem suporte | Discos de VM não são suportados em armazenamento fresco e quente
 Espaços de Armazenamento | Com suporte |         
@@ -195,12 +195,24 @@ GRS | Com suporte |
 RA-GRS | Com suporte |
 ZRS | Sem suporte |  
 Armazenamento Frio e Quente | Sem suporte | Não há suporte para discos de máquina virtual no armazenamento frio e quente
-Firewalls de armazenamento do Azure para redes virtuais  | SIM | Se você estiver restringindo o acesso à rede virtual para contas de armazenamento, certifique-se de que os serviços Microsoft confiáveis tenham a permissão para acessar a conta de armazenamento.
+Firewalls de armazenamento do Azure para redes virtuais  | Com suporte | Se você está restringindo o acesso da rede virtual para contas de armazenamento, verifique se ['Permite serviços da Microsoft confiáveis'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não  | Os custos das transações aumentam substancialmente em comparação com as contas de armazenamento V1 de uso geral
 
 >[!IMPORTANT]
 > Certifique-se de que observou os destinos de desempenho e escalabilidade de disco de VM para máquinas virtuais [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar qualquer problema de desempenho. Se você seguir as configurações padrão, o Site Recovery criará os discos e as contas de armazenamento necessários com base na configuração de origem. Se você personalizar e selecionar suas próprias configurações, certifique-se de que seguiu os destinos de escalabilidade e desempenho para discos de máquina virtual de origem.
 
+## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Limites do Azure Site Recovery para replicar taxas de alteração de dados
+A tabela a seguir fornece os limites do Azure Site Recovery. Esses limites são baseados em nossos testes, mas eles não podem abranger todas as combinações possíveis de E/S de aplicativos. Os resultados reais podem variar dependendo da combinação de E/S do aplicativo. Também devemos observar que há dois limites a considerar, a rotatividade de dados por disco e a rotatividade de dados da máquina virtual.
+Por exemplo, se olhamos para o disco Premium P20 na tabela abaixo, o Site Recovery pode manipular 5 MB/s de rotatividade por disco com um máximo de cinco desses discos por VM, devido ao limite de 25 MB/s de rotatividade total por VM.
+
+**Destino de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de variação de dados de disco de origem por dia**
+---|---|---|---
+Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
+Disco Premium P10 ou P15 | 32 KB ou maior | 8 MB/s | 672 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |10 MB/s | 842 GB por disco
 ## <a name="replicated-machines---networking"></a>Máquinas replicadas - rede
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---

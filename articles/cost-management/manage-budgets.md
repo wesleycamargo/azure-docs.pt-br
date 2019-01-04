@@ -1,23 +1,23 @@
 ---
 title: Gerenciar os orçamentos do Cloudyn no Azure | Microsoft Docs
-description: Este artigo ajuda você a criar e gerenciar orçamentos no Cloudyn.
+description: Este artigo ajuda você a criar orçamentos e começar a gerenciá-los rapidamente no Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 9/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 92236547e2100ab57f4ec6b4953f6c61ec87892d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 44062670283a15f678da45e13a831e73a7738c39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275497"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075481"
 ---
-# <a name="manage-budgets"></a>Gerenciar orçamentos
+# <a name="manage-azure-budgets-with-cloudyn"></a>Gerenciar orçamentos do Azure com o Cloudyn
 
 Configurar orçamentos e alertas com base no orçamento ajuda a melhorar sua governança em nuvem e contabilidade. Este artigo ajuda você a criar orçamentos e começar a gerenciá-los rapidamente no Cloudyn.
 
@@ -40,7 +40,7 @@ Para criar um orçamento e atribuir a uma entidade:
 3. No ano do orçamento, selecione o ano onde você quer criar o orçamento.
 4. Para cada mês, definir um valor de orçamento. Ao terminar, clique em **Salvar**.
 Neste exemplo, o orçamento mensal para junho de 2018 foi definido para US$135.000. O orçamento total para o ano é de US$1.615000,00.
-![Criar um orçamento](./media/manage-budgets/set-budget.png)
+![Criar uma página de orçamento em que você define um orçamento para cada mês](./media/manage-budgets/set-budget.png)
 
 
 Para importar um arquivo para o orçamento anual:
@@ -64,11 +64,11 @@ Neste exemplo, suponha que a data atual seja 22 de de junho. O custo para junho 
 
 Outra forma de visualizar o relatório é analisar o custo acumulado em relação ao seu orçamento. Para ver os custos acumulados, em **Exibir/Ocultar Campos**, selecione **Custo Acumulado** e **Orçamento Total**. Aqui está exemplo mostrando o custo acumulado desde o começo do ano.
 
-![Orçamento acumulado](./media/manage-budgets/accumulated-budget.png)
+![Exemplo de custo acumulado e orçamento total mostrado no relatório de Custo vs. Orçamento ao Longo do Tempo](./media/manage-budgets/accumulated-budget.png)
 
 Em algum momento no futuro, o custo acumulado poderá exceder o orçamento. É possível ver com mais facilidade que, se alterar a visualização do gráfico para o _tipo_  de linha.
 
-![Orçamento exibido no gráfico de linhas](./media/manage-budgets/budget-line.png)
+![Orçamento mostrado em um gráfico de linhas no relatório de Custo por Meses](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>Criar alertas de orçamento para um filtro
 
@@ -81,7 +81,7 @@ Vamos examinar um exemplo.
 
 No custo vs. relatório de Orçamento ao Longo do Tempo, clique em **Ações** e, em seguida, selecione **Agendar relatório**. Na guia Limite, selecione uma métrica de limite. Por exemplo, **Porcentagem de custo vs orçamento**. Selecione um tipo de alerta e insira um valor percentual do orçamento. Se quiser ser notificado apenas uma vez, selecione **Número de alertas consecutivos** e, em seguida digite_1_. Clique em **Salvar**.
 
-![Alerta de orçamento](./media/manage-budgets/budget-alert.png)
+![Criando um alerta de orçamento na caixa Salvar ou Agendar este relatório](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

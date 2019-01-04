@@ -1,5 +1,5 @@
 ---
-title: Modelagem e exploração de dados avançados com o Spark | Microsoft Docs
+title: Modelagem e exploração de dados avançadas com Spark – Processo de Ciência de Dados de Equipe
 description: Use o HDInsight Spark para fazer a exploração de dados e treinar modelos de classificação e regressão binários usando a validação cruzada e a otimização de hiperparâmetro.
 services: machine-learning
 author: marktab
@@ -10,17 +10,17 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e0fa3d481e18cdb15095968e791bd9eee630f8af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446323"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135467"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados avançados com o Spark
 
-Este passo a passo usa o HDInsight Spark para executar a exploração de dados e treinar a classificação binária e os modelos de regressão usando validação cruzada e otimização de hiperparâmetro em uma amostra do conjunto de dados de corridas e tarifas de táxi em Nova York de 2013. Ele o orienta ao longo das etapas do [Processo de Ciência de Dados](https://aka.ms/datascienceprocess), de ponta a ponta, usando um cluster HDInsight Spark para processamento e blobs do Azure para armazenar os dados e os modelos. O processo explora e visualiza os dados transferidos de um Blob de Armazenamento do Azure e prepara os dados para criar modelos preditivos. Python foi usado para codificar a solução e mostrar os gráficos relevantes. Esses modelos são compilados usando o kit de ferramentas Spark MLlib para executar tarefas de classificação binária e modelagem de regressão. 
+Este passo a passo usa o HDInsight Spark para executar a exploração de dados e treinar a classificação binária e os modelos de regressão usando validação cruzada e otimização de hiperparâmetro em uma amostra do conjunto de dados de corridas e tarifas de táxi em Nova York de 2013. Ele o orienta ao longo das etapas do [Processo de Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), de ponta a ponta, usando um cluster HDInsight Spark para processamento e blobs do Azure para armazenar os dados e os modelos. O processo explora e visualiza os dados transferidos de um Blob de Armazenamento do Azure e prepara os dados para criar modelos preditivos. Python foi usado para codificar a solução e mostrar os gráficos relevantes. Esses modelos são compilados usando o kit de ferramentas Spark MLlib para executar tarefas de classificação binária e modelagem de regressão. 
 
 * A tarefa de **classificação binária** consiste em prever se uma gorjeta é paga ou não pela corrida. 
 * A tarefa de **regressão** consiste em prever o valor da gorjeta com base em outros recursos de gorjeta. 
@@ -47,16 +47,16 @@ Os exemplos de modelagem usando CV e limpeza de hiperparâmetro são mostrados p
 > 
 > 
 
-## <a name="setup-spark-clusters-and-notebooks"></a>Instalação: blocos de notas e clusters do Spark
+## <a name="setup-spark-clusters-and-notebooks"></a>Configuração: Blocos de notas e clusters do Spark
 As etapas de configuração e o código são fornecidos neste passo a passo para usar um HDInsight Spark 1.6. Porém, notebooks Jupyter são fornecidos tanto para o HDInsight Spark 1.6 quanto para os clusters Spark 2.0. Uma descrição de notebooks e links são fornecidos em [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub que os contém. No entanto, o código mostrado aqui e nos notebooks vinculados é genérico e funcionarão em qualquer cluster Spark. Se você não estiver usando o HDInsight Spark, as etapas de configuração e gerenciamento do cluster poderão ser ligeiramente diferentes do que é mostrado aqui. Para sua conveniência, aqui estão os links para os blocos de notas Jupyter para Spark 1.6 e 2.0 para execução no kernel pyspark do servidor de bloco de notas Jupyter:
 
 ### <a name="spark-16-notebooks"></a>Blocos de notas Spark 1.6
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): inclui tópicos no blocos de notas nº. 1 e o desenvolvimento de modelos usando validação cruzada e ajuste de hiperparâmetro.
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Inclui tópicos no notebook nº 1 e o desenvolvimento de modelos usando o ajuste de hiperparâmetros e a validação cruzada.
 
-### <a name="spark-20-notebooks"></a>Blocos de notas Spark 2.0
+### <a name="spark-20-notebooks"></a>Notebooks Spark 2.0
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este arquivo fornece informações sobre como executar exploração, modelagem e pontuação de dados em clusters Spark 2.0.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Este arquivo fornece informações sobre como executar a exploração, a modelagem e a pontuação em clusters Spark 2.0.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -476,7 +476,7 @@ Esse código cria uma amostragem aleatória dos dados (o valor de 25% é usado a
 
 **SAÍDA**
 
-Tempo necessário para executar a célula acima: 0,31 segundo
+Tempo necessário para executar a célula acima: 0,31 segundos
 
 ### <a name="feature-scaling"></a>Dimensionamento de recursos
 O dimensionamento de recursos, também conhecido como normalização de dados, faz com que recursos com valores amplamente distribuídos não tenham peso excessivo na função objetiva. O código para o dimensionamento de recursos usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) para dimensionar os recursos para variância de unidade. Ele é fornecido pela MLlib para uso na regressão linear com SGD (Stochastic Gradient Descent). O SGD é um algoritmo popular de treinamento de uma grande variedade de outros modelos de aprendizado de máquina, como regressões regularizadas ou SVM (máquinas de vetor de suporte).   
@@ -548,7 +548,7 @@ O tempo necessário para treinamento e teste dos algoritmos de ML pode ser reduz
 
 **SAÍDA** 
 
-Tempo necessário para executar a célula acima: 0,13 segundo
+Tempo necessário para executar a célula acima: 0,13 segundos
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>Prever se uma gorjeta é paga ou não com modelos de classificação binária
 Esta seção mostra como usar três modelos para a tarefa de classificação binária de prever se uma gorjeta é paga ou não por uma corrida de táxi. Os modelos apresentados são:
@@ -1000,7 +1000,7 @@ Esses modelos foram descritos na introdução. Cada seção de código de compil
 
 > OBSERVAÇÃO DO AZURE: a validação cruzada não é usada com os três modelos de regressão nesta seção, já que isso foi mostrado em detalhes para os modelos de regressão logística. Um exemplo que mostra como usar a CV com a Rede Elástica para a regressão linear é fornecido no Apêndice desse tópico.
 > 
-> OBSERVAÇÃO DO AZURE: em nossa experiência, pode haver problemas com convergência de modelos LinearRegressionWithSGD, e os parâmetros precisam ser alterados/otimizados cuidadosamente para a obtenção de um modelo válido. O dimensionamento de variáveis ajuda significativamente com a convergência. A regressão da rede elástica, mostrada no Apêndice deste tópico, também pode ser usada em vez de LinearRegressionWithSGD.
+> OBSERVAÇÃO DO AZURE: Em nossa experiência, pode haver problemas com a convergência de modelos LinearRegressionWithSGD, e os parâmetros precisam ser alterados/otimizados cuidadosamente para a obtenção de um modelo válido. O dimensionamento de variáveis ajuda significativamente com a convergência. A regressão da rede elástica, mostrada no Apêndice deste tópico, também pode ser usada em vez de LinearRegressionWithSGD.
 > 
 > 
 
@@ -1054,7 +1054,7 @@ O código nesta seção mostra como usar recursos dimensionados para treinar uma
 
 Coeficientes: [0,0141707753435, -0,0252930927087, -0,0231442517137, 0,247070902996, 0,312544147152, 0,360296120645, 0,0122079566092, -0,00456498588241, -0,0898228505177, 0,0714046248793, 0,102171263868, 0,100022455632, -0,00289545676449, -0,00791124681938, 0,54396316518, -0,536293513569, 0,0119076553369, -0,0173039244582, 0,0119632796147, 0,00146764882502]
 
-Interceptação: 0,854507624459
+Interceptação: 0.854507624459
 
 RMSE = 1,23485131376
 
@@ -1198,7 +1198,7 @@ Este é o código para criar gráficos dos dados usando o servidor do Jupyter.
 
 ![Actual-vs-predicted-tip-amounts](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
-## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Apêndice: Tarefas de regressão adicionais usando a validação cruzada com limpezas de parâmetro
+## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Apêndice: tarefas de regressão adicionais usando a validação cruzada com limpezas de parâmetro
 Este apêndice contém o código que mostra como fazer a CV usando rede elástica para regressão linear e como fazer a CV com a limpeza de parâmetro usando o código personalizado para a regressão de floresta aleatória.
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>Validação cruzada usando a rede elástica para a regressão linear
@@ -1408,7 +1408,7 @@ Use `unpersist()` para excluir objetos armazenados em cache na memória.
 
 **SAÍDA**
 
-PythonRDD[122] em RDD em PythonRDD.scala:43
+PythonRDD[122] em RDD em PythonRDD.scala: 43
 
 **Imprima o caminho para os arquivos de modelo a serem usados no notebook de consumo. **Para consumir e pontuar um conjunto de dados independente, você precisa copiar e colar esses nomes de arquivo no "Notebook de consumo".
 
@@ -1438,5 +1438,5 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 ## <a name="whats-next"></a>O que vem a seguir?
 Agora que criou modelos de regressão e classificação com o Spark MlLib, você está pronto para aprender a classificar e avaliar os modelos.
 
-**Consumo de modelos:** para aprender a pontuar e avaliar os modelos de classificação e regressão criados neste tópico, confira [Pontuar modelos de aprendizado de máquina criados no Spark](spark-model-consumption.md).
+**Consumo do modelo:** para saber como pontuar e avaliar os modelos de classificação e regressão criados neste tópico, confira [Pontuar e avaliar modelos de machine learning criados no Spark](spark-model-consumption.md).
 

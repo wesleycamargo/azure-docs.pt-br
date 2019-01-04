@@ -1,5 +1,5 @@
 ---
-title: Habilidade de pesquisa cognitiva do Shaper (Azure Search) | Microsoft Docs
+title: Habilidade de Formatador da pesquisa cognitiva – Azure Search
 description: Extrair metadados e informações estruturadas de dados não estruturados e formatá-los como um tipo complexo em um pipeline de enriquecimento do Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728990"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313819"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidades cognitivas do Shaper
 
@@ -26,9 +27,6 @@ A habilidade de Shaper permite que você crie uma estrutura essencialmente, defi
 Por padrão, essa técnica oferece suporte a objetos que estão um nível de profundidade. Para objetos mais complexos, é possível encadear várias etapas do Shaper.
 
 Em resposta, o nome de saída é sempre "saída". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" nos exemplos a seguir "saída", mas a habilidade do Shaper em si retorna "saída" na resposta. Isso pode ser importante se você estiver depurando documentos enriquecidos e observar a discrepância de nomenclatura, ou se você criar uma habilidade personalizada e estruturação de resposta por conta própria.
-
-> [!NOTE]
-> Pesquisa Cognitiva está na visualização pública. A execução do conjunto de qualificações e a extração e normalização de imagem são oferecidas gratuitamente. Em um momento posterior, os preços desses recursos serão anunciados. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

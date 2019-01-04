@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
-ms.openlocfilehash: f88e6a4037bcca54982359742cdc6021f020882d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594710"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001813"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -40,8 +40,8 @@ O código de sincronização offline é incluído no projeto usando diretivas de
         #define OFFLINE_SYNC_ENABLED
 3. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de tempo de execução do SQLite:
 
-   * **Tempo de Execução do Windows 8.1**: instale o [SQLite para Windows 8.1][3].
-   * **Windows Phone 8.1**: instale o [SQLite para Windows Phone 8.1][4].
+   * **Tempo de Execução do Windows 8.1:** Instalar [SQLite para Windows 8.1][3].
+   * **Windows Phone 8.1:** Instalar [SQLite para Windows Phone 8.1][4].
    * **Plataforma Universal do Windows** Instale o [SQLite para a Plataforma Universal do Windows][5].
 
      Embora o início rápido não contenha um projeto Universal do Windows, a plataforma Universal do Windows tem suporte com formulários do Xamarin.
@@ -157,9 +157,9 @@ Nesta seção, reconecte o aplicativo ao back-end móvel, que simula o aplicativ
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [2]: app-service-mobile-offline-data-sync.md
-[3]: http://go.microsoft.com/fwlink/p/?LinkID=716919
-[4]: http://go.microsoft.com/fwlink/p/?LinkID=716920
-[5]: http://sqlite.org/2016/sqlite-uwp-3120200.vsix
+[3]: https://go.microsoft.com/fwlink/p/?LinkID=716919
+[4]: https://go.microsoft.com/fwlink/p/?LinkID=716920
+[5]: https://sqlite.org/2016/sqlite-uwp-3120200.vsix
 [6]: https://www.getpostman.com/
-[7]: http://www.telerik.com/fiddler
+[7]: https://www.telerik.com/fiddler
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

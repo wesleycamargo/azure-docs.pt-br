@@ -1,5 +1,5 @@
 ---
-title: Configurar um cluster HDInsight com o Enterprise Security Package usando o Azure AD-DS
+title: Configuração do Enterprise Security Package usando Azure Active Directory Domain Services - Azure HDInsight
 description: Saiba como instalar e configurar um cluster do HDInsight Enterprise Security Package usando o Azure Active Directory Domain Services.
 services: hdinsight
 ms.service: hdinsight
@@ -7,13 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/9/2018
-ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 10/09/2018
+ms.custom: seodec18
+ms.openlocfilehash: ced7964fc96138ad7b18ab72d6c479e8db7eab8a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684727"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436210"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster HDInsight com o Enterprise Security Package usando o Azure Active Directory Domain Services DS
 
@@ -21,13 +22,13 @@ Clusters de Enterprise Security Package fornecem acesso de vários usuários em 
 
 Neste artigo, você aprenderá como configurar um cluster HDInsight com ESP usando o Azure Active Directory Domain Services (AD do Azure-DS).
 
->[!NOTE]
->O ESP é o GA no HDI 3.6 para Spark, Interactive e Apache Hadoop. O ESP para os tipos de cluster HBase e Kafka está em versão prévia.
+>[!NOTE]  
+>O ESP é o GA no HDI 3.6 para Apache Spark, Interactive e Apache Hadoop. O ESP para os tipos de cluster Apache HBase e Apache Kafka está em versão prévia.
 
 ## <a name="enable-azure-ad-ds"></a>Habilitar o Microsoft Azure Active Directory DS
 
-> [!NOTE]
-> Somente administradores de inquilinos têm os privilégios para habilitar o Azure Active Directory -DS. Se o armazenamento de cluster for Gen1 ou Gen2 do Azure Data Lake Store (ADLS), desabilite a Autenticação de Múltiplos Fator (MFA) somente para usuários que precisarão acessar o cluster. Se o armazenamento de cluster for o Armazenamento de Blobs do Azure (WASB), não desabilite a MFA.
+> [!NOTE]  
+> Somente administradores de inquilinos têm os privilégios para habilitar o Azure Active Directory -DS. Se o armazenamento de cluster for ADLS (Azure Data Lake Storage) Gen1 ou Gen2, desabilite a MFA (Autenticação Multifator) somente para usuários que precisarão acessar o cluster. Se o armazenamento de cluster for o Armazenamento de Blobs do Azure (WASB), não desabilite a MFA.
 
 Habilitar o Azure AD-DS é um pré-requisito antes de criar um cluster HDInsight com ESP. Para obter mais informações, consulte [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md) (Habilitar o Azure Active Directory Domain Services usando o Portal do Azure). 
 
@@ -65,7 +66,7 @@ Após a criação da identidade gerenciada e o recebimento da função correta, 
 
 ## <a name="networking-considerations"></a>Considerações de rede
 
-> [!NOTE]
+> [!NOTE]  
 > Azure AD DS deve ser implantado em uma vNET do Azure Resource Manager (ARM) com base. Redes virtuais clássicas não são suportadas pelo Azure AD-DS. Por favor, consulte [Ativar os Serviços de Domínio do Active Directory do Azure usando o portal do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) para obter mais detalhes.
 
 Depois de habilitar o Azure AD-DS, um servidor DNS (Serviço de Nomes de Domínio) local é executado nas VMs (máquinas virtuais) do AD. Configure sua VNET (rede virtual) do Azure AD-DS para usar esses servidores DNS personalizados. Para localizar os endereços IP corretos, selecione **Propriedades** na categoria **Gerenciar** e examine os Endereços IP listados abaixo de **Endereço IP na Rede Virtual**.
@@ -97,11 +98,11 @@ Depois de habilitar o ESP, configurações incorretas comuns relacionadas a Micr
 
 Quando você cria um cluster HDInsight ingressado no domínio, você deve fornecer os seguintes parâmetros:
 
-- **Usuário administrador do cluster**: escolha um administrador para seu cluster do Microsoft Azure Active Directory DS sincronizados. Essa conta de domínio já deve estar sincronizada e disponível no Azure Active Directory-DS.
+- **Usuário administrador de cluster**: Escolha um administrador para o cluster do Azure AD-DS sincronizado. Essa conta de domínio já deve estar sincronizada e disponível no Azure Active Directory-DS.
 
-- **Grupos de acesso de cluster**: os grupos de segurança cujos usuários você deseja sincronizar e ter acesso ao cluster devem estar disponíveis no Azure Active Directory-DS. Por exemplo, o grupo HiveUsers. Para obter mais informações, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+- **Grupos de acesso de cluster**: Os grupos de segurança cujos usuários você deseja sincronizar e ter acesso ao cluster devem estar disponíveis no Azure AD-DS. Por exemplo, o grupo HiveUsers. Para obter mais informações, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- **URL LDAPS**: um exemplo é ldaps://contoso.com:636.
+- **URL de LDAPS**: Um exemplo é ldaps://contoso.com:636.
 
 A seguinte captura de tela mostra uma configuração bem-sucedida no portal do Azure:
 
@@ -113,5 +114,5 @@ A identidade gerenciada criada por você pode ser escolhida no menu suspenso de 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para configurar as políticas do Hive e executar as consultas do Hive, consulte [Configurar políticas do Hive para clusters HDInsight com ESP](apache-domain-joined-run-hive.md).
-* Para usar SSH para conectar clusters HDInsight com ESP, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Para configurar as políticas do Hive e executar as consultas do Apache Hive, consulte [Configurar políticas do Apache Hive para clusters HDInsight com ESP](apache-domain-joined-run-hive.md).
+* Para usar SSH para conectar clusters HDInsight com ESP, consulte [Usar SSH com Apache Hadoop baseado em Linux no HDInsight do Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6a22a3dabf1aa71e0d092c4145523da9b0121c8c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003054"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322202"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitando o Diagnóstico do Azure nos Serviços de Nuvem do Azure
 Confira [Visão geral do Diagnóstico do Azure](../azure-diagnostics.md) para obter informações preliminares sobre o Diagnóstico do Azure.
@@ -30,7 +30,7 @@ Este passo a passo descreve como implementar uma função de trabalho do Azure q
 ### <a name="prerequisites"></a>Pré-requisitos
 Esse artigo assume que você tem uma assinatura do Azure e está usando o Visual Studio com o SDK do Azure. Se você não tiver uma assinatura do Azure, será possível se inscrever para uma [Avaliação Gratuita][Free Trial]. Certifique-se de [Instalar e configurar o Azure PowerShell, versão 0.8.7 ou posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
-### <a name="step-1-create-a-worker-role"></a>Etapa 1: criar uma função de trabalho
+### <a name="step-1-create-a-worker-role"></a>Etapa 1: Criar uma função de trabalho
 1. Inicie o **Visual Studio**.
 2. Crie um projeto **Serviço de Nuvem do Azure** no modelo **Nuvem** destinado ao .NET Framework 4.5.  Atribua o nome "WadExample" ao projeto e clique em Ok.
 3. Selecione **Função de Trabalho** e clique em Ok. O projeto será criado.
@@ -38,7 +38,7 @@ Esse artigo assume que você tem uma assinatura do Azure e está usando o Visual
 5. Na guia **Configuração**, desmarque **Habilitar Diagnóstico** para desabilitar o Diagnostics 1.0 (SDK 2.4 do Azure e mais recente).
 6. Compile sua solução para verificar que você não tem erros.
 
-### <a name="step-2-instrument-your-code"></a>Etapa 2: Instrumentalizar seu código
+### <a name="step-2-instrument-your-code"></a>Etapa 2: Instrumentalize seu código
 Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleEventSourceWriter, herdada da [classe EventSource][EventSource Class], implementa quatro métodos de registro em log: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. O primeiro parâmetro para o método **WriteEvent** define a ID para o respectivo evento. O método Executar implementa um loop infinito que chama cada um dos métodos de registro implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
 
 ```csharp
@@ -122,7 +122,7 @@ namespace WorkerRole1
 ```
 
 
-### <a name="step-3-deploy-your-worker-role"></a>Etapa 3: Implantar sua Função de Trabalho
+### <a name="step-3-deploy-your-worker-role"></a>Etapa 3: Implantar sua função de trabalho
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -134,7 +134,7 @@ namespace WorkerRole1
 6. Modifique quaisquer outras **Configurações** como for apropriado e clique em **Publicar**.
 7. Após a implantação ter sido concluída, verifique no Portal do Azure se seu serviço de nuvem está em estado de **Execução**.
 
-### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Etapa 4: Criar seu arquivo de configuração do Diagnostics e instalar a extensão
+### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Etapa 4: Criar o arquivo de configuração do Diagnóstico e instalar a extensão
 1. Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:
 
     ```powershell
@@ -143,7 +143,7 @@ namespace WorkerRole1
 2. Adicione um arquivo XML ao projeto **WorkerRole1** clicando com o botão direito do mouse no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item…** -> **Itens do Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. Associe o WadConfig.xsd com o arquivo de configuração. Certifique-se de que a janela do editor WadExample.xml é uma janela ativa. Pressione **F4** para abrir a janela **Propriedades**. Clique na propriedade **Schemas** da janela **Propriedades**. Clique em **...** in the **Esquemas** . Clique em **Adicionar…** e navegue até o local onde você salvou o arquivo XSD e selecione o arquivo WadConfig.xsd. Clique em **OK**.
+3. Associe o WadConfig.xsd com o arquivo de configuração. Certifique-se de que a janela do editor WadExample.xml é uma janela ativa. Pressione **F4** para abrir a janela **Propriedades**. Clique na propriedade **Schemas** da janela **Propriedades**. Clique em **...** in the **Esquemas** . Clique em **Adicionar…**  e navegue até o local onde você salvou o arquivo XSD e selecione o arquivo WadConfig.xsd. Clique em **OK**.
 
 4. Substitua os conteíudos do arquivo de configuração WadExample.xml com o seguinte XML e salve o arquivo. Este arquivo de configuração define dois contadores de desempenho a serem coletados: um relacionado à utilização da CPU e um ao uso de memória. Após a configuração, defina os quatro eventos correspondentes aos métodos na classe SampleEventSourceWriter.
 
@@ -170,8 +170,8 @@ namespace WorkerRole1
 </PublicConfig>
 ```
 
-### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Etapa 5: instalar o Diagnostics em sua Função de Trabalho
-Os cmdlets do PowerShell para gerenciar o diagnóstico em uma função web ou de trabalho são: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
+### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Etapa 5: Instalar o Diagnóstico em sua Função de Trabalho
+Os cmdlets do PowerShell para gerenciar o Diagnóstico em uma função Web ou função de trabalho são: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
 
 1. Abra o PowerShell do Azure.
 2. Execute o script para instalar o Diagnostics na sua função de trabalho (substitua o *StorageAccountKey* com a chave de conta de armazenamento para sua conta de armazenamento wadexample e *config_path* com o caminho até o arquivo *WadExample.xml*):
@@ -197,7 +197,7 @@ O arquivo de configuração do Diagnóstico define valores que são usados para 
 Caso tenha problemas, veja [Solucionando problemas do Diagnóstico do Azure](../azure-diagnostics-troubleshooting.md) para obter ajuda com problemas comuns.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Veja uma lista de artigos sobre diagnóstico de máquina virtual do Azure](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) para alterar os dados coletados, solucionar problemas ou saber mais sobre o diagnóstico em geral.
+[Veja uma lista de artigos sobre diagnóstico de máquina virtual do Azure](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) para alterar os dados coletados, solucionar problemas ou saber mais sobre o diagnóstico em geral.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

@@ -1,6 +1,6 @@
 ---
-title: Configurar a segurança para acessar e gerenciar o Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve como configurar a segurança e as permissões como políticas de gerenciamento de acesso e políticas de acesso de dados para proteger o Azure Time Series Insights.
+title: Segurança da Versão prévia do Azure Time Series Insights – configurar segurança para acessar e gerenciar a Versão prévia do Azure Time Series Insights | Microsoft Docs
+description: Este artigo descreve como configurar a segurança e as permissões como políticas de gerenciamento de acesso e políticas de acesso a dados para proteger a Versão prévia do Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,134 +9,130 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
-ms.openlocfilehash: c9bddf8e20524433b31793e277efd954a5d1320e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 11/26/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7f8eb66feecd58b766b3414b1bbc6bd4e27bf4f7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423367"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275458"
 ---
-# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Conceder acesso a dados em um ambiente de Análise de Séries Temporais usando o portal do Azure
+# <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 
-Este artigo aborda os dois tipos de políticas de acesso do Time Series Insights.
-
-## <a name="video"></a>Vídeo: 
-
-### <a name="in-this-video-we-cover-creating-and-managing-access-policies-within-time-series-insights-br"></a>Neste vídeo, abordaremos a criação e o gerenciamento de políticas de acesso no Time Series Insights. </br>
-
-> [!VIDEO https://www.youtube.com/embed/5zTIdyHMJW8]
-
-Os ambientes de Análise de Séries Temporais possuem dois tipos independentes de políticas de acesso:
-
-* Políticas de acesso de gerenciamento
-* Políticas de acesso de dados
-
-Os dois tipos de políticas concedem às entidades de segurança (usuários e aplicativos) do Azure Active Directory várias permissões em um ambiente específico. As entidades de segurança (usuários e aplicativos) devem pertencer ao active directory (conhecido como locatário do Azure) associado à assinatura que contém o ambiente.
-
-As políticas de acesso de gerenciamento concedem permissões relacionadas à configuração do ambiente, como
-*   Criação e exclusão do ambiente, origens de evento, conjuntos de dados de referência e
-*   Gerenciamento das políticas de acesso de dados.
-
-As políticas de acesso a dados concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e salvar consultas compartilhadas e perspectivas associadas ao ambiente.
-
-Os dois tipos de políticas permitem uma separação clara entre o acesso ao gerenciamento do ambiente e o acesso aos dados dentro do ambiente. Por exemplo, é possível configurar um ambiente de modo que o proprietário/criador do ambiente seja removido do acesso aos dados. Além disso, usuários e serviços que têm permissão para ler dados do ambiente podem não receber permissão de acesso à configuração do ambiente.
+Este artigo aborda os dois tipos de políticas de acesso da Versão prévia do Azure Time Series Insights.
 
 ## <a name="grant-data-access"></a>Conceder acesso a dados
-Siga estas etapas para conceder acesso a dados para uma entidade de usuário:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+Siga estas etapas para conceder acesso a dados para uma entidade de usuário.
 
-2. Localize o seu ambiente do Time Series Insights. Digite **Time Series** na caixa **pesquisar**. Selecione **Ambiente do Time Series** nos resultados da pesquisa. 
+1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Localize o seu ambiente do Time Series Insights. Insira `Time Series` na caixa **Pesquisar**. Selecione **Ambiente do Time Series** nos resultados da pesquisa.
+1. Selecione o seu ambiente de Análise de Séries Temporais na lista.
+1. Selecione **Políticas de Acesso a Dados** e, em seguida, selecione **+ Adicionar**.
 
-3. Selecione o seu ambiente de Análise de Séries Temporais na lista.
-   
-4. Selecione **Políticas de Acesso a Dados** e depois **+Adicionar**.
-  ![Gerenciar a fonte do Time Series Insights – ambiente](media/data-access/getstarted-grant-data-access1.png)
+    ![Data-access-one][1]
 
-5. Selecione **Selecionar usuário**.  Pesquise o nome de usuário ou endereço de email para localizar o usuário que deseja adicionar. Clique em **Selecionar** para confirmar a seleção. 
+1. Escolha **Selecionar usuário**. Pesquise o nome de usuário ou endereço de email para localizar o usuário que deseja adicionar. Clique em **Selecionar** para confirmar a seleção.
 
-   ![Gerenciar a fonte das Análise de Séries Temporais - adicionar](media/data-access/getstarted-grant-data-access2.png)
+    ![Data-access-two][2]
 
-6. Selecione **Selecionar função**. Escolha a função de acesso apropriada para o usuário:
-   - Selecione **Colaborador** se quiser permitir que o usuário altere os dados de referência e compartilhe consultas salvas e perspectivas com outros usuários do ambiente. 
-   - Caso contrário, selecione **Leitor** para permitir que o usuário consulte dados no ambiente e salve as consultas pessoais (não compartilhadas) no ambiente.
-
-   Selecione **OK** para confirmar a escolha da função.
-
-   ![Gerenciar a fonte das Análise de Séries Temporais - selecionar usuário](media/data-access/getstarted-grant-data-access3.png)
-
-8. Selecione **Ok** na página **Selecionar Função do Usuário**.
-
-   ![Gerenciar a fonte das Análise de Séries Temporais - selecionar função](media/data-access/getstarted-grant-data-access4.png)
-
-9. A página **Políticas de Acesso de Dados** lista os usuários e suas funções.
-
-   ![Gerenciar a fonte das Análise de Séries Temporais - resultados](media/data-access/getstarted-grant-data-access5.png)
-
-## <a name="provide-guest-access-to-a-user-from-another-aad-tenant"></a>Fornecer acesso de convidado a um usuário de outro locatário do AAD
-
-"Convidado" não é uma função de gerenciamento, é um termo usado para uma conta que foi convidada de um locatário para outro. Depois que a conta é convidada no diretório do locatário, ela pode ter o mesmo controle de acesso aplicado que qualquer outra conta, para conceder acesso de gerenciamento a um ambiente TSI usando a folha Controle de Acesso (IAM) ou para permitir acesso aos dados no ambiente por meio da folha Políticas de Acesso a Dados. Para obter mais informações sobre o acesso de convidado do locatário do AAD, confira este [documento](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
-
-Siga estas etapas para conceder acesso de convidado a um ambiente do Time Series Insights para um usuário do AAD de outro locatário:
-
-1. Entre no [Portal do Azure](https://portal.azure.com).
-
-2. Localize o seu ambiente do Time Series Insights. Digite **Time Series** na caixa **pesquisar**. Selecione **Ambiente do Time Series** nos resultados da pesquisa.
-
-3. Selecione o seu ambiente de Análise de Séries Temporais na lista.
-
-4. Selecione **Políticas de Acesso a Dados**, em seguida, selecione + **Convidar**.
-
-    ![Gerenciar a fonte do Time Series Insights – convidar usuário](media/data-access/getstarted-grant-data-access6.png)
-
-5. Forneça o email do usuário que você deseja convidar. Observe que esse email deve estar associado ao AAD. Opcionalmente, você pode incluir uma mensagem pessoal com o convite.
-
-    ![Gerenciar a fonte das Análise de Séries Temporais - selecionar usuário](media/data-access/getstarted-grant-data-access7.png)
-
-6. Uma bolha de confirmação deverá aparecer na tela.
-
-    ![Gerenciar a fonte do Time Series Insights – confirmar usuário](media/data-access/getstarted-grant-data-access8.png)
-
-7. Selecione **Selecionar usuário**. Pesquise o endereço de email do usuário convidado que você acabou de convidar, para localizar o usuário que deseja adicionar. Clique em **Selecionar** para confirmar a seleção.
-  
-    ![Gerenciar a fonte do Time Series Insights – confirmar usuário](media/data-access/getstarted-grant-data-access9.png)
-
-8. Selecione **Selecionar função**. Escolha a função de acesso apropriada para o usuário convidado:
+1. Escolha **Selecionar função**. Escolha a função de acesso apropriada para o usuário:
 
     * Selecione **Colaborador** se você desejar permitir que o usuário altere os dados de referência e compartilhe consultas e perspectivas salvas com outros usuários do ambiente.
 
-    * Caso contrário, selecione **Leitor** para permitir que o usuário consulte dados no ambiente e salve as consultas pessoais (não compartilhadas) no ambiente.
+    * Caso contrário, selecione **Leitor** para permitir que o usuário consulte dados no ambiente e salve as consultas pessoais não compartilhadas no ambiente.
 
-    Selecione **OK** para confirmar a escolha da função.
+   Selecione **OK** para confirmar a escolha da função.
 
-    ![Gerenciar a fonte das Análise de Séries Temporais - selecionar função](media/data-access/getstarted-grant-data-access10.png)
+    ![Data-access-three][3]
 
-9. Selecione **Ok** na página **Selecionar Função do Usuário**.
+1. Selecione **OK** na página **Selecionar Função do Usuário**.
 
-10. A página **Políticas de Acesso a Dados** agora lista o usuário convidado e suas funções para cada usuário convidado.
+    ![Data-access-four][4]
 
-    ![Gerenciar a fonte do Time Series Insights – confirmar função](media/data-access/getstarted-grant-data-access11.png)
+1. Verifique se a página **Políticas de Acesso a Dados** lista os usuários e suas funções.
 
-11. Agora o usuário convidado precisará executar determinadas etapas para acessar o ambiente localizado no locatário do Azure para o qual você o convidou. Primeiro, ele precisa aceitar o convite que você acabou de enviar. Esse convite é enviado por email para o endereço de email convidado na Etapa 5. Ele deve clicar em 'Iniciar', para aceitar.
+    ![Data-access-five][5]
 
-    ![Gerenciar a fonte do Time Series Insights – convidar usuário](media/data-access/getstarted-grant-data-access12.png)
+## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Fornecer acesso de convidado para um usuário por meio de outro locatário do Azure Active Directory
 
-12. Em seguida, o usuário convidado precisará aceitar as permissões associadas à organização do administrador.
+`Guest` não é uma função de gerenciamento. É um termo usado para uma conta Convidado de um locatário para outro. Depois que a conta Convidado é convidada no diretório do locatário, ela pode ter o mesmo controle de acesso aplicado como qualquer outra conta. Você pode conceder acesso de gerenciamento a um ambiente do Time Series Insights usando a folha de Controle de Acesso (IAM). Ou pode permitir acesso aos dados no ambiente por meio da folha Políticas de Acesso a Dados. Para obter mais informações sobre o acesso de convidado de locatário do Azure AD (Azure Active Directory), leia [Adicionar usuários de colaboração B2B do Azure Active Directory no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
-    ![Gerenciar a fonte do Time Series Insights – aceitar as permissões](media/data-access/getstarted-grant-data-access13.png)
+Siga estas etapas para conceder acesso de convidado a um ambiente do Time Series Insights para um usuário do Azure AD de outro locatário.
 
-13. Quando o usuário convidado for conectado ao endereço de email convidado e aceitar o convite, ele será encaminhado para insights.azure.com. Ao chegar lá, ele deverá clicar no avatar ao lado do email no canto superior direito da tela. 
+1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Localize o seu ambiente do Time Series Insights. Insira **Time Series** na caixa **Pesquisar**. Selecione **Ambiente do Time Series** nos resultados da pesquisa.
+1. Selecione o seu ambiente de Análise de Séries Temporais na lista.
+1. Selecione **Políticas de Acesso a Dados** e, em seguida, selecione **+ Convidar**.
 
-    ![Gerenciar a fonte do Time Series Insights – aceitar as permissões](media/data-access/getstarted-grant-data-access14.png)
+    ![Data-access-six][6]
 
-14. Em seguida, o usuário convidado selecionará seu locatário do Azure no menu suspenso de diretório. Esse é o locatário para o qual você o convidou. 
+1. Insira o endereço de email do usuário que deseja convidar. Este endereço de email deve estar associado com o Azure AD. Opcionalmente, você pode incluir uma mensagem pessoal com o convite.
 
-    ![Gerenciar a fonte do Time Series Insights – aceitar as permissões](media/data-access/getstarted-grant-data-access15.png)
+    ![Data-access-seven][7]
 
-15. Por fim, quando o usuário convidado selecionar seu locatário, ele verá o ambiente do Time Series Insights para o qual você o forneceu acesso. Agora, ele terá todas as funcionalidades associadas à função fornecida na Etapa 8.
+1. Procure a bolha de confirmação que aparece na tela.
+
+    ![Data-access-eight][8]
+
+1. Escolha **Selecionar usuário**. Pesquise o endereço de email do usuário convidado para localizar o usuário que deseja adicionar. Clique em **Selecionar** para confirmar a seleção.
+
+    ![Data-access-nine][9]
+
+1. Escolha **Selecionar função**. Escolha a função de acesso apropriada para o usuário convidado:
+
+    * Selecione **Colaborador** se você desejar permitir que o usuário altere os dados de referência e compartilhe consultas e perspectivas salvas com outros usuários do ambiente.
+
+    * Caso contrário, selecione **Leitor** para permitir que o usuário consulte dados no ambiente e salve as consultas pessoais não compartilhadas no ambiente.
+
+   Selecione **OK** para confirmar a escolha da função.
+
+    ![Data-access-ten][10]
+
+1. Selecione **OK** na página **Selecionar Função do Usuário**.
+
+1. Confirme se a página **Políticas de Acesso a Dados** lista o usuário convidado e as funções de cada usuário convidado.
+
+    ![Data-access-eleven][11]
+
+1. Agora o usuário convidado deve seguir as etapas para acessar o ambiente localizado no locatário do Azure para o qual você convidou. Primeiro, os usuários aceitam o convite que você enviou. Esse convite é enviado por email para o endereço de email usado na etapa 5. Eles selecionam **Começar** para aceitar.
+
+    ![Data-access-twelve][12]
+
+1. Em seguida, o usuário convidado aceita as permissões associadas à organização do administrador.
+
+    ![Data-access-thirteen][13]
+
+1. Depois que o usuário convidado aceita o convite e é conectado ao endereço de email que você usou para convidá-lo, ele acessa o insights.azure.com. Ao chegar lá, ele seleciona o avatar ao lado do endereço de email no canto superior direito da tela.
+
+    ![Data-access-fourteen][14]
+
+1. Em seguida, o usuário convidado seleciona seu locatário do Azure no menu suspenso de diretório. Esse locatário é aquele para o qual você o convidou.
+
+    ![Data-access-fifteen][15]
+
+Depois que o usuário convidado selecionar seu locatário, ele verá o ambiente do Time Series Insights para o qual você forneceu acesso. Então, ele terá todos os recursos associados com a função que você forneceu na etapa 8.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba [como adicionar uma fonte de evento do Hub de Eventos ao ambiente do Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
-* [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
-* Exibir seu ambiente no [explorador do Time Series Insights](https://insights.timeseries.azure.com).
+
+* Saiba [como adicionar uma fonte de evento do Hubs de Eventos do Azure](./time-series-insights-how-to-add-an-event-source-eventhub.md) ao ambiente do Azure Time Series Insights.
+* Enviar [eventos para a origem do evento](./time-series-insights-send-events.md).
+* Exibir [seu ambiente no gerenciador da Versão prévia do Azure Time Series Insights](./time-series-insights-update-explorer.md).
+
+<!-- Images -->
+[1]: media/data-access/data-access-one.png
+[2]: media/data-access/data-access-two.png
+[3]: media/data-access/data-access-three.png
+[4]: media/data-access/data-access-four.png
+[5]: media/data-access/data-access-five.png
+[6]: media/data-access/data-access-six.png
+[7]: media/data-access/data-access-seven.png
+[8]: media/data-access/data-access-eight.png
+[9]: media/data-access/data-access-nine.png
+[10]: media/data-access/data-access-ten.png
+[11]: media/data-access/data-access-eleven.png
+[12]: media/data-access/data-access-twelve.png
+[13]: media/data-access/data-access-thirteen.png
+[14]: media/data-access/data-access-fourteen.png
+[15]: media/data-access/data-access-fifteen.png

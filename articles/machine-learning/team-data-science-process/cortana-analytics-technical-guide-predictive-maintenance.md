@@ -1,5 +1,5 @@
 ---
-title: Manutenção preditiva no setor aeroespacial com o Azure - Guia técnico da solução do Cortana Intelligence | Microsoft Docs
+title: Guia de manutenção preditiva aeroespacial - Processo de Ciência de Dados da Equipe
 description: Um guia técnico para o Modelo de Solução com o Microsoft Cortana Intelligence para a manutenção preventiva no setor aeroespacial, de utilitários e de transportes.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443739"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140176"
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial e em outras empresas
+# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial
 
 >[!Important]
 Este artigo foi preterido. A discussão sobre a manutenção preditiva no setor aeroespacial continua relevante, mas consulte a [Visão geral da solução para empresas](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) para obter informações mais recentes.
@@ -143,7 +143,7 @@ Esse [pipeline](../../data-factory/concepts-pipelines-activities.md) contém uma
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 O experimento do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) usado para esse modelo de solução fornece a RUL (Vida Útil Restante) de um motor de aeronave. O experimento é específico ao conjunto de dados consumido e exige modificação ou substituição específica para os dados apresentados.
 
-Para saber mais sobre como o experimento do Azure Machine Learning foi criado, confira [Manutenção preventiva: etapa 1 de 3, preparação de dados e engenharia de recursos](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Para saber mais sobre como o experimento do Azure Machine Learning foi criado, confira [Manutenção preventiva: Etapa 1 de 3, preparação de dados e engenharia de recursos](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>Monitorar o progresso
 Depois que o Gerador de Dados é iniciado, o pipeline começa a esvaziar e os diferentes componentes de sua solução começam a entrar em ação seguindo os comandos emitidos pelo data factory. Há duas maneiras possíveis de monitorar o pipeline.
@@ -162,7 +162,7 @@ Configure um painel do Power BI para visualizar seus dados do Azure Stream Analy
 ### <a name="set-up-the-cold-path-dashboard"></a>Configurar o painel de caminho frio
 No pipeline de dados do caminho frio, o objetivo é obter a RUL de previsão (vida útil restante) de cada motor da aeronave após o término de um voo (ciclo). O resultado da previsão é atualizado a cada três horas para prever os motores da aeronave que concluiu um voo durante as três últimas horas.
 
-O Power BI se conecta a um banco de dados SQL do Azure como fonte de dados, onde os resultados de previsão são armazenados. Observação: 1) Ao de implantar sua solução, uma previsão aparecerá no banco de dados dentro de três horas.
+O Power BI se conecta a um banco de dados SQL do Azure como fonte de dados, onde os resultados de previsão são armazenados. Observação: 1) Ao implantar sua solução, uma previsão aparecerá no banco de dados dentro de três horas.
 O arquivo pbix que acompanha o download do Gerador contém alguns dados de propagação para que você possa criar o painel do Power BI imediatamente. 2) Nesta etapa, o pré-requisito é baixar e instalar o software gratuito [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
 As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL envolvido no momento da implantação da solução com dados (por exemplo, resultados de previsão) para visualização.
@@ -197,7 +197,7 @@ As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL en
      <br/>
    * Para agendar a atualização dos dados, passe o mouse sobre o conjunto de dados **PredictiveMaintenanceAerospace**, clique no ![Ícone de Elipse](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) e escolha **Agendar Atualização**.
      <br/>
-     **Observação:** se for exibida uma mensagem de aviso, clique em **Editar Credenciais** e verifique se suas credenciais do banco de dados são iguais às descritas na etapa 1.
+     **Observação:** Se for exibida uma mensagem de aviso, clique em **Editar Credenciais** e verifique se suas credenciais do banco de dados são iguais às descritas na etapa 1.
      <br/>
      ![Agendar atualização](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
@@ -210,7 +210,7 @@ As etapas a seguir mostram como visualizar a saída de dados dos trabalhos do St
 
 1. Adicione a saída do Power BI ao Stream Analytics (ASA).
    
-   * Você precisa seguir as instruções em [Azure Stream Analytics e Power BI: um painel de análise para a visibilidade em tempo real dos dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho do Azure Stream Analytics como seu painel do Power BI.
+   * Você deve seguir as instruções em [Azure Stream Analytics e Power BI: Um painel de análise para a visibilidade em tempo real dos dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho do Azure Stream Analytics como seu painel do Power BI.
    * Configure as três saídas da consulta do ASA, **aircraftmonitor**, **aircraftalert** e **flightsbyhour**. Você pode exibir a consulta clicando na guia Consulta. Correspondendo a cada uma dessas tabelas, você precisa adicionar uma saída ao ASA. Quando você adiciona a primeira saída (**aircraftmonitor**), verifique se **Alias de Saída**, **Nome do Conjunto de Dados** e **Nome da Tabela** estão iguais (**aircraftmonitor**). Repita as etapas para adicionar saídas para **aircraftalert** e **flightsbyhour**. Depois de adicionar as três tabelas de saída e de iniciar o trabalho do ASA, você obterá uma mensagem de confirmação (“Êxito ao iniciar o trabalho maintenancesa02asapbi do Stream Analytics”).
 2. Faça logon no [Power BI online](http://www.powerbi.com)
    
@@ -218,7 +218,7 @@ As etapas a seguir mostram como visualizar a saída de dados dos trabalhos do St
    * Verifique se o painel ***Visualizações*** está aberto e se é mostrado no lado direito da tela.
 3. Depois que os dados fluírem para o Power BI, você poderá começar a visualizar os dados de streaming. Veja abaixo um painel de exemplo com algumas visualizações de afunilamento fixadas nele. É possível criar outros blocos de painel com base em conjuntos de dados apropriados. Dependendo da duração da execução do gerador de dados, os números nas visualizações poderão ser diferentes.
 
-    ![Exibição Painel](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Exibição Painel](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Veja algumas etapas para criar um dos blocos acima, o bloco "Exibição de frota do sensor 11 versus limite 48,26":
    

@@ -1,23 +1,24 @@
 ---
-title: Painel do aplicativo para aplicativos de reconhecimento vocal
-titleSuffix: Azure Cognitive Services
+title: Painel do aplicativo
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Saiba mais sobre o painel do aplicativo, uma ferramenta de relatório visualizado que permite monitorar seus aplicativos em uma visão rápida.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335003"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140601"
 ---
-# <a name="application-dashboard"></a>Painel do aplicativo
+# <a name="model-and-usage-statistics-in-the-dashboard"></a>Estatísticas de uso e o modelo no painel
 O painel do aplicativo permite que você monitore seu aplicativo em uma visão rápida. O **Painel** é exibido quando você abre um aplicativo clicando no nome do aplicativo na página **Meus Aplicativos** e selecione **Painel** no painel superior. 
 
 > [!CAUTION]
@@ -70,7 +71,7 @@ A **Divisão de intenções** exibe uma divisão de intenções com base nas dec
 
 Para controlar se a análise é baseada em declarações rotuladas ou ocorrências de ponto de extremidade:
 
-1. Clique em **Configurações Adicionais** ![botão Configurações Adicionais](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acessar a lista como na imagem a seguir:
+1. Clique em **Configurações Adicionais** ![botão Configurações Adicionais](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acessar a lista, como na imagem a seguir:
 
     ![Lista de divisão de intenções](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. Selecione um valor da lista e clique na seta Voltar ![Seta Voltar](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para exibir o gráfico.
@@ -82,7 +83,7 @@ O painel exibe uma divisão de entidades com base nas declarações rotuladas ou
 
 Para controlar se a análise é baseada em declarações rotuladas ou ocorrências de ponto de extremidade:
 
-1. Clique em **Configurações Adicionais** ![botão Configurações Adicionais](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acessar a lista como na imagem a seguir:
+1. Clique em **Configurações Adicionais** ![botão Configurações Adicionais para obter a lista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acessar a lista, como na imagem a seguir:
 
     ![Lista de divisão de entidades](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. Selecione um valor da lista e clique na seta Voltar ![Seta Voltar](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para exibir o gráfico corretamente.

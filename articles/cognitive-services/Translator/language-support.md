@@ -10,86 +10,98 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0b1187083c14fc7c536f6a32f3a41957f53f299b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957346"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679708"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 
-A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução de texto em texto. A Neural Machine Translation (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por AI e está disponível como padrão usando a V3 da API de texto do tradutor quando um sistema neural está disponível. A tradução automática neural está disponível em V2 usando a categoria "generalnn".
+A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução de texto em texto. A Neural Machine Translation (NMT) é o novo padrão para traduções automáticas de alta qualidade alimentadas por AI e está disponível como padrão usando a V3 da API de texto do tradutor quando um sistema neural está disponível. 
 
 [Saiba mais sobre como a tradução automática funciona](https://www.microsoft.com/translator/mt.aspx)
 
-| Linguagem    | Tipo de tradução |Código de idioma |
-|:----------- |:-------:|:-------------:|
-| Africâner      | Estatística |`af`          |
-| Árabe      | Neural | `ar`          |
-| Árabe, levantino    | Neural | `apc`
-| Bangla      | Neural |`bn`          |
-| Bósnio (latim)      | Estatística |`bs`          |
-| Búlgaro     |  Neural |`bg`          |
-| Cantonês (tradicional)      | Estatística |`yue`          |
-| Catalão      | Estatística |`ca`          |
-| Chinês (simplificado)        |  Neural |`zh-Hans`          |
-| Chinês (tradicional)        |  Neural |`zh-Hant`          |
-| Croata      | Neural |`hr`          |
-| Tcheco        |  Neural |`cs`          |
-| Dinamarquês        |  Neural |`da`          |
-| Holandês        |  Neural |`nl`          |
-| Inglês       |  Neural |`en`          |
-| Estoniano      | Neural |`et`          |
-| Fijiano      | Estatística |`fj`          |
-| Filipino      | Estatística |`fil`          |
-| Finlandês      | Neural |`fi`          |
-| Francês        |  Neural |`fr`          |
-| Alemão       |  Neural |`de`          |
-| Grego      | Neural |`el`          |
-| Crioulo haitiano      | Estatística |`ht`          |
-| Hebraico      | Neural |`he`          |
-| Híndi        |  Neural |`hi`          |
-| Hmong Daw      | Estatística |`mww`          |
-| Húngaro      | Neural |`hu`          |
-| Islandês      |  Neural |`is`           |
-| Indonésio      | Estatística |`id`          |
-| Italiano        |  Neural |`it`          |
-| Japonês        |  Neural |`ja`          |
-| Kiswahili      | Estatística |`sw`          |
-| Klingon      | Estatística |`tlh`          |
-| Klingon (plqaD)      | Estatística |`tlh-Qaak`          |
-| Coreano        |  Neural |`ko`          |
-| Letão      | Neural |`lv`          |
-| Lituano      | Neural |`lt`          |
-| Malagasy      | Estatística |`mg`          |
-| Malaio      | Estatística |`ms`          |
-| Maltese      | Estatística |`mt`          |
-| Norueguês        |  Neural |`nb`          |
-| Persa      | Estatística |`fa`          |
-| Polonês        |  Neural |`pl`          |
-| Português        |  Neural |`pt`          |
-| Queretaro Otomi      | Estatística |`otq`          |
-| Romeno        |  Neural |`ro`          |
-| Russo        |  Neural |`ru`          |
-| Samoano      | Estatística |`sm`          |
-| Sérvio (cirílico)      | Estatística |`sr-Cyrl`          |
-| Sérvio (latino)      | Estatística |`sr-Latn`          |
-| Eslovaco     | Neural |`sk`          |
-| Esloveno      | Neural |`sl`          |
-| Espanhol        |  Neural |`es`          |
-| Sueco        |  Neural |`sv`          |
-| Taitiano      | Estatística |`ty`          |
-| Tâmil      | Estatística |`ta`          |
-| Télugo   | Neural   | `te` |
-| Tailandês      | Neural |`th`          |
-| Tongan      | Estatística |`to`          |
-| Turco       |  Neural |`tr`          |
-| Ucraniano      | Neural |`uk`          |
-| Urdu      | Estatística |`ur`          |
-| Vietnamita      | Neural |`vi`          |
-| Galês      | Neural |`cy`          |
-| Yucatec Maya      | Estatística |`yua`          |
+**API do Tradutor V2**
+
+> [!NOTE]
+> A V2 será preterida em 30 de abril de 2018 e será descontinuada em 30 de abril de 2019.
+
+* Estatística apenas: nenhum sistema neural está disponível para esse idioma.
+* Neural disponível: um sistema neural está disponível. Use o parâmetro `category=generalnn` para acessar o sistema neural.
+* Neural padrão: neural é o sistema de tradução padrão. Use o parâmetro `category=smt` para acessar o sistema estatístico para uso com o Hub do Microsoft Translator.
+* Neural apenas: apenas a tradução neural está disponível.
+
+**API do Tradutor V3** a API do Tradutor V3 é neural por padrão e sistemas estatísticos estão disponíveis somente quando não houver nenhum sistema neural. O Tradutor Personalizado pode ser usado apenas com linguagens neurais. 
+
+|Linguagem|  Código de idioma|  API V2| API V3|
+|:-----|:-----:|:-----|:-----|
+|Africâner| `af`    |Estatística apenas|  Neural|
+|Árabe|    `ar`    |Neural disponível|  Neural|
+|Árabe, levantino| `apc`   |Neural disponível|  Neural|
+|Bangla|    `bn`    |Neural disponível|  Neural|
+|Bósnio (latim)|   `bs`    |Estatística apenas|  Estatística|
+|Búlgaro| `bg`    |Neural disponível|  Neural|
+|Cantonês (tradicional)|   `yue`   |Estatística apenas|  Estatística|
+|Catalão|   `ca`    |Estatística apenas|  Estatística|
+|Chinês (simplificado)|    `zh-Hans`   |Neural padrão |Neural|
+|Chinês (tradicional)|   `zh-Hant`   |Neural padrão |Neural|
+|Croata|  `hr`    |Neural disponível|  Neural|
+|Tcheco| `cs`    |Neural disponível|  Neural|
+|Dinamarquês|    `da`    |Neural disponível   |Neural|
+|Holandês| `nl`    |Neural disponível|  Neural|
+|Inglês|   `en`    |Neural disponível|  Neural|
+|Estoniano|  `et`    |Neural disponível|  Neural|
+|Fijiano|    `fj`    |Estatística apenas|  Estatística|
+|Filipino|  `fil`   |Estatística apenas|  Estatística|
+|Finlandês|   `fi`    |Neural disponível|  Neural|
+|Francês|    `fr`    |Neural disponível|  Neural|
+|Alemão|    `de`    |Neural disponível|  Neural|
+|Grego| `el`    |Neural disponível|  Neural|
+|Crioulo haitiano|    `ht`    |Estatística apenas   |Estatística|
+|Hebraico |`he`   |Neural disponível   |Neural|
+|Híndi| `hi`    |Neural padrão|    Neural|
+|Hmong Daw| `mww`   |Estatística apenas|  Estatística|
+|Húngaro| `hu`    |Neural disponível|  Neural|
+|Islandês| `is`    |Neural apenas|   Neural|
+|Indonésio|    `id`    |Estatística apenas|  Estatística|
+|Italiano|   `it`    |Neural disponível|  Neural|
+|Japonês|  `ja`    |Neural disponível|  Neural|
+|Suaíli| `sw`    |Estatística apenas|  Estatística|
+|Klingon|   `tlh`   |Estatística apenas|  Estatística|
+|Klingon (plqaD)|   `tlh-Qaak`  |Estatística apenas|  Estatística|
+|Coreano |`ko`   |Neural disponível|  Neural|
+|Letão|   `lv`    |Neural disponível|  Neural|
+|Lituano|    `lt`    |Neural disponível|  Neural|
+|Malgaxe|  `mg`    |Estatística apenas|  Estatística|
+|Malaio| `ms`    |Estatística apenas   |Estatística|
+|Maltês|   `mt`    |Estatística apenas|  Estatística|
+|Norueguês| `nb`    |Neural disponível|  Neural|
+|Persa|   `fa`    |Estatística apenas|  Estatística|
+|Polonês|    `pl`    |Neural disponível|  Neural|
+|Português|    `pt`    |Neural disponível|  Neural|
+|Queretaro Otomi|   `otq`   |Estatística apenas|  Estatística|
+|Romeno|  `ro`    |Neural disponível|  Neural|
+|Russo|   `ru`    |Neural disponível|  Neural|
+|Samoano|    `sm`    |Estatística apenas|  Estatística|
+|Sérvio (cirílico)|    `sr-Cyrl`   |Estatística apenas|  Estatística|
+|Sérvio (latino)|   `sr-Latn`   |Estatística apenas   |Estatística|
+|Eslovaco|    `sk`    |Neural disponível|  Neural|
+|Esloveno| `sl`    |Neural disponível|  Neural|
+|Espanhol|   `es`    |Neural disponível|  Neural|
+|Sueco|   `sv`    |Neural disponível   |Neural|
+|Taitiano|  `ty`    |Estatística apenas|  Estatística|
+|Tâmil| `ta`    |Estatística apenas|  Estatística|
+|Télugo|    `te`    |Neural apenas|   Neural|
+|Tailandês|  `th`    |Neural disponível|  Neural|
+|Tongan|    `to`    |Estatística apenas|  Estatística|
+|Turco|   `tr`    |Neural disponível   |Neural|
+|Ucraniano| `uk`    |Neural disponível|  Neural|
+|Urdu|  `ur`    |Estatística apenas|  Estatística|
+|Vietnamita|    `vi`    |Neural disponível|  Neural|
+|Galês| `cy`    |Neural disponível|  Neural|
+|Yucatec Maya|  `yua`   |Estatística apenas|  Estatística|
 
 ## <a name="transliteration"></a>Transliteração
 

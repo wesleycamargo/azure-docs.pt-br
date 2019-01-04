@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502170"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968997"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado do Azure AD Domain Services
 
@@ -32,7 +32,7 @@ Usando a página de integridade no portal do Azure, você consegue se manter atu
 2. Clique no domínio cuja integridade você deseja exibir.
 3. No painel de navegação à esquerda, clique em **Integridade**.
 
-A figura a seguir ilustra um exemplo de página de integridade: ![Página de integridade de exemplo](.\media\active-directory-domain-services-alerts\health-page.png)
+A figura a seguir ilustra um exemplo de página de integridade: ![Página de integridade de exemplo](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > A integridade do domínio gerenciado é avaliada a cada hora. Depois de fazer alterações no domínio gerenciado, aguarde o próximo ciclo de avaliação para exibir a integridade atualizada do domínio gerenciado. O carimbo de data/hora "Avaliado pela última vez" no canto superior direito mostra quando a integridade do domínio gerenciado foi avaliada pela última vez.
@@ -43,10 +43,10 @@ O status no canto superior direito da página de integridade indica a integridad
 
 | Status | ícone | Explicação |
 | --- | :----: | --- |
-| Executando | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | O domínio gerenciado está funcionando normalmente e não tem alertas críticos ou de aviso. Este domínio pode ter alertas informativos. |
-| Precisa de atenção (aviso) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | Não existem alertas críticos no domínio gerenciado, mas há um ou mais alertas de aviso que precisam ser resolvidos. |
-| Precisa de atenção (crítico) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Há um ou mais alertas críticos no seu domínio gerenciado. Você também pode ter alertas de aviso e/ou informativos. |
-| Implantando | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | O domínio está no processo de implantação. |
+| Executando | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | O domínio gerenciado está funcionando normalmente e não tem alertas críticos ou de aviso. Este domínio pode ter alertas informativos. |
+| Precisa de atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Não existem alertas críticos no domínio gerenciado, mas há um ou mais alertas de aviso que precisam ser resolvidos. |
+| Precisa de atenção (crítico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Há um ou mais alertas críticos no seu domínio gerenciado. Você também pode ter alertas de aviso e/ou informativos. |
+| Implantando | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | O domínio está no processo de implantação. |
 
 ## <a name="monitors"></a>Monitores
 Monitores são aspectos do domínio gerenciado que o Azure AD Domain Services monitora regularmente. A melhor maneira de manter os monitores em estado íntegro é resolver todos alertas ativos do domínio gerenciado.

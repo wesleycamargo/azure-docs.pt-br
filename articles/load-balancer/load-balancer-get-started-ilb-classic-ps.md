@@ -1,5 +1,6 @@
 ---
-title: Criar um balanceador de carga voltado para a Internet - PowerShell clássico | Microsoft Docs
+title: Criar um balanceador de carga interno – PowerShell clássico
+titlesuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga interno no modelo de implantação clássico usando o PowerShell
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: genlin
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms:custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: f8a24a12521d678cee0e255677881760828d1e1f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414702"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097974"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Introdução à criação de um balanceador de carga interno (clássico) usando o PowerShell
 
@@ -28,7 +30,7 @@ ms.locfileid: "50414702"
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -42,7 +44,7 @@ Para criar um conjunto de balanceamento de carga interno e os servidores que env
 2. Adicione pontos de extremidade correspondentes às máquinas virtuais que receberão o tráfego de entrada.
 3. Configure os servidores que enviarão o tráfego com a carga a ser balanceada para enviar o tráfego para o endereço VIP (IP Virtual) da instância do Balanceamento de Carga Interno.
 
-### <a name="step-1-create-an-internal-load-balancing-instance"></a>Etapa 1: criar uma instância de Balanceamento de Carga Interno
+### <a name="step-1-create-an-internal-load-balancing-instance"></a>Etapa 1: Criar uma instância de Balanceamento de Carga Interno
 
 Para um serviço de nuvem existente ou um serviço de nuvem implantado em uma rede virtual regional, você pode criar uma instância do Balanceamento de Carga Interno com os comandos do Windows PowerShell a seguir:
 
@@ -57,7 +59,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb �
 
 Observe que esse uso do cmdlet [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) do Windows PowerShell usa o conjunto de parâmetros DefaultProbe. Para obter mais informações sobre conjuntos de parâmetros adicionais, consulte [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
-### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Etapa 2: adicionar pontos de extremidade para a instância do Balanceamento de Carga Interno
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Etapa 2: Adicionar pontos de extremidade à instância do Balanceamento de Carga Interno
 
 Veja um exemplo:
 
@@ -73,7 +75,7 @@ $ilb="ilbset"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Etapa 3: configurar os servidores para enviar o tráfego para o novo ponto de extremidade do Balanceamento de Carga Interno
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Etapa 3: Configurar os servidores para enviar o tráfego para o novo ponto de extremidade do Balanceamento de Carga Interno
 
 Configure os servidores, cujo tráfego terá carga balanceada, para usar o novo endereço IP (o VIP) da instância do Balanceamento de Carga Interno. Este é o endereço no qual a instância do Balanceamento de Carga Interno está escutando. Na maioria dos casos, basta adicionar ou modificar um registro DNS ao VIP da instância do Balanceamento de Carga Interno.
 

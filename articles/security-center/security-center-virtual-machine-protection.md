@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316643"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340820"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protegendo suas máquinas e aplicativos na Central de Segurança do Azure
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários. As recomendações aplicam-se aos tipos de recursos do Azure: VMs (máquinas virtuais) e computadores, aplicativos, rede, SQL e a identidade e acesso.
@@ -59,7 +59,7 @@ Esta seção mostra o número total de VMs e computadores que foram inicializado
 ### VMs e computadores não monitorados <a name="unmonitored-vms-and-computers"></a>
 As VM ou os computadores não são monitorados pela Central de Segurança quando não estão executando a extensão do Microsoft Monitoring Agent. Um computador pode ter um agente local já instalado, por exemplo, o agente direto do OMS ou o agente do SCOM. Os computadores com esses agentes são identificados como não monitorados porque não há suporte total para esses agentes na Central de Segurança. Para aproveitar ao máximo todos os recursos da Central de Segurança, é necessária a extensão do Microsoft Monitoring Agent.
 
-Você pode instalar a extensão na VM ou no computador não monitorado, além do agente local já instalado. Configure os dois agentes iguais, conectando-os ao mesmo workspace. Isso permite que a Central de Segurança interaja com a extensão do Microsoft Monitoring Agent e colete dados. Consulte [Habilitar a extensão da VM](../log-analytics/log-analytics-quick-collect-azurevm.md) para obter instruções sobre como instalar a extensão do Microsoft Monitoring Agent.
+Você pode instalar a extensão na VM ou no computador não monitorado, além do agente local já instalado. Configure os dois agentes iguais, conectando-os ao mesmo workspace. Isso permite que a Central de Segurança interaja com a extensão do Microsoft Monitoring Agent e colete dados. Consulte [Habilitar a extensão da VM](../azure-monitor/learn/quick-collect-azurevm.md) para obter instruções sobre como instalar a extensão do Microsoft Monitoring Agent.
 
 Consulte [Monitorando problemas de integridade do agente](security-center-troubleshooting-guide.md#mon-agent) para saber mais sobre o motivo pelo qual a Central de Segurança não consegue monitorar com êxito as VMs e os computadores inicializados para o provisionamento automático.
 
@@ -74,20 +74,20 @@ Cada recomendação tem um conjunto de ações que você poderá executar depois
 
 **Aplicar atualizações do sistema** tem um resumo de atualizações críticas no formato de gráfico, um para Windows e outro para Linux. A segunda parte tem uma tabela com as seguintes informações:
 
-- **NOME**: nome da atualização ausente.
-- **NÃO. DE VMs E COMPUTADORES**: número total de máquinas virtuais e computadores que não têm essa atualização.
-- **GRAVIDADE DA ATUALIZAÇÃO**: descreve a gravidade dessa recomendação específica:
+- **NOME**: Nome da atualização ausente.
+- **NÃO. DE VMs E COMPUTADORES**: Número total de máquinas virtuais e computadores que não têm essa atualização.
+- **GRAVIDADE DA ATUALIZAÇÃO**: Descreve a gravidade dessa recomendação específica:
 
-    - **Crítico**: existe uma vulnerabilidade em um recurso significativo (aplicativo, máquina virtual ou grupo de segurança de rede) e ela requer atenção.
-    - **Importante**: são necessárias etapas adicionais ou não críticas para concluir um processo ou eliminar uma vulnerabilidade.
-    - **Moderado**: uma vulnerabilidade deve ser resolvida, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
+    - **Crítica**: Existe uma vulnerabilidade em um recurso significativo (aplicativo, máquina virtual ou grupo de segurança de rede) e ela requer atenção.
+    - **Importante**: São necessárias etapas adicionais ou não críticas para concluir um processo ou eliminar uma vulnerabilidade.
+    - **Moderada**: Uma vulnerabilidade que deve ser resolvida, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
 
 
-- **ESTADO**: o estado atual da recomendação:
+- **ESTADO**: O estado atual da recomendação:
 
-    - **Aberta**: a recomendação ainda não foi resolvida.
-    - **Em Andamento**: a recomendação está sendo aplicada atualmente aos recursos, e não é necessário que você realize nenhuma ação.
-    - **Resolvido**: a recomendação já foi concluída. (Quando o problema foi resolvido, a entrada será esmaecida).
+    - **Em Aberto**: A recomendação ainda não foi resolvida.
+    - **Em Andamento**: A recomendação está sendo aplicada atualmente a esses recursos e não é necessário que você realize nenhuma ação.
+    - **Resolvida**: A recomendação já foi concluída. (Quando o problema foi resolvido, a entrada será esmaecida).
 
 Para exibir os detalhes de recomendação, clique no nome da atualização ausente na lista.
 
@@ -249,7 +249,7 @@ Para saber mais sobre as recomendações que se aplicam aos outros tipos de recu
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 

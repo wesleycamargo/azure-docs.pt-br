@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 12/5/2018
 ms.author: roiyz
-ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495983"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971956"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de Driver NVIDIA GPU para Windows
 
@@ -78,17 +78,8 @@ O JSON a seguir mostra o esquema para a extensão.
 | Tipo | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
-### <a name="settings"></a>Configurações
-
-Todas as configurações são opcionais. O comportamento padrão é instalar o driver suportado mais recente, conforme aplicável.
-
-| NOME | DESCRIÇÃO | Valor Padrão | Valores Válidos | Tipo de Dados |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: Versão do driver de grade<br> NC/ND: Versão do driver CUDA | mais recente | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | string |
-| installGridND | Instalar o driver de grade nas VMs da série ND | falso | verdadeiro, falso | booleano |
 
 ## <a name="deployment"></a>Implantação
-
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager 
 
@@ -135,8 +126,6 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O exemplo a seguir espelha o exemplo acima do ARM e do PowerShell e também adiciona configurações personalizadas como um exemplo para instalação de driver não padrão. Especificamente, ele instala um driver GRID específico mesmo se uma VM da série ND estiver sendo provisionada.
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -145,8 +134,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 
@@ -176,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operação concluída com êxito |
 | 1 | Operação concluída com êxito. É necessário reiniciar. |
-| 100 | Operação sem suporte ou não pôde ser concluída. | Possíveis causas: não há suporte para a versão do PowerShell, o tamanho da VM não é uma VM da série N, Falha ao fazer download de dados. Verifique os arquivos de log para determinar a causa do erro. |
+| 100 | Operação sem suporte ou não pôde ser concluída. | Possíveis causas: Não há suporte para a versão do PowerShell, o tamanho da VM não é uma VM da série N, falha ao baixar dados. Verifique os arquivos de log para determinar a causa do erro. |
 | 240, 840 | Tempo limite da operação. | Operação de teste. |
 | -1 | Exceção ocorreu. | Verifique os arquivos de log para determinar a causa da exceção. |
 | -5x | Operação foi interrompida devido a reinicialização pendente. | Reinicializar VM. Instalação continuará após a reinicialização. Desinstalação deve ser invocada manualmente. |

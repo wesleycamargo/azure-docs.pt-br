@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 12/6/2018
+ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982871"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090985"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
@@ -31,13 +31,15 @@ O número máximo de conexões por tipo de preço e vCores é o seguinte:
 |Uso geral| 8| 1250|
 |Uso geral| 16| 2500|
 |Uso geral| 32| 5.000|
+|Uso geral| 64| 10000|
 |Otimizado para memória| 2| 600|
 |Otimizado para memória| 4| 1250|
 |Otimizado para memória| 8| 2500|
 |Otimizado para memória| 16| 5.000|
+|Otimizado para memória| 32| 10000|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
-> ERRO 1040 (08004): número excessivo de conexões
+> ERRO 1040 (08004): Muitas Conexões
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
 
@@ -54,8 +56,8 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 ## <a name="privilege-support"></a>Suporte de privilégio
 
 ### <a name="unsupported"></a>Sem suporte
-- Função DBA: muitas configurações e parâmetros do servidor podem inadvertidamente prejudicar o desempenho do servidor ou negar as propriedades ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado. 
-- Privilégio SUPER: semelhante a privilégio [SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) também é restrito.
+- Função DBA: muitas configurações e parâmetros do servidor podem, inadvertidamente, prejudicar o desempenho do servidor ou negar as propriedades de ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado. 
+- Privilégio SUPER: de forma semelhante, o [privilégio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) também é restrito.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
 

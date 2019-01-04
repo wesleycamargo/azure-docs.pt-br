@@ -1,12 +1,11 @@
 ---
-title: 'Etapa 4: treinar modelos analíticos preditivos - Azure Machine Learning Studio | Microsoft Docs'
-description: 'Etapa 4 - desenvolver um passo a passo de solução de previsão: treinar, pontuar e avaliar vários modelos no Azure Machine Learning Studio.'
+title: 'Etapa 4: treinar modelos analíticos preditivos – Azure Machine Learning Studio | Microsoft Docs'
+description: 'Etapa 4 do passo a passo Desenvolver uma solução de previsão: Treinar, pontuar e avaliar vários modelos no Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2464ef0ba89f138834bedfdc9f29347092e5fe99
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313462"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254506"
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Passo 4: Treine e avalie os modelos analíticos preditivos no Machine Learning Studio
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Etapa 4 do passo a passo: treine e avalie os modelos analíticos preditivos no Machine Learning Studio
 Esse tópico contém a quarta etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Criar um espaço de trabalho do Machine Learning Studio](walkthrough-1-create-ml-workspace.md)
@@ -190,7 +189,7 @@ A ciência e arte de interpretar esses resultados e ajustar o desempenho do mode
 > 
 
 - - -
-**Próximo: [implantar o serviço Web](walkthrough-5-publish-web-service.md)**
+**Próximo: [Implantar o serviço Web](walkthrough-5-publish-web-service.md)**
 
 [0]: ./media/walkthrough-4-train-and-evaluate-models/train-model-select-column.png
 [1]: ./media/walkthrough-4-train-and-evaluate-models/experiment-with-train-model.png

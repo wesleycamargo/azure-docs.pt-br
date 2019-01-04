@@ -1,13 +1,12 @@
 ---
 title: Gerenciar serviços da web do Machine Learning Studio usando o Gerenciamento de API - Azure | Microsoft Docs
-description: Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API.
+description: Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API. Gerencie seus pontos de extremidade da API REST definindo o acesso do usuário, a limitação de uso e o monitoramento por painel.
 keywords: aprendizado de máquina, gerenciamento de api
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f82332b02d2e7bbf937a84de42714392e3fccd6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308232"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258178"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerenciar serviços da web do Azure Machine Learning Studio usando o Gerenciamento de API
 ## <a name="overview"></a>Visão geral
@@ -224,7 +223,7 @@ Clique em **Sim** para publicar o teste.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testar o serviço Web
-Um serviço Web AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade BES (serviço de execução em lotes). RSS é para execução síncrona. BES é para execução do trabalho assíncrono. Para testar o serviço Web com a fonte Python de exemplo a seguir, talvez seja necessário baixar e instalar o SDK do Azure para Python (consulte: [Como instalar Python](../../python-how-to-install.md)).
+Um serviço Web AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade BES (serviço de execução em lotes). RSS é para execução síncrona. BES é para execução do trabalho assíncrono. Para testar o serviço Web com a fonte Python de exemplo abaixo, talvez seja necessário baixar e instalar o SDK do Azure para Python (confira: [Como instalar o Python](../../python-how-to-install.md)).
 
 Você também precisará do **workspace**, do **serviço** e da **api_key** do teste para a fonte de exemplo abaixo. Você pode encontrar o workspace e o serviço clicando em **Solicitação/resposta** ou **Execução em lote** para o teste no painel de serviço Web.
 

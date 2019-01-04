@@ -1,6 +1,6 @@
 ---
-title: Criação de um sistema de proteção de conteúdo multi-DRM com controle de acesso usando os serviços de mídia do Azure | Microsoft Docs
-description: Saiba mais sobre como licenciar o Kit de Portabilidade de Cliente do Smooth Streaming da Microsoft.
+title: Criação de um sistema de proteção de conteúdo multi-DRM com controle de acesso - Serviços de Mídia do Azure | Microsoft Docs
+description: Aprenda a licenciar o Kit de Portabilidade de Cliente do Smooth Streaming da Microsoft.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: willzhan
-ms.openlocfilehash: d65007ed2a0ce5a827eadca31dd9df8704e2c905
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec18
+ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958186"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136266"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso 
 
@@ -28,7 +29,7 @@ O design e a criação de um subsistema de Microsoft Ad Rights Management (geren
 
 Este documento se destina a engenheiros que trabalham em subsistemas de DRM de soluções multitela/streaming OTT ou online, ou a leitores interessados em subsistemas de DRM. Pressupõe-se que os leitores estejam familiarizados com pelo menos uma das tecnologias de DRM do mercado, como o PlayReady, o Widevine, o FairPlay ou o Adobe Access.
 
-Nesta discussão, por vários DRM incluímos 3 DRMs compatíveis com os serviços de mídia do Azure: Criptografia Comum (CENC) para PlayReady e Widevine, FairPlay, bem como limpar chave de criptografia AES-128. Uma das principais tendências no setor de streaming online e OTT é o uso de CENC com DRM múltiplo nativo em várias plataformas de cliente. Essa tendência é uma mudança da anterior, que usava um único DRM e seu SDK de cliente para várias plataformas de cliente. Quando você usa CENC com DRM múltiplo nativo, tanto o PlayReady quanto o Widevine são criptografados de acordo com a especificação [Criptografia comum (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
+Nessa discussão, por vários DRMs, incluímos 3 DRMs que têm suporte dos Serviços de Mídia do Azure: Criptografia comum (CENC) para PlayReady e Widevine, FairPlay, além de criptografia do tipo Clear Key AES-128. Uma das principais tendências no setor de streaming online e OTT é o uso de CENC com DRM múltiplo nativo em várias plataformas de cliente. Essa tendência é uma mudança da anterior, que usava um único DRM e seu SDK de cliente para várias plataformas de cliente. Quando você usa CENC com DRM múltiplo nativo, tanto o PlayReady quanto o Widevine são criptografados de acordo com a especificação [Criptografia comum (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
 
 Os benefícios do uso de vários DRM nativos para proteção de conteúdo são:
 
@@ -326,7 +327,7 @@ Para registrar e configurar o aplicativo de ponteiro no Azure AD, execute as seg
 
 2. Adicione uma nova chave para o aplicativo de recurso.
 
-3. Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o valor: "groupMembershipClaims": "All".
+3. Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o valor "groupMembershipClaims": "All".
 
 4. No aplicativo do Azure AD que aponta para o aplicativo Web de player, na seção **Permissões para outros aplicativos**, adicione o aplicativo de recurso que foi adicionado na etapa 1. Em **Permissão delegada**, selecione **Acessar [resource_name]**. Essa opção concede permissão ao aplicativo Web para criar tokens de acesso que acessam o aplicativo de recurso. Faça isso para a versão local e a implantada do aplicativo Web se você desenvolve com Visual Studio e o Aplicativo Web do Azure.
 
@@ -360,7 +361,7 @@ Ao usar um STS personalizado, duas alterações devem ser feitas:
 Há dois tipos de chaves de segurança:
 
 * Chave simétrica: a mesma chave é usada para gerar e verificar um JWT.
-* Chave assimétrica: um par de chaves pública/privada em um certificado X509 é usado com uma chave privada para criptografar/gerar um JWT e, com a chave pública, verificar o token.
+* Chave assimétrica: um par de chaves pública/privada em um certificado X509 é usado com uma chave privada para criptografar/gerar um JWT e, com a chave pública, para verificar o token.
 
 > [!NOTE]
 > Se você usa o .NET Framework /C# como sua plataforma de desenvolvimento, o certificado X509 usado para uma chave assimétrica de segurança deve ter um comprimento de chave de pelo menos 2048. Este é um requisito da classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey no .NET Framework. Caso contrário, a seguinte exceção é lançada:
@@ -399,17 +400,17 @@ Entre em contato com qualquer um dos autores para que criem ou adicionem uma con
 
 As capturas de tela a seguir mostram as diferentes páginas de entrada usadas por diferentes contas de domínio:
 
-**Conta de domínio de locatário do Azure AD personalizado**: a página de entrada personalizada do domínio de locatário do Azure AD personalizado.
+**Conta de domínio do locatário do AD do Azure personalizada**: a página de entrada personalizada do domínio de locatário do AD do Azure personalizado.
 
-![Conta de domínio do locatário do AD do Azure personalizada](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Conta de domínio do locatário do AD do Azure personalizada 1](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
 **Conta de domínio da Microsoft com cartão inteligente**: a página de entrada personalizada pela TI corporativa da Microsoft com autenticação de dois fatores.
 
-![Conta de domínio do locatário do AD do Azure personalizada](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Conta de domínio do locatário do AD do Azure personalizada 2](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
-**Conta da Microsoft**: a página de entrada da conta da Microsoft para consumidores.
+**Conta Microsoft**: a página de entrada da conta Microsoft para consumidores.
 
-![Conta de domínio do locatário do AD do Azure personalizada](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Conta de domínio do locatário do AD do Azure personalizada 3](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>Usar extensões de mídia criptografada para PlayReady
 Em um navegador moderno compatível com EME (extensões de mídia criptografada) para PlayReady, como o Internet Explorer 11 no Windows 8.1 ou posteriores, e o navegador Microsoft Edge no Windows 10, o PlayReady é o DRM subjacente para EME.

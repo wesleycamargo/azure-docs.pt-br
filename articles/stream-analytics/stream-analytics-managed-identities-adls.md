@@ -1,20 +1,21 @@
 ---
-title: Usar identidades gerenciadas para autenticar trabalhos do Azure Stream Analytics para a saída do Azure Data Lake Storage Gen1 (versão prévia)
-description: ''
+title: Autenticar trabalho do Azure Stream Analytics para saída do Azure Data Lake Storage Gen1
+description: Este artigo descreve como usar identidades gerenciadas para autenticar seu trabalho do Azure Stream Analytics para a saída do Azure Data Lake Storage Gen1.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2018
-ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365281"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090424"
 ---
-# <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Usar identidades gerenciadas para autenticar trabalhos do Azure Stream Analytics para a saída do Azure Data Lake Storage Gen1 (versão prévia)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticar o Stream Analytics no Azure Data Lake Storage Gen1 usando identidades gerenciadas (versão prévia)
 
 O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada com a saída do ADLS (Azure Data Lake Storage) Gen1. A identidade é um aplicativo gerenciado registrado no Azure Active Directory que representa um determinado trabalho do Stream Analytics e pode ser usada para autenticar um recurso almejado. Identidades gerenciadas eliminam as limitações dos métodos de autenticação baseados em usuário, como a necessidade de autenticar novamente devido a alterações de senha ou expirações de token de usuário que ocorrem a cada 90 dias. Além disso, as identidades gerenciadas ajudam com a automação de implantações de trabalho do Stream Analytics que produzem saída para o Azure Data Lake Storage Gen1.
 
@@ -32,7 +33,7 @@ Este artigo mostra duas maneiras de habilitar a identidade gerenciada para um tr
 
    Quando a configuração é salva, a OID (ID de objeto ) da entidade de serviço é listada como a ID da Entidade de Segurança conforme mostrado abaixo:
 
-   ![ID da Entidade de Segurança do Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+   ![ID da entidade de serviço do Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
    A entidade de serviço tem o mesmo nome que o trabalho do Stream Analytics. Por exemplo, se o nome do seu trabalho for **MyASAJob**, o nome da entidade de serviço criada também será **MyASAJob**.
 
@@ -56,11 +57,11 @@ Este artigo mostra duas maneiras de habilitar a identidade gerenciada para um tr
  
 8. No painel **Permissões**, verifique as permissões **Gravar** e **Executar** e as atribua a **Esta pasta e todos os filhos**. Em seguida, clique em **OK**.
 
-   ![Selecionar uma permissão](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![Selecione as permissões de gravação e execução](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
 9. A entidade de serviço está listada em **Permissões Atribuídas** no painel **Acesso** conforme mostrado abaixo. Agora você pode voltar e iniciar o trabalho do Stream Analytics.
 
-   ![Lista de acesso](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![Lista de acesso do Stream Analytics no portal](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Para saber mais sobre permissões de sistema de arquivos do Data Lake Storage Gen1, veja [Controle de acesso no Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 

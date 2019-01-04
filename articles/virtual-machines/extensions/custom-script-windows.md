@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282316"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963497"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -37,11 +37,11 @@ Este documento detalha como usar a Extensão de Script Personalizado usando o m�
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A Extensão de Script Personalizado para Linux será executada nos SOs de extensão com suporte. Para obter mais informações, confira este [artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+A Extensão de Script Personalizado para Linux executará nos SOs de extensão com suporte à extensão, consulte [este artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems) para obter mais informações.
 
 ### <a name="script-location"></a>Local do script
 
-Você pode utilizar a extensão para usar suas credenciais do Armazenamento de Blobs do Azure para acessar esse armazenamento. Como alternativa, o local do script pode ser qualquer lugar, desde que a VM possa rotear para esse ponto de extremidade, como GitHub, servidor de arquivos interno, etc.
+Você pode utilizar a extensão para usar suas credenciais do Armazenamento de Blobs do Azure para acessar esse armazenamento. Como alternativa, o local do script pode estar em qualquer lugar, desde que a VM possa rotear para esse ponto de extremidade, como o GitHub, servidor de arquivos interno, etc.
 
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
@@ -52,15 +52,15 @@ Se o script estiver em um servidor local, ainda poderá ser necessário abrir po
 ### <a name="tips-and-tricks"></a>Dicas e truques
 * A taxa de falha mais alta para esta extensão acontece devido a erros de sintaxe no script. Teste as execuções de script sem erros e também insira um registro em log adicional no script para facilitar a localização da falha.
 * Escreva scripts idempotentes, para que se forem executados mais de uma vez por acidente, eles não causem alterações no sistema.
-* Verifique se os scripts não exigem entrada do usuário quando são executados.
-* É permitido que o script seja executado em até 90 minutos. Um período mais longo resultará em falha na provisão da extensão.
-* Não coloque reinicializações no script, pois isso causará problemas com outras extensões que estão sendo instaladas e, após a reinicialização, a extensão será interrompida. 
-* Se você tiver um script que causará uma reinicialização, instale aplicativos, execute scripts, etc. Você deve agendar a reinicialização, usando uma Tarefa Agendada do Windows ou usando ferramentas como o DSC ou extensões do Chef ou do Puppet.
+* Assegure-se de que os scripts não exigirão a entrada do usuário quando forem executados.
+* É permitido que o script seja executado em até 90 minutos e um período mais longo resultará em falha na provisão da extensão.
+* Não coloque reinicializações dentro do script, pois essa ação causará problemas com outras extensões que estão sendo instaladas. Após a reinicialização, a extensão não continuará depois de reiniciar. 
+* Se você tiver um script que causará uma reinicialização, então instale aplicativos e execute scripts etc. Você pode agendar a reinicialização usando uma Tarefa Agendada do Windows ou usando ferramentas como DSC, ou extensões Chef, Puppet.
 * A extensão executará um script somente uma vez. Se você quiser executar um script em cada inicialização, use a extensão pra criar uma Tarefa Agendada do Windows.
 * Se você quiser agendar quando um script será executado, use a extensão para criar uma Tarefa Agendada do Windows. 
-* Quando o script for executado, apenas será exibido o status da extensão 'em transição' no portal do Azure ou na CLI. Se você quiser atualizações de status mais frequentes de um script em execução, será necessário criar sua própria solução.
+* Quando o script for executado, você só verá um status da extensão 'em transição' no portal do Azure ou no CLI. Se quiser atualizações de status mais frequentes de um script em execução, será necessário criar sua própria solução.
 * A extensão de script personalizado não dá suporte nativo para servidores proxy. No entanto, é possível usar uma ferramenta de transferência de arquivos que dá suporte a servidores proxy no script, como a *Curl* 
-* Lembre-se de locais de diretório não padrão nos quais seus scripts ou comandos podem confiar e ter lógica para lidar com isso.
+* Esteja ciente dos locais de diretório não padrão nos quais os scripts ou comandos podem confiar e mantenha uma lógica para lidar com essa situação.
 
 
 ## <a name="extension-schema"></a>Esquema de extensão
@@ -92,7 +92,8 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
         "settings": {
             "fileUris": [
                 "script location"
-            ]
+            ],
+            "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
@@ -113,6 +114,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | Tipo | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matriz |
+| carimbo de data/hora (exemplo) | 123456789 | Inteiro de 32 bits |
 | commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (por exemplo) | examplestorageacct | string |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
@@ -123,21 +125,22 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 #### <a name="property-value-details"></a>Detalhes de valor de propriedade
  * `commandToExecute`: (**necessária**, cadeia de caracteres) o script de ponto de entrada a ser executado. Use esse campo se o comando contiver segredos, como senhas, ou se os fileUris diferenciarem maiúsculas de minúsculas.
 * `fileUris`: (opcional, matriz de cadeia de caracteres) as URLs dos arquivos a serem baixados.
+* `timestamp` (opcional, inteiro de 32 bits) use esse campo apenas para disparar uma nova execução do script, alterando o valor desse campo.  Qualquer valor inteiro é aceitável. Só deve ser diferente do valor anterior.
 * `storageAccountName`: (opcional, cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, todos os `fileUris` deverão ser URLs para Blobs do Azure.
 * `storageAccountKey`: (opcional, cadeia de caracteres) a chave de acesso da conta de armazenamento
 
 Os valores a seguir podem ser definidos nas configurações públicas ou protegidas. A extensão rejeitará qualquer configuração em que os valores abaixo estejam definidos tanto nas configurações protegidas quanto nas públicas.
 * `commandToExecute`
 
-Usar as configurações públicas pode ser útil para depuração, mas é altamente recomendável usar as configurações protegidas.
+Usar configurações públicas talvez seja útil para depuração, mas é recomendável usar configurações protegidas.
 
-As configurações públicas são enviadas em texto não criptografado para a VM na qual o script será executado.  As configurações protegidas são criptografadas usando uma chave conhecida apenas pelo Azure e pela VM. As configurações são salvas na VM no estado em que foram enviadas, ou seja, se foram criptografadas, elas serão salvas criptografadas na VM. O certificado usado para descriptografar os valores criptografados é armazenado na VM e usado para descriptografar as configurações (se necessário) no tempo de execução.
+As configurações públicas são enviadas em texto não criptografado para a VM na qual o script será executado.  As configurações protegidas são criptografadas usando uma chave conhecida apenas pelo Azure e pela VM. As configurações são salvas na VM conforme são enviadas, ou seja, se as configurações forem criptografadas, elas serão salvas criptografadas na VM. O certificado usado para descriptografar os valores criptografados é armazenado na VM e usado para descriptografar as configurações (se necessário) no tempo de execução.
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a Extensão de Script Personalizado durante uma implantação de modelo do Azure Resource Manager. Os exemplos a seguir mostram como usar a extensão de Script personalizado:
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON, detalhado na seção anterior, pode ser usado em um modelo do Azure Resource Manager para executar a Extensão de Script Personalizado durante uma implantação de modelo do Azure Resource Manager. Os exemplos a seguir mostram como usar a extensão de Script personalizado:
 
-* [Tutorial: implantar extensões de máquina virtual com modelos do Azure Resource Manager](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Tutorial: Implantar extensões de máquina virtual com modelos do Azure Resource Manager](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Implante o aplicativo de duas camadas no Windows e no banco de dados SQL do Azure](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
@@ -182,7 +185,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG `
 ```
 
 ### <a name="running-scripts-from-a-local-share"></a>Executando scripts de um compartilhamento local
-Neste exemplo, é possível usar um servidor SMB local como o local do script. Observe que você não precisa passar outras configurações, exceto a *commandToExecute*.
+Neste exemplo, talvez você queira usar um servidor SMB local para a localização do script, portanto, não é necessário passar em outras configurações, exceto *commandToExecute*.
 
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
@@ -199,9 +202,9 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ```
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Como executar o script personalizado mais de uma vez com a CLI
-Se você desejar executar a extensão do script personalizado mais de uma vez, isso somente poderá ser feito sob estas condições:
+Se você quiser executar a extensão do script personalizado mais de uma vez, poderá executar essa ação somente sob estas condições:
 1. O parâmetro 'Name' da extensão é o mesmo que o da implantação anterior da extensão.
-2. Você precisa atualizar a configuração, caso contrário, o comando não será executado novamente, por exemplo, você pode adicionar uma propriedade dinâmica ao comando, como um carimbo de data/hora. 
+2. É necessário atualizar a configuração, caso contrário, o comando não executará novamente. É possível adicionar uma propriedade dinâmica ao comando, como um carimbo de data/hora.
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
@@ -224,9 +227,9 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 em que `<n>` é um inteiro decimal que pode ser alterado entre as execuções da extensão.  O valor `1.*` corresponde ao valor `typeHandlerVersion` atual e real da extensão.  Por exemplo, o diretório real pode ser `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
-Ao executar o comando `commandToExecute`, a extensão configura esse diretório (por exemplo, `...\Downloads\2`) como o diretório de trabalho atual. Isso permite o uso de caminhos relativos para localizar os arquivos baixados por meio da propriedade `fileURIs`. Veja a tabela abaixo para obter exemplos.
+Ao executar o comando `commandToExecute`, a extensão definirá esse diretório (por exemplo, `...\Downloads\2`) como o diretório de trabalho atual. Esse processo permite o uso de caminhos relativos para localizar os arquivos baixados por meio da propriedade `fileURIs`. Veja a tabela abaixo para obter exemplos.
 
-Como o caminho absoluto do download pode variar ao longo do tempo, é melhor optar por caminhos de arquivo/script relativos na cadeia de caracteres `commandToExecute` sempre que possível. Por exemplo: 
+Como o caminho absoluto do download pode variar ao longo do tempo, é melhor optar por caminhos de arquivo/script relativos na cadeia de caracteres `commandToExecute`, sempre que possível. Por exemplo: 
 ```json
     "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
@@ -244,4 +247,4 @@ As informações de caminho após o primeiro segmento do URI são retidas para o
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Você também pode registrar um incidente de Suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

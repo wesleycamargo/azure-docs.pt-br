@@ -1,5 +1,6 @@
 ---
-title: Balanceamento de carga em várias configurações de IP no Azure | Microsoft Docs
+title: Balanceamento de carga em várias configurações de IP no Azure
+titlesuffix: Azure Load Balancer
 description: Balanceamento de carga entre as configurações de IP primárias e secundárias.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e6aff89fe45220e1642a91e6a2d31a9da422fdea
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219504"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163524"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
@@ -128,7 +130,7 @@ Configure o pool de IPs de front-end no balanceador de carga para cada site (con
 
 Depois que o pool de front-end estiver configurado, os endereços IP serão exibidos nas configurações de **configuração de IP de front-end** do balanceador de carga. 
     
-### <a name="step-4-configure-the-back-end-pool"></a>Etapa 4: Configurar o pool de back-end
+### <a name="step-4-configure-the-back-end-pool"></a>Etapa 4: Configure o pool de back-end
 
 Configure o pool de endereços de back-end no balanceador de carga para cada site (contoso.com e fabrikam.com):
         
@@ -166,7 +168,7 @@ Configure uma investigação de integridade para o balanceador de carga:
 
 4. Digite um nome para a investigação de integridade (por exemplo, **HTTP**). Selecione **OK**.
 
-### <a name="step-6-configure-load-balancing-rules"></a>Etapa 6: Configurar regras de balanceamento de carga
+### <a name="step-6-configure-load-balancing-rules"></a>Etapa 6: Configuração de regras de balanceamento de carga
 
 Configure as regras de balanceamento de carga para cada site (contoso.com e fabrikam.com):
     

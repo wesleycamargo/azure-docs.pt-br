@@ -1,10 +1,12 @@
 ---
-title: Provisionar uma Máquina Virtual de Ciência de Dados do Linux CentOS no Azure | Microsoft Docs
+title: Criar uma Máquina Virtual de Ciência de Dados do CentOS Linux
+titleSuffix: Azure
 description: Configure e crie uma Máquina Virtual de Ciência de Dados Linux no Azure para realizar a análise e o machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262546"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081856"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Ciência de Dados do Linux CentOS no Azure
 
@@ -35,10 +37,10 @@ A máquina virtual de Ciência de Dados do Linux é uma máquina virtual do Azur
 * CLI (interface de linha de comando) do Azure para gerenciar recursos do Azure
 * Banco de dados PostgresSQL
 * Ferramentas de Machine Learning
-  * [Kit de Ferramentas Cognitivas](https://github.com/Microsoft/CNTK): um kit de ferramentas de software de aprendizado profundo da Microsoft Research.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de machine learning rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
+  * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): um kit de ferramentas de software de aprendizado profundo da Microsoft Research.
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de aprendizado de máquina rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta que fornece implementação de árvore aumentada rápida e precisa.
-  * [Rattle](https://togaware.com/rattle/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao machine learning em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
+  * [Rattle](https://togaware.com/rattle/) (a ferramenta analítica de R para aprender com facilidade): Uma ferramenta que facilita a introdução à análise de dados e ao aprendizado de máquina em R, com exploração de dados baseada em GUI e modelagem com geração de código R automática.
 * SDK do Azure em Java, Python, node.js, Ruby, PHP
 * Bibliotecas em R e Python para uso no Azure Machine Learning e outros serviços do Azure
 * Ferramentas de desenvolvimento e editores (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -62,7 +64,7 @@ Uma imagem do [Ubuntu](dsvm-ubuntu-intro.md) também está disponível, com muit
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de criar uma Máquina Virtual de Ciência de Dados Linux, você deve ter o seguinte:
 
-* **Uma assinatura do Azure**: para obter uma, confira [Obter avaliação gratuita do Azure](https://azure.microsoft.com/free/).
+* **Uma assinatura do Azure**: Para obter uma, confira [Obter avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 * **Uma conta de armazenamento do Azure**: para criar uma, confira [Criar uma conta de armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md). Como alternativa, se você não quiser usar uma conta existente, a conta de armazenamento poderá ser criada como parte do processo de criação da VM.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Criar sua Máquina Virtual de Ciência de Dados Linux
@@ -75,11 +77,11 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
     a. **Noções básicas**:
    
    * **Nome**: o nome do servidor de ciência de dados que você está criando.
-   * **Nome de Usuário**: primeira ID de entrada da conta.
+   * **Nome de usuário**: a primeira ID de entrada da conta.
    * **Senha**: primeira senha da conta (você pode usar a chave pública SSH, em vez de senha).
-   * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
-   * **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente.
-   * **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
+   * **Assinatura**: Se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
+   * **Grupo de recursos**: Você pode criar um grupo novo ou usar um grupo existente.
+   * **Localização**: selecione o data center mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
    
    b. **Tamanho**:
    
@@ -88,8 +90,8 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
    c. **Configurações**:
    
    * **Tipo de disco**: escolha **Premium** se preferir uma SSD (unidade de estado sólido). Caso contrário, escolha **Standard**.
-   * **Conta de Armazenamento:** é possível criar uma nova conta de armazenamento do Azure em sua assinatura ou usar uma já existente no mesmo Local que foi escolhido na etapa **Noções básicas** do assistente.
-   * **Outros parâmetros**: na maioria dos casos, você simplesmente usa os valores padrão. Passe o ponteiro do mouse sobre o link informativo para obter ajuda sobre um campo específico, caso você queira considerar o uso de valores não padrão.
+   * **Conta de armazenamento**: é possível criar uma nova conta de armazenamento do Azure em sua assinatura ou usar uma já existente na mesma localização que foi escolhida na etapa **Noções básicas** do assistente.
+   * **Outros parâmetros**: na maioria dos casos, você pode simplesmente usar os valores padrão. Passe o ponteiro do mouse sobre o link informativo para obter ajuda sobre um campo específico, caso você queira considerar o uso de valores não padrão.
    
    d. **Resumo**:
    
@@ -117,8 +119,8 @@ A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar con
    * **Guia Sessão**:
      * **Host**: o nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
      * **Logon**: nome de usuário na VM Linux.
-     * **Porta SSH**: deixe-a em 22, o valor padrão.
-     * **Tipo de Sessão**: altere o valor para XFCE. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
+     * **Porta SSH**: deixe em 22, o valor padrão.
+     * **Tipo de sessão**: altere o valor para XFCE. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
    * **Guia Mídia**: se você não precisar usar suporte de som e impressão de cliente, poderá desativar esses recursos.
    * **Pastas compartilhadas**: caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
 
@@ -247,7 +249,7 @@ Há bibliotecas disponíveis em R e Python para acessar bancos de dados.
 Para acessar o **Postgres**:
 
 * Do R: use o pacote **RPostgreSQL**.
-* Do Python: use a biblioteca **psycopg2** .
+* Do Python: use a biblioteca **psycopg2**.
 
 ### <a name="azure-tools"></a>Ferramentas do Azure
 As ferramentas do Azure a seguir são instaladas na VM:
@@ -279,11 +281,11 @@ Para saber mais sobre como implantar modelos em R e Python no Azure Machine Lear
 ### <a name="machine-learning-tools"></a>Ferramentas do Machine Learning
 A VM vem com algumas ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Estão incluídos:
 
-* **Kit de Ferramentas Cognitivas da Microsoft**: um kit de ferramentas de aprendizado profundo.
+* **Microsoft Cognitive Toolkit** : um kit de ferramentas de aprendizado profundo.
 * **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.
 * **xgboost**: uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
-* **Python**: o Anaconda Python é fornecido com os algoritmos de amachine learning com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
-* **R**: uma vasta biblioteca de funções de machine learning está disponível para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando:
+* **Python**: o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
+* **R**: uma vasta biblioteca de funções de aprendizado de máquina está disponível para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando:
   
         install.packages(<lib name>)
 

@@ -7,14 +7,15 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: 60248da2bbdac751845a40720f8967203c562b4a
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 48fd64908a5cb2488d58f3c078e0ccb17419352f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085726"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260235"
 ---
-# <a name="quickstart-send-container-registry-events-to-event-grid"></a>Início Rápido - Enviar eventos de registro de contêiner para a Grade de Eventos
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início Rápido: Enviar eventos de registro de contêiner privado à Grade de Eventos
 
 A Grade de Eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que fornece consumo uniforme de eventos usando um modelo de publicação-assinatura. Neste início rápido, você usa a CLI do Azure para criar um registro de contêiner, assinar eventos de registro e, em seguida, implantar um aplicativo Web de exemplo para receber os eventos. Por fim, você dispara os eventos `push` e `delete` da imagem de contêiner e exibe a carga do evento no aplicativo de exemplo.
 
@@ -212,7 +213,7 @@ Parabéns! Se você visualizar os eventos `ImagePushed` e `ImageDeleted`, isso s
 
 Após concluir os recursos criados neste início rápido, você poderá excluí-los com o seguinte comando da CLI do Azure. Quando você excluir um grupo de recursos, todos os recursos nele contidos serão permanentemente excluídos.
 
-**AVISO**: Essa operação é irreversível. Antes de executar o comando, certifique-se de que nenhum dos recursos contidos no grupo será mais necessário.
+**AVISO**: essa operação é irreversível. Antes de executar o comando, certifique-se de que nenhum dos recursos contidos no grupo será mais necessário.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

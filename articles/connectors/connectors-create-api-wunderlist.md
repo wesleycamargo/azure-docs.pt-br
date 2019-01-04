@@ -1,6 +1,6 @@
 ---
-title: Conectar-se com o Wunderlist do Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam listas, tarefas e lembretes, entre outros, em sua conta do Wunderlist usando o Aplicativo Lógico do Azure
+title: Conectar-se com o Wunderlist dos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam listas, tarefas e lembretes, entre outros, em sua conta do Wunderlist usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230135"
 ---
-# <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Monitore e gerencie o Wunderlist usando o Aplicativo Lógico do Azure
+# <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Monitore e gerencie o Wunderlist usando os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do Wunderlist, você pode criar fluxos de trabalho e tarefas automatizadas que monitoram e gerenciam listas de tarefas pendentes, tarefas, lembretes e mais em sua conta do Wunderlist, bem como outras ações, por exemplo:
+Com os Aplicativos Lógicos do Azure e o conector do Wunderlist, você pode criar fluxos de trabalho e tarefas automatizadas que monitoram e gerenciam listas de tarefas pendentes, tarefas, lembretes e mais em sua conta do Wunderlist, bem como outras ações, por exemplo:
 
 * Monitorar quando novas tarefas são criadas, quando tarefas atingem o prazo e quando lembretes são gerados.
 * Criar e gerenciar listas, observações, tarefas, subtarefas e muito mais.

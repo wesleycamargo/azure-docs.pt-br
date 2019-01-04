@@ -1,6 +1,6 @@
 ---
-title: Modelos do Azure Resource Manager para consistência de nuvem | Microsoft Docs
-description: Desenvolva modelos do Azure Resource Manager para consistência de nuvem. Crie modelos ou atualize modelos existentes para o Azure Stack.
+title: Reutilizar modelos em nuvens – Azure Resource Manager
+description: Desenvolva modelos do Azure Resource Manager que funcionam de maneira uniforme para diferentes ambientes de nuvem. Crie modelos ou atualize modelos existentes para o Azure Stack.
 services: azure-resource-manager
 documentationcenter: na
 author: marcvaneijk
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/09/2018
 ms.author: mavane
-ms.openlocfilehash: f1ff151c0b8d89910949d961b732c10901f19293
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723368"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135620"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolva modelos do Azure Resource Manager para consistência de nuvem
 
@@ -105,7 +106,7 @@ O Azure Resource Manager avalia o modelo principal em tempo de execução e recu
 
 Considere o local e a forma de armazenamento dos modelos vinculados usados. Em tempo de execução, o Azure Resource Manager busca os modelos vinculados e, portanto, exige o acesso direto a eles. Uma prática comum é usar o GitHub para armazenar os modelos aninhados. Um repositório GitHub pode conter arquivos que são acessíveis publicamente por meio de uma URL. Embora essa técnica funcione bem para a nuvem pública e as nuvens soberanas, um ambiente do Azure Stack pode estar localizado em uma rede corporativa ou em um local remoto desconectado, sem nenhum acesso de saída à Internet. Nesses casos, o Azure Resource Manager não consegue recuperar os modelos aninhados. 
 
-Uma melhor prática para implantações entre nuvens é armazenar os modelos vinculados em um local acessível para a nuvem de destino. O ideal é que todos os artefatos de implantação sejam mantidos em um pipeline de CI/CD (integração contínua/desenvolvimento contínuo) e implantados por meio dele. Como alternativa, você pode armazenar os modelos aninhados em um contêiner de Armazenamento de Blobs, do qual o Azure Resource Manager possa recuperá-los. 
+Uma melhor prática para implantações entre nuvens é armazenar os modelos vinculados em um local acessível para a nuvem de destino. O ideal é que todos os artefatos de implantação sejam mantidos em um pipeline de CI/CD (integração contínua/desenvolvimento contínuo) e implantados por meio dele. Como alternativa, você pode armazenar os modelos aninhados em um contêiner de armazenamento de blobs, do qual o Azure Resource Manager possa recuperá-los. 
 
 Como o Armazenamento de Blobs em cada nuvem usa um FQDN (nome de domínio totalmente qualificado) de um ponto de extremidade diferente, configure o modelo com o local dos modelos vinculados com dois parâmetros. Os parâmetros podem aceitar a entrada do usuário no momento da implantação. Normalmente, os modelos são criados e compartilhados por várias pessoas; portanto, uma melhor prática é usar um nome padrão para esses parâmetros. As convenções de nomenclatura ajudam a tornar os modelos mais reutilizáveis entre regiões, nuvens e autores.
 
@@ -434,7 +435,7 @@ Os recursos podem ter referências a outros serviços na plataforma. Por exemplo
 Os dois seguintes exemplos são namespaces de ponto de extremidade comuns que precisam ser especificados explicitamente durante a criação de um recurso:
 
 * Contas de armazenamento (blob, fila, tabela e arquivo)
-* Cadeias de conexão para bancos de dados e o Cache Redis
+* Cadeias de conexão para bancos de dados e o Cache do Azure para Redis
 
 Namespaces de ponto de extremidade também pode ser usados na saída de um modelo como informações para o usuário quando a implantação é concluída. Estes são exemplos comuns:
 
@@ -533,7 +534,7 @@ Para obter uma lista completa dos serviços disponíveis, confira [Produtos disp
 
 ### <a name="check-use-of-azure-managed-disks-in-azure-stack"></a>Verificar o uso do Azure Managed Disks no Azure Stack
 
-Os discos gerenciados cuidam do armazenamento para um locatário do Azure. Em vez de criar explicitamente uma conta de armazenamento e especificar o URI para um VHD (disco rígido virtual), você pode usar discos gerenciados para executar implicitamente essas ações ao implantar uma VM. Os discos gerenciados melhoram a disponibilidade, colocando todos os discos de VMs no mesmo conjunto de disponibilidade em diferentes unidades de armazenamento. Além disso, os VHDs existentes podem ser convertidos do Armazenamento Standard para o Premium com muito menos tempo de inatividade.
+Os discos gerenciados cuidam do armazenamento para um locatário do Azure. Em vez de criar explicitamente uma conta de armazenamento e especificar o URI para um VHD (disco rígido virtual), você pode usar discos gerenciados para executar implicitamente essas ações ao implantar uma VM. Os discos gerenciados melhoram a disponibilidade, colocando todos os discos de VMs no mesmo conjunto de disponibilidade em diferentes unidades de armazenamento. Além disso, os VHDs existentes podem ser convertidos do armazenamento Standard para Premium com muito menos tempo de inatividade.
 
 Embora os discos gerenciados estejam no roteiro do Azure Stack, atualmente, não há suporte para eles. Até isso acontecer, você pode desenvolver modelos consistentes com a nuvem para o Azure Stack especificando explicitamente os VHDs usando o elemento `vhd` no modelo para o recurso de VM, conforme mostrado:
 
@@ -581,7 +582,7 @@ Outra consideração a ser feita sobre a consistência de nuvem é o uso de [ext
 
 Por exemplo, caso você deseje configurar uma VM que executa o Microsoft SQL Server, a extensão de VM poderá configurar o SQL Server como parte da implantação de modelo. Considere o que acontecerá se o modelo de implantação também contiver um servidor de aplicativos configurado para criar um banco de dados na VM que executa o SQL Server. Além de também usar uma extensão de VM para os servidores de aplicativos, você pode configurar a dependência do servidor de aplicativos em um retorno bem-sucedido do recurso de extensão de VM do SQL Server. Essa abordagem garante que a VM que executa o SQL Server esteja configurada e disponível quando o servidor de aplicativos for instruído a criar o banco de dados.
 
-A abordagem declarativa do modelo permite que você defina o estado final dos recursos e de suas interdependências, enquanto a plataforma se encarrega da lógica necessária para as dependências.
+A abordagem declarativa do modelo permite que você defina o estado final dos recursos e de suas inter-dependências, enquanto a plataforma se encarrega da lógica necessária para as dependências.
 
 #### <a name="check-that-vm-extensions-are-available"></a>Verificar se as extensões de VM estão disponíveis
 

@@ -1,5 +1,5 @@
 ---
-title: Estágio de aquisição de dados e entendimento do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
+title: Aquisição de dados e entendimento do Processo de Ciência de Dados de Equipe
 description: As metas, as tarefas e os resultados para o estágio de aquisição de dados e entendimento dos seus projetos de ciência de dados
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 13cbcead381257c87f17dc8ed6666a1b8964d81a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 77c67c491b3157103b267864417678c83326814c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441558"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141145"
 ---
-# <a name="data-acquisition-and-understanding"></a>Compreensão e aquisição de dados
+# <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Aquisição de dados e etapa de entendimento do Processo de Ciência de Dados de Equipe
 
 Este artigo descreve as metas, as tarefas e os resultados associados ao estágio de aquisição de dados e entendimento do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 

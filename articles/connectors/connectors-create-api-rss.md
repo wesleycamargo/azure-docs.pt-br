@@ -1,6 +1,6 @@
 ---
-title: Conectar-se com RSS feeds do Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatize tarefas e fluxos de trabalho que monitoram e gerenciam RSS feeds usando o Aplicativo Lógico do Azure
+title: Conectar-se com RSS feeds dos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatize tarefas e fluxos de trabalho que monitoram e gerenciam RSS feeds usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233048"
 ---
-# <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gerencie RSS feeds usando o Aplicativo Lógico do Azure
+# <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gerencie RSS feeds usando os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector de RSS, é possível criar fluxos de trabalho e tarefas automatizadas para qualquer RSS feed, por exemplo:
+Com os Aplicativos Lógicos do Azure e o conector de RSS, é possível criar fluxos de trabalho e tarefas automatizadas para qualquer RSS feed, por exemplo:
 
 * Monitorar quando itens de RSS feeds são publicados.
 * Listar todos os itens de um RSS feed.

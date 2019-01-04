@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 042d2ee0f615ce5216fc11152f0f65518ff9bd5c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5fe1739fa341a5e3bd2f4d26ef1e94d725b74a61
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376372"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001229"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure)
 
 Para restringir o acesso a seus aplicativos no Serviço de Kubernetes do Azure (AKS), você pode criar e usar um balanceador de carga interno. Um balanceador de carga interno torna um serviço do Kubernetes acessível somente a aplicativos em execução na mesma rede virtual que o cluster do Kubernetes. Este artigo mostra como criar e usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure).
 
 > [!NOTE]
-> O Balanceador de carga do Azure está disponível em dois SKUs - *Básico* e *Padrão*. Para obter mais informações, consulte [Comparação de SKU do balanceador de carga do Azure][azure-lb-comparison]. O AKS atualmente dá suporte a *básica* SKU. Se você quiser usar o *Standard* SKU, você pode usar o upstream [acs-engine][acs-engine].
+> O Balanceador de carga do Azure está disponível em dois SKUs - *Básico* e *Padrão*. Para obter mais informações, consulte [Comparação de SKU do balanceador de carga do Azure][azure-lb-comparison]. O AKS atualmente dá suporte a *básica* SKU. Se quiser usar o SKU *Standard*, você poderá usar [acs-engine][aks-engine] de upstream.
 
 ## <a name="create-an-internal-load-balancer"></a>Criar um balanceador de carga interno
 
@@ -128,7 +128,7 @@ Saiba mais sobre os serviços do Kubernetes na [documentação dos serviços do 
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-advanced-networking.md

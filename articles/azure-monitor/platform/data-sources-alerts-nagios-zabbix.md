@@ -1,6 +1,6 @@
 ---
-title: Coletar alertas do Nagios e do Zabbix no Log Analytics | Microsoft Docs
-description: O Nagios e o Zabbix são ferramentas de monitoramento de software livre. Você pode coletar alertas dessas ferramentas para o Log Analytics para analisá-los junto com os alertas de outras fontes.  Este artigo descreve como configurar o agente do Log Analytics para Linux para coletar alertas desses sistemas.
+title: Coletar alertas do Nagios e do Zabbix no Azure Monitor | Microsoft Docs
+description: O Nagios e o Zabbix são ferramentas de monitoramento de software livre. Você pode coletar os alertas dessas ferramentas para o Azure Monitor para analisá-los junto com os alertas de outras fontes.  Este artigo descreve como configurar o agente do Log Analytics para Linux para coletar alertas desses sistemas.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,23 +8,27 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2018
+ms.date: 11/27/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 3331ed7775cd3027f1262b195c6230fbea742497
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 217f19b02ccd5561ee499388bb62d5a6639086ac
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336301"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436187"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Coletar alertas do Nagios e do Zabbix no Log Analytics do Agente do Log Analytics para Linux 
+# <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Coletar alertas do Nagios e do Zabbix no Azure Monitor do Agente do Log Analytics para Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-O [Nagios](https://www.nagios.org/) e o [Zabbix](http://www.zabbix.com/) são ferramentas de monitoramento de software livre. Você pode coletar alertas dessas ferramentas para o Log Analytics para analisá-los junto com os [alertas de outras fontes](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).  Este artigo descreve como configurar o agente do Log Analytics para Linux para coletar alertas desses sistemas.
+<<<<<<< HEAD [Nagios](https://www.nagios.org/) e o [Zabbix](http://www.zabbix.com/) são ferramentas de monitoramento de software livre. Você pode coletar alertas dessas ferramentas para o Azure Monitor para analisá-los junto com os alertas de outras fontes.  Este artigo descreve como configurar o agente do Log Analytics para Linux para coletar alertas desses sistemas.
+
+> [!NOTE]
+> [Os alertas criados pelo Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) são armazenados separadamente dos dados de log e não podem ser acessados a partir de consultas de log.
+=======
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são ferramentas de monitoramento de software livre. Você pode coletar alertas dessas ferramentas para o Log Analytics para analisá-los junto com os [alertas de outras fontes](../../azure-monitor/platform/alerts-overview.md).  Este artigo descreve como configurar o agente do Log Analytics para Linux para coletar alertas desses sistemas.
+>>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
  
 ## <a name="prerequisites"></a>Pré-requisitos
 O agente do Log Analytics para Linux dá suporte para coletar alertas do Nagios até a versão 4.2.x e do Zabbix até a versão 2.x.
@@ -80,7 +84,7 @@ Para coletar alertas no servidor do Nagios, execute as etapas a seguir.
 
 
 ## <a name="alert-records"></a>Registros de alerta
-Você pode recuperar registros de alerta do Nagios e do Zabbix usando [pesquisas de logs](../../log-analytics/log-analytics-queries.md) no Log Analytics.
+Você pode recuperar registros de alerta do Nagios e do Zabbix usando [pesquisas de logs](../log-query/log-query-overview.md) no Azure Monitor.
 
 ### <a name="nagios-alert-records"></a>Registros de alerta do Nagios
 
@@ -118,5 +122,5 @@ Registros de alerta coletados pelo Zabbix têm **Type** definido como **Alert** 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Aprenda sobre [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) no Log Analytics.
-* Saiba mais sobre [pesquisas de log](../../log-analytics/log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções. 
+* Saiba mais sobre os [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) no Azure Monitor.
+* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 

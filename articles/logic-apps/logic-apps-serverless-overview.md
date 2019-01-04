@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49393761"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Visão geral: Azure Sem Servidor com o Aplicativo Lógico do Azure e o Azure Functions
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Visão geral: Azure Sem Servidor com os Aplicativos Lógicos do Azure e o Azure Functions
 
 [Aplicativos sem servidor](https://azure.microsoft.com/solutions/serverless/) oferecem benefícios de um aumento na velocidade do desenvolvimento, redução no código necessário e simplicidade com escala.  Este artigo aborda os diferentes atributos de soluções sem servidor e ofertas sem servidor do Azure.
 
@@ -25,7 +25,7 @@ ms.locfileid: "49393761"
 
 Sem servidor não significa que não existem servidores – simplesmente significa que o desenvolvedor não precisa se preocupar com os servidores.  Uma grande parte do desenvolvimento de aplicativos tradicionais é responder às perguntas sobre soluções de dimensionamento, hospedagem e monitoramento para atender às demandas do aplicativo.  Com o Serverless, essas perguntas são tratadas como parte da solução.  Além disso, aplicativos sem servidor são cobrados em um plano baseado em consumo.  Se o aplicativo nunca é usado, nunca se incorre em encargo nenhum.  Esses recursos permitem aos desenvolvedores se concentrarem exclusivamente na lógica de negócios da solução.
 
-Os principais serviços no Azure ao redor do Serverless são o [Azure Functions](https://azure.microsoft.com/services/functions/) e o [Aplicativo Lógico do Azure](https://azure.microsoft.com/services/logic-apps/).  Ambas essas soluções seguem os princípios acima e permitem que os desenvolvedores criem aplicativos robustos na nuvem com o mínimo de código.
+Os principais serviços no Azure ao redor do Serverless são o [Azure Functions](https://azure.microsoft.com/services/functions/) e os [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/).  Ambas essas soluções seguem os princípios acima e permitem que os desenvolvedores criem aplicativos robustos na nuvem com o mínimo de código.
 
 ## <a name="what-are-azure-functions"></a>O que são Azure Functions?
 
@@ -33,9 +33,9 @@ O Azure Functions é uma solução para executar facilmente pequenos trechos de 
 
 Se você quiser começar a usar imediatamente o Azure Functions, comece com [Criar sua primeira função](../azure-functions/functions-create-first-azure-function.md). Se você estiver procurando informações mais técnicas sobre o Functions, confira a [referência do desenvolvedor](../azure-functions/functions-reference.md).
 
-## <a name="what-are-azure-logic-apps"></a>O que é o Aplicativo Lógico do Azure?
+## <a name="what-are-azure-logic-apps"></a>O que são os Aplicativos Lógicos do Azure?
 
-O Aplicativo Lógico do Azure fornece uma maneira de simplificar e implementar integrações escalonáveis e fluxos de trabalho na nuvem. Ele fornece um designer visual para modelar e automatizar o processo como uma série de etapas conhecidas como fluxo de trabalho.  Há [muitos conectores](../connectors/apis-list.md) em serviços locais e de nuvem para conectar um aplicativo sem servidor rapidamente a outras APIs.  Um aplicativo lógico começa com um gatilho (como 'Quando uma conta é adicionada ao Dynamics CRM') e, após ser disparado, pode iniciar muitas ações de combinações, conversões e lógica de condição.  Os Aplicativos Lógicos são uma ótima opção ao orquestrar diferentes Azure Functions em um processo – especialmente quando o processo requer interação com uma API ou sistema externo.
+Os Aplicativos Lógicos do Azure fornecem uma maneira de simplificar e implementar integrações escalonáveis e fluxos de trabalho na nuvem. Ele fornece um designer visual para modelar e automatizar o processo como uma série de etapas conhecidas como fluxo de trabalho.  Há [muitos conectores](../connectors/apis-list.md) em serviços locais e de nuvem para conectar um aplicativo sem servidor rapidamente a outras APIs.  Um aplicativo lógico começa com um gatilho (como 'Quando uma conta é adicionada ao Dynamics CRM') e, após ser disparado, pode iniciar muitas ações de combinações, conversões e lógica de condição.  Os Aplicativos Lógicos são uma ótima opção ao orquestrar diferentes Azure Functions em um processo – especialmente quando o processo requer interação com uma API ou sistema externo.
 
 Para uma introdução aos Aplicativos Lógicos, comece com [criar seu primeiro aplicativo lógico](quickstart-create-first-logic-app-workflow.md).  Se você estiver procurando informações mais técnicas sobre Aplicativos Lógicos, confira a [referência do desenvolvedor](logic-apps-workflow-actions-triggers.md).
 

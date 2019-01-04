@@ -1,7 +1,7 @@
 ---
-title: Pesquisar na web para imagens mais populares – API de pesquisa de imagem do Bing
+title: Obter imagens populares com a API de Pesquisa de Imagem do Bing
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar a API de pesquisa de imagem do Bing para pesquisar na web para imagens mais populares.
+description: Pesquise imagens populares da Web com a API de Pesquisa de Imagem do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 00d992da1d061ddbbee59e93898a92b6701f1ffb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 8d58c188275dc6b546d418b51835514c99f25d28
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296304"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258960"
 ---
-# <a name="get-trending-images-from-the-bing-image-search-api"></a>Obter imagens mais populares da API de pesquisa de imagem do Bing
+# <a name="get-trending-images-from-the-web"></a>Obter imagens populares da Web
 
 Para obter imagens populares de hoje, envie a solicitação GET a seguir:  
 

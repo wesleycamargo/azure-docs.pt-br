@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/20/2018
+ms.date: 12/12/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 856d702bcf1f566d0cc455cdd2676e6c2e23d179
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44381060"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53326485"
 ---
 O Data factory é um serviço multilocatário que tem os seguintes limites padrão em vigor para certificar-se de que as assinaturas de clientes são protegidas das cargas de trabalho umas das outras. Entrando em contato com o suporte, é possível aumentar muitos dos limites facilmente em sua assinatura até o limite máximo.
 
@@ -24,8 +24,7 @@ O Data factory é um serviço multilocatário que tem os seguintes limites padr�
 | Data factories em uma assinatura do Azure | 50 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Número total de entidades (Pipeline, Conjuntos de Dados, Triggers, Serviços Vinculados, tempos de execução de integração) dentro de um data factory | 5.000 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Total de núcleos de CPU para Tempo(s) de Execução de Integração do Azure-SSIS em uma assinatura | 128 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Execuções de pipeline simultâneas por pipeline | 100 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Execuções de pipeline simultâneas por data factory | 10.000  | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Execuções de pipeline simultâneas por fábrica de dados (compartilhada entre todos os pipelines na fábrica) | 10.000  | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Máximo de atividades por pipeline (inclui atividades internas para contêineres) | 40 | 40 |
 | Máximo de parâmetros por pipeline | 50 | 50 |
 | Itens ForEach | 100.000 | 100.000 |

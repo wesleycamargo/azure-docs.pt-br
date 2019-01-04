@@ -1,25 +1,23 @@
 ---
-title: 'Azure Cosmos DB: SQL Java API, SDK e recursos| Microsoft Docs'
+title: 'O Azure Cosmos DB: SQL Java API, SDK e recursos'
 description: Saiba tudo sobre o SDK e a API Java do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK Java do SQL do Azure Cosmos DB.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e5c733ecd65482e4b02a5d4e28784e84e63f2231
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634482"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340514"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: notas de versão e recursos
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "52634482"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -38,7 +36,7 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 
 <table>
 
-<tr><td>**Baixe o SDK**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**Baixe o SDK**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
@@ -48,10 +46,27 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 
 <tr><td>**Tutorial do aplicativo Web**</td><td>[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-java-application.md)</td></tr>
 
-<tr><td>**Tempo de execução mínimo com suporte**</td><td>[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
+<tr><td>**Tempo de execução mínimo com suporte**</td><td>[Java Development Kit (JDK) 7 +](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Suporte à gravação de várias regiões adicionado ao modo direto.
+* Adicionada compatibilidade com a manipulação IOExceptions geradas como exceções de ServiceUnavailable, de um proxy.
+* Corrigido um bug na política de repetição de descoberta do ponto de extremidade.
+* Corrigido um bug para garantir que as exceções de ponteiro nulo não sejam geradas no BaseDatabaseAccountConfigurationProvider.
+* Corrigido um bug para garantir que o Iterador de Consulta não retorna valores nulos.
+* Corrigido um bug para garantir a que PartitionKey grande seja permitida
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Suporte à gravação de várias regiões adicionado ao modo de gateway.
+
+### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+* Corrigido um bug nos intervalos de chave de partição de leitura para uma consulta.
+
+### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+* Corrigido um bug no tamanho do cabeçalho do token de continuação de configuração no modo DirectHttps.
 
 ### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
 * Adicionada a falha de streaming em suporte.
@@ -205,6 +220,10 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |21 de novembro de 2018 |--- |
+| [2.0.0](#2.0.0) |21 de setembro de 2018 |--- |
+| [1.16.4](#1.16.4) |10 de setembro de 2018 |--- |
+| [1.16.3](#1.16.3) |9 de setembro de 2018 |--- |
 | [1.16.2](#1.16.2) |Junho de 29, 2018 |--- |
 | [1.16.1](#1.16.1) |16 de maio de 2018 |--- |
 | [1.16.0](#1.16.0) |15 de março de 2018 |--- |

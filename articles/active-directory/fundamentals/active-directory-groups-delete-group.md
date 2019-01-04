@@ -1,6 +1,6 @@
 ---
-title: Como excluir um grupo usando o Active Directory do Azure | Microsoft Docs
-description: Aprenda como excluir um grupo usando o Active Directory do Azure.
+title: Excluir um grupo - Active Directory do Azure | Microsoft Docs
+description: Instruções sobre como criar um grupo usando o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 014fe487d23a6c75e94ca2708ed15044bd6cf53b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 6c08022b47fb1a118e95a54eedf9b5239496ebf7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574313"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092223"
 ---
-# <a name="how-to-delete-a-group-using-azure-active-directory"></a>Como excluir um grupo usando o Active Directory do Azure
-Você pode excluir um grupo por vários motivos, mas normalmente será porque você:
+# <a name="delete-a-group-using-azure-active-directory"></a>Excluir um grupo usando o Microsoft Azure Active Directory
+Você pode excluir um grupo do Azure Active Directory (Microsoft Azure Active Directory) para qualquer número de motivos, mas normalmente, será porque você:
 
 - Incorretamente, defina o **tipo de grupo** como a opção errada
 

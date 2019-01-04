@@ -4,15 +4,15 @@ description: Fornece informações sobre o dispositivo Coletor nas Migrações p
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241184"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255968"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre o dispositivo Coletor
 
@@ -20,23 +20,11 @@ ms.locfileid: "50241184"
 
 O Coletor de Migrações para Azure é um dispositivo leve que pode ser usado para descobrir um ambiente do vCenter local para fins de avaliação com o serviço [Migrações para Azure](migrate-overview.md), antes da migração para o Azure.  
 
-## <a name="discovery-methods"></a>Métodos de descoberta
+## <a name="discovery-method"></a>Método de descoberta
 
-Há duas opções para o dispositivo Coletor, a descoberta avulsa ou a descoberta contínua.
+Anteriormente, havia duas opções para o dispositivo coletor, descoberta única e contínua. O modelo de descoberta única foi preterido pois se baseou em configurações de estatísticas do vCenter Server para coleta de dados de desempenho (configurações de estatísticas necessárias a ser definido para o nível 3) e também coletados contadores médios (em vez de pico) que resultou em dimensionamento insuficiente. O modelo de detecção contínua garante a coleta de dados granulares e resulta em dimensionamento preciso devido à coleção de contadores de pico. Veja como isso funciona:
 
-### <a name="one-time-discovery"></a>Descoberta única
-
-O dispositivo Coletor comunica-se uma única vez com o vCenter Server para reunir metadados sobre as VMs. Usando esse método:
-
-- O dispositivo não fica conectado continuamente ao projeto de Migrações para Azure.
-- As alterações no ambiente local não são refletidas nas Migrações para Azure após a conclusão da descoberta. Para refletir as alterações, você precisa descobrir o mesmo ambiente no mesmo projeto novamente.
-- Durante a coleta de dados de desempenho para uma VM, o dispositivo baseia-se nos dados de desempenho históricos armazenados no vCenter Server. Ele coleta o histórico de desempenho do mês passado.
-- Para coleção de dados de desempenho de histórico, você precisa definir as configurações de estatísticas no vCenter Server para o nível três. Depois de configurar o nível para três, você precisará aguardar pelo menos um dia para o vCenter coletar contadores de desempenho. Portanto, recomendamos que você execute a descoberta após pelo menos um dia. Se quiser avaliar o ambiente com base nos dados de desempenho de uma semana ou um mês, você precisará aguardar adequadamente.
-- Neste método de descoberta, o Migrações para Azure coleta contadores médios (em vez de contadores de pico) para cada métrica, o que pode resultar em subdimensionamento. É recomendável que você use a opção de descoberta contínua para obter resultados de dimensionamento mais precisos.
-
-### <a name="continuous-discovery"></a>Descoberta contínua
-
-O appliance Collector é continuamente conectado ao projeto de Migração do Azure e coleta continuamente os dados de desempenho das VMs.
+O appliance Collector é continuamente conectado ao projeto de Migrações para Azure e coleta continuamente os dados de desempenho das VMs.
 
 - O Coletor cria perfis continuamente do ambiente local para coletar dados de utilização em tempo real a cada 20 segundos.
 - O dispositivo acumula as amostras de 20 segundos e cria um único ponto de dados a cada 15 minutos.
@@ -44,21 +32,23 @@ O appliance Collector é continuamente conectado ao projeto de Migração do Azu
 - Esse modelo não depende das configurações de estatísticas do vCenter Server para coletar dados de desempenho.
 - Você pode parar a criação de perfil contínua a qualquer momento do Coletor.
 
-Observe que o dispositivo coleta apenas dados de desempenho continuamente e não detecta nenhuma alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, adição de disco, etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
+**Gratificação instantânea:** Com o dispositivo de descoberta contínua, após a conclusão da descoberta (leva algumas horas dependendo do número de VMs), você poderá criar avaliações imediatamente. Já que a coleta de dados de desempenho começa quando você inicia a descoberta, se estiver procurando por gratificação instantânea, você deverá escolher o critério de dimensionamento na avaliação como *local*. Para avaliações baseadas no desempenho, é aconselhável esperar pelo menos um dia após o início da descoberta para obter recomendações de tamanhos confiáveis.
 
-- Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-lo novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+O dispositivo coleta apenas dados de desempenho continuamente e não detecta nenhuma alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, adição de disco, etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
 
-- Exclusão de VMs: devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
+- Adição de itens (VMs, discos, núcleos, etc.): Para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-la novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+
+- Exclusão de VMs: Devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
 
 > [!NOTE]
-> A funcionalidade de descoberta contínua está na versão prévia. Recomendamos que você use esse método, pois ele coleta dados de desempenho granulares e resulta em um dimensionamento correto e preciso.
+> O dispositivo de descoberta única já foi preterido, pois esse método se baseou nas configurações de estatísticas do vCenter Server para disponibilidade de pontos de dados de desempenho e contadores de desempenho médios coletados, o que resultou em subdimensionamento de VMs para migração para o Azure.
 
 ## <a name="deploying-the-collector"></a>Implantando o Coletor
 
 Você pode implantar o dispositivo Coletor usando um modelo OVF:
 
 - Baixe o modelo OVF de um projeto das Migrações para Azure no portal do Azure. Importe o arquivo baixado para o vCenter Server para configurar a VM do dispositivo Coletor.
-- No OVF, o VMware define uma VM com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operacional é o Windows Server 2012 R2 (64 bits).
+- No OVF, o VMware define uma VM com 8 núcleos, 16 GB de RAM e um disco de 80 GB. O sistema operacional é o Windows Server 2016 R2 (64 bits).
 - Quando você executa o Coletor, são executadas várias verificações de pré-requisitos para garantir que o Coletor possa se conectar às Migrações para Azure.
 
 - [Saiba mais](tutorial-assessment-vmware.md#create-the-collector-vm) sobre como criar o Coletor.
@@ -68,21 +58,25 @@ Você pode implantar o dispositivo Coletor usando um modelo OVF:
 
 O Coletor precisa passar por algumas verificações de pré-requisitos para conferir se ele pode se conectar ao serviço de Migrações para Azure na Internet e fazer upload dos dados descobertos.
 
-- **Verificar a conexão com a Internet**: o coletor pode conectar-se à Internet diretamente ou por meio de um proxy.
+- **Verifique a nuvem do Azure**: O coletor precisa saber a nuvem do Azure para o qual você planeja migrar.
+    - Selecione Azure Governamental se você estiver planejando migrar para a nuvem do Azure Governamental.
+    - Selecione Azure Global se você estiver planejando migrar para a nuvem do Azure Governamental.
+    - Com base em nuvem especificada aqui, o dispositivo enviará metadados descobertos para os respectivos pontos de extremidade.
+- **Verificar conexão com a Internet**: O coletor pode conectar-se à Internet diretamente ou por meio de um proxy.
     - A verificação de pré-requisitos confere a conectividade com as [URLs obrigatórias e opcionais](#connect-to-urls).
     - Se houver uma conexão direta com a Internet, não será necessária nenhuma ação específica, além de conferir se o coletor pode acessar as URLs necessárias.
     - Se você estiver conectando por meio de um proxy, observe os [requisitos abaixo](#connect-via-a-proxy).
-- **Verificar a sincronização de horário**: o Coletor deve ser sincronizado com o servidor de horário da Internet para garantir que as solicitações ao serviço sejam autenticadas.
+- **Verificar sincronização de horário**: O Coletor deve ser sincronizado com o servidor de horário de internet para garantir que as solicitações para o serviço sejam autenticadas.
     - A URL portal.azure.com deverá estar acessível no Coletor para que o horário possa ser validado.
     - Se o computador não estiver sincronizado, será necessário alterar o horário do relógio na VM do Coletor para corresponder ao horário atual. Para fazer isso, abra um prompt de administrador na VM e execute **w32tm /tz** para verificar o fuso horário. Execute **w32tm /resync** para sincronizar o horário.
-- **Verificar se o serviço do coletor está em execução**: o serviço do Coletor de Migrações para Azure deve estar em execução na VM do Coletor.
+- **O serviço do Coletor deve estar em execução**:  O serviço Coletor de Migrações para Azure deve estar em execução na VM do Coletor.
     - Esse serviço é iniciado automaticamente quando o computador é inicializado.
     - Se o serviço não estiver em execução, inicie-o usando o Painel de Controle.
     - O serviço do coletor conecta-se ao vCenter Server, coleta os dados de desempenho e os metadados da VM e envia para o serviço de Migrações para Azure.
-- **Verificar se o VMware PowerCLI 6.5 está instalado**: o módulo PowerShell VMware PowerCLI 6.5 precisa estar instalado na VM do Coletor, para que ele possa se comunicar com o vCenter Server.
+- **Verifique se o VMware PowerCLI 6.5 está instalado**: O módulo PowerShell VMware PowerCLI 6.5 precisa estar instalado na VM do Coletor, para que ele possa se comunicar com o vCenter Server.
     - Se o Coletor puder acessar as URLs necessárias para instalar o módulo, ele será instalado automaticamente durante a implantação do Coletor.
     - Se o Coletor não puder instalar o módulo durante a implantação, você precisará [instalá-lo manualmente](#install-vwware-powercli-module-manually).
-- **Verifique a conexão com o vCenter Server**: o Coletor precisa ser capaz de conectar-se ao vCenter Server e consultar as VMs, seus metadados e os contadores de desempenho. [Verificar pré-requisitos](#connect-to-vcenter-server) para conectar-se.
+- **Verifique a conexão ao VCenter Server**: O Coletor precisa ser capaz de conectar-se ao vCenter Server e consultar as VMs, seus metadados e os contadores de desempenho. [Verificar pré-requisitos](#connect-to-vcenter-server) para conectar-se.
 
 
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Conectar-se à Internet por meio de um proxy
@@ -117,7 +111,8 @@ A verificação de conectividade é validada conectando-se a uma lista de URLs.
 
 **URL** | **Detalhes**  | **Verificação de pré-requisitos**
 --- | --- | ---
-*. portal.azure.com | Verifica a conectividade com o serviço do Azure e sincronização de horário. | Acesso à URL necessário.<br/><br/> A verificação de pré-requisitos falhará se não houver nenhuma conectividade.
+*. portal.azure.com | Aplicável para o Azure Global. Verifica a conectividade com o serviço do Azure e sincronização de horário. | Acesso à URL necessário.<br/><br/> A verificação de pré-requisitos falhará se não houver nenhuma conectividade.
+*.portal.azure.us | Aplicável somente ao Microsoft Azure Governamental. Verifica a conectividade com o serviço do Azure e sincronização de horário. | Acesso à URL necessário.<br/><br/> A verificação de pré-requisitos falhará se não houver nenhuma conectividade.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Usado para baixar o módulo do PowerShell vCenter PowerCLI. | Acesso a URLs opcionais.<br/><br/> A verificação de pré-requisitos não falhará.<br/><br/> A instalação automática do módulo na VM do Coletor falhará. Você precisará instalar o módulo manualmente.
 
 
@@ -211,7 +206,7 @@ Depois que o dispositivo estiver configurado, você poderá executar a descobert
 
 ### <a name="collected-metadata"></a>Metadados coletados
 
-O dispositivo Coletor descobre os seguintes metadados estáticos das VMs:
+O dispositivo Coletor descobre os seguintes de metadados de configuração para cada VM. Os dados de configuração da VM ficam disponíveis uma hora após o início da descoberta.
 
 - Nome de exibição da VM (no vCenter Server)
 - Caminho de inventário da VM (o host ou a pasta no vCenter Server)
@@ -224,26 +219,18 @@ O dispositivo Coletor descobre os seguintes metadados estáticos das VMs:
 
 #### <a name="performance-counters"></a>contadores de desempenho
 
-- **Descoberta avulsa**: quando os contadores são coletados para uma única descoberta. Observe o seguinte:
+ O dispositivo coletor coleta os seguintes contadores de desempenho para cada VM do host ESXi em um intervalo de 20 segundos. Esses contadores são contadores do vCenter e, embora a terminologia diga média, as amostras de 20 segundos são contadores de tempo real. Os dados de desempenho para as VMs começam a ficar disponíveis no portal duas horas depois de você ter iniciado a descoberta. É altamente recomendável aguardar pelo menos um dia antes de criar avaliações com base no desempenho para obter recomendações precisas de dimensionamento correto. Se você estiver procurando instantâneos, poderá criar avaliações com critérios de dimensionamento como *local*, que não considerará os dados de desempenho para o dimensionamento correto.
 
-    - Pode levar até 15 minutos para a coleta e o envio dos metadados de configuração ao projeto.
-    - Depois que os dados de configuração forem coletados, poderá demorar até uma hora para que os dados de desempenho fiquem disponíveis no portal.
-    - Quando os metadados estiverem disponíveis no portal, a lista de VMs será exibida e você poderá começar a criar grupos para avaliação.
-- **Descoberta contínua**: para a descoberta contínua, observe o seguinte:
-    - Os dados de configuração da VM ficam disponíveis uma hora após o início da descoberta
-    - Os dados de desempenho começam ficar disponíveis após duas horas.
-    - Depois de iniciar a descoberta, aguarde pelo menos um dia para que o dispositivo crie o perfil do ambiente, antes de criar avaliações.
-
-**Contador** | **Level** | **Nível por dispositivo** | **Impacto na avaliação**
---- | --- | --- | ---
-cpu.usage.average | 1 | ND | Tamanho de VM recomendado e custo  
-mem.usage.average | 1 | ND | Tamanho de VM recomendado e custo  
-virtualDisk.read.average | 2 | 2 | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-virtualDisk.write.average | 2 | 2  | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-net.received.average | 2 | 3 |  Calcula o tamanho da VM                          |
-net.transmitted.average | 2 | 3 | Calcula o tamanho da VM     
+**Contador** |  **Impacto na avaliação**
+--- | ---
+cpu.usage.average | Tamanho de VM recomendado e custo  
+mem.usage.average | Tamanho de VM recomendado e custo  
+virtualDisk.read.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+virtualDisk.write.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+virtualDisk.numberReadAveraged.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+virtualDisk.numberWriteAveraged.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+net.received.average | Calcula o tamanho da VM                          
+net.transmitted.average | Calcula o tamanho da VM     
 
 ## <a name="next-steps"></a>Próximas etapas
 

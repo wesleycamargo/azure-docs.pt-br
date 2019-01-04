@@ -1,23 +1,24 @@
 ---
-title: Referência de entidades de datetimeV2 predefinidas de LUIS – Azure | Microsoft Docs
+title: Adicionar DatetimeV2 predefinidas
 titleSuffix: Azure
 description: Este artigo contém informações sobre a entidade predefinida de datetimeV2 em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335769"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165173"
 ---
-# <a name="datetimev2-entity"></a>Entidade DatetimeV2
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade DatetimeV2 predefinida para um aplicativo LUIS
 
 A entidade predefinida **datetimeV2** extrai os valores de data e hora. Esses valores são resolvidos em um formato padronizado para programas do cliente consumirem. Quando um enunciado tem uma data ou hora que não está concluído, o LUIS inclui _valores passados e futuros_ na resposta do ponto de extremidade. Como essa entidade já está treinada, não é necessário adicionar enunciados contendo datetimeV2 às intenções do aplicativo. 
 
@@ -27,7 +28,7 @@ DatetimeV2 é gerenciado por meio do repositório do GitHub [Recognizers-text](h
 ## <a name="example-json"></a>JSON de exemplo 
 A resposta JSON de exemplo a seguir tem uma entidade `datetimeV2` com um subtipo de `datetime`. Para obter exemplos de outros tipos de entidades de datetimeV2, veja [Subtipos datetimeV2](#subtypes-of-datetimev2)</a>.
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ Por exemplo, dado enunciado "2 de maio":
 O exemplo a seguir mostra a resolução da entidade "may 2nd". Essa resolução pressupõe que a data de hoje é uma data entre 2 de maio de 2017 e 1º de maio de 2018.
 Campos com `X` no campo `timex` fazem parte da data que não está explicitamente especificada no enunciado.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ Campos com `X` no campo `timex` fazem parte da data que não está explicitament
 
 A entidade `datetimeV2` extrai os intervalos de data e hora. Os campos `start` e `end` especificam o início e o fim do intervalo. Para o enunciado "2 de maio a 5 de maio", o LUIS fornece valores de **daterange** para o ano atual e o próximo ano. No campo `timex`, os valores `XXXX` indicam a ambiguidade do ano. `P3D` indica que o período é de três dias.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ A entidade `datetimeV2` extrai os intervalos de data e hora. Os campos `start` e
 
 O exemplo a seguir mostra como o LUIS usa **datetimeV2** para resolver o enunciado "Terça-feira a quinta-feira". Neste exemplo, a data atual é 19 de junho. O LUIS inclui valores de **daterange** para ambos os intervalos de datas que precedem e seguem a data atual.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ A matriz de valores terá dois elementos de tempo se o tempo ou o intervalo de t
 
 O exemplo a seguir mostra como o LUIS usa **datetimeV2** para resolver o enunciado que tem um intervalo de tempo.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

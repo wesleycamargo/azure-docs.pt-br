@@ -1,21 +1,22 @@
 ---
-title: Documentação do SDK do Serviço de Fala
+title: Notas sobre a versão – Serviços de Fala
 titlesuffix: Azure Cognitive Services
-description: Notas de versão – o que mudou nas versões mais recentes
+description: Veja um log de execução de versões de recursos, aprimoramentos, correções de bugs e problemas conhecidos dos Serviços de Fala do Azure.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: ff09926d61d64294a4f12ccf959f6685910539f1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317884"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088289"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -24,7 +25,7 @@ ms.locfileid: "52317884"
 **Novos recursos**
 
 * Suporte para Android x86/x64.
-* Suporte Proxy: No objeto SpeechConfig, agora você pode chamar uma função para definir as informações do proxy (nome do host, porta, nome de usuário e senha). Este recurso ainda não está disponível no iOS.
+* Suporte do proxy: no objeto SpeechConfig, agora você pode chamar uma função para definir as informações do proxy (nome do host, porta, nome de usuário e senha). Este recurso ainda não está disponível no iOS.
 * Melhor código de erro e mensagens. Se um reconhecimento retornou um erro, isso já definiu `Reason` (no evento cancelado) ou `CancellationDetails` (no resultado do reconhecimento) para `Error`. O evento cancelado agora contém dois membros adicionais, `ErrorCode` e `ErrorDetails`. Se o servidor retornou informações de erro adicionais com o erro relatado, agora ele estará disponível nos novos membros.
 
 **Melhorias**
@@ -59,7 +60,7 @@ Melhorias na confiabilidade e correções de bugs:
 * Adicionado erro adicional e verificação de parâmetros.
 * Objective-C: corrigido possível erro fatal causado por substituição de nome em NSString.
 * Objective-C: visibilidade ajustada da API
-* JavaScript: corrigido em relação a eventos e cargas.
+* JavaScript: corrigido em relação a eventos e conteúdos.
 * Melhorias na documentação.
 
 Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo exemplo para JavaScript foi adicionado.
@@ -106,9 +107,9 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 **Novos recursos**
 
-* Suporte a plataforma Android (API 23: Android 6.0 Marshmallow ou superior). Confira o [Início Rápido para Android](quickstart-java-android.md).
+* Suporte à plataforma Android (API 23: Android 6.0 Marshmallow ou superior). Confira o [Início Rápido para Android](quickstart-java-android.md).
 * Suporte para .NET Standard 2.0 no Windows. Confira o [Início Rápido para .NET Core](quickstart-csharp-dotnetcore-windows.md).
-* Experimental: Suporte a UWP no Windows (versão 1709 ou posterior).
+* Experimental: suporte à UWP no Windows (versão 1709 ou posterior).
   * Confira o [Início Rápido do UWP](quickstart-csharp-uwp.md).
   * Observação: os aplicativos UWP compilados com o SDK de Fala ainda não são aprovados pelo WACK (Kit de Certificação de Aplicativos Windows).
 * Suporte ao reconhecimento de execução longa com reconexão automática.
@@ -139,7 +140,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 * O SDK de Fala para Android não relata os resultados da síntese de fala para tradução. Esse problema será corrigido na próxima versão.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de Fala de Serviços Cognitivos 0.4.0: versão de junho de 2018
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de Fala dos Serviços Cognitivos 0.4.0: versão de junho de 2018
 
 **Alterações funcionais**
 
@@ -175,6 +176,6 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 Mais exemplos foram adicionados e são atualizados constantemente. Para obter o último conjunto de exemplos, confira o [Repositório GitHub de exemplos do SDK de Fala](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK de Fala de Serviços Cognitivos 0.2.12733: versão de maio de 2018
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK de Fala dos Serviços Cognitivos 0.2.12733: versão de maio de 2018
 
 Esta versão é a primeira versão prévia pública do SDK de Fala dos Serviços Cognitivos.

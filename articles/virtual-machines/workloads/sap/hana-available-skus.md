@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f7bd4bc74e63e3b4dd25a7185ce3641712538f1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6a62c30235fdd262f0df5937b6a829382d2b45ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284380"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866280"
 ---
 # <a name="available-skus-for-hli"></a>SKUs disponíveis para HLI
 
@@ -52,7 +52,7 @@ Em muitos casos, essas configurações de servidor específicas do cliente carre
 
 | SKU|CPU | Memória | Armazenamento | Disponibilidade |
 | ---| --- | --- | --- | --- |
-| S96 | SAP HANA no Azure S96<br /> – 2 x processadores Intel® Xeon® E7-8890 v4<br /> 48 núcleos de CPU e 96 threads de CPU |  768 TB |  3 TB | Disponível |
+| S96 | SAP HANA no Azure S96<br /> – 2 x processadores Intel® Xeon® E7-8890 v4<br /> 48 núcleos de CPU e 96 threads de CPU |  768 GB |  3 TB | Disponível |
 
 
 | SKU original que pode ser <br /> estendido na memória | CPU | Memória | Armazenamento | Disponibilidade |
@@ -76,9 +76,9 @@ A base de hardware para as ofertas, exceto unidades para projetos de dimensionam
 
 Um carimbo do SAP HANA em Instâncias Grandes completo não é alocado exclusivamente para uso de um único cliente. Esse fato se aplica aos racks de recursos de computação e armazenamento conectados por meio de uma malha de rede implantada no Azure também. A infraestrutura do SAP HANA em Instâncias Grandes, como o Azure, implanta &quot;locatários&quot; diferentes do cliente isolados uns dos outros nos três níveis a seguir:
 
-- **Rede**: isolamento através de redes virtuais dentro do carimbo do SAP HANA em Instâncias Grandes.
-- **Armazenamento**: isolamento por meio de máquinas virtuais de armazenamento que têm volumes de armazenamento atribuídos e isolam volumes de armazenamento entre locatários.
-- **Computação**: atribuição dedicada de unidades de servidor para um único locatário. Nenhum particionamento rígido ou flexível de unidades de servidor. Nenhum compartilhamento de uma única unidade de host ou de servidor entre locatários. 
+- **Rede**: Isolamento através de redes virtuais dentro do carimbo da Instância do SAP HANA Grande.
+- **Armazenamento**: Isolamento por meio de máquinas virtuais de armazenamento que têm volumes de armazenamento atribuídos e isolam volumes de armazenamento entre locatários.
+- **Computação**: Atribuição dedicada de unidades de servidor para um único locatário. Nenhum particionamento rígido ou flexível de unidades de servidor. Nenhum compartilhamento de uma única unidade de host ou de servidor entre locatários. 
 
 As implantações de unidades do SAP HANA em Instâncias Grandes entre locatários diferentes não são visíveis entre si. As unidades do SAP HANA em Instâncias Grandes implantadas em diferentes locatários não podem comunicar-se diretamente entre si no nível de carimbo do SAP HANA em Instâncias Grandes. Somente as unidades do SAP HANA em Instâncias Grandes em um locatário podem comunicar-se entre si no nível de carimbo do SAP HANA em Instâncias Grandes.
 

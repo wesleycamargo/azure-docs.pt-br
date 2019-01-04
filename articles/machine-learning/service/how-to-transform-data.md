@@ -1,5 +1,6 @@
 ---
-title: Transformar dados com SDK de preparação de dados do Azure Machine Learning – Python
+title: 'Transformações: SDK do Python de preparação de dados'
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre a transformação e a limpeza de dados com o SDK de preparação de dados do Azure Machine Learning. Use métodos de transformação para adicionar colunas, filtrar linhas ou colunas indesejadas e acrescentar valores ausentes.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: d32244cd49ebd42192b2388215f79a64cacb3caa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309786"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186133"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
@@ -216,16 +218,16 @@ builder.preview(skip=30)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|30|1/11/2015 22:54|1 de janeiro de 2015 22:00 - 00:00|
-|31|1/11/2015 23:54|1 de janeiro de 2015 22:00 - 00:00|
-|32|1/11/2015 23:59|1 de janeiro de 2015 22:00 - 00:00|
-|33|1/11/2015 0:54|1 de fevereiro de 2015 0:00 - 2:00|
-|34|2/11/2015 1:00|1 de fevereiro de 2015 0:00 - 2:00|
-|35|2/11/2015 1:54|1 de fevereiro de 2015 0:00 - 2:00|
-|36|2/11/2015 2:54|2 de fevereiro de 2015 2:00 - 4:00|
-|37|2/11/2015 3:54|2 de fevereiro de 2015 2:00 - 4:00|
-|38|2/11/2015 4:00|2 de fevereiro de 2015 4:00 - 6:00|
-|11,8|2/11/2015 4:54|2 de fevereiro de 2015 4:00 - 6:00|
+|30|1/1/2015 22:54|1 de janeiro de 2015 22:00 - 00:00|
+|31|1/1/2015 23:54|1 de janeiro de 2015 22:00 - 00:00|
+|32|1/1/2015 23:59|1 de janeiro de 2015 22:00 - 00:00|
+|33|2/1/2015 0:54|1 de fevereiro de 2015 0:00 - 2:00|
+|34|2/1/2015 1:00|1 de fevereiro de 2015 0:00 - 2:00|
+|35|2/1/2015 1:54|1 de fevereiro de 2015 0:00 - 2:00|
+|36|2/1/2015 2:54|2 de fevereiro de 2015 2:00 - 4:00|
+|37|2/1/2015 3:54|2 de fevereiro de 2015 2:00 - 4:00|
+|38|2/1/2015 4:00|2 de fevereiro de 2015 4:00 - 6:00|
+|11,8|2/1/2015 4:54|2 de fevereiro de 2015 4:00 - 6:00|
 
 Aqui você vê um problema com o programa gerado. Baseado apenas no exemplo fornecido acima, o programa derive escolheu analisar a data como "Dia/Mês/Ano", o que não é o que você deseja neste caso. Para corrigir esse problema, forneça outro exemplo usando `add_example()` a função na `builder` variável.
 

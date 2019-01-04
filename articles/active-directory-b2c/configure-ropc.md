@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2ea9356f1292669f115d2bb482419435320f644c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978818"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726280"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
@@ -26,23 +26,26 @@ O fluxo de credenciais de senha de proprietário do recurso (ROPC) é um fluxo d
 
 No Azure Active Directory (Azure AD) B2C, há suporte para as seguintes opções:
 
-- **Native Client**: interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel que está sendo executado em um sistema operacional nativo, como Android, ou em execução em um navegador, como JavaScript.
+- **Cliente nativo**: Interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel que está sendo executado em um sistema operacional nativo, como Android, ou em execução em um navegador, como JavaScript.
 - **Fluxo de cliente público**: Somente credenciais de usuário, coletadas por um aplicativo, são enviadas na chamada de API. As credenciais do aplicativo não são enviadas.
 - **Adicionar novas declarações**: O conteúdo do token de ID pode ser alterado para adicionar novas declarações. 
 
 Não há suporte para os fluxos a seguir:
 
 - **Servidor-para-servidor**: O sistema de proteção de identidade precisa de um endereço IP confiável coletado pelo chamador (o cliente nativo) como parte da interação. Em uma chamada de API do lado do servidor, somente o endereço IP do servidor é usado. Se um limite dinâmico de autenticações com falha for excedido, o sistema de proteção de identidade pode identificar um endereço IP repetido como um invasor.
-- **Fluxo de cliente confidencial**: A ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
+- **Fluxo confidencial do cliente**: A ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
 
-##  <a name="create-a-resource-owner-policy"></a>Criar uma política de proprietário de recurso
+##  <a name="create-a-resource-owner-user-flow"></a>Crie um fluxo de usuário do proprietário de recurso
 
-1. Entre no portal do Azure como administrador global do locatário Azure AD B2C.
-2. Para alternar para seu locatário do Azure AD B2C, selecione o diretório do B2C no canto superior direito do portal.
-3. Em **Políticas**, selecione **Políticas de Proprietário do Recurso**.
-4. Forneça um nome para a política, como *ROPC_Auth* e, em seguida, selecione em **Declarações de aplicativo**.
-5. Selecione as declarações de aplicativo de que você precisa para seu aplicativo, como *Nome de Exibição*, *Endereço de Email*, e *Provedor de Identidade*.
-6. Selecione **OK** e, então, selecione **Criar**.
+1.  Entre no portal do Azure como administrador global do locatário Azure AD B2C.
+2.  Para alternar para seu locatário do Azure AD B2C, selecione o diretório do B2C no canto superior direito do portal.
+3.  Clique em **Fluxos de usuário** e selecione **Novo fluxo de usuário**.
+4.  Clique na guia **Todos** e selecione **Proprietário do Recurso**.
+5.  Forneça um nome para o fluxo de usuário, como *ROPC_Auth_app*.
+6.  Em **Declarações de aplicativo**, clique em **Mostrar mais**.
+7.  Selecione as declarações de aplicativo de que você precisa para seu aplicativo, como Nome de Exibição, Endereço de Email, e Provedor de Identidade.
+8.  Selecione **OK** e, então, selecione **Criar**.
+9.  Clique em **Executar fluxo de usuário**.
 
    Você verá um ponto de extremidade, como neste exemplo:
 
@@ -57,9 +60,9 @@ Não há suporte para os fluxos a seguir:
 4. Deixe todos os outros valores como estão e então selecione **Criar**.
 5. Selecione o novo aplicativo e anote a ID do aplicativo para usar depois.
 
-## <a name="test-the-policy"></a>Testar a política
+## <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 
-Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de API e analise a resposta para depurar sua política. Construa uma chamada como esta com as informações na tabela a seguir como o corpo da solicitação POST:
+Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de API e analise a resposta para depurar seu fluxo de usuário. Construa uma chamada como esta com as informações na tabela a seguir como o corpo da solicitação POST:
 - Substitua *\<yourtenant.onmicrosoft.com>* com o nome do seu locatário B2C.
 - Substitua *\<B2C_1A_ROPC_Auth >* com o nome completo da política de credenciais de senha do proprietário do recurso.
 - Substitua *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* pela ID do aplicativo de seu registro.

@@ -1,6 +1,6 @@
 ---
-title: Planos de implantação do Azure Active Directory | Microsoft Docs
-description: Fornece orientação de ponta a ponta sobre como implantar recursos do Azure Active Directory
+title: Planos de implantação - Azure Active Directory | Microsoft Docs
+description: Fornece orientação de ponta a ponta sobre como implantar recursos do Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
-ms.openlocfilehash: f5a148cba172b4e1e4490b52afb3b500da3a593c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: f471f1183a7d0d695b5817003fe70a018787731d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434153"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094773"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
 Procurando orientação de ponta a ponta sobre como implantar alguns recursos do Azure AD (Azure Active Directory)? Os planos de implantação a seguir explicam o valor comercial, as considerações de planejamento, o design e os procedimentos operacionais necessários para implantar com êxito alguns dos recursos mais comuns do Azure AD. 

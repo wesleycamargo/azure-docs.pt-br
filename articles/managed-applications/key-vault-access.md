@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: f091ba44a3170dcc4141829f2f4105d6e7993cdf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035282"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725005"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acessar segredo do Azure Key Vault durante a implantação de Aplicativos Gerenciados do Azure
 
@@ -43,7 +43,7 @@ Quando você precisa passar um valor seguro (como uma senha) como um parâmetro 
 
    ![Selecionar o controle de acesso](./media/key-vault-access/access-control.png)
 
-1. Selecione **Adicionar**.
+1. Selecione **Adicionar atribuição de função**.
 
    ![Selecionar adicionar](./media/key-vault-access/add-access-control.png)
 

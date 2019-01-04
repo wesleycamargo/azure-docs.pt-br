@@ -8,52 +8,49 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 32f8872737fdf6dd766ae8df8ef3ed47692e2c9c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: df4cfd8cdf720dd085c3f14ad518c557f270ffa4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52636961"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340854"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Suborquestrações em Funções Duráveis (Azure Functions)
 
 Além de chamar funções de atividade, as funções de orquestrador podem chamar outras funções de orquestrador. Por exemplo, você pode criar uma orquestração maior usando uma biblioteca de funções de orquestrador. Ou pode executar várias instâncias de uma função de orquestrador em paralelo.
 
-Uma função de orquestrador pode chamar outra função de orquestrador chamando os métodos [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) ou [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_). O artigo [Tratamento de Erro e Compensação](durable-functions-error-handling.md#automatic-retry-on-failure) fornece mais informações sobre a repetição automática.
+Uma função de orquestrador pode chamar outra função de orquestrador chamando os métodos [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) ou [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) no .NET ou os métodos `callSubOrchestrator` ou `callSubOrchestratorWithRetry` no JavaScript. O artigo [Tratamento de Erro e Compensação](durable-functions-error-handling.md#automatic-retry-on-failure) fornece mais informações sobre a repetição automática.
 
 Da perspectiva do chamador, as funções de suborquestrador se comportam como funções de atividade. Elas podem retornar um valor, lançar uma exceção e podem ser aguardadas pela função de orquestrador pai.
-
-> [!NOTE]
-> Os métodos `CallSubOrchestratorAsync` e `CallSubOrchestratorWithRetryAsync` ainda não estão disponíveis em JavaScript.
 
 ## <a name="example"></a>Exemplo
 
 O exemplo a seguir ilustra um cenário de IoT ("Internet das Coisas") em que vários dispositivos precisam ser provisionados. Há uma orquestração específica que deve acontecer para cada um dos dispositivos, que pode ser algo semelhante ao seguinte:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
-    [OrchestrationTrigger] DurableOrchestrationContext ctx)
+    [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    string deviceId = ctx.GetInput<string>();
+    string deviceId = context.GetInput<string>();
 
     // Step 1: Create an installation package in blob storage and return a SAS URL.
-    Uri sasUrl = await ctx.CallActivityAsync<Uri>("CreateInstallationPackage", deviceId);
+    Uri sasUrl = await context.CallActivityAsync<Uri>("CreateInstallationPackage", deviceId);
 
     // Step 2: Notify the device that the installation package is ready.
-    await ctx.CallActivityAsync("SendPackageUrlToDevice", Tuple.Create(deviceId, sasUrl));
+    await context.CallActivityAsync("SendPackageUrlToDevice", Tuple.Create(deviceId, sasUrl));
 
     // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
-    await ctx.WaitForExternalEvent<bool>("DownloadCompletedAck");
+    await context.WaitForExternalEvent<bool>("DownloadCompletedAck");
 
     // Step 4: ...
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (apenas Funções 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -74,24 +71,24 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Essa função de orquestrador pode ser usada da forma como está para o provisionamento de dispositivos individuais ou pode fazer parte de uma orquestração maior. Nesse último caso, a função de orquestrador pai pode agendar instâncias de `DeviceProvisioningOrchestration` usando a API `CallSubOrchestratorAsync` (C#) ou `callSubOrchestrator` (JS).
+Essa função de orquestrador pode ser usada da forma como está para o provisionamento de dispositivos individuais ou pode fazer parte de uma orquestração maior. Nesse último caso, a função de orquestrador pai pode agendar instâncias de `DeviceProvisioningOrchestration` usando a API `CallSubOrchestratorAsync` (C#) ou `callSubOrchestrator` (JavaScript).
 
 Este é um exemplo que mostra como executar várias funções de orquestrador em paralelo.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
 public static async Task ProvisionNewDevices(
-    [OrchestrationTrigger] DurableOrchestrationContext ctx)
+    [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    string[] deviceIds = await ctx.CallActivityAsync<string[]>("GetNewDeviceIds");
+    string[] deviceIds = await context.CallActivityAsync<string[]>("GetNewDeviceIds");
 
     // Run multiple device provisioning flows in parallel
     var provisioningTasks = new List<Task>();
     foreach (string deviceId in deviceIds)
     {
-        Task provisionTask = ctx.CallSubOrchestratorAsync("DeviceProvisioningOrchestration", deviceId);
+        Task provisionTask = context.CallSubOrchestratorAsync("DeviceProvisioningOrchestration", deviceId);
         provisioningTasks.Add(provisionTask);
     }
 
@@ -101,7 +98,7 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (apenas Funções 2.x)
 
 ```javascript
 const df = require("durable-functions");

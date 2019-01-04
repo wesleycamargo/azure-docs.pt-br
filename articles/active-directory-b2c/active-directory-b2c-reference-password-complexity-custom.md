@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ed0001d8d88a2604e3128a4d5f7a365aeb7b00b1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c6b8312a08d1d92bccf70e7d3dda5f01811b4f87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440784"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848520"
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Configurar a complexidade de senha em políticas personalizada
 
@@ -23,11 +23,11 @@ ms.locfileid: "37440784"
 
 Este artigo é uma descrição avançada de como funciona a complexidade da senha e é habilitada por meio de políticas personalizadas do Azure AD B2C.
 
-## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: como configurar os requisitos de complexidade de senhas
+## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Como configurar os requisitos de complexidade de senhas
 
 O Azure Active Directory B2C (Azure AD B2C) oferece suporte à alteração de requisitos de complexidade para senhas fornecidas por um usuário final ao criar uma conta.  Por padrão, o Azure AD B2C usa senhas **Fortes**.  O Azure AD B2C também oferece suporte a opções de configuração para controlar a complexidade de senhas que os clientes podem usar.  Este artigo aborda como configurar a complexidade de senha em políticas personalizadas.  Também é possível usar [configurar a complexidade de senha em políticas internas](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
 
@@ -124,8 +124,8 @@ Este exemplo contém uma validação para senhas de pin e outra para senhas fort
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="yourtenant.onmicrosoft.com"

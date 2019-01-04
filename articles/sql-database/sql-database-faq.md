@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242816"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270392"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Perguntas Frequentes do Banco de Dados SQL (FAQ)
 
@@ -31,7 +31,7 @@ Garantimos que por pelo menos 99,99% do tempo você terá conectividade entre o 
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>É possível controlar quando ocorre tempo de inatividade de patch
 
-Não. O impacto de patch geralmente não será perceptível, se você [empregar lógica de repetição](sql-database-develop-overview.md#resiliency) no aplicativo.
+ Não. O impacto de patch geralmente não será perceptível, se você [empregar lógica de repetição](sql-database-develop-overview.md#resiliency) no aplicativo.
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Qual é o novo modelo de compra baseado em vCore para o Banco de Dados SQL do Azure?
 
@@ -196,9 +196,9 @@ Por exemplo:
 > [!NOTE]
 > Por um período limitado, os encargos de backup e encargos de E/S estarão gratuitos.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Como o uso da georeplicação ativa em um pool elástico aparece na minha conta
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>Como o uso de grupos de replicação geográfica ou failover automático do Active Directory em um pool elástico aparece na minha fatura
 
-Ao contrário dos bancos de dados únicos, o uso da [replicação geográfica ativa](sql-database-geo-replication-overview.md) com bancos de dados elásticos não tem um impacto direto no faturamento.  Você é cobrado apenas pelos recursos provisionados para cada um dos pools (pool primário e secundário)
+Ao contrário dos bancos de dados únicos, o uso da [replicação geográfica ativa](sql-database-active-geo-replication.md) ou [grupos de failover automático](sql-database-auto-failover-group.md) com bancos de dados elásticos não tem um impacto direto no faturamento. Você é cobrado apenas pelos recursos provisionados para cada um dos pools (pool primário e secundário)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Como o uso do recurso de auditoria afeta minha fatura
 
@@ -217,7 +217,7 @@ Consulte [gerenciamento de bancos de dados e logons](sql-database-manage-logins.
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Como tornar-se de que somente endereços IP autorizados têm permissão para acessar um servidor
 
-Confira [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md).
+Confira [Como: definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md).
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>O que é o retardo de replicação esperado durante a replicação geográfica um banco de dados entre duas regiões na mesma região geográfica do Azure
 

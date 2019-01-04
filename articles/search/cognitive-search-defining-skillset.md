@@ -1,5 +1,5 @@
 ---
-title: Criar um conjunto de habilidades em um pipeline de pesquisa cognitiva (Azure Search) | Microsoft Docs
+title: Criar um conjunto de habilidades em um pipeline de pesquisa cognitiva – Azure Search
 description: Defina a extração de dados, o processamento de idioma natural ou as etapas de análise de imagem para enriquecer e extrair informações estruturadas de seus dados para uso no Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.custom: seodec2018
+ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268018"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320788"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um conjunto de habilidades em um pipeline de enriquecimento
 
@@ -28,8 +29,8 @@ Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as hab
 Pontos principais a serem lembrados:
 
 + Você pode ter apenas um conjunto de habilidades por indexador.
-+ O conjunto de habilidades precisa ter pelo menos uma habilidade.
-+ É possível criar várias habilidades do mesmo tipo (por exemplo, variantes de uma habilidade de análise de imagem), mas cada uma delas só pode ser usada uma vez dentro do mesmo conjunto de habilidades.
++ Um conjunto de qualificações precisa ter pelo menos uma habilidade.
++ É possível criar várias habilidades do mesmo tipo (por exemplo, variantes de uma habilidade de análise de imagem).
 
 ## <a name="begin-with-the-end-in-mind"></a>Comece pensando no fim
 

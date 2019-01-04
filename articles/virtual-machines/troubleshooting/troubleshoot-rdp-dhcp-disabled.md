@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: a469fe0d6057d865ec006d9eb14ad95f2d4b7005
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308423"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138153"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Não é possível RDP para máquinas virtuais do Azure porque o serviço de cliente DHCP está desativado
 
@@ -26,20 +26,20 @@ Este artigo descreve um problema em que você não pode área de trabalho remota
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="symptoms"></a>Sintomas 
+## <a name="symptoms"></a>Sintomas
 
 Você não pode tornar uma conexão RDP uma VM no Azure porque o serviço Cliente DHCP está desabilitado na VM. Quando você verifica a captura de tela no [Diagnóstico de inicialização](../troubleshooting/boot-diagnostics.md) no portal do Azure, a VM é inicializada normalmente e aguarda as credenciais na tela de login. Você visualiza remotamente os logs de eventos na VM usando o Visualizador de Eventos. Você vê que o serviço de cliente DHCP não está iniciado ou falha ao iniciar. A seguir um exemplo de log:
 
-**Nome de log**: sistema </br>
-**Origem**: Gerenciador de controle de serviço </br>
-**Data**: 12/16/2015 11:19:36 AM </br>
+**Nome do log**: Sistema </br>
+**Fonte**: Gerenciador de Controle de Serviço </br>
+**Data**: 16/12/2015 11:19:36 </br>
 **ID de evento**: 7022 </br>
-**Categoria de tarefa**: nenhum </br>
-**Nível**: erro </br>
-**Palavras-chave**: Clássico</br> 
-**Usuário**: N/A </br>
+**Categoria da Tarefa**: Nenhum </br>
+**Nível**: Erro </br>
+**Palavras-chave**: Clássico</br>
+**Usuário**: N/D </br>
 **Computador**: myvm.cosotos.com</br>
-**Descrição**: parou ao iniciar o serviço do cliente DHCP.</br>
+**Descrição**: Parou ao iniciar o serviço do cliente DHCP.</br>
 
 Para VMs do Resource Manager, você pode usar o recurso Serial Access Console para consultar os logs de eventos 7022 usando o seguinte comando:
 
@@ -49,12 +49,12 @@ Para VMs clássicas, você precisará trabalhar no modo OFFLINE e coletar os log
 
 ## <a name="cause"></a>Causa
 
-O serviço de cliente DHCP não está sendo executado na VM. 
+O serviço de cliente DHCP não está sendo executado na VM.
 
 > [!NOTE]
-> Este artigo se aplica somente ao serviço de cliente DHCP e não ao servidor DHCP. 
+> Este artigo se aplica somente ao serviço de cliente DHCP e não ao servidor DHCP.
 
-## <a name="solution"></a>Solução 
+## <a name="solution"></a>Solução
 
 Antes de seguir essas etapas, tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
@@ -62,7 +62,7 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 
 ### <a name="use-serial-control"></a>Usar o Controle serial
 
-1. Conecte-se ao [Console Serial e abra a instância CMD](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Conecte-se ao [Console Serial e abra a instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Se o Console serial não estiver habilitado em sua VM, consulte [Redefinir a interface de rede](reset-network-interface.md).
 2. Verifique se o DHCP está desativado na interface de rede:
 
@@ -70,7 +70,7 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 3. Se o DHCP é interrompido, tente iniciar o serviço
 
         sc start DHCP
-        
+
 4. Consulte o serviço novamente para certificar-se de que o serviço é iniciado com êxito.
 
         sc query DHCP
@@ -89,9 +89,9 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
     |-1069 ERROR_SERVICE_LOGON_FAILED   |  Consulte [serviço cliente DHCP falha devido a falha de logon](#dhcp-client-service-fails-because-of-logon-failure) |
     | 1070 - ERROR_SERVICE_START_HANG  | Ver [serviço cliente DHCP falhar ou travar](#dhcp-client-service-crashes-or-hangs).  |
     | 1077 - ERROR_SERVICE_NEVER_STARTED  | Ver [o serviço cliente DHCP está desabilitado](#dhcp-client-service-is-disabled).  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.  | 
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.  |
     |1053 | [Contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.  |
-    
+
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>Serviço de cliente DHCP é interrompido devido a um erro de acesso negado
 
@@ -99,18 +99,18 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 2. Faça o download da ferramenta Monitor de Processos executando o seguinte script:
 
    ```
-   remove-module psreadline  
-   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
-   $destination = "c:\temp\ProcessMonitor.zip" 
-   $wc = New-Object System.Net.WebClient 
-   $wc.DownloadFile($source,$destination) 
+   remove-module psreadline
+   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
+   $destination = "c:\temp\ProcessMonitor.zip"
+   $wc = New-Object System.Net.WebClient
+   $wc.DownloadFile($source,$destination)
    ```
 3. Agora inicie um rastreamento **procmon**:
 
    ```
-   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML
    ```
-4. Reproduza o problema iniciando o serviço que está gerando a mensagem **Access Denied**: 
+4. Reproduza o problema iniciando o serviço que está gerando a mensagem **Access Denied**:
 
    ```
    sc start DHCP
@@ -118,8 +118,8 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 
    Quando falhar, encerre o rastreio do Process Monitor:
 
-   ```   
-   procmon /Terminate 
+   ```
+   procmon /Terminate
    ```
 5. Coletar o **c:\temp\ProcMonTrace.PML** arquivo:
 
@@ -132,7 +132,7 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 
     ![Filtrar por resultado no Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
-7. Corrigir as chaves do registro, pastas ou arquivos que estão na saída. Normalmente, esse problema é causado quando a conta de login usada no serviço não tem permissão da ACL para acessar esses objetos. Para determinar a permissão correta da ACL para a conta de entrada, você pode verificar uma VM saudável. 
+7. Corrigir as chaves do registro, pastas ou arquivos que estão na saída. Normalmente, esse problema é causado quando a conta de login usada no serviço não tem permissão da ACL para acessar esses objetos. Para determinar a permissão correta da ACL para a conta de entrada, você pode verificar uma VM saudável.
 
 #### <a name="dhcp-client-service-is-disabled"></a>O serviço de cliente DHCP está desativado
 
@@ -158,7 +158,7 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 
 #### <a name="dhcp-client-service-fails-because-of-logon-failure"></a>Serviço de cliente DHCP falha devido a falha de logon
 
-1. Como esse problema ocorre se a conta de inicialização desse serviço foi alterada, reverta a conta para seu status padrão: 
+1. Como esse problema ocorre se a conta de inicialização desse serviço foi alterada, reverta a conta para seu status padrão:
 
         sc config DHCP obj= 'NT Authority\Localservice'
 2. Inicie o serviço:
@@ -167,7 +167,7 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 3. Tente se conectar à VM usando a Área de Trabalho Remota.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>Serviço de cliente DHCP falha ou trava
-1. Se o status do serviço estiver parado no estado **Iniciando** ou **Parando**, tente parar o serviço: 
+1. Se o status do serviço estiver parado no estado **Iniciando** ou **Parando**, tente parar o serviço:
 
         sc stop DHCP
 2. Isole o serviço em seu próprio contêiner "svchost":
@@ -184,12 +184,12 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 
 1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação. Certifique-se de que o disco conectado esteja sinalizado como **Online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
-3.  Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Este script presume que a letra da unidade atribuída ao disco do SO anexado é **F**. Substitua a letra conforme apropriado pelo valor em sua VM. 
+3.  Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Este script presume que a letra da unidade atribuída ao disco do SO anexado é **F**. Substitua a letra conforme apropriado pelo valor em sua VM.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
 
-    REM Set default values back on the broken service 
+    REM Set default values back on the broken service
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v start /t REG_DWORD /d 2 /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v ObjectName /t REG_SZ /d "NT Authority\LocalService" /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v type /t REG_DWORD /d 16 /f

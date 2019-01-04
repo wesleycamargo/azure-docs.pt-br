@@ -1,6 +1,6 @@
 ---
-title: Como adicionar ou excluir usuários no Active Directory do Azure | Microsoft Docs
-description: Saiba como adicionar novos usuários ou excluir usuários existentes usando o Active Directory do Azure.
+title: Adicionar ou excluir usuários – Azure Active Directory | Microsoft Docs
+description: Instruções sobre como adicionar novos usuários ou excluir usuários existentes usando o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: dd4a9132d5f04870239be3127f723afb60b3ecef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295097"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104672"
 ---
-# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Como adicionar ou excluir usuários usando o Active Directory do Azure
-Adicione novos usuários ou exclua usuários existentes do locatário do Azure AD (Azure Active Directory), usando o Azure AD.
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
+Adicione novos usuários ou exclua usuários existentes do locatário do Azure AD (Azure Active Directory).
 
 ## <a name="add-a-new-user"></a>Adicione um novo usuário
-Você pode criar um novo usuário usando o Active Directory do Azure.
+Você pode criar um novo usuário usando o portal do Azure Active Directory.
 
 ### <a name="to-add-a-new-user"></a>Para adicionar um novo usuário
 1. Faça login no [Portal do Azure](https://portal.azure.com/) como administrador global ou administrador de usuário do diretório.
@@ -58,10 +58,10 @@ Você pode criar um novo usuário usando o Active Directory do Azure.
 Se você tiver um ambiente com o Azure Active Directory (nuvem) e o Windows Server Active Directory (local), poderá adicionar novos usuários sincronizando os dados da conta de usuário existente. Para obter mais informações sobre ambientes e usuários híbridos, consulte [Integre seus diretórios locais ao Active Directory do Azure](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Excluir um usuário
-Você pode excluir um usuário existente usando o Active Directory do Azure.
+Você pode excluir um usuário existente usando o portal do Azure Active Directory.
 
 ### <a name="to-delete-a-user"></a>Para excluir um usuário
-1. Faça login no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador global para o diretório.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
 2. Selecione **Active Directory do Azure**, selecione **Usuários** e pesquise e selecione o usuário que você deseja excluir do locatário do Azure AD. Por exemplo, _Mary Parker_.
 

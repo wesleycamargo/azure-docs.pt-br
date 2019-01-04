@@ -1,5 +1,5 @@
 ---
-title: Gatilho e referência de tipos de ação - Azure Logic Apps | Microsoft Docs
+title: Gatilho e referência de tipos de ação - Aplicativos Lógicos do Azure | Microsoft Docs
 description: Saiba mais sobre tipos de acionadores e ações nos Aplicativos Lógicos do Azure, conforme descrito pelo esquema de Linguagem de Definição de Fluxo de Trabalho
 services: logic-apps
 ms.service: logic-apps
@@ -756,7 +756,7 @@ Sua definição de fluxo de trabalho agora pode usar `@triggerBody().name`para o
 
 ## <a name="actions-overview"></a>Visão geral de ações
 
-O Azure Logic Apps fornece vários tipos de ação - cada um com entradas diferentes que definem o comportamento exclusivo de uma ação. 
+Os Aplicativos Lógicos do Azure fornecem vários tipos de ação - cada um com entradas diferentes que definem o comportamento exclusivo de uma ação. 
 
 As ações têm esses elementos de alto nível, embora alguns sejam opcionais:
 
@@ -995,7 +995,7 @@ Você também pode especificar limites em um **ApiConnectionWebhook** ação da 
 
 ### <a name="compose-action"></a>Ação para compor
 
-Esta ação cria uma única saída de várias entradas, incluindo expressões. Tanto a saída quanto as entradas podem ter qualquer tipo compatível com o Azure Logic Apps, como matrizes, objetos JSON, XML e binário.
+Esta ação cria uma única saída de várias entradas, incluindo expressões. Tanto a saída quanto as entradas podem ter qualquer tipo compatível com os Aplicativos Lógicos do Azure, como matrizes, objetos JSON, XML e binário.
 Em seguida, você pode usar a saída da ação em outras ações. 
 
 ```json

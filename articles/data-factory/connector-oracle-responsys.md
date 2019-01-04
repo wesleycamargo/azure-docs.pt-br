@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8c8376fcdcc33996ecc9340647c92a3abcf262c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6a2bbc75c3802d6eea86e6d552330adde4bdc5f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129685"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101765"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copiar dados do Oracle Responsys usando o Azure Data Factory (Visualização)
 
@@ -80,7 +80,12 @@ As propriedades a seguir têm suporte para o serviço Oracle Responsys vinculado
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista de propriedades com suporte do conjunto de dados Oracle Responsys.
 
-Para copiar dados de Oracle Responsys, defina a propriedade type do conjunto de dados para **ResponsysObject**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados.
+Para copiar dados de Oracle Responsys, defina a propriedade type do conjunto de dados para **ResponsysObject**. Há suporte para as seguintes propriedades:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **ResponsysObject** | SIM |
+| tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
 
@@ -92,7 +97,8 @@ Para copiar dados de Oracle Responsys, defina a propriedade type do conjunto de 
         "linkedServiceName": {
             "referenceName": "<Oracle Responsys linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -108,8 +114,8 @@ Para copiar dados de Oracle Responsys, defina o tipo de fonte na atividade de c�
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte de atividade de cópia deve ser definida como: **ResponsysSource** | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | SIM |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ResponsysSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 

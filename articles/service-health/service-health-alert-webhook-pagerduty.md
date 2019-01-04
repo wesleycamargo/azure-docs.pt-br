@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 5f6f3f61b5f7a06ac4056499edfb811780838cdc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd3bcd575e8e0f60d5d8f9640aa7b0ed4935249e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441870"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273214"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Configurar alertas de integridade do serviço com o PagerDuty
 
@@ -36,7 +36,7 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
 1.  Nas **Configurações de Integração**, selecione o seguinte:
 
-    a. **Tipo de Integração**: Microsoft Azure
+     a. **Tipo de Integração**: Microsoft Azure
 
     b. **Nome da Integração**: \<Nome\>
 
@@ -50,15 +50,15 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
 ## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Criar um alerta usando o PagerDuty no portal do Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga as etapas 1 a 8 de [Criar um alerta em uma notificação de integridade do serviço para um novo grupo de ação usando o portal do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+1. Siga as etapas 1 a 8 de [Criar um alerta em uma notificação de integridade do serviço para um novo grupo de ação usando o portal do Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 1. Defina na lista de **Ações**:
 
-    a. **Tipo de Ação:** *Webhook*
+     a. **Tipo de Ação:** *Webhook*
 
-    b. **Detalhes:** a **URL de Integração** do PagerDuty salva anteriormente.
+    b. **Detalhes:** A **URL de Integração** do PagerDuty salva anteriormente.
 
-    c. **Nome:** o nome, alias ou identificador do webhook.
+    c. **Nome:** Nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a criação do alerta.
 
@@ -71,16 +71,16 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
 1. Adicione à lista de **Ações**:
 
-    a. **Tipo de Ação:** *Webhook*
+     a. **Tipo de Ação:** *Webhook*
 
-    b. **Detalhes:** a **URL de Integração** do PagerDuty salva anteriormente.
+    b. **Detalhes:** A **URL de Integração** do PagerDuty salva anteriormente.
 
-    c. **Nome:** o nome, alias ou identificador do webhook.
+    c. **Nome:** Nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a atualização do grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testando a integração de webhook por meio de uma solicitação HTTP POST
-1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Crie uma solicitação HTTP POST, da seguinte maneira:
 
@@ -97,6 +97,6 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
-- Examine o [esquema do webhook de alertas de log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Saiba mais sobre [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

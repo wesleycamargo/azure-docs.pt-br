@@ -1,6 +1,6 @@
 ---
-title: Conectar-se com o Project Online do Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatize fluxos de trabalho que monitoram, criam e gerenciam projetos, tarefas e recursos do Project Online usando o Aplicativo Lógico do Azure
+title: Conectar-se com o Project Online dos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatize fluxos de trabalho que monitoram, criam e gerenciam projetos, tarefas e recursos do Project Online usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230362"
 ---
-# <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gerencie projetos, tarefas e recursos do Project Online usando o Aplicativo Lógico do Azure
+# <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gerencie projetos, tarefas e recursos do Project Online usando os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do Project Online, você pode criar fluxos de trabalho e tarefas automatizadas para seus projetos, tarefas e recursos no Project Online por meio do Office 365. Por exemplo, os fluxos de trabalho podem executar estas e outras ações:
+Com os Aplicativos Lógicos do Azure e o conector do Project Online, você pode criar fluxos de trabalho e tarefas automatizadas para seus projetos, tarefas e recursos no Project Online por meio do Office 365. Por exemplo, os fluxos de trabalho podem executar estas e outras ações:
 
 * Monitorar quando novos projetos, tarefas ou recursos são criados. Monitorar quando novos projetos são publicados.
 * Criar novos projetos, tarefas ou recursos.

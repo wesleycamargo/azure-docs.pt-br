@@ -4,9 +4,8 @@ description: Sintaxe para a linguagem de especificação de redes neurais Net#, 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315300"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272228"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação de rede neural Net # para o Microsoft Azure Machine Learning Studio
 
@@ -29,8 +28,8 @@ Net# é uma linguagem desenvolvida pela Microsoft que é usada para definir arqu
 
 Você pode usar uma especificação de arquitetura Net# nestes contextos:
 
-+ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio: [Rede Neural Multiclasse](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Rede Neural de Duas Classes](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), e [Regressão de Rede Neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Funções de rede neural em MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
++ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio: [Rede neural multiclasse](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Rede neural de duas classes](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) e [Regressão de rede neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Funções da rede neural em MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) para a linguagem R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
 Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvolver uma rede neural personalizada usando Net#: 
@@ -39,7 +38,7 @@ Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvol
 + A sintaxe e palavras-chave da linguagem de especificação Net#
 + Exemplos de redes neurais personalizadas criadas usando Net# 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>Conceitos básicos de rede neural
 
@@ -114,7 +113,7 @@ output Result[2] from Hidden all;
 ```
 
 + O produto das dimensões é o número de nós na camada. Neste exemplo, há duas dimensões [5, 20], o que significa que existirão 100 nós na camada.
-+ As camadas podem ser declaradas em qualquer ordem, com uma exceção: se mais do que uma camada de entrada for definida, a ordem em que elas são declaradas precisa corresponder à ordem dos recursos nos dados de entrada.
++ As camadas podem ser declaradas em qualquer ordem, com uma exceção: Se mais do que uma camada de entrada for definida, a ordem em que elas são declaradas precisa corresponder à ordem dos recursos nos dados de entrada.
 
 Para especificar que o número de nós em uma camada seja determinado automaticamente, use a palavra-chave `auto`. A palavra-chave `auto` tem efeitos diferentes, dependendo da camada:
 
@@ -219,7 +218,7 @@ Há dois conjuntos de propriedades que controlam o preenchimento, sendo as propr
     
     Se o valor para uma dimensão é falso, os kernels são definidos de modo que o número de nós deixados de fora em cada lado é o mesmo (podendo chegar até uma diferença de 1). O valor padrão desse atributo é uma tupla com todos os componentes iguais a Falso.
 
-+ **UpperPad** e **LowerPad**: (opcional) fornecem maior controle sobre a quantidade de preenchimento a ser usada. **Importante**: esses atributos podem ser definidos se e somente se a propriedade **Padding** acima ***não*** estiver definida. Os valores devem ser tuplas de números inteiros com comprimentos igual à aridade do pacote. Quando esses atributos são especificados, nós "falsos" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior em cada dimensão é determinado por **LowerPad**[i] e **UpperPad**[i], respectivamente. 
++ **UpperPad** e **LowerPad**: (opcional) fornecem maior controle sobre a quantidade de preenchimento a ser usada. **Importante:** Esses atributos podem ser definidos se, e somente se, a propriedade **Padding** acima ***não*** estiver definida. Os valores devem ser tuplas de números inteiros com comprimentos igual à aridade do pacote. Quando esses atributos são especificados, nós "falsos" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior em cada dimensão é determinado por **LowerPad**[i] e **UpperPad**[i], respectivamente. 
 
     Para assegurar que os kernels correspondam somente a nós "reais" e não a nós "falsos", as condições a seguir precisam ser satisfeitas:
       - Cada componente de **LowerPad** precisa ser estritamente menor que `KernelShape[d]/2`. 
@@ -375,7 +374,7 @@ Você pode usar a forma abreviada somente quando as camadas contiverem um único
 
 Esta seção oferece alguns exemplos de como você pode usar o Net# para acrescentar camadas ocultas, definir o modo pelo qual as camadas ocultas interagem com outras camadas e compilar redes convolucionais.
 
-### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Defina uma rede neural personalizada simples: exemplo "Olá mundo"
+### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Defina uma rede neural personalizada simples: Exemplo "Olá, Mundo"
 
 Este exemplo simples demonstra como criar um modelo de rede neural que tem uma única camada oculta.
 

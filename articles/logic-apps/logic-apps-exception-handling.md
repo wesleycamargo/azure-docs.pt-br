@@ -1,6 +1,6 @@
 ---
-title: Tratamento de erros e exceções - Aplicativos de lógica do Azure | Microsoft Docs
-description: Saiba mais sobre os padrões de manipulação de erros e exceções nos aplicativos de lógica do Azure
+title: Tratamento de erros e exceções - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Saiba mais sobre os padrões de manipulação de erros e exceções nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 author: dereklee

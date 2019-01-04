@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316983"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337590"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção Avançada contra Ameaças do Windows Defender com a Central de Segurança do Azure
 
@@ -29,7 +29,7 @@ Os clientes da Central de Segurança do Azure agora podem usar recursos do Windo
 
 - **Sensores de detecção de violação de postagem de última geração**: os sensores do Windows Defender ATP para servidores Windows coletam uma grande variedade de sinais comportamentais.
 
-- **Detecção de violação de postagem com base em análise e com o poder da nuvem**: o Windows Defender ATP adapta-se rapidamente a ameaças que mudam constantemente. Ele usa análise avançada e Big Data. O Windows Defender ATP é amplificado pela potência do Gráfico de Segurança Inteligente com sinais pelo Windows, o Azure e o Office para detectar ameaças desconhecidas. Ele fornece alertas acionáveis e permite que você responda rapidamente.
+- **Detecção de violação de postagem com base em análise e com o poder da nuvem**: O Windows Defender ATP se adapta rapidamente a ameaças que mudam constantemente. Ele usa análise avançada e Big Data. O Windows Defender ATP é amplificado pela potência do Gráfico de Segurança Inteligente com sinais pelo Windows, o Azure e o Office para detectar ameaças desconhecidas. Ele fornece alertas acionáveis e permite que você responda rapidamente.
 
 - **Inteligência contra ameaças**: o Windows Defender ATP identifica ferramentas, técnicas e procedimentos de invasores. Quando os detecta, ele gera alertas. Ele usa dados gerados pelos caçadores de ameaças da Microsoft e pelas equipes de segurança, incrementados por inteligência oferecida por parceiros.
 
@@ -105,6 +105,6 @@ Para gerar um alerta de teste benigno do Windows Defender ATP:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como configurar políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-- [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
-- [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+- [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger seus recursos do Azure.
+- [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): Saiba como monitorar a integridade dos recursos do Azure.

@@ -1,22 +1,21 @@
 ---
-title: Pagar antecipadamente por recursos do Azure Cosmos DB para economizar dinheiro | Microsoft Docs
+title: Otimizar custo dos recursos do Azure Cosmos DB com capacidade reservada
 description: Aprenda a comprar a capacidade reservada do Azure Cosmos DB para economizar nos custos de computação.
 services: cosmos-db
 author: rimman
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d389b3b7e50c83246542fd6b446827055a5a002a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a1f5db6428a892e10a3591edb7542996ad1b3319
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583459"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386801"
 ---
-# <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>Pagar antecipadamente por recursos do Azure Cosmos DB com capacidade reservada
+# <a name="optimize-cost-of-azure-cosmos-db-resources-with-reserved-capacity"></a>Otimizar custo dos recursos do Azure Cosmos DB com capacidade reservada
 
 A capacidade reservada do Azure Cosmos DB ajuda você a economizar dinheiro ao pagar antecipadamente pelos recursos do Azure Cosmos DB por um período de um a três anos. Com a capacidade reservada do Azure Cosmos DB, você pode obter um desconto na taxa de transferência provisionada para recursos do Cosmos DB. Exemplos de recursos são bancos de dados e contêineres (tabelas, coleções e gráficos).
 
@@ -55,10 +54,10 @@ O tamanho da reserva deve ser baseado na quantidade total de taxa de transferên
    |Campo  |DESCRIÇÃO  |
    |---------|---------|
    |NOME   |    Nome da reserva. Este campo é preenchido automaticamente com o `CosmosDB_Reservation_<timeStamp>`. Você pode fornecer um nome diferente durante a criação da reserva. Ou você pode renomeá-la depois que a reserva tiver sido criada.      |
-   |Assinatura  |   Assinatura usada para pagar pela capacidade reservada do Azure Cosmos DB. O método de pagamento na assinatura selecionada é usado na cobrança dos custos iniciais. O tipo de assinatura deve ser um dos a seguir: <br/><br/>  [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (número da oferta: MS-AZR-0017P): para uma assinatura Enterprise, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como excedente. <br/><br/> [Pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) (número da oferta: MS-AZR-0003P): para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.    |
+   |Assinatura  |   Assinatura usada para pagar pela capacidade reservada do Azure Cosmos DB. O método de pagamento na assinatura selecionada é usado na cobrança dos custos iniciais. O tipo de assinatura deve ser um dos a seguir: <br/><br/>  [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (número da oferta: MS-AZR-0017P): Para uma assinatura Enterprise, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como excedente. <br/><br/> [Pagamento Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0003p/) (número da oferta: MS-AZR-0003P): Para uma assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.    |
    |Escopo   |   Opção que controla quantas assinaturas podem usar o benefício de cobrança associado com a reserva. Também controla como a reserva será aplicada a assinaturas específicas.   <br/><br/>  Se você selecionar **Assinatura única**, o desconto de reserva será aplicado a instâncias do Azure Cosmos DB na assinatura selecionada. <br/><br/>  Se você selecionar **Compartilhado**, o desconto de reserva será aplicado às instâncias do Azure Cosmos DB em execução em qualquer assinatura dentro do seu contexto de cobrança. O contexto de cobrança é baseado em como você se inscreveu no Azure. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas (exceto as assinaturas de desenvolvimento/teste) no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.  <br/><br/> Você pode alterar o escopo de reserva após comprar a capacidade reservada.  |
    |Tipo de capacidade reservada   |  Taxa de transferência provisionada como unidades de solicitação.|
-   |Unidades de capacidade reservada  |      Quantidade de taxa de transferência que você deseja reservar. Você pode calcular esse valor determinando a taxa de transferência necessária para todos os seus recursos do Cosmos DB (por exemplo, bancos de dados ou contêineres) por região. Em seguida, multiplique pelo número de regiões que você associará com seu banco de dados do Cosmos DB.  <br/><br/> Por exemplo: se você tiver cinco regiões com 1 milhão de RU/s em todas as regiões, selecione 5 milhões de RU/s para compra de capacidade de reserva.    |
+   |Unidades de capacidade reservada  |      Quantidade de taxa de transferência que você deseja reservar. Você pode calcular esse valor determinando a taxa de transferência necessária para todos os seus recursos do Cosmos DB (por exemplo, bancos de dados ou contêineres) por região. Em seguida, multiplique pelo número de regiões que você associará com seu banco de dados do Cosmos DB.  <br/><br/> Por exemplo:  se você tiver cinco regiões com 1 milhão de RU/s em todas as regiões, selecione 5 milhões de RU/s para compra de capacidade de reserva.    |
    |Termo  |   Um ano ou três anos.   |
 
 5. Examine o desconto e o preço da reserva na seção **Custos**. Esse preço de reserva se aplica aos recursos do Azure Cosmos DB com a taxa de transferência provisionada entre todas as regiões.  

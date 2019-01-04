@@ -1,6 +1,6 @@
 ---
-title: Tarefas do líder de projetos de Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
-description: Uma estrutura de tópicos das tarefas para um líder de projetos em um projeto da equipe de ciência de dados.
+title: Tarefas para o líder de projetos no Processo de Ciência de Dados da Equipe
+description: Uma estrutura de tópicos das tarefas que um líder de um projeto de equipe de ciência de dados precisa concluir.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442890"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135157"
 ---
-# <a name="project-lead-tasks"></a>Tarefas do líder de projetos
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tarefas para o líder de projetos no Processo de Ciência de Dados da Equipe
 
 Este tutorial descreve as tarefas que um líder de projetos deve concluir para sua equipe de projeto. O objetivo é estabelecer um ambiente de equipe de colaboração padronizado no [TDSP (Processo de Ciência de Dados da Equipe)](overview.md). O TDSP é uma estrutura desenvolvida pela Microsoft que fornece uma sequência estruturada de atividades para executar soluções de análise de previsão baseadas em nuvem de forma eficaz. Para obter uma descrição das funções pessoais e das tarefas associadas que são tratadas por uma equipe de ciência de dados com padronização nesse processo, consulte [Tarefas e funções do Processo de Ciência de Dados da Equipe](roles-tasks.md).
 
@@ -27,17 +27,18 @@ Um **líder de projetos** gerencia as atividades diárias de cientistas de dados
 
 No momento, este tópico abrange as tarefas 1, 2 e 6 deste fluxo de trabalho para líderes de projeto.
 
->[AZURE.NOTE] Vamos descrever as etapas necessárias para configurar um ambiente de equipe TDSP para um projeto usando o Azure DevOps nas instruções a seguir. Especificamos como executar essas tarefas com o Azure DevOps, pois é como implementamos o TDSP na Microsoft. Se outra plataforma de hospedagem de código for usada para o grupo, as tarefas que precisarão ser concluídas pelo líder de equipe geralmente não serão alteradas. Mas a maneira de concluir essas tarefas será diferente.
+> [!NOTE]
+> Vamos descrever as etapas necessárias para configurar um ambiente de equipe TDSP para um projeto usando o Azure DevOps nas instruções a seguir. Especificamos como executar essas tarefas com o Azure DevOps, pois é como implementamos o TDSP na Microsoft. Se outra plataforma de hospedagem de código for usada para o grupo, as tarefas que precisarão ser concluídas pelo líder de equipe geralmente não serão alteradas. Mas a maneira de concluir essas tarefas será diferente.
 
 
 ## <a name="repositories-and-directories"></a>Repositórios e diretórios
 
 Este tutorial usa nomes abreviados para repositórios e diretórios. Esses nomes facilitam o seguimento das operações entre os repositórios e os diretórios. Esta notação (R para repositórios Git e D para diretórios locais na sua DSVM) é usada nas seções a seguir:
 
-- **R3**: o repositório **ProjectTemplate** da equipe no Git que seu líder de equipe configurou.
-- **R5**: o repositório do projeto no Git que você configurou para o seu projeto.
-- **D3**: o diretório local clonado de R3.
-- **D5**: o diretório local clonado de R5.
+- **R3**: O repositório **ProjectTemplate** da equipe no Git que o líder da equipe configurou.
+- **R5**: O repositório do projeto no Git que você configurou para o projeto.
+- **D3**: O diretório local clonado de R3.
+- **D5**: O diretório local clonado de R5.
 
 
 ## <a name="0-prerequisites"></a>0. Pré-requisitos
@@ -89,9 +90,9 @@ Se precisar personalizar seu repositório do projeto **DSProject1** para atender
 
 - Clone o repositório de modelos do projeto no diretório local: equipe R3 – clonado para -> D3 local.
 - Clone o repositório DSProject1 no diretório local: equipe R5 – clonado para -> D5 local.
-- Copie o conteúdo do modelo do projeto clonado no clone local do repositório DSProject1: D3 – conteúdo copiado para -> D5.
+- Copie o conteúdo do modelo do projeto clonado para o clone local do repositório DSProject1:  D3 – conteúdo copiado para -> D5.
 - (Opcional) Personalização do D5 local.
-- Envie por push o conteúdo de DSProject1 local para os repositórios de equipe: D5 – conteúdo adicionado em -> equipe R5.
+- Envie por push o conteúdo do DSProject1 para os repositórios da equipe: D5 – conteúdo a adicionar a -> equipe R5.
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clone o repositório de modelos do projeto (R3) em um diretório (D3) no seu computador local.
@@ -195,7 +196,8 @@ Agora você precisa enviar por push o conteúdo em **_DSProject1_** para o repos
     
 - Confirme as alterações e envie por push. 
 
->[AZURE.NOTE] Se essa for a primeira vez em que você confirma um repositório Git, será necessário configurar os parâmetros globais *user.name* e *user.email* antes de executar o comando `git commit`. Execute os dois comandos a seguir:
+> [!NOTE]
+> Se essa for a primeira vez em que você confirma um repositório Git, será necessário configurar os parâmetros globais *user.name* e *user.email* antes de executar o comando `git commit`. Execute os dois comandos a seguir:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

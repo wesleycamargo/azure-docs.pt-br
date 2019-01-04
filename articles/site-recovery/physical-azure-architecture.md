@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9dd60e31867e874ba59a6e2084714a22b661afdd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3f31fa8d26b0fb5f247a0b4c8c65abd50c5bc1e4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213042"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865294"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Servidor físico para a arquitetura de recuperação de desastre do Azure
 
@@ -45,7 +45,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
     - O servidor de configuração coordena o gerenciamento de replicação com o Azure pela porta HTTPS 443 de saída.
     - O servidor de processo recebe dados de máquinas de origem, otimiza-os e criptografa-os e os envia para o armazenamento do Azure pela porta 443 de saída.
     - Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Isso é útil se os computadores estão executando a mesma carga de trabalho e precisam ser consistentes.
-4. O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) do Azure ExpressRoute. Não há suporte para a replicação do tráfego através de uma VPN de site a site de um site local para o Azure.
+4. O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) do Azure ExpressRoute. Não há suporte para a replicação do tráfego através de uma VPN de site a site de um site local para o Azure.
 
 
 **Processo de replicação do físico para o Azure**
@@ -63,15 +63,15 @@ Depois que a replicação é configurada e você executou uma simulação de rec
 - Depois de disparar o failover inicial, você confirma-o para começar a acessar a carga de trabalho da VM do Azure.
 - Quando o site primário local estiver disponível novamente, você poderá executar o failback.
 - Você precisa configurar uma infraestrutura de failback, incluindo:
-    - **Servidor em processo temporário no Azure**: para fazer failback do Azure, você configura uma VM do Azure para atuar como um servidor em processo, a fim de manipular a replicação do Azure. Você pode excluir a VM após a conclusão do failback.
-    - **Conexão VPN**: para fazer failback, você precisa de uma conexão VPN (ou Azure ExpressRoute) da rede do Azure para o site local.
-    - **Servidor de destino mestre separado**: por padrão, o servidor de destino mestre que foi instalado com o servidor de configuração na VM do VMware local manipula o failback. No entanto, se você precisar fazer failback de grandes volumes de tráfego, deverá configurar um servidor de destino mestre local separado para essa finalidade.
-    - **Política de failback**: para replicar volta para seu site local, você precisa de uma política de failback. Isso foi criado automaticamente quando você cria sua política de replicação do local para o Azure.
-    - **Infraestrutura de VMware**: você precisa de uma infraestrutura de VMware para failback. Você não pode realizar o failback para um servidor físico.
+    - **Servidor de processo temporário no Azure**: Para fazer failback do Azure, você configura uma VM do Azure para atuar como um servidor de processo e manipular a replicação do Azure. Você pode excluir a VM após a conclusão do failback.
+    - **Conexão VPN**: Para executar failback, você precisa de uma conexão VPN (ou Azure ExpressRoute) da rede do Azure para o site local.
+    - **Servidor de destino mestre separado**: Por padrão, o servidor de destino mestre que foi instalado com o servidor de configuração na VM do VMware local manipula o failback. No entanto, se você precisar fazer failback de grandes volumes de tráfego, deverá configurar um servidor de destino mestre local separado para essa finalidade.
+    - **Política de failback**: Para replicar ao site local, você precisará de uma política de failback. Isso foi criado automaticamente quando você cria sua política de replicação do local para o Azure.
+    - **Infraestrutura VMware**: Você precisa de uma infraestrutura de VMware para failback. Você não pode realizar o failback para um servidor físico.
 - Depois que os componentes estão em vigor, o failback ocorre em três estágios:
-    - Estágio 1: proteja novamente as VMs do Azure para que elas comecem a replicação para as VMs de VMware locais.
-    - Estágio 2: execute um failover para o site local.
-    - Estágio 3: depois que as cargas de trabalho tiverem feito failback, você reabilitará a replicação.
+    - Etapa 1: Proteja novamente as VMs do Azure para que elas sejam replicadas do Azure de volta para as VMs de VMware locais.
+    - Etapa 2: Execute um failover no site local.
+    - Etapa 3: Depois que as cargas de trabalho tiverem feito failback, você reabilitará a replicação.
 
 **Failback de VMware do Azure**
 

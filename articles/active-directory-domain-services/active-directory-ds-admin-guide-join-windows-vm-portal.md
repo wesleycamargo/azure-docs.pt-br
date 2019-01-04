@@ -1,5 +1,5 @@
 ---
-title: 'Active Directory Domain Services: ingressar uma VM do Windows Server em um domínio gerenciado | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Adicionar uma VM do Windows Server a um domínio gerenciado | Microsoft Docs'
 description: Ingressar uma máquina virtual do Windows Server no Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158306"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957658"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do Windows Server em um domínio gerenciado
 Este artigo mostra como implantar uma máquina virtual do Windows Server usando o Portal do Azure. Então, mostra como ingressar a máquina virtual em um domínio gerenciado do Azure Active Directory Domain Services (Azure AD DS).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="step-1-create-a-windows-server-virtual-machine"></a>Etapa 1: criar uma máquina virtual do Windows Server
+## <a name="step-1-create-a-windows-server-virtual-machine"></a>Etapa 1: Criar uma máquina virtual do Windows Server
 Para criar uma máquina virtual do Windows ingressada na rede virtual na qual você habilitou o Azure AD DS, execute estas etapas:
 
-1. Entre no [Portal do Azure](http://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Na parte superior do painel esquerdo, selecione **Novo**.
 3. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
 
@@ -67,7 +67,7 @@ Para criar uma máquina virtual do Windows ingressada na rede virtual na qual vo
 10. Após a implantação ser concluída, você pode exibir informações sobre a VM na página **Visão Geral**.
 
 
-## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Etapa 2: Conectar-se à máquina virtual do Windows Server usando a conta de administrador local
+## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Etapa 2: Conectar a máquina virtual do Windows Server usando a conta de administrador local
 Em seguida, conecte-se à máquina virtual do Windows Server recém-criada para ingressar no domínio. Use as credenciais de administrador local especificadas quando você criou a máquina virtual.
 
 Para conectar-se à máquina virtual, execute estas etapas:
@@ -107,9 +107,9 @@ Para ingressar a máquina virtual do Windows Server no domínio gerenciado do Az
 
 7. Você pode especificar as credenciais das seguintes maneiras:
 
-   * **Formato UPN**: (recomendado) especifique o sufixo UPN para a conta de usuário, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do usuário *bob* é *bob@domainservicespreview.onmicrosoft.com*.
+   * **Formato UPN**: (Recomendado) Especifique o sufixo do UPN (nome UPN) da conta de usuário, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do usuário *bob* é *bob@domainservicespreview.onmicrosoft.com*.
 
-   * **Formato SAMAccountName:** você pode especificar o nome da conta no formato SAMAccountName. Neste exemplo, o usuário *bob* precisaria inserir *CONTOSO100\bob*.
+   * **Formato SAMAccountName**: É possível especificar o nome da conta no formato SAMAccountName. Neste exemplo, o usuário *bob* precisaria inserir *CONTOSO100\bob*.
 
      > [!TIP]
      > **Recomendamos usar o formato UPN para especificar as credenciais.**

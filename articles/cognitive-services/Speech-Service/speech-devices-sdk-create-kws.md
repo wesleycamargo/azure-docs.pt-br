@@ -1,21 +1,22 @@
 ---
-title: Criar uma palavra de ativação personalizada
+title: Criar uma palavra de ativação personalizada – Serviços de Fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar uma palavra de ativação personalizada para o SDK de Dispositivos de Fala.
+description: Seu dispositivo está sempre escutando uma palavra de ativação (ou frase). Quando o usuário diz que a palavra de ativação, o dispositivo envia todo o áudio subsequente para a nuvem até que o usuário pare de falar. Personalizar sua palavra de ativação é uma maneira eficiente de diferenciar o seu dispositivo e fortalecer sua identidade visual.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: a9a316eccc0b5e237d5a48c833f53ea3d80aae1e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469071"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082927"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de ativação personalizada usando o serviço de Fala
 
@@ -50,18 +51,18 @@ Antes de usar uma palavra de ativação personalizada com seu dispositivo, será
 
 1. Acesse o [portal do Serviço de Fala Personalizada](https://cris.ai/).
 
-1. Crie uma conta com o endereço de email no qual você recebeu o convite para o Azure Active Directory. 
+1. Crie uma conta com o endereço de email no qual você recebeu o convite para o Azure Active Directory.
 
     ![Criar uma nova conta](media/speech-devices-sdk/wake-word-1.png)
- 
+
 1. A página **Palavra de Ativação Personalizada** não está disponível para o público, portanto, não há nenhum link que leve até ela. O recurso de Fala Personalizada requer uma assinatura do Azure, mas o recurso de Palavra de Ativação Personalizada não. Se você receber a página de erro **Nenhuma assinatura encontrada.** basta substituir a parte **"Subscriptions?errorMessage=No%20Subscriptions%20found"** por "**customkws**" na URL e pressionar ENTER. A URL deverá ser uma destas opções: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, dependendo da localização da sua região.
 
     ![A página Palavra de Ativação Personalizada é oculta](media/speech-devices-sdk/wake-word-4.png)
- 
+
 1. Digite a palavra de ativação de sua escolha e, em seguida, selecione **Enviar a palavra**.
 
     ![Insira sua palavra de ativação](media/speech-devices-sdk/wake-word-5.png)
- 
+
 1. Pode demorar alguns minutos para os arquivos serem gerados. Você verá um círculo girando na janela do navegador. Após alguns momentos, uma barra de informações será exibida solicitando que você baixe um arquivo .zip.
 
     ![Receber o arquivo .zip](media/speech-devices-sdk/wake-word-6.png)
@@ -76,4 +77,3 @@ Para começar, obtenha uma [Conta gratuita do Azure](https://azure.microsoft.com
 
 > [!div class="nextstepaction"]
 > [Inscreva-se para o SDK de Dispositivos de Fala](get-speech-devices-sdk.md)
-

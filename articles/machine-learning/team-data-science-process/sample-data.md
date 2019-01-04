@@ -1,6 +1,6 @@
 ---
-title: Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive | Microsoft Docs
-description: Como explorar dados armazenados em vários ambientes do Azure.
+title: Dados de exemplo em locais de armazenamento do Azure diferentes - Processo de Ciência de Dados da Equipe
+description: Dados de exemplo no Azure contêineres, SQL Server e tabelas Hive para reduzi-lo para um tamanho menor, mas representativo e mais gerenciável.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b7b233532a526879e886950c3a0d8cfe169251a7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7bc4174121a58353219e73eef86ec6c64f806647
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441495"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133206"
 ---
 # <a name="heading"></a>Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive
 
@@ -26,7 +26,7 @@ Os artigos a seguir descrevem como exemplos de dados armazenados em um dos três
 * [**Dados do SQL Server**](sample-data-sql-server.md) são amostrados usando o SQL e a linguagem de programação Python. 
 * [**Dados da tabela do hive** ](sample-data-hive.md) é realizada usando consultas de Hive.
 
-Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 **Por que fazer a amostragem de dados?**
 

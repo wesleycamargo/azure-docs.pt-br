@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 1e9f6778f12f4f6260bfc20c3a78f7929f13405b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 84780d7c432e818153f964522063f29d8540e0ec
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634525"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434300"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Usar o Azure PowerShell para executar trabalhos do Apache Pig com o HDInsight
 
@@ -22,29 +22,29 @@ ms.locfileid: "51634525"
 
 Este documento fornece um exemplo do uso do Azure PowerShell para enviar trabalhos do Apache Pig para um Apache Hadoop no cluster HDInsight. O Pig permite que você escreva trabalhos do MapReduce usando uma linguagem (Pig Latin) que modela transformações de dados, em vez das funções mapear e reduzir.
 
-> [!NOTE]
-> Esse documento não fornece uma descrição detalhada do que fazem as instruções Pig Latin usadas nos exemplos. Para obter informações sobre o Pig Latin usado neste exemplo, consulte [Usar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md).
+> [!NOTE]  
+> Esse documento não fornece uma descrição detalhada do que fazem as instruções Pig Latin usadas nos exemplos. Para obter informações sobre o Pig Latin usado neste exemplo, consulte [Usar Apache Pig com Apache Hadoop no HDInsight](hdinsight-use-pig.md).
 
 ## <a id="prereq"></a>Pré-requisitos
 
 * **Um cluster Azure HDInsight**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Uma estação de trabalho com o PowerShell do Azure.**
 
-## <a id="powershell"></a>Executar um trabalho Pig
+## <a id="powershell"></a>Executar um trabalho do Apache Pig
 
 O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabalhos do Pig no HDInsight. Internamente, o PowerShell usa chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) em execução no cluster HDInsight.
 
 Os seguintes cmdlets são usados ao executar trabalhos do Pig em um cluster HDInsight remoto:
 
-* **Connect-AzureRmAccount**: autentica o Azure PowerShell para sua assinatura do Azure.
-* **New-AzureRmHDInsightPigJobDefinition**: cria uma *definição de trabalho* usando as instruções de Pig Latin especificadas.
-* **Start-AzureRmHDInsightJob**: envia a definição do trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
-* **Wait-AzureRmHDInsightJob**: usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou que o tempo de espera seja excedido.
-* **Get-AzureRmHDInsightJobOutput**: usado para recuperar a saída do trabalho.
+* **Connect-AzureRmAccount**: Autentica o Azure PowerShell à Assinatura do Azure.
+* **New-AzureRmHDInsightPigJobDefinition**: Cria uma *definição de trabalho*, usando as instruções do Pig Latin especificadas.
+* **Start-AzureRmHDInsightJob**: Envia a definição de trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
+* **Wait-AzureRmHDInsightJob**: Usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou que o tempo de espera seja excedido.
+* **Get-AzureRmHDInsightJobOutput**: Usado para recuperar a saída do trabalho.
 
 As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho no seu cluster HDInsight.
 
@@ -90,9 +90,9 @@ Como você pode ver, o PowerShell do Azure fornece uma maneira fácil de executa
 ## <a id="nextsteps"></a>Próximas etapas
 Para obter informações gerais sobre o Pig no HDInsight:
 
-* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 
 Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 
-* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Usar MapReduce com Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)

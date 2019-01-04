@@ -1,6 +1,6 @@
 ---
 title: Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits | Microsoft Docs
-description: 'Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os Serviços de Mídia. Em seguida, a transmissão pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais Pontos de Extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming e MPEG DASH.'
+description: 'Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os Serviços de Mídia. Depois, o fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de streaming, usando um destes protocolos de streaming adaptáveis: HLS, Smooth Stream, MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262611"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682649"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 
@@ -29,8 +29,8 @@ ms.locfileid: "52262611"
 ## <a name="overview"></a>Visão geral
 No AMS (Serviços de Mídia do Azure), um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
-* Um codificador ativo local envia uma transmissão de taxa de bits adaptável única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
-* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+* Um codificador dinâmico local envia um fluxo de taxa de bits única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: Adobe FMLE (Flash Media Live Encoder), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
   
   > [!NOTE]
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
@@ -80,7 +80,7 @@ A partir de 25 de janeiro de 2016, os Serviços de Mídia distribuíram uma atua
 O limite para um período não utilizado é de 12 horas, mas está sujeito a mudanças.
 
 ## <a name="live-encoding-workflow"></a>Fluxo de trabalho da codificação ativa
-O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que um canal recebe um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming ; em seguida, ele codifica o fluxo em um fluxo de múltiplas taxas de bits. 
+O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo em que um canal recebe um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming; então, ele codifica o fluxo em um fluxo de múltiplas taxas de bits. 
 
 ![Fluxo de trabalho ao vivo][live-overview]
 
@@ -92,7 +92,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 > 
 > 
 
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP ou Smooth Streaming. 
+1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador dinâmico local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP ou Smooth Streaming. 
    
     Essa etapa também pode ser realizada após a criação do canal.
 2. Crie e inicie um Canal. 
@@ -214,18 +214,17 @@ Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste ca
 
 Observe que, se você precisar de predefinições personalizadas deverá contatar amslived@microsoft.com.
 
-**Default720p** codificará o vídeo nas 7 camadas a seguir.
+**Default720p** codificará o vídeo nas seis camadas a seguir.
 
 #### <a name="output-video-stream"></a>Fluxo de vídeo de saída
 | Taxa de bits | Largura | Altura | MáxFPS | Perfil | Nome do fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Principal |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Principal |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Principal |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Principal |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Linha de base |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Linha de base |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Fluxo de áudio de saída
 

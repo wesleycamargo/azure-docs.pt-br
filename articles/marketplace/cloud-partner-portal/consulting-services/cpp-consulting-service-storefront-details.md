@@ -1,0 +1,211 @@
+---
+title: Oferta de serviço de consultoria do Azure e Dynamics 365 – inserir detalhes da vitrine | Microsoft Docs
+description: Guia para definir detalhes da vitrine na oferta de serviço de consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner.
+services: Azure, Marketplace, Cloud Partner Portal,
+documentationcenter: ''
+author: qianw211
+manager: Patrick.Butler
+editor: ''
+ms.assetid: ''
+ms.service: marketplace
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: conceptual
+ms.date: 11/30/2018
+ms.author: pbutlerm
+ms.openlocfilehash: f587ca92c83680526a277a571eea98e73b82d902
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344837"
+---
+# <a name="storefront-details-tab"></a>Guia Detalhes da Vitrine
+
+Em seguida, você precisa inserir os detalhes da sua vitrine. Os **Detalhes da Vitrine** consistem nestas seções:
+
+-   Detalhes da oferta
+-   Informações do publicador
+-   Detalhes da listagem
+-   Artefatos de Marketing
+
+![Criar uma oferta de serviço consultoria – guia Detalhes da Vitrine](media/consultingoffer-storefront-details.png)
+
+## <a name="offer-details"></a>Detalhes da oferta
+
+A seção de detalhes da oferta contém os campos a seguir:
+
+-   Resumo da oferta
+-   Descrição da oferta
+
+### <a name="offer-summary"></a>Resumo da oferta
+
+O resumo da oferta é uma breve descrição da oferta que aparece logo abaixo do nome dela. Use texto sem formatação ao inserir o resumo da oferta, que não deve ter quebras de linha. A seguir, há bons exemplos de resumos da oferta juntamente com os nomes da oferta correspondentes:
+
+*Exemplo 1*
+
+-   **Nome da oferta**: Análise de Nuvem: Workshop de três dias
+-   **Resumo da oferta:** Visão geral do Microsoft Azure e do Power BI, avaliação do ambiente atual e mini prova de conceito.
+
+*Exemplo 2*
+
+-   **Nome da oferta**: Azure IoT industrial: Prova de conceito de 30 dias
+-   **Resumo da oferta:** Crie um piloto industrial de produto conectado para conectar equipamentos no campo com segurança a uma solução de Hub IoT do Azure, com painéis, relatórios e notificações.
+
+*Exemplo 3*
+
+-   **Nome da oferta**: Serviços profissionais: Resumo de 1 hora
+-   **Resumo da oferta:** Visão geral e demonstração da solução Dynamics 365 for Operations estendida e pré-configurada, que oferece gerenciamento avançado de projetos, cobrança e recursos para serviços profissionais.
+
+*Exemplo 4*
+
+-   **Nome da oferta**: Power BI no seu mundo: Workshop de 4 horas
+-   **Resumo da oferta:** Coloque seu primeiro dashboard para funcionar e aprenda as melhores práticas. Para até 12 alunos, realizado no local.
+
+*Exemplo 5*
+
+-   **Nome da oferta**: Dinâmica e projetos: Avaliação de três dias
+-   **Resumo da oferta:** Coleta de requisitos e avaliação para a solução de ERP elaborada para empresas de serviços profissionais e empresas orientadas a projetos.
+
+### <a name="offer-description"></a>Descrição da oferta
+
+Insira a descrição da oferta de serviço de consultoria aqui. Uma boa descrição da oferta contém detalhes exatos de como será a participação e qual será o produto final para o cliente. Ela deve claramente ajudar o cliente a entender o que ele receberá. A descrição da sua oferta deve incluir como sua oferta se relaciona com o produto da Microsoft para o qual você está oferecendo serviços de consultoria.
+
+Não inclua links de email ou números de telefone para entrar em contato com você na descrição da oferta. A oferta conterá um botão **Entre em contato**, que carregará os potenciais clientes no destino de gerenciamento de cliente potencial que você identificou na sua oferta.
+
+Você inserirá a descrição da oferta no formato Markdown. Se você não estiver familiarizado com o Markdown ou formatação de HTML, poderá examinar os recursos em [Como usar Markdown para escrever Docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+
+O uso desses formatos garantirá que sua oferta tenha o máximo de legibilidade para os clientes.
+
+Mantenha a descrição da oferta breve e respeite o limite de caracteres, pois os usuários não gostam de ler textos longos. Você ainda tem a opção de fazer upload de folhetos de marketing, folhas de fatos e outros documentos que descrevem a oferta em mais detalhes.
+
+O exemplo a seguir demonstra uma descrição de oferta composta adequadamente, além do nome e do resumo relacionados:
+
+**Nome da oferta**: Análise de Nuvem: Workshop de três dias
+
+**Resumo da oferta:** Visão geral do Microsoft Azure e do Power BI, avaliação do ambiente atual e mini prova de conceito.
+
+**Descrição da oferta**: este workshop de 3 dias é para líderes técnicos e empresariais, sendo realizado no local, nas instalações do cliente.
+
+***Agenda***
+
+Dia 1
+
+-   Explica como proteger, dimensionar e organizar os dados na nuvem da Microsoft usando o Azure Data Lake, o HDInsight ou o SQL Data Warehouse do Azure.
+
+Dia 2
+
+-   Explica como configurar e implantar soluções de análise avançada com o Microsoft R e o Azure Machine Learning.
+
+Dia 3
+
+-   Explica como produzir insights acionáveis e operacionalizar a análise com o Power BI, incluindo uma sessão colaborativa para o build conjunto de um dashboard do Power BI.
+
+No final do workshop, o cliente será capaz de definir um plano de alto nível e um roteiro de implementação para soluções de análise e dados na nuvem da Microsoft.
+
+*Arquivo markdown de exemplo para uma oferta seguindo este formato:*
+
+    This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
+
+      ### Agenda
+
+      **Day 1**
+
+      * Focuses on how to secure, scale, and organize data within the Microsoft cloud using Azure Data Lake, HDInsight, or Azure SQL Data Warehouse
+
+      **Day 2**
+
+      * Covers how to configure and deploy advanced analytics solutions with Microsoft R and Azure Machine Learning
+
+      **Day 3**
+
+      * Covers how to draw actionable insights and operationalize analytics with Power BI, including a collaborative session to co-build a Power BI dashboard.
+
+
+      ### Deliverables
+      By the end of the workshop, the client will be able to define a high-level plan and an implementation roadmap for data and analytics solutions in the Microsoft cloud.
+
+
+## <a name="publisher-information"></a>Informações do editor
+
+**ID MPN**
+
+A ID de 9 dígitos da MPN (Microsoft Partner Network). Caso não tenha uma ID MPN, pode acessar o Microsoft Partner Center para adquirir.
+
+**ID do Partner Center**
+
+Nova ID do Partner Center, caso tenha um.
+
+**ID MPN**
+
+Insira uma chave secreta para uma versão prévia da oferta no AppSource antes da ativação.
+Esse identificador não é uma senha.
+
+## <a name="listing-details"></a>Detalhes da listagem
+
+**tipo de serviço de consultoria**
+
+A Microsoft está com foco exclusivamente no escopo fixo, duração fixa, preço estimado ou fixo (ou gratuito) e, principalmente, ofertas de serviço de consultoria orientadas a pré-vendas para um único cliente, assim como para ofertas de avaliação, implementação, prova de conceito, resumo ou workshop, realizados no local ou virtualmente. O marketplace de serviços de consultoria do AppSource não oferece suporte a listas de serviços de assinatura ou gerenciados.
+
+>[!Note]
+>Os serviços de consultoria do AppSource não são o marketplace apropriado para treinamentos sob demanda ou de assinatura.
+
+Os cinco tipos de ofertas a seguir estão incluídos:
+
+-   **Avaliação:** uma avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa de custo e tempo.
+-   **Resumo:** uma introdução a uma solução ou um serviço de consultoria para atrair o interesse do cliente utilizando estruturas, demonstrações e exemplos de clientes. Os resumos devem ser feitos no local.
+-   **Implementação:** uma instalação completa que resulta em uma solução totalmente funcional. Para este piloto, a Microsoft recomenda limitar a soluções que possam ser implementadas em uma semana ou menos.
+-   **Prova de conceito:** uma implementação de escopo limitado para determinar se uma solução atenderá aos requisitos de um cliente.
+-   **Workshop:** uma participação interativa realizada nas instalações de um cliente que pode envolver sessões de treinamento, resumos, avaliações ou demonstrações com base nos dados ou no ambiente do cliente.
+
+**Disponibilidade por país/região**
+
+Selecione o país e a região em que essa oferta de serviço de consultoria estará disponível. Não é possível publicar uma única oferta em vários países ou regiões. Uma nova oferta precisa ser criada para cada país ou região.
+
+>[!Note]
+>Serviços de consultoria do AppSource estão atualmente ativos no Canadá, nos Estados Unidos e no Reino Unido. Você pode enviar uma oferta para um país que ainda não esteja ativo e ela será examinada e preparada para entrar no ar. Um número mínimo de ofertas prontas para serem ativadas é necessário para abrir um país, portanto, incentivamos ofertas para países que não estão ativos.
+
+**Indústrias**
+
+Selecione os setores aos quais sua oferta de serviço de consultoria mais se aplica.
+
+**Duração**
+
+Selecione um número (por exemplo, 3, 4 etc.) em Duração e, em seguida, selecione Hora, Dia ou Semana.
+
+**Produtos primários**
+
+Para publicar no Azure Marketplace, selecione **Azure** como o produto principal e, em seguida, selecione as Áreas de solução relevantes.
+
+Para publicar no AppSource, selecione **Dynamics 365**, **Power BI** ou **PowerApps** como seu produto primário. Também é possível selecionar outros produtos aplicáveis relevantes; sua oferta de serviços de consultoria será exibida nas listagens que estão associadas a cada um desses produtos no AppSource.
+
+**Competências relevantes**
+
+Selecione as competências relevantes para esta oferta a fim de exibi-las juntamente com os detalhes da oferta.
+
+## <a name="marketing-artifacts"></a>Artefatos de marketing
+
+**Logotipo da empresa (formato. png, 48 x 48 pixels)**
+
+Faça upload de uma imagem que será exibida na peça da sua oferta, na página de exibição da galeria de ofertas. A imagem deve ser uma imagem .png com resolução de 48 x 48 pixels.
+
+**Logotipo da empresa Logotipo da empresa (formato. png, 216 x 216 pixels)**
+
+Faça upload de uma imagem que aparecerá na página de detalhes da sua oferta. A imagem deve ser uma imagem .png com resolução de 216 x 216 pixels.
+
+**Vídeos (máximo de 4)**
+
+Faça upload de até quatro vídeos de estudo de caso de cliente ou vídeos de referência de cliente. Caso não tenha nenhum, faça upload de um vídeo que explique o conhecimento da sua empresa em relação à oferta. Se você tiver uma demonstração da solução do Power BI ou do PowerApps, faça upload do vídeo de demonstração aqui. Os links de vídeo devem ser para o YouTube ou o Vimeo.
+
+**Documentos (máximo de 3)**
+
+Faça upload do folheto de marketing que descreve sua oferta de serviço de consultoria em detalhes. Como alternativa, você também pode fazer upload da visão geral da empresa, folhas de fatos ou estudos de caso. Verifique se seus documentos usam os nomes atuais de produtos em destaque e não apresentam produtos concorrentes da Microsoft.
+
+**Capturas de tela (máximo de 5)**
+
+Faça upload de até cinco imagens que fornecem mais informações sobre a oferta, produtos da oferta ou sua empresa. Por exemplo, um snippet do seu folheto de marketing, um slide relevante de uma apresentação ou uma imagem que mostre a força ou o conhecimento da empresa.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Agora você está pronto para [publicar sua oferta de serviços de consultoria](./cpp-consulting-service-publish-offer.md).

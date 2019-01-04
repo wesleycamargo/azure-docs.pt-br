@@ -1,6 +1,6 @@
 ---
-title: Decodificar mensagens AS2 – Aplicativo Lógico do Azure | Microsoft Docs
-description: Decodificar mensagens AS com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
+title: Decodificar mensagens AS2 – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Decodificar mensagens AS com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43128274"
 ---
-# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Decodificar mensagens AS2 com o Aplicativo Lógico do Azure e o Enterprise Integration Pack 
+# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Decodificar mensagens AS2 com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack 
 
 Para estabelecer confiabilidade e segurança ao transmitir mensagens, use o conector Decodificar mensagens AS2. Esse conector fornece a assinatura digital, descriptografia e confirmações por meio de MDN (notificações de disposição de mensagem).
 

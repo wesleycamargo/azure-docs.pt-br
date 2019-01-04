@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 97f1c9e16ae6be9e6bece69d0923f6290a8cd072
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024708"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339256"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -75,11 +75,11 @@ Há várias ferramentas de código-fonte aberto para ajudá-lo a gerenciar seu H
 
 * Um aplicativo do Windows chamado [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Uma extensão de código do Visual Studio de plataforma cruzada chamada [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+* Uma extensão de código do Visual Studio de plataforma cruzada chamada [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente chamada Azure IoT Toolkit).
 
 * Uma CLI do Python multiplataforma denominada [a extensão de IoT da CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
-Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você pode usar a extensão do *Azure IoT Toolkit para o código VS* se desenvolver no Código VS. Você também pode usar a ferramenta *a extensão de IoT do Azure CLI 2.0* se preferir usar uma ferramenta CLI.
+Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você pode usar a extensão do *Azure IoT Hub Toolkit para o código do VS*, se desenvolver neste código. Você também pode usar a ferramenta *a extensão de IoT do Azure CLI 2.0* se preferir usar uma ferramenta CLI.
 
 A ferramenta Gerenciador de Dispositivos usa as bibliotecas de serviço IoT do Azure para executar várias funções no Hub IoT, incluindo a adição de dispositivos. Se você usar a ferramenta Gerenciador de Dispositivos para adicionar um dispositivo, você obterá uma cadeia de conexão para seu dispositivo. Você precisa dessa cadeia de conexão para executar os aplicativos de exemplo.
 
@@ -410,7 +410,7 @@ END_NAMESPACE(WeatherStation);
 
 As macros **BEGIN\_NAMESPACE** e **END\_NAMESPACE** usam o namespace do modelo como um argumento. Espera-se que qualquer coisa entre essas macros seja a definição de seus modelos e as estruturas de dados que os modelos usam.
 
-Neste exemplo, há um único modelo chamado **ContosoAnemometer**. Esse modelo define dois dados que o dispositivo pode enviar ao Hub IoT: **DeviceId** e **WindSpeed**. Ele também define três ações (mensagens) que o dispositivo pode receber: **TurnFanOn**, **TurnFanOff** e **SetAirResistance**. Cada elemento de dados tem um tipo, e cada ação tem um nome (e, opcionalmente, um conjunto de parâmetros).
+Neste exemplo, há um único modelo chamado **ContosoAnemometer**. Esse modelo define dois dados que o dispositivo pode enviar ao Hub IoT: **DeviceId** e **WindSpeed**. Também define três ações (mensagens) que o dispositivo pode receber: **TurnFanOn**, **TurnFanOff** e **SetAirResistance**. Cada elemento de dados tem um tipo, e cada ação tem um nome (e, opcionalmente, um conjunto de parâmetros).
 
 Os dados e ações definidos no modelo definem uma superfície de API que você pode usar para enviar mensagens ao Hub IoT, bem como para responder a mensagens enviadas ao dispositivo. O uso desse modelo é compreendido melhor por meio de um exemplo.
 

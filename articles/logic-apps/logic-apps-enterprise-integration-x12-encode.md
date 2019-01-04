@@ -1,6 +1,6 @@
 ---
-title: Codificar mensagens X12 - Aplicativo Lógico do Azure | Microsoft Docs
-description: Validar EDI e converter mensagens codificadas em XML com o codificador de mensagens X12 no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Codificar mensagens X12 - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Validar EDI e converter mensagens codificadas em XML com o codificador de mensagens X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123498"
 ---
-# <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Codificar mensagens X12 no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Codificar mensagens X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 Com o conector de mensagem X12 de codificação você pode validar o EDI e as propriedades específicas de parceiro, converter as mensagens codificadas em XML em conjuntos de transações de EDI no intercâmbio e solicita uma Confirmação Técnica, Confirmação Funcional, ou ambas.
 Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.

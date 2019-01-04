@@ -1,21 +1,21 @@
 ---
 title: Perguntas frequentes sobre o Cloudyn no Azure | Microsoft Docs
-description: Fornece respostas para algumas perguntas comuns sobre o Cloudyn.
+description: Este artigo fornece respostas para algumas perguntas comuns sobre o Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/14/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 3b137a170edf2be13fa4999947994ee12a374aa9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276271"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098076"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Perguntas frequentes sobre o Cloudyn
 
@@ -126,7 +126,7 @@ O Cloudyn detecta a moeda da assinatura do Contrato Enterprise e apresenta-a da 
 
 O Cloudyn tem os seguintes cronogramas de atualização de dados:
 
-- **Inicial**: pode levar até 24 horas para exibir dados de custo no Cloudyn depois de configurado. Também pode levar até 10 dias para o Cloudyn coletar dados suficientes para exibir as recomendações de dimensionamento.
+- **Inicial**: pode levar até 24 horas para exibir dados de custo no Cloudyn após a configuração. Também pode levar até 10 dias para o Cloudyn coletar dados suficientes para exibir as recomendações de dimensionamento.
 - **Diariamente**: do décimo dia ao final de cada mês, o Cloudyn deve mostrar os dados atualizados do dia anterior até aproximadamente UTC+3 no dia seguinte.
 - **Mensalmente**: do primeiro até o décimo dia de cada mês, o Cloudyn pode mostrar apenas os dados até o final do mês anterior.
 

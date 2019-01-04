@@ -1,13 +1,12 @@
 ---
-title: Prever uma resposta com um modelo simples de regressão – Azure Machine Learning | Microsoft Docs
+title: Prever respostas com um modelo simples de regressão – Azure Machine Learning | Microsoft Docs
 description: Como criar um modelo simples de regressão para prever um preço no vídeo 4, Ciência de dados para iniciantes. Inclui uma regressão linear com os dados de destino.
 keywords: criar um modelo, modelo simples, previsão de preço, modelo simples de regressão
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2862310623b2725cbeeaa4f5972a89ffcef44ff6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309769"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253556"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
-## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Série de ciência de dados para iniciantes
+## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Série Ciência de dados para iniciantes
 Aprenda como criar um modelo simples de regressão para prever o preço de um diamante no vídeo 4, Ciência de dados para iniciantes. Vamos desenhar um modelo de regressão com dados de destino.
 
 Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
@@ -38,13 +37,13 @@ Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a list
 ## <a name="other-videos-in-this-series"></a>Outros vídeos nesta série
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
 
-* Vídeo 1: [As cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
+* Vídeo 1: [As cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5min14s)*
 * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
-* Video 3: [Faça uma pergunta que você possa responder com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
-* Vídeo 4: Preveja uma resposta com um modelo simples
+* Vídeo 3: [Faça uma pergunta que você poderá responder usando dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
+* Vídeo 4: Prever uma resposta com um modelo simples
 * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
 
-## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcrição: Preveja uma resposta com um modelo simples
+## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcrição: Prever uma resposta com um modelo simples
 Bem-vindos ao quarto vídeo da série "Ciência de dados para iniciantes". Neste vídeo, vamos criar um modelo simples e fazer uma previsão.
 
 Um *modelo* é uma história simplificada sobre nossos dados. Mostrarei o que quero dizer.
@@ -97,18 +96,18 @@ O fato de que todos os pontos não passam exatamente pela linha não tem qualque
 Como estamos tentando responder à pergunta *quanto custa?*, isso é chamado de *regressão*. E, como estamos usando uma linha reta, é uma *regressão linear*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Usar o modelo para encontrar a resposta
-Agora, temos um modelo e fazemos a nossa pergunta: quanto custará um diamante de 1,35 quilate?
+Agora temos um modelo e a nossa pergunta é: Quanto custará um diamante de 1,35 quilate?
 
-Para responder à nossa pergunta, nós identificamos visualmente o 1,35 quilate e desenhamos uma linha vertical. Onde ela cruzar a linha do modelo, identificamos visualmente uma linha horizontal no eixo de dólar. Ela atinge diretamente 10.000. Pronto! Essa é a resposta: um diamante de 1,35 quilate custa aproximadamente $10.000.
+Para responder à nossa pergunta, nós identificamos visualmente o 1,35 quilate e desenhamos uma linha vertical. Onde ela cruzar a linha do modelo, identificamos visualmente uma linha horizontal no eixo de dólar. Ela atinge diretamente 10.000. Pronto! Essa é a resposta: Um diamante de 1,35 quilate custa aproximadamente $10.000.
 
 ![Encontrar a resposta no modelo](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Criar um intervalo de confiança
-É natural se preocupar com a precisão dessa previsão. É muito útil saber se o preço do diamante de 1,35 quilate será muito próximo de $10.000, mais barato ou mais caro. Para descobrir isso, vamos desenhar um envelope ao redor da linha de regressão que inclua a maioria dos pontos. Esse envelope é chamado de nosso *intervalo de confiança*: estamos bem confiantes de que os preços se enquadram nesse envelope, pois, no passado, a maioria deles se enquadrou. Podemos desenhar outras duas linhas horizontais a partir das quais a linha de 1,35 quilate cruza a parte superior e inferior do envelope.
+É natural se preocupar com a precisão dessa previsão. É muito útil saber se o preço do diamante de 1,35 quilate será muito próximo de $10.000, mais barato ou mais caro. Para descobrir isso, vamos desenhar um envelope ao redor da linha de regressão que inclua a maioria dos pontos. Esse envelope é chamado nosso *intervalo de confiança*: Estamos bem confiantes de que os preços se enquadram nesse envelope, pois, no passado, a maioria deles se enquadrou. Podemos desenhar outras duas linhas horizontais a partir das quais a linha de 1,35 quilate cruza a parte superior e inferior do envelope.
 
 ![intervalo de confiança](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Agora podemos dizer algo sobre o intervalo de confiança: podemos dizer com segurança que o preço de um diamante de 1,35 quilate é de aproximadamente $10.000, mas pode ser $8.000 e pode ser $12.000.
+Agora podemos dizer algo sobre o intervalo de confiança:  Podemos dizer com segurança que o preço de um diamante de 1,35 quilate é de aproximadamente $10.000, mas pode ser $8.000 e pode ser $12.000.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Pronto, sem matemática ou computadores
 Fizemos o que os cientistas de dados são pagos para fazer, e fizemos isso apenas desenhando:

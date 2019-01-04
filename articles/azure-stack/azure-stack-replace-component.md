@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9470813f3f9c3bff58882879c06e7b7b0fc15b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9657fd448f6fb98eec87a5999af100d4d08594e5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379590"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717714"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Substituir um componente de hardware em um nó de unidade de escala do Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
-Este artigo descreve o processo geral para substituir os componentes de hardware que não trocados. Substituição real, as etapas variam com base em seu fornecedor de hardware do fabricante original do equipamento (OEM). Consulte a documentação do fornecedor campo FRU (unidade) para obter etapas detalhadas que são específicas para seu sistema integrado do Azure Stack.
+Este artigo descreve o processo geral para substituir os componentes de hardware que não trocados. Substituição real, as etapas variam com base em seu fornecedor de hardware do fabricante original do equipamento (OEM). Confira a documentação sobre a unidade substituível de campo (FRU) para obter etapas detalhadas que são específicas para seu sistema integrado do Azure Stack.
 
 Componentes não intercambiáveis incluem o seguinte:
 
@@ -42,7 +42,7 @@ O diagrama de fluxo a seguir mostra o processo geral de FRU para substituir um c
 
 ![Diagrama mostrando o fluxo de substituição de componente do fluxo](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
-* Esta ação pode não ser necessária com base na condição do hardware física.
+* Essa ação pode não ser necessária com base na condição do hardware física.
 
 * * Se o fornecedor do hardware OEM executa a substituição de componentes e as atualizações que de firmware pode variar com base no seu contrato de suporte.
 
@@ -54,21 +54,23 @@ A integridade do Azure Stack e o sistema de monitoramento acompanham a integrida
 
 As etapas a seguir fornecem uma visão geral do processo de substituição de componente. Não siga estas etapas sem fazer referência a documentação do FRU fornecidos pelo OEM.
 
-1. Use o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala no modo de manutenção. Essa ação pode não ser necessária com base na condição do hardware física.
+1. Use a ação de desligamento para desligar normalmente o nó de unidade de escala. Essa ação pode não ser necessária com base na condição do hardware física.
 
-   > [!NOTE]
-   > Em qualquer caso, apenas um nó pode ser descarregado e desligado ao mesmo tempo sem quebrar o S2D (espaços de armazenamento diretos).
+2. Em um caso improvável da ação de desligamento falhar, use o [drenar](azure-stack-node-actions.md#drain) ação para colocar o nó de unidade de escala no modo de manutenção. Essa ação pode não ser necessária com base na condição do hardware física.
 
-2. Após o nó de unidade de escala no modo de manutenção, use o [desligue](azure-stack-node-actions.md#scale-unit-node-actions) ação. Essa ação pode não ser necessária com base na condição do hardware física.
+   > [!NOTE]  
+   > Em qualquer caso, apenas um nó pode ser desativado e desligado ao mesmo tempo sem quebrar o S2D (espaços de armazenamento diretos).
 
-   > [!NOTE]
+3. Após o nó de unidade de escala no modo de manutenção, use o [desligue](azure-stack-node-actions.md#scale-unit-node-actions) ação. Essa ação pode não ser necessária com base na condição do hardware física.
+
+   > [!NOTE]  
    > No caso improvável de que a ação de desligar não funciona, use a interface da web do baseboard management controller (BMC).
 
-3. Substitua o componente de hardware danificado. Se o fornecedor do hardware OEM executa a substituição de componente pode variar com base no seu contrato de suporte.  
-4. Atualize o firmware. Siga seu processo de atualização de firmware específico do fornecedor usando o host de ciclo de vida do hardware para garantir que o componente de hardware substituído tem o firmware aprovado nível aplicado. Se o fornecedor do hardware OEM realiza esta etapa pode variar de acordo com seu contrato de suporte.  
-5. Use o [reparo](azure-stack-node-actions.md#scale-unit-node-actions) ação para que o nó de unidade de escala de volte para a unidade de escala.
-6. Use o ponto de extremidade com privilégios [verificar o status de reparo de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com novas unidades de dados, um trabalho de reparo de armazenamento completo pode levar várias horas, dependendo da carga do sistema e espaço consumido.
-7. Após a ação de reparo, valide que todos os alertas ativos foi fechados automaticamente.
+4. Substitua o componente de hardware danificado. Se o fornecedor do hardware OEM executa a substituição de componente pode variar com base no seu contrato de suporte.  
+5. Atualize o firmware. Siga seu processo de atualização de firmware específico do fornecedor usando o host de ciclo de vida do hardware para garantir que o componente de hardware substituído tem o firmware aprovado nível aplicado. Se o fornecedor do hardware OEM realiza esta etapa pode variar de acordo com seu contrato de suporte.  
+6. Use o [reparo](azure-stack-node-actions.md#scale-unit-node-actions) ação para que o nó de unidade de escala de volte para a unidade de escala.
+7. Use o ponto de extremidade com privilégios [verificar o status de reparo de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com novas unidades de dados, um trabalho de reparo de armazenamento completo pode levar várias horas, dependendo da carga do sistema e espaço consumido.
+8. Após a ação de reparo, valide que todos os alertas ativos foi fechados automaticamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

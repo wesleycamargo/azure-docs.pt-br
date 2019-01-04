@@ -55,166 +55,18 @@ items:
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
   - name: Início rápido do R
     href: r-quickstart.md
-- name: Como
+- name: Exemplos
   items:
-  - name: Configurar ferramentas e utilitários
-    items:
-    - name: Gerenciar um workspace
-      items:
-      - name: Criar
-        href: create-workspace.md
-      - name: Gerenciar
-        href: manage-workspace.md
-      - name: Solucionar problemas
-        href: troubleshooting-creating-ml-workspace.md
-      - name: Implantar usando ARM
-        href: deploy-with-resource-manager-template.md
-      - name: Exibir e excluir dados de conta do Studio
-        displayName: export
-        href: export-delete-personal-data-dsr.md
-  - name: Adquirir e entender os dados
-    items:
-    - name: Importar dados de treinamento
-      items:
-      - name: Visão geral
-        href: import-data.md
-      - name: De um arquivo local
-        href: import-data-from-local-file.md
-      - name: De fontes online
-        href: import-data-from-online-sources.md
-      - name: De um experimento
-        href: import-data-from-an-experiment.md
-      - name: Usar o SQL local
-        displayName: on-premises
-        href: use-data-from-an-on-premises-sql-server.md
-  - name: Desenvolver modelos
-    items:
-    - name: Criar e treinar modelos
-      items:
-      - name: Gerenciamento de ciclo de vida do experimento
-        href: version-control.md
-      - name: Gerenciar iterações de teste
-        href: manage-experiment-iterations.md
-      - name: Usar o PowerShell para criar modelos
-        displayName: endpoint, endpoints
-        href: create-models-and-endpoints-with-powershell.md
-      - name: Selecionar algoritmos
-        items:
-        - name: Escolher algoritmos
-          href: algorithm-choice.md
-        - name: Roteiro de algoritmo
-          href: algorithm-cheat-sheet.md
-        - name: Usar regressão linear
-          href: linear-regression-in-azure.md
-        - name: Usar análise de texto
-          href: text-analytics-module-tutorial.md
-      - name: Avaliar e interpretar os resultados
-        items:
-        - name: Desempenho da avaliação
-          href: evaluate-model-performance.md
-        - name: Otimizar parâmetros
-          displayName: optimization
-          href: algorithm-parameters-optimize.md
-        - name: Interpretar os resultados
-          href: interpret-model-results.md
-        - name: Depurar
-          href: debug-models.md
-      - name: Usar R e Python
-        items:
-        - name: Executar scripts R
-          href: extend-your-experiment-with-r.md
-        - name: Criar módulos R personalizados
-          href: custom-r-modules.md
-        - name: Executar scripts Python
-          href: execute-python-scripts.md
-  - name: Operacionalizar modelos
-    displayName: deploy
-    items:
-    - name: Visão geral
-      displayName: deploy, consume, web service
-      href: deploy-consume-web-service-guide.md
-    - name: Implantar modelos
-      items:
-      - name: Implantar um serviço Web
-        displayName: publish
-        href: publish-a-machine-learning-web-service.md
-      - name: Como ele funciona
-        href: model-progression-experiment-to-web-service.md
-      - name: Preparar para a implantação
-        href: convert-training-experiment-to-scoring-experiment.md
-      - name: Usar dados externos
-        displayName: import, export
-        href: web-services-that-use-import-export-modules.md
-      - name: Implantar em várias regiões
-        displayName: multiple regions
-        href: how-to-deploy-to-multiple-regions.md
-      - name: Usar parâmetros de serviço Web
-        href: web-service-parameters.md
-      - name: Habilitar o registro em log
-        href: web-services-logging.md
-    - name: Gerenciar serviços Web
-      items:
-      - name: Usar o portal de serviços Web
-        href: manage-new-webservice.md
-      - name: Gerenciar com APIs
-        displayName: endpoint, endpoints
-        href: manage-web-service-endpoints-using-api-management.md
-      - name: Criar pontos de extremidade
-        href: create-endpoint.md
-      - name: Dimensionamento
-        href: scaling-webservice.md
-    - name: Treinar modelos novamente
-      items:
-      - name: Visão geral
-        href: retrain-machine-learning-model.md
-      - name: Treinar novamente de maneira programática
-        href: retrain-models-programmatically.md
-      - name: Treinar novamente um serviço Web Clássico
-        href: retrain-a-classic-web-service.md
-      - name: Treinar novamente com o PowerShell
-        href: retrain-new-web-service-using-powershell.md
-      - name: Treinar novamente um serviço Web existente
-        href: retrain-existing-resource-manager-based-web-service.md
-      - name: Solucionar problemas
-        href: troubleshooting-retraining-models.md
-    - name: Consumir modelos
-      items:
-      - name: Visão geral
-        href: consume-web-services.md
-      - name: Usar o Excel
-        href: consuming-from-excel.md
-      - name: Usar suplemento do Excel
-        href: excel-add-in-for-web-services.md
-      - name: Usar modelo de aplicativo Web
-        href: consume-web-service-with-web-app-template.md
-      - name: Usar Pool do Lote
-        href: dedicated-capacity-for-bes-jobs.md
-  - name: Exemplos
-    items:
-    - name: Testes de amostra
-      href: sample-experiments.md
-    - name: Conjuntos de dados de amostra
-      href: use-sample-datasets.md
-    - name: Exemplo de variação do cliente
-      href: azure-ml-customer-churn-scenario.md
-- name: Referência
-  items:
-  - name: Módulo do Azure PowerShell (Novo)
-    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
-  - name: Módulo do Azure PowerShell (Clássico)
-    href: powershell-module.md
-  - name: Referência de módulo e algoritmos
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
-  - name: APIs de gerenciamento REST
-    href: /rest/api/machinelearning
-  - name: Códigos de erro do serviço Web
-    href: web-service-error-codes.md
-- name: Relacionados
-  items:
+  - name: Conjuntos de dados de amostra
+    href: use-sample-datasets.md
+  - name: Exemplo de variação do cliente
+    href: azure-ml-customer-churn-scenario.md
   - name: Galeria de IA do Azure
     items:
     - name: Visão geral
       href: gallery-how-to-use-contribute-publish.md
+    - name: Testes de amostra
+      href: sample-experiments.md
     - name: Indústrias
       href: gallery-industries.md
     - name: Soluções
@@ -235,6 +87,145 @@ items:
       href: gallery-custom-modules.md
     - name: Exibir e excluir dados de conta
       href: ai-gallery-control-personal-data-dsr.md
+- name: Conceitos
+  items:
+  - name: Gerenciamento de modelos
+    displayName: deploy, consume, web service
+    href: deploy-consume-web-service-guide.md
+- name: Guias de instruções
+  items:
+  - name: Gerenciar um workspace
+    items:
+    - name: Criar
+      href: create-workspace.md
+    - name: Gerenciar
+      href: manage-workspace.md
+    - name: Solucionar problemas
+      href: troubleshooting-creating-ml-workspace.md
+    - name: Implantar usando ARM
+      href: deploy-with-resource-manager-template.md
+    - name: Exibir e excluir dados de conta do Studio
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+  - name: Importar dados de treinamento
+    items:
+    - name: Visão geral
+      href: import-data.md
+    - name: De um arquivo local
+      href: import-data-from-local-file.md
+    - name: De fontes online
+      href: import-data-from-online-sources.md
+    - name: De um experimento
+      href: import-data-from-an-experiment.md
+    - name: Usar o SQL local
+      displayName: on-premises
+      href: use-data-from-an-on-premises-sql-server.md
+  - name: Criar e treinar modelos
+    items:
+    - name: Gerenciamento de ciclo de vida do experimento
+      href: version-control.md
+    - name: Gerenciar iterações de teste
+      href: manage-experiment-iterations.md
+    - name: Usar o PowerShell para criar modelos
+      displayName: endpoint, endpoints
+      href: create-models-and-endpoints-with-powershell.md
+    - name: Selecionar algoritmos
+      items:
+      - name: Escolher algoritmos
+        href: algorithm-choice.md
+      - name: Roteiro de algoritmo
+        href: algorithm-cheat-sheet.md
+      - name: Usar regressão linear
+        href: linear-regression-in-azure.md
+      - name: Usar análise de texto
+        href: text-analytics-module-tutorial.md
+    - name: Avaliar e interpretar os resultados
+      items:
+      - name: Desempenho da avaliação
+        href: evaluate-model-performance.md
+      - name: Otimizar parâmetros
+        displayName: optimization
+        href: algorithm-parameters-optimize.md
+      - name: Interpretar os resultados
+        href: interpret-model-results.md
+      - name: Depurar
+        href: debug-models.md
+    - name: Usar R e Python
+      items:
+      - name: Executar scripts R
+        href: extend-your-experiment-with-r.md
+      - name: Criar módulos R personalizados
+        href: custom-r-modules.md
+      - name: Executar scripts Python
+        href: execute-python-scripts.md
+  - name: Implantar modelos
+    items:
+    - name: Implantar um serviço Web
+      displayName: publish
+      href: publish-a-machine-learning-web-service.md
+    - name: Como ele funciona
+      href: model-progression-experiment-to-web-service.md
+    - name: Preparar para a implantação
+      href: convert-training-experiment-to-scoring-experiment.md
+    - name: Usar dados externos
+      displayName: import, export
+      href: web-services-that-use-import-export-modules.md
+    - name: Implantar em várias regiões
+      displayName: multiple regions
+      href: how-to-deploy-to-multiple-regions.md
+    - name: Usar parâmetros de serviço Web
+      href: web-service-parameters.md
+    - name: Habilitar o registro em log
+      href: web-services-logging.md
+  - name: Gerenciar serviços Web
+    items:
+    - name: Usar o portal de serviços Web
+      href: manage-new-webservice.md
+    - name: Gerenciar com APIs
+      displayName: endpoint, endpoints
+      href: manage-web-service-endpoints-using-api-management.md
+    - name: Criar pontos de extremidade
+      href: create-endpoint.md
+    - name: Dimensionamento
+      href: scaling-webservice.md
+  - name: Treinar modelos novamente
+    items:
+    - name: Visão geral
+      href: retrain-machine-learning-model.md
+    - name: Treinar novamente de maneira programática
+      href: retrain-models-programmatically.md
+    - name: Treinar novamente um serviço Web Clássico
+      href: retrain-a-classic-web-service.md
+    - name: Treinar novamente com o PowerShell
+      href: retrain-new-web-service-using-powershell.md
+    - name: Treinar novamente um serviço Web existente
+      href: retrain-existing-resource-manager-based-web-service.md
+    - name: Solucionar problemas
+      href: troubleshooting-retraining-models.md
+  - name: Consumir modelos
+    items:
+    - name: Visão geral
+      href: consume-web-services.md
+    - name: Usar o Excel
+      href: consuming-from-excel.md
+    - name: Usar suplemento do Excel
+      href: excel-add-in-for-web-services.md
+    - name: Usar modelo de aplicativo Web
+      href: consume-web-service-with-web-app-template.md
+    - name: Usar Pool do Lote
+      href: dedicated-capacity-for-bes-jobs.md
+- name: Referência
+  items:
+  - name: Módulo do Azure PowerShell (Novo)
+    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
+  - name: Módulo do Azure PowerShell (Clássico)
+    href: powershell-module.md
+  - name: Referência de módulo e algoritmos
+    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
+  - name: APIs de gerenciamento REST
+    href: /rest/api/machinelearning
+  - name: Códigos de erro do serviço Web
+    href: web-service-error-codes.md
 - name: Recursos
   items:
   - name: Preços
@@ -249,9 +240,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Guia do desenvolvedor R
     href: ../r-developers-guide.md
-ms.openlocfilehash: 8aaf830dc13919a664a931b5d08a11c817e8dc51
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 16c610345c063be9149d841c71d27f73e22d143d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628299"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974108"

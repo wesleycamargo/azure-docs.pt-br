@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109964"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436153"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalize um pipeline de análise de dados
 
@@ -30,13 +30,13 @@ No cenário a seguir, os dados de entrada estão em um arquivo simples que cont�
 | 2017 | 1 | 3 | AS | 9,435449 | 5,482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6,935409 | -2,1893024 | 1909696 |
 
-O pipeline de exemplo aguarda a chegada de novos dados de voo, depois, armazena essas informações detalhadas do voo em seu data warehouse do Hive para análise de longo prazo. O pipeline também cria um conjunto de dados bem menor que resume apenas os dados de voos diários. Esses dados resumidos de voos diários são enviados a um banco de dados SQL a fim de fornecer relatórios, por exemplo, para um site.
+O pipeline de exemplo aguarda a chegada de novos dados de voo, depois, armazena essas informações detalhadas do voo em seu data warehouse do Apache Hive para análise de longo prazo. O pipeline também cria um conjunto de dados bem menor que resume apenas os dados de voos diários. Esses dados resumidos de voos diários são enviados a um banco de dados SQL a fim de fornecer relatórios, por exemplo, para um site.
 
 O diagrama a seguir ilustra o pipeline de exemplo.
 
 ![Pipeline de dados de voo](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Visão geral da solução Oozie
+## <a name="apache-oozie-solution-overview"></a>Visão geral da solução Apache Oozie
 
 Esse pipeline usa o Apache Oozie em execução em um cluster Hadoop do HDInsight.
 
@@ -139,7 +139,7 @@ Seu Banco de dados SQL do Azure está pronto.
 
 Para usar o Console da Web do Oozie a fim de exibir o status de suas instâncias de coordenador e de fluxo de trabalho, configure um túnel SSH para seu cluster do HDInsight. Para saber mais, confira [Túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Você também pode usar o Chrome com a extensão [Foxy Proxy](https://getfoxyproxy.org/) para procurar os recursos da Web de seu cluster no túnel SSH. Configure-o para usar um proxy em as solicitações por meio do host `localhost` na porta 9876 do túnel. Essa abordagem é compatível com o Subsistema do Windows para Linux, também conhecido como Bash no Windows 10.
 
 1. Execute o comando a seguir para abrir um túnel SSH para o seu cluster:
@@ -156,7 +156,7 @@ Para usar o Console da Web do Oozie a fim de exibir o status de suas instâncias
 
 ### <a name="configure-hive"></a>Configurar o Hive
 
-1. Baixe um arquivo CSV de exemplo que contenha dados de voo de um mês inteiro. Baixe o arquivo ZIP `2017-01-FlightData.zip` do [repositório do Github para HDInsight](https://github.com/hdinsight/hdinsight-dev-guide) e descompacte-o no arquivo CSV `2017-01-FlightData.csv`. 
+1. Baixe um arquivo CSV de exemplo que contenha dados de voo de um mês inteiro. Baixe o arquivo ZIP `2017-01-FlightData.zip` do [repositório do GitHub para HDInsight](https://github.com/hdinsight/hdinsight-dev-guide) e descompacte-o no arquivo CSV `2017-01-FlightData.csv`. 
 
 2. Copie esse arquivo CSV na conta de Armazenamento do Azure anexada ao seu cluster HDInsight e coloque-o na pasta `/example/data/flights`.
 
@@ -430,7 +430,7 @@ A tabela a seguir resume cada uma das propriedades e indica onde você pode enco
 | month | O componente mês do dia para o qual os resumos de voo são computados. Deixe como está. |
 | dia | O componente dia do mês do dia para o qual os resumos de voo são computados. Deixe como está. |
 
-> [!NOTE]
+> [!NOTE]  
 > Atualize sua cópia do arquivo `job.properties` com os valores específicos ao seu ambiente, antes de implantar e executar o fluxo de trabalho do Oozie.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Implantar e executar o fluxo de trabalho do Oozie
@@ -545,7 +545,7 @@ Para agendar a execução diária desse fluxo de trabalho (ou a execução duran
 
 Como você pode ver, grande parte do coordenador está apenas passando informações de configuração para a instância de fluxo de trabalho. No entanto, alguns itens importantes merecem destaque.
 
-* Ponto 1: os atributos `start` e `end` no próprio elemento `coordinator-app` controlam o intervalo de tempo durante o qual o coordenador é executado.
+* Ponto 1: Os atributos `start` e `end` no `coordinator-app` elemento, controle o intervalo de tempo sobre o qual o coordenador é executado.
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
@@ -553,7 +553,7 @@ Como você pode ver, grande parte do coordenador está apenas passando informaç
 
     Um coordenador é responsável por agendar ações dentro do intervalo de datas `start` e `end`, de acordo com o intervalo especificado pelo atributo `frequency`. Cada ação agendada, por sua vez, executa o fluxo de trabalho conforme configurado. Na definição do coordenador acima, o coordenador está configurado para executar ações de 1º de janeiro de 2017 a 5 de janeiro de 2017. A frequência é definida como 1 dia pela expressão frequência `${coord:days(1)}` da [Linguagem de Expressão do Oozie](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation). Isso é resultado do agendamento por parte do coordenador de uma ação (e, portanto, do fluxo de trabalho), uma vez por dia. Para intervalos de datas que estão no passado, como neste exemplo, a ação será agendada para execução sem atraso. O início da data a partir da qual a execução de uma ação é programada é chamada de *tempo nominal*. Por exemplo, para processar os dados de 1º de janeiro de 2017, o coordenador agendará a ação com um tempo nominal de 2017-01-01T00:00:00 GMT.
 
-* Ponto 2: dentro do intervalo de datas do fluxo de trabalho, o elemento `dataset` especifica onde procurar no HDFS os dados de um determinado intervalo de datas, e configura como o Oozie determina se os dados ainda estão disponíveis para processamento.
+* Ponto 2: Dentro do intervalo de datas do fluxo de trabalho, o elemento `dataset` especifica onde procurar no HDFS os dados de um determinado intervalo de datas, e configura como o Oozie determina se os dados ainda estão disponíveis para processamento.
 
     ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -566,7 +566,7 @@ Como você pode ver, grande parte do coordenador está apenas passando informaç
 
     O elemento `done-flag` vazio indica que quando o Oozie verifica a presença de dados de entrada na hora indicada, o Oozie determina se os dados estão disponíveis pela presença de um arquivo ou diretório. Nesse caso, é a presença de um arquivo csv. Se houver um arquivo csv, o Oozie assumirá que os dados estão prontos e iniciará uma instância do fluxo de trabalho para processar o arquivo. Se não houver um arquivo csv, o Oozie assumirá que os dados ainda não estão prontos e essa execução do fluxo de trabalho entrará em um estado de espera.
 
-* Ponto 3: o elemento `data-in` especifica o carimbo de hora específico a ser usado como o tempo nominal ao substituir os valores em `uri-template` para o conjunto de dados associado.
+* Ponto 3: O elemento `data-in` especifica o carimbo de hora específico a ser usado como o tempo nominal ao substituir os valores em `uri-template` para o conjunto de dados associado.
 
     ```
     <data-in name="event_input1" dataset="ds_input1">
@@ -578,11 +578,11 @@ Como você pode ver, grande parte do coordenador está apenas passando informaç
 
 Os três pontos anteriores são combinados para produzir uma situação na qual o coordenador agenda diariamente o processamento dos dados de origem. 
 
-* Ponto 1: o coordenador começa com uma data nominal de 2017-01-01.
+* Ponto 1: O coordenador começa com uma data nominal de 2017-01-01.
 
-* Ponto 2: o Oozie procura os dados disponíveis em `sourceDataFolder/2017-01-FlightData.csv`.
+* Ponto 2: O Oozie procura os dados disponíveis em `sourceDataFolder/2017-01-FlightData.csv`.
 
-* Ponto 3: quando o Oozie encontra esse arquivo, ele agenda uma instância do fluxo de trabalho que processará os dados para 2017-01-01. Depois, o Oozie continua o processamento de 2017-01-02. Essa avaliação se repete até, mas sem incluir, 2017-01-05.
+* Ponto 3: Quando o Oozie encontra esse arquivo, ele agenda uma instância do fluxo de trabalho que processará os dados para 2017-01-01. Depois, o Oozie continua o processamento de 2017-01-02. Essa avaliação se repete até, mas sem incluir, 2017-01-05.
 
 Assim como ocorre com os fluxos de trabalho, a configuração de um coordenador é definida em um arquivo `job.properties`, que tem um superconjunto das configurações usadas pelo fluxo de trabalho.
 

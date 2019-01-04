@@ -1,6 +1,6 @@
 ---
-title: Grupo de recursos de exclusão do Azure Resource Manager
-description: Descreve como o Azure Resource Manager ordena a exclusão de recursos quando uma exclusão de um grupo de recursos.
+title: Excluir grupo de recursos e recursos - Azure Resource Manager
+description: Descreve como o Azure Resource Manager ordena a exclusão de recursos quando uma exclusão de um grupo de recursos. Descreve os códigos de resposta e como o Resource Manager os manipula para determinar se a exclusão teve êxito.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b0711cab07584aa84ab437a2a4efb5aab92f3d1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318905"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132322"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Exclusão do grupo de recursos do Azure Resource Manager
 
@@ -68,4 +69,4 @@ Para outros códigos de erro, o Gerenciador de Recursos falha na exclusão do re
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para reconhecer os conceitos do Gerenciador de Recursos, consulte [Visão geral do Azure Resource Manager](resource-group-overview.md).
-* Para exibir as operações para um provedor de recursos, consulte [API REST do Azure](/rest/api/).
+* Para comandos de exclusão, consulte [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup), [CLI do Azure](/cli/azure/group?view=azure-cli-latest#az-group-delete) e [API REST](/rest/api/resources/resourcegroups/delete).

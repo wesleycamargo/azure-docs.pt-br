@@ -4,28 +4,27 @@ description: Este artigo descreve como usar funções definidas pelo usuário de
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 024d7094a9baa90eebd57b4c76db367f81bd0400
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700860"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104910"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração do Machine Learning ao Stream Analytics
 O Stream Analytics dá suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning. O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
 
-## <a name="overview-azure-machine-learning-terminology"></a>Visão geral: terminologia do Azure Machine Learning
+## <a name="overview-azure-machine-learning-terminology"></a>Visão geral: Terminologia do Azure Machine Learning
 O Microsoft Azure Machine Learning fornece uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada de *Azure Machine Learning Studio*. O estúdio é usado para interagir com os recursos do Machine Learning e para compilar, testar e iterar facilmente em seu design. Veja abaixo esses recursos e suas definições.
 
-* **Espaço de trabalho**: o *espaço de trabalho* é um contêiner que mantém todos os outros recursos de Machine Learning em um contêiner para gerenciamento e controle.
-* **Experimento**: os *Experimentos* são criados por cientistas de dados a fim de usar conjuntos de dados e treinar um modelo de aprendizado de máquina.
-* **Ponto de extremidade**: os *Pontos de extremidade* são objetos de Azure Machine Learning usados para aproveitar recursos como entrada, aplicar um modelo de aprendizado de máquina especificado e retornar a saída pontuada.
-* **Serviço da Web de Pontuação**: um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
+* **Workspace**: O *workspace* é um contêiner que mantém todos os outros recursos de Machine Learning em um contêiner para gerenciamento e controle.
+* **Experimento**: Os *Experimentos* são criados por cientistas de dados a fim de usar conjuntos de dados e treinar um modelo de machine learning.
+* **Ponto de extremidade**: Os *Pontos de extremidade* são objetos de Azure Machine Learning usados para aproveitar recursos como entrada, aplicar um modelo de machine learning especificado e retornar a saída pontuada.
+* **Serviço Web de pontuação**: Um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
 
 Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. O serviço específico é chamado de [Serviço de Solicitação/Resposta](../machine-learning/studio/consume-web-services.md) no Estúdio AM do Azure.
 
@@ -51,7 +50,7 @@ Por exemplo, o exemplo de código a seguir cria uma UDF escalar chamada *newudf*
 
 Exemplo de corpo de solicitação:  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -67,7 +66,7 @@ Exemplo de corpo de solicitação:
             }
         }
     }
-````
+```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Chamar o ponto de extremidade RetrieveDefaultDefinition para UDF padrão
 Após a criação do esqueleto da UDF, é necessário obter a definição completa da UDF. O ponto de extremidade RetreiveDefaultDefinition ajuda a obter a definição padrão para uma função escalar associada a um ponto de extremidade de Azure Machine Learning. A carga abaixo exige que você obtenha definição padrão da UDF para uma função escalar associada a um ponto de extremidade de Azure Machine Learning. Ela não especifica o ponto de extremidade real, pois ele já foi fornecido durante a solicitação PUT. O Stream Analytics chamará o ponto de extremidade fornecido na solicitação se ele for fornecido explicitamente. Caso contrário, ele usa o ponto referenciado originalmente. Neste exemplo, a UDF usa um parâmetro de cadeia de caracteres única (uma sentença) e retorna uma saída única do tipo de cadeia de caracteres que indica o rótulo "sentimento" daquela sentença.
@@ -78,7 +77,7 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 Exemplo de corpo de solicitação:  
 
-````
+```json
     {
         "bindingType": "Microsoft.MachineLearning/WebService",
         "bindingRetrievalProperties": {
@@ -86,11 +85,11 @@ Exemplo de corpo de solicitação:
             "udfType": "Scalar"
         }
     }
-````
+```
 
 Um exemplo disso teria uma aparência como esta.  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -126,7 +125,7 @@ Um exemplo disso teria uma aparência como esta.
             }
         }
     }
-````
+```
 
 ## <a name="patch-udf-with-the-response"></a>Aplicar patch à UDF com a resposta
 Agora a UDF deve ser corrigida com a resposta anterior, conforme exibido abaixo.
@@ -137,7 +136,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 Corpo da solicitação (saída de RetrieveDefaultDefinition):
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -173,12 +172,12 @@ Corpo da solicitação (saída de RetrieveDefaultDefinition):
             }
         }
     }
-````
+```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implementar uma transformação do Stream Analytics que chama a UDF
 Agora, consulte a UDF (chamada aqui de scoreTweet) para cada evento de entrada e grave uma resposta para esse evento em uma saída.  
 
-````
+```json
     {
         "name": "transformation",
         "properties": {
@@ -186,7 +185,7 @@ Agora, consulte a UDF (chamada aqui de scoreTweet) para cada evento de entrada e
             "query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
         }
     }
-````
+```
 
 
 ## <a name="get-help"></a>Obter ajuda

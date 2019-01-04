@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494278"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165785"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Exemplo de streaming do Apache Spark (DStream) com o Apache Kafka no HDInsight
 
@@ -57,17 +57,17 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
    
     * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.
 
-    * **Local**: escolha um local geograficamente perto de você.
+    * **Local**: Escolha um local geograficamente perto de você.
 
-    * **Nome do Cluster de base**: esse valor é usado como o nome de base para os clusters Spark e Kafka. Por exemplo, a inserção de **hdistreaming** cria um cluster Spark chamado __spark-hdistreaming__ e um cluster Kafka chamado **kafka-hdistreaming**.
+    * **Nome do Cluster de Base**: Esse valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, a inserção de **hdistreaming** cria um cluster Spark chamado __spark-hdistreaming__ e um cluster Kafka chamado **kafka-hdistreaming**.
 
-    * **Nome de usuário de logon do cluster**: O nome de usuário do administrador para os clusters Spark e Kafka.
+    * **Nome de Usuário de Logon do Cluster**: O nome do usuário administrador dos clusters Spark e Kafka.
 
-    * **Senha de logon do cluster**: A senha de usuário do administrador para os clusters Spark e Kafka.
+    * **Senha de Logon do Cluster**: A senha do usuário administrador dos clusters Spark e Kafka.
 
-    * **Nome de usuário SSH**: O usuário SSH para criar para os clusters Spark e Kafka.
+    * **Nome de Usuário SSH**: O usuário SSH para criar para os clusters Spark e Kafka.
 
-    * **Senha SSH**: a senha para o usuário SSH dos clusters Kafka e Spark.
+    * **Senha SSH**: A senha para o usuário SSH dos clusters Kafka e Spark.
 
 3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 
@@ -97,6 +97,6 @@ Como as etapas neste documento criam ambos os clusters no mesmo grupo de recurso
 Neste exemplo, você aprendeu a usar o Spark para ler e gravar em Kafka. Use os links a seguir para descobrir outras maneiras de trabalhar com Kafka:
 
 * [Introdução ao Apache Kafka no HDInsight](kafka/apache-kafka-get-started.md)
-* [Use o MirrorMaker para criar uma réplica do Apache Kafka no HDInsight](kafka/apache-kafka-mirroring.md)
+* [Use MirrorMaker para criar uma réplica de Apache Kafka no HDInsight](kafka/apache-kafka-mirroring.md)
 * [Use o Apache Storm com o Apache Kafka no HDInsight](hdinsight-apache-storm-with-kafka.md)
 

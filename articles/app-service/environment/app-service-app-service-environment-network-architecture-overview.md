@@ -1,5 +1,5 @@
 ---
-title: Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo
+title: Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo – Azure
 description: Visão geral da arquitetura da topologia de rede dos Ambientes de Serviço de Aplicativo.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 3362a55524da42914681db06b8d2c0da8df773d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 0d7d4af46e54ad89e0d084cb15af13e56115e996
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986771"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274151"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo
 ## <a name="introduction"></a>Introdução
@@ -86,7 +87,7 @@ Os detalhes sobre as portas de entrada usadas pelos Ambientes do Serviço de Apl
 Os detalhes sobre como usar rotas definidas pelo usuário para conceder acesso à Internet de saída aos Ambientes do Serviço de Aplicativo estão disponíveis neste [artigo][ExpressRoute]. 
 
 <!-- LINKS -->
-[virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
 [controllinginboundtraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [ExpressRoute]:  app-service-app-service-environment-network-configuration-expressroute.md
 

@@ -1,25 +1,19 @@
 ---
-title: Solução de problemas de desempenho de Rede Virtual do Azure | Microsoft Docs
+title: 'Solucione problemas de desempenho de rede virtual: Azure | Microsoft Docs'
 description: Esta página fornece um método padronizado de teste de desempenho de link de rede do Azure.
 services: expressroute
-documentationcenter: na
 author: tracsman
-manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 12/20/2017
 ms.author: jonor
-ms.openlocfilehash: 56f011632a2aa3ef0632efd5ace472c0fc79a329
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: seodec18
+ms.openlocfilehash: 2572ff3711fb86cda88a86744192980a5b2d5361
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27318614"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277617"
 ---
 # <a name="troubleshooting-network-performance"></a>Solução de problemas de desempenho de rede
 ## <a name="overview"></a>Visão geral
@@ -136,7 +130,7 @@ Se duas Redes Virtuais (Redes Virtuais A e B, no diagrama) estão conectadas ao 
 ### <a name="test-plan"></a>Plano de teste
 1. Execute o teste Get-LinkPerformance entre a VM1 e a VM2. Esse teste fornece informações sobre se o problema é local ou não. Se esse teste produzir resultados de latência e de largura de banda aceitáveis, você poderá marcar a Rede Virtual local como boa.
 2. Supondo que o tráfego da Rede Virtual local esteja bom, execute o teste Get-LinkPerformance entre a VM1 e a VM3. Esse teste exerce a conexão pela rede da Microsoft até a MSEE, retornando para o Azure. Se esse teste produzir resultados de latência e de largura de banda aceitáveis, você poderá marcar a rede do Azure como boa.
-3. Se o Azure for excluído, você poderá executar uma sequência de testes semelhante em sua Rede corporativa. Se esses testes também produzirem bons resultados, será hora de trabalhar com seu provedor de serviços ou ISP para diagnosticar a conexão da WAN. Exemplo: execute este teste entre duas filiais, ou entre sua mesa e um servidor de data center. Dependendo do que você está testando, localize pontos de extremidade (servidores, computadores, etc.) que podem exercer esse caminho.
+3. Se o Azure for excluído, você poderá executar uma sequência de testes semelhante em sua Rede corporativa. Se esses testes também produzirem bons resultados, será hora de trabalhar com seu provedor de serviços ou ISP para diagnosticar a conexão da WAN. Exemplo: Execute este teste entre duas filiais ou entre sua mesa e um servidor de data center. Dependendo do que você está testando, localize pontos de extremidade (servidores, computadores, etc.) que podem exercer esse caminho.
 
 >[!IMPORTANT]
 > É fundamental que, para cada teste, você marque a hora do dia em que executou o teste e registre os resultados em um local comum (eu gosto do OneNote ou do Excel). Cada execução de teste deve ter saída idêntica para que você possa comparar os dados resultantes entre execuções de teste e não ter "lacunas" nos dados. A consistência entre vários testes é a principal razão pela qual eu uso o AzureCT para solução de problemas. A mágica não está nos cenários de carga exatos que eu executo, mas a *mágica* está no fato de que obtenho uma *saída consistente de teste e dados* de cada teste. Registrar a hora e sempre ter dados consistentes será especialmente útil se você descobrir mais tarde que o problema é esporádico. Antecipe-se no cuidado com a coleta de dados e você evitará perda de tempo refazendo testes com os mesmos cenários (eu aprendi isso da maneira difícil há muitos anos).
@@ -185,7 +179,7 @@ Configuração do teste:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Local padrão|As tabelas<br/>Região|Estimada (km)<br/>Distância|Latency|Sessão 1<br/>Largura de banda|Máximo<br/>Largura de banda|
+|ExpressRoute<br/>Local padrão|Azure<br/>Região|Estimada (km)<br/>Distância|Latency|Sessão 1<br/>Largura de banda|Máximo<br/>Largura de banda|
 | Seattle | Oeste dos EUA 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s | 21
 | Seattle | Oeste dos EUA          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s | 20
 | Seattle | Centro dos EUA       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s | 17

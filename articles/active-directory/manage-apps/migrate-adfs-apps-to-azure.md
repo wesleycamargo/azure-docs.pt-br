@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959053"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141927"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicativos do AD FS para o Azure AD 
 
@@ -82,7 +82,7 @@ Os aplicativos federados incluem aplicativos que se enquadram nestas categorias:
 
 ### <a name="non-federated-apps"></a>Aplicativos não federados
 Você pode integrar aplicativos não federados com o Azure AD usando o Proxy de Aplicativo do Azure AD e as funcionalidades relacionadas. Aplicativos não federados incluem:
-- Aplicativos que usam autenticação integrada do Windows diretamente com o Active Directory. Você pode integrar esses aplicativos com o Azure AD via [Proxy de Aplicativo do Azure AD](application-proxy-publish-azure-portal.md).
+- Aplicativos que usam autenticação integrada do Windows diretamente com o Active Directory. Você pode integrar esses aplicativos com o Azure AD via [Proxy de Aplicativo do Azure AD](application-proxy-add-on-premises-application.md).
 - Aplicativos que se integram com seu provedor de logon único por meio de um agente e usam cabeçalhos de autorização. Os aplicativos que usam um agente instalado para logon e autorização baseada em cabeçalho podem ser configurados para o Azure AD com base em logon via Proxy de Aplicativo do Azure AD com [Acesso Ping para o Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/).
 
 ## <a name="translating-on-premises-federated-apps-to-azure-ad"></a>Convertendo aplicativos federados locais para o Azure AD 
@@ -92,8 +92,8 @@ As tabelas a seguir mapeiam ideias principais compartilhadas pelo AD FS, pelo Az
 
 ### <a name="representing-the-app-in-azure-ad-or-ad-fs"></a>Representando o aplicativo no Azure AD ou no AD FS
 A migração começa avaliando como o aplicativo é configurado no local e mapeando essa configuração para o Azure AD. A tabela a seguir é um mapeamento de elementos de configuração de terceira parte confiável do AD FS para os elementos correspondentes no Azure AD.  
-- Termo do AD FS: terceira parte confiável ou relação de confiança de terceira parte confiável.
-- Termo do Azure AD: aplicativo empresarial ou registro de aplicativo (dependendo do tipo de aplicativo).
+- Termo do AD FS: Terceira parte confiável ou relação de confiança de terceira parte confiável.
+- Termo do Azure AD: Aplicativo empresarial ou registro de aplicativo (dependendo do tipo de aplicativo).
 
 |Elemento de configuração do aplicativo|DESCRIÇÃO|Local na configuração do AD FS|Local correspondente na configuração do Azure AD|Elemento do Token SAML|
 |-----|-----|-----|-----|-----|
@@ -203,26 +203,26 @@ Para atribuir usuários no portal do Azure AD, navegue até a página do aplicat
 
 ![Painel “Adicionar Atribuição”](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-Para verificar o acesso, os usuários poderão ver o aplicativo SaaS em seus [painéis de acesso](../user-help/active-directory-saas-access-panel-introduction.md) quando entrarem. Eles podem encontrar o painel de acesso em http://myapps.microsoft.com. Neste exemplo, o usuário recebeu acesso ao Salesforce e ao ServiceNow com êxito.
+Para verificar o acesso, os usuários poderão ver o aplicativo SaaS em seus [painéis de acesso](../user-help/active-directory-saas-access-panel-introduction.md) quando entrarem. Eles podem encontrar o painel de acesso em https://myapps.microsoft.com. Neste exemplo, o usuário recebeu acesso ao Salesforce e ao ServiceNow com êxito.
 
 ![Painel de acesso de exemplo com os aplicativos Salesforce e ServiceNow](media/migrate-adfs-apps-to-azure/migrate8.png)
 
 ### <a name="configure-the-saas-app"></a>Configurar o aplicativo SaaS
 O processo de transferência da federação local para o Azure AD depende de o aplicativo SaaS que você está trabalhando dar suporte a vários provedores de identidade. Aqui estão algumas perguntas comuns sobre o suporte para vários IdPs:
 
-   **P: o que significa para um aplicativo dar suporte a vários IdPs?**
+   **P: O que significa para um aplicativo dar suporte a vários IdPs?**
     
-   R: aplicativos SaaS que dão suporte a vários IdPs permitem que você insira todas as informações sobre o novo IdP (no nosso caso, o Azure AD) antes de confirmar a alteração da experiência de logon. Quando a configuração estiver concluída, você poderá alternar a configuração de autenticação do aplicativo para apontar para o Azure AD.
+   R: Os aplicativos SaaS que dão suporte a vários IdPs permitem que você insira todas as informações sobre o novo IdP (no nosso caso, o Azure AD) antes de confirmar a alteração da experiência de logon. Quando a configuração estiver concluída, você poderá alternar a configuração de autenticação do aplicativo para apontar para o Azure AD.
 
-   **P: por que é importante o aplicativo SaaS dar suporte a vários IdPs?**
+   **P: Por que é importante o aplicativo SaaS dar suporte a vários IdPs?**
 
-   R: se não há suporte para vários IdPs, o administrador precisa reservar um curto período de tempo como interrupção de serviço ou manutenção para poder configurar o Azure AD como um novo IdP para o aplicativo. Durante essa interrupção, os usuários devem ser notificados de que não poderão entrar em suas contas.
+   R: Se não houver suporte para vários IdPs, o administrador precisa reservar um curto período de tempo como interrupção de serviço ou manutenção para poder configurar o Azure AD como um novo IdP para o aplicativo. Durante essa interrupção, os usuários devem ser notificados de que não poderão entrar em suas contas.
 
    Se um aplicativo der suporte a vários IdPs, o IdP adicional poderá ser configurado com antecedência. O administrador pode alternar o IdP na transferência do Azure.
 
    Se o aplicativo dá suporte a vários IdPs e você escolhe vários IdPs para processar a autenticação simultaneamente na entrada, o usuário recebe uma opção do IdP para autenticar na sua página de entrada.
 
-#### <a name="example-support-for-multiple-idps"></a>Exemplo: suporte para vários IdPs
+#### <a name="example-support-for-multiple-idps"></a>Exemplo: Suporte para vários IdPs
 Por exemplo, no Salesforce, você pode encontrar a configuração de IdP em **Configurações** > **Configurações da empresa** > **Meu domínio**  >  **Configuração de autenticação**.
 
 ![Seção "Configuração de autenticação" no aplicativo Salesforce](media/migrate-adfs-apps-to-azure/migrate9.png)
@@ -231,7 +231,7 @@ Por causa da configuração criada anteriormente em **Identidade** > **Configura
 
 ![Selecionando o Azure AD como serviço de autenticação](media/migrate-adfs-apps-to-azure/migrate10.png)
 
-### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: configurar provisionamento de usuários no Azure AD
+### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: Configurar provisionamento de usuários no Azure AD
 Se você quiser que o Azure AD trate diretamente do provisionamento de usuários para um aplicativo SaaS, confira [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](user-provisioning.md).
 
 ## <a name="next-steps"></a>Próximas etapas

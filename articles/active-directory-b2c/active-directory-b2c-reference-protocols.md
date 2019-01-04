@@ -7,18 +7,18 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6cfa3e0cb23f13b50c0fb7cd4f07a8d53c0f3186
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 19f3318c8bcaf634447285cab2951a89abf13a67
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340759"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837470"
 ---
-# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: protocolos de autenticação
-O Azure AD B2C (Azure Active Directory B2C) fornece identidade como um serviço para seus aplicativos, com suporte a dois protocolos padrão de mercado, o OpenID Connect e o OAuth 2.0. O serviço está em conformidade com o padrão, mas pode haver diferenças sutis entre duas implementações quaisquer desses protocolos. 
+# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protocolos de autenticação
+O Azure AD B2C (Azure Active Directory B2C) fornece identidade como um serviço para seus aplicativos, com suporte a dois protocolos de padrão do setor: OpenID Connect e OAuth 2.0. O serviço está em conformidade com o padrão, mas pode haver diferenças sutis entre duas implementações quaisquer desses protocolos. 
 
 As informações neste guia são úteis se você escreve seu código enviando e manipulando solicitações HTTP diretamente, em vez de usar uma biblioteca de software livre. Recomendamos a leitura desta página antes de se aprofundar nos detalhes de cada protocolo específico. Mas se você já estiver familiarizado com o Azure AD B2C, acesse diretamente [os guias de referência de protocolo](#protocols).
 
@@ -50,12 +50,12 @@ Em quase todos os fluxos do OAuth e do OpenID Connect, há quatro partes envolvi
 
 * O **Servidor de Recurso** é o local no qual o recurso ou os dados residem. Ele confia no servidor de autorização para autenticar e autorizar o cliente OAuth com segurança. Ele também usa os tokens de acesso de portador para garantir a concessão a um recurso.
 
-## <a name="policies"></a>Políticas
+## <a name="policies-and-user-flows"></a>Políticas e fluxos de usuários
 Sem dúvida, as políticas do AD B2C do Azure são os recursos mais importantes do serviço. O AD B2C do Azure amplia os protocolos padrão do OAuth 2.0 e do OpenID Connect ao introduzir as políticas. Elas permitem que o AD B2C do Azure execute muito mais do que uma simples autenticação e uma autorização. 
 
-As políticas descrevem totalmente as experiências de identidade do consumidor, incluindo inscrição, entrada ou edição de perfil. As políticas podem ser definidas em uma interface do usuário administrativa. Elas podem ser executadas usando um parâmetro de consulta especial nas solicitações de autenticação HTTP. 
+Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos dos usuários**. Os fluxos dos usuários descrevem totalmente as experiências de identidade do consumidor, incluindo inscrição, entrada e edição de perfil. Os fluxos dos usuários podem ser definidos em uma interface do usuário administrativa. Elas podem ser executadas usando um parâmetro de consulta especial nas solicitações de autenticação HTTP. 
 
-As políticas não são um recurso padrão do OAuth 2.0 e do OpenID Connect; portanto, você deve reservar um tempo para entendê-las. Para saber mais, confira o [guia de referência de política do Azure AD B2C](active-directory-b2c-reference-policies.md).
+Políticas e fluxos dos usuários não são recursos padrão do OAuth 2.0 e OpenID Connect, portanto, você deve reservar um tempo para compreendê-los. Para obter mais informações, consulte o [guia de referência do fluxo de usuário do Azure AD B2C](active-directory-b2c-reference-policies.md).
 
 ## <a name="tokens"></a>Tokens
 A implementação do AD B2C do Azure do OAuth 2.0 e do OpenID Connect faz amplo uso de tokens de portador, incluindo os tokens de portador representados como JWTs (tokens Web JSON). Um token de portador é um token de segurança leve que concede ao "portador" acesso a um recurso protegido.
@@ -66,7 +66,7 @@ Alguns tokens de segurança têm um mecanismo interno que impede que partes não
 
 Se um token de portador for transmitido fora de um canal seguro, uma parte mal-intencionada poderá usar um ataque por parte de intermediários para adquirir o token e usá-lo para acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança são aplicáveis ao se armazenar ou manter em cache tokens de portador para uso posterior. Sempre se certifique de que seu aplicativo transmita e armazene tokens de portador de maneira segura.
 
-Para obter mais considerações de segurança sobre tokens de portador, confira [RFC 6750 seção 5](http://tools.ietf.org/html/rfc6750).
+Para obter mais considerações de segurança sobre tokens de portador, confira [RFC 6750 seção 5](https://tools.ietf.org/html/rfc6750).
 
 Há mais informações sobre os diferentes tipos de tokens usados no Azure AD B2C disponíveis na [referência de token do Azure AD](active-directory-b2c-reference-tokens.md).
 

@@ -9,25 +9,24 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959300"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323347"
 ---
-# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas Frequentes
+# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas frequentes
 
 ## <a name="configuration-problems"></a>Problemas de configuração
 *Estou tendo problemas para configurar:*
 
 * [Aplicativo .NET](app-insights-asp-net-troubleshoot-no-data.md)
 * [Monitorar um aplicativo já em execução](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Aplicativo Web Java](app-insights-java-troubleshoot.md)
 
 *Não recebo qualquer valor de meu servidor*
@@ -103,7 +102,7 @@ Um aplicativo da área de trabalho que você pode usar no servidor Web do IIS pa
 A partir dos aplicativos Web do servidor:
 
 * Solicitações HTTP
-* [Dependências](app-insights-asp-net-dependencies.md). Chamadas para: Banco de Dados SQL; chamadas HTTP para serviços externos; tabela, armazenamento de blobs, fila e BD Cosmos do Azure. 
+* [Dependências](app-insights-asp-net-dependencies.md). Chamadas para: Banco de Dados SQL; chamadas HTTP para serviços externos; Azure Cosmos DB, tabela, armazenamento de blobs e fila. 
 * [Exceções](app-insights-asp-net-exceptions.md) e rastreamentos de pilha.
 * [Contadores de desempenho](app-insights-performance-counters.md) – se você usa [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Monitoramento do Azure](app-insights-azure-web-apps.md) ou a [gravação coletada do Application Insights](app-insights-java-collectd.md).
 * [Eventos e métricas personalizados](app-insights-api-custom-events-metrics.md) que você codifica.
@@ -119,7 +118,7 @@ A partir das [páginas da Web do cliente](app-insights-javascript.md):
 
 A partir de outras fontes, se você configurá-las:
 
-* [Diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Contêineres de Docker](app-insights-docker.md)
 * [Importação de tabelas para Analytics](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
@@ -138,10 +137,10 @@ Saiba mais sobre [ASP.NET](app-insights-api-filtering-sampling.md) ou [Java](app
 
 Procuramos o endereço IP (IPv4 ou IPv6) do cliente Web usando [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
 
-* Telemetria do navegador: coletamos o endereço IP do remetente.
-* Telemetria do Servidor: o módulo Application Insights coleta o endereço IP do cliente. Ele não será coletado se `X-Forwarded-For` estiver configurado.
+* Telemetria do navegador: Coletamos o endereço IP do remetente.
+* Telemetria do servidor: O módulo Application Insights coleta o endereço IP do cliente. Ele não será coletado se `X-Forwarded-For` estiver configurado.
 
-É possível configurar o `ClientIpHeaderTelemetryInitializer` para coletar o endereço IP de um cabeçalho diferente. Em alguns sistemas, por exemplo, ele é movido por um proxy, balanceador de carga ou CDN para `X-Originating-IP`. [Saiba mais](http://apmtips.com/blog/2016/07/05/client-ip-address/).
+É possível configurar o `ClientIpHeaderTelemetryInitializer` para coletar o endereço IP de um cabeçalho diferente. Em alguns sistemas, por exemplo, ele é movido por um proxy, balanceador de carga ou CDN para `X-Originating-IP`. [Saiba mais](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 É possível [usar o Power BI](app-insights-export-power-bi.md) para exibir sua telemetria de solicitação em um mapa.
 
@@ -185,7 +184,7 @@ Use um recurso único para todos os componentes ou funções em um único sistem
 ## <a name="what-are-the-user-and-session-counts"></a>Quais são as contagens de Sessão e Usuário?
 
 * O SDK do JavaScript define um cookie de usuário no cliente Web para identificar os usuários que retornam e, um cookie de sessão para atividades de grupo.
-* Se não houver nenhum script do lado do cliente, você poderá [definir cookies no server](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Se não houver nenhum script do lado do cliente, você poderá [definir cookies no server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Se um usuário real usar seu site em diferentes navegadores, usar navegação em modo privado/incógnito ou usar diferentes computadores, então, eles serão contados mais de uma vez.
 * Para identificar um usuário conectado entre navegadores e computadores, adicione uma chamada a [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 

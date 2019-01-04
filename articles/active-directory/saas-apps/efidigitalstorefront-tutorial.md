@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o EFI Digital StoreFront | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o EFI Digital StoreFront | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e o EFI Digital StoreFront.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 6959521b0f700a0afafef0950e9cb336488cc94b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7df615caf3ca1b8ca7dd7d4da876c840e20defd8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425299"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833118"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Tutorial: integração do Azure Active Directory com o EFI Digital StoreFront
+# <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Tutorial: Integração do Azure Active Directory com o EFI Digital StoreFront
 
 Neste tutorial, você aprenderá a integrar o EFI Digital StoreFront ao Azure Active Directory (Azure AD).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando EFI Digital StoreFront pela galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você permite o logon único do Azure AD no Portal do Azure e con
 
     ![Informações de logon único de domínio e URLs do EFI Digital StoreFront](./media/efidigitalstorefront-tutorial/tutorial_efidigital_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.myprintdesk.net/DSF`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.myprintdesk.net/DSF`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.myprintdesk.net/DSF/asp4/`
 
@@ -122,10 +122,10 @@ Nesta seção, você permite o logon único do Azure AD no Portal do Azure e con
 
     ![Botão Salvar em Configurar Logon Único](./media/efidigitalstorefront-tutorial/tutorial_general_400.png)
 
-1. Para configurar o logon único no lado do **EFI Digital StoreFront**, você precisa enviar o **XML de metadados** baixado para a [equipe de suporte do EFI Digital StoreFront](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **EFI Digital StoreFront**, você precisa enviar o **XML de metadados** baixado para a [equipe de suporte do EFI Digital StoreFront](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -162,7 +162,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-efi-digital-storefront-test-user"></a>Criar um usuário de teste do EFI Digital StoreFront
 
-Nesta seção, você cria uma usuária chamada Britta Simon no EFI Digital StoreFront. Trabalhe com a [equipe de suporte do EFI Digital StoreFront](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) para adicionar os usuários na plataforma EFI Digital StoreFront. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você cria uma usuária chamada Britta Simon no EFI Digital StoreFront. Trabalhe com a  [equipe de suporte do EFI Digital StoreFront](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) para adicionar os usuários na plataforma EFI Digital StoreFront. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -199,7 +199,7 @@ Nesta seção, você permitirá que Britta Simon use o logon único do Azure con
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do EFI Digital StoreFront no Painel de Acesso, você deve entrar automaticamente no aplicativo EFI Digital StoreFront.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

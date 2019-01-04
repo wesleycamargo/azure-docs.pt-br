@@ -1,11 +1,13 @@
 ---
-title: Provisionar uma Máquina Virtual de Ciência de Dados do Linux (Ubuntu) no Azure | Microsoft Docs
+title: Criar uma Máquina Virtual de Ciência de Dados do Ubuntu Linux
+titleSuffix: Azure
 description: Configure e crie uma Máquina Virtual de Ciência de Dados para Linux (Ubuntu) no Azure para realizar a análise e o aprendizado de máquina.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 ms.author: gokuma
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,28 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: cf5a15a55cf3f0d33edeec9440e745c9dce996c1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e3f17dd3717a57d184be7c9b8c73855c3fd2a768
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244858"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106763"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
 A Máquina Virtual de Ciência de Dados para Linux é uma imagem de máquina virtual baseada no Ubuntu que facilita a introdução ao aprendizado de máquina, incluindo o aprendizado aprofundado, no Azure. As ferramentas de aprendizado aprofundado incluem:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): uma estrutura de aprendizado aprofundado criada para velocidade, expressividade e modularidade
-  * [Caffe2](https://github.com/caffe2/caffe2): uma versão de plataforma cruzada do Caffe
-  * [Kit de Ferramentas Cognitivas da Microsoft](https://github.com/Microsoft/CNTK): um kit de ferramentas do software de aprendizado profundo da Microsoft Research
-  * [H2O](https://www.h2o.ai/): uma plataforma de big data de código-fonte aberto e interface gráfica do usuário
-  * [Keras](https://keras.io/): uma API de rede neural de alto nível em Python para Theano e TensorFlow
-  * [MXNet](http://mxnet.io/): uma biblioteca de aprendizado aprofundado flexível e eficiente com muitas associações de linguagem
-  * [NVIDIA DIGITS](https://developer.nvidia.com/digits): um sistema gráfico que simplifica tarefas comuns de aprendizado aprofundado
-  * [PyTorch](http://pytorch.org/): uma biblioteca Python de alto nível com suporte para redes dinâmicos
-  * [TensorFlow](https://www.tensorflow.org/): uma biblioteca de código-fonte aberto para inteligência de máquina do Google
-  * [Theano](http://deeplearning.net/software/theano/): uma biblioteca do Python para definir, otimizar e avaliar com eficiência expressões matemáticas que envolvem matrizes multidimensionais
-  * [Tocha](http://torch.ch/): uma estrutura de computação científica com amplo suporte para algoritmos de aprendizado de máquina
+  * [Caffe](http://caffe.berkeleyvision.org/): Uma estrutura de aprendizado aprofundado criada para velocidade, expressividade e modularidade
+  * [Caffe2](https://github.com/caffe2/caffe2): Uma versão de plataforma cruzada do Caffe
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Um kit de ferramentas de software de aprendizado profundo da Microsoft Research
+  * [H2O](https://www.h2o.ai/): Uma plataforma de big data de software livre e interface gráfica do usuário
+  * [Keras](https://keras.io/): Uma API de rede neural de alto nível em Python para Theano e TensorFlow
+  * [MXNet](http://mxnet.io/): Uma biblioteca de aprendizado aprofundado flexível e eficiente com muitas associações de linguagem
+  * [NVIDIA DIGITS](https://developer.nvidia.com/digits): Um sistema gráfico que simplifica tarefas comuns de aprendizado profundo
+  * [PyTorch](http://pytorch.org/): Uma biblioteca Python de alto nível com suporte para redes dinâmicas
+  * [TensorFlow](https://www.tensorflow.org/): Uma biblioteca de software livre para inteligência de máquina do Google
+  * [Theano](http://deeplearning.net/software/theano/): Uma biblioteca do Python para definir, otimizar e avaliar com eficiência expressões matemáticas que envolvem matrizes multidimensionais
+  * [Torch](http://torch.ch/): Uma estrutura de computação científica com amplo suporte para algoritmos de aprendizado de máquina
   * CUDA, cuDNN e o driver NVIDIA
   * Muitos exemplos de Notebooks Jupyter
 
@@ -50,11 +52,11 @@ A Máquina Virtual de Ciência de Dados para Linux também contém ferramentas p
 * JupyterHub - um servidor de notebook Jupyter multiusuário com suporte para kernels R, Python, PySpark, Julia
 * Gerenciador de Armazenamento do Azure
 * CLI (interface de linha de comando) do Azure para gerenciar recursos do Azure
-* Ferramentas de Aprendizado de Máquina
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de aprendizado de máquina rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta que fornece implementação de árvore aumentada rápida e precisa
-  * [Rattle](https://togaware.com/rattle/): uma ferramenta gráfica que facilita o uso de análise dedados e aprendizado de máquina em R
-  * [LightGBM](https://github.com/Microsoft/LightGBM): um gradiente rápido, distribuído e de alto desempenho aumentando a estrutura
+* Ferramentas de Machine Learning
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): Um sistema de aprendizado de máquina rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): Uma ferramenta que fornece implementação de árvore aumentada rápida e precisa
+  * [Rattle](https://togaware.com/rattle/): Uma ferramenta gráfica que facilita o uso de análise de dados e aprendizado de máquina em R
+  * [LightGBM](https://github.com/Microsoft/LightGBM): Uma estrutura de gradient boosting rápida, distribuída e de alto desempenho
 * SDK do Azure em Java, Python, node.js, Ruby, PHP
 * Bibliotecas em R e Python para uso em Azure Machine Learning e outros serviços do Azure
 * Ferramentas de desenvolvimento e editores (RStudio, PyCharm, IntelliJ, Emacs, vim)
@@ -85,15 +87,15 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 1. Clique em **Criar** (na parte inferior) para abrir o assistente. ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. As seções a seguir fornecem as entradas para cada uma das etapas no assistente (enumeradas à direita da figura acima) que são usadas para criar a Máquina Virtual de Ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
    
-   a. **Noções básicas**:
+    a. **Noções básicas**:
    
-   * **Nome**: o nome do servidor de ciência de dados que você está criando.
-   * **Tipo de disco da VM**: escolha **SSD Premium**, se você preferir uma SSD (unidade de estado sólido). Caso contrário, escolha **HDD Standard**. 
-   * **Nome de Usuário**: primeira ID de entrada da conta.
-   * **Senha**: primeira senha da conta (você pode usar a chave pública SSH, em vez de senha).
-   * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
-   * **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente.
-   * **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
+   * **Nome**: O nome do servidor de ciência de dados que você está criando.
+   * **Tipo de disco da VM**: Escolha **SSD Premium** se preferir uma unidade de estado sólido (SSD). Caso contrário, escolha **HDD Standard**. 
+   * **Nome de usuário**: A primeira ID de entrada da conta.
+   * **Senha**: Primeira senha da conta (você pode usar a chave pública SSH, em vez de senha).
+   * **Assinatura**: Se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
+   * **Grupo de recursos**: Você pode criar um grupo novo ou usar um grupo existente.
+   * **Localização**: Selecione o data center mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
    
    b. **Tamanho**:
    
@@ -131,12 +133,12 @@ A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar con
 1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
    * **Guia Sessão**:
-     * **Host**: o nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
-     * **Logon**: nome de usuário na VM Linux.
-     * **Porta SSH**: deixe-a em 22, o valor padrão.
-     * **Tipo de Sessão**: altere o valor para XFCE. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
-   * **Guia Mídia**: você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
-   * **Pastas compartilhadas**: caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
+     * **Host**: O nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
+     * **Logon**: Nome de usuário na VM Linux.
+     * **Porta SSH**: Deixe em 22, o valor padrão.
+     * **Tipo de sessão**: Altere o valor para XFCE. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
+   * **Guia Mídia**: Você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
+   * **Pastas compartilhadas**: Caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
 
 Após o logon na VM usando o cliente SSH ou a área de trabalho gráfica XFCE por meio do cliente X2Go, você estará pronto para começar a usar as ferramentas instaladas e configuradas na VM. No XFCE, você pode ver atalhos do menu de aplicativos e ícones da área de trabalho para muitas das ferramentas.
 
@@ -294,11 +296,11 @@ Para saber mais, confira [SQuirrel SQL](http://squirrel-sql.sourceforge.net/inde
 #### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Ferramentas de linha de comando para acessar o Microsoft SQL Server
 O pacote de driver ODBC do SQL Server também vem com duas ferramentas de linha de comando:
 
-**bcp**: o utilitário em massa bcp copia dados entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. O utilitário bcp pode ser usado para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela ou então entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
+**bcp**: O utilitário em massa bcp copia dados entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. O utilitário bcp pode ser usado para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela ou então entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
 
 Para saber mais, confira [Conectando-se com o bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**sqlcmd**: você pode inserir instruções de Transact-SQL com o utilitário sqlcmd, bem como procedimentos do sistema e arquivos de script no prompt de comando. Esse utilitário usa o ODBC para executar lotes do Transact-SQL.
+**sqlcmd**: Você pode inserir instruções de Transact-SQL com o utilitário sqlcmd, bem como procedimentos do sistema e arquivos de script no prompt de comando. Esse utilitário usa o ODBC para executar lotes do Transact-SQL.
 
 Para saber mais, confira [Conectando-se com o sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -316,13 +318,13 @@ Há bibliotecas disponíveis em R e Python para acessar bancos de dados.
 ### <a name="azure-tools"></a>Ferramentas do Azure
 As ferramentas do Azure a seguir são instaladas na VM:
 
-* **Interface de linha de comando do Azure**: a CLI do Azure permite a você criar e gerenciar recursos do Azure por meio de comandos do shell. Para invocar as ferramentas do Azure, digite apenas **azure help**. Para saber mais, confira a [página de documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Gerenciador de Armazenamento do Microsoft Azure**: o Gerenciador de Armazenamento do Microsoft Azure é uma ferramenta gráfica usada para navegar pelos objetos armazenados na sua Conta de Armazenamento do Azure e carregar e baixar os dados nos blobs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você pode invocá-lo de um prompt do shell digitando **StorageExplorer**. Você precisa estar conectado em um cliente X2Go ou ter a configuração de encaminhamento X11.
-* **Bibliotecas do Azure**: veja a seguir algumas das bibliotecas pré-instaladas.
+* **Interface de linha de comando do Azure**: A CLI do Azure permite criar e gerenciar recursos do Azure por meio de comandos do shell. Para invocar as ferramentas do Azure, digite apenas **azure help**. Para saber mais, confira a [página de documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Gerenciador de Armazenamento do Microsoft Azure**: O Gerenciador de Armazenamento do Microsoft Azure é uma ferramenta gráfica usada para navegar pelos objetos armazenados na sua Conta de Armazenamento do Azure e carregar e baixar os dados nos blobs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você pode invocá-lo de um prompt do shell digitando **StorageExplorer**. Você precisa estar conectado em um cliente X2Go ou ter a configuração de encaminhamento X11.
+* **Bibliotecas do Azure**: Veja a seguir algumas das bibliotecas pré-instaladas.
   
-  * **Python**: as bibliotecas relacionadas ao Azure no Python que estão instaladas são **azure**, **azureml**, **pydocumentdb** e **pyodbc**. Com as três primeiras bibliotecas, você pode acessar os serviços de armazenamento do Azure, o Azure Machine Learning e o Azure Cosmos DB (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC Driver for SQL Server), habilita, do Python, o acesso ao SQL Server, ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure pelo uso de uma interface do ODBC. Insira **pip list** para ver todas as bibliotecas listadas. Certifique-se de executar este comando nos ambientes do Python 2.7 e 3.5.
-  * **R**: as bibliotecas relacionadas ao Azure em R que estão instaladas são **AzureML** e **RODBC**.
-  * **Java**: a lista de bibliotecas Java do Azure pode ser encontrada no diretório **/dsvm/sdk/AzureSDKJava** na VM. As bibliotecas principais são as APIs de armazenamento e gerenciamento do Azure, o Azure Cosmos DB e os drivers JDBC para SQL Server.  
+  * **Python**: As bibliotecas relacionadas ao Azure no Python que estão instaladas são **azure**, **azureml**, **pydocumentdb** e **pyodbc**. Com as três primeiras bibliotecas, você pode acessar os serviços de armazenamento do Azure, o Azure Machine Learning e o Azure Cosmos DB (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC Driver for SQL Server), habilita, do Python, o acesso ao SQL Server, ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure pelo uso de uma interface do ODBC. Insira **pip list** para ver todas as bibliotecas listadas. Certifique-se de executar este comando nos ambientes do Python 2.7 e 3.5.
+  * **R**: As bibliotecas relacionadas ao Azure em R que estão instaladas são **AzureML** e **RODBC**.
+  * **Java**: A lista de bibliotecas Java do Azure pode ser encontrada no diretório **/dsvm/sdk/AzureSDKJava** na VM. As bibliotecas principais são as APIs de armazenamento e gerenciamento do Azure, o Azure Cosmos DB e os drivers JDBC para SQL Server.  
 
 Você pode acessar o [portal do Azure](https://portal.azure.com) do navegador Firefox previamente instalado. No portal do Azure, você pode criar, gerenciar e monitorar recursos do Azure.
 
@@ -343,12 +345,12 @@ Para saber mais sobre como implantar modelos em R e Python no Azure Machine Lear
 ### <a name="machine-learning-tools"></a>Ferramentas do Machine Learning
 A VM vem com algumas ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Estão incluídos:
 
-* **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.
-* **xgboost**: uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
-* **Rattle**: uma ferramenta gráfica baseada em R para facilitar a exploração de dados e a modelagem.
-* **Python**: o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
-* **LightGBM**: um gradiente rápido, distribuído e de alto desempenho aumentando a estrutura com base em algoritmos de árvore de decisão.
-* **R**: uma vasta biblioteca de funções de aprendizado de máquina está disponível para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando:
+* **Vowpal Wabbit**: Um algoritmo de aprendizado rápido online.
+* **xgboost**: Uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
+* **Rattle**: Uma ferramenta gráfica baseada em R para facilitar a exploração de dados e a modelagem.
+* **Python**: O Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
+* **LightGBM**: Uma estrutura de gradient boosting rápida, distribuída e de alto desempenho baseada em algoritmos de árvore de decisão.
+* **R**: Uma vasta biblioteca de funções de aprendizado de máquina está disponível para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando:
   
         install.packages(<lib name>)
 

@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822748"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438431"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
  
-Este artigo explica como monitorar uma conta do Lote usando os recursos do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor coleta [métricas](../azure-monitor/platform/data-collection.md#metrics) e [logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para recursos na conta do Lote. Colete e consuma esses dados de várias maneiras para monitorar a conta do Lote e diagnosticar problemas. Também é possível configurar [alertas de métrica](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para receber notificações quando uma métrica alcançar um valor especificado. 
+Este artigo explica como monitorar uma conta do Lote usando os recursos do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor coleta [métricas](../azure-monitor/platform/data-collection.md#metrics) e [logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para recursos na conta do Lote. Colete e consuma esses dados de várias maneiras para monitorar a conta do Lote e diagnosticar problemas. Também é possível configurar [alertas de métrica](../azure-monitor/platform/alerts-overview.md) para receber notificações quando uma métrica alcançar um valor especificado. 
 
 ## <a name="batch-metrics"></a>Métricas do Lote
 
-Métricas são dados telemétricos do Azure (também chamados de contadores de desempenho) emitidos pelos recursos do Azure que são consumidos pelo serviço Azure Monitor. Exemplo de métrica em uma conta do Lote inclui: Eventos de Criação de Pool, Contagem de Nó de Baixa Prioridade e Eventos de Conclusão de Tarefa. 
+Métricas são dados telemétricos do Azure (também chamados de contadores de desempenho) emitidos pelos recursos do Azure que são consumidos pelo serviço Azure Monitor. As métricas de exemplo em uma conta do Lote incluem: Eventos de Criação de Pool, Contagem de Nós de Baixa Prioridade e Eventos de Conclusão de Tarefa. 
 
-Consulte [lista de métricas do Lote com suporte](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+Consulte [lista de métricas do Lote com suporte](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Métricas são:
 
@@ -53,11 +53,17 @@ Para exibir todas as métricas da conta do lote:
 
 Para recuperar métricas programaticamente, use as APIs do Azure Monitor. Por exemplo, consulte [Recuperar métricas do Azure Monitor com .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
+## <a name="batch-metric-reliability"></a>Confiabilidade de métrica em lote
+
+As métricas destinam-se a serem usadas para a análise de tendências e de dados. A entrega da métrica não é garantida e está sujeita a entrega fora de ordem, perda de dados e/ou duplicação. Não é recomendável usar eventos individuais para funções de gatilho ou de alerta. Confira a seção [Alertas de métrica em lote](#batch-metric-alerts) para obter mais detalhes sobre como definir limites para alertas.
+
+As métricas emitidas nos últimos 3 minutos ainda podem estar sendo agregadas. Durante esse período, os valores de métricas podem ser relatados de forma insuficiente.
+
 ## <a name="batch-metric-alerts"></a>Alertas de métrica do Lote
 
-Opcionalmente, configure os *alertas de métrica* quase em tempo real que são disparados quando o valor de uma métrica especificada ultrapassa um limite atribuído. O alerta gera uma [notificação](../monitoring-and-diagnostics/insights-alerts-portal.md) escolhida quando o alerta for "Ativado" (quando o limite é ultrapassado e a condição de alerta é atendida), bem como quando for "Resolvido" (quando o limite é ultrapassado novamente e a condição não é mais atendida). 
+Opcionalmente, configure os *alertas de métrica* quase em tempo real que são disparados quando o valor de uma métrica especificada ultrapassa um limite atribuído. O alerta gera uma [notificação](../monitoring-and-diagnostics/insights-alerts-portal.md) escolhida quando o alerta for "Ativado" (quando o limite é ultrapassado e a condição de alerta é atendida), bem como quando for "Resolvido" (quando o limite é ultrapassado novamente e a condição não é mais atendida). Não é recomendável disparar alertas com base em pontos de dados individuais, pois as métricas estão sujeitas a entrega fora de ordem, perda de dados e/ou duplicação. Os alertas deverão fazer uso de limites para levar em conta essas inconsistências.
 
-Por exemplo, você pode configurar um alerta de métrica quando a contagem de núcleos de baixa prioridade cair para um determinado nível, de modo que seja possível ajustar a composição dos pools.
+Por exemplo, você pode configurar um alerta de métrica quando a contagem de núcleos de baixa prioridade cair para um determinado nível, de modo que seja possível ajustar a composição dos pools. É recomendável definir um período de 10 minutos ou mais no qual os alertas dispararão se a contagem média de núcleos de baixa prioridade estiver abaixo do valor limite para o período inteiro. Não é recomendável emitir um alerta em um período de 1 a 5 minutos, pois as métricas ainda podem estar sendo agregadas.
 
 Para configurar um alerta de métrica no portal:
 
@@ -65,7 +71,7 @@ Para configurar um alerta de métrica no portal:
 2. Em **Monitoramento**, clique em **Regras de alerta** > **Adicionar métrica de alerta**.
 3. Selecione uma métrica, uma condição de alerta (por exemplo, quando uma métrica exceder um valor específico durante um período) e uma ou mais notificações.
 
-Também é possível configurar um alerta quase em tempo real usando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, confira [Visão geral de alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+Também é possível configurar um alerta quase em tempo real usando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, confira [Visão geral de alertas](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="batch-diagnostics"></a>Diagnóstico do Lote
 
@@ -103,7 +109,7 @@ Outros destinos opcionais para logs de diagnóstico:
 
     ![Diagnóstico do Lote](media/batch-diagnostics/diagnostics-portal.png)
 
-Outras opções para habilitar a coleção de logs incluem: use o Azure Monitor no portal para definir configurações de diagnóstico, use um [modelo do Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) ou use o Azure PowerShell ou a CLI do Azure. consulte [Coletar e consumir dados de log dos recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Outras opções para habilitar a coleção de logs incluem: use o Azure Monitor no portal para definir configurações de diagnóstico, use um [modelo do Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) ou use o Azure PowerShell ou a CLI do Azure. consulte [Coletar e consumir dados de log dos recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acessar logs de diagnóstico no armazenamento
@@ -127,7 +133,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Cada arquivo blob PT1H.json contém eventos formatados em JSON que ocorreram na hora especificada na URL do blob (por exemplo, h = 12). Durante a hora presente, os eventos são acrescentados ao arquivo PT1H.json conforme eles ocorrem. O valor de minuto (m=00) é sempre 00, como eventos de logs de diagnóstico são divididos em blobs individuais por hora. (Todas as horas estão em UTC.)
 
 
-Para obter mais informações sobre o esquema de logs de diagnóstico na conta de armazenamento, consulte [Arquivar logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Para obter mais informações sobre o esquema de logs de diagnóstico na conta de armazenamento, consulte [Arquivar logs de diagnóstico do Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 Para acessar os logs na conta de armazenamento programaticamente, use as APIs de Armazenamento. 
 

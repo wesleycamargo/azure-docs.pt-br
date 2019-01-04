@@ -2,22 +2,22 @@
 title: Planejar sua infraestrutura de backup da VM no Azure
 description: Considerações importantes ao planejar o backup de máquinas virtuais no Azure
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: backup de vms, backup de máquinas virtuais
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
-ms.author: markgal
-ms.openlocfilehash: ae02a1bcbf00a022cfd884b02141ce084f1fffa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: e38f245197f2b1bdb22a2866028ad10f4ec39ec1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232453"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343489"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planejar sua infraestrutura de backup da VM no Azure
-Este artigo fornece sugestões de desempenho e recursos para ajudá-lo a planejar a infraestrutura de backup da VM. Ele também define os principais aspectos do serviço de Backup. Esses aspectos podem ser críticos para determinar a arquitetura, o planejamento de capacidade e o agendamento. Se você [preparou o ambiente](backup-azure-arm-vms-prepare.md), o planejamento será a próxima etapa antes de começar a [fazer backup das VMs](backup-azure-arm-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/). 
+Este artigo fornece sugestões de desempenho e recursos para ajudá-lo a planejar a infraestrutura de backup da VM. Ele também define os principais aspectos do serviço de Backup. Esses aspectos podem ser críticos para determinar a arquitetura, o planejamento de capacidade e o agendamento. Se você [preparou o ambiente](backup-azure-arm-vms-prepare.md), o planejamento será a próxima etapa antes de começar a [fazer backup das VMs](backup-azure-arm-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 > [!NOTE]
 > Este artigo é para uso com discos gerenciados e não gerenciados. Se você usa discos não gerenciados, há recomendações de conta de armazenamento. Se você usar [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), você não precisa se preocupar sobre problemas de utilização de recurso ou desempenho. Azure otimiza a utilização de armazenamento para você.
@@ -62,7 +62,7 @@ A tabela a seguir explica os tipos de consistência e as condições em que ocor
 | Consistência | Baseado em VSS | Explicação e detalhes |
 | --- | --- | --- |
 | Consistência de aplicativo |Sim para Windows|A consistência do aplicativo é ideal para cargas de trabalho, pois garante que:<ol><li> a VM *seja iniciada*. <li>Não há *corrupção*. <li>*Não há perda de dados*.<li> Os dados são consistentes com o aplicativo que usa os dados, envolvendo o aplicativo no momento do backup – usando o VSS ou o pré/pós-script.</ol> <li>*VMs Windows* – A maioria das cargas de trabalho da Microsoft possui gravadores VSS que executam ações específicas da carga de trabalho relacionadas à consistência de dados. Por exemplo, o gravador VSS do SQL Server garante que as gravações no arquivo de log de transações e no banco de dados sejam feitas corretamente. Para backups de VM do Windows de IaaS, para criar um ponto de recuperação de aplicativo consistente, a extensão de backup deve invocar o fluxo de trabalho do VSS e concluí-lo antes de obter o instantâneo da VM. Para que o instantâneo de VM do Azure seja preciso, os gravadores VSS de todos os aplicativos de VM do Azure também devem ser concluídos. (Aprenda as [noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofunde-se nos detalhes de [como ele funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx).) </li> <li> *VMs Linux* – Os clientes podem executar o [pré-script e pós-script personalizados para garantir a consistência do aplicativo](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
-| Consistência do sistema de arquivos |Sim - para computadores baseados em Windows |Há dois cenários em que o ponto de recuperação pode ser *consistente com o sistema de arquivos*:<ul><li>Backups de VMs Linux no Azure, sem pré-script/pós-script ou se o pré-script/pós-script falhou. <li>Falha do VSS durante o backup de VMs Windows no Azure.</li></ul> Em ambos os casos, o melhor que se pode fazer é garantir que: <ol><li> a VM *seja iniciada*. <li>Não há *corrupção*.<li>*Não há perda de dados*.</ol> Os aplicativos precisam implementar seu próprio mecanismo de "correção" nos dados restaurados. |
+| Consistência do sistema de arquivos |Sim - para computadores baseados em Windows |Há dois cenários em que o ponto de recuperação pode ser *consistente com o sistema de arquivos*:<ul><li>Backups de VMs Linux no Azure, sem pré-script/pós-script ou se o pré-script/pós-script falhou. <li>Falha do VSS durante o backup de VMs Windows no Azure.</li></ul> Em ambos os casos, o melhor que se pode fazer é garantir que: <ol><li> a VM *seja iniciada*. <li>Não há *corrupção*.<li>*Não há perda de dados*.</ol>  Os aplicativos precisam implementar seu próprio mecanismo de "correção" nos dados restaurados. |
 | Consistência de falhas |Não  |Essa situação é equivalente a uma máquina virtual tendo uma "falha" (por meio de uma reinicialização forçada ou flexível). A consistência de falhas geralmente ocorre quando a máquina virtual do Azure está desligada no momento do backup. Um ponto de recuperação com controle de falhas não garante a consistência dos dados no meio de armazenamento – tanto da perspectiva do sistema operacional quanto do aplicativo. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. <br/> <br/> Embora não haja nenhuma garantia, em geral, o sistema operacional é inicializado, seguido pelo procedimento de verificação de disco, como chkdsk, para corrigir erros de danos. Todos os dados ou gravações na memória que não foram transferidos para o disco serão perdidos. O aplicativo geralmente segue com seu próprio mecanismo de verificação, caso seja necessário realizar reversão de dados. <br><br>Por exemplo, se o log de transações tiver entradas que não estão presentes no banco de dados, o software de banco de dados fará uma reversão até que os dados fiquem consistentes. Quando os dados são distribuídos entre vários discos virtuais (como volumes estendidos), um ponto de recuperação consistente quanto a falhas não garante a exatidão dos dados. |
 
 ## <a name="performance-and-resource-utilization"></a>Desempenho e utilização de recursos
@@ -96,7 +96,19 @@ O tempo total de backup de menos de 24 horas é válido para backups incrementai
 
 ### <a name="why-are-backup-times-longer-than-12-hours"></a>Por que são mais de 12 horas de tempos de backup?
 
-O backup consiste em duas fases: criação de instantâneos e transferência dos instantâneos para o cofre. O serviço de Backup otimiza o armazenamento. Ao transferir os dados de instantâneo para um cofre, o serviço transfere apenas as alterações incrementais do instantâneo anterior.  Para determinar as alterações incrementais, o serviço calcula a soma de verificação dos blocos. Se um bloco é alterado, o bloco é identificado como um bloco a ser enviado para o cofre. O serviço realiza então uma busca mais detalhada em cada um dos blocos identificados, procurando oportunidades para minimizar os dados a serem transferidos. Depois de avaliar todos os blocos alterados, o serviço une as alterações e as envia para o cofre. Em alguns aplicativos herdados, gravações pequenas e fragmentadas não são ideais para armazenamento. Se o instantâneo contém várias gravações pequenas e fragmentadas, o serviço gasta mais tempo no processamento dos dados gravados pelos aplicativos. Para aplicativos executados dentro da VM, o bloco de gravações de aplicativos recomendados mínimo é de 8 KB. Se o aplicativo usar um bloco inferior a 8 KB, o desempenho do backup será afetado. Para obter ajuda com o ajuste do aplicativo para melhorar o desempenho do backup, consulte [Ajustando aplicativos para o desempenho ideal com o armazenamento do Azure](../virtual-machines/windows/premium-storage-performance.md). Embora o artigo sobre desempenho do backup use exemplos do armazenamento Premium, as diretrizes são aplicáveis a discos de armazenamento Standard.
+O backup consiste em duas fases: criação de instantâneos e transferência dos instantâneos para o cofre. O serviço de Backup otimiza o armazenamento. Ao transferir os dados de instantâneo para um cofre, o serviço transfere apenas as alterações incrementais do instantâneo anterior.  Para determinar as alterações incrementais, o serviço calcula a soma de verificação dos blocos. Se um bloco é alterado, o bloco é identificado como um bloco a ser enviado para o cofre. O serviço realiza então uma busca mais detalhada em cada um dos blocos identificados, procurando oportunidades para minimizar os dados a serem transferidos. Depois de avaliar todos os blocos alterados, o serviço une as alterações e as envia para o cofre. Em alguns aplicativos herdados, gravações pequenas e fragmentadas não são ideais para armazenamento. Se o instantâneo contém várias gravações pequenas e fragmentadas, o serviço gasta mais tempo no processamento dos dados gravados pelos aplicativos. Para aplicativos executados dentro da VM, o bloco de gravações de aplicativos recomendados mínimo é de 8 KB. Se o aplicativo usar um bloco inferior a 8 KB, o desempenho do backup será afetado. Para obter ajuda com o ajuste do aplicativo para melhorar o desempenho do backup, consulte [Ajustando aplicativos para o desempenho ideal com o armazenamento do Azure](../virtual-machines/windows/premium-storage-performance.md). Embora o artigo sobre desempenho do backup use exemplos do armazenamento Premium, as diretrizes são aplicáveis a discos de armazenamento Standard.<br>
+Pode haver vários motivos para o longo tempo de backup:
+  1. **Primeiro backup de um disco recém-adicionado a uma VM já protegida** <br>
+    Se uma VM tiver o backup inicial concluído e estiver executando o backup incremental. Adicionar um ou mais discos novos pode perder 1 dia do SLA, dependendo do tamanho do novo disco.
+  2. **Fragmentação** <br>
+    Se a carga de trabalho (aplicativo) em execução na VM executar pequenas gravações fragmentadas, isso pode afetar negativamente o desempenho do backup. <br>
+  3. **Conta de armazenamento sobrecarregada** <br>
+       a. Se o backup está agendado durante o uso do aplicativo de inspeção.  
+      b. Se mais de 5 a 10 discos são hospedados na mesma conta de armazenamento.<br>
+  4. **Modo CC (Verificação de Consistência)** <br>
+      Para discos > 1TB, se o backup ocorrer no modo de CC devido às razões mencionadas a seguir:<br>
+         a. O disco gerenciado é movido como parte da reinicialização da VM.<br>
+        b. Promoção de instantâneo para blob de base.<br>
 
 ## <a name="total-restore-time"></a>Tempo total de restauração
 

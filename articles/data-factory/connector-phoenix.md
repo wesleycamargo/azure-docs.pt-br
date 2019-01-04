@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 78e432bf526ad270ae8543ad1be40727ed560d4b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f155ee7dbea697c72bbd53b933a7410faa828b6c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367892"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089914"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados do Phoenix usando o Azure Data Factory 
 
@@ -85,7 +85,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do Phoenix:
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Phoenix.
 
-Para copiar dados do Phoenix, defina a propriedade type do conjunto de dados como **PhoenixObject**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados.
+Para copiar dados do Phoenix, defina a propriedade type do conjunto de dados como **PhoenixObject**. Há suporte para as seguintes propriedades:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **PhoenixObject** | SIM |
+| tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
 
@@ -97,7 +102,8 @@ Para copiar dados do Phoenix, defina a propriedade type do conjunto de dados com
         "linkedServiceName": {
             "referenceName": "<Phoenix linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -106,14 +112,14 @@ Para copiar dados do Phoenix, defina a propriedade type do conjunto de dados com
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela fonte do Phoenix.
 
-### <a name="phoenixsource-as-source"></a>PhoenixSource como fonte
+### <a name="phoenix-as-source"></a>Phoenix como fonte
 
 Para copiar dados de Phoenix, defina o tipo de fonte na atividade de cópia como **PhoenixSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PhoenixSource** | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 

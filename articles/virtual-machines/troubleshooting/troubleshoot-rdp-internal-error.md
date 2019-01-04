@@ -13,24 +13,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 7d0d4a34a31f15c23638eba1f14794838780f2b0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd75d5a3186bbb6ba82e2deb83a7e8429e32a3f2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307153"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134515"
 ---
-#  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorre um erro interno ao tentar se conectar a uma VM do Azure por meio da área de trabalho remota 
+#  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorre um erro interno ao tentar se conectar a uma VM do Azure por meio da área de trabalho remota
 
 Este artigo descreve um erro que você pode enfrentar ao tentar se conectar a uma VM (máquina virtual) do Windows no Microsoft Azure.
-> [!NOTE] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico. 
+> [!NOTE]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico.
 
-## <a name="symptoms"></a>Sintomas 
+## <a name="symptoms"></a>Sintomas
 
 Você não pode se conectar a uma VM do Azure usando o RDP (protocolo de área de trabalho remota). A conexão fica presa na seção “Configuração remota” ou você recebe a seguinte mensagem de erro:
 
-- Erro Interno do RDP 
+- Erro Interno do RDP
 - Ocorreu um erro interno
 - Esse computador não pode ser conectado ao computador remoto. Tente se conectar novamente. Se o problema persistir, entre em contato com o proprietário do computador remoto ou o administrador da rede
 
@@ -43,7 +43,7 @@ Esse problema pode ocorrer pelos seguintes motivos:
 - O protocolo TLS está desabilitado.
 - O certificado está corrompido ou expirado.
 
-## <a name="solution"></a>Solução 
+## <a name="solution"></a>Solução
 
 Antes de seguir essas etapas, tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
@@ -52,10 +52,10 @@ Para solucionar esse problema, use o Console serial ou [repare a VM off-line](#r
 
 ### <a name="use-serial-control"></a>Usar o Controle serial
 
-Conectar-se ao [Console Serial e abrir uma instância do PowerShell](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+Conectar-se ao [Console Serial e abrir uma instância do PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Se o Console Serial não estiver habilitado na sua VM, vá até a seção [reparar a VM offline](#repair-the-vm-offline).
 
-#### <a name="step-1-check-the-rdp-port"></a>Etapa 1: verificar a porta do RDP
+#### <a name="step-1-check-the-rdp-port"></a>Etapa: 1: verificar a porta do RDP
 
 1. Em uma instância do PowerShell, use [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) para verificar se a porta 8080 é usada por outros aplicativos:
@@ -63,35 +63,35 @@ Conectar-se ao [Console Serial e abrir uma instância do PowerShell](./serial-co
         Netstat -anob |more
 2. Se Termservice.exe estiver usando a porta 8080, vá para a etapa 2. Se outro serviço ou aplicativo que não seja o Termservice.exe estiver usando a porta 8080, siga estas etapas:
 
-    a. Interrompa o serviço para o aplicativo que está usando o serviço 3389: 
+    1. Interrompa o serviço para o aplicativo que está usando o serviço 3389:
 
-        Stop-Service -Name <ServiceName>
+        Interromper-Serviço -Nome <ServiceName>
 
-    B. Iniciar o serviço terminal: 
+    2. Iniciar o serviço terminal:
 
-        Start-Service -Name Termservice
+        Iniciar-Serviço - Nome Termservice
 
 2. Se o aplicativo não puder ser interrompido ou se esse método não se aplicar a você, altere a porta para RDP:
 
-    a. Altere a porta:
+    1. Altere a porta:
 
-        Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
+        Set-ItemProperty -Caminho 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -nome PortNumber -valor <Hexportnumber>
 
-        Stop-Service -Name Termservice Start-Service -Name Termservice
- 
-    B. Configure o firewall para a nova porta:
+        Interromper-Serviço -Nome Termservice Iniciar-Serviço -Nome Termservice
 
-        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
+    2. Configure o firewall para a nova porta:
 
-    C. [Atualize o grupo de segurança de rede para a nova porta](../../virtual-network/security-overview.md) na porta de RDP do portal do Azure.
+        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NOVA PORTA (decimal)>
 
-#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Etapa 2: definir as permissões corretas no certificado autoassinado RDP
+    3. [Atualize o grupo de segurança de rede para a nova porta](../../virtual-network/security-overview.md) na porta de RDP do portal do Azure.
+
+#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Etapa 2: Definir as permissões corretas no certificado autoassinado RDP
 
 1.  Em uma instância do PowerShell, execute os comandos a seguir individualmente para renovar o certificado autoassinado do RDP:
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint 
+        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
 
-        Stop-Service -Name "SessionEnv" 
+        Stop-Service -Name "SessionEnv"
 
         Start-Service -Name "SessionEnv"
 
@@ -101,37 +101,37 @@ Conectar-se ao [Console Serial e abrir uma instância do PowerShell](./serial-co
     2. No menu **Arquivo**, selecione **Adicionar/Remover Snap-in**, depois **Certificados** e depois **Adicionar**.
     3. Selecione **Contas do computador**, depois **Outro computador** e adicione o endereço IP da VM com problemas.
     4. Vá até a pasta **Área de Trabalho Remota\Certificados**, clique com o botão direito do mouse no certificado e selecione **Excluir**.
-    5. Em uma instância do PowerShell a partir do Console Serial, reinicie o serviço de Configuração de Área de Trabalho Remota: 
+    5. Em uma instância do PowerShell a partir do Console Serial, reinicie o serviço de Configuração de Área de Trabalho Remota:
 
-            Stop-Service -Name "SessionEnv" 
+            Stop-Service -Name "SessionEnv"
 
             Start-Service -Name "SessionEnv"
 3. Redefina a permissão para a pasta MachineKeys.
-    
-        remove-module psreadline icacls 
+
+        remove-module psreadline icacls
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)" 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)" 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)" 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
 
 4. Reinicie a VM, depois tente Iniciar uma conexão de Área de Trabalho Remota à VM. Se o erro ainda ocorrer, vá para a próxima etapa.
 
-Etapa 3: habilitar todas as versões com suporte do TLS
+Etapa 3: Habilitar todas as versões com suporte do TLS
 
 O cliente RDP usa o TLS 1.0 como o protocolo padrão. No entanto, ele pode ser alterado para TLS 1.1, que se tornou o novo padrão. Se o TLS 1.1 estiver desabilitado na VM, a conexão falhará.
 1.  Em uma instância CMD, habilite o protocolo TLS:
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
 
         reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
 2.  Para impedir que a política do AD substitua as alterações, interrompa temporariamente a atualização de política de grupo:
@@ -201,23 +201,23 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt
 
-#### <a name="enable-all-supported-tls-versions"></a>Habilitar todas as versões com suporte do TLS 
+#### <a name="enable-all-supported-tls-versions"></a>Habilitar todas as versões com suporte do TLS
 
 1.  Abra uma sessão de prompt de comandos com privilégios elevados (**Executar como administrador**), depois execute os comandos a seguir. O script a seguir presume que a letra da unidade que é atribuída ao disco de SO anexado é F. Substitua essa letra da unidade pelo valor apropriado para a VM.
 2.  Verifique qual TLS está habilitado:
 
         reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
 
 3.  Se a chave não existir ou seu valor for **0**, habilite o protocolo executando os scripts a seguir:
@@ -238,22 +238,22 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 
 4.  Habilite o NLA:
 
-        REM Enable NLA 
+        REM Enable NLA
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f 
-    
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f 
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f 
-        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
+
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
 5.  [Desanexe o disco de SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md), depois verifique se o problema for resolvido.
 
 
 
-    
- 
+
+

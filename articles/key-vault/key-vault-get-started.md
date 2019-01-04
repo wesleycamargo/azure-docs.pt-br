@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238392"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864886"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução ao Cofre da Chave do Azure
 Este artigo ajuda a começar a usar o Azure Key Vault usando o PowerShell e o orienta quanto às seguintes atividades:
@@ -111,7 +111,7 @@ New-AzureRmKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceG
 
 A saída desse cmdlet mostra as propriedades do cofre de chaves que você criou. As duas propriedades mais importantes são:
 
-* **Nome do Cofre**: **ContosoKeyVault**, no exemplo. Você usará esse nome para outros cmdlets do Cofre da Chave.
+* **Nome do cofre**: **ContosoKeyVault**, no exemplo. Você usará esse nome para outros cmdlets do Cofre da Chave.
 * **URI do Cofre**: no exemplo, isso é https://contosokeyvault.vault.azure.net/. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
 Sua conta do Azure agora está autorizada a executar qualquer operação neste cofre de chave. Até o momento, ninguém mais está.
@@ -193,7 +193,7 @@ Para exibir o URI do segredo, digite:
 ```powershell
 $secret.Id
 ```
-Para exibir seu segredo, digite: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`. Outra opção é exibir o segredo no portal.
+Para exibir o segredo, digite: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`Outra opção é exibir o segredo no portal.
 
 ![segredo](./media/key-vault-get-started/secret-value.png)
 
@@ -222,14 +222,14 @@ Para registrar seu aplicativo com o Active Directory do Azure:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Na esquerda, clique em **Registros de aplicativo**. Se você não vir os registros do aplicativo, clique em **mais serviços**.  
->[!NOTE]
-Você deve selecionar o mesmo diretório que contém a assinatura do Azure com a qual você criou o cofre de chaves. 
+    > [!NOTE]
+    > Você deve selecionar o mesmo diretório que contém a assinatura do Azure com a qual você criou o cofre de chaves. 
 3. Clique em **Novo registro de aplicativo**.
 4. Na folha **Criar**, especifique um nome para o seu aplicativo e selecione **APLICATIVO WEB E/OU API DA WEB** (o padrão) e especifique a **URL DE LOGON** do seu aplicativo Web. Se você não tiver essas informações no momento, você poderá fazer isso para essa etapa (por exemplo, poderá especificar http://test1.contoso.com ). Não importa se os sites existem. 
 
     ![Novo registro de aplicativo](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Verifique se você escolheu **APLICATIVO WEB E/OU API WEB**, caso não, você não verá a opção **chaves** nas configurações.
+    > [!WARNING]
+    > Verifique se você escolheu **APLICATIVO WEB E/OU API WEB**, caso não, você não verá a opção **chaves** nas configurações.
 
 5. Selecione o botão **Criar**.
 6. Ao concluir o registro do aplicativo, você verá a lista de aplicativos registrados. Encontre o aplicativo que você registrou e clique nele.
@@ -312,11 +312,11 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ## <a id="other"></a>Outros cmdlets do PowerShell do Azure
 Outros comandos que podem ser úteis para gerenciar o Cofre da Chave do Azure.
 
-- `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: este comando obtém uma exibição em tabela de todas as chaves e propriedades selecionadas.
-- `$Keys[0]`: este comando exibe uma lista completa de propriedades para a chave especificada
-- `Get-AzureKeyVaultSecret`: este comando lista uma exibição em tabela de todos os nomes de segredos e propriedades selecionadas.
-- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: exemplo de como remover uma chave específica.
-- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: exemplo de como remover um segredo específico.
+- `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: Este comando obtém uma exibição em tabela de todas as chaves e propriedades selecionadas.
+- `$Keys[0]`: Este comando exibe uma lista completa de propriedades para a chave especificada
+- `Get-AzureKeyVaultSecret`: Este comando lista uma exibição em tabela de todos os nomes de segredos e propriedades selecionadas.
+- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Exemplo de como remover uma chave específica.
+- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: Exemplo de como remover um segredo específico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
-title: Esquemas de acompanhamento AS2 para mensagens B2B – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar esquemas de acompanhamento AS2 que monitorem mensagens B2B nas contas de integração para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Esquemas de acompanhamento AS2 para mensagens B2B – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar esquemas de acompanhamento AS2 que monitorem mensagens B2B nas contas de integração para os Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43125923"
 ---
-# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Criar esquemas para acompanhamento de mensagens AS2 e MDNs em contas de integração para o Aplicativo Lógico do Azure
+# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Criar esquemas para acompanhamento de mensagens AS2 e MDNs em contas de integração para os Aplicativos Lógicos do Azure
 
 Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integração para ajudá-lo a monitorar êxito, erros e propriedades de mensagem para transações B2B (entre empresas):
 

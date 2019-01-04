@@ -1,6 +1,6 @@
 ---
-title: Adicionar instruções condicionais a fluxos de trabalho – Aplicativo Lógico do Azure | Microsoft Docs
-description: Como criar condições que controlam ações em fluxos de trabalho no Aplicativo Lógico do Azure
+title: Adicionar instruções condicionais a fluxos de trabalho – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Como criar condições que controlam ações em fluxos de trabalho nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230328"
 ---
-# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crie instruções condicionais que controlam ações de fluxo de trabalho no Aplicativo Lógico do Azure
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crie instruções condicionais que controlam ações de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
 Para executar ações específicas em seu aplicativo lógico somente depois de passar uma condição especificada, adicione uma *instrução condicional*. Essa estrutura de controle compara dados no fluxo de trabalho com valores ou campos específicos. Dessa forma, é possível especificar diferentes ações para executar com base em se os dados atendem a condição ou não. É possível aninhar condições dentro de outras.
 

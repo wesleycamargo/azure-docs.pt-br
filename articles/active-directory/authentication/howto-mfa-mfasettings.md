@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e0c612407047a51c4e3d4101a0ee192f55458afe
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497000"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320651"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -257,12 +257,15 @@ Os usuários também podem criar senhas de aplicativo após o registro. As senha
 
 O recurso _IPs confiáveis_ da Autenticação Multifator do Azure é usado por administradores de um locatário gerenciado ou federado. O recurso ignora a verificação em duas etapas para os usuários que se conectam pela intranet da empresa. O recurso está disponível na versão completa da Autenticação Multifator do Azure e não na versão gratuita para administradores. Para saber como obter a versão completa da Autenticação Multifator do Azure, consulte [Autenticação Multifator do Azure](multi-factor-authentication.md).
 
+> [!NOTE]
+> IPs confiáveis da MFA e locais nomeados pelo acesso condicional funcionam apenas com endereços IPV4.
+
 Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos locais, o endereço IP de origem sempre parecerá ser o servidor NPS que passa pela tentativa de autenticação.
 
 | Tipo de locatário do Azure AD | Opções do recurso IPs Confiáveis |
 |:--- |:--- |
-| Gerenciada |**Intervalos específicos de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa.|
-| Federado |**Todos os usuários federados**: todos os usuários federados que se conectam de dentro da organização tem permissão para ignorar a verificação em duas etapas. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalos específicos de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. |
+| Gerenciada |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa.|
+| Federado |**Todos os usuários federados**: todos os usuários federados que se conectam de dentro da organização tem permissão para ignorar a verificação em duas etapas. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. |
 
 O bypass dos IPs Confiáveis funciona somente dentro da intranet da empresa. Se você selecionar a opção **Todos os usuários federados** e um usuário se conectar de fora da intranet da empresa, ele deverá se autenticar usando a verificação em duas etapas. O processo será o mesmo, ainda que o usuário apresente uma declaração do AD FS. 
 
@@ -293,11 +296,11 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
 3. Selecione **Configurar IPs confiáveis de MFA**.
 4. Na página **Configuração do Serviço**, em **IPs Confiáveis**, escolha uma das duas opções a seguir:
 
-   * **Para solicitações de usuários federados originárias da minha intranet**: para escolher essa opção, marque a caixa de seleção. Todos os usuários federados que se conectarem pela rede corporativa ignorarão a verificação em duas etapas usando uma declaração que é emitida pelo AD FS. Verifique se o AD FS tem uma regra para adicionar a declaração de intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra no AD FS:
+   * **Para solicitações de usuários federados originárias da minha intranet**: Para escolher essa opção, marque a caixa de seleção. Todos os usuários federados que se conectarem pela rede corporativa ignorarão a verificação em duas etapas usando uma declaração que é emitida pelo AD FS. Verifique se o AD FS tem uma regra para adicionar a declaração de intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra no AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Para solicitações de um intervalo específico de IPs públicos**: para escolher essa opção, insira os endereços IP na caixa de texto, usando a notação CIDR.
+   * **Para solicitações de um intervalo específico de IPs públicos**: para escolher essa opção, insira os endereços IP na caixa de texto usando a notação CIDR.
       * Para endereços IP que estejam no intervalo xxx.xxx.xxx.1 até xxx.xxx.xxx.254, use a notação como **xxx.xxx.xxx.0/24**.
       * Para um único endereço IP, use a notação como **xxx.xxx.xxx.xxx/32**.
       * Você pode inserir até 50 intervalos de endereço IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
@@ -312,11 +315,11 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
 4. Em Autenticação Multifator do Microsoft Azure, selecione **configurações de serviço**.
 5. Na página **Configuração do Serviço**, em **IPs Confiáveis**, escolha uma das duas opções a seguir (ou ambas):
 
-   * **Para as solicitações de usuários federados na minha intranet**: para escolher essa opção, marque a caixa de seleção. Todos os usuários federados que se conectarem pela rede corporativa ignorarão a verificação em duas etapas usando uma declaração que é emitida pelo AD FS. Verifique se o AD FS tem uma regra para adicionar a declaração de intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra no AD FS:
+   * **Para solicitações de usuários federados na minha intranet**: Para escolher essa opção, marque a caixa de seleção. Todos os usuários federados que se conectarem pela rede corporativa ignorarão a verificação em duas etapas usando uma declaração que é emitida pelo AD FS. Verifique se o AD FS tem uma regra para adicionar a declaração de intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra no AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Para solicitações de um intervalo especificado de sub-redes de endereço IP**: para escolher essa opção, insira os endereços IP na caixa de texto, usando a notação CIDR.
+   * **Para solicitações de um intervalo específico de sub-redes de endereços IP**: para escolher essa opção, insira os endereços IP na caixa de texto usando a notação CIDR.
       * Para endereços IP que estejam no intervalo xxx.xxx.xxx.1 até xxx.xxx.xxx.254, use a notação como **xxx.xxx.xxx.0/24**.
       * Para um único endereço IP, use a notação como **xxx.xxx.xxx.xxx/32**.
       * Você pode inserir até 50 intervalos de endereço IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
@@ -384,3 +387,7 @@ O recurso reduz o número de autenticações em aplicativos Web, que normalmente
 ### <a name="mark-a-device-as-trusted"></a>Marcar um dispositivo como confiável
 
 Depois de habilitar o recurso Lembrar a Autenticação Multifator, os usuários poderão marcar um dispositivo como confiável ao entrarem e selecionarem **Não perguntar novamente**.
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Modificar a identidade visual da página de entrada do Azure AD](../fundamentals/customize-branding.md)

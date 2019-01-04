@@ -1,5 +1,5 @@
 ---
-title: Como criar um Ambiente do Serviço de Aplicativo v1
+title: Como criar um Ambiente do Serviço de Aplicativo v1 – Azure
 description: Descrição do fluxo de criação para ambiente do serviço de aplicativo v1
 services: app-service
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 1df3b790d0c6c0f597a8559551ff5e42c9f110e4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.custom: seodec18
+ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230260"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339885"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um Ambiente do Serviço de Aplicativo v1 
 
@@ -55,7 +56,7 @@ Para criar um Ambiente do Serviço de Aplicativo v1, você pode pesquisar no Mic
 4. Faça suas seleções de Rede Virtual e Local. Você pode optar por criar uma nova rede virtual ou selecionar uma rede virtual já existente. Se selecionar uma nova rede virtual, você poderá especificar um nome e local. A nova VNet terá o intervalo de endereços 192.168.250.0/23 e uma sub-rede denominada **padrão** que é definida como 192.168.250.0/24. Você pode simplesmente selecionar um VNet pré-existente clássico ou do Gerenciador de Recursos. A seleção do tipo de VIP determina se seu ASE pode ser acessado diretamente por meio da Internet (Externo) ou se ele usa um Balanceador de Carga Interno (ILB). Para saber mais sobre eles, leia [Usando um Balanceador de Carga Interno com um Ambiente de Serviço de Aplicativo][ILBASE]. Se você selecionar um tipo de VIP Externo, poderá selecionar com quantos endereços IP externos o sistema é criado para fins de IPSSL. Se selecionar Interno, você precisará especificar o subdomínio que seu ASE usará. Os ASEs podem ser implantados em redes virtuais que usam os intervalos de endereço público *ou* espaços de endereço *ou* RFC1918 (ou seja, endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a VNet antecipadamente. Ao selecionar uma VNet já existente, você precisará criar uma nova sub-rede durante a criação do ASE. **Você não pode usar uma sub-rede criada previamente no portal. Você poderá criar um ASE com uma sub-rede já existente, se criar o ASE usando um modelo do Resource Manager.** Para criar um ASE por meio de um modelo, use as informações fornecidas aqui, [Criar um ambiente de serviço de aplicativo do modelo][ILBAseTemplate] e aqui, [Criar um ambiente de serviço de aplicativo do ILB do modelo][ASEfromTemplate].
 
 ### <a name="details"></a>Detalhes
-É criado um ASE com dois Front-Ends e dois trabalhos. Os Front-Ends atuam como os pontos de extremidade HTTP/HTTPS e enviam tráfego para as Funções de Trabalho, que são funções que hospedam seus aplicativos. Você pode ajustar a quantidade após a criação do ASE e pode até mesmo configurar regras de dimensionamento automático nesses pools de recursos. Para obter mais detalhes sobre a colocação em escala manual, o gerenciamento e o monitoramento de um ambiente de serviço de aplicativo, acesse: [Como configurar um Ambiente de Serviço de Aplicativo][ASEConfig] 
+É criado um ASE com dois Front-Ends e dois trabalhos. Os Front-Ends atuam como os pontos de extremidade HTTP/HTTPS e enviam tráfego para as Funções de Trabalho, que são funções que hospedam seus aplicativos. Você pode ajustar a quantidade após a criação do ASE e pode até mesmo configurar regras de dimensionamento automático nesses pools de recursos. Para obter mais detalhes sobre dimensionamento, gerenciamento e monitoramento manuais de um Ambiente do Serviço de Aplicativo, acesse: [Como configurar um Ambiente do Serviço de Aplicativo][ASEConfig] 
 
 Pode existir apenas um ASE na sub-rede usada pelo ASE. A sub-rede não pode ser usada para algo diferente de ASE
 
@@ -63,13 +64,13 @@ Pode existir apenas um ASE na sub-rede usada pelo ASE. A sub-rede não pode ser 
 Após a criação do ASE é possível ajustar:
 
 * Quantidade de Front-Ends (mínimo: 2)
-* Quantidade de processadores (mínimo: 2)
+* Quantidade de funções de trabalho (mínimo: 2)
 * Quantidade de endereços IP disponíveis para SSL de IP
 * Tamanho de recursos de computação usados pelos Front-Ends ou Processadores (o tamanho mínimo de Front-End é P2)
 
-Há mais detalhes sobre o gerenciamento da colocação em escala manual e monitoramento de Ambientes de Serviço de Aplicativo aqui: [Como configurar um Ambiente de Serviço de Aplicativo][ASEConfig] 
+Há mais detalhes sobre dimensionamento, gerenciamento e monitoramento manuais dos Ambientes do Serviço de Aplicativo, acesse: [Como configurar um Ambiente do Serviço de Aplicativo][ASEConfig] 
 
-Para saber mais sobre o dimensionamento automático, há um guia aqui: [Como configurar o dimensionamento automático para um Ambiente de Serviço de Aplicativo][ASEAutoscale]
+Para obter informações sobre o dimensionamento automático, há um guia aqui: [Como configurar o dimensionamento automático para um Ambiente do Serviço de Aplicativo][ASEAutoscale]
 
 Há dependências adicionais que não estão disponíveis para personalização, como o banco de dados e o armazenamento. Esses são gerenciados pelo Azure e fornecidos com o sistema. O armazenamento do sistema dá suporte a até 500 GB para todo o Ambiente de Serviço do Aplicativo e o banco de dados é ajustado pelo Azure como necessário, por meio do dimensionamento do sistema.
 
@@ -85,8 +86,8 @@ Para começar a usar Ambientes de Serviço de Aplicativo v1, veja [Introdução 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md
-[ILBAseTemplate]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
+[ILBAseTemplate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
 [ASEfromTemplate]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

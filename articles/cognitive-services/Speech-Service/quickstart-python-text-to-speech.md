@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: converta texto em Fala, Python - Serviço de fala'
+title: 'Início Rápido: converter texto em fala, Python – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a converter texto em Fala usando Python e a API REST de conversão de texto em Fala. O texto de exemplo incluído neste guia é estruturado como Linguagem de marcação de síntese de Fala (SSML). Isso permite que você escolha a voz e o idioma da resposta de Fala. A API REST também suporta texto simples (ASCII ou UTF-8), no entanto, se o texto simples for fornecido, a resposta será retornada na voz e no idioma padrão do Serviço de Fala.
+description: Neste início rápido, você aprenderá a converter texto em Fala usando Python e a API REST de conversão de texto em Fala. O texto de exemplo incluído neste guia é estruturado como Linguagem de marcação de síntese de Fala (SSML). Isso permite que você escolha a voz e o idioma da resposta de Fala.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 38bcd67dfb6d9b1a1955658872fee7b8b7a14a0c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447462"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090050"
 ---
-# <a name="quickstart-convert-text-to-speech-using-python"></a>Início Rápido: converta o texto em fala usando o Python
+# <a name="quickstart-convert-text-to-speech-using-python"></a>Início Rápido: converter texto em fala usando o Python
 
 Neste início rápido, você aprenderá a converter texto em fala usando Python e a API REST de conversão de texto em fala. O corpo da solicitação neste guia é estruturado como [Linguagem de marcação de síntese de Fala (SSML)](speech-synthesis-markup.md), que permite escolher a voz e o idioma da resposta.
 
@@ -29,7 +30,7 @@ Este início rápido requer:
 
 * Python 2.7.x ou 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
-* Uma chave de assinatura do Azure para o serviço de Fala
+* Uma chave de assinatura do Azure para o Serviço de Fala
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
 
@@ -151,7 +152,7 @@ Quando solicitado, digite o que você deseja converter de conversão de texto em
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Certifique-se de remover qualquer informação confidencial do código-fonte do seu aplicativo de exemplo, como chaves de assinatura.
+Remova todas as informações confidenciais do código-fonte do seu aplicativo de exemplo, como as chaves de assinatura.
 
 ## <a name="next-steps"></a>Próximas etapas
 

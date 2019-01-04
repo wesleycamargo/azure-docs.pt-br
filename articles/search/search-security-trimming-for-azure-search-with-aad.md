@@ -1,19 +1,20 @@
 ---
-title: Filtros de segurança para a fragmentação dos resultados do Azure Search usando identidades do Active Directory | Microsoft Docs
-description: Controle de acesso no conteúdo do Azure Search usando filtros de segurança e identidades do Active Directory.
-author: revitalbarletz
+title: Filtros de segurança para filtragem dos resultados usando identidades do Active Directory – Azure Search
+description: Controle de acesso sobre o conteúdo do Azure Search usando filtros de segurança e identidades do AAD (Azure Active Directory).
+author: brjohnstmsft
 manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
-ms.author: revitalb
-ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684623"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308814"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para a restrição dos resultados do Azure Search usando identidades do Active Directory
 
@@ -63,7 +64,7 @@ No entanto, se você não tiver os usuários existentes, você pode usar as APIs
 
 A associação de grupo e de usuário pode ser muito flexível, especialmente em organizações de grandes porte. O código que cria as identidades de usuário e de grupo deve ser executado com frequência suficiente para acompanhar as alterações na associação da organização. Da mesma forma, o seu índice do Azure Search requer uma agenda de atualização semelhante para refletir o status atual de recursos e usuários permitidos.
 
-### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>Etapa 1: Criar [Grupo AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
+### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>Etapa 1: Criar [Grupo do AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +78,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>Etapa 2: Criar [Usuário AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
+### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>Etapa 2: Criar [Usuário do AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
 ```csharp
 User user = new User()
 {
@@ -92,12 +93,12 @@ User user = new User()
 User newUser = await graph.Users.Request().AddAsync(user);
 ```
 
-### <a name="step-3-associate-user-and-group"></a>Etapa 3: Associar o usuário e o grupo
+### <a name="step-3-associate-user-and-group"></a>Etapa 3: Associar usuário e grupo
 ```csharp
 await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
-### <a name="step-4-cache-the-groups-identifiers"></a>Etapa 4: Armazenar em Cache os identificadores de grupos
+### <a name="step-4-cache-the-groups-identifiers"></a>Etapa 4: Armazenar em cache os identificadores de grupo
 Opcionalmente, para reduzir a latência de rede, você pode armazenar em cache as associações de grupo de usuários para que quando uma solicitação de pesquisa for emitida, os grupos sejam retornados do cache, economizando uma ida e volta ao AAD. Você pode usar [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) para enviar uma única solicitação HTTP com vários usuários e criar o cache.
 
 O Microsoft Graph foi projetado para lidar com um grande volume de solicitações. Caso haja um número excessivo de solicitações, o Microsoft Graph apresenta uma falha na solicitação com o código de status HTTP 429. Para saber mais, veja [Limitação de mecanismo do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
@@ -164,7 +165,7 @@ private static async Task<List<string>> GetGroupIdsForUser(string userPrincipalN
 }
 ``` 
 
-### <a name="step-2-compose-the-search-request"></a>Etapa 2: Criar a solicitação de pesquisa
+### <a name="step-2-compose-the-search-request"></a>Etapa 2: Redigir a solicitação de pesquisa
 
 Supondo que você tenha associação de grupos do usuário, você pode emitir a solicitação de pesquisa com os valores de filtro apropriados.
 
@@ -178,7 +179,7 @@ SearchParameters parameters = new SearchParameters()
 
 DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<SecuredFiles>("*", parameters);
 ```
-### <a name="step-3-handle-the-results"></a>Etapa 3: Lidar com os resultados
+### <a name="step-3-handle-the-results"></a>Etapa 3: Manipular os resultados
 
 A resposta inclui uma lista filtrada de documentos, que consiste naqueles que o usuário tem permissão para visualizar. Dependendo de como você criar a página de resultados da pesquisa, você talvez queira incluir dicas visuais para refletir o conjunto de resultados filtrados.
 

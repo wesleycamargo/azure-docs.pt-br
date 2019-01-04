@@ -1,6 +1,6 @@
 ---
-title: Conectar-se com o Slack do Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatize fluxos de trabalho e tarefas que monitoram arquivos e gerenciam canais, grupos e mensagens em sua conta do Slack usando o Aplicativo Lógico do Azure
+title: Conectar-se com o Slack dos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatize fluxos de trabalho e tarefas que monitoram arquivos e gerenciam canais, grupos e mensagens em sua conta do Slack usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230345"
 ---
-# <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitore e gerencie o Slack com Aplicativo Lógico do Azure
+# <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitore e gerencie o Slack com os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do Slack, você pode criar fluxos de trabalho e tarefas automatizadas que monitoram arquivos do Slack e gerenciam canais, mensagens e grupos do Slack, entre outros, por exemplo:
+Com os Aplicativos Lógicos do Azure e o conector do Slack, você pode criar fluxos de trabalho e tarefas automatizadas que monitoram arquivos do Slack e gerenciam canais, mensagens e grupos do Slack, entre outros, por exemplo:
 
 * Monitorar quando novos arquivos são criados.
 * Criar, listar e unir canais 

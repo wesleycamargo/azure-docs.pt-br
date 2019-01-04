@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 93824c8f0e7667fcb58fd6b8292cddfa2b4a482a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441452"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194191"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
 Este artigo descreve como implantar o sistema SAP IDES em execução com o SQL Server e o sistema operacional Windows no Azure via SAP Cloud Appliance Library (SAP CAL) 3.0. As capturas de tela mostram o processo passo a passo. Para implantar uma solução diferente, siga as mesmas etapas.
@@ -29,7 +29,7 @@ Este artigo descreve como implantar o sistema SAP IDES em execução com o SQL S
 Para iniciar com a SAP CAL, consulte o site [SAP Cloud Appliance Library](https://cal.sap.com/). A SAP também tem um blog sobre a nova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
-A partir de 29 de maio de 2017, você pode usar o modelo de implantação do Azure Resource Manager além do modelo de implantação clássico menos preferencial para implantar a SAP CAL. É recomendável que você use o novo modelo de implantação do Resource Manager e ignore o modelo de implantação clássico.
+> A partir de 29 de maio de 2017, você pode usar o modelo de implantação do Azure Resource Manager além do modelo de implantação clássico menos preferencial para implantar a SAP CAL. É recomendável que você use o novo modelo de implantação do Resource Manager e ignore o modelo de implantação clássico.
 
 Se você já criou uma conta da SAP CAL que usa o modelo clássico, *é necessário criar outra conta da SAP CAL*. Essa conta precisa implantar exclusivamente no Azure usando o modelo do Gerenciador de recursos.
 
@@ -40,7 +40,7 @@ Depois de entrar na SAP CAL, a primeira página geralmente leva você para a pá
 ### <a name="create-an-account-in-the-sap-cal"></a>Criar uma conta na SAP CAL
 1. Para entrar na SAP CAL pela primeira vez, use o seu SAP S-User ou outro usuário registrado com a SAP. Em seguida, defina uma conta da SAP CAL que é usada pela SAP CAL para implantar dispositivos no Azure. Na definição de conta, você precisa:
 
-    a. Selecionar o modelo de implantação no Azure (Resource Manager ou clássico).
+     a. Selecionar o modelo de implantação no Azure (Resource Manager ou clássico).
 
     b. Inserir sua assinatura do Azure. Uma conta da SAP CAL pode ser atribuída a apenas uma assinatura. Se você precisar de mais de uma assinatura, precisará criar uma outra conta da SAP CAL.
     
@@ -51,7 +51,7 @@ Depois de entrar na SAP CAL, a primeira página geralmente leva você para a pá
 
 1. Para criar uma nova conta da SAP CAL, a página **Contas** mostra duas opções para o Azure: 
 
-    a. **Microsoft Azure (clássico)** é o modelo de implantação clássico e não é mais preferencial.
+     a. **Microsoft Azure (clássico)** é o modelo de implantação clássico e não é mais preferencial.
 
     b. **Microsoft Azure** é o novo modelo de implantação do Resource Manager.
 
@@ -96,15 +96,15 @@ Antes de implantar a solução SAP IDES com base no Windows e no SQL Server, voc
 ### <a name="deploy-a-solution"></a>Implantar uma solução
 1. Depois de configurar uma conta da SAP CAL, selecione a solução **A solução SAP IDES no Windows e no SQL Server**. Clique em **Criar instância** e confirme as condições de uso e termos. 
 
-1. Na página **Modo básico: criar instância**, você precisa:
+1. No **Modo Básico: Criar Instância**, é necessário:
 
-    a. Inserir um **Nome** para a instância.
+     a. Inserir um **Nome** para a instância.
 
     b. Selecionar uma **Região** do Azure. Talvez seja necessário uma assinatura da SAP CAL para obter várias regiões do Azure oferecidas.
 
     c.  Inserir a **Senha** mestre para a solução, conforme mostrado:
 
-    ![Modo básico da SAP CAL: criar instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![Modo Básico SAP CAL: Criar Instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
 1. Clique em **Criar**. Após algum tempo, dependendo do tamanho e da complexidade da solução (uma estimativa é fornecida pela SAP CAL), o status é mostrado como ativo e pronto para uso: 
 

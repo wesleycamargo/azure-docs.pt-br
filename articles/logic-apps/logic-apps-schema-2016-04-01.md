@@ -1,6 +1,6 @@
 ---
 title: Atualizações de esquema de 1º de junho de 2016 - Aplicativos Lógicos do Azure | Microsoft Docs
-description: Versão de esquema 2016-06-01 atualizada para definições de aplicativo lógico no Aplicativo Lógico do Azure
+description: Versão de esquema 2016-06-01 atualizada para definições de aplicativo lógico nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration

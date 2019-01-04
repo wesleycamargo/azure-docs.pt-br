@@ -1,21 +1,22 @@
 ---
-title: Perguntas frequentes – LUIS (Serviço Inteligente de Reconhecimento Vocal)
+title: Perguntas frequentes (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal).
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284363"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163626"
 ---
 # <a name="language-understanding-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal
 
@@ -196,9 +197,9 @@ Se você selecionar um modelo de LUIS e o botão **Selecionar** no painel de mod
 
 ## <a name="luis-service"></a>Serviço LUIS
 
-### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>O LUIS está disponível na nuvem privada ou local?
- Não.
+### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>O Reconhecimento vocal LUIS está disponível na nuvem privada ou local?
 
+Sim, você poderá usar o [contêiner](luis-container-howto.md) do LUIS para esses cenários se tiver a conectividade necessária para medir o uso. 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Na Conferência Build 2018, ouvi falar de uma demonstração ou um recurso de Reconhecimento Vocal, mas não lembro como se chamava.
 
@@ -214,7 +215,7 @@ Os seguintes recursos foram lançados na Conferência Build 2018:
 [Rotas de API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) de criação adicionais foram incluídas.
 
 Vídeos:
-* [Azure Friday na Build 2018: Serviços Cognitivos – Linguagem (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Azure Friday no Build 2018: Serviços Cognitivos – Linguagem (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Mostra de IA na Build 2018 – Novidades do Serviço Inteligente de Reconhecimento Vocal](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
 * [Sessão da Build 2018 – Práticas recomendadas da inteligência do bot, dos recursos de fala e de NLU](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Build 2018 – atualizações de LUIS](https://channel9.msdn.com/events/Build/2018/THR3118/player)

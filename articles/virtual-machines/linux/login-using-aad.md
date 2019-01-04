@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334628"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850968"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Fazer logon em uma máquina virtual do Linux no Azure usando a autenticação do Azure Active Directory (versão prévia)
 
@@ -37,7 +37,7 @@ Há muitos benefícios de usar a autenticação do Azure AD para fazer logon em 
   - Para proteger ainda mais o logon nas máquinas virtuais do Azure, você pode configurar a autenticação multifator.
   - A capacidade de fazer logon em VMs do Linux com Azure Active Directory também funciona para clientes que usam os [Serviços de Federação](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Colaboração contínua:** com RBAC (controle de acesso baseado em função), você pode especificar quem pode entrar em uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os usuários entram na equipe ou saem dela, você pode atualizar a política RBAC da VM para conceder acesso conforme o necessário. Essa experiência é muito mais simples do que ter que limpar as VMs para remover as chaves públicas SSH desnecessárias. Quando os funcionários saem da organização e a conta de usuário é desabilitada ou removida do Azure AD, eles deixam de ter acesso aos recursos.
+- **Colaboração contínua:** Com RBAC (controle de acesso baseado em função), você pode especificar quem pode entrar em uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os usuários entram na equipe ou saem dela, você pode atualizar a política RBAC da VM para conceder acesso conforme o necessário. Essa experiência é muito mais simples do que ter que limpar as VMs para remover as chaves públicas SSH desnecessárias. Quando os funcionários saem da organização e a conta de usuário é desabilitada ou removida do Azure AD, eles deixam de ter acesso aos recursos.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Regiões do Azure e distribuições do Linux com suporte
 
@@ -96,8 +96,8 @@ O *provisioningState* de *êxito* é mostrado quando a extensão é instalada na
 
 A política de RBAC (controle de acesso baseado em função) do Azure determina quem pode fazer logon na VM. Duas funções RBAC são usadas para autorizar o logon na VM:
 
-- **Logon de administrador da máquina virtual**: os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de usuário de administrador do Windows ou raiz do Linux.
-- **Logon de usuário da máquina virtual**: os usuários com essa função atribuído podem fazer logon uma máquina virtual do Azure com privilégios de usuários regulares.
+- **Logon de administrador da Máquina Virtual**: Os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de usuário de administrador do Windows ou raiz do Linux.
+- **Logon de usuário da Máquina Virtual**: Os usuários com essa função atribuída podem fazer logon uma máquina virtual do Azure com privilégios de usuários regulares.
 
 > [!NOTE]
 > Para permitir que um usuário faça logon na VM por SSH, você precisa atribuir a função *Logon de Administrador da Máquina Virtual* ou *Logon de Usuário da Máquina Virtual*. Um usuário do Azure com a função *Proprietário* ou *Colaborador* atribuída para uma VM não tem automaticamente privilégios para fazer logon na VM por SSH.
@@ -129,7 +129,7 @@ Primeiro, exiba o endereço IP público da VM com [az vm show](/cli/azure/vm#az-
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Faça logon na máquina virtual do Linux no Azure usando suas credenciais do Azure AD. O parâmetro `-l` permite que você especifique seu próprio endereço da conta do Azure AD. Especifique o endereço IP público da VM conforme a saída do comando anterior:
+Faça logon na máquina virtual do Linux no Azure usando suas credenciais do Azure AD. O parâmetro `-l` permite que você especifique seu próprio endereço da conta do Azure AD. Endereços de conta devem ser inseridos em letras minúsculas. Use o endereço IP público da VM conforme a saída do comando anterior:
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps
@@ -166,7 +166,7 @@ Por esta linha:
 
 Alguns erros comuns ao tentar usar SSH com as credenciais do Azure AD incluem a ausência de uma função RBAC atribuída e prompts repetidos para entrar. Use as seções a seguir para corrigir esses problemas.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: função RBAC não atribuída
+### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: Função RBAC não atribuída
 
 Se o erro a seguir aparecer no prompt do SSH, verifique se você [configurou políticas de RBAC](#configure-rbac-policy-for-the-virtual-machine) para a VM que concedem ao usuário a função *Logon de Administrador da Máquina Virtual* ou *Logon de Usuário da Máquina Virtual*:
 

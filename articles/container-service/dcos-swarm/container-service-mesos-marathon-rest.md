@@ -1,5 +1,5 @@
 ---
-title: Gerenciar cluster DC/OS do Azure com o API REST do Marathon
+title: (PRETERIDO) Gerenciar cluster de DC/OS do Azure com a API REST Marathon
 description: Implante contêineres em cluster DC/OS do Serviço de Contêiner do Azure usando a API REST do Marathon.
 services: container-service
 author: iainfoulds
@@ -9,18 +9,20 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 34fc6f946d172f1431367e84f9d4d8a6855003ed
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901743"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52991730"
 ---
-# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Gerenciamento de contêiner de DC/sistema operacional por meio da API REST do Marathon
+# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(PRETERIDO) Gerenciamento de contêiner de DC/sistema operacional por meio da API REST do Marathon
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 O DC/OS fornece um ambiente de implantação e dimensionamento de cargas de trabalho clusterizadas e, ao mesmo tempo, abstrai o hardware subjacente. Sobre o DC/OS, há uma estrutura que gerencia o agendamento e a execução das cargas de trabalho de computação. Embora haja estruturas disponíveis para várias cargas de trabalho populares, este documento lhe ajuda a começar a criar e dimensionar implantações de contêiner usando a API REST do Marathon. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de trabalhar nos exemplos, você precisará de um cluster DC/OS configurado no Serviço de Contêiner do Azure. Você também precisa ter conectividade remota com esse cluster. Para saber mais sobre esses itens, confira os artigos a seguir:
 

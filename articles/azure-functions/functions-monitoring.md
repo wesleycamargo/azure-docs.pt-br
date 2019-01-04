@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497234"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876512"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -158,7 +158,7 @@ As tabelas disponíveis são mostradas na guia **Esquema** do painel esquerdo. V
 * **solicitações** – uma para cada invocação de função.
 * **exceções** – quaisquer exceções geradas pelo tempo de execução.
 * **customMetrics** – contagem de invocações bem-sucedidas e com falha, taxa de sucesso e duração.
-* **customEvents** – eventos rastreados pelo tempo de execução, por exemplo: solicitações HTTP que disparam uma função.
+* **customEvents** - eventos rastreados pelo tempo de execução, por exemplo:  Solicitações HTTP que disparam uma função.
 * **performanceCounters** – informações sobre o desempenho dos servidores em que as funções estão sendo executadas.
 
 As outras tabelas são para testes de disponibilidade e telemetria do cliente/navegador. Você pode implementar a telemetria personalizada para adicionar dados a ela.
@@ -330,6 +330,21 @@ Conforme observado na seção anterior, o tempo de execução agrega dados sobre
 ## <a name="configure-sampling"></a>Configurar a amostragem
 
 O Application Insights tem um recurso de [amostragem](../application-insights/app-insights-sampling.md) que pode protegê-lo contra a produção de excesso de dados de telemetria em horários de pico de carregamento. Quando a taxa de telemetria de entrada excede um limite especificado, o Application Insights começa a ignorar aleatoriamente alguns dos itens de entrada. A configuração padrão para o número máximo de itens por segundo é 5. Você pode configurar a amostragem em [host.json](functions-host-json.md).  Aqui está um exemplo:
+
+### <a name="version-2x"></a>Versão 2.x 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
 
 ### <a name="version-1x"></a>Versão 1.x 
 

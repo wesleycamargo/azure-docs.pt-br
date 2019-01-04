@@ -12,15 +12,15 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056634"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315195"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerenciar o esquema em um aplicativo SaaS que usa bancos de dados SQL multilocatários fragmentados
- 
+
 Este tutorial examina os desafios de manter um grupo de bancos de dados em um aplicativo SaaS (Software como Serviço). As soluções são demonstradas para expandir as alterações de esquema em grupos de bancos de dados.
 
 Como qualquer aplicativo, o aplicativo SaaS Wingtip Tickets evoluirá ao longo do tempo e exigirá alterações no banco de dados. As alterações podem afetar os dados de referência ou o esquema, ou aplicar tarefas de manutenção de banco de dados. Com um aplicativo SaaS usando um padrão de banco de dados por locatário, as alterações devem ser coordenadas entre um grupo potencialmente grande de bancos de dados de locatário. Além disso, você deve incorporar essas alterações no processo de provisionamento de banco de dados para fazer com que elas sejam incluídas nos novos bancos de dados conforme eles são criados.
@@ -64,12 +64,12 @@ O modelo de banco de dados multilocatário fragmentado usado nesta amostra permi
 ## <a name="elastic-jobs-limited-preview"></a>Versão prévia limitada dos Trabalhos Elásticos
 
 Há uma nova versão dos Trabalhos Elásticos, que agora é um recurso integrado do Banco de Dados SQL do Azure. Essa nova versão dos Trabalhos Elásticos está em versão prévia limitada atualmente. A versão prévia limitada atualmente dá suporte ao uso do PowerShell para criar um agente de trabalho e ao T-SQL para criar e gerenciar trabalhos.
-> [!NOTE] 
+> [!NOTE]
 > Este tutorial usa funcionalidades do serviço do Banco de Dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você deseja fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com o assunto = Elastic Jobs Preview. Após receber a confirmação de que sua assinatura foi habilitada, baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos. Esta é uma versão prévia limitada, então contate SaaSFeedback@microsoft.com para conferir perguntas relacionadas ou para obter suporte.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código-fonte e os scripts do aplicativo de banco de dados multilocatário SaaS Wingtip Tickets
 
-Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) no Github. Veja as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets. 
+Os scripts e o código-fonte do aplicativo de Banco de Dados Multilocatário SaaS Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) no GitHub. Veja as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Criar um banco de dados de agente de trabalho e um novo agente de trabalho
 
@@ -84,9 +84,9 @@ O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1
 
 #### <a name="prepare"></a>Preparar
 
-Cada banco de dados de locatários inclui um conjunto de tipos de local na tabela **VenueTypes**. Cada tipo de local define os tipos de eventos que podem ser hospedados em um local. Esses tipos de local correspondem às imagens de tela de fundo que você vê no aplicativo de eventos de locatário.  Neste exercício, você implanta uma atualização em todos os bancos de dados para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club*. 
+Cada banco de dados de locatários inclui um conjunto de tipos de local na tabela **VenueTypes**. Cada tipo de local define os tipos de eventos que podem ser hospedados em um local. Esses tipos de local correspondem às imagens de tela de fundo que você vê no aplicativo de eventos de locatário.  Neste exercício, você implantará uma atualização em todos os bancos de dados para adicionar mais dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
 
-Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados. 
+Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados.
 
 1. Abra o SSMS e conecte-se ao servidor *tenants1-dpt-&lt;user&gt;.database.windows.net*
 1. Para confirmar que *Motorcycle Racing* e *Swimming Club* **não estão** na lista de resultados, navegue até o banco de dados *contosoconcerthall* do servidor *tenants1-dpt-&lt;usuário&gt;* e consulte a tabela *VenueTypes*.

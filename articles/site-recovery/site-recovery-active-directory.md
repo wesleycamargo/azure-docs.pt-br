@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232164"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850994"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres para Active Directory e DNS
 
@@ -165,7 +165,7 @@ Se as condições anteriores forem atendidas, é provável que o controlador de 
 1. Faça uma restauração autoritativa do controlador de domínio. Lembre-se das informações a seguir:
     * Embora não recomendemos a [replicação FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), se você usar a replicação FRS, siga as etapas para uma restauração autoritativa. O processo é descrito em [Como usar a chave do Registro BurFlags para reinicializar o serviço de replicação de arquivos](https://support.microsoft.com/kb/290762).
 
-        Para obter mais informações sobre BurFlags, consulte a postagem no blog [D2 e D4: para que servem?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+        Para obter mais informações sobre BurFlags, consulte a postagem no blog [D2 e D4: Para que serve?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
     * Se você usar a replicação DFSR, conclua as etapas de uma restauração autoritativa. O processo é descrito em [Forçar uma sincronização autoritativa e uma não autoritativa para SYSVOL replicado por DFSR (como "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
 
         Você também pode usar as funções do PowerShell. Para obter mais informações, consulte [Funções do PowerShell de restauração autoritativa/não autoritativa de DFSR-SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
@@ -174,7 +174,7 @@ Se as condições anteriores forem atendidas, é provável que o controlador de 
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
-    Para obter mais informações, consulte [Solucionar problemas da ID do evento 4013 do DNS: O servidor DNS não conseguiu carregar zonas DNS integradas ao AD](https://support.microsoft.com/kb/2001093).
+    Para obter mais informações, consulte [Solução de problemas de ID do Evento DNS 4013: O servidor DNS não pôde carregar as zonas DNS integradas ao AD](https://support.microsoft.com/kb/2001093).
 
 3. Desabilite o requisito de ter um servidor de catálogo global disponível para validar o logon do usuário. Para isso, no controlador de domínio local, defina a seguinte chave do Registro como **1**. Se esse DWORD não existir, você poderá criá-lo no nó **Lsa**.
 

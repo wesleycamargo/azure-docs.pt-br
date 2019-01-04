@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 34bf642cbdecce31be1a8119adc483d017686479
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142225"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434038"
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicação de patch no HDInsight 
-Como um serviço Hadoop gerenciado, o HDInsight se encarrega da aplicação de patch no SO das VMs subjacentes usadas por clusters HDInsight. Desde 1º de agosto de 2016, alteramos a política de aplicação de patch no SO convidado para clusters HDInsight baseados em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido à aplicação de patch. A nova política continuará corrigindo VMs (máquinas virtuais) em clusters Linux todas as segundas-feiras ou quintas-feiras, começando às 0:00 UTC de maneira irregular entre nós em qualquer cluster determinado. No entanto, qualquer determinada VM será reinicializada somente, no máximo, uma vez a cada 30 dias devido à aplicação de patch do SO convidado. Além disso, a primeira reinicialização para um cluster recém-criado não ocorrerá antes de 30 dias a contar da data de criação do cluster. Os patches terão efeito após a reinicialização das VMs.
+Como um serviço Apache Hadoop gerenciado, o HDInsight se encarrega da aplicação de patch no SO das VMs subjacentes usadas por clusters HDInsight. Desde 1º de agosto de 2016, alteramos a política de aplicação de patch no SO convidado para clusters HDInsight baseados em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido à aplicação de patch. A nova política continuará corrigindo VMs (máquinas virtuais) em clusters Linux todas as segundas-feiras ou quintas-feiras, começando às 0:00 UTC de maneira irregular entre nós em qualquer cluster determinado. No entanto, qualquer determinada VM será reinicializada somente, no máximo, uma vez a cada 30 dias devido à aplicação de patch do SO convidado. Além disso, a primeira reinicialização para um cluster recém-criado não ocorrerá antes de 30 dias a contar da data de criação do cluster. Os patches terão efeito após a reinicialização das VMs.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Como configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux
 As máquinas virtuais em um cluster HDInsight precisam ser reinicializadas ocasionalmente para que os patches de segurança importantes possam ser instalados. Desde 1º de agosto de 2016, novos clusters HDInsight baseados em Linux (versão 3.4 ou superior) são reinicializados usando a seguinte agenda:
@@ -31,7 +31,7 @@ Com a ação de script descrita neste artigo, você pode modificar a agenda de a
 2. Definir a frequência de reinicializações (dias entre reinicializações)
 3. Definir o dia da semana no qual uma reinicialização ocorre
 
-> [!NOTE]
+> [!NOTE]  
 > Essa ação de script só funcionará com clusters HDInsight baseados em Linux criados após 1º de agosto de 2016. Os patches terão efeito somente após a reinicialização das VMs. 
 >
 
@@ -43,19 +43,17 @@ Ao usar esse script você precisará das seguintes informações:
 2. Os tipos de nós do cluster ao qual o script é aplicado: nó de cabeçalho, nó de trabalho, zookeeper. Esse script deve ser aplicado a todos os tipos de nó do cluster. Se não for aplicado a um tipo de nó, as máquinas virtuais desse tipo de nó continuarão a usar a agenda anterior de aplicação de patches.
 
 
-3.  Parâmetro: esse script aceita três parâmetros numéricos:
+3.  Parâmetro: Esse script aceita três parâmetros numéricos:
 
-    | . | Definição |
+    | Parâmetro | Definição |
     | --- | --- |
     | Habilitar/desabilitar reinicializações automáticas |0 ou 1. Um valor 0 desabilita reinicializações automáticas, enquanto 1 habilita as reinicializações automáticas. |
     | Frequência |7 a 90 (inclusive). O número de dias a aguardar antes de reinicializar as máquinas virtuais, para patches que exijam uma reinicialização. |
     | Dia da semana |1 a 7 (inclusive). Um valor 1 indica que a reinicialização deve ocorrer em uma segunda-feira, e 7 indica domingo. For exemplo, usar os parâmetros 1 60 2 resulta em reinicializações automáticas a cada 60 dias (no máximo), às terças-feiras. |
     | Persistência |Ao aplicar uma ação de script em um cluster existente, você pode marcar o script como persistente. Os scripts persistentes são aplicados quando novos nós de trabalho são adicionados ao cluster por meio de operações de dimensionamento. |
 
-> [!NOTE]
-> Marque esse script como persistente ao aplicar a um cluster existente. Caso contrário, quaisquer nós novos criado por meio de operações de dimensionamento usarão o agendamento de aplicação de patch padrão.
-Se você aplicar o script como parte do processo de criação de cluster, ele será persistido automaticamente.
->
+> [!NOTE]  
+> Marque esse script como persistente ao aplicar a um cluster existente. Caso contrário, quaisquer nós novos criado por meio de operações de dimensionamento usarão o agendamento de aplicação de patch padrão.  Se você aplicar o script como parte do processo de criação de cluster, ele será persistido automaticamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

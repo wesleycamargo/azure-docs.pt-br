@@ -1,6 +1,6 @@
 ---
-title: Coletar dados JSON personalizados no Log Analytics | Microsoft Docs
-description: As fontes de dados JSON personalizadas podem ser coletadas no Log Analytics usando o Agente do Log Analytics para Linux.  Essas fontes de dados personalizados podem ser scripts simples retornando JSON, assim como curl ou um dos mais de 300 plug-ins do FluentD. Este artigo descreve a configuração necessária para essa coleta de dados.
+title: Coletando dados JSON personalizados no Azure Monitor | Microsoft Docs
+description: As fontes de dados JSON personalizadas podem ser coletadas no Azure Monitor usando o agente do Log Analytics para Linux.  Essas fontes de dados personalizados podem ser scripts simples retornando JSON, assim como curl ou um dos mais de 300 plug-ins do FluentD. Este artigo descreve a configuração necessária para essa coleta de dados.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,23 +8,21 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: c8972df6f42920af6a9bd5f04a27f14dc647da44
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 64f1d7b1437ea018a25db18e5f92bffaac8f7099
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336306"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438448"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>Coletar fontes de dados JSON personalizados com o Agente do Log Analytics para Linux no Log Analytics
+# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Coletando fontes de dados JSON personalizadas com o agente do Log Analytics para Linux no Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-As fontes de dados JSON personalizadas podem ser coletadas no Log Analytics usando o agente do Log Analytics para Linux.  Essas fontes de dados personalizados podem ser scripts simples retornando JSON, assim como [curl](https://curl.haxx.se/) ou um dos [mais de 300 plug-ins do FluentD](http://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para essa coleta de dados.
+As fontes de dados JSON personalizadas podem ser coletadas nos [logs do Azure Monitor](data-collection.md) usando o agente do Log Analytics para Linux.  Essas fontes de dados personalizados podem ser scripts simples retornando JSON, assim como [curl](https://curl.haxx.se/) ou um dos [mais de 300 plug-ins do FluentD](http://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para essa coleta de dados.
 
 > [!NOTE]
 > O agente do Log Analytics para Linux v1.1.0-217+ é necessário para dados JSON personalizados
@@ -33,7 +31,7 @@ As fontes de dados JSON personalizadas podem ser coletadas no Log Analytics usan
 
 ### <a name="configure-input-plugin"></a>Configurar plug-in de entrada
 
-Para coletar dados JSON no Log Analytics, adicione `oms.api.` ao início de uma marcação FluentD em um plug-in de entrada.
+Para coletar dados JSON no Azure Monitor, adicione `oms.api.` ao início de uma marca FluentD em um plug-in de entrada.
 
 Por exemplo, a seguir temos um arquivo de configuração separado `exec-json.conf` em `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Isso usa o plug-in FluentD `exec` para executar um comando curl a cada 30 segundos.  A saída desse comando é coletada pelo plug-in de saída do JSON.
 
@@ -87,13 +85,13 @@ Reinicie o serviço agente do Log Analytics para Linux com o comando a seguir.
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Saída
-Os dados serão coletados no Log Analytics com um tipo de registro de `<FLUENTD_TAG>_CL`.
+Os dados serão coletados nos logs do Azure Monitor com um tipo de registro igual a `<FLUENTD_TAG>_CL`.
 
-Por exemplo, a marcação personalizada `tag oms.api.tomcat` no Log Analytics com um tipo de registro de `tomcat_CL`.  Você pode recuperar todos os registros desse tipo com a pesquisa de logs a seguir.
+Por exemplo, a marca personalizada `tag oms.api.tomcat` no Azure Monitor com um tipo de registro igual a `tomcat_CL`.  Você pode recuperar todos os registros desse tipo com a consulta de log a seguir.
 
     Type=tomcat_CL
 
-Fontes de dados JSON aninhados têm suporte, mas são indexadas sem se basear no campo pai. Por exemplo, os seguintes dados JSON são retornados de uma pesquisa do Log Analytics como `tag_s : "[{ "a":"1", "b":"2" }]`.
+Fontes de dados JSON aninhados têm suporte, mas são indexadas sem se basear no campo pai. Por exemplo, os dados JSON a seguir são retornados de uma consulta de log como `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
@@ -106,5 +104,4 @@ Fontes de dados JSON aninhados têm suporte, mas são indexadas sem se basear no
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](../../log-analytics/log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções. 
- 
+* Saiba mais sobre [registrar consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções. 

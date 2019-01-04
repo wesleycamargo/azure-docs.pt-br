@@ -1,5 +1,5 @@
 ---
-title: Alocar partições e réplicas de consulta e indexação no Azure Search | Microsoft Docs
+title: Alocar partições e réplicas para consulta e indexação - Azure Search
 description: Ajusta os recursos de computador de partição e réplica no Azure Search, onde o preço de cada recurso é definido em unidades de pesquisa faturáveis.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fa1a13c5c786867f6e92a678c40a491e0a226076
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238720"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316107"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Alocar partições e réplicas de consulta e indexação no Azure Search
 Depois que você [escolhe um tipo de preço](search-sku-tier.md) e [provisiona um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é, como opção, aumentar o número de réplicas ou partições usadas pelo serviço. Cada camada oferece um número fixo de unidades de cobrança. Este artigo explica como alocar essas unidades para obter uma configuração ideal que equilibra os requisitos para execução da consulta, indexação e armazenamento.
@@ -92,12 +93,12 @@ Aplicativos de pesquisa que exigem atualização de dados quase em tempo real pr
 
 Índices maiores levam mais tempo para consultar. Assim, você poderá perceber que cada aumento incremental em partições requer um aumento proporcional, mas menor, em réplicas. A complexidade de suas consultas e seu volume influenciarão a rapidez com que a execução da consulta é retornada.
 
-## <a name="basic-tier-partition-and-replica-combinations"></a>Camada Básica: combinações de partição e réplica
+## <a name="basic-tier-partition-and-replica-combinations"></a>Camada básica: Combinações de partição e réplica
 Um serviço Básico pode ter exatamente uma partição e até três réplicas, para o limite máximo de três SUs. O único recurso ajustável são as réplicas. É necessário um mínimo de duas réplicas para alta disponibilidade em consultas.
 
 <a id="chart"></a>
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>Tipos Standard: combinações de partição e réplica
+## <a name="standard-tiers-partition-and-replica-combinations"></a>Camadas Standard: Combinações de partição e réplica
 Esta tabela mostra as SUs necessárias para dar suporte a combinações de réplicas e partições, sujeito ao limite de 36 SUs, para todas as camadas Standard.
 
 |   | **1 partição** | **2 partições** | **3 partições** | **4 partições** | **6 partições** | **12 partições** |

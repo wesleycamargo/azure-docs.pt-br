@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006187"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721962"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser usados no Active Directory B2C
 
@@ -26,7 +26,7 @@ Cada aplicativo que usa o Azure AD B2C deve estar registrado no [locatário do A
 * Uma **ID do aplicativo** que identifica exclusivamente o aplicativo.
 * Um **URL de resposta** que pode ser usado para direcionar as respostas de volta ao seu aplicativo.
 
-Cada solicitação enviada para o AD B2C do Azure especifica uma **política**. Uma política controla o comportamento do AD do Azure. Você também pode usar esses pontos de extremidade para criar um conjunto altamente personalizável de experiências do usuário. Algumas políticas comuns incluem inscrição, entrada e edição de perfil. Se você não estiver familiarizado com as políticas, leia sobre a [estrutura de política extensível](active-directory-b2c-reference-policies.md) do Azure AD B2C antes de continuar.
+Cada solicitação enviada ao Azure AD B2C especifica um **fluxo de usuário**, que é uma política que controla o comportamento do Azure AD. Você também pode usar esses pontos de extremidade para criar um conjunto altamente personalizável de experiências do usuário. Nós fornecemos um conjunto de fluxos dos usuários para ajudá-lo a configurar as políticas comuns, incluindo inscrição, entrada e edição de perfil. Você também pode criar suas próprias políticas personalizadas. Se você não estiver familiarizado com as políticas, leia sobre a [estrutura de política extensível](active-directory-b2c-reference-policies.md) do Azure AD B2C antes de continuar.
 
 A interação de cada aplicativo segue um padrão semelhante de alto nível:
 
@@ -165,8 +165,8 @@ Os dois últimos podem ser adicionados porque eles são subdomínios da primeira
 
 Quando você cria aplicativos móveis/nativo, você define uma **URI de redirecionamento** em vez de uma **URL de reprodução**. Há duas considerações importantes ao escolher um URI de redirecionamento:
 
-- **Exclusivo**: o esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. No exemplo `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` é o esquema. Esse padrão deve ser seguido. Se dois aplicativos compartilharem o mesmo esquema, o usuário verá a caixa de diálogo **escolher aplicativo**. Se o usuário fizer uma escolha incorreta, o logon falhará.
-- **Completo**: o URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra após o domínio. Por exemplo, `//contoso/` funciona e `//contoso` falha. Certifique-se de que não haja caracteres especiais, como sublinhados, no URI de redirecionamento.
+- **Exclusivo**: O esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. No exemplo `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` é o esquema. Esse padrão deve ser seguido. Se dois aplicativos compartilharem o mesmo esquema, o usuário verá a caixa de diálogo **escolher aplicativo**. Se o usuário fizer uma escolha incorreta, o logon falhará.
+- **Completo**: O URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra após o domínio. Por exemplo, `//contoso/` funciona e `//contoso` falha. Certifique-se de que não haja caracteres especiais, como sublinhados, no URI de redirecionamento.
 
 ### <a name="faulted-apps"></a>Aplicativos com falha
 

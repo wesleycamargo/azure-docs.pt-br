@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826970"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186490"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos, latência de conexão de entrada e saída e portas em qualquer arquitetura conectada a TCP, sem a necessidade de configuração diferente da instalação de um agente.
@@ -38,13 +37,13 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 2. Na barra de pesquisa, digite **Mapa do Serviço** e pressione **Enter**.
 3. Na página de resultados de pesquisa do marketplace, selecione **Mapa de Serviço** da lista.<br><br> ![Selecione a solução Mapa de Serviço nos resultados de pesquisa do Azure Marketplace](./media/service-map/marketplace-search-results.png)<br>
 4. No painel de visão geral **Mapa do Serviço**, examine os detalhes de solução e, em seguida, clique em **Criar** para iniciar o processo de integração para seu workspace do Log Analytics.<br><br> ![Integração da Solução do Mapa de Serviço](./media/service-map/service-map-onboard.png)
-5. No painel **Configurar uma solução**, selecione um existente ou crie um novo workspace do Log Analytics.  Para obter mais informações sobre como criar um novo workspace, consulte [Criar um workspace do Log Analytics no portal do Azure](../../log-analytics/log-analytics-quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **Criar**.  
+5. No painel **Configurar uma solução**, selecione um existente ou crie um novo workspace do Log Analytics.  Para obter mais informações sobre como criar um novo workspace, consulte [Criar um workspace do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **Criar**.  
 
 Enquanto as informações são verificadas e a solução é implantada, você pode acompanhar seu progresso no menu **Notificações**. 
 
 Acesse o Mapa do Serviço no portal do Azure do seu workspace do Log Analytics e selecione a opção **Soluções** no painel esquerdo.<br><br> ![Selecione a opção Soluções no workspace](./media/service-map/select-solution-from-workspace.png).<br> Na lista de soluções, selecione **ServiceMap(workspaceName)** e na página de visão geral da solução Mapa do Serviço, clique no bloco de resumo do Mapa do Serviço.<br><br> ![Bloco de resumo do Mapa do Serviço](./media/service-map/service-map-summary-tile.png).
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: Fazer com que seus processos de TI reconheçam a dependência
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: fazer com que seus processos de TI reconheçam a dependência
 
 ### <a name="discovery"></a>Descoberta
 O Mapa do Serviço compila automaticamente um mapa de referência comum de dependências em seus servidores, processos e serviços de terceiros. Ele descobre e mapeia todas as dependências TCP, identificando conexões inesperadas, sistemas remotos de terceiros dos quais você depende e dependências para áreas escuras tradicionais da rede, como o Active Directory. O Mapa do Serviço descobre conexões de rede com falha que seus sistemas gerenciados estão tentando realizar, ajudando você a identificar potenciais configurações incorretas do servidor, interrupções de serviço e problemas de rede.
@@ -277,7 +276,7 @@ O painel **Atualizações do Computador** exibe dados da solução de Gerenciame
 ![Painel Controle de Alterações do Computador](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
-Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../../log-analytics/log-analytics-queries.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
+Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
 
 Um registro é gerado por hora para cada computador e processo exclusivo, além dos registros que são gerados quando um processo ou computador inicia ou é integrado ao Mapa do Serviço. Esses registros têm as propriedades descritas nas tabelas a seguir. Os campos e valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso do Computador na API do ServiceMap do Azure Resource Manager. Os campos e valores nos eventos ServiceMapProcess_CL mapeiam para os campos do recurso do Processo na API do ServiceMap do Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nome no recurso do Gerenciador de Recursos correspondente. 
 
@@ -504,7 +503,7 @@ Para obter mais informações sobre a coleta e uso de dados, consulte a [Políti
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [pesquisas de logs](../../log-analytics/log-analytics-queries.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
+Saiba mais sobre [pesquisas de logs](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
 
 
 ## <a name="troubleshooting"></a>solução de problemas

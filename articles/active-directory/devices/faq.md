@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309337"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309171"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
-**P: Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo nas informações do meu usuário no portal do Azure? Ou, por que o proprietário do dispositivo está marcado como N/A para dispositivos híbridos do Azure AD?**
-**R:** Os dispositivos Windows 10 híbridos do Azure AD ingressados não são exibidos nos dispositivos de usuário.
+**P: Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo nas informações do meu usuário no portal do Azure? Ou, Por que o proprietário do dispositivo está marcado como N/A para dispositivos ingressados no Azure AD híbrido?**
+**R:** Dispositivos do Windows 10 que são ingressados no Azure AD híbrido não aparecem nos dispositivos do usuário.
 Você precisa usar o modo de exibição Todos os dispositivos no portal do Azure. Você também pode usar o cmdlet do PowerShell [MsolDevice Get](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 Apenas os dispositivos a seguir estão listados sob os dispositivos USER:
@@ -38,7 +38,7 @@ Apenas os dispositivos a seguir estão listados sob os dispositivos USER:
 
 **P: Como saber qual é o estado de registro do dispositivo do cliente?**
 
-**R:** você pode usar o portal do Azure. Vá para Todos os dispositivos e pesquise o dispositivo usando a respectiva ID. Verifique o valor na coluna de tipo de associação. Às vezes, o dispositivo pode ter sido redefinido ou recriado. Portanto, é essencial também verificar o estado do registro do dispositivo no dispositivo:
+**R:** Você pode usar o portal do Azure. Vá até Todos os dispositivos e pesquise o dispositivo usando a respectiva ID. Verifique o valor na coluna de tipo de associação. Às vezes, o dispositivo pode ter sido redefinido ou recriado. Portanto, é essencial também verificar o estado do registro do dispositivo no dispositivo:
 
 - Para dispositivos Windows 10 e Windows Server 2016 ou posterior, execute dsregcmd.exe /status.
 - Para versões do sistema operacional de nível inferior, execute "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
@@ -47,11 +47,11 @@ Apenas os dispositivos a seguir estão listados sob os dispositivos USER:
 
 **P: Posso ver o registro de dispositivo nas informações do usuário no Portal do Azure e posso ver o estado como registrado no dispositivo. Estou configurado corretamente para usar o acesso condicional?**
 
-**R:** O estado do ingresso do dispositivo, refletido por deviceID, deve corresponder ao do Microsoft Azure AD e atender a qualquer critério de avaliação para acesso condicional. Para obter mais informações, consulte [Exigir dispositivos gerenciados para acesso ao aplicativo em nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
+**R:** O estado do ingresso do dispositivo, refletido por deviceID, deve corresponder ao Azure AD e atender a qualquer critério de avaliação para acesso condicional. Para obter mais informações, consulte [Exigir dispositivos gerenciados para acesso ao aplicativo em nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
 
 ---
 
-**P: excluí no portal do Azure ou usando o Windows PowerShell, mas o estado local no dispositivo diz que ele ainda está registrado?**
+**P: Excluí no portal do Azure ou usando o Windows PowerShell, mas o estado local no dispositivo diz que ele ainda está registrado?**
 
 **R:** Esse comportamento é intencional. O dispositivo não terá acesso aos recursos na nuvem. 
 
@@ -73,7 +73,7 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 ---
 
-**P: Por que vejo entradas de dispositivo duplicadas no Portal do Azure?**
+**P: Por que vejo entradas de dispositivo duplicadas no portal do Azure?**
 
 **R:**
 
@@ -87,7 +87,7 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 ---
 
-**P: Por que um usuário ainda pode acessar recursos de um dispositivo que eu desabilitei no Portal do Azure?**
+**P: Por que um usuário ainda pode acessar recursos de um dispositivo que eu desabilitei no portal do Azure?**
 
 **R:** Pode demorar até uma hora para uma revogação ser aplicada.
 
@@ -96,7 +96,7 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 ---
 
-# <a name="azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD
+## <a name="azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD
 
 **P: Como cancelar a associação de um dispositivo ingressado no Azure AD localmente no dispositivo?**
 
@@ -107,15 +107,15 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 ---
 
-**P: meus usuários podem entrar nos dispositivos ingressados que foram excluídos ou desabilitados no Azure Active Directory? ** 
- **R:** Sim. O Windows armazenou em cache o recurso para permitir que os usuários conectados anteriormente acessam a área de trabalho rapidamente, mesmo sem conectividade à rede. Quando um dispositivo for excluído ou desabilitado no Azure Active Directory, ele não é conhecido para o dispositivo do Windows. Portanto, usuários conectados anteriormente podem continuar a acessar a área de trabalho com logon armazenado em cache. No entanto, assim que o dispositivo for excluído ou desabilitado, os usuários não podem acessar todos os recursos protegidos pelo acesso condicional com base em dispositivo. 
+**P: Meus usuários podem entrar nos dispositivos ingressados que foram excluídos ou desabilitados no Azure Active Directory?**
+**R:** Sim. O Windows armazenou em cache o recurso para permitir que os usuários conectados anteriormente acessam a área de trabalho rapidamente, mesmo sem conectividade à rede. Quando um dispositivo for excluído ou desabilitado no Azure Active Directory, ele não é conhecido para o dispositivo do Windows. Portanto, usuários conectados anteriormente podem continuar a acessar a área de trabalho com logon armazenado em cache. No entanto, assim que o dispositivo for excluído ou desabilitado, os usuários não podem acessar todos os recursos protegidos pelo acesso condicional com base em dispositivo. 
 
 Os usuários que ainda não estiverem conectados não podem acessar o dispositivo, pois não há nenhum logon armazenado em cache habilitado para eles. 
 
 ---
 
-**P: É possível que usuários desabilitados ou excluídos entrem nos dispositivos unidos do Azure Active Directory? ** 
- **R:** Sim, mas apenas por um período limitado. Quando um dispositivo for excluído ou desabilitado no Azure Active Directory, ele não é imediatamente reconhecido para o dispositivo do Windows. Portanto, usuários conectados anteriormente podem continuar a acessar a área de trabalho com logon armazenado em cache. Depois que o dispositivo estiver ciente do estado do usuário (normalmente em menos de 4 horas), o Windows bloqueia o acesso dos usuários à área de trabalho. Uma vez que o usuário é excluído ou desabilitado no Azure Active Directory, todos os seus tokens serão revogados, portanto, não poderão acessar todos os recursos. 
+**P: É possível que usuários desabilitados ou excluídos entrem nos dispositivos unidos do Azure Active Directory?**
+**R:** Sim, mas apenas por um período limitado. Quando um dispositivo for excluído ou desabilitado no Azure Active Directory, ele não é imediatamente reconhecido para o dispositivo do Windows. Portanto, usuários conectados anteriormente podem continuar a acessar a área de trabalho com logon armazenado em cache. Depois que o dispositivo estiver ciente do estado do usuário (normalmente em menos de 4 horas), o Windows bloqueia o acesso dos usuários à área de trabalho. Uma vez que o usuário é excluído ou desabilitado no Azure Active Directory, todos os seus tokens serão revogados, portanto, não poderão acessar todos os recursos. 
 
 Usuários excluídos ou desabilitados que fizeram logon anteriormente, não podem acessar um dispositivo, pois não há nenhum logon armazenado em cache habilitado para eles. 
 
@@ -128,13 +128,13 @@ Usuários excluídos ou desabilitados que fizeram logon anteriormente, não pode
 ---
 
 **P: Como fazer para conectar um dispositivo associado do Azure AD remoto?**
-**R:** Consulte o artigo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para obter mais detalhes.
+**R:** Consulte o artigo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para obter detalhes.
 
 ---
 
-**P: Por que meus usuários veem "Você não pode chegar lá daqui"?**
+**P: Por que meus usuários veem “Você não pode chegar lá daqui”?**
 
-**R:** Se você tiver configurado certas regras de acesso condicional para exigir um estado de dispositivo específico e o dispositivo não atender aos critérios, os usuários serão bloqueados e verão esta mensagem. Avalie as regras da política de acesso condicional e assegure-se de que o dispositivo possa atender aos critérios para evitar essa mensagem.
+**R:** Se você tiver configurado certas regras de acesso condicional para exigir um estado de dispositivo específico e o dispositivo não atender aos critérios, os usuários serão bloqueados e verão esta mensagem. Avalie as regras da política de acesso condicional e certifique-se de que o dispositivo possa atender aos critérios para evitar essa mensagem.
 
 ---
 
@@ -144,7 +144,7 @@ Usuários excluídos ou desabilitados que fizeram logon anteriormente, não pode
 
 ---
 
-**P: Por que recebo uma mensagem de "nome de usuário ou senha está incorreta" para um dispositivo que acabei de ingressar no Azure AD?**
+**P: Por que recebo uma mensagem de “nome de usuário ou senha está incorreta” para um dispositivo que acabei de ingressar no Azure AD?**
 
 **R:** As razões comuns para esse cenário são:
 
@@ -160,7 +160,7 @@ Usuários excluídos ou desabilitados que fizeram logon anteriormente, não pode
 
 **P: Por que vejo a caixa de diálogo “Ocorreu um erro!” quando tento fazer o Microsoft Azure AD ingressar no meu computador?**
 
-**R:** Esse é um resultado da configuração de registro do Azure Active Directory como Intune. Certifique-se de que o usuário que está tentando fazer o ingresso do Microsoft Azure AD tenha a licença correta do Intune atribuída. Para obter mais informações, consulte [Configurar o gerenciamento de dispositivos do Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**R:** Esse é um resultado da configuração de registro do Azure Active Directory com o Intune. Certifique-se de que o usuário que está tentando fazer o ingresso do Microsoft Azure AD tenha a licença correta do Intune atribuída. Para obter mais informações, consulte [Configurar o gerenciamento de dispositivos do Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
@@ -170,11 +170,11 @@ Usuários excluídos ou desabilitados que fizeram logon anteriormente, não pode
 
 ---
 
-# <a name="hybrid-azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD Híbrido
+## <a name="hybrid-azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD Híbrido
 
 **P: Onde posso encontrar informações sobre solução de problemas para diagnosticar falhas de ingresso no Azure AD híbrido?**
 
-**R:** Para encontrar informações de solução de problemas, consulte:
+**R:** Para encontrar informações de solução de problemas, confira:
 
 - [Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
 
@@ -183,7 +183,7 @@ Usuários excluídos ou desabilitados que fizeram logon anteriormente, não pode
 
 ---
 
-# <a name="azure-ad-register-faq"></a>Perguntas frequentes sobre o registro do Azure AD
+## <a name="azure-ad-register-faq"></a>Perguntas frequentes sobre o registro do Azure AD
 
 **P: É possível registrar dispositivos Android ou iOS BYOD?**
 

@@ -1,22 +1,22 @@
 ---
-title: 'Introdução: proteger VMs do Azure com um cofre de serviços de recuperação'
+title: 'Apresentação preliminar: Proteger VMs do Azure com um cofre de serviços de recuperação'
 description: Proteger as VMs do Azure com um cofre de serviços de recuperação. Use backups de VMs implantadas pelo Gerenciador de Recursos, VMs implantadas clássicas, VMs de Armazenamento Premium, VMs Criptografadas, VMs em Discos Gerenciados para proteger seus dados. Crie e registre um cofre de Serviços de Recuperação. Registre as VMs, crie uma política e proteger as VMs no Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: H1Hack27Feb2017
 keywords: backups; backup de VM
-ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233534"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869921"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure no cofre dos Serviços de Recuperação
 
@@ -37,7 +37,7 @@ Para saber mais sobre o que pode e não ter backup realizado, consulte [Prepare 
 > [!NOTE]
 > O serviço de backup cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de Backup.
 O formato de nomenclatura do grupo de recursos criado pelo serviço de Backup é: AzureBackupRG_`<Geo>`_`<number>`
-<br>Por exemplo: AzureBackupRG_northeurope_1
+<br>Ex.: AzureBackupRG_northeurope_1
 >
 >
 

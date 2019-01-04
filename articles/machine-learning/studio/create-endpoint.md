@@ -1,12 +1,11 @@
 ---
-title: Criando endpoints de serviços da Web no Machine Learning - Azure Machine Learning Studio | Microsoft Docs
-description: Criando pontos de extremidade de serviço Web no Azure Machine Learning
+title: Criando ponto de extremidade de serviço Web – Azure Machine Learning Studio | Microsoft Docs
+description: Criando pontos de extremidade de serviço Web no Azure Machine Learning. Cada ponto de extremidade no serviço Web é tratado, limitado e gerenciado de forma independente.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314006"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275883"
 ---
-# <a name="creating-endpoints"></a>Criando pontos de extremidade 
+# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Criando pontos de extremidade para serviços Web implantados do Azure Machine Learning Studio
 > [!NOTE]
 >  Este tópico descreve técnicas aplicáveis a um serviço Web do Machine Learning **clássico**.
 > 
@@ -33,7 +32,7 @@ Quando você cria serviços Web que você vende antecipadamente aos seus cliente
 
 Para isso, o Azure Machine Learning Studio permite que você crie vários pontos de extremidade para um serviço da Web implantado. Cada ponto de extremidade no serviço Web é tratado, limitado e gerenciado de forma independente. Cada ponto de extremidade é uma única URL e chave de autorização que você pode distribuir aos seus clientes.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Adicionando pontos de extremidade a um serviço Web
 Há duas maneiras de adicionar um ponto de extremidade a um serviço Web.

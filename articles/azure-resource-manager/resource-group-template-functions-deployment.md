@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 12/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358227"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407347"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos do Azure Resource Manager 
 
@@ -86,6 +86,8 @@ Quando o objeto é transmitido como um link, como ao usar o parâmetro **- Templ
 }
 ```
 
+Ao [implantar em uma assinatura do Azure](deploy-to-subscription.md), em vez de um grupo de recursos, o objeto retornado inclui uma propriedade `location`. A propriedade de localização é incluída ao implantar um modelo local ou externo.
+
 ### <a name="remarks"></a>Comentários
 
 Você pode usar a implantação() para vincular a outro modelo com base no URI do modelo pai.
@@ -150,6 +152,8 @@ Para implantar este modelo de exemplo com o PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
+Para um modelo no nível da assinatura, que usa a função de implantação, confira [função de implantação de assinatura](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Ele é implantado com os comandos `az deployment create` ou `New-AzureRmDeployment`.
+
 <a id="parameters" />
 
 ## <a name="parameters"></a>parâmetros
@@ -159,9 +163,9 @@ Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| parameterName |sim |string |O nome do parâmetro a retornar. |
+| parameterName |SIM |string |O nome do parâmetro a retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -246,7 +250,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| NOME | type | Valor |
+| NOME | Tipo | Valor |
 | ---- | ---- | ----- |
 | stringOutput | Cadeia de caracteres | opção 1 |
 | intOutput | int | 1 |
@@ -275,9 +279,9 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| variableName |sim |Cadeia de caracteres |O nome da variável a retornar. |
+| variableName |SIM |Cadeia de caracteres |O nome da variável a retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -349,7 +353,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| NOME | type | Valor |
+| NOME | Tipo | Valor |
 | ---- | ---- | ----- |
 | exampleOutput1 | Cadeia de caracteres | myVariable |
 | exampleOutput2 | Matriz | [1, 2, 3, 4] |
@@ -370,7 +374,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Para mesclar diversos modelos, confira [Usar modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+* Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

@@ -21,7 +21,7 @@ ms.locfileid: "46997262"
 > [!IMPORTANT]
 > Os Aplicativos Lógicos do Azure estão substituindo o Agendador do Azure, que está sendo desativado. Para agendar trabalhos, siga este artigo para migrar para os Aplicativos Lógicos do Azure.
 
-Este artigo mostra como é possível agendar trabalhos únicos e recorrentes criando fluxos de trabalho automatizados com os Aplicativo Lógico do Azure, em vez de com o Agendador do Azure. Quando você cria trabalhos agendados com Aplicativos Lógicos, você tem estes benefícios:
+Este artigo mostra como é possível agendar trabalhos únicos e recorrentes criando fluxos de trabalho automatizados com os Aplicativos Lógicos do Azure, em vez de com o Agendador do Azure. Quando você cria trabalhos agendados com Aplicativos Lógicos, você tem estes benefícios:
 
 * Não é necessário se preocupar sobre o conceito de uma *coleção de trabalhos*, porque cada aplicativo lógico é um recurso do Azure separado.
 
@@ -139,7 +139,7 @@ Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância 
 
    ![Agendamento avançado](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
-   Para saber mais sobre opções de agendamento avançadas, confira [Criar e executar tarefas recorrentes e fluxos de trabalho com o Aplicativo Lógico do Azure](../connectors/connectors-native-recurrence.md)
+   Para saber mais sobre opções de agendamento avançadas, confira [Criar e executar tarefas recorrentes e fluxos de trabalho com os Aplicativos Lógicos do Azure](../connectors/connectors-native-recurrence.md)
 
 1. Adicione outras ações desejadas selecionando entre [mais de 200 conectores](../connectors/apis-list.md). No gatilho, escolha **Próxima etapa**. Localize e selecione as ações desejadas.
 

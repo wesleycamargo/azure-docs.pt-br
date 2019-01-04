@@ -5,14 +5,14 @@ author: bsiva
 manager: abhemra
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 07/19/2018
+ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: dc089e29889b12a5a6d3fcb17328cfc13fe8d0c9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e34409490f9e120cb39daf99b280cc52c59f54e2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211801"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845630"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorar e solucionar problemas do Site Recovery
 
@@ -153,13 +153,13 @@ Além disso, você pode monitorar computadores na página de máquinas virtuais.
 4. Clique em **Filtrar** para exibir as informações com base em parâmetros específicos, como integridade de replicação ou uma política de replicação específica.
 5. Clique com o botão direito do mouse em um computador para iniciar operações, como teste de failover, ou exibir detalhes de erros específicos associados ao computador.
 6. Clique em um computador para obter mais detalhes. Os detalhes incluem:
-      - **Informações de replicação**: status atual e integridade do computador.
-      - **RPO** (objetivo de ponto de recuperação): RPO atual para a máquina virtual e a hora em que o RPO foi calculado pela última vez.
-      - **Pontos de recuperação**: últimos pontos de recuperação disponíveis para o computador.
-      - **Prontidão de failover**: indica se um failover de teste foi executado para o computador, a versão do agente em execução no computador (para computadores executando o serviço de Mobilidade) e quaisquer problemas de configuração.
-      - **Erros**: lista de sintomas de erros de replicação observados atualmente no computador e possíveis causas/ações.
-      - **Eventos**: uma lista cronológica de eventos recentes que afetam o computador. Os detalhes do erro mostram os sintomas de erro observáveis no momento, enquanto os eventos são um registro histórico dos problemas que afetaram o computador.
-      - **Exibição de infraestrutura**: mostra o estado da infraestrutura para o cenário quando os computadores estão replicando para Azure.
+      - **Informações de replicação**: Status atual e integridade do computador.
+      - **RPO** (objetivo de ponto de recuperação): RPO atual para a máquina virtual e a hora em que o RPO foi computado pela última vez.
+      - **Pontos de recuperação**: Pontos de recuperação mais recentes disponíveis para o computador.
+      - **Prontidão de failover**: Indica se um failover de teste foi executado no computador, a versão do agente em execução no computador (para computadores executando o serviço de Mobilidade) e quaisquer problemas de configuração.
+      - **Erros**: Lista de sintomas de erros de replicação observados atualmente no computador e possíveis causas/ações.
+      - **Eventos**: Uma lista cronológica de eventos recentes que afetam o computador. Os detalhes do erro mostram os sintomas de erro observáveis no momento, enquanto os eventos são um registro histórico dos problemas que afetaram o computador.
+      - **Exibição de infraestrutura**: Mostra o estado da infraestrutura do cenário quando os computadores estão replicando para o Azure.
 
     ![Visão geral/detalhes do item replicado do Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

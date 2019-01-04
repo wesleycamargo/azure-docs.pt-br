@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 609389460ab18ba947130e64dbe7b599574816a5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981276"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53215903"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Exibir VMs agendadas para manutenção no portal
 
@@ -29,7 +29,7 @@ Após agendar uma onda de manutenção planejada, observe a lista de máquinas v
 
 4. Selecione e adicione as seguintes colunas:
 
-   **Manutenção**: mostra o status de manutenção da VM. Estes são os valores possíveis:
+   **Manutenção**: Mostra o status de manutenção da VM. Estes são os valores possíveis:
       
       | Valor | DESCRIÇÃO |
       |-------|-------------|
@@ -41,15 +41,15 @@ Após agendar uma onda de manutenção planejada, observe a lista de máquinas v
       | - | Sua VM não faz parte de uma onda de manutenção planejada. |
       
 
-   **Janela de manutenção de autoatendimento**: mostra a janela de tempo, quando é possível iniciar automaticamente a manutenção nas VMs.
+   **Manutenção - Janela de autoatendimento**: Mostra a janela de tempo quando você pode iniciar automaticamente a manutenção em suas VMs.
    
-   **Janela de manutenção agendada**: mostra a janela de tempo, quando o Azure fará a manutenção da VM. 
+   **Manutenção - Janela agendada**: Mostra a janela de tempo quando o Azure manterá a VM para concluir a manutenção. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
 
-O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para obter mais informações, consulte [Criar alertas do log de atividades em notificações de serviço](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para obter mais informações, consulte [Criar alertas do log de atividades em notificações de serviço](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 Certifique-se de definir o **tipo de evento** como **Manutenção Planejada** e **Serviços** como **Conjuntos de Dimensionamento de Máquinas Virtuais do Microsoft Azure** e / ou **Máquinas Virtuais**
     

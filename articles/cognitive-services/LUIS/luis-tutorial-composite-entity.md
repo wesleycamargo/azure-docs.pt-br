@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 6: Extrair dados compostos com entidade composta do LUIS'
+title: Entidade composta
 titleSuffix: Azure Cognitive Services
 description: Adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contida. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423494"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079204"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Tutorial 6: Agrupar e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contida. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
@@ -57,7 +58,7 @@ Crie uma entidade composta, quando as entidades separadas puderem ser logicament
 
 Neste aplicativo, o nome do funcionário é definido na entidade de lista **Funcionário** e inclui sinônimos de nome, endereço de email, ramal de telefone da empresa, número de celular e EUA. ID de imposto federal. 
 
-A intenção **MoveEmployee** tem exemplos de enunciados para solicitar que um funcionário seja transferido de um prédio e escritório para outro. Nomes de edifícios são alfabéticos: "A", "B", etc., enquanto os escritórios são numéricos: "1234", "13245". 
+A intenção **MoveEmployee** tem exemplos de enunciados para solicitar que um funcionário seja transferido de um prédio e escritório para outro. A criação de nomes é alfabética: "A", "B", etc. Escritórios são numéricos: "1234", "13245". 
 
 Exemplo de enunciados na intenção de **MoveEmployee** incluem:
 
@@ -70,7 +71,7 @@ A solicitação de transferência deve incluir o funcionário (usando qualquer s
 
 Os dados extraídos do ponto de extremidade devem conter essas informações e retorná-las em uma entidade composta `RequestEmployeeMove`:
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -103,22 +104,22 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
 
 3. Selecione o ícone de lupa na barra de ferramentas para filtrar a lista de enunciados. 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Captura de tela de LUIS na intenção 'MoveEmployee' com o botão de lupa realçado")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![Captura de tela do LUIS na intenção 'MoveEmployee' com o botão de lupa realçado](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Captura de tela do LUIS na intenção 'MoveEmployee' com o botão de lupa realçado")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. Insira `tomorrow` na caixa de texto do filtro para localizar o enunciado `shift x12345 to h-1234 tomorrow`.
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Captura de tela de LUIS na intenção 'MoveEmployee' com filtro de 'amanhã' realçado")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![Captura de tela do LUIS na intenção 'MoveEmployee' com o filtro 'tomorrow' realçado](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Captura de tela do LUIS na intenção 'MoveEmployee' com o filtro 'tomorrow' realçado")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     Outro método é filtrar a entidade por datetimeV2, selecionando **Filtros de entidades** e, em seguida, selecionando **datetimeV2** na lista. 
 
 5. Selecione a primeira entidade, `Employee` e, em seguida, selecione **Encapsular em entidade composta** na lista do menu pop-up. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. Em seguida, selecione imediatamente a última entidade, `datetimeV2` no enunciado. Uma barra verde é desenhada sob as palavras selecionadas, indicando uma entidade composta. No menu pop-up, insira o nome composto `RequestEmployeeMove` e, em seguida, selecione enter. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição e criando a entidade realçada")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição e criando a entidade realçada](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição e criando a entidade realçada")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. Em **Que tipo de entidade você quer criar?**, quase todos os campos necessários estão na lista. Apenas o local de origem está ausente. Selecione **Adicionar uma entidade filho**, selecione **Locations::Origin** na lista de entidades existentes, em seguida, selecione **Concluído**. 
 
@@ -135,15 +136,15 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
 
 1. Em cada enunciado de exemplo, selecione a entidade mais à esquerda que deveria estar na composição. Em seguida, selecione **Encapsular em entidade composta**.
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. Selecione a última palavra na entidade composta e, em seguida, selecione **RequestEmployeeMove** no menu pop-up. 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição realçada](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. Verifique se todos os enunciados na intenção estão rotulados com a entidade composta. 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Captura de tela do LUIS em 'MoveEmployee' com todos os enunciados realçados")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [![Captura de tela do LUIS em 'MoveEmployee' com todas as declarações rotuladas](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Captura de tela do LUIS em 'MoveEmployee' com todas as declarações rotuladas")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train"></a>Treinar
 
@@ -161,7 +162,7 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
 
     Esse teste é para verificar se a composição é extraída corretamente, e um teste poderá incluir um enunciado de exemplo existente ou um novo enunciado. Um bom teste é incluir todas as entidades filho na entidade composta.
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

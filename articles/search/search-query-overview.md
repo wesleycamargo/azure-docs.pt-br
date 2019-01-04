@@ -1,5 +1,5 @@
 ---
-title: Consultar tipos e a composição no Azure Search | Microsoft Docs
+title: Tipos de consulta e composição - Azure Search
 description: Noções básicas para criar uma consulta de pesquisa no Azure Search, usando parâmetros para filtrar, selecionar e classificar resultados.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: a1dad30148da9f6b322c75fd40dc01098c4d6b63
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 03ec588b1627b82a01021a9b71958e9d66aab0ce
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42145656"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315580"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Tipos de consulta e composição na Pesquisa do Azure
 
@@ -146,7 +147,7 @@ Se você quiser que o Azure Search retorne os resultados ordenados por um valor 
 
 
 ### <a name="hit-highlighting"></a>Realce de ocorrência
-Na Pesquisa do Azure, enfatizar a parte exata dos resultados de pesquisa que correspondem à consulta de pesquisa é facilitada usando **`highlight`**, **`highlightPreTag`** e **`highlightPostTag`** parâmetros. Você pode especificar quais campos *pesquisáveis* devem ter o texto correspondido enfatizado, bem como especificar as marcas da cadeia de caracteres exatas para anexar ao início e ao término do texto correspondente que a Azure Search retorna.
+Na Pesquisa do Azure, enfatizar a parte exata dos resultados de pesquisa que correspondem à consulta de pesquisa é facilitada usando **`highlight`**, **`highlightPreTag`** e **`highlightPostTag`** parâmetros. Você pode especificar quais campos *pesquisáveis* devem ter o texto correspondido enfatizado, bem como especificar as marcas da cadeia de caracteres exatas para anexar ao início e ao término do texto correspondente que o Azure Search retorna.
 
 ## <a name="apis-and-tools-for-testing"></a>APIs e ferramentas para teste
 

@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442416"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847653"
 ---
-# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: proteger uma API Web usando o Node .js
+# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Proteger uma API Web usando Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Com o Active Directory B2C do Azure (AD do Azure), você pode proteger uma API Web usando tokens de acesso do OAuth 2.0. Esses tokens permitem que os aplicativos cliente que usem o AD B2C do Azure se autentiquem na API. Este artigo mostra como criar uma API de "lista de tarefas" que permite aos usuários adicionar e listar tarefas. A API Web é protegida usando o Azure AD B2C e permite que apenas usuários autenticados gerenciem sua lista de tarefas pendentes.
@@ -47,7 +47,7 @@ Em seguida, você precisa criar um aplicativo no diretório B2C, que dá ao Azur
 * Copie a **ID de aplicativo** atribuída ao aplicativo. Você precisa destes dados mais tarde.
 
 ## <a name="create-your-policies"></a>Criar suas políticas
-No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). O aplicativo contém duas experiências de identidade: inscrever-se e entrar. Você precisa criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Ao criar as três políticas, não deixe de:
+No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). O aplicativo contém duas experiências de identidade: inscrever-se e entrar. Você precisa criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  Ao criar as três políticas, não deixe de:
 
 * Escolher o **Nome de exibição** e outros atributos de inscrição em sua política de inscrição.
 * Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas.  Você pode escolher outras declarações também.
@@ -71,12 +71,12 @@ O aplicativo completo também está [disponível como um arquivo .zip](https://g
 ## <a name="download-nodejs-for-your-platform"></a>Baixar o Node.js para sua plataforma
 Para usar este exemplo com êxito, você precisa de uma instalação do Node.js em funcionamento.
 
-Instale o Node.js de [nodejs.org](http://nodejs.org).
+Instale o Node.js de [nodejs.org](https://nodejs.org).
 
 ## <a name="install-mongodb-for-your-platform"></a>Instalar o MongoDB para sua plataforma
 Para usar este exemplo com êxito, você deve ter uma instalação do MongoDB funcionando corretamente. Usamos o MongoDB para tornar a API REST persistente entre instâncias de servidor.
 
-Instale o MongoDB de [mongodb.org](http://www.mongodb.org).
+Instale o MongoDB de [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > Este passo a passo presume que você use os pontos de extremidade de servidor e de instalação padrão para MongoDB, que, no momento da redação deste artigo, são `mongodb://localhost`.
@@ -263,15 +263,15 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="required-values"></a>Valores necessários
-`clientID`: a ID do cliente do aplicativo de API da Web.
+`clientID`: ID do cliente do aplicativo de API da Web.
 
-`IdentityMetadata`: esse é o local onde `passport-azure-ad` procura os dados de configuração para o provedor de identidade. Ele também procura as chaves para validar os tokens Web JSON.
+`IdentityMetadata`: Esse é o local onde `passport-azure-ad` procura os dados de configuração para o provedor de identidade. Ele também procura as chaves para validar os tokens Web JSON.
 
-`audience`: o URI (uniform resource identifier) do portal que identifica o aplicativo de chamada.
+`audience`: O URI (uniform resource identifier) do portal que identifica o aplicativo de chamada.
 
-`tenantName`: o nome do locatário (por exemplo, **contoso.onmicrosoft.com**).
+`tenantName`: Seu o nome do locatário (por exemplo, **contoso.onmicrosoft.com**).
 
-`policyName`: a política que você deseja que valide os tokens que chegam ao servidor. Essa política deve ser a mesma política que você usou no aplicativo cliente para entrar.
+`policyName`: A política que você deseja que valide os tokens que chegam ao servidor. Essa política deve ser a mesma política que você usou no aplicativo cliente para entrar.
 
 > [!NOTE]
 > Por ora, use as mesmas políticas em instalações de cliente e de servidor. Se já tiver concluído um passo a passo e criado essas políticas, você não precisará fazer isso novamente. Como concluiu o passo a passo, você não deve precisar configurar novas políticas para um passo a passo de cliente no site.
@@ -337,13 +337,13 @@ Após informar ao servidor qual banco de dados do MongoDB deve ser usado, você 
 ### <a name="expand-the-model"></a>Expandir o modelo
 Esse modelo de esquema é simples. Você pode expandi-lo conforme necessário.
 
-`owner`: quem está atribuído à tarefa. Este objeto é uma **cadeia de caracteres**.  
+`owner`: Quem está atribuído à tarefa. Este objeto é uma **cadeia de caracteres**.  
 
-`Text`: a própria tarefa. Este objeto é uma **cadeia de caracteres**.
+`Text`: A própria tarefa. Este objeto é uma **cadeia de caracteres**.
 
-`date`: a data em que a tarefa deverá ser concluída. Este objeto é um **datetime**.
+`date`: A data na qual a tarefa expira. Este objeto é um **datetime**.
 
-`completed`: se a tarefa for concluída. Este objeto é um **Booliano**.
+`completed`: Se a tarefa for concluída. Este objeto é um **Booliano**.
 
 ### <a name="create-the-schema-in-the-code"></a>Criar o esquema no código
 Na linha de comando, altere o diretório para `azuread`, se ainda não estiver lá:

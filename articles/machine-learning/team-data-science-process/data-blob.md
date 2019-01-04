@@ -1,6 +1,6 @@
 ---
-title: Processar dados de blob do Azure com análises avançadas | Microsoft Docs
-description: Processar dados no Armazenamento de Blob do Azure.
+title: Processar dados de Blobs do Azure com análises avançadas – Processo de Ciência de Dados de Equipe
+description: Explorar dados e gerar recursos a partir dos dados armazenados no armazenamento de Blobs do Azure usando análise avançada.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442364"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140516"
 ---
 # <a name="heading"></a>Processar dados de blob do Azure com análises avançadas
 Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure. 
@@ -130,7 +130,7 @@ Para gerar recursos compartimentalizados, faça o seguinte:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Azure Machine Learning
-Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Azure Machine Learning usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Azure Machine Learning Studio também. 
+Depois de explorar os dados e criar os recursos necessários, você pode carregar os dados (amostrados ou destacados) para um blob do Azure e consumi-los no Azure Machine Learning usando as seguintes etapas: Observe que os recursos adicionais também podem ser criados no Azure Machine Learning Studio. 
 
 1. Grave o quadro de dados no arquivo local
    

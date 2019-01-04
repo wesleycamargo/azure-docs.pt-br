@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496305"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015748"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
@@ -27,11 +27,11 @@ Saiba como usar ações de script para adicionar outras contas de armazenamento 
 
 Este script usa os seguintes parâmetros:
 
-* __Nome da conta de armazenamento do Azure__: o nome da conta de armazenamento a ser adicionada ao cluster do HDInsight. Após a execução do script, o HDInsight pode ler e gravar dados armazenados nessa conta de armazenamento.
+* __Nome da conta de armazenamento do Microsoft Azure__: Nome da conta de armazenamento para adicionar ao cluster do HDInsight. Após a execução do script, o HDInsight pode ler e gravar dados armazenados nessa conta de armazenamento.
 
-* __Chave da conta de armazenamento do Azure__: uma chave que concede acesso à conta de armazenamento.
+* __Chave de conta de armazenamento do Azure__: Uma chave que concede acesso à conta de armazenamento.
 
-* __-p__ (opcional): se for especificado, a chave não será criptografada e armazenada no arquivo core-site.xml como texto sem formatação.
+* __-p__ (opcional): Se for especificado, a chave não será criptografada e armazenada no arquivo core-site.xml como texto sem formatação.
 
 Durante o processamento, o script executa as ações a seguir:
 
@@ -95,7 +95,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Defina `$PASSWORD` como a senha de conta de logon do cluster (admin). Defina `$CLUSTERNAME` como o nome do cluster do HDInsight. Defina `$STORAGEACCOUNTNAME` como o nome da conta de armazenamento.
 >
-> Este exemplo usa [curl (http://curl.haxx.se/)](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar e analisar dados JSON.
+> Este exemplo usa [curl (https://curl.haxx.se/)](https://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar e analisar dados JSON.
 
 Ao usar esse comando, substitua __NOMEDOCLUSTER__ pelo nome do cluster do HDInsight. Substitua __SENHA__ pela senha de logon HTTP do cluster. Substitua __STORAGEACCOUNT__ pelo nome da conta de armazenamento adicionada usando a ação de script. As informações que retornam desse comando são semelhantes ao texto a seguir:
 

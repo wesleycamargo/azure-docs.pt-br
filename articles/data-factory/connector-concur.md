@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 00dd74ccd317799ca3afcbe0ed1ca85e19bb3cbe
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: cee04bd3901db7136a877643979832ed8a70cbd8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123843"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076127"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiar dados do Concur usando o Azure Data Factory (visualização)
 
@@ -79,7 +79,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do Concur:
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Concur.
 
-Para copiar dados do Concur, defina a propriedade type do conjunto de dados como **ConcurObject**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados.
+Para copiar dados do Concur, defina a propriedade type do conjunto de dados como **ConcurObject**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados. Há suporte para as seguintes propriedades:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **ConcurObject** | SIM |
+| tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
+
 
 **Exemplo**
 
@@ -91,7 +97,8 @@ Para copiar dados do Concur, defina a propriedade type do conjunto de dados como
         "linkedServiceName": {
             "referenceName": "<Concur linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -107,7 +114,7 @@ Para copiar dados do Concur, defina o tipo de origem na atividade de cópia como
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ConcurSource** | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Opportunities where Id = xxx "`. | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Opportunities where Id = xxx "`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: df69406bd0a6e09f66262ce66f8eeb7cada2422a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: eb4057b4cfc6a68fb3489a7ab6fb1ee6b5f41d7d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393971"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338455"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de mensagens mortas do Barramento de Serviço 
 
@@ -76,7 +76,7 @@ Além dos recursos de mensagens mortas fornecidas pelo sistema, os aplicativos p
 
 Mensagens serão enviadas para a fila de mensagens mortas para transferência sob as seguintes condições:
 
-- Uma mensagem passa por mais de 3 filas ou tópicos [encadeados](service-bus-auto-forwarding.md).
+- Uma mensagem passa por mais de 4 filas ou tópicos [encadeados](service-bus-auto-forwarding.md).
 - A fila ou o tópico de destino é desabilitado ou excluído.
 - O tópico ou a fila de destino excede o tamanho máximo de entidade.
 

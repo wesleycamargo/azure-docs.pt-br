@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1516c1a2802046b526688de703b565513789851b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c1c4637bf3b71ade6cceb4427180edf8bc408670
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633251"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408095"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache Beeline com Apache Hive
 
@@ -27,7 +27,7 @@ O Beeline é um cliente Hive que está incluído em nós principais do cluster H
 * __Usar o Beeline em um cliente, conectando-se ao HDInsight em uma rede Virtual do Azure__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 * __Usar o Beeline em um cliente, conectando-se ao HDInsight na internet pública__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
-> [!NOTE]
+> [!NOTE]  
 > Substitua `admin` pela conta de logon do cluster de seu cluster.
 >
 > Substitua `password` pela senha da conta de logon do cluster.
@@ -40,7 +40,7 @@ O Beeline é um cliente Hive que está incluído em nós principais do cluster H
 
 * Um Hadoop baseado em Linux no cluster HDInsight versão 3.4 ou maior.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Um cliente SSH ou um cliente Beeline local. A maioria das etapas neste documento pressupõe que você está usando o Beeline em uma sessão SSH para o cluster. Para saber mais sobre como executar o Beeline fora do cluster, veja a seção [Usar o Beeline remotamente](#remote).
@@ -139,7 +139,7 @@ O Beeline é um cliente Hive que está incluído em nós principais do cluster H
 
     * `INPUT__FILE__NAME LIKE '%.log'` – O Hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que deve retornar apenas dados de arquivos que terminam em .log.
 
-  > [!NOTE]
+  > [!NOTE]  
   > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de upload de dados automatizado ou uma operação MapReduce.
   >
   > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
@@ -193,7 +193,7 @@ Use as etapas a seguir para criar um arquivo e  executá-lo usando o Beeline.
     * **STORES AS ORC** : armazena os dados no formato ORC (Optimized Row Columnar). O formato ORC é altamente otimizado e eficiente para o armazenamento de dados do Hive.
     * **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
 3. Para salvar o arquivo, use **Ctrl**+**_X**, insira **Y** e, por fim, **Enter**.
@@ -204,7 +204,7 @@ Use as etapas a seguir para criar um arquivo e  executá-lo usando o Beeline.
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > O parâmetro `-i` inicia o Beeline e executa as instruções no arquivo `query.hql`. Quando a consulta for concluída, você verá um prompt `jdbc:hive2://headnodehost:10001/>`. Você também pode executar um arquivo usando o parâmetro `-f`, que fechará o Beeline após a conclusão da consulta.
 
 5. Para verificar se a tabela **errorLogs** foi criada, use a seguinte instrução para retornar todas as linhas de **errorLogs**:
@@ -242,11 +242,11 @@ Se você tiver Beeline instalado localmente e conectar-se pela Rede Virtual do A
 
 * __Cadeia de conexão__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
-Para localizar o nome de domínio totalmente qualificado de um nó principal, use as informações do documento [Gerenciar HDInsight usando a API de REST do Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+Para localizar o nome de domínio totalmente qualificado de um nó principal, use as informações do documento [Gerenciar HDInsight usando a API de REST do Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
-## <a id="sparksql"></a>Usar Beeline com Spark
+## <a id="sparksql"></a>Usar Beeline com Apache Spark
 
-O Spark fornece sua própria implementação de HiveServer2, que, às vezes, é referenciado como o servidor Spark Thrift. Esse serviço usa Spark SQL para resolver consultas em vez de Hive e pode fornecer um desempenho melhor, dependendo da consulta.
+O Apache Spark fornece sua própria implementação de HiveServer2, que, às vezes, é referenciado como o servidor Spark Thrift. Esse serviço usa Spark SQL para resolver consultas em vez de Hive e pode fornecer um desempenho melhor, dependendo da consulta.
 
 A __cadeia de conexão__ usada ao conectar pela internet é um pouco diferente. Em vez de conter `httpPath=/hive2` é `httpPath/sparkhive2`. A seguir, um exemplo de conexão pela Internet:
 
@@ -264,33 +264,33 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 Para obter mais informações gerais sobre como usar o Hive no HDInsight, veja o seguinte documento:
 
-* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para saber mais sobre outras maneiras pelas quais você pode trabalhar com o Hadoop no HDInsight, veja os seguintes documentos:
 
-* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Se você estiver usando o Tez com o Hive, consulte os seguintes documentos:
 
-* [Usar a interface de usuário do Tez no HDInsight baseado em Windows](../hdinsight-debug-tez-ui.md)
-* [Usar a exibição de Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md)
+* [Usar a interface do usuário do Apache Tez no HDInsight baseado no Windows](../hdinsight-debug-tez-ui.md)
+* [Usar a exibição de Apache Ambari Tez no HDInsight baseado no Linux](../hdinsight-debug-ambari-tez-view.md)
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
-[putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
@@ -298,4 +298,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx

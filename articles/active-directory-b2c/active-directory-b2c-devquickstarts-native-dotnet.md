@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e515ee61144dfe56d2b5a4fac97da81b0fa8c84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441892"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834835"
 ---
-# <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: criar um aplicativo da área de trabalho do Windows
+# <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure Active Directory B2C: Compilar um aplicativo da área de trabalho do Windows
 Ao usar o Azure Active Directory B2C (Azure AD), você poderá adicionar recursos poderosos de gerenciamento de identidades de autoatendimento para seu aplicativo da área de trabalho em poucas etapas. Este artigo mostra como criar um aplicativo “lista de tarefas pendentes” do WPF (Windows Presentation Foundation) do .NET que inclui a inscrição, a entrada e o gerenciamento de perfil de usuário. O aplicativo inclui suporte para a inscrição e a entrada usando um nome de usuário ou um email. Ele também incluirá o suporte para a inscrição e a entrada usando contas sociais como o Facebook e o Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório AD B2C do Azure
@@ -31,7 +31,7 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornec
 * Copie a **ID do Aplicativo** atribuída ao seu aplicativo. Você precisará dela mais tarde.
 
 ## <a name="create-your-policies"></a>Criar suas políticas
-No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: perfil de inscrição, entrada e edição. Você precisa criar uma política para cada tipo, como descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar as três políticas, não se esqueça de:
+No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: perfil de inscrição, entrada e edição. Você precisa criar uma política para cada tipo, como descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Ao criar as três políticas, não se esqueça de:
 
 * Escolher a **Inscrição de ID de usuário** ou a **Inscrição de email** na folha de provedores de identidade.
 * Escolher **Nome de exibição** e outros atributos de inscrição na política de inscrição.

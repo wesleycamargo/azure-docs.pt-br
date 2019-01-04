@@ -1,5 +1,5 @@
 ---
-title: Ciência de dados usando o Scala e Spark no Azure | Microsoft Docs
+title: Ciência de dados usando o Scala e o Spark no Azure – Processo de Ciência de Dados da Equipe
 description: Como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark.
 services: machine-learning
 author: marktab
@@ -10,19 +10,19 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 836fdb5da13465d77c6e9e6ede4780f5d4048597
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447156"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135140"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
-Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](https://aka.ms/datascienceprocess): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
+Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
 
-* Problema de regressão: previsão do valor da gorjeta (US$) para uma corrida de táxi
-* Classificação binária: previsão da gorjeta ou não (1/0) para uma corrida de táxi
+* Problema de regressão: Previsão do valor da gorjeta (US$) para uma corrida de táxi
+* Classificação binária: Previsão do valor da gorjeta ou não (1/0) para uma corrida de táxi
 
 O processo de modelagem requer treinamento e avaliação em um conjunto de dados de teste e métricas de precisão relevantes. Neste artigo, você pode aprender a armazenar esses modelos no armazenamento de Blobs do Azure e a pontuar e avaliar seu desempenho preditivo. Este artigo também aborda os tópicos mais avançados de como otimizar modelos usando a validação cruzada e limpeza de hiperparâmetro. Os dados usados são uma amostra do conjunto de dados de corridas e tarifas de táxi em Nova York de 2013, disponível no GitHub.
 
@@ -41,7 +41,7 @@ As etapas de configuração e o código neste artigo são para o Azure HDInsight
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você precisa ter uma assinatura do Azure. Se ainda não tiver uma, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Você precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos a seguir. Para criar um cluster, veja as instruções em [Introdução: criar um Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Defina o tipo de cluster e a versão no menu **Selecionar Tipo de Cluster** .
+* Você precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos a seguir. Para criar um cluster, confira as instruções em [Introdução: Criar o Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Defina o tipo de cluster e a versão no menu **Selecionar Tipo de Cluster** .
 
 ![Configuração de tipo de cluster do HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -66,7 +66,7 @@ Você pode carregar o notebook diretamente do GitHub para o servidor do Notebook
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuração: contextos predefinidos de Spark e Hive, palavras mágicas Spark e bibliotecas Spark
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuração: Contextos predefinidos de Spark e Hive, palavras mágicas Spark e bibliotecas Spark
 ### <a name="preset-spark-and-hive-contexts"></a>Contextos predefinidos de Spark e Hive
     # SET THE START TIME
     import java.util.Calendar
@@ -226,7 +226,7 @@ O exemplo de código a seguir especifica o local dos dados de entrada a serem li
 
 **Saída:**
 
-Tempo de execução da célula: oito segundos.
+Tempo de execução da célula: 8 segundos.
 
 ### <a name="query-the-table-and-import-results-in-a-data-frame"></a>Consultar a tabela e importar os resultados em um quadro de dados
 Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; filtre dados corrompidos e externos e imprima várias linhas.
@@ -411,7 +411,7 @@ Para indexação, use `StringIndexer()` e para codificação one-hot, use as fun
 
 **Saída:**
 
-Tempo de execução da célula: quatro segundos.
+Tempo de execução da célula: 4 segundos.
 
 ### <a name="sample-and-split-the-data-set-into-training-and-test-fractions"></a>Criar amostras e dividir o conjunto de dados em frações de teste e treinamento
 Esse código cria uma amostragem aleatória dos dados (25% neste exemplo). Embora a amostragem não seja necessário para este exemplo, devido ao tamanho do conjunto de dados, o artigo demonstra como é possível obter amostras para que você saiba como usá-lo para seu próprio problema, quando for necessário. Quando as amostras são grandes, isso pode economizar um tempo significativo durante o treinamento de modelos. Em seguida, dividimos o exemplo em uma parte de treinamento (75% neste exemplo) e uma parte de teste (25% neste exemplo) para usar na classificação e na modelagem de regressão.
@@ -450,7 +450,7 @@ Adicione um número aleatório (entre 0 e 1) à linha de alcance (em uma coluna 
 
 **Saída:**
 
-Tempo de execução da célula: dois segundos.
+Tempo de execução da célula: 2 segundos.
 
 ### <a name="specify-training-variable-and-features-and-then-create-indexed-or-one-hot-encoded-training-and-testing-input-labeled-point-rdds-or-data-frames"></a>Especificar os recursos e a variável de treinamento, bem como criar treinamentos de codificação indexada e one-hot e entrada de testes denominada RDDs pontuais ou quadros de dados
 Esta seção contém código que mostra como indexar dados de texto categóricos como um tipo de dados de ponto rotulado e codificá-lo para que ele possa ser usado para treinar e testar a regressão logística de MLlib e outros modelos de classificação. Objetos de ponto rotulados são RDDs formatados de uma maneira para que sejam exigidos como dados de entrada pela maioria dos algoritmos de aprendizado de máquina na MLlib. Um [ponto rotulado](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) é um vetor local, denso ou esparso, associado a um rótulo/resposta.
@@ -493,7 +493,7 @@ Nesse código, você pode especificar a variável de destino (dependente) e os r
 
 **Saída:**
 
-Tempo de execução da célula: quatro segundos.
+Tempo de execução da célula: 4 segundos.
 
 ### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>Categorizar e vetorizar recursos e destinos automaticamente para uso como entradas para modelos de aprendizado de máquina
 Use o AM do Spark para categorize o destino e os recursos para uso em funções de modelagem baseadas em árvore. O código conclui duas tarefas:
@@ -532,7 +532,7 @@ Este é o código para essas duas tarefas.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prevê se uma gorjeta será paga ou não
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: Prever se uma gorjeta deve ser paga
 Nesta seção, você cria três tipos de modelo de classificação binária para prever se uma gorjeta será paga ou não:
 
 * Um **modelo de regressão logística`LogisticRegression()` usando a função**  do ML do Spark
@@ -723,9 +723,9 @@ Em seguida, criamos um modelo de classificação GBT usando a função `Gradient
 
 **Saída:**
 
-Área sob a curva ROC = 0,9846895479241554
+Área sob a curva ROC: 0,9846895479241554
 
-## <a name="regression-model-predict-tip-amount"></a>Modelo de regressão: prever o valor da gorjeta
+## <a name="regression-model-predict-tip-amount"></a>Modelo de regressão: Prever o valor da gorjeta
 Nesta seção, você criará dois tipos de modelo de regressão para prever o valor da gorjeta:
 
 * Um **modelo de regressão linear regularizado** usando a função `LinearRegression()` da AM do Spark. Você salvará o modelo e avaliará o modelo nos dados de teste.
@@ -1100,7 +1100,7 @@ Em seguida, otimize o modelo usando código personalizado e identifique os melho
 Tempo de execução da célula: 61 segundos.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Consumir automaticamente modelos da aprendizado de máquina compilados no Spark com o Scala
-Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o processo de Ciência de dados no Azure, confira [Processo de Ciência de Dados de Equipe](https://aka.ms/datascienceprocess).
+Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o processo de Ciência de dados no Azure, confira [Processo de Ciência de Dados de Equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 [Passo a passo do processo de ciência de dados de equipe](walkthroughs.md) descreve outras orientações de ponta a ponta que demonstram as etapas no Processo de ciência de dados de equipe para cenários específicos. As orientações também mostram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
 

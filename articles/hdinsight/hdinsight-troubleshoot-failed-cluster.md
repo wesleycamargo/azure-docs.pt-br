@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950702"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410271"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Solucionar problemas de um cluster HDInsight lento ou falhando
 
@@ -65,7 +65,7 @@ Você também pode usar a CLI Clássica do Azure:
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Outra opção é usar o PowerShell. Para obter mais informações, consulte [Gerenciar clusters Hadoop no HDInsight com o Azure PowerShell](hdinsight-administer-use-powershell.md).
+Outra opção é usar o PowerShell. Para obter mais informações, consulte [Gerenciar clusters Apache Hadoop no HDInsight com o Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Etapa 2: Validar o ambiente do cluster HDInsight
 
@@ -107,7 +107,7 @@ Se houver lentidão no cluster, considere reiniciar os serviços por meio da int
 
 Os clusters HDInsight são compostos de tipos diferentes de nós executados em instâncias de máquina virtual. Cada nó pode ser monitorado para privação de recursos, problemas de conectividade de rede e outros problemas que podem reduzir a velocidade do cluster. Cada cluster contém dois nós principais e a maioria dos tipos de cluster contém uma combinação de nós de trabalho e de borda. 
 
-Para obter uma descrição dos vários nós que cada tipo de cluster usa, consulte [Configurar clusters no HDInsight com Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md).
+Para obter uma descrição dos vários nós que cada tipo de cluster usa, consulte [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md).
 
 As seções a seguir descrevem como verificar a integridade de cada nó e do cluster geral.
 
@@ -117,7 +117,7 @@ O [painel de interface de usuário do Ambari](#view-cluster-configuration-settin
 
 ### <a name="check-your-webhcat-service"></a>Verificar seu serviço WebHCat
 
-Um cenário comum para falha nos trabalhos no Hive, Pig ou Sqoop é uma falha com o serviço do [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton*). O WebHCat é uma interface REST para execução de trabalho remota, como o Hive, Pig e MapReduce. O WebHCat converte as solicitações de envio de trabalho em aplicativos de YARN, e retorna um status derivado do status do aplicativo YARN.  As seções a seguir descrevem códigos comuns de status HTTP do WebHCat.
+Um cenário comum para falha nos trabalhos no Apache Hive, Apache Pig ou Apache Sqoop é uma falha com o serviço do [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton*). O WebHCat é uma interface REST para execução de trabalho remota, como o Hive, Pig e MapReduce. O WebHCat converte as solicitações de envio de trabalho em aplicativos de YARN do Apache Hadoop e retorna um status derivado do status do aplicativo YARN.  As seções a seguir descrevem códigos comuns de status HTTP do WebHCat.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (código de status 502)
 
@@ -143,7 +143,7 @@ Nesse caso, examine os seguintes logs no `/var/log/webhcat` diretório:
 * **webhcat console.log** é o stdout do servidor quando iniciado
 * **webhcat-console-Error.log** é o stderr do processo do servidor
 
-> [!NOTE]
+> [!NOTE]  
 > Cada `webhcat.log` é rodado diariamente, gerando arquivos denominados `webhcat.log.YYYY-MM-DD`. Selecione o arquivo apropriado para o intervalo de tempo que você está investigando.
 
 As seções a seguir descrevem algumas das possíveis causas de expiração de tempo limite do WebHCat.
@@ -186,7 +186,7 @@ No nível do YARN, há dois tipos de tempos limite:
 
     * Listar todos os trabalhos: Essa é uma chamada demorada. Essa chamada enumera os aplicativos do ResourceManager do YARN e para cada aplicativo concluído, obtém o status do JobHistoryServer do YARN. Com números maiores de trabalhos, essa chamada pode expirar o tempo limite.
 
-    * Listar trabalhos com mais de sete dias: o HDInsight do JobHistoryServer do YARN está configurado para reter informações de trabalhos concluídos por sete dias (`mapreduce.jobhistory.max-age-ms` valor). Tentar enumerar resultados de trabalhos limpos em um tempo limite.
+    * Listar trabalhos com mais de sete dias: O HDInsight do JobHistoryServer do YARN está configurado para reter informações de trabalhos concluídos por sete dias (`mapreduce.jobhistory.max-age-ms` valor). Tentar enumerar resultados de trabalhos limpos em um tempo limite.
 
 Para diagnosticar esses problemas:
 
@@ -244,13 +244,13 @@ Um cluster HDInsight gera logs que são gravados nas tabelas do Azure e no Armaz
 
 ### <a name="review-heap-dumps"></a>Examinar os despejos de heap
 
-Os despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento, que são úteis para diagnosticar problemas que ocorrem no tempo de execução. Para obter mais informações, consulte [Habilitar despejos de heap para serviços de Hadoop em HDInsight com base em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
+Os despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento, que são úteis para diagnosticar problemas que ocorrem no tempo de execução. Para obter mais informações, consulte [Habilitar despejos de heap para serviços de Apache Hadoop em HDInsight com base em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
 ## <a name="step-6-check-configuration-settings"></a>Etapa 6: Verificar as definições de configuração
 
 Os clusters HDInsight são pré-configurados com configurações padrão para serviços relacionados como Hadoop, Hive, HBase e assim por diante. Dependendo do tipo do cluster, de sua configuração de hardware, do número de nós, dos tipos de trabalhos que você está executando e dos dados com que você está trabalhando (e de como esses dados estão sendo processados), talvez você precise otimizar sua configuração.
 
-Para obter instruções detalhadas de como otimizar configurações de desempenho para a maioria dos cenários, consulte [Otimizar configurações de cluster com o Ambari](hdinsight-changing-configs-via-ambari.md). Ao usar o Spark, consulte [Otimizar desempenho de trabalhos do Spark](spark/apache-spark-perf.md). 
+Para obter instruções detalhadas de como otimizar configurações de desempenho para a maioria dos cenários, consulte [Otimizar configurações de cluster com o Apache Ambari](hdinsight-changing-configs-via-ambari.md). Ao usar o Spark, consulte [Otimizar desempenho de trabalhos do Apache Spark](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Etapa 7: Reproduzir a falha em um cluster diferente
 
@@ -265,8 +265,8 @@ Para ajudar a diagnosticar a origem de um erro do cluster, inicie um novo cluste
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md)
+* [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Analisar Logs do HDInsight](hdinsight-debug-jobs.md)
-* [Acessar log do aplicativo YARN no HDInsight com base em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Habilitar despejos heap para serviços do Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Acessar o log do aplicativo Apache Hadoop YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Problemas conhecidos para o cluster do Apache Spark no HDInsight](hdinsight-apache-spark-known-issues.md)

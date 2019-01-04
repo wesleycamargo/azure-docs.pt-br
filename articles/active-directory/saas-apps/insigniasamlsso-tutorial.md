@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 776ad8445c1968928a631ae1a401db4c65a6bb6d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: afc2d52044a294af0ead373dfce283d0ec994d1e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421222"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840615"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutorial: Integração do Azure Active Directory com o Insignia SAML SSO
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Insignia SAML SSO da Galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Informações de logon único em Domínio e URLs do Insignia SAML SSO](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
     | |
     |--|
     | `https://<customername>.insigniails.com/ils` |
@@ -120,7 +120,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx) para obter esses valores. 
  
 
 1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
@@ -135,10 +135,10 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configuração do Insignia SAML SSO](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_configure.png) 
 
-1. Para configurar o logon único no lado do **Insignia SAML SSO**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída e a URL do Serviço de Logon Único SAML** para a [equipe de suporte do Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **Insignia SAML SSO**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída e a URL do Serviço de Logon Único SAML** para a [equipe de suporte do Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -175,7 +175,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-an-insignia-saml-sso-test-user"></a>Criar um usuário de teste do Insignia SAML SSO
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Insignia SAML SSO. Trabalhe com a [equipe de suporte do Insignia Library System](http://www.insigniasoftware.com/insignia/Techsupport.aspx) para adicionar os usuários na plataforma Insignia Library System.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Insignia SAML SSO. Trabalhe com a [equipe de suporte do Insignia Library System](https://www.insigniasoftware.com/insignia/Techsupport.aspx) para adicionar os usuários na plataforma Insignia Library System.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -212,7 +212,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure ao
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Insignia SAML SSO no Painel de Acesso, seu logon deverá ser feito automaticamente no aplicativo Insignia SAML SSO.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

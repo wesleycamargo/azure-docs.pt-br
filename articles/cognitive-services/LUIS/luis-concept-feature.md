@@ -1,23 +1,24 @@
 ---
-title: Recursos em aplicativos LUIS nos Serviços Cognitivos do Azure
-titleSuffix: Azure Cognitive Services
-description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar. Os recursos ajudam o LUIS a reconhecer intenções e entidades.
+title: Recursos
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 43b2b1485e6a33162f7fc08631094f3e975f8cdb
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638235"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271378"
 ---
-# <a name="phrase-list-features-in-luis"></a>Recursos de lista de frase no LUIS
+# <a name="phrase-list-features-in-your-luis-app"></a>Recurso de lista de frases em seu aplicativo LUIS
 
 No aprendizado de máquina, um *recurso* é um traço ou atributo específico de dados que seu sistema observa. 
 
@@ -31,9 +32,17 @@ Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um se
 ## <a name="how-to-use-phrase-lists"></a>Como usar as listas de frase
 No [tutorial de entidade simples](luis-quickstart-primary-and-secondary-data.md) do aplicativo de Recursos Humanos, o aplicativo usa a lista de frases **Trabalho** para tipos de trabalho, como programador, carpinteiro e secretária. Se você rotular um desses valores como uma entidade de aprendizado de máquina, o LUIS aprenderá a reconhecer os outros. 
 
-Uma lista de frases pode ser intercambiável ou não. Uma lista de frases *intercambiável* é destinada a valores que são sinônimos e uma lista de frases *não intercambiável* é para valores que não são sinônimos, mas ainda precisam de um sinal adicional no aplicativo. 
+Uma lista de frases pode ser intercambiável ou não. Uma lista de frases *intercambiáveis* serve para valores que são sinônimos, e uma lista de frases *não intercambiáveis* destina-se a uma lista de vocabulário específica de um aplicativo. Conforme expande a lista de frases do vocabulário do aplicativo, você pode descobrir que alguns termos têm muitas formas (sinônimos). Divida esses termos em outra lista de frases intercambiáveis. 
+
+|Tipo de lista|Finalidade|
+|--|--|
+|Intercambiável|Sinônimos ou palavras que, quando trocadas por outra palavra da lista, têm a mesma intenção e extração de entidade.|
+|Não intercambiável|Vocabulário do aplicativo, específico de seu aplicativo, mais do que outras palavras do idioma de modo geral.|
+
+Listas de frases não só ajudam com a detecção de entidade, mas também com a classificação intenção, em que o uso de termos não intercambiáveis faz sentido, como ao adicionar palavras de vocabulário que não são conhecidas no idioma inglês.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+
 ## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Listas de frases ajudam a identificar entidades intercambiáveis simples
 Listas de frases intercambiáveis são uma boa maneira de ajustar o desempenho do aplicativo do LUIS. Se o seu aplicativo tiver problemas para prever declarações da intenção correta, ou reconhecer entidades, pense se a declaração contém palavras incomuns ou que podem ter significado ambíguo. Essas palavras são boas candidatas para inclusão em uma lista de frases.
 

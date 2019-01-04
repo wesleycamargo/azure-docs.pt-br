@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5e19c7c1ed15183fdb796a6fa4e537da946b40b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637331"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194225"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Conectar computadores sem acesso à Internet usando o gateway do Log Analytics
 Este documento descreve como configurar a comunicação com a Automação do Azure e Log Analytics usando o gateway do Log Analytics quando os computadores monitorados pelo Operations Manager ou conectados diretamente não tem acesso à Internet.  O gateway do Log Analytics, que é um proxy de encaminhamento de HTTP que dá suporte a túnel HTTP usando o comando HTTP CONNECT, pode coletar dados e enviá-los para a Automação do Azure ou o Log Analytics em seu nome.  
@@ -82,15 +80,15 @@ O gateway do Log Analytics está disponível nos seguintes idiomas:
 - Espanhol (internacional)
 
 ### <a name="supported-encryption-protocols"></a>Protocolos de criptografia com suporte
-O gateway de Log Analytics dá suporte apenas ao protocolo TLS (Transport Layer Security) 1.0, 1.1 e 1.2.  Ele não oferece suporte a protocolo SSL (Secure Sockets Layer).  Para garantir a segurança dos dados em trânsito para o Log Analytics, incentivamos você a configurar o gateway para usar pelo menos o protocolo TLS 1.2. Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**.  Para obter mais informações, examine [Enviando dados com segurança usando o TLS 1.2](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+O gateway de Log Analytics dá suporte apenas ao protocolo TLS (Transport Layer Security) 1.0, 1.1 e 1.2.  Ele não oferece suporte a protocolo SSL (Secure Sockets Layer).  Para garantir a segurança dos dados em trânsito para o Log Analytics, incentivamos você a configurar o gateway para usar pelo menos o protocolo TLS 1.2. Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**.  Para obter mais informações, examine [Enviando dados com segurança usando o TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número de conexões de agente com suporte
 A tabela a seguir destaca o número de agentes com suporte para se comunicar com um servidor de gateway.  Esse suporte é baseado em agentes que carregam cerca de 200 KB de dados a cada 6 segundos. O volume de dados por agente testado é de aproximadamente 2,7 GB por dia.
 
 |Gateway |Número aproximado de agentes com suporte|  
 |--------|----------------------------------|  
-|- CPU: CPU Intel XEON E5-2660 v3 \@ 2 núcleos de 2,6GHz<br> - Memória: 4 GB<br> - Largura de banda de rede: 1 Gbps| 600|  
-|- CPU: CPU Intel XEON E5-2660 v3 \@ 4 núcleos de 2,6GHz<br> - Memória: 8 GB<br> - Largura de banda de rede: 1 Gbps| 1000|  
+|- CPU: Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 2 Núcleos<br> - Memória: 4 GB<br> - Largura de banda de rede: 1 Gbps| 600|  
+|- CPU: Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 4 Cores<br> - Memória: 8 GB<br> - Largura de banda de rede: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Fazer download do gateway do Log Analytics
 
@@ -136,13 +134,13 @@ Para saber como projetar e implantar um cluster de balanceamento de carga de red
 1. Entre no servidor Windows que seja membro do cluster NLB com uma conta administrativa.  
 1. Abra o Gerenciador de Balanceamento de Carga de Rede no gerenciador de servidores, clique em **Ferramentas**e clique em **Gerenciador de Balanceamento de Carga de Rede**.
 1. Para conectar um servidor do gateway do Log Analytics ao Microsoft Monitoring Agent instalado, clique com o botão direito no endereço IP do cluster e clique em **Adicionar Host ao Cluster**.<br><br> ![Gerenciador de Balanceamento de Carga de Rede – Adicionar Host ao Cluster](./media/gateway/nlb02.png)<br> 
-1. Digite o endereço IP do servidor de gateway que deseja conectar.<br><br> ![Gerenciador de Balanceamento de Carga de Rede – Adicionar Host ao Cluster: Conectar](./media/gateway/nlb03.png) 
+1. Digite o endereço IP do servidor de gateway que deseja conectar.<br><br> ![Gerenciador de Balanceamento de Carga de Rede – Adicionar Host ao Cluster: Connect](./media/gateway/nlb03.png) 
     
 ## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Configurar agente do Log Analytics e grupo de gerenciamento do Operations Manager
 A seção a seguir inclui as etapas sobre como configurar agentes do Log Analytics, um grupo de gerenciamento do Operations Manager ou Hybrid Runbook Workers da Automação do Azure conectados diretamente ao gateway do Log Analytics para se comunicar com a Automação do Azure ou o Log Analytics.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Configurar o agente do Log Analytics autônomo
-Para entender os requisitos e as etapas de instalação do agente do Log Analytics em computadores com Windows que se conectam diretamente ao Log Analytics, confira [Conectar computadores com Windows ao Log Analytics](agent-windows.md) ou, para computadores com Linux, confira [Conectar computadores com Linux ao Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md). No lugar de especificar um servidor proxy ao configurar o agente, substitua esse valor pelo endereço IP do servidor de gateway do Log Analytics e seu número de porta.  Se você implantou vários servidores gateway por trás de um balanceador de carga de rede, a configuração de proxy de agente do Log Analytics é o endereço IP virtual do NLB.  
+Para entender os requisitos e as etapas de instalação do agente do Log Analytics em computadores com Windows que se conectam diretamente ao Log Analytics, confira [Conectar computadores com Windows ao Log Analytics](agent-windows.md) ou, para computadores com Linux, confira [Conectar computadores com Linux ao Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). No lugar de especificar um servidor proxy ao configurar o agente, substitua esse valor pelo endereço IP do servidor de gateway do Log Analytics e seu número de porta.  Se você implantou vários servidores gateway por trás de um balanceador de carga de rede, a configuração de proxy de agente do Log Analytics é o endereço IP virtual do NLB.  
 
 Para obter informações relacionadas para o Hybrid Runbook Worker de automação, consulte [implantar Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -183,7 +181,7 @@ Para ambientes grandes ou complexos, você talvez queira que servidores (ou grup
 1. Abra o console do Operations Manager e selecione o workspace **Criação** .  
 1. No workspace Criação, selecione **Regras** e clique no botão **Escopo** na barra de ferramentas do Operations Manager. Se esse botão não estiver disponível, verifique se você tem um objeto, não uma pasta, selecionado no painel Monitoramento. A caixa de diálogo **Delimitar Objetos do Pacote de Gerenciamento** exibe uma lista de objetos, grupos ou classes comuns de destino. 
 1. Digite **Serviço de Integridade** no campo **Procurar** e selecione-o na lista.  Clique em **OK**.  
-1. Pesquise a **Regra de Configuração de Proxy do Advisor** e, na barra de ferramentas do console do Operations, clique em **Substituições** e aponte para **Substituir a regra\Para um objeto da classe específico: Serviço de Integridade** e selecione um objeto específico da lista.  Opcionalmente, você pode criar um grupo personalizado que contém o objeto de serviço de integridade dos servidores ao qual deseja aplicar a substituição e aplicá-la e esse grupo.
+1. Pesquise a regra **Regra de configuração de proxy do Advisor** e, na barra de ferramentas do console de Operações, clique em **Substituições** e, em seguida, aponte para **Substituir a regra\Para um objeto específico da classe: Serviço de Integridade** e selecione um objeto específico da lista.  Opcionalmente, você pode criar um grupo personalizado que contém o objeto de serviço de integridade dos servidores ao qual deseja aplicar a substituição e aplicá-la e esse grupo.
 1. Na caixa de diálogo **Propriedades da Substituição**, clique para marcar a coluna **Substituir** ao lado do parâmetro **WebProxyAddress**.  No campo **Valor de Substituição**, insira a URL do servidor de gateway do Log Analytics garantindo que se inicia com o prefixo `http://`.  
 
     >[!NOTE]
@@ -256,7 +254,7 @@ Os cmdlets podem ajudar na conclusão de tarefas que são necessárias para atua
 1. Se nenhum erro tiver ocorrido na etapa anterior, o módulo foi importado com êxito, e os cmdlets poderão ser usados. Digite `Get-Module OMSGateway`
 1. Depois de fazer as alterações usando os cmdlets, lembre-se de reiniciar o serviço de Gateway.
 
-Se você receber um erro na etapa 3, o módulo não foi importado. O erro pode ocorrer quando o PowerShell não é capaz de encontrar o módulo. É possível encontrá-lo no caminho de instalação do Gateway: *C:\Arquivos de Programas\Microsoft OMS Gateway\PowerShel\OmsGatewayl*.
+Se você receber um erro na etapa 3, o módulo não foi importado. O erro pode ocorrer quando o PowerShell não é capaz de encontrar o módulo. É possível localizá-lo no caminho de instalação do Gateway: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Cmdlet** | **Parâmetros** | **Descrição** | **Exemplo** |
 | --- | --- | --- | --- |  
@@ -290,7 +288,7 @@ A tabela a seguir mostra as IDs e descrições de eventos do log do gateway do L
 | 103 |Comando HTTP CONNECT recebido do cliente |
 | 104 |Não é um comando HTTP CONNECT |
 | 105 |O servidor de destino não está na lista de permissões ou a porta de destino não é segura (443) <br> <br> Verifique se o agente MMA no servidor do Gateway e os agentes que se comunicam com o Gateway estão conectados ao mesmo workspace do Log Analytics. |
-| 105 |ERRO TcpConnection – Certificado de cliente inválido: CN=Gateway <br><br> Verifique se: <br>    <br> &#149; Você está usando um Gateway com o número de versão 1.0.395.0 ou superior. <br> &amp;#149; O agente MMA no servidor do Gateway e os agentes que se comunicam com o Gateway estão conectados ao mesmo workspace do Log Analytics. |
+| 105 |ERRO TcpConnection – Certificado do cliente inválido: CN=Gateway <br><br> Verifique se: <br>    <br> &#149; Você está usando um Gateway com o número de versão 1.0.395.0 ou superior. <br> &amp;#149; O agente MMA no servidor do Gateway e os agentes que se comunicam com o Gateway estão conectados ao mesmo workspace do Log Analytics. |
 | 106 |O gateway do Log Analytics só dá suporte ao protocolo TLS 1.0, 1.1 e 1.2.  Ele não oferece suporte ao protocolo SSL. Para qualquer versão do protocolo TLS/SSL sem suporte, o gateway do Log Analytics gera a ID de evento 106.|
 | 107 |A sessão TLS foi verificada |
 

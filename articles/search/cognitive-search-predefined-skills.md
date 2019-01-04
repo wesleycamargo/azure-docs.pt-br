@@ -1,5 +1,5 @@
 ---
-title: Extração de dados pré-definidos, idioma natural, habilidades de processamento de imagem (Azure Search) | Microsoft Docs
+title: Extração de dados internos, idioma natural, processamento de imagem - Azure Search
 description: Extração de dados, idioma natural, habilidades cognitivas de processamento de imagem adicionar semântica e a estrutura para conteúdo bruto em um pipeline do Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -9,19 +9,22 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734527"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314781"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Habilidades predefinidas para enriquecimento de conteúdo (Azure Search)
 
 Neste artigo, você aprenderá sobre as habilidades cognitivas fornecidas com o Azure Search. Uma *habilidade cognitiva* é uma operação que transforma o conteúdo de alguma forma. Geralmente, é um componente que extrai ou infere a estrutura e, portanto, aumenta o seu entendimento sobre os dados de entrada. Quase sempre, a saída é baseada em texto. Um *conjunto de qualificações* é o conjunto de habilidades que define o enriquecimento do pipeline. 
 
 > [!NOTE]
-> Pesquisa Cognitiva está na visualização pública. A execução do conjunto de habilidades e a extração e normalização de imagem são oferecidas gratuitamente no momento. Posteriormente, os preços dessas funcionalidades serão anunciados. 
+> A partir de 21 de dezembro de 2018, será possível associar um recurso de Serviços Cognitivos a um conjunto de habilidades do Azure Search. Isso nos permitirá começar a cobrar pela execução do conjunto de habilidades. Nessa data, também começaremos a cobrar pela extração de imagens como parte do estágio de decodificação de documentos. A extração de texto de documentos continuará sendo oferecida sem custo adicional.
+>
+> A execução das habilidades internas será cobrada de acordo com o [preço pago conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existente. O preço da extração de imagens será cobrado conforme o preço da versão prévia, descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="predefined-skills"></a>Habilidades predefinidas
 
@@ -43,4 +46,4 @@ Diversas habilidades são flexíveis na forma que consomem ou produzem. Em geral
 
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Definição da interface de habilidades personalizadas](cognitive-search-custom-skill-interface.md)
-+ [Tutorial: indexação aprimorada com pesquisa cognitiva](cognitive-search-tutorial-blob.md)
++ [Tutorial: Indexação aprimorada com pesquisa cognitiva](cognitive-search-tutorial-blob.md)

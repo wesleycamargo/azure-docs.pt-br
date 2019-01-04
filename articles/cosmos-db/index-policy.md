@@ -1,37 +1,37 @@
 ---
-title: Políticas de indexação do Azure Cosmos DB | Microsoft Docs
+title: Políticas de indexação no Azure Cosmos DB
 description: Entenda como funciona a indexação no Azure Cosmos DB. Saiba como configurar e alterar a política de indexação para indexação automática e um melhor desempenho.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: ffb70ce8c26b7774e90801271c55cd8a80906c90
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2153f0a16df9e79b3f5324ce19880e2708855196
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628274"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847993"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Política de indexação no Azure Cosmos DB
 
 Você pode substituir a política de indexação padrão em um contêiner do Azure Cosmos configurando os seguintes parâmetros:
 
-* **Incluir ou excluir itens e caminhos do índice**: você pode excluir ou incluir itens específicos no índice ao inserir ou substituir os itens em um contêiner. Você também pode incluir ou excluir caminhos / propriedades específicos a serem indexados em contêineres. Os caminhos podem incluir padrões de caracteres curinga, por exemplo, *.
+* **Incluir ou excluir itens e os caminhos do índice**: Você pode excluir ou incluir itens específicos no índice ao inserir ou substituir os itens em um contêiner. Você também pode incluir ou excluir caminhos / propriedades específicos a serem indexados em contêineres. Os caminhos podem incluir padrões de caracteres curinga, por exemplo, *.
 
-* **Configure os tipos de índice**: além dos caminhos indexados do intervalo, você pode adicionar outros tipos de índices, como espacial.
+* **Configurar tipos de índice**: Além dos caminhos indexados do intervalo, você pode adicionar outros tipos de índices, como espacial.
 
-* **Configurar os modos de índice**: usando a política de indexação em um contêiner, você pode configurar diferentes modos de indexação, como *Consistente* ou *Nenhum*.
+* **Configurar modos de índice**: Usando a política de indexação em um contêiner, você pode configurar diferentes modos de indexação, como *Consistente* ou *Nenhum*.
 
 ## <a name="indexing-modes"></a>Modos de indexação 
 
 O Azure Cosmos DB oferece suporte a dois modos de indexação que você pode configurar em um contêiner do Azure Cosmos. Você pode configurar os dois modos de indexação a seguir por meio da política de indexação: 
 
-* **Consistente**: se uma política do contêiner do Azure Cosmos estiver definida como Consistente, as consultas em um contêiner específico seguirão o mesmo nível de consistência especificado para leituras de ponto (por exemplo, forte, limite-staleness, sessão, ou eventual). 
+* **Consistentee**: Se uma política do contêiner do Azure Cosmos estiver definida como Consistente, as consultas em um contêiner específico seguirão o mesmo nível de consistência especificado para leituras de ponto (por exemplo, forte, desatualização limitada, sessão, ou eventual). 
 
   O índice é atualizado de forma síncrona conforme você atualiza os itens. Por exemplo, inserir, substituir, atualizar e excluir operações em um item resultará na atualização do índice. A indexação consistente dá suporte a consultas consistentes ao custo que afetam a taxa de transferência de gravação. A redução na taxa de transferência de gravação depende dos "caminhos incluídos na indexação" e do "nível de consistência". O modo de indexação consistente é projetado para escrever rapidamente e consultar cargas de trabalho imediatamente.
 
-* **Nenhum**: um contêiner que possui um modo de índice Nenhum não possui um índice associado a ele. Isso é comumente usado se o banco de dados do Azure Cosmos for usado como um armazenamento de valor-chave e os itens forem acessados apenas por sua propriedade de ID.
+* **Nenhum**: Um contêiner que possui um modo de índice Nenhum não possui um índice associado a ele. Isso é comumente usado se o banco de dados do Azure Cosmos for usado como um armazenamento de valor-chave e os itens forem acessados apenas por sua propriedade de ID.
 
   > [!NOTE]
   > Configurar o modo de indexação como Nenhum tem o efeito colateral de descartar quaisquer índices existentes. Você deve usar essa opção se seus padrões de acesso exigirem apenas ID ou auto-link.
@@ -70,7 +70,7 @@ A seguir, os casos de uso mais comuns em que você atualiza uma política de ind
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia mais sobre a indexação nos seguintes artigos:
+Leia mais sobre indexação nos artigos a seguir:
 
 * [Visão geral de indexação](index-overview.md)
 * [Tipos de índice](index-types.md)

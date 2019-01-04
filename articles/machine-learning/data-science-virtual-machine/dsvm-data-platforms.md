@@ -1,11 +1,12 @@
 ---
 title: Plataformas de dados pra a Máquina Virtual de Ciência de Dados – Azure | Microsoft Docs
-description: Plataformas de dados para a Máquina Virtual de Ciência de Dados.
+description: Saiba mais sobre as plataformas de dados e ferramentas compatíveis com a Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,14 +16,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b3f340006801287383c2afb2924706affbd77a51
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411022"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105540"
 ---
-# <a name="data-platforms"></a>Plataformas de dados
+# <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados compatíveis com a Máquina Virtual de Ciência de Dados
 
 A DSVM (Máquina Virtual de Ciência de Dados) permite que você crie sua análise em relação a uma ampla variedade de plataformas de dados. Além das interfaces para plataformas de dados remotas, a DSVM oferece uma instância local para rápido desenvolvimento e criação de protótipos. 
 
@@ -33,7 +34,7 @@ A seguir estão as ferramentas de plataforma de dados com suporte na DSVM.
 | | |
 | ------------- | ------------- |
 | O que é?   | Uma instância de banco de dados relacional local      |
-| Edições do DSVM com suporte      | Windows      |
+| Edições do DSVM com suporte      |  Windows      |
 | Usos típicos      | Desenvolvimento rápido localmente com o menor conjunto de dados <br/> Executar R no banco de dados   |
 | Links para exemplos      |    Uma pequena amostra do Conjunto de Dados de Nova Iorque é carregada para o banco de dados SQL `nyctaxi`. <br/> Exemplo do Jupyter mostrando Microsoft R e análise no banco de dados pode ser encontrado em:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Ferramentas relacionadas ao DSVM       | SQL Server Management Studio <br/> Drivers ODBC/JDBC<br/> pyodbc, RODBC<br />Análise do Apache      |
@@ -100,7 +101,7 @@ Você pode interromper os serviços Hadoop relacionados quando não precisar mai
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Como é configurado/instalado no DSVM? 
 |Plataforma|Local de instalação ($SPARK_HOME)|
 |:--------|:--------|
-|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 

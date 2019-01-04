@@ -1,20 +1,20 @@
 ---
 title: Limpar o trabalho do Azure Stream Analytics
-description: Este artigo é um guia de como excluir trabalhos do Azure Stream Analytics.
+description: Este artigo mostra diferentes métodos para excluir trabalhos do Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
-manager: kfile
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/22/2018
-ms.openlocfilehash: 580d05909ff3c94c982be5353b3b5e86a78fc43f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 85db38fef5e69c4de855f8cb6d54151496faebbe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969333"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090237"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Limpar o trabalho do Azure Stream Analytics
 
@@ -31,7 +31,7 @@ Os trabalhos do Azure Stream Analytics podem ser facilmente excluídos por meio 
 
 3. Na página do trabalho no Stream Analytics, selecione **Parar** para interrompê-lo. 
 
-   ![Parar o trabalho](./media/stream-analytics-clean-up-your-job/stop-job.png)
+   ![Interromper um trabalho do Azure Stream Analytics](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Excluir um trabalho no portal do Azure
@@ -42,7 +42,7 @@ Os trabalhos do Azure Stream Analytics podem ser facilmente excluídos por meio 
 
 3. Na página do trabalho no Stream Analytics, selecione **Excluir** para excluí-lo. 
 
-   ![Excluir o trabalho](./media/stream-analytics-clean-up-your-job/delete-job.png)
+   ![Excluir um trabalho do Azure Stream Analytics](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>Parar ou excluir um trabalho usando o PowerShell

@@ -1,12 +1,11 @@
 ---
-title: Capacidade dedicada para tarefas de serviço de execução em lote de aprendizado de máquina - Azure Machine Learning Studio | Microsoft Docs
-description: Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning.
+title: Serviço de Lote do Azure para trabalhos do Machine Learning Studio | Microsoft Docs
+description: Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning. O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
 ms.component: studio
@@ -15,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 13e9921b15faff10ac250aa7c19d655ada782ce2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308117"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275186"
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>Serviço do Lote do Azure para trabalhos do Machine Learning
+# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Serviço de Lote do Azure para trabalhos do Azure Machine Learning Studio
 
 O processamento em Pool do Lote do Machine Learning fornece escala gerenciada pelo cliente para o Serviço de Execução em Lotes do Azure Machine Learning. O processamento em lote clássico para o machine learning ocorre em um ambiente multilocatário, que limita o número de trabalhos simultâneos que você pode enviar e no qual os trabalhos são enfileirados na ordem primeiro a entrar, primeiro a sair. Essa incerteza significa que você não pode prever com exatidão quando seu trabalho será executado.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456551"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341228"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como provisionar dispositivos herdados usando chaves simétricas
 
@@ -35,7 +35,7 @@ Uma ID de registro exclusiva será definida para cada dispositivo com base nas i
 
 Um grupo de registro que usa o [atestado de chave simétrica](concepts-symmetric-key-attestation.md) será criado com o Serviço de Provisionamento de Dispositivos. O grupo de registro incluirá uma chave mestra de grupo. Essa chave mestra será usada para gerar um código hash de cada ID exclusiva de registro e produzir uma chave de dispositivo exclusiva para cada dispositivo. O dispositivo usará essa chave derivada de dispositivo com a respectiva ID de registro exclusiva para atestar no Serviço de Provisionamento de Dispositivos e ser atribuído a um hub IoT.
 
-O código de dispositivo demonstrado neste artigo seguirá o mesmo padrão que o [Guia de Início Rápido: provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md). O código simulará um dispositivo usando uma amostra do [SDK do Azure IoT C](https://github.com/Azure/azure-iot-sdk-c). O dispositivo simulado atestará com um grupo de registro em vez de um registro individual, como demonstrado no início rápido.
+O código de dispositivo demonstrado neste artigo seguirá o mesmo padrão que o [Guia de Início Rápido: Provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md). O código simulará um dispositivo usando uma amostra do [SDK do Azure IoT C](https://github.com/Azure/azure-iot-sdk-c). O dispositivo simulado atestará com um grupo de registro em vez de um registro individual, como demonstrado no início rápido.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,7 +90,7 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo 
 4. Execute o comando a seguir, que cria uma versão do SDK específica para a plataforma cliente de desenvolvimento. Uma solução do Visual Studio para o dispositivo simulado será gerada no diretório `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Se `cmake` não encontrar o compilador do C++, você poderá obter erros de build ao executar o comando acima. Se isso acontecer, tente executar esse comando no [prompt de comando do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -98,7 +98,7 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo 
     Após o sucesso da compilação, as últimas linhas de saída serão semelhantes à seguinte saída:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -120,15 +120,15 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo 
 
 3. Em **Adicionar Grupo de Registros**, insira as informações a seguir e clique no botão **Salvar**.
 
-    - **Nome do grupo**: insira **mylegacydevices**.
+    - **Nome do grupo**: Insira **mylegacydevices**.
 
-    - **Tipo de atestado**: Selecione **Chave simétrica**.
+    - **Tipo de Atestado**: Selecione **Chave Simétrica**.
 
-    - **Autogerar Chaves**: marque essa caixa.
+    - **Gerar Chaves Automaticamente**: Marque essa caixa.
 
-    - **Selecione como deseja atribuir dispositivos a hubs**: selecione **Configuração estática** para que você possa atribuir a um hub específico.
+    - **Selecione como deseja atribuir dispositivos aos hubs**: Selecione **Configuração estática** para que você possa atribuir a um hub específico.
 
-    - **Selecione os hubs IoT aos quais esse grupo pode ser atribuído**: selecione um dos seus hubs.
+    - **Selecione os hubs IoT ao quais este grupo pode ser atribuído**: Selecione um dos seus hubs.
 
     ![Adicionar grupo de registros para atestado de chave simétrica](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
@@ -239,22 +239,25 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Clique com botão direito do mouse no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Inicialização**. 
-
-7. Na janela *Gerenciador de Soluções* do Visual Studio, navegue até o projeto **hsm\_security\_client** e expanda-a. Expanda **Arquivos de Origem** e abra **hsm\_client\_key.c**. 
-
-    Localize a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as seguintes alterações no arquivo e salve o arquivo.
-
-    Atualize o valor da constante `REGISTRATION_NAME` com a **ID de Registro para o seu dispositivo**.
-    
-    Atualize o valor da constante `SYMMETRIC_KEY_VALUE` com a **Chave de dispositivo derivada**.
+6. Localize a chamada para `prov_dev_set_symmetric_key_info()` em **prov\_dev\_client\_sample.c** que é comentado.
 
     ```c
-    static const char* const REGISTRATION_NAME = "sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6";
-    static const char* const SYMMETRIC_KEY_VALUE = "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-7. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes da execução.
+    Remova a marca de comentário da chamada de função e substitua os valores de espaço reservado (incluindo os colchetes angulares) pela ID de registro única do seu dispositivo e a chave de dispositivo derivada gerada.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6", "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=");
+    ```
+   
+    Salve o arquivo.
+
+7. Clique com botão direito do mouse no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Inicialização**. 
+
+8. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes da execução.
 
     A saída a seguir é um exemplo do dispositivo simulado inicializando com êxito e conectando a instância de Serviço de provisionamento a ser atribuída a um Hub IoT:
 
@@ -273,7 +276,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     Press enter key to exit:
     ```
 
-8. No portal, navegue até o Hub IoT ao qual o dispositivo simulado foi atribuído e clique na guia **Dispositivos IoT**. No provisionamento com êxito do simulado para o Hub, a ID de dispositivo aparece na folha **Dispositivos IoT**, com o *STATUS* como **habilitado**. Talvez seja necessário clicar no botão **Atualizar** na parte superior. 
+9. No portal, navegue até o Hub IoT ao qual o dispositivo simulado foi atribuído e clique na guia **Dispositivos IoT**. No provisionamento com êxito do simulado para o Hub, a ID de dispositivo aparece na folha **Dispositivos IoT**, com o *STATUS* como **habilitado**. Talvez seja necessário clicar no botão **Atualizar** na parte superior. 
 
     ![Dispositivo é registrado no Hub IoT](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -290,7 +293,7 @@ Entenda que isso deixa a chave de dispositivo derivada incluída como parte da i
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre reprovisionamento, confira [Conceitos de reprovisionamento de dispositivos no Hub IoT](concepts-device-reprovision.md) 
-* [Início Rápido: provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
+* [Início Rápido: Provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
 * Para saber mais sobre desprovisionamento, confira [Como desprovisionar dispositivos provisionados anteriormente de maneira automática ](how-to-unprovision-devices.md) 
 
 

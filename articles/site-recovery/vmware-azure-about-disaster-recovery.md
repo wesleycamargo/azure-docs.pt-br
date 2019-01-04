@@ -4,14 +4,14 @@ description: Este artigo fornece uma visão geral da recuperação de desastres 
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9368ff848c9be075a08d5a80a49ffc64f5392cad
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 22be5d7438fdb554d1550fd6675ee1884c638824
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214691"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851053"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação de desastres de VMs do VMware para o Azure
 
@@ -88,16 +88,16 @@ Aqui está o que você precisa fazer:
 Depois de ter sua infraestrutura do Azure e local em vigor, você pode configurar a recuperação de desastres.
 
 1. Para entender os componentes que você precisará implantar, revise o [VMware para a arquitetura do Azure](vmware-azure-architecture.md) e o [físico para a arquitetura do Azure](physical-azure-architecture.md). Há vários componentes, por isso é importante entender como eles se encaixam.
-2. **Ambiente de origem**: como uma primeira etapa na implantação, você configura seu ambiente de origem de replicação. Você especifica o que você deseja replicar e onde você deseja replicar.
-3. **Servidor de configuração**: você precisa configurar um servidor de configuração em seu ambiente de origem local:
+2. **Ambiente de origem**: como uma primeira etapa na implantação, configure seu ambiente de origem de replicação. Você especifica o que você deseja replicar e onde você deseja replicar.
+3. **Servidor de configuração**: é preciso configurar um servidor de configuração em seu ambiente de origem local:
     - O servidor de configuração é uma única máquina local. Para recuperação de desastre VMware, recomendamos que você a implante como uma VM VMware que pode ser implantada a partir de um modelo OVF para download.
     - O servidor de configuração coordena as comunicações entre o local e o Azure
     - Alguns outros componentes são executados na máquina do servidor de configuração.
         - O servidor de processos recebe, otimiza e envia dados de replicação para o armazenamento do Azure. Ele também lida com a instalação automática do serviço Mobility em máquinas que você deseja replicar e executa a descoberta automática de VMs em servidores VMware.
         - O servidor de destino mestre lida com os dados de replicação durante o failback do Azure.
     - A configuração inclui o registro do servidor de configuração no cofre, o download do servidor MySQL e do VMware PowerCLI e a especificação das contas criadas para a descoberta automática e a instalação do serviço Mobilidade.
-4. **Ambiente de destino**: você configura seu ambiente de destino do Azure especificando suas configurações de assinatura, armazenamento e rede do Azure.
-5. **Política de replicação**: você especifica como a replicação deve ocorrer. As configurações incluem a frequência com que os pontos de recuperação são criados e armazenados e se os instantâneos consistentes com o aplicativo devem ser criados.
+4. **Ambiente de destino**: configure seu ambiente de destino do Azure especificando suas configurações de assinatura, armazenamento e rede do Azure.
+5. **Política de replicação**: especifique como a replicação deve ocorrer. As configurações incluem a frequência com que os pontos de recuperação são criados e armazenados e se os instantâneos consistentes com o aplicativo devem ser criados.
 6. **Habilite a replicação**. Você habilita a replicação para máquinas locais. Se você criou uma conta para instalar o serviço Mobility, ela será instalada quando você habilitar a replicação para uma máquina. 
 
 *Precisa de mais ajuda?*

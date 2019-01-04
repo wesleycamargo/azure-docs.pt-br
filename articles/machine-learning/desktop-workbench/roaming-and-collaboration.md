@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0117a08c76288cda25da2196ec18433b3678e24b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983711"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724631"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming e colaboração no Azure Machine Learning Workbench
 
@@ -124,9 +124,9 @@ Ao compartilhar um repositório Git remoto ao projeto, Alice e Roberto também p
 ### <a name="use-the-azure-portal-to-add-users"></a>Utilizar o Portal do Azure para adicionar usuários
 <a name="portal"></a>
 
-Os projetos, workspaces e contas de Experimentação do Machine Learning são recursos do Azure Resource Manager. Para atribuir funções, é possível utilizar o link **Controle de Acesso** no [Portal do Azure](https://portal.azure.com). 
+Os projetos, workspaces e contas de Experimentação do Machine Learning são recursos do Azure Resource Manager. Para atribuir funções, é possível utilizar o link **Controle de Acesso (IAM)** no [portal do Azure](https://portal.azure.com). 
 
-Localize o recurso para o qual deseja adicionar usuários, utilizando a exibição **Todos os Recursos**. Selecione o link **IAM (Controle de acesso)** e, em seguida, selecione **Adicionar usuários**. 
+Localize o recurso para o qual deseja adicionar usuários, utilizando a exibição **Todos os Recursos**. Selecione o link **Controle de acesso (IAM)** em seguida, selecione **Adicionar atribuição de função**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 

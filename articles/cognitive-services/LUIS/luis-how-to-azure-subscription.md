@@ -1,21 +1,22 @@
 ---
-title: Gerenciamento de assinatura de ponto de extremidade no LUIS
-titleSuffix: Azure Cognitive Services
+title: Gerenciamento de recurso do Azure
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Neste artigo, você cria uma chave de ponto de extremidade limitada para sua conta do LUIS para fornecer tráfego ilimitado ao seu ponto de extremidade de acordo com um plano de pagamento.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d3e837cf644e0cb9b35a0cfc715a9dcace592e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040373"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082978"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gerenciar suas chaves de assinatura do ponto de extremidade do Azure
 
@@ -56,7 +57,7 @@ Para testar e protótipo apenas, use a camada gratuita (F0). Para sistemas de pr
 5. Lembre-se de [atribuir essa chave do ponto de extremidade](luis-how-to-manage-keys.md#assign-endpoint-key) na página **Publicar** e usá-la em todas as consultas de ponto de extremidade. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Exceder uso de camada de preços
-Cada camada permite solicitações de ponto de extremidade para sua conta do LUIS em uma taxa específica. Se a taxa de solicitações for maior do que a taxa permitida de sua conta limitada por minuto ou por mês, as solicitações receberão um erro HTTP de "429: Muitas Solicitações."
+Cada camada permite solicitações de ponto de extremidade para sua conta do LUIS em uma taxa específica. Se a taxa de solicitações for maior do que a taxa permitida de sua conta limitada por minuto ou por mês, as solicitações receberão um erro HTTP de "429: muitas solicitações".
 
 Cada camada permite solicitações cumulativas por mês. Se o total de solicitações for maior do que a taxa permitida, as solicitações receberão um erro HTTP de "403: proibido".  
 

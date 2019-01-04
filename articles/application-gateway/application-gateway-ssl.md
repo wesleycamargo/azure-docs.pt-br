@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
-ms.openlocfilehash: 782e5c4b33cc62ab5af80e823dc63b3e79a707b3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980518"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001773"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurar um Application Gateway para o descarregamento SSL usando o modelo implantação clássico
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](application-gateway-ssl-portal.md)
+> * [Portal do Azure](application-gateway-ssl-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [PowerShell clássico do Azure](application-gateway-ssl.md)
 > * [CLI do Azure](application-gateway-ssl-cli.md)
@@ -99,17 +99,17 @@ Uma configuração de gateway de aplicativo consiste em vários valores. Os valo
 
 Os valores são:
 
-* **Pool de servidores back-end**: a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP ou VIP público.
-* **Configurações do pool de servidores back-end**: cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-* **Porta front-end**: essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
-* **Ouvinte**: o ouvinte tem uma porta front-end, um protocolo (Http ou Https; esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL).
-* **Regra**: a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end direcionar o tráfego quando ele atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic* . A regra *básica* é a distribuição de carga round robin.
+* **Pool de servidores de back-end:** A lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP ou VIP público.
+* **Configurações do pool de servidores de back-end**: Cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
+* **Porta de front-end:** Essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+* **Ouvinte**: O ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL).
+* **Regra**: A regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end direcionar o tráfego quando ele atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic* . A regra *básica* é a distribuição de carga round robin.
 
 **Observações adicionais sobre a configuração**
 
 Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para **Https** (diferencia maiúsculas de minúsculas). Adicione o elemento **SslCert** a **HttpListener** com o valor definido para o mesmo nome usado na seção [Fazer upload dos certificados SSL](#upload-ssl-certificates). A porta front-end deve ser atualizada para **443**.
 
-**Para habilitar a afinidade baseada em cookie**: você pode configurar um gateway de aplicativo para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Para isso, insira um cookie de sessão que permita ao gateway direcionar o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como **Habilitado** no elemento **BackendHttpSettings**.
+**Para habilitar a afinidade de baseada em cookie**: Você pode configurar um gateway de aplicativo para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Para isso, insira um cookie de sessão que permita ao gateway direcionar o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como **Habilitado** no elemento **BackendHttpSettings**.
 
 Você pode construir sua configuração criando um objeto de configuração ou usando um arquivo XML de configuração.
 Para construir a configuração usando um arquivo XML de configuração, insira o seguinte exemplo:
@@ -117,7 +117,7 @@ Para construir a configuração usando um arquivo XML de configuração, insira 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations />
     <FrontendPorts>
         <FrontendPort>

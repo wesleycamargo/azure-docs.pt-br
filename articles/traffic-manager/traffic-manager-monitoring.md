@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2017
+ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 27057f16d10d0859a486551091e135bfb9160813
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138133"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890340"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de Tráfego
 
@@ -31,13 +31,13 @@ Para configurar o monitoramento de ponto de extremidade, é necessário especifi
 * **Caminho**. Esta definição de configuração é válida somente para os protocolos HTTP e HTTPS, para quais é necessário especificar o caminho de configuração. Fornecer essa configuração para o protocolo de monitoramento TCP resulta em um erro. Para o protocolo HTTP e HTTPS, forneça o caminho relativo e o nome da página da Web ou do arquivo que o monitoramento acessa. Uma barra (/) é uma entrada válida para o caminho relativo. Esse valor indica que o arquivo está no diretório raiz (padrão).
 * **Configurações de cabeçalho personalizado** Essa definição de configuração ajuda a adicionar cabeçalhos HTTP específicos às verificações de integridade que o Gerenciador de Tráfego envia para os pontos de extremidade em um perfil. Os cabeçalhos personalizados podem ser especificados em um nível de perfil para ser aplicável a todos os pontos de extremidade nesse perfil e / ou em um nível de ponto de extremidade aplicável somente a esse ponto de extremidade. Você pode usar os cabeçalhos personalizados para que as verificações de integridade para pontos de extremidade em um ambiente de multilocatário sejam devidamente roteadas para seu destino, especificando um cabeçalho de host. Também é possível usar essa configuração adicionando cabeçalhos exclusivos que podem ser usados para identificar solicitações HTTP(S) originadas no Gerenciador de Tráfego e processá-las de forma diferente.
 * **Intervalos de código de status esperados** Essa configuração permite que você especifique vários intervalos de código com êxito no formato 200-299, 301-301. Se esses códigos de status forem recebidos como resposta de um ponto de extremidade quando uma verificação de integridade é iniciada, o Gerenciador de Tráfego marcará esses pontos de extremidade como íntegros. É possível especificar um máximo de oito intervalos de código de status. Essa configuração se aplica somente aos protocolos HTTP e HTTPS e a todos os pontos de extremidade. Essa configuração reside no nível de perfil do Gerenciador de Tráfego e, por padrão, o valor de 200 é definido como o código de status com êxito.
-* **Intervalo de investigação**. Esse valor especifica a frequência com que a integridade de um ponto de extremidade é verificada usando um agente de investigação do Gerenciador de Tráfego. Você pode especificar dois valores aqui: 30 segundos (investigação normal) e 10 segundos (investigação rápida). Se nenhum valor for fornecido, o perfil será definido como um valor padrão de 30 segundos. Acesse a página [Preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) para saber mais sobre os preços de investigação rápida.
+* **Intervalo de investigação**. Esse valor especifica a frequência com que a integridade de um ponto de extremidade é verificada usando um agente de investigação do Gerenciador de Tráfego. Aqui, é possível especificar dois valores: 30 segundos (investigação normal) e 10 segundos (investigação rápida). Se nenhum valor for fornecido, o perfil será definido como um valor padrão de 30 segundos. Acesse a página [Preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) para saber mais sobre os preços de investigação rápida.
 * **Número de falhas tolerado**. Esse valor especifica quantas falhas um agente de investigação do Gerenciador de Tráfego tolera antes de marcar o ponto de extremidade como não íntegro. Seu valor pode variar entre 0 e 9. Um valor de 0 significa que uma única falha de monitoramento pode fazer esse ponto de extremidade ser marcado como não íntegro. Se nenhum valor for especificado, ele usará o valor padrão de 3.
 * **Tempo limite da investigação**. Essa propriedade especifica a quantidade de tempo que o agente de investigação do Gerenciador de Tráfego deve esperar antes de considerar uma verificação de falha quando uma investigação de verificação de integridade é enviada ao ponto de extremidade. Se o Intervalo de Investigação for definido como 30 segundos, você poderá definir o valor de Tempo Limite entre 5 e 10 segundos. Se nenhum valor for especificado, ele usará um valor padrão de 10 segundos. Se o Intervalo de Investigação for definido como 10 segundos, você poderá definir o valor de Tempo Limite entre 5 e 9 segundos. Se nenhum valor de Tempo Limite for especificado, ele usará um valor padrão de 9 segundos.
 
     ![Monitoramento de ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-    **Figura: monitoramento de ponto de extremidade do Gerenciador de Tráfego**
+    **Figura:  Monitoramento do ponto de extremidade do Gerenciador de Tráfego**
 
 ## <a name="how-endpoint-monitoring-works"></a>Como o monitoramento de ponto de extremidade funciona
 
@@ -112,7 +112,7 @@ A linha de tempo na figura a seguir é uma descrição detalhada do processo de 
 
 ![Sequência de failover e failback de ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-monitoring/timeline.png)
 
-**Figura: failover do ponto de extremidade do Gerenciador de Tráfego e sequência de recuperação**
+**Figura:  Failover do ponto de extremidade do Gerenciador de Tráfego e sequência de recuperação**
 
 1. **GET**. Para cada ponto de extremidade, o sistema de monitoramento do Gerenciador de Tráfego executa uma solicitação GET no caminho especificados nas configurações de monitoramento.
 2. **Configuração de monitoramento de perfil do Gerenciador de Tráfego com intervalo de código personalizado ou 200 OK especificado**. O sistema de monitoramento espera a mensagem de um HTTP 200 OK ou o intervalo de código personalizado especificado na configuração de monitoramento de perfil do Gerenciador de Tráfego seja retornada dentro de 10 segundos. Quando recebe essa resposta, ele reconhece que o serviço está disponível.

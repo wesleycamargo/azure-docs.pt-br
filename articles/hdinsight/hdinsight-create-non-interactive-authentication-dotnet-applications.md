@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2351e0cdeb6fd17efbe70fdebb12e6c9776c1fa1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 899adc8d4fb26ac64cd3fbd7096a8b8387900517
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498334"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722285"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar um aplicativo .NET HDInsight de autenticação não interativa
 É possível executar seu aplicativo Microsoft .NET do Azure HDInsight na própria identidade do aplicativo (não interativo) ou na identidade do usuário conectado do aplicativo (interativo). Este artigo mostra como criar um aplicativo .NET de autenticação não interativa para se conectar ao Azure e gerenciar o HDInsight. Para obter um exemplo de um aplicativo interativo, consulte [Conectar-se ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -37,8 +37,9 @@ Atribua a seu aplicativo do Azure AD uma [função](../role-based-access-control
 2. No menu esquerdo, selecione **Grupo de recursos**.
 3. Selecione o grupo de recursos que contém o cluster HDInsight, no qual você executará a consulta Hive posteriormente neste tutorial. Se você tiver um grande número de grupos de recursos, será possível usar o filtro para localizar o item desejado.
 4. No menu do grupo de recursos, selecione **Controle de acesso (IAM)**.
-5. Em **Usuários**, selecione **Adicionar**.
-6. Siga as instruções para adicionar a função Proprietário ao seu aplicativo do Azure AD. Depois de adicionar a função com êxito, o aplicativo será listado em **Usuários**, com a função Proprietário. 
+5. Selecione a guia **Atribuições de função** para ver as atribuições de função atuais.
+6. Na parte superior da página, selecione **Adicionar atribuição de função**.
+7. Siga as instruções para adicionar a função Proprietário ao seu aplicativo do Azure AD. Após adicionar a função com êxito, o aplicativo será listado na função Proprietário. 
 
 ## <a name="develop-an-hdinsight-client-application"></a>Desenvolver um aplicativo cliente HDInsight
 

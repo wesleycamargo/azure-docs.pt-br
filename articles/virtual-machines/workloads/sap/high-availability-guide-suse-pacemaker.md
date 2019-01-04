@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9d3d1e5ba7ebc7e2afefb31df3be9f2a8f43e153
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685388"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076348"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -436,7 +436,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Adicione o seguinte conteúdo em negrito para o arquivo se os valores não forem diferentes ou estiverem ausentes. Altere o token para 30.000 para permitir a manutenção da preservação da Memória. Para obter mais informações, consulte [este artigo para Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance].
+   Adicione o seguinte conteúdo em negrito para o arquivo se os valores não forem diferentes ou estiverem ausentes. Altere o token para 30.000 para permitir a manutenção da preservação da Memória. Para obter mais informações, consulte [este artigo para Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance]. Além disso, certifique-se de remover o parâmetro mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -449,6 +449,8 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
         [...] 
      }
      <b>transport:      udpu</b>
+     # remove parameter mcastaddr
+     <b># mcastaddr: IP</b>
    } 
    <b>nodelist {
      node {
@@ -527,10 +529,10 @@ Atribua a função personalizada “Função do Agente de Isolamento Linux" que 
 1. Abra a folha Todos os recursos
 1. Selecione a máquina virtual do primeiro nó do cluster
 1. Clique em Controle de acesso (IAM)
-1. Clique em Adicionar
+1. Clique em Adicionar atribuição de função
 1. Selecione a função "Função do Agente de Isolamento do Linux”
 1. Digite o nome do aplicativo criado acima
-1. Clique em OK
+1. Clique em Salvar
 
 Repita as etapas acima para o segundo nó do cluster.
 

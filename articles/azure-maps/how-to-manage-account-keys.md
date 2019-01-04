@@ -1,19 +1,19 @@
 ---
 title: Como gerenciar sua conta e chaves dos Mapas do Azure | Microsoft Docs
 description: Você pode usar o portal do Azure para gerenciar sua conta dos Mapas do Azure e gerenciar suas chaves de acesso.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 351bc26d6c5b3dcfa9479138f2bd523f64a2912a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541612"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335805"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Como gerenciar sua conta e chaves dos Mapas do Azure
 
@@ -53,5 +53,10 @@ Você verá uma página de confirmação. Você pode confirmar a exclusão de su
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como usar APIs de pesquisa do Azure Mapas em [pesquisar um endereço](./how-to-search-for-address.md).
-* Saiba como usar o [controle de mapa de JavaScript](./how-to-use-map-control.md) do Azure Mapas.
+Saiba como gerenciar o tipo de preço da conta do Azure Mapas:
+> [!div class="nextstepaction"]
+> [Gerenciar tipo de preço](./how-to-manage-pricing-tier.md)
+
+Saiba como ver as métricas de uso da API para sua conta do Azure Mapas:
+> [!div class="nextstepaction"]
+> [Exibir métricas de uso](./how-to-view-api-usage.md)

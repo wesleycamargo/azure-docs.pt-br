@@ -1,28 +1,20 @@
 ---
-title: 'Configurar os filtros de rota para o emparelhamento da Microsoft do Azure ExpressRoute: CLI | Microsoft Docs'
+title: 'Configurar filtros de rota para emparelhamento da Microsoft - ExpressRoute: CLI do Azure | Microsoft Docs'
 description: Este artigo descreve como configurar filtros de rota para o Emparelhamento da Microsoft usando a CLI do Azure
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: ganesr
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 29cbe1686888a87fca6ddde957a1cbd35ba3df26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968674"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079289"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: CLI do Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurar filtros de rota para emparelhamento da Microsoft: CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](how-to-routefilter-portal.md)
@@ -70,7 +62,7 @@ Para poder se conectar aos serviços por meio do emparelhamento da Microsoft, vo
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para saber mais sobre como instalar os comandos da CLI, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).
+Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para saber mais sobre como instalar os comandos da CLI, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).
 
 * Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
@@ -80,7 +72,7 @@ Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou po
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Entre na sua conta do Azure e selecione sua assinatura
 
-Para iniciar sua configuração, entrar na sua conta do Azure. Use o exemplo a seguir para ajudar a conectar:
+Para iniciar sua configuração, entrar na sua conta do Azure. Se estiver usando a versão "Experimentar", você é conectado automaticamente e pode ignorar a etapa de logon. Use o exemplo a seguir para ajudar a conectar:
 
 ```azurecli
 az login
@@ -88,30 +80,30 @@ az login
 
 Verificar as assinaturas da conta.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 Selecione a assinatura para a qual você deseja criar um circuito do ExpressRoute.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
-## <a name="prefixes"></a>Etapa 1: obter uma lista de prefixos e valores de comunidade BGP
+## <a name="prefixes"></a>Etapa 1: Obter uma lista de prefixos e valores de comunidade BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obter uma lista de valores de comunidade BGP
 
 Use o cmdlet a seguir para obter a lista de valores de comunidade BGP associados aos serviços acessíveis por meio do emparelhamento da Microsoft, junto com a lista de prefixos associados a eles:
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Faça uma lista dos valores que você deseja usar
 
 Faça uma lista de valores de comunidade BGP que você deseja usar no filtro de rota. Por exemplo, o valor de comunidade BGP para serviços do Dynamics 365 é 12076:5040.
 
-## <a name="filter"></a>Etapa 2: criar um filtro de rota e uma regra de filtro
+## <a name="filter"></a>Etapa 2: Criar um filtro de rota e uma regra de filtro
 
 Um filtro de rota pode ter apenas uma regra, que deve ser do tipo 'Permitir'. Essa regra pode ter uma lista de valores de comunidade BGP associados a ela.
 
@@ -119,7 +111,7 @@ Um filtro de rota pode ter apenas uma regra, que deve ser do tipo 'Permitir'. Es
 
 Primeiro, crie o filtro de rota. O comando "az network route-filter create" só cria um recurso de filtro de rota. Depois de criar o recurso, você deve criar uma regra e anexá-la ao objeto de filtro de rota. Execute o comando a seguir para criar um recurso de filtro de rota:
 
-```azurecli
+```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
@@ -127,15 +119,15 @@ az network route-filter create -n MyRouteFilter -g MyResourceGroup
 
 Execute o comando a seguir para criar uma nova regra:
  
-```azurecli
+```azurecli-interactive
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>Etapa 3: anexar o filtro de rota a um circuito de ExpressRoute
+## <a name="attach"></a>Etapa 3: Anexar o filtro de rota a um circuito de ExpressRoute
 
 Execute o comando a seguir para anexar o filtro de rota ao circuito de ExpressRoute:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
@@ -145,7 +137,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 Para obter as propriedades de um filtro de rota, use o seguinte comando:
 
-```azurecli
+```azurecli-interactive
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
@@ -153,7 +145,7 @@ az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilt
 
 Se o filtro de rota já está anexado a um circuito, as atualizações à lista de comunidade BGP propagam automaticamente as alterações de anúncio de prefixo apropriadas por meio das sessões de BGP estabelecidas. Você pode atualizar a lista de comunidades BGP de seu filtro de rota usando o seguinte comando:
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
@@ -161,7 +153,7 @@ az network route-filter rule update --filter-name MyRouteFilter -n CRM -g Expres
 
 Depois que um filtro de rota é desanexado do circuito de ExpressRoute, nenhum prefixo é anunciado através da sessão de BGP. Você pode desanexar um filtro de rota de um circuito de ExpressRoute usando o seguinte comando:
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
@@ -169,7 +161,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 Você só pode excluir um filtro de rota se ele não está anexado a nenhum circuito. Verifique se o filtro de rota não está anexado a algum circuito antes de tentar excluí-lo. Você pode excluir um filtro de rota usando o seguinte comando:
 
-```azurecli
+```azurecli-interactive
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 

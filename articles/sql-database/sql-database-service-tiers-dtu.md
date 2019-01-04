@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5e24ec6124b6a5f7dea66e33018dffc753966075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955242"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141961"
 ---
 # <a name="dtu-based-service-tiers"></a>Camadas de serviço com base em DTU
 
@@ -31,6 +31,7 @@ As camadas de serviço com base em DTU são diferenciadas por um intervalo de ta
 ## <a name="compare-the-dtu-based-service-tiers"></a>Compare as camadas de serviço com base em DTU
 
 Escolher uma camada de serviço depende principalmente da continuidade dos negócios, armazenamento e requisitos de desempenho.
+
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção||
@@ -71,7 +72,7 @@ Os tamanhos de computação são expressos em termos de DTUs (unidades de transa
 ||||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto as seguintes: , Centro-Oeste dos EUA, Leste da China, USDoDCentral, USGov Iowa, Alemanha Central, USDoDEast, US Gov Sudoeste, Nordeste da Alemanha, Norte da China. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento na camada Premium está disponível no momento em todas as regiões, exceto para: Centro-oeste dos EUA, Leste da China, USDoD Central, Alemanha Central, Leste do USDoD, Sudoeste do US Gov, US Gov Iowa, Nordeste da Alemanha e Norte da China. Em outras regiões, o armazenamento máximo na camada Premium é limitado a 1 TB. Consulte [Limitações atuais de P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 

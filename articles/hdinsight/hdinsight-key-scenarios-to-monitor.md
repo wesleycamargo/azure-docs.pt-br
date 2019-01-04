@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255295"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383928"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorar o desempenho do cluster
 
 Monitorar a integridade e o desempenho de um cluster HDInsight é essencial para manter o desempenho ideal e a utilização de recursos. O monitoramento também pode ajudar a detectar e solucionar erros de configuração de cluster e problemas de código de usuário.
 
-As seções a seguir descrevem como monitorar e otimizar a carga em seus clusters, filas do YARN e detectar problemas de otimização de armazenamento.
+As seções a seguir descrevem como monitorar e otimizar a carga em seus clusters, filas do YARN do Apache Hadoop e detectar problemas de limitação de armazenamento.
 
 ## <a name="monitor-cluster-load"></a>Carga de cluster de monitor
 
@@ -43,7 +43,7 @@ Selecione qualquer um dos nomes de host para ter uma visão detalhada dos compon
 
 ![Detalhes do host](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-Consulte [Gerenciar clusters HDInsight usando a interface do usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md) para obter detalhes sobre a configuração de alertas e exibição de métricas.
+Consulte [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) para obter detalhes sobre a configuração de alertas e exibição de métricas.
 
 ## <a name="yarn-queue-configuration"></a>Configuração de fila do YARN
 
@@ -79,14 +79,14 @@ Caso você esteja usando o Armazenamento do Azure, para obter informações sobr
 
 Se o repositório de backup do seu cluster é o ADLS (Azure Data Lake Store), a limitação é provavelmente devida a limites de largura de banda. A limitação, nesse caso, poderia ser identificada pela observação de erros de limitação nos logs de tarefa. Para o ADLS, consulte a seção sobre limitação do serviço apropriado nesses artigos:
 
-* [Diretrizes de ajuste do desempenho para o Hive no HDInsight e Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Diretrizes de ajuste do desempenho para o Apache Hive no HDInsight e Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Diretrizes de ajuste do desempenho para o MapReduce no HDInsight e Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Diretrizes de ajuste do desempenho para o Storm no HDInsight e Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Diretrizes de ajuste do desempenho para o Apache Storm no HDInsight e Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Visite os links a seguir para obter mais informações sobre o monitoramento e a solução de problemas dos seus clusters:
 
 * [Analisar logs do HDInsight](hdinsight-debug-jobs.md)
-* [Depurar aplicativos com logs do YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Habilitar despejos heap para serviços do Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Depurar aplicativos com logs do YARN do Apache Hadoop](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

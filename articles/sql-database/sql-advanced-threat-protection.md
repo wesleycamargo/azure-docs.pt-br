@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 05/17/2018
-ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/05/2018
+ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159543"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997605"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Proteção Avançada contra Ameaças para o Banco de Dados SQL do Microsoft Azure
 
@@ -28,11 +28,11 @@ A Proteção Contra Ameaça Avançada SQL (ATP) fornece um conjunto de recursos 
 
 - [Descoberta de Dados e Classificação](sql-database-data-discovery-and-classification.md) (atualmente na versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Microsoft Azure para descobrir, classificar, rotular e proteger os dados sensíveis em seus bancos de dados. Pode ser usada para fornecer visibilidade em seu estado de classificação do banco de dados e para controlar o acesso a dados confidenciais no banco de dados e, além de suas bordas.
 - A [Avaliação de Vulnerabilidade ](sql-vulnerability-assessment.md) é um serviço fácil de ser configurado que pode descobrir, acompanhar e ajudá-lo a corrigir vulnerabilidades potenciais do banco de dados. Fornece visibilidade sobre o estado de segurança e inclui etapas acionáveis para resolver problemas de segurança e aperfeiçoar as fprtificações do banco de dados.
-- A [Detecção de Ameaças](sql-database-threat-detection.md) detecta atividades anômalas, indicando tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. Monitora continuamente o banco de dados com relação a atividades suspeitas e fornece alertas de segurança imediata sobre vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso anormal do banco de dados. Os alertas da detecção de ameaças fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça.
+- A [Detecção de Ameaças](sql-database-threat-detection-overview.md) detecta atividades anômalas, indicando tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. Monitora continuamente o banco de dados com relação a atividades suspeitas e fornece alertas de segurança imediata sobre vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso anormal do banco de dados. Os alertas da detecção de ameaças fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça.
 
 Ativar ATP SQL depois habilitar todos esses recursos incluídos. Com um clique, você pode habilitar a ATP em todo o seu servidor de banco de dados, aplicando-se a todos os bancos de dados no servidor. 
 
-O preço da ATP está alinhado à camada padrão da Central de Segurança do Azure a $15/nó/mês, na qual cada servidor de Banco de Dados SQL protegido é contado como um nó. Os primeiros 60 dias após a habilitação são considerados um período de avaliação gratuita e não serão cobrados. Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança do Azure.
+O preço da ATP está alinhado à camada padrão da Central de Segurança do Azure, na qual cada servidor de Banco de Dados SQL protegido é contado como um nó. Recursos protegidos recentemente se qualificam para uma avaliação gratuita da camada Standard da Central de Segurança. Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança do Azure.
 
 
 ## <a name="getting-started-with-atp"></a>Introdução a ATP 
@@ -45,7 +45,7 @@ Habilite o ATP navegando para **Proteção Avançada contra Ameaças** no cabeç
 ![Habilite ATP](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> O custo de ATP é de $15/nó/mês, onde um nó é o servidor lógico do SQL inteiro. Portanto, você está pagando apenas uma vez para proteger todos os bancos de dados no servidor com ATP. Os primeiros 60 dias são considerados uma avaliação gratuita.
+> O custo da ATP está alinhado aos preços da camada Standard da Central de Segurança do Azure por nó, em que um nó é todo o servidor lógico SQL. Portanto, você está pagando apenas uma vez para proteger todos os bancos de dados no servidor com ATP. Você pode experimentar a ATP inicialmente com uma avaliação gratuita.
 
 ## <a name="2-configure-vulnerability-assessment"></a>2. Configura a avaliação de vulnerabilidade
 

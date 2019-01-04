@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: yashar
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09/05/2018
-ms.openlocfilehash: 40551fa60aa17e9a46d24ffdf17bb61a884a48f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 11/30/2018
+ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585624"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742481"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas do Microsoft Azure
 
@@ -32,12 +32,11 @@ As Instâncias de VM Reservadas estão disponíveis para a maioria dos tamanhos 
 
 - O desconto de reserva não se aplica às seguintes VMs:
   - VMs Clássicas e Serviços de Nuvem
-  - Tamanhos de vCPU restritos
   - Séries de VM: Série A, Série Av2 ou Série G
-  - VMs em versão prévia: qualquer série ou tamanho de VM que esteja em versão prévia
-- Nuvens: as reservas não estão disponíveis para compra nas regiões da Alemanha ou da China.
-- Cota insuficiente: uma reserva que tenha um escopo de uma assinatura única precisa ter uma cota de vCPU disponível na assinatura para a nova RI. Por exemplo, se a assinatura de destino tiver um limite de cota de 10 vCPUs para a Série D, você não poderá comprar uma reserva para 11 instâncias Standard_D1. A verificação de cota para reservas inclui as VMs já implantadas na assinatura. Por exemplo, se a assinatura tiver uma cota de 10 vCPUs para o D-Series e tiver duas instâncias standard_D1 implantadas, você poderá comprar uma reserva para 10 instâncias standard_D1 nessa assinatura. 
-- Restrições de capacidade: em circunstâncias raras, o Azure limita a compra de novas reservas para o subconjunto de tamanhos de VM, devido à baixa capacidade em uma região.
+  - VMs na Visualização: Qualquer série ou tamanho de VM que esteja em versão prévia
+- Nuvens: As reservas não estão disponíveis para compra nas regiões da Alemanha ou da China.
+- Cotas insuficientes: Uma reserva que tenha um escopo de uma assinatura única precisa ter uma cota de vCPU disponível na assinatura para a nova RI. Por exemplo, se a assinatura de destino tiver um limite de cota de 10 vCPUs para a Série D, você não poderá comprar uma reserva para 11 instâncias Standard_D1. A verificação de cota para reservas inclui as VMs já implantadas na assinatura. Por exemplo, se a assinatura tiver uma cota de 10 vCPUs para o D-Series e tiver duas instâncias standard_D1 implantadas, você poderá comprar uma reserva para 10 instâncias standard_D1 nessa assinatura. 
+- Restrições de capacidade: Em circunstâncias raras, o Azure limita a compra de novas reservas para o subconjunto de tamanhos de VM, devido à baixa capacidade em uma região.
 
 ## <a name="buy-a-reserved-vm-instance"></a>Comprar uma Instância de VM Reservada
 
@@ -49,7 +48,7 @@ As Instâncias de VM Reservadas estão disponíveis para a maioria dos tamanhos 
     | Campo      | DESCRIÇÃO|
     |:------------|:--------------|
     |NOME        |O nome dessa reserva.| 
-    |Assinatura|A assinatura usada para pagar pela reserva. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um contrato enterprise (número de oferta: MS-AZR-0017P) ou de Pagamento Conforme o Uso (número da oferta: MS-AZR-0003P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.|    
+    |Assinatura|A assinatura usada para pagar pela reserva. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um contrato empresarial (número da oferta: MS-AZR-0017P) ou Pagamento Conforme o Uso (número da oferta: MS-AZR-0003P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para a assinatura de Pagamento Conforme o Uso, as cobranças são feitas ao cartão de crédito ou à forma de pagamento de faturas na assinatura.|    
     |Escopo       |O escopo de assinatura pode abranger uma ou várias assinaturas (escopo compartilhado). Se você selecionar: <ul><li>Assinatura única - o desconto da reserva é aplicado às VMs nesta assinatura. </li><li>Compartilhado - o desconto da reserva é aplicado às VMs em execução em qualquer assinatura, dentro de seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas (exceto as assinaturas de desenvolvimento/teste) no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</li></ul>|
     |Região    |A região do Azure que é coberta pela reserva.|    
     |Tamanho da VM     |O tamanho das instâncias de VM.|
@@ -87,6 +86,6 @@ Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 - [Custos de software do Windows não estão incluídos nas reservas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [ crie uma solicitação de suporte ](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

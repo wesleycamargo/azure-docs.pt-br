@@ -1,23 +1,24 @@
 ---
-title: Entenda suas chaves do LUIS
-titleSuffix: Azure Cognitive Services
-description: 'O LUIS usa duas chaves: criação e ponto de extremidade. A chave de criação é criada para você automaticamente quando você cria sua conta LUIS. Quando você estiver pronto para publicar seu aplicativo de LUIS, será necessário criar a chave do ponto de extremidade, atribuí-la ao seu aplicativo de LUIS e usá-la com a consulta de ponto de extremidade.'
+title: Chaves de assinatura
+titleSuffix: Language Understadning - Azure Cognitive Services
+description: O LUIS usa duas chaves, a chave de criação gratuita para criar seu modelo e a chave de ponto de extremidade monitorado para consultar o ponto de extremidade de previsão com declarações de usuário.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: f7c1753e71025d3ce39b1b6e3fb7362f2df212f5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6816fa3705348d07eced92c64e0c7020a08d01d5
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637824"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132373"
 ---
-# <a name="keys-in-luis"></a>Chaves no LUIS
+# <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Chaves de ponto de extremidade de previsão de consulta e criação no LUIS
 O LUIS usa duas chaves: [criação](#programmatic-key) e [ponto de extremidade](#endpoint-key). A chave de criação é criada para você automaticamente quando você cria sua conta LUIS. Quando estiver pronto para publicar seu aplicativo LUIS, será necessário [criar a chave do ponto de extremidade](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](luis-how-to-manage-keys.md#assign-endpoint-key) ao seu aplicativo LUIS e [usá-la com a consulta de ponto de extremidade](#use-endpoint-key-in-query). 
 
 |Chave|Finalidade|

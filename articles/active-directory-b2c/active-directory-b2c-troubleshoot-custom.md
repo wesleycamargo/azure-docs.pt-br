@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c733c148994b06e6d7cd13ee98e1a8157f26010a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446666"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163168"
 ---
-# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Coleta de logs
+# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: coletando logs
 
 Este artigo fornece etapas para coletar logs do Azure AD B2C para que você possa diagnosticar problemas com suas políticas personalizadas.
 
@@ -108,7 +108,7 @@ A versão do visualizador que faz leitura dos eventos do Application Insights es
 >[!NOTE]
 >Atualmente, os logs de atividade detalhados descritos aqui são projetados **APENAS** para ajudar no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção.  Os logs coletam todas as declarações enviadas entre os provedores de identidade durante o desenvolvimento.  Se for usado em produção, o desenvolvedor assumirá a responsabilidade pela PII (Informações de identificação particular) coletadas no log do App Insights que ele possui.  Esses logs detalhados são coletados apenas quando a política é colocada em **MODO DE DESENVOLVIMENTO**.
 
-[Repositório Github para obter exemplos de política personalizada sem suporte e ferramentas relacionadas](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+[Repositório GitHub para obter exemplos de política personalizada sem suporte e ferramentas relacionadas](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 

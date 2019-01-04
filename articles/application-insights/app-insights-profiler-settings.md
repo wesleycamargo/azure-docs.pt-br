@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 81608dd7281ceddce7e0701535ad99e1c9e44315
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d96b4a99b2ea66cdeff43f06c1789dd133c2c31a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142641"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722999"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar o Profiler do Application Insights
 
@@ -44,7 +43,7 @@ Dependendo de como seu ASE está configurado, a chamada para verificar o status 
 O Profiler pode ser acionado manualmente clicando em um botão. Imagine que você está executando um teste de desempenho na Web. Você precisará de rastreamentos para ajudá-lo a entender o desempenho de seu aplicativo Web sob carga. Ter controle de quando os rastreamentos são capturados é crucial, uma vez que você sabe quando o teste de carga será executado, mas o intervalo de amostragem aleatório poderá perdê-lo.
 As etapas a seguir ilustram como esse cenário funciona:
 
-### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Opcional) Etapa 1: Gerar tráfego para seu aplicativo Web iniciando um teste de desempenho na Web
+### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Etapa 1 (opcional): Gerar tráfego para o aplicativo Web iniciando um teste de desempenho na Web
 
 Se seu aplicativo da Web já tiver tráfego de entrada ou se você quiser gerar tráfego manualmente, pule esta seção e continue na Etapa 2.
 
@@ -87,9 +86,9 @@ Pode haver dois motivos para você ver este erro:
 Siga estas etapas para verificar e instalar o Profiler mais recente:
 
 1. Vá até as Configurações de Aplicativo dos Serviços de Aplicativos e verifique se as seguintes configurações estão definidas:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: substitua pela chave de instrumentação correta do Application Insights.
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Substitua pela chave de instrumentação correta do Application Insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 Se alguma dessas configurações não estiver definida, vá para o painel de ativação do Application Insights para instalar a extensão de site mais recente.
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 Se alguma dessas configurações não estiver definida, acesse o painel de ativação do Application Insights para instalar a extensão de site mais recente.
 
 1. Vá até o painel do Application Insights no portal dos Serviços de Aplicativos.
 
@@ -104,7 +103,7 @@ Siga estas etapas para verificar e instalar o Profiler mais recente:
     ![Alterar e salvar o Application insights][change-and-save-appinsights]
 
 1. Volte para a guia **Configurações do Aplicativo** do Serviço de Aplicativo para verificar novamente se os seguintes itens de configurações do aplicativo estão definidos:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: substitua pela chave de instrumentação correta do Application Insights.
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Substitua pela chave de instrumentação correta do Application Insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 

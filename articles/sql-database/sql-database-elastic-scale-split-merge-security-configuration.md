@@ -3,21 +3,21 @@ title: Configuração de segurança da divisão e mesclagem | Microsoft Docs
 description: Configurar certificados x409 para criptografia com o serviço de divisão/mesclagem para escala elástica.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231379"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964825"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
 Para usar o serviço de divisão/mesclagem, você deve configurar corretamente a segurança. O serviço é parte do recurso de Dimensionamento Elástico do Banco de Dados SQL do Microsoft Azure. Para saber mais, confira o [Tutorial do serviço de divisão e mesclagem da escala elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -43,7 +43,7 @@ Se essas opções não estiverem disponíveis, você pode gerar **certificados a
     Se instalado, vá para:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Obter o WDK do [Windows 8.1: baixar kits e ferramentas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Obter o WDK do [Windows 8.1: Fazer o download de kits e ferramentas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Para configurar o certificado SSL
 É necessário um certificado SSL para criptografar a comunicação e autenticar o servidor. Escolha um dos três cenários abaixo mais aplicável e execute todas as suas etapas:
@@ -178,7 +178,7 @@ Execute:
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 Para personalizar:
@@ -239,7 +239,7 @@ Execute as seguintes etapas para criar um certificado autoassinado para atuar co
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -280,7 +280,7 @@ Atualize o valor de configuração a seguir com a mesma impressão digital:
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>Emitir certificados de cliente
-Cada pessoa autorizada a acessar o serviço deve ter um certificado de cliente emitido para seu uso exclusivo e deve escolher que sua própria senha forte para proteger sua chave privada. 
+Cada pessoa autorizada a acessar o serviço deve ter um certificado de cliente emitido para seu uso exclusivo e deve escolher sua própria senha forte para proteger sua chave privada. 
 
 As etapas a seguir devem ser executadas no mesmo computador onde o Certificado de Autoridade de Certificação autoassinado foi gerado e armazenado:
 
@@ -288,7 +288,7 @@ As etapas a seguir devem ser executadas no mesmo computador onde o Certificado d
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 07c58ea964d6af1ffe1a447d8b52879753f1951c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a9916a412341d0b345bfc7a0e0f28d8e0add1846
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123344"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081448"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Copiar dados do Salesforce Marketing Cloud usando o Azure Data Factory (visualização)
 
@@ -45,7 +45,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce Ma
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida para: **Salesforce Marketing Cloud** | SIM |
+| Tipo | A propriedade type deve ser definida como: **SalesforceMarketingCloud** | SIM |
 | clientId | A ID do cliente associada ao aplicativo do Salesforce Marketing Cloud.  | SIM |
 | clientSecret | O segredo do cliente associada ao aplicativo do Salesforce Marketing Cloud. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | SIM |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
@@ -78,7 +78,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce Ma
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Salesforce Marketing Cloud.
 
-Para copiar dados do e para o Salesforce Marketing Cloud, defina a propriedade tipo do conjunto de dados como **SalesforceMarketingCloudObject**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados.
+Para copiar dados do e para o Salesforce Marketing Cloud, defina a propriedade tipo do conjunto de dados como **SalesforceMarketingCloudObject**. Há suporte para as seguintes propriedades:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **SalesforceMarketingCloudObject** | SIM |
+| tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
 
@@ -90,7 +95,8 @@ Para copiar dados do e para o Salesforce Marketing Cloud, defina a propriedade t
         "linkedServiceName": {
             "referenceName": "<SalesforceMarketingCloud linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -105,8 +111,8 @@ Para copiar dados do Salesforce Marketing Cloud, defina o tipo de origem na ativ
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceMarketingCloudSource** | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | SIM |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SalesforceMarketingCloudSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 

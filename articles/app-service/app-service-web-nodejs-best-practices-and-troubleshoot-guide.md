@@ -1,6 +1,6 @@
 ---
-title: Guia de solução de problemas e práticas recomendadas para aplicativos de nó em Aplicativos Web do Azure
-description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos de nó em Aplicativos Web do Azure.
+title: Práticas recomendadas e solução de problemas para Node.js - Serviço de Aplicativo do Azure
+description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos de nó no Serviço de Aplicativo do Azure.
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
-ms.openlocfilehash: 860874ed49056e6b4695c060b06bf061820c390e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec18
+ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789666"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315716"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó em Aplicativos Web do Azure
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
 Neste artigo, você conhecerá as práticas recomendadas e as etapas de solução de problemas para [aplicativos de nó](app-service-web-get-started-nodejs.md) em execução nos Aplicativos Web do Azure (com [iisnode](https://github.com/azure/iisnode)).
 
@@ -62,7 +63,7 @@ Essa configuração controla o diretório em que o iisnode registrará em log st
 
 ### <a name="debuggerextensiondll"></a>debuggerExtensionDll
 
-Essa configuração controla qual versão de node-inspector o iisnode usará ao depurar o aplicativo de nó. Atualmente, iisnode-inspector-0.7.3.dll e iisnode-inspector.dll são os dois únicos valores válidos para essa configuração. O valor padrão é iisnode-inspector-0.7.3.dll. A versão iisnode-inspector-0.7.3.dll usa o node-inspector-0.7.3 e usa soquetes da Web. Habilite os soquetes da Web no WebApp do Azure para usar essa versão. Consulte <http://ranjithblogs.azurewebsites.net/?p=98> para obter mais detalhes sobre como configurar o iisnode para usar o novo node-inspector.
+Essa configuração controla qual versão de node-inspector o iisnode usará ao depurar o aplicativo de nó. Atualmente, iisnode-inspector-0.7.3.dll e iisnode-inspector.dll são os dois únicos valores válidos para essa configuração. O valor padrão é iisnode-inspector-0.7.3.dll. A versão iisnode-inspector-0.7.3.dll usa o node-inspector-0.7.3 e usa soquetes da Web. Habilite os soquetes da Web no WebApp do Azure para usar essa versão. Consulte <https://ranjithblogs.azurewebsites.net/?p=98> para obter mais detalhes sobre como configurar o iisnode para usar o novo node-inspector.
 
 ### <a name="flushresponse"></a>flushResponse
 
@@ -283,5 +284,5 @@ Siga estes links para saber mais sobre aplicativos do node.js no Serviço de Apl
 * [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro de Desenvolvedores do Node.js](../nodejs-use-node-modules-azure-apps.md)
+* [Centro de desenvolvedores do Node. js](../nodejs-use-node-modules-azure-apps.md)
 * [Explorar o Console de Depuração Super Secret Kudu](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

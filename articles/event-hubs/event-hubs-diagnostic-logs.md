@@ -1,6 +1,6 @@
 ---
-title: Logs de diagnóstico dos Hubs de Eventos do Azure | Microsoft Docs
-description: Saiba como configurar logs de diagnóstico para hub de eventos no Azure.
+title: Configurar logs de diagnóstico – Hub de Eventos do Azure | Microsoft Docs
+description: Saiba como configurar logs de atividade e de diagnóstico para Hubs de Eventos no Azure.
 keywords: ''
 documentationcenter: ''
 services: event-hubs
@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/02/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c0c8740648ad845b58ff0578607f4b5e9c235166
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985158"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105471"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
 É possível exibir dois tipos de logs para os Hubs de Eventos do Azure:
 
-* **[Logs de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**: esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre habilitados.
-* **[Logs diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**: é possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
+* **[Logs de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**: Esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre habilitados.
+* **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**: É possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
 
 ## <a name="enable-diagnostic-logs"></a>Habilitar logs de diagnóstico
 

@@ -9,32 +9,32 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632287"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406786"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o REST
 
-Aprenda a usar a API REST WebHCat para executar tarefas MapReduce em um Apache Hadoop no cluster HDInsight. O Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar trabalhos MapReduce.
+Aprenda a usar a API REST WebHCat do Apache Hive para executar tarefas MapReduce em um Apache Hadoop no cluster HDInsight. O Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar trabalhos MapReduce.
 
-> [!NOTE]
-> Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte o documento [O que você precisa saber sobre Hadoop baseado em Linux no HDInsight](../hdinsight-hadoop-linux-information.md).
+> [!NOTE]  
+> Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas não com o HDInsight, consulte o documento [O que você precisa saber sobre o Apache Hadoop baseado em Linux no HDInsight](../hdinsight-hadoop-linux-information.md).
 
 
 ## <a id="prereq"></a>Pré-requisitos
 
 * Um Hadoop no cluster HDInsight
-* Windows PowerShell ou [Curl](http://curl.haxx.se/) e [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell ou [Curl](https://curl.haxx.se/) e [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Executar um trabalho MapReduce
 
-> [!NOTE]
+> [!NOTE]  
 > Ao usar o Curl ou quaisquer outras comunicações do REST com WebHCat, deve autenticar as solicitações fornecendo o nome de usuário de administrador de cluster HDInsight e a senha. Você também deve usar o nome do cluster como parte do URI usado para enviar as solicitações para o servidor.
 >
-> A API REST é protegida usando [autenticação básica de acesso](http://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS para garantir que suas credenciais sejam enviadas com segurança para o servidor.
+> A API REST é protegida usando [autenticação básica de acesso](https://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS para garantir que suas credenciais sejam enviadas com segurança para o servidor.
 
 1. Para definir o logon do cluster utilizado pelos scripts neste documento, use um dos comandos a seguir:
 
@@ -136,7 +136,7 @@ Aprenda a usar a API REST WebHCat para executar tarefas MapReduce em um Apache H
 
     Se o trabalho for concluído, o estado retornado será `SUCCEEDED`.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Essa solicitação de Curl retorna um documento JSON com informações sobre o trabalho. Jq é usado para recuperar apenas o valor de estado.
 
 6. Depois que o estado do trabalho for alterado para `SUCCEEDED`, você poderá recuperar os resultados do trabalho do Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída. Neste exemplo, o local é `/example/curl`. Esse endereço armazena a saída do trabalho no armazenamento padrão de clusters em `/example/curl`.
@@ -147,11 +147,11 @@ Você pode listar e baixar esses arquivos usando a [CLI do Azure](https://docs.m
 
 Para obter informações gerais sobre trabalhos de MapReduce no HDInsight:
 
-* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 
-* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 
 Para obter mais informações sobre a interface REST usada nesse artigo, consulte a [Referência de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

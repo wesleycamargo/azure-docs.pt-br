@@ -4,17 +4,17 @@ description: Saiba mais sobre como configurar uma conexão de dados no Azure Str
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248737"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099725"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmitir dados como entrada no Stream Analytics
 
@@ -26,10 +26,10 @@ O Stream Analytics tem integração de primeira classe com fluxos de dados do Az
 Esses recursos de entrada podem residir na mesma assinatura do Azure que o trabalho do Stream Analytics, ou em uma assinatura diferente.
 
 ### <a name="compression"></a>Compactação
-O Stream Analytics oferece suporte à compactação em todas as fontes de entrada de fluxo de dados. Os tipos de referência para compactação com suporte no momento são: None, GZip e Deflate. O suporte para a compactação não está disponível para os dados de referência. Se o formato de entrada forem dados Avro compactados, eles serão manipulados de forma transparente. Você não precisa especificar o tipo de compactação com a serialização Avro. 
+O Stream Analytics oferece suporte à compactação em todas as fontes de entrada de fluxo de dados. Os tipos de referência com suporte no momento são: nenhum, GZip e compactação Deflate. O suporte para a compactação não está disponível para os dados de referência. Se o formato de entrada forem dados Avro compactados, eles serão manipulados de forma transparente. Você não precisa especificar o tipo de compactação com a serialização Avro. 
 
 ## <a name="create-edit-or-test-inputs"></a>Criar, editar ou testar entradas
-Para [criar novas entradas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) e exibir ou editar entradas existentes em seu trabalho de streaming, você pode usar o [portal do Azure](https://portal.azure.com). Você também pode testar as conexões de entrada e [testar consultas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) com dados de exemplo. Quando você codifica uma consulta, lista a entrada na cláusula FROM. Você pode obter a lista de entradas disponíveis na página **Consulta** no portal. Se você quiser usar várias entradas, poderá usar `JOIN` para associá-las ou codificar várias consultas `SELECT`.
+Para [criar novas entradas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) e exibir ou editar entradas existentes em seu trabalho de streaming, você pode usar o [portal do Azure](https://portal.azure.com). Você também pode testar as conexões de entrada e [testar consultas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) com dados de exemplo. Quando você codifica uma consulta, lista a entrada na cláusula FROM. Você pode obter a lista de entradas disponíveis na página **Consulta** no portal. Se você quiser usar várias entradas, poderá usar `JOIN` para associá-las ou codificar várias consultas `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Transmitir dados dos Hubs de Eventos
@@ -171,7 +171,7 @@ FROM Input
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Início Rápido: criar um trabalho do Stream Analytics usando o Portal do Azure](stream-analytics-quick-create-portal.md)
+> [Início Rápido: criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

@@ -4,9 +4,8 @@ description: Este tópico demonstra como avaliar o desempenho de um modelo no Az
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -16,25 +15,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 501a9834e598fc8b1c11a86ef0ae9db1c19a66a7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311479"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269933"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Como avaliar o desempenho do modelo no Azure Machine Learning
+# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Como avaliar o desempenho do modelo no Azure Machine Learning Studio
+
 Este tópico demonstra como avaliar o desempenho de um modelo no Azure Machine Learning Studio e fornece uma breve explicação sobre as métricas disponíveis para essa tarefa. Três cenários comuns de aprendizado supervisionado são apresentados: 
 
 * regressão
 * classificação binária 
 * classificação multiclasse
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Avaliar o desempenho de um modelo é um dos estágios principais do processo de ciência de dados. Indica o êxito da pontuação (previsões) de um conjunto de dados feitas por meio de um modelo treinado. 
 
-O Azure Machine Learning dá suporte à avaliação de modelo por meio de dois dos seus principais módulos de aprendizado de máquina: [Avaliar Modelo][evaluate-model] e [Modelo de Validação Cruzada][cross-validate-model]. Esses módulos permitem que você veja como o seu modelo é executado em termos de um número de métricas que são usados normalmente em estatísticas e aprendizado de máquina.
+O Azure Machine Learning dá suporte à avaliação do modelo por meio de dois dos seus principais módulos de aprendizado de máquina: [Modelo de Avaliação][evaluate-model] e [Modelo de Validação Cruzada][cross-validate-model]. Esses módulos permitem que você veja como o seu modelo é executado em termos de um número de métricas que são usados normalmente em estatísticas e aprendizado de máquina.
 
 ## <a name="evaluation-vs-cross-validation"></a>Avaliação versus Validação cruzada
 Avaliação e Validação cruzada são as formas padrão de medir o desempenho do seu modelo. Ambas geram métricas de avaliação que você pode inspecionar ou comparar com os outros modelos.
@@ -64,7 +64,7 @@ Conecte as portas, conforme mostrado abaixo na Figura 1 e defina a coluna Rótul
 Figura 1. Avaliar um Modelo de regressão.
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspecionando os Resultados da avaliação
-Depois de executar o experimento, você pode clicar na porta de saída do módulo [Avaliar Modelo][evaluate-model] e selecionar *Visualizar* para ver os resultados da avaliação. As métricas de avaliação disponíveis para modelos de regressão são: *Erro Absoluto Médio*, *Erro Absoluto Médio de Raiz*, *Erro Absoluto Relativo*, *Erro Quadrado Relativo* e *Coeficiente de Determinação*.
+Depois de executar o experimento, você pode clicar na porta de saída do módulo [Avaliar Modelo][evaluate-model] e selecionar *Visualizar* para ver os resultados da avaliação. As métricas de avaliação disponíveis para modelos de regressão são: *Erro Médio Absoluto*, *Erro de Raiz Médio Absoluto*, *Erro Relativo Absoluto*, *Erro Quadrado Relativo* e *Coeficiente de Determinação*.
 
 O termo "erro" aqui representa a diferença entre o valor previsto e o valor verdadeiro. O valor absoluto ou o quadrado dessa diferença geralmente são computados para capturar a magnitude total do erro em todas as instâncias, como a diferença entre o valor previsto e o verdadeiro pode ser negativa em alguns casos. As métricas de erro medem o desempenho de previsão de um modelo de regressão em termos do desvio da média de suas previsões dos valores verdadeiros. Valores mais baixos de erro significam que o modelo é mais preciso para fazer previsões. Uma métrica de erro geral zero significa que o modelo se ajusta aos dados perfeitamente.
 
@@ -106,7 +106,7 @@ Conecte as portas, conforme mostrado abaixo na Figura 5 e defina a coluna Rótul
 Figura 5. Avaliar um modelo de classificação binária.
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspecionando os Resultados da avaliação
-Depois de executar o experimento, você pode clicar na porta de saída do módulo [Avaliar Modelo][evaluate-model] e selecionar *Visualizar* para ver os resultados da avaliação (Figura 7). A métrica de avaliação disponível para modelos de classificação binária são: *Exatidão*, *Precisão*, *Recuperação*, *Pontuação F1* e *AUC*. Além disso, o módulo gera uma matriz de confusão, mostrando o número de verdadeiros positivos, de falsos negativos, de falsos positivos e de verdadeiros negativos, bem como as curas *ROC*, *Precisão/Recuperação* e *Elevação*.
+Depois de executar o experimento, você pode clicar na porta de saída do módulo [Avaliar Modelo][evaluate-model] e selecionar *Visualizar* para ver os resultados da avaliação (Figura 7). As métricas de avaliação disponíveis para modelos de classificação binária são: *Exatidão*, *Precisão*, *Recall*, *Pontuação F1* e *AUC*. Além disso, o módulo gera uma matriz de confusão, mostrando o número de verdadeiros positivos, de falsos negativos, de falsos positivos e de verdadeiros negativos, bem como as curas *ROC*, *Precisão/Recuperação* e *Elevação*.
 
 A precisão é simplesmente a proporção das instâncias classificadas corretamente. Geralmente, ela é a primeira métrica a observar ao avaliar um classificador. No entanto, quando os dados de teste não estão desbalanceados (em que a maioria das instâncias pertence a uma das classes), ou você está mais interessado no desempenho em qualquer uma das classes, a precisão realmente não captura a eficácia de um classificador. No cenário de classificação de nível de renda, suponha que você esteja testando em alguns dados em que 99% das instâncias representam pessoas que ganham um valor menor ou igual a 50 mil por ano. É possível obter uma precisão de 0,99 prevendo a classe “<=50K” para todas as instâncias. O classificador parece estar fazendo um bom trabalho em geral nesse caso, mas na realidade, ele não consegue classificar qualquer uma das pessoas com um recebimento mais elevado (% 1) corretamente.
 
@@ -116,13 +116,13 @@ Por esse motivo, é útil computar métricas adicionais que capturam aspectos ma
 
 Figura 6. Matriz de confusão de classificação binária.
 
-Voltando ao problema de classificação de renda, queremos fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador usado. Uma pergunta muito comum é: “Dentre os indivíduos que o modelo prevê estarem ganhando > 50 mil (TP + FP), quantos foram classificados corretamente (TP)?" Essa pergunta pode ser respondida, examinando a **Precisão** do modelo, que é a proporção de positivos que foram classificados corretamente: TP/(TP + FP). Outra pergunta comum é “Dentre todos os funcionários com renda alta > 50 mil (TP + FN), quantos o classificador classifica corretamente (TP)". Na verdade, isso é a **Recuperação** ou a taxa de positivos verdadeiros: TP/(TP + FN) do classificador. Você observará que há uma opção óbvia entre a precisão e a recuperação. Por exemplo, dado um conjunto de dados relativamente equilibrado, uma classificação que prevê principalmente instâncias positivas, teria um lembrete alto, mas uma precisão bastante baixa com muitas instâncias negativas deve ser classificada incorretamente, resultando em um grande número de falsos positivos. Para ver um gráfico de como essas duas métricas variam, você pode clicar na curva **PRECISION/RECALL** na página de saída do resultado de avaliação (parte superior esquerda da Figura 7).
+Voltando ao problema de classificação de renda, queremos fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador usado. Uma pergunta muito comum é: "Dentre os indivíduos que o modelo prevê estarem ganhando >50 mil (TP + FP), quantos foram classificados corretamente (TP)?" Essa pergunta pode ser respondida, examinando a **Precisão** do modelo, que é a proporção de positivos que foram classificados corretamente: TP/(TP+FP). Outra pergunta comum é “Dentre todos os funcionários com renda alta > 50 mil (TP + FN), quantos o classificador classifica corretamente (TP)". Isso é, na verdade, o **Recall**, ou a taxa de positivos verdadeiros: TP/(TP+FN) do classificador. Você observará que há uma opção óbvia entre a precisão e a recuperação. Por exemplo, dado um conjunto de dados relativamente equilibrado, uma classificação que prevê principalmente instâncias positivas, teria um lembrete alto, mas uma precisão bastante baixa com muitas instâncias negativas deve ser classificada incorretamente, resultando em um grande número de falsos positivos. Para ver um gráfico de como essas duas métricas variam, você pode clicar na curva **PRECISION/RECALL** na página de saída do resultado de avaliação (parte superior esquerda da Figura 7).
 
 ![Resultados da avaliação de classificação binária](./media/evaluate-model-performance/7.png)
 
  Figura 7. Resultados da avaliação de classificação binária.
 
-Outra métrica relacionada usada com frequência é a **Pontuação F1**, que usa a precisão e a recuperação em consideração. Ela é a média harmônica dessas 2 métricas e é calculada como tal: F1 = 2 (precisão x recuperação) / (precisão + recuperação). A pontuação F1 é uma boa maneira de resumir a avaliação de um único número, mas é sempre uma boa prática examinar a precisão e a recuperação para entender melhor como um classificador se comporta.
+Outra métrica relacionada usada com frequência é a **Pontuação F1**, que usa a precisão e a recuperação em consideração. É a média harmônica dessas 2 métricas e é calculada como tal: F1 = 2 (precisão x recall) / (precisão + recall). A pontuação F1 é uma boa maneira de resumir a avaliação de um único número, mas é sempre uma boa prática examinar a precisão e a recuperação para entender melhor como um classificador se comporta.
 
 Além disso, é possível inspecionar a taxa de positivos verdadeiros versus a taxa de falsos positivos na curva **ROC (Característica de Operação do Receptor)** e o valor correspondente de **AUC (Área sob a Curva)**. Quanto mais próxima essa curva estiver do canto superior esquerdo, melhor estará o desempenho do classificador (que é maximizar a taxa de positivos verdadeiros enquanto minimiza os falsos positivos). As curvas que estão próximas à diagonal do gráfico, o resultado dos classificadores que tendem a fazer previsões próximas à previsão aleatória.
 

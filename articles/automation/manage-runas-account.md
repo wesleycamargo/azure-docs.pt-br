@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958152"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726161"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerenciar contas Executar como da Automação do Azure
 
@@ -358,11 +358,11 @@ Para renovar o certificado, faça o seguinte:
 
 Para controlar o direcionamento da automação nos recursos na Automação do Azure, a conta Executar como tem direitos de colaborador concedidos na assinatura. Se for necessário restringir o que a entidade de serviço RunAs pode fazer, você poderá remover a conta da função de Colaborador para a assinatura e adicioná-lo como um colaborador para os grupos de recursos que deseja especificar.
 
-No Portal do Azure, selecione **Assinaturas** e escolha a assinatura de sua Conta de Automação. Selecione **IAM (Controle de acesso)** e pesquise a entidade de serviço da Conta de Automação (é semelhante ao \<identificador AutomationAccountName\>_unique). Selecione a conta e clique em **Remover** para removê-lo da assinatura.
+No Portal do Azure, selecione **Assinaturas** e escolha a assinatura de sua Conta de Automação. Selecione **Controle de acesso (IAM)** e, em seguida, selecione a guia **Atribuições de função**. Pesquise a entidade de serviço da Conta de Automação (é semelhante ao \<identificador AutomationAccountName\>_unique). Selecione a conta e clique em **Remover** para removê-lo da assinatura.
 
 ![Colaboradores de assinatura](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Para adicionar a entidade de serviço a um grupo de recursos, selecione o grupo de recursos no Portal do Azure e selecione **IAM (Controle de acesso)**. Selecione **Adicionar**, isso abre a página **Adicionar permissões**. Para **Função**, selecione **Colaborador**. Na caixa de texto **Selecionar** digite o nome da entidade de serviço da conta Executar como e selecione-a na lista. Clique em **Salvar** para salvar as alterações. Conclua essas etapas para os grupos de recursos aos quais você quer conceder acesso de entidade de serviço Executar Como da Automação do Azure.
+Para adicionar a entidade de serviço a um grupo de recursos, selecione o grupo de recursos no Portal do Azure e selecione **IAM (Controle de acesso)**. Selecione **Adicionar atribuição de função**, **isso abre a página Adicionar atribuição de função**. Para **Função**, selecione **Colaborador**. Na caixa de texto **Selecionar** digite o nome da entidade de serviço da conta Executar como e selecione-a na lista. Clique em **Salvar** para salvar as alterações. Conclua essas etapas para os grupos de recursos aos quais você quer conceder acesso de entidade de serviço Executar Como da Automação do Azure.
 
 ## <a name="misconfiguration"></a>Configuração incorreta
 

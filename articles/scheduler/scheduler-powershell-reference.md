@@ -19,7 +19,7 @@ ms.locfileid: "46991089"
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Referência de cmdlets do PowerShell para o Agendador do Azure
 
 > [!IMPORTANT]
-> [O Azure Logic Apps](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está sendo retirado. Para agendar trabalhos, [experimente o Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [O Azure Logic Apps](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está sendo retirado. Para agendar trabalhos, [experimente os Aplicativos Lógicos do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 Para criar scripts para criar e gerenciar trabalhos do Agendador e conjuntos de trabalhos, você pode usar os cmdlets do PowerShell. Este artigo lista os principais [cmdlets do PowerShell para o Agendador do Azure](/powershell/module/azurerm.scheduler) com links para seus artigos de referência. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Para obter mais informações sobre os [Cmdlets do Azure Resource Manager](/powershell/azure/overview), consulte [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) (Usando o Azure PowerShell com o Azure Resource Manager).
 

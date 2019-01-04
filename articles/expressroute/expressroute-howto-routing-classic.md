@@ -1,18 +1,19 @@
 ---
-title: 'Como configurar o roteamento (emparelhamento) para um circuito do ExpressRoute: Azure: clássico | Microsoft Docs'
+title: 'Configurar o emparelhamento para um circuito – ExpressRoute: Azure: clássico | Microsoft Docs'
 description: Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/27/2018
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: d4d53d2f365e06c58dcbbb70ea168128c364fbfd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/11/2018
+ms.author: cherylmc
+ms.custom: seodec18
+ms.openlocfilehash: fbf97c984a00d6bdd7f79c26094ae36348e00236
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165213"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342027"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute (clássico)
 > [!div class="op_single_selector"]
@@ -25,7 +26,7 @@ ms.locfileid: "52165213"
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
-Este artigo fornece uma orientação pelas etapas de criação e de gerenciamento da configuração de roteamento de um circuito do ExpressRoute usando o PowerShell e o modelo de implantação clássico. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito do ExpressRoute. Você pode configurar um, dois ou todos os três emparelhamentos (privado e público do Azure e da Microsoft) para um circuito da ExpressRoute. Você pode configurar emparelhamentos em qualquer ordem escolhida. No entanto, você deve concluir a configuração de um emparelhamento por vez. 
+Este artigo fornece uma orientação pelas etapas de criação e de gerenciamento da configuração de emparelhamento/roteamento de um circuito do ExpressRoute usando o PowerShell e o modelo de implantação clássico. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito do ExpressRoute. Você pode configurar um, dois ou todos os três emparelhamentos (privado e público do Azure e da Microsoft) para um circuito da ExpressRoute. Você pode configurar emparelhamentos em qualquer ordem escolhida. No entanto, você deve concluir a configuração de um emparelhamento por vez. 
 
 Estas instruções aplicam-se apenas a circuitos criados com provedores de serviços que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que ofereça serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
@@ -328,9 +329,9 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    * Uma sub-rede /30 para o link secundário. Este valor deve ser um prefixo IPv4 público válido próprio e registrado em um RIR/IRR.
    * Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa o mesmo ID de VLAN.
    * Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes.
-   * Prefixos anunciados: forneça uma lista com todos os prefixos que você pretende anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Você pode enviar uma lista separada por vírgula se planeja enviar um conjunto de prefixos. Esses prefixos devem ser registrados em seu nome em um RIR/IRR.
-   * ASN de cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados. **Opcional**.
-   * Nome do registro de roteamento: você pode especificar o RIR/IRR com base no qual o número de AS e os prefixos estão registrados.
+   * Prefixos anunciados: você precisa fornecer uma lista com todos os prefixos que planeja anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Você pode enviar uma lista separada por vírgula se planeja enviar um conjunto de prefixos. Esses prefixos devem ser registrados em seu nome em um RIR/IRR.
+   * ASN do cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados. **Opcional**.
+   * Nome do registro de roteamento: é possível especificar o RIR/IRR no qual o número AS e os prefixos estão registrados.
    * Um hash MD5, se você optar por usar um. **Opcional**
      
   Execute o seguinte cmdlet para configurar o Microsoft emparelhamento para o seu circuito:

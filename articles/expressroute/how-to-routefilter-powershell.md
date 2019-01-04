@@ -1,21 +1,22 @@
 ---
-title: 'Configurar os filtros de rota para o emparelhamento da Microsoft do Azure ExpressRoute: PowerShell | Microsoft Docs'
+title: 'Configurar filtros de rota para emparelhamento da Microsoft - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Este artigo descreve como configurar filtros de rota para o Emparelhamento da Microsoft usando o PowerShell
 documentationcenter: na
 services: expressroute
 author: ganesr
 ms.service: expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
-ms.openlocfilehash: d4ef500185675ab84485c5dd6a9af4034c57b060
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419250"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096289"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: PowerShell
+# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurar filtros de rota para emparelhamento da Microsoft: PowerShell
 > [!div class="op_single_selector"]
 > * [Portal do Azure](how-to-routefilter-portal.md)
 > * [PowerShell do Azure](how-to-routefilter-powershell.md)
@@ -98,7 +99,7 @@ Especifique a assinatura que você deseja usar.
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>Etapa 1: obter uma lista de prefixos e valores de comunidade BGP
+## <a name="prefixes"></a>Etapa 1: Obter uma lista de prefixos e valores de comunidade BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obter uma lista de valores de comunidade BGP
 
@@ -111,7 +112,7 @@ Get-AzureRmBgpServiceCommunity
 
 Faça uma lista de valores de comunidade BGP que você deseja usar no filtro de rota. Por exemplo, o valor de comunidade BGP para serviços do Dynamics 365 é 12076:5040.
 
-## <a name="filter"></a>Etapa 2: criar um filtro de rota e uma regra de filtro
+## <a name="filter"></a>Etapa 2: Criar um filtro de rota e uma regra de filtro
 
 Um filtro de rota pode ter apenas uma regra, que deve ser do tipo 'Permitir'. Essa regra pode ter uma lista de valores de comunidade BGP associados a ela.
 
@@ -141,7 +142,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>Etapa 3: anexar o filtro de rota a um circuito de ExpressRoute
+## <a name="attach"></a>Etapa 3: Anexar o filtro de rota a um circuito de ExpressRoute
 
 Execute o seguinte comando para anexar o filtro de rota ao circuito ExpressRoute, supondo que você tenha apenas emparelhamento da Microsoft:
 

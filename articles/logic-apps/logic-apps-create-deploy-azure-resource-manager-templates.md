@@ -1,6 +1,6 @@
 ---
 title: Criar aplicativos lógicos com os modelos do Azure Resource Manager – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar e implantar fluxos de trabalho de aplicativo lógico com modelos do Azure Resource Manager no Aplicativo Lógico do Azure
+description: Criar e implantar fluxos de trabalho de aplicativo lógico com modelos do Azure Resource Manager nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration

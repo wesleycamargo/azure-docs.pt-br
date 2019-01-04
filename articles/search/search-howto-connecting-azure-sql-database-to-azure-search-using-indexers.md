@@ -1,6 +1,6 @@
 ---
-title: Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores | Microsoft Docs
-description: Saiba como extrair dados do Banco de Dados SQL do Azure para um índice do Azure Search usando indexadores.
+title: Conecte-se ao conteúdo do Banco de Dados SQL do Azure e indexe-o usando indexadores – Azure Search
+description: Saiba como rastrear dados no Banco de Dados SQL do Azure usando indexadores para pesquisa de texto completo no Azure Search. Este artigo aborda conexões, configuração do indexador e ingestão de dados.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,14 +9,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245640"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313387"
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conecte-se ao conteúdo do Banco de Dados SQL do Azure e indexe-o usando indexadores do Azure Search
 
 Antes de consultar um [índice do Azure Search](search-what-is-an-index.md), você deve populá-lo com seus dados. Se os dados residirem em um banco de dados SQL do Azure, um **indexador do Azure Search para o Banco de Dados SQL do Azure** (ou em um **indexador do SQL do Azure**, para abreviar) poderá automatizar o processo de indexação, o que significa menos código para escrever e menos infraestrutura com a qual se preocupar.
 
@@ -34,7 +35,7 @@ Um **indexador** é um recurso que conecta uma fonte de dados individual a um í
 * Atualizar um índice com as alterações feitas na fonte de dados com base em uma agenda.
 * Executar sob demanda para atualização de um índice, conforme necessário.
 
-Um único indexador pode consumir apenas uma tabela ou exibição, mas você poderá criar vários indexadores, se desejar popular vários índices de pesquisa. Para obter mais informações sobre os conceitos, consulte [Operações do indexador: Fluxo de trabalho típico](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+Um único indexador pode consumir apenas uma tabela ou exibição, mas você poderá criar vários indexadores, se desejar popular vários índices de pesquisa. Para obter mais informações sobre os conceitos, confira [Operações do indexador: Fluxo de trabalho típico](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
 
 Você pode definir e configurar um indexador do SQL Azure usando:
 
@@ -314,19 +315,19 @@ Essas configurações são usadas no objeto `parameters.configuration` na defini
 
 ## <a name="faq"></a>Perguntas frequentes
 
-**P: Posso usar o indexador SQL do Azure com bancos de dados SQL em execução em VMs IaaS no Azure?**
+**P: Posso usar o indexador SQL do Azure com bancos de dados SQL executados em VMs IaaS no Azure?**
 
 Sim. No entanto, você precisa permitir que o serviço de pesquisa se conecte ao banco de dados. Para obter mais informações, consulte [Configurar uma conexão de um indexador do Azure Search ao SQL Server em uma VM do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-**P: Posso usar o indexador SQL do Azure com bancos de dados SQL em execução local?**
+**P: Posso usar o indexador SQL do Azure com bancos de dados SQL executados localmente?**
 
 Não diretamente. Não recomendamos nem damos suporte a uma conexão direta, pois isso exigirá a abertura dos bancos de dados ao tráfego da Internet. Os clientes tiveram sucesso com esse cenário usando tecnologias de ponte como o Azure Data Factory. Para obter mais informações, consulte [Enviar dados por push para um índice do Azure Search usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-**P: Posso usar o indexador SQL do Azure com outros bancos de dados que não o SQL Server em execução em IaaS no Azure?**
+**P: Posso usar o indexador SQL do Azure com outros bancos de dados que não sejam o SQL Server executados no IaaS do Azure?**
 
-Não. Não damos suporte a esse cenário, pois não testamos o indexador com nenhum outro banco de dados que não o SQL Server.  
+ Não. Não damos suporte a esse cenário, pois não testamos o indexador com nenhum outro banco de dados que não o SQL Server.  
 
-**P: Posso criar vários indexadores em execução com base em um agendamento?**
+**P: Posso criar vários indexadores executados com base em um agendamento?**
 
 Sim. No entanto, somente um indexador pode ser executado por vez em um nó. Se você precisar de vários indexadores em execução simultaneamente, considere o aumento de seu serviço de pesquisa para mais de uma unidade de pesquisa.
 
@@ -338,7 +339,7 @@ Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e os r
 
 Isso depende. Para a indexação completa de uma tabela ou exibição, você pode usar uma réplica secundária. 
 
-Para a indexação incremental, o Azure Search dá suporte a duas políticas de detecção de alteração: controle de alterações integrado do SQL e Marca D'água Alta.
+Para a indexação incremental, o Azure Search dá suporte a duas políticas de detecção de alterações: Controle de alterações integrado ao SQL e Marca D'água Alta.
 
 Em réplicas somente leitura, o banco de dados SQL não dá suporte ao controle de alterações integrado. Portanto, você deve usar a política de Marca D'água Alta. 
 

@@ -12,16 +12,21 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: c72aea9d104264243ef0654aea01e0a41f33ed6f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206859"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726926"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementar backup e restauração dos Reliable Actors
+
+> [!NOTE]
+> A Microsoft recomenda usar [backup e restauração periódicos](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar o backup de dados de serviços confiáveis com estado e Reliable Actors. 
+> 
+
 No seguinte exemplo, um serviço de ator personalizado expõe um método para fazer backup dos dados do ator, aproveitando o ouvinte de comunicação remota já presente em `ActorService`:
 
 ```csharp
@@ -113,7 +118,7 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Para obter mais informações sobre Reliable Actors, leia o seguinte:
+Para obter mais informações sobre Reliable Actors, leia os seguintes artigos:
 * [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos Atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)

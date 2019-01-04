@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3450a2ba4a0bf4b1f38806ad4aacf5772c13ed9f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317782"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890935"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
 
@@ -265,7 +265,7 @@ Para trabalhar com URIs (Uniform Resource Identifier) e obter vários valores da
 
 <a name="manipulation-functions"></a>
 
-## <a name="manipulation-functions-json--xml"></a>Funções de manipulação: JSON e XML
+## <a name="manipulation-functions-json--xml"></a>Funções de manipulação: JSON & XML
 
 Para trabalhar com objetos JSON e nós XML, você pode usar estas funções de manipulação. Para a referência completa sobre cada função, consulte a [lista alfabética](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
@@ -691,7 +691,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | SIM | Cadeia de caracteres | Uma cadeia de caracteres que contém o carimbo de data/hora | 
 | <*interval*> | SIM | Número inteiro | O número de unidades de tempo especificadas a ser adicionado | 
-| <*timeUnit*> | SIM | Cadeia de caracteres | A unidade de tempo a ser usada com *intervalo*: "Segundos", "Minutos", "Hora", "Dia", "Semanas", "Mês", "Ano" | 
+| <*timeUnit*> | SIM | Cadeia de caracteres | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" | 
 | <*format*> | Não  | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 ||||| 
 
@@ -752,9 +752,9 @@ and(false, false)
 
 E retorna estes resultados:
 
-* Primeiro exemplo: ambas as expressões são true, então retorna `true`. 
-* Segundo exemplo: uma expressão é false, então retorna `false`.
-* Terceiro exemplo: ambas as expressões são false, então retorna `false`.
+* Primeiro exemplo: Ambas as expressões são true, então retorna `true`. 
+* Segundo exemplo: Uma expressão é false, portanto retorna `false`.
+* Terceiro exemplo: Ambas as expressões são false, portanto retorna `false`.
 
 *Exemplo 2*
 
@@ -768,9 +768,9 @@ and(equals(1, 2), equals(1, 3))
 
 E retorna estes resultados:
 
-* Primeiro exemplo: ambas as expressões são true, então retorna `true`. 
-* Segundo exemplo: uma expressão é false, então retorna `false`.
-* Terceiro exemplo: ambas as expressões são false, então retorna `false`.
+* Primeiro exemplo: Ambas as expressões são true, então retorna `true`. 
+* Segundo exemplo: Uma expressão é false, portanto retorna `false`.
+* Terceiro exemplo: Ambas as expressões são false, portanto retorna `false`.
 
 <a name="array"></a>
 
@@ -1646,8 +1646,8 @@ empty('abc')
 
 E retorna estes resultados: 
 
-* Primeiro exemplo: passa uma cadeia de caracteres vazia para que a função retorne `true`. 
-* Segundo exemplo: passa uma cadeia de caracteres "abc" para que a função retorne `false`. 
+* Primeiro exemplo: Passa uma cadeia de caracteres vazia para que a função retorne `true`. 
+* Segundo exemplo: Passa uma cadeia de caracteres "abc, para que a função retorne `false`. 
 
 <a name="endswith"></a>
 
@@ -1721,8 +1721,8 @@ equals('abc', 'abcd')
 
 E retorna estes resultados: 
 
-* Primeiro exemplo: ambos os valores são equivalentes, então a função retorna `true`.
-* Segundo exemplo: os dois valores não são equivalentes, portanto, a função retorna `false`.
+* Primeiro exemplo: Ambos os valores são equivalentes, então a função retorna `true`.
+* Segundo exemplo: Ambos os valores não são equivalentes, então a função retorna `false`.
 
 <a name="first"></a>
 
@@ -1895,7 +1895,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | Parâmetro | Obrigatório | Tipo | DESCRIÇÃO | 
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | SIM | Número inteiro | O número de unidades de tempo especificadas a serem subtraídas | 
-| <*timeUnit*> | SIM | Cadeia de caracteres | A unidade de tempo a ser usada com *intervalo*: "Segundos", "Minutos", "Hora", "Dia", "Semanas", "Mês", "Ano" | 
+| <*timeUnit*> | SIM | Cadeia de caracteres | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" | 
 | <*format*> | Não  | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. | 
 ||||| 
 
@@ -1937,7 +1937,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | Parâmetro | Obrigatório | Tipo | DESCRIÇÃO | 
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | SIM | Número inteiro | O número de unidades de tempo especificadas a serem subtraídas | 
-| <*timeUnit*> | SIM | Cadeia de caracteres | A unidade de tempo a ser usada com *intervalo*: "Segundos", "Minutos", "Hora", "Dia", "Semanas", "Mês", "Ano" | 
+| <*timeUnit*> | SIM | Cadeia de caracteres | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" | 
 | <*format*> | Não  | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. | 
 ||||| 
 
@@ -2725,8 +2725,8 @@ not(true)
 
 E retornam estes resultados:
 
-* Primeiro exemplo: a expressão é false, então a função retorna `true`.
-* Segundo exemplo: a expressão é true, então a função retorna `false`.
+* Primeiro exemplo: A expressão é false, então a função retorna `true`.
+* Segundo exemplo: A expressão é true, então a função retorna `false`.
 
 *Exemplo 2*
 
@@ -2739,8 +2739,8 @@ not(equals(1, 1))
 
 E retornam estes resultados:
 
-* Primeiro exemplo: a expressão é false, então a função retorna `true`.
-* Segundo exemplo: a expressão é true, então a função retorna `false`.
+* Primeiro exemplo: A expressão é false, então a função retorna `true`.
+* Segundo exemplo: A expressão é true, então a função retorna `false`.
 
 <a name="or"></a>
 
@@ -2773,8 +2773,8 @@ or(false, false)
 
 E retornam estes resultados:
 
-* Primeiro exemplo: pelo menos uma expressão é true, então a função retorna `true`.
-* Segundo exemplo: ambas as expressões são false, então a função retorna `false`.
+* Primeiro exemplo: No mínimo, uma expressão é true, então a função retorna `true`.
+* Segundo exemplo: Ambas as expressões são false, então a função retorna `false`.
 
 *Exemplo 2*
 
@@ -2787,8 +2787,8 @@ or(equals(1, 2), equals(1, 3))
 
 E retornam estes resultados:
 
-* Primeiro exemplo: pelo menos uma expressão é true, então a função retorna `true`.
-* Segundo exemplo: ambas as expressões são false, então a função retorna `false`.
+* Primeiro exemplo: No mínimo, uma expressão é true, então a função retorna `true`.
+* Segundo exemplo: Ambas as expressões são false, então a função retorna `false`.
 
 <a name="parameters"></a>
 
@@ -3294,7 +3294,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | SIM | Cadeia de caracteres | Uma cadeia de caracteres que contém o carimbo de data/hora | 
 | <*interval*> | SIM | Número inteiro | O número de unidades de tempo especificadas a serem subtraídas | 
-| <*timeUnit*> | SIM | Cadeia de caracteres | A unidade de tempo a ser usada com *intervalo*: "Segundos", "Minutos", "Hora", "Dia", "Semanas", "Mês", "Ano" | 
+| <*timeUnit*> | SIM | Cadeia de caracteres | Unidade de tempo a ser usado com *intervalo*: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" | 
 | <*format*> | Não  | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. | 
 ||||| 
 
@@ -4026,7 +4026,7 @@ xml('<value>')
 
 Esse exemplo cria a versão XML desta cadeia de caracteres, que contém um objeto JSON: 
 
-`xml( '{ \"name\": \"Sophia Owen\" }' )`
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
 E retorna este XML de resultado: 
 
@@ -4049,7 +4049,7 @@ Suponha que você tem este objeto JSON:
 
 Esse exemplo cria o XML para uma cadeia de caracteres que contém este objeto JSON:
 
-`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
 E retorna este XML de resultado: 
 

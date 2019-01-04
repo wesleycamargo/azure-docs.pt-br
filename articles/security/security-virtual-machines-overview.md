@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: fb053cb646d433d1e326747a4b48ed430583b847
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5e024161b55db9662aa288a4d3ff6a7c2b7e6266
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259098"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969678"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
 
@@ -47,16 +47,16 @@ O Microsoft Antimalware para Azure é uma solução de agente único para aplica
 
 Quando você implanta e habilita o Microsoft Antimalware para Azure, os seguintes recursos principais ficam disponíveis:
 
-* **Proteção em tempo real**: monitora a atividade em Serviços de Nuvem e em Máquinas Virtuais para detectar e bloquear a execução de malware.
-* **Verificação agendada**: executa periodicamente uma verificação direcionada para detectar malware, incluindo programas ativamente em execução.
-* **Correção de malware**: atua automaticamente no malware detectado, por exemplo, excluindo ou colocando arquivos mal-intencionados em quarentena e limpando entradas mal-intencionadas do Registro.
-* **Atualizações de assinaturas**: instala automaticamente as últimas assinaturas de proteção (definições de vírus) para garantir que a proteção esteja atualizada em uma frequência predeterminada.
-* **Atualizações do mecanismo antimalware**: atualiza automaticamente o mecanismo Microsoft Antimalware para Azure.
-* **Atualizações da plataforma antimalware**: atualiza automaticamente a plataforma Microsoft Antimalware para Azure.
-* **Proteção ativa**: relata os metadados de telemetria para o Azure sobre as ameaças detectadas e os recursos suspeitos, a fim de garantir uma resposta rápida. Permite a entrega de assinatura síncrona em tempo real por meio do MAPS (Microsoft Active Protection System).
-* **Relatórios de amostras**: fornece e relata amostras para o serviço Microsoft Antimalware para Azure para ajudar a refinar o serviço e habilitar a solução de problemas.
-* **Exclusões**: permite aos administradores de aplicativos e de serviços configurar determinados arquivos, processos e unidades para excluí-los da proteção e verificação por motivos de desempenho e outros.
-* **Coleta de eventos de antimalware**: registra a integridade do serviço antimalware, as atividades suspeitas e as ações de correção realizadas no log de eventos do sistema operacional, coletando-as em sua conta de armazenamento do Azure.
+* **Proteção em tempo real**: Monitora a atividade em Serviços de Nuvem do Microsoft Azure e em Máquinas Virtuais do Microsoft Azure para detectar e bloquear a execução de malware.
+* **Verificação programada**: Executa periodicamente uma verificação direcionada para detectar malware, incluindo programas ativamente em execução.
+* **Remediação de malware**: Atua automaticamente no malware detectado, por exemplo, excluindo ou colocando arquivos mal-intencionados em quarentena e limpando entradas mal-intencionadas do Registro.
+* **Atualizações de assinatura**: Instala automaticamente as últimas assinaturas de proteção (definições de vírus) para garantir que a proteção fique atualizada em uma frequência predeterminada.
+* **Atualizações do mecanismo antimalware**: Atualiza automaticamente o mecanismo Microsoft Antimalware para Azure.
+* **Atualizações da plataforma antimalware**: Atualiza automaticamente a plataforma do Microsoft Antimalware para Azure.
+* **Proteção ativa**: Relata os metadados de telemetria para o Azure sobre as ameaças detectadas e os recursos suspeitos, a fim de garantir uma resposta rápida. Permite a entrega de assinatura síncrona em tempo real por meio do MAPS (Microsoft Active Protection System).
+* **Relatórios de exemplos**: Fornece e relata amostras para o serviço Microsoft Antimalware para Azure para ajudar a refinar o serviço e habilitar a solução de problemas.
+* **Exclusões**: Permite aos administradores de aplicativos e de serviços configurar determinados arquivos, processos e unidades para excluí-los da proteção e verificação por motivos de desempenho e outros.
+* **Coleta de eventos de antimalware**: Registra a integridade do serviço antimalware, as atividades suspeitas e as ações de correção realizadas no log de eventos do sistema operacional, coletando-as em sua conta de armazenamento do Azure.
 
 Saiba mais sobre o software antimalware para ajudar a proteger suas máquinas virtuais:
 
@@ -103,7 +103,7 @@ A solução é integrada ao Azure Key Vault para ajudá-lo a controlar e gerenci
 Saiba mais:
 
 * [Azure Disk Encryption para VMs de IaaS](../security/azure-security-disk-encryption-overview.md)
-* [Guia de início rápido: criptografar uma VM de IaaS do Windows com o Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
+* [Início Rápido: Criptografar uma VM de IaaS do Windows com o Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>Backup de máquinas virtuais
 
@@ -112,7 +112,6 @@ O Backup do Azure é uma solução escalonável que ajuda a proteger os dados de
 Saiba mais:
 
 * [O que é o Backup do Azure?](../backup/backup-introduction-to-azure-backup.md)
-* [Roteiro de aprendizagem do Backup do Azure](https://azure.microsoft.com/documentation/learning-paths/backup/)
 * [Perguntas frequentes sobre o serviço Backup do Azure](../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
@@ -121,11 +120,11 @@ Uma parte importante da estratégia de BCDR de sua organização é descobrir co
 
 Recuperação de Site:
 
-* **Simplifica sua estratégia de BCDR**: o Site Recovery facilita lidar com a replicação, o failover e a recuperação de várias cargas de trabalho e aplicativos de negócios em um só local. O Site Recovery orquestra a replicação e o failover, mas não intercepta os dados do aplicativo nem mantém informações sobre ele.
-* **Fornece uma replicação flexível**: usando o Site Recovery, você pode replicar cargas de trabalho em execução em máquinas virtuais do Hyper-V e do VMware e em servidores físicos do Windows/Linux.
-* **Dá suporte a failover e recuperação**: o Site Recovery fornece failovers de teste para dar suporte a simulações de recuperação de desastre sem afetar os ambientes de produção. Você também pode executar failovers planejados sem perder qualquer dado durante interrupções esperadas, ou failovers não planejados com perda mínima de dados (dependendo da frequência de replicação) para desastres inesperados. Após o failover, faça failback para os sites primários. A Recuperação de Site fornece planos de recuperação que podem incluir scripts e pastas de trabalho de automação do Azure, para que você possa personalizar o failover e a recuperação de aplicativos de várias camadas.
-* **Elimina datacenters secundários**: você pode fazer a replicação para um site local secundário ou para o Azure. Usar o Azure como um destino de recuperação de desastres elimina o custo e a complexidade de manter um site secundário. Os dados replicados são colocados no Armazenamento do Azure.
-* **Integra-se às tecnologias de BCDR existentes**: o Site Recovery faz uma parceria com outros recursos de BCDR dos aplicativos. Por exemplo, você pode usar o Site Recovery para ajudar a proteger o back-end do SQL Server de cargas de trabalho corporativas. Isso inclui o suporte nativo ao SQL Server Always On para gerenciar o failover de grupos de disponibilidade.
+* **Simplifica sua estratégia de BCDR**: A Recuperação de Site facilita lidar com a replicação, failover e recuperação de várias cargas de trabalho e aplicativos comerciais a partir de um único local. O Site Recovery orquestra a replicação e o failover, mas não intercepta os dados do aplicativo nem mantém informações sobre ele.
+* **Fornece replicação flexível**: Ao usar Recuperação de Site, você pode replicar as cargas de trabalho em execução nas máquinas virtuais Hyper-V, máquinas virtuais VMware e servidores físicos com Windows/Linux.
+* **Suporte a failover e recuperação**: O Site Recovery fornece failovers de teste para dar suporte à simulações de recuperação de desastre sem afetar os ambientes de produção. Você também pode executar failovers planejados sem perder qualquer dado durante interrupções esperadas, ou failovers não planejados com perda mínima de dados (dependendo da frequência de replicação) para desastres inesperados. Após o failover, faça failback para os sites primários. A Recuperação de Site fornece planos de recuperação que podem incluir scripts e pastas de trabalho de automação do Azure, para que você possa personalizar o failover e a recuperação de aplicativos de várias camadas.
+* **Elimina os datacenters secundários**: Você pode replicar a um site local secundário ou Azure. Usar o Azure como um destino de recuperação de desastres elimina o custo e a complexidade de manter um site secundário. Os dados replicados são colocados no Armazenamento do Azure.
+* **Integra-se com as tecnologias BCDR existentes**: Parceiros de recuperação de site com recursos de BCDR de outros aplicativos. Por exemplo, você pode usar o Site Recovery para ajudar a proteger o back-end do SQL Server de cargas de trabalho corporativas. Isso inclui o suporte nativo ao SQL Server Always On para gerenciar o failover de grupos de disponibilidade.
 
 Saiba mais:
 
@@ -166,8 +165,8 @@ As Máquinas Virtuais do Azure são certificados para FISMA, FedRAMP, HIPAA, PCI
 
 Saiba mais:
 
-* [Microsoft Trust Center: Compliance (Central de Confiabilidade da Microsoft: conformidade)](https://www.microsoft.com/en-us/trustcenter/compliance)
-* [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance (A nuvem confiável: segurança, privacidade e conformidade do Microsoft Azure)](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+* [Central de Confiabilidade: da Microsoft](https://www.microsoft.com/en-us/trustcenter/compliance)
+* [Nuvem confiável: Microsoft Azure Security, Privacy e Compliance](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## <a name="confidential-computing"></a>Computação Confidencial
 

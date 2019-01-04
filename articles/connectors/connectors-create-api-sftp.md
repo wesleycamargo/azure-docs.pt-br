@@ -1,5 +1,5 @@
 ---
-title: Conectar-se à conta do SFTP - Aplicativo Lógico do Azure | Microsoft Docs
+title: Conectar-se à conta do SFTP - Aplicativos Lógicos do Azure | Microsoft Docs
 description: Automatize tarefas e processos que monitoram, criam, gerenciam, enviam e recebem arquivos para um servidor SFTP por meio do SSH usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/03/2018
 ms.locfileid: "50979447"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorar, criar e gerenciar recursos do SFTP usando o Aplicativo Lógico do Azure
+# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorar, criar e gerenciar recursos do SFTP usando os Aplicativos Lógicos do Azure
 
-Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um servidor [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/), você pode criar e automatizar fluxos de trabalho de integração usando o Aplicativo Lógico do Azure e o conector SFTP. O SFTP é um protocolo de rede que fornece acesso a arquivos, transferência de arquivos e gerenciamento de arquivos em qualquer fluxo de dados confiável. Aqui estão algumas tarefas de exemplo que você pode automatizar: 
+Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um servidor [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/), você pode criar e automatizar fluxos de trabalho de integração usando os Aplicativos Lógicos do Azure e o conector SFTP. O SFTP é um protocolo de rede que fornece acesso a arquivos, transferência de arquivos e gerenciamento de arquivos em qualquer fluxo de dados confiável. Aqui estão algumas tarefas de exemplo que você pode automatizar: 
 
 * Monitorar quando arquivos são adicionados ou alterados.
 * Obter, criar, copiar, atualizar, lista e excluir arquivos.

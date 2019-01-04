@@ -1,24 +1,25 @@
 ---
-title: Guia de Migração de API de v1 para v2
+title: Migração da API v1 para a v2
 titleSuffix: Azure Cognitive Services
-description: Saiba como migrar para o conjunto de APIs mais recente.
+description: O ponto de extremidade versão 1 e as APIs de criação foram preteridos. Use este guia para entender como migrar para as APIs de criação e o ponto de extremidade versão 2.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646568"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138816"
 ---
-# <a name="api-v2-migration-guide"></a>Guia de migração da API v2
-O [ponto de extremidade](https://aka.ms/v1-endpoint-api-docs) versão 1 e as APIs de [criação](https://aka.ms/v1-authoring-api-docs) serão preteridos. Use este guia para entender como migrar para o [ponto de extremidade](https://aka.ms/luis-endpoint-apis) versão 2 e para as APIs de [criação](https://aka.ms/luis-authoring-apis). 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para a v2 para aplicativos do LUIS
+O [ponto de extremidade](https://aka.ms/v1-endpoint-api-docs) versão 1 e as APIs de [criação](https://aka.ms/v1-authoring-api-docs) foram preteridos. Use este guia para entender como migrar para o [ponto de extremidade](https://aka.ms/luis-endpoint-apis) versão 2 e para as APIs de [criação](https://aka.ms/luis-authoring-apis). 
 
 ## <a name="new-azure-regions"></a>Novas regiões do Azure
 O LUIS tem novas [regiões](https://aka.ms/LUIS-regions) fornecidas para as APIs do LUIS. O LUIS fornece um site diferente para grupos de regiões. O aplicativo deve ser criado na mesma região que você espera consultar. Os aplicativos não migram regiões automaticamente. Exporte o aplicativo de uma região e importe para outra para que ele fique disponível em uma nova região.
@@ -43,7 +44,7 @@ A API de ponto de extremidade tem novos parâmetros querystring, bem como uma re
 
 
 Resposta de êxito do ponto de extremidade v1:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ Resposta de êxito do ponto de extremidade v1:
 ```
 
 Resposta de êxito do ponto de extremidade v2:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {

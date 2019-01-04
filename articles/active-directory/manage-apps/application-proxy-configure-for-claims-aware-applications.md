@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623091"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137694"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalho com aplicativos com reconhecimento de declarações no Proxy de Aplicativo
 Os [aplicativos com reconhecimento de declarações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) executam um redirecionamento para o STS (Serviço de Token de Segurança). O STS solicita as credenciais do usuário em troca de um token e, em seguida, redireciona o usuário para o aplicativo. Há algumas maneiras de habilitar o Proxy de Aplicativo para que ele funcione com esses redirecionamentos. Use este artigo para configurar sua implantação de aplicativos com reconhecimento de declarações. 
@@ -29,7 +29,7 @@ Certifique-se de que o STS para o qual o aplicativo com reconhecimento de declar
 
 ## <a name="publish-your-application"></a>Publicar seu aplicativo
 
-1. Publique seu aplicativo seguindo as instruções descritas em [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-publish-azure-portal.md).
+1. Publique seu aplicativo seguindo as instruções descritas em [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-add-on-premises-application.md).
 2. Navegue até a página de aplicativo no portal e selecione **Logon único**.
 3. Se você tiver escolhido **Azure Active Directory** como seu **Método de Pré-autenticação**, selecione **Logon único do Azure AD desabilitado** como seu **Método de Autenticação Interno**. Se você tiver escolhido **Passagem** como seu **método de pré-autenticação**, não precisará alterar nada.
 
@@ -41,7 +41,7 @@ Você pode configurar o ADFS para aplicativos com reconhecimento de declaraçõe
 
 Se todas as URLs internas para seus aplicativos forem nomes de domínio totalmente qualificados (FQDNs), você poderá configurar [domínios personalizados](application-proxy-configure-custom-domain.md) para seus aplicativos. Use os domínios personalizados para criar URLs externas que são iguais às URLs internas. Quando suas URLs externas corresponderem às URLs internas, os redirecionamentos de STS funcionarão se os usuários estiverem no local ou remotos. 
 
-### <a name="option-2-ws-federation"></a>Opção 2: especificação Web Services Federation
+### <a name="option-2-ws-federation"></a>Opção 2: O certificado do provedor de identidade do Web Services Federation
 
 1. Abra o Gerenciamento de ADFS.
 2. Acesse **Terceiras Partes Confiáveis**, clique com o botão direito do mouse no aplicativo que você está publicando com o Proxy de Aplicativo e escolha **Propriedades**.  

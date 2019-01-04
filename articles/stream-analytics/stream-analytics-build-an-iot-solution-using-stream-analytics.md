@@ -2,19 +2,19 @@
 title: Compilar uma solução de IoT usando o Azure Stream Analytics
 description: Tutorial de introdução da solução de IoT Stream Analytics de um cenário de pedágio
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978784"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317382"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -36,7 +36,7 @@ Os pré-requisitos a seguir serão necessários para concluir essa solução:
 ## <a name="scenario-introduction-hello-toll"></a>Introdução ao cenário: "Olá, pedágio!"
 Uma praça de pedágio é um fenômeno comum. Você se depara com elas em várias estradas, pontes e túneis em todo o mundo. Cada praça de pedágio tem várias cabines do pedágio. Em cabines manuais, você para e paga o pedágio para um atendente. Em cabines automatizadas, um sensor sobre cada uma das cabines lê um cartão RFID fixado ao para-brisa do veículo conforme você passa pela cabine. É fácil visualizar a passagem dos veículos por essas estações de pedágio como uma transmissão de eventos sobre quais operações interessantes podem ser executadas.
 
-![Imagem de carros em cabines de pedágio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+![Imagem de carros em cabines de pedágio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
 
 ## <a name="incoming-data"></a>Dados de entrada
 Essa solução funciona com dois fluxos de dados. Sensores instalados na entrada e na saída das praças de pedágio produzem o primeiro fluxo. O segundo fluxo é um conjunto de dados de pesquisa estático que contém dados de registro dos veículos.
@@ -106,14 +106,14 @@ Aqui está uma breve descrição das colunas:
 | --- | --- |
 | PlacaDeCarro |O número da placa de licença do veículo |
 | RegistrationId |A ID de registro do veículo |
-| Expirado |O status de registro do veículo: 0 se o registro do veículo estiver ativo, 1 se estiver vencido |
+| Expirado |O status do registro do veículo: 0, se o registro do veículo estiver ativo; 1, se o registro estiver vencido |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Configurar o ambiente para o Stream Analytics do Azure
 Para completar essa solução, você precisará de uma assinatura do Microsoft Azure. Se não tiver uma conta do Azure, [solicite uma versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Siga as etapas na seção "Limpar sua conta do Azure" no final deste artigo para que você possa fazer o melhor uso de seu crédito do Azure.
 
-## <a name="deploy-the-sample"></a>Implantar o exemplo 
+## <a name="deploy-the-sample"></a>Implantar o exemplo
 Há vários recursos que podem ser facilmente implantados em um grupo de recursos com alguns cliques. A definição da solução está hospedada no repositório GitHub em [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Implantar o modelo do TollApp no Portal do Azure
@@ -123,11 +123,11 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
 
 3. Escolha a assinatura na qual os vários recursos são cobrados.
 
-4. Especifique um novo grupo de recursos, com um nome exclusivo, por exemplo, `MyTollBooth`. 
+4. Especifique um novo grupo de recursos, com um nome exclusivo, por exemplo, `MyTollBooth`.
 
 5. Selecione um local do Azure.
 
-6. Especifique um **Intervalo** como um número de segundos. Esse valor é usado no aplicativo Web de exemplo para informar com que frequência enviar os dados para o Hub de Eventos. 
+6. Especifique um **Intervalo** como um número de segundos. Esse valor é usado no aplicativo Web de exemplo para informar com que frequência enviar os dados para o Hub de Eventos.
 
 7. **Marque** para concordar com os termos e condições.
 
@@ -149,7 +149,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
    - Um Hub de Eventos do Azure
    - Dois aplicativos Web
 
-## <a name="examine-the-sample-tollapp-job"></a>Examinar o trabalho do TollApp de exemplo 
+## <a name="examine-the-sample-tollapp-job"></a>Examinar o trabalho do TollApp de exemplo
 1. A partir do grupo de recursos na seção anterior, selecione o trabalho de streaming do Azure Stream Analytics, iniciando com o nome **tollapp** (o nome contém caracteres aleatórios para exclusividade).
 
 2. Na página **Visão geral** do trabalho, observe a caixa **Consulta** para visualizar a sintaxe de consulta.
@@ -195,7 +195,7 @@ Siga estas etapas para iniciar o trabalho de streaming:
 
 6. Selecione cada ID para examinar o documento JSON. Observe cada tollid, o tempo de fim da janela e a contagem de carros daquela janela.
 
-7. Após mais três minutos, outro conjunto de quatro documentos estará disponível, um documento por tollid. 
+7. Após mais três minutos, outro conjunto de quatro documentos estará disponível, um documento por tollid.
 
 
 ## <a name="report-total-time-for-each-car"></a>Relatar o tempo total de cada carro
@@ -229,9 +229,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. No painel **Iniciar trabalho**, selecione **Agora**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Examinar o tempo total na saída
-Repita as etapas na seção anterior para examinar os dados de saída do CosmosDB do trabalho de streaming. Examinar os últimos documentos JSON. 
+Repita as etapas na seção anterior para examinar os dados de saída do CosmosDB do trabalho de streaming. Examinar os últimos documentos JSON.
 
-Por exemplo, este documento mostra um carro de exemplo com uma determinada placa de licença, a hora de entrada e hora de saída e o campo de duração em minutos calculado do DATEDIFF, mostrando a duração da cabine como dois minutos: 
+Por exemplo, este documento mostra um carro de exemplo com uma determinada placa de licença, a hora de entrada e hora de saída e o campo de duração em minutos calculado do DATEDIFF, mostrando a duração da cabine como dois minutos:
 ```JSON
 {
     "tollid": 4,
@@ -249,7 +249,7 @@ Por exemplo, este documento mostra um carro de exemplo com uma determinada placa
 ```
 
 ## <a name="report-vehicles-with-expired-registration"></a>Relatar veículos com registro expirado
-O Azure Stream Analytics pode usar instantâneos estáticos de dados de referência para fazer a junção com fluxos de dados temporais. Para demonstrar essa funcionalidade, use a pergunta de exemplo a seguir. A entrada de Registro é um arquivo json de blob estático que lista as expirações de marcas da licença. Associando a placa de licença, os dados de referência são comparados a cada veículo que passa pelo pedágio. 
+O Azure Stream Analytics pode usar instantâneos estáticos de dados de referência para fazer a junção com fluxos de dados temporais. Para demonstrar essa funcionalidade, use a pergunta de exemplo a seguir. A entrada de Registro é um arquivo json de blob estático que lista as expirações de marcas da licença. Associando a placa de licença, os dados de referência são comparados a cada veículo que passa pelo pedágio.
 
 Se um veículo comercial estiver registrado na empresa de pedágio, ele poderá passar pela cabine sem ser parado para inspeção. Use a tabela de consulta de registro para identificar todos os veículos comerciais que possuem registros expirados.
 
@@ -264,7 +264,7 @@ WHERE Registration.Expired = '1'
 
 1. Repita as etapas na seção anterior para atualizar a sintaxe de consulta do trabalho de streaming do TollApp.
 
-2. Repita as etapas na seção anterior para examinar os dados de saída do CosmosDB do trabalho de streaming. 
+2. Repita as etapas na seção anterior para examinar os dados de saída do CosmosDB do trabalho de streaming.
 
 Saída de exemplo:
 ```json
@@ -289,28 +289,28 @@ Para escalar horizontalmente a consulta para partições, edite a sintaxe de con
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream 
-TIMESTAMP BY EntryTime 
+FROM EntryStream
+TIMESTAMP BY EntryTime
 PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
 Para escalar verticalmente o trabalho de streaming para mais unidades de streaming:
 
-1. **Pare** o trabalho atual. 
+1. **Pare** o trabalho atual.
 
 2. Atualize a sintaxe de consulta na página **< > Consulta** e salve as alterações.
 
 3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar**.
-   
+
 4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Clique em **Salvar**.
 
-5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho em mais recursos de computação e obtém melhor taxa de transferência, particionando o trabalho entre os recursos usando a coluna designada na cláusula PARTITION BY. 
+5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho em mais recursos de computação e obtém melhor taxa de transferência, particionando o trabalho entre os recursos usando a coluna designada na cláusula PARTITION BY.
 
 ## <a name="monitor-the-job"></a>Monitorar trabalho
-A área **MONITORAR** contém estatísticas sobre o trabalho em execução. A primeira configuração é necessária para usar a conta de armazenamento na mesma região (início do nome como o restante deste documento).   
+A área **MONITORAR** contém estatísticas sobre o trabalho em execução. A primeira configuração é necessária para usar a conta de armazenamento na mesma região (início do nome como o restante deste documento).
 
-![Captura de tela do monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Monitoramento de trabalhos do Azure Stream Analytics](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 Você também pode acessar **Logs de Atividade** na área **Configurações** do painel do trabalho.
 

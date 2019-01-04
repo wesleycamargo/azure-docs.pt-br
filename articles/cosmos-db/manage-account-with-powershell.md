@@ -1,24 +1,20 @@
 ---
-title: Automação do Azure Cosmos DB – Gerenciamento com o PowerShell | Microsoft Docs
+title: Criar e gerenciar recursos do Azure Cosmos DB usando o PowerShell
 description: Use o Azure PowerShell para gerenciar suas contas do Azure Cosmos DB.
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
-tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/21/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: b115058353d14a3bd7c774197e06de088030ffff
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec18
+ms.openlocfilehash: 6dcb5e445c9c294b81de0363f5462b8d21621616
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741344"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135281"
 ---
-# <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Criar uma conta do Azure Cosmos DB usando o PowerShell
+# <a name="create-and-manage-azure-cosmos-db-resources-by-using-powershell"></a>Criar e gerenciar recursos do Azure Cosmos DB usando o PowerShell
 
 O guia a seguir descreve os comandos para automatizar o gerenciamento de suas contas de banco de dados do Azure Cosmos DB usando o Azure PowerShell. Isso também inclui comandos para gerenciar as chaves de conta e as prioridades de failover em [contas de banco de dados com várias regiões][distribute-data-globally]. A atualização de sua conta de banco de dados permite que você adicione ou remova regiões e modifique políticas de consistência. Para o gerenciamento de plataforma cruzada de sua conta do Azure Cosmos DB, use a [CLI do Azure](cli-samples.md), a [API REST do Provedor de Recursos][rp-rest-api] ou o [portal do Azure](create-sql-api-dotnet.md#create-account).
 

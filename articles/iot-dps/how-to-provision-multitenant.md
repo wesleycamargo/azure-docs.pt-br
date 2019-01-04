@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457384"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344084"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
 As políticas de alocação definidas pelo serviço de provisionamento dão suporte a uma variedade de cenários de alocação. Os dois cenários mais comuns são:
 
-* **Localização geográfica / GeoLatency**: uma vez que um dispositivo se move entre locais, a latência de rede é aprimorada fazendo com que o dispositivo provisionasse para o Hub do IoT mais perto de cada localização. Nesse cenário, um grupo de hubs de IoT, que se estendem entre regiões, são selecionados para os registros. A política de alocação de **menor latência** é selecionada para esses registros. Essa política faz com que o serviço de provisionamento de dispositivos avaliem a latência de dispositivo e determinar o hub IoT fora do grupo de hubs IoT armário. 
+* **Localização geográfica / GeoLatency**: uma vez que um dispositivo se move entre locais, a latência de rede é aprimorada fazendo com que o dispositivo provisionasse para o Hub IoT mais perto de cada localização. Nesse cenário, um grupo de hubs de IoT, que se estendem entre regiões, são selecionados para os registros. A política de alocação de **menor latência** é selecionada para esses registros. Essa política faz com que o serviço de provisionamento de dispositivos avaliem a latência de dispositivo e determinar o hub IoT fora do grupo de hubs IoT armário. 
 
-* **A multilocação**: dispositivos usados dentro de uma solução de IoT precisam ser atribuídos a um hub IoT específico ou um grupo de hubs IoT. A solução pode exigir todos os dispositivos para um locatário específico para se comunicarem com um grupo específico de hubs IoT. Em alguns casos, um locatário pode possuir hubs IoT e exigir que os dispositivos sejam atribuídos a seus hubs IoT.
+* **Multilocação**: dispositivos usados dentro de uma solução de IoT precisam ser atribuídos a um hub IoT específico ou um grupo de hubs IoT. A solução pode exigir todos os dispositivos para um locatário específico para se comunicarem com um grupo específico de hubs IoT. Em alguns casos, um locatário pode possuir hubs IoT e exigir que os dispositivos sejam atribuídos a seus hubs IoT.
 
 É comum combinar esses dois cenários. Por exemplo, uma solução de IoT multilocatária comumente atribuirá os dispositivos de locatário usando um grupo de hubs IoT que estão espalhados entre regiões. Esses dispositivos de locatário podem ser atribuídos ao hub IoT no grupo, que tem a menor latência com base na localização geográfica.
 
@@ -90,15 +90,15 @@ Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symm
 
 2. Selecione a guia **Gerenciar registros** e clique no botão **Adicionar grupo de registros** na parte superior da página. 
 
-3. Em **Adicionar grupo de registros**, insira as informações a seguir e clique no botão **Salvar**.
+3. Em **Adicionar Grupo de Registros**, insira as informações a seguir e clique no botão **Salvar**.
 
-    **Nome do grupo**: Insira **contoso-us-devices**.
+    **Nome do grupo**: insira **contoso-us-dispositivos**.
 
-    **Tipo de atestado**: Selecione **Chave simétrica**.
+    **Tipo de Atestado**: selecione **Chave Simétrica**.
 
-    **Gerar chaves automaticamente**: esta caixa de seleção já deve estar marcada.
+    **Gerar Chaves Automaticamente**: esta caixa de seleção já deve estar marcada.
 
-    **Selecione como você deseja atribuir dispositivos a hubs**: selecione **Menor latência**.
+    **Selecione como deseja atribuir dispositivos aos hubs**: selecione **Menor latência**.
 
     ![Adicionar grupo de registros de multilocação para atestado de chave simétrica](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
@@ -130,16 +130,16 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
 1. No Azure Cloud Shell, execute o seguinte comando para criar uma região **Leste dos EUA** de VM depois de fazer as seguintes alterações de parâmetro no comando:
 
-    **--nome**: insira um nome exclusivo para seu dispositivo regional VM no **Leste dos EUA**. 
+    **--name**: insira um nome exclusivo para seu dispositivo regional VM no **Leste dos EUA**. 
 
-    **nome de usuário-admin-**: usar seu próprio nome de usuário administrador.
+    **--admin-username**: Use seu próprio nome de usuário administrador.
 
-    **-- admin-password**: Use sua própria senha de administrador.
+    **--admin-password**: Use sua própria senha de administrador.
 
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -151,11 +151,11 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
 1. No Azure Cloud Shell, execute o comando para criar uma região **Oeste dos EUA** de VM depois de fazer as seguintes alterações de parâmetro no comando:
 
-    **--nome**: insira um nome exclusivo para seu dispositivo regional VM no **Oeste dos EUA**. 
+    **--name**: insira um nome exclusivo para seu dispositivo regional VM no **Oeste dos EUA**. 
 
-    **nome de usuário-admin-**: usar seu próprio nome de usuário administrador.
+    **--admin-username**: Use seu próprio nome de usuário administrador.
 
-    **-- admin-password**: Use sua própria senha de administrador.
+    **--admin-password**: Use sua própria senha de administrador.
 
     ```azurecli-interactive
     az vm create \
@@ -220,7 +220,7 @@ Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exe
 1. Para ambas as VMs, execute o comando a seguir que cria uma versão do SDK específica para a plataforma cliente de desenvolvimento. 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     Após o sucesso da compilação, as últimas linhas de saída serão semelhantes à seguinte saída:
@@ -327,28 +327,28 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. Abra **~/azure-iot-sdk-c/provisioning\_client/adapters/hsm\_client\_key.c** em ambas as VMs. 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. Localize a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as alterações a seguir aos arquivos em ambas VMs regionais e salve-os.
-
-    Atualize o valor da constante `REGISTRATION_NAME` com a **ID de Registro para o seu dispositivo**.
-    
-    Atualize o valor da constante `SYMMETRIC_KEY_VALUE` com a **Chave de dispositivo derivada**.
+1. Em ambas as VMs, localize a chamada para `prov_dev_set_symmetric_key_info()` em **prov\_dev\_client\_sample.c** que é comentado.
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    Remova as marcas de comentário das chamadas de função e substitua os valores de espaço reservado (incluindo os colchetes angulares) pelas IDs de registro exclusivo e chaves de dispositivo derivadas para cada dispositivo. As chaves mostradas abaixo são apenas para fins de exemplo. Use as chaves que você gerou anteriormente.
+
+    Leste dos EUA:
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    Oeste dos EUA:
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    Salve os arquivos.
 
 1. Em ambas as VMs, navegue até a pasta de exemplo mostrada abaixo e compilar o exemplo.
 
@@ -358,6 +358,13 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     ```
 
 1. A compilação for bem-sucedida, execute **prov\_dev\_cliente\_sample.exe** em ambas as VMs para simular um dispositivo de locatário de cada região. Observe que cada dispositivo é alocado para o locatário do hub IoT mais próximo de regiões do dispositivo simulado.
+
+    Execute a simulação:
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    Exemplo de saída da VM do Leste dos EUA:
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
     ```
 
+    Exemplo de saída da VM do Oeste dos EUA:
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

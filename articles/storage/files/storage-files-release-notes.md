@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/10/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 45f77c3065feeb011a10bc345c22082b6a89529c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5bea4c655e9a8970d8d0d946827cc3e46e7efa7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582801"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255152"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão para o agente de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -25,7 +25,9 @@ As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 
 | Marco | Número de versão do agente | Data do lançamento | Status |
 |----|----------------------|--------------|------------------|
-| Lançamento V4 | 4.0.1.0 | 13 de novembro de 2018 | Com suporte (versão recomendada) |
+| Pacote cumulativo de atualizações de dezembro – [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 de dezembro de 2018 | Com suporte (versão recomendada) |
+| Pacote cumulativo de atualizações de dezembro | 4.1.0.0 | 4 de dezembro de 2018 | Com suporte |
+| Lançamento V4 | 4.0.1.0 | 13 de novembro de 2018 | Com suporte |
 | Pacote cumulativo de atualizações de setembro | 3.3.0.0 | 24 de setembro de 2018 | Com suporte |
 | Rollup de atualização de agosto | 3.2.0.0 | 15 de agosto de 2018 | Com suporte |
 | Disponibilidade Geral | 3.1.0.0 | 19 de julho de 2018 | Com suporte |
@@ -42,6 +44,22 @@ As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-4200"></a>Versão do agente 4.2.0.0
+As notas sobre a versão a seguir são para a versão 4.2.0.0 do agente de Sincronização de Arquivos do Azure lançada em 10 de dezembro de 2018. Estas notas complementam as notas sobre a versão listadas para a versão 4.0.1.0.
+
+Lista dos problemas corrigidos nesta versão:  
+- Um erro de parada 0x3B ou erro de parada 0x1E pode ocorrer quando um instantâneo do VSS é criado.  
+- Pode ocorrer uma perda de memória quando a camada de nuvem está habilitada  
+
+## <a name="agent-version-4100"></a>Versão do agente 4.1.0.0
+As notas sobre a versão a seguir são para a versão 4.1.0.0 do agente de Sincronização de Arquivos do Azure lançada em 4 de dezembro de 2018. Estas notas complementam as notas sobre a versão listadas para a versão 4.0.1.0.
+
+Lista dos problemas corrigidos nesta versão:  
+- O servidor pode ficar sem resposta devido a uma perda de memória da camada de nuvem.  
+- A instalação do agente falha com o seguinte erro: Erro 1921. Não foi possível parar o serviço de 'agente de sincronização de armazenamento’ (FileSyncSvc).  Verifique se você tem privilégios suficientes para parar serviços do sistema.  
+- O serviço de Agente de Sincronização de Armazenamento (FileSyncSvc) pode falhar quando o uso de memória é alto.  
+- Diversas melhorias de confiabilidade para camada e sincronização de nuvem.
 
 ## <a name="agent-version-4010"></a>Versão de agente 4.0.1.0
 As notas sobre a versão a seguir são para a versão 4.0.1.0 do agente de Sincronização de Arquivos do Azure (lançada em 13 de novembro de 2018).
@@ -107,10 +125,10 @@ Os seguintes itens não são sincronizados, mas o restante do sistema continua a
 ## <a name="agent-version-3300"></a>Versão de agente 3.3.0.0
 As notas sobre a versão a seguir são para a versão 3.3.0.0 do agente de Sincronização de Arquivos do Azure lançada em 24 de setembro de 2018. Estas notas complementam as notas de versão listadas para a versão 3.1.0.0.
 
-Essa versão inclui as seguintes correções:
+Lista dos problemas corrigidos nesta versão:
 - O estado do servidor registrado será "Aparece offline" depois que o agente de Sincronização de Arquivos do Azure for atualizado para a versão 3.1 ou 3.2.
 - O serviço de Agente de Sincronização de Armazenamento (FileSyncSvc) apresenta falhas devido a arquivos com caminhos longos.
-- O registro do servidor falhará com erro: não foi possível carregar o arquivo ou o assembly Kailani.Afs.StorageSyncProtocol.V3.
+- O registro do servidor falha com o erro: não foi possível carregar o arquivo ou o assembly Kailani.Afs.StorageSyncProtocol.V3.
 
 ## <a name="agent-version-3200"></a>Versão do agente 3.2.0.0
 As notas de versão a seguir são para a versão 3.2.0.0 do agente de Sincronização de Arquivos do Azure lançada em 15 de agosto de 2018. Estas notas complementam as notas de versão listadas para a versão 3.1.0.0.

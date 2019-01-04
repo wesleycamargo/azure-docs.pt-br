@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/06/2018
 ms.author: jeedes
-ms.openlocfilehash: a8816451b45171e0ba8cbd7acc937201c587c481
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 24353f89f7c833a16675841f741a4a81ac34597c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627943"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015205"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Tutorial: integração do Azure Active Directory ao Qlik Sense Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Tutorial: Integração do Azure Active Directory ao Qlik Sense Enterprise
 
 Neste tutorial, você aprenderá como integrar o Qlik Sense Enterprise ao Azure Active Directory (Azure AD).
 
@@ -47,10 +47,10 @@ Para configurar a integração do Azure AD ao Qlik Sense Enterprise, você preci
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se você não tiver um ambiente de avaliação do Azure AD, é possível obter uma avaliação por um mês aqui: [Oferta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Qlik Sense Enterprise da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -110,9 +110,10 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único em Domínio e URLs do Qlik Sense Enterprise](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
@@ -141,7 +142,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![QlikSense][qs24]
 
-    a. Abra o arquivo FederationMetaData.xml baixado do portal do Azure em um editor de texto.
+     a. Abra o arquivo FederationMetaData.xml baixado do portal do Azure em um editor de texto.
 
     b. Procure o valor **RoleDescriptor**.  Há quatro entradas (dois pares de marcas de elemento de abertura e fechamento).
 
@@ -167,7 +168,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![QlikSense][qs8]  
 
-    a. O campo **Descrição** é um nome amigável para a configuração do proxy virtual.  Insira um valor para uma descrição.
+     a. O campo **Descrição** é um nome amigável para a configuração do proxy virtual.  Insira um valor para uma descrição.
 
     b. O campo **Prefixo** identifica o ponto de extremidade do proxy virtual para se conectar ao Qlik Sense com o Logon Único do Azure AD.  Insira um nome de prefixo exclusivo para esse proxy virtual.
 
@@ -179,7 +180,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![QlikSense][qs10]
 
-    a. O menu suspenso **Modo de acesso anônimo** determina se os usuários anônimos podem acessar o Qlik Sense por meio do proxy virtual.  A opção padrão é Nenhum usuário anônimo.
+     a. O menu suspenso **Modo de acesso anônimo** determina se os usuários anônimos podem acessar o Qlik Sense por meio do proxy virtual.  A opção padrão é Nenhum usuário anônimo.
 
     b. O menu suspenso **Método de autenticação** determina o esquema de autenticação que o proxy virtual usará.  Selecione SAML na lista suspensa.  Mais opções são exibidas como resultado.
 
@@ -187,7 +188,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     d. Na **ID da entidade SAML**, insira o mesmo valor inserido para o campo URI de host SAML.
 
-    e. **Metadados IdP SAML** é o arquivo editado anteriormente na seção **Editar metadados de federação de configuração do Azure AD**.  **Antes de carregar os metadados IdP, o arquivo precisa ser editado** para remover as informações e garantir a operação correta entre o Azure AD e servidor Qlik Sense.  **Veja as instruções acima se o arquivo ainda precisar ser editado.**  Se o arquivo foi editado, clique no botão Procurar e selecione o arquivo de metadados editado para carregá-lo para a configuração do proxy virtual.
+    e. **Metadados IdP SAML** é o arquivo editado anteriormente na seção **Editar metadados de federação de configuração do Azure AD**.  **Antes de carregar os metadados IdP, o arquivo precisa ser editado** para remover as informações e garantir a operação correta entre o Azure AD e servidor Qlik Sense.  **Veja as instruções acima se o arquivo ainda precisar ser editado.**   Se o arquivo foi editado, clique no botão Procurar e selecione o arquivo de metadados editado para carregá-lo para a configuração do proxy virtual.
 
     f. Insira a referência de nome ou o esquema de atributo para o atributo SAML que representa o **UserID** que o Azure AD envia ao servidor Qlik Sense.  Informações de referência de esquema estão disponíveis na configuração de postagem de telas do aplicativo do Azure.  Para usar o atributo de nome, insira `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -209,7 +210,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![QlikSense][qs13]
 
-    A lista de permissões de Host identifica os nomes de host que são aceitos durante a conexão com o servidor Qlik Sense.  **Insira o nome do host que os usuários especificarão ao se conectar ao servidor Qlik Sense.** O nome do host é o mesmo valor que o uri de host SAML, sem https://.
+    A lista de permissões de Host identifica os nomes de host que são aceitos durante a conexão com o servidor Qlik Sense.  **Insira o nome do host que os usuários especificarão ao se conectar ao servidor Qlik Sense.**  O nome do host é o mesmo valor que o uri de host SAML, sem https://.
 
 16. Clique no botão **Aplicar**.
 
@@ -283,7 +284,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-a-qlik-sense-enterprise-test-user"></a>Criar um usuário de teste do Qlik Sense Enterprise
 
-Nesta seção, você deve criar uma usuária chamada Brenda Fernandes no Qlik Sense Enterprise. Trabalhe com a [equipe de suporte do Cliente do Qlik Sense Enterprise](https://www.qlik.com/us/services/support) para adicionar os usuários na plataforma Qlik Sense Enterprise. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você deve criar uma usuária chamada Brenda Fernandes no Qlik Sense Enterprise. Trabalhe com a  [equipe de suporte do Cliente do Qlik Sense Enterprise](https://www.qlik.com/us/services/support)  para adicionar os usuários na plataforma Qlik Sense Enterprise. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 

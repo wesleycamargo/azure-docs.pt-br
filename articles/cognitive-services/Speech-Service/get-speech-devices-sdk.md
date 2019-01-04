@@ -1,21 +1,22 @@
 ---
 title: Obter SDK dos dispositivos de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como obter acesso ao SDK de Dispositivos de Fala.
+description: O Serviço de Fala funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora, você pode levar os aplicativos de fala para o próximo nível com hardware e software correspondentes. Neste artigo, você aprenderá como obter acesso ao SDK dos Dispositivos de Fala e começar a desenvolver.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 822c4bdc6bb47d51bcd264c9093e7d07308d2b11
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: bc9497ff8d48cd1c5fd045f12908234462a7a2f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468765"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095045"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obter o SDK de Dispositivos de Fala dos Serviços Cognitivos
 
@@ -29,14 +30,14 @@ Para obter acesso para o SDK de dispositivos de fala:
 1. Leia o [contrato de licença](speech-devices-sdk-license.md).
 1. Se você concordar com os termos do contrato de licença, selecione **Concordo**.
 1. Responda às perguntas no formulário.
-1. Envie o formulário. 
+1. Envie o formulário.
 1. Se seu endereço de email ainda não fizer parte do Azure Active Directory (Azure AD), você receberá um email de convite, como o exemplo a seguir quando você for aprovado para acesso. Se seu endereço de email já estive rno Azure Active Directory, você receberá uma mensagem de email da equipe de fala da Microsoft quando você for aprovado para acesso e poderá pular para [baixar o SDK de dispositivos de fala](#download-the-speech-devices-sdk).
 
 ## <a name="approval-e-mail"></a>Email de aprovação
 
 ```
-From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com> 
-Subject: You're invited to the Microsoft organization 
+From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com>
+Subject: You're invited to the Microsoft organization
 ```
 
 ![mensagem de email](media/speech-devices-sdk/get-sdk-1.png)
@@ -58,16 +59,16 @@ Conclua as seguintes etapas para ingressar no Azure Active Directory com o ender
 4. Selecione **Próximo** para criar uma senha.
 
 5. Quando solicitado a verificar seu email, receberá o código de verificação do email de convite que você recebeu.
- 
+
 7. Cole ou digite o código de segurança da mensagem de email na caixa de diálogo. Neste exemplo, o código de status é **8406**. Selecione **Avançar**.
 
     ![Verificar email](media/speech-devices-sdk/get-sdk-6.png)
- 
+
 8. Quando você vir o aplicativo do painel de acesso no navegador, depois de confirmar que seu endereço de email faz parte do Azure Active Directory. Agora você tem acesso ao site de download do SDK de Dispositivos de Fala.
 
 ## <a name="download-the-speech-devices-sdk"></a>Fazer download do SDK de Dispositivos de Fala
 
-Vá para o [site de download do SDK de Dispositivos de Fala](https://shares.datatransfer.microsoft.com/). Entre com a conta da Microsoft criada anteriormente. 
+Vá para o [site de download do SDK de Dispositivos de Fala](https://shares.datatransfer.microsoft.com/). Entre com a conta da Microsoft criada anteriormente.
 
 ![Site de download do sdk](media/speech-devices-sdk/get-sdk-7.png)
 
@@ -76,20 +77,20 @@ Para baixar o SDK de Dispositivos de Fala, o código de exemplo associado e o ma
 1. Faça o download e instale a ferramenta Aspera Connect quando receber a solicitação no navegador.
 
     ![Fazer download do Aspera Connect](media/speech-devices-sdk/get-sdk-8.png)
- 
+
 1. Clique em **Sim** para alternar os aplicativos para o Aspera Connect.
 
     ![Alternar para o Aspera Connect](media/speech-devices-sdk/get-sdk-9.png)
- 
+
 1. Selecione **Permitir** para confirmar o download de arquivos com o Aspera Connect.
 
     ![Realizar download usando o Aspera Connect](media/speech-devices-sdk/get-sdk-10.png)
- 
+
 1. Feche a janela de Transferências do Aspera Connect após o download dos arquivos.
 
     ![Janela de Transferências do Aspera Connect](media/speech-devices-sdk/get-sdk-11.png)
- 
-Por padrão, os arquivos são baixados em sua pasta **Downloads**. Agora, você pode sair deste site. 
+
+Por padrão, os arquivos são baixados em sua pasta **Downloads**. Agora, você pode sair deste site.
 
 ## <a name="next-steps"></a>Próximas etapas
 

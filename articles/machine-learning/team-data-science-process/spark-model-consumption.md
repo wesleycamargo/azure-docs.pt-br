@@ -1,5 +1,5 @@
 ---
-title: Operacionalizar modelos de aprendizado de máquina criados no Spark | Microsoft Docs
+title: Operacionalizar modelos de machine learning criados no Spark | Processo de Ciência de Dados em Equipe
 description: Como carregar e pontuar modelos de aprendizado armazenados no WASB (Armazenamento de Blobs do Azure) com o Python.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 6ffe1dd960b6fd09539d093d8a632efc99452c00
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442470"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135298"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalizar modelos de aprendizado de máquina criados no Spark
 
@@ -120,7 +120,7 @@ Para saber mais sobre os kernels para notebooks Jupyter e as "palavras mágicas"
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Ingerir dados e criar um quadro de dados limpo
 Esta seção contém o código para uma série de tarefas necessárias para ingerir os dados a serem pontuados. Leia um exemplo de 0,1% associado do arquivo de corrida de táxi e tarifa (armazenado como um arquivo. tsv), formate os dados e crie um quadro de dados limpo.
 
-Os arquivos de corrida de táxi e tarifa foram associados com base no procedimento fornecido no tópico: [O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight](hive-walkthrough.md) .
+Os arquivos de corridas e tarifas de táxi foram associados com base no procedimento fornecido no tópico [O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do HDInsight](hive-walkthrough.md).
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Consumir modelos do Spark por meio de uma interface Web
-O Spark fornece um mecanismo para enviar remotamente trabalhos em lotes ou consultas interativas por meio de uma interface REST com um componente chamado Livy. O Livy está habilitado por padrão no cluster Spark no HDInsight. Para saber mais sobre o Livy, confira: [Enviar trabalhos em Spark remotamente usando o Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+O Spark fornece um mecanismo para enviar remotamente trabalhos em lotes ou consultas interativas por meio de uma interface REST com um componente chamado Livy. O Livy está habilitado por padrão no cluster Spark no HDInsight. Para obter mais informações sobre o Livy, consulte: [Enviar trabalhos do Spark remotamente usando o Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Você pode usar Livy para enviar um trabalho que pontua em lotes um arquivo armazenado em um blob do Azure e grava os resultados em outro blob. Para fazer isso, carregue o script em Python do   
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) no blob do cluster Spark. Você pode usar uma ferramenta como o **Explorador do Armazenamento do Microsoft Azure** ou o **AzCopy** para copiar o script no blob de cluster. Em nosso caso, carregamos o script em ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -587,5 +587,5 @@ Se você preferir uma experiência de cliente gratuito de código, use os [Aplic
 ![Designer de Aplicativos Lógicos](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>O que vem a seguir?
-**Validação cruzada e limpeza de hiperparâmetro**: confira [Modelagem e exploração de dados avançados com o Spark](spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro.
+**Validação cruzada e limpeza de hiperparâmetro**: Confira [Modelagem e exploração de dados avançados com o Spark](spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro.
 

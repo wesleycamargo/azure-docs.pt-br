@@ -1,21 +1,22 @@
 ---
-title: Entidades predefinidas para LUIS (Reconhecimento vocal)
+title: Entidades predefinidas
 titleSuffix: Azure Cognitive Services
 description: O LUIS incluem um conjunto de entidades predefinidas para reconhecer tipos comuns de informações, como datas, horas, números, medidas e moeda. O suporte a entidade predefinida varia conforme a cultura do seu aplicativo de LUIS.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139967"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103924"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades predefinidas para reconhecer os tipos de dados comuns
 
@@ -54,6 +55,12 @@ Teste a nova intenção no ponto de extremidade adicionando um valor para o par�
 |cancelar o compromisso em 3 de março|LUIS retornou o mais recente 3 de março no passado (03-03-2018) e 3 de março do futuro (03-03-2019) porque o enunciado não especificou um ano.|
 |Agendar uma reunião às 10h|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>Marcação de entidades que contêm um token de entidade pré-criado
+ Se você tiver texto, como `HH-1234`, que você deseja marcar como uma entidade personalizada _e_ e tiver um [número pré-criado](luis-reference-prebuilt-number.md) adicionado ao modelo, não será possível marcar a entidade personalizada no portal do LUIS. Você pode marcá-la com a API. 
+
+ Para marcar esse tipo de token, em que parte dele já está marcada com uma entidade pré-criada, remova a entidade pré-criada do aplicativo LUIS. Você não precisa treinar o aplicativo. Em seguida, marque o token com sua própria entidade personalizada. Em seguida, adicione a entidade pré-criada de volta ao aplicativo LUIS.
+
+ Para obter outro exemplo, considere a declaração como uma lista de preferências de classe: `I want first year spanish, second year calculus, and fourth year english lit.` Se o aplicativo LUIS tiver um ordinal pré-criado adicionado, `first`, `second` e `fourth` já estarão marcados com ordinais. Se você deseja capturar o ordinal e a classe, pode criar uma entidade de composição e encapsulá-la no ordinal pré-criado e na entidade personalizada para o nome de classe.
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284720"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954605"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Não é possível conectar-se remotamente a uma VM porque a porta RDP não está habilitada no NSG
 
@@ -26,7 +26,7 @@ Este artigo explica como resolver um problema em que você não pode se conectar
 
 
 > [!NOTE] 
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). É recomendável que você use o modelo de implantação do Resource Manager em vez do modelo de implantação clássico para novas implantações. 
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). É recomendável que você use o modelo de implantação do Resource Manager em vez do modelo de implantação clássico para novas implantações. 
 
 ## <a name="symptom"></a>Sintoma
 
@@ -47,9 +47,9 @@ Para habilitar a porta RDP em um NSG, siga essas etapas:
     **Nome**: Port_3389 </br>
     **Porta**: 3389 </br>
     **Protocolo**: TCP </br>
-    **Origem**: qualquer uma </br>
-    **Destinos**: qualquer um </br>
-    **Ação**: permitir </br>
+    **Fonte**: Qualquer </br>
+    **Destinos**: Qualquer </br>
+    **Ação**: PERMITIR </br>
 
 No que você especificar o endereço IP de origem, essa configuração permite o tráfego somente de um endereço IP específico ou intervalo de endereços IP para conectar-se à VM. Certifique-se de que o computador que está usando para iniciar a sessão RDP está dentro do intervalo.
 

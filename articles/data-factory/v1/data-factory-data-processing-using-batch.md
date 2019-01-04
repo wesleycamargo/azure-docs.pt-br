@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976852"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317518"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -41,7 +41,7 @@ Com o serviço em Lotes, você define os recursos de computação do Azure para 
 * [Conceitos básicos do Lote](../../batch/batch-technical-overview.md)
 * [Visão geral do recurso de Lote](../../batch/batch-api-basics.md)
 
-Opcionalmente, para saber mais sobre o Batch, consulte [Documentação do lote](https://docs.microsoft.com/en-us/azure/batch/).
+Opcionalmente, para saber mais sobre o Batch, consulte [Documentação do lote](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Por que usar o Azure Data Factory?
 O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. Use o Data Factory para criar pipelines de dados gerenciados que movem dados dos armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Use o Data Factory para o processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Também agende pipelines de dados para serem executados de maneira agendada (por exemplo, por hora, diariamente e semanalmente). Monitore e gerencie rapidamente os pipelines de dados para identificar problemas e agir.
@@ -51,7 +51,7 @@ O Data Factory é um serviço de integração de dados baseado em nuvem que auto
 * [Introdução ao Data Factory](data-factory-introduction.md)
 * [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md)   
 
-Opcionalmente, para saber mais sobre o Data Factory, consulte a [Documentação do Data Factory](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
+Opcionalmente, para saber mais sobre o Data Factory, consulte a [Documentação do Data Factory](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory e Lote juntos
 O Data Factory inclui atividades internas. Por exemplo, a atividade de Cópia é usada para copiar/mover dados de um armazenamento de dados de origem para um armazenamento de dados de destino. A atividade do Hive é usada para processar dados usando clusters Hadoop (HDInsight) no Azure. Para obter uma lista de atividades de transformação compatíveis, consulte [Atividades de transformação de dados](data-factory-data-transformation-activities.md).
@@ -84,7 +84,7 @@ A lista a seguir fornece as etapas básicas do processo. A solução inclui cód
 ## <a name="implementation-of-the-sample-solution"></a>Implementação da solução de exemplo
 A solução de exemplo é intencionalmente simples. Ela foi projetada para mostrar como usar o Data Factory e o Lote juntos para processar conjuntos de dados. A solução conta o número de ocorrências do termo de pesquisa “Microsoft” em arquivos de entrada organizados em uma série temporal. Em seguida, ele gera a contagem em arquivos de saída.
 
-**Tempo:** se estiver familiarizado com os conceitos básicos do Azure, do Data Factory e do Lote e concluiu os pré-requisitos a seguir, essa solução levará de uma a duas horas para ser concluída.
+**Tempo:** se estiver familiarizado com os conceitos básicos do Azure, do Data Factory e do Lote e tiver concluído os pré-requisitos a seguir, essa solução levará de uma a duas horas para ser concluída.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 #### <a name="azure-subscription"></a>Assinatura do Azure
@@ -175,7 +175,7 @@ O método tem alguns componentes principais que você precisa entender:
   * **logger**. Use o agente para escrever comentários de depuração exibidos como o log do “Usuário” no pipeline.
 * O método retorna um dicionário que pode ser usado para unir atividades personalizadas no futuro. Esse recurso ainda não foi implementado e, portanto, basta retornar um dicionário vazio do método.
 
-#### <a name="procedure-create-the-custom-activity"></a>Procedimento: criar a atividade personalizada
+#### <a name="procedure-create-the-custom-activity"></a>Procedimento: Criar a atividade personalizada
 1. Crie um projeto de biblioteca de classes .NET no Visual Studio.
 
     a. Inicie o Visual Studio 2012/2013/2015.
@@ -805,7 +805,7 @@ Nesta etapa, você cria um pipeline com uma atividade, a atividade personalizada
 
 1. Clique em **Implantar** na barra de comandos para implantar o pipeline.
 
-#### <a name="step-5-test-the-pipeline"></a>Etapa 5: testar o pipeline
+#### <a name="step-5-test-the-pipeline"></a>Etapa 5: Testar o pipeline
 Nesta etapa, você testa o pipeline soltando arquivos nas pastas de entrada. Comece testando o pipeline com um arquivo para cada pasta de entrada.
 
 1. Na folha **Data factory** no portal do Azure, selecione **Diagrama**.
@@ -930,11 +930,11 @@ A depuração consiste em algumas técnicas básicas.
 #### <a name="extend-the-sample"></a>Estender o exemplo
 Estenda esta amostra para saber mais sobre os recursos do Data Factory e do Lote. Por exemplo, para processar fatias em um intervalo de tempo diferente, realize as seguintes etapas:
 
-1. Adicione as seguintes subpastas a `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 e 2015-11-16-09. Coloque os arquivos de entrada nessas pastas. Altere a hora de término do pipeline de `2015-11-16T05:00:00Z` para `2015-11-16T10:00:00Z`. Na exibição **Diagrama**, clique duas vezes em **InputDataset** e confirme se as fatias de entrada estão prontas. Clique duas vezes em **OutputDataset** para ver o estado das fatias de saída. Se estiverem no estado **Pronto**, verifique se os arquivos de saída estão na pasta de saída.
+1. Adicione as seguintes subpastas em `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 e 2015-11-16-09. Coloque os arquivos de entrada nessas pastas. Altere a hora de término do pipeline de `2015-11-16T05:00:00Z` para `2015-11-16T10:00:00Z`. Na exibição **Diagrama**, clique duas vezes em **InputDataset** e confirme se as fatias de entrada estão prontas. Clique duas vezes em **OutputDataset** para ver o estado das fatias de saída. Se estiverem no estado **Pronto**, verifique se os arquivos de saída estão na pasta de saída.
 
-1. Aumente ou diminua a configuração **concurrency** para entender como ela afeta o desempenho de sua solução, especialmente o processamento que ocorre no Lote. Para obter mais informações sobre a configuração **concurrency**, consulte a “Etapa 4: Criar e executar o pipeline com uma atividade personalizada”.
+1. Aumente ou diminua a configuração **concurrency** para entender como ela afeta o desempenho de sua solução, especialmente o processamento que ocorre no Lote. Para obter mais informações sobre a configuração de **simultaneidade**, confira a “Etapa 4: Criar e executar o pipeline com uma atividade personalizada.”
 
-1. Crie um pool com **Máximo de tarefas por VM**maior/menor. Para usar o novo pool criado, atualize o serviço vinculado do Lote na solução de data factory. Para obter mais informações sobre a configuração **Máximo de tarefas por VM**, consulte a “Etapa 4: Criar e executar o pipeline com uma atividade personalizada”.
+1. Crie um pool com **Máximo de tarefas por VM**maior/menor. Para usar o novo pool criado, atualize o serviço vinculado do Lote na solução de data factory. Para obter mais informações sobre a configuração das **Tarefas máximas por VM**, confira a "Etapa 4: Criar e executar o pipeline com uma atividade personalizada.”
 
 1. Crie um pool do Lote com o recurso **autoscale**. O dimensionamento automático de nós de computação em um pool do Lote é o ajuste dinâmico da potência de processamento usada pelo aplicativo. 
 
@@ -956,7 +956,7 @@ Estenda esta amostra para saber mais sobre os recursos do Data Factory e do Lote
 
 1. Na solução de exemplo, o método **Execute** invoca o método **Calculate**, que processa uma fatia de dados de entrada para produzir uma fatia de dados de saída. Escreva seu próprio método para processar dados de entrada e substitua a chamada do método **Calculate** no método **Execute** por uma chamada ao seu método.
 
-### <a name="next-steps-consume-the-data"></a>Próximas etapas: consumir os dados
+### <a name="next-steps-consume-the-data"></a>Próximas etapas: Consumir os dados
 Depois de processar dados, consuma-os com ferramentas online como o Power BI. Aqui estão links para ajudá-lo a entender o Power BI e como usá-lo no Azure:
 
 * [Explorar um conjunto de dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)

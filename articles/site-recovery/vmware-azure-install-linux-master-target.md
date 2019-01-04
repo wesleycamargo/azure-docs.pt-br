@@ -4,14 +4,14 @@ description: Saiba como configurar um servidor de destino mestre do Linux para o
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212362"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833305"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -39,8 +39,8 @@ Publique comentários ou perguntas no final deste artigo ou no [Fórum dos Servi
 
 Crie o destino mestre de acordo com as seguintes diretrizes de dimensionamento:
 - **RAM**: 6 GB ou mais
-- **Tamanho do disco do sistema operacional**: 100 GB ou mais (para instalar o sistema operacional)
-- **Tamanho de disco adicional para a unidade de retenção**: 1 TB
+- **Tamanho do disco de SO**: 100 GB ou mais (para instalar o SO)
+- **Tamanho de disco adicional para unidade de retenção**: 1 TB
 - **Núcleos de CPU**: 4 núcleos ou mais
 
 Há suporte para os kernels do Ubuntu a seguir.

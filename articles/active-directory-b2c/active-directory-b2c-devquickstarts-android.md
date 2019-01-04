@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344119"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833917"
 ---
-# <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: entrar usando um aplicativo Android
+# <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure Active Directory B2C: Entrar usando um aplicativo Android
 
 A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Esses padrões permitem utilizar qualquer biblioteca que você queira integrar com o Azure Active Directory B2C. Para ajudar você a usar outras bibliotecas, use um passo a passo como este para demonstrar como configurar bibliotecas de terceiros para que elas se conectem à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementa [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode se conectar à plataforma de identidade da Microsoft.
 
@@ -40,17 +40,17 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornec
 * Copie a **ID de aplicativo** atribuída ao aplicativo. Você precisará dessas informações posteriormente.
 * Configure um **URI de redirecionamento** de cliente nativo (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Você também precisará dela mais tarde.
 
-## <a name="create-your-policies"></a>Criar suas políticas
+## <a name="create-your-user-flows"></a>Criar seus fluxos de usuário
 
-No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Você deve criar esta política seguindo as instruções de [Artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar a política, não se esqueça de fazer o seguinte:
+No Azure Active Directory B2C, cada experiência do usuário é definida por uma [fluxo de usuário](active-directory-b2c-reference-policies.md), que é um conjunto de políticas que controlam o comportamento do Azure Active Directory. Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Você precisa criar esse fluxo de usuário, conforme descrito no [artigo de referência de fluxo de usuário](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Ao criar as duas políticas, não se esqueça de:
 
-* Escolha o **Nome de exibição** e os atributos de inscrição em sua política.
-* Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas. Você pode escolher outras declarações também.
-* Copie o **Nome** de cada política após criá-la. Ele deve ter o prefixo `b2c_1_`.  Posteriormente, você precisará do nome da política.
+* Escolha o **Nome de exibição** e os atributos de inscrição no seu fluxo de usuário.
+* Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em cada fluxo de usuário. Você pode escolher outras declarações também.
+* Copie o **Nome** de cada usuário após criá-lo. Ele deve ter o prefixo `b2c_1_`.  Você precisará do nome de fluxo do usuário mais tarde.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Depois de criar as políticas, você estará pronto para compilar o aplicativo.
+Depois de criar os fluxos de usuário, você estará pronto para compilar o aplicativo.
 
 ## <a name="download-the-sample-code"></a>Baixe o código de exemplo
 
@@ -69,7 +69,7 @@ O exemplo é uma modificação de exemplo fornecido pelo [AppAuth](https://openi
 Você pode configurar a comunicação com o Azure AD B2C especificando o URI de descoberta, ou especificando o ponto de extremidade de autorização e os URIs de ponto de extremidade de token. Em ambos os casos, você precisará das informações a seguir:
 
 * ID do locatário (por exemplo, contoso.onmicrosoft.com)
-* Nome da política (por exemplo, B2C\_1\_SignUpIn)
+* Nome do fluxo de usuário (por exemplo, B2C\_1\_SignUpIn)
 
 Se optar por descobrir automaticamente a autorização e os URIs de ponto de extremidade de token, você terá que buscar informações do URI de descoberta. O URI de descoberta pode ser gerado ao substituir o Tenant\_ID e o Policy\_Name na seguinte URL:
 

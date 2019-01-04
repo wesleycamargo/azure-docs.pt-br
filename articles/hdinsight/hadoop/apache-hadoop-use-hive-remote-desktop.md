@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 03eb5958e1c447ec1239289538906a0cb3e4b30d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634202"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409047"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Usar Apache Hive com Apache Hadoop no HDInsight com Área de Trabalho Remota
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Neste artigo, você aprenderá como se conectar a um cluster HDInsight usando a Área de Trabalho Remota e então executar consultas Hive usando a CLI (Interface de Linha de Comando) do Hive.
+Neste artigo, você aprenderá como se conectar a um cluster HDInsight usando a Área de Trabalho Remota e então executar consultas usando a CLI (Interface de Linha de Comando) do Apache Hive.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > A Área de Trabalho Remota está disponível somente em clusters HDInsight que usam o Windows como o sistema operacional. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> No caso do HDInsight 3.4 ou superior, confira [Usar o Hive com o HDInsight e o Beeline](apache-hadoop-use-hive-beeline.md) para obter informações sobre como executar consultas do Hive diretamente no cluster de uma linha de comando.
+> No caso do HDInsight 3.4 ou superior, confira [Usar o Apache Hive com o HDInsight e o Beeline](apache-hadoop-use-hive-beeline.md) para obter informações sobre como executar consultas do Hive diretamente no cluster de uma linha de comando.
 
 ## <a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte:
@@ -55,18 +55,18 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
     Essas instruções executam as seguintes ações:
 
-   * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
-   * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são deixados no local original).
+   * **DROP TABLE**: Exclui a tabela e o arquivo de dados, caso a tabela já exista.
+   * **CREATE EXTERNAL TABLE**: Cria uma nova tabela ‘externa’ no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são deixados no local original).
 
-     > [!NOTE]
+     > [!NOTE]  
      > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
      >
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
      >
      >
-   * **ROW FORMAT**: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
-   * **STORED AS TEXTFILE LOCATION**: informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
-   * **SELECT**: seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
+   * **FORMATO DO PIN**: Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+   * **ARMAZENADO COMO ARQUIVO DE TEXTO LOCAL**: Informa ao Hive o local em que os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
+   * **SELECIONAR**: Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
    * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
 4. Use as instruções a seguir para criar uma nova tabela "interna" chamada **errorLogs**:
 
@@ -75,14 +75,14 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
     Essas instruções executam as seguintes ações:
 
-   * **CREATE TABLE IF NOT EXISTS**: cria uma tabela, se ela ainda não existir. Já que a palavra-chave **EXTERNAL** não é utilizada, essa é uma tabela interna, armazenada no depósito de dados do Hive e gerenciada totalmente pelo Hive.
+   * **CRIAR TABELA SE NÃO EXISTE**: Cria uma tabela, se ela ainda não existir. Já que a palavra-chave **EXTERNAL** não é utilizada, essa é uma tabela interna, armazenada no depósito de dados do Hive e gerenciada totalmente pelo Hive.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Diferentemente de tabelas **EXTERNAS** , o descarte de uma tabela interna excluirá também os dados subjacentes.
      >
      >
-   * **STORED AS ORC**: armazena os dados no formato ORC (colunar de linhas otimizadas). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
-   * **INSERT OVERWRITE ... SELECT**: seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
+   * **ARMAZENADO COMO ORC**: Armazena os dados no formato Colunar de linha otimizado (ORC). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
+   * **INSERT OVERWRITE ... SELECT**: Seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
 
      Para verificar se apenas as linhas que contêm **[ERROR]** na coluna t4 foram armazenadas na tabela **errorLogs**, use a seguinte instrução para retornar todas as linhas de **errorLogs**:
 
@@ -96,29 +96,29 @@ Como você pode ver, o comando do Hive fornece uma maneira fácil de executar co
 ## <a id="nextsteps"></a>Próximas etapas
 Para obter informações gerais sobre o Hive no HDInsight:
 
-* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 
-* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para as informações de depuração:
 
-* [Usar a interface de usuário do Tez no HDInsight baseado em Windows](../hdinsight-debug-tez-ui.md)
-* [Usar a exibição de Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md)
+* [Usar a interface do usuário do Apache Tez no HDInsight baseado no Windows](../hdinsight-debug-tez-ui.md)
+* [Usar a exibição de Apache Ambari Tez no HDInsight baseado no Linux](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -134,4 +134,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821037"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387073"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -58,21 +58,21 @@ Este documento se concentra principalmente na criação de um roteiro para prote
 
 ## <a name="develop-a-roadmap"></a>Desenvolver um roteiro 
 
-A Microsoft recomenda que você crie e execute um roteiro para proteger o acesso privilegiado contra invasores virtuais. Você sempre pode ajustar seu roteiro para acomodar seus recursos existentes e os requisitos específicos dentro da sua organização. Cada estágio de nossos planos deverá aumentar o custo e a dificuldade de adversários de atacar o acesso privilegiado ao seu local, nuvem e ativos híbridos. A Microsoft recomenda os seguintes quatro estágios de roteiro: este roteiro recomendado programa primeiro as implementações mais eficazes e mais rápidas, com base nas experiências da Microsoft contra incidente e resposta de a ataques cibernéticos. Essas linhas do tempo para este roteiro são aproximadas.
+A Microsoft recomenda que você crie e execute um roteiro para proteger o acesso privilegiado contra invasores virtuais. Você sempre pode ajustar seu roteiro para acomodar seus recursos existentes e os requisitos específicos dentro da sua organização. Cada estágio de nossos planos deverá aumentar o custo e a dificuldade de adversários de atacar o acesso privilegiado ao seu local, nuvem e ativos híbridos. A Microsoft recomenda os quatro estágios de roteiro a seguir: Este roteiro recomendado programa primeiro as implementações mais eficazes e mais rápidas, com base nas experiências da Microsoft contra incidente e resposta de a ataques cibernéticos. Essas linhas do tempo para este roteiro são aproximadas.
 
 ![Etapas do roteiro com linhas do tempo](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
-* Etapa 1 (24 a 48 horas): itens críticos, recomendamos que você faça imediatamente
+* Estágio 1 (24 a 48 horas): Itens críticos, recomendamos que você faça imediatamente
 
-* Etapa 2 (2 a 4 semanas): reduzir as técnicas de ataque usados com mais frequência
+* Estágio 2 (2 a 4 semanas): Reduzir as técnicas de ataque usados com mais frequência
 
-* Etapa 3 (1 a 3 meses): criar visibilidade e controle total da atividade do administrador
+* Estágio 3 (1 a 3 meses): Criar visibilidade e obter controle total da atividade do administrador
 
-* Etapa 4 (seis meses adiante): continuar criando defesas para proteger ainda mais a plataforma de segurança
+* Estágio 4 (seis meses ou mais): Continuar criando defesas para proteger ainda mais sua plataforma de segurança
 
 Essa estrutura de roteiro foi projetada para maximizar o uso de tecnologias da Microsoft que você já tiver implantado. Você também pode tirar proveito das tecnologias de segurança atuais e futuras e integrar ferramentas de segurança de outros fornecedores que você já tenha implantado ou que planeja implantar. 
 
-## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Etapa 1: itens críticos, recomendamos que você faça imediatamente
+## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Estágio 1: Itens críticos, recomendamos que você faça imediatamente
 
 ![Etapa 1](./media/directory-admin-roles-secure/stage-one.png)
 
@@ -121,9 +121,9 @@ Avalie as contas que são atribuídas ou qualificadas para a função de adminis
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ative a autenticação multifator e registre todas as outras contas altamente privilegiadas de usuário único federado não administrador 
 
-Exija o Azure Multi-Factor Authentication (MFA) na entrada para todos os usuários individuais que são atribuídos permanentemente a uma ou mais das funções de administrador do Azure AD: Administrador Global, administrador de funções com privilégios, administrador do Exchange Online e administrador SharePoint Online. Use o guia para habilitar [Multi-factor Authentication (MFA) para suas contas de administrador](../authentication/howto-mfa-userstates.md) e certifique-se de que todos os usuários se registraram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas na etapa 2 e 3 do guia [Proteger o acesso a dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Exigir MFA (Autenticação Multifator) na entrada para todos os usuários individuais atribuídos permanentemente a uma ou mais das funções de administrador do Azure AD: Administrador global, Administrador de Função com Privilégios, administrador do Exchange Online e administrador SharePoint Online. Use o guia para habilitar [Multi-factor Authentication (MFA) para suas contas de administrador](../authentication/howto-mfa-userstates.md) e certifique-se de que todos os usuários se registraram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas na etapa 2 e 3 do guia [Proteger o acesso a dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
-## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Etapa 2: reduzir as técnicas de ataque usados com mais frequência
+## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Estágio 2: Reduzir as técnicas de ataque usados com mais frequência
 
 ![Etapa 2](./media/directory-admin-roles-secure/stage-two.png)
 
@@ -196,7 +196,7 @@ A execução de resposta a incidentes efetivamente é uma tarefa complexa. Porta
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>Proteja as contas as contas administrativas locais, se ainda não tiver feito isso
 
-Se o seu locatário do Active Directory do Azure estiver sincronizado ao Active Directory no local, em seguida, siga as orientações em [Roteiro de Acesso Privilegiado à Segurança](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Etapa 1. Isso inclui a criação de contas de administrador separada para usuários que precisam realizar tarefas administrativas do local, implantando estações de trabalho de acesso privilegiado para administradores do Active Directory e criar senhas de administrador local exclusivo para estações de trabalho e servidores.
+Se o seu locatário do Azure Active Directory estiver sincronizado ao Active Directory local, siga as orientações em [Roteiro de Acesso Privilegiado à Segurança](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Estágio 1. Isso inclui a criação de contas de administrador separada para usuários que precisam realizar tarefas administrativas do local, implantando estações de trabalho de acesso privilegiado para administradores do Active Directory e criar senhas de administrador local exclusivo para estações de trabalho e servidores.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Etapas adicionais para as organizações a gerenciar o acesso do Azure
 
@@ -210,7 +210,7 @@ As contas da Microsoft de outros programas, como o Xbox Live e Outlook não deve
 
 #### <a name="monitor-azure-activity"></a>Monitorar a atividade do Azure
 
-O Log de Atividades do Azure fornece um histórico de eventos no nível da assinatura no Azure. Oferece informações sobre quem criou, atualizou ou excluiu quais recursos e quando fez isso. Para obter mais informações, consulte [Auditar e receber notificações sobre ações importantes em sua assinatura do Azure](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
+O Log de Atividades do Azure fornece um histórico de eventos no nível da assinatura no Azure. Oferece informações sobre quem criou, atualizou ou excluiu quais recursos e quando fez isso. Para obter mais informações, consulte [Auditar e receber notificações sobre ações importantes em sua assinatura do Azure](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Etapas adicionais para as organizações a gerenciar o acesso do Azure 
@@ -220,7 +220,7 @@ O Log de Atividades do Azure fornece um histórico de eventos no nível da assin
 Prepare as políticas de acesso condicional para o local e os aplicativos hospedados em nuvem. Se você tiver os dispositivos no local de trabalho dos usuários, obtenha mais informações de [Configurar acesso condicional local usando o registro do dispositivo Azure Active Directory](../active-directory-device-registration-on-premises-setup.md).
 
 
-## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>Etapa 3: criar visibilidade e controle total da atividade do administrador
+## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>Estágio 3: Criar visibilidade e controle total da atividade do administrador
 
 ![Etapa 3](./media/directory-admin-roles-secure/stage-three.png)
 
@@ -247,7 +247,7 @@ Os invasores podem tentar contas com privilégios para obter acesso a dados e si
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Analise as recomendações do Instituto Nacional de padrões e tecnologia para lidar com incidentes 
 
-O Instituto Nacional de padrões e tecnologia (NIST) fornece diretrizes para tratamento de incidentes, particularmente para analisar dados relacionados ao incidente e determinar a resposta apropriada a cada incidente. Para obter mais informações, consulte [(NIST) o Computer Security Incident Handling Guide (SP 61 800, Revisão 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+O Instituto Nacional de padrões e tecnologia (NIST) fornece diretrizes para tratamento de incidentes, particularmente para analisar dados relacionados ao incidente e determinar a resposta apropriada a cada incidente. Para obter mais informações, consulte [(NIST) o Computer Security Incident Handling Guide (SP 61 800, Revisão 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implementar Privileged Identity Management (PIM) para JIT a funções administrativas adicionais
 
@@ -275,7 +275,7 @@ Você pode fazer o download desse relatório de [gerenciamento de incidentes de 
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Continuar a proteger as contas administrativas privilegiadas locais
 
-Se o seu locatário do Azure Active Directory estiver sincronizado ao Active Directory no local, em seguida, siga as orientações em [Roteiro de Acesso Privilegiado à Segurança](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Etapa 2. Isso inclui implantar Estações de trabalho de acesso privilegiado para todos os administradores, exigir MFA, usando apenas Just Enough Admin para manutenção do controlador de domínio, reduzindo a superfície de ataque de domínios, implantar o ATA para detecção de ataque.
+Se o seu Azure Active Directory estiver conectado ao Active Directory local, siga as orientações em [Roteiro de Acesso Privilegiado à Segurança](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Estágio 2. Isso inclui implantar Estações de trabalho de acesso privilegiado para todos os administradores, exigir MFA, usando apenas Just Enough Admin para manutenção do controlador de domínio, reduzindo a superfície de ataque de domínios, implantar o ATA para detecção de ataque.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Etapas adicionais para as organizações a gerenciar o acesso do Azure
 
@@ -322,7 +322,7 @@ Para garantir que o acesso dos usuários está protegido nos aplicativos conecta
 
 O agente Cloud App Security SIEM integra Cloud App Security integra o Cloud App Security ao seu servidor SIEM para habilitar o monitoramento centralizado de atividades e alertas do Office 365. Ele é executado no servidor e recebe alertas e atividades de segurança do aplicativo de nuvem e transmite-as no servidor SIEM. Para obter mais informações, consulte [Integração SIEM](https://docs.microsoft.com/cloud-app-security/siem).
 
-## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Etapa 4: Continue criando defesas para uma postura de segurança mais proativa
+## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Estágio 4: Continue criando defesas para uma postura de segurança mais proativa
 
 
 ![Etapa 4](./media/directory-admin-roles-secure/stage-four.png)
@@ -390,7 +390,7 @@ Determine se você precisa [transferir a propriedade de uma assinatura do Azure 
 
 Para obter mais informações sobre como o Microsoft Office 365 trata os incidentes de segurança, consulte [gerenciamento de incidentes de segurança no Microsoft Office 365](https://aka.ms/Office365SIM).
 
-## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>Perguntas Frequentes: perguntas mais comuns que recebemos referente à proteção do acesso privilegiado  
+## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>Perguntas frequentes: Perguntas mais comuns que recebemos referente à proteção do acesso privilegiado  
 
 
 **P:** O que fazer se eu ainda não implementei os componentes de acesso seguro?
@@ -398,24 +398,24 @@ Para obter mais informações sobre como o Microsoft Office 365 trata os inciden
 **Resposta:** Defina no mínimo duas contas de vigilância, atribua o MFA a suas contas de administrador privilegiado e separe as contas de usuário das contas de administrador Global.
 
 
-**P:** Após uma violação, qual é o problema superior que precisa ser abordados primeiro?
+**P:** Após uma violação, qual é o problema superior que precisa ser abordado primeiro?
 
-**Resposta:** Certifique-se de que você está exigindo a autenticação mais forte para indivíduos altamente expostos.
-
-
-**P:** o que acontece se nosso administradores com privilégios forem desativados?
-
-**Resposta:** Crie uma conta de admin Global que está sempre atualizada.
+**Resposta:** Verifique se você está exigindo a autenticação mais forte para indivíduos altamente expostos.
 
 
-**P:** O que acontece se houver apenas um administrador global e não puder ser alcançado? 
+**P:** O que acontecerá se nossos administradores com privilégios forem desativados?
+
+**Resposta:** Crie uma conta do administrador Global que está sempre atualizada.
+
+
+**P:** O que acontecerá se houver apenas um administrador global e ele não puder ser contatado? 
 
 **Resposta:** Use uma de suas contas de vigilância para obter acesso privilegiado imediato.
 
 
 **P:** Como posso proteger administradores dentro da minha organização?
 
-**Resposta:** Dê acesso aos administradores para seus negócios diários como usuários “não privilegiados” padrão.
+**Resposta:** Dê acesso aos administradores para seus negócios diários como usuários "não privilegiados" padrão.
  
 
 **P:** Quais são as práticas recomendadas para a criação de contas de administrador no Azure AD?
@@ -423,9 +423,9 @@ Para obter mais informações sobre como o Microsoft Office 365 trata os inciden
 **Resposta:** Reserva com privilégios de acesso para as tarefas administrativas específicas.
 
 
-**P:** quais ferramentas existem para reduzir o acesso de administrador persistentes?
+**P:** Quais ferramentas existem para reduzir o acesso de administrador persistentes?
 
-**Resposta:** funções de administrador Privileged Identity Management (PIM) e Azure AD.
+**Resposta:** Funções de administrador Privileged Identity Management (PIM) e Azure AD.
 
 
 **P:** Qual é a posição da Microsoft sobre a sincronização de contas de administrador no Azure AD?

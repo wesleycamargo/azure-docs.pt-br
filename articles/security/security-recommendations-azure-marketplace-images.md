@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: barclayn
-ms.openlocfilehash: 4ae36f87c29975c82bb99f713893a9dc78a249e6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
-ms.locfileid: "23465401"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308780"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendações de segurança para as imagens do Azure Marketplace
 
@@ -41,7 +41,7 @@ Essas recomendações também podem ser úteis para organizações que não poss
 | Segurança                                                     | As entradas de histórico do shell/busca devem ser apagadas                                                                                                                                                                                                                                             |
 | Rede                                                   | O servidor SSH deve ser incluído por padrão. Defina o SSH keep alive para a configuração sshd com a seguinte opção: ClientAliveInterval 180                                                                                                                                                        |
 | Rede                                                   | A imagem não deve conter nenhuma configuração de rede personalizada. Exclua o resolv.conf: `rm /etc/resolv.conf`                                                                                                                                                                                |
-| Implantação                                                   | O Agente Linux do Azure mais recente deve ser instalado </br> - O agente deve ser instalado usando o pacote RPM ou Deb.  </br> - Você também pode usar o processo de instalação manual, mas os pacotes do instalador são recomendados e preferenciais. </br> - Se instalar o agente manualmente a partir do repositório github, primeiro copie o arquivo `waagent` para `/usr/sbin` e execute (como raiz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>O arquivo de configuração do agente será colocado em `/etc/waagent.conf`.    |
+| Implantação                                                   | O Agente Linux do Azure mais recente deve ser instalado </br> - O agente deve ser instalado usando o pacote RPM ou Deb.  </br> - Você também pode usar o processo de instalação manual, mas os pacotes do instalador são recomendados e preferenciais. </br> - Se estiver instalando o agente manualmente por meio do repositório GitHub, primeiro copie o arquivo `waagent` para `/usr/sbin` e execute (como raiz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>O arquivo de configuração do agente será colocado em `/etc/waagent.conf`.    |
 | Implantação                                                   | Garante que o Suporte do Azure pode fornecer aos nossos parceiros uma saída de console serial quando necessário, e fornece o tempo limite adequado para montagem do disco de sistema operacional a partir do armazenamento em nuvem. A imagem deve ter adicionado os seguintes parâmetros à linha de inicialização do Kernel: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` |
 | Implantação                                                   | Não troque a partição no disco do sistema operacional. A troca pode ser solicitada para a criação no disco de recurso local pelo Agente do Linux.         |
 | Implantação                                                   | É recomendável que uma partição de raiz única seja criada para o disco do sistema operacional.      |

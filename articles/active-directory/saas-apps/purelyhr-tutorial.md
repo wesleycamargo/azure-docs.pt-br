@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao PurelyHR | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao PurelyHR | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o PurelyHR.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c02dc274c5d22c16b2bda6d7896ee64c41d6e2ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88388be1a0687c3e56fd39dde2f70e40cf578f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438987"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841040"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Tutorial: integração do Azure Active Directory com o PurelyHR
+# <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Tutorial: Integração do Azure Active Directory com o PurelyHR
 
 Neste tutorial, você aprenderá a integrar o PurelyHR ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o PurelyHR da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -121,7 +121,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     Na caixa de texto **URL de Logon**, digite o valor usando o seguinte padrão: `https://<companyID>.purelyhr.com/sso-initiate`
      
     > [!NOTE]
-    > Esses não são os valores reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do cliente PurelyHR](http://support.purelyhr.com/) para obter esses valores. 
+    > Esses não são os valores reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do cliente PurelyHR](https://support.purelyhr.com/) para obter esses valores. 
 
 1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -143,7 +143,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/purelyhr-tutorial/purelyhr-dashboard-sso-settings.png)  
 
-    a. Abra o **Certificate(Bas64)** baixado do Portal do Azure no bloco de notas e copie o valor do certificado. Cole o valor copiado na caixa **Certificado X.509**.
+     a. Abra o **Certificate(Bas64)** baixado do Portal do Azure no bloco de notas e copie o valor do certificado. Cole o valor copiado na caixa **Certificado X.509**.
 
     b. Na caixa **URL do emissor Idp**, cole a **ID da Entidade SAML** copiada do Portal do Azure.
 
@@ -154,7 +154,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     e. Clique em **Salvar Alterações** para salvar as configurações.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -180,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/purelyhr-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

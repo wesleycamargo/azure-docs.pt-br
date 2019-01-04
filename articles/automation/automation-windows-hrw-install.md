@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a0e0000c4baa22ccc1c26c0e40ec62bb277104af
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252217"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993912"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
@@ -53,12 +53,12 @@ Execute as etapas a seguir para automatizar a instalação e configuração da f
 
    O script New-OnPremiseHybridWorker.ps1 requer os seguintes parâmetros durante a execução:
 
-   * *AutomationAccountName* (obrigatório): o nome da sua conta de automação.
-   * *AAResourceGroupName* (obrigatório): o nome do grupo de recursos associado à sua conta de automação.
-   * *OMSResourceGroupName* (opcional): o nome do grupo de recursos do workspace do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* será usado.
-   * *HybridGroupName* (obrigatório): o nome de um grupo de executável de manual híbrido que você especifica como um destino para os runbooks que suportam esse cenário.
-   * *SubscriptionID* (obrigatório): o ID de assinatura do Azure em que sua conta de automação está.
-   * *WorkspaceName* (opcional): o nome do workspace do Log Analytics. Se você não tiver um workspace do Log Analytics, o script cria e configura um.
+   * *AutomationAccountName* (obrigatório): O nome da sua conta de automação.
+   * *AAResourceGroupName* (obrigatório): O nome do grupo de recursos associado à sua conta de automação.
+   * *OMSResourceGroupName* (opcional): O nome do grupo de recursos do workspace do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* será usado.
+   * *HybridGroupName* (obrigatório): O nome de um grupo do Hybrid Runbook Worker que você especifica como um destino para os runbooks que dão suporte a esse cenário.
+   * *SubscriptionID* (obrigatório): A ID de assinatura do Azure em que sua conta de automação está.
+   * *WorkspaceName* (opcional): O nome do workspace do Log Analytics. Se você não tiver um workspace do Log Analytics, o script cria e configura um.
 
      > [!NOTE]
      > Atualmente, as únicas regiões de automação suportadas para integração com o Log Analytics são **Austrália do Sudeste**, **Leste dos EUA 2**, **Sudeste Asiático** e **Europa Ocidental**. Se a sua conta de automação não estiver em uma dessas regiões, o script criará um workspace do Log Analytics, mas avisará que não é possível vinculá-los.
@@ -85,7 +85,7 @@ Execute as duas primeiras etapas uma vez para o seu ambiente de automação e re
 
 #### <a name="1-create-a-log-analytics-workspace"></a>1. Criar um workspace do Log Analytics
 
-Se você ainda não possui um workspace do Log Analytics, crie uma usando as instruções em [Gerenciar seu workspace](../log-analytics/log-analytics-manage-access.md). Você pode usar um workspace existente se já tiver um.
+Se você ainda não possui um workspace do Log Analytics, crie uma usando as instruções em [Gerenciar seu workspace](../azure-monitor/platform/manage-access.md). Você pode usar um workspace existente se já tiver um.
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Adicione a solução de automação ao workspace Log Analytics
 

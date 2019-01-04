@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a8744afe3ec3e83e4a543942441118356730347c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141612"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957234"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar o OpenFoam com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
 Este artigo mostra uma maneira de executar OpenFoam em máquinas virtuais do Azure. Aqui, você implanta um cluster do Microsoft HPC Pack com nós de computação do Linux no Azure e executa um trabalho [OpenFoam](http://openfoam.com/) com Intel MPI. Você pode usar VMs do Azure compatíveis com RDMA para os nós de computação, para que eles se comuniquem pela rede RDMA do Azure. Outras opções para executar o OpenFoam no Azure incluem imagens comerciais totalmente configuradas disponíveis no Marketplace, como [OpenFoam 2.3 no CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud) da UberCloud e executando no [Lote do Azure](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -46,7 +46,7 @@ O Microsoft HPC Pack fornece recursos para executar aplicativos de HPC e paralel
   * Depois de implantar os nós do Linux, conecte-se via SSH para executar tarefas administrativas adicionais. Encontre os detalhes da conexão SSH para cada VM do Linux no portal do Azure.  
 * **Intel MPI** – Para executar o OpenFOAM em nós de computação SLES 12 HPC no Azure, é necessário instalar o tempo de execução do Intel MPI Library 5 no site [Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (O Intel MPI 5 está pré-instalado em imagens do HPC baseado em CentOS.)  Em uma etapa posterior, se necessário, instale o Intel MPI em seus nós de computação do Linux. Para se preparar para essa etapa, depois de se registrar na Intel, siga o link no email de confirmação para a página da Web relacionada. Em seguida, copie o link de download do arquivo .tgz para a versão apropriada do Intel MPI. Este artigo se baseia no Intel MPI versão 5.0.3.048.
 * **OpenFOAM Source Pack** - baixe o software OpenFOAM Source Pack do Linux no [site OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Este artigo baseia-se no Source Pack versão 2.3.1, disponível para download como OpenFOAM-2.3.1.tgz. Siga as instruções neste artigo para descompactar e compilar o OpenFOAM nos nós de computação do Linux.
-* **EnSight** (opcional): para ver os resultados da simulação do OpenFOAM, baixe e instale o programa de análise e visualização [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) . As informações de licenciamento e download estão no site EnSight.
+* **EnSight** (opcional): para ver os resultados da simulação do OpenFOAM, baixe e instale o programa de análise e visualização [EnSight](https://www.ansys.com/products/platform/ansys-ensight/data-interfaces) . As informações de licenciamento e download estão no site EnSight.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>Configurar a relação de confiança mútua entre os nós de computação
 Executar um trabalho de nós cruzados em vários nós do Linux requer que os nós tenham uma relação de confiança entre si (por **rsh** ou **ssh**). Quando você cria o cluster do HPC Pack com o script de implantação de IaaS do Microsoft HPC Pack, o script configura automaticamente uma relação de confiança mútua permanente para a conta de administrador que você especificar. Para usuários que não sejam administradores criados no domínio do cluster, é necessário configurar uma relação de confiança mútua temporária entre os nós quando um trabalho é alocado para eles e destruir a relação depois que o trabalho for concluído. Para estabelecer confiança para cada usuário, forneça um par de chaves RSA para o cluster usado pelo HPC Pack para a relação de confiança.
@@ -226,7 +226,7 @@ Use o compartilhamento de nós principais configurado anteriormente para compart
 4. Quando você usa os parâmetros padrão desse exemplo, pode levar vários minutos para ele ser executado, portanto, convém modificar alguns parâmetros para que ele seja executado mais rapidamente. Uma opção simples é modificar as variáveis da etapa de tempo deltaT e writeInterval no arquivo de sistema/controlDict. Esse arquivo armazena todos os dados de entrada relacionados ao controle de tempo e leitura e gravação de dados da solução. Por exemplo, você pode alterar o valor de deltaT de 0,05 para 0,5 e o valor de writeInterval de 0,05 para 0,5.
    
    ![Modificar as variáveis da etapa][step_variables]
-5. Especifique os valores desejados para as variáveis no arquivo system/decomposeParDict. Este exemplo usa dois nós do Linux, cada um com oito núcleos, portanto, defina numberOfSubdomains para 16 e n de hierarchicalCoeffs para (1 1 16), que significa executar o OpenFOAM em paralelo com 16 processos. Para obter mais informações, consulte [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)(Guia do usuário OpenFOAM: 3.4 Execução de aplicativos em paralelo).
+5. Especifique os valores desejados para as variáveis no arquivo system/decomposeParDict. Este exemplo usa dois nós do Linux, cada um com oito núcleos, portanto, defina numberOfSubdomains para 16 e n de hierarchicalCoeffs para (1 1 16), que significa executar o OpenFOAM em paralelo com 16 processos. Para obter mais informações, consulte [Guia do Usuário do OpenFOAM: 3.4 Executar aplicativos em paralelo](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
    
    ![Decompor processos][decompose]
 6. Execute os seguintes comandos no diretório sloshingTank3D para preparar os dados de exemplo.
@@ -362,7 +362,7 @@ Agora, você pode enviar um trabalho no Gerenciador de Cluster de HPC. Você pre
 10. Quando o trabalho for concluído, localize os resultados do trabalho nas pastas em C:\OpenFoam\sloshingTank3D e os arquivos de log em C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Exibir resultados no EnSight
-Opcionalmente, use o [EnSight](http://www.ensight.com/) para visualizar e analisar os resultados do trabalho do OpenFOAM. Para obter mais informações sobre a visualização e a animação no EnSight, consulte o [guia em vídeo](http://www.ensight.com/ensight.com/envideo/).
+Opcionalmente, use o [EnSight](http://www.ensight.com/) para visualizar e analisar os resultados do trabalho do OpenFOAM. 
 
 1. Depois de instalar o EnSight no nó principal, inicie-o.
 2. Abra o C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

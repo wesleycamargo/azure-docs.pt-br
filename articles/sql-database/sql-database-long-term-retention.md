@@ -3,7 +3,7 @@ title: Armazenar backups do Banco de Dados SQL do Azure por um período de até 
 description: Saiba como o Banco de Dados SQL do Azure dá suporte para o armazenamento de backups completos do banco de dados por até 10 anos.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 7225c90d0d85b2a7fe53f9d2d3b13f68a45d0471
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026170"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868201"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar backups do Banco de Dados SQL do Azure por um período de até 10 anos
 
 Muitos aplicativos têm fins regulamentares, de conformidade ou outros fins comerciais que exigem a retenção dos backups de banco de dados além dos 7 a 35 dias fornecidos pelos [backups automáticos](sql-database-automated-backups.md) do Banco de Dados SQL do Microsoft Azure. Usando o recurso LTR (retenção de longo prazo), é possível armazenar backups completos especificados do Banco de Dados SQL no armazenamento de blobs [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) por até 10 anos. É possível restaurar qualquer backup como um novo banco de dados.
 
 > [!NOTE]
-> LTR pode ser habilitado nos bancos de dados hospedados em servidores lógicos de Banco de Dados SQL do Microsoft Azure. Ainda não está disponível para bancos de dados hospedados em instâncias gerenciadas.
+> LTR pode ser habilitado nos bancos de dados hospedados em servidores lógicos de Banco de Dados SQL do Microsoft Azure. Ainda não está disponível para bancos de dados hospedados em instâncias gerenciadas. Você pode usar trabalhos do SQL Agent para agendar [backups somente cópia de banco de dados](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como uma alternativa ao LTR alem de 35 dias.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Como funciona a retenção de longo prazo do Banco de Dados SQL

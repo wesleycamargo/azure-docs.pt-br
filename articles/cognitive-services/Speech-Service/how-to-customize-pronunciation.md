@@ -1,24 +1,26 @@
 ---
-title: Personalizar a pronúncia com Serviço de Fala
+title: Personalizar a pronúncia – Serviço de Fala
 titlesuffix: Azure Cognitive Services
-description: Saiba como personalizar a pronúncia com o Serviço de Fala.
+description: Saiba como personalizar a pronúncia com o Serviço de Fala. Usando a pronúncia personalizada, você pode definir a forma fonética e a exibição de uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é de um arquivo de pronúncia (um arquivo .txt simples).
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: 93c8d3302444c7d764849fe41d529bc06696243f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6d57bdd8444f5bd6d763400c4df4395bb33a7bdd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466164"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099997"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar pronúncia personalizada
-Usando a pronúncia personalizada, você pode definir o formulário fonético e a exibição de uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa é um arquivo de pronúncia (um arquivo. txt simples).
+
+Usando a pronúncia personalizada, você pode definir o formulário fonético e a exibição de uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é de um arquivo de pronúncia (um arquivo .txt simples).
 
 Veja como ele funciona. Em um arquivo. txt único, você pode inserir várias entradas de pronúncia personalizada. A estrutura é a seguinte:
 
@@ -41,10 +43,10 @@ Cada arquivo .txt pode ter várias entradas, conforme mostrado na imagem a segui
 
 ![Exemplos de pronúncia de acrônimos](media/stt/custom-speech-pronunciation-file.png)
 
-A forma falada é a sequência fonética da forma de exibição. Ela é composta por letras, palavras ou sílabas. No momento, não há mais nenhuma orientação ou conjunto de padrões para ajudá-lo a formular a forma falada. 
+A forma falada é a sequência fonética da forma de exibição. Ela é composta por letras, palavras ou sílabas. No momento, não há mais nenhuma orientação ou conjunto de padrões para ajudá-lo a formular a forma falada.
 
 ## <a name="supported-pronunciation-characters"></a>Caracteres de pronúncia com suporte
-Atualmente, há suporte para a pronúncia personalizada nos idiomas inglês (en-US) e alemão (de-DE). O conjunto de caracteres que pode ser usado para expressar a forma falada de um termo (no arquivo de pronúncia personalizada) é mostrado na tabela a seguir: 
+Atualmente, há suporte para a pronúncia personalizada nos idiomas inglês (en-US) e alemão (de-DE). O conjunto de caracteres que pode ser usado para expressar a forma falada de um termo (no arquivo de pronúncia personalizada) é mostrado na tabela a seguir:
 
 | Linguagem | Caracteres |
 |---------- |----------|
@@ -55,15 +57,14 @@ Atualmente, há suporte para a pronúncia personalizada nos idiomas inglês (en-
 > O formulário de exibição de um termo (em um arquivo de pronúncia) deve ser gravado da mesma maneira em um conjunto de dados de adaptação de idioma.
 
 ## <a name="requirements-for-the-display-form"></a>Requisitos para a forma de exibição
-Uma forma de exibição só pode ser uma palavra personalizada, um termo, um acrônimo ou palavras compostas que combinem palavras existentes. Você também pode inserir pronúncias alternativas de palavras comuns. 
+Uma forma de exibição só pode ser uma palavra personalizada, um termo, um acrônimo ou palavras compostas que combinem palavras existentes. Você também pode inserir pronúncias alternativas de palavras comuns.
 
 >[!NOTE]
->Não recomendamos o uso desse recurso para reformular palavras comuns ou para modificar a forma falada. É melhor executar o decodificador para ver se algumas palavras incomuns (como abreviações, palavras técnicas e palavras estrangeiras) são decodificadas incorretamente. Se elas forem, adicione-as ao arquivo de pronúncia personalizada. No modelo de idioma, você deve sempre e somente usar a forma de exibição de uma palavra. 
+>Não recomendamos o uso desse recurso para reformular palavras comuns ou para modificar a forma falada. É melhor executar o decodificador para ver se algumas palavras incomuns (como abreviações, palavras técnicas e palavras estrangeiras) são decodificadas incorretamente. Se elas forem, adicione-as ao arquivo de pronúncia personalizada. No modelo de idioma, você deve sempre e somente usar a forma de exibição de uma palavra.
 
 ## <a name="requirements-for-the-file-size"></a>Requisitos para o tamanho do arquivo
-O tamanho do arquivo .txt que contém as entradas de pronúncia é limitado a 1 megabyte (MB). Normalmente, você não precisa carregar grandes quantidades de dados por meio desse arquivo. É provável que a maioria dos arquivos de pronúncia personalizada tenham apenas poucos kilobytes (KBs) de tamanho. A codificação do arquivo. txt para todas as localidades deve ser UTF-8 BOM. Para a localidade inglês, ANSI também é aceitável.
+O tamanho do arquivo .txt que contém as entradas de pronúncia é limitado a 1 megabyte (1 KB para chaves de chamada gratuitas). Normalmente, você não precisa carregar grandes quantidades de dados por meio desse arquivo. É provável que a maioria dos arquivos de pronúncia personalizada tenham apenas poucos kilobytes (KBs) de tamanho. A codificação do arquivo. txt para todas as localidades deve ser UTF-8 BOM. Para a localidade inglês, ANSI também é aceitável.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Melhore a precisão do reconhecimento criando um [modelo acústico personalizado](how-to-customize-acoustic-models.md).
 * Melhore a precisão do reconhecimento criando um [modelo de linguagem personalizado](how-to-customize-language-model.md).
- 

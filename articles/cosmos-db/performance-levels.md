@@ -1,21 +1,19 @@
 ---
-title: Níveis de desempenho do Azure Cosmos DB desativado | Microsoft Docs
+title: Níveis de desempenho do Azure Cosmos DB desativados
 description: Saiba mais sobre os níveis de desempenho S1, S2 e S3 disponíveis anteriormente no Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d1bb7551e6dfb6c42853ab95096f17f5285c69c1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 27e9e8c2cb3201ea4d4522662cd49609a2163997
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796641"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865549"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
 
@@ -104,7 +102,7 @@ Você pode migrar dos níveis de desempenho S1, S2 e S3 para coleções com uma 
 
 Esta seção aborda apenas a alteração do nível de desempenho da coleção usando nossa [API .NET do SQL](sql-api-sdk-dotnet.md), mas o processo é semelhante para nossos outros SDKs.
 
-Aqui está um trecho de código para mudar a taxa de transferência da coleção para 5.000 unidades de solicitação por segundo:
+Aqui está um snippet de código para mudar a taxa de transferência da coleção para 5.000 unidades de solicitação por segundo:
     
 ```csharp
     //Fetch the resource to be updated

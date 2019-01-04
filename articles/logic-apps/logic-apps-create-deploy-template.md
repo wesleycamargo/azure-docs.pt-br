@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304230"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089694"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Criar modelos do Azure Resource Manager para implantar aplicativos lógicos
 
@@ -27,11 +27,11 @@ Para obter mais informações sobre modelos do Resource Manager, consulte [Crian
 
 Um aplicativo lógico tem três componentes básicos:
 
-* **Recurso do aplicativo lógico**: contém informações sobre itens como plano de preços, localização e definição de fluxo de trabalho.
-* **Definição de fluxo de trabalho**: descreve as etapas do fluxo de trabalho do aplicativo lógico e como o mecanismo dos Aplicativos Lógicos deve executar o fluxo de trabalho.
+* **Recurso de aplicativo lógico**: Contém informações sobre coisas como plano de preços, localização e definição do fluxo de trabalho.
+* **Definição de fluxo de trabalho**: Descreve as etapas do fluxo de trabalho do aplicativo lógico e como o mecanismo dos Aplicativos Lógicos deve executar o fluxo de trabalho.
 É possível exibir essa definição na janela **Modo de Exibição de Código** do aplicativo lógico.
 No recurso do aplicativo lógico, é possível encontrar essa definição na propriedade `definition`.
-* **Conexões**: refere-se a recursos separados que armazenam com segurança os metadados sobre as conexões do conector, como uma cadeia de conexão e um token de acesso.
+* **Conexões**: Refere-se a recursos separados para armazenar com segurança os metadados sobre quaisquer conexões do conector, como uma cadeia de conexão e um token de acesso.
 No recurso do aplicativo lógico, o aplicativo lógico referencia esses recursos na seção `parameters`.
 
 É possível exibir todas essas partes de aplicativos lógicos existentes usando uma ferramenta como o [Gerenciador de Recursos do Azure](http://resources.azure.com).
@@ -173,7 +173,7 @@ Se você tiver um projeto existente do Grupo de Recursos, é possível adicionar
 
 ## <a name="deploy-a-logic-app-template"></a>Implantar um modelo de aplicativo lógico
 
-É possível implantar o modelo usando ferramentas como PowerShell, API REST, [Release Management no Azure DevOps](#team-services) e implantação de modelo por meio do portal do Azure.
+É possível implantar o modelo usando ferramentas como PowerShell, API REST, [Azure DevOps Azure Pipelines](#team-services) e implantação de modelo por meio do portal do Azure.
 Além disso, para armazenar os valores de parâmetros, recomendamos criar um [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Saiba como [implantar recursos com modelos do Azure Resource Manager e o PowerShell](../azure-resource-manager/resource-group-template-deploy.md) ou [implantar recursos com modelos do Azure Resource Manager e o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,11 +185,11 @@ Para autorizar conexões OAuth, abra o aplicativo lógico no Designer de Aplicat
 Há um script de exemplo no GitHub sob o projeto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
 
 <a name="team-services"></a>
-## <a name="azure-devops-release-management"></a>Release Management no Azure DevOps
+## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta como o Release Management no Azure DevOps com um modelo de implantação de aplicativo lógico. O Azure DevOps inclui uma tarefa [Implantar Grupo de Recursos do Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que pode ser adicionada a qualquer build ou pipeline de lançamento. Você precisa ter uma [entidade de serviço](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) da autorização a implantar e pode, então, gerar o pipeline de lançamento.
+Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta como o Azure Pipelines no Azure DevOps com um modelo de implantação de aplicativo lógico. O Azure DevOps inclui uma tarefa [Implantar Grupo de Recursos do Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que pode ser adicionada a qualquer build ou pipeline de lançamento. Você precisa ter uma [entidade de serviço](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) da autorização a implantar e pode, então, gerar o pipeline de lançamento.
 
-1. No Release Management, selecione **Vazio** para criar um pipeline vazio.
+1. No Azure Pipelines, selecione **Vazio** para criar um pipeline vazio.
 
     ![Criar um pipeline vazio][1]
 

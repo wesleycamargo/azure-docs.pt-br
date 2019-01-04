@@ -1,6 +1,6 @@
 ---
 title: Conectar-se a qualquer ponto de extremidade HTTP com Aplicativos Lógicos do Azure | Microsoft Docs
-description: Automatize tarefas e fluxos de trabalho que se comunicam com qualquer ponto de extremidade HTTP usando o Aplicativo Lógico do Azure
+description: Automatize tarefas e fluxos de trabalho que se comunicam com qualquer ponto de extremidade HTTP usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,7 +18,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50232861"
 ---
-# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chamar pontos de extremidade HTTP ou HTTPS com o Aplicativo Lógico do Azure
+# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chamar pontos de extremidade HTTP ou HTTPS com os Aplicativos Lógicos do Azure
 
 Com o Aplicativo Lógico do Azure e o conector do protocolo HTTP, você pode automatizar os fluxos de trabalho que se comunicam com qualquer ponto de extremidade HTTP ou HTTPS criando aplicativos lógicos. Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site. Quando ocorre um evento naquele ponto de extremidade, como o seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações especificadas. 
 

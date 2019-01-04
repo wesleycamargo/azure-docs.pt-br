@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: rayne
-ms.openlocfilehash: 1a9a89138dc71f7a0255b8ab4084182848d6e994
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 50ef6ff452713ec8a8023c5d5e3d58a4b91ea323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211733"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849795"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar o endereçamento IP para conectar a um site local secundário após failover
 
@@ -23,8 +23,8 @@ Depois de executar o failover de máquinas virtuais do Hyper-V nas nuvens do Sys
 
 Após o failover, há algumas maneiras de lidar com o endereçamento IP para máquinas virtuais replicadas: 
 
-- **Manter o mesmo endereço IP após o failover**: neste cenário, a VM replicada tem o mesmo endereço IP da VM primária. Isso simplifica problemas relacionados à rede após o failover, mas requer algum trabalho de infraestrutura.
-- **Usar um endereço IP diferente após failover**: nesse cenário, a VM obtém um novo endereço IP após o failover. 
+- **Reter o mesmo endereço IP após o failover**: Neste cenário, a VM replicada tem o mesmo endereço IP que a VM primária. Isso simplifica problemas relacionados à rede após o failover, mas requer algum trabalho de infraestrutura.
+- **Usar um endereço IP diferente após o failover**: Neste cenário, a VM obtém um novo endereço IP após o failover. 
  
 
 ## <a name="retain-the-ip-address"></a>Manter o endereço IP

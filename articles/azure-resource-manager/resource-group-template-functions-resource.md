@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6da2f7792df564ea3a41df37ab9b00574a205e5b
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 72b0aba4d2bf9cb666d1cb7ae30d0cbdefe3045b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219538"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438397"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos do Azure Resource Manager
 
@@ -290,7 +290,9 @@ Cada tipo de recurso retorna propriedades diferentes para a função de referên
 
 ### <a name="remarks"></a>Comentários
 
-A função de referência deriva seu valor de um estado de tempo de execução e, portanto, não pode ser usada na seção de variáveis. É possível usá-la na seção de saídas de um modelo ou [modelo vinculado](resource-group-linked-templates.md#link-or-nest-a-template). Não é possível usá-la na seção de saídas de um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado. 
+A função de referência recupera o estado de tempo de execução de um recurso implantado anteriormente ou um recurso implantado no modelo atual. Este artigo mostra exemplos de ambos os cenários. Ao referenciar um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao referenciar um recurso implantado anteriormente, forneça a ID de recurso e uma versão de API do recurso. Você pode determinar as versões de API válidas para o recurso na [referência de modelo](/azure/templates/).
+
+A função de referência pode ser usada somente nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou uma implantação.
 
 Usando a função de referência, você implicitamente declarar que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo e consulte o recurso pelo seu nome (não a ID de recurso). Você não precisa usar a propriedade dependsOn também. A função não é avaliada até que o recurso referenciado conclua a implantação.
 
@@ -445,13 +447,16 @@ Para implantar este modelo de exemplo com o PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
 ```
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) a seguir faz referência a uma conta de armazenamento que não está implantada nesse modelo. A conta de armazenamento já existe dentro do mesmo grupo de recursos.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) a seguir faz referência a uma conta de armazenamento que não está implantada nesse modelo. A conta de armazenamento já existe na mesma assinatura.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "storageResourceGroup": {
+            "type": "string"
+        },
         "storageAccountName": {
             "type": "string"
         }
@@ -459,8 +464,8 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
     "resources": [],
     "outputs": {
         "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
+            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]",
+            "type": "object"
         }
     }
 }
@@ -469,13 +474,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageResourceGroup=<rg-for-storage> storageAccountName=<your-storage-account>
 ```
 
 Para implantar este modelo de exemplo com o PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageResourceGroup <rg-for-storage> -storageAccountName <your-storage-account>
 ```
 
 <a id="resourcegroup" />
@@ -503,6 +508,8 @@ O objeto retornado está no seguinte formato:
 ```
 
 ### <a name="remarks"></a>Comentários
+
+A função `resourceGroup()` não pode ser usada em um modelo que está [implantado no nível da assinatura](deploy-to-subscription.md). Ela só pode ser usada em modelos que são implantados em um grupo de recursos.
 
 Um uso comum da função resourceGroup é criar recursos no mesmo local que o grupo de recursos. O exemplo a seguir usa o local do grupo de recursos para atribuir o local de um site Web.
 
@@ -588,9 +595,9 @@ O identificador é retornado no seguinte formato:
 
 ### <a name="remarks"></a>Comentários
 
-Os valores de parâmetro que você especifica dependem se o recurso está na mesma assinatura e grupo de recursos que a implantação atual.
+Quando usada com uma [implantação no nível da assinatura](deploy-to-subscription.md), a função `resourceId()` só pode recuperar a ID de recursos implantados nesse nível. Por exemplo, você pode obter a ID de uma definição de política ou uma definição de função, mas não a ID de uma conta de armazenamento. Para implantações em um grupo de recursos, o oposto é verdadeiro. Não é possível obter a ID de recurso dos recursos implantados no nível da assinatura.
 
-Para obter a ID de recurso de uma conta de armazenamento na mesma assinatura e grupo de recursos, use:
+Os valores de parâmetro que você especifica dependem se o recurso está na mesma assinatura e grupo de recursos que a implantação atual. Para obter a ID de recurso de uma conta de armazenamento na mesma assinatura e grupo de recursos, use:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
@@ -612,6 +619,12 @@ Para obter a ID de recurso para um banco de dados em um grupo de recursos difere
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
+```
+
+Para obter a ID de um recurso no nível da assinatura durante a implantação no escopo da assinatura, use:
+
+```json
+"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
 ```
 
 Frequentemente, você precisa usar essa função ao usar uma conta de armazenamento ou rede virtual em um grupo de recursos alternativo. O exemplo a seguir mostra como um recurso de um grupo de recursos externo pode ser facilmente usado:

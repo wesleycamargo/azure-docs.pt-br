@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1e2d809ed476b1789736f0d61dfea528b090da50
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8c60e7dec2d2a9bc3e063adfee0ffaff63417265
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447114"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960156"
 ---
-> [!WARNING]
-> A integração do Azure Active Directory B2C está disponível somente nas camadas [Desenvolvedor, Standard e Premium](https://azure.microsoft.com/pricing/details/api-management/).
-
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o Azure Active Directory B2C no Gerenciamento de API do Azure
 
 ## <a name="overview"></a>Visão geral
+
 O Azure Active Directory B2C é uma solução de gerenciamento de identidade na nuvem para os seus aplicativos móveis e Web voltados para o consumidor. Você pode usá-lo para gerenciar o acesso ao portal do desenvolvedor. Este guia mostra a configuração necessária no seu serviço de gerenciamento de API para integrar com o Azure Active Directory B2C. Para saber mais sobre como habilitar o acesso ao portal do desenvolvedor usando o Azure Active Directory clássico, veja [Como autorizar contas de desenvolvedor usando o Azure Active Directory].
 
 > [!NOTE]
 > Para completar as etapas deste guia, primeiro tenha um locatário do Azure Active Directory B2C no qual criar um aplicativo. Além disso, você precisa ter políticas de entrada e de inscrição prontas. Para saber mais, veja [Visão geral do Azure Active Directory B2C].
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Autorizar contas de desenvolvedor usando o Azure Active Directory B2C
 
@@ -91,7 +89,7 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
   ![Políticas][api-management-howto-aad-b2c-policies]
 
   > [!NOTE]
-  > Para saber mais sobre políticas, veja [Azure Active Directory B2C: estrutura de política extensível].
+  > Para obter mais informações sobre políticas, confira [Azure Active Directory B2C: Estrutura de política extensível].
 
 14. Depois que a configuração desejada for especificada, clique em **Salvar**.
 
@@ -121,7 +119,7 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 ## <a name="next-steps"></a>Próximas etapas
 
 *  [Visão geral do Azure Active Directory B2C]
-*  [Azure Active Directory B2C: estrutura de política extensível]
+*  [Azure Active Directory B2C: Estrutura de política extensível]
 *  [Usar a conta da Microsoft como provedor de identidade no Azure Active Directory B2C]
 *  [Usar a conta do Google como provedor de identidade no Azure Active Directory B2C]
 *  [Usar a conta do Linkedin como provedor de identidade no Azure Active Directory B2C]
@@ -187,12 +185,12 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
+[Accessing the Graph API]: https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 [Visão geral do Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [Como autorizar contas de desenvolvedor usando o Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
-[Azure Active Directory B2C: estrutura de política extensível]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
+[Azure Active Directory B2C: Estrutura de política extensível]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
 [Usar a conta da Microsoft como provedor de identidade no Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
 [Usar a conta do Google como provedor de identidade no Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
 [Usar a conta do Facebook como provedor de identidade no Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app

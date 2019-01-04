@@ -1,5 +1,5 @@
 ---
-title: Referência do Azure IoT EdgeAgent e EdgeHub | Microsoft Docs
+title: Referência de Propriedades desejadas do EdgeHub e EdgeAgent – Azure IoT Edge | Microsoft Docs
 description: Revise as propriedades específicas e os respectivos valores para os módulos gêmeos edgeAgent e edgeHub
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 01e1942b12de126aa34130f5a4b77dd0fb958aa6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: a0834e5886a1a088486109f967baf357e375ad05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568913"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100249"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propriedades dos módulos gêmeos agente do Edge e hub do Edge
 
@@ -108,7 +109,7 @@ O gêmeo do módulo para o hub do Edge se chama `$edgeHub` e coordena as comunic
 | Propriedade | DESCRIÇÃO |
 | -------- | ----------- |
 | lastDesiredVersion | Este inteiro refere-se à última versão das propriedades desejadas processadas pelo hub do Edge. |
-| lastDesiredStatus.code | Este é o código de status que se refere às últimas propriedades desejadas vistas pelo hub do Edge. Valores permitidos: `200` Êxito, `400` Configuração inválida, `500` Falha |
+| lastDesiredStatus.code | Este é o código de status que se refere às últimas propriedades desejadas vistas pelo hub do Edge. Valores permitidos: Valores permitidos: `200` Êxito, `400` Configuração inválida, `500` Falha |
 | lastDesiredStatus.description | A descrição do status |
 | clients.{device or moduleId}.status | O status de conectividade do dispositivo ou do módulo. Valores possíveis {"connected" \| "disconnected"}. Somente as identidades de módulo podem estar em estado desconectado. Os dispositivos downstream conectados ao hub do Edge aparecem somente quando conectados. |
 | clients.{device or moduleId}.lastConnectTime | Última hora em que o dispositivo ou o módulo estiveram conectados |

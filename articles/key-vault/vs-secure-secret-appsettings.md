@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625446"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252077"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvar com segurança as configurações de aplicativo secretas para um aplicativo Web
 
 ## <a name="overview"></a>Visão geral
 Este artigo descreve como salvar com segurança os parâmetros secretos de configuração de aplicativos para aplicativos do Azure.
 
-Tradicionalmente, todas as configurações de aplicativos Web são salvas em arquivos de configuração como Web.config. Essa prática leva a fazer check-in em configurações secretas, como credenciais de nuvem para sistemas públicos de controle do código-fonte como Github. Enquanto isso, pode ser difícil seguir a melhor prática de segurança devido à sobrecarga necessária para mudar o código-fonte e redefinir as configurações de desenvolvimento.
+Tradicionalmente, todas as configurações de aplicativos Web são salvas em arquivos de configuração como Web.config. Essa prática leva a fazer check-in de configurações secretas, como credenciais de nuvem, em sistemas públicos de controle do código-fonte, como o GitHub. Enquanto isso, pode ser difícil seguir a melhor prática de segurança devido à sobrecarga necessária para mudar o código-fonte e redefinir as configurações de desenvolvimento.
 
 Para verificar se o processo de desenvolvimento é seguro, bibliotecas de ferramentas e de estruturas são criadas para salvar as configurações de aplicativo secretas com segurança com pouca ou nenhuma alteração de código-fonte.
 

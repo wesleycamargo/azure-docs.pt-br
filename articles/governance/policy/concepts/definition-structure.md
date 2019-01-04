@@ -1,23 +1,25 @@
 ---
-title: Estrutura de definição da Política do Azure
+title: Detalhes da estrutura de definição de política
 description: Descreve como a definição de diretiva de recurso é usada pela Política do Azure para estabelecer convenções para recursos em sua organização, descrevendo quando a diretiva é aplicada e qual efeito tomar.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: f1332e1622c34a33dd264a1115a0fd7f37ee8ba7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283283"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383962"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
-Definição de política de recursos usada pelo Azure Policy permite que você estabeleça convenções para recursos em sua organização descrevendo quando a política é aplicada e a ação a realizar. Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou você pode exigir que todos os recursos tenham uma marca específica. As políticas são herdadas por todos os recursos filho. Então, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
+Definições de política de recurso são usadas pelo Azure Policy para estabelecer convenções para recursos. Cada definição descreve a conformidade do recurso e o efeito que ocorre quando um recurso não está em conformidade.
+Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou você pode exigir que todos os recursos tenham uma marca específica. As políticas são herdadas por todos os recursos filho. Assim, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
 
 O esquema usado pela política do Azure pode ser encontrado aqui: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
@@ -73,9 +75,9 @@ O **modo** determina quais tipos de recursos serão avaliados para uma política
 - `all`: avaliar grupos de recursos e todos os tipos de recursos
 - `indexed`: avaliar apenas os tipos de recursos que oferecem suporte a marcas e local
 
-É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o modo **parâmetro** manualmente. Se a definição de política não contiver um valor **no modo** o padrão será `all` no Azure PowerShell e `null` na CLI do Azure, o que equivale a `indexed`, para compatibilidade com versões anteriores.
+É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o modo **parâmetro** manualmente. Se a definição de política não incluir um valor **modo**, ela usará como padrão `all` no Azure PowerShell e `null` na CLI do Azure. Um modo `null` é o mesmo que usar `indexed` para dar suporte à compatibilidade com versões anteriores.
 
-`indexed` deve ser usado ao criar políticas que irão impor marcas ou locais. Isso não é obrigatório, mas impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A única exceção a isso são **grupos de recursos**. As políticas que estão tentando impor local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md).
+`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>parâmetros
 
@@ -86,7 +88,8 @@ Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir pa
 > A definição de parâmetros para uma definição de política ou iniciativa só pode ser configurada durante a criação inicial da política ou iniciativa. A definição de parâmetros não poderá ser alterada posteriormente.
 > Isso impede que atribuições existentes da política ou da iniciativa sejam tornadas inválidas indiretamente.
 
-Por exemplo, você pode definir uma política para uma propriedade de recurso para limitar os locais em que os recursos podem ser implantados. Nesse caso, você declararia os seguintes parâmetros ao criar sua política:
+Por exemplo, você pode definir uma política para limitar os locais em que os recursos podem ser implantados.
+Quando você cria sua política, declarara os seguintes parâmetros:
 
 ```json
 "parameters": {
@@ -123,16 +126,16 @@ Na regra de política, você faz referência a parâmetros com a seguinte sintax
 
 ## <a name="definition-location"></a>Local da definição
 
-Durante a criação de uma iniciativa ou política, é necessário especificar o local da definição. O local da definição deve ser um grupo de gerenciamento ou uma assinatura e determina o escopo para o qual pode ser atribuída a iniciativa ou política. Os recursos devem ser membros diretos ou filhos da hierarquia do local da definição para direcionar para a atribuição.
+Durante a criação de uma iniciativa ou política, é necessário especificar o local da definição. O local da definição deve ser um grupo de gerenciamento ou uma assinatura. Esse local determina o escopo para o qual pode ser atribuída a iniciativa ou política. Os recursos devem ser membros diretos ou filhos da hierarquia do local da definição para direcionar para a atribuição.
 
 Se o local da definição for:
 
 - **Assinatura**: somente os recursos dentro dessa assinatura podem ser atribuídos à política.
-- **Grupo de gerenciamento**: somente os recursos dentro de grupos de gerenciamento secundários e assinaturas secundárias podem ser atribuídos à política. Se você planeja aplicar esta definição de política a várias assinaturas, o local deve ser um grupo de gerenciamento que contém as assinaturas.
+- **Grupo de gerenciamento**: somente os recursos dentro de grupos de gerenciamento secundários e assinaturas secundárias podem ser atribuídos à política. Se você planeja aplicar esta definição de política a diversas assinaturas, o local deve ser um grupo de gerenciamento que contém as assinaturas.
 
 ## <a name="display-name-and-description"></a>Nome de exibição e descrição
 
-Você pode usar **displayName** e **description** para identificar a definição de política e fornecer contexto de quando ela é usado.
+Use **displayName** e **description** para identificar a definição de política e fornecer contexto de quando ela é usada.
 
 ## <a name="policy-rule"></a>Regra de política
 
@@ -197,14 +200,14 @@ Uma condição avalia se um **campo** atende a determinados critérios. As condi
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Ao usar as condições **like** e **notLike**, você pode fornecer um curinga (`*`) no valor.
-O valor não deve conter mais do que um caractere curinga (`*`).
+Ao usar as condições **like** e **notLike**, você fornece um curinga (`*`) no valor.
+O valor não deve ter mais de um curinga `*`.
 
-Ao usar as condições **match** e **notMatch**, forneça `#` para representar um dígito, `?` para uma letra, `.` para corresponder a todos os caracteres e qualquer outro caractere para representar o caractere real. Para exemplos, consulte [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
+Ao usar as condições **match** e **notMatch**, forneça `#` para corresponder a um dígito, `?` para uma letra, `.` para corresponder a todos os caracteres e qualquer outro caractere para corresponder ao caractere real. Para obter exemplos, veja [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campos
 
-As condições são formadas usando campos. Um campo representa as propriedades na carga de solicitação de recurso que é usada para descrever o estado do recurso.
+As condições são formadas usando campos. Um campo combina às propriedades no conteúdo da solicitação de recurso e descreve o estado do recurso.
 
 Há suporte para os seguintes campos:
 
@@ -214,12 +217,15 @@ Há suporte para os seguintes campos:
 - `kind`
 - `type`
 - `location`
+  - Use **global** para recursos independentes de local. Por exemplo, veja [Exemplos – locais permitidos](../samples/allowed-locations.md).
+- `identity.type`
+  - Retorna o tipo de [Identidade Gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md) habilitada no recurso.
 - `tags`
 - `tags.<tagName>`
   - Em que **\<tagName\>** é o nome da marca para a qual validar a condição.
   - Exemplo: `tags.CostCenter` em que **CostCenter** é o nome da marca.
 - `tags[<tagName>]`
-  - Essa sintaxe de colchete é compatível com nomes de marca que contêm pontos.
+  - Essa sintaxe de colchete é compatível com nomes de marca com um ponto.
   - Em que **\<tagName\>** é o nome da marca para a qual validar a condição.
   - Exemplo: `tags[Acct.CostCenter]` em que **Acct.CostCenter** é o nome da marca.
 - aliases de propriedade - para obter uma lista, confira [Aliases](#aliases).
@@ -232,7 +238,7 @@ A política é compatível com os seguintes tipos de efeito:
 - **Auditoria**: gera um evento de aviso no log de atividades, mas não falha na solicitação
 - **Acrescentar**: adiciona o conjunto de campos definido à solicitação
 - **AuditIfNotExists**: habilitará a auditoria se um recurso não existir
-- **DeployIfNotExists**: implanta um recurso se ele ainda não existir
+- **DeployIfNotExists**: implanta um recurso caso ele ainda não exista
 - **Desabilitado**: não avalia os recursos de conformidade para a regra de política
 
 Para **acrescentar**, você precisa fornecer os detalhes abaixo:
@@ -247,7 +253,7 @@ Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 
 O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON.
 
-Com **AuditIfNotExists** e **DeployIfNotExists**, você pode avaliar a existência de um recurso relacionado e aplicar uma regra e um efeito correspondente quando esse recurso não existir. Por exemplo, você pode exigir que um observador de rede seja implantado para todas as redes virtuais. Para obter um exemplo de como fazer auditoria quando uma extensão da máquina virtual não está implantada, consulte [Auditoria se não existir extensão](../samples/audit-ext-not-exist.md).
+**AuditIfNotExists** e **DeployIfNotExists** avaliam a existência de um recurso relacionado e aplicam uma regra. Se o recurso não corresponder à regra, o efeito será implementado. Por exemplo, você pode exigir que um observador de rede seja implantado para todas as redes virtuais. Para obter mais informações, veja o exemplo [Auditar se a extensão não existir](../samples/audit-ext-not-exist.md).
 
 O efeito **DeployIfNotExists** requer a propriedade **roleDefinitionId** na parte de **detalhes** da regra de política. Para saber mais, confira [Correção – configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
 
@@ -265,14 +271,14 @@ Para obter detalhes completos sobre cada efeito, ordem de avaliação, proprieda
 
 ### <a name="policy-functions"></a>Funções de política
 
-Um subconjunto de [Funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política. As funções atualmente com suporte são:
+Várias [Funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política. As funções atualmente com suporte são:
 
 - [parâmetros](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
 - [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
 - [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
 - [subscription](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
 
-Além disso, a função `field` está disponível para as regras de política. Essa função é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que está sendo avaliado. Um exemplo disso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
+Além disso, a função `field` está disponível para as regras de política. `field` é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que estão sendo avaliados. Um exemplo desse uso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-examples"></a>Exemplos de função de política
 
@@ -314,7 +320,7 @@ Este exemplo de regra de política usa a função de recurso `resourceGroup` par
 
 Você pode usar aliases de propriedade para acessar propriedades específicas para um tipo de recurso. Os aliases permitem restringir quais valores ou condições são permitidas para uma propriedade em um recurso. Cada alias é mapeado para caminhos em diferentes versões de API para um tipo de recurso específico. Durante a avaliação de política, o mecanismo de políticas obtém o caminho de propriedade para essa versão de API.
 
-A lista de aliases sempre está aumentando. Para descobrir quais aliases são atualmente suportados pela política do Azure, use um dos seguintes métodos:
+A lista de aliases sempre está aumentando. Para descobrir quais aliases atualmente são compatíveis com o Azure Policy, use um dos seguintes métodos:
 
 - Azure PowerShell
 
@@ -420,7 +426,7 @@ Como uma condição avaliada como false, o efeito **Negação** não é disparad
 
 ## <a name="initiatives"></a>Iniciativas
 
-Iniciativas permitem que você agrupe várias definições de políticas relacionadas para simplificar atribuições e gerenciamento, pois você trabalha com um grupo como um único item. Por exemplo, você pode agrupar todas as definições de política de marcação relacionadas em uma única iniciativa. Em vez de atribuir cada política individualmente, você aplica a iniciativa.
+Iniciativas permitem que você agrupe várias definições de políticas relacionadas para simplificar atribuições e gerenciamento, pois você trabalha com um grupo como um único item. Por exemplo, você pode agrupar as definições de política de marcação relacionadas em uma única iniciativa. Em vez de atribuir cada política individualmente, você aplica a iniciativa.
 
 O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas: `costCenter` e `productName`. Ele usa duas políticas internas para aplicar o valor da marca padrão.
 
@@ -502,5 +508,5 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 - Revisão [Noções básicas sobre os efeitos de política](effects.md)
 - Entender como [criar políticas de forma programática](../how-to/programmatically-create.md)
 - Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md)
-- Descubra como [corrigir recursos sem conformidade](../how-to/remediate-resources.md)
+- Saiba como [corrigir recursos fora de conformidade](../how-to/remediate-resources.md)
 - Examine o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md)

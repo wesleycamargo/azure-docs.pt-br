@@ -12,21 +12,26 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377975"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872876"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Camada de serviço em Hiperescala (versão prévia) para até 100 TB
+
+Banco de dados SQL do Azure baseia-se na arquitetura de mecanismo de banco de dados do SQL Server que é ajustada para o ambiente de nuvem para garantir a disponibilidade de 99,99%, até mesmo no caso de falhas de infraestrutura. Há três modelos de arquitetura que são usados no Banco de Dados SQL do Azure:
+- Uso Geral/Padrão 
+- Comercialmente Crítico/Premium
+- Hiperescala
 
 A camada de serviço em hiperescala no banco de dados SQL é a camada de serviço mais recente em que o modelo de compra baseado em vCore. Essa camada de serviço é um armazenamento altamente escalonável e o nível de desempenho de computação que aproveita a arquitetura do Azure para escalar horizontalmente o armazenamento e recursos de computação para um banco de dados do SQL Azure substancialmente além dos limites disponíveis para uso geral e negócios Camadas de serviço críticos.
 
 > [!IMPORTANT]
 > A camada de serviço em hiperescala está atualmente em versão prévia pública e disponível em regiões limitadas do Azure. Para obter a lista completa de região, confira [Regiões disponíveis da camada de serviço em Hiperescala](#available-regions). Não recomendamos executar nenhuma carga de trabalho de produção em bancos de dados do Hyperscale ainda. Você não pode atualizar um banco de dados Hyperscale para outras camadas de serviço. Para fins de teste, é recomendável fazer uma cópia do banco de dados atual e atualizar a cópia para a camada de serviço em hiperescala.
 > [!NOTE]
-> Para obter detalhes sobre as camadas de serviço de Uso Geral e Comercialmente Crítica no modelo de compra baseado em vCore, confira [Camadas de serviço de Uso Geral e Comercialmente Críticas](sql-database-service-tiers-general-purpose-business-critical.md). Para obter uma comparação do modelo de compra baseado no vCore com o modelo de compra baseado em DTU, consulte [Modelos e recursos de compra do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+> Para obter detalhes sobre as camadas de serviço de Uso Geral e Comercialmente Crítica no modelo de compra baseado em vCore, confira [Camadas de serviço de Uso Geral](sql-database-service-tier-general-purpose.md) e [Comercialmente Crítico](sql-database-service-tier-business-critical.md). Para obter uma comparação do modelo de compra baseado no vCore com o modelo de compra baseado em DTU, consulte [Modelos e recursos de compra do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
 > [!IMPORTANT]
 > A camada de serviço em Hiperescala está atualmente em versão prévia pública. Não recomendamos executar nenhuma carga de trabalho de produção em bancos de dados do Hyperscale ainda. Você não pode atualizar um banco de dados Hyperscale para outras camadas de serviço. Para fins de teste, é recomendável fazer uma cópia do banco de dados atual e atualizar a cópia para a camada de serviço em hiperescala.
 
@@ -142,7 +147,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-A camada de serviço em Hiperescala está atualmente em versão prévia pública e disponível nas regiões do Azure a seguir: Leste dos EUA 1, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Norte dos EUA, Europa Ocidental, Europa Setentrional, Oeste do Reino Unido, Leste da Austrália, Sudeste da Austrália, Sudeste da Ásia, Leste do Japão e Coreia Central
+A camada de serviço em hiperescala está atualmente em versão prévia pública e disponível nas seguintes regiões do Azure: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 

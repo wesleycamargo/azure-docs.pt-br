@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o MCM | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o MCM | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o MCM.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 5ddd28838e7db7b7f2798b18028aba56246fda4c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b8ff27413888e1745bd9a83e2e2e8c7b77fba34
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437783"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Tutorial: Integração do Azure Active Directory ao MCM
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar MCM da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,12 +112,12 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/mcm-tutorial/tutorial_mcm_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://myaba.co.uk/client-access/<companyname>/saml.php`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://myaba.co.uk/client-access/<companyname>/saml.php`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://myaba.co.uk/<companyname>`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente MCM](http://mcmtechnology.com/support/) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente MCM](https://mcmtechnology.com/support/) para obter esses valores. 
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -127,10 +127,10 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/mcm-tutorial/tutorial_general_400.png) 
 
-1. Para configurar o logon único no lado do **MCM**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte MCM](http://mcmtechnology.com/support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **MCM**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte MCM](https://mcmtechnology.com/support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -156,7 +156,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/mcm-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -166,7 +166,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-mcm-test-user"></a>Criar um usuário de teste do MCM
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no MCM. Trabalhe com a [equipe de suporte MCM](http://mcmtechnology.com/support/) para adicionar os usuários na plataforma MCM.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no MCM. Trabalhe com a [equipe de suporte MCM](https://mcmtechnology.com/support/) para adicionar os usuários na plataforma MCM.
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do MCM ou APIs fornecidas pelo MCM para provisionar as contas de usuário do AAD.

@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 12/14/2018
+ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883900"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413057"
 ---
 # <a name="monitor-migration-activity"></a>Monitorar a atividade de migração
 Neste artigo, você aprenderá a monitorar o progresso de uma migração em nível de banco de dados e em nível de tabela.
@@ -24,7 +24,7 @@ Neste artigo, você aprenderá a monitorar o progresso de uma migração em nív
 ## <a name="monitor-at-the-database-level"></a>Monitorar em nível de banco de dados
 Para monitorar a atividade em nível de banco de dados, exiba a folha de nível de banco de dados:
 
-![Folha de nível de banco de dados](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![Folha de nível de banco de dados](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > A seleção do hiperlink do banco de dados mostrará a lista de tabelas e o andamento da migração.
@@ -104,7 +104,7 @@ Para monitorar a atividade em nível de tabela, exiba a folha de nível de tabel
 
 A parte inferior da folha lista as tabelas e mostra um resumo rápido do andamento da migração.
 
-![Folha de nível de tabela – Resumo rápido](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![Folha de nível de tabela – Resumo rápido](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 A tabela a seguir descreve os campos mostrados nos detalhes de nível de tabela.
 
@@ -123,9 +123,9 @@ A tabela a seguir descreve os campos mostrados nos detalhes de nível de tabela.
 ## <a name="monitor-at-table-level--detailed-summary"></a>Monitorar em nível de tabela – resumo detalhado
 Há duas guias que mostram o progresso da migração no carregamento completo e na sincronização de dados incrementais.
     
-![Guia de carregamento completo](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![Guia de carregamento completo](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Guia de sincronização de dados incrementais](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![Guia de sincronização de dados incrementais](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 A tabela a seguir descreve os campos mostrados no andamento da migração em nível de tabela.
 
@@ -136,7 +136,7 @@ A tabela a seguir descreve os campos mostrados no andamento da migração em ní
 | **Atualização** | O número de atualizações da CDA nas linhas aplicadas ao destino.      |
 | **Excluir**      | Número de exclusões da CDA nas linhas aplicadas ao destino. |
 | **Total Aplicado**      | Total de atualizações, inserções e exclusões da CDA nas linhas aplicadas ao destino. |
-| **Erros de Dados** | O número de erros de dados ocorridos nesta tabela. Alguns exemplos dos erros são *511: não é possível criar uma linha do tamanho %d que é maior que o tamanho de linha máximo permitido de %d, 8114: erro ao converter o tipo de dados %ls em %ls.*  O cliente deve consultar os detalhes do erro na tabela attms_apply_exceptions no destino do Azure.    |
+| **Erros de Dados** | O número de erros de dados ocorridos nesta tabela. Alguns exemplos dos erros são *511: Não é possível criar uma linha de tamanho %d maior que o tamanho máximo permitido de linha %d, 8114: Erro ao converter o tipo de dados %ls em %ls.*  O cliente deve consultar os detalhes do erro na tabela dms_apply_exceptions no destino do Azure.    |
 
 > [!NOTE]
 > Os valores da CDA de Inserção, Atualização, Exclusão e Total Aplicado poderão diminuir quando o banco de dados for substituído ou a migração for reiniciada.

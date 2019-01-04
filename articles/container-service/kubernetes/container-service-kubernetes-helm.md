@@ -1,5 +1,5 @@
 ---
-title: Implantar contêineres com Helm no Azure Kubernetes
+title: (PRETERIDO) Implantar contêineres com Helm em Kubernetes do Azure
 description: Use a ferramenta de empacotamento Helm para implantar contêineres em um cluster Kubernetes no Serviço de Contêiner do Azure
 services: container-service
 author: sauryadas
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634146"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997879"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Use o Helm para implantar contêineres em um cluster Kubernetes
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(PRETERIDO) Usar o Helm para implantar contêineres em um cluster Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada deste artigo que usa o Serviço de Kubernetes do Azure, confira [Instalar aplicativos com o Helm no AKS (Serviço de Kubernetes do Azure)](../../aks/kubernetes-helm.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/) é uma ferramenta de empacotamento de software livre que ajuda a instalar e gerenciar o ciclo de vida de aplicativos Kubernetes. Semelhante a gerenciadores de pacotes do Linux, como Apt-get e Yum, o Helm é usado para gerenciar gráficos Kubernetes, que são pacotes de recursos de Kubernetes pré-configurados. Este artigo mostra como trabalhar com o Helm em um cluster Kubernetes implantado no Serviço de Contêiner do Azure.
 
@@ -27,7 +30,7 @@ O Helm tem dois componentes:
 
 * **Tiller** é um servidor que é executado no cluster Kubernetes e gerencia o ciclo de vida de seus aplicativos Kubernetes 
  
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Implantar um cluster Kubernetes](container-service-kubernetes-walkthrough.md) no Serviço de Contêiner do Azure
 

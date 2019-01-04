@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: c05a97dc5a5fe9a0e8a6f1a8598ff82fcf488ab2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253271"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836263"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurar o endereçamento IP para se conectar a VMs do Azure após failover
 
@@ -30,8 +30,8 @@ Neste artigo, você aprenderá sobre:
 
 Ao planejar sua estratégia de replicação e failover, uma das principais questões é como se conectar à VM do Azure após o failover. Há algumas opções ao criar sua estratégia de rede para VMs de réplica do Azure:
 
-- **Usar outro endereço IP**: Você pode optar por usar outro intervalo de endereços IP para a rede da VM replicada do Azure. Nesse cenário, a VM obtém um novo endereço IP após o failover e uma atualização de DNS é necessária.
-- **Manter o mesmo endereço IP**: Talvez você deseje usar o mesmo intervalo de endereços IP do site primário local para a rede do Azure após o failover. Manter os mesmos endereços IP simplifica a recuperação, reduzindo problemas relacionados à rede após o failover. No entanto, quando você estiver replicando para o Azure, precisará atualizar as rotas com o novo local dos endereços IP após o failover.
+- **Use um endereço IP diferente**: É possível optar por usar um intervalo de endereços IP diferente para a rede de VM do Azure replicada. Nesse cenário, a VM obtém um novo endereço IP após o failover e uma atualização de DNS é necessária.
+- **Manter o mesmo endereço IP**: Convém usar o mesmo intervalo de endereços IP do seu site local principal para a rede do Azure após o failover. Manter os mesmos endereços IP simplifica a recuperação, reduzindo problemas relacionados à rede após o failover. No entanto, quando você estiver replicando para o Azure, precisará atualizar as rotas com o novo local dos endereços IP após o failover.
 
 ## <a name="retaining-ip-addresses"></a>Retenção de endereços IP
 

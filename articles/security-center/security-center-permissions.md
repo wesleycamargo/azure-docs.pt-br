@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: de9186faa9c6228f1938a94016ef449ce8bb1899
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313428"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335924"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
 
@@ -59,7 +59,7 @@ A tabela a seguir exibe as funções e as ações permitidas na Central de Segur
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo explicou como a Central de Segurança usa o RBAC para atribuir permissões aos usuários e identificou as ações permitidas para cada função. Agora que você está familiarizado com as atribuições de função necessárias para monitorar o estado de segurança de sua assinatura, editar as políticas de segurança e aplicar recomendações, saiba como:
 
-- [Configurar políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md)
+- [Configurar políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md)
 - [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md)
 - [Monitoramento da integridade da segurança na Central de Segurança do Azure](security-center-monitoring.md)
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)

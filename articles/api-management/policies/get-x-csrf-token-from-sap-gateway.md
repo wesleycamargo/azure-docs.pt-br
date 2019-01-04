@@ -1,5 +1,5 @@
 ---
-title: Exemplo de política de gerenciamento API do Azure – Implementar o padrão X-CSRF | Microsoft Docs
+title: Exemplo de política de gerenciamento de API do Azure – Implementar o padrão X-CSRF | Microsoft Docs
 description: Exemplo de política de gerenciamento de API do Azure – Demonstra como implementar o padrão X-CSRF usado por muitas APIs. Este exemplo é específico do SAP Gateway.
 services: api-management
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 3a2067836a1488d117dced96f3935f2d1f8b1b48
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 2f4d26702443ef3113dad98cde1d13b292fe657a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946016"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870003"
 ---
 # <a name="implement-x-csrf-pattern"></a>Implementar padrão X-CSRF
 

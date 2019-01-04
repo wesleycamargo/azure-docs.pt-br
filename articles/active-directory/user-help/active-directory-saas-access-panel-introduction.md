@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705848"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834699"
 ---
 # <a name="what-is-the-myapps-portal"></a>O que é o portal do MyApps?
 
@@ -41,11 +41,11 @@ O portal MyApps é separado do portal do Azure. Ele não requer que você tenha 
 
 ## <a name="access-the-myapps-portal"></a>Acessar o portal do MyApps
 
-Você pode acessar o portal do MyApps acessando `http://myapps.microsoft.com`.
+Você pode acessar o portal do MyApps acessando `https://myapps.microsoft.com`.
 
-Se tiver a identidade visual personalizada configurada para sua página de entrada, poderá carregar a identidade visual anexando o domínio da sua organização à URL (por exemplo, `http://myapps.microsoft.com/<your domain>.com`).
+Se tiver a identidade visual personalizada configurada para sua página de entrada, poderá carregar a identidade visual anexando o domínio da sua organização à URL (por exemplo, `https://myapps.microsoft.com/<your domain>.com`).
 
-Você pode usar qualquer nome de domínio ativo ou verificado que foi configurado no seu portal do Azure, conforme mostrado aqui: ![o nome de domínio Wingtip Toys][2]  
+É possível usar qualquer nome de domínio ativo ou verificado que tenha sido configurado em seu portal do Azure, como mostrado aqui: ![Nome de domínio Wingtip Toys][2]  
 
 Distribua a URL a todos os usuários que entram nos aplicativos integrados ao Azure AD.
 

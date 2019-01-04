@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: a1a31ec7ee0d1daea9f178e51dc860279d3787ec
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615325"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438006"
 ---
 # <a name="routing-events-and-messages"></a>Roteamento de eventos e mensagens
 
@@ -23,9 +23,9 @@ As soluções de IoT geralmente unem vários serviços poderosos que incluem arm
 
 O Gêmeos Digitais do Azure oferece duas maneiras de integrar eventos da IoT em outros serviços ou aplicativos de negócios do Azure:
 
-* **Roteamento de eventos do Twins do Azure Digital**: um objeto no gráfico espacial que muda, dados de telemetria recebidos ou uma função definida pelo usuário que cria uma notificação com base em condições predefinidas pode acionar eventos do Gêmeos Digitais do Azure. Os usuários podem enviar esses eventos para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [tópicos do Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) ou [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) para processamento adicional.
+* **Roteamento de eventos dos Gêmeos Digitais do Azure**: Um objeto no grafo espacial que é alterado, dados telemétricos que são recebidos ou uma função definida pelo usuário que cria uma notificação com base em condições predefinidas pode disparar eventos dos Gêmeos Digitais do Azure. Os usuários podem enviar esses eventos para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [tópicos do Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) ou [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) para processamento adicional.
 
-* **Telemetria de dispositivo de roteamento**: além dos eventos de roteamentos, o recurso Gêmeos Digitais do Azure também pode rotear mensagens de telemetria brutas do dispositivo para os Hubs de Eventos para obter mais insights e análises. Esses tipos de mensagens não são processados pelo Gêmeos Digitais do Azure. E eles só estiverem encaminhados para o hub de eventos.
+* **Roteamento da telemetria de dispositivo**: Além do roteamento de eventos, os Gêmeos Digitais do Azure também podem encaminhar mensagens de telemetria bruta de dispositivo para os Hubs de Eventos para insights e análise posteriores. Esses tipos de mensagens não são processados pelo Gêmeos Digitais do Azure. E eles só estiverem encaminhados para o hub de eventos.
 
 Os usuários podem especificar um ou mais pontos de extremidade de saída para enviar eventos ou encaminhar mensagens. Eventos e mensagens serão enviados aos pontos de extremidade de acordo com essas preferências de roteamentos predefinidas. Em outras palavras, os usuários podem especificar um determinado ponto de extremidade para receber eventos de operação de gráfico, outro para receber eventos de telemetria de dispositivo e assim por diante.
 

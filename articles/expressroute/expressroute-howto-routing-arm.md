@@ -1,19 +1,19 @@
 ---
-title: 'Como configurar o roteamento (emparelhamento) para um circuito do ExpressRoute: Resource Manager: PowerShell: Azure | Microsoft Docs'
-description: Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito do ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
-documentationcenter: na
+title: 'Configurar o emparelhamento para um circuito – ExpressRoute: PowerShell: Azure | Microsoft Docs'
+description: Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: jaredro
-ms.openlocfilehash: 63c88838d943be028aa655863b96b68f6b5b1321
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: b8e9aadc63af563c47d42ed52445afbc270d98ec
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261750"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141526"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Criar e modificar o emparelhamento de um circuito do ExpressRoute usando o PowerShell
 
@@ -113,10 +113,10 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   * Uma sub-rede /30 ou /126 para o link secundário. Este valor deve ser um prefixo IPv4 ou IPv6 público válido próprio e registrado em um RIR/IRR.
   * Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
   * Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes.
-  * Prefixos anunciados: forneça uma lista com todos os prefixos que você pretende anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Caso você planeje enviar um conjunto de prefixos, poderá enviar uma lista separada por vírgulas. Esses prefixos devem ser registrados em seu nome em um RIR/IRR. Sessões BGP IPv4 exigem que prefixos IPv4 anunciados, e sessões BGP IPv6 exigem prefixos IPv6 anunciados. 
-  * Nome do registro de roteamento: você pode especificar o RIR/IRR com base no qual o número de AS e os prefixos estão registrados.
+  * Prefixos anunciados: Você precisa fornecer uma lista com todos os prefixos que pretende anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Caso você planeje enviar um conjunto de prefixos, poderá enviar uma lista separada por vírgulas. Esses prefixos devem ser registrados em seu nome em um RIR/IRR. Sessões BGP IPv4 exigem que prefixos IPv4 anunciados, e sessões BGP IPv6 exigem prefixos IPv6 anunciados. 
+  * Nome do registro de roteamento: é possível especificar o RIR/IRR no qual o número AS e os prefixos estão registrados.
   * Opcional:
-    * ASN de cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados.
+    * ASN do cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados.
     * Um Hash MD5, se você optar por usar um.
 
   Use o exemplo a seguir para configurar o emparelhamento da Microsoft para seu circuito:

@@ -1,11 +1,12 @@
 ---
 title: Provisionar uma Máquina Virtual de Inteligência Artificial Geográfica no Azure – Azure | Microsoft Docs
-description: Como provisionar uma Máquina Virtual de IA Geográfica no Azure.
+description: Saiba como criar e configurar a Máquina Virtual de Ciência de Dados de AI Geográfica. A Máquina Virtual de Ciência de Dados de AI Geográfica fornece as ferramentas para criar soluções de ML e AI usando dados geográficos.
 keywords: aprendizado profundo, IA, ferramentas de ciência de dados, máquina virtual de ciência de dados, análise Geoespacial
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239790"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103941"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Inteligência Artificial Geográfica no Azure 
 
@@ -48,24 +49,24 @@ Este é o procedimento para criar uma instância da VM de Ciência de Dados de I
 
    - **Noções básicas**
 
-      1. **Nome**: o nome do servidor de ciência de dados que está sendo criado.
+      1. **Nome**: Nome do servidor de ciência de dados que está sendo criado.
 
-      2. **Nome de Usuário**: ID de logon da conta de administrador.
+      2. **Nome de Usuário**: Identificação de logon da conta do administrador.
 
-      3. **Senha**: senha da conta de administrador.
+      3. **Senha**: Senha da conta do administrador.
 
-      4. **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado.
+      4. **Assinatura**: Se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado.
 
-      5. **Grupo de recursos**: você pode criar um novo ou usar um grupo de recursos existente **vazio** Azure na sua assinatura.
+      5. **Grupo de Recursos**: É possível criar um novo ou usar um grupo de recursos existente **vazio** do Azure na assinatura.
 
-      6. **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede. Caso precise executar um aprendizado profundo na GPU, escolha um dos locais no Azure que têm as instâncias de VM da GPU da Série NC. Atualmente, os locais que têm VMs de GPU são: **Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA 2, Europa Setentrional, Europa Ocidental**. Para obter a lista mais recente, verifique os [Produtos do Azure pela página da região](https://azure.microsoft.com/regions/services/) e procure **Série NC** em **Computação**. 
+      6. **Localização**: Selecione o data center mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede. Caso precise executar um aprendizado profundo na GPU, escolha um dos locais no Azure que têm as instâncias de VM da GPU da Série NC. Atualmente, as localizações que têm VMs de GPU são: **Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA 2, Europa Setentrional, Europa Ocidental**. Para obter a lista mais recente, verifique os [Produtos do Azure pela página da região](https://azure.microsoft.com/regions/services/) e procure **Série NC** em **Computação**. 
 
 
-   - **Configurações**: selecione um dos tamanhos de máquina virtual da GPU da Série NC, caso pretenda executar um aprendizado profundo na GPU da DSVM Geográfica. Caso contrário, escolha uma das instâncias baseadas em CPU.  Crie uma conta de armazenamento para sua VM. 
+   - **Configurações**: Selecione um dos tamanhos de máquina virtual da GPU da Série NC, caso planeje executar um aprendizado profundo na GPU da DSVM Geográfica. Caso contrário, escolha uma das instâncias baseadas em CPU.  Crie uma conta de armazenamento para sua VM. 
    
-   - **Resumo**: verifique se todas as informações inseridas estão corretas.
+   - **Resumo**: Verifique se todas as informações inseridas estão corretas.
 
-   - **Comprar**: clique em **Comprar** para iniciar o provisionamento. Um link para os termos do serviço é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho** . 
+   - **Comprar**: Clique em **Comprar** para iniciar o provisionamento. Um link para os termos do serviço é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho** . 
 
 >[!NOTE]
 > O provisionamento deve levar cerca de 20 a 30 minutos. O status do provisionamento é exibido no Portal do Azure.

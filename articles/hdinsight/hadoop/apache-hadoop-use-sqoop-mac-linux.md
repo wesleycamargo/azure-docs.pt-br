@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: bb6ad52f008ddeec5d3ecd3b0fdbc80dbf627101
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1b6a77e78d3385c9dfd4e43e0e4242c870eb8c57
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685915"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012548"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Use o Apache Sqoop para importar e exportar dados entre o Apache Hadoop no HDInsight e o banco de dados SQL
 
@@ -160,9 +160,9 @@ Você também pode usar o Sqoop para importar e exportar dados do SQL Server. As
 
 Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
-* [Usar o Oozie com o HDInsight](../hdinsight-use-oozie.md): use a ação do Sqoop no fluxo de trabalho do Oozie.
-* [Analisar dados de atraso de voos usando o HDInsight](../hdinsight-analyze-flight-delay-data.md): use o Hive para analisar dados de atraso de voos e o Sqoop para exportar dados para o banco de dados SQL do Azure.
-* [Carregar dados no HDInsight](../hdinsight-upload-data.md): localize outros métodos de carregamento de dados no HDInsight/Armazenamento de Blob do Azure.
+* [Usar Oozie com HDInsight](../hdinsight-use-oozie.md): Use a ação Sqoop em um fluxo de trabalho do Oozie.
+* [Analisar dados de atraso de voo usando HDInsight](../hdinsight-analyze-flight-delay-data.md): Use o Hive para analisar dados de atraso de voo e, em seguida, use o Sqoop para exportar dados para um banco de dados SQL do Azure.
+* [Carregar dados para HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para fazer upload de dados para HDInsight/Azure Storage Blob.
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
@@ -171,8 +171,8 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

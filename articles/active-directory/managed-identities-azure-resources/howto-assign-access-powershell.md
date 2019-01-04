@@ -1,6 +1,6 @@
 ---
-title: Como atribuir um acesso MSI a um recurso do Azure usando o PowerShell
-description: Instruções passo a passo sobre como atribuir um MSI em um recurso, acesso a outro recurso, usando o PowerShell.
+title: Como atribuir um acesso de identidade gerenciada a um recurso do Azure usando o PowerShell
+description: Instruções passo a passo para atribuir uma identidade gerenciada em um recurso, acessar outro recurso, usando o PowerShell.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -12,56 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 12/06/2018
 ms.author: daveba
-ms.openlocfilehash: 058578093a91d38f4eed8827888f79b5cc33ce87
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7ed61ead475acb81da4434c880954e801492351b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "47106272"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081550"
 ---
-# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Atribuir um acesso de MSI (Identidade de Serviço Gerenciado) a um recurso usando o PowerShell
+# <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Atribuir um acesso de identidade gerenciada a um recurso usando o PowerShell
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Depois de configurar um recurso do Azure com um MSI, você pode conceder o acesso de MSI a outro recurso, assim como qualquer entidade de segurança. Este exemplo mostra como conceder o acesso de MSI da máquina de virtual do Azure a uma conta de Armazenamento do Azure usando o PowerShell.
+Após configurar um recurso do Azure com uma identidade gerenciada, será possível conceder o acesso de identidade gerenciada a outro recurso, assim como qualquer entidade de segurança. Este exemplo mostra como conceder acesso de uma identidade gerenciada da máquina virtual do Azure para uma conta de armazenamento do Azure usando o PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-it-work)**.
+- Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Instale [a versão mais recente do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) se ainda não o fez.
 
-Instale também o [Azure PowerShell versão 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1), se ainda não tiver feito isso.
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Usar o RBAC para atribuir um acesso de identidade gerenciada a outro recurso
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Usar o RBAC para atribuir o acesso de MSI a outro recurso
+Após habilitar a identidade gerenciada em um recurso do Azure, [como uma VM do Azure](qs-configure-powershell-windows-vm.md):
 
-Depois de habilitar o MSI em um recurso do Azure, [como uma VM do Azure](qs-configure-powershell-windows-vm.md):
-
-1. Entrar no Azure usando o cmdlet `Connect-AzureRmAccount`. Use uma conta que está associada à assinatura do Azure sob a qual você configurou o MSI:
+1. Entrar no Azure usando o cmdlet `Connect-AzureRmAccount`. Use uma conta que está associada à assinatura do Azure na qual você configurou a identidade gerenciada:
 
    ```powershell
    Connect-AzureRmAccount
    ```
-2. Neste exemplo, fornecemos um acesso da VM do Azure para uma conta de armazenamento. Primeiro, usamos [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) para obter a entidade de serviço da VM chamada "myVM", que foi criada ao habilitarmos o MSI. Em seguida, usamos [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) para dar a VM acesso de "Leitor" para uma conta de armazenamento chamada "myStorageAcct":
+2. Neste exemplo, fornecemos um acesso da VM do Azure para uma conta de armazenamento. Primeiro, usamos [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) para obter a entidade de serviço da VM chamada `myVM`, que foi criada quando habilitamos a identidade gerenciada. Em seguida, usamos [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) para conceder à VM acesso de **Leitor** para uma conta de armazenamento chamada `myStorageAcct`:
 
     ```powershell
     $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
     New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="next-steps"></a>Próximas etapas
 
-Se o MSI para o recurso não aparecer na lista de identidades disponíveis, verifique se ele foi habilitado corretamente. Em nosso caso, podemos voltar à VM do Azure no [Portal do Azure](https://portal.azure.com) e:
-
-- Examine a página "Configuração" e certifique-se de que o MSI esteja habilitado = "Sim".
-- Examine a página "Extensões" e verifique se a extensão do MSI foi implantada com êxito.
-
-Se um deles estiver incorreto, reimplante o MSI em seu recurso ou solucione a falha de implantação.
-
-## <a name="related-content"></a>Conteúdo relacionado
-
-- Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](overview.md).
-- Para habilitar o MSI em uma VM do Azure, confira [Configurar um MSI (identidade do serviço gerenciada) usando o PowerShell](qs-configure-powershell-windows-vm.md).
-
-Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
-
+- [Identidade gerenciada para visão geral dos recursos do Azure](overview.md)
+- Para habilitar a identidade gerenciada em uma máquina virtual do Azure, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell](qs-configure-powershell-windows-vm.md).

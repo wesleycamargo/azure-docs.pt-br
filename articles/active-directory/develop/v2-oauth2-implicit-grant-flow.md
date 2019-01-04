@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424093"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962572"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos v2.0 - SPAs que usam o fluxo implícito
 
@@ -36,7 +36,7 @@ Com o ponto de extremidade v2.0, você pode autenticar usuários em seus aplicat
 
 Para esses aplicativos (AngularJS, Ember.js, React.js etc.), o Azure AD (Azure Active Directory) é compatível com o Fluxo de concessão implícita do OAuth 2.0. O fluxo está descrito na [Especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). O principal benefício é que ele permite que o aplicativo obtenha tokens do Azure AD sem executar uma troca de credenciais de servidor back-end. Isso permite que o aplicativo autentique o usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo dentro do código JavaScript do cliente. Há algumas considerações de segurança importantes que você deve levar em conta ao usar o fluxo implícito, especificamente sobre [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e [representação de usuário](https://tools.ietf.org/html/rfc6749#section-10.3).
 
-Se você quer usar o fluxo implícito e o Azure AD para adicionar autenticação ao seu aplicativo JavaScript, recomendamos o uso da biblioteca JavaScript de software livre, a [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
+Se você quer usar o fluxo implícito e o Azure AD para adicionar autenticação ao seu aplicativo JavaScript, recomendamos o uso da biblioteca JavaScript de software livre, a [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 No entanto, se você preferir não usar uma biblioteca em seu aplicativo de página única e enviar mensagens de protocolo por conta própria, siga as etapas gerais a seguir.
 
@@ -54,7 +54,7 @@ O diagrama a seguir mostra a aparência de todo fluxo de entrada implícita e as
 Para autenticar inicialmente o usuário em seu aplicativo, você pode enviar uma solicitação de autorização [OpenID Connect](v2-protocols-oidc.md) e obter um `id_token` do ponto de extremidade v2.0.
 
 > [!IMPORTANT]
-> Para solicitar um token de ID com êxito, o registro do aplicativo no [portal de registro](https://apps.dev.microsoft.com) precisa ter **Permitir Fluxo Implícito** habilitado para o cliente Web. Se não estiver habilitado, um erro `unsupported_response` será retornado: **O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code'**
+> Para solicitar um token de ID com êxito, o registro do aplicativo no [portal de registro](https://apps.dev.microsoft.com) precisa ter **Permitir Fluxo Implícito** habilitado para o cliente Web. Se não estiver habilitado, um `unsupported_response` erro será retornado: **O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code'**
 
 ```
 // Line breaks for legibility only
@@ -71,7 +71,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Para testar a entrada usando o fluxo implícito, clique em <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Depois de entrar, seu navegador deverá ser redirecionado para `https://localhost/myapp/` com um `id_token` na barra de endereços.
-> 
+>
 
 | Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
@@ -111,7 +111,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` |Incluído se `response_type` incluir `token`. Sempre será `Bearer`. |
 | `expires_in`|Incluído se `response_type` incluir `token`. Indica o número de segundos durante os quais o token é válido, para fins de caching. |
 | `scope` |Incluído se `response_type` incluir `token`. Indica os escopos para os quais access_token será válido. Pode não incluir todos os escopos solicitados, se eles não eram aplicáveis ao usuário (no caso de escopos somente do AAD sendo solicitados quando uma conta pessoal é usada para fazer logon). |
-| `id_token` | Um JWT (Token Web JSON) assinado. O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que fez login. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, veja a [`id_token reference`](id-tokens.md). <br> **Observação:** somente fornecido se o escopo `openid` for solicitado. |
+| `id_token` | Um JWT (Token Web JSON) assinado. O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que fez login. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, veja a [`id_token reference`](id-tokens.md). <br> **Observação:** Somente fornecido se o escopo `openid` for solicitado. |
 | `state` |Se um parâmetro de estado estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
 
 #### <a name="error-response"></a>Resposta de erro
@@ -192,7 +192,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` | Sempre será `Bearer`. |
 | `expires_in` | Indica o número de segundos durante os quais o token é válido, para fins de caching. |
 | `scope` | Indica os escopos para os quais access_token será válido. Pode não incluir todos os escopos solicitados, se eles não eram aplicáveis ao usuário (no caso de escopos somente do AAD sendo solicitados quando uma conta pessoal é usada para fazer logon). |
-| `id_token` | Um JWT (Token Web JSON) assinado. Incluído se `response_type` incluir `id_token`. O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que fez login. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, veja a [referência `id_token`](id-tokens.md). <br> **Observação:** somente fornecido se o escopo `openid` for solicitado. |
+| `id_token` | Um JWT (Token Web JSON) assinado. Incluído se `response_type` incluir `id_token`. O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que fez login. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, veja a [referência `id_token`](id-tokens.md). <br> **Observação:** Somente fornecido se o escopo `openid` for solicitado. |
 | `state` |Se um parâmetro de estado estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
 
 

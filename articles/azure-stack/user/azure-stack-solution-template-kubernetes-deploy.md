@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959454"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722389"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implantar Kubernetes no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
 > Kubernetes no Azure Stack está em visualização.
@@ -60,7 +60,7 @@ Para começar, verifique se você tiver as permissões corretas e que o Azure St
 
 1. Se você não tiver um Kubernetes Cluster no seu marketplace, fale com o administrador do Azure Stack.
 
-## <a name="create-a-service-principal-in-azure-ad"></a>Criar uma entidade de serviço no Azure AD
+## <a name="create-a-service-principal-in-azure-ad"></a>Criar uma entidade de serviço no Microsoft Azure AD
 
 1. Entrar para global [portal do Azure](http://portal.azure.com).
 
@@ -101,7 +101,7 @@ Conceder acesso à entidade de serviço à sua assinatura para que a entidade de
 
 1. Selecione a assinatura criada pelo seu operador para usar o Kubernetes Cluster.
 
-1. Selecione **controle de acesso (IAM)** > selecione **+ adicionar**.
+1. Selecione **controle de acesso (IAM)** > selecione **Adicionar atribuição de função**.
 
 1. Selecione o **Colaborador** função.
 

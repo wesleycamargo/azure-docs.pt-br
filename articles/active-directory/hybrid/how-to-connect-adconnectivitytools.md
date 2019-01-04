@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4020d754bd8c7728b43ef583aa7e7d8dbddcebec
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e6f85d327fff1ee32dca6dfb2231b28e6dc96c61
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669793"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965625"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>O que é o módulo PowerShell do ADConnectivityTool?
 
@@ -24,7 +24,7 @@ A ferramenta ADConnectivity é um módulo do PowerShell que é usado em um dos s
 - Durante a instalação, quando um problema de conectividade de rede impede a validação bem-sucedida das credenciais do Active Directory fornecidas pelo usuário no Assistente.
 - Pós-instalação por um usuário que chama as funções de uma sessão do PowerShell.
 
-A ferramenta está localizada em: **C: \ Arquivos de Programas \ Microsoft Active Directory do Azure Conecte \ Tools \ ADConnectivityTool.psm1** 
+A ferramenta está localizada em: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
 
 ## <a name="adconnectivitytool-during-installation"></a>ADConnectivityTool durante a instalação
 
@@ -40,7 +40,7 @@ Na página **Conecte seus diretórios**, no Assistente para Conexão do Azure AD
 Sempre que qualquer um desses problemas for encontrado, uma mensagem de erro relacionada será exibida no Assistente AADConnect:
 
 
-![Erro](media\how-to-connect-adconnectivitytools\error1.png)
+![Erro](media/how-to-connect-adconnectivitytools/error1.png)
 
 Por exemplo, quando estamos tentando adicionar um diretório na tela **Conecte seus diretórios**, o Azure AD Connect precisa verificar isso e espera poder se comunicar com um controlador de domínio pela porta 389.  Se não puder, veremos o erro mostrado na captura de tela acima.  
 

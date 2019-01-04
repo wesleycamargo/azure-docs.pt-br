@@ -1,19 +1,20 @@
 ---
-title: Criar políticas por meio de programação e exibir dados de conformidade com o Azure Policy
+title: Criar políticas por meio de programação e exibir dados de conformidade
 description: Este artigo orienta você na criação e gerenciamento por meio de programação de políticas no Azure Policy.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3c8fd185feff9a580e2d23926dcf60cb33121122
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242614"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312469"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas por meio de programação e exibir dados de conformidade
 
@@ -29,7 +30,7 @@ Antes de começar, verifique se os seguintes pré-requisitos são cumpridos:
 
 1. Atualize seu módulo do PowerShell do AzureRM para a versão mais recente. Para obter mais informações sobre a versão mais recente, consulte o [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registre o provedor de recursos de Informações de Política usando Azure PowerShell para garantir que sua assinatura funcione com o provedor de recursos. Para registrar um provedor de recursos, você deve ter permissão para executar a operação de ação de registro para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Execute o seguinte comando para registrar o provedor de recursos:
+1. Registre o provedor de recursos dos Insights de Política usando o Azure PowerShell para validar que sua assinatura funciona com o provedor de recursos. Para registrar um provedor de recursos, você precisa ter permissão para executar a operação de ação de registro para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Execute o seguinte comando para registrar o provedor de recursos:
 
    ```azurepowershell-interactive
    Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'

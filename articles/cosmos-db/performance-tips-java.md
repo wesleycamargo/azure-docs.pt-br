@@ -1,21 +1,20 @@
 ---
-title: Dicas de desempenho do Azure Cosmos DB para Java | Microsoft Docs
+title: Dicas de desempenho do Azure Cosmos DB para Java
 description: Saiba mais sobre as opções de configuração do cliente para melhorar o desempenho de banco de dados do Azure Cosmos DB
 keywords: como melhorar o desempenho do banco de dados
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: f0792e220b27ec564c124f610d0616d0873e2d68
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: afbeb8211baea6da363a5e0162e92a0588581346
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446987"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872978"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java
 
@@ -32,7 +31,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 ## <a name="networking"></a>Rede
 <a id="direct-connection"></a>
 
-1. **Modo de Conexão: usar DirectHttps**
+1. **Modo de Conexão: Use DirectHttps**
 
     Como um cliente se conecta ao Azure Cosmos DB tem implicações importantes sobre o desempenho, especialmente em termos da latência observada do lado do cliente. Há uma definição de configuração chave disponível para configurar o [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) do cliente – a [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  Os dois ConnectionModes disponíveis são:
 

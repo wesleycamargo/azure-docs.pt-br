@@ -1,12 +1,11 @@
 ---
-title: 'Etapa 3: criar um novo experimento do Machine Learning Studio - Azure | Microsoft Docs'
-description: 'Etapa 3 do desenvolvimento de um passo a passo de solução de previsão: criar um novo teste de treinamento no Azure Machine Learning Studio.'
+title: 'Etapa 3: Criar um experimento do Machine Learning Studio – Azure | Microsoft Docs'
+description: 'Etapa 3 do passo a passo Desenvolver uma solução de previsão: Criar um experimento de treinamento no Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317521"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260779"
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Passo a passo Etapa 3: Criar um novo teste de Azure Machine Learning Studio
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Etapa 3 do passo a passo: Criar um teste de Azure Machine Learning Studio
 Esta é a terceira etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Criar um workspace do Machine Learning](walkthrough-1-create-ml-workspace.md)
@@ -56,7 +55,7 @@ A próxima etapa neste passo a passo é criar um teste no Machine Learning Studi
     ![Adicionar o conjunto de dados ao teste][7]
 
 ## <a name="prepare-the-data"></a>Preparar os dados
-É possível exibir as 100 primeiras linhas dos dados e algumas informações estatísticas de todo o conjunto de dados clicando na porta de saída do conjunto de dados (o círculo pequeno na parte inferior) e selecionando **Visualizar**.  
+Você pode exibir as primeiras 100 linhas de dados e algumas informações estatísticas de todo o conjunto de dados: Clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior) e selecione **Visualizar**.  
 
 Como o arquivo de dados não foi fornecido com títulos de coluna, o Estúdio forneceu títulos genéricos (Col1, Col2 *etc.*). Bons títulos de coluna não são essenciais para criar um modelo, mas facilitam o trabalho com os dados no teste. Além disso, quando eventualmente publicarmos esse modelo em um serviço Web, os títulos ajudarão a identificar as colunas para o usuário do serviço.  
 
@@ -164,7 +163,7 @@ Nosso teste agora se parece com esse:
 
 Para obter mais informações sobre como usar scripts R em seus testes, consulte [Estender seu teste com R](extend-your-experiment-with-r.md).
 
-**Em seguida: [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)**
+**Próximo: [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

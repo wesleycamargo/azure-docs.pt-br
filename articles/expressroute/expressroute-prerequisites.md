@@ -1,25 +1,19 @@
 ---
-title: Pré-requisitos para a adoção do Azure ExpressRoute| Microsoft Docs
-description: Esta página fornece uma lista dos requisitos a serem atendidos antes que você pode solicitar um circuito de Azure ExpressRoute.
-documentationcenter: na
+title: 'Pré-requisitos - ExpressRoute: Azure | Microsoft Docs'
+description: Esta página fornece uma lista dos requisitos a serem atendidos antes que você pode solicitar um circuito de Azure ExpressRoute. Ela inclui uma lista de verificação.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3e597e4f8be0af6e42f8ccc09c058cda619764a7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: c44eb4bbf4945973e075ff88bccde19053b812be
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713428"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133463"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisa verificar se os requisitos listados nas seções a seguir foram atendidos.

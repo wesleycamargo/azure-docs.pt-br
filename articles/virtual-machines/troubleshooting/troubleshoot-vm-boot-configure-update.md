@@ -1,6 +1,6 @@
 ---
-title: A inicialização da VM está parada em "Windows Preparando. Não desligue o computador." no Azure | Microsoft Docs
-description: Apresenta as etapas para solucionar o problema no qual a inicialização da VM fica paralisada em "Preparando o Windows. Não desligue o computador".
+title: A inicialização da VM está parada em “Preparando o Windows. Não desligue o computador” no Azure | Microsoft Docs
+description: Apresenta as etapas para solucionar o problema no qual a inicialização da VM fica paralisada em “Preparando o Windows. Não desligue o computador."
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 2bcdb2b458327a5e87dc36e4a5f50f0ac46bf96a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: eb27b4e6c60f23a55a58cd2aae3cff927ffeaf03
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621014"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316090"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A inicialização da VM está parada em "Windows Preparando. Não desligue o computador." no Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A inicialização da VM está parada em “Preparando o Windows. Não desligue o computador” no Azure
 
-Este artigo ajuda você a resolver o problema quando a VM (máquina virtual) fica paralisada no estágio "Preparando o Windows. Não desligue o computador." durante a inicialização.
+Este artigo ajuda você a resolver o problema quando a máquina virtual (VM) fica parada no estágio “Preparando o Windows. Não desligue o computador” durante a inicialização.
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao usar o **Diagnóstico de inicialização** para obter a captura de tela de uma VM, você descobre que o sistema operacional não foi inicializado completamente. Além disso, a VM exibe uma mensagem **"Preparando o Windows. Não desligue o computador."** mensagem.
+Ao usar o **Diagnóstico de inicialização** para obter a captura de tela de uma VM, o sistema operacional é inicializado completamente. A VM exibe a mensagem “Preparando o Windows. Não desligue o computador."
 
-![Exemplo de mensagem](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Exemplo de mensagem para o Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
 ![Exemplo de mensagem](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
@@ -39,17 +39,17 @@ Normalmente, esse problema ocorre quando o servidor está fazendo a reinicializa
 
 ## <a name="back-up-the-os-disk"></a>Fazer backup do disco do sistema operacional
 
-Antes de tentar corrigir o problema, faça backup do disco do sistema operacional:
+Antes de tentar corrigir o problema, faça backup do disco do sistema operacional.
 
 ### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>Para VMs com disco criptografado, você precisa desbloquear os discos primeiro
 
-Valide se a VM é uma VM criptografada. Para fazer isso, siga estas etapas:
+Siga estas etapas para determinar se a VM é uma VM criptografada.
 
-1. No portal, abra a VM e, em seguida, navegue até os discos.
+1. No portal do Azure, abra a VM e, em seguida, navegue até os discos.
 
-2. Você verá uma coluna chamada "Criptografia", que informa se a criptografia está habilitada.
+2. Examine a coluna **Criptografia** coluna para ver se a criptografia está habilitada.
 
-Se o disco do sistema operacional estiver criptografado, desbloqueie o disco criptografado. Para fazer isso, siga estas etapas:
+Se o disco do sistema operacional estiver criptografado, desbloqueie o disco criptografado. Para desbloquear o disco, siga estas etapas.
 
 1. Crie uma VM de recuperação localizada no mesmo grupo de recursos, conta de armazenamento e local que a VM afetada.
 
@@ -72,7 +72,7 @@ Se o disco do sistema operacional estiver criptografado, desbloqueie o disco cri
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. Depois de obter o nome do segredo, execute os seguintes comandos no PowerShell:
+5. Depois de obter o nome do segredo, execute os seguintes comandos no PowerShell.
 
     ```Powershell
     $secretName = 'SecretName'
@@ -83,7 +83,7 @@ Se o disco do sistema operacional estiver criptografado, desbloqueie o disco cri
 6. Converta o valor codificado em Base64 para bytes e grave a saída em um arquivo. 
 
     > [!Note]
-    > O nome do arquivo BEK precisará corresponder ao GUID BEK original se você usar a opção de desbloqueio de USB. Além disso, você precisará criar uma pasta na unidade C, chamada "BEK" para que as etapas a seguir funcionem.
+    > Se você usar a opção de desbloqueio de USB o nome do arquivo BEK precisará corresponder ao GUID BEK original. Crie uma pasta na unidade C, chamada “BEK” antes de executar essas etapas.
     
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -92,28 +92,28 @@ Se o disco do sistema operacional estiver criptografado, desbloqueie o disco cri
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. Depois que o arquivo BEK for criado no computador, copie o arquivo para a VM de recuperação à qual o disco do sistema operacional bloqueado está anexado. Execute o seguinte usando o local do arquivo BEK:
+7. Depois que o arquivo BEK for criado no computador, copie o arquivo para a VM de recuperação à qual o disco do sistema operacional bloqueado está anexado. Execute os seguintes comandos usando o local do arquivo BEK.
 
     ```Powershell
     manage-bde -status F:
     manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
     ```
-    **Opcional** em alguns cenários talvez seja necessário também descriptografar o disco com esse comando.
+    **Opcional**: em alguns cenários, pode ser necessário descriptografar o disco usando este comando.
    
     ```Powershell
     manage-bde -off F:
     ```
 
     > [!Note]
-    > Estamos considerando que o disco a ser criptografado está na letra F:.
+    > O comando anterior pressupõe que o disco a ser criptografado está na letra F.
 
-8. Se você precisar coletar logs, navegue até o caminho **LETRA DA UNIDADE: \Windows\System32\winevt\Logs**.
+8. Se você precisar coletar logs, vá até o caminho **LETRA DA UNIDADE: \Windows\System32\winevt\Logs**.
 
 9. Desanexe a unidade da máquina de recuperação.
 
 ### <a name="create-a-snapshot"></a>Criar um instantâneo
 
-Para criar um instantâneo, siga as etapas em [Criar instantâneo de um disco](..\windows\snapshot-copy-managed-disk.md).
+Para criar um instantâneo, siga as etapas em [Criar instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
 ## <a name="collect-an-os-memory-dump"></a>Coletar um despejo de memória do sistema operacional
 
@@ -121,17 +121,17 @@ Siga as etapas na seção [Coletar despejo do sistema operacional](troubleshoot-
 
 ## <a name="contact-microsoft-support"></a>Contatar Suporte da Microsoft
 
-Depois de coletar o arquivo de despejo, entre em contato com [o suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para executar a análise de causa raiz.
+Depois de coletar o arquivo de despejo, entre em contato com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para executar a análise da causa raiz.
 
 
-## <a name="rebuild-the-vm-using-powershell"></a>Recompilar a VM usando o PowerShell
+## <a name="rebuild-the-vm-by-using-powershell"></a>Recompilar a VM usando o PowerShell
 
 Depois de coletar o arquivo de despejo de memória, siga as etapas a seguir para recompilar a VM.
 
 **Para discos não gerenciados**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -162,7 +162,7 @@ New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 **Para discos gerenciados**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -183,7 +183,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
+#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 

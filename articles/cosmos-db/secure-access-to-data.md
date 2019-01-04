@@ -1,20 +1,18 @@
 ---
-title: Saiba como proteger o acesso aos dados no Azure Cosmos DB | Microsoft Docs
+title: Saiba como proteger o acesso aos dados no Azure Cosmos DB
 description: Saiba mais sobre os conceitos do controle de acesso no Azure Cosmos DB, incluindo chaves mestras, chaves somente leitura, usuários e permissões.
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621434"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878301"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protegendo o acesso aos dados do Azure Cosmos DB
 Este artigo fornece uma visão geral de como proteger o acesso aos dados armazenados no [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -130,8 +128,8 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 Um recurso de permissão do Cosmos DB é associado a um usuário do Cosmos DB.  Cada usuário pode conter nenhuma ou mais permissões do Cosmos DB.  Um recurso de permissão fornece acesso a um token de segurança de que o usuário precisa ao tentar acessar um recurso de aplicativo específico.
 Há dois níveis de acesso disponíveis que podem ser fornecidos por um recurso de permissão:
 
-* Tudo: o usuário tem permissão total com relação ao recurso.
-* Leitura: O usuário pode apenas ler o conteúdo do recurso, mas não pode executar operações de gravação, atualização ou exclusão no recurso.
+* Todos: O usuário tem permissão total no recurso.
+* Leitura: O usuário somente pode ler o conteúdo do recurso, mas não pode executar operações de gravação, atualização ou exclusão no recurso.
 
 > [!NOTE]
 > Para executar os procedimentos armazenados do Cosmos DB, o usuário precisa ter a permissão Tudo no contêiner no qual o procedimento armazenado será executado.
@@ -180,8 +178,8 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de usuário, peça ao proprietário de uma assinatura que execute as seguintes etapas no portal do Azure.
 
 1. Abra o portal do Azure e selecione sua conta do Azure Cosmos DB.
-2. Clique na guia **Controle de acesso (IAM)** e, em seguida, clique em **+ Adicionar**.
-3. No painel **Adicionar permissões**, na caixa **Função**, selecione **Função de leitor de conta do Cosmos DB**.
+2. Clique na guia **Controle de acesso (IAM)** e, em seguida, clique em **+ Adicionar atribuição de função**.
+3. No painel **Adicionar atribuição de função**, na caixa **Função**, selecione **Função de leitor de conta do Cosmos DB**.
 4. Na caixa **Atribuir acesso à caixa**, selecione **Usuário, grupo ou aplicativo do Microsoft Azure Active Directory**.
 5. Selecione o usuário, o grupo ou o aplicativo no diretório ao qual você deseja conceder acesso.  Você pode pesquisar o diretório por nome para exibição, endereço de email ou identificadores de objeto.
     O usuário, grupo ou aplicativo selecionado aparece na lista de membros selecionados.

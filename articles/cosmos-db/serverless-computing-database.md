@@ -1,20 +1,18 @@
 ---
-title: Computação de banco de dados sem servidor – Azure Functions e Azure Cosmos DB | Microsoft Docs
+title: Computação de banco de dados sem servidor - Azure Functions e Azure Cosmos DB
 description: Saiba como o Azure Cosmos DB e o Azure Functions podem ser usados juntos para criar aplicativos de computação sem servidor controlados por evento.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582778"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878277"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de banco de dados sem servidor usando o Azure Cosmos DB e o Azure Functions
 
@@ -51,7 +49,7 @@ Os casos de uso a seguir demonstram algumas maneiras pelas quais você pode apro
 
 Em implementações de IoT, você pode invocar uma função quando a luz do mecanismo de verificação é exibida em um carro conectado.
 
-**Implementação:** use um gatilho e uma associação de saída do Azure Cosmos DB
+**Implementação:** Use um gatilho e uma associação de saída do Azure Cosmos DB
 
 1. Um **gatilho do Azure Cosmos DB** é usado para disparar eventos relacionados a alertas de carro, como a luz do mecanismo de verificação proveniente de um carro conectado.
 2. Quando a luz do mecanismo de verificação é acesa, os dados do sensor são enviados para o Azure Cosmos DB.
@@ -69,7 +67,7 @@ A imagem a seguir mostra o código gravado no portal do Azure para esse gatilho.
 
 Em implementações financeiras, você pode invocar uma função quando um saldo de conta bancária se enquadra em determinada quantia.
 
-**Implementação:** um gatilho de temporizador com uma associação de entrada do Azure Cosmos DB
+**Implementação:** Um gatilho de temporizador com uma associação de entrada do Azure Cosmos DB
 
 1. Usando um [gatilho de temporizador](../azure-functions/functions-bindings-timer.md), recupere as informações de saldo de conta bancária armazenadas em um contêiner do Azure Cosmos DB em intervalos de tempo usando uma **associação de entrada**.
 2. Se o saldo estiver abaixo do limite de saldo baixo definido pelo usuário, acompanhe com uma ação do Azure Function.
@@ -85,7 +83,7 @@ As imagens a seguir mostram o código no portal do Azure para este cenário.
 
 Nos jogos, quando um novo usuário é criado, você pode procurar outros usuários que possam conhecê-los usando a [API do Azure Cosmos DB Gremlin](graph-introduction.md). Em seguida, você pode gravar os resultados em um [banco de dados de SQL do Azure Cosmos DB] para fácil recuperação.
 
-**Implementação:** use um gatilho e uma associação de saída do Azure Cosmos DB
+**Implementação:** Use um gatilho e uma associação de saída do Azure Cosmos DB
 
 1. Usando um [banco de dados de grafo](graph-introduction.md) do Azure Cosmos DB para armazenar todos os usuários, você pode criar uma nova função com um gatilho do Azure Cosmos DB. 
 2. Sempre que um novo usuário é inserido, a função é invocada e, em seguida, o resultado é armazenado usando uma **associação de saída**.
@@ -96,7 +94,7 @@ Nos jogos, quando um novo usuário é criado, você pode procurar outros usuári
 
 Em implementações de varejo, quando um usuário adiciona um item à sua cesta agora você tem a flexibilidade de criar e invocar funções para componentes de pipeline de negócios opcionais.
 
-**Implementação:** vários gatilhos do Azure Cosmos DB escutando um contêiner
+**Implementação:** Vários gatilhos do Azure Cosmos DB escutando um contêiner
 
 1. É possível criar vários Azure Functions adicionando de gatilhos do Azure Cosmos DB a cada um – todos eles escutam o mesmo feed de alterações de dados de um carrinho de compras. Observe que, quando várias funções escutam o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre coleções de concessão, consulte [Noções básicas sobre a biblioteca de processador do Feed de alterações](change-feed-processor.md).
 2. Sempre que um novo item é adicionado ao carrinho de compras de um usuário, cada função é invocada de forma independente pelo feed de alterações do contêiner de carrinho de compras.
@@ -124,7 +122,7 @@ O Azure Functions fornece a capacidade de criar unidades de trabalho escalonáve
 
 O Azure Cosmos DB é o banco de dados recomendado para a arquitetura de computação sem servidor pelos seguintes motivos:
 
-* **Acesso instantâneo a todos os seus dados**: você tem acesso granular a cada valor armazenado porque o Azure Cosmos DB [indexa automaticamente](index-policy.md) todos os dados por padrão e disponibiliza esses índices imediatamente. Isso significa que você consegue consultar constantemente, atualizar e adicionar novos itens a seu banco de dados e ter acesso instantâneo por meio do Azure Functions.
+* **Acesso instantâneo a todos os seus dados**: Você tem acesso granular a cada valor armazenado porque o Azure Cosmos DB [indexa automaticamente](index-policy.md) todos os dados por padrão e disponibiliza esses índices imediatamente. Isso significa que você consegue consultar constantemente, atualizar e adicionar novos itens a seu banco de dados e ter acesso instantâneo por meio do Azure Functions.
 
 * **Sem esquema**. O Azure Cosmos DB é sem esquema e, portanto, pode exclusivamente manipular qualquer saída de dados de um Azure Function. Essa abordagem de “manipular qualquer coisa” facilita a criação de uma variedade de Funções que serão todas geradas para o Azure Cosmos DB.
 

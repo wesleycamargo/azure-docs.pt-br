@@ -1,6 +1,6 @@
 ---
-title: Filtros de faceta no Azure Search | Microsoft Docs
-description: Critérios de filtro por identidade de segurança do usuário, idioma, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem hospedado no Microsoft Azure.
+title: Filtros de faceta para navegação de pesquisa em aplicativos – Azure Search
+description: Critérios de filtro por identidade de segurança do usuário, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem hospedado no Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792387"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314798"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de faceta no Azure Search 
 
@@ -102,7 +103,7 @@ SearchParameters sp = new SearchParameters()
 
 A expressão de filtro manipula o evento de clique no valor da faceta. Dada uma faceta de Categoria, clicar na categoria "motel" é implementado por meio de uma expressão `$filter` que seleciona acomodações desse tipo. Quando um usuário clica em "motéis" para indicar que somente motéis devem ser mostrados, a próxima consulta que o aplicativo envia inclui $filter=category eq ‘motéis’.
 
-O seguinte trecho de código adiciona a categoria ao filtro se um usuário seleciona um valor usando a faceta de categoria.
+O seguinte snippet de código adiciona a categoria ao filtro se um usuário seleciona um valor usando a faceta de categoria.
 
 ```csharp
 if (categoryFacet != "")

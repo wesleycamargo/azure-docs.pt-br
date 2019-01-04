@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: secdec18
+ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582591"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075634"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Gerenciamento de Custos
 
@@ -64,12 +64,12 @@ O acesso ao escopo da conta de cobrança requer permissão de administrador corp
 1. Entrar no portal do EA em [https://ea.azure.com](https://ea.azure.com) com uma conta de administrador corporativo.
 2. No painel esquerdo, selecione **Gerenciar**.
 3. Na guia **registro**, selecione o registro que você deseja gerenciar.  
-    ![Portal EA](./media/assign-access-acm-data/ea-portal.png)
+    ![selecione seu registro no portal do EA](./media/assign-access-acm-data/ea-portal.png)
 4. Clique em **+ Adicionar Administrador**.
 5. Na caixa Adicionar Administrador, selecione o tipo de autenticação e digite o endereço de email do usuário.
 6. Se o usuário deve ter acesso somente leitura aos dados de uso e de custo, em **Somente leitura**, selecione **Sim**.  Caso contrário, selecione **Não**.
 7. Clique em **Adicionar** para criar a conta.  
-    ![Caixa Adicionar Administrador](./media/assign-access-acm-data/add-admin.png)
+    ![informações de exemplo mostradas na caixa Adicionar administrador](./media/assign-access-acm-data/add-admin.png)
 
 Pode levar até 30 minutos antes que o novo usuário possa acessar dados no Gerenciamento de Custos.
 
@@ -85,7 +85,7 @@ O acesso ao escopo de departamento requer acesso de administrador de departament
 6. Se o usuário deve ter acesso somente leitura aos dados de uso e de custo, em **Somente leitura**, selecione **Sim**.  Caso contrário, selecione **Não**.
 7. Selecione os departamentos aos quais você deseja conceder permissão administrativa.
 8. Clique em **Adicionar** para criar a conta.  
-    ![Caixa Adicionar administrador de departamento](./media/assign-access-acm-data/add-depart-admin.png)
+    ![insira as informações necessárias na caixa Adicionar administrador do departamento](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>Atribuir acesso ao escopo da conta de registro
 
@@ -99,7 +99,7 @@ O acesso ao escopo da conta de registro requer acesso de proprietário da conta 
 6. Selecione o tipo de autenticação e digite o nome da conta.
 7. Digite o endereço de email do usuário e depois, opcionalmente, digite o centro de custo.
 8. Clique em **Adicionar** para criar a conta.  
-    ![Caixa Adicionar conta](./media/assign-access-acm-data/add-account.png)
+    ![insira as informações necessárias na caixa Adicionar conta para uma conta de registro](./media/assign-access-acm-data/add-account.png)
 
 Depois de concluir as etapas acima, a conta de usuário se torna uma conta de inscrição no portal da empresa e pode criar inscrições. O usuário pode acessar dados de custo e uso para assinaturas que eles criam.
 
@@ -107,7 +107,7 @@ Depois de concluir as etapas acima, a conta de usuário se torna uma conta de in
 
 O acesso a um escopo de grupo de gerenciamento requer pelo menos a permissão do Leitor de Gerenciamento de Custos (ou Leitor). Você pode configurar permissões para um grupo de gerenciamento no portal do Azure. Você deve ter pelo menos a permissão Administrador de Acesso do Usuário (ou Proprietário) para o grupo de gerenciamento para permitir o acesso de outras pessoas. E você deve habilitar também a configuração **encargos de exibição do sol** no portal do EA.
 
-1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na barra lateral, selecione **Todos os serviços**, pesquise _Grupos de gerenciamento_ e, em seguida, selecione **Grupos de gerenciamento**.
 3. Selecione o grupo de gerenciamento na hierarquia.
 4. Ao lado do nome do grupo de gerenciamento, clique em **Detalhes**.
@@ -117,13 +117,13 @@ O acesso a um escopo de grupo de gerenciamento requer pelo menos a permissão do
 8. Em **Atribuir acesso a**, selecione **Usuário, grupo ou aplicativo do Azure AD**.
 9. Para atribuir acesso, pesquise pelo usuário e selecione-o.
 10. Clique em **Salvar**.  
-    ![Caixa Adicionar permissões](./media/assign-access-acm-data/add-permissions.png)
+    ![informações de exemplo na caixa Adicionar permissões para um grupo de gerenciamento](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Atribuir acesso ao escopo de assinatura
 
 O acesso a uma assinatura requer pelo menos a permissão do Leitor de Gerenciamento de Custos (ou Leitor). Você pode configurar permissões para uma inscrição no portal do Azure. Você deve ter pelo menos a permissão de Administrador de Acesso do Usuário (ou Proprietário) para a assinatura para permitir o acesso de outras pessoas. E você deve habilitar também a configuração **encargos de exibição do sol** no portal do EA.
 
-1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na barra lateral, selecione **Todos os serviços**, pesquise _assinaturas_ e, em seguida, selecione **Assinaturas**.
 3. Selecione sua assinatura.
 4. Selecione **Controle de Acesso (IAM)** no painel esquerdo.
@@ -137,7 +137,7 @@ O acesso a uma assinatura requer pelo menos a permissão do Leitor de Gerenciame
 
 O acesso a um grupo de recursos requer pelo menos a permissão do Leitor de Gerenciamento de Custos (ou Leitor). Você pode configurar permissões para um grupo de recursos no portal do Azure. Você deve ter pelo menos a permissão Administrador de Acesso do Usuário (ou Proprietário) para o grupo de recursos para permitir o acesso de outras pessoas. E você deve habilitar também a configuração **encargos de exibição do sol** no portal do EA.
 
-1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na barra lateral, selecione **Todos os serviços**, pesquise _Grupos de recursos_ e, em seguida, selecione **Grupos de recursos**.
 3. Selecione o grupo de recursos.
 4. Selecione **Controle de Acesso (IAM)** no painel esquerdo.

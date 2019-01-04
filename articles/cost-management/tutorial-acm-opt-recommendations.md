@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: 4d9e47d6da45eaba19cbe089de3fdf053c36046a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030670"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077062"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Otimizar os custos usando recomendações
 
@@ -43,7 +43,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/
 
 No portal do Azure, clique em **Gerenciamento de Custo + Cobrança** na lista de serviços. Em seguida, na lista sob **Gerenciamento de Custos**, selecione **Recomendações do Assistente**. As recomendações de Custo do Assistente são mostradas.
 
-![Recomendações do Assistente](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
+![Recomendações do Consultor de Gerenciamento Custos mostradas no portal do Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
 A lista de recomendações identifica as ineficiências de uso ou mostra as recomendações de compra que podem ajudá-lo a economizar ainda mais dinheiro. As **economias anuais em potencial** totalizadas mostram o valor total que você poderá economizar se desligar ou desalocar todas as VMs que atendem às regras de recomendação. Se você não deseja desligá-las, deve considerar redimensioná-las para uma SKU de VM mais econômica.
 
@@ -59,20 +59,20 @@ Embora alguns cenários possam resultar em baixa utilização por design, você 
 
 Na lista de recomendações, clique na recomendação **Dimensionar corretamente ou desligar máquinas virtuais subutilizadas**. Na lista de candidatos a máquina virtual, escolha uma máquina virtual para redimensionar e, em seguida, clique na máquina virtual. Os detalhes da máquina virtual são mostrados para que você possa verificar as métricas de utilização. O valor **economias anuais em potencial** é o que você poderá economizar se desligar ou remover a VM. Redimensionar uma VM provavelmente economizará seu dinheiro, mas você não economizará o valor total das economias anuais em potencial.
 
-![Detalhes da recomendação](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
+![Exemplo dos detalhes da recomendação](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
 Nos detalhes da VM, verifique a utilização da máquina virtual para confirmar se ela é um candidato adequado de redimensionamento.
 
-![Detalhes da VM](./media/tutorial-acm-opt-recommendations/vm-details.png)
+![Detalhes da VM de exemplo mostrando a utilização histórica](./media/tutorial-acm-opt-recommendations/vm-details.png)
 
 Observe o tamanho atual da máquina virtual. Depois de verificar que a máquina virtual deve ser redimensionada, feche os detalhes da VM para ver a lista de máquinas virtuais.
 
 Na lista de candidatos a serem desligados ou redimensionados, selecione **Redimensionar a máquina virtual**.
-![Redimensionar a máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+![Recomendação de exemplo com a opção para redimensionar a máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 Em seguida, será apresentada uma lista de opções de redimensionamento disponíveis. Escolha o que gerará o melhor desempenho e custo-benefício para seu cenário. No exemplo a seguir, a opção escolheu redimensionamentos de um **DS14\_V2** para um **DS13\_V2**. Seguir a recomendação economiza US$ 551,30/mês, ou US$ 6.615,60/ano.
 
-![Escolha um tamanho](./media/tutorial-acm-opt-recommendations/choose-size.png)
+![Lista de exemplo dos tamanhos de VM disponíveis onde é possível escolher um tamanho](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
 Depois de escolher um tamanho adequado, clique em **Selecionar** para iniciar a ação de redimensionamento.
 
@@ -82,7 +82,7 @@ O redimensionando requer uma máquina virtual ativamente em execução para rein
 
 Quando o redimensionamento da VM é concluído com êxito, uma notificação do Azure é mostrada.
 
-![Notificação redimensionada](./media/tutorial-acm-opt-recommendations/resized-notification.png)
+![Notificação de êxito da máquina virtual redimensionada](./media/tutorial-acm-opt-recommendations/resized-notification.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

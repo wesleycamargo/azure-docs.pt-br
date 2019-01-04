@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 13bb128836590fb43e0c6a2f7131f83a99a23eaf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507797"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Tutorial: Integração do Azure Active Directory com o ProMaster (por Inlogik)
 
@@ -111,6 +111,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
     ![Domínio ProMaster (por Inlogik) e informações de URLs de logon único](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
     a. Na caixa de texto **Identificador**, use um dos seguintes padrões de URL:
+
     | |
     | - |-|
     |  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -118,6 +119,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
     | |
 
     b. Na caixa de texto **URL de Resposta**, use uma das seguintes padrões de URL:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -129,6 +131,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
     ![Domínio ProMaster (por Inlogik) e informações de URLs de logon único](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     Na caixa de texto **URL de logon**, use um dos seguintes padrões de URL:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
@@ -182,7 +185,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-a-promaster-by-inlogik-test-user"></a>Criar um usuário de teste ProMaster (por Inlogik)
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no ProMaster (por Inlogik). Trabalhe com a [equipe de suporte do ProMaster (por Inlogik)](mailto:michael.boldiston@inlogik.com) para adicionar os usuários na plataforma ProMaster (por Inlogik). Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no ProMaster (por Inlogik). Trabalhe com a  [equipe de suporte do ProMaster (por Inlogik)](mailto:michael.boldiston@inlogik.com) para adicionar os usuários na plataforma ProMaster (por Inlogik). Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 

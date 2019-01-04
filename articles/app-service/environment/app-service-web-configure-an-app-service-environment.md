@@ -1,5 +1,5 @@
 ---
-title: Como configurar um Ambiente do Serviço de Aplicativo v1
+title: Como configurar um Ambiente do Serviço de Aplicativo v1 – Azure
 description: Configuração, gerenciamento e monitoramento do Ambiente do Serviço de Aplicativo v1
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 34fb3f15c03a3d3ef5f0a27081539bf0a6d19c5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 85353b68673ea91711e0c3d93e68bec662f406df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22987861"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272126"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuração de um Ambiente do Serviço de Aplicativo v1
 
@@ -44,14 +45,14 @@ Os hosts nos pools de recursos (front-ends e trabalhadores) não podem ser acess
 Você pode definir o tamanho e a quantidade de pools de recursos. Em um ASE, você tem quatro opções de tamanho, que são rotuladas P1 a P4. Para obter detalhes sobre esses tamanhos e seus preços, confira [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 A alteração da quantidade ou do tamanho é chamada de uma operação de escala.  Apenas uma operação de escala pode ocorrer por vez.
 
-**Front-ends**Os front-ends são os pontos de extremidade HTTP/HTTPS para os aplicativos mantidos em seu ASE. Não execute cargas de trabalho nos front-ends.
+**Front-ends**: os front-ends são os pontos de extremidade HTTP/HTTPS para os aplicativos mantidos em seu ASE. Não execute cargas de trabalho nos front-ends.
 
 * Um ASE começa com duas P2s, o que é suficiente para cargas de trabalho de desenvolvimento e teste e para cargas de trabalho de produção de nível baixo. Recomendamos P3 para cargas de trabalho de produção moderada a pesada.
 * Para as cargas de trabalho de produção moderada a pesada, recomendamos que você tenha pelo menos quatro P3s a fim de garantir uma quantidade suficiente de front-ends em execução durante a manutenção agendada. As atividades de manutenção agendada desligarão um front-end de cada vez. Isso reduz a capacidade de front-end disponível no geral durante as atividades de manutenção.
 * Os front-ends podem demorar até uma hora para serem provisionados. 
 * Para obter um ajuste mais fino do dimensionamento, você deve monitorar a porcentagem de CPU, a porcentagem de Memória e as métricas de Solicitações Ativas do pool de front-end. Se os percentuais de memória ou CPU ficam acima de 70% ao executar P3s, adicione mais front-ends. Se a média de valores de Solicitações Ativas for de 15 mil a 20 mil por front-end, você também deverá adicionar mais front-ends. O objetivo geral é manter os percentuais de CPU e de Memória abaixo de 70%, e as Solicitações Ativas com uma média abaixo de 15 mil solicitações por front-end durante a execução de P3s.  
 
-**Trabalhos**Os trabalhos são os locais onde seus aplicativos são realmente executados. Ao escalar verticalmente seus Planos de Serviço de Aplicativo, você usará os trabalhadores no pool de trabalhadores associado.
+**Trabalhos**: os trabalhos são os locais em que seus aplicativos são realmente executados. Ao escalar verticalmente seus Planos de Serviço de Aplicativo, você usará os trabalhadores no pool de trabalhadores associado.
 
 * Não é possível adicionar trabalhadores instantaneamente. Eles podem levar até uma hora para provisionar.
 * O dimensionamento de um recurso de computação para qualquer pool demorará menos de uma hora por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você tiver dimensionado o tamanho de computação de um pool de trabalho com 10 instâncias, talvez demore até 10 horas para a conclusão.
@@ -214,7 +215,7 @@ Para se familiarizar com os Ambientes de Serviços de Aplicativo, consulte [Como
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md

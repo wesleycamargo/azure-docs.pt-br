@@ -3,7 +3,7 @@ title: Use o Azure Resource Health para monitorar a integridade do banco de dado
 description: Use o Azure Resource Health para monitorar a integridade do Banco de Dados SQL, ajuda a diagnosticar e obter suporte quando um problema do Azure afeta seus recursos SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/06/2018
+ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632621"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083879"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Use o Resource Health para solucionar problemas de conectividade do Banco de Dados SQL do Azure
 
@@ -67,11 +67,11 @@ Quando o banco de dados do SQL do Microsoft Azure sofre um tempo de inatividade,
 
 #### <a name="planned-maintenance"></a>Manutenção planejada
 
-A infraestrutura do Azure executa periodicamente a manutenção planejada - atualização de componentes de hardware ou software no datacenter. Enquanto o banco de dados passa por manutenção, o SQL pode terminar algumas conexões existentes e recusar novas. As falhas de login experimentadas durante a manutenção planejada são tipicamente transitórias e a lógica de nova tentativa ajuda a reduzir o impacto. Se você continuar a experimentar erros de logon, contate o suporte.
+A infraestrutura do Azure executa periodicamente a manutenção planejada - atualização de componentes de hardware ou software no datacenter. Enquanto o banco de dados passa por manutenção, o SQL pode terminar algumas conexões existentes e recusar novas. As falhas de logon ocorridas durante a manutenção planejada normalmente são transitórias e a [lógica de nova tentativa](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) ajuda a reduzir o impacto. Se você continuar a experimentar erros de logon, contate o suporte.
 
 #### <a name="reconfiguration"></a>Reconfiguração
 
-As reconfigurações são consideradas condições transitórias e são esperadas de tempos em tempos. Esses eventos podem ser acionados por balanceamento de carga ou falhas de software/hardware. Qualquer aplicativo de produção de cliente que se conecte a um serviço de banco de dados em nuvem deve implementar uma lógica de repetição de conexão robusta com lógica de backoff, pois ajudaria a mitigar essas situações e geralmente tornaria os erros transparentes para o usuário final.
+As reconfigurações são consideradas condições transitórias e são esperadas de tempos em tempos. Esses eventos podem ser acionados por balanceamento de carga ou falhas de software/hardware. Qualquer aplicativo de produção de cliente que se conecta a um banco de dados de nuvem deve implementar uma [lógica de nova tentativa](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) de conexão robusta, pois isso ajudaria a mitigar essas situações e geralmente tornaria os erros transparentes para o usuário final.
 
 ## <a name="next-steps"></a>Próximas etapas
 

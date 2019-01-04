@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Logon Único Contínuo – como ele funciona | Microsoft Docs'
+title: 'Azure AD Connect: Logon Único Contínuo – Como ele funciona | Microsoft Docs'
 description: Este artigo descreve como o recurso Logon Único Contínuo do Azure Active Directory funciona.
 services: active-directory
 keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 54b614e49bc7c03325ebeada60232fca861874e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687394"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193069"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: aprofundamento técnico
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: Análise técnica aprofundada
 
 Este artigo fornece detalhes técnicos sobre como o recurso SSO Contínuo (Logon único contínuo) do Azure Active Directory funciona.
 
 ## <a name="how-does-seamless-sso-work"></a>Como o SSO contínuo funciona?
 
 Esta seção tem três partes:
+
 1. A instalação do recurso de SSO Contínuo.
 2. Como uma transação única de entrada de usuário em um navegador da Web funciona com o SSO Contínuo.
 3. Como uma transação única de entrada de usuário em um cliente nativo funciona com o SSO Contínuo.
@@ -36,6 +37,7 @@ Esta seção tem três partes:
 ### <a name="how-does-set-up-work"></a>Como funciona a configuração?
 
 O SSO Contínuo é habilitado por meio do Azure AD Connect, conforme mostrado [aqui](how-to-connect-sso-quick-start.md). Ao habilitar o recurso, ocorrem as seguintes etapas:
+
 - Uma conta de computador denominada `AZUREADSSOACC` (que representa o Azure AD) é criada em seu AD (Active Directory) local em cada floresta do AD.
 - A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD. Se houver várias florestas do AD, cada uma terá a própria chave de descriptografia do Kerberos.
 - Além disso, os dois SPNs (nomes de entidade de serviço) Kerberos são criados para representar duas URLs que são usadas durante a entrada no Azure AD.
@@ -56,8 +58,8 @@ O fluxo de entrada em um navegador da Web é o seguinte:
 2. Se o usuário ainda não tiver entrado, ele será redirecionado para a página de entrada do Azure AD.
 3. O usuário digita o nome de usuário na página de entrada do Azure AD.
 
-  >[!NOTE]
-  >Para [determinados aplicativos](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), as etapas 2 e 3 são ignoradas.
+   >[!NOTE]
+   >Para [determinados aplicativos](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), as etapas 2 e 3 são ignoradas.
 
 4. Usando JavaScript em segundo plano, o Azure AD desafia o navegador, por meio de uma resposta 401 Não autorizado, para fornecer um tíquete Kerberos.
 5. O navegador, por sua vez, solicita um tíquete do Active Directory para a conta do computador `AZUREADSSOACC` (que representa o Azure AD).

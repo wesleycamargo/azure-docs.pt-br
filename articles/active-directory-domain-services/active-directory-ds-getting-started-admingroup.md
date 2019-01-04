@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: introdução | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Introdução | Microsoft Docs'
 description: Habilite o Azure Active Directory Domain Services usando o portal do Azure
 services: active-directory-ds
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ec51ba28c81e2aa2dbfe2a3dc55d9940c74ff673
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446851"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959845"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 
-
 ## <a name="task-3-configure-administrative-group"></a>Tarefa 3: configurar um grupo administrativo
+
 Nesta tarefa de configuração, você cria um grupo administrativo em seu diretório do Azure AD. Este grupo administrativo especial é chamado *AAD DC Administrators*. Os membros desse grupo recebem permissões administrativas nos computadores ingressados no domínio gerenciado. Em computadores ingressados no domínio, esse grupo é adicionado ao grupo de administradores. Além disso, os membros desse grupo também poderão usar a Área de Trabalho Remota para se conectar remotamente a computadores ingressados no domínio.
 
 > [!NOTE]
@@ -49,14 +49,14 @@ Os Serviços de Domínio do Azure AD Domain Services permitem a sincronização 
 ### <a name="full-synchronization"></a>Sincronização total
 
 1. Para a sincronização completa, basta clicar em "OK" na parte inferior da tela, como completo é já escolhido.
-    ![Sincronização completa](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+    ![Sincronização completa](./media/active-directory-domain-services-admin-guide/create-sync-all.PNG)
 
 ### <a name="scoped-synchronization"></a>Sincronização com escopo
 
 1. Alternar o botão de sincronização para “Com escopo” e uma página de grupos selecionados aparecerá. A partir disso, você pode ver quais grupos já estão selecionados para serem sincronizados com seu domínio gerenciado.
-    ![Sincronização com escopo](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+    ![Sincronização com escopo](media/active-directory-domain-services-admin-guide/create-sync-scoped.PNG)
 2. Clique em **Selecionar grupos** na barra de navegação superior. A partir daqui, um seletor de grupo será exibido no lado. Use isso para selecionar todos os grupos adicionais para sincronizar com o Azure AD Domain Services. Quando terminar, clique em **Selecionar** para fechar o seletor de grupo e adicionar esses grupos à lista selecionada.
-    ![Grupos selecionados de sincronização com escopo](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+    ![Grupos selecionados de sincronização com escopo](media/active-directory-domain-services-admin-guide/create-sync-scoped-groupselect.PNG)
 3. Clique em **OK** para mover para a página de resumo.
 
 ## <a name="deploy-your-managed-domain"></a>Implantar o domínio gerenciado
@@ -69,8 +69,8 @@ Os Serviços de Domínio do Azure AD Domain Services permitem a sincronização 
 
     ![Notificação – implantação em andamento](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
-
 ## <a name="check-the-deployment-status-of-your-managed-domain"></a>Verifique o status de implantação do domínio gerenciado
+
 O processo de provisionamento de seu domínio gerenciado pode levar até uma hora.
 
 1. Enquanto a implantação está em andamento, você pode pesquisar por "domain services" na caixa de pesquisa **Pesquisar recursos**. Selecione **Azure AD Domain Services** nos resultados da pesquisa. A folha **Azure AD Domain Services** lista o domínio gerenciado que está sendo provisionado.
@@ -96,10 +96,10 @@ O processo de provisionamento de seu domínio gerenciado pode levar até uma hor
 
     ![Serviços de domínio – guia Propriedades após a conclusão do provisionado](./media/getting-started/domain-services-provisioned-properties.png)
 
-
 ## <a name="need-help"></a>Precisa de ajuda?
+
 Pode levar uma hora ou duas para ambos os controladores de domínio para seu domínio gerenciado serem provisionados. Se a sua implantação tiver falhado ou estiver presa no estado “Pendente” por mais de duas horas, fique à vontade para [contatar a equipe de produto para obter ajuda](active-directory-ds-contact-us.md).
 
-
 ## <a name="next-step"></a>Próxima etapa
+
 Tarefa 4: [atualizar as configurações do DNS para a rede virtual do Azure](active-directory-ds-getting-started-dns.md)

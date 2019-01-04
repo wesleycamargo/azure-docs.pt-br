@@ -1,5 +1,5 @@
 ---
-title: Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure | Microsoft Docs
+title: Uso avançado de autenticação e autorização – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Mostra como personalizar a autenticação e a autorização no Serviço de Aplicativo e obter declarações de usuário e tokens diferentes.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685320"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409744"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -28,11 +29,11 @@ Para começar rapidamente, veja um dos seguintes tutoriais:
 
 * [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](app-service-web-tutorial-auth-aad.md)
 * [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](containers/tutorial-auth-aad.md)
-* [Como configurar seu aplicativo para usar o logon do Active Directory do Azure](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Como configurar seu aplicativo para usar o logon do Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Como configurar seu aplicativo para usar o logon do Google](app-service-mobile-how-to-configure-google-authentication.md)
-* [Como configurar seu aplicativo para usar o logon da Conta da Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Como configurar seu aplicativo para usar o logon do Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [Como configurar seu aplicativo para usar o logon do Active Directory do Azure](configure-authentication-provider-aad.md)
+* [Como configurar seu aplicativo para usar o logon do Facebook](configure-authentication-provider-facebook.md)
+* [Como configurar seu aplicativo para usar o logon do Google](configure-authentication-provider-google.md)
+* [Como configurar seu aplicativo para usar o logon da Conta da Microsoft](configure-authentication-provider-microsoft.md)
+* [Como configurar seu aplicativo para usar o logon do Twitter](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Usar vários provedores de entrada
 
@@ -179,11 +180,11 @@ Do seu código do cliente (por exemplo, um aplicativo móvel ou JavaScript no na
 
 Quando o token de acesso do provedor expira, você precisa autenticar novamente o usuário. Você pode evitar a expiração do token fazendo uma `GET` chamada para o `/.auth/refresh` ponto de extremidade de seu aplicativo. Quando chamado, o Serviço de Aplicativo atualiza automaticamente tokens de acesso no repositório de token para o usuário autenticado. As solicitações subsequentes de tokens do seu código do aplicativo obtêm tokens atualizados. No entanto, para que a atualização do token funcione, o repositório de token deve conter [tokens de atualização](https://auth0.com/learn/refresh-tokens/) para o seu provedor. A forma de obter tokens de atualização é documentada por cada provedor, mas a lista a seguir traz um breve resumo:
 
-- **Google**: anexe um `access_type=offline` parâmetro de cadeia de caracteres para consulta a sua `/.auth/login/google` chamada à API. Se usar o SDK de Aplicativos Móveis, você pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook**: não fornece tokens de atualização. Tokens de vida útil longa expiram em 60 dias (consulte [Expiração e extensão de tokens de acesso do Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: tokens de acesso não expiram (consulte [Perguntas frequentes sobre o OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
-- **Microsoft Account**: quando [definir configurações de autenticação de conta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), selecione o escopo `wl.offline_access`.
-- **Azure Active Directory**: em [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
+- **Google**: Acrescente um parâmetro de cadeia de caracteres de consulta `access_type=offline` à chamada à API `/.auth/login/google`. Se usar o SDK de Aplicativos Móveis, você pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: Não fornece tokens de atualização. Tokens de vida útil longa expiram em 60 dias (consulte [Expiração e extensão de tokens de acesso do Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter**: Tokens de acesso não expiram (confira [Perguntas frequentes sobre o OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Conta Microsoft**: Ao [definir configurações de autenticação de conta Microsoft](configure-authentication-provider-microsoft.md), selecione o escopo `wl.offline_access`.
+- **Azure Active Directory**: No [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
     1. Na parte superior da página, selecione **Ler/Gravar**.
     1. No navegador à esquerda, navegue até **assinaturas** > **_\<assinatura\_nome_** > **resourceGroups** > _**\<recurso\_grupo\_nome >**_ > **provedores** > **Microsoft.web** > **sites** > _**\<aplicativo \_nome >**_ > **config** > **authsettings**. 
     1. Clique em **Editar**.
@@ -242,5 +243,5 @@ Clique em **Editar**, modifique a propriedade a seguir e, em seguida, clique em 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticar e autorizar usuários ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Autenticar e autorizar usuários de ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md)
 > [Tutorial: Autenticar e autorizar usuários de ponta a ponta (Linux)](containers/tutorial-auth-aad.md)

@@ -1,5 +1,5 @@
 ---
-title: Passo a passos da ciência de dados do HDInsight Hadoop usando o Hive no Azure | Microsoft Docs
+title: Análise no Azure HDInsight Hadoop usando o Hive – Processo de Ciência de Dados da Equipe
 description: Os exemplos do Processo de Ciência de Dados de Equipe que mostram o passo a passo do uso do Hive no Azure HDInsight Hadoop para executar análises preditivas.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: eae56eda72d775205a231e2c6482a1c0686d9251
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 91604e0ed18e8c78e5678eb9c8b85da3f8cbb500
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445917"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135042"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Passo a passos da ciência de dados do HDInsight Hadoop usando o Hive no Azure 
 

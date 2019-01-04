@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 71a8077f2423dd170d08d540edd307c08ed886cc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073815"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configurar o túnel forçado usando o modelo de implantação clássico
 
@@ -42,7 +42,7 @@ O túnel forçado no Azure é configurado por meio de UDR (rotas de definidas pe
 * Cada sub-rede de rede virtual tem uma tabela de roteamento interna do sistema. A tabela de roteamento do sistema tem estes três grupos de rotas:
 
   * **Rotas locais de Rede Virtual:** diretamente para as VMs de destino na mesma rede virtual.
-  * **Rotas locais:** para o gateway de VPN do Azure.
+  * **Rotas locais:** para um Gateway de VPN do Azure.
   * **Rota padrão:** diretamente para a Internet. Os pacotes destinados para os endereços IP privados não cobertos pelas duas rotas anteriores serão removidos.
 * Com a liberação de rotas definidas pelo usuário, você poderá criar uma tabela de roteamento para adicionar uma rota padrão e, em seguida, associar a tabela de roteamento às suas sub-redes de VNet para habilitar o túnel forçado nessas sub-redes.
 * Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual.
@@ -104,38 +104,41 @@ O procedimento a seguir ajudará você a especificar um túnel forçado em uma r
     </VirtualNetworkSite>
 ```
 
-Nesse exemplo, a rede virtual "MultiTier-VNet" tem três sub-redes:'Frontend', 'Midtier' e 'Backend', com quatro conexões entre locais: ‘DefaultSiteHQ’ e três Branches. 
+Neste exemplo, a rede virtual "MultiTier-VNet" tem três sub-redes: sub-redes 'Frontend', 'Midtier' e 'Backend', com quatro conexões entre instalações: 'DefaultSiteHQ' e três Branches. 
 
 As etapas vão definir ‘DefaultSiteHQ’ como a conexão de site padrão para o túnel forçado e configurar as sub-redes Midtier e Backend para usarem túnel forçado.
 
 1. Crie uma tabela de roteamento. Use o cmdlet a seguir para criar sua tabela de rotas.
 
-  ```powershell
-  New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
-  ```
+   ```powershell
+   New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+   ```
+
 2. Adicione uma rota padrão à tabela de roteamento. 
 
-  O exemplo a seguir adiciona uma rota padrão à tabela de roteamento criada na Etapa 1. Observe que a única rota com suporte é o prefixo de destino de "0.0.0.0/0" para o próximo salto "VPNGateway".
+   O exemplo a seguir adiciona uma rota padrão à tabela de roteamento criada na Etapa 1. Observe que a única rota com suporte é o prefixo de destino de "0.0.0.0/0" para o próximo salto "VPNGateway".
 
-  ```powershell
-  Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
-  ```
+   ```powershell
+   Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+   ```
+
 3. Associe a tabela de roteamento às sub-redes. 
 
-  Depois que uma tabela de roteamento for criada e uma rota adicionada, use o exemplo a seguir para adicionar ou associar a tabela de rotas a uma sub-rede da VNet. O exemplo adiciona a tabela de rotas "MyRouteTable" às sub-redes Midtier e Backend da VNet MultiTier-VNet.
+   Depois que uma tabela de roteamento for criada e uma rota adicionada, use o exemplo a seguir para adicionar ou associar a tabela de rotas a uma sub-rede da VNet. O exemplo adiciona a tabela de rotas "MyRouteTable" às sub-redes Midtier e Backend da VNet MultiTier-VNet.
 
-  ```powershell
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
-  ```
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+   ```
+
 4. Atribua um site padrão ao túnel forçado. 
 
-  Na etapa anterior, os scripts de cmdlet de exemplo criaram a tabela de roteamento e associou a tabela de rotas a duas sub-redes de rede virtual. A etapa restante é selecionar um site local entre as conexões de vários locais da rede virtual como o site padrão ou túnel.
+   Na etapa anterior, os scripts de cmdlet de exemplo criaram a tabela de roteamento e associou a tabela de rotas a duas sub-redes de rede virtual. A etapa restante é selecionar um site local entre as conexões de vários locais da rede virtual como o site padrão ou túnel.
 
-  ```powershell
-  $DefaultSite = @("DefaultSiteHQ")
-  Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
-  ```
+   ```powershell
+   $DefaultSite = @("DefaultSiteHQ")
+   Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+   ```
 
 ## <a name="additional-powershell-cmdlets"></a>Cmdlets do PowerShell adicionais
 ### <a name="to-delete-a-route-table"></a>Para excluir uma tabela de rotas

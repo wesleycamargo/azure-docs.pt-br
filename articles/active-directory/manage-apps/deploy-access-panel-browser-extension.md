@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622033"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877469"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo
 Este tutorial mostra como usar a política de grupo para instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários. Essa extensão é necessária para os usuários do Internet Explorer que precisam entrar em aplicativos configurados usando o [logon único baseado em senha](what-is-single-sign-on.md#password-based-sso).
@@ -31,9 +31,9 @@ A extensão do Painel de Acesso também está disponível para o [Chrome](https:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você configurou os [Serviços de Domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)e os computadores dos usuários ingressaram no domínio.
-* Você deve ter a permissão "Editar configurações" para editar o GPO (Objeto de Política de Grupo). Por padrão, os membros dos grupos de segurança a seguir têm esta permissão: Administradores de Domínio, Administradores de Empresa e Proprietários Criadores de Política de Grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Você deve ter a permissão "Editar configurações" para editar o GPO (Objeto de Política de Grupo). Por padrão, os membros dos grupos de segurança a seguir têm essa permissão: Administradores de Domínio, Administradores da Empresa e Proprietários criadores de políticas de grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
-## <a name="step-1-create-the-distribution-point"></a>Etapa 1: Criar o ponto de distribuição
+## <a name="step-1-create-the-distribution-point"></a>Etapa 1: criar o ponto de distribuição
 Primeiro, você deve colocar o pacote do instalador em um local de rede que possa ser acessado pelos computadores nos quais você deseja instalar remotamente a extensão. Para fazer isso, siga estas etapas:
 
 1. Faça logon no servidor como um administrador
@@ -44,13 +44,13 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
    
     ![Abrir Serviços de Arquivo e Armazenamento](./media/deploy-access-panel-browser-extension/shares.png)
 4. Conclua o **Assistente de Novo Compartilhamento** e defina permissões para garantir que ele possa ser acessado dos computadores dos usuários. [Saiba mais sobre compartilhamentos.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Baixe o seguinte pacote do Microsoft Windows Installer (arquivo .msi): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
+5. Faça o download do seguinte pacote do Microsoft Windows Installer (arquivo .msi): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Copie o pacote do instalador para um local desejado no compartilhamento.
    
     ![Copie o arquivo .msi para o compartilhamento.](./media/deploy-access-panel-browser-extension/copy-package.png)
 7. Verifique se os computadores do cliente podem acessar o pacote do instalador desde o compartilhamento. 
 
-## <a name="step-2-create-the-group-policy-object"></a>Etapa 2: Criar o Objeto de Política de Grupo
+## <a name="step-2-create-the-group-policy-object"></a>Etapa 2: criar o Objeto de Política de Grupo
 1. Faça logon no servidor que hospeda sua instalação dos Serviços de Domínio do Active Directory (AD DS).
 2. No Gerenciador do Servidor, vá para **Ferramentas** > **Gerenciamento de Política de Grupo**.
    
@@ -71,7 +71,7 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
    
     ![Editar o novo GPO](./media/deploy-access-panel-browser-extension/edit-gpo.png)
 
-## <a name="step-3-assign-the-installation-package"></a>Etapa 3: Atribuir o pacote de instalação
+## <a name="step-3-assign-the-installation-package"></a>Etapa 3: atribuir o pacote de instalação
 1. Determine se você deseja implantar a extensão com base na **Configuração do Computador** ou na **Configuração do Usuário**. Ao usar a [configuração do computador](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), a extensão será instalada no computador, independentemente dos usuários que fizerem logon. Com a [configuração do usuário](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), os usuários têm a extensão instalada para eles, independentemente dos computadores em que eles fizerem logon.
 2. No painel esquerdo da janela **Editor de Gerenciamento de Política de Grupo** , vá para qualquer um dos seguintes caminhos de pasta, dependendo do tipo de configuração escolhida:
    
@@ -80,7 +80,7 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
 3. Clique com o botão direito do mouse em **Instalação do software** e selecione **Novo** > **Pacote...**
    
     ![Criar um novo pacote de instalação de software](./media/deploy-access-panel-browser-extension/new-package.png)
-4. Vá para a pasta compartilhada que contém o pacote do instalador da [Etapa 1: Criar o ponto de distribuição](#step-1-create-the-distribution-point), selecione o arquivo .msi e clique em **Abrir**.
+4. Vá para a pasta compartilhada que contém o pacote do instalador da [Etapa 1: criar o ponto de distribuição](#step-1-create-the-distribution-point), escolha o arquivo .msi e clique em **Abrir**.
    
    > [!IMPORTANT]
    > Se o compartilhamento estiver localizado no mesmo servidor, verifique se você está acessando o .msi por meio do caminho do arquivo de rede, em vez do caminho do arquivo local.
@@ -94,10 +94,10 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
 
 Agora a extensão está implantada na UO que você selecionou. [Saiba mais sobre a instalação do Software de Política de Grupo.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
-## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Etapa 4: Habilitar automaticamente a extensão do Internet Explorer
+## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Etapa 4: habilitar automaticamente a extensão do Internet Explorer
 Além da execução do instalador, todas as extensões do Internet Explorer deverão ser habilitadas explicitamente antes de serem usadas. Siga as etapas abaixo para habilitar a Extensão do Painel de Acesso usando a política de grupo:
 
-1. Na janela **Editor de Gerenciamento de Política de Grupo** , vá para um dos caminhos a seguir, dependendo do tipo de configuração escolhida na [Etapa 3: Atribuir o pacote de instalação](#step-3-assign-the-installation-package):
+1. Na janela **Editor de Gerenciamento de Política de Grupo**, vá para qualquer um dos seguintes caminhos, dependendo do tipo de configuração escolhida na [Etapa 3: atribuir o pacote de instalação](#step-3-assign-the-installation-package):
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
@@ -151,7 +151,7 @@ Os usuários não poderão mais armazenar suas credenciais ou usar o preenchimen
 ## <a name="step-6-testing-the-deployment"></a>Etapa 6: Testar a implantação
 Siga as etapas abaixo para verificar se a implantação da extensão obteve êxito:
 
-1. Se você implantou usando **Configuração do computador**, faça logon em um computador cliente que pertence à UO que você selecionou na [Etapa 2: Criar o objeto de política de grupo](#step-2-create-the-group-policy-object). Se você implantou usando **Configuração do usuário**, certifique-se de conectar-se como um usuário que pertence a essa UO.
+1. Se a implantação tiver sido feita usando a **Configuração do Computador**, faça logon em um computador cliente que pertence à UO que você escolheu na [Etapa 2: criar o Objeto de Política de Grupo](#step-2-create-the-group-policy-object). Se você implantou usando **Configuração do usuário**, certifique-se de conectar-se como um usuário que pertence a essa UO.
 2. As alterações da política de grupo podem demorar algumas entradas para serem totalmente atualizadas no computador. Para forçar a atualização, abra um **Prompt de comando** e execute o seguinte comando: `gpupdate /force`
 3. Reinicie o computador para que a instalação ocorra. A inicialização poderá demorar consideravelmente mais do que o normal durante a instalação da extensão.
 4. Depois de reiniciar, abra o **Internet Explorer**. No canto superior direito da janela, clique em **Ferramentas** (ícone de engrenagem) e, em seguida, selecione **Gerenciar complementos**.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Expensify | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Expensify | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Expensify.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: jeedes
-ms.openlocfilehash: c9ee0af3cbf2c1aa7b24d2f4cf5fba9d664bc087
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 5d61ac27eb5a6e4f546d8c6db66b84f2c204b507
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248033"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840462"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: integração do Azure Active Directory com o Expensify
+# <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: Integração do Azure Active Directory com o Expensify
 
 Neste tutorial, você aprenderá como integrar o Expensify com o Azure Active Directory (Azure AD).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Expensify da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -103,7 +103,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![image](./media/expensify-tutorial/b1_b2_select_sso.png)
 
-2. Clique em **Alterar modo de Logon único** na parte superior da tela para selecionar o modo **SAML**.
+2. Clique em **Alterar modo de logon único** na parte superior da tela para selecionar o modo **SAML**.
 
       ![image](./media/expensify-tutorial/b1_b2_saml_ssso.png)
 
@@ -111,15 +111,15 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![image](./media/expensify-tutorial/b1_b2_saml_sso.png)
 
-4. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo**Configuração Básica do SAML**.
+4. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
     ![image](./media/expensify-tutorial/b1-domains_and_urlsedit.png)
 
-5. Na seção **Configuração Básica de SAML**, execute as etapas a seguir:
+5. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    a. Na caixa de texto **URL de Entrada**, digite uma URL como: `https://www.expensify.com/authentication/saml/login`
+     a. Na caixa de texto **URL de Entrada**, digite uma URL como: `https://www.expensify.com/authentication/saml/login`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.<companyname>.expensify.com`
+    b. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.<companyname>.expensify.com`
 
     ![image](./media/expensify-tutorial/b1-domains_and_urls.png)
 
@@ -132,11 +132,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![image](./media/expensify-tutorial/certificatebase64.png)
 
-7. Para habilitar o SSO no Expensify, primeiro habilite o **Controle de Domínio** no aplicativo. Você pode habilitar o Controle de Domínio no aplicativo por meio das etapas listadas [aqui](http://help.expensify.com/domain-control). Para obter suporte adicional, trabalhe com a [equipe de suporte ao Cliente do Expensify](mailto:help@expensify.com). Depois que o Controle de Domínio estiver habilitado, siga estas etapas:
+7. Para habilitar o SSO no Expensify, primeiro habilite o **Controle de Domínio** no aplicativo. Você pode habilitar o Controle de Domínio no aplicativo por meio das etapas listadas [aqui](https://help.expensify.com/domain-control). Para obter suporte adicional, trabalhe com a [equipe de suporte ao Cliente do Expensify](mailto:help@expensify.com). Depois que o Controle de Domínio estiver habilitado, siga estas etapas:
    
     ![Configurar o logon único](./media/expensify-tutorial/tutorial_expensify_51.png)
     
-    a. Faça logon no seu aplicativo Expensify.
+     a. Faça logon no seu aplicativo Expensify.
     
     b. No painel esquerdo, clique em **Configurações** e navegue para **SAML**.
     
@@ -148,7 +148,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, escolha **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![image](./media/expensify-tutorial/d_users_and_groups.png)
 
@@ -156,13 +156,13 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![image](./media/expensify-tutorial/d_adduser.png)
 
-3. Nas Propriedades do Usuário, execute as seguintes etapas.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
     ![image](./media/expensify-tutorial/d_userproperties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome do usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -177,7 +177,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Expensify. 
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Expensify.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
     ![image](./media/expensify-tutorial/d_all_applications.png)
 
@@ -193,7 +193,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![image](./media/expensify-tutorial/d_assign_user.png)
 
-4. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
 5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
     
@@ -202,7 +202,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Expensify no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo Expensify.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

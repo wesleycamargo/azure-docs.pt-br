@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: b60be3db14a756407e62540bb89f3b0924597067
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959657"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721078"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Microsoft Azure Active Directory que possa acessar recursos
 
 Se você tiver código que precise acessar ou modificar recursos, crie uma identidade para o aplicativo. Essa identidade é conhecida como uma entidade de serviço. Desse modo, é possível atribuir as permissões necessárias à entidade de serviço. Este artigo mostra como usar o portal para criar a entidade de serviço. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
 
@@ -50,7 +50,7 @@ Você criou o aplicativo e a entidade de serviço do Azure AD.
 
 ## <a name="assign-the-application-to-a-role"></a>Atribuir o aplicativo a uma função
 
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../../role-based-access-control/built-in-roles.md).
+Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: Funções internas](../../role-based-access-control/built-in-roles.md).
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contiver.
 
@@ -65,9 +65,9 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
    Se você não vir a assinatura que está procurando, selecione **filtro de assinaturas globais**. Garanta que a assinatura desejada seja selecionada para o portal. 
 
 1. Selecione **IAM (Controle de acesso)**.
-1. Selecione **Adicionar**.
+1. Selecione **Adicionar atribuição de função**.
 
-   ![Selecionar adicionar](./media/howto-create-service-principal-portal/select-add.png)
+   ![Selecione adicionar atribuição de função](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Selecione a função que deseja atribuir ao aplicativo. Para permitir que o aplicativo execute ações como **reinicializar**, **iniciar** e **parar** instâncias, selecione a função de **Colaborador**. Por padrão, os aplicativos do Azure AD não são exibidos nas opções disponíveis. Para localizar seu aplicativo, pesquise o nome e selecione-o.
 

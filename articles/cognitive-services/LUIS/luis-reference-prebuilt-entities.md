@@ -1,23 +1,24 @@
 ---
-title: Entidades predefinidas - LUIS
+title: Todas as entidades predefinidas
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém listas das entidades predefinidas incluídas em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: ff529e7b828c195be89c9d11fc5f50e04104642e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 858d094dfa949a46fbffcdfd4b386c40b124bbd8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567342"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135637"
 ---
-# <a name="entities-per-culture"></a>Entidades por cultura
+# <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo do LUIS
 
 O LUIS (Serviço Inteligente de Reconhecimento Vocal) fornece entidades predefinidas. Quando uma entidade predefinida é incluída em seu aplicativo, o LUIS inclui a previsão de entidade correspondente na resposta do ponto de extremidade. Todos os enunciados de exemplo também são rotulados com a entidade. O comportamento das entidades predefinidas **não pode** ser modificado. A menos que indicado de outra forma, entidades predefinidas estão disponíveis em todas as localidades (culturas) do aplicativo de LUIS. A tabela a seguir mostra as entidades predefinidas compatíveis com cada cultura.
 

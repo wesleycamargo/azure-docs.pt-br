@@ -1,23 +1,24 @@
 ---
-title: Analise os enunciados de ponto de extremidade para usar o aprendizado ativo no LUIS (Reconhecimento vocal)
-titleSuffix: Azure Cognitive Services
-description: O aprendizado ativo é uma das três estratégias para melhorar a precisão da previsão e a mais fácil de implementar. Com o aprendizado ativo, seus enunciados de ponto de extremidade são analisados para verificar se a intenção e a entidade estão corretas. O LUIS escolhe os enunciados de ponto de extremidade sobre os quais ele não tem certeza.
+title: Revisar declaração do usuário
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Com o aprendizado ativo, seus enunciados de ponto de extremidade são analisados para verificar se a intenção e a entidade estão corretas. O LUIS escolhe os enunciados de ponto de extremidade sobre os quais ele não tem certeza.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: 4ef6f5022b3c38eab2cda20123f179811f46390f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 0eaf411afdcd66345f64c2b6dd93e4799183de78
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637231"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141026"
 ---
-# <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Habilitar o aprendizado ativo revisando declarações de ponto de extremidade
+# <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para habilitar o aprendizado ativo revisando declarações de ponto de extremidade
 O aprendizado ativo é uma das três estratégias para melhorar a precisão da previsão e a mais fácil de implementar. Com o aprendizado ativo, seus enunciados de ponto de extremidade são analisados para verificar se a intenção e a entidade estão corretas. O LUIS escolhe os enunciados de ponto de extremidade sobre os quais ele não tem certeza.
 
 ## <a name="what-is-active-learning"></a>O que é o aprendizado ativo

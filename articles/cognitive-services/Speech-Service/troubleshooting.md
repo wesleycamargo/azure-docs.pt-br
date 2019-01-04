@@ -1,21 +1,22 @@
 ---
-title: Solucionar problemas do SDK do serviço de fala
+title: Solucionar problemas do SDK de Fala – Serviços de Fala
 titleSuffix: Azure Cognitive Services
-description: Solucionar problemas do SDK do serviço de fala.
+description: Este artigo fornece informações para ajudá-lo a solucionar problemas que você pode encontrar ao usar o SDK do Speech Service.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 9f0cea263262d83d9a95012f6cd09fa9acdc0141
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 04a1f3222b17d91889eb580d9d4e8206d8156d37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464564"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095476"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Solucionar problemas do SDK do serviço de fala
 
@@ -23,7 +24,7 @@ Este artigo fornece informações para ajudá-lo a solucionar problemas que voc�
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erro: falha na atualização de WebSocket com um erro de autenticação (403)
 
-Você pode ter o ponto de extremidade incorreto para a região ou o serviço. Verifique se o URI está correto. 
+Você pode ter o ponto de extremidade incorreto para a região ou o serviço. Verifique se o URI está correto.
 
 Além disso, pode haver um problema com a chave de assinatura ou o token de autorização. Para obter mais informações, confira a próxima seção.
 
@@ -78,19 +79,19 @@ Se você usar um token de autorização para autenticação, execute um dos coma
     ```Powershell
     $SpeechServiceURI =
     'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
-    
+
     # $OAuthToken is the authorization token returned by the token service.
     $RecoRequestHeader = @{
       'Authorization' = 'Bearer '+ $OAuthToken
       'Transfer-Encoding' = 'chunked'
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
-    
+
     # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-    
+
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
-    
+
     # Show the result.
     $RecoResponse
     ```
@@ -103,7 +104,7 @@ Se você usar um token de autorização para autenticação, execute um dos coma
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Erro: HTTP 400 Solicitação Incorreta
+## <a name="error-http-400-bad-request"></a>Erro: HTTP 400 (Solicitação Incorreta)
 
 Esse erro normalmente ocorre quando o corpo da solicitação contém dados de áudio inválidos. Só há suporte para o formato WAV. Além disso, verifique os cabeçalhos da solicitação para garantir que você especificou os valores apropriados para `Content-Type` e `Content-Length`.
 
@@ -122,4 +123,3 @@ Geralmente, esse problema é causado por dados de áudio. Você poderá ver esse
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Examinar as notas de versão](releasenotes.md)
-

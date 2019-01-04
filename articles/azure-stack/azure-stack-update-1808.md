@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098082"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754536"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Este artigo descreve o conteúdo do pacote de atualização de 1808. O pacote de atualização inclui aprimoramentos, correções e problemas conhecidos nesta versão do Azure Stack. Este artigo também inclui um link para que você pode baixar a atualização. Problemas conhecidos são divididos em questões relacionadas diretamente para o processo de atualização e os problemas com a compilação (após a instalação).
 
@@ -43,7 +43,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 - **Todos os ambientes do Azure Stack agora usam o formato de fuso horário do tempo Universal Coordenado (UTC).**  Todos os dados de log e informações relacionadas agora exibem no formato UTC. Se você atualizar de uma versão anterior que não foi instalada usando o formato UTC, seu ambiente é atualizado para usar o UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
-- **Há suporte para discos gerenciados.** Agora você pode usar o Managed Disks em máquinas virtuais do Azure Stack e conjuntos de dimensionamento de máquina virtual. Para obter mais informações, consulte [Managed Disks do Azure Stack: diferenças e considerações](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+- **Há suporte para discos gerenciados.** Agora você pode usar o Managed Disks em máquinas virtuais do Azure Stack e conjuntos de dimensionamento de máquina virtual. Para obter mais informações, consulte [Managed Disks do Azure Stack: Diferenças e considerações](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
 
 <!-- 2563799  | IS  ASDK --> 
 - **Azure Monitor**. Como o Azure Monitor no Azure, o Azure Monitor no Azure Stack fornece logs e métricas de infraestrutura de nível básico para a maioria dos serviços. Para obter mais informações, consulte [do Azure Monitor no Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
@@ -226,16 +226,16 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - Você pode ver os alertas para o **controlador de integridade** componente que tem os seguintes detalhes:  
 
    #1 do alerta:
-   - NOME: Função de infraestrutura não íntegro
-   - GRAVIDADE: aviso
+   - NOME:  Função de infraestrutura não íntegro
+   - GRAVIDADE: Aviso
    - COMPONENTE: Controlador de integridade
-   - Descrição: O Scanner de pulsação do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.  
+   - DESCRIÇÃO: O Scanner de pulsação do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.  
 
   #2 do alerta:
-   - NOME: Função de infraestrutura não íntegro
-   - GRAVIDADE: aviso
+   - NOME:  Função de infraestrutura não íntegro
+   - GRAVIDADE: Aviso
    - COMPONENTE: Controlador de integridade
-   - Descrição: O Scanner de falha do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.
+   - DESCRIÇÃO: O Scanner de falha do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.
 
   Ambos os alertas podem ser ignorados com segurança e será fechado automaticamente ao longo do tempo.  
 
@@ -244,15 +244,14 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - Você pode ver um alerta para **armazenamento** componente que contém os seguintes detalhes:
 
    - NOME: Erro de comunicação interna do serviço de armazenamento  
-   - GRAVIDADE: crítico  
-   - COMPONENTE: armazenamento  
-   - Descrição: Erro de comunicação interna do serviço de armazenamento ocorreu ao enviar solicitações para os nós a seguir.  
+   - GRAVIDADE: Crítico  
+   - COMPONENTE: Armazenamento  
+   - DESCRIÇÃO: Erro de comunicação interna do serviço de armazenamento ocorreu ao enviar solicitações para os nós a seguir.  
 
     O alerta pode ser ignorado, mas você precisa fechar o alerta manualmente.
 
 <!-- 2368581 - IS. ASDK --> 
 - Um operador do Azure Stack, se você receber um alerta de memória insuficiente e máquinas virtuais de locatário não conseguir implantar com um **erro de criação de VM do Fabric**, é possível que o carimbo de data / Azure Stack está fora de memória disponível. Use o [Planejador de capacidade do Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para entender melhor a capacidade disponível para suas cargas de trabalho.
-
 
 ### <a name="compute"></a>Computação
 
@@ -283,17 +282,17 @@ Produzido com o uso do Azure Stack APIs de relatórios de uso mostram quantidade
    - Se você atualizar o valor da cota para 0, é equivalente ao valor padrão de 2048 GiB. Como alternativa, defina o valor da cota como 1.
 
 <!-- 2869209 – IS, ASDK --> 
-- Ao usar o [ **Add AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), você deve usar o **- OsUri** parâmetro como a conta de armazenamento em que o disco é carregado do URI. Se você usar o caminho local do disco, o cmdlet falhará com o seguinte erro: *operação de execução longa falhou com status 'Failed'*. 
+- Ao usar o [ **Add AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), você deve usar o **- OsUri** parâmetro como a conta de armazenamento em que o disco é carregado do URI. Se você usar o caminho local do disco, o cmdlet falhar com o seguinte erro: *Operação de execução longa falhou com status 'Failed'*. 
 
 <!--  2966665 – IS, ASDK --> 
-- Anexar discos de dados do SSD para tamanho premium managed disk máquinas virtuais (DS, DSv2, Fs e Fs_V2) falhará com um erro: *Falha ao atualizar discos para a máquina virtual 'vmname' erro: operação solicitada não pode ser executada porque o tipo de conta de armazenamento ' Premium_LRS' não há suporte para o tamanho da VM ' Standard_DS/Ds_V2/FS/Fs_v2)*
+- SSD de anexar discos de dados de tamanho premium gerenciado disco máquinas virtuais (DS, DSv2, Fs e Fs_V2) falhará com um erro:  *Falha ao atualizar discos para a máquina virtual 'vmname' erro: Operação solicitada não pode ser executada porque o tipo de conta de armazenamento 'Premium_LRS' não é suportado para tamanho de VM ' Standard_DS/Ds_V2/FS/Fs_v2)*
 
    Para contornar esse problema, use *Standard_LRS* discos de dados em vez de *Premium_LRS discos*. Uso de *Standard_LRS* discos de dados não altera o custo de cobrança ou de IOPs. 
 
 <!--  2795678 – IS, ASDK --> 
 - Quando você usa o portal para criar máquinas virtuais (VM) em um tamanho VM premium (DS, Ds_v2, FS e FSv2), a VM é criada em uma conta de armazenamento padrão. Criação de uma conta de armazenamento padrão não afeta funcionalmente, IOPs, ou de cobrança. 
 
-   Você pode ignorar com segurança o aviso que diz: *você optou por usar um disco padrão em um tamanho que dá suporte a discos premium. Isso pode afetar o desempenho do sistema operacional e não é recomendado. Considere usar o armazenamento premium (SSD).*
+   Você pode ignorar com segurança o aviso que diz: *Você optou por usar um disco padrão em um tamanho que dá suporte a discos premium. Isso pode afetar o desempenho do sistema operacional e não é recomendado. Considere usar o armazenamento premium (SSD).*
 
 <!-- 2967447 - IS, ASDK --> 
 - Experiência de criar o conjunto de dimensionamento de máquinas virtuais (VMSS) oferece a opção de implantação baseado em CentOS 7.2. Porque essa imagem não está disponível no Azure Stack, selecione outro sistema operacional para sua implantação ou usar um modelo do Azure Resource Manager especificando outra imagem do CentOS que foi baixada pelo operador antes da implantação do marketplace.  
@@ -315,7 +314,7 @@ Produzido com o uso do Azure Stack APIs de relatórios de uso mostram quantidade
 
    Para localizar o gráfico de percentual de CPU para a VM, vá para o **métricas** métricas de convidado de folha e mostrar toda a VM Windows com suporte.
 
-
+- Uma VM do Ubuntu 18.04 criado com autorização SSH habilitada não permitirá que você use as chaves SSH para fazer logon no. Como alternativa, use o acesso de VM para a extensão do Linux para implementar as chaves SSH após o provisionamento ou usar a autenticação baseada em senha.
 
 ### <a name="networking"></a>Rede  
 
@@ -361,8 +360,10 @@ Produzido com o uso do Azure Stack APIs de relatórios de uso mostram quantidade
 
 
 ## <a name="download-the-update"></a>Baixe a atualização
-Você pode baixar o pacote de atualização no Azure Stack 1808 [aqui](https://aka.ms/azurestackupdatedownload).
-  
+
+Você pode baixar o pacote de atualização no Azure Stack 1808 [aqui](https://aka.ms/azurestackupdatedownload). 
+
+Em cenários conectados apenas, as implantações do Azure Stack verificar periodicamente um ponto de extremidade seguro em notificá-lo automaticamente se uma atualização está disponível para a sua nuvem. Para obter mais informações, consulte [Gerenciando atualizações para o Azure Stack](azure-stack-updates.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para revisar a política de manutenção para sistemas integrados do Azure Stack e o que você deve fazer para manter seu sistema em um estado com suporte, consulte [política de manutenção do Azure Stack](azure-stack-servicing-policy.md).  

@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 995c4bbbde87315e92c182fbc91b58ee34cda04e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213909"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839544"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analise o relatório do Azure Site Recovery Deployment Planner para recuperação de desastre do VMware no Azure
 
@@ -22,23 +22,23 @@ A planilha Resumo local fornece uma visão geral do ambiente VMware analisado.
 
 ![Resumo local de ambiente VMware](media/site-recovery-vmware-deployment-planner-analyze-report/on-premises-summary-v2a.png)
 
-**Data de Início** e **Data de Término**: as datas de início e de término dos dados de criação de perfil considerados para a geração de relatórios. Por padrão, a data de início é a data em que a criação de perfil começou, e a data de término é a data em que a criação de perfil é interrompida. Poderão ser os valores 'StartDate' e 'EndDate' se o relatório for gerado com esses parâmetros.
+**Data de Início** e **Data de Término**: As datas de início e de término dos dados de criação de perfil considerados para a geração de relatórios. Por padrão, a data de início é a data em que a criação de perfil começou, e a data de término é a data em que a criação de perfil é interrompida. Poderão ser os valores 'StartDate' e 'EndDate' se o relatório for gerado com esses parâmetros.
 
-**Número total de dias de criação de perfil**: o número total de dias de criação de perfil entre as datas de início e de término para as quais o relatório é gerado.
+**Número total de dias de criação de perfil**: O número total de dias de criação de perfil entre as datas de início e de término para as quais o relatório é gerado.
 
-**Número de máquinas virtuais compatíveis** é o número total de máquinas virtuais compatíveis para as quais a largura de banda de rede necessária, o número necessário de contas de Armazenamento do Azure, os núcleos do Microsoft Azure, os Servidores de Configuração e Servidores de Processo adicionais são calculados.
+**Número de máquinas virtuais compatíveis**: É o número total de máquinas virtuais compatíveis para as quais a largura de banda de rede necessária, o número necessário de contas de Armazenamento do Azure, os núcleos do Microsoft Azure, os Servidores de Configuração e Servidores de Processo adicionais são calculados.
 
-**Número total de discos em todas as máquinas virtuais compatíveis**: o número que é usado como uma das entradas para decidir o número de servidores de configuração e servidores de processo adicionais a serem usados na implantação.
+**Número total de discos em todas as máquinas virtuais compatíveis**: Esse número que é usado como uma das entradas para decidir o número de servidores de configuração e servidores de processo adicionais a serem usados na implantação.
 
-**Número médio de discos por máquina virtual compatível**: o número médio de discos calculado em todas as VMs compatíveis.
+**Número médio de discos por máquina virtual compatível**: O número médio de discos calculado em todas as VMs compatíveis.
 
-**Tamanho médio de disco (GB)**: o tamanho médio de disco calculado em todas as VMs compatíveis.
+**Tamanho médio do disco (GB)**: O tamanho médio de disco calculado em todas as VMs compatíveis.
 
-**RPO desejado (minutos)**: o objetivo de ponto de recuperação padrão ou o valor passado para o parâmetro 'DesiredRPO' no momento da geração de relatórios para estimar a largura de banda necessária.
+**RPO desejado (minutos)**: O objetivo de ponto de recuperação padrão ou o valor passado para o parâmetro DesiredRPO no momento da geração de relatórios para estimar a largura de banda necessária.
 
-**Largura de banda desejada (Mbps)**: o valor passado para o parâmetro 'Bandwidth' no momento da geração de relatórios para estimar o RPO atingível.
+**Largura de banda (Mbps)**: O valor passado para o parâmetro 'Largura de Banda' no momento da geração de relatórios para estimar o RPO atingível.
 
-**Variação de dados típica observada por dia (GB)**: a variação de dados média observada em todos os dias de criação de perfil. Esse número é usado como uma das entradas para decidir o número de servidores de configuração e servidores de processo adicionais a serem usados na implantação.
+**Registro de dados típicos observado por dia (GB)**: A variação de dados média observada na criação de perfil todos os dias. Esse número é usado como uma das entradas para decidir o número de servidores de configuração e servidores de processo adicionais a serem usados na implantação.
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -49,33 +49,33 @@ A planilha de recomendações do relatório do VMware para o Azure apresenta os 
 ### <a name="profiled-data"></a>Dados de criação de perfil
 ![O modo de exibição de dados de criação de perfil no planejador de implantação](media/site-recovery-vmware-deployment-planner-analyze-report/profiled-data-v2a.png)
 
-**Período de dados com criação de perfil**: o período durante o qual a criação de perfil foi executada. Por padrão, a ferramenta inclui todos os dados com criação de perfil no cálculo, a menos que gere o relatório para um período específico usando as opções StartDate e EndDate durante a geração do relatório.
+**Período de dados com criação de perfil**: O período durante o qual a criação de perfil foi executada. Por padrão, a ferramenta inclui todos os dados com criação de perfil no cálculo, a menos que gere o relatório para um período específico usando as opções StartDate e EndDate durante a geração do relatório.
 
-**Nome do Servidor**: o nome ou o endereço IP do host VMware vCenter ou ESXi sobre cujas VMss é gerado o relatório.
+**Nome do Servidor**: O nome ou o endereço IP do host VMware vCenter ou ESXi sobre cujas VMss é gerado o relatório.
 
-**RPO Desejado**: o objetivo de ponto de recuperação para sua implantação. Por padrão, a largura de banda de rede necessária é calculada para valores de RPO de 15, 30 e 60 minutos. Com base na seleção, os valores afetados são atualizados na planilha. Se você tiver usado o parâmetro *DesiredRPOinMin* ao gerar o relatório, esse valor será mostrado na lista suspensa RPO Desejado.
+**RPO desejado**: O objetivo de ponto de recuperação para sua implantação. Por padrão, a largura de banda de rede necessária é calculada para valores de RPO de 15, 30 e 60 minutos. Com base na seleção, os valores afetados são atualizados na planilha. Se você tiver usado o parâmetro *DesiredRPOinMin* ao gerar o relatório, esse valor será mostrado na lista suspensa RPO Desejado.
 
 ### <a name="profiling-overview"></a>Visão geral da criação de perfil
 
 ![Resultados da criação de perfil no planejador de implantação](media/site-recovery-vmware-deployment-planner-analyze-report/profiling-overview-v2a.png)
 
-**Total de Máquinas Virtuais com Criação de Perfil**: o número total de VMs cujos dados de criação de perfil estão disponíveis. Se VMListFile tiver nomes de VMs sem criação de perfil, essas VMs não serão consideradas na geração de relatórios e serão excluídas da contagem total de VMs com criação de perfil.
+**Total de Máquinas Virtuais de Criação de Perfil**: O número total de VMs cujos dados de criação de perfil estão disponíveis. Se VMListFile tiver nomes de VMs sem criação de perfil, essas VMs não serão consideradas na geração de relatórios e serão excluídas da contagem total de VMs com criação de perfil.
 
-**Máquinas Virtuais Compatíveis**: o número de VMs que podem ser protegidas no Azure usando o Site Recovery. É o número total de VMs compatíveis para as quais são calculados a largura de banda de rede necessária, o número de contas de armazenamento, o número de núcleos do Azure e o número de servidores de configuração e servidores de processo adicionais. Os detalhes de cada VM compatível estão disponíveis na seção "VMs compatíveis".
+**Máquinas Virtuais Compatíveis**: O número de VMs que podem ser protegidas no Azure usando o Site Recovery. É o número total de VMs compatíveis para as quais são calculados a largura de banda de rede necessária, o número de contas de armazenamento, o número de núcleos do Azure e o número de servidores de configuração e servidores de processo adicionais. Os detalhes de cada VM compatível estão disponíveis na seção "VMs compatíveis".
 
-**Máquinas Virtuais Incompatível**: o número de VMs com criação de perfil que são incompatíveis para proteção com o Site Recovery. Os motivos da incompatibilidade são indicados na seção "VMs incompatíveis". Se VMListFile tiver nomes de VMs sem criação de perfil, essas VMs serão excluídas da contagem de VMs incompatíveis. Essas VMs são listadas como "Dados não encontrados" ao fim da seção "VMs incompatíveis".
+**Máquinas Virtuais Compatíveis**: O número de VMs com criação de perfil que são incompatíveis para proteção com o Site Recovery. Os motivos da incompatibilidade são indicados na seção "VMs incompatíveis". Se VMListFile tiver nomes de VMs sem criação de perfil, essas VMs serão excluídas da contagem de VMs incompatíveis. Essas VMs são listadas como "Dados não encontrados" ao fim da seção "VMs incompatíveis".
 
-**RPO Desejado**: seu objetivo de ponto de recuperação desejado, em minutos. O relatório é gerado para três valores de RPO: 15 (padrão), 30 e 60 minutos. A recomendação de largura de banda no relatório é alterada com base em sua seleção na lista suspensa RPO Desejado no canto superior direito da planilha. Se você tiver gerado o relatório usando o parâmetro *-DesiredRPO* com um valor personalizado, esse valor personalizado será exibido como o padrão na lista suspensa RPO Desejado.
+**RPO desejado**: Seu objetivo de ponto de recuperação desejado, em minutos. O relatório é gerado para três valores de RPO: 15 (padrão), 30 e 60 minutos. A recomendação de largura de banda no relatório é alterada com base em sua seleção na lista suspensa RPO Desejado no canto superior direito da planilha. Se você tiver gerado o relatório usando o parâmetro *-DesiredRPO* com um valor personalizado, esse valor personalizado será exibido como o padrão na lista suspensa RPO Desejado.
 
 ### <a name="required-network-bandwidth-mbps"></a>Largura de banda necessária (Mbps)
 
 ![Largura de banda necessária no planejador de implantação](media/site-recovery-vmware-deployment-planner-analyze-report/required-network-bandwidth-v2a.png)
 
-**Para atender ao RPO 100% do tempo:** a largura de banda recomendada em Mbps a ser alocada para atender ao RPO desejado 100% do tempo. Essa quantidade de largura de banda deve ser dedicada para a replicação delta de estado estacionário de todas as VMs compatíveis para evitar violações de RPO.
+**Para atender ao RPO 100% do tempo:** A largura de banda recomendada em Mbps a ser alocada para atender ao RPO desejado 100% do tempo. Essa quantidade de largura de banda deve ser dedicada para a replicação delta de estado estacionário de todas as VMs compatíveis para evitar violações de RPO.
 
-**Para atender ao RPO 90% do tempo**: devido aos preços de banda larga ou por qualquer outro motivo, se não puder definir a largura de banda necessária para atender ao RPO desejado 100% do tempo, você poderá optar por usar uma configuração de largura de banda mais baixa que possa satisfazer ao RPO desejado 90% do tempo. Para entender as implicações da configuração dessa largura de banda inferior, o relatório fornece uma análise do tipo "e se" sobre o número e a duração de violações de RPO a serem esperadas.
+**Para atender ao RPO 90% do tempo:** Devido aos preços de banda larga ou por qualquer outro motivo, se não puder definir a largura de banda necessária para atender ao RPO desejado 100% do tempo, você poderá optar por usar uma configuração de largura de banda mais baixa que possa satisfazer ao RPO desejado 90% do tempo. Para entender as implicações da configuração dessa largura de banda inferior, o relatório fornece uma análise do tipo "e se" sobre o número e a duração de violações de RPO a serem esperadas.
 
-**Taxa de transferência obtida** A taxa de transferência do servidor em que você executou o comando GetThroughput para a região do Microsoft Azure em que se encontra a conta de armazenamento. Esse número de taxa de transferência indica o nível estimado que você pode obter ao proteger as VMs compatíveis usando o Site Recovery, desde que as características de rede e de armazenamento do servidor de configuração ou do servidor de processo permaneçam iguais às do servidor no qual você executou a ferramenta.
+**Taxa de transferência obtida:** A taxa de transferência do servidor em que você executou o comando GetThroughput para a região do Microsoft Azure em que se encontra a conta de armazenamento. Esse número de taxa de transferência indica o nível estimado que você pode obter ao proteger as VMs compatíveis usando o Site Recovery, desde que as características de rede e de armazenamento do servidor de configuração ou do servidor de processo permaneçam iguais às do servidor no qual você executou a ferramenta.
 
 Para a replicação, você deve definir a largura de banda recomendada para atender ao RPO 100% do tempo. Depois que você definir a largura de banda, se não houver um aumento na taxa de transferência obtida, conforme relatado pela ferramenta, faça o seguinte:
 
@@ -130,13 +130,13 @@ O resumo ajuda a entender o custo que precisa ser pago para armazenamento, compu
 
 Você pode exibir o custo mensal ou anual. Saiba mais sobre [regiões de destino com suporte](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) e [moedas com suporte](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Custo por componentes** O custo total da recuperação de desastre é dividido em quatro componentes: custos de licença de Computação, Armazenamento, Rede e do Azure Site Recovery. O custo é calculado com base no consumo incorrido durante a replicação e em tempo de análise de recuperação de desastre para computação, armazenamento (premium e standard), ExpressRoute/VPN configurado entre o site local e o Azure, e a licença do Azure Site Recovery.
+**Custo por componentes** O custo total de DR é dividido em quatro componentes: Custo de licença do Azure Site Recovery, Rede, Armazenamento e Computação. O custo é calculado com base no consumo incorrido durante a replicação e em tempo de análise de recuperação de desastre para computação, armazenamento (premium e standard), ExpressRoute/VPN configurado entre o site local e o Azure, e a licença do Azure Site Recovery.
 
 **Custo por estados** O custo total da recuperação de desastre (DR) se baseia em categorias em dois estados diferentes - Replicação e análise de recuperação de desastre.
 
-**Custo de replicação**: o custo incorrido durante a replicação. Abrange o custo de armazenamento, de rede e de licença do Azure Site Recovery.
+**Custo de replicação**:  O custo que será incorrido durante a replicação. Abrange o custo de armazenamento, de rede e de licença do Azure Site Recovery.
 
-**Custo de análise de DR**: o custo incorrido durante os failovers de teste. O Azure Site Recovery gira máquinas virtuais durante o failover de teste. O custo de análise de análise de risco abrange os custos de computação e armazenamento das VMs em execução.
+**Custo de Análise de DR**: O custo que será incorrido durante failovers de teste. O Azure Site Recovery gira máquinas virtuais durante o failover de teste. O custo de análise de análise de risco abrange os custos de computação e armazenamento das VMs em execução.
 
 **Custo de armazenamento do Azure por mês/ano** Mostra o custo total de armazenamento incorrido no armazenamento standard e premium para replicação e análise de recuperação de desastre.
 Você pode exibir a análise de custo detalhada por VM na planilha [Estimativa de Custo](site-recovery-vmware-deployment-planner-cost-estimation.md).
@@ -158,26 +158,26 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 
 ![Posicionamento de VM-Storage](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Tipo de Armazenamento de Disco**: uma conta de armazenamento standard ou premium, que é usada para replicar todas as VMs correspondentes mencionadas na coluna **VMs para Posicionar**.
+**Tipo de Armazenamento em Disco**: Uma conta de armazenamento standard ou premium, que é usada para replicar todas as VMs correspondentes mencionadas na coluna **VMs para Posicionar**.
 
-**Prefixo Sugerido**: o prefixo de três caracteres sugerido que pode ser usado para nomear a conta de armazenamento. Você pode usar seu próprio prefixo, mas sugestão da ferramenta segue a [convenção de nomenclatura de partição para contas de armazenamento](https://aka.ms/storage-performance-checklist).
+**Prefixo Sugerido**: O prefixo de três caracteres sugerido que pode ser usado para nomear a conta de armazenamento. Você pode usar seu próprio prefixo, mas sugestão da ferramenta segue a [convenção de nomenclatura de partição para contas de armazenamento](https://aka.ms/storage-performance-checklist).
 
-**Nome de Conta Sugerido**: o nome de conta de armazenamento depois que você inclui o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
+**Nome da Conta Sugerida**: O nome de conta de armazenamento depois que você inclui o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
 
-**Conta de Armazenamento de Log:**: todos os logs de replicação são armazenados em uma conta de armazenamento standard. Para VMs que são replicadas para uma conta de armazenamento premium, configure uma conta de armazenamento standard adicional para o armazenamento de log. Uma conta de armazenamento de log standard pode ser usada por várias contas de armazenamento de replicação premium. VMs replicadas para contas de armazenamento standard usam a mesma conta de armazenamento para logs.
+**Conta de Armazenamento de Log**: Todos os logs de replicação são armazenados em uma conta de armazenamento standard. Para VMs que são replicadas para uma conta de armazenamento premium, configure uma conta de armazenamento standard adicional para o armazenamento de log. Uma conta de armazenamento de log standard pode ser usada por várias contas de armazenamento de replicação premium. VMs replicadas para contas de armazenamento standard usam a mesma conta de armazenamento para logs.
 
-**Nome de Conta de Log Sugerido**: o nome de conta de armazenamento de log depois que você inclui o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
+**Nome de Conta de Log Sugerido**: O nome de conta de armazenamento de log depois que você inclui o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
 
-**Resumo de Posicionamento**: um resumo da carga total das VMs na conta de armazenamento no momento da replicação e do failover ou failover de teste. Inclui o número total de VMs mapeadas para a conta de armazenamento, o total de IOPS de leitura/gravação em todas as VMs que está sendo colocadas nessa conta de armazenamento, o total de IOPS de gravação (replicação), o tamanho de configuração total em todos os discos e o número total de discos.
+**Resumo de Posicionamento**: Um resumo da carga total das VMs na conta de armazenamento no momento da replicação e do failover ou failover de teste. Inclui o número total de VMs mapeadas para a conta de armazenamento, o total de IOPS de leitura/gravação em todas as VMs que está sendo colocadas nessa conta de armazenamento, o total de IOPS de gravação (replicação), o tamanho de configuração total em todos os discos e o número total de discos.
 
-**Máquinas Virtuais para Posicionar**: uma lista de todas as VMs que devem ser posicionadas na conta de armazenamento específica para obter o melhor desempenho e uso.
+**Máquinas Virtuais para Posicionar**: Uma lista de todas as VMs que devem ser posicionadas na conta de armazenamento específica para obter o melhor desempenho e uso.
 
 ## <a name="compatible-vms"></a>VMs compatíveis
 ![Planilha do Excel de VMs compatíveis](media/site-recovery-vmware-deployment-planner-analyze-report/compatible-vms-v2a.png)
 
-**Nome da VM**: o nome da VM ou o endereço IP que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os discos (VMDKs) que estão anexados às VMs. Para diferenciar VMs vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome do host ESXi. O host ESXi listado é aquele em que a VM foi colocada quando a ferramenta realizou a descoberta durante o período de criação de perfil.
+**Nome da VM**: O nome da VM ou o endereço IP que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os discos (VMDKs) que estão anexados às VMs. Para diferenciar VMs vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome do host ESXi. O host ESXi listado é aquele em que a VM foi colocada quando a ferramenta realizou a descoberta durante o período de criação de perfil.
 
-**Compatibilidade de VM**: os valores são **Sim** e **Sim**\*. **Sim**\* é para instâncias em que a VM é adequada para o [Armazenamento Premium do Azure](https://aka.ms/premium-storage-workload). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo: 
+**Compatibilidade da VM**: Os valores são **Sim** e **Sim**\*. **Sim**\* é para instâncias em que a VM é adequada para o [Armazenamento Premium do Azure](https://aka.ms/premium-storage-workload). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo: 
 * <128 GB é P10.
 * 128 GB até 256 GB é um P15
 * 256 GB a 512 GB é um P20.
@@ -187,40 +187,40 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 
 Por exemplo, se as características de carga de trabalho de um disco o colocarem na categoria P20 ou P30, mas o tamanho o mapear para um tipo de disco de armazenamento premium inferior, a ferramenta marcará essa VM como **Sim**\*. A ferramenta também recomenda que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado ou altere o tipo de disco de destino após o failover.
 
-**Tipo de armazenamento**: standard ou premium.
+**Tipo de armazenamento**: Standard ou Premium.
 
-**Prefixo Sugerido**: o prefixo de conta de armazenamento com três caracteres.
+**Prefixo Sugerido**: O prefixo de conta de armazenamento com três caracteres.
 
-**Conta de Armazenamento**: o nome que usa o prefixo de conta de armazenamento sugerido.
+**Conta de Armazenamento**: O nome que usa o prefixo de conta de armazenamento sugerido.
 
-**IOPS de L/G de Pico (com Fator de Crescimento)**: o IOPS de leitura/gravação de carga de trabalho de pico no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que o IOPS total de leitura/gravação de uma VM nem sempre é a soma de IOPS de leitura/gravação dos discos individuais da VM, pois o IOPS de leitura/gravação de pico da VM é o pico da soma do IOPS de leitura/gravação dos discos individuais durante cada minuto do período de criação de perfil.
+**Pico R/W IOPS (com Fator de Crescimento)**: IOPS de leitura/gravação de carga de trabalho de pico no disco (o padrão é o 95%), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que o IOPS total de leitura/gravação de uma VM nem sempre é a soma de IOPS de leitura/gravação dos discos individuais da VM, pois o IOPS de leitura/gravação de pico da VM é o pico da soma do IOPS de leitura/gravação dos discos individuais durante cada minuto do período de criação de perfil.
 
-**Variação de Dados de Pico em Mbps (com Fator de Crescimento)**: a taxa de variação de pico no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que a variação total dos dados da VM nem sempre é a soma da variação de dados dos discos individuais da VM, pois o pico da variação de dados da VM é o pico da soma da variação dos discos individuais durante cada minuto do período de criação de perfil.
+**Variação de Dados de Pico em Mbps (com Fator de Crescimento)**: A taxa de variação de pico no disco (o padrão é o 95%), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que a variação total dos dados da VM nem sempre é a soma da variação de dados dos discos individuais da VM, pois o pico da variação de dados da VM é o pico da soma da variação dos discos individuais durante cada minuto do período de criação de perfil.
 
-**Tamanho de VM do Azure**: o tamanho ideal de máquina virtual mapeada dos Serviços de Nuvem do Azure para essa VM local. O mapeamento é baseado na memória da VM local, no número de discos/núcleos/NICs e IOPS de leitura/gravação. A recomendação é sempre o menor tamanho de VM do Azure que corresponde a todas as características de VM local.
+**Tamanho da VM do Azure**: O tamanho ideal de máquina virtual mapeada dos Serviços de Nuvem do Azure para essa VM local. O mapeamento é baseado na memória da VM local, no número de discos/núcleos/NICs e IOPS de leitura/gravação. A recomendação é sempre o menor tamanho de VM do Azure que corresponde a todas as características de VM local.
 
-**Número de Discos**: o número total de VMDKs (discos de máquina virtual) na VM.
+**Número de discos**: O número total de VMDKs (discos de máquina virtual) na VM.
 
-**Tamanho de disco (GB)**: o tamanho total de instalação de todos os discos da VM. A ferramenta também mostra o tamanho dos discos individuais na VM.
+**Tamanho do disco em GB**: O tamanho de configuração total de todos os discos da VM. A ferramenta também mostra o tamanho dos discos individuais na VM.
 
-**Núcleos**: o número de núcleos de CPUs na VM.
+**Núcleos**: O número de núcleos de CPUs na VM.
 
 **Memória (MB)**: RAM na VM.
 
-**NICs**: o número de NICs na VM.
+**NICs**: O número de NICs na VM.
 
-**Tipo de inicialização**: tipo de inicialização da VM. Pode ser o BIOS ou EFI.  Atualmente, o Azure Site Recovery dá suporte às VMs do Windows Server EFI (Windows Server 2012, 2012 R2 e 2016) desde que o número de partições no disco de inicialização seja menor do que 4 e o tamanho do setor de inicialização seja de 512 bytes. Para proteger as VMs do EFI, a versão do serviço de mobilidade do Azure Site Recovery deverá ser a 9.13 ou superior. Somente o failover tem suporte para as VMs do EFI. Não há suporte para failback.  
+**Tipo de inicialização**: Tipo de inicialização da VM. Pode ser o BIOS ou EFI.  Atualmente, o Azure Site Recovery dá suporte às VMs do Windows Server EFI (Windows Server 2012, 2012 R2 e 2016) desde que o número de partições no disco de inicialização seja menor do que 4 e o tamanho do setor de inicialização seja de 512 bytes. Para proteger as VMs do EFI, a versão do serviço de mobilidade do Azure Site Recovery deverá ser a 9.13 ou superior. Somente o failover tem suporte para as VMs do EFI. Não há suporte para failback.  
 
-**Tipo de sistema operacional**: o tipo de SO da VM. Pode ser Windows ou Linux ou outro com base no modelo do VMware vSphere escolhido durante a criação da máquina virtual.  
+**Tipo do SO**: É o tipo do SO da VM. Pode ser Windows ou Linux ou outro com base no modelo do VMware vSphere escolhido durante a criação da máquina virtual.  
 
 ## <a name="incompatible-vms"></a>VMs incompatíveis
 
 ![Planilha do Excel de VMs incompatíveis
 ](media/site-recovery-vmware-deployment-planner-analyze-report/incompatible-vms-v2a.png)
 
-**Nome da VM**: o nome da VM ou o endereço IP que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os VMDKs que estão anexados às VMs. Para diferenciar VMs vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome do host ESXi. O host ESXi listado é aquele em que a VM foi colocada quando a ferramenta realizou a descoberta durante o período de criação de perfil.
+**Nome da VM**: O nome da VM ou o endereço IP que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os VMDKs que estão anexados às VMs. Para diferenciar VMs vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome do host ESXi. O host ESXi listado é aquele em que a VM foi colocada quando a ferramenta realizou a descoberta durante o período de criação de perfil.
 
-**Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser qualquer um dos seguintes:
+**Compatibilidade da VM**: Indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser qualquer um dos seguintes:
 
 * O tamanho do disco é > 4095 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco de dados maiores que 4095 GB.
 
@@ -245,23 +245,23 @@ Por exemplo, se as características de carga de trabalho de um disco o colocarem
 * A variação do total de dados por dia excede o limite diário de variação de 2 TB por um Servidor de Processo.
 
 
-**IOPS de L/G de Pico (com Fator de Crescimento)**: o pico de IOPS de carga de trabalho no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que o IOPS total de leitura/gravação da VM nem sempre é a soma de IOPS de leitura/gravação dos discos individuais da VM, pois o IOPS de leitura/gravação de pico da VM é o pico da soma do IOPS de leitura/gravação dos discos individuais durante cada minuto do período de criação de perfil.
+**Pico R/W IOPS (com Fator de Crescimento)**: IOPS de carga de trabalho de pico no disco (o padrão é o 95%), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que o IOPS total de leitura/gravação da VM nem sempre é a soma de IOPS de leitura/gravação dos discos individuais da VM, pois o IOPS de leitura/gravação de pico da VM é o pico da soma do IOPS de leitura/gravação dos discos individuais durante cada minuto do período de criação de perfil.
 
-**Variação nos Dados de Pico em Mbps (com Fator de Crescimento)**: a taxa de variação de pico no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é o 30%). Observe que a variação total dos dados da VM nem sempre é a soma da variação de dados dos discos individuais da VM, pois o pico da variação de dados da VM é o pico da soma da variação dos discos individuais durante cada minuto do período de criação de perfil.
+**Variação de Dados de Pico em Mbps (com Fator de Crescimento)**: A taxa de variação de pico no disco (o padrão é 95%) incluindo o fator de crescimento futuro (o padrão é 30%). Observe que a variação total dos dados da VM nem sempre é a soma da variação de dados dos discos individuais da VM, pois o pico da variação de dados da VM é o pico da soma da variação dos discos individuais durante cada minuto do período de criação de perfil.
 
-**Número de Discos**: o número total de VMDKs na VM.
+**Número de discos**: O número total de VMDKs na VM.
 
-**Tamanho de disco (GB)**: o tamanho total de instalação de todos os discos da VM. A ferramenta também mostra o tamanho dos discos individuais na VM.
+**Tamanho do disco em GB**: O tamanho de configuração total de todos os discos da VM. A ferramenta também mostra o tamanho dos discos individuais na VM.
 
-**Núcleos**: o número de núcleos de CPUs na VM.
+**Núcleos**: O número de núcleos de CPUs na VM.
 
-**Memória (MB)**: a quantidade de RAM na VM.
+**Memória (MB)**: A quantidade de RAM na VM.
 
-**NICs**: o número de NICs na VM.
+**NICs**: O número de NICs na VM.
 
-**Tipo de inicialização**: tipo de inicialização da VM. Pode ser o BIOS ou EFI.  Atualmente, o Azure Site Recovery dá suporte às VMs do Windows Server EFI (Windows Server 2012, 2012 R2 e 2016) desde que o número de partições no disco de inicialização seja menor do que 4 e o tamanho do setor de inicialização seja de 512 bytes. Para proteger as VMs do EFI, a versão do serviço de mobilidade do Azure Site Recovery deverá ser a 9.13 ou superior. Somente o failover tem suporte para as VMs do EFI. Não há suporte para failback.
+**Tipo de inicialização**: Tipo de inicialização da VM. Pode ser o BIOS ou EFI.  Atualmente, o Azure Site Recovery dá suporte às VMs do Windows Server EFI (Windows Server 2012, 2012 R2 e 2016) desde que o número de partições no disco de inicialização seja menor do que 4 e o tamanho do setor de inicialização seja de 512 bytes. Para proteger as VMs do EFI, a versão do serviço de mobilidade do Azure Site Recovery deverá ser a 9.13 ou superior. Somente o failover tem suporte para as VMs do EFI. Não há suporte para failback.
 
-**Tipo de sistema operacional**: o tipo de SO da VM. Pode ser Windows ou Linux ou outro com base no modelo do VMware vSphere escolhido durante a criação da máquina virtual.
+**Tipo do SO**:  É o tipo do SO da VM. Pode ser Windows ou Linux ou outro com base no modelo do VMware vSphere escolhido durante a criação da máquina virtual.
 
 ## <a name="azure-site-recovery-limits"></a>Limites da Azure Site Recovery
 A tabela a seguir fornece os limites do Azure Site Recovery. Esses limites são baseados em nossos testes, mas eles não podem abranger todas as combinações possíveis de E/S de aplicativos. Os resultados reais podem variar dependendo da combinação de E/S do aplicativo. Para obter os melhores resultados, mesmo após planejar a implantação, é sempre recomendável executar amplos testes de aplicativos usando um failover de teste para obter a visão real do desempenho do aplicativo.

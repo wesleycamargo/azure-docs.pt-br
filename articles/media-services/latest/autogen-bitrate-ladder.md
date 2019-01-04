@@ -1,6 +1,6 @@
 ---
-title: Use o codificador padrão nos Serviços de Mídia do Azure para codificar vídeos usando uma escada de taxa de bits gerada automaticamente | Microsoft Docs
-description: Este tópico mostra como usar o codificador padrão nos Serviços de Mídia para codificar uma entrada de vídeo com uma escada de taxa de bits gerada automaticamente, com base na resolução de entrada e na taxa de bits. A resolução de entrada e a taxa de bits nunca serão excedidas. Por exemplo, se a entrada for 720p em 3Mbps, a saída continuará 720p na melhor das hipóteses e iniciará com taxas menores que 3Mbps.
+title: Codificar vídeos com o Codificador Padrão nos Serviços de Mídia - Azure | Microsoft Docs
+description: Este tópico mostra como usar o codificador padrão nos Serviços de Mídia para codificar uma entrada de vídeo com uma escada de taxa de bits gerada automaticamente, com base na resolução de entrada e na taxa de bits.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: ec1b4b88e5b9639c3ee9debbd8ac7d48544344dc
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 976e1ea013c6a30615bdc742ed79e76ec35258a1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378951"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132799"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificar com uma escada de taxa de bits gerada automaticamente
 

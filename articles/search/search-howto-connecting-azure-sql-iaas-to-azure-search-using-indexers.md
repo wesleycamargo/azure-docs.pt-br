@@ -1,5 +1,5 @@
 ---
-title: Conexão da VM do SQL para o Azure Search | Microsoft Docs
+title: Conexão da VM (máquina virtual) do SQL do Azure para indexação de pesquisa – Azure Search
 description: Habilite conexões criptografadas e configure o firewall para permitir conexões com o SQL Server em uma VM (máquina virtual) do Azure de um indexador no Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -8,17 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec2018
+ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366453"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312011"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador do Azure Search ao SQL Server em uma VM do Azure
 Conforme observado em [Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), é possível criar indexadores no **SQL Server em VMs do Azure** (ou **VMs do SQL Azure**) usando o Azure Search, mas há alguns pré-requisitos relacionados à segurança que precisam ser verificados primeiro. 
 
-**Duração da tarefa:** Cerca de 30 minutos, supondo que você já instalou um certificado na VM.
+**Duração da tarefa:** Cerca de 30 minutos, supondo que você já tenha instalado um certificado na VM.
 
 ## <a name="enable-encrypted-connections"></a>Habilitar conexões criptografadas
 O Azure Search requer um canal criptografado para todas as solicitações de indexador em uma conexão de Internet pública. Esta seção lista as etapas para fazer isso funcionar.

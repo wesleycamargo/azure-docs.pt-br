@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: fbfe7255f2b848187c74fd832f349186eef5eaef
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287556"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139054"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -94,7 +94,7 @@ O modelo aninhado requer as [mesmas propriedades](resource-group-authoring-templ
 
 ### <a name="external-template-and-external-parameters"></a>Modelo externo e parâmetros externos
 
-Para vincular a um arquivo de parâmetro e o modelo externo, use **templateLink** e **parametersLink**. Ao vincular a um modelo, o do Gerenciador de Recursos deve ser capaz de acessá-lo. Você não pode especificar um arquivo local ou um arquivo que esteja disponível apenas em sua rede local. Você só pode fornecer um valor de URI que inclua **http** ou **https**. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item.
+Para vincular a um arquivo de parâmetro e o modelo externo, use **templateLink** e **parametersLink**. Ao vincular a um modelo, o do Gerenciador de Recursos deve ser capaz de acessá-lo. Não é possível especificar um arquivo local ou um arquivo que esteja disponível apenas em sua rede local. Você só pode fornecer um valor de URI que inclua **http** ou **https**. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item.
 
 ```json
 "resources": [
@@ -169,7 +169,9 @@ Você também pode usar [deployment()](resource-group-template-functions-deploym
 
 ## <a name="get-values-from-linked-template"></a>Obter valores de modelos vinculados
 
-Para obter um valor de saída de um modelo vinculado, recupere o valor da propriedade com uma sintaxe semelhante a: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Para obter um valor de saída de um modelo vinculado, recupere o valor da propriedade com uma sintaxe semelhante a: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Ao obter uma propriedade de saída de um modelo vinculado, o nome da propriedade não pode incluir um traço.
 
 Os exemplos a seguir demonstram como fazer referência a um modelo vinculado e recuperar um valor de saída. O modelo vinculado retorna uma mensagem simples.
 

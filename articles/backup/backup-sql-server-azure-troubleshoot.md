@@ -3,7 +3,7 @@ title: Guia de solução de problemas do Backup do Azure para VMs do SQL Server 
 description: Informações de solução de problemas para fazer backup de VMs do SQL Server no Azure.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: markgal;anuragm
+ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 1c87382c2aae70b022fb391f80f7c75b0a4e5fe6
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296953"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339511"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solucionar problemas de backup do SQL Server no Azure
 
@@ -79,13 +78,13 @@ As tabelas a seguir são organizadas por código de erro.
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 | Não é possível fazer backup como log de transações para a fonte de dados que está completo. | O espaço de log transacional do banco de dados está completo. | Para corrigir esse problema, consulte a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Este banco de dados SQL não dá suporte para o tipo de backup solicitado. | Réplicas secundárias do Grupo de Disponibilidade AlwaysOn não dão suporte para backups diferenciais e completos. | <ul><li>Se você disparou um backup ad-hoc, dispare os backups no nó primário.</li><li>Se o backup foi agendado por política, certifique-se de que o nó primário está registrado. Para registrar o nó, [siga as etapas para descobrir um banco de dados do SQL Server ](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> | 
+| Este banco de dados SQL não dá suporte para o tipo de backup solicitado. | Réplicas secundárias do Grupo de Disponibilidade AlwaysOn não dão suporte para backups diferenciais e completos. | <ul><li>Se você disparou um backup ad-hoc, dispare os backups no nó primário.</li><li>Se o backup foi agendado por política, certifique-se de que o nó primário está registrado. Para registrar o nó, [siga as etapas para descobrir um banco de dados do SQL Server ](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Restaurar falhas
 
 Os códigos de erro a seguir são mostrados quando os trabalhos de restauração falham.
 
-### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
@@ -108,7 +107,7 @@ Os códigos de erro a seguir são mostrados quando os trabalhos de restauração
 
 Os códigos de erro a seguir são para falhas de registro.
 
-### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError 
+### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
@@ -125,6 +124,16 @@ Os códigos de erro a seguir são para falhas de registro.
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 | O serviço de Backup do Azure usa agente convidado de VM do Azure para fazer backup, mas o agente convidado não está disponível no servidor de destino. | O agente convidado não está habilitado ou não está íntegro | [Instalar o agente convidado de VM](../virtual-machines/extensions/agent-windows.md) manualmente. |
+
+## <a name="configure-backup-failures"></a>Configurar as falhas de Backup
+
+Os códigos de erro a seguir são para configurar falhas de backup.
+
+### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
+
+| Mensagem de erro | Possíveis causas | Ação recomendada |
+|---|---|---|
+| Intenção de proteção automática foi removida ou não é mais válida. | Quando você habilita a proteção automática em uma instância do SQL, os trabalhos de **Configurar Backup** são executados para todos os bancos de dados nessa instância. Se você desabilitar a proteção automática, enquanto os trabalhos estão em execução, os trabalhos **Em andamento** são cancelados com esse código de erro. | Habilite a proteção automática mais uma vez para proteger todos os bancos de dados restantes. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

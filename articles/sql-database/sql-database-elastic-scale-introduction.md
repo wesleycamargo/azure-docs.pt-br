@@ -3,7 +3,7 @@ title: Escalando horizontalmente com o Banco de Dados SQL do Azure | Microsoft D
 description: Os desenvolvedores de SaaS (Software como um serviço) podem criar com facilidade bancos de dados elásticos e escalonáveis na nuvem usando estas ferramentas
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,21 +12,21 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: ab787e8f659d2f57f23bb87397608736e7f6848a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164906"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867079"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalando horizontalmente com o Banco de Dados SQL do Azure
 Você pode escalar horizontalmente bancos de dados SQL do Azure com facilidade usando as ferramentas do **Banco de Dados Elástico** . Essas ferramentas e recursos permitem que você use os recursos de banco de dados do **Banco de Dados SQL do Azure** para criar soluções para cargas de trabalho transacionais e, especialmente, aplicativos SaaS (software como serviço). Os recursos do Banco de Dados Elástico são compostos pelo seguinte:
 
-* [Biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md): a biblioteca de cliente é um recurso que permite criar e manter bancos de dados fragmentados.  Consulte [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
+* [Biblioteca de clientes do Banco de Dados Elástico](sql-database-elastic-database-client-library.md): A biblioteca de clientes é um recurso que permite criar e manter bancos de dados fragmentados.  Consulte [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 * [Ferramenta de mesclagem/divisão do Banco de Dados Elástico](sql-database-elastic-scale-overview-split-and-merge.md): move dados entre bancos de dados fragmentados. Essa ferramenta é útil para mover dados de um banco de dados multilocatário para um banco de dados de locatário único (ou vice-versa). Consulte [Tutorial de ferramenta da Divisão de Mesclagem do Banco de Dados Elástico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md) (visualização): use trabalhos para gerenciar um grande número de bancos de dados SQL do Azure. Execute operações administrativas facilmente, como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, desempenho de coleta de dados ou coleção de telemetria do locatário (cliente), usando trabalhos.
-* [Consulta do Banco de Dados Elástico](sql-database-elastic-query-overview.md) (visualização): permite executar uma consulta Transact-SQL que abranja vários bancos de dados. Isso permite a conexão com ferramentas de relatório, como Excel, Power BI, Tableau, etc.
-* [Transações elásticas](sql-database-elastic-transactions-overview.md): esse recurso permite a execução de transações que abrangem vários bancos de dados no Banco de Dados SQL. As transações de banco de dados elástico estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as [classes System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md) (versão prévia): Use trabalhos para gerenciar um grande número de Bancos de Dados SQL do Azure. Execute operações administrativas facilmente, como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, desempenho de coleta de dados ou coleção de telemetria do locatário (cliente), usando trabalhos.
+* [Consulta de Banco de Dados Elástico](sql-database-elastic-query-overview.md) (versão prévia): Permite que você execute uma consulta Transact-SQL que abrange vários bancos de dados. Isso permite a conexão com ferramentas de relatório, como Excel, Power BI, Tableau, etc.
+* [Transações elásticas](sql-database-elastic-transactions-overview.md): Esse recurso permite que você execute transações que abrangem vários bancos de dados no Banco de Dados SQL do Azure. As transações de banco de dados elástico estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as [classes System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 O gráfico a seguir mostra uma arquitetura que inclui os **recursos do Banco de Dados Elástico** em relação a uma coleção de bancos de dados.
 

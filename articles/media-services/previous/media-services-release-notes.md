@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9370cdfc75995f36101804d2a9f7dc9cf275243c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231644"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186303"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 Estas notas de versão para os Serviços de Mídia do Azure resumem as alterações de versões anteriores e os problemas conhecidos.
@@ -39,7 +39,7 @@ Estas notas de versão para os Serviços de Mídia do Azure resumem as alteraç�
 | O mecanismo de limitação dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP 503, "Serviço Não Disponível". |Para obter mais informações, confira a descrição do código de status HTTP 503 em [Códigos de erro dos Serviços de Mídia](media-services-encoding-error-codes.md). |
 | Ao consultar entidades, no máximo 1.000 entidades são retornadas ao mesmo tempo porque a REST versão 2 pública limita os resultados da consulta a 1.000 resultados. |Use Skip e Take (.NET)/ top (REST), conforme descrito [neste exemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Alguns clientes podem se deparar com um problema de marcas repetidas no manifesto do Smooth Streaming. |Para saber mais, consulte [esta seção](media-services-deliver-content-overview.md#known-issues). |
-| Os objetos do SDK do .NET dos Serviços de Mídia não podem ser serializados, e, por isso, não funcionam com o Cache Redis do Azure. |Se você tentar serializar o objeto AssetCollection do SDK para adicioná-lo ao Cache Redis do Azure, uma exceção será lançada. |
+| Os objetos do SDK do .NET dos Serviços de Mídia não podem ser serializados e, por isso, não funcionam com o Cache para Redis do Azure. |Se você tentar serializar o objeto AssetCollection do SDK para adicioná-lo ao Cache para Redis do Azure, uma exceção será lançada. |
 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Histórico de versão da API REST
@@ -86,7 +86,7 @@ A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao pr
     * Os aprimoramentos no decodificador de H.264 usado no Codificador Standard eliminam determinados artefatos raros. 
 
 #### <a name="media-analytics"></a>Análise de Mídia
-Disponibilidade geral do Azure Media Redactor: este processador de mídia executa anonimização ao embaçar os rostos de indivíduos selecionados e é ideal para uso em cenários de mídia de notícias e em segurança pública. 
+Disponibilidade geral do Azure Media Redactor: Esse processador de mídia executa anonimização de vídeo ao embaçar os rostos de indivíduos selecionados e é ideal para uso em cenários de mídia de notícias e em segurança pública. 
 
 Para obter uma visão geral desse novo processador consulte [esta postagem no blog](https://azure.microsoft.com/blog/azure-media-redactor/). Para obter informações sobre a documentação detalhada e configurações, consulte [Edição facial com a Análise de Mídia do Azure](media-services-face-redaction.md).
 
@@ -184,9 +184,9 @@ A equipe do SDK do Azure publicou uma nova versão do pacote [SDK do Azure para 
 Para obter mais informações, consulte:
 
 * As [amostras de código](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) a seguir ajudam você a começar rapidamente:
-  * **vodworkflow_aes.php**: esse arquivo PHP mostra como usar a criptografia dinâmica AES-128 e o serviço de entrega de chaves. Ele se baseia o exemplo .NET explicado em [Usar a criptografia dinâmica AES-128 e o serviço de entrega de chaves](media-services-protect-with-aes128.md).
-  * **vodworkflow_aes.php**: esse arquivo PHP mostra como usar a criptografia dinâmica PlayReady e o serviço de entrega de licenças. Ele se baseia o exemplo .NET explicado em [Usar a criptografia dinâmica comum PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md).
-  * **scale_encoding_units.php**: esse arquivo PHP mostra como dimensionar unidades reservadas para codificação.
+  * **vodworkflow_aes.php**: Esse arquivo PHP mostra como usar a criptografia dinâmica AES-128 e o serviço de entrega de chaves. Ele se baseia o exemplo .NET explicado em [Usar a criptografia dinâmica AES-128 e o serviço de entrega de chaves](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes.php**: Esse arquivo PHP mostra como usar a criptografia dinâmica PlayReady e o serviço de entrega de licenças. Ele se baseia o exemplo .NET explicado em [Usar a criptografia dinâmica comum PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md).
+  * **scale_encoding_units.php**: Esse arquivo PHP mostra como dimensionar unidades reservadas para codificação.
 
 ## <a id="nov_changes_15"></a>Versão de novembro de 2015
  Os Serviços de Mídia agora oferecem o serviço de entrega de licença do Widevine na nuvem. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Veja também [este tutorial](media-services-protect-with-playready-widevine.md) e o [repositório do GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
@@ -194,10 +194,10 @@ Para obter mais informações, consulte:
 Os serviços de entrega de licenças do Widevine fornecidos pelos Serviços de Mídia estão em versão prévia. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Versão de outubro de 2015
-Os Serviços de Mídia agora também estão disponíveis nos seguintes data centers: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o Portal do Azure para [criar contas dos Serviços de Mídia](media-services-portal-create-account.md) e realizar diversas tarefas descritas na [página da Web da documentação dos Serviços de Mídia](https://azure.microsoft.com/documentation/services/media-services/). A Codificação Ativa não está habilitada nesses data centers. Além disso, nem todos os tipos de unidades reservadas para codificação estão disponíveis nesses data centers.
+Os Serviços de Mídia agora estão ativos nos seguintes datacenters: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o Portal do Azure para [criar contas dos Serviços de Mídia](media-services-portal-create-account.md) e realizar diversas tarefas descritas na [página da Web da documentação dos Serviços de Mídia](https://azure.microsoft.com/documentation/services/media-services/). A Codificação Ativa não está habilitada nesses data centers. Além disso, nem todos os tipos de unidades reservadas para codificação estão disponíveis nesses data centers.
 
-* Sul do Brasil:                                          somente as Unidades Reservadas para Codificação Standard e Básica estão disponíveis.
-* Índia Ocidental, Sul da Índia e Índia Central:             somente as Unidades Reservadas para Codificação do plano Básico estão disponíveis.
+* Sul do Brasil:                                          Somente as unidades reservadas para codificação Standard e Básica estão disponíveis.
+* Índia Ocidental, Sul da Índia e Índia Central:             Somente as unidades reservadas para codificação Básica estão disponíveis.
 
 ## <a id="september_changes_15"></a>Versão de setembro de 2015
 Os Serviços de Mídia agora oferecem a capacidade de proteger tanto vídeo por demanda quanto fluxos ao vivo com tecnologia de DRM modular Widevine. Você pode usar os seguintes parceiros de serviços de entrega para ajudá-lo a fornecer licenças do Widevine:
@@ -270,7 +270,7 @@ Para saber mais, confira [este blog](https://azure.microsoft.com/blog/2015/04/13
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK do .NET dos Serviços de Mídia
 O SDK do .NET dos Serviços de Mídia agora está na versão 3.2.0.0. Foram feitas as seguintes atualizações:
 
-* Alteração interruptiva: TokenRestrictionTemplate.Issuer e TokenRestrictionTemplate.Audience foram alterados para ser de um tipo de cadeia de caracteres.
+* Alterações da falha: TokenRestrictionTemplate.Issuer e TokenRestrictionTemplate.Audience foram alterados para ser de um tipo de cadeia de caracteres.
 * Foram feitas atualizações relativas à criação personalizada de políticas de repetição.
 * Foram feitas correções de bugs relativas a upload/download de arquivos.
 * A classe MediaServicesCredentials agora aceita os pontos de extremidade de controle de acesso primários e secundários nos quais autenticar.
@@ -374,8 +374,8 @@ Ao codificar um ativo, um ativo de saída é produzido quando o trabalho de codi
 ## <a id="july_changes_14"></a>Versão de julho de 2014
 As seguintes correções de erro foram feitas ao Empacotador e Criptografador dos Serviços de Mídia do Azure:
 
-* Quando um ativo de arquivo dinâmico é transmitido para HLS, apenas o áudio é reproduzido: esse problema foi corrigido e agora é possível executar áudio e vídeo.
-* Ao empacotar um ativo para HLS e criptografia de envelope de 128 bits, os fluxos de pacote não são reproduzidos em dispositivos Android: esse bug foi corrigido e o fluxo empacotado é reproduzido em dispositivos Android compatíveis com HLS.
+* Quando um ativo de arquivo morto dinâmico é transmitido para HLS, apenas o áudio é reproduzido novamente: Esse problema foi corrigido e agora é possível reproduzir áudio e vídeo.
+* Quando um ativo é empacotado para criptografia de envelope HLS e AES de 128 bits, os fluxos empacotados não são reproduzidos em dispositivos Android: Esse bug foi corrigido e o fluxo empacotado é reproduzido em dispositivos Android compatíveis com HLS.
 
 ## <a id="may_changes_14"></a>Versão de maio de 2014
 ### <a id="may_14_changes"></a>Atualizações gerais dos Serviços de Mídia
@@ -476,7 +476,7 @@ As alterações a seguir foram incluídas em versões do SDK dos Serviços de M�
     * Propriedade StorageAccount
     * Propriedade StorageAccountName
   
-    Para obter mais informações, consulte [Gerenciar ativos de Serviços de Mídia entre várias contas de armazenamento](https://msdn.microsoft.com/library/azure/dn271889.aspx).
+      Para obter mais informações, consulte [Gerenciar ativos de Serviços de Mídia entre várias contas de armazenamento](https://msdn.microsoft.com/library/azure/dn271889.aspx).
 * APIs relacionadas à notificação. Começando pela versão 2.2.0.0, é possível escutar as notificações de armazenamento de Fila do Azure. Para obter mais informações, consulte [Manipular notificações de trabalho dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Propriedade Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions
@@ -489,22 +489,22 @@ As alterações a seguir foram incluídas em versões do SDK dos Serviços de M�
 
 ## <a id="december_changes_12"></a>Versão de dezembro de 2012
 ### <a name="dec_12_dotnet_changes"></a>Alterações do SDK do .NET dos Serviços de Mídia
-* IntelliSense: a documentação do IntelliSense que faltava para vários tipos foi adicionada.
-* Microsoft.Practices.TransientFaultHandling.Core: foi corrigido um problema em que o SDK ainda tinha uma dependência a uma versão mais antiga desse assembly. O SDK agora faz referência à versão 5.1.1209.1 desse conjunto.
+* IntelliSense: A documentação do IntelliSense que faltava para vários tipos foi adicionada.
+* Microsoft.Practices.TransientFaultHandling.Core: Foi corrigido um problema em que o SDK ainda tinha uma dependência a uma versão mais antiga desse assembly. O SDK agora faz referência à versão 5.1.1209.1 desse conjunto.
 
 Correções para problemas encontrados no SDK de novembro de 2012:
 
-* IAsset.Locators.Count: essa contagem agora é relatada corretamente em novas interfaces IAsset depois que todos os localizadores são excluídos.
-* IAssetFile.ContentFileSize: esse valor agora é definido adequadamente após um upload por IAssetFile.Upload(filepath).
-* IAssetFile.ContentFileSize: essa propriedade agora pode ser definida durante a criação de um arquivo de ativo. Ela antes era somente leitura.
-* IAssetFile.Upload(filePath): corrigido um problema em que esse método de upload assíncrono lançava o erro abaixo ao carregar vários arquivos para o ativo. O erro era “O servidor falhou em autenticar a solicitação. Certifique-se de que o valor do cabeçalho Autorização seja formado corretamente, incluindo a assinatura.”
-* IAssetFile.UploadAsync: corrigido um problema que limitava o upload simultâneo de arquivos a cinco deles.
-* IAssetFile.UploadProgressChanged: esse evento agora é fornecido pelo SDK.
-* IAssetFile.DownloadAsync (string, BlobTransferClient, ILocator, CancellationToken): essa sobrecarga de método agora é fornecida.
-* IAssetFile.DownloadAsync: corrigido um problema que limitava o download simultâneo de arquivos a cinco deles.
-* IAssetFile.Delete(): corrigido um problema em que chamar delete poderia gerar uma exceção caso nenhum arquivo fosse carregado para o IAssetFile.
-* Trabalhos: corrigido um problema em que encadear uma "Tarefa de MP4 para Smooth Streams" com uma "Tarefa de proteção do PlayReady" usando um modelo de trabalho não criava nenhuma tarefa.
-* EncryptionUtils.GetCertificateFromStore(): esse método não lança mais uma exceção de referência nula devido a falhas em encontrar o certificado com base em problemas de configuração de certificado.
+* IAsset.Locators.Count: Essa contagem agora é relatada corretamente em novas interfaces IAsset depois que todos os localizadores são excluídos.
+* IAssetFile.ContentFileSize: Esse valor agora é definido adequadamente após um upload por IAssetFile.Upload(filepath).
+* IAssetFile.ContentFileSize: Essa propriedade agora pode ser definida durante a criação de um arquivo de ativo. Ela antes era somente leitura.
+* IAssetFile.Upload(filepath): Corrigido um problema em que esse método de upload assíncrono lançava o erro abaixo ao carregar vários arquivos para o ativo. O erro era “O servidor falhou em autenticar a solicitação. Certifique-se de que o valor do cabeçalho Autorização seja formado corretamente, incluindo a assinatura.”
+* IAssetFile.UploadAsync: Corrigido um problema que limitava o upload simultâneo de arquivos a cinco arquivos.
+* IAssetFile.UploadProgressChanged: Esse evento agora é fornecido pelo SDK.
+* IAssetFile.DownloadAsync(string, BlobTransferClient, ILocator, CancellationToken): Essa sobrecarga de método agora é fornecida.
+* IAssetFile.DownloadAsync: Corrigido um problema que limitava o download simultâneo de arquivos a cinco arquivos.
+* IAssetFile.Delete(): Corrigido um problema em que chamar delete poderia gerar uma exceção caso nenhum arquivo fosse carregado para o IAssetFile.
+* Trabalhos: Corrigido um problema em que encadear uma “Tarefa de MP4 para Smooth Streams” com uma “Tarefa de proteção do PlayReady” usando um modelo de trabalho não criava nenhuma tarefa.
+* EncryptionUtils.GetCertificateFromStore(): Esse método não lança mais uma exceção de referência nula devido a falhas em encontrar o certificado com base em problemas de configuração de certificado.
 
 ## <a id="november_changes_12"></a>Versão de novembro de 2012
 As alterações mencionadas nesta seção eram atualizações incluídas no SDK de novembro de 2012 (versão 2.0.0.0). Essas alterações podem exigir que qualquer código escrito para a versão prévia do SDK de junho de 2012 seja modificado ou reescrito.
@@ -521,10 +521,10 @@ As alterações mencionadas nesta seção eram atualizações incluídas no SDK 
   
     * IAssetFile substitui FileInfo e tem um comportamento diferente. Para usá-la, instancie o objeto IAssetFiles, seguido por um upload de arquivo usando o SDK dos Serviços de Mídia ou o SDK de Armazenamento. As seguintes sobrecargas IAssetFile.Upload podem ser usadas:
   
-        * IAssetFile.Upload(filePath): esse método síncrono bloqueia o thread e é recomendado somente ao carregar um único arquivo.
-        * IAssetFile.UploadAsync(filePath, blobTransferClient, localizador, cancellationToken): esse método assíncrono é o mecanismo de upload preferido. 
+        * IAssetFile.Upload(filePath): Esse método síncrono bloqueia o thread e é recomendado somente ao carregar um único arquivo.
+        * IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): Este método assíncrono é o mecanismo de upload de preferência. 
     
-            Bug conhecido: se você usar o token de cancelamento, o upload será cancelado. As tarefas podem ter muitos estados de cancelamento. É preciso capturar e tratar as exceções adequadamente.
+            Bug conhecido: Se você usar o token de cancelamento, o upload será cancelado. As tarefas podem ter muitos estados de cancelamento. É preciso capturar e tratar as exceções adequadamente.
 * Localizadores
   
     * As versões específicas da origem foram removidas. O context.Locators.CreateSasLocator (asset, accessPolicy) específico do SAS será marcado como preterido, ou removido pela disponibilidade geral. Consulte a seção Localizadores em Nova Funcionalidade para comportamento atualizado.

@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166994"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408911"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -57,13 +57,13 @@ Para iniciar o controle de alterações, é necessário ativar a solução Contr
 
 1. No Portal do Azure, navegue até sua Conta de Automação
 2. Selecione **Controle de Alterações** em **CONFIGURAÇÃO**.
-3. Selecione um espaço de trabalho do Log Analytics existente ou **Criar novo espaço de trabalho** e clique em **Habilitar**.
+3. Selecione um workspace do Log Analytics existente ou **Criar novo workspace** e clique em **Habilitar**.
 
 Isso habilita a solução para sua conta de automação. A solução pode demorar até 15 minutos para habilitar. A faixa azul notifica-o quando a solução estiver habilitada. Navegue de volta para a página **Controle de Alterações** para gerenciar a solução.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurar o Controle de Alterações e Inventário
 
-Para saber como integrar computadores para a solução, visite: [Integração das soluções de Automação do Azure](automation-onboard-solutions-from-automation-account.md). Quando você tem uma integração de máquina com a solução de Controle de Alterações e de inventário, você pode configurar os itens para rastrear. Ao habilitar um uma chave de registro ou arquivo para controlar, ele será habilitado tanto para o Controle de Alterações como para Inventário.
+Para saber como integrar computadores para a visita de solução: [Soluções de Automação do Azure de integração](automation-onboard-solutions-from-automation-account.md). Quando você tem uma integração de máquina com a solução de Controle de Alterações e de inventário, você pode configurar os itens para rastrear. Ao habilitar um uma chave de registro ou arquivo para controlar, ele será habilitado tanto para o Controle de Alterações como para Inventário.
 
 Para rastrear alterações em arquivos no Windows e Linux, os hashes MD5 dos arquivos são usados. Esses hashes são usados para detectar se uma alteração foi feita desde o último inventário.
 
@@ -85,7 +85,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
 |Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados.<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados.<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do conteúdo retornado.     |
-|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 > [!NOTE]
 > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
@@ -105,7 +105,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
 |Inserir o Caminho     | O caminho para verificar em busca do arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
-|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Configurações de caractere curinga, recursão e ambiente
 
@@ -135,7 +135,7 @@ Use as etapas a seguir para configurar as chaves do registro para acompanhamento
 |habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
-|Chave de Registro do Windows   | O caminho para verificar o arquivo. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Chave de Registro do Windows   | O caminho para verificar o arquivo. Por exemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitações
 
@@ -171,6 +171,17 @@ A tabela a seguir mostra a frequência da coleta de dados para os tipos de alter
 | Daemons Linux | 5 minutos |
 | Software do Windows | 30 minutos |
 | Software Linux | 5 minutos |
+
+A tabela a seguir mostra os limites de item controlados por máquina para Controle de Alterações.
+
+| **Recurso** | **Limite**| **Observações** |
+|---|---|---|
+|Arquivo|500||
+|Registro|250||
+|Software do Windows|250|Não inclui as atualizações de software|
+|Pacotes do Linux|1250||
+|Serviços|250||
+|Daemon|250||
 
 ### <a name="windows-service-tracking"></a>Rastreamento de serviço do Windows
 
@@ -234,7 +245,7 @@ Os seguintes endereços são necessários especificamente para o controle de alt
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|*.azure-automation.net|*.Azure automation.us|
 
 ## <a name="use-change-tracking"></a>Use o Controle de Alterações
 

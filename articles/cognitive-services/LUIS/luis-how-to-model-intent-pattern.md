@@ -1,21 +1,22 @@
 ---
-title: Adicionar modelos de padrão em vez de mais enunciados em aplicativos LUIS
-titleSuffix: Azure Cognitive Services
+title: Padrões aumentam a precisão
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Saiba como adicionar modelos padrão em aplicativos LUIS (Reconhecimento Vocal) para aumentar a precisão da previsão.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885879"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134991"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar Padrões para aumentar a precisão da previsão
 Depois que um aplicativo LUIS receber declarações do ponto de extremidade, use o [conceito](luis-concept-patterns.md) de Padrões para aumentar a precisão da previsão de declarações que revelam um padrão na ordem e na escolha de palavras. Os Padrões usam [entidades](luis-concept-entity-types.md), e a funções que elas têm de extrair dados usando uma sintaxe de padrão específica. 
@@ -95,7 +96,7 @@ Para reatribuir vários padrões a uma intenção diferente, marque a caixa de s
 
 2. O diálogo de confirmação **Excluir padrões** é exibido. Selecione **OK** para concluir a exclusão.
 
-    ![Captura de tela da exclusão de vários padrões](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Captura de tela da caixa de confirmação de exclusão de vários padrões](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>Filtrar a lista de padrões por entidade
 
@@ -116,7 +117,7 @@ Após a aplicação do filtro, o nome da intenção é exibido abaixo da barra d
 ## <a name="remove-entity-or-intent-filter"></a>Remover o filtro de entidade ou intenção
 Após a filtragem da lista de padrões, o nome da entidade ou da intenção aparecerá abaixo da barra de ferramentas. Para remover o filtro, selecione o nome.
 
-![Captura de tela da filtragem de padrões por entidade](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Captura de tela da remoção de entidade do filtro](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 O filtro é removido e todos os padrões aparecem. 
 
@@ -125,7 +126,7 @@ Você pode criar um padrão de uma declaração existente na página **Intençã
 
 1. Na linha selecionada do enunciado, selecione o botão de reticências (***...***) à direita do enunciado e selecione **Adicionar como padrão**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Captura de tela da tabela de declarações com Adicionar padrão realçado no menu de opções")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Captura de tela da tabela de declarações com Adicionar padrão realçado no menu de opções](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Captura de tela da tabela de declarações com Adicionar padrão realçado no menu de opções")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Modificar o padrão de acordo com as [regras de sintaxe](luis-concept-patterns.md#pattern-syntax). Se a declaração selecionada for rotulada com entidades, essas entidades já estarão no padrão com a sintaxe correta.
 

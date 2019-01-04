@@ -1,5 +1,5 @@
 ---
-title: Como se preparar para uma alteração de endereço IP de saída - Azure
+title: Preparar-se para alteração de endereço IP de saída – Serviço de Aplicativo do Azure
 description: Se seu endereço IP de saída vai ser alterado, saiba o que fazer para que seu aplicativo continue a funcionar após a alteração.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 2355fa5e3e7fd83b5d9f22d87c19f8152659fc97
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.custom: seodec18
+ms.openlocfilehash: f611733400b8bfd18a135fe07f84606f13e59704
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309333"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275701"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Como se preparar para uma alteração de endereço IP de saída
 
@@ -39,7 +40,7 @@ Novos endereços IP de saída são mostrados no portal antes de entrarem em vigo
 
 3.  Selecione o aplicativo do Serviço de Aplicativo na lista.
 
-4.  Se o aplicativo é um aplicativo de funções, consulte [endereços IP de saída do aplicativo de função](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
+1.  Se o aplicativo é um aplicativo de funções, consulte [endereços IP de saída do aplicativo de função](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
 
 4.  No cabeçalho **Configurações**, clique em **Propriedades** no painel de navegação esquerdo e localize a seção rotulada como **Endereços IP de Saída**.
 

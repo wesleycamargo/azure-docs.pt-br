@@ -1,6 +1,6 @@
 ---
-title: Como usar o Azure Search de um aplicativo .NET | Microsoft Docs
-description: Como usar o Azure Search de um aplicativo .NET
+title: Como usar o Azure Search de um aplicativo .NET – Azure Search
+description: Saiba como usar o Azure Search em um aplicativo .NET usando o C# e o SDK do .NET. As tarefas baseadas em códigos incluem a conexão com o serviço, conteúdo de índice e consulta a um índice.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 19913f9c30992e833e5435af7066611d4662ba56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.custom: seodec2018
+ms.openlocfilehash: c2dd9d7c7567a7c57def093c4d611ab09c870d84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525630"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310651"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como usar o Azure Search de um aplicativo .NET
 Este artigo é um passo a passo para ajudar você a usar o [SDK do .NET do Azure Search](https://aka.ms/search-sdk). Você pode usar o SDK do .NET para implementar uma experiência de pesquisa avançada em seu aplicativo usando o Azure Search.
@@ -26,8 +27,8 @@ O principal pacote NuGet é `Microsoft.Azure.Search`, o que é um pacote meta qu
 
 Os outros pacotes NuGet no SDK são:
  
-  - `Microsoft.Azure.Search.Data`: use este pacote se você estiver desenvolvendo um aplicativo .NET usando o Azure Search e você só precisa consultar ou atualizar documentos em seus índices. Se você também precisa criar ou atualizar índices, mapas de sinônimo ou outros recursos de nível de serviço, use o `Microsoft.Azure.Search` pacote em vez disso.
-  - `Microsoft.Azure.Search.Service`: use este pacote se você estiver desenvolvendo automação no .NET para gerenciar índices do Azure Search, mapas de sinônimo, indexadores, fontes de dados ou outros recursos de nível de serviço. Se você precisar apenas consultar ou atualizar em seus índices, use o `Microsoft.Azure.Search.Data` pacote em vez disso. Se você precisar de toda a funcionalidade do Azure Search, use o `Microsoft.Azure.Search` pacote em vez disso.
+  - `Microsoft.Azure.Search.Data`: Use esse pacote se estiver desenvolvendo um aplicativo .NET usando o Azure Search e só precisa consultar ou atualizar documentos nos índices. Se você também precisa criar ou atualizar índices, mapas de sinônimo ou outros recursos de nível de serviço, use o `Microsoft.Azure.Search` pacote em vez disso.
+  - `Microsoft.Azure.Search.Service`: Use esse pacote se estiver desenvolvendo a automação no .NET para gerenciar índices, mapas de sinônimos, indexadores, fontes de dados ou outros recursos no nível do serviço do Azure Search. Se você precisar apenas consultar ou atualizar em seus índices, use o `Microsoft.Azure.Search.Data` pacote em vez disso. Se você precisar de toda a funcionalidade do Azure Search, use o `Microsoft.Azure.Search` pacote em vez disso.
   - `Microsoft.Azure.Search.Common`: Tipos comuns necessários para as bibliotecas .NET do Azure Search. Você não precisa usar esse pacote diretamente em seu aplicativo; somente é destinada a ser usado como uma dependência.
 
 A diversas bibliotecas de clientes definem classes como `Index`, `Field` e `Document`, e operações como `Indexes.Create` e `Documents.Search` nas classes `SearchServiceClient` e `SearchIndexClient`. Essas classes são organizadas nos namespaces a seguir:
@@ -58,7 +59,7 @@ Há várias coisas que você precisará fazer em seu aplicativo de pesquisa. Nes
 * Preenchimento do índice com documentos
 * Procura por documentos usando filtros e pesquisa de texto completo
 
-O código de exemplo a seguir ilustra cada um deles. Fique à vontade para usar os trechos de código em seu próprio aplicativo.
+O código de exemplo a seguir ilustra cada um deles. Fique à vontade para usar os snippets de código em seu próprio aplicativo.
 
 ### <a name="overview"></a>Visão geral
 O exemplo de aplicativo que vamos explorar cria um novo índice chamado "hotéis", preenche-o com alguns documentos e, em seguida, executa algumas consultas de pesquisa. Este é o programa principal, mostrando o fluxo geral:
@@ -320,7 +321,7 @@ A segunda parte cria um `IndexBatch` com os documentos. Especifique a operação
 > 
 > 
 
-A terceira parte desse método é um bloco catch que trata um caso de erro importante para indexação. Se o serviço de Azure Search não indexar alguns documentos no lote, uma `IndexBatchException` será lançada por `Documents.Index`. Isso pode acontecer se você estiver indexando documentos enquanto o serviço estiver sob carga pesada. **É altamente recomendável a manipulação explícita desse caso em seu código.** Você pode atrasar e repetir a indexação de documentos que falharam, ou você pode registrar em log e continuar, como faz o exemplo, ou pode alguma outra coisa, dependendo dos requisitos de consistência de dados do aplicativo.
+A terceira parte desse método é um bloco catch que trata um caso de erro importante para indexação. Se o serviço de Azure Search não indexar alguns documentos no lote, uma `IndexBatchException` será lançada por `Documents.Index`. Isso pode acontecer se você estiver indexando documentos enquanto o serviço estiver sob carga pesada. **É altamente recomendável a manipulação explícita desse caso em seu código.**  Você pode atrasar e repetir a indexação de documentos que falharam, ou você pode registrar em log e continuar, como faz o exemplo, ou pode alguma outra coisa, dependendo dos requisitos de consistência de dados do aplicativo.
 
 > [!NOTE]
 > Você pode usar o método `FindFailedActionsToRetry` para criar um novo lote contendo somente as ações que falharam em uma chamada anterior para `Index`. O método é documentado [aqui](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception#Microsoft_Azure_Search_IndexBatchException_FindFailedActionsToRetry_Microsoft_Azure_Search_Models_IndexBatch_System_String_) e há uma discussão sobre como usá-lo corretamente [em StackOverflow](http://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).

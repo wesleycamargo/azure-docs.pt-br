@@ -3,7 +3,7 @@ title: Restaurar um banco de dados SQL do Azure de um backup | Microsoft Docs
 description: Saiba mais sobre a Restauração Pontual, que permite que você reverta um Banco de Dados SQL do Azure para um ponto anterior no tempo (até 35 dias).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: ba6493f77b622a814c970b07fc2a23e7ce1d3624
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4d77f8aad07d2fd4b3e2c4ec42b5b0ec328f779d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987555"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269508"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 
@@ -64,10 +64,10 @@ Para uma assinatura única, há algumas limitações no número de solicitaçõe
 |Pool Elástico (por pool)|4|200|
 ||||
 
-Não há nenhuma funcionalidade interna para restauração em massa. O [banco de dados SQL do Azure: o script recuperação de servidor completa](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) é um exemplo de uma maneira de realizar essa tarefa.
+Não há nenhuma funcionalidade interna para restauração em massa. O [Banco de Dados SQL do Azure: o script recuperação de servidor completa](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) é um exemplo de uma maneira de realizar essa tarefa.
 
 > [!IMPORTANT]
-> Para recuperar usando backups automatizados, você deverá ser um membro da função Contribuidor do SQL Server na assinatura ou o proprietário da assinatura - consulte [RBAC: funções internas](../role-based-access-control/built-in-roles.md). Você pode recuperar usando o Portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL.
+> Para recuperar usando backups automatizados, você deverá ser um membro da função Colaborador do SQL Server na assinatura ou o proprietário da assinatura. Confira [RBAC: funções internas](../role-based-access-control/built-in-roles.md). Você pode recuperar usando o Portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Restauração pontual
 
@@ -129,7 +129,7 @@ A restauração geográfica é a opção de recuperação padrão quando seu ban
 Atualmente, não há suporte para a restauração pontual em uma área geográfica secundária. A restauração pontual pode ser feita somente em um banco de dados primário. Para obter informações detalhadas sobre como usar a restauração geográfica para se recuperar de uma interrupção, consulte [Recuperação de uma interrupção](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> A recuperação de backups é a mais básica das soluções de recuperação de desastre disponíveis no Banco de Dados SQL com o RPO (Objetivo de Ponto de Recuperação) e ERT (Tempo de Recuperação Estimado) mais longos. Para soluções que usam bancos de dados de tamanho pequeno (por exemplo, nível de serviço básico ou bancos de dados de inquilino de tamanho pequeno em pools elásticos), a restauração geográfica é frequentemente uma solução DR razoável com um TRE de até 12 horas (geralmente muito menos). Para soluções que usam bancos de dados grandes e exigem tempos de recuperação mais curtos, considere usar [Grupos de failover e replicação geográfica ativa](sql-database-geo-replication-overview.md). A replicação geográfica ativa oferece um RPO e um ERT muito menores, pois exige somente que você inicie um failover para um secundário replicado continuamente. Para obter mais informações sobre as opções de continuidade dos negócios, consulte [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
+> A recuperação de backups é a mais básica das soluções de recuperação de desastre disponíveis no Banco de Dados SQL com o RPO (Objetivo de Ponto de Recuperação) e ERT (Tempo de Recuperação Estimado) mais longos. Para soluções que usam bancos de dados de tamanho pequeno (por exemplo, nível de serviço básico ou bancos de dados de inquilino de tamanho pequeno em pools elásticos), a restauração geográfica é frequentemente uma solução DR razoável com um TRE de até 12 horas (geralmente muito menos). Para soluções que usam bancos de dados grandes e exigem tempos de recuperação mais curtos, considere usar [Replicação geográfica ativa](sql-database-active-geo-replication.md) ou [Grupos de failover automático](sql-database-auto-failover-group.md). A replicação geográfica ativa oferece um RPO e um ERT muito menores, pois exige somente que você inicie um failover para um secundário replicado continuamente. Grupos de failover automático habilitam o failover automático para um grupo de bancos de dados. Para obter mais informações sobre as opções de continuidade dos negócios, consulte [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Restauração geográfica usando o portal do Azure
 
@@ -177,4 +177,4 @@ Backups automáticos protegem seus bancos de dados contra erros de usuário e de
 - Para obter uma visão geral e os cenários de continuidade dos negócios, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 - Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
 - Para saber mais sobre retenção de longo prazo, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
-- Para saber mais sobre as opções de recuperação mais rápida, consulte [Grupos de failover e replicação geográfica ativa](sql-database-geo-replication-overview.md).
+- Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-active-geo-replication.md) ou [Grupos de failover automático](sql-database-auto-failover-group.md).

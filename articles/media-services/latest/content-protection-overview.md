@@ -1,5 +1,5 @@
 ---
-title: Proteger seu conteúdo com os Serviços de Mídia do Azure | Microsoft Docs
+title: Proteger seu conteúdo com os Serviços de Mídia - Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral da proteção de conteúdo com os Serviços de Mídia.
 services: media-services
 documentationcenter: ''
@@ -11,18 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: cb7e867ea4304cf8b8741eac183e60d325c752c7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238342"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141842"
 ---
 # <a name="content-protection-overview"></a>Visão geral de proteção do conteúdo
 
-É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (Gerenciamento de Direitos Digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
+É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
 
 A seguinte imagem ilustra o fluxo de trabalho de proteção de conteúdo dos Serviços de Mídia: 
 
@@ -52,14 +53,14 @@ Para concluir com êxito o design do sistema / aplicativo de "proteção de cont
 
 2. Player com o cliente do AES ou DRM. Um aplicativo de player de vídeo baseado em um player SDK (nativo ou baseado em navegador) precisa atender aos seguintes requisitos:
   * O SDK player dá suporte a clientes necessários do DRM
-  * O SDK de player suporta os protocolos de streaming necessários: HLS, Smooth e/ou traço
+  * O SDK de player suporta os protocolos de streaming necessários: Smooth, DASH e/ou HLS
   * O SDK do player precisa ser capaz de lidar com passar um token JWT na solicitação de aquisição de licença
   
     Você consegue criar um player usando a [API do Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/). Use a [API ProtectionInfo do Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/) para especificar qual tecnologia de DRM usar em diferentes plataformas de DRM.
 
     Para testar conteúdo criptografado AES ou CENC (Widevine e/ou PlayReady), é possível usar o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Certifique-se de clicar em "Opções avançadas" e verifique as opções de criptografia.
 
-    Se você quiser testar o conteúdo do FairPlay criptografado, use [esse teste player](https://aka.ms/amtest). O player suporta DRM Widevine, PlayReady e FairPlay, bem como a criptografia de chave AES-128. É necessário escolher o navegador certo para testar diferentes DRMs: Chrome/Opera/Firefox para Widevine, MS Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
+    Se você quiser testar o conteúdo do FairPlay criptografado, use [esse teste player](https://aka.ms/amtest). O player suporta DRM Widevine, PlayReady e FairPlay, bem como a criptografia de chave AES-128. Você precisa escolher o navegador correto para testar DRMs diferentes: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
 
 3. O Secure Token Service (STS), que emite o JSON Web Token (JWT) como token de acesso para acesso a recursos de back-end. Você pode usar os serviços de entrega de licença do AMS como o recurso de back-end. Um STS deve definir o seguinte:
 

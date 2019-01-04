@@ -4,16 +4,16 @@ description: Saiba como solucionar problemas com runbooks de automação do Azur
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094857"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015459"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -75,7 +75,7 @@ Para determinar o que está errado, siga os seguintes passos:
    }
    ```
 
-### <a name="unable-to-find-subscription"></a> Cenário: não é possível encontrar a assinatura do Azure
+### <a name="unable-to-find-subscription"></a>Cenário: Não é possível encontrar a assinatura do Azure
 
 #### <a name="issue"></a>Problema
 
@@ -123,11 +123,11 @@ Se você tiver a autenticação multifator em sua conta do Azure, você não pod
 
 #### <a name="resolution"></a>Resolução
 
-Para usar um certificado com os cmdlets do modelo de implantação clássico do Azure, consulte [criando e adicionando um certificado para gerenciar os serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [criando entidades de serviço usando o portal do Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [autenticando uma entidade de serviço com o Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+Para usar um certificado com os cmdlets do modelo de implantação clássico do Azure, consulte [criando e adicionando um certificado para gerenciar os serviços do Azure.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [criando entidades de serviço usando o portal do Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [autenticando uma entidade de serviço com o Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
 
-### <a name="task-was-cancelled"></a>Cenário: O runbook falha com o erro: uma tarefa foi cancelada
+### <a name="task-was-cancelled"></a>Cenário: O runbook falhar com o erro: Uma tarefa foi cancelada
 
 #### <a name="issue"></a>Problema
 
@@ -147,7 +147,7 @@ Esse erro pode ser resolvido atualizando os módulos do Azure para a versão mai
 
 Na sua conta de automação, clique em **módulos**e clique em **módulos do Azure atualização**. A atualização leva aproximadamente 15 minutos, uma vez concluídos executados novamente o runbook que estava falhando. Para saber mais sobre como atualizar seus módulos, consulte [Atualizar os módulos do Azure na Automação do Azure](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Cenário: o runbook de crianças falha ao lidar com várias assinaturas
+### <a name="child-runbook-auth-failure"></a>Cenário: O runbook de crianças falha ao lidar com várias assinaturas
 
 #### <a name="issue"></a>Problema
 
@@ -183,7 +183,7 @@ Start-AzureRmAutomationRunbook `
     –Parameters $params –wait
 ```
 
-### <a name="not-recognized-as-cmdlet"></a>Cenário: o runbook falha devido a um cmdlet ausente
+### <a name="not-recognized-as-cmdlet"></a>Cenário: O runbook falha devido a um cmdlet ausente
 
 #### <a name="issue"></a>Problema
 
@@ -308,7 +308,7 @@ Qualquer uma das soluções a seguir corrige o problema:
 * Se houver um conflito de nomes e o cmdlet estiver disponível em dois módulos diferentes, você poderá resolver isso usando o nome totalmente qualificado do cmdlet. Por exemplo, você pode usar **NomeDoMódulo\NomeDoCmdlet**.  
 * Se você estiver executando o runbook local em um grupo de trabalhadores híbrido, verifique se o módulo e cmdlet está instalado na máquina que hospeda o trabalhador híbrido.
 
-### <a name="long-running-runbook"></a>Cenário: falha de conclusão de um runbook de execução longa
+### <a name="long-running-runbook"></a>Cenário: Falha de conclusão de um runbook de execução longa
 
 #### <a name="issue"></a>Problema
 
@@ -338,6 +338,45 @@ Os cmdlets do PowerShell que habilitam o cenário do runbook filho são:
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) - Esse cmdlet permite verificar o status do trabalho de cada filho se houver operações que precisem ser executadas depois que o runbook filho for concluído.
 
+### <a name="expired webhook"></a>Cenário: Status: 400 Solicitação incorreta ao chamar um webhook
+
+#### <a name="issue"></a>Problema
+
+Quando você tentar chamar um webhook para um runbook de Automação do Azure, você recebe o erro a seguir.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>Causa
+
+O webhook que você está tentando chamar está desabilitado ou está expirado.
+
+#### <a name="resolution"></a>Resolução
+
+Se o webhook estiver desabilitado, você pode habilitar novamente o webhook por meio do portal do Azure. Se o webhook expirou, o webhook precisa ser excluído e recriado. Você só pode [renovar um webhook](../automation-webhooks.md#renew-webhook) se ele já não tiver expirado.
+
+### <a name="429"></a>Cenário: 429: A taxa de solicitação no momento, é muito grande. Tente novamente
+
+#### <a name="issue"></a>Problema
+
+Você receberá a seguinte mensagem de erro ao executar o `Get-AzureRmAutomationJobOutput` cmdlet:
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro pode ocorrer ao recuperar a saída do trabalho de um runbook que tenha muitos [fluxos detalhados](../automation-runbook-output-and-messages.md#verbose-stream).
+
+#### <a name="resolution"></a>Resolução
+
+Há três maneiras de resolver esse erro:
+
+* Edite o runbook e reduza o número de fluxos de trabalho que ele emite.
+* Reduza o número de fluxos a ser recuperado ao executar o cmdlet. Para fazer isso, você pode especificar o `-Stream Output` parâmetro para o `Get-AzureRmAutomationJobOutput` cmdlet para recuperar apenas os fluxos de saída. 
+
 ## <a name="common-errors-when-importing-modules"></a>Erros comuns durante a importação de módulos
 
 ### <a name="module-fails-to-import"></a>Cenário: Falha de módulo importar ou cmdlets não pode ser executados após a importação
@@ -359,7 +398,7 @@ Algumas razões comuns para que um módulo não pode importar com êxito à auto
 
 Qualquer uma das soluções a seguir corrige o problema:
 
-* Verifique se o módulo segue o seguinte formato: ModuleName.Zip **->** ModuleName ou Número de versão **->** (ModuleName.psm1, ModuleName.psd1)
+* Certifique-se de que o módulo segue o formato a seguir: NomeMódulo.Zip **->** NomeMódulo ou Número de Versão **->** (NomeMódulo.psm1, NomeMódulo.psd1)
 * Abra o arquivo .psd1 e veja se o módulo tem dependências. Se tiver, carregue esses módulos para a conta de Automação.
 * Verifique se quaisquer .dlls referenciadas estão presentes na pasta do módulo.
 

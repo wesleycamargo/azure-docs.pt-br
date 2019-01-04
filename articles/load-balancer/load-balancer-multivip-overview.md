@@ -1,22 +1,24 @@
 ---
-title: Vários front-ends para o Azure Load Balancer | Microsoft Docs
+title: Vários front-ends para Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Visão geral de vários front-ends no Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: d435d2c491cf17356e96f7bbb05b1e22c8e04aca
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219351"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163422"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
 
@@ -46,7 +48,7 @@ O Azure Load Balancer permite que você misture os dois tipos de regra na mesma 
 
 Vamos explorar esses cenários ainda mais, começando com o comportamento padrão.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>Tipo de regra 1: nenhuma reutilização de porta de back-end
+## <a name="rule-type-1-no-backend-port-reuse"></a>Tipo de regra nº 1: Nenhuma reutilização de porta de back-end
 
 ![Ilustração de vários front-ends com front-end verde e roxo](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
@@ -63,8 +65,8 @@ Definimos duas regras:
 
 | Regra | Mapear front-end | Para pool de back-end |
 | --- | --- | --- |
-| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 O mapeamento completo no Azure Load Balancer agora é o seguinte:
 

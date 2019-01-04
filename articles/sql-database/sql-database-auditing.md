@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092944"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971514"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -39,8 +39,6 @@ A auditoria do [Banco de Dados SQL](sql-database-technical-overview.md) e do [SQ
 - **Retenha** uma trilha de auditoria dos eventos selecionados. Definir categorias de ações de banco de dados a ser auditadas.
 - **Relate** sobre a atividade do banco de dados. Você pode usar relatórios pré-configurados e um painel para se familiarizar rapidamente com a atividade e o relatório de eventos.
 - **Analise** relatórios. Encontrar eventos suspeitos, atividades incomuns e tendências.
-
-Você pode configurar a auditoria para diferentes tipos de categorias de evento, conforme explicado na seção [Configurar a auditoria do banco de dados](#subheading-2).
 
 > [!IMPORTANT]
 > Os logs de auditoria são gravados nos **Blobs Acrescentados** em um armazenamento de Blob do Azure em sua assinatura do Azure.
@@ -177,8 +175,8 @@ Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azu
 
 Com bancos de dados com replicação geográfica, quando você habilitar a auditoria no banco de dados primário, o banco de dados secundário terá uma política de auditoria idêntica. Também é possível configurar a auditoria no banco de dados secundário, habilitando a auditoria no **servidor secundário**, independentemente do banco de dados primário.
 
-- Nível do servidor (**recomendado**): ative a auditoria do **servidor primário** e do **servidor secundário** – os bancos de dados primário e secundário serão auditados independentemente, com base em sua respectiva política no nível do servidor.
-- Nível de banco de dados: a auditoria de nível de banco de dados para bancos de dados secundários só pode ser configurada nas configurações de auditoria do banco de dados primário.
+- Nível do servidor (**recomendado**): Ativa a auditoria do **servidor primário** e do **servidor secundário** - os bancos de dados primário e secundário serão auditados independentemente, com base na respectiva política no nível do servidor.
+- Nível do banco de dados: A auditoria de nível do banco de dados para bancos de dados secundários só pode ser definida nas configurações de auditoria do banco de dados primário.
   - A auditoria precisa estar habilitada no *banco de dados primário*, não no servidor.
   - Depois que a auditoria estiver habilitada no banco de dados primário, ela também será habilitada no banco de dados secundário.
 

@@ -15,7 +15,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43121568"
 ---
-# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens de EDI em lotes para parceiros comerciais com Aplicativo Lógico do Azure
+# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens de EDI em lotes para parceiros comerciais com os Aplicativos Lógicos do Azure
 
 Em cenários de B2B (entre empresas), os parceiros geralmente trocam mensagens em grupos ou em *lotes*. Ao compilar uma solução de envio em lote com Aplicativos Lógicos, você pode enviar mensagens para parceiros comerciais e processar essas mensagens juntas em lotes. Este artigo mostra como processar mensagens de EDI em lotes, usando X12 como exemplo, criando um aplicativo lógico "remetente do lote" e um aplicativo lógico "receptor do lote". 
 

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1edb4818ff7fda170d123ea8b81e6df9d620f354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138439"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713566"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referência de serviço de Backup de infraestrutura
 
 ## <a name="azure-backup-infrastructure"></a>Infraestrutura de backup do Azure
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O Azure Stack consiste em vários serviços que compõem o portal, o Azure Resource Manager, e a experiência de gerenciamento da infraestrutura. A experiência de gerenciamento de tipo de ferramenta do Azure Stack se concentra na redução da complexidade exposta para o operador da solução.
 
@@ -87,9 +87,16 @@ Os requisitos incluem:
 
 Controlador de infraestrutura de Backup fará backup de dados sob demanda. A recomendação é fazer backup de pelo menos duas vezes por dia e manter no máximo sete dias de backups. 
 
+**1811 e muito mais**
 | Escala do ambiente | Tamanho projetado do backup | Quantidade total de espaço necessário |
 |-------------------|--------------------------|--------------------------------|
-| 4 a 16 nós        | 10 GB                     | 140 GB                          |
+| 4 a 16 nós        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
+
+**Pré-1811**
+| Escala do ambiente | Tamanho projetado do backup | Quantidade total de espaço necessário |
+|-------------------|--------------------------|--------------------------------|
+| 4 a 16 nós, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Requisitos de rede
 | Local de armazenamento                                                                 | Detalhes                                                                                                                                                                                 |
@@ -109,7 +116,7 @@ Considere esses limites, como planejar, implantar e operar suas instâncias do M
 | Identificador de limite                                                 | Limite        | Comentários                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Tipo de backup                                                      | Somente completo    | Controlador de infraestrutura de Backup só oferece suporte a backups completos. Não há suporte para backups incrementais.                                          |
-| Backups agendados                                                | Apenas manual  | Controlador de backup atualmente suporta apenas backups sob demanda                                                                                 |
+| Backups agendados                                                | Agendados e manuais  | Controlador de backup dá suporte a backups agendados e sob demanda                                                                                 |
 | Máximo de trabalhos de backup simultâneos                                   | 1            | Apenas um trabalho de backup ativo é tem suporte por instância do controlador de Backup.                                                                  |
 | Configuração do comutador de rede                                     | Não está no escopo | Administrador deve fazer backup de configuração de comutador de rede usando as ferramentas de OEM. Consulte a documentação para o Azure Stack fornecidos por cada fornecedor OEM. |
 | Host de ciclo de vida do hardware                                          | Não está no escopo | Administrador deve fazer backup de Host do ciclo de vida do Hardware usando ferramentas de OEM. Consulte a documentação para o Azure Stack fornecidos por cada fornecedor OEM.      |

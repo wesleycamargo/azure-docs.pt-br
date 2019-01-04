@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256928"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270001"
 ---
 # <a name="the-azure-sql-database-service"></a>O serviço de banco de dados SQL
 
@@ -60,7 +60,7 @@ Com o Banco de Dados SQL, cada banco de dados é portátil e isolado entre si, c
 
 O Banco de Dados SQL oferece um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
-- O modelo de compra baseado em DTU oferece uma mistura de computação, memória e recursos de E/S em três camadas de serviço para dar suporte a cargas de trabalho de banco de dados leves e pesadas: Basic, Standard e Premium. Os tamanhos de computação dentro de cada camada fornecem uma mistura diferente desses recursos, aos quais você pode adicionar recursos de armazenamento.
+- O modelo de compra baseado em DTU oferece uma mistura de computação, memória e recursos de E/S em três camadas de serviço para dar suporte a cargas de trabalho leves e pesadas de banco de dados: Básico, Standard e Premium. Os tamanhos de computação dentro de cada camada fornecem uma mistura diferente desses recursos, aos quais você pode adicionar recursos de armazenamento.
 - O modelo de compra baseado em vCore permite que você escolha o número de vCores, a quantidade ou memória e a quantidade e velocidade de armazenamento.
 
 Você pode criar seu primeiro aplicativo em um banco de dados individual pequeno com um baixo custo mensal na camada de serviço de Uso Geral e, depois, alterar a camada de serviço manualmente ou de forma programática a qualquer momento para a camada de serviço Comercialmente Crítico para atender às necessidades da solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
@@ -93,7 +93,7 @@ Mas como você pode comparar o desempenho relativo de bancos de dados únicos e 
 
 Além disso, o Banco de Dados SQL pode [emitir métrica e logs de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
 
-- **Armazenamento do Azure**: para o arquivamento de grandes volumes de telemetria por um pequeno custo
+- **Armazenamento do Azure**: para o arquivamento de grandes quantidades de telemetria por um preço baixo
 - **Hub de Eventos do Azure**: para a integração de telemetria de Banco de Dados SQL com a sua solução de monitoramento personalizada ou pipelines ativos
 - **Azure Log Analytics**: para solução de monitoramento interna com relatórios, alertas e recursos de mitigação.
 
@@ -109,10 +109,10 @@ Os acordos de nível de serviço [(SLA)](https://azure.microsoft.com/support/leg
 - **[Restaurações point-in-time](sql-database-recovery-using-backups.md)**:
 
   O Banco de Dados SQL suporta a recuperação a qualquer momento no período de retenção de backup automático.
-- **[Replicação geográfica ativa](sql-database-geo-replication-overview.md)**:
+- **[Replicação geográfica ativa](sql-database-active-geo-replication.md)**:
 
   O Banco de Dados SQL permite que você configure até quatro bancos de dados secundários legíveis nos datacenters do Azure iguais ou distribuídos globalmente.  Por exemplo, se você tiver um aplicativo SaaS com um banco de dados de catálogo que tem um alto volume de transações simultâneas somente leitura, use a replicação geográfica ativa para habilitar a escala global de leitura e remover gargalos no primário devido a cargas de trabalho de leitura.
-- **[Grupos de failover](sql-database-geo-replication-overview.md)**:
+- **[Grupos de failover automático](sql-database-auto-failover-group.md)**:
 
   O Banco de Dados SQL permite que você ative a alta disponibilidade e o balanceamento de carga em escala global, incluindo a replicação geográfica transparente e o failover de grandes conjuntos de bancos de dados e pools elásticos. Grupos de failover e replicação geográfica permitem a criação de aplicativos SaaS globalmente distribuídos com sobrecarga de administração mínima, deixando todos o monitoramento complexos, roteamento e coordenação de failover para o Banco de Dados SQL.
 - **[Bancos de dados com redundância de zona](sql-database-high-availability.md)**:
@@ -135,8 +135,8 @@ Hoje, muitos dos nossos parceiros executando [aplicativos SaaS multilocatários]
 
 Há dois aspectos de ajuste automático [disponíveis no Banco de Dados SQL](sql-database-automatic-tuning.md):
 
-- **Gerenciamento automático de índice**: identifica os índices que devem ser adicionados ao seu banco de dados e os que devem ser removidos.
-- **Correção automática do plano**: identifica planos problemáticos e corrige problemas de desempenho do plano SQL (em breve. Já disponível no SQL Server 2017).
+- **Gerenciamento de índice automático**: identifica os índices que devem ser adicionados ao seu banco de dados e os que devem ser removidos.
+- **Correção automática de plano**: identifica planos problemáticos e corrige problemas de desempenho do plano SQL (em breve. Já disponível no SQL Server 2017).
 
 ### <a name="adaptive-query-processing"></a>Processamento de consulta adaptável
 
@@ -197,11 +197,11 @@ O Banco de Dados SQL dá suporte à criação de aplicativos com Python, Java, N
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Envolver-se com a equipe de engenharia do SQL Server
 
-- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): faça perguntas sobre administração de banco de dados
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): faça perguntas de administração de banco de dados
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): faça perguntas sobre desenvolvimento
-- [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Faça perguntas técnicas
+- [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): faça perguntas técnicas
 - [Comentários](https://aka.ms/sqlfeedback): relate bugs e solicite recursos
-- [Reddit](https://www.reddit.com/r/SQLServer/): debata sobre o SQL Server
+- [Reddit](https://www.reddit.com/r/SQLServer/): discuta o SQL Server
 
 ## <a name="next-steps"></a>Próximas etapas
 

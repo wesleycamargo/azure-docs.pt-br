@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o EmpCenter | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o EmpCenter | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o EmpCenter.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: e7e594619c3b7c1ebd34c802d53b3897046a9cd7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 722a5b90b9ca17197cb0a0d117e58a01108d0a9c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426829"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845035"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Tutorial: integração do Active Directory do Azure ao EmpCenter
+# <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Tutorial: Integração do Azure Active Directory com o EmpCenter
 
 Neste tutorial, você aprende a integrar o EmpCenter ao Azure AD (Azure Active Directory).
 
@@ -46,10 +46,10 @@ Para configurar a integração do Azure AD ao EmpCenter, você precisa dos segui
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se você não tiver um ambiente de avaliação do Azure AD, é possível obter uma avaliação por um mês aqui: [Oferta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o EmpCenter por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -119,7 +119,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | `https://<subdomain>.workforcehosting.com/<instancename>` |
 
     > [!NOTE] 
-    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do EmpCenter](http://www.workforcesoftware.com/services/customer-support/) para obter o valor. 
+    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do EmpCenter](https://www.workforcesoftware.com/services/customer-support/) para obter o valor. 
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -129,10 +129,10 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/empcenter-tutorial/tutorial_general_400.png)
 
-1. Para configurar o logon único no lado do **EmpCenter**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do EmpCenter](http://www.workforcesoftware.com/services/customer-support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **EmpCenter**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do EmpCenter](https://www.workforcesoftware.com/services/customer-support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -158,7 +158,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/empcenter-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -168,7 +168,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-an-empcenter-test-user"></a>Criando um usuário de teste do EmpCenter
 
-Para permitir que os usuários do Azure AD façam logon no EmpCenter, eles devem ser provisionados no EmpCenter. No caso do EmpCenter, as contas de usuário precisam ser criadas pela [equipe de suporte do EmpCenter](http://www.workforcesoftware.com/services/customer-support/).
+Para permitir que os usuários do Azure AD façam logon no EmpCenter, eles devem ser provisionados no EmpCenter. No caso do EmpCenter, as contas de usuário precisam ser criadas pela [equipe de suporte do EmpCenter](https://www.workforcesoftware.com/services/customer-support/).
 
 > [!NOTE]
 > Você pode usar qualquer outra ferramenta de criação da conta de usuário do EmpCenter ou as APIs fornecidas pelo EmpCenter para provisionar as contas de usuário do Active Directory do Azure.

@@ -4,29 +4,31 @@ description: Descreve como agrupar máquinas antes de executar uma avaliação c
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: ccab88c0195a7ca459c8579b7870d121dfd0fe1d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c11d2f22fa08417107b0eecdd902b4521410b358
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231399"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252415"
 ---
 # <a name="group-machines-for-assessment"></a>Agrupar as máquinas para avaliação
 
-Este artigo descreve como criar um grupo de máquinas para avaliação usando as [Migrações para Azure](migrate-overview.md). As Migrações para Azure avaliam máquinas no grupo para verificar se são adequadas para a migração para o Azure, e fornecem estimativas de dimensionamento e custo para execução da máquina no Azure.
+Este artigo descreve como criar um grupo de máquinas para avaliação usando as [Migrações para Azure](migrate-overview.md). As Migrações para Azure avaliam máquinas no grupo para verificar se são adequadas para a migração para o Azure, e fornecem estimativas de dimensionamento e custo para execução da máquina no Azure. Se você souber quais os computadores precisam ser migrados juntos, crie manualmente o grupo de migrações para Azure usando o seguinte método. Se você não tiver muita certeza de quais computadores precisam ser agrupados, use a funcionalidade de visualização de dependência nas Migrações para Azure para criar grupos. [Saiba mais.](how-to-create-group-machine-dependencies.md)
 
+> [!NOTE]
+> A funcionalidade de visualização de dependências não está disponível no Azure Governamental.
 
 ## <a name="create-a-group"></a>Criar um grupo
 
 1. Na **Visão geral** do projeto Migrações para Azure, em Gerenciar, clique em **Grupos** > **+ Grupo** e especifique um nome de grupo.
-2. Adicione uma ou mais máquinas ao grupo e, em seguida, clique em  **Criar**. 
-3. Opcionalmente, você pode selecionar a execução de uma nova avaliação para o grupo. 
+2. Adicione uma ou mais máquinas ao grupo e, em seguida, clique em  **Criar**.
+3. Opcionalmente, você pode selecionar a execução de uma nova avaliação para o grupo.
 
     ![Criar um grupo](./media/how-to-create-a-group/create-group.png)
 
-Após a criação do grupo, você pode modificá-lo selecionando o grupo na página **Grupos** e adicionando ou removendo máquinas.
+Depois que o grupo é criado, você pode modificá-lo selecionando-o na página **Grupos** e adicionando ou removendo computadores.
 
 ## <a name="next-steps"></a>Próximas etapas
 

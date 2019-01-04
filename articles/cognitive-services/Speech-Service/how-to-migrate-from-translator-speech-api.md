@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: 81513819fd60dc088c2ed4a781562684c84e803a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: dec903d8557145701e06ddd588a58eb11fef96f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415467"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879292"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar da API de Tradução de Fala para o Serviço de Fala
 
@@ -45,13 +45,13 @@ Use este artigo para migrar seus aplicativos da API de Tradução de Fala da Mic
 | Informações de tempo                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
 | ID de Correlação                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Modelos de fala personalizados                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | O Serviço de Fala oferece modelos de fala personalizados que permitem personalizar o reconhecimento de fala para o vocabulário exclusivo de sua organização.                                                                                                                                           |
-| Modelos de tradução personalizados                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | A assinatura da API de Tradução de Texto da Microsoft permite que você use o [Tradutor Personalizado](https://www.microsoft.com/translator/business/customization/) (atualmente em pré-visualização) para usar seus próprios dados para traduções mais precisas.                                                 |
+| Modelos de tradução personalizados                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | A assinatura da API de Tradução de Texto da Microsoft permite que você use o [Tradutor Personalizado](https://www.microsoft.com/translator/business/customization/) para usar seus próprios dados para traduções mais precisas.                                                 |
 
 ## <a name="migration-strategies"></a>Estratégias de migração
 
 Se você ou sua organização tiver aplicativos em desenvolvimento ou em produção que usam a API de Tradução de Fala, atualize-os para usar o Serviço de Fala. Confira os SDKs disponíveis, os exemplos de código e tutoriais na documentação do [Serviço de Fala](index.yml). Quando você estiver migrando, considere o seguinte:
 
-* No momento, o Serviço de Fala não oferece um ponto de extremidade global. Determine se seu aplicativo funcionará de maneira eficiente usando um ponto de extremidade regional único para todo o tráfego. Caso contrário, use a geolocalização para determinar o ponto de extremidade mais eficiente.
+* No momento, o Serviço de Fala não oferece um ponto de extremidade global. Determine se o aplicativo funcionará de maneira eficiente usando um ponto de extremidade regional único para todo o tráfego. Caso contrário, use a geolocalização para determinar o ponto de extremidade mais eficiente.
 
 * Se seu aplicativo usar conexões de longa duração e não for possível usar os SDKs disponíveis, você poderá usar uma conexão WebSockets. Gerencie o limite de tempo limite de 10 minutos ao fazer a reconexão nos momentos apropriados.
 
@@ -62,7 +62,7 @@ Se você ou sua organização tiver aplicativos em desenvolvimento ou em produç
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Experimentar o Serviço de Fala gratuitamente](get-started.md)
-* [Início Rápido: Reconhecimento de fala em um aplicativo UWP usando o SDK de Fala](quickstart-csharp-uwp.md)
+* [Início Rápido: reconhecer a fala em um aplicativo UWP usando o SDK de Fala](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Consulte também
 

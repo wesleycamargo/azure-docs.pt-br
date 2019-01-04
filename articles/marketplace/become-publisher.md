@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394800"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846463"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Torne-se um editor do Marketplace de nuvem
 
@@ -78,7 +78,7 @@ Será solicitado que você inclua as seguintes informações:
 Nossa equipe de integração do Marketplace validará os detalhes do registro do marketplace fornecidos na etapa 3. Após a aprovação, você receberá um email de boas-vindas com as credenciais da conta e orientações sobre como entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com).
 
 Você usará o [Portal do Cloud Partner](https://cloudpartner.azure.com) para criar, publicar e gerenciar as ofertas do marketplace. Depois que receber o email de boas-vindas de aprovação, você poderá fazer o logon imediatamente no [Portal do Cloud Partner](https://cloudpartner.azure.com) com sua conta Microsoft para acessar informações técnicas adicionais sobre a publicação no marketplace e criação da sua oferta. 
-*   Para obter mais informações sobre como usar o Portal do Cloud Partner, [visite o artigo Introdução na seção Aprender](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Você deve estar conectado ao Portal do Cloud Partner para acessar esses detalhes.
+*   Para obter mais informações sobre como usar o Portal do Cloud Partner, [visite o artigo Introdução na seção Aprender](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Você deve estar conectado ao Portal do Cloud Partner para acessar esses detalhes.
 *   Se você tiver dúvidas ou gostaria de agendar uma chamada de visão geral de integração, examine os outros artigos nesse Guia do editor ou abra uma solicitação de suporte em Tipo do Problema > Integração no Marketplace de dentro do Portal do Cloud Partner.
 *   Se você não recebeu o email de boas-vindas, verifique na sua pasta de spam se há um email com a linha de assunto "Bem-vindo ao Microsoft Marketplace!". Se não houver nenhum email na sua pasta de spam, [entre em contato com o suporte da Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Na página de suporte, selecione: Tipo de Problema > Integração do Marketplace.  Nossa Equipe de Integração de Editores do Marketplace terá satisfação em ajudá-lo com suas perguntas. 
 
@@ -104,7 +104,7 @@ Depois de ter concluído o registro no [Centro de Desenvolvimento](https://devel
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre as vitrines do mercado: [Comparando o AppSource e o Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+* Saiba mais sobre as vitrines do Marketplace: [Comparar AppSource e o Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
 *   [Determinar o tipo de listagem para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  

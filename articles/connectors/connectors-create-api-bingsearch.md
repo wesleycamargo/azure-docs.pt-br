@@ -1,6 +1,6 @@
 ---
-title: Conectar a Pesquisa do Bing - Aplicativo Lógico do Azure | Microsoft Docs
-description: Encontre notícias com APIs REST de Pesquisa do Bing e Aplicativo Lógico do Azure
+title: Conectar a Pesquisa do Bing - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Encontre notícias com APIs REST de Pesquisa do Bing e Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -18,7 +18,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233082"
 ---
-# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com a Pesquisa do Bing e os Aplicativo Lógico do Azure 
+# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com a Pesquisa do Bing e os Aplicativos Lógicos do Azure 
 
 Este artigo mostra como é possível encontrar notícias, vídeos e outros itens por meio da Pesquisa do Bing e a partir de um aplicativo lógico com o conector de Pesquisa do Bing. Dessa forma, é possível criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para processar resultados da pesquisa e disponibilizar esses itens para outras ações. 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31ca79976ec2ecf2755b975749e9c9150c4a49e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441066"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272688"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de versão para a versão prévia da política personalizada do Azure Active Directory B2C
 O conjunto de recursos de política personalizada agora está disponível para avaliação em versão prévia para todos os clientes do Azure Active Directory B2C(Azure AD B2C). Esse conjunto de recursos se destina a desenvolvedores avançados de identidade para criar as soluções de identidade mais complexas.  
@@ -25,10 +25,9 @@ Atualmente, esse conjunto de recursos requer que os desenvolvedores configurem a
 ## <a name="features-included-in-this-public-preview"></a>Recursos incluídos nesta versão prévia
 Com os novos recursos introduzidos na revisão pública, os desenvolvedores podem executar as seguintes tarefas:<br>
 
-* Criar e carregar percursos do usuário de autenticação personalizada usando políticas personalizadas. 
+* Autorizar e carregar percursos do usuário de autenticação personalizada usando políticas personalizadas. 
    * Descrever percursos do usuário passo a passo como trocas entre provedores de declarações. 
-   * Definir a ramificação condicional em percursos do usuário. 
-* Integrar os serviços habilitados para API REST aos seus percursos do usuário de autenticação personalizada.  
+   * Definir a ramificação condicional em percursos do usuário. * Integrar os serviços habilitados para API REST aos seus percursos do usuário de autenticação personalizada.  
 * Adicionar a federação a provedores de identidade em conformidade com o padrão OpenIDConnect. <br>
 * Adicionar a federação com provedores de identidade que seguem o protocolo SAML 2.0. 
 
@@ -42,7 +41,7 @@ Com os novos recursos introduzidos na revisão pública, os desenvolvedores pode
 * A nosso critério, e por qualquer motivo, a Microsoft pode sinalizar e rejeitar ou restringir os cenários e percursos do usuário que excedam o escopo da lista de produtos Azure AD B2C para servir como uma plataforma de gerenciamento de identidade e acesso de cliente (CIAM).
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilidades dos desenvolvedores de conjunto de recursos de política personalizada
-A configuração de política manual concede acesso de nível inferior para a plataforma subjacente do Azure AD B2C e resulta na criação de uma estrutura de confiança exclusiva e totalmente personalizável. As permutas possíveis de provedores de identidade personalizada, relações de confiança, integrações com serviços externos e fluxos de trabalho passo a passo criam demandas ainda maiores para que os desenvolvedores avançados as consumam.
+A configuração de política manual concede acesso de nível inferior para a plataforma subjacente do Azure AD B2C e resulta na criação de uma estrutura de confiança exclusiva e totalmente personalizável. As permutas possíveis de provedores de identidade personalizada, relações de confiança, integrações com serviços externos e fluxos de trabalho passo a passo criam demandas ainda maiores para que os desenvolvedores avançados as consumam.
 
 Para se beneficiar totalmente da versão prévia, sugerimos que os desenvolvedores que utilizarem o conjunto de recursos de política personalizada sigam as seguintes diretrizes:
 * Familiarize-se com a linguagem de configuração da Estrutura de Experiência de Identidade e do gerenciamento de chave/segredos.
@@ -52,7 +51,7 @@ Para se beneficiar totalmente da versão prévia, sugerimos que os desenvolvedor
 * Mantenha-se informado sobre novos desenvolvimentos de provedores de identidade e de serviços para integração. Por exemplo, acompanhe as alterações em segredos e alterações programadas e não programadas no serviço.
 * Configure o monitoramento ativo e monitore a capacidade de resposta dos ambientes de produção.
 * Mantenha atualizados os endereços de email de contato na assinatura do Azure e permaneça responsivo aos emails da equipe de site ativo da Microsoft.
-* Execute ação em tempo hábil quando for aconselhado a fazer isso pela equipe de site ativo da Microsoft. 
+* Execute ação em tempo hábil quando for aconselhado a fazer isso pela equipe de site ativo da Microsoft. 
 
 ## <a name="features-by-stage-and-known-issues"></a>Recursos por estágio e problemas conhecidos
 Recursos de Política Personalizada/Estrutura de Experiência de Identidade estão em constante e rápido desenvolvimento.  Esta tabela é um índice de disponibilidade de recursos/componente.

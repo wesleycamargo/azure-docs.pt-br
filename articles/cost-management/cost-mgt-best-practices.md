@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273792"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074479"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 
@@ -64,7 +64,7 @@ Execute ações para reduzir seus gastos. Aproveite-a ao máximo com base nas de
 
 Todos em sua organização precisam participar do ciclo de vida do gerenciamento de custos. Eles precisam permanecer envolvidos continuamente para otimizar os custos. Seja rigoroso quanto a esse processo iterativo e faça com que ele seja um locatário fundamental da governança de nuvem responsável em sua organização.
 
-![Principais princípios](./media/cost-mgt-best-practices/principles.png)
+![Diagrama de princípios-chave que mostra a visibilidade, responsabilidade e otimização](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>Planejar com os custos em mente
 
@@ -140,7 +140,7 @@ Para obter mais informações, confira [análise de custo](quick-acm-cost-analys
 
 ### <a name="export-billing-data-on-a-schedule"></a>Exportar dados de cobrança mediante um agendamento
 
-Você precisa importar os dados de cobrança para um sistema externo, como um painel ou sistema financeiro? Você pode agendar relatórios automatizados diários para evitar o download manual de arquivos todos os meses. E você pode exportar dados de cobrança para uma conta de Armazenamento do Azure e ser notificado usando [grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md). Em seguida, você pode combinar os dados do Azure com os dados personalizados que você pode usar em seus próprios sistemas.
+Você precisa importar os dados de cobrança para um sistema externo, como um painel ou sistema financeiro? Configurar exportações automatizadas no Armazenamento do Microsoft Azure fazendo o download de arquivos manualmente todos os meses. Você pode, em seguida, configurar facilmente integrações automáticas com outros sistemas para manter os dados de cobrança em sincronia.
 
 Para obter mais informações de como exportar dados de cobrança, confira [Criar e gerenciar dados exportados](tutorial-export-acm-data.md).
 

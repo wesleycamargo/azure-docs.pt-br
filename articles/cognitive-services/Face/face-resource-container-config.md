@@ -1,21 +1,22 @@
 ---
 title: Configurar contêineres
-titlesuffix: Face - Cognitive Services - Azure
+titlesuffix: Face - Azure Cognitive Services
 description: Definições de configuração para contêineres.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: bfda7a82aeff97f560377864769a4c5dd6c03ff3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 30546d31e96d7d7fa1009f16a50fe8fda12ead67
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634867"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105097"
 ---
 # <a name="configure-containers"></a>Configurar contêineres
 
@@ -33,17 +34,17 @@ As definições de configuração no contêiner de Detecção Facial são hierá
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
 * [Registro em log](#logging-configuration-settings)
-* [Montagens](#mounts-configuration-settings)
+* [Mounts](#mounts-configuration-settings)
 
 Você pode usar as [variáveis de ambiente](#configuration-settings-as-environment-variables) ou os [argumentos de linha de comando](#configuration-settings-as-command-line-arguments) para especificar as definições de configuração ao instanciar um contêiner de Detecção Facial.
 
-Os valores de variáveis de ambiente substituem os valores de argumento da linha de comando, que por sua vez, substituem os valores padrão para a imagem de contêiner. Em outras palavras, se você especificar valores diferentes em uma variável de ambiente e em um argumento da linha de comando para a mesma definição de configuração, como `Logging:Disk:LogLevel`, e então criar uma instância de um contêiner, o valor na variável de ambiente será usado pelo contêiner instanciado.
+Os valores de variáveis de ambiente substituem os valores de argumento da linha de comando, que por sua vez, substituem os valores padrão para a imagem de contêiner. Em outras palavras, se você especificar valores diferentes em uma variável de ambiente e um argumento de linha de comando para a mesma configuração, como `Logging:Disk:LogLevel`, instanciar um contêiner, o valor na variável de ambiente será usado pelo contêiner instanciado.
 
 ### <a name="configuration-settings-as-environment-variables"></a>Definições de configuração como variáveis de ambiente
 
-Você pode usar a [sintaxe de variável de ambiente do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) para especificar as definições de configuração.
+Você pode usar a [sintaxe da variável de ambiente do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) para especificar as configurações.
 
-O contêiner lerá as variáveis de ambiente do usuário quando for instanciado. Se uma variável de ambiente existir, o valor da variável de ambiente substituirá o valor padrão para a definição de configuração especificada. A vantagem de usar variáveis de ambiente é que várias definições de configuração podem ser definidas antes da instanciação de contêineres e vários contêineres podem usar automaticamente o mesmo conjunto de definições de configuração.
+O contêiner lê variáveis de ambiente do usuário quando o contêiner é instanciado. Se existir uma variável de ambiente, o valor da variável de ambiente substituirá o valor padrão da configuração especificada. A vantagem de usar variáveis de ambiente é que várias definições de configuração podem ser definidas antes da instanciação de contêineres e vários contêineres podem usar automaticamente o mesmo conjunto de definições de configuração.
 
 Por exemplo, os comandos a seguir usam uma variável de ambiente para configurar o nível de log de console para [LogLevel.Information](https://msdn.microsoft.com), depois criam uma instância de um contêiner com base na imagem de contêiner de Detecção Facial. O valor da variável de ambiente substitui a definição de configuração padrão.
 
@@ -52,11 +53,11 @@ Por exemplo, os comandos a seguir usam uma variável de ambiente para configurar
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
   ```
 
-### <a name="configuration-settings-as-command-line-arguments"></a>Definições de configuração como argumentos de linha de comando
+### <a name="configuration-settings-as-command-line-arguments"></a>Definições de configuração como argumentos da linha de comandos
 
-Você pode usar a [sintaxe de argumento de linha de comando do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) para especificar definições de configuração.
+Você pode usar a sintaxe do [argumento de linha de comando do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) para especificar as configurações.
 
-Você pode especificar as definições de configuração no parâmetro opcional `ARGS` do comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) usado para criar uma instância de um contêiner com base em uma imagem de contêiner baixada. A vantagem de usar argumentos de linha de comando é que cada contêiner pode usar um conjunto de definições de configuração diferente e personalizado.
+Você pode especificar definições de configuração no parâmetro `ARGS` opcional do comando de [execução do docker](https://docs.docker.com/engine/reference/commandline/run/) usado para instanciar um contêiner a partir de uma imagem de contêiner do download feito. A vantagem de usar argumentos de linha de comando é que cada contêiner pode usar um conjunto de definições de configuração diferente e personalizado.
 
 Por exemplo, o comando a seguir cria uma instância de um contêiner por meio da imagem de contêiner da Detecção Facial e configura o nível de log de console para LogLevel.Information, substituindo a definição de configuração padrão.
 
@@ -69,17 +70,17 @@ Por exemplo, o comando a seguir cria uma instância de um contêiner por meio da
 A definição de configuração `ApiKey` especifica a chave de configuração do recurso de Detecção Facial no Azure usado para rastrear informações de cobrança para o contêiner. Você precisa especificar um valor para esta definição de configuração, que precisa ser uma chave de configuração válida para o recurso de Detecção Facial especificado para a definição de configuração [`Billing`](#billing-configuration-setting).
 
 > [!IMPORTANT]
-> As definições de configuração [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você precisa fornecer valores válidos para todos os três. Caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas definições de configuração para criar uma instância de um contêiner, confira [Cobrança](face-how-to-install-containers.md#billing).
+> As definições de configuração [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você precisa fornecer valores válidos para todos os três. Caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](face-how-to-install-containers.md#billing).
 
 ## <a name="applicationinsights-configuration-settings"></a>Definições de configuração do ApplicationInsights
 
-As definições de configuração na seção `ApplicationInsights` permitem adicionar suporte à telemetria do [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) ao contêiner. O Application Insights fornece monitoramento detalhado do contêiner até o nível de código. Você pode monitorar facilmente o contêiner quanto à sua disponibilidade, desempenho e uso. Você também pode identificar e diagnosticar erros rapidamente no contêiner sem esperar que um usuário os relate.
+As definições de configuração na seção `ApplicationInsights` permitem que você adicione o suporte de telemetria do [Aplicativo Azure AD Insights](https://docs.microsoft.com/azure/application-insights) ao seu contêiner. O Application Insights fornece um monitoramento detalhado do seu contêiner até o nível do código. Você pode monitorar facilmente seu contêiner quanto a disponibilidade, desempenho e uso. Você também pode identificar e diagnosticar rapidamente erros em seu contêiner sem esperar que um usuário os denuncie.
 
-A tabela a seguir descreve as definições de configuração com suporte de acordo com a seção `ApplicationInsights`.
+A tabela a seguir descreve as definições de configuração com suporte sob o `ApplicationInsights` seção.
 
 | NOME | Tipo de dados | DESCRIÇÃO |
 |------|-----------|-------------|
-| `InstrumentationKey` | Cadeia de caracteres | A chave de instrumentação da instância do Application Insights para a qual os dados telemétricos do contêiner são enviados. Para obter mais informações, confira [Application Insights para ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
+| `InstrumentationKey` | Cadeia de caracteres | A chave de instrumentação da instância do Application Insights para o qual telemetria de dados para o contêiner são enviados. Para obter mais informações, consulte [Application Insights para ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
 
 ## <a name="authentication-configuration-settings"></a>Definições de configuração de autenticação
 
@@ -87,11 +88,11 @@ As definições de configuração de `Authentication` oferecem opções de segur
 
 | NOME | Tipo de dados | DESCRIÇÃO |
 |------|-----------|-------------|
-| `Storage` | Cadeia de caracteres | A chave de instrumentação da instância do Application Insights para a qual os dados telemétricos do contêiner são enviados. Para obter mais informações, confira [Application Insights para ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
+| `Storage` | Cadeia de caracteres | A chave de instrumentação da instância do Application Insights para o qual telemetria de dados para o contêiner são enviados. Para obter mais informações, confira [Application Insights para ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
 
-A definição de configuração `Billing` especifica o URI de ponto de extremidade do recurso de Detecção Facial no Azure usado para rastrear informações de cobrança para o contêiner. Você precisa especificar um valor para esta definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de Detecção Facial no Azure.
+A definição de configuração `Billing` especifica o URI de ponto de extremidade do recurso de Detecção Facial no Azure usado para medir informações de cobrança para o contêiner. Você precisa especificar um valor para esta definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de Detecção Facial no Azure.
 
 > [!IMPORTANT]
 > As definições de configuração [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você precisa fornecer valores válidos para todos os três. Caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas definições de configuração para criar uma instância de um contêiner, confira [Cobrança](face-how-to-install-containers.md#billing).
@@ -128,79 +129,81 @@ Os cenários de armazenamento e as definições de configuração associadas sã
 Por exemplo, o comando a seguir especifica o cenário de armazenamento do Azure e fornece exemplos de cadeias de conexão para os recursos de Armazenamento do Microsoft Azure e do Cosmos DB usados para armazenar dados do contêiner de Detecção Facial.
 
   ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net" CloudAI:Storage:ConnectionStringOfAzureStorage="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
   ```
 
 O cenário de armazenamento é manipulado separadamente por meio de montagens de entrada e de saída. Você pode especificar uma combinação desses recursos para um único contêiner. Por exemplo, o comando a seguir define uma montagem de associação do Docker à pasta `D:\Output` no computador host como a montagem de saída, depois cria uma instância de um contêiner com base na imagem de contêiner de Detecção Facial, salvando arquivos de log no formato JSON na montagem de saída. O comando também especifica o cenário de armazenamento do Azure e fornece exemplos de cadeias de conexão para os recursos de Armazenamento do Microsoft Azure e do Cosmos DB, usados para armazenar dados do contêiner de Detecção Facial.
 
   ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net" CloudAI:Storage:ConnectionStringOfAzureStorage="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
   ```
 
 ## <a name="eula-configuration-setting"></a>Definição de configuração EULA
 
-A definição de configuração `Eula` indica que você aceitou a licença para o contêiner. Para esta definição de configuração, você precisa especificar um valor que precisa ser definido como `accept`.
+A configuração `Eula` indica que você aceitou a licença do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser definido como `accept`.
 
 > [!IMPORTANT]
-> As definições de configuração [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você precisa fornecer valores válidos para todos os três. Caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas definições de configuração para criar uma instância de um contêiner, confira [Cobrança](face-how-to-install-containers.md#billing).
+> As configurações de [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](face-how-to-install-containers.md#billing).
 
-## <a name="fluentd-configuration-settings"></a>Definições de configuração do Fluentd
+Os contêineres de Serviços Cognitivos estão licenciados sob [seu contrato](https://go.microsoft.com/fwlink/?linkid=2018657) que rege o uso do Azure. Se você não tem um contrato existente que rege o uso do Azure, você concorda que o seu contrato que rege o uso do Azure é o [Contrato de Assinatura do Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755), (que incorpora os [Termos de Serviços Online](https://go.microsoft.com/fwlink/?linkid=2018760)). Para versões prévias, você também concorda com os [Termos de Uso Adicionais para Versões Prévias do Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Ao usar o contêiner, você concorda com estes termos.
+
+## <a name="fluentd-configuration-settings"></a>Configurações do Fluentd
 
 A seção `Fluentd` gerencia as definições de configuração da seção [Fluentd](https://www.fluentd.org), um coletor de dados de software livre para registro em log unificado. o contêiner de Detecção Facial inclui um provedor de registro em log do Fluentd, que permite que seu contêiner grave o log e, opcionalmente, dados de métrica para um servidor do Fluentd.
 
-A tabela a seguir descreve as definições de configuração com suporte de acordo com a seção `Fluentd`.
+A tabela a seguir descreve as definições de configuração com suporte sob o `Fluentd` seção.
 
 | NOME | Tipo de dados | DESCRIÇÃO |
 |------|-----------|-------------|
-| `Host` | Cadeia de caracteres | O endereço IP ou nome do host DNS do servidor do Fluentd. |
-| `Port` | Número inteiro | A porta do servidor do Fluentd.<br/> O valor padrão é 24224. |
-| `HeartbeatMs` | Número inteiro | O intervalo de pulsação, em milissegundos. Se nenhum tráfego de eventos tiver sido enviado antes desse intervalo expirar, uma pulsação será enviada para o servidor do Fluentd. O valor padrão é 60.000 milissegundos (1 minuto). |
-| `SendBufferSize` | Número inteiro | O espaço do buffer de rede, em bytes, alocado para operações de envio. O valor padrão é 32.768 bytes (32 quilobytes). |
-| `TlsConnectionEstablishmentTimeoutMs` | Número inteiro | O tempo limite, em milissegundos, para estabelecer uma conexão SSL/TLS com o servidor do Fluentd. O valor padrão é 10.000 milissegundos (10 segundos).<br/> Se `UseTLS` for definido como false, esse valor será ignorado. |
-| `UseTLS` | BOOLEAN | Indica se o contêiner deve usar SSL/TLS para se comunicar com o servidor do Fluentd. O valor padrão é falso. |
+| `Host` | Cadeia de caracteres | O endereço IP ou o nome do host DNS do servidor Fluentd. |
+| `Port` | Número inteiro | A porta do servidor Fluentd.<br/> O valor padrão é 24224. |
+| `HeartbeatMs` | Número inteiro | O intervalo de pulsação, em milissegundos. Se nenhum tráfego de evento tiver sido enviado antes que esse intervalo expire, uma pulsação será enviada ao servidor Fluentd. O valor padrão é 60.000 milissegundos (1 minuto). |
+| `SendBufferSize` | Número inteiro | O espaço de buffer de rede, em bytes, alocado para operações de envio. O valor padrão é 32768 bytes (32 kilobytes). |
+| `TlsConnectionEstablishmentTimeoutMs` | Número inteiro | O tempo de limite, em milissegundos, para estabelecer uma conexão SSL/TLS com o servidor do Fluentd. O valor padrão é 10.000 milissegundos (10 segundos).<br/> Se `UseTLS` for definido como false, esse valor é ignorado. |
+| `UseTLS` | BOOLEAN | Indica se o contêiner deve usar SSL / TLS para se comunicar com o servidor Fluentd. O valor padrão é falso. |
 
 ## <a name="logging-configuration-settings"></a>Definições de configuração de registro em log
 
-As definições de configuração `Logging` gerenciam o suporte de registro em log do ASP.NET Core para o contêiner. Para o contêiner, você pode usar os mesmos valores e definições de configuração que usa para um aplicativo ASP.NET Core. Os provedores de registro em log a seguir são compatíveis com os contêineres de Detecção Facial:
+As definições de configuração `Logging` gerenciam o suporte ao log do ASP.NET Core para o seu contêiner. Para o contêiner, você pode usar os mesmos valores e definições de configuração que usa para um aplicativo ASP.NET Core. Os provedores de registro em log a seguir são compatíveis com os contêineres de Detecção Facial:
 
 * [Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)  
-  O provedor de registro em log `Console` do ASP.NET Core. Todos os valores padrão e as definições de configuração do ASP.NET Core para este provedor de log têm suporte.
+  O ASP.NET Core `Console` provedor de log. Todas as definições de configuração do ASP.NET Core e os valores padrão desse provedor de log são suportados.
 * [Depurar](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)  
-  O provedor de registro em log `Debug` do ASP.NET Core. Todos os valores padrão e as definições de configuração do ASP.NET Core para este provedor de log têm suporte.
+  O ASP.NET Core `Debug` provedor de log. Todas as definições de configuração do ASP.NET Core e os valores padrão desse provedor de log são suportados.
 * Disco  
-  O provedor de registro em log JSON. Este provedor de registro em log grava os dados de log na montagem de saída.  
-  O provedor de registro em log `Disk` dá suporte às seguintes definições de configuração:  
+  O provedor de log do JSON. Esse provedor de log grava dados de log na montagem de saída.  
+  O provedor de registro `Disk` suporta as seguintes configurações:  
 
   | NOME | Tipo de dados | DESCRIÇÃO |
   |------|-----------|-------------|
-  | `Format` | Cadeia de caracteres | O formato de saída para arquivos de log.<br/> **Observação:** esse valor deve ser definido como `json` para habilitar o provedor de registro em log. Se esse valor for especificado sem especificar também uma montagem de saída ao instanciar um contêiner, ocorrerá um erro. |
-  | `MaxFileSize` | Número inteiro | O tamanho máximo, em MB (megabytes), de um arquivo de log. Quando o tamanho do arquivo de log atual alcança ou excede esse valor, um novo arquivo de log é iniciado pelo provedor de registro em log. Se -1 for especificado, o tamanho do arquivo de log será limitado apenas pelo tamanho máximo do arquivo, se houver, para a montagem de saída. O valor padrão é 1. |
+  | `Format` | Cadeia de caracteres | O formato de saída para arquivos de log.<br/> **Observação:** esse valor deve ser definido como `json` para habilitar o provedor de logs. Se esse valor for especificado sem especificar também uma montagem de saída durante a instanciação de um contêiner, ocorrerá um erro. |
+  | `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um arquivo de log. Quando o tamanho do arquivo de log atual atende ou excede esse valor, um novo arquivo de log é iniciado pelo provedor de log. Se -1 for especificado, o tamanho do arquivo de log será limitado apenas pelo tamanho máximo do arquivo, se houver, para a montagem de saída. O valor padrão é 1. |
 
-Para obter mais informações sobre como configurar o suporte de registro em log do ASP.NET Core, confira [Configuração do arquivo de definições](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Para obter mais informações sobre como configurar o suporte ao registro em log do ASP.NET Core, consulte [Configuração do arquivo de configurações](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
 
 ## <a name="mounts-configuration-settings"></a>Definições de configuração de montagens
 
-Os contêineres do Docker fornecidos pela Detecção Facial são projetados para serem sem estado e imutáveis. Em outras palavras, os arquivos criados dentro de um contêiner são armazenados em uma camada de contêiner gravável, que persiste somente enquanto o contêiner está em execução e não podem ser acessados facilmente. Se esse contêiner for interrompido ou removido, os arquivos criados dentro desse contêiner junto com ele serão destruídos.
+Os contêineres do Docker fornecidos pela Detecção Facial são projetados para serem sem estado e imutáveis. Em outras palavras, os arquivos criados dentro de um contêiner são armazenados em uma camada de contêiner gravável, que persiste somente enquanto o contêiner está em execução e não podem ser acessados facilmente. Se esse contêiner for interrompido ou removido, os arquivos criados dentro desse contêiner serão destruídos.
 
-No entanto, já que eles são contêineres do Docker, você pode usar opções de armazenamento do Docker, como volumes e montagens de associação, para ler e gravar dados persistentes fora do contêiner, desde que o contêiner dê suporte a isso. Para obter mais informações sobre como especificar e gerenciar opções de armazenamento do Docker, confira [Gerenciar dados no Docker](https://docs.docker.com/storage/).
+No entanto, como eles são contêineres do Docker, você pode usar as opções de armazenamento do Docker, como volumes e montagens de ligação, para ler e gravar dados persistentes fora do contêiner, se o contêiner suportar. Para obter mais informações sobre como especificar e gerenciar opções de armazenamento do Docker, consulte [Gerenciar dados no Docker](https://docs.docker.com/storage/).
 
 > [!NOTE]
-> Normalmente, você não precisará alterar os valores dessas definições de configuração. Em vez disso, você usará os valores especificados nessas definições de configuração como destinos ao especificar montagens de entrada e de saída para seu contêiner. Para obter mais informações sobre como especificar montagens de entrada e de saída, confira [Montagens de entrada e de saída](#input-and-output-mounts).
+> Você normalmente não precisará alterar os valores dessas configurações. Em vez disso, você usará os valores especificados nessas configurações como destinos ao especificar montagens de entrada e saída para seu contêiner. Para obter mais informações sobre como especificar montagens de entrada e saída, consulte [Entradas de entrada e saída](#input-and-output-mounts).
 
-A tabela a seguir descreve as definições de configuração com suporte de acordo com a seção `Mounts`.
+A tabela a seguir descreve as definições de configuração com suporte sob o `Mounts` seção.
 
 | NOME | Tipo de dados | DESCRIÇÃO |
 |------|-----------|-------------|
-| `Input` | Cadeia de caracteres | O destino da montagem de entrada. O valor padrão é `/input`. |
-| `Output` | Cadeia de caracteres | O destino da montagem de saída. O valor padrão é `/output`. |
+| `Input` | Cadeia de caracteres | O destino de montagem de entrada. O valor padrão é `/input`. |
+| `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. |
 
-### <a name="input-and-output-mounts"></a>Montagens de entrada e de saída
+### <a name="input-and-output-mounts"></a>Montagens de entrada e saídas
 
 Por padrão, cada contêiner pode dar suporte a uma *montagem de entrada*, da qual o contêiner pode ler dados, bem como a uma *montagem saída*, na qual o contêiner pode gravar dados. No entanto, contêineres não precisam dar suporte a montagens de entrada ou de saída, sendo que cada contêiner pode usar montagens de entrada e de saída para fins específicos a cada contêiner, além das opções de registro em log compatíveis com o contêiner de Detecção Facial.
 
 O contêiner de Detecção Facial não é compatível com montagens de entrada e, opcionalmente, é compatível com saídas de montagens.
 
-Você pode especificar uma montagem de entrada ou de saída especificando a opção `--mount` no comando [docker run](https://docs.docker.com/engine/reference/commandline/run/), usado para criar uma instância de um contêiner com base em uma imagem de contêiner baixada. Por padrão, a montagem de entrada usa `/input` como seu destino e a saída de montagem usa `/output` como seu destino. Qualquer opção de armazenamento do Docker disponível para o host de contêiner do Docker pode ser especificada na opção `--mount`.
+Você pode especificar uma montagem de entrada ou de saída especificando a opção `--mount` no comando [docker run](https://docs.docker.com/engine/reference/commandline/run/), usado para criar uma instância de um contêiner com base em uma imagem de contêiner baixada. Por padrão, a montagem de entrada usa `/input` como seu destino e a montagem de saída usa `/output` como seu destino. Qualquer opção de armazenamento do Docker disponível para o host de contêiner do Docker pode ser especificada na opção `--mount`.
 
 Por exemplo, o comando a seguir define uma montagem de associação do Docker à pasta `D:\Output` no computador host como a montagem de saída, depois cria uma instância de um contêiner com base na imagem de contêiner de Detecção Facial, salvando arquivos de log no formato JSON na montagem de saída.
 

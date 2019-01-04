@@ -1,6 +1,6 @@
 ---
 title: Exemplo de política de gerenciamento de API do Azure – Gerar Assinatura de Acesso Compartilhado | Microsoft Docs
-description: Exemplo de política de gerenciamento de API do Azure – Demonstra como gerar uma Assinatura de Acesso Compartilhado usando expressões e encaminhar a solicitação para o armazenamento do Azure com a política rewrite-uri.
+description: 'Exemplo de política de gerenciamento de API do Azure: demonstra como gerar uma Assinatura de Acesso Compartilhado usando expressões e como encaminhar a solicitação para o armazenamento do Azure com a política rewrite-uri.'
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: c8a4d25211a0030c013628e69865406bb6e8899e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 2c3adaa6f4e113f09e676583c2c35b5f1fbdb622
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286281"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877846"
 ---
 # <a name="generate-shared-access-signature"></a>Gerar a Assinatura de Acesso Compartilhado
 

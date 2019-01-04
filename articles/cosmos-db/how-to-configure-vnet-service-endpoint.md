@@ -3,16 +3,15 @@ title: Configurar acesso à rede virtual e à sub-rede para sua conta do Azure C
 description: Este documento descreve as etapas necessárias para configurar um ponto de extremidade de serviço de rede virtual para o Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4e8891302346fa2655a4b1280b65fdd969f12909
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 73858cac4176c10ff8ce14347acb9b869471ebc2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620584"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838082"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Acessar Microsoft Azure Cosmos DB a partir de redes virtuais
 
@@ -50,8 +49,8 @@ As seções a seguir descrevem como configurar o ponto de extremidade do serviç
 
 > [!NOTE]
 > Para habilitar terminais de serviço de rede virtual, você precisaria das seguintes permissões de assinatura:
-  * Assinatura com rede virtual: colaborador da rede
-  * Assinatura com a conta do Azure Cosmos DB: contribuidor da conta do DocumentDB
+  * Assinatura com rede virtual: Colaborador de rede
+  * Assinatura com a conta do Azure Cosmos DB: Colaborador da Conta do DocumentDB
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurar o ponto de extremidade de serviço para uma rede virtual do Azure e uma sub-rede novas
 

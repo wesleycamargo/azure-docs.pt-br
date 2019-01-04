@@ -9,16 +9,15 @@ ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 25ee061f489df0a666d59871661478f987b28e3f
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344800"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255305"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como usar o micrômetro com o Java SDK do Azure Application Insights
 O monitoramento de aplicativos de micrômetros mede as métricas para código de aplicativo baseado em JVM e permite exportar os dados para seus sistemas de monitoramento favoritos. Este artigo ensinará como usar o Micrômetro com o Application Insights para aplicativos Spring Boot e não-Spring Boot.
@@ -229,7 +228,7 @@ Etapas:
 
 Para saber mais sobre métricas, consulte a [documentação do Micrometer](https://micrometer.io/docs/).
 
-Outro exemplo de código sobre como criar diferentes tipos de métricas pode ser encontrado em[o repositório oficial do Micrometer Github](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Outro exemplo de código sobre como criar diferentes tipos de métricas pode ser encontrado no [repositório oficial do Micrometer GitHub](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 ## <a name="how-to-bind-additional-metrics-collection"></a>Como associar a coleção de métricas adicionais
 
@@ -243,7 +242,7 @@ Crie um bean da respectiva categoria de métrica. Por exemplo, digamos que preci
         Return new GuavaCacheMetrics();
     }
 ```
-Existem várias métricas que não estão ativadas por padrão, mas podem ser vinculadas da maneira acima. Para uma lista completa, consulte [o repositório oficial do Micrometer Github](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
+Existem várias métricas que não estão ativadas por padrão, mas podem ser vinculadas da maneira acima. Para uma lista completa, consulte [o repositório oficial do Micrometer GitHub](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
 ### <a name="non-spring-apps"></a>Aplicativos não-Spring
 Adicione o seguinte código de ligação ao arquivo de configuração:

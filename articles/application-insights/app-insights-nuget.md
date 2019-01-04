@@ -7,16 +7,15 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: b6188bbf89d9aee842d7f8e232a820b59c4d9e31
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 76cdd4bd4d95c7c11906f9c02a0f5cfa2326390e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023246"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000768"
 ---
 # <a name="application-insights-nuget-packages"></a>Pacotes NuGet do Application Insights
 
@@ -71,13 +70,13 @@ Veja abaixo a lista atual de pacotes NuGet de versão estável para o Applicatio
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Habilita a coleta de dados de tempo de execução para aplicativos x64 | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Habilita a coleta de dados de tempo de execução para aplicativos x86. | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Esses pacotes fazem parte da funcionalidade principal do monitoramento de tempo de execução no [Status Monitor](app-insights-monitor-performance-live-website-now.md). Você não precisa baixar esses pacotes diretamente, basta usar o instalador do Status Monitor. Se você quiser entender mais sobre como esses pacotes funcionam nos bastidores, essa [postagem no blog](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) de um de nossos desenvolvedores é um bom começo.
+Esses pacotes fazem parte da funcionalidade principal do monitoramento de tempo de execução no [Status Monitor](app-insights-monitor-performance-live-website-now.md). Você não precisa baixar esses pacotes diretamente. Basta usar o instalador do Status Monitor. Se você quiser entender mais sobre como esses pacotes funcionam nos bastidores, essa [postagem no blog](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) de um de nossos desenvolvedores é um bom começo.
 
 ## <a name="additional-packages"></a>Pacotes adicionais
 
 | Nome do Pacote | Versão estável | DESCRIÇÃO | Baixar |
 |-------------------------------|-----------------------|------------|----|
-| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | Essa extensão permite o monitoramento do Application Insights em um Serviço de Aplicativo do Azure. SDK versão 2.6.1. Instruções: adicione as configurações de aplicativo 'APPINSIGHTS_INSTRUMENTATIONKEY' com o seu ikey e reinicie o webapp para ter um efeito.| [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
+| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | Essa extensão permite o monitoramento do Application Insights em um Serviço de Aplicativo do Azure. SDK versão 2.6.1. Instruções: Adicione as configurações de aplicativo 'APPINSIGHTS_INSTRUMENTATIONKEY' com o seu ikey e reinicie o webapp para ter um efeito.| [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
 | Microsoft.ApplicationInsights.Injector | 2.6.7 | Este pacote contém os arquivos necessários para a injeção do Application Insights sem código | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Injector/) |
 
 ## <a name="next-steps"></a>Próximas etapas

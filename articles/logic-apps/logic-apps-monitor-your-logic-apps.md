@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405728"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434249"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativo Lógico do Azure
 
@@ -74,7 +74,7 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
 
 Para uma depuração mais avançada com eventos e detalhes de tempo de execução, configure o log de diagnósticos com o [Azure Log Analytics](../log-analytics/log-analytics-overview.md). O Log Analytics é um serviço no Azure que monitora ambientes locais e de nuvem para ajudá-lo a manter a disponibilidade e o desempenho. 
 
-Antes de iniciar, é necessário ter um workspace do Log Analytics. Saiba [como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Antes de iniciar, é necessário ter um workspace do Log Analytics. Saiba [como criar um workspace do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. No [portal do Azure](https://portal.azure.com), encontre e selecione o aplicativo lógico. 
 
@@ -92,7 +92,7 @@ Antes de iniciar, é necessário ter um workspace do Log Analytics. Saiba [como 
    2. Em **Log Analytics**, escolha **Configurar**. 
    3. Em **Espaços de trabalho do OMS**, selecione o espaço de trabalho a ser usado para registro em log.
    > [!NOTE]
-   > Os workspace do OMS agora são referidos como workspaces do Log Analytics.
+   > Os workspaces do OMS agora são chamados de workspaces do Log Analytics.
    4. Em **Log**, selecione a categoria **WorkflowRuntime**.
    5. Escolha o intervalo de métrica.
    6. Quando terminar, escolha **Salvar**.
@@ -155,10 +155,10 @@ Para refinar a consulta adicionando um filtro, escolha **+Adicionar**.
 
 Junto com o Azure Log Analytics, você pode estender a maneira de usar os dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo: 
 
-* [Arquivar logs do Diagnóstico do Azure no Armazenamento do Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Arquivar logs do Diagnóstico do Azure no Armazenamento do Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Transmitir logs do Diagnóstico do Azure para os Hubs de Eventos do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../log-analytics/log-analytics-powerbi.md). Por exemplo: 
+Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../azure-monitor/platform/powerbi.md). Por exemplo: 
 
 * [Transmitir dados dos Hubs de Eventos para o Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analisar dados de streaming com o Stream Analytics e criar um painel de análise em tempo real no Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -174,7 +174,7 @@ De acordo com as opções que você deseja configurar, primeiro [crie uma conta 
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>Configurar alertas para o aplicativo lógico
 
-Para monitorar métricas específicas ou limites excedidos do aplicativo lógico, configure [alertas no Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). Saiba mais sobre as [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+Para monitorar métricas específicas ou limites excedidos do aplicativo lógico, configure [alertas no Azure](../azure-monitor/platform/alerts-overview.md). Saiba mais sobre as [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 Para configurar alertas sem o [Azure Log Analytics](../log-analytics/log-analytics-overview.md), siga estas etapas. Para obter critérios mais avançados de alertas e de ações, [configure o Log Analytics](#azure-diagnostics) também.
 
@@ -207,7 +207,7 @@ Para configurar alertas sem o [Azure Log Analytics](../log-analytics/log-analyti
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Configurações e detalhes de eventos do Diagnóstico do Azure
 
-Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, acompanhamento e registro em log de forma programática, é possível usar esses detalhes com a [API REST para Aplicativo Lógico do Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST para Diagnóstico do Microsoft Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, acompanhamento e registro em log de forma programática, é possível usar esses detalhes com a [API REST para Aplicativo Lógico do Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST para Diagnóstico do Microsoft Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
 Por exemplo, o evento `ActionCompleted` tem as propriedades `clientTrackingId` e `trackedProperties`, que podem ser usadas para acompanhamento e monitoramento:
 
@@ -245,9 +245,9 @@ Por exemplo, o evento `ActionCompleted` tem as propriedades `clientTrackingId` e
 }
 ```
 
-* `clientTrackingId`: se não for fornecido, o Azure gerará essa ID automaticamente e correlacionará eventos em uma execução do aplicativo lógico, incluindo os fluxos de trabalho aninhados que são chamados no aplicativo lógico. Especifique essa ID manualmente em um gatilho, passando um cabeçalho `x-ms-client-tracking-id` com o valor de ID personalizado na solicitação de gatilho. Use um gatilho de solicitação, gatilho HTTP ou gatilho de webhook.
+* `clientTrackingId`: Se não for fornecido, o Azure gerará essa ID automaticamente e correlacionará eventos em uma execução do aplicativo lógico, incluindo os fluxos de trabalho aninhados que são chamados no aplicativo lógico. Especifique essa ID manualmente em um gatilho, passando um cabeçalho `x-ms-client-tracking-id` com o valor de ID personalizado na solicitação de gatilho. Use um gatilho de solicitação, gatilho HTTP ou gatilho de webhook.
 
-* `trackedProperties`: para acompanhar entradas ou saídas em dados de diagnóstico, adicione as propriedades acompanhadas às ações na definição de JSON do aplicativo lógico. As propriedades acompanhadas só podem acompanhar entradas e saídas de uma única ação, mas você pode usar as propriedades `correlation` dos eventos para correlacionar entre as ações em uma execução.
+* `trackedProperties`: Para acompanhar entradas ou saídas em dados de diagnóstico, adicione as propriedades acompanhadas às ações na definição de JSON do aplicativo lógico. As propriedades acompanhadas só podem acompanhar entradas e saídas de uma única ação, mas você pode usar as propriedades `correlation` dos eventos para correlacionar entre as ações em uma execução.
 
   Para acompanhar uma ou mais propriedades, adicione a seção `trackedProperties` e as propriedades desejadas à definição de ação. Por exemplo, suponha que você deseje acompanhar dados, como uma “ID de pedido” na telemetria:
 

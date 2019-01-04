@@ -4,10 +4,9 @@ description: Saiba como formular uma pergunta precisa de ciência de dados no V�
 keywords: problemas com ciência de dados, perguntas da ciência de dados, formular a pergunta, perguntas de regressão, perguntas de classificação, pergunta inteligente
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310830"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250970"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer uma pergunta que você possa responder com dados
-## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Série de ciência de dados para iniciantes
+## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: série de ciência de dados para iniciantes
 Saiba como transformar um problema de ciência de dados em uma pergunta no Vídeo Ciência de Dados para Iniciantes 3. Esse vídeo inclui uma comparação de perguntas para os algoritmos de classificação e regressão.
 
 Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
@@ -40,16 +39,16 @@ Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a list
 
 * Vídeo 1: [As cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
 * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
-* Video 3: Faça uma pergunta que você possa responder com dados
+* Vídeo 3: Fazer uma pergunta que você possa responder com dados
 * Vídeo 4: [Preveja uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
 * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
 
-## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcrição: Faça uma pergunta que você possa responder com dados
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcrição: Fazer uma pergunta que você possa responder com dados
 Bem-vindo ao terceiro vídeo da série "Ciência de dados para iniciantes."  
 
 Nele, você obterá algumas dicas para formular uma pergunta que possa responder com dados.
 
-Você pode obter mais desse vídeo se primeiro observar dois vídeos anteriores na série: "As cinco perguntas que a ciência de dados pode responder" e "Seus dados estão prontos para a ciência de dados?"
+Você poderá aproveitar melhor este vídeo se assistir primeiro os dois vídeos anteriores desta série: "As cinco perguntas que a ciência de dados pode responder" e "Seus dados estão prontos para a ciência de dados?"
 
 ## <a name="ask-a-sharp-question"></a>Faça uma pergunta inteligente
 Falamos sobre como a ciência de dados é o processo de usar nomes (também chamados de categorias ou rótulos) e números para prever uma resposta para uma pergunta. Mas não pode ser uma pergunta qualquer; deve ser uma *pergunta inteligente.*
@@ -62,7 +61,7 @@ Se você fizesse uma pergunta vaga, como: "O que acontecerá com minhas ações?
 
 Mas se fizesse uma pergunta direta, como: "Qual será o preço de venda de minhas ações na próxima semana?", o gênio não poderia fazer nada, exceto dar uma resposta específica e prever um preço de venda.
 
-## <a name="examples-of-your-answer-target-data"></a>Exemplos de resposta: dados de destino
+## <a name="examples-of-your-answer-target-data"></a>Exemplos de resposta: Dados de destino
 Depois de formular sua pergunta, verifique para saber se você tem exemplos de resposta em seus dados.
 
 Se nossa pergunta é "Qual será o preço de venda do meu estoque na próxima semana?", temos que verificar se nossos dados incluem o histórico de preços de ações.

@@ -1,5 +1,5 @@
 ---
-title: Configurar um VPN site a site em emparelhamento Microsoft para Azure ExpressRoute | Microsoft Docs
+title: Configurar um VPN site a site em emparelhamento da Microsoft – ExpressRoute – Azure | Microsoft Docs
 description: Configure a conectividade de IPsec/IKE para o Azure por um circuito de emparelhamento Microsoft para ExpressRoute usando um gateway VPN site a site.
 services: expressroute
 author: cherylmc
@@ -7,25 +7,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240896"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094195"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurar uma VPN site a site no emparelhamento da Microsoft para ExpressRoute
 
-Este artigo ajuda você a configurar uma conectividade criptografada segura entre sua rede local e suas redes virtuais do Azure (VNets) sobre uma conexão privada de ExpressRoute. Configurar um túnel seguro por meio do ExpressRoute permite a troca de dados com confidencialidade, contra reprodução, autenticidade e integridade.
+Este artigo ajuda você a configurar uma conectividade criptografada segura entre sua rede local e suas redes virtuais do Azure (VNets) sobre uma conexão privada de ExpressRoute. É possível usar o emparelhamento da Microsoft para estabelecer um túnel VPN de IPsec/IKE site a site entre suas redes locais selecionadas e VNets do Azure. Configurar um túnel seguro por meio do ExpressRoute permite a troca de dados com confidencialidade, contra reprodução, autenticidade e integridade.
 
-## <a name="architecture"></a>Arquitetura
-
-Você pode aproveitar o emparelhamento da Microsoft para estabelecer um túnel de VPN de IPsec/IKE site a site entre suas redes locais selecionadas e VNets do Azure.
-
-  >[!NOTE]
+>[!NOTE]
 >Ao configurar a VPN site a site em emparelhamento da Microsoft, você é cobrado pelo gateway de VPN e pela saída de VPN. Para saber mais, veja [Preços do Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+## <a name="architecture"></a>Arquitetura
+
 
   ![visão geral de conectividade](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

@@ -3,7 +3,7 @@ title: ReliableConcurrentQueue no Azure Service Fabric
 description: ReliableConcurrentQueue é uma fila de alta taxa de transferência que permite enfileirar e remover da fila de modo paralelo.
 services: service-fabric
 documentationcenter: .net
-author: sangarg
+author: tylermsft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: sangarg
-ms.openlocfilehash: e04123f7870921a2979564d0f6c68424d4d7711c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206570"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185028"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução a ReliableConcurrentQueue no Azure Service Fabric
 Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada quais apresenta alta simultaneidade para operações de enfileirar e remover da fila. Ele é projetado para oferecer alta taxa de transferência e baixa latência flexibilizando a rígida ordenação de PEPS fornecida pela [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e, em vez disso, fornece uma ordenação de melhor esforço.
@@ -49,11 +49,11 @@ Um exemplo de caso de uso para o ReliableConcurrentQueue é o cenário [Fila de 
 * A contagem é não transacional. Você pode usá-la para ter uma ideia do número de elementos na fila, mas representa um ponto no tempo e não é confiável.
 * Processamento dispendioso nos itens de remoção da fila não deve ser executado enquanto a transação estiver ativa para evitar transações de execução longa que podem afetar o desempenho do sistema.
 
-## <a name="code-snippets"></a>Trechos de código
-Vamos analisar alguns trechos de código e suas saídas esperadas. O tratamento de exceção é ignorado nesta seção.
+## <a name="code-snippets"></a>Snippets de código
+Vamos analisar alguns snippets de código e suas saídas esperadas. O tratamento de exceção é ignorado nesta seção.
 
 ### <a name="enqueueasync"></a>EnqueueAsync
-Aqui estão alguns trechos de código para usar EnqueueAsync seguidos por suas saídas esperadas.
+Aqui estão alguns snippets de código para usar EnqueueAsync seguidos por suas saídas esperadas.
 
 - *Caso 1: Tarefa única de enfileiramento*
 
@@ -74,7 +74,7 @@ Suponha que a tarefa tenha sido concluída com êxito e que não tenham ocorrido
 > 20, 10
 
 
-- *Caso 2: Tarefa paralela de enfileiramento*
+- *Caso 2: Tarefa enfileiramento paralelo*
 
 ```
 // Parallel Task 1
@@ -96,11 +96,11 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Suponha que as tarefas tenham sido concluídas com êxito, que as tarefas foram executadas em paralelo e que não tenham ocorrido outras transações simultâneas que modificassem a fila. Não é possível inferir a ordem dos itens na fila. Para esse trecho de código, os itens podem aparecer em qualquer uma das 4! ordenações possíveis.  A fila tentará manter os itens na ordem original (enfileirados), mas poderá ser forçada a reordená-los devido a falhas ou operações simultâneas.
+Suponha que as tarefas tenham sido concluídas com êxito, que as tarefas foram executadas em paralelo e que não tenham ocorrido outras transações simultâneas que modificassem a fila. Não é possível inferir a ordem dos itens na fila. Para esse snippet de código, os itens podem aparecer em qualquer uma das 4! ordenações possíveis.  A fila tentará manter os itens na ordem original (enfileirados), mas poderá ser forçada a reordená-los devido a falhas ou operações simultâneas.
 
 
 ### <a name="dequeueasync"></a>DequeueAsync
-Aqui estão alguns trechos de código para usar TryDequeueAsync seguidos pelas suas saídas esperadas. Suponha que a fila já está preenchida com os seguintes itens na fila:
+Aqui estão alguns snippets de código para usar TryDequeueAsync seguidos pelas suas saídas esperadas. Suponha que a fila já está preenchida com os seguintes itens na fila:
 > 10, 20, 30, 40, 50, 60
 
 - *Caso 1: Tarefa única de remoção da fila*
@@ -174,7 +174,7 @@ O mesmo é verdadeiro para todos os casos em que a transação não foi *Confirm
 Nesta seção, vamos analisar alguns padrões de programação que podem ser úteis no uso de ReliableConcurrentQueue.
 
 ### <a name="batch-dequeues"></a>Remoções de fila em lote
-O padrão de programação recomendado é a tarefa de consumidor realizar remoções da fila em lote, em vez de executar uma remoção da fila por vez. O usuário pode optar por restringir atrasos entre cada lote ou o tamanho do lote. O trecho de código a seguir mostra esse modelo de programação.  Observe que, neste exemplo, o processamento é feito depois que a transação é confirmada, portanto, se ocorrer uma falha durante o processamento, os itens não processados serão perdidos sem terem sido processados.  Como alternativa, o processamento pode ser feito no escopo da transação, no entanto, isso pode ter um impacto negativo no desempenho e requer tratamento dos itens já processados.
+O padrão de programação recomendado é a tarefa de consumidor realizar remoções da fila em lote, em vez de executar uma remoção da fila por vez. O usuário pode optar por restringir atrasos entre cada lote ou o tamanho do lote. O snippet de código a seguir mostra esse modelo de programação.  Observe que, neste exemplo, o processamento é feito depois que a transação é confirmada, portanto, se ocorrer uma falha durante o processamento, os itens não processados serão perdidos sem terem sido processados.  Como alternativa, o processamento pode ser feito no escopo da transação, no entanto, isso pode ter um impacto negativo no desempenho e requer tratamento dos itens já processados.
 
 ```
 int batchSize = 5;

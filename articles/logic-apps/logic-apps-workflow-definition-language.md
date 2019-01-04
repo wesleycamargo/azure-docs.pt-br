@@ -1,5 +1,5 @@
 ---
-title: Referência de esquema para linguagem de definição de fluxo de trabalho - Aplicativos de lógica do Azure | Microsoft Docs
+title: Referência de esquema para linguagem de definição de fluxo de trabalho - Aplicativos Lógicos do Azure | Microsoft Docs
 description: Escreva definições de fluxo de trabalho personalizadas para os Aplicativos Lógicos do Azure usando a Linguagem de Definição de Fluxo de Trabalho
 services: logic-apps
 ms.service: logic-apps
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/18/2018
 ms.locfileid: "42139991"
 ---
-# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de esquema para linguagem de definição de fluxo de trabalho em aplicativos de lógica do Azure
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de esquema para linguagem de definição de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
 Quando você cria um fluxo de trabalho de aplicativo lógico com os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md), a definição subjacente do fluxo de trabalho descreve a lógica real executada no aplicativo lógico. Essa descrição segue uma estrutura que definiu e validado pelo esquema de linguagem de definição de fluxo de trabalho, que usa [notação JSON (JavaScript Object)](https://www.json.org/). 
   

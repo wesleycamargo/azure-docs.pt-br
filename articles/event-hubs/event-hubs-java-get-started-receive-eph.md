@@ -1,20 +1,21 @@
 ---
-title: Receber eventos de Hubs de Eventos do Azure usando o Java | Microsoft Docs
-description: Comece a receber de Hubs de Eventos usando Java
+title: Receber eventos usando Java – Hubs de Eventos do Azure | Microsoft Docs
+description: Este artigo fornece instruções passo a passo para a criação de um aplicativo Java que recebe eventos dos Hubs de Eventos do Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e29cf43f490bf5e8bac5e5c36b16476f93d80bfa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240625"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081952"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Receber eventos de Hubs de Eventos do Azure usando Java
 
@@ -44,11 +45,11 @@ Para usar EventProcessorHost, você deve ter uma [conta de Armazenamento do Azur
 1. Faça logon no [portal do Azure][Azure portal] e clique em **+ Criar um recurso** no lado esquerdo da tela.
 2. Clique em **Armazenamento** e em **conta de Armazenamento**. Na janela **Criar conta de armazenamento**, digite um nome para a conta de armazenamento. Preencha o restante dos campos, selecione a região desejada e clique em **Criar**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Criar Conta de Armazenamento](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Clique na conta de armazenamento criada recentemente e, em seguida, clique em **Chaves de Acesso**:
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Obter chaves de acesso](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Copie o valor key1 para um local temporário. Você o usará posteriormente neste tutorial.
 
@@ -277,7 +278,7 @@ Crie uma classe que implementa a interface com.microsoft.azure.eventprocessorhos
 
 Use sua implementação personalizada do gerenciador de ponto de verificação (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-Dentro de sua implementação, você pode substituir o mecanismo de ponto de verificação padrão e implementar seus próprios pontos de verificação com base em seu próprio armazenamento de dados (SQL Server, CosmosDB, Cache Redis etc.). É recomendável que o armazenamento usado para fazer sua implementação do gerenciador de ponto de verificação seja acessível para todas as instâncias do EPH que estejam processando eventos para o grupo de consumidores.
+Dentro de sua implementação, você pode substituir o mecanismo de ponto de verificação padrão e implementar seus próprios pontos de verificação com base em seu próprio armazenamento de dados (SQL Server, CosmosDB, Cache do Azure para Redis etc.). É recomendável que o armazenamento usado para fazer sua implementação do gerenciador de ponto de verificação seja acessível para todas as instâncias do EPH que estejam processando eventos para o grupo de consumidores.
 
 Você pode usar qualquer armazenamento de dados que estiver disponível em seu ambiente.
 

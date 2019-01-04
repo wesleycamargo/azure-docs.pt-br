@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247374"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013178"
 ---
-# <a name="security-frame-communication-security--mitigations"></a>Estrutura de segurança: Segurança de comunicações | Atenuações 
+# <a name="security-frame-communication-security--mitigations"></a>Quadro de segurança: Segurança de comunicações | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Hub de Eventos do Azure** | <ul><li>[Proteger comunicações para o Hub de Eventos usando SSL/TLS](#comm-ssltls)</li></ul> |
@@ -34,7 +34,7 @@ ms.locfileid: "51247374"
 | **Cliente móvel** | <ul><li>[Implementar a anexação de certificado](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Habilitar HTTPS - proteger o canal de transporte](#https-transport)</li><li>[WCF: definir o nível de proteção da segurança de mensagens como EncryptAndSign](#message-protection)</li><li>[WCF: use uma conta com privilégios mínimos para executar o serviço WCF](#least-account-wcf)</li></ul> |
 | **API da Web** | <ul><li>[Forçar todo o tráfego para APIs Web pela conexão HTTPS](#webapi-https)</li></ul> |
-| **Cache Redis do Azure** | <ul><li>[Garantir que as comunicações para o Cache Redis do Azure sejam feitas via SSL](#redis-ssl)</li></ul> |
+| **Cache Redis do Azure** | <ul><li>[Garantir que as comunicações para o Cache do Azure para Redis sejam feitas via SSL](#redis-ssl)</li></ul> |
 | **Gateway de Campo de IoT** | <ul><li>[Proteger dispositivo para comunicações do Gateway de Campo](#device-field)</li></ul> |
 | **Gateway de Nuvem IoT** | <ul><li>[Proteger o dispositivo para comunicações do Gateway de Nuvem usando SSL/TLS](#device-cloud)</li></ul> |
 
@@ -146,7 +146,7 @@ Essa regra funciona retornando um código de status de protocolo HTTP 301 (redir
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Folha de dados do OWASP sobre Segurança de Transporte Estrito HTTP](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Etapas** | <p>A Segurança de Transporte Estrito HTTP (HSTS) é um aperfeiçoamento de segurança opcional, que é especificado por um aplicativo Web por meio de um cabeçalho de resposta especial. Depois que um navegador em conformidade recebe o cabeçalho, esse navegador impede que todas as comunicações sejam enviadas pelo HTTP para o domínio especificado e envia todas as comunicações pelo HTTPS. Ele também impede cliques via HTTPS em prompts de navegadores.</p><p>Para implementar a HSTS, o seguinte cabeçalho de resposta precisa ser configurado globalmente para um site, por meio de um código ou de um arquivo de configuração. A HSTS Strict-Transport-Security: max-age=300; includeSubDomains impede as seguintes ameaças:</p><ul><li>O usuário marca ou digita http://example.com e fica sujeito a um ataque man-in-the-middle: a HSTS automaticamente redireciona as solicitações de HTTP para HTTPS para o domínio de destino</li><li>O aplicativo da Web que se destina a ser puramente HTTPS acaba contendo links HTTP ou envia pelo HTTP: a HSTS automaticamente redireciona as solicitações de HTTP para HTTPS para o domínio de destino.</li><li>Um ataque MITM tenta interceptar o tráfego de um usuário utilizando um certificado inválido e espera que o usuário aceite o certificado incorreto: a HSTS não permite que um usuário substitua a mensagem de certificado inválido.</li></ul>|
+| **Etapas** | <p>A Segurança de Transporte Estrito HTTP (HSTS) é um aperfeiçoamento de segurança opcional, que é especificado por um aplicativo Web por meio de um cabeçalho de resposta especial. Depois que um navegador em conformidade recebe o cabeçalho, esse navegador impede que todas as comunicações sejam enviadas pelo HTTP para o domínio especificado e envia todas as comunicações pelo HTTPS. Ele também impede cliques via HTTPS em prompts de navegadores.</p><p>Para implementar a HSTS, o seguinte cabeçalho de resposta precisa ser configurado globalmente para um site, por meio de um código ou de um arquivo de configuração. A HSTS Strict-Transport-Security: max-age=300; includeSubDomains impede as seguintes ameaças:</p><ul><li>O usuário marca ou digita http://example.com manualmente e está sujeito a um invasor man-in-the-middle: HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>O aplicativo Web que se destina a ser puramente HTTPS acaba contendo links HTTP ou envia conteúdo por HTTP: HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>Um ataque man-in-the-middle tenta interceptar o tráfego de um usuário utilizando um certificado inválido e espera que o usuário aceite o certificado incorreto: a HSTS não permite que um usuário substitua a mensagem de certificado inválido</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Garantir a validação de certificado e a criptografia da conexão do SQL Server
 
@@ -300,10 +300,10 @@ namespace CertificatePinningExample
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Etapas** | <ul><li>**EXPLICAÇÃO:** quando o nível de proteção estiver definido como "none", a proteção de mensagem será desabilitada. A confidencialidade e a integridade dos dados só são conquistadas com o nível apropriado de configuração.</li><li>**RECOMENDAÇÕES:**<ul><li>`Mode=None` - desabilita a proteção de mensagem</li><li>`Mode=Sign` - assina, mas não criptografa a mensagem (deve ser usada quando a integridade dos dados for importante)</li><li>`Mode=EncryptAndSign` - assina e criptografa a mensagem</li></ul></li></ul><p>Considere desativar a criptografia e apenas assinar uma mensagem quando você só precisar validar a integridade das informações sem se preocupar com sua confidencialidade. Isso pode ser útil para operações ou contratos de serviço nos quais você precisa validar o remetente original, mas que não transmitem dados confidenciais. Quando você reduzir o nível de proteção, certifique-se de que a mensagem não contenha informações de identificação pessoal (PII).</p>|
+| **Etapas** | <ul><li>**EXPLICAÇÃO:** quando o nível de proteção estiver definido como "nenhum", a proteção de mensagem será desabilitada. A confidencialidade e a integridade dos dados só são conquistadas com o nível apropriado de configuração.</li><li>**RECOMENDAÇÕES:**<ul><li>`Mode=None` - desabilita a proteção de mensagem</li><li>`Mode=Sign` - assina, mas não criptografa a mensagem (deve ser usada quando a integridade dos dados for importante)</li><li>`Mode=EncryptAndSign` - assina e criptografa a mensagem</li></ul></li></ul><p>Considere desativar a criptografia e apenas assinar uma mensagem quando você só precisar validar a integridade das informações sem se preocupar com sua confidencialidade. Isso pode ser útil para operações ou contratos de serviço nos quais você precisa validar o remetente original, mas que não transmitem dados confidenciais. Quando você reduzir o nível de proteção, certifique-se de que a mensagem não contenha informações de identificação pessoal (PII).</p>|
 
 ### <a name="example"></a>Exemplo
-A configuração do serviço e a operação de apenas assinar a mensagem são mostradas nos exemplos aabaixo. Exemplo de contrato de serviço de `ProtectionLevel.Sign`: o exemplo abaixo mostra o uso de ProtectionLevel.Sign no nível do contrato de serviço. 
+A configuração do serviço e a operação de apenas assinar a mensagem são mostradas nos exemplos aabaixo. Exemplo de contrato de serviço de `ProtectionLevel.Sign`: o exemplo abaixo mostra o uso de ProtectionLevel.Sign no nível do contrato de serviço: 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
 public interface IService 
@@ -313,7 +313,7 @@ public interface IService
 ```
 
 ### <a name="example"></a>Exemplo
-Exemplo de contrato de operação de `ProtectionLevel.Sign` (para um controle granular): veja abaixo um exemplo do uso de `ProtectionLevel.Sign` no nível do contrato de operação.
+Exemplo de contrato de operação de `ProtectionLevel.Sign` (para controle granular): Veja a seguir um exemplo de uso de `ProtectionLevel.Sign` no nível de OperationContract:
 
 ```
 [OperationContract(ProtectionLevel=ProtectionLevel.Sign] 
@@ -329,7 +329,7 @@ string GetData(int value);
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
-| **Etapas** | <ul><li>**EXPLICAÇÃO:** não execute serviços do WCF usando contas de administrador ou com privilégios altos. Se os serviços forem comprometidos, isso pode ter um impacto alto.</li><li>**RECOMENDAÇÕES:** use uma conta com privilégios mínimos para hospedar o serviço WCF, porque isso reduz a superfície de ataque do aplicativo e os potenciais danos causados se houver um ataque. Se a conta do serviço exigir direitos de acesso adicionais nos recursos de infraestrutura, como MSMQ, o log de eventos, contadores de desempenho e o sistema de arquivos, as permissões apropriadas para esses recursos devem ser concedidas, para que o serviço WCF seja executado êxito.</li></ul><p>Se o serviço precisar acessar recursos específicos em nome do chamador original, use a representação e a delegação, para que a identidade do chamador passe por uma verificação de autorização de downstream. Em um cenário de desenvolvimento, use a conta de serviço da rede local, que é uma conta interna especial com privilégios limitados. Em um cenário de produção, crie uma conta de serviço de domínio personalizada com privilégios mínimos.</p>|
+| **Etapas** | <ul><li>**EXPLICAÇÃO:** não execute serviços do WCF usando contas de administrador ou com privilégios altos. Se os serviços forem comprometidos, isso pode ter um impacto alto.</li><li>**RECOMENDAÇÕES:** use uma conta com privilégios mínimos para hospedar o serviço WCF, porque isso reduzirá a superfície de ataque do aplicativo e os possíveis danos causados se houver um ataque. Se a conta do serviço exigir direitos de acesso adicionais nos recursos de infraestrutura, como MSMQ, o log de eventos, contadores de desempenho e o sistema de arquivos, as permissões apropriadas para esses recursos devem ser concedidas, para que o serviço WCF seja executado êxito.</li></ul><p>Se o serviço precisar acessar recursos específicos em nome do chamador original, use a representação e a delegação, para que a identidade do chamador passe por uma verificação de autorização de downstream. Em um cenário de desenvolvimento, use a conta de serviço da rede local, que é uma conta interna especial com privilégios limitados. Em um cenário de produção, crie uma conta de serviço de domínio personalizada com privilégios mínimos.</p>|
 
 ## <a id="webapi-https"></a>Forçar todo o tráfego para APIs Web pela conexão HTTPS
 
@@ -372,7 +372,7 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Garantir que as comunicações para o Cache Redis do Azure sejam feitas via SSL
+## <a id="redis-ssl"></a>Garantir que as comunicações para o Cache do Azure para Redis sejam feitas via SSL
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -381,7 +381,7 @@ public class ValuesController : ApiController
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Suporte a SSL do Redis do Azure](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Etapas** | O servidor Redis não dá suporte ao SSL pronto para uso, enquanto o Cache Redis do Azure dá. Se você estiver conectando ao Cache Redis do Azure e o seu cliente dá suporte a SSL, como StackExchange.Redis, você deve usar SSL. Por padrão, a porta não SSL está desabilitada para novas instâncias do Cache Redis do Azure. Certifique-se de que os padrões de segurança não sejam alterados, a menos que haja uma dependência no suporte a SSL para clientes Redis. |
+| **Etapas** | O servidor Redis não dá suporte ao SSL pronto para uso, enquanto o Cache do Azure para Redis dá. Se você estiver se conectando ao Cache do Azure para Redis e seu cliente der suporte a SSL, como StackExchange.Redis, você deverá usar SSL. Por padrão, a porta não SSL está desabilitada para novas instâncias do Cache do Azure para Redis. Certifique-se de que os padrões de segurança não sejam alterados, a menos que haja uma dependência no suporte a SSL para clientes Redis. |
 
 Observe que o Redis foi projetado para ser acessado por clientes confiáveis em ambientes confiáveis. Isso significa que normalmente não é uma boa ideia expor a instância do Redis diretamente à Internet ou, de uma forma geral, a um ambiente onde clientes não confiáveis podem acessar diretamente o soquete UNIX ou a porta TCP do Redis. 
 

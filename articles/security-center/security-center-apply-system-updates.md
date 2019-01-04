@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a0d0cbacfa03080d519e5d9e3592ad01ed58b933
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f3c055d55da06e6410520084a1c96baa78b91496
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316576"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341705"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema na Central de Segurança do Azure
 A Central de Segurança do Azure monitora diariamente VMs (máquinas virtuais) e computadores Windows e Linux para saber se faltam atualizações do sistema operacional. A Central de Segurança recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou no WSUS (Windows Server Update Services), dependendo de qual serviço está configurado em um computador Windows. A Central de Segurança também verifica as atualizações mais recentes em sistemas Linux. Se faltar uma atualização do sistema em sua VM ou seu computador, a Central de Segurança recomendará que você aplique as atualizações do sistema.
@@ -47,10 +47,10 @@ Neste exemplo, usaremos **Computação**.
 
     - NOME: nome da atualização ausente.
     - NÚMERO DE VMs E COMPUTADORES: número total de máquinas virtuais e computadores que não têm essa atualização.
-    - ESTADO: o estado atual da recomendação:
+    - ESTADO: O estado atual da recomendação:
 
-      - Aberta: a recomendação ainda não foi resolvida.
-      - Em Andamento: a recomendação está sendo aplicada atualmente aos recursos e não é necessário que você realize nenhuma ação.
+      - Aberto: A recomendação ainda não foi resolvida.
+      - Em andamento: a recomendação está sendo aplicada atualmente a esses recursos e não é necessário que você realize nenhuma ação.
       - Resolvido: a recomendação já foi concluída. (Quando o problema foi resolvido, a entrada será esmaecida).
 
     - GRAVIDADE: descreve a gravidade dessa recomendação específica:
@@ -84,7 +84,7 @@ Reinicie a VM do Azure para concluir o processo.
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
 * [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.

@@ -1,5 +1,6 @@
 ---
-title: Como funciona o serviço do Azure Machine Learning?
+title: 'ML na nuvem: termos e arquitetura'
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre a arquitetura, terminologia e conceitos que compõem o serviço do Azure Machine Learning. Você também aprenderá sobre o fluxo de trabalho geral de como usar o serviço e os serviços do Azure que são usados pelo serviço do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +9,14 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 10/24/2018
-ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706799"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184722"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço do Azure Machine Learning: arquitetura e conceitos
 
@@ -33,8 +35,6 @@ O fluxo de trabalho geralmente segue estas etapas:
 1. __Crie uma imagem__ e registre-a no __registro da imagem__. 
 1. __Implante a imagem__ como um __serviço web__ no Azure.
 
-
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 > [!NOTE]
 > Embora este documento define termos e conceitos usados pelo Azure Machine Learning, ele não define os termos e conceitos para a plataforma do Azure. Para obter mais informações sobre a terminologia da plataforma do Azure, consulte o [Glossário do Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
@@ -65,7 +65,7 @@ Quando você cria um novo workspace, ele automaticamente cria vários recursos d
 
 O diagrama a seguir é uma taxonomia do workspace:
 
-[![Taxonomia de espaço de trabalho](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
+[![Taxonomia de espaço de trabalho](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="model"></a>Modelo
 
@@ -75,7 +75,7 @@ Um modelo é produzido por uma execução no Azure Machine Learning. Você tamb�
 
 Os serviços do Azure Machine Learning são independentes do framework. Você pode usar qualquer estrutura de aprendizado de máquina popular durante a criação de um modelo, como scikit-learn, xgboost, PyTorch, TensorFlow, Chainer e CNTK.
 
-Para obter um exemplo de treinamento de um modelo, consulte o documento [Início rápido: criar um espaço de trabalho dos serviços do Machine Learning](quickstart-get-started.md).
+Para obter um exemplo de treinamento de um modelo, consulte o [Guia de Início Rápido: Crie um documento de espaço de trabalho](quickstart-get-started.md) de Serviço de aprendizado de máquina.
 
 ### <a name="model-registry"></a>Registro de modelo
 
@@ -99,8 +99,8 @@ As imagens fornecem uma maneira confiável de implantar um modelo, juntamente co
 
 Há dois tipos de imagens que podem ser criados pelo Azure Machine Learning:
 
-* Imagem FPGA: usado ao implantar em uma matriz de portas programáveis em campo na nuvem do Azure.
-* Imagem do docker: usado ao implantar nos destinos de computação que não sejam FPGA. Por exemplo, as Instâncias de Contêiner do Azure e o Serviço de Kubernetes do Azure.
+* Imagem FPGA: Usada ao implantar em uma matriz de portas programáveis em campo na nuvem do Azure.
+* Imagem do Docker: Usado ao implantar nos destinos de computação que não sejam FPGA. Por exemplo, as Instâncias de Contêiner do Azure e o Serviço de Kubernetes do Azure.
 
 Para obter um exemplo de criação de uma imagem, consulte o documento [Implantar um modelo de classificação de imagem na Instância de Contêiner do Azure](tutorial-deploy-models-with-aml.md).
 
@@ -148,13 +148,13 @@ Uma execução é um registro que contém as seguintes informações:
 
 Uma execução é produzida quando você envia um script para treinar um modelo. Uma execução pode ter zero ou mais execuções filho. Portanto, a execução de nível superior pode ter duas execuções filho, cada uma delas pode ter sua próprias execuções filho.
 
-Para um exemplo de exibição de execuções produzido pelo treinamento de um modelo, consulte o documento [Início rápido: Introdução ao serviço de Azure Machine Learning](quickstart-get-started.md).
+Para obter um exemplo de execuções de visualização produzido ao treinar um modelo, consulte o [Guia de Início Rápido: Introdução ao documento de Serviço do Azure Machine Learning](quickstart-get-started.md).
 
 ## <a name="experiment"></a>Experimento
 
 Um experimento é um agrupamento de diversas execuções de um determinado script. Ele sempre pertence a um workspace. Quando você envia uma execução, você pode fornecer um nome de experimento. As informações para a execução são armazenadas nesse experimento. Se você enviar uma execução e especificar um nome de experimento que não existe, um novo experimento com esse nome é criado automaticamente.
 
-Para um exemplo de como usar um experimento, consulte o documento [Início rápido: Introdução ao serviço de Azure Machine Learning](quickstart-get-started.md).
+Para obter um exemplo do uso de um experimento, consulte o [Guia de Início Rápido: Introdução ao documento de Serviço do Azure Machine Learning](quickstart-get-started.md).
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -169,19 +169,23 @@ Um destino de computação é o recurso de computação usado para executar o sc
 | Destino de computação | Treinamento | Implantação |
 | ---- |:----:|:----:|
 | Seu computador local | ✓ | &nbsp; |
+| Computação do Azure Machine Learning | ✓ | &nbsp; |
 | Uma VM do Linux no Azure</br>(como a Máquina Virtual de Ciência de Dados) | ✓ | &nbsp; |
-| Cluster de IA do Lote do Azure | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Análise Azure Data Lake | ✓ | &nbsp; |
 | Apache Spark para HDInsight | ✓ | &nbsp; |
-| Azure Container Instance | ✓ | ✓ |
+| Azure Container Instance | &nbsp; | ✓ |
 | Serviço de Kubernetes do Azure | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(Matriz de porta programável em campo) | &nbsp; | ✓ |
 
 Os destinos de computação são anexados a um workspace. Os destinos de computação diferentes do computador local são compartilhados por usuários do workspace.
 
-A maioria dos destinos de computação podem ser criados diretamente por meio do workspace usando o portal do Azure, o SDK do Azure Machine Learning ou a CLI do Azure. Se você tiver os destinos de computação que foram criados por outro processo (por exemplo, o portal do Azure ou a CLI do Azure), você pode adicioná-los (anexá-los) ao seu workspace. Alguns destinos de computação devem ser criados fora do workspace e, em seguida, anexados.
+### <a name="managed-and-unmanaged-compute-targets"></a>Destinos de computação gerenciados e não gerenciados
+
+Destinos de computação **gerenciados** são criados e gerenciados pelo Serviço do Azure Machine Learning. Esses destino de computação são otimizados para cargas de trabalho ML. __Computação do Azure Machine Learning__ é o único destino de computação gerenciada no momento (4 de dezembro de 2018). Destinos de computação gerenciados adicionais podem ser adicionados no futuro. As instâncias de Computação do ML podem ser criadas diretamente por meio do espaço de trabalho usando o portal do Azure, o SDK do Azure Machine Learning ou a CLI do Azure. Todos os outros destinos de computação devem ser criados fora do espaço de trabalho e, em seguida, anexados.
+
+Destinos de computação **não gerenciados** são criados e gerenciados pelo Serviço do Azure Machine Learning. Você precisa criá-los fora do Azure Machine Learning e, em seguida, anexá-los ao seu espaço de trabalho antes do uso. Esses destinos de computação podem exigir etapas adicionais para manter ou melhorar o desempenho para cargas de trabalho do ML.
 
 Para obter informações sobre como selecionar um destino de computação para treinamento, consulte o documento [Selecionar e usar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md).
 
@@ -223,5 +227,5 @@ As atividades podem fornecer notificações por meio do SDK ou da IU da Web, por
 Use os links a seguir para começar a usar o Azure Machine Learning:
 
 * [O que é o serviço do Azure Machine Learning](overview-what-is-azure-ml.md)
-* [Início Rápido: Criar um espaço de trabalho com o Python](quickstart-get-started.md)
+* [Início Rápido: Criar um workspace com o Python](quickstart-get-started.md)
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md)

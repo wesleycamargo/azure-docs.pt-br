@@ -8,24 +8,27 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 98380cc5b9daff314283ac4e45e5edf7b5601e1b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 977123459bcf9bb10c6b7ecf5d7a364f60564c48
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52636991"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437057"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Lidando com eventos externos nas Funções Duráveis (Azure Functions)
 
 Funções de orquestrador têm a capacidade de aguardar e escutar eventos externos. Frequentemente, esse recurso das [Funções Duráveis](durable-functions-overview.md) é útil para lidar com interação humana ou com outros gatilhos externos.
 
+> [!NOTE]
+> Eventos externos são operações assíncronas unidirecionais. Não são adequados para situações em que o cliente que envia o evento precisa de uma resposta síncrona da função de orquestrador.
+
 ## <a name="wait-for-events"></a>Aguardar eventos
 
 O método [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) permite que uma função de orquestrador aguarde e monitore de forma assíncrona um evento externo. A função do orquestrador que está escutando declara o *nome* do evento e a *forma dos dados* que espera receber.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -44,7 +47,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -90,7 +93,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -133,7 +136,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -155,15 +158,17 @@ module.exports = df.orchestrator(function*(context) {
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) aguarda indefinidamente por uma entrada.  O aplicativo de funções pode ser descarregado com segurança enquanto aguarda. Se um evento chegar para esta instância de orquestração, ela será ativada automaticamente e processará imediatamente o evento.
 
 > [!NOTE]
-> Se o seu aplicativo de funções utiliza o Plano de Consumo, não são feitas cobranças enquanto uma função de orquestrador está aguardando uma tarefa de `WaitForExternalEvent`, independentemente do tempo de espera.
+> Se o seu aplicativo de funções utiliza o Plano de Consumo, não são feitas cobranças enquanto uma função de orquestrador está aguardando uma tarefa de `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript), independentemente do tempo de espera.
 
 No .NET, se a carga do evento não puder ser convertida no `T` do tipo esperado, uma exceção será lançada.
 
 ## <a name="send-events"></a>Enviar eventos
 
-O método [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) da classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) envia os eventos que `WaitForExternalEvent` aguarda.  O método `RaiseEventAsync` usa *eventName* e *eventData* como parâmetros. Os dados do evento devem ser serializáveis em JSON.
+O método [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) da classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) envia os eventos que `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript) aguarda.  O método `RaiseEventAsync` usa *eventName* e *eventData* como parâmetros. Os dados do evento devem ser serializáveis em JSON.
 
 Abaixo, temos um exemplo de função disparada em fila que envia um evento de "Aprovação" para uma instância de função de orquestrador. A ID da instância de orquestração vem do corpo da mensagem da fila.
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]
@@ -175,38 +180,24 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
-Em JavaScript, teremos que invocar uma API REST para acionar um evento para o qual a função durável está aguardando.
-Este exemplo abaixo usa o pacote de "solicitação". O método abaixo pode ser usado para acionar eventos para qualquer instância de função durável
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
 
-```js
-function raiseEvent(instanceId, eventName) {
-        var url = `<<BASE_URL>>/runtime/webhooks/durabletask/instances/${instanceId}/raiseEvent/${eventName}?taskHub=DurableFunctionsHub`;
-        var body = <<BODY>>
-            
-        return new Promise((resolve, reject) => {
-            request({
-                url,
-                json: body,
-                method: "POST"
-            }, (e, response) => {
-                if (e) {
-                    return reject(e);
-                }
+```javascript
+const df = require("durable-functions");
 
-                resolve();
-            })
-        });
-    }
+module.exports = async function(context, instanceId) {
+    const client = df.getClient(context);
+    await client.raiseEvent(instanceId, "Approval", true);
+};
 ```
 
-<<BASE_URL>> será a url base de seu aplicativo de funções. Se você estiver executando o código localmente, ele será algo parecido com http://localhost:7071 ou, no Azure, como https://<<functionappname>>.azurewebsites.net
-
-
-Internamente, `RaiseEventAsync` enfileira uma mensagem que é obtida pela função de orquestrador em espera.
+Internamente, `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) enfileira uma mensagem que é obtida pela função do orquestrador em espera.
 
 > [!WARNING]
 > Se não houver nenhuma instância de orquestração com a *ID de instância* especificada ou se a instância não estiver aguardando o *nome do evento* especificado, a mensagem de evento será descartada. Para obter mais informações sobre esse comportamento, consulte o [Problema no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+
+> [!WARNING]
+> Ao fazer o desenvolvimento local em JavaScript, você precisará definir a variável de ambiente `WEBSITE_HOSTNAME` como `localhost:<port>`, por ex. `localhost:7071` para usar métodos em `DurableOrchestrationClient`. Para obter mais informações sobre esse requisito, confira [Problema no GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -218,4 +209,3 @@ Internamente, `RaiseEventAsync` enfileira uma mensagem que é obtida pela funç�
 
 > [!div class="nextstepaction"]
 > [Executar um exemplo que aguarda interação humana](durable-functions-phone-verification.md)
-

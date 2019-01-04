@@ -12,18 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277929"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632782"
 ---
 # <a name="azure-stack-servicing-policy"></a>Política de manutenção de pilha do Azure
+
 Este artigo descreve a política de manutenção para sistemas integrados do Azure Stack e o que você deve fazer para manter seu sistema em um estado com suporte. 
+
+## <a name="download-update-packages-for-integrated-systems"></a>Baixar pacotes de atualização para sistemas integrados
+
+A Microsoft divulgará total mensal pacotes de atualização, bem como pacotes de hotfix para abordar problemas específicos. 
+
+Pacotes de atualização mensal são hospedados em um ponto de extremidade seguro do Azure. Você pode baixá-los manualmente usando o [ferramenta de atualizações de pilha do Azure da downloader](http://aka.ms/azurestackupdatedownload). Se sua unidade de escala estiver conectada, a atualização é exibida automaticamente no portal do administrador conforme **atualização disponível**. Full, mensalmente pacotes de atualização são bem documentados em cada versão. Para obter mais informações sobre cada versão, você pode clicar em qualquer versão dos [cadência de lançamento do pacote de atualização](#update-package-release-cadence) seção deste artigo.
+
+Pacotes de atualização de hotfix são hospedados no mesmo seguro do Azure ponto de extremidade. Você pode baixá-los manualmente usando os links inseridos em cada um dos artigos da KB hotfix respectivos; Por exemplo, [do Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Como os pacotes de atualização completa, mensal, operadores do Azure Stack podem baixar os arquivos. XML,. bin e .exe e importá-los usando o procedimento em [aplicar as atualizações no Azure Stack](azure-stack-apply-updates.md). Operadores do Azure Stack com unidades de escala conectado verá os hotfixes aparecem automaticamente no portal do administrador com a mensagem **atualização disponível**.
+
+Se sua unidade de escala não está conectada e você gostaria de ser notificado sobre cada versão do hotfix, assine a [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) ou [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) observado em cada versão do feed.  
 
 ## <a name="update-package-types"></a>Tipos de pacote de atualização
 
@@ -51,7 +62,7 @@ Os hotfixes são baixados e instalados assim como os pacotes de atualização re
 
 
 ## <a name="keep-your-system-under-support"></a>Manter seu sistema de suporte
-Para continuar a receber suporte, você deve manter sua implantação do Azure Stack atual. A política de adiamento de atualizações é: para a implantação do Azure Stack permanecerão com suporte, ele deve executar a versão lançada mais recentemente de atualização ou executar qualquer uma das duas versões de atualização anterior. Hotfixes não serão considerados para versões de atualização importante. Se a nuvem do Azure Stack está atrasado em *mais de duas atualizações*, ele é considerado fora de conformidade e atualize pelo menos a versão mínima com suporte para receber suporte. 
+Para continuar a receber suporte, você deve manter sua implantação do Azure Stack atual. A política de adiamento para atualizações é: Para a implantação do Azure Stack permanecerão com suporte, ele deve executar a versão lançada mais recentemente de atualização ou executar qualquer uma das duas versões de atualização anterior. Hotfixes não serão considerados para versões de atualização importante. Se a nuvem do Azure Stack está atrasado em *mais de duas atualizações*, ele é considerado fora de conformidade e atualize pelo menos a versão mínima com suporte para receber suporte. 
 
 Por exemplo, se a versão disponível mais recente de atualização é 1805 e os dois pacotes de atualização anteriores foram versões 1804 e 1803, 1803 e 1804 permanecem no suporte. No entanto, 1802 é sem suporte. A política se aplica quando não há nenhuma versão de um ou dois meses. Por exemplo, se a versão atual está 1805 e não havia nenhuma versão 1804, os dois pacotes de atualização anterior do 1803 e 1802 permanecerão com suporte.
 

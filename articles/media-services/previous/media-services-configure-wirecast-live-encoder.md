@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669106"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138911"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Wirecast para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 * Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 
 ## <a name="create-a-channel"></a>Criar um canal
-1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
+1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...**  no menu.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -69,21 +69,21 @@ Enquanto o canal é iniciado, você pode [configurar o codificador](media-servic
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a><a id = "configure_wirecast_rtmp" /a> Configurar o codificador Telestream Wirecast
+## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurar o codificador do Telestream Wirecast
 Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
 
 **Vídeo**:
 
 * Codec: H.264
-* Perfil: Alto (nível 4.0)
-* Taxa de bits: 5.000 kbps
+* Perfil: Alto (Nível 4.0)
+* Taxa de bits: 5.000 Kbps
 * Quadro-chave: 2 segundos (60 segundos)
 * Taxa de quadros: 30
 
 **Áudio**:
 
 * Codec: AAC (LC)
-* Taxa de bits: 192 kbps
+* Taxa de bits: 192 Kbps
 * Taxa de amostragem: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Etapas da configuração
@@ -105,9 +105,9 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
    * Codificador: MainConcept H.264
    * Quadros por segundo: 30
-   * Taxa de bits média: 5.000 kbits/s (Pode ser ajustada com base nas limitações de rede)
+   * Taxa de bits média: 5.000 kbits/s (pode ser ajustada com base nas limitações de rede)
    * Perfil: Principal
-   * Quadro chave: a cada 60 quadros
+   * Quadro chave a cada: 60 quadros
 
     **Áudio**
 

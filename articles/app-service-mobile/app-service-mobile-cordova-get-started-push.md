@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cb36c6fea20f5976f159780f3482d9aae669f951
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817949"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960321"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Adicionar notificações por push ao seu aplicativo Apache Cordova
 
@@ -240,11 +240,11 @@ As bibliotecas exigidas atualmente estão listadas na [documentação de instala
 
 Agora é possível testar notificações por push executando o aplicativo e inserindo itens na tabela TodoItem. Você pode testar a partir do mesmo dispositivo ou de um segundo dispositivo, desde que esteja usando o mesmo back-end. Teste seu aplicativo Cordova na plataforma Android usando uma das seguintes maneiras:
 
-* *Em um dispositivo físico:* anexe seu dispositivo Android ao computador de desenvolvimento com um cabo USB.  Em vez de **Emulador do Google Android**, selecione **Dispositivo**. O Visual Studio implanta o aplicativo no dispositivo e executa o aplicativo. Em seguida, você poderá interagir com o aplicativo no dispositivo.
+* *Em um dispositivo físico:*  anexe seu dispositivo Android ao computador de desenvolvimento com um cabo USB.  Em vez de **Emulador do Google Android**, selecione **Dispositivo**. O Visual Studio implanta o aplicativo no dispositivo e executa o aplicativo. Em seguida, você poderá interagir com o aplicativo no dispositivo.
 
   Os aplicativos de compartilhamento de tela, como [Mobizen][20] pode ajudá-lo no desenvolvimento de aplicativos Android. O Mobizen projeta sua tela Android para um navegador da Web em seu computador.
 
-* *Em um emulador do Android:* há etapas de configuração adicionais que são exigidas quando você estiver usando um emulador.
+* *Em um emulador do Android:* são necessárias etapas de configuração adicionais quando você estiver usando um emulador.
 
     Verifique se você está implantando em um dispositivo virtual com as APIs do Google definidas como destino, conforme mostrado no Gerenciador de AVD (dispositivo virtual Android).
 
@@ -279,7 +279,7 @@ Antes de registrar seu aplicativo para notificações por push, abra o config.xm
 
 ```xml
 <widget defaultlocale="en-US" id="io.cordova.myapp7777777"
-    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
+    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="https://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 ```
 
@@ -393,17 +393,17 @@ Saiba como usar os SDKs a seguir:
 
 <!-- URLs -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[2]: http://www.visualstudio.com/
+[2]: https://www.visualstudio.com/
 [3]: https://azure.microsoft.com/pricing/free-trial/
 [4]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [5]: app-service-mobile-cordova-get-started.md
-[6]: http://go.microsoft.com/fwlink/p/?LinkId=268302
+[6]: https://go.microsoft.com/fwlink/p/?LinkId=268302
 [7]: https://developer.apple.com/programs/
 [8]: https://developer.microsoft.com/en-us/store/register
 [9]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub
 [10]: https://www.npmjs.com/
 [11]: https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM
-[12]: http://taco.visualstudio.com/en-us/docs/ios-guide/
+[12]: https://taco.visualstudio.com/en-us/docs/ios-guide/
 [13]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push
 [14]: app-service-mobile-cordova-get-started-users.md
 [15]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -412,4 +412,4 @@ Saiba como usar os SDKs a seguir:
 [18]: https://console.developers.google.com/home/dashboard
 [19]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [20]: https://www.mobizen.com/
-[21]: http://taco.visualstudio.com/en-us/docs/build_ios_cloud/
+[21]: https://taco.visualstudio.com/en-us/docs/build_ios_cloud/

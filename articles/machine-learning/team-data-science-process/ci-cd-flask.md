@@ -1,6 +1,6 @@
 ---
-title: 'Aplicativos de DevOps para IA (inteligência artificial): criando pipeline de integração contínua no Azure usando aplicativo Docker, Kubernetes e Python Flask'
-description: 'Aplicativos de DevOps para IA (inteligência artificial): criando pipeline de integração contínua no Azure usando Docker e Kubernetes'
+title: Criar pipeline do Azure de integração contínua - Processo de Ciência de Dados de Equipe
+description: 'DevOps para aplicativos de IA (Inteligência Artificial): Criar pipeline de integração contínua no Azure usando Docker e Kubernetes'
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: (previous author=jainr, ms.author=jainr)
-ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496740"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134277"
 ---
-# <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>Aplicativos de DevOps para IA (inteligência artificial): criando pipeline de integração contínua no Azure usando o Docker e Kubernetes
+# <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Criar pipeline de integração contínua no Azure usando Docker, Kubernetes e aplicativo Python Flask
 Para um aplicativo de IA, há geralmente dois fluxos de trabalho: cientistas de dados criando modelos de aprendizado de máquina e desenvolvedores de aplicativos compilando o aplicativo e o expondo ao consumo de usuários finais. Neste artigo, demonstraremos como implementar um pipeline de CI (integração contínua)/CD (entrega contínua) para um aplicativo de IA. O aplicativo de IA é uma combinação de código do aplicativo incorporado com um modelo de ML (aprendizado de máquina) pré-treinado. Neste artigo, estamos buscando um modelo pré-treinado de uma conta de armazenamento de blobs do Azure privada, que pode ser uma conta AWS S3 também. Usaremos um aplicativo Web python flask simples no artigo.
 
 > [!NOTE]

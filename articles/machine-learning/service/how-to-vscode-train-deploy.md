@@ -1,23 +1,25 @@
 ---
-title: Usar a extensão Visual Studio Code Tools for AI com o Azure Machine Learning
-description: Aprenda sobre a Visual Studio Code Tools for AI e como iniciar treinamento e implantar os modelos de aprendizado de máquina e aprendizagem profunda com o serviço do Azure Machine Learning no VS Code.
+title: Treinar e implantar modelos do VS Code
+titleSuffix: Azure Machine Learning service
+description: Saiba mais sobre o Azure Machine Learning para Visual Studio Code e como começar a treinar e implantar modelos de aprendizado profundo e aprendizado de máquina no serviço do Azure Machine Learning usando o Visual Studio Code de aprendizado.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
-ms.reviewer: jmartens
-ms.date: 10/1/2018
-ms.openlocfilehash: 377a4bbf359b2c65136625fcef8a1093e49da728
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 0910cce92c410a68dce6e2c44d29e72e594cd153
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854298"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271701"
 ---
-# <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools for AI: treinar e implantar modelos de ML pelo VS Code
-Neste artigo, você aprenderá como usar a extensão **VS Code Tools for AI** para treinar e implantar os modelos de aprendizado de máquina e aprendizagem profunda com o serviço do Azure Machine Learning no VS Code.
+# <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Usar o Visual Studio Code para treinar e implantar modelos de aprendizado de máquina
+
+Neste artigo, você aprenderá a usar a extensão **Azure Machine Learning para Visual Studio Code** para treinar e implantar modelos de aprendizado profundo e aprendizado de máquina com o serviço do Azure Machine Learning no VS Code (Visual Studio Code).
 
 O Azure Machine Learning oferece suporte para a execução de experimentos localmente e em destinos de computação remota. Em cada experimento, é possível acompanhar várias execuções, já que muitas vezes é preciso testar iterativamente diferentes técnicas, hiperparâmetros e muito mais. Você pode usar o Azure Machine Learning para acompanhar métricas personalizadas e execuções de experimento, possibilitando a capacidade de reprodução e auditoria da ciência de dados.
 
@@ -25,15 +27,15 @@ Além disso, é possível implantar esses modelos para suas necessidades de test
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Configure a VS Code Tools for AI](how-to-vscode-tools.md) para o Azure Machine Learning.
++ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Teste hoje mesmo a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree).
+
++ Tenha a extensão [Azure Machine Learning para VS Code](how-to-vscode-tools.md) configurada.
 
 + Instale o [SDK do Azure Machine Learning para Python](how-to-vscode-tools.md) com VS Code.
 
-+ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
-
 ## <a name="create-and-manage-compute-targets"></a>Criar e gerenciar destinos de computação
 
-Com a Visual Studio Code Tools for AI, você pode preparar seus dados, treinar modelos e implantá-los localmente e em destinos de computação remota.
+Com o Azure Machine Learning para VS Code, você pode preparar seus dados, treinar modelos e implantá-los tanto localmente quanto em destinos de computação remota.
 
 Essa extensão é compatível com vários destinos de computação remota diferentes para o Azure Machine Learning. Consulte a [lista completa de destinos de computação compatíveis](how-to-set-up-training-targets.md) do Azure Machine Learning.
 
@@ -43,19 +45,17 @@ Essa extensão é compatível com vários destinos de computação remota difere
 
 1. Clique no ícone do Azure na barra de atividades do Visual Studio Code. A barra lateral Azure: Machine Learning é exibida.
 
-2. No modo de exibição de árvore, expanda sua assinatura do Azure e o espaço de trabalho do Azure Machine Learning. Na imagem animada, o nome da assinatura é “OpenMind Studio”, e o espaço de trabalho é “MyWorkspace”. 
+2. No modo de exibição de árvore, expanda sua assinatura do Azure e o espaço de trabalho do Azure Machine Learning. Na imagem animada, o nome da assinatura é 'Avaliação gratuita' e o workspace é 'TeamWorkspace'. 
 
 3. No nó do espaço de trabalho, clique com o botão direito do mouse no nó **Computação** e escolha **Criar Computação**.
 
 4. Escolha o tipo de destino de computação na lista. 
 
-5. No campo, insira um nome exclusivo para esse destino de computação e especifique o tamanho da máquina virtual.
+5. Especifique as propriedades avançadas no arquivo de configuração JSON que é aberto em uma nova guia. Você pode especificar um nome exclusivo para o destino de computação neste arquivo.
 
-6. Especifique as propriedades avançadas no arquivo de configuração JSON que é aberto em uma nova guia. 
+6. Ao terminar a configuração do seu destino de computação, clique em **Enviar** no canto inferior direito.
 
-7. Ao terminar a configuração do seu destino de computação, clique em **Concluir** no canto inferior direito.
-
-Veja aqui um exemplo da IA do Lote do Azure: [![Criar computação da IA do Lote do Azure no VS Code](./media/vscode-tools-for-ai/createcompute.gif)](./media/vscode-tools-for-ai/createcompute.gif#lightbox)
+Aqui está um exemplo de Computação do Azure Machine Learning (AMLCompute): [![Criar a Computação do AML no VS Code](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
 
 ### <a name="use-remote-computes-for-experiments-in-vs-code"></a>Usar serviços de computação remotos para experimentos no VS Code
 
@@ -113,21 +113,19 @@ dependencies:
 
 ## <a name="train-and-tune-models"></a>Treinar e ajustar modelos
 
-Use o Azure Machine Learning do VS Code para fazer iteração rapidamente no seu código, percorrê-lo, depurá-lo e usar sua solução preferencial de controle do código-fonte. 
+Use o Azure Machine Learning para VS Code (Versão Prévia) para fazer iteração rapidamente no seu código, percorrê-lo, depurá-lo e usar sua solução preferencial de controle do código-fonte. 
 
 **Para executar seu experimento com o Azure Machine Learning:**
 
 1. Clique no ícone do Azure na barra de atividades do Visual Studio Code. A barra lateral Azure: Machine Learning é exibida.
 
-1. No modo de exibição de árvore, expanda sua assinatura do Azure e o espaço de trabalho do Azure Machine Learning. Na imagem animada, o nome da assinatura é “OpenMind Studio”, e o espaço de trabalho é “MyWorkspace”. 
+1. No modo de exibição de árvore, expanda sua assinatura do Azure e o espaço de trabalho do Azure Machine Learning. 
 
 1. No nó do espaço de trabalho, expanda o nó **Computação** e clique com o botão direito do mouse em **Executar Configuração** da computação que você deseja usar. 
 
 1. Selecione **Executar Experimento**.
 
 1. Clique em **Exibir Execução do Experimento** para ver o portal do Azure Machine Learning integrado, monitorar as execuções e ver os modelos treinados.
-
-   [![Executar o experimento de aprendizado de máquina pelo VS Code](./media/vscode-tools-for-ai/runexperiment.gif)](./media/vscode-tools-for-ai/runexperiment.gif#lightbox)
 
 ## <a name="deploy-and-manage-models"></a>Implantar e gerenciar modelos
 O Azure Machine Learning permite implantar e gerenciar modelos de aprendizado de máquina na nuvem e na borda. 
@@ -147,12 +145,11 @@ Os modelos registrados podem ser controlados e implantados.
 
 1. Na lista, escolha se você deseja carregar um **arquivo de modelo** (para modelos únicos), uma **pasta de modelo** (para modelos com vários arquivos, como o Tensorflow). 
 
-1. Use a caixa de diálogo do seletor de arquivo para selecionar o arquivo ou a pasta.
+1. Selecione sua pasta ou arquivo.
 
-   [computação![](./media/vscode-tools-for-ai/registermodel.gif)](./media/vscode-tools-for-ai/registermodel.gif#lightbox)
+1. Quando você termina de configurar as propriedades do modelo, clique em **Enviar** no canto inferior direito. 
 
-> [!Warning]
-> Por enquanto, remova as marcas do arquivo json gerado.
+
 
 ### <a name="deploy-your-service-from-vs-code"></a>Implantar o serviço pelo VS Code
 
@@ -174,26 +171,20 @@ Saiba mais sobre [como implantar com Azure Machine Learning](how-to-deploy-and-w
 
 1. Clique com o botão direito do mouse no modelo que você deseja implantar e escolha o comando **Implantar Serviço do Modelo Registrado** no menu de contexto.
 
-1. Na paleta de comandos do VS Code, escolha o destino de computação para o qual você deseja implantar. 
+1. Na paleta de comandos, escolha o destino de computação para o qual você deseja implantar. 
 
 1. No campo, insira um nome para esse serviço. 
 
-1. Na caixa de diálogo, no canto inferior direito, clique em **Procurar** e selecione seu script de pontuação. A caixa de diálogo é fechada.
+1. Na Paleta de Comandos, pressione a tecla Enter no teclado para navegar e selecionar o arquivo de script.
 
-1. Se você tiver um arquivo de Docker local, clique em **Procurar** na segunda caixa de diálogo exibida. 
+1. Na Paleta de Comandos, pressione a tecla Enter no teclado para navegar e selecione o arquivo de dependência Conda.
 
-   Se você cancelar a caixa de diálogo e não especificar um arquivo de Docker local, um do “Azure Machine Learning” será usado por padrão.
-
-1. Na terceira caixa de diálogo exibida, clique em **Procurar** e selecione o caminho do arquivo conda local ou insira o caminho do arquivo no editor de json mais tarde.
-
-1. Se houver um arquivo schema.json que você queira usar, clique em **Procurar** na quarta caixa de diálogo exibida e selecione o arquivo.
+1. Quando você terminar de configurar as propriedades do serviço, clique em **Enviar** no canto inferior direito. Nesse arquivo de propriedades do serviço, você pode especificar um arquivo do Docker local ou um arquivo schema.json que você talvez queira usar.
 
 O serviço Web está implantado.
 
-Veja aqui um exemplo para a Instância de Contêiner do Azure: [![Instância do Contêiner do Azure do VS Code](./media/vscode-tools-for-ai/deploy.gif)](./media/vscode-tools-for-ai/deploy.gif#lightbox)
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver uma demonstração de treinamento com o Machine Learning fora do VS Code, leia [Tutorial: treinar modelos com o Azure Machine Learning](tutorial-train-models-with-aml.md).
+Para obter uma explicação passo a passo do treinamento com Machine Learning fora do VS Code, leia o [Tutorial: Treinar modelos com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 Para um passo a passo da edição, execução e depuração de código localmente, confira o [Tutorial “Olá, Mundo” do Python](https://code.visualstudio.com/docs/python/python-tutorial)

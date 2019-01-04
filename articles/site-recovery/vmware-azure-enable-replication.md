@@ -3,15 +3,15 @@ title: Habilite a replicação de VMs do VMware para recuperação de desastre d
 description: Este artigo descreve como habilitar a replicação de VMs do VMware para recuperação de desastre no Azure, usando o Azure Site Recovery.
 author: asgang
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566341"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846650"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
@@ -39,7 +39,7 @@ Ao replicar máquinas virtuais VMware:
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
-1. Clique em **Etapa 2: replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, clique em **+Replicar** no cofre para habilitar a replicação para outros computadores.
+1. Clique em **Etapa 2: Replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, clique em **+Replicar** no cofre para habilitar a replicação para outros computadores.
 2. Na página **Origem** > **Origem**, selecione o servidor de configuração.
 3. Em **Tipo de computador**, selecione **Máquinas Virtuais** ou **Computadores Físicos**.
 4. Em **Hipervisor do vCenter/vSphere**, selecione o servidor vCenter que gerencia o host vSphere ou selecione o host. Essa configuração não será relevante se você estiver replicando computadores físicos.

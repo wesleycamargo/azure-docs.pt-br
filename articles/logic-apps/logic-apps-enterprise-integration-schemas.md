@@ -1,6 +1,6 @@
 ---
-title: Adicionar esquemas para validação de XML – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar esquemas que validam documentos XML no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Adicionar esquemas para validação de XML – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar esquemas que validam documentos XML nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123066"
 ---
-# <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 Esquemas confirmam que os documentos XML recebidos são válidos e têm os dados esperados em um formato predefinido. Esquemas também ajudam a validar mensagens trocadas em um cenário B2B.
 

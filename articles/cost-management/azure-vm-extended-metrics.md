@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
-ms.custom: ''
-ms.openlocfilehash: a41136837a56137ce92bd186cb4ee825e4f664c4
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274952"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097209"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicionar métricas estendidas para máquinas virtuais do Azure
 
@@ -35,7 +35,7 @@ Por exemplo, convém monitorar o percentual de CPU e memória das suas VMs do Az
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinar se as métricas estendidas estão habilitadas
 
-1. Entre no Portal do Azure em http://portal.azure.com.
+1. Entre no Portal do Azure em https://portal.azure.com.
 2. Em **Máquinas virtuais**, selecione uma máquina virtual e, em seguida, em **Monitoramento**, selecione **Métricas**. É mostrada uma lista das métricas disponíveis.
 3. Selecione algumas métricas e é mostrado um gráfico de dados para elas.  
     ![Métrica de exemplo – porcentagem de CPU de host](./media/azure-vm-extended-metrics/metric01.png)
@@ -55,18 +55,18 @@ Tenha em mente que o monitoramento de nível de convidado do Azure e do Linux ex
 1. Em **Máquinas Virtuais**, exiba a lista das suas VMs e, em seguida, selecione uma VM.
 2. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 3. Na página de Configurações de Diagnóstico, clique em **Habilitar o monitoramento de nível de convidado**.  
-    ![Habilitar o monitoramento de nível de convidado](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
+    ![Habilitar o monitoramento no nível do convidado na página Visão geral](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. Depois de alguns minutos, o agente de diagnóstico do Azure está instalado na VM. Um conjunto básico de métricas é adicionado. Atualize a página. Os contadores de desempenho adicionados são exibidos na guia Visão geral.
 5. Em Monitoramento, selecione **Métricas**.
 6. No gráfico de métricas em **Namespace da Métrica**, selecione **Convidado (Clássico)**.
 7. Na lista Métrica, você pode exibir todos os contadores de desempenho disponíveis para a VM convidada.  
-    ![Métricas estendidas](./media/azure-vm-extended-metrics/extended-metrics.png)
+    ![lista de métricas estendidas de exemplo](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Habilitar o monitoramento em nível de convidado em VMs novas
 
 Quando você cria novas VMs, na guia Gerenciamento, selecione **Ativado** para **Diagnóstico de SO convidado**.
 
-![Habilitar o diagnóstico do sistema operacional convidado](./media/azure-vm-extended-metrics/new-enable-diag.png)
+![definir o diagnóstico do SO convidado como Ativado](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 Para obter mais informações sobre como habilitar métricas estendidas para máquinas virtuais do Azure, consulte [Entendendo e usando o agente Linux do Azure](../virtual-machines/extensions/agent-linux.md) e [visão geral do agente de máquina Virtual do Azure](../virtual-machines/extensions/agent-windows.md).
 
@@ -82,7 +82,7 @@ Você pode habilitar as métricas VM com scripts do Azura PowerShell. Quando voc
 
 Para exibir as métricas de desempenho em suas instâncias do Azure no portal de Cloudyn, navegue até **Assets** > **Compute** > **Instance Explorer**. Na lista de instâncias de VM, expanda uma instância e um recurso para exibir os detalhes.
 
-![Instance Explorer](./media/azure-vm-extended-metrics/instance-explorer.png)
+![informações de exemplo mostradas no Gerenciador de Instâncias](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

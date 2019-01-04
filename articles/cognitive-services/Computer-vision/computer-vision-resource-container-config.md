@@ -1,21 +1,22 @@
 ---
 title: Configurar contêineres
-titlesuffix: Computer Vision - Cognitive Services - Azure
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Definições de configuração para contêineres no API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 8df293878486a9cd4ded6e899871c30498c4b68f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634877"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077011"
 ---
 # <a name="configure-containers"></a>Configurar contêineres
 
@@ -74,7 +75,7 @@ A `ApiKey` definição de configuração especifica a chave de configuração do
 
 As definições de configuração na seção `ApplicationInsights` permitem que você adicione o suporte de telemetria do [Aplicativo Azure AD Insights](https://docs.microsoft.com/azure/application-insights) ao seu contêiner. O Application Insights fornece um monitoramento detalhado do seu contêiner até o nível do código. Você pode monitorar facilmente seu contêiner quanto a disponibilidade, desempenho e uso. Você também pode identificar e diagnosticar rapidamente erros em seu contêiner sem esperar que um usuário os denuncie.
 
-A tabela a seguir descreve as definições de configuração suportadas na seção `ApplicationInsights`.
+A tabela a seguir descreve as definições de configuração com suporte sob o `ApplicationInsights` seção.
 
 | NOME | Tipo de dados | DESCRIÇÃO |
 |------|-----------|-------------|
@@ -86,7 +87,7 @@ As definições de configuração `Authentication` fornecem opções de seguran�
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
 
-A `Billing` definição de configuração especifica o URI do recurso de pesquisa API da Pesquisa Visual Computacional no Azure é usado para rastrear as informações de cobrança para o contêiner de ponto de extremidade. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de terminal válido para um recurso do API da Pesquisa Visual Computacional.
+A definição de configuração `Billing` especifica o URI de ponto de extremidade do recurso de Pesquisa Visual Computacional no Azure usado para medir as informações de cobrança para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de terminal válido para um recurso do API da Pesquisa Visual Computacional.
 
 > [!IMPORTANT]
 > As configurações de [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
@@ -98,19 +99,21 @@ A configuração `Eula` indica que você aceitou a licença do contêiner. Você
 > [!IMPORTANT]
 > As configurações de [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
 
+Os contêineres de Serviços Cognitivos estão licenciados sob [seu contrato](https://go.microsoft.com/fwlink/?linkid=2018657) que rege o uso do Azure. Se você não tem um contrato existente que rege o uso do Azure, você concorda que o seu contrato que rege o uso do Azure é o [Contrato de Assinatura do Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755), que incorpora os [Termos de Serviços Online](https://go.microsoft.com/fwlink/?linkid=2018760). Para versões prévias, você também concorda com os [Termos de Uso Adicionais para Versões Prévias do Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Ao usar o contêiner, você concorda com estes termos.
+
 ## <a name="fluentd-configuration-settings"></a>Configurações do Fluentd
 
 A seção `Fluentd` gerencia as definições de configuração do [Fluentd](https://www.fluentd.org), um coletor de dados de código aberto para o registro unificado. Os contêineres da API da Pesquisa Visual Computacional incluem um provedor de registro Fluentd que permite que seu contêiner grave dados de log e, opcionalmente, dados métricos em um servidor Fluentd.
 
-A tabela a seguir descreve as definições de configuração com suporte sob a seção `Fluentd`.
+A tabela a seguir descreve as definições de configuração com suporte sob o `Fluentd` seção.
 
 | NOME | Tipo de dados | DESCRIÇÃO |
 |------|-----------|-------------|
 | `Host` | Cadeia de caracteres | O endereço IP ou o nome do host DNS do servidor Fluentd. |
 | `Port` | Número inteiro | A porta do servidor Fluentd.<br/> O valor padrão é 24224. |
-| `HeartbeatMs` | Número inteiro | O intervalo de pulsação, em milissegundos. Se nenhum tráfego de evento tiver sido enviado antes que esse intervalo expire, uma pulsação será enviada ao servidor Fluentd. O valor padrão é 60000 milissegundos (1 minuto). |
+| `HeartbeatMs` | Número inteiro | O intervalo de pulsação, em milissegundos. Se nenhum tráfego de evento tiver sido enviado antes que esse intervalo expire, uma pulsação será enviada ao servidor Fluentd. O valor padrão é 60.000 milissegundos (1 minuto). |
 | `SendBufferSize` | Número inteiro | O espaço de buffer de rede, em bytes, alocado para operações de envio. O valor padrão é 32768 bytes (32 kilobytes). |
-| `TlsConnectionEstablishmentTimeoutMs` | Número inteiro | O tempo de limite, em milissegundos, para estabelecer uma conexão SSL/TLS com o servidor do Fluentd. O valor padrão é 10000 milissegundos (10 segundos).<br/> Se `UseTLS` for definido como false, esse valor é ignorado. |
+| `TlsConnectionEstablishmentTimeoutMs` | Número inteiro | O tempo de limite, em milissegundos, para estabelecer uma conexão SSL/TLS com o servidor do Fluentd. O valor padrão é 10.000 milissegundos (10 segundos).<br/> Se `UseTLS` for definido como false, esse valor é ignorado. |
 | `UseTLS` | BOOLEAN | Indica se o contêiner deve usar SSL / TLS para se comunicar com o servidor Fluentd. O valor padrão é falso. |
 
 ## <a name="logging-configuration-settings"></a>Definições de configuração de registro em log
@@ -127,7 +130,7 @@ As definições de configuração `Logging` gerenciam o suporte ao log do ASP.NE
 
   | NOME | Tipo de dados | DESCRIÇÃO |
   |------|-----------|-------------|
-  | `Format` | Cadeia de caracteres | O formato de saída para arquivos de log.<br/> **Nota:** Esse valor deve ser definido como `json` para ativar o provedor de registro. Se esse valor for especificado sem especificar também uma montagem de saída durante a instanciação de um contêiner, ocorrerá um erro. |
+  | `Format` | Cadeia de caracteres | O formato de saída para arquivos de log.<br/> **Observação:** esse valor deve ser definido como `json` para habilitar o provedor de logs. Se esse valor for especificado sem especificar também uma montagem de saída durante a instanciação de um contêiner, ocorrerá um erro. |
   | `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um arquivo de log. Quando o tamanho do arquivo de log atual atende ou excede esse valor, um novo arquivo de log é iniciado pelo provedor de log. Se -1 for especificado, o tamanho do arquivo de log será limitado apenas pelo tamanho máximo do arquivo, se houver, para a montagem de saída. O valor padrão é 1. |
 
 Para obter mais informações sobre como configurar o suporte ao registro em log do ASP.NET Core, consulte [Configuração do arquivo de configurações](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao ScaleX Enterprise | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com ScaleX Enterprise | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ScaleX Enterprise.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448811"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835379"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integração do Azure Active Directory ao ScaleX Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integração do Azure Active Directory com ScaleX Enterprise
 
 Neste tutorial, você aprende a integrar o ScaleX Enterprise ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o ScaleX Enterprise por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
-    a. Na caixa de texto **Identificador**, digite o valor usando o seguinte padrão: `https://platform.rescale.com/saml2/<company id>/`
+     a. Na caixa de texto **Identificador**, digite o valor usando o seguinte padrão: `https://platform.rescale.com/saml2/<company id>/`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://platform.rescale.com/saml2/<company id>/acs/`
 
@@ -123,13 +123,13 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     Na caixa de texto **URL de Logon**, digite o valor usando o seguinte padrão: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Esses não são os valores reais. Atualize esses valores com o Identificador, a URL de Resposta ou a URL de Logon real. Contate a [equipe de suporte ao Cliente do ScaleX Enterprise](http://info.rescale.com/contact_sales) para obter esses valores. 
+    > Esses não são os valores reais. Atualize esses valores com o Identificador, a URL de Resposta ou a URL de Logon real. Contate a [equipe de suporte ao Cliente do ScaleX Enterprise](https://info.rescale.com/contact_sales) para obter esses valores. 
 
 1. O aplicativo ScaleX espera as declarações SAML em um formato específico, o que exige a modificação dos mapeamentos de atributo personalizado para sua configuração de atributos do token SAML. Clique na caixa de seleção **Exibir e editar todos os outros atributos de usuário** para abrir as configurações de atributo personalizado.
 
     ![Configurar o logon único](./media/scalexenterprise-tutorial/scalex_attributes.png)
     
-    a. Clique com o botão direito do mouse no atributo **name** e clique em Excluir.
+     a. Clique com o botão direito do mouse no atributo **name** e clique em Excluir.
 
     ![Configurar o logon único](./media/scalexenterprise-tutorial/delete_attribute_name.png)
 
@@ -166,24 +166,24 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
     
-    a. Selecione **“Criar qualquer usuário que pode se autenticar com o SSO”.**
+     a. Selecione **“Criar qualquer usuário que pode se autenticar com o SSO”.**
 
-    b. **SAML do Provedor de Serviços**: cole o valor ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent***
+    b. **Saml do provedor de serviços**: Cole o valor ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent***
 
-    c. **Nome do campo de email do Provedor de Identidade na resposta do ACS**: cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **Nome do campo de email do Provedor de Identidade na resposta do ACS**: Cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. **ID de Entidade do EntityDescriptor do Provedor de Identidade:** cole o valor de **ID de Entidade SAML** copiado do portal do Azure.
+    d. **ID da entidade do EntityDescriptor do provedor de identidade:** Come o valor da **ID da Entidade de SAML** copiado do portal do Azure.
 
-    e. **URL do SingleSignOnService do Provedor de Identidade:** cole a **URL de Serviço de Logon Único do SAML** do portal do Azure.
+    e. **URL Identity Provider SingleSignOnService:** Cole a **URL do serviço de logon único do SAML** do portal do Azure.
 
-    f. **Certificado X509 público do Provedor de Identidade:** abra o certificado X509 baixado do Azure no bloco de notas e cole o conteúdo nesta caixa. Verifique se não há quebras de linha no meio do conteúdo do certificado.
+    f. **Certificado X509 público do Provedor de Identidade:** Abra o certificado X509 baixado do Azure no bloco de notas e cole o conteúdo nessa caixa. Verifique se não há quebras de linha no meio do conteúdo do certificado.
     
-    g. Marque as seguintes caixas de seleção: **Habilitado, Criptografar NameID e Assinar AuthnRequests.**
+    g. Marque as caixas de seleção a seguir: **Habilitado, Criptografar NameID e Assinar AuthnRequests.**
 
     h. Clique em **Atualizar Configurações de SSO** para salvar as configurações.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -209,7 +209,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/scalexenterprise-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

@@ -1,20 +1,20 @@
 ---
-title: 'Conectar um computador a uma rede virtual do Azure usando autenticação Ponto a site e a autenticação de certificado nativa do Azure: PowerShell | Microsoft Docs'
+title: 'Conectar um computador a uma rede virtual do Azure usando autenticação ponto a site e autenticação de certificado nativa do Azure: PowerShell | Microsoft Docs'
 description: Conecte clientes Windows e Mac OS X com segurança a uma rede virtual do Azure usando P2S e certificados autoassinados ou emitidos por autoridade de certificação. Este artigo usa o PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: ced92cd28c12443234b47353548a9c968cc175ac
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c579bb32fdd43c95f027e6c9f5a6ef656d059d60
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095579"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847398"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Para isso, configure uma conexão ponto a site em uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
 
 Este artigo ajuda você a conectar clientes individuais que executem Windows ou Mac OS X a uma VNet do Azure com segurança. As conexões VPN Ponto a Site são úteis quando você deseja se conectar à rede virtual de um local remoto, como ao trabalhar de casa ou em uma conferência. Também é possível usar P2S em vez de uma VPN Site a Site, quando você tiver apenas alguns clientes que precisam se conectar a uma VNet. As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público. A P2S cria a conexão VPN no SSTP (Secure Socket Tunneling Protocol) ou IKEv2. Para obter mais informações sobre conexões VPN Ponto a Site, consulte [Sobre VPN Ponto a Site](point-to-site-about.md).
 
@@ -48,34 +48,25 @@ Você pode usar os valores do exemplo para criar um ambiente de teste ou fazer r
 * **Nome da sub-rede: GatewaySubnet**<br>O nome da Sub-rede *GatewaySubnet* é obrigatório para que o gateway de VPN funcione.
   * **Intervalo de endereços da GatewaySubnet: 192.168.200.0/24** 
 * **Pool de endereços do cliente VPN: 172.16.201.0/24**<br>Os clientes VPN que se conectarem à rede virtual usando esta conexão Ponto a Site receberão um endereço IP do pool de endereços do cliente VPN.
-* **Assinatura:** verifique se você tem mais de uma assinatura, verifique se está usando a correta.
-* **Grupo de Recursos: TestRG**
-* **Local: Leste dos EUA**
-* **Servidor DNS: Endereço IP** do servidor DNS que você deseja usar para a resolução de nome. (opcional)
+* **Assinatura:** Se você tem mais de uma assinatura, verifique se está usando a correta.
+* **Grupo de recursos: TestRG**
+* **Localização: Leste dos EUA**
+* **Servidor DNS: Endereço IP** do servidor DNS que você quer usar para a resolução de nome. (opcional)
 * **Nome de GW: Vnet1GW**
 * **Nome do IP público: VNet1GWPIP**
 * **VpnType: RouteBased** 
 
-## <a name="declare"></a>1. Fazer logon e definir variáveis
+## <a name="declare"></a>1. Entrar e definir variáveis
 
-Nesta seção, faça logon e declare os valores usados para esta configuração. Os valores declarados são usados nos scripts de exemplo. Altere os valores para refletir seu próprio ambiente. Ou, você pode usar os valores declarados e percorrer as etapas como um exercício.
+Nesta seção, entre e declare os valores usados para esta configuração. Os valores declarados são usados nos scripts de exemplo. Altere os valores para refletir seu próprio ambiente. Ou, você pode usar os valores declarados e percorrer as etapas como um exercício.
 
-1. Abra o console do PowerShell com privilégios elevados e entre na sua conta do Azure. Esse cmdlet solicita as credenciais de logon. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell. Se você não estiver executando o PowerShell localmente e está em vez de usar o Azure Cloud Shell 'Try' no navegador, você pode pular para a etapa 2 desta seção.
+### <a name="sign-in"></a>Entrar
 
-  ```azurepowershell
-  Connect-AzureRmAccount
-  ```
-2. Obtenha uma lista das assinaturas do Azure.
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
 
-  ```azurepowershell-interactive
-  Get-AzureRmSubscription
-  ```
-3. Especifique a assinatura que você deseja usar.
+### <a name="declare-variables"></a>Declarar variáveis
 
-  ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
-4. Declare as variáveis que você quer usar. Use o exemplo a seguir, substituindo os valores existentes pelos seus quando necessário.
+Declare as variáveis que você quer usar. Use o exemplo a seguir, substituindo os valores existentes pelos seus quando necessário.
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"
@@ -408,4 +399,4 @@ Você pode restabelecer um certificado de cliente removendo a impressão digital
 ## <a name="next-steps"></a>Próximas etapas
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para saber mais sobre redes e máquinas virtuais, consulte [Visão geral de rede do Azure e VM Linux](../virtual-machines/linux/azure-vm-network-overview.md).
 
-Para obter informações sobre solução de problemas de P2S, consulte [Solução de problemas de conexões de ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Para obter informações sobre solução de problemas de P2S, consulte [Solução de problemas: Problemas de conexão ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

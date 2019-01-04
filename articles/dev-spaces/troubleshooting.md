@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: 36516030741678ec66b4211f49ede35cfdb98605
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 9973635593f7a8143ac1f3980b6e09caba44710b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706442"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413601"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -75,6 +75,7 @@ No Visual Studio:
 
     ![Captura de tela da caixa de diálogo Opções de ferramentas](media/common/VerbositySetting.PNG)
     
+### <a name="multi-stage-dockerfiles"></a>Dockerfiles de vários estágios:
 Você poderá ver esse erro ao tentar usar um Dockerfile de vários estágios. A saída detalhada se parecerá com esta:
 
 ```cmd
@@ -91,6 +92,21 @@ Service cannot be started.
 ```
 
 Isso ocorre porque os nós do AKS executam uma versão mais antiga do Docker que não é compatível com builds de vários estágios. Será necessário reescrever seu Dockerfile para evitar builds de vários estágios.
+
+### <a name="re-running-a-service-after-controller-re-creation"></a>Executar novamente um serviço após a recriação do controlador
+É possível visualizar esse erro ao tentar executar novamente um serviço após ter removido e, em seguida, recriado o controlador do Azure Dev Spaces associado a esse cluster. A saída detalhada se parecerá com esta:
+
+```cmd
+Installing Helm chart...
+Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+```
+
+Isso ocorre porque a remoção do controlador do Dev Spaces não remove os serviços anteriormente instalados por esse controlador. Recriar o controlador e, em seguida, tentar executar os serviços usando o novo controlador falha porque os serviços antigos ainda estão implantados.
+
+Para corrigir isso, use o comando `kubectl delete` para remover manualmente os serviços antigos do cluster e, em seguida, execute novamente os Dev Spaces para instalar os novos serviços.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
 
@@ -121,6 +137,18 @@ O erro significa que azds.exe não está na variável de ambiente PATH, como vis
 ### <a name="try"></a>Experimente:
 
 Inicie o VS Code de um prompt de comando em que a variável de ambiente PATH está definida corretamente.
+
+## <a name="error-required-tools-to-build-and-debug-projectname-are-out-of-date"></a>Erro "As ferramentas necessárias para compilar e depurar 'projectname' estão desatualizadas."
+
+Esse erro será exibido no Visual Studio Code se você tiver uma versão mais recente da extensão do VS Code para o Azure Dev Spaces, mas uma versão anterior da CLI do Azure Dev Spaces.
+
+### <a name="try"></a>Experimente
+
+Baixe e instale a última versão da CLI do Azure Dev Spaces:
+
+* [Windows](http://aka.ms/get-azds-windows)
+* [Mac](http://aka.ms/get-azds-mac)
+* [Linux](https://aka.ms/get-azds-linux)
 
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>O erro "azds" não é reconhecido como um comando interno ou externo, programa operável ou arquivo em lote
  
@@ -156,8 +184,8 @@ A porta do contêiner não está disponível. Esse problema pode ocorrer porque:
 ### <a name="try"></a>Experimente:
 1. Se o contêiner estiver sendo compilado/implantado, você poderá aguardar de 2 a 3 segundos e tentar acessar o serviço novamente. 
 1. Verifique a configuração de porta. Os números de porta especificados devem ser **idênticos** em todos os ativos abaixo:
-    * **Dockerfile:** especificado pela instrução `EXPOSE`.
-    * **[Gráfico Helm](https://docs.helm.sh):** especificado pelos valores `externalPort` e `internalPort` para um serviço (geralmente localizado em um arquivo `values.yml`),
+    * **Dockerfile:** Especificado pela instrução `EXPOSE`.
+    * **[Pacote do Helm](https://docs.helm.sh):** Especificado pelos valores `externalPort` e `internalPort` para um serviço (geralmente localizado em um arquivo `values.yml`),
     * Quaisquer portas sendo abertas no código do aplicativo, por exemplo, no Node.js: `var server = app.listen(80, function () {...}`
 
 
@@ -171,7 +199,7 @@ Você executa `azds up` e obtém o erro a seguir: `Config file not found: .../az
 1. Altere o diretório atual para a pasta raiz que contém o código de serviço. 
 1. Caso não tenha um arquivo _azds.yaml_ na pasta de código, execute `azds prep` para gerar ativos do Azure Dev Spaces, Docker e Kubernetes.
 
-## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Erro: 'o programa do pipe 'azds' foi encerrado inesperadamente com o código de 126.'
+## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Erro: 'O programa do pipe 'azds' saiu inesperadamente com o código 126.'
 Iniciar o depurador de VS Code pode, às vezes, resultar nesse erro.
 
 ### <a name="try"></a>Experimente:
@@ -195,6 +223,15 @@ Você não tem a extensão do VS Code para Azure Dev Spaces instalados no comput
 
 ### <a name="try"></a>Experimente:
 Instale a [Extensão do VS Code para Azure Dev Spaces](get-started-netcore.md).
+
+## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Erro de depuração "Invalid 'cwd' value '/src'. O sistema não pode localizar o arquivo especificado." ou "launch: o programa '/src/[caminho para o projeto binário] 'não existe "
+Executar o depurador do VS Code relata o erro `Invalid 'cwd' value '/src'. The system cannot find the file specified.` e/ou `launch: program '/src/[path to project executable]' does not exist`
+
+### <a name="reason"></a>Motivo
+Por padrão, a extensão do VS Code usa `src` como o diretório de trabalho do projeto no contêiner. Se você atualizou `Dockerfile` para especificar um diretório de trabalho diferente, poderá visualizar esse erro.
+
+### <a name="try"></a>Experimente:
+Atualize o arquivo `launch.json` no subdiretório `.vscode` da pasta do projeto. Altere a diretiva `configurations->cwd` para apontar para o mesmo diretório que `WORKDIR` definiu no `Dockerfile` do projeto. Além disso, talvez seja necessário atualizar a diretiva `configurations->program`.
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>O tipo ou o nome do namespace 'MyLibrary' não foi encontrado
 
@@ -236,7 +273,7 @@ Reiniciar os nós de agente em seu cluster geralmente resolve esse problema.
 ### <a name="reason"></a>Motivo
 Quando você habilita espaços de desenvolvimento em um namespace em seu cluster do AKS, um contêiner adicional chamado _mindaro proxy_ é instalado em cada um dos pods em execução dentro desse namespace. Esse contêiner intercepta as chamadas para os serviços no pod, que é parte integrante de recursos de desenvolvimento de equipe de desenvolvimento dos espaços.
 
-Infelizmente, ele pode interferir com determinados serviços em execução nos pods. Especificamente, ele interfere pods executando o cache Redis, causando erros de conexão e as falhas na comunicação de mestre/escravo.
+Infelizmente, ele pode interferir com determinados serviços em execução nos pods. Especificamente, ele interfere nos pods que executam o Cache do Azure para Redis, causando erros de conexão e falhas na comunicação de mestre/subordinado.
 
 ### <a name="try"></a>Experimente:
 Você pode mover o (s) pod de afetado (s) para um namespace dentro do cluster que _não_ tenha Espaços de desenvolvimento habilitados, enquanto continua executando o restante de seu aplicativo dentro de um namespace habilitado para Dev Spaces. Espaços de desenvolvimento não instalará o _mindaro proxy_ namespaces habilitados do contêiner dentro de espaços não - Dev.

@@ -7,62 +7,59 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: affd52352dcc745557dd66c61ccfa1e7a99dcdb7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442314"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724308"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
 
-A personalização de idioma no Azure Active Directory B2C (Azure AD B2C) permite que sua política seja compatível com diferentes idiomas para atender às necessidades do cliente.  A Microsoft fornece as traduções para [36 idiomas](#supported-languages), mas você também pode fornecer suas próprias traduções para qualquer idioma. Mesmo que sua experiência seja fornecida apenas para um único idioma, você pode personalizar qualquer texto nas páginas.  
+A personalização de idioma no Azure AD B2C (Azure Active Directory B2C) permite que o fluxo de usuário acomode diferentes idiomas para atender às necessidades do cliente.  A Microsoft fornece as traduções para [36 idiomas](#supported-languages), mas você também pode fornecer suas próprias traduções para qualquer idioma. Mesmo que sua experiência seja fornecida apenas para um único idioma, você pode personalizar qualquer texto nas páginas.  
 
 ## <a name="how-language-customization-works"></a>Como funciona a personalização de idioma
-Você usa a personalização de idioma para selecionar em quais idiomas o percurso do usuário estará disponível. Depois que o recurso estiver habilitado, você poderá fornecer o parâmetro da cadeia de caracteres de consulta `ui_locales`, a partir do seu aplicativo. Quando você chama o Azure AD B2C, sua página é traduzida para a localidade que você indicou. Esse o tipo de configuração fornece-lhe total controle sobre os idiomas em seu percurso do usuário e ignora as configurações de idioma do navegador do cliente. 
+Você usa a personalização de idioma para selecionar em quais idiomas o fluxo de usuários está disponível. Depois que o recurso estiver habilitado, você poderá fornecer o parâmetro da cadeia de caracteres de consulta `ui_locales`, a partir do seu aplicativo. Quando você chama o Azure AD B2C, sua página é traduzida para a localidade que você indicou. Esse tipo de configuração oferece controle total sobre os idiomas no fluxo do usuário e ignora as configurações de idioma do navegador do cliente. 
 
-Talvez você não precise desse nível de controle sobre quais idiomas seu cliente vê. Se você não fornecer um parâmetro `ui_locales` a experiência do cliente será determinada pelas configurações do navegador.  Você ainda pode controlar para quais idiomas seu percurso do usuário está convertido adicionando-os como um idioma com suporte. Se o navegador de um cliente estiver configurado para mostrar um idioma que você não deseja fornecer suporte, o idioma que você selecionou como padrão nas culturas com suporte será mostrado.
+Talvez você não precise desse nível de controle sobre quais idiomas seu cliente vê. Se você não fornecer um parâmetro `ui_locales` a experiência do cliente será determinada pelas configurações do navegador.  Você ainda poderá controlar para quais idiomas o fluxo do usuário será traduzido, adicionando-o como um idioma com suporte. Se o navegador de um cliente estiver configurado para mostrar um idioma que você não deseja fornecer suporte, o idioma que você selecionou como padrão nas culturas com suporte será mostrado.
 
-- **Idiomas especificados por ui_locales**: após habilitar a personalização do idioma, o percurso do usuário será traduzido para o idioma especificado aqui.
-- **Idioma solicitado pelo navegador**: se nenhum parâmetro `ui_locales` foi especificado, o percurso do usuário será traduzido para o idioma solicitado pelo navegador, *se houver suporte para o idioma*.
-- **Idioma padrão da política**: se o navegador não especificar um idioma ou especificar um que não seja tenha suporte, o percurso do usuário será traduzido para o idioma padrão da política.
+- **idioma especificado por ui-locales**: Após habilitar a personalização de idioma, o fluxo de usuário será traduzido para o idioma especificado aqui.
+- **Idioma solicitado pelo navegador**: Se nenhum parâmetro `ui_locales` foi especificado, o fluxo de usuário será traduzido para o idioma solicitado pelo navegador, *se houver suporte para o idioma*.
+- **Idioma padrão da política**: Se o navegador não especificar um idioma ou especificar um que não tenha suporte, o percurso do usuário será traduzido para o idioma padrão da política.
 
 >[!NOTE]
 >Se você estiver usando atributos de usuário personalizados, precisará fornecer suas próprias traduções. Para obter mais informações, consulte [Personalizar as cadeias de caracteres](#customize-your-strings).
 >
 
 ## <a name="support-requested-languages-for-uilocales"></a>Solicitação de suporte de idiomas para ui_locales 
-Políticas criadas antes da disponibilidade geral de personalização de idioma precisarão, primeiro, habilitar esse recurso. Políticas criadas após a personalização de idioma são habilitadas por padrão. 
+Políticas criadas antes da disponibilidade geral de personalização de idioma precisarão, primeiro, habilitar esse recurso. Políticas e fluxos dos usuários que foram criados após a personalização de idioma são habilitados por padrão. 
 
-Ao habilitar a personalização de idioma em uma política você poderá controlar o idioma do percurso do usuário, adicionando o parâmetro `ui_locales`.
-1. [Vá para a página de recursos do B2C no Portal do Azure](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings).
-2. Navegue até uma política que você deseja habilitar para traduções.
-3. Selecione **Personalização de idioma**.  
+Ao habilitar a personalização de idioma em um fluxo de usuário, é possível controlar o idioma do fluxo de usuário, adicionando o parâmetro `ui_locales`.
+1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
+2. Clique no fluxo de usuário que você quer habilitar para traduções.
+3. Selecione os **Idiomas**.  
 4. Selecione **Habilitar personalização de idioma**.
-5. Leia as informações na caixa de diálogo e selecione **Sim**.
 
-## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Selecione quais idiomas em seu percurso do usuário estão habilitados 
-Habilite um conjunto de idiomas para que o percurso do usuário seja traduzido quando solicitado pelo navegador sem o parâmetro `ui_locales`.
-1. Certifique-se de que a política tenha a personalização de idioma habilitada a partir das instruções anteriores.
-2. Na página **Editar política**, selecione **Personalização de idioma**.
-3. Selecione um idioma que você deseja fornecer suporte.
-4. No painel de propriedades, altere **Habilitado** para **Sim**.  
-5. Selecione **Salvar** na parte superior do painel de propriedades.
+## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>Selecionar quais idiomas no fluxo de usuários estão habilitados 
+Habilite um conjunto de idiomas para que o fluxo de usuário seja traduzido quando solicitado pelo navegador sem o parâmetro `ui_locales`.
+1. Certifique-se de que o fluxo de usuário tenha a personalização de idioma habilitada a partir das instruções anteriores.
+2. Na página **Idiomas** do fluxo de usuário, selecione um idioma que você quer dar suporte.
+3. No painel de propriedades, altere **Habilitado** para **Sim**.  
+4. Selecione **Salvar** na parte superior do painel de propriedades.
 
 >[!NOTE]
 >Se um parâmetro `ui_locales` não for fornecido, a página será traduzida para o idioma do navegador do cliente somente se estiver habilitada.
 >
 
 ## <a name="customize-your-strings"></a>Como personalizar suas cadeias de caracteres
-A personalização de idioma permite que você personalize qualquer cadeia de caracteres no percurso do usuário.
-1. Verifique se a política tenha a personalização de idioma habilitada nas instruções anteriores.
-2. Na página **Editar política**, selecione **Personalização de idioma**.
-3. Selecione o idioma que você deseja personalizar.
-4. Selecione a página que você deseja editar.
-5. Selecione **Baixar Padrões** (ou **Baixar substituições**, se esse idioma já foi editado anteriormente). 
+A personalização de idioma permite personalizar qualquer cadeia de caracteres no fluxo de usuário.
+1. Certifique-se de que o fluxo de usuário tenha a personalização de idioma habilitada a partir das instruções anteriores.
+2. Na página **Idiomas** do fluxo de usuário, selecione o idioma que você quer personalizar.
+3. Em **Arquivos de recursos de nível de página**, selecione a página que você quer editar.
+4. Selecione **Baixar Padrões** (ou **Baixar substituições**, se esse idioma já foi editado anteriormente).
 
 Essas etapas fornecem um arquivo JSON que você pode usar para começar a editar suas cadeias de caracteres.
 
@@ -128,12 +125,13 @@ Se você quiser fornecer uma lista configurada de valores para respostas, será 
 
 ### <a name="upload-your-changes"></a>Carregamento das suas alterações
 1. Após concluir as alterações no arquivo JSON, retorne para o locatário B2C.
-2. Na página **Editar política**, selecione **Personalização de idioma**.
-3. Selecione o idioma para o qual você deseja traduzir.
-4. Selecione a página onde você deseja fornecer traduções.
-5. Selecione o ícone da pasta e selecione o arquivo JSON para upload.
+2. Selecione **Fluxos dos Usuários** e clique no fluxo de usuário que você quer habilitar para as traduções.
+3. Selecione os **Idiomas**.
+4. Selecione o idioma para o qual você deseja traduzir.
+5. Selecione a página onde você deseja fornecer traduções.
+6. Selecione o ícone da pasta e selecione o arquivo JSON para upload.
  
-As alterações são salvas na política automaticamente.
+As alterações são salvas no fluxo de usuário automaticamente.
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>Personalizar a interface do usuário da página usando personalização de idioma
 
@@ -151,15 +149,16 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>Adicionar idiomas personalizados
 
-Também é possível adicionar idiomas para os quais a Microsoft atualmente não oferece traduções. Você precisará fornecer as traduções para todas as cadeias de caracteres da política.  Códigos de idioma e localidade são limitados a esses no padrão ISO 639-1. 
+Também é possível adicionar idiomas para os quais a Microsoft atualmente não oferece traduções. Será necessário fornecer as traduções para todas as cadeias de caracteres no fluxo de usuário.  Códigos de idioma e localidade são limitados a esses no padrão ISO 639-1. 
 
-1. Na página **Editar política**, selecione **Personalização de idioma**.
-2. Selecione **Adicionar idioma personalizado** a partir da parte superior da página.
-3. No painel de contexto aberto, identifique o idioma para o qual você está fornecendo traduções, inserindo um código de localidade válido.
-4. Para cada página, você poderá baixar um conjunto de substituições para o idioma inglês e trabalhar nas traduções.
-5. Após concluir os arquivos JSON, você poderá enviá-los para cada página.
-6. Selecione **Habilitar** e a política agora poderá mostrar esse idioma aos usuários.
-7. Salve o idioma.
+1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
+2. Clique no fluxo de usuário no qual você quer adicionar idiomas personalizados e, em seguida, clique em **Idiomas**.
+3. Selecione **Adicionar idioma personalizado** a partir da parte superior da página.
+4. No painel de contexto aberto, identifique o idioma para o qual você está fornecendo traduções, inserindo um código de localidade válido.
+5. Para cada página, você poderá baixar um conjunto de substituições para o idioma inglês e trabalhar nas traduções.
+6. Após concluir os arquivos JSON, você poderá enviá-los para cada página.
+7. Selecione **Habilitar** e o fluxo de usuário agora poderá mostrar esse idioma para seus usuários.
+8. Salve o idioma.
 
 >[!IMPORTANT]
 >Você precisa habilitar os idiomas personalizados ou carregar substituições para ele antes de salvar.
@@ -170,7 +169,7 @@ Também é possível adicionar idiomas para os quais a Microsoft atualmente não
 ### <a name="page-ui-customization-labels-as-overrides"></a>Rótulos de personalização da interface do usuário da página como substituições
 Ao habilitar a personalização de idioma, as edições anteriores para rótulos usando a personalização da interface do usuário da página são persistidas em um arquivo JSON para inglês (en). Você pode continuar a alterar os rótulos e outras cadeias de caracteres, carregando recursos de idiomas na personalização de idioma.
 ### <a name="up-to-date-translations"></a>Atualizar traduções
-A Microsoft está comprometida em fornecer as traduções mais atualizadas para seu uso. A Microsoft aprimora continuamente as traduções e as mantém em conformidade para você. A Microsoft identificará bugs e alterações na terminologia global e fará atualizações que funcionarão perfeitamente no percurso do usuário.
+A Microsoft está comprometida em fornecer as traduções mais atualizadas para seu uso. A Microsoft aprimora continuamente as traduções e as mantém em conformidade para você. A Microsoft identificará bugs e alterações na terminologia global e fará atualizações que funcionarão diretamente no fluxo de usuário.
 ### <a name="support-for-right-to-left-languages"></a>Suporte para idiomas da direita para a esquerda
 A Microsoft atualmente não fornece suporte para idiomas escritos da direita para a esquerda. Você pode fazer isso usando localidades personalizadas e CSS para alterar a maneira como as cadeias de caracteres são exibidas.  Se você precisar desse recurso, vote para ele nos [Comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traduções de provedor de identidade social

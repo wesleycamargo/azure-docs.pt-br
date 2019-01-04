@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43126561"
 ---
-# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implantar e chamar APIs personalizadas de fluxos de trabalho no Aplicativo Lógico do Azure
+# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implantar e chamar APIs personalizadas de fluxos de trabalho nos Aplicativos Lógicos do Azure
 
 Depois de [criar APIs personalizadas](./logic-apps-create-api-app.md) para usar em fluxos de trabalho de aplicativos lógicos, você deve implantar suas APIs antes de chamá-las. Você pode implantar suas APIs como [aplicativos Web](../app-service/app-service-web-overview.md), mas considere implantar suas APIs como [aplicativos de API](../app-service/app-service-web-tutorial-rest-api.md), o que facilita o trabalho quando você criar, hospedar e consumir APIs locais e na nuvem. Você não precisa alterar o código em suas APIs; basta implantar seu código para um aplicativo de API. Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma hospedagem de API fácil e altamente escalonável.
 

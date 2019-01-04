@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423374"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015765"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como migrar do Serviço de Controle de Acesso do Azure
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controle de Acesso do Azure
 
 O ACS (Serviço de Controle de Acesso) do Microsoft Azure, um serviço do Azure AD (Microsoft Azure Active Directory), será desativado em 7 de novembro de 2018. Os aplicativos e serviços que atualmente utilizam o Controle de Acesso devem ser totalmente migrados para um mecanismo de autenticação diferente até esta data. Este artigo descreve recomendações para os clientes atuais, uma vez que você pretende substituir o uso do Controle de Acesso. Se você não estiver usando o Controle de Acesso, não precisa realizar nenhuma ação.
 
@@ -113,9 +113,9 @@ A partir de novembro de 2017, todos os componentes do Controle de Acesso são to
 
 Aqui está a agenda para a substituição de componentes de Controle de Acesso:
 
-- **Novembro de 2017**: a experiência de administração do Azure AD no portal clássico do Azure [é desativada](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste ponto, o gerenciamento de namespace para o Controle de Acesso está disponível em uma URL nova e dedicada: `https://manage.windowsazure.com?restoreClassic=true`. Use esta URL para exibir seus namespaces existentes, habilitar e desabilitar namespaces e excluir namespaces, se você desejar.
-- **2 de abril de 2018**: o Portal clássico do Azure é completamente desativado, o que significa que o gerenciamento do namespace do Controle de Acesso não está mais disponível por meio de qualquer URL. Neste ponto, você não pode desabilitar ou habilitar, excluir ou enumerar seus namespaces de Controle de Acesso. No entanto, o portal de gerenciamento de Controle de Acesso estará totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes do Controle de Acesso continuam operando normalmente.
-- **7 de novembro de 2018**: todos os componentes do Controle de Acesso serão desligados permanentemente. Isso inclui o portal de gerenciamento do Controle de Acesso, o serviço de gerenciamento, STS e o mecanismo de regras de transformação de token. Neste ponto, quaisquer solicitações enviadas para o Controle de Acesso (localizado em \<namespace\>.accesscontrol.windows.net) falham. Você deve ter migrado todos os aplicativos e serviços existentes para outras tecnologias bem antes disso.
+- **Novembro de 2017**:  A experiência de administração do Microsoft Azure Active Directory no portal clássico do Azure [é desativada](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste ponto, o gerenciamento de namespace para o Controle de Acesso está disponível em uma URL nova e dedicada: `https://manage.windowsazure.com?restoreClassic=true`. Use esta URL para exibir seus namespaces existentes, habilitar e desabilitar namespaces e excluir namespaces, se você desejar.
+- **2 abril de 2018**: O Portal clássico do Azure é completamente desativado, o que significa que o gerenciamento do namespace do Controle de Acesso não está mais disponível por meio de qualquer URL. Neste ponto, você não pode desabilitar ou habilitar, excluir ou enumerar seus namespaces de Controle de Acesso. No entanto, o portal de gerenciamento de Controle de Acesso estará totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes do Controle de Acesso continuam operando normalmente.
+- **7 de novembro de 2018**: Todos os componentes do Controle de Acesso serão desligados permanentemente. Isso inclui o portal de gerenciamento do Controle de Acesso, o serviço de gerenciamento, STS e o mecanismo de regras de transformação de token. Neste ponto, quaisquer solicitações enviadas para o Controle de Acesso (localizado em \<namespace\>.accesscontrol.windows.net) falham. Você deve ter migrado todos os aplicativos e serviços existentes para outras tecnologias bem antes disso.
 
 > [!NOTE]
 > Uma política desabilita namespaces que não solicitou um token para um período de tempo. A partir do início de setembro de 2018, esse período de tempo está, no momento, com 14 dias de inatividade, mas isso será reduzido para 7 dias de inatividade nas próximas semanas. Se você tiver namespaces de controle de acesso que estão desabilitados no momento, você poderá [baixar e instalar o PowerShell do ACS](#download-and-install-acs-powershell) para habilitar novamente os namespaces.
@@ -132,7 +132,7 @@ Cada um dos serviços em nuvem da Microsoft que aceitam tokens emitidos pelo Con
 | ------- | -------- |
 | Barramento de Serviço do Azure | [Migrar para Assinaturas de Acesso Compartilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Retransmissão do Barramento de Serviço do Azure | [Migrar para Assinaturas de Acesso Compartilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Cache Gerenciado do Azure | [Migrar para o Cache Redis do Azure](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Cache Gerenciado do Azure | [Migrar para o Cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | DataMarket do Azure | [Migrar para as APIs de Serviços Cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Serviços do BizTalk | [Migrar para o recurso de Aplicativos Lógicos do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Serviços de Mídia do Azure | [Migrar para a Autenticação do Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
@@ -163,7 +163,7 @@ Para aplicativos web que usam o Controle de Acesso para autenticação de usuár
 - Integração profunda com o Windows Identity Foundation (WIF).
 - Federação com contas do Google, Facebook, Yahoo, Azure Active Directory, AD FS e contas da Microsoft.
 - Suporte para os seguintes protocolos de autenticação: OAuth 2.0 Draft 13, WS-Trust e Web Services Federation (WS-Federation).
-- Suporte para os seguintes formatos de token: Token Web JSON (JWT), SAML 1.1, SAML 2.0 e Token Web Simples (SWT).
+- Suporte para os seguintes formatos de token: JSON Web Token (JWT), SAML 1.1, SAML 2.0, e Simple Web Token (SWT).
 - Uma experiência de descoberta de realm inicial integrada ao WIF, que permite aos usuários escolher o tipo de conta que eles usam para entrar. Esta experiência é hospedada pelo aplicativo web e é totalmente personalizável.
 - Transformação de token que permite uma personalização avançada das declarações recebidas pelo aplicativo web do Controle de Acesso, incluindo:
     - Declarações de passagem de provedores de identidade.

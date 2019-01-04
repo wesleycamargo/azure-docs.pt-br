@@ -1,6 +1,6 @@
 ---
 title: Exemplos e cenários comuns – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Exemplos, cenários, tutoriais e instruções passo a passo para o Aplicativo Lógico do Azure
+description: Exemplos, cenários, tutoriais e instruções passo a passo para os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -21,7 +21,7 @@ ms.locfileid: "50230124"
 
 [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) ajudam você a orquestrar e integrar diferentes serviços, fornecendo [mais de 100 conectores prontos para uso](../connectors/apis-list.md), variando do SQL Server local ou SAP a Serviços Cognitivos da Microsoft. O serviço de Aplicativos Lógicos é "sem servidor", portanto, você não precisa se preocupar sobre escala ou instâncias. Tudo o que você precisa fazer é definir o fluxo de trabalho com um gatilho e as ações que o fluxo de trabalho executa. A plataforma subjacente lida com a escala, disponibilidade e desempenho. Os Aplicativos Lógicos são especialmente úteis para casos de uso e cenários em que você precise coordenar várias ações em diversos sistemas.
 
-Para ajudar você a conhecer mais sobre os vários padrões e recursos aos quais o [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) dá suporte, confira aqui exemplos e cenários comuns.
+Para ajudar você a conhecer mais sobre os vários padrões e recursos aos quais os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) dão suporte, confira aqui exemplos e cenários comuns.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Pontos de partida populares para fluxos de trabalho de aplicativo lógico
 
@@ -64,7 +64,7 @@ Para sistemas e serviços que talvez não tenham conectores publicados, também 
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Recursos de tratamento de erro, registro em log e fluxo de controle
 
-Os aplicativos lógicos incluem recursos avançados para o fluxo de controle avançado, como comutadores, condições, loops e escopos. Para garantir soluções resilientes, implemente também a manipulação de erros e exceções em seus fluxos de trabalho. Para receber notificação e logs de diagnóstico para status de execução de fluxo de trabalho, o Aplicativo Lógico do Azure também fornece monitoramento e alertas.
+Os aplicativos lógicos incluem recursos avançados para o fluxo de controle avançado, como comutadores, condições, loops e escopos. Para garantir soluções resilientes, implemente também a manipulação de erros e exceções em seus fluxos de trabalho. Para receber notificação e logs de diagnóstico para status de execução de fluxo de trabalho, os Aplicativos Lógicos do Azure também fornecem monitoramento e alertas.
 
 * Executar ações diferentes com base em [instruções condicionais](../logic-apps/logic-apps-control-flow-conditional-statement.md) e [alternar instruções](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Repetir as etapas ou processar itens em matrizes e coleções com loops](../logic-apps/logic-apps-control-flow-loops.md)
@@ -84,7 +84,7 @@ Você pode desenvolver e implantar totalmente aplicativos lógicos com o Visual 
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Tipos de conteúdo, conversões e transformações em uma execução
 
-Você pode acessar, converter e transformar vários tipos de conteúdo usando diversas funções na [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs) do Aplicativo Lógico do Azure . Por exemplo, você pode converter entre uma cadeia de caracteres, JSON e XML com as expressões de fluxo de trabalho `@json()` e `@xml()`. O mecanismo do Aplicativo Lógico preserva os tipos de conteúdo a fim de dar suporte à transferência de conteúdo entre serviços sem perdas.
+Você pode acessar, converter e transformar vários tipos de conteúdo usando diversas funções na [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs) dos Aplicativos Lógicos do Azure. Por exemplo, você pode converter entre uma cadeia de caracteres, JSON e XML com as expressões de fluxo de trabalho `@json()` e `@xml()`. O mecanismo do Aplicativo Lógico preserva os tipos de conteúdo a fim de dar suporte à transferência de conteúdo entre serviços sem perdas.
 
 * [Como funcionam as expressões de fluxo de trabalho em aplicativos lógicos](../logic-apps/logic-apps-author-definitions.md)
 * [Lidar com tipos de conteúdo não JSON](../logic-apps/logic-apps-content-type.md), como `application/xml`, `application/octet-stream` e `multipart/formdata`

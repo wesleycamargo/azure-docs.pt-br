@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3caa4f2dbe36f86c9b15a83303e90b16d06c56fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419394"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192049"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalar o Agente de Máquina Virtual do Azure no modo offline 
 
@@ -36,7 +36,7 @@ Instale o Agente de VM no modo offline nos seguintes cenários:
 
 Use as etapas a seguir para instalar o Agente de VM no modo offline.
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Etapa 1: anexar o disco do sistema operacional da VM a uma outra VM como um disco de dados
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Etapa 1: Anexar o disco do sistema operacional da VM a outra VM como um disco de dados
 
 1.  Exclua a VM. Ao excluir a VM, verifique se você selecionou a opção **Manter os discos**.
 
@@ -44,7 +44,7 @@ Use as etapas a seguir para instalar o Agente de VM no modo offline.
 
 3.  Conecte-se à VM de solução de problemas. Abra **Gerenciamento do computador** > **Gerenciamento de disco**. Confirme que o disco do sistema operacional está online e que as letras de unidade estão atribuídas às partições de disco.
 
-### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Etapa 2: modificar o disco do sistema operacional para instalar o Agente de VM do Azure
+### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Etapa 2: Modificar o disco do sistema operacional para instalar o Agente de VM do Azure
 
 1.  Inicie uma conexão de área de trabalho remota para a VM de solução de problemas.
 
@@ -76,7 +76,7 @@ Use as etapas a seguir para instalar o Agente de VM no modo offline.
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![Exportar as subchaves do Registro](./media/install-vm-agent-offline/backup-reg.png)
+          ![Exportar as subchaves do Registro](./media/install-vm-agent-offline/backup-reg.png)
 
     2. Edite os arquivos de Registro. Em cada arquivo, altere o valor de entrada **SYSTEM** para **BROKENSYSTEM** (conforme mostrado nas imagens a seguir) e salve o arquivo. Lembre-se do **ImagePath** do agente de VM atual. Precisaremos copiar a pasta correspondente para o disco do sistema operacional anexado. 
 

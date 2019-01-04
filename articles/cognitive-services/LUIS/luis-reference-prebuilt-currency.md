@@ -1,23 +1,24 @@
 ---
-title: Referência entidades de moeda predefinidas de LUIS – Azure | Microsoft Docs
+title: Entidade de moeda predefinida
 titleSuffix: Azure
 description: Este artigo contém informações sobre a entidade predefinida de moeda de LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6346ce4e3c9e51852a9a98904b797b6eb64970e4
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c87bfddb611e3e232d4a43f45ae60412566b98fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333999"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161756"
 ---
-# <a name="currency-entity"></a>Entidade de moeda
+# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entidade de moeda predefinida para um aplicativo LUIS
 A entidade de moeda predefinida detecta moeda em muitas denominações e países, independentemente da cultura do aplicativo de LUIS. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo moeda às intenções do aplicativo. A entidade de moeda é compatível com [muitas culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Tipos de moeda
@@ -26,7 +27,7 @@ A moeda é gerenciada por meio do repositório do GitHub [Recognizers-text](http
 ## <a name="resolution-for-currency-entity"></a>Resolução de entidades de moeda
 O exemplo a seguir mostra a resolução da entidade **builtin.currency**.
 
-```JSON
+```json
 {
   "query": "search for items under $10.99",
   "topScoringIntent": {

@@ -3,7 +3,7 @@ title: Relatórios entre bancos de dados em nuvem expandidos | Microsoft Docs
 description: como configurar consultas elásticas em partições horizontais
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e1eec489bf33cbf03269f68413c39c9fb03bbb22
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: de96de96d68164d021f8b823e69bc52322642aa7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240385"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865396"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados em nuvem expandidos (visualização)
 ![Consultar em fragmentos][1]
@@ -140,7 +140,7 @@ A cláusula DISTRIBUTION especifica a distribuição de dados usada para esta ta
 2. **REPLICATED** significa que cópias idênticas da tabela estão presentes em cada banco de dados. É sua responsabilidade assegurar que as réplicas sejam idênticas entre os bancos de dados.
 3. **ROUND\_ROBIN** significa que a tabela é horizontalmente particionada usando um método de distribuição dependente do aplicativo. 
 
-**Referência de camada de dados**: a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica um mapa de fragmentos que fornece à tabela externa as informações necessárias para localizar todos os bancos de dados em sua camada de dados. 
+**Referência da camada de dados**: A DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica um mapa de fragmentos que fornece à tabela externa as informações necessárias para localizar todos os bancos de dados em sua camada de dados. 
 
 ### <a name="security-considerations"></a>Considerações de segurança
 Usuários com acesso à tabela externa têm acesso automaticamente a tabelas remotas subjacentes com a credencial fornecida na definição de fonte de dados externa. Evite a elevação de privilégios indesejada usando credencial da fonte de dados externa. Use GRANT ou REVOKE para uma tabela externa como se fosse uma tabela normal.  
@@ -168,10 +168,10 @@ A consulta a seguir executa uma junção de três vias entre depósitos, pedidos
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento armazenado para a execução remota de T-SQL: sp\_execute_remote
 A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL em bancos de dados remotos. Ele usa os seguintes parâmetros: 
 
-* Nome da fonte de dados (nvarchar): o nome da fonte de dados externa do tipo RDBMS. 
-* Consulta (nvarchar): a consulta T-SQL a ser executada em cada fragmento. 
-* Declaração de parâmetro (nvarchar) - opcional: cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro Query (como sp_executesql). 
-* Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp_executesql).
+* Nome da fonte de dados (nvarchar): O nome da fonte de dados externa do tipo RDBMS. 
+* Consulta (nvarchar): A consulta T-SQL a ser executada em cada fragmento. 
+* Declaração de parâmetro (nvarchar) - opcional: Cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro Query (como sp_executesql). 
+* Lista de valores de parâmetro - opcional: Lista separada por vírgulas dos valores de parâmetro (como sp_executesql).
 
 O sp\_execute\_remote usa a fonte de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL especificada nos bancos de dados remotos. Ele usa a credencial da fonte de dados externa para a conexão com o banco de dados do gerenciador de mapa do fragmento e bancos de dados remotos.  
 

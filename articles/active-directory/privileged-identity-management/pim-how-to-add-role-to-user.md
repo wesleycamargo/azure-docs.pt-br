@@ -12,12 +12,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249604"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724937"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Atribuir funções de diretório do Azure AD no PIM
 
@@ -125,13 +125,15 @@ Siga estas etapas para atribuir a função de Administrador de Acesso do Usuári
 
 1. Escolha sua assinatura.
 
-1. Escolha **Controle de acesso (IAM)** para ver a lista atual de atribuições de função no escopo da assinatura.
+1. Clique em **Controle de acesso (IAM)**.
+
+1. Escolha **Atribuições de função** para ver a lista atual de atribuições de função no escopo da assinatura.
 
    ![Folha IAM (controle) de acesso para uma assinatura](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. Verifique se a entidade de serviço **MS-PIM** tem a função **Administrador de Acesso do Usuário**.
 
-1. Se não tiver, escolha **Adicionar** para abrir o painel **Adicionar permissões**.
+1. Caso contrário, escolha **Adicionar atribuição de função** para abrir o painel **Adicionar atribuição de função**.
 
 1. Na lista suspensa **Função**, selecione a função **Administrador de Acesso do Usuário**.
 

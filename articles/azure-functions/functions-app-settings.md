@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458115"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138238"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -82,7 +82,7 @@ O caminho para o diretório raiz onde o arquivo *host.json* e as pastas de funç
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Especifica o repositório ou o provedor a ser usado para armazenar chaves. Atualmente, os repositórios com suporte são o armazenamento de blobs ("Blob") e o sistema de arquivos local ("Arquivos"). O padrão é o blob na versão 1 e o sistema de arquivos na versão 2. Observe que, na versão 1, o sistema de arquivos só funcionará para funções em execução em um plano do serviço de aplicativo.
+Especifica o repositório ou o provedor a ser usado para armazenar chaves. Atualmente, os repositórios com suporte são o armazenamento de blobs ("Blob") e o sistema de arquivos local ("Arquivos"). O padrão é blob na versão 2 e sistema de arquivos na versão 1.
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -172,6 +172,48 @@ Permite que seu aplicativo de funções execute de um arquivo de pacote montado.
 |SITE\_EXECUTAR\_DO\_PACOTE|1|
 
 Os valores válidos são `1` ou uma URL que resolve para o local de um arquivo de pacote de implantação. Quando definido como `1`, o pacote deve estar na pasta `d:\home\data\SitePackages`. Ao usar a implantação em zip com essa configuração, o pacote é automaticamente carregado para esse local. Na versão prévia, essa configuração foi nomeada `WEBSITE_RUN_FROM_ZIP`. Para obter mais informações, veja [Executar suas funções de um arquivo de pacote](run-functions-from-deployment-package.md).
+
+## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+Por padrão, os proxies de funções utilizarão um atalho para enviar chamadas à API de proxies diretamente para funções no mesmo aplicativo de funções, em vez de criar uma nova solicitação HTTP. Essa configuração permite que você desabilite esse comportamento.
+
+|Chave|Valor|DESCRIÇÃO|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|verdadeiro|Chamadas com uma URL de back-end apontando para uma função na função local não serão mais enviadas diretamente para a função e, em vez disso, serão direcionadas de volta para o front-end HTTP para o Aplicativo de Funções|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|falso|Esse é o valor padrão. Chamadas com uma URL de back-end apontando para uma função no Aplicativo de Funções local serão encaminhadas diretamente para essa Função|
+
+
+## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+Essa configuração controla se %2F é decodificado como barras nos parâmetros de rota quando inseridos na URL de back-end. 
+
+|Chave|Valor|DESCRIÇÃO|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|verdadeiro|Os parâmetros de rota com barras codificadas os terão decodificados. `example.com/api%2ftest` se tornará `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|falso|Esse é o comportamento padrão. Todos os parâmetros de rota serão passados inalterados|
+
+### <a name="example"></a>Exemplo
+
+Aqui, está um exemplo de proxy.json em um aplicativo de funções no myfunction.com da URL
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+|Decodificação URL|Entrada|Saída|
+|-|-|-|
+|verdadeiro|myfunction.com/test%2fapi|example.com/test/api
+|falso|myfunction.com/test%2fapi|example.com/test%2fapi|
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

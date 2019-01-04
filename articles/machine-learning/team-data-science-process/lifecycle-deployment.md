@@ -1,5 +1,5 @@
 ---
-title: Estágio de implantação do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
+title: Estágio de implantação do ciclo de vida do Processo de Ciência de Dados de Equipe
 description: As metas, as tarefas e as entregas para o estágio de implantação dos seus projetos de ciência de dados
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 30d54b1475188fa886a811b22460d88e53aa564e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d05f831aa1ae1f9b0912dce66bf7f5e15c109d49
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446578"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138561"
 ---
-# <a name="deployment"></a>Implantação
+# <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de implantação do ciclo de vida do Processo de Ciência de Dados de Equipe
 
 Este artigo descreve as metas, as tarefas e as entregas associadas à implantação do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
@@ -39,7 +39,7 @@ Implante modelos com um pipeline de dados em um ambiente de produção ou semelh
 ## <a name="how-to-do-it"></a>Como fazer isso
 A principal tarefa abordada neste estágio:
 
-**Operacionalizar o modelo**: implante o modelo e o pipeline em um ambiente de produção ou semelhante à produção para consumo do aplicativo.
+**Operacionalizar o modelo**: Implante o modelo e o pipeline em um ambiente de produção ou semelhante à produção para consumo do aplicativo.
 
 ### <a name="operationalize-a-model"></a>Operacionalizar um modelo
 Depois que você tiver um conjunto de modelos com um bom desempenho, eles poderão ser operacionalizados para o consumo de outros aplicativos. Dependendo dos requisitos de negócios, as previsões são feitas em tempo real ou em lotes. Para implantar modelos, exponha-os com uma interface de API livre. A interface permite que o modelo seja consumido facilmente de vários aplicativos, tais como:

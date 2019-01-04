@@ -9,75 +9,78 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: fa72765e02592b72efb09320958a0aa244ae8b08
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7cfb327a3eb6cbf2ae90c9d258a470797732acaa
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265280"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437496"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – segurança e melhores práticas de DevOps
 
 Este artigo fornece recomendações de segurança e DevOps nos sistemas do Azure HDInsight. Ele faz parte de uma série que fornece as melhores práticas para ajudar a migrar sistemas locais do Apache Hadoop para o Azure HDInsight.
 
-## <a name="use-the-enterprise-security-package-to-secure-and-govern-the-cluster"></a>Use o Enterprise Security Package para proteger e controlar o cluster
+## <a name="secure-and-govern-cluster-with-enterprise-security-package"></a>Proteger e controlar o cluster com o Enterprise Security Package
 
-O ESP (Enterprise Security Package) é compatível com a autenticação baseada no Active Directory, suporte multiusuário e controle de acesso baseado em função. Com a opção ESP selecionada, o cluster do HDInsight ingressa no domínio do Active Directory. Dessa maneira, o admin corporativo pode configurar o RBAC (controle de acesso baseado em função) para a segurança do Hive usando o Apache Ranger. O administrador também poderá auditar o acesso a dados pelos funcionários e todas as alterações feitas nas políticas de controle de acesso.
+O ESP (Enterprise Security Package) é compatível com a autenticação baseada no Active Directory, suporte multiusuário e controle de acesso baseado em função. Com a opção ESP selecionada, o cluster do HDInsight ingressa no domínio do Active Directory. Dessa maneira, o admin corporativo pode configurar o RBAC (controle de acesso baseado em função) para a segurança do Apache Hive usando o Apache Ranger. O administrador também poderá auditar o acesso a dados pelos funcionários e todas as alterações feitas nas políticas de controle de acesso.
 
 O ESP está disponível nos seguintes tipos de cluster: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka e Apache Interactive Query (Hive LLAP). 
 
 Use as seguintes etapas para implantar o cluster do HDInsight ingressado no domínio:
 
-- Implante o AAD (Azure Active Directory) passando o nome de domínio
-- Implante o AAD DS (Azure Active Directory Domain Services)
-- Crie a Rede Virtual obrigatória e a sub-rede
-- Implante uma VM na Rede Virtual para gerenciar o AAD DS
-- Ingresse a VM no domínio
-- Instale o AD e as ferramentas de DNS
-- Faça com que o Administrador do AAD DS crie uma UO (unidade organizacional)
-- Habilite o LDAPS para o AAD DS
+- Implante o AAD (Azure Active Directory) passando o nome de domínio.
+- Implante o AAD DS (Azure Active Directory Domain Services).
+- Crie a Rede Virtual obrigatória e a sub-rede.
+- Implante uma VM na Rede Virtual para gerenciar o AAD DS.
+- Ingresse a VM no domínio.
+- Instale o AD e as ferramentas de DNS.
+- Faça com que o Administrador do AAD DS crie uma UO (unidade organizacional).
+- Habilite o LDAPS para o AAD DS.
 - Crie uma conta de serviço no Azure Active Directory com permissão de administrador delegada para leitura e gravação na UO. Depois, essa conta de serviço poderá ingressar computadores no domínio e colocar entidades de segurança do computador na UO. Também poderá criar entidades de serviço na UO especificadas por você durante a criação do cluster.
 
+
     > [!Note]
-    > A conta de serviço não precisa ser uma conta do administrador de domínio do AD
+    > A conta de serviço não precisa ser uma conta do administrador de domínio do AD.
+
 
 - Implante o cluster ESP do HDInsight configurando os seguintes parâmetros:
-    - **Nome de domínio**: o nome de domínio associado ao Azure AD DS.
-    - **Nome de usuário de domínio**: a conta de serviço no domínio gerenciado do Azure AD DS DC que você criou na seção anterior, por exemplo: `hdiadmin@contoso.onmicrosoft.com`. Esse usuário de domínio será o administrador deste cluster HDInsight.
+    - **Nome de domínio**: O nome de domínio associado ao Azure AD DS.
+    - **Nome de usuário do domínio**: A conta de serviço no domínio gerenciado do Azure AD DS DC que você criou na seção anterior, por exemplo: `hdiadmin@contoso.onmicrosoft.com`. Esse usuário de domínio será o administrador deste cluster HDInsight.
     - **Senha do domínio**: A senha da conta de serviço.
-    - **Unidade organizacional**: o nome diferenciado da UO que você quer usar com o cluster do HDInsight, por exemplo: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se essa UO não existir, o cluster do HDInsight tentará criá-la usando os privilégios da conta de serviço.
+    - **Unidade Organizacional**: O nome diferenciado da UO que você quer usar com o cluster do HDInsight, por exemplo: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se essa UO não existir, o cluster do HDInsight tentará criá-la usando os privilégios da conta de serviço.
     - **URL do LDAPS**: por exemplo, `ldaps://contoso.onmicrosoft.com:636`.
-    - **Acessar grupo de usuários**: os grupos de segurança cujos usuários você deseja sincronizar com o cluster, por exemplo: `HiveUsers`. Se você quiser especificar vários grupos de usuários, separe-os por ponto e vírgula ";". Os grupos precisam existir no diretório antes da criação do cluster do ESP.
+    - **Acessar grupo de usuários**: Os grupos de segurança cujos usuários você deseja sincronizar com o cluster, por exemplo: `HiveUsers`. Se você quiser especificar vários grupos de usuários, separe-os por ponto e vírgula ";". Os grupos precisam existir no diretório antes da criação do cluster do ESP.
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Uma introdução à segurança do Hadoop com clusters HDInsight ingressados no domínio](../domain-joined/apache-domain-joined-introduction.md)
-- [Planejar clusters Hadoop do Azure ingressados no domínio no HDInsight](../domain-joined/apache-domain-joined-architecture.md)
+- [Uma introdução à segurança do Apache Hadoop com clusters HDInsight ingressados no domínio](../domain-joined/apache-domain-joined-introduction.md)
+
+- [Planeje clusters do Apache Hadoop associados ao domínio do Azure no HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Configurar um cluster do HDInsight ingressado no domínio usando o Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 - [Sincronizar usuários do Azure Active Directory para um cluster HDInsight](../hdinsight-sync-aad-users-to-cluster.md)
-- [Configurar políticas do Hive no HDInsight ingressado no domínio](../domain-joined/apache-domain-joined-run-hive.md)
+- [Configurar políticas do Apache Hive no HDInsight associado ao domínio](../domain-joined/apache-domain-joined-run-hive.md)
 - [Executar o Apache Oozie em clusters HDInsight Hadoop ingressados no domínio](../domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)
 
-## <a name="implement-end-to-end-enterprise-security-management"></a>Implementar o gerenciamento de segurança empresarial de ponta a ponta
+## <a name="implement-end-to-end-enterprise-security"></a>Implementar a segurança empresarial de ponta a ponta
 
 A segurança empresarial de ponta a ponta pode ser alcançada usando os seguintes controles:
 
 - **Pipeline de dados privado e protegido (segurança no nível do perímetro)**
-    - É possível obter segurança no nível do perímetro por meio de Redes Virtual do Azure, do Grupo de Segurança de Rede e do serviço de Gateway
+    - É possível obter segurança no nível do perímetro por meio de Redes Virtual do Azure, do Grupo de Segurança de Rede e do serviço de Gateway.
 
 - **Autenticação e autorização acesso a dados**
-    - Criar clusters do HDInsight ingressados no domínio usando o Azure Active Directory Domain Services. (Enterprise Security Package)
-    - Usar o Ambari para fornecer acesso baseado em função para recursos de cluster a usuários do AD
+    - Criar clusters do HDInsight ingressados no domínio usando o Azure Active Directory Domain Services. (Enterprise Security Package).
+    - Usar o Ambari para fornecer acesso baseado em função para recursos de cluster a usuários do AD.
     - Usar o Apache Ranger para definir políticas de controle de acesso para o Hive no nível da tabela/coluna/linha.
     - O acesso a SSH no cluster pode ser restringido somente ao administrador.
 
 - **Auditoria**
     - Exibir e gerar relatórios sobre todos os acessos aos recursos de cluster e dados do HDInsight.
-    - Exibir e gerar relatórios sobre todas as alterações nas políticas de controle de acesso
+    - Exibir e gerar relatórios sobre todas as alterações nas políticas de controle de acesso.
 
 - **Criptografia**
     - Criptografia transparente no servidor usando chaves gerenciadas pela Microsoft ou pelo cliente.
-    - Criptografia em trânsito usando criptografia do lado do cliente, https e TLS
+    - Criptografia em trânsito usando criptografia do lado do cliente, https e TLS.
 
 Para obter mais informações, consulte os seguintes artigos:
 
@@ -106,13 +109,13 @@ Atualize regularmente para a versão mais recente do HDInsight para aproveitar o
 1. Importe o backup de todos os dados transitórios.
 1. Inicie os trabalhos/continue processando usando o novo cluster.
 
-Para saber mais, confira o artigo: [Atualizar o cluster do HDInsight para a versão mais recente](../hdinsight-upgrade-cluster.md)
+Para saber mais, confira o artigo: [Atualizar o cluster HDInsight para uma versão mais recente](../hdinsight-upgrade-cluster.md).
 
 ## <a name="patch-cluster-operating-systems"></a>Aplicar patch no sistema operacional do cluster
 
 Como um serviço Hadoop gerenciado, o HDInsight se encarrega da aplicação de patch no SO das VMs usadas por clusters HDInsight.
 
-Para saber mais, confira o artigo: [Aplicação de patch no SO do HDInsight](../hdinsight-os-patching.md)
+Para saber mais, confira o artigo: [Aplicação de patch do SO no HDInsight](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>Após a migração
 
@@ -122,4 +125,4 @@ Para saber mais, confira o artigo: [Aplicação de patch no SO do HDInsight](../
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia mais sobre o [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)
+- Leia mais sobre o [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).

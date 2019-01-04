@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 97c141b6e0c071a8cea27f9a873f28a6c5113a18
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.date: 12/12/2018
+ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394847"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315631"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Limites de recursos da Instância Gerenciada do Banco de Dados SQL do Azure
 
-Este artigo fornece uma visão geral dos limites de recursos da Instância Gerenciada do Banco de Dados SQL do Azure e fornece informações sobre como criar solicitações para aumentar os limites de assinatura regional padrão. 
+Este artigo fornece uma visão geral dos limites de recursos da Instância Gerenciada do Banco de Dados SQL do Azure e fornece informações sobre como criar solicitações para aumentar os limites de assinatura regional padrão.
 
 > [!NOTE]
 > Para outras limitações da Instância Gerenciada, consulte [modelo de compra baseado em vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e [nível de serviço de Instância Gerenciada](sql-database-managed-instance.md#managed-instance-service-tiers). Para diferenças em recursos suportados e instruções T-SQL, consulte [Diferenças de recursos](sql-database-features.md) e [Suporte à instrução T-SQL](sql-database-managed-instance-transact-sql-information.md).
@@ -43,17 +43,21 @@ A Instância Gerenciada do Banco de Dados SQL do Azure pode ser implantada em du
 
 ### <a name="service-tier-characteristics"></a>Características de camada de serviço
 
-A Instância Gerenciada tem dois níveis de serviço - Propósito Geral e Crítico de Negócios (Visualização Pública). Essas camadas fornecem recursos diferentes, conforme descrito na tabela a seguir:
+A Instância Gerenciada tem dois níveis de serviço - Uso Geral e Comercialmente Crítico. Essas camadas fornecem recursos diferentes, conforme descrito na tabela a seguir:
 
-| **Recurso** | **Uso geral** | **Business Critical (visão geral)** |
+| **Recurso** | **Uso geral** | **Comercialmente Crítico** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
 | Memória | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*Proporcional ao número de vCores | Gen4: 56GB-156GB <br/> Gen5: 44GB-440GB<br/>\*Proporcional ao número de vCores |
 | Tamanho máximo de armazenamento | 8 TB | Gen 4: 1 TB <br/> Geração 5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB para 24 vCores<br/>- 4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por banco de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máximo de bancos de dados por instância | 100 | 100 |
-| Arquivos de banco de dados máximo por instância | Até 280 | Ilimitado |
-| IOPS de armazenamento máximo esperado | 500-5000 ([depende do tamanho do arquivo de dados](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Depende da velocidade SSD subjacente. |
+| Arquivos de banco de dados máximo por instância | Até 280 | 32.767 arquivos por banco de dados |
+| IOPS (aproximado) | 500-7500 por arquivo<br/>\*[Depende do tamanho do arquivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 por vCore) |
+| Latência de E/S (aproximada) | 5-10 ms | 1-2 ms |
+| Tamanho máximo de TempDB | 192-1920 GB (24 GB por vCore) | Determinado pelo tamanho de armazenamento máximo por instância |
+
+- Bancos de dados de sistema e de usuário são incluídos no tamanho de armazenamento de instância que é comparado ao limite de tamanho de armazenamento máximo. Usar a exibição do sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> para determinar o total o espaço usado pelos bancos de dados. Logs de erros não são persistentes e não são incluídos no tamanho. Backups não são incluídos no tamanho de armazenamento.
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
@@ -66,6 +70,8 @@ Atualmente, a instância gerenciada oferece suporte à implantação apenas nos 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pague-conforme-o-uso](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Provedor de serviços de nuvem (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Desenvolvimento/Teste pré-pago](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 > [!NOTE]
 > Essa limitação é temporária. Novos tipos de assinatura serão ativados no futuro.
@@ -74,8 +80,8 @@ Atualmente, a instância gerenciada oferece suporte à implantação apenas nos 
 
 Os tipos de assinatura suportados podem conter um número limitado de recursos por região. A Instância Gerenciada tem dois limites padrão por região do Azure, dependendo do tipo de assinatura:
 
-- **Limite de sub-rede**: o número máximo de sub-redes nas quais as instâncias gerenciadas são implantadas em uma única região.
-- **Limite do número de instâncias**: o número máximo de instâncias que podem ser implantadas em uma única região.
+- **Limite de sub-rede**: O número máximo de sub-redes nas quais as instâncias gerenciadas são implantadas em uma única região.
+- **Limite do número de instâncias**: O número máximo de instâncias que podem ser implantadas em uma única região.
 
 Na tabela a seguir são mostrados limites regionais padrão para assinaturas suportadas:
 
@@ -83,6 +89,8 @@ Na tabela a seguir são mostrados limites regionais padrão para assinaturas sup
 | :---| :--- | :--- |:--- |:--- |
 |Pago conforme o uso|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
+|Desenvolvimento/Teste pago conforme o uso|1*|4*|4*|1*|
+|Desenvolvimento/Teste Enterprise|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
 \* Você pode implantar 1 ou 4 instâncias de GP em uma sub-rede, de modo que o número total de "instâncias" na sub-rede nunca exceda 4.
@@ -98,7 +106,7 @@ Esses limites podem ser aumentados criando uma solicitação de suporte [especia
 
 As assinaturas do [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) podem ter combinações de instâncias de GP e BC. No entanto, há algumas restrições sobre o posicionamento das instâncias nas sub-redes.
 
-> [!Note] 
+> [!Note]
 > [Pague-conforme-o-uso](https://azure.microsoft.com/offers/ms-azr-0003p/) e [Provedor de Serviços de Nuvem (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) podem ter uma Business Critical ou até 4 instâncias de Propósito Geral.
 
 Os exemplos a seguir abrangem casos de implantação com sub-redes não vazias e camadas de serviço GP e BC mistas.
@@ -114,9 +122,10 @@ Os exemplos a seguir abrangem casos de implantação com sub-redes não vazias e
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtaining a larger quota for SQL Managed Instance
 
-Se você precisar de mais instâncias gerenciadas nas regiões atuais, poderá enviar a solicitação de suporte para estender a cota usando o portal do Azure. Para iniciar o processo de obtenção de uma cota maior:
+Se você precisar de mais instâncias gerenciadas nas regiões atuais, poderá enviar a solicitação de suporte para estender a cota usando o portal do Azure.
+Para iniciar o processo de obtenção de uma cota maior:
 
-1. Abra **ajuda + suporte**e clique em **nova solicitação de suporte**. 
+1. Abra **ajuda + suporte**e clique em **nova solicitação de suporte**.
 
    ![Ajuda e Suporte](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Na guia Básico da nova solicitação de suporte:
@@ -140,13 +149,13 @@ Se você precisar de mais instâncias gerenciadas nas regiões atuais, poderá e
      > - Região na qual assinatura limite precisa ser aumentado
      > - Número necessário de instâncias, por nível de serviço, em sub-redes existentes após o aumento da cota (se alguma das sub-redes existentes precisar ser expandida
      > - Número necessário de novas sub-redes e número total de instâncias por camada de serviço nas novas sub-redes (se você precisar implantar instâncias gerenciadas em novas sub-redes).
-     
+
 5. Clique em **Próximo**.
 6. Na guia Informações de contato da nova solicitação de suporte, insira o método de contato preferencial (email ou telefone) e os detalhes de contato.
 7. Clique em **Criar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre a Instância Gerenciada, consulte [O que é uma Instância Gerenciada?](sql-database-managed-instance.md). 
+- Para obter mais informações sobre a Instância Gerenciada, consulte [O que é uma Instância Gerenciada?](sql-database-managed-instance.md).
 - Para saber mais sobre preços, consulte [Preços do Banco de Dados SQL gerenciados](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 - Para saber como criar sua primeira Instância Gerenciada, consulte o [Guia de início rápido](sql-database-managed-instance-get-started.md).

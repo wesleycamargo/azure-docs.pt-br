@@ -11,18 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: b90009c1cd08a1004e58c4b9f25cd6350712fbcd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358601"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184535"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Solucione erros de registro do provedor de recursos
 
-Este artigo descreve os erros com que você pode se deparar ao usar um provedor de recursos que não tenha usado anteriormente em sua assinatura.
+Este artigo descreve os erros com que você pode encontrar ao usar um provedor de recursos que não tenha usado anteriormente em sua assinatura.
 
 ## <a name="symptom"></a>Sintoma
 
@@ -41,15 +41,15 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-A mensagem de erro deve fornecer sugestões para os locais com suporte e as versões da API. Você pode alterar o modelo para um dos valores sugeridos. A maioria dos provedores são registrados automaticamente pelo portal do Azure ou pela interface de linha de comando que você está usando, mas nem todos. Se você não usou um provedor de recursos específico antes, precisará registrá-lo.
+A mensagem de erro deve fornecer sugestões para os locais com suporte e as versões da API. Você pode alterar o modelo para um dos valores sugeridos. A maioria dos provedores são registrados automaticamente pelo portal do Azure ou pela interface de linha de comando que você está usando, mas nem todos. Se você não usou um provedor de recursos específico antes, precisará registrar esse provedor.
 
 ## <a name="cause"></a>Causa
 
 Você recebe esses erros por um dos três motivos:
 
-1. O provedor de recursos não foi registrado para sua assinatura
-1. Versão da API não suportada para o tipo de recurso
-1. Local não suportado para o tipo de recurso
+* O provedor de recursos não foi registrado para a assinatura
+* Versão da API não suportada para o tipo de recurso
+* Local não suportado para o tipo de recurso
 
 ## <a name="solution-1---powershell"></a>Solução 1: PowerShell
 
@@ -101,10 +101,22 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 É possível ver o status de registro e registrar um namespace do provedor de recursos por meio do portal.
 
+1. No portal do Azure, selecione **Todos os serviços**.
+
+   ![Selecionar todos os serviços](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. Selecione **Assinaturas**.
+
+   ![Selecione assinaturas](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. Na lista de assinaturas, selecione a assinatura que deseja usar para registrar o provedor de recursos.
+
+   ![Selecionar assinatura para registrar o provedor de recursos](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+
 1. Em sua assinatura, selecione **Provedores de recursos**.
 
-   ![selecionar provedores de recursos](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+   ![Selecionar provedores de recursos](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
 1. Examine a lista de provedores de recursos e, se necessário, selecione o link **Registrar** para registrar o provedor de recursos do tipo que você está tentando implantar.
 
-   ![listar provedores de recursos](./media/resource-manager-register-provider-errors/list-resource-providers.png)
+   ![Listar provedores de recursos](./media/resource-manager-register-provider-errors/list-resource-providers.png)

@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50232657"
 ---
-# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gerenciar solicitações da lista de endereçamento com o Aplicativo Lógico do Azure
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gerenciar solicitações da lista de endereçamento com os Aplicativos Lógicos do Azure
 
 Os Aplicativos Lógicos do Azure ajudam a automatizar fluxos de trabalho e a integrar os dados entre os serviços do Azure, os serviços da Microsoft, outros aplicativos SaaS (software como serviço) e sistemas locais. Este tutorial mostra como você pode criar um [aplicativo lógico](../logic-apps/logic-apps-overview.md) que processa solicitações de assinatura para uma lista de endereçamento gerenciado pelo serviço [MailChimp](https://mailchimp.com/).
 Este aplicativo lógico monitora uma conta de email para essas solicitações, envia essas solicitações para aprovação e adiciona membros aprovados para a lista de endereçamento.

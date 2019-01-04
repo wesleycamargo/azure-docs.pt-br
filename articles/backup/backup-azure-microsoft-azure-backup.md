@@ -8,13 +8,13 @@ keywords: servidor de backup do Azure; proteger cargas de trabalho; fazer backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
-ms.openlocfilehash: e1ed8b1f62eeb52d65ba178c8ca13f94b57da6f0
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616309"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728269"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Este artigo explica como preparar o ambiente para fazer backup de cargas de trab
 Você também pode proteger cargas de trabalho de IaaS (infraestrutura como serviço), como VMs no Azure.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece informações e procedimentos para a restauração de VMs implantadas usando o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece informações e procedimentos para a restauração de VMs implantadas usando o modelo do Gerenciador de Recursos.
 >
 >
 
@@ -43,7 +43,7 @@ O Servidor de Backup do Azure herda grande parte da funcionalidade do backup das
 A primeira etapa para colocar o Servidor de Backup do Azure em execução é configurar um Windows Server. Seu servidor pode estar no Azure ou ser local.
 
 ### <a name="using-a-server-in-azure"></a>Usando um servidor no Azure
-Ao escolher um servidor para executar o Servidor de Backup do Azure, é recomendável começar com uma imagem de galeria do Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter ou Windows Server 2019 Datacenter. O artigo [Criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com a máquina virtual recomendada no Azure, mesmo se você nunca usou o Azure antes. Os requisitos mínimos recomendados para a VM (máquina virtual) do servidor devem ser: A2 Standard com dois núcleos e 3,5 GB de RAM.
+Ao escolher um servidor para executar o Servidor de Backup do Azure, é recomendável começar com uma imagem de galeria do Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter ou Windows Server 2019 Datacenter. O artigo [Criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com a máquina virtual recomendada no Azure, mesmo se você nunca usou o Azure antes. Os requisitos mínimos recomendados para a máquina virtual (VM) do servidor devem ser: Standard A2 com 2 núcleos e 3.5 GB de RAM.
 
 Proteger as cargas de trabalho com o Servidor de Backup do Azure tem muitas nuanças. O artigo [Instalar o DPM como uma máquina virtual do Azure](https://technet.microsoft.com/library/jj852163.aspx), ajuda a explicar essas nuanças. Antes de implantar o computador, leia este artigo na íntegra.
 

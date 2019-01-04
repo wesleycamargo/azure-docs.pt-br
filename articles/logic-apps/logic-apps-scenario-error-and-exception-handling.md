@@ -1,6 +1,6 @@
 ---
 title: Cenário de log de erros e tratamento de exceção – Aplicativo Lógico do Azure | Microsoft Docs
-description: Aqui está um caso de uso real sobre o log de erros e o tratamento de exceção avançados no Aplicativo Lógico do Azure
+description: Aqui está um caso de uso real sobre o log de erros e o tratamento de exceção avançados nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -19,10 +19,10 @@ ms.locfileid: "43124028"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros de aplicativos lógicos
 
-Este cenário descreve como é possível estender um aplicativo lógico para dar melhor suporte ao tratamento de exceção. Usamos um caso de uso da vida real para responder à pergunta: “O Aplicativo Lógico do Azure dá suporte ao tratamento de erro e exceção?”
+Este cenário descreve como é possível estender um aplicativo lógico para dar melhor suporte ao tratamento de exceção. Usamos um caso de uso da vida real para responder à pergunta: “Os Aplicativos Lógicos do Azure dão suporte ao tratamento de erro e exceção?”
 
 > [!NOTE]
-> O esquema atual do Aplicativo Lógico do Azure fornece um modelo padrão para respostas de ação. Esse modelo inclui a validação interna e as respostas de erro retornadas de um aplicativo de API.
+> O esquema atual dos Aplicativos Lógicos do Azure fornece um modelo padrão para respostas de ação. Esse modelo inclui a validação interna e as respostas de erro retornadas de um aplicativo de API.
 
 ## <a name="scenario-and-use-case-overview"></a>Visão geral do cenário e do caso de uso
 
@@ -40,7 +40,7 @@ O projeto tinha dois requisitos principais:
 
 ## <a name="how-we-solved-the-problem"></a>Como solucionamos o problema
 
-Escolhemos o [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como um repositório dos registros de log e erros (o Cosmos DB refere-se aos registros como documentos). Como o Aplicativo Lógico do Azure tem um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
+Escolhemos o [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como um repositório dos registros de log e erros (o Cosmos DB refere-se aos registros como documentos). Como os Aplicativos Lógicos do Azure têm um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
 
 Outro requisito era eliminar registros após determinada data. O Cosmos DB tem uma propriedade chamada [TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (vida útil), que nos permitiu definir um valor de **TTL** para cada registro ou coleção. Essa funcionalidade eliminou a necessidade de excluir manualmente os registros do Cosmos DB.
 
@@ -423,7 +423,7 @@ Para exibir os logs, também criamos um aplicativo Web do MVC. Estes são exempl
 
 #### <a name="logic-apps-exception-management-api"></a>API de gerenciamento de exceções de Aplicativos Lógicos
 
-Nosso aplicativo de API de gerenciamento de exceções do Aplicativo Lógico do Azure de software livre fornece a funcionalidade conforme descrito a seguir - existem dois controladores:
+Nosso aplicativo de API de gerenciamento de exceções dos Aplicativos Lógicos do Azure de software livre fornece a funcionalidade conforme descrito a seguir - existem dois controladores:
 
 * **ErrorController** insere um registro de erro (documento) em uma coleção do Azure Cosmos DB.
 * **LogController** insere um registro de log (documento) em uma coleção do Azure Cosmos DB.

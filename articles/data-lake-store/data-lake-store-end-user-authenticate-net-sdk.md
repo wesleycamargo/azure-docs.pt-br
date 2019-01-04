@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955674"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261527"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de usuário final com o Armazenamento de dados do Windows Azure Gen1 usando o .NET SDK
 > [!div class="op_single_selector"]
@@ -104,7 +104,7 @@ Para facilitar o uso, o snippet a seguir usa valores padrão para a ID do client
 
 Algumas informações importantes sobre o snippet de código anterior:
 
-* O trecho de código anterior usa funções auxiliares `GetTokenCache` e `GetCreds_User_Popup`. O código para essas funções auxiliares está disponível [aqui no Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* O trecho de código anterior usa funções auxiliares `GetTokenCache` e `GetCreds_User_Popup`. O código para essas funções auxiliares está disponível [aqui no GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * Para ajudá-lo a concluir o tutorial mais rapidamente, o snippet de código usa uma ID de cliente de aplicativo nativa disponível por padrão a todas as assinaturas do Azure. Portanto, você pode **usar o snippet de código como está em seu aplicativo**.
 * No entanto, se você quiser usar sua própria ID de cliente de aplicativo e o domínio do Azure AD, crie um aplicativo nativo Azure AD e use a ID de locatário do Azure AD, a ID de cliente e o URI de redirecionamento para o aplicativo que você criou. Consulte [Criar um aplicativo do Active Directory para autenticação do usuário final com o Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) para obter instruções.
 

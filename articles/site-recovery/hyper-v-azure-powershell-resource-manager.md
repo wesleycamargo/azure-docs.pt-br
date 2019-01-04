@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 4b008cc119951e50567218e332818585fb017e5a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229400"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846922"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação de desastres para o Azure para máquinas virtuais do Hyper-V usando o PowerShell e o Azure Resource Manager
 
@@ -43,11 +43,11 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 * Um host Hyper-V que executa o Windows Server 2012 R2 ou o Microsoft Hyper-V Server 2012 R2 contendo uma ou mais máquinas virtuais. Os servidores Hyper-V devem estar conectados à Internet, diretamente ou por meio de um proxy.
 * As máquinas virtuais que você deseja replicar devem estar em conformidade com [esses pré-requisitos](hyper-v-azure-support-matrix.md#replicated-vms).
 
-## <a name="step-1-sign-in-to-your-azure-account"></a>Etapa 1: Entrar em sua conta do Azure
+## <a name="step-1-sign-in-to-your-azure-account"></a>Etapa 1: Entre na sua conta do Azure
 
-1. Abra um console do PowerShell e execute este comando para entrar em sua conta do Azure. O cmdlet abre uma página da Web que solicita suas credenciais de conta: **Connect-AzureRmAccount**.
+1. Abra um console do PowerShell e execute este comando para entrar em sua conta do Azure. Esse cmdlet abre uma página da Web que solicita suas credenciais de conta: **Connect-AzureRmAccount**.
     - Como alternativa, é possível incluir as credenciais de conta como um parâmetro no cmdlet **Connect-AzureRmAccount**, usando o parâmetro **-Credential**.
-    - Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+    - Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo:  **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 2. Associe a assinatura que deseja usar com a conta, uma vez que uma conta pode ter várias assinaturas:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -64,7 +64,7 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
-## <a name="step-2-set-up-the-vault"></a>Etapa 2: configurar o cofre
+## <a name="step-2-set-up-the-vault"></a>Etapa 2: Configurar o cofre
 
 1. Crie um grupo de recursos do Azure Resource Manager no qual você criará o cofre ou use um grupo de recursos existente. Crie um novo grupo de recursos da seguinte maneira. A variável $ResourceGroupName contém o nome do grupo de recursos que você deseja criar e a variável $Geo contém a região do Azure na qual o grupo de recursos será criado (por exemplo, “Sul do Brasil”).
 
@@ -84,7 +84,7 @@ Defina o contexto do cofre da seguinte maneira:
 
 `Set-AsrVaultSettings -Vault $vault`
 
-## <a name="step-4-create-a-hyper-v-site"></a>Etapa 4: criar um site do Hyper-V
+## <a name="step-4-create-a-hyper-v-site"></a>Etapa 4: Criar um site Hyper-V
 
 1. Crie um novo site do Hyper-V da seguinte maneira:
 
@@ -102,7 +102,7 @@ Defina o contexto do cofre da seguinte maneira:
 
 5. Copie a chave baixada no host Hyper-V. Você precisa da chave para registrar o host Hyper-V no site.
 
-## <a name="step-5-install-the-provider-and-agent"></a>Etapa 5: instalar o Provedor e o agente
+## <a name="step-5-install-the-provider-and-agent"></a>Etapa 5: Instalar o Provedor e o agente
 
 1. Baixe o instalador para obter a versão mais recente do provedor na [Microsoft](https://aka.ms/downloaddra).
 2. Execute o instalador no host Hyper-V.
@@ -112,7 +112,7 @@ Defina o contexto do cofre da seguinte maneira:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
-## <a name="step-6-create-a-replication-policy"></a>Etapa 6: criar uma política de replicação
+## <a name="step-6-create-a-replication-policy"></a>Etapa 6: Criar uma política de replicação
 
 Antes de iniciar, observe que a conta de armazenamento especificada deve estar na mesma região do Azure que o cofre e deve ter a replicação geográfica habilitada.
 
@@ -136,7 +136,7 @@ Antes de iniciar, observe que a conta de armazenamento especificada deve estar n
 
 4. Aguarde o conclusão bem-sucedida do trabalho de associação.
 
-## <a name="step-7-enable-vm-protection"></a>Etapa 7: habilitar a proteção de VM
+## <a name="step-7-enable-vm-protection"></a>Etapa 7: Habilitar a proteção de VM
 
 1. Recupere o item protegido que corresponde à VM que você deseja proteger, da seguinte maneira:
 
@@ -175,7 +175,7 @@ Antes de iniciar, observe que a conta de armazenamento especificada deve estar n
 
 
 
-## <a name="step-8-run-a-test-failover"></a>Etapa 8: executar um failover de teste
+## <a name="step-8-run-a-test-failover"></a>Etapa 8: Execute um teste de failover
 1. Execute o failover de teste da seguinte maneira:
 
         $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group

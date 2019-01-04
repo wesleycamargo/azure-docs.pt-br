@@ -1,6 +1,6 @@
 ---
-title: Versão prévia do RBAC (controle de acesso baseado em função) dos Hubs de Eventos do Azure | Microsoft Docs
-description: Controle de acesso baseado em função de Hubs de Eventos do Azure
+title: Versão prévia do RBAC (controle de acesso baseado em função) dos Hubs de Eventos - Azure | Microsoft Docs
+description: Este artigo fornece informações sobre o controle de acesso baseado em função dos Hubs de Eventos do Azure.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ef74600fdf5051394f8b7bfbdd71e144b3f26d8a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005731"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384251"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controle de acesso baseado em função do Active Directory (versão prévia)
 
@@ -33,7 +34,7 @@ Na versão prévia pública inicial, você pode adicionar contas e entidades de 
 
 A seção a seguir descreve as etapas necessárias para criar e executar um aplicativo de exemplo que solicita o logon de um usuário interativo do Azure AD, como conceder acesso aos Hubs de Eventos para essa conta de usuário e como usar essa identidade para acessar os Hubs de Eventos. 
 
-Esta introdução descreve um aplicativo de console simples, cujo [código está no Github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+Esta introdução descreve um aplicativo de console simples, cujo [código está no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
 
 ### <a name="create-an-active-directory-user-account"></a>Criar uma conta de usuário do Active Directory
 
@@ -45,11 +46,7 @@ Se você ainda desejar criar uma conta específica para este cenário, [siga est
 
 Em seguida, [crie um namespace dos Hubs de Eventos](event-hubs-create.md) em uma das regiões do Azure compatíveis com a versão prévia dos Hubs de Eventos para RBAC: **Leste dos EUA**, **Leste dos EUA 2** ou **Europa Ocidental**. 
 
-Depois que o namespace for criado, navegue até a página **Controle de Acesso (IAM)** no portal e, em seguida, clique em **Adicionar** para adicionar a conta de usuário do Azure AD à função Proprietário. Se você usar sua própria conta de usuário e já tiver criado o namespace, você já estará na função Proprietário. Para adicionar uma conta diferente à função, procure o nome do aplicativo Web no campo **Selecionar** do painel **Adicionar permissões** e, em seguida, clique na entrada. Em seguida, clique em **Salvar**.
- 
-![](./media/event-hubs-role-based-access-control/rbac1.PNG)
-
-A conta de usuário agora tem acesso ao namespace dos Hubs de Eventos e ao Hub de Eventos criado anteriormente.
+Depois de criar o namespace, navegue para a página **Controle de Acesso (IAM)** no portal e, em seguida, clique em **Adicionar atribuição de função** para adicionar a conta de usuário do Microsoft Azure Active Directory à função Proprietário. Se você usar sua própria conta de usuário e já tiver criado o namespace, você já estará na função Proprietário. Para adicionar uma conta diferente à função, procure o nome do aplicativo Web no campo **Selecionar** do painel **Adicionar permissões** e, em seguida, clique na entrada. Em seguida, clique em **Salvar**. A conta de usuário agora tem acesso ao namespace dos Hubs de Eventos e ao Hub de Eventos criado anteriormente.
  
 ### <a name="register-the-application"></a>Registrar o aplicativo
 
@@ -63,14 +60,16 @@ As etapas de registro detalhadas são explicadas [neste tutorial](../active-dire
 
 Antes de executar o exemplo, edite o arquivo App.config e, dependendo do cenário, defina os seguintes valores:
 
-- `tenantId`: defina com o valor **TenantId**.
-- `clientId`: defina com o valor **ApplicationId**. 
-- `clientSecret`: se você quiser entrar usando o segredo do cliente, crie-o no Azure AD. Além disso, use um aplicativo Web ou uma API em vez de um aplicativo nativo. E também adicione o aplicativo no **Controle de Acesso (IAM)** no namespace que você criou anteriormente.
-- `eventHubNamespaceFQDN`: defina o nome DNS totalmente qualificado do namespace dos Hubs de Eventos recém-criado, por exemplo, `example.servicebus.windows.net`.
-- `eventHubName`: defina como o nome do hub de eventos que você criou.
+- `tenantId`: Defina-a com o valor **TenantId**.
+- `clientId`: Defina-a com o valor **ApplicationId**. 
+- `clientSecret`: Se você quiser entrar usando o segredo do cliente, crie-o no Microsoft Azure Active Directory. Além disso, use um aplicativo Web ou uma API em vez de um aplicativo nativo. E também adicione o aplicativo no **Controle de Acesso (IAM)** no namespace que você criou anteriormente.
+- `eventHubNamespaceFQDN`: Defina o nome DNS totalmente qualificado do namespace dos Hubs de Eventos recém-criado, por exemplo, `example.servicebus.windows.net`.
+- `eventHubName`: Defina como o nome do hub de eventos que você criou.
 - O URI de redirecionamento que você especificou no aplicativo nas etapas anteriores.
  
 Ao executar o aplicativo de console, você precisará selecionar um cenário, clique em **Logon de Usuário Interativo** digitando seu número e pressione Enter. O aplicativo exibe uma janela de logon, solicita seu consentimento para acessar o Hubs de Eventos e, em seguida, usa o serviço para executar o cenário de envio/recebimento usando a identidade de logon.
+
+O aplicativo usa `ServiceAudience.EventHubsAudience` como a audiência do token. Ao usar outras linguagens ou SDKs onde o público-alvo não está disponível como uma constante, o valor correto para usar é `https://eventhubs.azure.net/`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

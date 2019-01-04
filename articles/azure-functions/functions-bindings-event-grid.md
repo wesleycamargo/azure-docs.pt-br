@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: ac15b95c19fb0184e902ebb43146a76b6ba2faaf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e5c5c7f667959426f015e207cd32d716c493e31e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283726"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995024"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de Grade de Eventos para o Azure Functions
 
 Este artigo explica como manipular com eventos de [Grade de Eventos](../event-grid/overview.md) no Azure Functions.
 
-A Grade de Eventos é um serviço do Azure que envia solicitações HTTP para notificá-lo sobre eventos que acontecem nos *publicadores*. Um publicador é o serviço ou recurso que origina o evento. Por exemplo, uma conta de armazenamento de Blobs do Azure é um publicador, e [uma exclusão ou upload de blob é um evento](../storage/blobs/storage-blob-event-overview.md). Alguns [serviços do Azure têm suporte interno para publicar eventos na Grade de Eventos](../event-grid/overview.md#event-sources). 
+A Grade de Eventos é um serviço do Azure que envia solicitações HTTP para notificá-lo sobre eventos que acontecem nos *publicadores*. Um publicador é o serviço ou recurso que origina o evento. Por exemplo, uma conta de armazenamento de Blobs do Azure é um publicador, e [uma exclusão ou upload de blob é um evento](../storage/blobs/storage-blob-event-overview.md). Alguns [serviços do Azure têm suporte interno para publicar eventos na Grade de Eventos](../event-grid/overview.md#event-sources).
 
 Os *manipuladores* de eventos recebem e processam eventos. O Azure Functions é um dos vários serviços do[Azure que possuem suporte interno para manipular eventos da Grande de Eventos](../event-grid/overview.md#event-handlers). Neste artigo, você aprende a usar um gatilho de Grade de Eventos para invocar uma função quando um evento é recebido da Grade de Eventos.
 
@@ -48,8 +48,9 @@ Consulte o exemplo específico do idioma para um gatilho de Grade de Eventos:
 
 * [C#](#c-example)
 * [Script do C# (.csx)](#c-script-example)
-* [JavaScript](#javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 Para um exemplo de gatilho HTTP, consulte [Como usar o gatilho HTTP](#use-an-http-trigger-as-an-event-grid-trigger), posteriormente neste artigo.
 
@@ -187,6 +188,39 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
+### <a name="python-example"></a>Exemplo de Python
+
+O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que usa a associação.
+
+Aqui estão os dados de associação no arquivo *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "event",
+      "direction": "in"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+Aqui está o código Python:
+
+```python
+import logging
+import azure.functions as func
+
+def main(event: func.EventGridEvent):
+    logging.info("Python Event Grid function processed a request.")
+    logging.info("  Subject: %s", event.subject)
+    logging.info("  Time: %s", event.event_time)
+    logging.info("  Data: %s", event.get_json())
+```
+
 ### <a name="trigger---java-example"></a>Gatilho - exemplo Java
 
 O exemplo a seguir mostra uma ligação de acionador em um arquivo *function.json* e uma [função Java](functions-reference-java.md) que usa a ligação e imprime um evento.
@@ -210,12 +244,12 @@ Aqui está o código Java:
   public void logEvent(
      @EventGridTrigger(name = "event") String content,
       final ExecutionContext context
-  ) { 
+  ) {
       context.getLogger().info(content);
     }
 ```
 
-No [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use o `EventGridTrigger` anotação em parâmetros cujo valor virá do EventGrid. Parâmetros com essas anotações fazem com que a função seja executada quando um evento é recebido.  Essa anotação pode ser usada com tipos nativos do Java, POJOs ou valores que permitem valor nulos usando `Optional<T>`. 
+No [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use o `EventGridTrigger` anotação em parâmetros cujo valor virá do EventGrid. Parâmetros com essas anotações fazem com que a função seja executada quando um evento é recebido.  Essa anotação pode ser usada com tipos nativos do Java, POJOs ou valores que permitem valor nulos usando `Optional<T>`.
 
 ## <a name="attributes"></a>Atributos
 
@@ -295,7 +329,7 @@ As propriedades de nível superior nos dados JSON de evento serão as mesmas ent
 
 Para obter explicações sobre as propriedades comuns e específicas de evento, consulte [Propriedades do evento](../event-grid/event-schema.md#event-properties) na documentação da Grade de Eventos.
 
-O tipo `EventGridEvent` define apenas as propriedades de nível superior; a propriedade `Data` é um `JObject`. 
+O tipo `EventGridEvent` define apenas as propriedades de nível superior; a propriedade `Data` é um `JObject`.
 
 ## <a name="create-a-subscription"></a>Criar uma assinatura
 
@@ -414,7 +448,7 @@ Para simplificar as mensagens de evento de captura, implante um [aplicativo Web 
 
 Selecione **Implantar no Azure** para implantar a solução na sua assinatura. No portal do Azure, forneça os valores para os parâmetros.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
 
@@ -444,7 +478,7 @@ Use uma ferramenta como [Postman](https://www.getpostman.com/) ou [curl](https:/
 
 * Defina um cabeçalho `Content-Type: application/json`.
 * Defina um cabeçalho `aeg-event-type: Notification`.
-* Cole os dados RequestBin no corpo da solicitação. 
+* Cole os dados RequestBin no corpo da solicitação.
 * Poste na URL da sua função de gatilho de Grade de Eventos, usando o seguinte padrão:
 
 ```
@@ -509,19 +543,23 @@ A URL ngrok não recebe tratamento especial pela Grade de Eventos, portanto, sua
 Crie uma assinatura de grade de eventos do tipo que você deseja testar e forneça seu ponto de extremidade ngrok.
 
 Use este padrão de terminal para Funções 1.x:
+
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ```
+
 Use este padrão de terminal para Funções 2.x:
+
 ```
 https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
 ```
+
 O parâmetro `functionName` deverá ser o nome especificado no atributo `FunctionName`.
 
 Aqui, está um exemplo usando a CLI do Azure:
 
-```
-az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName=EventGridTrigger
+```azurecli
+az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/runtime/webhooks/eventgrid?functionName=EventGridTrigger
 ```
 
 Para obter informações sobre como criar uma assinatura, consulte [Criar uma assinatura](#create-a-subscription), posteriormente neste artigo.
@@ -560,8 +598,8 @@ public static async Task<HttpResponseMessage> Run(
     var messages = await req.Content.ReadAsAsync<JArray>();
 
     // If the request is for subscription validation, send back the validation code.
-    if (messages.Count > 0 && string.Equals((string)messages[0]["eventType"], 
-        "Microsoft.EventGrid.SubscriptionValidationEvent", 
+    if (messages.Count > 0 && string.Equals((string)messages[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
         System.StringComparison.OrdinalIgnoreCase))
     {
         log.LogInformation("Validate request received");

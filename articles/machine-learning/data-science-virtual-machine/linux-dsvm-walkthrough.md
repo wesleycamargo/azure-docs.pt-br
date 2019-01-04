@@ -1,11 +1,13 @@
 ---
-title: Ciência de dados com a Máquina Virtual da Ciência de Dados do Linux no Azure | Microsoft Docs
+title: Saiba como usar a Máquina Virtual de Ciência de Dados do Linux
+titleSuffix: Azure
 description: Como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037576"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190624"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
@@ -316,19 +318,19 @@ A distribuição Anaconda na DSVM vem com um bloco de anotações do Jupyter, um
 
 > [!NOTE]
 > Para usar o Gerenciador de Pacotes Python (via o comando `pip`) de um notebook Jupyter no kernel atual, o comando a seguir pode ser usado na célula de código, por exemplo:
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > Para usar o instalador Conda (via o comando `conda`) de um notebook Jupyter no kernel atual, o comando a seguir pode ser usado na célula de código, por exemplo:
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 
@@ -344,7 +346,7 @@ Vários blocos de anotações de exemplo já estão instalados na VM:
 >
 
 ## <a name="rattle"></a>Rattle
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (a Ferramenta Analítica do R Fácil de Aprender) é uma ferramenta gráfica do R para a mineração de dados. Ela tem uma interface simples que facilita carregar, explorar e transformar os dados, compilar e avaliar os modelos.  O artigo [Rattle: Uma GUI da Mineração de Dados para o R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstre seus recursos.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (a Ferramenta Analítica do R Fácil de Aprender) é uma ferramenta gráfica do R para a mineração de dados. Ela tem uma interface simples que facilita carregar, explorar e transformar os dados, compilar e avaliar os modelos.  O artigo [Rattle: uma GUI da mineração de dados para o R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstra seus recursos.
 
 Instale e inicie o Rattle com os seguintes comandos:
 
@@ -357,7 +359,7 @@ Instale e inicie o Rattle com os seguintes comandos:
 >
 >
 
-O Rattle usa uma interface baseada em guias. A maioria das guias corresponde às etapas no [Processo da Ciência de Dados](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), como carregar os dados ou explorá-los. O processo da ciência de dados flui da esquerda para a direita nas guias. Mas a última guia contém um log dos comandos do R executados pelo Rattle.
+O Rattle usa uma interface baseada em guias. A maioria das guias corresponde às etapas no [Processo da Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), como carregar os dados ou explorá-los. O processo da ciência de dados flui da esquerda para a direita nas guias. Mas a última guia contém um log dos comandos do R executados pelo Rattle.
 
 Para carregar e configurar o conjunto de dados:
 

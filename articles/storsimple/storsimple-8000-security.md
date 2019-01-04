@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566186"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193902"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança de StorSimple
 
@@ -210,10 +210,10 @@ O StorSimple usa os seguintes algoritmos de criptografia para proteger os dados 
 O Gerenciador de Dispositivos StorSimple para séries físicas e virtuais coleta informações pessoais nas seguintes instâncias principais:
 
 - Configurações de usuário de alerta em que os endereços de email dos usuários são configurados. Essas informações podem ser vistas e apagadas pelo administrador. Isso se aplica aos dispositivos da série StorSimple 8000 e Matrizes Virtual StorSimple.
- * Para exibir e limpar as configurações de série 8000 StorSimple, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Para exibir e limpar as configurações de série StorSimple Virtual Array, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+  * Para exibir e limpar as configurações de série 8000 StorSimple, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+  * Para exibir e limpar as configurações de série StorSimple Virtual Array, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
 - Usuários que podem acessar os dados que residem nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento é exibida e pode ser vista. Essa lista também será excluída quando os compartilhamentos são excluídos. Isso se aplica somente a matrizes de Virtual do StorSimple.
- * Para exibir a lista de usuário que pode acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos no StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
+  * Para exibir a lista de usuário que pode acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos no StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
 
 Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
@@ -230,27 +230,27 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **P:** Eu tenho um dispositivo StorSimple novo que está solicitando a chave de registro. Como recuperá-la?
 
-**R:** Essa chave foi criada quando você criou o serviço Gerenciador de Dispositivos StorSimple. Quando você usa o serviço Gerenciador de Dispositivos StorSimple para conectar-se ao dispositivo, pode usar a página de início rápido do serviço para exibir ou regenerar a nova chave de registro. A geração de uma nova chave de registro do serviço não afetará os dispositivos registrados existentes. Para obter instruções, vá para:
+**R:** Essa chave foi criada quando você criou o serviço Gerenciador de Dispositivos do StorSimple. Quando você usa o serviço Gerenciador de Dispositivos StorSimple para conectar-se ao dispositivo, pode usar a página de início rápido do serviço para exibir ou regenerar a nova chave de registro. A geração de uma nova chave de registro do serviço não afetará os dispositivos registrados existentes. Para obter instruções, vá para:
 
 * [Exibir ou gerar novamente a chave de registro](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
 
 **P:** Perdi minha chave de criptografia de dados de serviço. O que devo fazer?
 
-**R:** Entre em contato com o Suporte da Microsoft. Eles podem fazer logon em uma sessão de suporte no seu dispositivo e ajudar você a recuperar a chave (contanto que pelo menos um dispositivo esteja online). Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
+**R:** Contatar Suporte da Microsoft Eles podem fazer logon em uma sessão de suporte no seu dispositivo e ajudar você a recuperar a chave (contanto que pelo menos um dispositivo esteja online). Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
 
 * [Alterar a chave de criptografia de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**P:** Autorizei um dispositivo para uma alteração de chave de criptografia de dados de serviço, mas ele não iniciou o processo de alteração da chave. O que devo fazer?
+**P:**  Autorizei um dispositivo para uma alteração de chave de criptografia de dados de serviço, mas ele não iniciou o processo de alteração da chave. O que devo fazer?
 
-**R:** Se o tempo limite tiver expirado, você terá de autorizar novamente o dispositivo para alteração da chave de criptografia de dados do serviço e reiniciar o processo.
+**R:** Se o tempo limite tiver expirado, você terá de autorizar novamente o dispositivo para alteração da chave de criptografia de dados de serviço e reiniciar o processo.
 
-**P:** Alterei a chave de criptografia de dados do serviço, mas não consegui atualizar outros dispositivos em quatro horas. É necessário iniciar novamente?
+**P:**  Alterei a chave de criptografia de dados de serviço, mas não consegui atualizar outros dispositivos em quatro horas. É necessário iniciar novamente?
 
 **R:** O período de quatro horas é apenas para iniciar a alteração. Depois de iniciar o processo de atualização no dispositivo StorSimple autorizado, a autorização será válida até que todos os dispositivos sejam atualizados.
 
 **P:** Nosso administrador StorSimple saiu da empresa. O que devo fazer?
 
-**R:** Altere e redefina as senhas que permitem o acesso ao dispositivo StorSimple e altere a chave de criptografia de dados do serviço para garantir que as novas informações não sejam conhecidas por pessoal não autorizado. Para obter instruções, vá para:
+**R:** Altere e redefina as senhas que permitem o acesso ao dispositivo StorSimple e altere a chave de criptografia de dados de serviço para garantir que as novas informações não sejam conhecidas por pessoal não autorizado. Para obter instruções, vá para:
 
 * [Usar o serviço do Gerenciador de Dispositivos do StorSimple para alterar suas senhas do StorSimple](storsimple-8000-change-passwords.md)
 * [Alterar a chave de criptografia de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
@@ -265,11 +265,11 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **P:** O certificado para o acesso remoto ao Windows PowerShell para StorSimple foi alterado no dispositivo. Como atualizar meus clientes de acesso remoto?
 
-**R:** Você pode baixar o novo certificado do serviço Gerenciador de Dispositivos StorSimple e depois fornecê-lo para instalação no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
+**R:** Você pode baixar o novo certificado do serviço Gerenciador de Dispositivos do StorSimple e depois fornecê-lo para instalação no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
 
 * [Certificado de importação de cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
-**P:** Os meus dados ficarão protegidos se o serviço Gerenciador de Dispositivos StorSimple estiver comprometido?
+**P:** Os meus dados ficarão protegidos se o serviço Gerenciador de Dispositivos do StorSimple estiver comprometido?
 
 **R:** Os dados de configuração de serviço são sempre criptografados com a chave pública quando exibidos em um navegador da Web. Como o serviço não tem acesso à chave privada, o serviço não poderá ver os dados. Se o serviço Gerenciador de Dispositivos StorSimple estiver comprometido, não haverá impacto, pois não há chaves armazenadas no serviço Gerenciador de Dispositivos StorSimple.
 
@@ -277,7 +277,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **R:** O Microsoft Azure armazena a chave de criptografia de dados do cliente (arquivo. pfx) em um formato criptografado. Como o arquivo .pfx é criptografada e o serviço StorSimple não tem a chave de criptografia de dados de serviço para descriptografar o arquivo .pfx, o simples acesso ao arquivo .pfx não vai expor nenhum segredo.
 
-**P:** O que acontece se uma entidade governamental solicitar meus dados à Microsoft?
+**P:** O que acontecerá se uma entidade governamental solicitar meus dados à Microsoft?
 
 **R:** Como todos os dados são criptografados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental deverá solicitar os dados ao cliente.
 

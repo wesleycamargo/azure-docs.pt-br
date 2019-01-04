@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eeb12500a5ddfb95317b3d20b41acf12e3978bad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 80818a7264b35b703be217f07127ab7883da339a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626515"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271582"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Quais são as condições de localização no acesso condicional do Active Directory do Azure? 
 
@@ -58,7 +58,7 @@ A localização nomeada tem os seguintes componentes:
 
 - **Nome** – O nome de exibição de uma localização nomeada.
 
-- **Intervalos de IP** – Endereço IP de um ou mais intervalos no formato CIDR.
+- **Intervalos de IP**: um ou mais intervalos de endereço IPv4 no formato CIDR. Não há suporte para a especificação de um intervalo de endereços Ipv6.
 
 - **Marcar como local confiável** – Um sinalizador que você pode definir para uma localização nomeada indicar um local confiável. Normalmente, os locais confiáveis são áreas de rede controladas pelo departamento de TI. Além de acesso condicional, localizações nomeadas confiáveis também são usadas por relatórios de segurança de proteção de identidade do Azure e do Microsoft Azure AD para reduzir [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 

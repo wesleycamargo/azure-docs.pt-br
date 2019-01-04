@@ -2,19 +2,19 @@
 title: Fazer a rotação de credenciais de logon em trabalhos do Azure Stream Analytics
 description: Este artigo descreve como atualizar as credenciais dos coletores de entrada e saída em trabalhos do Azure Stream Analytics.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: 362fdca3b9a54ea0a8785ae37b32b88cbe0f67ba
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 14e24c1e9a61eb7ea73a949e17ffbf8c5b768f05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978753"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099062"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Fazer a rotação de credenciais de logon para entradas e saídas de um trabalho do Stream Analytics
 
@@ -27,20 +27,20 @@ Nesta seção, vamos orientar você a regenerar as credenciais para o armazename
 ### <a name="blob-storagetable-storage"></a>Armazenamento de blob/Armazenamento de tabela
 1. Entre no portal do Azure > procure a conta de armazenamento que você usou como entrada/saída para o trabalho do Stream Analytics.    
 2. Na seção de configurações, abra **Chaves de acesso**. Entre as duas chaves padrão (key1, key2), selecione aquela que não é usada por seu trabalho e a regenere:  
-   ![Regenerar chaves para a conta de armazenamento](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
+   ![Regenerar chaves para a conta de armazenamento](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
 3. Copie a chave recém-gerada.    
 4. No portal do Azure, procure seu trabalho do Stream Analytics > selecione **Parar** e aguarde o trabalho ser interrompido.    
 5. Localize a entrada/saída de blob/tabela de armazenamento para o/a qual você deseja atualizar as credenciais.    
 6. Localize o campo **Chave da Conta de Armazenamento** e cole sua chave recém-gerada > clique em **Salvar**.    
 7. Um teste de conexão será iniciado automaticamente quando você salvar as alterações, você pode exibi-lo na guia notificações. Há duas notificações - uma corresponde a salvar a atualização e outra corresponde a testar a conexão:  
-   ![Notificações após a edição da chave](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
+   ![Notificações após a edição da chave](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. Vá para a seção [iniciar o trabalho a partir da hora da última interrupção](#start-your-job-from-the-last-stopped-time).
 
 ### <a name="event-hubs"></a>Hubs de Eventos
 
 1. Entre no portal do Azure > procure o Hub de eventos que você usou como entrada/saída para o trabalho do Stream Analytics.    
 2. Na seção de configurações, abra **políticas de acesso compartilhado** e selecione a política de acesso necessária. Entre a **Chave Primária** e a **Chave Secundária**, escolha a que não é usada por seu trabalho e a regenere:  
-   ![Regenerar chaves para o Hub de eventos](media/stream-analytics-login-credentials-inputs-outputs/image2.png)
+   ![Regenerar chaves para Hubs de Eventos](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
 3. Copie a chave recém-gerada.    
 4. No portal do Azure, procure seu trabalho do Stream Analytics > selecione **Parar** e aguarde o trabalho ser interrompido.    
 5. Localize a entrada/saída de Hubs de Evento para o qual você deseja atualizar as credenciais.    
@@ -54,7 +54,7 @@ Você precisa se conectar ao banco de dados SQL para atualizar as credenciais de
 
 1. Entre no portal do Azure > procure o banco de dados SQL que você usou como saída para o trabalho do Stream Analytics.    
 2. No **Explorador de Dados**, faça o logon/se conecte ao seu banco de dados > selecione o tipo de Autorização como **Autenticação do servidor SQL** > digite seus detalhes de **Logon** e  **Senha** > Selecione **Ok**.  
-   ![Regenerar as credenciais para o banco de dados SQL](media/stream-analytics-login-credentials-inputs-outputs/image3.png)
+   ![Regenerar as credenciais para o banco de dados SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Na guia de consulta, altere a senha para um dos seus usuários executando a consulta a seguir (certifique-se de substituir `<user_name>` por seu nome de usuário e `<new_password>` pela sua nova senha):  
 
@@ -79,7 +79,7 @@ Você precisa se conectar ao banco de dados SQL para atualizar as credenciais de
 
 1. Navegue até o painel **Visão geral** do trabalho > selecione **Iniciar** para iniciar o trabalho.    
 2. Selecione **Na última interrupção** > clique em **Iniciar**. Observe que a opção "Na última interrupção" só aparece se você tiver executado o trabalho anteriormente e tiver algumas saídas geradas. O trabalho é reiniciado com base na hora do último valor de saída.
-   ![Iniciar o trabalho](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
+   ![Iniciar o trabalho do Stream Analytics](media/stream-analytics-login-credentials-inputs-outputs/start-stream-analytics-job.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

@@ -3,7 +3,7 @@ title: Atualizar para a biblioteca de cliente de banco de dados elástico mais r
 description: Use o Nuget para atualizar a biblioteca de cliente do banco de dados elástico.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 9fb29b18397be83f5dc56464b3366d91c47f43b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e54a2cf40bb03ef573348f276b4c24e20965009f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160784"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866127"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Atualizar um aplicativo para usar a biblioteca de cliente de banco de dados elástico mais recente
 Novas versões da [biblioteca de cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md) estão disponíveis por meio do NuGet e da interface do Gerenciador de Pacotes NuGet no Visual Studio. Atualizações contêm correções de bugs e suporte para novos recursos de biblioteca de cliente.
 
-**Para obter a versão mais recente:** acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+**Para a versão mais recente:** Vá para [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 Recrie o aplicativo com a nova biblioteca, além de alterar os metadados existentes do Gerenciador de Mapa de Fragmentos armazenados nos bancos de dados SQL do Azure para dar suporte a novos recursos.
 
@@ -43,7 +43,7 @@ Executar estas etapas nesta ordem garante que as versões antigas da biblioteca 
 
 **4. Atualizar seus bancos de dados do Gerenciador do Mapa de Fragmentos**. Atualizar os metadados que suportam seus mapas de fragmento no banco de dados SQL do Azure.  Há duas maneiras que você pode fazer isso, usando o PowerShell ou C#. Ambas as opções são mostradas abaixo.
 
-***Opção 1: Atualizar os metadados usando o PowerShell***
+***Opção 1: Fazer upgrade de metadados usando PowerShell***
 
 1. Baixar o utilitário de linha de comando mais recente para NuGet [aqui](http://nuget.org/nuget.exe) e salvar em uma pasta. 
 2. Abra um Prompt de Comando, navegue para a mesma pasta e execute o comando: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
@@ -51,7 +51,7 @@ Executar estas etapas nesta ordem garante que as versões antigas da biblioteca 
 4. Baixe o scriptlet da atualização de clientes de banco de dados elástico do [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)e salve-o na mesma pasta que contém a DLL.
 5. Nessa pasta, execute "PowerShell .\upgrade.ps1" no prompt de comando e siga os prompts.
 
-***Opção 2: Atualizar os metadados usando C#***
+***Opção 2: Fazer upgrade de metadados usando C#***
 
 Como alternativa, crie um aplicativo do Visual Studio que abre sua ShardMapManager, itera em todos os fragmentos e executa a atualização de metadados chamando os métodos [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) e [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) como neste exemplo: 
 
@@ -68,7 +68,7 @@ Como alternativa, crie um aplicativo do Visual Studio que abre sua ShardMapManag
 
 Essas técnicas para atualizações de metadados podem ser aplicadas várias vezes sem danos. Por exemplo, se uma versão mais antiga do cliente cria inadvertidamente um fragmento depois que você atualizou, você pode executar a atualização novamente entre todos os fragmentos para garantir que a versão mais recente de metadados está presente em toda a infraestrutura. 
 
-**Observação:** Novas versões da biblioteca de cliente atualizadas continuam a funcionar com as versões anteriores dos metadados do Gerenciador de Mapa de Fragmentos no Banco de Dados SQL do Azure e vice-versa.   No entanto, para aproveitar alguns dos novos recursos mais recente do cliente, os metadados precisam ser atualizados.   Observe que as atualizações de metadados não afetarão nenhum dados do usuário ou dados específicos do aplicativo, somente os objetos criados e usados pelo Gerenciador de mapa de fragmentos.  E os aplicativos continuam a operar na sequência de atualização descrita acima. 
+**Observação:**  Novas versões da biblioteca de clientes publicadas até a data continuam funcionando com versões anteriores dos metadados do Gerenciador do Mapa de Fragmentos no Banco de Dados SQL do Azure e vice-versa.   No entanto, para aproveitar alguns dos novos recursos mais recente do cliente, os metadados precisam ser atualizados.   Observe que as atualizações de metadados não afetarão nenhum dados do usuário ou dados específicos do aplicativo, somente os objetos criados e usados pelo Gerenciador de mapa de fragmentos.  E os aplicativos continuam a operar na sequência de atualização descrita acima. 
 
 ## <a name="elastic-database-client-version-history"></a>O histórico de versões de cliente do banco de dados elástico
 Para ver o histórico de versão, vá para [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)

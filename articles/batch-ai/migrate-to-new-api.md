@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ROBOTS: NOINDEX
+ms.openlocfilehash: 75a9a5e9bafd62b320397c00ef6574b7536d9e09
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294951"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407773"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>Migre para a API de AI atualizado do lote
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Na API REST de IA do Lote versão 2018-05-01 e nos SDKs e ferramentas de IA do Lote relacionados, foram introduzidos novos recursos e alterações significativas.
 
@@ -183,4 +186,4 @@ _ = client.jobs.create(resource_group_name, workspace_name, experiment_name, job
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte a referência de API do lote AI: [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](/java/api/overview/azure/batchai), [Node.js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai)e [REST](/rest/api/batchai)
+* Consulte a referência da API de IA do Lote: [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](/java/api/overview/azure/batchai), [Node.js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai) e [REST](/rest/api/batchai)

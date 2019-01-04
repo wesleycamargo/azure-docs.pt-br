@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095038"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139513"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
@@ -80,17 +80,17 @@ Por exemplo, se um proxy tem um modelo de rota como `/pets/{petId}`, a URL do ba
 #### <a name="additional-request-parameters"></a>Parâmetros de solicitação adicionais
 Além dos parâmetros do modelo de rota, os seguintes valores podem ser usados em valores de configuração:
 
-* **{request.method}**: o método HTTP usado na solicitação original.
-* **{request.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da solicitação original. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
-* **{request.querystring.\<ParameterName\>}**: um parâmetro de cadeia de consulta que pode ser lido por meio da solicitação original. Substitua *\<ParameterName\>* pelo nome do parâmetro que você deseja ler. Se o parâmetro não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{request.method}**: O método HTTP usado na solicitação original.
+* **{request.headers.\<HeaderName\>}**: Um cabeçalho que pode ser lido por meio da solicitação original. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{request.querystring.\<ParameterName\>}**: Um parâmetro de cadeia de caracteres de consulta que pode ser lido na solicitação original. Substitua *\<ParameterName\>* pelo nome do parâmetro que você deseja ler. Se o parâmetro não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
 
 ### <a name="response-parameters"></a>Parâmetros de resposta de back-end de referência
 
 Parâmetros de resposta podem ser usados como parte da modificação da resposta ao cliente. Os seguintes valores podem ser usados em valores de configuração:
 
-* **{backend.response.statusCode}**: o código de status HTTP retornado na resposta de back-end.
-* **{backend.response.statusReason}**: a frase de motivo HTTP retornada na resposta de back-end.
-* **{backend.response.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da resposta de back-end. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{backend.response.statusCode}**: O código de status HTTP retornado na resposta de back-end.
+* **{backend.response.statusReason}**: A frase de motivo HTTP retornada na resposta de back-end.
+* **{backend.response.headers.\<HeaderName\>}**: Um cabeçalho que pode ser lido por meio da resposta de back-end. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
 
 ### <a name="use-appsettings"></a>Configurações do aplicativo de referência
 
@@ -139,17 +139,17 @@ Os proxies que você configura são armazenados em um arquivo *proxies.json*, qu
 
 Cada proxy tem um nome amigável, como *proxy1*, no exemplo acima. O objeto de definição de proxy correspondente é definido pelas seguintes propriedades:
 
-* **matchCondition**: obrigatório - um objeto que define as solicitações que disparam a execução desse proxy. Ele contém duas propriedades compartilhadas com [Gatilhos HTTP]:
-    * _métodos_: uma matriz dos métodos HTTP aos quais o proxy responde. Se não for especificado, o proxy responderá a todos os métodos HTTP na rota.
-    * _route_: obrigatório - define o modelo da rota, controlando para quais URLs de solicitação seu proxy responde. Ao contrário de disparadores HTTP, não há nenhum valor padrão.
-* **backendUri**: a URL do recurso de back-end ao qual a solicitação deve ser transmitida por proxy. Esse valor pode referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente. Se esta propriedade não for incluída, o Azure Functions responderá com um HTTP 200 OK.
-* **requestOverrides**: um objeto que define as transformações para a solicitação de back-end. Confira [Definir um objeto requestOverrides].
-* **requestOverrides**: um objeto que define as transformações para a resposta do cliente. Confira [Definir um objeto responseOverrides].
+* **matchCondition**: Obrigatório – um objeto que define as solicitações que disparam a execução desse proxy. Ele contém duas propriedades compartilhadas com [Gatilhos HTTP]:
+    * _methods_: Uma matriz dos métodos HTTP aos quais o proxy responde. Se não for especificado, o proxy responderá a todos os métodos HTTP na rota.
+    * _route_: Obrigatório – define o modelo da rota, controlando para quais URLs de solicitação seu proxy responde. Ao contrário de disparadores HTTP, não há nenhum valor padrão.
+* **backendUri**: A URL do recurso de back-end ao qual a solicitação deve ser transmitida por proxy. Esse valor pode referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente. Se esta propriedade não for incluída, o Azure Functions responderá com um HTTP 200 OK.
+* **requestOverrides**: Um objeto que define as transformações para a solicitação de back-end. Confira [Definir um objeto requestOverrides].
+* **responseOverrides**: Um objeto que define as transformações para a resposta do cliente. Confira [Definir um objeto responseOverrides].
 
 > [!NOTE] 
 > A propriedade de *rota* dos proxies de funções do Azure não honra a propriedade *routePrefix* da configuração de host do Aplicativo de funções. Se você quiser incluir um prefixo, como `/api`, ele deve ser incluído na propriedade de *rota*.
 
-### <a name="disableProxies"></a>Desabilitar proxies individuais
+### <a name="disableProxies"></a> Desabilitar proxies individuais
 
 Você pode desabilitar proxies individuais adicionando `"disabled": true` ao proxy no arquivo `proxies.json`. Isso fará com que as solicitações atendam a matchCondidtion para retornar 404.
 ```json
@@ -167,13 +167,29 @@ Você pode desabilitar proxies individuais adicionando `"disabled": true` ao pro
 }
 ```
 
+### <a name="applicationSettings"></a> Configurações de aplicativo
+
+O comportamento do proxy pode ser controlado por várias configurações de aplicativo. Todas elas são descritas na [referência de Configurações do Aplicativo de Funções](./functions-app-settings.md)
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> Caracteres reservados (formatação de cadeia de caracteres)
+
+Os proxies leem todas as cadeias de caracteres sem interpretação, com exceção das chaves e das barras
+
+|Character|Caractere de escape|Exemplo|
+|-|-|-|
+|{ ou }|{{ ou }}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
+
 ### <a name="requestOverrides"></a>Definir um objeto requestOverrides
 
 O objeto requestOverrides define as alterações feitas à solicitação quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
-* **backend.request.method**: O método HTTP que é usado para chamar o back-end.
+* **backend.request.method**: O método HTTP usado para chamar o back-end.
 * **backend.request.querystring.\<ParameterName\>**: Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada ao back-end. Substitua *\<ParameterName\>* pelo nome do parâmetro que você deseja definir. Se a cadeia de caracteres vazia for fornecida, o parâmetro não será incluído na solicitação de back-end.
-* **backend.Request.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada ao back-end. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na solicitação de back-end.
+* **backend.request.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada ao back-end. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na solicitação de back-end.
 
 Os valores podem referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente.
 
@@ -202,10 +218,10 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 
 O objeto requestOverrides define as alterações feitas à resposta passada novamente ao cliente. O objeto é definido pelas seguintes propriedades:
 
-* **response.statusCode**: o código de status HTTP a ser retornado ao cliente.
-* **response.statusReason**: a frase de motivo do HTTP a ser retornada ao cliente.
-* **response.body**: a representação de cadeia de caracteres do corpo a ser retornada ao cliente.
-* **response.headers.\<HeaderName\>**: um cabeçalho que pode ser definido para a resposta ao cliente. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na resposta.
+* **response.statusCode**: O código de status HTTP a ser retornado ao cliente.
+* **response.statusReason**: A frase de motivo do HTTP a ser retornada ao cliente.
+* **response.body**: A representação de cadeia de caracteres do corpo a ser retornada ao cliente.
+* **response.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a resposta ao cliente. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na resposta.
 
 Os valores podem referenciar as configurações do aplicativo, os parâmetros da solicitação original do cliente e os parâmetros da resposta de back-end.
 
@@ -231,7 +247,7 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 > [!NOTE] 
 > Neste exemplo, o corpo da resposta é definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
 
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [Gatilhos HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

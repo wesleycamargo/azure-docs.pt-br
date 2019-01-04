@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 6865fac08b8c607f7053b334c648766cc1e7c291
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f9c2324eb429c82f7e937b4f18311bf204eeb193
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713713"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408746"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Como parar de monitorar seu serviço de Kubernetes do Azure (AKS) com o Azure Monitor para contêineres (versão prévia)
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como interromper o monitoramento do Azure Monitor do Serviço de Kubernetes do Azure (AKS) para contêineres
 
-Se, após habilitar o monitoramento do cluster do AKS, você decide que não deseja monitorá-lo, você poderá *recusar*.  Este artigo mostra como fazer isso usando a CLI do Azure ou com os modelos do Azure Resource Manager fornecidos.  
+Após habilitar o monitoramento do cluster do AKS você poderá parar o monitoramento do cluster, caso decida não continuar monitorando-o. Este artigo mostra como fazer isso usando a CLI do Azure ou com os modelos do Azure Resource Manager fornecidos.  
 
 
 ## <a name="azure-cli"></a>CLI do Azure
@@ -36,14 +36,14 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 Para habilitar novamente o monitoramento para seu cluster, consulte [Habilitar o monitoramento usando a CLI do Azure](container-insights-onboard.md#enable-monitoring-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
-São fornecido dois modelos do Azure Resource Manager para dar suporte para remover os recursos de solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON especificando a configuração para *recusar* e o outro contém os valores de parâmetros que você configura para especificar o AKS recursos e a ID do grupo de recursos que o cluster é implantado. 
+São fornecido dois modelos do Azure Resource Manager para dar suporte para remover os recursos de solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON especificando a configuração para parar o monitoramento e o outro contém valores de parâmetros que você configura para especificar a ID do recurso de cluster do AKS e o grupo de recursos no qual o cluster está implementado. 
 
 Se você não estiver familiarizado com o conceito de implantação de recursos usando um modelo, veja:
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->O modelo precisa ser implantado no mesmo grupo de recursos que o cluster.
+>O modelo precisa ser implantado no mesmo grupo de recursos que o cluster. Se você omitir quaisquer outras propriedades ou complementos ao usar esse modelo, isso poderá resultar na remoção do cluster. Por exemplo, *enableRBAC*.  
 >
 
 Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando a CLI do Azure versão 2.0.27 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 

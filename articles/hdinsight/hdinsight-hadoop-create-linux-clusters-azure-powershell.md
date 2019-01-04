@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76bef5fcae8e95a52b7a35fdbb657db5dde01bc3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035179"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863424"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell
 
@@ -62,7 +62,7 @@ Os valores especificados para o usuário SSH são usados para criar o usuário S
 
 Pode levar até 20 minutos para criar um cluster.
 
-## <a name="create-cluster-configuration-object"></a>Criar cluster: objeto de configuração
+## <a name="create-cluster-configuration-object"></a>Criar cluster: Objeto de configuração
 
 Você também pode criar um objeto de configuração de HDInsight usando o cmdlet `New-AzureRmHDInsightClusterConfig`. Será possível, então, modificar esse objeto de configuração para habilitar as opções de configuração adicionais para o cluster. Por fim, use o parâmetro `-Config` do cmdlet `New-AzureRmHDInsightCluster` para usar a configuração.
 
@@ -90,16 +90,16 @@ Se você tiver problemas com a criação de clusters HDInsight, confira os [requ
 
 Agora que você criou com êxito um cluster HDInsight, use os seguintes recursos para aprender a trabalhar com o seu cluster.
 
-### <a name="hadoop-clusters"></a>Clusters do Hadoop
+### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
 
-* [Usar o Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usar o Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
-* [Usar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
+* [Usar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
+* [Usar o MapReduce do Apache HAdoop com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>Clusters do HBase
+### <a name="apache-hbase-clusters"></a>Clusters do Apache HBase
 
-* [Introdução ao HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Introdução ao Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Desenvolvimento de aplicativos Java para Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clusters Storm
 
@@ -107,10 +107,10 @@ Agora que você criou com êxito um cluster HDInsight, use os seguintes recursos
 * [Usar componentes de Python no Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Clusters do Spark
+### <a name="apache-spark-clusters"></a>Clusters do Apache Spark
 
 * [Criar um aplicativo autônomo usando Scala](spark/apache-spark-create-standalone-application.md)
-* [Executar trabalhos remotamente em um cluster do Spark usando Livy](spark/apache-spark-livy-rest-interface.md)
-* [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
-* [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Execute trabalhos remotamente em um cluster do Apache Spark usando o Apache Livy](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para prever resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
 

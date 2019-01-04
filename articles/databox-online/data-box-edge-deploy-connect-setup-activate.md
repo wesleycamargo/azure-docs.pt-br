@@ -1,5 +1,5 @@
 ---
-title: Conecte-se, configure e ative o Azure Data Box Edge no portal do Azure | Microsoft Docs
+title: Conecte-se, configure e ative um dispositivo do Azure Data Box Edge no portal do Azure | Microsoft Docs
 description: O terceiro tutorial para implantar o Data Box Edge instrui você a conectar, configurar e ativar seu dispositivo físico.
 services: databox
 author: alkohli
@@ -9,120 +9,139 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3d6742bec54e612b5dca6d9ef6c4f67a33929448
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f4ca513e3c2e2345dc0005b95ddb7927c0164ffe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166569"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383010"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-edge-preview"></a>Tutorial: Conectar, configurar, ativar a Borda da Caixa de Dados do Azure (Visualizar) 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Tutorial: Conectar, configurar e ativar o Azure Data Box Edge (versão prévia) 
 
-Este tutorial descreve como conectar-se, configurar e ativar seu dispositivo Data Box Edge usando a interface de usuário da web local. 
+Este tutorial descreve como conectar-se, configurar e ativar seu dispositivo Azure Data Box Edge usando a interface do usuário Web local. 
 
 O processo de configuração e ativação pode levar cerca de 20 minutos para ser concluído. 
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Conectar-se ao dispositivo físico
+> * Conectar-se a um dispositivo físico
 > * Configurar e ativar o dispositivo físico
 
 > [!IMPORTANT]
-> O Data Box Edge está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
+> O Data Box Edge está em versão prévia. Antes de pedir e implantar essa solução, examine os [Termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de configurar e configurar seu Data Box Edge, certifique-se de que:
+Antes de configurar e configurar seu dispositivo Data Box Edge, verifique o seguinte:
 
-* Você instalou o dispositivo físico conforme detalhado em [Install Data Box Edge](data-box-edge-deploy-install.md).
+* Você instalou o dispositivo físico conforme detalhado em [Instalar Data Box Edge](data-box-edge-deploy-install.md).
 * Você tem a chave de ativação do serviço Caixa de Dados que você criou para gerenciar o dispositivo Data Box Edge. Para obter mais informações, vá para [Preparar para implantar a Borda da Caixa de Dados do Azure](data-box-edge-deploy-prep.md).
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Conectar-se para a configuração de interface do usuário da web local 
 
-1. Configure o adaptador Ethernet no computador que você está usando para conectar-se ao dispositivo Edge com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
-2. Conecte o computador à porta 1 do seu dispositivo. 
-3. Abrir uma janela do navegador e acessar o local da web da interface do usuário do dispositivo em https://192.168.100.10. Essa ação pode levar alguns minutos depois que você tenha ativado o dispositivo. 
-4. Você verá um erro ou um aviso indicando que há um problema com o certificado de segurança do site. Clique em **Continuar para essa página da Web**. (Essas etapas podem ser diferentes com base no navegador usado.)
+1. Configure o adaptador Ethernet no computador usado para conectar-se ao dispositivo Edge com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
+
+1. Conecte o computador à porta 1 do seu dispositivo. 
+
+1. Abrir uma janela do navegador e acessar o local da web da interface do usuário do dispositivo em https://192.168.100.10.  
+    Essa ação pode levar alguns minutos depois que você tenha ativado o dispositivo. 
+
+    Você verá um erro ou um aviso indicando que há um problema com o certificado de segurança do site. 
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
+    ![Mensagem de erro de certificado de segurança do site](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
 
-2. Entrar para a web da interface do usuário do seu dispositivo. A senha padrão é *Senha1*. 
+1. Selecione **Continuar para essa página da Web**.  
+    Essas etapas podem variar dependendo do navegador que você está usando.
+
+1. Entrar para a web da interface do usuário do seu dispositivo. A senha padrão é *Senha1*. 
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
+    ![Página de entrada do dispositivo Data Box Edge](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
-3. Você é solicitado a alterar a senha do administrador do dispositivo. Digite uma nova senha que contenha entre 8 e 16 caracteres. A senha deve conter 3 dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais.
+1. No prompt, altere a senha de administrador do dispositivo.  
+    A nova senha deve conter de 8 a 16 caracteres. Deve conter três dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais.
 
-Você está agora no **painel** do seu dispositivo.
+Você está agora no painel do seu dispositivo.
 
 ## <a name="set-up-and-activate-the-physical-device"></a>Configurar e ativar o dispositivo físico
  
-1. No painel, você pode acessar várias configurações necessárias para configurar e registrar o dispositivo físico com o serviço Data Box Edge. O **nome do dispositivo**, **configurações de rede**, **configurações de proxy Web**, e **configurações de hora** são opcionais. São as únicas configurações obrigatórias **configurações de nuvem**.
+O painel exibe as várias configurações necessárias para configurar e registrar o dispositivo físico com o serviço do Data Box Edge. O **nome do dispositivo**, **configurações de rede**, **configurações de proxy Web**, e **configurações de hora** são opcionais. São as únicas configurações obrigatórias **configurações de nuvem**.
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
+![O painel de dispositivo do Data Box Edge](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
-2. Na página **Nome do dispositivo**, configure um nome amigável para o seu dispositivo. O nome amigável pode ter de 1 a 15 caracteres e pode conter letras, números e hífens.
+1. No painel esquerdo, selecione **Nome do dispositivo** e, em seguida, insira um nome amigável para seu dispositivo.  
+    O nome amigável deve conter de 1 a 15 caracteres e conter letras, números e hifens.
 
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![A página "Nome do dispositivo"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
-3. (Opcionalmente) configure suas **configurações de rede**. No seu dispositivo físico, você verá seis interfaces de rede. PORT 1 e PORT 2 são interfaces de rede de 1 Gbps. PORT 3, PORT 4, PORT 5 e PORT 6 são todas interfaces de rede de 25 Gbps. A PORTA 1 é configurada automaticamente como porta somente de gerenciamento, enquanto a PORTA 2 a PORTA 6 são todas as portas de dados. A página **Configurações de rede**, conforme mostrado abaixo.
+1. (Opcional) No painel esquerdo, selecione **Configurações de rede** e, em seguida, defina as configurações.  
+    No dispositivo físico, você verá seis adaptadores de rede. PORT 1 e PORT 2 são interfaces de rede de 1 Gbps. PORT 3, PORT 4, PORT 5 e PORT 6 são todas interfaces de rede de 25 Gbps. A PORTA 1 é configurada automaticamente como porta somente de gerenciamento, enquanto as PORTA 2 a 6 são portas de dados. A página **Configurações de rede**, conforme mostrado abaixo.
     
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
+    ![A página de "Configurações de rede"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
-    Ao configurar as configurações de rede, tenha em mente:
+    Conforme você define as configurações de rede, tenha em mente:
 
     - Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. Um endereço IP, sub-rede, gateway e DNS são atribuídos automaticamente.
     - Se o DHCP não estiver ativado, você poderá atribuir IPs estáticos, se necessário.
     - Você pode configurar sua interface de rede como IPv4.
    
-4. Opcionalmente, configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, se você usar um proxy da Web, só poderá configurá-lo aqui.
+1. (Opcional) No painel esquerdo, selecione **Configurações de proxy Web** e, em seguida, configure seu servidor proxy Web. Embora a configuração do proxy Web seja opcional, se você usar um proxy Web, poderá configurá-lo apenas nesta página.
    
-   ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
+   ![A página "Configurações de proxy Web"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
-   Na página **Proxy Web** :
+   Na página **Configurações de proxy Web**, faça o seguinte:
    
-   1. Forneça a **URL do proxy Web** neste formato: `http://host-IP address or FDQN:Port number`. Não há suporte para URLs HTTPS.
-   2. Especifique a **Autenticação** como **Básica** ou **Nenhuma**.
-   3. Se estiver usando autenticação, você também precisará fornecer um **Nome de usuário** e **Senha**.
-   4. Clique em **aplicar** para validar e aplicar as configurações de proxy da web.
+    a. Na **URL do proxy Web**, digite a URL neste formato: `http://host-IP address or FDQN:Port number`. Não há suporte para URLs HTTPS.
 
-5. Opcionalmente, defina as configurações de hora para seu dispositivo, como o fuso horário e os servidores NTP primários e secundários. Os servidores NTP são necessários, pois seu dispositivo deve sincronizar a hora para que ele possa se autenticar com seus provedores de serviço de nuvem.
-    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
-    
-    Na página **Configurações de hora** :
-    
-    1. Na lista suspensa, selecione o **Fuso horário** com base na localização geográfica na qual o dispositivo está sendo implantado. O fuso horário padrão para o seu dispositivo é PST. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
-    2. Especifique um **Servidor NTP primário** para seu dispositivo ou aceite o valor padrão de time.windows.com. Verifique se sua rede permite que o tráfego NTP passe do data center para a Internet.
-    3. Opcionalmente, especifique um **Servidor NTP secundário** para o dispositivo.
-    4. Clique em **aplicar** para validar e aplicar as configurações de hora configuradas.
+   b. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**.
 
-6. Na página **Configurações da nuvem**, ative seu dispositivo com o serviço Caixa de Dados de Borda no portal do Azure.
-    
-    1. Digite a **Chave de ativação** que você recebeu em [Obtenha a chave de ativação](data-box-edge-deploy-prep.md#get-the-activation-key) para o Data Box Edge.
+   c. Se você estiver usando a autenticação, insira um nome de usuário e uma senha.
 
-    2. Clique em **Aplicar**. 
+   d. Para validar e aplicar as configurações de proxy da Web, selecione **Aplicar configurações**.
+
+1. (Opcional) No painel esquerdo, selecione **Configurações de hora** e, em seguida, configure o fuso horário e os servidores NTP primários e secundários para seu dispositivo.  
+    Os servidores NTP são necessários, pois seu dispositivo deve sincronizar a hora para que ele possa se autenticar com seus provedores de serviço de nuvem.
+    
+    ![A página "Configurações de hora"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
+    
+    Na página **Configurações de hora**, faça o seguinte:
+    
+     a. Na lista suspensa **Fuso horário**, selecione o fuso horário que corresponde à localização geográfica na qual o dispositivo está sendo implantado.  
+        O fuso horário padrão para o seu dispositivo é PST. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
+
+    b. Na caixa **Servidor NTP primário**, digite o servidor primário para seu dispositivo ou aceite o valor padrão de time.windows.com.  
+        Verifique se sua rede permite que o tráfego NTP passe do data center para a Internet.
+
+    c. Opcionalmente, na caixa **Servidor NTP secundário**, digite um servidor secundário para seu dispositivo.
+
+    d. Para validar e aplicar as configurações de hora configuradas, selecione **Aplicar**.
+
+6. No painel esquerdo, selecione **Configurações de nuvem** e, em seguida, ative seu dispositivo com o serviço do Data Box Edge no portal do Azure.
+    
+     a. Na caixa **Chave de ativação**, digite a chave de ativação recebida em [Obter chave de ativação](data-box-edge-deploy-prep.md#get-the-activation-key) para o Data Box Edge.
+
+    b. Escolha **Aplicar**. 
        
-         ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
+    ![A página "Configurações de nuvem"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
     
-    3. Depois que o dispositivo for ativado com sucesso, você verá as opções do modo de conectividade. Essas configurações são definidas se você precisar trabalhar com o dispositivo no modo parcialmente desconectado ou desconectado. 
+    Depois que o dispositivo for ativado com sucesso, você verá as opções do modo de conectividade. Essas configurações são definidas se você precisar trabalhar com o dispositivo no modo parcialmente desconectado ou desconectado. 
 
-        ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)    
+    ![A confirmação de ativação de "Configurações de nuvem"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)    
 
 A configuração do dispositivo foi concluída. Agora você pode adicionar compartilhamentos em seu dispositivo.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre os tópicos do Data Box Edge, como:
+Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
-> * Conectar-se ao dispositivo físico
+> * Conectar-se a um dispositivo físico
 > * Configurar e ativar o dispositivo físico
 
 
-Avance para o próximo tutorial para saber como transferir dados com a borda da caixa de dados.
+Para saber como transferir dados com o seu dispositivo Data Box Edge, consulte:
 
 > [!div class="nextstepaction"]
 > [Transferir dados com dados de caixa de borda](./data-box-edge-deploy-add-shares.md).

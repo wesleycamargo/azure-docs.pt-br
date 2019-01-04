@@ -1,12 +1,11 @@
 ---
-title: Treinar novamente um serviço da Web preditivo existente - Azure Machine Learning Studio | Microsoft Docs
+title: Treinar novamente um serviço Web do Studio preditivo existente – Azure Machine Learning Studio | Microsoft Docs
 description: Saiba como treinar novamente um modelo e atualizar o serviço da Web para usar o modelo recém-treinado no Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
@@ -16,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d24cfd8dce42ee920c87fa2c3593a860468a6160
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311289"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250545"
 ---
-# <a name="retrain-an-existing-predictive-web-service"></a>Readaptar um serviço Web de previsão existente
+# <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Treinar novamente um serviço Web preditivo existente do Azure Machine Learning Studio
+
 Este documento descreve o processo de readaptação do cenário a seguir:
 
 * Você tem um experimento de treinamento e um experimento de previsão implantado como um serviço Web operacionalizado.
@@ -66,7 +66,7 @@ Para este exemplo, estamos usando C# para criar o aplicativo de readaptação. V
 
 Para chamar as APIs de Readaptação:
 
-1. Crie um aplicativo de console C# no Visual Studio: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
+1. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo do Console (.NET Framework)**.
 2. Entre no portal de Serviços Web do Machine Learning.
 3. Clique no serviço Web com o qual você está trabalhando.
 4. Clique em **Consumo**.

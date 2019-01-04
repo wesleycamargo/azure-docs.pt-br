@@ -10,25 +10,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 12/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 3c829819748309ecbca248afe35cd59f54b202a6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d2000e626166304e92556e3c965df175a27046ad
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085403"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321060"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Habilitar a autenticação do Azure Active Directory para o tempo de execução de integração do Azure SSIS
 
 Este artigo mostra como criar um IR do Azure-SSIS com a identidade do serviço do Azure Data Factory. Você pode usar autenticação do Microsoft Azure Active Directory com a identidade gerenciada do Azure Data Factory em vez da autenticação SQL para criar um tempo de execução de integração do Azure-SSIS.
 
-Para obter mais informações sobre a identidade gerenciada para o ADF, consulte [identidade de serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Para obter mais informações sobre a identidade gerenciada do seu data factory, confira [Identidade de serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > Se você já tiver criado um tempo de execução de integração do Azure-SSIS com a autenticação do SQL, não poderá reconfigurar o IR para usar a autenticação do Azure AD com o PowerShell.
 
-## <a name="create-a-group-in-azure-ad-and-make-the-managed-identity-for-your-adf-a-member-of-the-group"></a>Crie um grupo no Azure Active Directory e verifique a identidade gerenciada para o seu ADF, membro de um grupo
+## <a name="enable-azure-ad-on-azure-sql-database"></a>Habilitar o Azure AD no Banco de Dados SQL do Azure
+
+O Banco de Dados SQL do Azure oferece suporte à criação de um banco de dados com um usuário do Azure AD. Como resultado, você pode definir um usuário do Azure AD como administrador do Active Directory e, em seguida, fazer logon no SSMS (SQL Server Management Studio) com o usuário do Azure AD. Em seguida, crie um usuário independente para o grupo do Microsoft Azure Active Directory, a fim de permitir que o IR crie o catálogo do SSIS (SQL Server Integration Services) no servidor.
+
+### <a name="create-a-group-in-azure-ad-and-make-the-managed-identity-for-your-data-factory-a-member-of-the-group"></a>Crie um grupo no Azure AD e verifique a identidade gerenciada para seu data factory, membro de um grupo
 
 Você pode usar um grupo do Azure AD existente ou criar um novo usando o PowerShell do Azure AD.
 
@@ -53,7 +57,7 @@ Você pode usar um grupo do Azure AD existente ou criar um novo usando o PowerSh
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Adicione a identidade gerenciada para o seu ADF ao grupo. Você pode seguir a [identidade do serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter a iD da IDENTIDADE DE SERVIÇO (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não usa a ID DO APLICATIVO DE SERVIÇO para esta finalidade).
+3.  Adicione a identidade gerenciada para seu data factory ao grupo. Você pode seguir a [identidade do serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter a iD da IDENTIDADE DE SERVIÇO (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não usa a ID DO APLICATIVO DE SERVIÇO para esta finalidade).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -64,10 +68,6 @@ Você pode usar um grupo do Azure AD existente ou criar um novo usando o PowerSh
     ```powershell
     Get-AzureAdGroupMember -ObjectId $Group.ObjectId
     ```
-
-## <a name="enable-azure-ad-on-azure-sql-database"></a>Habilitar o Azure AD no Banco de Dados SQL do Azure
-
-O Banco de Dados SQL do Azure oferece suporte à criação de um banco de dados com um usuário do Azure AD. Como resultado, você pode definir um usuário do Azure AD como o administrador do Active Directory e, em seguida, fazer logon no SSMS com o usuário do Azure AD. Em seguida, crie um usuário independente para o grupo do Microsoft Azure Active Directory, a fim de permitir que o IR crie o catálogo do SSIS (SQL Server Integration Services) no servidor.
 
 ### <a name="enable-azure-ad-authentication-for-the-azure-sql-database"></a>Habilitar a autenticação do Azure AD para o Banco de Dados SQL do Azure
 
@@ -121,21 +121,52 @@ Para esta próxima etapa, você precisará [Microsoft SQL Server Management Stu
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Habilitar o Azure AD na Instância Gerenciada do Banco de Dados SQL do Azure
 
-A Instância Gerenciada do Banco de Dados SQL do Azure não dá suporte à criação de um banco de dados com qualquer usuário do Azure AD que não seja administrador do AD. Como resultado, você deve definir o grupo do Azure AD como administrador do Active Directory. Você não precisa criar o usuário independente.
+A Instância Gerenciada do Banco de Dados SQL do Azure dá suporte à criação de um banco de dados diretamente com o MSI. Você não precisa unir o MSI do data factory a um grupo do AD nem criar o usuário contido no MI.
 
-Você pode [configurar a autenticação do Azure Active Directory para a Instância Gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) usando estas etapas:
+### <a name="enable-azure-ad-authentication-for-the-azure-sql-database-managed-instance"></a>Habilitar a autenticação do Azure AD para a Instância Gerenciada do Banco de Dados SQL do Azure
 
-7.  No portal do Azure, selecione **Todos os serviços** -> **Servidores SQL** na navegação à esquerda.
+1.   No Portal do Azure, selecione **Todos os serviços** -> **Servidores SQL** na navegação à esquerda.
 
-8.  Selecione o SQL Server a ser habilitado para autenticação do Azure AD.
+1.   Selecione o SQL Server a ser habilitado para autenticação do Azure AD.
 
-9.  Na seção **Configuraçõess** da folha, selecione  **Administrador do Active Directory**.
+1.   Na seção **Configurações** da folha, selecione **Administrador do Active Directory**.
 
-10. Na barra de comandos, selecione **Definir administrador**.
+1.   Na barra de comandos, selecione **Definir administrador**.
 
-11. Procure e selecione o Grupo do Azure Active Directory (por exemplo, SSISIrGroup) e selecione **Selecionar.**
+1.   Selecione uma conta de usuário do Azure AD para ser administrador do servidor e selecione **Selecionar**.
 
-12. Na barra de comandos, selecione **Salvar.**
+1.   Na barra de comandos, selecione **Salvar**.
+
+### <a name="add-data-factory-msi-as-a-user-to-the-azure-sql-database-managed-instance"></a>Adicione a MSI do data factory como usuário à Instância Gerenciada do Banco de Dados SQL do Azure
+
+1.  Inicie o SQL Server Management Studio.
+
+2.  Faça logon com uma conta do administrador do SQL ou uma conta do administrador do Active Directory.
+
+3.  No Pesquisador de Objetos, expanda a pasta Bancos de Dados -> Bancos de Dados do Sistema.
+
+4.  Clique com o botão direito do mouse para selecionar o banco de dados mestre e selecione **Nova consulta**.
+
+5.  Você pode seguir o artigo [Identidade de serviço do Azure Data Factory](data-factory-service-identity.md) para obter a ID DO APLICATIVO DE IDENTIDADE DE SERVIÇO da entidade de segurança. (Não use a ID DA IDENTIDADE DO SERVIÇO para essa finalidade.)
+
+6.  Na janela de consulta, execute o script a seguir para converter a ID DE APLICATIVO DA IDENTIDADE DO SERVIÇO em um tipo binário:
+
+    ```sql
+    DECLARE @applicationId uniqueidentifier = {your service identity application id}
+    select CAST(@applicationId AS varbinary)
+    ```
+
+7.  Você pode obter o valor da janela de resultados.
+
+8.  Limpe a janela de consulta e execute o seguinte script:
+
+    ```sql
+    CREATE LOGIN [{MSI name}] FROM EXTERNAL PROVIDER with SID ={your service identity application id in binary type}, TYPE = E
+    ALTER SERVER ROLE [dbcreator] ADD MEMBER [{MSI name}]
+    ALTER SERVER ROLE [securityadmin] ADD MEMBER [{MSI name}]
+    ```
+
+9.  O comando é concluído com êxito.
 
 ## <a name="provision-the-azure-ssis-ir-in-the-portal"></a>Provisionar o IR do Azure-SSIS no Portal do Azure
 

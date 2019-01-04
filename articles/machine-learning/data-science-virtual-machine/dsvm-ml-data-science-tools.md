@@ -1,11 +1,12 @@
 ---
 title: Ferramentas de ciência de dados e aprendizado de máquina – Azure | Microsoft Docs
-description: Ferramentas de ciência de dados e aprendizado de máquina
+description: Saiba mais sobre as ferramentas e estruturas de aprendizado de máquina pré-instaladas na Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9308c51c0ff5fc7278eab632f9d23f23cf016a2a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901661"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086063"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Ferramentas de ciência de dados e aprendizado de máquina
 As Máquinas Virtuais de Ciência de Dados têm um avançado conjunto de ferramentas e bibliotecas para ML (aprendizado de máquina) disponíveis em linguagens populares como Python, R e Julia. 
@@ -33,8 +34,8 @@ A seguir, estão algumas bibliotecas e ferramentas de ML em Máquinas Virtuais d
 | O que é?   |   O Azure Machine Learning é um serviço de nuvem que você pode usar para desenvolver e implantar modelos de ML. É possível acompanhar os modelos na medida em que você cria, treina, dimensiona e gerencia usando o SDK do Python. Implante modelos como contêineres e execute-os na nuvem, no local ou no Azure IoT Edge.   |
 | Edições com suporte     | Windows (ambiente do conda: AzureML), Linux (ambiente do conda: py36)    |
 | Usos típicos      | Plataforma de ML geral      |
-| Como é configurada ou instalada?      |  Instalada com o suporte a GPU   |
-| Como usá-la ou executá-la      | Como o SDK do Python e CLI do Azure. Ative para o ambiente conda `AzureML` na edição do Windows *ou* para `py36` na edição do Linux.      |
+| Como é configurado ou instalado?      |  Instalada com o suporte a GPU   |
+| Como usá-lo ou executá-lo      | Como o SDK do Python e CLI do Azure. Ative para o ambiente conda `AzureML` na edição do Windows *ou* para `py36` na edição do Linux.      |
 | Link para exemplos      | Exemplos Jupyter Notebooks estão incluídos no diretório `AzureML` em notebooks.  |
 | Ferramentas relacionadas      | Visual Studio Code, Jupyter   |
 
@@ -44,8 +45,8 @@ A seguir, estão algumas bibliotecas e ferramentas de ML em Máquinas Virtuais d
 | O que é?   |    O XGBoost é uma biblioteca de gradient boosting (GBDT, GBRT ou GBM) rápida, portátil e distribuída para Python, R, Java, Scala, C++ e more. Executa em um único computador, Hadoop e Spark.    |
 | Edições com suporte     | Windows, Linux     |
 | Usos típicos      | Biblioteca ML geral      |
-| Como é configurada ou instalada?      |  Instalada com o suporte a GPU   |
-| Como usá-la ou executá-la      | Como biblioteca Python (2.7 e 3.5), pacote R e em ferramenta de linha de comando do caminho (`C:\dsvm\tools\xgboost\bin\xgboost.exe` para Windows, `/dsvm/tools/xgboost/xgboost` para Linux)    |
+| Como é configurado ou instalado?      |  Instalada com o suporte a GPU   |
+| Como usá-lo ou executá-lo      | Como biblioteca Python (2.7 e 3.5), pacote R e em ferramenta de linha de comando do caminho (`C:\dsvm\tools\xgboost\bin\xgboost.exe` para Windows, `/dsvm/tools/xgboost/xgboost` para Linux)    |
 | Links para exemplos      | Exemplos são incluídos na VM, em `/dsvm/tools/xgboost/demo` no Linux e em `C:\dsvm\tools\xgboost\demo` no Windows.   |
 | Ferramentas relacionadas      | LightGBM, MXNet   |
 
@@ -57,7 +58,7 @@ A seguir, estão algumas bibliotecas e ferramentas de ML em Máquinas Virtuais d
 | O que é?   |   Vowpal Wabbit (também conhecido como "VW") é uma biblioteca de sistema de aprendizado fora do núcleo rápida de software livre.    |
 | Edições com suporte     | Windows, Linux     |
 | Usos típicos      | Biblioteca ML geral      |
-| Como é configurada ou instalada?      |  Windows--msi installer, Linux--apt-get |
+| Como é configurado ou instalado?      |  Windows--msi installer, Linux--apt-get |
 | Como usá-la ou executá-la      | Como uma ferramenta de linha de comando no caminho (`C:\Program Files\VowpalWabbit\vw.exe` no Windows, `/usr/bin/vw` no Linux)    |
 | Link para exemplos      | [Exemplos de VowPal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
 | Ferramentas relacionadas      |LightGBM, MXNet, XGBoost   |
@@ -79,7 +80,7 @@ A seguir, estão algumas bibliotecas e ferramentas de ML em Máquinas Virtuais d
 | O que é?   |   Rattle é uma interface gráfica de usuário para mineração de dados usando R.   |
 | Edições com suporte     | Windows, Linux     |
 | Usos típicos      | Ferramenta de mineração de dados da Interface do Usuário geral para R    |
-| Como usá-la ou executá-la      | Ferramenta da interface do usuário. No Windows, inicie um prompt de comando, execute R e, em seguida, dentro de R, execute `rattle()`. No Linux, conecte-se ao X2Go, inicie um terminal, execute R e, em seguida, dentro de R, execute `rattle()`. |
+| Como usá-lo ou executá-lo      | Ferramenta da interface do usuário. No Windows, inicie um prompt de comando, execute R e, em seguida, dentro de R, execute `rattle()`. No Linux, conecte-se ao X2Go, inicie um terminal, execute R e, em seguida, dentro de R, execute `rattle()`. |
 | Link para exemplos      | [Rattle](https://togaware.com/onepager/) |
 | Ferramentas relacionadas      |LightGBM, Weka, XGBoost   |
 
@@ -89,7 +90,7 @@ A seguir, estão algumas bibliotecas e ferramentas de ML em Máquinas Virtuais d
 | O que é?   | O LightGBM é uma estrutura de gradient boosting (GBDT, GBRT, GBM ou MART) rápida, distribuída e de alto desempenho com base em algoritmos de árvore de decisão. É usado para pontuação, classificação e muitas outras tarefas de ML.    |
 | Versões com suporte      | Windows, Linux    |
 | Usos típicos      | Estrutura de aumento de gradiente de finalidade geral      |
-| Como é configurada ou instalada?      | No Windows, LightGBM é instalado como um pacote do Python. No Linux, o executável de linha de comando está em `/opt/LightGBM/lightgbm`, o pacote R está instalado e pacotes Python estão instalados.     |
+| Como é configurado ou instalado?      | No Windows, LightGBM é instalado como um pacote do Python. No Linux, o executável de linha de comando está em `/opt/LightGBM/lightgbm`, o pacote R está instalado e pacotes Python estão instalados.     |
 | Link para exemplos      | [Guia LightGBM](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
 | Ferramentas relacionadas      | MXNet, XgBoost  |
 

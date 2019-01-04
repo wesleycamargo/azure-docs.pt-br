@@ -3,7 +3,7 @@ title: Roteiro de preparação da Central de Segurança do Azure | Microsoft Doc
 description: Este documento fornece um roteiro de preparação para incrementar a Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: ndicola
 editor: ''
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 099d3fcac5d7574f744ab1bb00dd636b8d867fa9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 56d18b7ec44e979bee48c3598286a461199e1005
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408434"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958194"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de Preparação da Central de Segurança do Azure
 Este documento fornece um roteiro de preparação que ajudará você a começar a usar a Central de Segurança do Azure.
@@ -107,7 +107,7 @@ Artigos
 
 * [Laboratório prático da Central de Segurança](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Guia estratégico de recomendação do WAF (Firewall do Aplicativo Web) na Central de Segurança](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
-* [Guia Estratégico da Central de Segurança do Azure: Alertas de Segurança](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+* [Guia estratégico da Central de Segurança do Azure: Alertas de segurança](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Página de documentação da Central de Segurança](https://docs.microsoft.com/azure/security-center/)

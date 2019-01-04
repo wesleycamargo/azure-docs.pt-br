@@ -9,35 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e17412636a904508352370bc7292a7d64bac6bc
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280429"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385560"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari está incluído em clusters HDInsight baseados em Linux e é usado para monitorar o cluster e fazer alterações de configuração.
+O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Apache Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari está incluído em clusters HDInsight baseados em Linux e é usado para monitorar o cluster e fazer alterações de configuração.
 
 Neste documento, você aprenderá a usar a interface de usuário do Ambari Web com um cluster HDInsight.
 
-## <a id="whatis"></a>O que é o Ambari?
+## <a id="whatis"></a>O que é o Apache Storm?
 
 O [Apache Ambari](http://ambari.apache.org) simplifica o gerenciamento do Hadoop, fornecendo uma interface do usuário da Web fácil de usar. Você pode usar o Ambari para gerenciar e monitorar clusters do Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 A IU da Web do Ambari é fornecida por padrão com clusters HDInsight que usam o sistema operacional Linux.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## <a name="connectivity"></a>Conectividade
 
 A IU da Web do Ambari está disponível no seu cluster HDInsight em HTTPS://CLUSTERNAME.azurehdinsight.net,em que **CLUSTERNAME** é o nome do cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Conectar-se ao Ambari no HDInsight requer HTTPS. Quando a autenticação for solicitada, use o nome e a senha da conta do administrador que você forneceu quando o cluster foi criado.
 
 ## <a name="ssh-tunnel-proxy"></a>Túnel SSH (proxy)
@@ -46,7 +46,7 @@ Enquanto o Ambari para o cluster é acessível diretamente pela Internet, alguns
 
 ## <a name="ambari-web-ui"></a>Interface do usuário da Ambari Web
 
-> [!WARNING]
+> [!WARNING]  
 > Nem todos os recursos da interface do usuário da Web do Ambari têm suporte no HDInsight. Para obter mais informações, consulte a seção [Operações sem suporte](#unsupported-operations) deste documento.
 
 Ao se conectar à interface do usuário do Ambari Web, você recebe uma solicitação para autenticar a página. Use a senha e o usuário administrador de cluster (Admin padrão) usados durante a criação do cluster.
@@ -120,7 +120,7 @@ A barra lateral **Serviços** no painel oferece uma visão rápida do status dos
 
 ![barra lateral serviços](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Os serviços exibidos variam de acordo com versões e tipos de cluster HDInsight. Os serviços exibidos aqui podem ser diferentes dos serviços exibidos para o cluster.
 
 A seleção de um serviço exibirá informações mais detalhadas sobre o serviço.
@@ -138,7 +138,7 @@ Alguns serviços exibem um link **Links Rápidos** na parte superior da página.
 
 A seleção de qualquer um desses links abrirá uma nova guia em seu navegador, que exibirá a página selecionada.
 
-> [!NOTE]
+> [!NOTE]  
 > Selecionar a entrada **Links Rápidos** para um serviço pode retornar um erro de "servidor não encontrado". Se você encontrar esse erro, você deverá usar um túnel SSH ao usar a entrada **Links rápidos** para esse serviço. Para obter informações, consulte [Usar túnel SSH com o HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="management"></a>Gerenciamento
@@ -147,7 +147,7 @@ A seleção de qualquer um desses links abrirá uma nova guia em seu navegador, 
 
 O trabalho com usuários, grupos e permissões tem suporte ao usar um cluster HDInsight [ingressado no domínio](./domain-joined/apache-domain-joined-introduction.md). Para obter informações sobre o uso da IU de Gerenciamento do Ambari em um cluster ingressado no domínio, consulte [Gerenciar clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-introduction.md).
 
-> [!WARNING]
+> [!WARNING]  
 > Não altere a senha do watchdog Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. A alteração da senha interrompe a capacidade de usar as ações de script ou executar operações de dimensionamento com o cluster.
 
 ### <a name="hosts"></a>Hosts
@@ -156,7 +156,7 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
 
 ![página hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
-> [!NOTE]
+> [!NOTE]  
 > As ações de adicionar, encerrar e reativar um host não devem ser realizadas com clusters HDInsight.
 
 1. Selecione o host que você deseja gerenciar.
@@ -195,7 +195,7 @@ Na página **Painel** ou **Serviços**, use o botão **Ações** na parte inferi
 
 ![Ações de Serviço](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [!WARNING]
+> [!WARNING]  
 > Enquanto **Adicionar Serviço** estiver listado nesse menu, ele não deverá ser usado para adicionar serviços ao cluster HDInsight. Novos serviços devem ser adicionados usando uma Ação de Script durante o provisionamento do cluster. Para saber mais sobre o uso de ações de script, consulte [Personalizar clusters HDInsight usando ações de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Embora o botão **Ações** possa reiniciar todos os serviços, muitas vezes convém iniciar, parar ou reiniciar um serviço específico. Use as seguintes etapas para executar ações em um serviço individual:
@@ -206,12 +206,12 @@ Embora o botão **Ações** possa reiniciar todos os serviços, muitas vezes con
 
     ![ação de serviço](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Reiniciar alguns serviços enquanto o cluster estiver em execução pode gerar alertas. Para evitar alertas, você pode usar o botão **Ações de Serviço** para habilitar o **Modo de manutenção** para o serviço antes de executar a reinicialização.
 
 3. Depois que uma ação é selecionada, a entrada **Nº operações** na parte superior da página aumenta para mostrar que está ocorrendo uma operação em segundo plano. Se a exibição estiver configurada, a lista de operações em segundo plano será exibida.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Se você habilitou o **modo Manutenção** para o serviço, lembre-se de desabilitá-lo usando o botão **Ações de Serviço** quando a operação for concluída.
 
 Para configurar um serviço, use as seguintes etapas:
@@ -226,12 +226,12 @@ Para configurar um serviço, use as seguintes etapas:
 
 ## <a name="ambari-views"></a>Exibições do Ambari
 
-As Exibições do Ambari permitem que os desenvolvedores conectem elementos de interface do usuário à interface do usuário da Web do Ambari usando a [Estrutura de modos de exibição do Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). O HDInsight fornece as seguintes exibições com tipos de cluster do Hadoop:
+As Exibições do Ambari permitem que os desenvolvedores conectem elementos de interface do usuário à interface do usuário da Web do Apache Ambari usando a [Estrutura de modos de exibição do Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). O HDInsight fornece as seguintes exibições com tipos de cluster do Hadoop:
 
 
-* Exibição do Hive: a Exibição do Hive permite executar consultas de Hive diretamente do seu navegador da Web. Você pode salvar consultas, exibir os resultados, salvar os resultados no armazenamento de cluster ou baixar os resultados no sistema local. Para obter mais informações sobre como usar Exibições do Hive, consulte [Usar Exibições do Hive com o HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
+* Exibição de Hive: A Exibição de Hive permite executar consultas de Hive diretamente do navegador da Web. Você pode salvar consultas, exibir os resultados, salvar os resultados no armazenamento de cluster ou baixar os resultados no sistema local. Para obter mais informações sobre como usar Exibições do Hive, consulte [Usar Exibições do Apache Hive com HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
-* Exibição Tez: a exibição Tez permite que você compreenda melhor e otimize os trabalhos. Você pode exibir informações sobre como os trabalhos do Tez são executados e quais recursos são usados.
+* Exibição do Tez: A exibição do Tez permite compreender melhor e otimizar os trabalhos. Você pode exibir informações sobre como os trabalhos do Tez são executados e quais recursos são usados.
 
 ## <a name="unsupported-operations"></a>Operações sem suporte
 
@@ -241,4 +241,4 @@ Não há suporte para as seguintes operações do Ambari no HDInsight:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como usar a [API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) com o HDInsight.
+Saiba como usar a [API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) com HDInsight.

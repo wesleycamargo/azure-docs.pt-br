@@ -1,6 +1,6 @@
 ---
 title: Conectar a sistemas de arquivos locais – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Automatize tarefas e fluxos de trabalho que se conectam a sistemas de arquivos locais com o conector do sistema de arquivos por meio do gateway de dados local no Aplicativo Lógico do Azure
+description: Automatize tarefas e fluxos de trabalho que se conectam a sistemas de arquivos locais com o conector do sistema de arquivos por meio do gateway de dados local nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,9 +16,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50232538"
 ---
-# <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar a sistemas de arquivos locais com o Aplicativo Lógico do Azure
+# <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar a sistemas de arquivos locais com os Aplicativos Lógicos do Azure
 
-Com o conector do sistema de arquivos e o Aplicativo Lógico do Azure, você pode criar tarefas e fluxos de trabalho automatizados que criam e gerenciam arquivos em um compartilhamento de arquivos local, por exemplo:  
+Com o conector do sistema de arquivos e os Aplicativos Lógicos do Azure, você pode criar tarefas e fluxos de trabalho automatizados que criam e gerenciam arquivos em um compartilhamento de arquivos local, por exemplo:  
 
 - Criar, obter, acrescentar, atualizar e excluir arquivos
 - Listar arquivos em pastas ou pastas raiz.
@@ -48,7 +48,7 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
 
    ![Selecionar o gatilho do Dropbox](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
-1. Entre com suas credenciais de conta do Dropbox e autorize o acesso aos dados do Dropbox para o Aplicativo Lógico do Azure. 
+1. Entre com suas credenciais de conta do Dropbox e autorize o acesso aos dados do Dropbox para os Aplicativos Lógicos do Azure. 
 
 1. Forneça as informações necessárias para o gatilho.
 

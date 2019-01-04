@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233507"
 ---
-# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas do Aplicativo Lógico do Azure
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas dos Aplicativos Lógicos do Azure
 
 Embora os Aplicativos Lógicos do Azure ofereçam [mais de 100 conectores internos](../connectors/apis-list.md) que você pode usar em fluxos de trabalho de aplicativo lógico, talvez seja melhor chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Você pode criar suas próprias APIs que fornecem ações e gatilhos para uso em aplicativos lógicos. Veja outros motivos para criar suas próprias APIs que você pode chamar de fluxos de trabalhos de aplicativos lógicos:
 

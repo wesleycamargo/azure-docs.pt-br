@@ -1,24 +1,26 @@
 ---
-title: Criar um Load Balancer Standard público com frontend de endereço IP público de zona usando o Portal do Azure | Microsoft Docs
-description: Saiba como criar um Load Balancer Standard público com frontend de endereço IP público de zona com o Portal do Azure
+title: Criar um Standard Load Balancer com endereço IP de front-end de zona - Portal do Azure
+titlesuffix: Azure Load Balancer
+description: Saiba como criar um Load Balancer Standard público com front-end de endereço IP público de zona com o Portal do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: cc3d1e9f2d87da1ed7014674877212ea0be81bca
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e109504fe8657436d73870cc022ed4bc81c559f5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416759"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095297"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Criar um Load Balancer Standard público com frontend de endereço IP público de zona usando o Portal do Azure
+#  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Criar um Load Balancer Standard público com front-end de endereço IP público de zona usando o Portal do Azure
 
 Este artigo segue as etapas para a criação de um [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) público com um front-end de zona. Para entender como as zonas de disponibilidade funcionam com o Load Balancer Standard, consulte [Zonas de disponibilidade e Load Balancer Standard](load-balancer-standard-availability-zones.md). 
 

@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7ca97c52d81af2c224d27025266a628c28c0af78
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0bae06d46c2c96ba9dd058e9c2d380379523811c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428885"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993944"
 ---
 # <a name="manage-analysis-services"></a>Gerenciar o Analysis Services
 Depois de criar um servidor do Analysis Services no Azure, talvez seja necessário executar algumas tarefas de administração e gerenciamento imediatamente ou em algum momento no futuro. Por exemplo, executar o processamento nos dados atualizados, controlar quem pode acessar os modelos em seu servidor ou monitorar a integridade do servidor. Algumas tarefas de gerenciamento só podem ser executadas no Portal do Azure, outras no SQL Server Management Studio (SSMS) e algumas tarefas podem ser executadas em ambos.
 
 ## <a name="azure-portal"></a>Portal do Azure
-O [Portal do Azure](http://portal.azure.com/) é o local em que você pode criar e excluir servidores, monitorar recursos de servidor, alterar o tamanho e gerenciar quem tem acesso aos seus servidores.  Se você estiver enfrentando problemas, também poderá enviar uma solicitação de suporte.
+O [Portal do Azure](https://portal.azure.com/) é o local em que você pode criar e excluir servidores, monitorar recursos de servidor, alterar o tamanho e gerenciar quem tem acesso aos seus servidores.  Se você estiver enfrentando problemas, também poderá enviar uma solicitação de suporte.
 
 ![Obter o nome do servidor no Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
@@ -35,7 +35,7 @@ Para obter todos os recursos mais recentes e a melhor experiência ao se conecta
 
 
 ### <a name="to-connect-with-ssms"></a>Para conectar-se com o SSMS
- Ao usar o SSMS, antes de se conectar ao servidor na primeira vez, verifique se que seu nome de usuário está incluído no grupo de administradores do Analysis Services. Para obter mais informações, consulte [Administradores de servidor](#server-administrators) posteriormente neste artigo.
+ Ao usar o SSMS, antes de se conectar ao servidor na primeira vez, verifique se que seu nome de usuário está incluído no grupo de administradores do Analysis Services. Para obter mais informações, consulte [Administradores de servidor e usuários de banco de dados](#server-administrators-and-database-users) posteriormente neste artigo.
 
 1. Antes de se conectar, você precisa obter o nome do servidor. No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, copie o nome do servidor.
    

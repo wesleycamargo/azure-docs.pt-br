@@ -1,5 +1,5 @@
 ---
-title: Como usar o SDK do Azure WebJobs
+title: Como usar o SDK WebJobs - Azure
 description: Saiba mais sobre como escrever código para o WebJobs SDK. Crie trabalhos de processamento em segundo plano controlado por evento que acessam dados nos serviços de terceiros e serviços do Azure.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f6d343d42bf9d918bf23c9f5f442d977a5caca96
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335207"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343710"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -450,7 +450,7 @@ Os gatilhos de fila e blob impedem automaticamente que uma função processe uma
 
 O gatilho de timer garante que apenas uma instância do timer seja executada, portanto você não terá mais de uma instância de função em execução em um determinado horário agendado.
 
-Se desejar garantir que apenas uma instância de uma função é executada, mesmo quando houver várias instâncias do aplicativo Web host, é possível usar o atributo [Singleton](#singleton).
+Se desejar garantir que apenas uma instância de uma função é executada, mesmo quando houver várias instâncias do aplicativo Web host, é possível usar o [atributo Singleton](#singleton-attribute).
     
 ## <a name="filters"></a>Filtros 
 
@@ -498,7 +498,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### <a name="custom-telemetry-for-application-insights"></a>Telemetria personalizada do Application Insights​
 
-Internamente, o `TelemetryClient` criado pelo provedor do Application Insights para o WebJobs SDK usa o [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). Quando o ponto de extremidade do Application Insights está indisponível ou limitando solicitações de entrada, este canal [salva as solicitações no sistema de arquivos do aplicativo Web e reenvia-as depois](http://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+Internamente, o `TelemetryClient` criado pelo provedor do Application Insights para o WebJobs SDK usa o [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). Quando o ponto de extremidade do Application Insights está indisponível ou limitando solicitações de entrada, este canal [salva as solicitações no sistema de arquivos do aplicativo Web e reenvia-as depois](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
 O `TelemetryClient` é criado por uma classe que implementa `ITelemetryClientFactory`. Por padrão, esse é o [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
 

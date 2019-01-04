@@ -1,5 +1,5 @@
 ---
-title: Backup e restauração periódicos do Azure Service Fabric (Versão Prévia) | Microsoft Docs
+title: Backup periódico e restauração no Azure Service Fabric | Microsoft Docs
 description: Use o recurso de restauração e backup periódico do Service Fabric para habilitar o backup periódico de dados dos dados do seu aplicativo.
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2018
+ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: ef92212b84496802dc2464498a0b6789f79a729b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 57848a7a4d8e627e952a9f46d438b073c73d833a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246694"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725855"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e restauração periódicos do Azure Service Fabric (Versão Prévia)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e restauração periódicos no Azure Service Fabric 
 > [!div class="op_single_selector"]
 > * [Clusters no Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clusters independentes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -38,13 +38,10 @@ Por exemplo, pode ser útil fazer o backup dos dados de um serviço para se prot
 - Bugs no serviço que venham a corromper os dados. Por exemplo, isso pode ocorrer quando uma atualização de código de serviço inicia a gravação de dados com falha em uma coleção confiável. Nesse caso, convém reverter o código e os dados para um estado anterior.
 - Processamento de dados offline. Talvez seja conveniente processar no modo offline os dados de business intelligence que ocorrem separadamente do serviço que gera os dados.
 
-O Service Fabric fornece uma API interna para realizar [backup e restauração](service-fabric-reliable-services-backup-restore.md) pontuais. Os desenvolvedores de aplicativos podem usar essas APIs para fazer backup do estado do serviço periodicamente. Além disso, se os administradores de serviço quiserem disparar um backup de fora do serviço em um momento específico, como antes de atualizar o aplicativo, os desenvolvedores precisarão expor o backup (e a restauração) como uma API do serviço. Manter os backups é um custo adicional a este. Por exemplo, pode ser útil realizar 5 backups incrementais a cada meia hora, seguidos por um backup completo. Após o backup completo, você poderá excluir os backups incrementais anteriores. Essa abordagem requer código adicional, o que significa custos adicionais durante o desenvolvimento do aplicativo.
+O Service Fabric fornece uma API interna para realizar [backup e restauração](service-fabric-reliable-services-backup-restore.md) pontuais. Os desenvolvedores de aplicativos podem usar essas APIs para fazer backup do estado do serviço periodicamente. Além disso, se os administradores de serviço quiserem disparar um backup de fora do serviço em um momento específico, como antes de atualizar o aplicativo, os desenvolvedores precisarão expor o backup (e a restauração) como uma API do serviço. Manter os backups é um custo adicional a este. Por exemplo, pode ser útil realizar cinco backups incrementais a cada meia hora, seguidos por um backup completo. Após o backup completo, você poderá excluir os backups incrementais anteriores. Essa abordagem requer código adicional, o que significa custos adicionais durante o desenvolvimento do aplicativo.
 
-O backup periódico dos dados do aplicativo é uma necessidade básica para gerenciar um aplicativo distribuído e protegê-lo contra perda de dados ou perda prolongada da disponibilidade do serviço. O Service Fabric fornece um serviço opcional de backup e restauração, que permite que você configure o backup periódico dos Reliable Services com estado (inclusive Serviços de Ator) sem a necessidade de escrever código adicional. Ele também facilita a restauração dos backup obtidos anteriormente. 
+O serviço de Backup e Restauração no Service Fabric possibilita backup fácil e automático das informações armazenadas em serviço com estado. Fazer backup de dados de aplicativo em uma base periódica é fundamental para proteger contra a indisponibilidade de serviço e perda de dados. O Service Fabric fornece um serviço opcional de backup e restauração, que permite que você configure o backup periódico dos Reliable Services com estado (inclusive Serviços de Ator) sem a necessidade de escrever código adicional. Ele também facilita a restauração dos backup obtidos anteriormente. 
 
-> [!NOTE]
-> O recurso de backup e restauração periódicos está atualmente em **Versão prévia** e não é compatível com cargas de trabalho de produção. 
->
 
 O Service Fabric fornece um conjunto de APIs para obter a funcionalidade a seguir relacionada ao recurso de backup e restauração periódicos:
 
@@ -116,7 +113,7 @@ Vamos percorrer as etapas para habilitar o backup periódico do serviço confiá
 
 ### <a name="create-backup-policy"></a>Criar política de backup
 
-A primeira etapa é criar a política de backup que descreve a agenda de backup, o armazenamento de destino para os dados de backup, o nome da política e o máximo de backups incrementais permitidos antes de disparar o backup completo. 
+A primeira etapa é criar a política de backup que descreve a agenda de backup, o armazenamento de destino para os dados de backup, o nome da política e o máximo de backups incrementais permitidos antes de disparar o armazenamento de backup. 
 
 Para armazenamento de backup, use a conta de Armazenamento do Azure criada acima. O contêiner `backup-container` está configurado para armazenar backups. Um contêiner com esse nome é criado, caso ainda não exista, durante o carregamento de backup. Preencha `ConnectionString` com uma cadeia de conexão válida para a conta de Armazenamento do Azure, substituindo `account-name` por seu nome de conta de armazenamento, e `account-key` por sua chave de conta de armazenamento.
 
@@ -134,15 +131,21 @@ $ScheduleInfo = @{
     ScheduleKind = 'FrequencyBased'
 }
 
+$RetentionPolicy = @{ 
+    RetentionPolicyType = 'Basic'
+    RetentionDuration =  'P10D'
+}
+
 $BackupPolicy = @{
     Name = 'BackupPolicy1'
     MaxIncrementalBackups = 20
     Schedule = $ScheduleInfo
     Storage = $StorageInfo
+    RetentionPolicy = $RetentionPolicy
 }
 
 $body = (ConvertTo-Json $BackupPolicy)
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
@@ -158,7 +161,7 @@ $BackupPolicyReference = @{
 }
 
 $body = (ConvertTo-Json $BackupPolicyReference)
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/EnableBackup?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ``` 
@@ -176,7 +179,7 @@ Backups associados a todas as partições que pertencem aos serviços confiávei
 Execute o seguinte script do PowerShell para invocar a API HTTP para enumerar os backups criados para todas as partições dentro do aplicativo `SampleApp`.
 
 ```powershell
-$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.2-preview"
+$url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
 
 $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 
@@ -223,10 +226,9 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>Limitação da versão prévia
+## <a name="limitation-caveats"></a>Limite/Limitações
 - Nenhum cmdlet do PowerShell interno ao Service Fabric.
 - Não há suporte para a CLI do Service Fabric.
-- Não há suporte para a limpeza de backup automatizada. O [script de retenção de backup](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) pode ser referenciado para configurar a automação externa baseada em script para limpar os backups.
 - Não há suporte para clusters do Service Fabric no Linux.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b51067b9e854566991d49aeb1ff2b1ad13999a51
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127832"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957735"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Tradução de texto API 3.0: Pesquisa de dicionário
+# <a name="translator-text-api-30-dictionary-lookup"></a>API de Tradução de Texto 3.0: Pesquisa no dicionário
 
-Fornece as traduções alternativas para uma palavra e um pequeno número de frases idiomáticas. Cada tradução tem uma parte da fala e uma lista de traduções reversas. As traduções reversas possibilitam que um usuário entenda a tradução no contexto. A operação [Exemplo de Dicionário](.\v3-0-dictionary-examples.md) permite mais detalhamento para ver os usos de exemplo de cada par de tradução.
+Fornece as traduções alternativas para uma palavra e um pequeno número de frases idiomáticas. Cada tradução tem uma parte da fala e uma lista de traduções reversas. As traduções reversas possibilitam que um usuário entenda a tradução no contexto. A operação [Exemplo de Dicionário](./v3-0-dictionary-examples.md) permite mais detalhamento para ver os usos de exemplo de cada par de tradução.
 
 ## <a name="request-url"></a>URL de Solicitação
 
@@ -42,11 +42,11 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>de</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](.\v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas compatíveis](.\v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
   </tr>
 </table>
 
@@ -92,17 +92,17 @@ As seguintes limitações se aplicam:
 
 Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `normalizedSource`: uma cadeia de caracteres fornecendo o formulário normalizado do termo de origem. Por exemplo, se a solicitação for "JOHN", o formato normalizado será "john". O conteúdo desse campo se torna a entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).
+  * `normalizedSource`: uma cadeia de caracteres fornecendo a forma normalizada do termo de origem. Por exemplo, se a solicitação for "JOHN", o formato normalizado será "john". O conteúdo desse campo se torna a entrada para [exemplos de pesquisa](./v3-0-dictionary-examples.md).
     
   * `displaySource`: uma cadeia de caracteres fornecendo o termo de origem na forma mais adequada para exibição do usuário final. Por exemplo, se a entrada for "JOHN", o formato de exibição refletirá a ortografia normal do nome: "John". 
 
   * `translations`: uma lista de traduções para o termo de origem. Cada elemento da lista é um objeto com as seguintes propriedades:
 
-    * `normalizedTarget`: uma cadeia de caracteres fornecendo a forma normalizada desse termo no idioma de destino. Esse valor deve ser usado como entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).
+    * `normalizedTarget`: uma cadeia de caracteres fornecendo a forma normalizada desse termo no idioma de destino. Esse valor deve ser usado como entrada para [exemplos de pesquisa](./v3-0-dictionary-examples.md).
 
     * `displayTarget`: uma cadeia de caracteres fornecendo o termo no idioma de destino e na forma mais adequada para exibição do usuário final. Em geral, isso diferirá do `normalizedTarget` apenas em termos de maiúsculas e minúsculas. Por exemplo, um substantivo próprio como "Juan" terá `normalizedTarget = "juan"` e `displayTarget = "Juan"`.
 
-    * `posTag`: uma cadeia de caracteres associando esse termo a uma marcação de parte da fala.
+    * `posTag`: uma cadeia de caracteres associando esse termo a uma marca de parte da fala.
 
         | Nome da marca | DESCRIÇÃO  |
         |----------|--------------|
@@ -125,11 +125,11 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
     
     * `backTranslations`: uma lista de "traduções reversas" do destino. Por exemplo, palavras de origem para as quais o destino pode ser traduzido. É garantido que a lista contenha a palavra de origem que foi solicitada (por exemplo, se a palavra de origem que está sendo pesquisada for "fly", será garantido que "fly" estará na lista `backTranslations`). No entanto, não é garantido que estará na primeira posição, e geralmente não estará. Cada elemento da lista `backTranslations` é um objeto descrito pelas seguintes propriedades:
 
-        * `normalizedText`: uma cadeia de caracteres fornecendo o formulário normalizado do termo de origem é uma tradução reversa do destino. Esse valor deve ser usado como entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).        
+        * `normalizedText`: uma cadeia de caracteres fornecendo a forma normalizada do termo de origem é uma tradução reversa do destino. Esse valor deve ser usado como entrada para [exemplos de pesquisa](./v3-0-dictionary-examples.md).        
 
-        * `displayText`: uma cadeia de caracteres fornecendo o termo de origem que é uma tradução reversa do destino a forma mais adequada para a exibição do usuário final.
+        * `displayText`: uma cadeia de caracteres fornecendo o termo de origem que é uma tradução reversa do destino na forma mais adequada para a exibição do usuário final.
 
-        * `numExamples`: um inteiro representando o número de exemplos que estão disponíveis para esse par de tradução. Exemplos reais devem ser recuperados com uma chamada separada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md). O número destina-se principalmente a facilitar a exibição em um UX. Por exemplo, uma interface do usuário pode adicionar um hiperlink para uma tradução reversa se o número de exemplos é maior que zero e mostrar a tradução reversa como texto sem formatação se não houver nenhum exemplo. Observe que o número real de exemplos retornados por uma chamada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md) pode ser menor que `numExamples`, pois filtragem adicional pode ser aplicada rapidamente para remover os exemplos "ruins".
+        * `numExamples`: um inteiro representando o número de exemplos que estão disponíveis para esse par de tradução. Exemplos reais devem ser recuperados com uma chamada separada para [exemplos de pesquisa](./v3-0-dictionary-examples.md). O número destina-se principalmente a facilitar a exibição em um UX. Por exemplo, uma interface do usuário pode adicionar um hiperlink para uma tradução reversa se o número de exemplos é maior que zero e mostrar a tradução reversa como texto sem formatação se não houver nenhum exemplo. Observe que o número real de exemplos retornados por uma chamada para [exemplos de pesquisa](./v3-0-dictionary-examples.md) pode ser menor que `numExamples`, pois filtragem adicional pode ser aplicada rapidamente para remover os exemplos "ruins".
         
         * `frequencyCount`: um inteiro representando a frequência desse par de tradução nos dados. O principal objetivo desse campo é fornecer uma interface do usuário com um meio de classificar as traduções reversas para que os termos mais frequentes apareçam primeiro.
 

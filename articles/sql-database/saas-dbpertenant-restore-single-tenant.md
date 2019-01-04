@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 12/04/2018
+ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056736"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274421"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurar um único locatário com um aplicativo de banco de dados por locatário SaaS
 
@@ -26,10 +26,8 @@ O modelo de banco de dados por locatário facilita a restauração de um único 
 Neste tutorial, você aprenderá dois padrões de recuperação de dados:
 
 > [!div class="checklist"]
-
 > * Restaurar um banco de dados em um banco de dados paralelo (lado a lado).
 > * Restaurar um banco de dados no local substituindo o banco de dados existente.
-
 
 |||
 |:--|:--|
@@ -44,13 +42,13 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Introdução aos padrões de restauração de locatário de SaaS
 
-Há dois padrões simples para restaurar dados de um locatário individual. Como os bancos de dados de locatário são isolados uns dos outros, restaurar um locatário não afeta os dados de outro locatário. O recurso PITR (restauração pontual) do Banco de Dados SQL do Azure é usado em ambos os padrões. A PITR sempre cria um novo banco de dados.   
+Há dois padrões simples para restaurar dados de um locatário individual. Como os bancos de dados de locatário são isolados uns dos outros, restaurar um locatário não afeta os dados de outro locatário. O recurso PITR (restauração pontual) do Banco de Dados SQL do Azure é usado em ambos os padrões. A PITR sempre cria um novo banco de dados.
 
-* **Restaurar em paralelo**: no primeiro padrão, um novo banco de dados paralelo é criado junto com o banco de dados atual do locatário. O locatário recebe acesso somente leitura para o banco de dados restaurado. Os dados restaurados podem ser revisados e possivelmente usados para substituir os valores de dados atuais. Cabe ao designer do aplicativo determinar como o locatário acessa o banco de dados restaurado e quais opções de recuperação são fornecidas. Simplesmente permitir que o locatário revise seus dados em um ponto anterior pode ser suficiente em alguns cenários. 
+* **Restaurar em paralelo**: no primeiro padrão, um novo banco de dados paralelo é criado junto com o banco de dados atual do locatário. O locatário recebe acesso somente leitura para o banco de dados restaurado. Os dados restaurados podem ser revisados e possivelmente usados para substituir os valores de dados atuais. Cabe ao designer do aplicativo determinar como o locatário acessa o banco de dados restaurado e quais opções de recuperação são fornecidas. Simplesmente permitir que o locatário revise seus dados em um ponto anterior pode ser suficiente em alguns cenários.
 
-* **Restaurar no local**: o segundo padrão é útil se os dados tiverem sido perdidos ou corrompidos e locatário deseja reverter para um ponto anterior. O locatário fica offline enquanto o banco de dados é restaurado. O banco de dados original é excluído e o banco de dados restaurado é renomeado. A cadeia de backup do banco de dados original permanece acessível após a exclusão, permitindo que você restaure o banco de dados para um ponto anterior, se necessário.
+* **Restaurar no local**: o segundo padrão será útil se os dados tiverem sido perdidos ou corrompidos e locatário deseja reverter para um ponto anterior. O locatário fica offline enquanto o banco de dados é restaurado. O banco de dados original é excluído e o banco de dados restaurado é renomeado. A cadeia de backup do banco de dados original permanece acessível após a exclusão, permitindo que você restaure o banco de dados para um ponto anterior, se necessário.
 
-Se o banco de dados usa a [Replicação geográfica](sql-database-geo-replication-overview.md) e a restauração em paralelo, recomendamos copiar os dados necessários da cópia restaurada para o banco de dados original. Se substituir o banco de dados original pelo banco de dados restaurado, reconfigure e ressincronize a replicação geográfica.
+Se o banco de dados usa a [replicação geográfica ativa](sql-database-active-geo-replication.md) e a restauração em paralelo, recomendamos copiar os dados necessários da cópia restaurada para o banco de dados original. Se substituir o banco de dados original pelo banco de dados restaurado, reconfigure e ressincronize a replicação geográfica.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo de banco de dados por locatário SaaS Wingtip Tickets
 
@@ -74,7 +72,6 @@ Para demonstrar esses cenários de recuperação, precisamos excluir “acidenta
 
    ![O último evento é exibido](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-
 ### <a name="accidentally-delete-the-last-event"></a>Excluir “acidentalmente” o último evento
 
 1. No ISE do PowerShell, abra ... \\Módulos de aprendizado\\Continuidade de negócios e recuperação de desastres\\RestoreTenant\\*Demo-RestoreTenant.ps1* e defina o seguinte valor:
@@ -88,15 +85,13 @@ Para demonstrar esses cenários de recuperação, precisamos excluir “acidenta
    ```
 
 3. A página de eventos da Contoso abre. Role para baixo e verifique se o evento não existe mais. Se o evento ainda na lista, selecione **Atualizar** e verifique se ele não existe mais.
-
-   ![Último evento recebido](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
-
+   ![Último evento removido](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Restaurar um banco de dados do locatário em paralelo com o banco de dados de produção
 
 Este exercício restaura o banco de dados de sala de concertos Contoso para um ponto antes da exclusão do evento. Este cenário presume que você deseja revisar os dados excluídos em um banco de dados paralelo.
 
- O script *Restore-TenantInParallel.ps1* cria um banco de dados de locatário paralelo e um banco de dados de locatário paralelo chamado *ContosoConcertHall\_old* com uma entrada no catálogo paralelo. Esse padrão de restauração é mais adequado para a recuperação de uma perda de dados pequena. Você também pode usar esse padrão se precisar analisar dados para fins de conformidade e auditoria. É a abordagem recomendada quando você usa [replicação geográfica](sql-database-geo-replication-overview.md).
+ O script *Restore-TenantInParallel.ps1* cria um banco de dados de locatário paralelo e um banco de dados de locatário paralelo chamado *ContosoConcertHall\_old* com uma entrada no catálogo paralelo. Esse padrão de restauração é mais adequado para a recuperação de uma perda de dados pequena. Você também pode usar esse padrão se precisar analisar dados para fins de conformidade e auditoria. É a abordagem recomendada quando você usa [replicação geográfica ativa](sql-database-active-geo-replication.md).
 
 1. Conclua a seção [Simular um locatário excluindo dados acidentalmente](#simulate-a-tenant-accidentally-deleting-data).
 2. No ISE do PowerShell, abra ... \\Módulos de aprendizado\\Continuidade de negócios e recuperação de desastre\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
@@ -115,7 +110,6 @@ A exposição do locatário restaurado como um locatário adicional, com seu pr�
 2. Para executar o script, pressione F5.
 3. A entrada *ContosoConcertHall\_old* agora foi excluída do catálogo. Feche a página de eventos para este locatário no seu navegador.
 
-
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Restaurar um locatário no local, substituindo o banco de dados existente do locatário
 
 Este exercício restaura o locatário de sala de concertos Contoso para um ponto antes da exclusão do evento. O script *Restore-TenantInPlace* restaura um banco de dados de locatário para um novo banco de dados de script e exclui o original. Esse padrão de restauração é mais adequado para a recuperação após grave corrupção de dados, pois o locatário pode precisar acomodar perda significativa de dados.
@@ -128,14 +122,13 @@ O script restaura o banco de dados do locatário para um ponto antes da exclusã
 
 Você restaurou com êxito o banco de dados para um ponto no tempo antes da exclusão do evento. Quando a página de **Eventos** abre, confirme se o último evento foi restaurado.
 
-Depois de restaurar o banco de dados, levará mais 10 a 15 minutos antes de o primeiro backup completo ficar disponível para restauração. 
+Depois de restaurar o banco de dados, levará mais 10 a 15 minutos antes de o primeiro backup completo ficar disponível para restauração.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
-
 > * Restaurar um banco de dados em um banco de dados paralelo (lado a lado).
 > * Restaure um banco de dados no local.
 

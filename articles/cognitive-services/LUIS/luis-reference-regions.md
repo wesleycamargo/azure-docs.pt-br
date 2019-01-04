@@ -1,21 +1,22 @@
 ---
-title: Publicar regiões e pontos de extremidade – LUIS
+title: Regiões e pontos de extremidade de publicação
 titleSuffix: Azure Cognitive Services
-description: A região na qual você publica seu aplicativo LUIS corresponde à região ou ao local especificado no portal do Azure quando você cria uma chave do ponto de extremidade LUIS do Azure. Quando você publica um aplicativo, o LUIS gera automaticamente uma URL de ponto de extremidade para a região associada à chave. Para publicar um aplicativo LUIS em mais de uma região, é necessário ter pelo menos uma chave por região.
+description: A região na qual você publica seu aplicativo LUIS corresponde à região ou ao local especificado no portal do Azure quando você cria uma chave do ponto de extremidade LUIS do Azure. Quando você publica um aplicativo, o LUIS gera automaticamente uma URL de ponto de extremidade para a região associada à chave.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 205a17a985986aab8039afe824e7e872a9885169
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d8d3d4d55d4d03eb6d6a62898823158812d7c1f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039404"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135824"
 ---
 # <a name="regions-and-keys"></a>Regiões e chaves
 

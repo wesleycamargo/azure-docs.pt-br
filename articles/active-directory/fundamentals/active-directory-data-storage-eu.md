@@ -1,6 +1,6 @@
 ---
-title: Onde o Microsoft Azure Active Directory armazena dados de identidade para clientes europeus | Microsoft Docs
-description: Saiba mais sobre onde o Microsoft Azure Active Directory armazena dados relacionados à identidade para os seus clientes europeus.
+title: Armazenamento de dados de identidade para os clientes europeus – Azure Active Directory | Microsoft Docs
+description: Saiba mais sobre onde o Azure Active Directory armazena dados relacionados à identidade para os seus clientes europeus.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.custom: it-pro
-ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976886"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099929"
 ---
-# <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Onde o Microsoft Azure Active Directory (Azure AD) armazena dados de identidade para clientes europeus
-O Microsoft Azure Active Directory ajuda você a gerenciar identidades do usuário e a criar políticas de acesso que ajudam os recursos da organização. Os dados de identidade são armazenados em um local que tem base no endereço de sua organização fornecida quando você se inscreveu no serviço. Por exemplo, quando você se inscreveu no Office 365 ou no Microsoft Azure. Para obter informações específicas sobre onde os dados de identidade estão armazenados, você pode usar a seção [Onde seus dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) do Microsoft Trust Center.
+# <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para os clientes europeus no Azure Active Directory
+O Azure AD (Azure Active Directory) ajuda você a gerenciar identidades do usuário e a criar políticas de acesso inteligentes que ajudam a proteger os recursos da organização. Os dados de identidade são armazenados em um local que tem base no endereço de sua organização fornecida quando você se inscreveu no serviço. Por exemplo, quando você se inscreveu no Office 365 ou no Microsoft Azure. Para obter informações específicas sobre onde os dados de identidade estão armazenados, você pode usar a seção [Onde seus dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) do Microsoft Trust Center.
 
 Enquanto os dados de identidade europeus relacionados ao Microsoft Azure Active Directory permanecerem em data centers europeus, há cinco atributos relacionados ao usuário que normalmente são armazenados em data centers dos EUA. Esses atributos são GivenName, Surname, userPrincipalName, Domain, e PasswordHash. O atributo PasswordHash pode ser uma exceção e não armazenado nos EUA se alguém usa um local, método de autenticação federada que interrompe o valor PasswordHash da sincronização com o Microsoft Azure Active Directory. Além disso, há alguns dados operacionais, específicos do serviço que é necessário para a operação normal do Microsoft Azure Active Directory que é armazenada nos EUA e não inclui todos os dados pessoais.
 
@@ -55,7 +55,7 @@ A maioria dos dados de identidade europeus relacionados ao Microsoft Azure Activ
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
-    O Azure AD B2C armazena todos os dados de usuário em repouso em data centers europeus. No entanto, os logs operacionais (com dados pessoais removidos) permanecem no local de onde a pessoa que está acessando os serviços. Por exemplo, se um usuário B2C acessar o serviço nos Estados Unidos, os logs operacionais permanecem nos EUA. Além disso, todos os dados de configuração de política não contêm dados pessoais e são armazenados somente nos EUA. Para obter mais informações sobre as configurações de política, consulte o artigo [Azure Active Directory B2C: Políticas internas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
+    O Azure AD B2C armazena todos os dados de usuário em repouso em data centers europeus. No entanto, os logs operacionais (com dados pessoais removidos) permanecem no local de onde a pessoa que está acessando os serviços. Por exemplo, se um usuário B2C acessar o serviço nos Estados Unidos, os logs operacionais permanecem nos EUA. Além disso, todos os dados de configuração de política não contêm dados pessoais e são armazenados somente nos EUA. Para obter mais informações sobre as configurações de política, consulte o artigo [Azure Active Directory B2C: políticas internas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     

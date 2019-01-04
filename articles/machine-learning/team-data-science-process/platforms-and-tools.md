@@ -1,5 +1,5 @@
 ---
-title: Plataformas e ferramentas para projetos da equipe de ciência de dados – Azure | Microsoft Docs
+title: Plataformas e ferramentas para projetos de ciência de dados – Processo de Ciência de Dados da Equipe
 description: Discrimina e discute os recursos de análise e os dados disponíveis para as empresas com padronização do processo de Ciência de Dados da Equipe.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8a37c200e52e1d2786690a8a0e669af57312294d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446442"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139157"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -59,7 +59,7 @@ O Apache Spark é uma estrutura de processamento paralelo de software livre que 
 
 Quando você cria um cluster do Spark no HDInsight, cria recursos de computação do Azure com o Spark instalado e configurado. Demora cerca de dez minutos para criar um cluster do Spark no HDInsight. Armazene os dados a serem processados no Armazenamento de Blobs do Azure. Para mais informações sobre como usar o Armazenamento de Blobs do Azure com o cluster, consulte [Usar o Armazenamento de Blobs do Azure compatível com HDFS com o Hadoop no HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-A equipe de TDSP da Microsoft publicou duas explicações passo a passo completas sobre como usar os clusters do Azure HDInsight Spark para criar soluções de ciência de dados, uma usando Python e outra usando o Scala. Para obter informações sobre os clusters do Azure HDInsight **Spark**, consulte [Visão geral: Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Python** em um cluster do Azure HDInsight Spark, consulte [Visão geral de Ciência de Dados usando o Spark no Azure HDInsight](spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Scala** em um cluster do Azure HDInsight Spark, consulte [Ciência de Dados usando o Scala e o Spark no Azure](scala-walkthrough.md). 
+A equipe de TDSP da Microsoft publicou duas explicações passo a passo completas sobre como usar os clusters do Azure HDInsight Spark para criar soluções de ciência de dados, uma usando Python e outra usando o Scala. Para saber mais sobre os **clusters do Azure HDInsight Spark**, confira [Visão geral: Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Python** em um cluster do Azure HDInsight Spark, consulte [Visão geral de Ciência de Dados usando o Spark no Azure HDInsight](spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Scala** em um cluster do Azure HDInsight Spark, consulte [Ciência de Dados usando o Scala e o Spark no Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
@@ -73,7 +73,7 @@ Para mais informações sobre o SQL Data Warehouse do Azure, confira o site [SQL
 
 O Azure Data Lake é um repositório para toda a empresa de todos os tipos de dados coletados em um único lugar antes de qualquer definição formal de requisitos ou esquema. Essa flexibilidade permite que todos os tipos de dados sejam mantidos em um data lake, independentemente de seu tamanho ou da estrutura ou da velocidade de ingestão. As organizações podem usar o Hadoop ou a análise avançada para localizar padrões nesses data lakes. Data lakes também podem servir como um repositório de preparação de dados de baixo custo antes de coletar dados e movê-los a um data warehouse.
 
-Para obter mais informações sobre o Azure Data Lake, consulte [Introdução ao Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Para aprender a criar uma solução de ciência de dados de ponta a ponta escalonável com o Azure Data Lake, consulte [Ciência de dados escalonável no Azure Data Lake: um passo a passo completo](data-lake-walkthrough.md)
+Para obter mais informações sobre o Azure Data Lake, consulte [Introdução ao Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Para aprender a criar uma solução de ciência de dados escalonável de ponta a ponta com o Azure Data Lake, confira [Ciência de Dados Escalonável no Azure Data Lake: um passo a passo completo](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Clusters do Azure HDInsight Hive (Hadoop)
@@ -103,7 +103,7 @@ Os Serviços de R (no banco de dados) dão suporte à linguagem R de software li
 A equipe de TDSP da Microsoft publicou duas orientações de ponta a ponta que mostram como criar soluções de ciência de dados nos Serviços de R do SQL Server 2016: uma para programadores de R e outra para desenvolvedores de SQL. Para **programadores de R**, consulte [Passo a passo de ponta a ponta de Ciência de Dados](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores de SQL**, consulte [Análise avançada no banco de dados para desenvolvedores de SQL (tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
-## <a name="appendix"></a>Apêndice: ferramentas para configurar projetos de ciência de dados
+## <a name="appendix"></a>Apêndice: Ferramentas para configurar projetos de ciência de dados
 
 ### <a name="install-git-credential-manager-on-windows"></a>Instalar o Gerenciador de credenciais do Git no Windows
 
@@ -129,17 +129,17 @@ Se estiver usando computadores Linux (CentOS) para executar os comandos git, voc
         ssh-keygen
         cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![Comandos para gerar a chave SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copie toda a chave SSH, incluindo *ssh-rsa*. 
 - Faça logon no Azure DevOps Services. 
 - No canto superior direito da página, clique em **<Seu nome\>** e, em seguida, clique em **segurança**. 
     
-    ![](./media/platforms-and-tools/resources-2-user-setting.png)
+    ![Clique no nome e em segurança](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Clique em **Chaves públicas SSH**e clique em **+Adicionar**. 
 
-    ![](./media/platforms-and-tools/resources-3-add-ssh.png)
+    ![Clique nas chaves públicas SSH e em +Adicionar](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Cole a chave SSH que acabou de copiar na caixa de texto e salve.
 

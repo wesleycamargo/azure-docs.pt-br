@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948105"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407874"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters HDInsight
 
 O HDInsight proporciona elasticidade, oferecendo a opção de escalar e reduzir verticalmente o número de nós de trabalho em seus clusters. Isso permite que você reduza um cluster depois do horário comercial ou nos finais de semana e o expanda durante picos de demanda corporativa.
 
-Por exemplo, se você tem algum processamento em lotes que ocorre uma vez por dia ou uma vez por mês, o cluster HDInsight pode ser escalonado verticalmente alguns minutos antes desse evento agendado para que haja memória e capacidade de computação de CPU suficientes. Você pode automatizar o dimensionamento com o cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) do PowerShell.  Posteriormente, depois que o processamento for concluído e uso reduzir novamente, você poderá reduzir verticalmente o cluster HDInsight, obtendo menos nós de trabalho.
+Por exemplo, se você tem algum processamento em lotes que ocorre uma vez por dia ou uma vez por mês, o cluster HDInsight pode ser escalonado verticalmente alguns minutos antes desse evento agendado para que haja memória e capacidade de computação de CPU suficientes. Você pode automatizar o dimensionamento com o cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) do PowerShell.  Posteriormente, depois que o processamento for concluído e uso reduzir novamente, você poderá reduzir verticalmente o cluster HDInsight, obtendo menos nós de trabalho.
 
 * Para dimensionar o cluster por meio do [PowerShell](hdinsight-administer-use-powershell.md):
 
@@ -77,7 +77,7 @@ Por exemplo:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>Rebalanceamento de um cluster HBase
+## <a name="rebalancing-an-apache-hbase-cluster"></a>Rebalanceamento de um cluster do Apache HBase
 
 Os servidores de região são balanceados automaticamente em alguns minutos após o término da operação de dimensionamento. Para balancear manualmente servidores de região, use as seguintes etapas:
 
@@ -99,11 +99,11 @@ Conforme mencionado anteriormente, todos os trabalhos pendentes ou em execução
 
 ![Dimensionar Cluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-Se você reduzir o cluster ao mínimo de apenas um nó de trabalho, conforme mostrado na imagem anterior, o HDFS pode ficar preso no modo de segurança quando os nós de trabalho forem reiniciados para a aplicação de patches ou imediatamente após a operação de dimensionamento.
+Se você reduzir o cluster ao mínimo de apenas um nó de trabalho, conforme mostrado na imagem anterior, o Apache HDFS poderá ficar preso no modo de segurança quando os nós de trabalho forem reiniciados para a aplicação de patches ou imediatamente após a operação de dimensionamento.
 
 A principal causa disso é que o Hive usa alguns arquivos `scratchdir` e, por padrão, espera três réplicas de cada bloco, mas haverá apenas uma réplica possível se você reduzir verticalmente para o mínimo de um nó de um trabalho. Consequentemente, os arquivos no `scratchdir` se tornam *sub-replicados*. Isso poderia fazer com que o HDFS permanecesse em modo de segurança quando os serviços fosse reiniciados após a operação de dimensionamento.
 
-Quando ocorre uma tentativa de reduzir verticalmente, o HDInsight depende das interfaces de gerenciamento do Ambari para primeiro encerrar os nós de trabalho adicionais indesejados, o que causa a replicação de seus blocos do HDFS para outros nós de trabalho online, possibilitando a redução vertical do cluster com segurança. O HDFS entra em um modo de segurança durante a janela de manutenção e deveria sair quando o dimensionamento fosse concluído. É nesse ponto que o HDFS pode ficar preso no modo de segurança.
+Quando ocorre uma tentativa de reduzir verticalmente, o HDInsight depende das interfaces de gerenciamento do Apache Ambari para primeiro encerrar os nós de trabalho adicionais indesejados, o que causa a replicação de seus blocos do HDFS para outros nós de trabalho online, possibilitando a redução vertical do cluster com segurança. O HDFS entra em um modo de segurança durante a janela de manutenção e deveria sair quando o dimensionamento fosse concluído. É nesse ponto que o HDFS pode ficar preso no modo de segurança.
 
 O HDFS está configurado com uma configuração `dfs.replication` igual a 3. Assim, os blocos dos arquivos temporários são sub-replicados sempre que houver menos de três nós de trabalho online, devido à indisponibilidade das três cópias esperadas de cada bloco de arquivo.
 
@@ -117,13 +117,13 @@ Depois de sair do modo de segurança, você pode remover manualmente os arquivos
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Erros de exemplo quando o modo de segurança está ativado
 
-* H070 Não é possível abrir a sessão do Hive. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **não é possível criar o diretório** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. **Nó de nome está em modo de segurança**. Os blocos relatados 75 precisam de 12 blocos adicionais para alcançar o limite 0.9900 de 87 blocos no total. O número de datanodes ativos 10 alcançou o número mínimo de 0. O modo de segurança será desativado automaticamente quando os limites forem alcançados.
+* H070 Não é possível abrir a sessão do Hive. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Não é possível criar o diretório** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. **Nó de nome está em modo de segurança**. Os blocos relatados 75 precisam de 12 blocos adicionais para alcançar o limite 0.9900 de 87 blocos no total. O número de datanodes ativos 10 alcançou o número mínimo de 0. O modo de segurança será desativado automaticamente quando os limites forem alcançados.
 
-* H100 Não é possível enviar a instrução mostrar bancos de dados: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: conexão com hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] falhou: **Conexão recusada**
+* H100 Não é possível enviar a instrução mostrar bancos de dados: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: A conexão a hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] falhou: **Conexão recusada**
 
-* H020 Não foi possível estabelecer uma conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: não foi possível criar a conexão com http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: conexão recusada: org.apache.thrift.transport.TTransportException: não foi possível criar a conexão http com http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: **Conexão recusada**
+* H020 Não foi possível estabelecer uma conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: Não foi possível criar a conexão http com http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: A conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: Conexão recusada: org.apache.thrift.transport.TTransportException: Não foi possível criar a conexão http com http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: A conexão com hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] falhou: **Conexão recusada**
 
-* Dos logs do Hive: AVISO [principal]: servidor. server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – erro ao iniciar HiveServer2 na tentativa 21; ocorrerá nova tentativa em 60 segundos java.lang.RuntimeException: erro ao aplicar política de autorização na configuração do hive: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **não é possível criar o diretório** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Nó de nome está em modo de segurança**.
+* Dos logs do Hive: WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Erro ao iniciar HiveServer2 na 21ª tentativa, nova tentativa em 60 segundos java.lang.RuntimeException: Erro ao aplicar política de autorização à configuração do hive: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Não é possível criar o diretório** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Nó de nome está em modo de segurança**.
     Os blocos relatados 0 precisam de 9 blocos adicionais para alcançar o limite 0.9900 de 9 blocos no total.
     O número de datanodes ativos 10 alcançou o número mínimo de 0. **O modo de segurança será desativado automaticamente quando os limites forem alcançados**.
     em org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -151,7 +151,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![Modo de seguro desativado](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
+> [!NOTE]  
 > A opção `-D` é necessária porque o sistema de arquivos padrão no HDInsight é o Armazenamento do Azure ou o Azure Data Lake Store. `-D` especifica que os comandos são executados no sistema de arquivos do HDFS local.
 
 Em seguida, você pode exibir um relatório que mostra os detalhes do estado do HDFS:
@@ -251,7 +251,7 @@ Para limpar os arquivos temporários, removendo os erros de replicação de bloc
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Este comando poderá interromper o Hive se ainda houver alguns trabalhos em execução.
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>Como impedir que o HDInsight fique preso no modo de segurança devido a blocos sub-replicados
@@ -327,4 +327,4 @@ A opção final é observar as raras ocasiões em que o HDFS entra em modo de se
 
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md)
+* [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)

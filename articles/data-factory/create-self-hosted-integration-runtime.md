@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284822"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969474"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução da integração auto-hospedada
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -49,7 +49,7 @@ Quando você move os dados entre a nuvem e o local, a atividade usa um tempo de 
 
 Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a cópia com um IR auto-hospedado:
 
-![Visão geral de alto nível](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![Visão geral de alto nível](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. O desenvolvedor de dados cria um tempo de execução da integração auto-hospedada dentro de um Azure Data Factory usando o cmdlet do PowerShell. Atualmente, o Portal do Azure não dá suporte a esse recurso.
 2. O desenvolvedor de dados cria um serviço vinculado para um armazenamento de dados local especificando a instância do tempo de execução da integração auto-hospedada que ele deve usar para se conectar a armazenamentos de dados. Como parte da configuração do serviço vinculado, o desenvolvedor de dados usa o aplicativo Gerenciador de Credenciais (sem suporte no momento) para configurar as credenciais e os tipos de autenticação. O aplicativo Gerenciador de Credenciais se comunica com o armazenamento de dados para testar a conexão e o tempo de execução da integração auto-hospedada para salvar as credencias.
@@ -131,7 +131,7 @@ Quando a memória disponível no IR auto-hospedado for baixa e o uso da CPI for 
 
 Quando a memória disponível e a CPU não são bem utilizadas, mas a execução de tarefas simultâneas está atingindo o limite, você deve aumentar o número de tarefas simultâneas que podem ser executadas em um nó. Convém também escalar verticalmente quando as atividades estiverem atingindo o tempo limite porque o IR auto-hospedado está sobrecarregado. Conforme mostrado na imagem a seguir, você pode aumentar a capacidade máxima de um nó:  
 
-![Aumentando trabalhos simultâneos que podem ser executados em um nó](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Aumentando trabalhos simultâneos que podem ser executados em um nó](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisitos de certificado TLS/SSL
 
@@ -155,40 +155,40 @@ Para uma introdução de doze minutos e demonstração desse recurso, assista ao
 
 ### <a name="terminology"></a>Terminologia
 
-- **IR compartilhado**: o IR auto-hospedado original executado em uma infraestrutura física.  
-- **IR vinculado**: o tempo de execução de integração que faz referência a outro IR compartilhado. Esse é um IR lógico e usa a infraestrutura de outro IR auto-hospedado (compartilhado).
+- **IR compartilhado**: O IR auto-hospedado original executado em uma infraestrutura física.  
+- **IR vinculado**: O IR o que faz referência a outro IR compartilhado. Esse é um IR lógico e usa a infraestrutura de outro IR auto-hospedado (compartilhado).
 
 ### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Etapas de alto nível para criar um IR auto-hospedado vinculado
 
 1. No IR auto-hospedado que será compartilhado, conceda permissão para o data factory no qual deseja criar o IR vinculado. 
 
-   ![Botão para conceder permissão na guia Compartilhamento](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Botão para conceder permissão na guia Compartilhamento](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![Seleções para atribuição de permissões](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![Seleções para atribuição de permissões](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. Observe a ID do recurso do IR auto-hospedado a ser compartilhado.
 
-   ![Localização da ID do recurso](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![Localização da ID do recurso](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. No data factory para o qual as permissões foram concedidas, crie um novo IR auto-hospedado (vinculado) e insira a ID do recurso.
 
-   ![Botão para criar um tempo de execução da integração auto-hospedada vinculado](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![Botão para criar um tempo de execução da integração auto-hospedada vinculado](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![Caixas de nome e ID do recurso](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Caixas de nome e ID do recurso](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>Monitoramento 
 
 - **IR compartilhado**
 
-  ![Seleções para encontrar um tempo de execução de integração compartilhado](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Seleções para encontrar um tempo de execução de integração compartilhado](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Guia para monitoramento](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Guia para monitoramento](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **IR vinculado**
 
-  ![Seleções para encontrar um tempo de execução de integração vinculado](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Seleções para encontrar um tempo de execução de integração vinculado](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Guia para monitoramento](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Guia para monitoramento](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitações conhecidas do compartilhamento de IR auto-hospedado
 
@@ -211,12 +211,12 @@ Para uma introdução de doze minutos e demonstração desse recurso, assista ao
 
 Se você mover o cursor sobre o ícone ou mensagem na área de notificação, poderá encontrar detalhes sobre o estado do tempo de execução da integração auto-hospedada.
 
-![Notificações na área de notificação](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Notificações na área de notificação](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Portas e firewall
 Há dois firewalls a considerar: o *firewall corporativo* em execução no roteador central da organização e o *Firewall do Windows* configurado como um daemon no computador local em que o tempo de execução da integração auto-hospedada está instalado.
 
-![Firewall](media\create-self-hosted-integration-runtime\firewall.png)
+![Firewall](media/create-self-hosted-integration-runtime/firewall.png)
 
 No nível do *firewall corporativo*, é necessário configurar os seguintes domínios e portas de saída:
 
@@ -249,17 +249,17 @@ Por exemplo, para copiar de um armazenamento de dados local para um coletor do B
 ## <a name="proxy-server-considerations"></a>Considerações do servidor proxy
 Se o ambiente de rede corporativo usar um servidor proxy para acessar a Internet, configure o tempo de execução da integração auto-hospedada para usar as definições de proxy apropriadas. Você pode definir o proxy durante a fase de registro inicial.
 
-![Especificar o proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![Especificar o proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 O tempo de execução da integração auto-hospedada usa o servidor proxy para se conectar ao serviço de nuvem. Selecione **Alterar link** durante a configuração inicial. Você verá a caixa de diálogo de configuração de proxy.
 
-![Configurar proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![Configurar proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Há três opções de configuração:
 
-- **Não usar proxy**: o tempo de execução da integração auto-hospedada não usa explicitamente qualquer proxy para se conectar aos serviços de nuvem.
-- **Usar proxy do sistema**: o tempo de execução da integração auto-hospedada usa a configuração de proxy que é definida em diahost.exe.config e em diawp.exe.config. Se nenhum proxy estiver configurado em diahost.exe.config e em diawp.exe.config, o tempo de execução da integração auto-hospedada vai se conectar ao serviço de nuvem diretamente sem passar por um proxy.
-- **Usar proxy personalizado**: configure a definição do proxy HTTP a ser usado pelo tempo de execução da integração auto-hospedada, em vez de usar as configurações em diahost.exe.config e diawp.exe.config. **Endereço** e **Porta** são necessários. O **Nome de Usuário** e a **Senha** são opcionais, dependendo da configuração de autenticação do proxy. Todas as configurações são criptografadas com a DPAPI do Windows no Integration Runtime auto-hospedado e armazenados localmente no computador.
+- **Não usar a política**: O Integration Runtime auto-hospedado não usa explicitamente qualquer proxy para se conectar aos serviços de nuvem.
+- **Usar proxy do sistema**: O Integration Runtime auto-hospedado usa a configuração de proxy que é definida em diahost.exe.config e em diawp.exe.config. Se nenhum proxy estiver configurado em diahost.exe.config e em diawp.exe.config, o tempo de execução da integração auto-hospedada vai se conectar ao serviço de nuvem diretamente sem passar por um proxy.
+- **Usar proxy personalizado**: Configure a definição do proxy HTTP a ser usado pelo tempo de execução da integração auto-hospedada, em vez de usar as configurações em diahost.exe.config e diawp.exe.config. **Endereço** e **Porta** são necessários. O **Nome de Usuário** e a **Senha** são opcionais, dependendo da configuração de autenticação do proxy. Todas as configurações são criptografadas com a DPAPI do Windows no Integration Runtime auto-hospedado e armazenados localmente no computador.
 
 O Serviço de Host do Integration Runtime é reiniciado automaticamente depois que você salva as configurações de proxy atualizadas.
 
@@ -272,7 +272,7 @@ Depois que o tempo de execução da integração auto-hospedada tiver sido regis
 
 É possível exibir e atualizar o proxy HTTP usando a ferramenta Configuration Manager.
 
-![Exibir proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
+![Exibir proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > Se você configurar um servidor proxy com autenticação NTLM, o serviço de host de tempo de execução de integração será executado sob a conta de domínio. Se você alterar a senha da conta de domínio posteriormente, lembre-se de atualizar as definições de configuração para o serviço e reiniciá-lo adequadamente. Por conta desse requisito, sugerimos o uso de uma conta de domínio dedicada para acessar o servidor proxy que não exija a atualização da senha com frequência.
@@ -318,7 +318,7 @@ Você também precisa verificar se o Microsoft Azure está na lista de permissõ
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Possíveis sintomas de problemas relacionados ao firewall e ao servidor proxy
 Se você encontrar erros similares aos descritos a seguir, eles provavelmente serão devidos à configuração incorreta do servidor proxy ou firewall, que impedirá o tempo de execução da integração auto-hospedada de se conectar ao Data Factory para se autenticar. Para garantir que seu firewall e servidor proxy estejam configurados corretamente, confira a seção anterior.
 
-* Quando você tenta registrar o Integration Runtime auto-hospedado, recebe o seguinte erro: “Falha ao registrar esse nó do Integration Runtime. Confirme se a chave de autenticação é válida e o serviço de host de serviço de integração está em execução neste computador".
+* Quando você tenta registrar o Integration Runtime auto-hospedado, recebe o seguinte erro: “Falha ao registrar esse nó do Integration Runtime! Confirme se a chave de autenticação é válida e o serviço de host de serviço de integração está em execução neste computador".
 * Ao abrir o Configuration Manager do Integration Runtime, você vê o status **Desconectado** ou **Conectando**. Ao exibir os logs de eventos do Windows, em **Visualizador de Eventos** > **Logs de aplicativos e serviços** > **Microsoft Integration Runtime**, você vê mensagens de erro como esta:
 
     ```
@@ -345,4 +345,4 @@ Se optar por não abrir a porta 8060 no computador do tempo de execução da int
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira o tutorial a seguir para obter instruções passo a passo: [Tutorial: cópia de dados locais para a nuvem](tutorial-hybrid-copy-powershell.md).
+Consulte o tutorial a seguir para obter instruções passo a passo: [Tutorial: Copiar dados locais na nuvem](tutorial-hybrid-copy-powershell.md).

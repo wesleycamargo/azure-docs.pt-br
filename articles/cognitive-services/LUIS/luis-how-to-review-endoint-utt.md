@@ -1,23 +1,24 @@
 ---
-title: Examinar os enunciados de ponto de extremidade para LUIS (Reconhecimento vocal)
-titleSuffix: Azure Cognitive Services
+title: Examinar as declarações de usuário
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: O recurso inovador do LUIS é o conceito de aprendizado ativo. Depois que o LUIS tiver consultas de ponto de extremidade, o aprendizado ativo melhorará a qualidade dos resultados selecionando os enunciados sobre os quais ele não tem certeza. Se você rotular essas declarações, treiná-las e publicá-las, o LUIS identificará as declarações com mais precisão.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7175463001eac118d2939d3479e61a01b80ba86b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030788"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106542"
 ---
-# <a name="review-endpoint-utterances"></a>Examinar declarações de ponto de extremidade
+# <a name="how-to-review-endpoint-utterances-in-luis-portal"></a>Como examinar declarações do ponto de extremidade no portal do LUIS
 
 O recurso inovador do LUIS é o [conceito](luis-concept-review-endpoint-utterances.md) de aprendizado ativo. Depois que seu LUIS tiver consultas de ponto de extremidade, ele usa o aprendizado ativo para melhorar a qualidade dos resultados. No processo de aprendizado ativo, o LUIS examina todas as declarações de ponto de extremidade e seleciona as declarações de que não tem certeza. Se você rotular essas declarações, treiná-las e publicá-las, o LUIS identificará as declarações com mais precisão. 
 

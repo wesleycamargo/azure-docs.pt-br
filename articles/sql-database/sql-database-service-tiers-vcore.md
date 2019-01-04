@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 11/27/2018
-ms.openlocfilehash: 4d71e54beac6e4816d8bcc9097219b2e7b7cabb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441852"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437054"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>camadas de serviço de vCore, Benefício Híbrido do Azure e migração
 
@@ -41,9 +41,9 @@ A tabela a seguir ajuda-o a reconhecer as diferenças entre essas duas camadas:
 |---|---|---|---|
 |Mais adequado para|A maioria das cargas de trabalho comerciais. Oferece opções de armazenamento e computação escalonáveis e equilibradas orientadas a orçamento.|Aplicativos de negócios com altos requisitos de E/S. Oferece maior resiliência a falhas usando várias réplicas isoladas.|Maioria das cargas de trabalho empresariais com requisitos de escala de leitura e armazenamento altamente escalonáveis|
 |Computação|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|
-|Memória|Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo | Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo |Gen4: 7 GB por núcleo<br>Gen5: GB 5.1 por núcleo|
-|Armazenamento|Use o [armazenamento remoto premium](../virtual-machines/windows/premium-storage.md):<br/>Banco de dados individual: 5 GB a 4 TB<br/>Instância Gerenciada: 32 GB - 8 TB |Use o armazenamento SSD local:<br/>Banco de dados individual: 5 GB a 1 TB<br/>Instância Gerenciada: 32 GB - 4 TB |Aumento automático flexível, de armazenamento conforme necessário. Compatível com até 100 TB de armazenamento e muito mais. Armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
-|Taxa de transferência de E/S (aproximada)|Banco de dados individual: 500 IOPS por vCore com máximo de 7000 IOPS</br>Instância Gerenciada: Depende do [tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com máximo de 200.000 IOPS|TBD|
+|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo|
+|Armazenamento|Use o [armazenamento remoto premium](../virtual-machines/windows/premium-storage.md):<br/>Banco de dados individual: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 8 TB |Use o armazenamento SSD local:<br/>Banco de dados individual: 5 GB – 1 TB<br/>Instância Gerenciada: 32 GB - 4 TB |Aumento automático flexível, de armazenamento conforme necessário. Compatível com até 100 TB de armazenamento e muito mais. Armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
+|Taxa de transferência de E/S (aproximada)|Banco de dados individual: 500 IOPS por vCore com máximo de 7.000 IOPS</br>Instância Gerenciada: Depende do [tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com máximo de 200.000 IOPS|TBD|
 |Disponibilidade|1 réplica, sem escala de leitura|3 réplicas, 1 [réplica em escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|?|
 |Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|backup baseado em instantâneo no armazenamento remoto do Azure e as restaurações usam esses instantâneos para a recuperação rápida. Os backups são instantâneos e não afetam o desempenho de E/S da computação. As restaurações são muito rápidas e não têm um tamanho de operação de dados (levando minutos em vez de horas ou dias).|
 |Em Memória|Sem suporte|Com suporte|Sem suporte|

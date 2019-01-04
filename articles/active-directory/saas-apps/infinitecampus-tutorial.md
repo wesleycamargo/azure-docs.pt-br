@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao Infinite Campus | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Infinite Campus | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Infinite Campus.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632799"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099936"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Microsoft Azure Active Directory do Azure ao Campus Infinito
+# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Azure Active Directory ao Infinite Campus
 
 Neste tutorial, você aprenderá como integrar o Infinite Campus ao Azure AD (Azure Active Directory).
 
@@ -111,11 +111,11 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Configurar o logon único](common/editconfigure.png)
 
-5. Na seção **Configuração básica do SAML**, se você tiver o **arquivo de metadados do Service Provider** (etapa **11.b**), execute as seguintes etapas:
+5. Na seção **Configuração básica do SAML**, se você tiver o **arquivo de metadados do Provedor de Serviços** (pule para a etapa **11.c**), execute as seguintes etapas:
 
-    a. Clique em **Carregar arquivo de metadados**.
+     a. Clique em **Carregar arquivo de metadados**.
 
-    ![image](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. Clique no **logotipo da pasta** para selecionar o arquivo de metadados e depois em **Carregar**.
 
@@ -128,11 +128,11 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
     d. Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão (o domínio variará com o modelo de hospedagem): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > Você obtém o arquivo de metadados **Service Provider** na página Configuração do Provedor de Serviços do SSO do Campus Infinito, explicada posteriormente no tutorial.
+    > Você obtém o arquivo de metadados **Service Provider** na página Configuração do Provedor de Serviços do SSO do Campus Infinito, explicada posteriormente no tutorial. Se você estiver começando com uma nova configuração do Provedor de Serviços do SAML no Infinite Campus, pule para a **etapa 11** para concluir a exportação do arquivo de metadados do Provedor de Serviços.
 
-6. Se você não tiver o **arquivo de metadados do Provedor de Serviços**, execute as seguintes etapas:
+6. Se você não tiver o **arquivo de metadados do Provedor de Serviços**, execute as seguintes etapas (observe que o domínio variará com o Modelo de Hospedagem):
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
 
@@ -169,10 +169,10 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
     ![O sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. Selecione **habilitar logon único do SAML**.
+    
+    b. Na seção **Selecionar uma opção para recuperar os dados do servidor de Provedor de Identidade (IDP)**, selecione o **URL de metadados**, cole o **URL de Metadados da Federação do Aplicativo** na caixa de texto e clique em **Sincronizar**.
 
-    b. Clique no link **Metadados do provedor de serviços** para salvar o **arquivo de metadados do Provedor de serviços** no seu computador e carregue-o na seção **Configuração básica do SAML** para polir automaticamente o **Identificador** e **valores de URL de resposta** no portal do Azure (consulte a etapa 5).
-
-    c. No **Selecione uma opção para recuperar a seção de dados do servidor do Identity Provider (IDP)**, selecione **URL de metadados** e cole o **URL de metadados da federação do aplicativo** na caixa de texto e clique em **Sincronizar**.
+    c. Clique no link **Metadados do Provedor de Serviços** para salvar o **arquivo de metadados do Provedor de Serviços** no seu computador e carregue-o na seção **Configuração básica do SAML** para preencher automaticamente os valores de **Identificador** e **URL de resposta** no portal do Azure (consulte a etapa 4 para carregamento e preenchimento automático dos valores ou a etapa 5 para entrada manual).
 
     d. Depois de clicar em **Sincronizar**, os valores são preenchidos automaticamente na página **Configuração do Provedor de Serviços de SSO**.
 

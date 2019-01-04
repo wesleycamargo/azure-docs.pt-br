@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 57929b23e437e17ceb90196e3cfa59c16d518f5a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527430"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138578"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Este artigo discute as metas de escalabilidade e desempenho dos arquivos do Azure e do Azure File Sync.
@@ -39,13 +39,14 @@ Com a Sincronização de Arquivos do Azure, fizemos o possível para conseguir u
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Métricas de desempenho de sincronização de arquivos do Azure
-Como o agente do Azure File Sync é executado em um computador Windows Server que se conecta aos compartilhamentos de arquivos do Azure, o desempenho de sincronização efetivo depende de vários fatores em sua infraestrutura: Windows Server e a configuração de disco subjacente, largura de banda de rede entre o servidor e o Azure armazenamento, tamanho do arquivo, tamanho total do conjunto de dados e atividade no conjunto de dados. Desde que a sincronização de arquivos do Azure funciona no nível de arquivo, as características de desempenho de uma solução de sincronização de arquivos do Azure melhor é medido em número de objetos (arquivos e diretórios) processado por segundo. 
+Uma vez que o agente de Sincronização de Arquivos do Azure é executado em um computador Windows Server que se conecta aos compartilhamentos de arquivos do Azure, o desempenho de sincronização em vigor depende de uma série de fatores em sua infraestrutura: Windows Server e a configuração de disco subjacente, largura de banda de rede entre o servidor e o armazenamento do Azure, tamanho do arquivo, tamanho total do conjunto de dados e a atividade no conjunto de dados. Desde que a sincronização de arquivos do Azure funciona no nível de arquivo, as características de desempenho de uma solução de sincronização de arquivos do Azure melhor é medido em número de objetos (arquivos e diretórios) processado por segundo. 
  
 Para sincronização de arquivos do Azure, o desempenho for crítico em dois estágios:
-1. **O provisionamento inicial única**: para otimizar o desempenho no provisionamento inicial, consulte [integração com sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) para os detalhes de implantação ideal.
-2. **Sincronização em andamento**: depois que os dados inicialmente são propagados em compartilhamentos de arquivos do Azure, a sincronização de arquivos do Azure mantém vários pontos de extremidade em sincronia.
+1. **Provisionamento inicial de uso único**: Para otimizar o desempenho no provisionamento inicial, consulte [integração com a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) para os detalhes de implantação ideal.
+2. **Sincronização contínua**: Depois que os dados inicialmente são propagados em compartilhamentos de arquivos do Azure, a Sincronização de Arquivos do Azure mantém vários pontos de extremidade em sincronia.
 
 Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo são os resultados observados durante o teste interno em um sistema com uma configuração
+
 | Configuração do sistema |  |
 |-|-|
 | CPU | 64 núcleos virtuais com o cache de MiB L3 64 |
@@ -58,7 +59,7 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 |-|-|
 | Número de objetos | 10 milhões de objetos | 
 | Tamanho do conjunto de dados| ~4 TiB |
-| Tamanho médio de arquivo | ~500 KiB (Maior arquivo: 100 GiB) |
+| Tamanho médio de arquivo | ~500 KiB (Arquivo maior: 100 GiB) |
 | Carregue a taxa de transferência | 15 objetos por segundo |
 | Fazer o download do Namespace * | 350 objetos por segundo |
  

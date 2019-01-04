@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: cfa0a91e74dba7a17b03a76dd70fc09a264decf8
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 8801954ec5ff0277614f65217b9abab6bfb67035
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284584"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098599"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -350,11 +350,11 @@ Se você habilitar a exceção **Permitir serviços Microsoft confiáveis...**, 
 |Serviço de Backup do Azure|Microsoft.Backup|Execute backups e restaurações de discos não gerenciados em máquinas virtuais IAAS. (não é necessário para discos gerenciados). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configure a recuperação de desastre, habilitando a replicação para máquinas virtuais IaaS do Azure. Isso é necessário se você estiver usando a conta de armazenamento de cache de firewall habilitado ou a conta de armazenamento de origem ou a conta de armazenamento de destino.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Criação de imagem personalizada e instalação de artefato. [Saiba mais](/azure/devtest-lab/devtest-lab-overview).|
-|Grade de Eventos do Azure|Microsoft.EventGrid|Habilitar a publicação de eventos do Armazenamento de Blobs. [Saiba mais](/azure/event-grid/overview).|
+|Grade de Eventos do Azure|Microsoft.EventGrid|Habilite a publicação de eventos do Armazenamento de Blobs e permita que a Grade de Eventos publique em filas de armazenamento. Saiba mais sobre [eventos de Armazenamento de Blobs](/azure/event-grid/event-sources) e [publicação em filas](/azure/event-grid/event-handlers).|
 |Hubs de eventos do Azure|Microsoft.EventHub|Arquivar dados com a Captura de Hubs de Evento. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview).|
 |Rede do Azure|Microsoft.Networking|Armazenar e analisar os logs de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Monitor|Microsoft.insights|Permite a gravação de dados de monitoramento para uma conta de armazenamento protegida [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
-|
+|SQL Data Warehouse do Azure|Microsoft.Sql|Permite importar e exportar cenários usando o PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados de análise de armazenamento
 

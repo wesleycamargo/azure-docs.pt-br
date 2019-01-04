@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 3d15e747c129d2591f4cc70030d1cf858bcee49e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8e4245de5d6a025fa87c8644678896596b07c49e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237647"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001132"
 ---
-# <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Blueprint de segurança e conformidade do Azure – Análise para GDPR
+# <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Blueprint de Segurança e Conformidade do Azure: Análise para GDPR
 
 ## <a name="overview"></a>Visão geral
 O GDPR (Regulamento Geral sobre a Proteção de Dados) contém muitos requisitos sobre coletar, armazenar e usar informações pessoais, incluindo como as organizações identificam e protegem os dados pessoais, acomodam requisitos de transparência, detectam e relatam violações de dados pessoais e treinam o pessoal de privacidade e outros funcionários. O GDPR fornece às pessoas um controle maior sobre seus dados pessoais e impõe muitas obrigações novas às organizações que coletam, manipulam ou analisam dados pessoais. O GDPR impõe novas regras às organizações que oferecem bens e serviços para pessoas da UE (União Europeia) ou que coletam e analisam dados vinculados a residentes da UE. O GDPR se aplica independentemente de onde uma organização está localizada.
@@ -23,10 +23,10 @@ O GDPR (Regulamento Geral sobre a Proteção de Dados) contém muitos requisitos
 A Microsoft projetou o Azure com medidas de segurança e políticas de privacidade líderes do setor para proteger os dados na nuvem, incluindo as categorias de dados pessoais identificadas pelo GDPR. Os [termos contratuais](https://aka.ms/Online-Services-Terms) da Microsoft submetem a Microsoft aos requisitos dos processadores.
 
 Esse Blueprint de Segurança e Conformidade do Azure fornece diretrizes para implantar uma arquitetura de análise de dados no Azure que ajuda com os requisitos do GDPR. Esta solução demonstra maneiras em que os clientes podem atender a requisitos de segurança e conformidade específicos e servir como uma base para os clientes criarem e configurarem suas próprias soluções de análise de dados no Azure. Os clientes podem utilizar esta arquitetura de referência e seguir o [processo de quatro etapas](https://aka.ms/gdprebook) da Microsoft em sua jornada para conformidade com o GDPR:
-1. Descobrir: identificar quais dados pessoais existem e onde eles residem.
-2. Gerenciar: controlar como os dados pessoais são usados e acessados.
-3. Proteger: estabelecer controles de segurança para evitar, detectar e responder a violações de dados e vulnerabilidades.
-4. Relatar: manter a documentação necessária e gerenciar solicitações de dados e notificações de violação.
+1. Descobrir: Identificar quais dados pessoais existem e onde eles residem.
+2. Gerenciar: Controlar o acesso e o uso dos dados pessoais.
+3. Proteger: Estabelecer controles de segurança para prevenir, detectar e reagir a vulnerabilidades e violações de dados.
+4. Relatar: Manter a documentação necessária e gerenciar as solicitações de dados e as notificações de violações.
 
 Essa arquitetura de referência, o guia de implementação associado e os modelos de ameaça são destinados a servir como uma base que os clientes podem adaptar a seus requisitos específicos e não devem ser usados no estado em que se encontra em um ambiente de produção. Observe o seguinte:
 - A arquitetura fornece uma linha de base para ajudar os clientes implantarem cargas de trabalho no Azure em conformidade com o GDPR.
@@ -75,15 +75,15 @@ A seção a seguir fornece detalhes sobre os elementos de implantação e implem
 **Azure Functions**
 [O Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) é um serviço de computação sem servidor que permite que os usuários executem o código sob demanda sem precisar provisionar explicitamente ou gerenciar a infraestrutura. Use o Azure Functions para executar um script ou parte do código em resposta a uma variedade de eventos.
 
-**Azure Machine Learning**
-[O Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) é uma técnica da ciência de dados que permite que os computadores usem os dados existentes para prever tendências, resultados e comportamentos futuros.
+**Serviço do Azure Machine Learning**
+[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) é uma técnica de ciência de dados que possibilita que os computadores usem os dados existentes para prever tendências, resultados e comportamentos futuros.
 
-**Catálogo de Dados do Azure**: o [Catálogo de Dados](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) torna fontes de dados facilmente identificáveis e compreensíveis para os usuários que gerenciam os dados. Fontes de dados comum podem ser registradas, marcadas e pesquisadas em busca de dados pessoais. Os dados permanecem no local existente, mas uma cópia de seus metadados é adicionada ao Catálogo de Dados, juntamente com uma referência ao local da fonte de dados. Os metadados também são indexados para tornar cada fonte de dados fácil de descobrir por meio de pesquisa e compreensível para os usuários que os descobrirem.
+**Catálogo de Dados do Azure**: O [Catálogo de Dados](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) torna as fontes de dados facilmente detectáveis e reconhecíveis para os usuários que gerenciam os dados. Fontes de dados comum podem ser registradas, marcadas e pesquisadas em busca de dados pessoais. Os dados permanecem no local existente, mas uma cópia de seus metadados é adicionada ao Catálogo de Dados, juntamente com uma referência ao local da fonte de dados. Os metadados também são indexados para tornar cada fonte de dados fácil de descobrir por meio de pesquisa e compreensível para os usuários que os descobrirem.
 
 ### <a name="virtual-network"></a>Rede virtual
 Esta arquitetura de referência define uma rede virtual com um espaço de endereço de 10.0.0.0/16.
 
-**Grupos de segurança de rede**: os [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contêm ACLs (listas de controle de acesso) que permitem ou negam o tráfego dentro de uma rede virtual. Os NSGs podem ser usados para proteger o tráfego em nível individual de VM ou sub-rede. Os seguintes NSGs existem:
+**Grupos de segurança de rede**: [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contêm ACLs (Listas de Controle de Acesso) que permitem ou negam o tráfego dentro de uma VNet. Os NSGs podem ser usados para proteger o tráfego em nível individual de VM ou sub-rede. Os seguintes NSGs existem:
   - Um NSG para o Active Directory
   - Um NSG para a carga de trabalho
 
@@ -91,7 +91,7 @@ Cada NSG tem portas e protocolos específicos abertos para que a solução possa
   - [Eventos e logs de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) são habilitados e armazenados em uma conta de armazenamento
   - O Log Analytics está conectado ao [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**Sub-redes**: cada sub-rede é associada ao seu NSG correspondente.
+**sub-redes**: Cada sub-rede está associada ao seu NSG correspondente.
 
 ### <a name="data-in-transit"></a>Dados em trânsito
 O Azure criptografa todas as comunicações entre datacenters do Azure por padrão. Todas as transações para o Armazenamento do Azure por meio do portal do Azure ocorrem por HTTPS.
@@ -105,7 +105,7 @@ A arquitetura protege dados em repouso usando criptografia, auditoria de banco d
 **Azure Disk Encryption**
 [O Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) aproveita o recurso BitLocker do Windows para fornecer criptografia de volume para discos de dados. A solução é integrada ao Azure Key Vault para ajudar a controlar e gerenciar as chaves de criptografia de disco.
 
-**Banco de Dados SQL do Azure**: a instância do Banco de Dados SQL do Azure usa as seguintes medidas de segurança de banco de dados:
+**Banco de Dados SQL do Azure**: A instância do Banco de Dados SQL usa as seguintes medidas de segurança de banco de dados:
 -   A [autenticação e a autorização do AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permitem o gerenciamento de identidades dos usuários de banco de dados e de outros serviços da Microsoft em uma única localização central.
 -   A [auditoria do banco de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) controla os eventos de banco de dados e grava-os em um log de auditoria em uma conta de armazenamento do Azure.
 -   O Banco de Dados SQL do Azure está configurado para usar [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), que executa criptografia e descriptografia do banco de dados, dos backups associados e dos arquivos de log de transações para proteger as informações em repouso. O TDE fornece a garantia de que os dados pessoais armazenados não tenham ficado sujeitos a acesso não autorizado.
@@ -114,7 +114,7 @@ A arquitetura protege dados em repouso usando criptografia, auditoria de banco d
 -   As [colunas Always Encrypted](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantem que dados pessoais confidenciais nunca sejam exibidos como texto não criptografado dentro do sistema do banco de dados. Após a habilitação da criptografia de dados, somente aplicativos cliente ou servidores de aplicativo com acesso às chaves poderão acessar dados de texto não criptografado.
 - [Propriedades estendidas](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql) podem ser usadas para interromper o processamento de entidades de dados, pois permitem aos usuários adicionar propriedades personalizadas para objetos de banco de dados e marcar os dados como "Descontinuado" para dar suporte à lógica de aplicativo para evitar o processamento de dados pessoais associados.
 - A [Segurança em nível de linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite aos usuários definir políticas para restringir o acesso aos dados para interromper o processamento.
-- A [DDM (Máscara de Dados Dinâmicos) do SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados pessoais confidenciais mascarando os dados para usuários ou aplicativos não privilegiados. A DDM pode descobrir automaticamente dados potencialmente confidenciais e sugerir as máscaras apropriadas a serem aplicadas. Isso ajuda com a identificação dos dados pessoais que se qualificam para a proteção de GDPR e para reduzir o acesso, de modo que ele não saia do banco de dados por meio de acesso não autorizado. **Observação: os clientes precisarão ajustar as configurações da DDM para seguir o esquema de banco de dados que usam.**
+- A [DDM (Máscara de Dados Dinâmicos) do SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados pessoais confidenciais mascarando os dados para usuários ou aplicativos não privilegiados. A DDM pode descobrir automaticamente dados potencialmente confidenciais e sugerir as máscaras apropriadas a serem aplicadas. Isso ajuda com a identificação dos dados pessoais que se qualificam para a proteção de GDPR e para reduzir o acesso, de modo que ele não saia do banco de dados por meio de acesso não autorizado. **Observação: Os clientes precisarão ajustar as configurações da DDM para seguir o esquema de banco de dados que usam.**
 
 ### <a name="identity-management"></a>Gerenciamento de identidades
 As tecnologias a seguir oferecem recursos para gerenciar o acesso a dados pessoais no ambiente do Azure:
@@ -134,25 +134,25 @@ As tecnologias a seguir oferecem recursos para gerenciar o acesso a dados pessoa
 - Os Logs de diagnóstico para Key Vault são habilitados com um período de retenção de pelo menos 365 dias.
 - As operações criptográficas permitidas para chaves são restritas às necessárias.
 
-**Alertas de segurança**: a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) permite que os clientes monitorem o tráfego, coletem logs e analisem as fontes de dados para as ameaças. Além disso, a Central de Segurança do Azure acessa a configuração existente de serviços do Azure para fornecer recomendações de serviço e configuração para ajudar a melhorar a postura de segurança e a proteger dados pessoais. A Central de Segurança do Azure inclui um [relatório de inteligência de ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-report) para cada ameaça detectada para ajudar as equipes de resposta a incidente a investigar e corrigir as ameaças.
+**Alertas de segurança**: A [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) permite que os clientes monitorem o tráfego, coletem logs e analisem fontes de dados quanto a ameaças. Além disso, a Central de Segurança do Azure acessa a configuração existente de serviços do Azure para fornecer recomendações de serviço e configuração para ajudar a melhorar a postura de segurança e a proteger dados pessoais. A Central de Segurança do Azure inclui um [relatório de inteligência de ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-report) para cada ameaça detectada para ajudar as equipes de resposta a incidente a investigar e corrigir as ameaças.
 
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
 O [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fornece registro em log extensivo de atividades do sistema e de usuário, bem como integridade do sistema. A solução [Log Analytics](https://azure.microsoft.com/services/log-analytics/) coleta e analisa dados gerados por recursos no Azure e em ambientes locais.
-- **Logs de atividades:** os [Logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem insights sobre as operações executadas nos recursos de uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
-- **Logs de diagnóstico**: os [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os logs emitidos por todos os recursos. Eles incluem logs do sistema de eventos do Windows e logs de fila, de tabelas e do Armazenamento de Blobs do Azure.
-- **Arquivamento de logs**: todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento, com um período de retenção de 2 dias definido. Esses logs são conectados ao Azure Log Analytics para processamento, armazenamento e criação de relatórios de painéis.
+- **Logs de atividade**: Os [logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem insights sobre as operações executadas em recursos em uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
+- **Logs de diagnóstico**: Os [logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os logs emitidos por cada um dos recursos. Eles incluem logs do sistema de eventos do Windows e logs de fila, de tabelas e do Armazenamento de Blobs do Azure.
+- **Arquivamento em log**: Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento, com um período de retenção definido de 2 dias. Esses logs são conectados ao Azure Log Analytics para processamento, armazenamento e criação de relatórios de painéis.
 
 Além disso, as seguintes soluções de monitoramento são incluídas como parte dessa arquitetura:
--   [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): a solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece uma lista priorizada de recomendações específicas da infraestrutura do servidor implantado.
--   [Avaliação de Antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): a solução Antimalware fornece informações sobre malware, ameaças e status de proteção.
--   [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): a solução de Automação do Azure armazena, executa e gerencia runbooks.
--   [Segurança e Auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): o painel Segurança e Auditoria fornece insights de alto nível sobre o estado de segurança dos recursos, fornecendo métricas sobre domínios de segurança, problemas importantes, detecções, inteligência contra ameaças e consultas de segurança comuns.
--   [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): a solução de Verificação de Integridade do SQL avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece aos clientes uma lista priorizada de recomendações específicas da infraestrutura do servidor implantado.
--   [Gerenciamento de Atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): a solução de Gerenciamento de Atualizações permite que os clientes gerenciem as atualizações de segurança do sistema operacional, incluindo o status das atualizações disponíveis e o processo de instalação das atualizações necessárias.
--   [Integridade do Agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): a solução de Integridade do Agente informa quantos agentes estão implantados e sua distribuição geográfica, bem como quantos agentes não estão respondendo e o número de agentes que estão enviando dados operacionais.
--   [Logs de Atividades do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): a solução de Análise do Log de Atividades ajuda a analisar os logs de atividades do Azure em todas as assinaturas do Azure de um cliente.
--   [Controle de Alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking): a solução de Controle de Alterações permite que os clientes identifiquem alterações no ambiente facilmente.
+-   [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de Verificação de Integridade do Active Directory avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
+-   [Avaliação de Antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): A solução de Antimalware fornece informações sobre malware, ameaças e status de proteção.
+-   [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): A solução de Automação do Azure armazena, executa e gerencia runbooks.
+-   [Segurança e Auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): O painel de Segurança e Auditoria fornece insights de alto nível sobre o estado de segurança dos recursos, fornecendo métricas sobre domínios de segurança, problemas importantes, detecções, inteligência contra ameaças e consultas de segurança comuns.
+-   [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): A solução de Verificação de Integridade do SQL avalia o risco e a integridade dos ambientes de servidor em intervalos regulares e fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
+-   [Gerenciamento de Atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): A solução de Gerenciamento de Atualizações permite que os clientes gerenciem as atualizações de segurança do sistema operacional, incluindo o status das atualizações disponíveis e o processo de instalação das atualizações necessárias.
+-   [Integridade do Agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): A solução de Integridade do Agente informa quantos agentes são implantados e a distribuição geográfica deles, além de quantos agentes estão sem resposta e o número de agentes que estão enviando dados operacionais.
+-   [Logs de Atividades do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): A solução de Análise do Log de Atividades auxilia na análise dos logs de atividades do Azure em todas as assinaturas do Azure para um cliente.
+-   [Controle de Alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking): A solução de Controle de Alterações permite que os clientes facilmente identifiquem alterações no ambiente.
 
 **Azure Monitor**
 [O Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os clientes a rastrear o desempenho, manter a segurança e identificar tendências, permitindo que as organizações auditem, criem alertas e arquivem dados, incluindo o rastreamento de chamadas à API nos recursos do Azure dos clientes.

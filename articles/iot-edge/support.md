@@ -1,6 +1,6 @@
 ---
-title: Suporte da plataforma do Azure IoT Edge | Microsoft Docs
-description: Plataformas com suporte do Azure IoT Edge
+title: Sistemas operacionais compatíveis, mecanismos de contêiner – Azure IoT Edge | Microsoft Docs
+description: Saiba quais sistemas operacionais podem executar o tempo de execução e o daemon do Azure IoT Edge, bem como os mecanismos de contêiner compatíveis com os seus dispositivos de produção
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,16 @@ ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45c5c7245a2af3b0d0e328bfcc43112eaee406ee
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564996"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100168"
 ---
-# <a name="azure-iot-edge-support"></a>Suporte do Azure IoT Edge
+# <a name="azure-iot-edge-supported-systems"></a>Sistemas compatíveis com o Azure IoT Edge
+
 Há várias maneiras de buscar suporte para o produto Azure IoT Edge.
 
 **Relatar bugs** – A maioria do desenvolvimento direcionado ao produto Azure IoT Edge ocorre no projeto de software livre do IoT Edge. Bugs podem ser relatados na [página de problemas](https://github.com/azure/iotedge/issues) do projeto. As correções passam rapidamente do projeto para as atualizações do produto.

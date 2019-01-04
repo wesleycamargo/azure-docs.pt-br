@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao Outlook.com – Aplicativo Lógico do Azure | Microsoft Docs
-description: Gerenciar email, contatos e calendários com as APIs REST do Outlook.com e o Aplicativo Lógico do Azure
+title: Conectar-se ao Outlook.com – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Gerenciar email, contatos e calendários com as APIs REST do Outlook.com e os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -18,7 +18,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50228748"
 ---
-# <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Gerenciar email, contatos e calendários no Outlook.com com o Aplicativo Lógico do Azure
+# <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Gerenciar email, contatos e calendários no Outlook.com com os Aplicativos Lógicos do Azure
 
 Este artigo mostra como você pode criar e gerenciar sua conta do Outlook.com dentro de um aplicativo lógico com o conector do Box. Desse modo, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para a conta do Outlook.com, por exemplo:
 
@@ -26,7 +26,7 @@ Este artigo mostra como você pode criar e gerenciar sua conta do Outlook.com de
 * Agendar reuniões.
 * Adicionar contatos. 
 
-Se ainda não estiver familiarizado com o Aplicativo Lógico, veja [O que é o Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md).
+Se ainda não estiver familiarizado com o Aplicativo Lógico, veja [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

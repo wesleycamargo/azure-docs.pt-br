@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ee7f0b975dd2990281833726b4013c9726a2935
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333744"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134301"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma home page personalizada para aplicativos publicados usando o Proxy de Aplicativo Azure AD
 
@@ -125,7 +125,7 @@ Crie a URL da página inicial e atualize seu aplicativo com esse valor. Continue
     ```
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
-4. Faça a atualização usando o GUID (ObjectID) que você copiou na "etapa 1: localizar o ID do objeto do aplicativo."
+4. Faça a atualização usando o GUID (ObjectID) que você copiou na "Etapa 1: localizar a ObjectID do aplicativo."
 
     ```
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
@@ -142,4 +142,4 @@ Crie a URL da página inicial e atualize seu aplicativo com esse valor. Continue
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo Azure AD](application-proxy-integrate-with-sharepoint-server.md)
-- [Habilitar o Proxy de Aplicativo no portal do Azure](application-proxy-enable.md)
+- [Habilitar o Proxy de Aplicativo no portal do Azure](application-proxy-add-on-premises-application.md)

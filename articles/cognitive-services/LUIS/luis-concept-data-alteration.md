@@ -1,23 +1,24 @@
 ---
-title: Conceitos de alteração de dados no LUIS – Reconhecimento vocal
-titleSuffix: Azure Cognitive Services
+title: Alteração de dados
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Saiba como os dados podem ser alterados antes das previsões no LUIS (Reconhecimento vocal)
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6db7fd2474688608eb029fce1529ba1d3f00c5d3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6f3f1ba47ec4dbdd09f6c9e3962b2102fc366136
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637163"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099097"
 ---
-# <a name="data-alterations"></a>Alterações de dados
+# <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de declaração antes ou durante a previsão
 O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a correção de ortografia e a correção de problemas de fuso horário do datetimeV2 pré-criado. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Corrigir erros de ortografia na declaração

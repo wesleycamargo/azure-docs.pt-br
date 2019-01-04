@@ -1,6 +1,6 @@
 ---
-title: Como atribuir funções de diretório a usuários com o Azure Active Directory | Microsoft Docs
-description: Aprenda como atribuir funções de diretório a usuários com o Azure Active Directory.
+title: Atribuir funções de diretório aos usuários - Azure Active Directory | Microsoft Docs
+description: Instruções sobre como atribuir funções de administrador e não administrador aos usuários com Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: e8646893d6dd57fd3f743f450f438cd962f02b36
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733035"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095113"
 ---
-# <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Como: Atribuir funções e administradores aos usuários com o Active Directory do Azure
+# <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos usuários com Azure Active Directory
 Se um usuário da sua organização precisar de permissão para gerenciar recursos do Azure AD (Azure Active Directory), você deverá atribuir ao usuário uma função apropriada no AD do Azure, com base nas ações que o usuário precisa de permissão para executar.
 
 Para obter mais informações sobre as funções disponíveis, consulte [Atribuindo funções de administrador no Active Directory do Azure](../users-groups-roles/directory-assign-admin-roles.md). Para obter mais informações sobre como adicionar usuários, consulte [adicionar novos usuários ao Azure Active Directory](add-users-azure-active-directory.md).
@@ -63,6 +64,6 @@ Se você precisar remover a atribuição de função de um usuário, você tamb�
 
 - [Adicionar usuários convidados de outro diretório](../b2b/what-is-b2b.md)
 
-Ou você pode executar outras tarefas de gerenciamento de usuários, como atribuir delegados, usar políticas e compartilhar contas de usuários. Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gerenciamento de usuário do Azure Active Directory](../users-groups-roles/index.yml).
+Ou você pode executar outras tarefas de gerenciamento de usuários como atribuir delegados, usar políticas e compartilhar contas de usuários. Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gerenciamento de usuário do Azure Active Directory](../users-groups-roles/index.yml).
 
 

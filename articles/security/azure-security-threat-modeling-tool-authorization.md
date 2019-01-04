@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eec628a5084dc663978e16e617192802d3ecfcfa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307649"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994754"
 ---
-# <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Atenuações 
-| Produto/serviço | Artigo |
+# <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Mitigações 
+| Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança de computador** | <ul><li>[Garantir que as ACLs apropriadas estejam configuradas para restringir o acesso não autorizado aos dados no dispositivo](#acl-restricted-access)</li><li>[Garantir que os conteúdos confidenciais do usuário armazenados no aplicativo sejam armazenados no diretório do perfil do usuário](#sensitive-directory)</li><li>[Garantir que os aplicativos implantados sejam executados com privilégios mínimos](#deployed-privileges)</li></ul> |
 | **Aplicativo Web** | <ul><li>[Impor uma ordem sequencial de etapas durante o processamento dos fluxos de lógica de negócios](#sequential-logic)</li><li>[Implementar um mecanismo de limitação de taxa para evitar a enumeração](#rate-enumeration)</li><li>[Garantir que um sistema de autorização adequado esteja em vigor e que o princípio dos privilégios mínimos seja seguido](#principle-least-privilege)</li><li>[As decisões de autorização de acesso a recursos e a lógica de negócios não devem ser baseadas em parâmetros de solicitação de entrada](#logic-request-parameters)</li><li>[Garantir que conteúdos e recursos não sejam enumeráveis ou estejam acessíveis por meio da navegação forçada](#enumerable-browsing)</li></ul> |
@@ -37,7 +37,7 @@ ms.locfileid: "43307649"
 | **Armazenamento do Azure** | <ul><li>[Conceder permissões refinadas em um intervalo de entidades no Armazenamento de Tabelas do Azure](#permission-entities)</li><li>[Habilitar o controle de acesso baseado em função (RBAC) na conta de armazenamento do Azure usando o Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Cliente móvel** | <ul><li>[Implementar detecção de modificação ou desbloqueio implícito](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Referência de classe fraca no WCF](#weak-class-wcf)</li><li>[Controle de autorização implementado no WCF](#wcf-authz)</li></ul> |
-| **API da Web** | <ul><li>[Implementar mecanismos de autorização apropriados na API Web ASP.NET](#authz-aspnet)</li></ul> |
+| **API da Web** | <ul><li>[Implementar mecanismos de autorização apropriados na ASP.NET Web API](#authz-aspnet)</li></ul> |
 | **Dispositivo IoT** | <ul><li>[Executar verificações de autorização no dispositivo se ele oferecer suporte a várias ações que exigem diferentes níveis de permissão](#device-permission)</li></ul> |
 | **Gateway de Campo de IoT** | <ul><li>[Executar verificações de autorização no Gateway de Campo se ele oferecer suporte a várias ações que exigem diferentes níveis de permissão](#field-permission)</li></ul> |
 
@@ -349,7 +349,7 @@ O elemento `<behaviorExtensions/>` do arquivo de configuração do WCF abaixo so
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Etapas** | <p>Esse serviço não usa um controle de autorização. Quando um cliente chama um determinado serviço do WCF, o WCF fornece vários esquemas de autorização que verificar se o chamador tem permissão para executar o método de serviço no servidor. Se os controles de autorização não estiverem habilitados para os serviços do WCF, um usuário autenticado pode ter seus privilégios elevados.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -389,7 +389,7 @@ return result;
 }
 ```
 
-## <a id="authz-aspnet"></a>Implementar mecanismos de autorização apropriados na API Web ASP.NET
+## <a id="authz-aspnet"></a>Implementar mecanismos de autorização apropriados na ASP.NET Web API
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -397,7 +397,7 @@ return result;
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, MVC5 |
 | **Atributos**              | N/D, Provedor de Identidade - ADFS, Provedor de Identidade - Azure AD |
-| **Referências**              | [Autenticação e autorização na API Web ASP.NET](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
+| **Referências**              | [Autenticação e autorização na ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
 | **Etapas** | <p>As informações de função dos usuários do aplicativo podem ser derivadas do Azure AD ou de declarações do ADFS, se o aplicativo os considerar como provedores de identidade, ou o próprio aplicativo pode fornecê-las. Em qualquer um desses casos, a implementação de autorização personalizada deve validar as informações de função de usuário.</p><p>As informações de função dos usuários do aplicativo podem ser derivadas do Azure AD ou de declarações do ADFS, se o aplicativo os considerar como provedores de identidade, ou o próprio aplicativo pode fornecê-las. Em qualquer um desses casos, a implementação de autorização personalizada deve validar as informações de função de usuário.</p>
 
 ### <a name="example"></a>Exemplo

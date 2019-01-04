@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2306c03480956a63859355428cbffe0706f43cbc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306635"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999227"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tarefas de configuração de postagem para junção do Microsoft Azure Active Directory Híbrido
 
@@ -30,12 +30,12 @@ Depois que você executou a conexão do Azure AD Connect para configurar sua org
 Todos os dispositivos associados ao domínio executando o Windows 10 e o Windows Server 2016 serão registrados automaticamente no Azure AD uma vez que todas as etapas de configuração foram concluídas. Se você preferir um desenvolvimento controlado em vez do registro automático, você pode usar a diretiva de grupo para seletivamente habilitar ou desabilitar a distribuição automática.  Essa política de grupo deve ser definida antes de iniciar outras etapas de configuração: Azure AD
 * Crie um objeto de diretiva de grupo no seu Active Directory.
 * Coloque um nome (por exemplo, junção do Azure AD Híbrido).
-* Editar e ir para: Configuração do Computador > Políticas > Modelos Administrativos > Componentes do Windows > Registro do Dispositivo.
+* Editar e Ir para:  Configuração do Computador > Políticas > Modelos Administrativos > Componentes do Windows > Registro de Dispositivos.
 
 >[!NOTE]
 >Para 2012R2 as configurações da política estão em **Configuração do computador > Políticas > Modelos Administrativos > Componentes do Windows > Ingresso no Local de Trabalho > Ingressar computadores cliente no local de trabalho automaticamente**
 
-* Desabilite esta  configuração: registrar computadores ingressados no domínio como dispositivos.
+* Desabilite essa configuração:  Registrar computadores ingressados no domínio como dispositivos.
 * Aplique e clique em OK.
 * Vincule o GPO para o local de sua escolha (unidade organizacional, grupo de segurança, ou para o domínio para todos os dispositivos).
 
@@ -69,7 +69,7 @@ Se sua organização usa a autenticação de passagem ou sincronização de Hash
 Para registrar dispositivos de nível inferior do Windows, você precisa garantir que a política do Microsoft Azure Active Directory permita que todos os usuários registrem os dispositivos. 
 
 * Efetue logon na sua conta no portal do Azure.
-* Selecione Microsoft Azure Active Directory > Dispositivos > Configurações do dispositivo
+* Acesse:  Microsoft Azure Active Directory > Dispositivos > Configurações do dispositivo
 * Defina “Usuários podem registrar seus dispositivos com o Microsoft Azure Active Directory” para TODOS. 
 * Clique em Salvar
 
@@ -77,7 +77,7 @@ Para registrar dispositivos de nível inferior do Windows, você precisa garanti
 
 Adicionar o ponto de extremidade de autenticação de dispositivo do Microsoft Azure Active Directory às zonas da Intranet local nos seus dispositivos de nível inferior do Windows para evitar prompts de cerificado ao autenticar os dispositivos: https://device.login.microsoftonline.com 
 
-Se você estiver usando [SSO contínuo](https://aka.ms/hybrid/sso), habilite também "Permitir atualizações da barra de status por meio de script" na zona e adicione o ponto de extremidade a seguir: https://autologon.microsoftazuread-sso.com 
+Se você estiver usando [SSO contínuo](how-to-connect-sso.md), habilite também "Permitir atualizações da barra de status por meio de script" na zona e adicione o ponto de extremidade a seguir: https://autologon.microsoftazuread-sso.com 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Instalar o Microsoft Workplace Join em dispositivos de baixo nível do Windows
 
@@ -87,8 +87,8 @@ O instalador cria uma tarefa agendada no sistema que é executada no contexto do
 
 * Crie um objeto de diretiva de grupo no seu Active Directory - se ainda não tiver criado.
 * Coloque um nome (por exemplo, junção do Azure AD Híbrido).
-* Editar e ir para: Configuração do Computador > Políticas > Modelos Administrativos > Componentes do Windows > Registro do Dispositivo
-* Habilitar: Registrar computadores ingressados no domínio como dispositivos
+* Editar e Ir para:  Configuração do Computador > Políticas > Modelos Administrativos > Componentes do Windows > Registro de Dispositivos
+* Habilitar:  Registrar computadores ingressados no domínio como dispositivos
 * Aplique e clique em OK.
 * Vincule o GPO para o local de sua escolha (unidade organizacional, grupo de segurança, ou para o domínio para todos os dispositivos).
 

@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817501"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409251"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis
 
@@ -152,7 +152,7 @@ Ao criar um back-end de Aplicativos Móveis do Node.js usando o painel **Início
 
 O procedimento a seguir usa um repositório Git para baixar o código do projeto de início rápido:
 
-1. Instale o Git, caso ainda não tenha feito isso. As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Para distribuições específicas de sistema operacional e diretrizes sobre a instalação, consulte [Instalar Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
+1. Instale o Git, caso ainda não tenha feito isso. As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Para distribuições específicas de sistema operacional e diretrizes sobre a instalação, consulte [Instalar Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
 1. Consulte [Preparar o repositório](../app-service/app-service-deploy-local-git.md#prepare-your-repository) para habilitar o repositório Git para seu site de back-end. Anote o nome de usuário e a senha da implantação.
 1. No painel do back-end de Aplicativos Móveis, anote a configuração da **URL de clone de Git**.
 1. Execute o comando `git clone`, usando a URL de clone de Git. Insira sua senha, quando necessário, como no exemplo a seguir:
@@ -284,7 +284,7 @@ O SDK do Node.js dos Aplicativos Móveis usa o [pacote de Node.js mssql] para es
 1. Baixe e instale o [Microsoft SQL Server 2014 Express]. Certifique-se de instalar o SQL Server 2014 Express com Tools Edition. A menos que você precise explicitamente do suporte de 64 bits, a versão de 32 bits consome menos memória durante a execução.
 1. Execute o Gerenciador de Configurações do SQL Server 2014:
 
-   a. Expanda o nó **Configuração de Rede do SQL Server** no menu de árvore.
+    a. Expanda o nó **Configuração de Rede do SQL Server** no menu de árvore.
 
    b. Selecione **Protocolos para SQLEXPRESS**.
 
@@ -404,7 +404,7 @@ O uso do Banco de Dados SQL do Azure como armazenamento de dados é idêntico em
 1. Na caixa **Grupo de Recursos** , digite o mesmo nome do aplicativo.
 1. O Plano do Serviço de Aplicativo padrão é selecionado. Se você quiser alterar o Plano do Serviço de Aplicativo:
 
-   a. Selecione **Plano do Serviço de Aplicativo** > **+Criar novo**.
+    a. Selecione **Plano do Serviço de Aplicativo** > **+Criar novo**.
 
    b. Forneça um nome ao novo Plano de Serviço de Aplicativo e selecione um local apropriado.
 
@@ -918,13 +918,13 @@ Você ainda pode editar operações de tabela usando Editor do Serviço de Aplic
 
 Os comandos a seguir estão disponíveis na barra de comandos de uma tabela:
 
-* **Alterar permissões**: modifique a permissão para operações de leitura, inserção, atualização e exclusão na tabela.
+* **Alterar as permissões**: Modifique a permissão para operações de leitura, inserção, atualização e exclusão na tabela.
  As opções são permitir acesso anônimo, exigir autenticação ou desabilitar todo o acesso à operação.
-* **Editar script**: o arquivo de script da tabela é aberto no Editor do Serviço de Aplicativo.
-* **Gerenciar esquema**: adicione ou exclua colunas, ou altere o índice da tabela.
-* **Limpar tabela**: trunca uma tabela existente excluindo todas as linhas de dados, mas deixando o esquema inalterado.
-* **Excluir linhas**: exclua linhas individuais de dados.
-* **Exibir logs de streaming**: conecta ao serviço de log de streaming de seu site.
+* **Editar Script**: O arquivo de script da tabela é aberto no Editor do Serviço de Aplicativo.
+* **Gerenciar o esquema**: Adicione ou exclua colunas ou altere o índice da tabela.
+* **Limpar tabela**: Truncar uma tabela existente excluindo todas as linhas de dados, mas deixando o esquema inalterado.
+* **Excluir linhas**: Excluir linhas individuais de dados.
+* **Exibir &Logs de Streaming**: Conectar ao serviço de log de streaming de seu site.
 
 ### <a name="work-easy-apis"></a>Trabalhar com APIs fáceis no Portal do Azure
 
@@ -963,11 +963,11 @@ Ao usar o Portal do Azure, você poderá editar seus arquivos de script de back-
 [Início rápido do Cliente Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Início rápido do cliente Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
 [sincronização de dados offline]: app-service-mobile-offline-data-sync.md
-[Configurar a autenticação do Microsoft Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Configurar a autenticação do Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Configurar a autenticação do Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Configurar o Microsoft authentication]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Configurar a autenticação do Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Configurar a autenticação do Microsoft Azure Active Directory]: ../app-service/configure-authentication-provider-aad.md
+[Configurar a autenticação do Facebook]: ../app-service/configure-authentication-provider-facebook.md
+[Configurar a autenticação do Google]: ../app-service/configure-authentication-provider-google.md
+[Configurar o Microsoft authentication]: ../app-service/configure-authentication-provider-microsoft.md
+[Configurar a autenticação do Twitter]: ../app-service/configure-authentication-provider-twitter.md
 [Guia de implantação do Serviço de Aplicativo do Azure]: ../app-service/app-service-deploy-local-git.md
 [Monitorar o Serviço de Aplicativo do Azure]: ../app-service/web-sites-monitor.md
 [Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure]: ../app-service/web-sites-enable-diagnostic-log.md
@@ -976,11 +976,11 @@ Ao usar o Portal do Azure, você poderá editar seus arquivos de script de back-
 [usar módulos do Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Portal do Azure]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promessa]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [exemplo de aplicativo básico no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [exemplo de tarefas pendentes no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -989,6 +989,6 @@ Ao usar o Portal do Azure, você poderá editar seus arquivos de script de back-
 [QueryJS]: https://github.com/Azure/queryjs
 [Ferramentas do Node.js 1.1 para Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [pacote de Node.js mssql]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

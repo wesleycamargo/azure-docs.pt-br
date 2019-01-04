@@ -1,12 +1,11 @@
 ---
-title: Perguntas frequentes sobre as Competições do Cortana Intelligence | Microsoft Docs
+title: Perguntas frequentes sobre Competições do Cortana Intelligence – Azure Machine Learning Studio | Microsoft Docs
 description: Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265093"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268896"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence
 **O que são as Competições do Cortana Intelligence?**
@@ -70,7 +69,7 @@ Atualmente, não há suporte para a participação de equipes na plataforma da c
 
 A participação nas Competições é gratuita. No entanto, você precisa ter acesso a um workspace de Azure Machine Learning para participar. Você pode criar um workspace livre sem um cartão de crédito. Para isso, basta fazer logon com uma conta da Microsoft válida ou uma conta do Office 365. Se você já for um cliente do Azure ou do Cortana Intelligence Suite, poderá criar e usar um workspace Standard com a mesma assinatura do Azure. Se desejar comprar uma assinatura do Azure, acesse a página de [preços do Azure](https://azure.microsoft.com/pricing). Observe que as taxas padrão se aplicam ao uso de um workspace Standard para construir testes. Para saber mais, consulte as [informações sobre preço do Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **Quais são as pontuações públicas e privadas?**
 

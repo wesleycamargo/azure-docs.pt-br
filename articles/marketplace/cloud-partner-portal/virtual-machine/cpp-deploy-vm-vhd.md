@@ -3,7 +3,7 @@ title: Implantar uma VM de seus VHDs para o Azure Marketplace | Microsoft Docs
 description: Explica como registrar uma VM de um VHD do Azure implantado.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2771549af29b3e717d117afb42de6db03fbee226
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 9157ce7f8f16bc60a6d5c16fa992a5402cf2d7ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638811"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190723"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implantar uma VM por meio dos seus VHDs
 
-Este artigo explica como registrar uma máquina virtual (VM) de um disco rígido virtual (VHD) implantado no Azure.  Ele lista as ferramentas necessárias e como usá-las para criar uma imagem de VM do usuário e implantá-la no Azure usando o [portal do Microsoft Azure](https://ms.portal.azure.com/) ou scripts do PowerShell. 
+Esta seção explica como implantar uma VM (máquina virtual) por meio de um VHD (disco rígido virtual) implantado no Azure.  Ela lista as ferramentas necessárias e como usá-las para criar uma imagem de VM do usuário e, em seguida, implantá-la no Azure usando scripts do PowerShell.
 
 Depois de carregar seus discos rígidos virtuais (VHDs) - o VHD do sistema operacional generalizado e zero ou mais VHDs de disco de dados - para uma conta de armazenamento do Azure, você pode registrá-los como uma imagem VM do usuário. Em seguida, você pode testar essa imagem. Como seu VHD do sistema operacional é generalizado, você não pode implantar a VM diretamente fornecendo a URL do VHD.
 
@@ -33,48 +33,23 @@ Para obter mais informações sobre imagens de VM consulte os posts de blog abai
 - [Guia do PowerShell da Imagem da VM](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 
-## <a name="set-up-the-necessary-tools"></a>Configurar as ferramentas necessárias
+## <a name="prerequisite-install-the-necessary-tools"></a>Pré-requisito: instalar as ferramentas necessárias
 
 Se você ainda não fez isso, instale o Azure PowerShell e CLI do Azure, usando as instruções a seguir:
-
-<!-- TD: Change the following URLs (in this entire topic) to relative paths.-->
 
 - [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 - [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## <a name="create-a-user-vm-image"></a>Criar uma imagem VM de usuário
+## <a name="deployment-steps"></a>Etapas de implantação.
 
-Em seguida, você criará uma imagem não gerenciada de seu VHD generalizado.
+Você usará as seguintes etapas para criar e implantar uma imagem de VM do usuário:
 
-#### <a name="capture-the-vm-image"></a>Captura da imagem da VM
+1. Criar a imagem de VM do usuário, que envolve a captura e a generalização da imagem. 
+2. Criar certificados e armazená-los em um novo Azure Key Vault. Um certificado é necessário para estabelecer uma conexão segura do WinRM com a VM.  Um modelo do Azure Resource Manager e um script do Azure PowerShell são fornecidos. 
+3. Implante a VM com base em uma imagem de VM do usuário, usando o modelo e o script fornecidos.
 
-Use as instruções no artigo a seguir sobre como capturar a VM que corresponde à sua abordagem de acesso:
-
--  PowerShell: [Como criar uma imagem VM não gerenciada de uma VM do Azure](../../../virtual-machines/windows/capture-image-resource.md)
--  CLI do Azure: [Como criar uma imagem de uma máquina virtual ou um VHD](../../../virtual-machines/linux/capture-image.md)
--  API: [Máquinas Virtuais – Capturar](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
-
-### <a name="generalize-the-vm-image"></a>Generalizar a imagem VM
-
-Porque você gerou a imagem de usuário de um VHD generalizado anteriormente, a imagem também deve ser generalizada.  Novamente, selecione o artigo a seguir que corresponde ao seu mecanismo de acesso.  (você pode ter já generalizado seu disco quando você o capturou)
-
--  PowerShell: [Generalizar a VM](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  CLI do Azure: [Etapa 2: criar imagem VM](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [Máquinas Virtuais – Generalizar](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
-
-
-## <a name="deploy-a-vm-from-a-user-vm-image"></a>Implante uma VM usando uma imagem de VM de usuário
-
-Em seguida, você implantará uma VM de uma imagem VM de usuário, usando o portal do Azure ou PowerShell.
-
-<!-- TD: Recapture following hilited images and replace with red-box. -->
-
-### <a name="deploy-a-vm-from-azure-portal"></a>Implante uma VM no portal do Azure atual
-
-Use o processo a seguir para implantar sua VM de usuário do portal do Azure.
-
-1.  Faça logon no [Portal do Azure](https://portal.azure.com).
+Depois que a VM for implantada, você estará pronto para [certificar a imagem de VM](./cpp-certify-vm.md).
 
 2.  Clique em **Novo** e pesquise a **Implantação de modelo**, em seguida, selecione **Criar seu próprio modelo no Editor**.  <br/>
   ![Criar modelo de implantação de VHD no portal do Azure](./media/publishvm_021.png)
@@ -121,10 +96,8 @@ Para implantar uma VM grande, a partir da imagem VM generalizada recém-criada, 
     New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 ```
 
-<!-- TD: The following is a marketplace-publishing article and may be out-of-date.  TD: update and move topic.
-For help with issues, see [Troubleshooting common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting) for additional assistance.
--->
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que a VM for implantada, você estará pronto para [Configurar a VM](./cpp-configure-vm.md).
+Em seguida, você [criará uma imagem de VM do usuário](cpp-create-user-image.md) para sua solução.
+

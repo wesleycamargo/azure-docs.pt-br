@@ -1,19 +1,19 @@
 ---
-title: 'Configurar as conexões de VPN de ExpressRoute e Site a Site que possam coexistir: PowerShell: Azure | Microsoft Docs'
-description: Este artigo o orienta na configuração da conexão VPN de Site a Site e de ExpressRoute que pode coexistir para o modelo do Resource Manager usando PowerShell
+title: 'Configurar conexões VPN site a site e de ExpressRoute – coexistir: PowerShell: Azure | Microsoft Docs'
+description: Configure uma conexão VPN site a site e de ExpressRoute que pode coexistir para o modelo do Resource Manager usando o PowerShell.
 services: expressroute
 author: charwen
-manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243804"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104026"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar conexões coexistentes Site a Site e ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -21,6 +21,9 @@ ms.locfileid: "51243804"
 > * [PowerShell - clássico](expressroute-howto-coexist-classic.md)
 > 
 > 
+
+
+Este artigo ajuda você a configurar conexões de VPN site a site e de ExpressRoute que coexistam. Poder configurar a VPN site a site e o ExpressRoute tem várias vantagens. Você pode configurar um VPN Site a Site como um caminho de failover seguro para o ExpressRoute ou usar VPNs Site a Site para se conectar a sites que não estão conectados por meio do ExpressRoute. Neste artigo, analisaremos as etapas para configurar as duas situações. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos.
 
 Configurar conexões coexistentes VPN Site a Site e a ExpressRoute tem várias vantagens:
 

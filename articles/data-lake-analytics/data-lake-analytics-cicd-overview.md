@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 974ef7a51736c2e2b0a0de3c13d23ddc37fa13b7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 76bfcd5e1b7e0215cfea7fbbfe1c51726d305fbc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855010"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969832"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics  
 
@@ -41,8 +41,8 @@ Antes de configurar uma tarefa de construção para um projeto U-SQL, verifique 
 
 Se não tiver, poderá usar uma das duas opções a seguir para migrar o projeto:
 
-- Opção 1: altere o item de importação antigo para o anterior.
-- Opção 2: abra o projeto antigo nas Ferramentas do Data Lake do Azure para Visual Studio. Use uma versão mais recente do que 2.3.3000.0. O antigo modelo de projeto será atualizado automaticamente para a versão mais recente. Novos projetos criados com versões mais recentes que 2.3.3000.0 usam o novo modelo.
+- Opção 1: Altere o item de importação antigo para o anterior.
+- Opção 2: Abra o projeto antigo nas Ferramentas do Azure Data Lake para Visual Studio. Use uma versão mais recente do que 2.3.3000.0. O antigo modelo de projeto será atualizado automaticamente para a versão mais recente. Novos projetos criados com versões mais recentes que 2.3.3000.0 usam o novo modelo.
 
 ### <a name="get-nuget"></a>Obter o NuGet
 
@@ -99,7 +99,7 @@ Além da linha de comando, você também poderá usar o Build do Visual Studio o
     ![Definir as variáveis do MSBuild de CI/CD para um projeto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
     ```
-    /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
+    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
     ```
 
 ### <a name="u-sql-project-build-output"></a>Resultado da compilação do projeto U-SQL
@@ -335,7 +335,7 @@ Além da linha de comando, você poderá usar o Build do Visual Studio ou uma ta
    ![Definir variáveis CI / CD MSBuild para um projeto de banco de dados U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
     ```
-    /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
+    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
     ```
  
 ### <a name="u-sql-database-project-build-output"></a>Resultado da compilação do projeto de banco de dados U-SQL
@@ -457,7 +457,7 @@ Execute as etapas a seguir para configurar uma tarefa de implantação de banco 
 |Pacote|O caminho do pacote de implantação do banco de dados U-SQL a ser implantado.|nulo|verdadeiro|
 |Banco de dados|O nome do banco de dados a ser implantado ou criado.|master|falso|
 |LogFile|O caminho do arquivo para registro. Padrão para saída padrão (console).|nulo|falso|
-|LogLevel|Nível de registro: Verbose, Normal, Aviso ou Erro.|LogLevel.Normal|falso|
+|LogLevel|Nível de log: Detalhado, Normal, Aviso ou Erro.|LogLevel.Normal|falso|
 
 #### <a name="parameter-for-local-deployment"></a>Parâmetro para implantação local
 

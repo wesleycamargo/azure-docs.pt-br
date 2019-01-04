@@ -1,29 +1,30 @@
 ---
-title: Solucionar problemas usando o Azure Blueprint
+title: Solução de problemas comuns
 description: Saiba como solucionar problemas de criação e atribuição de blueprints
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092927"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315512"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar problemas usando o Azure Blueprint
 
 Você pode executar erros ao criar ou atribuir blueprints. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
 
-## <a name="finding-error-details"></a>Encontrando os detalhes do erro
+## <a name="finding-error-details"></a>Encontrar detalhes do erro
 
 Muitos erros serão o resultado da atribuição de um blueprint para um escopo. Quando uma atribuição falha, o blueprint fornece detalhes sobre a implantação com falha. Essa informação indica o problema para que ele possa ser corrigido e a próxima implantação for bem-sucedida.
 
-1. Clique em **Todos os serviços**; procure e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
 
 1. Selecione **Blueprints Atribuídos** na página à esquerda e use a caixa de pesquisa para filtrar as atribuições de blueprint para encontrar as atribuições com falha. Você também pode classificar a tabela de atribuições de acordo com a coluna **Estado de Provisionamento** para ver todas as atribuições com falha agrupadas.
 
@@ -35,7 +36,7 @@ Muitos erros serão o resultado da atribuição de um blueprint para um escopo. 
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="policy-violation"></a>Cenário: violação de política
+### <a name="policy-violation"></a>Cenário: Violação de política
 
 #### <a name="issue"></a>Problema
 

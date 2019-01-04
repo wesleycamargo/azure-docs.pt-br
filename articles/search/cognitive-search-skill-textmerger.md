@@ -1,5 +1,5 @@
 ---
-title: Habilidade de pesquisa cognitiva do Text Merge (Azure Search) | Microsoft Docs
+title: Habilidade de Mesclagem de Texto da pesquisa cognitiva – Azure Search
 description: Mescle o texto de uma coleção de campos em um campo consolidado. Use essa habilidade cognitiva em um pipeline de enriquecimento do Azure Search.
 services: search
 manager: pablocas
@@ -10,19 +10,22 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5387eeacc78875ac0f38f96a6c83fb3f5791775e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: b29d32d39b4efb7e242a3ae3213512798622d1e9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167606"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314509"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Habilidade de percepção do Text Merge
 
 A habilidade do **Text Merge** consolida o texto de uma coleção de campos em um único campo. 
 
 > [!NOTE]
-> Pesquisa Cognitiva está na visualização pública. A execução do conjunto de habilidades e a extração e normalização de imagem são oferecidas gratuitamente no momento. Posteriormente, os preços dessas funcionalidades serão anunciados. 
+> A partir de 21 de dezembro de 2018, você poderá associar um recurso de Serviços Cognitivos a um conjunto de habilidades do Azure Search. Isso nos permitirá começar a cobrar pela execução do conjunto de habilidades. Nessa data, também começaremos a cobrar pela extração de imagens como parte do estágio de decodificação de documentos. A extração de texto de documentos continuará sendo oferecida sem custo adicional.
+>
+> A execução das habilidades internas será cobrada conforme o [preço pago conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existente. O preço da extração de imagens será cobrado conforme o preço da versão prévia, descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

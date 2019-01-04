@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821541"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961137"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -351,7 +351,7 @@ A integração do SASL do AMQP tem duas desvantagens:
 * Todas as credenciais e os tokens têm como escopo a conexão. Um infraestrutura de mensagens pode querer fornecer controle de acesso diferenciado por entidade; por exemplo, permitindo que o portador de um token faça um envio para a fila A, mas não para a fila B. Com o contexto de autorização ancorado na conexão, não é possível usar uma única conexão e ainda usar tokens de acesso diferentes para a fila A e a fila B.
 * Os tokens de acesso geralmente só são válidos por um período limitado. Essa validade exige que o usuário readquira tokens periodicamente, além de oferecer uma oportunidade para o emissor do token de se recusar a emitir um token novo, caso as permissões de acesso do usuário tenham sido alteradas. As conexões AMQP podem durar por longos períodos. O modelo SASL apenas fornece uma oportunidade para definir um token no momento da conexão, o que significa que a infraestrutura de mensagens precisa desconectar o cliente quando o token expira ou precisa aceitar o risco de permitir a comunicação contínua com um cliente cujos direitos de acesso possam ter sido revogados nesse ínterim.
 
-A especificação CBS do AMQP, implementada pelo Barramento de Serviço, proporciona uma solução alternativa para ambos os problemas: permite que um cliente associe tokens de acesso a cada nó e atualize esses tokens antes que eles expirem, sem interromper o fluxo de mensagens.
+A especificação CBS do AMQP, implementada pelo Barramento de Serviço permite que uma solução elegante para ambos os problemas: Ele permite que um cliente associe tokens de acesso a cada nó e atualize esses tokens antes de expirarem, sem interromper o fluxo de mensagens.
 
 O CBS define um nó de gerenciamento virtual, chamado *$cbs*, a ser fornecido pela infraestrutura de mensagens. O nó de gerenciamento aceita tokens em nome de qualquer outro nó na infraestrutura de mensagens.
 
@@ -374,7 +374,7 @@ A propriedade *name* identifica a entidade à qual o token deve ser associado. N
 | amqp:swt |SWT (Token Web Simples) |Valor de AMQP (cadeia de caracteres) |Só tem suporte para tokens SWT emitidos pelo AAD/ACS |
 | servicebus.windows.net:sastoken |Token SAS do barramento de serviço |Valor de AMQP (cadeia de caracteres) |- |
 
-Os tokens conferem direitos. O Barramento de Serviço conhece três direitos fundamentais: "Enviar", permite o envio, "Ouvir", permite o recebimento, e "Gerenciar", permite a manipulação de entidades. Os tokens SWT emitidos pelo ACS/AAD incluem explicitamente esses direitos como declarações. Os tokens SAS do Barramento de Serviço consultam regras configuradas no namespace ou na entidade, e essas regras são configuradas com direitos. Assinar o token com a chave associada a essa regra, portanto, faz com que o token expresse os respectivos direitos. O token associado a uma entidade que usa *put-token* permite que o cliente conectado interaja com a entidade de acordo com os direitos do token. Um link em que o cliente assume a função de *remetente* requer o direito "Envio", e assumir a função de *receptor* requer o direito "Ouvir".
+Os tokens conferem direitos. O Barramento de Serviço do Microsoft Azure conhece três direitos fundamentais: “Enviar", permite o envio, "Ouvir", permite o recebimento, e "Gerenciar", permite a manipulação de entidades. Os tokens SWT emitidos pelo ACS/AAD incluem explicitamente esses direitos como declarações. Os tokens SAS do Barramento de Serviço consultam regras configuradas no namespace ou na entidade, e essas regras são configuradas com direitos. Assinar o token com a chave associada a essa regra, portanto, faz com que o token expresse os respectivos direitos. O token associado a uma entidade que usa *put-token* permite que o cliente conectado interaja com a entidade de acordo com os direitos do token. Um link em que o cliente assume a função de *remetente* requer o direito "Envio", e assumir a função de *receptor* requer o direito "Ouvir".
 
 A mensagem de resposta tem os seguintes valores de *application-properties*
 
@@ -399,7 +399,7 @@ O cliente é subsequentemente responsável por manter o controle de expiração 
 
 Com essa funcionalidade, você pode criar um remetente e estabelecer o link com a `via-entity`. Ao estabelecer o link, informações adicionais são passadas para estabelecer o destino real das mensagens/transferências nesse link. Com a conexão bem-sucedida, todas as mensagens enviadas nesse link são encaminhadas automaticamente para a *destination-entity* por meio da *via-entity*. 
 
-> Observação: a autenticação deve ser executada para *via-entity* e para *destination-entity* antes do estabelecimento desse link.
+> Observação: A autenticação deve ser executada para *via-entity* e para *destination-entity* antes do estabelecimento desse link.
 
 | Cliente | | Barramento de Serviço |
 | --- | --- | --- |

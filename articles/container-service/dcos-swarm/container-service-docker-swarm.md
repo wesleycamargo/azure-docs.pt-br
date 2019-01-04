@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o cluster do Azure Swarm com a API do Docker
+title: (PRETERIDO) Gerenciar o cluster do Azure Swarm com a API do Docker
 description: Implantar contêineres em um cluster do Docker Swarm no Serviço de Contêiner do Azure
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 3f8d18bc053bc303ab124ba38c8621d4ee2e8cb8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 04cc9048271d653bd77fd7f2707c8f510ea8c29f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26331538"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997956"
 ---
-# <a name="container-management-with-docker-swarm"></a>Gerenciamento de contêiner com Docker Swarm
+# <a name="deprecated-container-management-with-docker-swarm"></a>(PRETERIDO) Gerenciamento de contêiner com Docker Swarm
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 O Docker Swarm fornece um ambiente para implantação de cargas de trabalho em contêineres de em um conjunto de pool de hosts do Docker. Docker Swarm usa a API nativa do Docker. O fluxo de trabalho para gerenciar contêineres em um Docker Swarm é quase idêntico ao que seria usado em um host de contêiner único. Este documento fornece exemplos simples de implantação de cargas de trabalho em contêineres em uma instância do Serviço de Contêiner do Azure do Docker Swarm. Para obter documentação mais detalhada sobre o Docker Swarm, confira [Docker Swarm em Docker.com](https://docs.docker.com/swarm/).
 

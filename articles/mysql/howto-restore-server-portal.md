@@ -9,19 +9,19 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 6a34bbb5eefac117775c9876f3e4a25d3dade736
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 7f75950a0f61c646d6cf36ea0903ebdefbd336ee
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266264"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138472"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando o Portal do Azure
 
 ## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
 O backup do Banco de Dados do Azure para servidores MySQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de instruções, você precisa:
 - Um [banco de dados e servidor do Banco de Dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -65,10 +65,10 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 3. Preencha o formulário Restaurar com as informações necessárias:
 
    ![Banco de Dados do Azure para MySQL - Informações de restauração ](./media/howto-restore-server-portal/3-restore.png)
-  - **Ponto de restauração**: selecione o ponto para o qual você deseja restaurar.
-  - **Servidor de destino**: forneça um nome para o novo servidor.
-  - **Local**: não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
-  - **Tipo de preço**: você não pode alterar esses parâmetros ao fazer uma restauração pontual. Ele é igual ao servidor de origem. 
+   - **Ponto de restauração**: Selecione o ponto no tempo que você quer restaurar.
+   - **Servidor de destino**: Forneça um nome para o novo servidor.
+   - **Localização**: Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
+   - **Camada de preços**: Não é possível alterar esses parâmetros ao fazer uma restauração pontual. Ele é igual ao servidor de origem. 
 
 4. Clique em **OK** para restaurar o servidor em um ponto anterior. 
 
@@ -85,7 +85,7 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
    ![Opção “Banco de Dados do Azure para MySQL”](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
 
 2. Na lista suspensa **Selecionar origem** do formulário, escolha **Backup**. Essa ação carrega uma lista de servidores que têm backups com redundância geográfica habilitados. Selecione um desses backups para ser a origem do novo servidor.
-   ![Selecionar origem: backup e lista de backups com redundância geográfica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Selecionar origem: Backup e lista de backups com redundância geográfica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, talvez não fique imediatamente disponível para restauração geográfica. Pode demorar algumas horas para que os metadados necessários sejam preenchidos.

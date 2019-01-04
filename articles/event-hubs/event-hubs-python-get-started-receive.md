@@ -1,20 +1,20 @@
 ---
-title: Receber eventos dos Hubs de Eventos do Azure usando Python | Microsoft Docs
-description: Comece a receber eventos de Hubs de Eventos usando Python
+title: Receber eventos usando Python – Hubs de Eventos do Azure | Microsoft Docs
+description: Este artigo fornece um passo a passo para a criação de um aplicativo Python que recebe eventos dos Hubs de Eventos do Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: db177c3356d378317c41e0c91c10865db5e05992
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc1cf07c5a74bc4d7182eea5281e75525fd04247
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286972"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103177"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Receber eventos de Hubs de Eventos usando Python
 
@@ -30,11 +30,9 @@ O código deste tutorial é retirado [destes exemplos do GitHub](https://github.
 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
+- Uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.
 - Python 3.4 ou posterior.
 - Um namespace dos Hubs de Eventos existente e Hub de Eventos do Azure. Você pode criar essas entidades seguindo as instruções deste [artigo](event-hubs-create.md). 
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
 
 ## <a name="install-python-package"></a>Instalar o pacote do Python
 

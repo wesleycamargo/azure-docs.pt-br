@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f5610f03cb613c7da2f89da1a38b6bf058a4e0cc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962555"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714399"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup do portal de administração para o Azure Stack
 Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que o Azure Stack pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a recuperação no caso de nuvem [uma falha catastrófica](./azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é garantir que seus operadores e usuários podem fazer logon novamente no portal após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, originais planos, ofertas e computação definida anteriormente, armazenamento e cotas de rede.
@@ -30,7 +30,7 @@ No entanto, o serviço de Backup de infraestrutura não fazer backup de VMs de I
 Os administradores e usuários são responsáveis por fazer backup e restaurar os recursos de IaaS e PaaS separadamente dos processos de backup de infraestrutura. Para obter informações sobre como fazer backup de recursos de IaaS e PaaS, consulte os links a seguir:
 
 - [Máquinas virtuais](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
-- [Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+- [Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 

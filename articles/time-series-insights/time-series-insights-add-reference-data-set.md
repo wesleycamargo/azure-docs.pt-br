@@ -1,5 +1,5 @@
 ---
-title: Como adicionar um conjunto de dados de referência ao seu ambiente Azure Time Series Insights
+title: Dados de referência do Azure Time Series Insights – Como adicionar um conjunto de dados de referência ao ambiente do Azure Time Series Insights | Microsoft Docs
 description: Este artigo descreve como adicionar um conjunto de dados de referência para ampliar dados no seu ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: de5f4735e7dde7a3e631d14c83d42ccb9fd5c9db
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364730"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273826"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente Time Series Insights usando o Portal do Azure
 
@@ -59,9 +60,9 @@ Os dados de referência não estão unidos retroativamente. Isso significa que s
    - Cole os dados no editor de texto. Em seguida, selecione o botão **Analisar dados de referência**.
    - Selecione o botão **Escolher arquivo** para adicionar dados de um arquivo de texto local. 
 
-   Por exemplo, cole os dados CSV: ![Dados CSV colados](media/add-reference-data-set/csv_data_pasted.png)
+   Por exemplo, cole dados CSV: ![Dados CSV colados](media/add-reference-data-set/csv_data_pasted.png)
 
-   Por exemplo, cole os dados da matriz JSON: ![Dados JSON colados](media/add-reference-data-set/json_data_pasted.png)
+   Por exemplo, cole os dados da matriz JSON: ![Colar dados JSON](media/add-reference-data-set/json_data_pasted.png)
 
    Se houver um erro ao analisar os valores de dados, o erro aparecerá em vermelho na parte inferior da página, como `CSV parsing error, no rows extracted`.
 

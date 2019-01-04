@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 0a130613d6d2086fda55ca015b1c0ca77c909e3d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d6a1f2829352e8589c8d132a195a425edcbe62c3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684606"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872927"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorar Sincronização de Dados SQL com o Log Analytics 
 
@@ -97,7 +97,7 @@ Para obter mais informações sobre como criar um runbook, consulte [Meu primeir
 
     2.  Informações do Grupo de Sincronização.
 
-    3.  Informações do Log Analytics. Encontre essas informações em portal do Azure | Configurações | Fontes Conectadas. Para obter mais informações sobre como enviar dados para o Log Analytics, consulte [Enviar dados para o Log Analytics com a API do Coletor de Dados HTTP (versão prévia)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Informações do Log Analytics. Encontre essas informações em portal do Azure | Configurações | Fontes Conectadas. Para obter mais informações sobre como enviar dados para o Log Analytics, consulte [Enviar dados para o Log Analytics com a API do Coletor de Dados HTTP (versão prévia)](../azure-monitor/platform/data-collector-api.md).
 
 11. Execute o runbook no painel Teste. Verifique se ele foi bem-sucedido.
 
@@ -181,9 +181,9 @@ Para configurar a exibição do Log Analytics, faça o seguinte:
 
 Na maioria dos casos, essa solução é gratuita.
 
-**Automação do Azure:** pode haver um custo com a conta da Automação do Azure, dependendo do uso. Os primeiros 500 minutos do tempo de execução do trabalho por mês são gratuitos. Na maioria dos casos, espera-se que essa solução use menos de 500 minutos por mês. Para evitar encargos, agende o runbook para que ele seja executado em um intervalo de duas horas ou mais. Para obter mais informações, consulte [Preços da Automação](https://azure.microsoft.com/pricing/details/automation/).
+**Automação do Azure**: Pode haver um custo com a conta da Automação do Azure, dependendo do uso. Os primeiros 500 minutos do tempo de execução do trabalho por mês são gratuitos. Na maioria dos casos, espera-se que essa solução use menos de 500 minutos por mês. Para evitar encargos, agende o runbook para que ele seja executado em um intervalo de duas horas ou mais. Para obter mais informações, consulte [Preços da Automação](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics:** pode haver um custo associado ao Log Analytics, dependendo do uso. A camada gratuita inclui 500 MB de dados ingeridos por dia. Na maioria dos casos, espera-se que essa solução ingira menos de 500 MB por dia. Para diminuir o uso, use a filtragem somente falha incluída no runbook. Caso você esteja usando mais de 500 MB por dia, faça atualização para a camada paga para evitar o risco da interrupção da análise quando o limite for atingido. Para obter mais informações, consulte [Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** Pode haver um custo associado ao Log Analytics, dependendo do uso. A camada gratuita inclui 500 MB de dados ingeridos por dia. Na maioria dos casos, espera-se que essa solução ingira menos de 500 MB por dia. Para diminuir o uso, use a filtragem somente falha incluída no runbook. Caso você esteja usando mais de 500 MB por dia, faça atualização para a camada paga para evitar o risco da interrupção da análise quando o limite for atingido. Para obter mais informações, consulte [Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Exemplos de código
 
@@ -198,7 +198,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configurar sincronização de dados
-    - No portal - [Tutorial: configure o SQL Data Sync para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL e SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

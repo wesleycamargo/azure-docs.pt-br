@@ -1,6 +1,6 @@
 ---
-title: Executar operações em dados - Aplicativo Lógico do Azure | Microsoft Docs
-description: Converter, gerenciar e manipular os formatos e saídas de dados no Aplicativo Lógico do Azure
+title: Executar operações em dados - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Converter, gerenciar e manipular os formatos e saídas de dados nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50231637"
 ---
-# <a name="perform-data-operations-in-azure-logic-apps"></a>Executar operações de dados no Aplicativo Lógico do Azure
+# <a name="perform-data-operations-in-azure-logic-apps"></a>Executar operações de dados nos Aplicativos Lógicos do Azure
 
 Este artigo mostra como você pode trabalhar com dados nos aplicativos lógicos adicionando ações para esses dados e mais:
 
@@ -72,7 +72,7 @@ Para seguir os exemplos neste artigo, é necessário estes itens:
 
 ## <a name="compose-action"></a>Ação para compor
 
-Para construir uma única saída, tal como um objeto JSON de várias entradas, é possível usar a ação **Operações de Dados - Redigir**. As entradas podem ter vários tipos, como inteiros, boolianos, matrizes, objetos JSON e outro tipo nativo com suporte do Aplicativo Lógico do Azure, por exemplo, binário e XML. Em seguida, você pode usar a saída em ações que seguem após a ação **Redigir**. A ação **Redigir** também pode evitar que você insira repetidamente as mesmas entradas ao criar o fluxo de trabalho do aplicativo lógico. 
+Para construir uma única saída, tal como um objeto JSON de várias entradas, é possível usar a ação **Operações de Dados - Redigir**. As entradas podem ter vários tipos, como inteiros, boolianos, matrizes, objetos JSON e outro tipo nativo com suporte dos Aplicativos Lógicos do Azure, por exemplo, binário e XML. Em seguida, você pode usar a saída em ações que seguem após a ação **Redigir**. A ação **Redigir** também pode evitar que você insira repetidamente as mesmas entradas ao criar o fluxo de trabalho do aplicativo lógico. 
 
 Por exemplo, você pode construir uma mensagem JSON a partir de diversas variáveis, como variáveis de cadeia de caracteres que armazenam os nomes e sobrenomes das pessoas e uma variável de inteiro que armazena a idade das pessoas. Aqui, a ação **Redigir** aceita estas entradas:
 

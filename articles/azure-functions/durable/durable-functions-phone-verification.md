@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7bc9341d7e078b0ae69cc9a734c02f257df6d96a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: beb6650125bdf7526b8167ba0f076b079e4e84a8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638501"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342860"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana nas Funções Duráveis – exemplo de verificação por telefone
 
@@ -45,8 +45,8 @@ Este artigo aborda as seguintes funções no aplicativo de exemplo:
 * **E4_SendSmsChallenge**
 
 As seções a seguir explicam a configuração e o código utilizados para o script C# e Javascript. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
- 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A orquestração de verificação de SMS (código de exemplo do Visual Studio Code e do portal do Azure) 
+
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A orquestração de verificação de SMS (código de exemplo do Visual Studio Code e do portal do Azure)
 
 A função **E4_SmsPhoneVerification** usa o *function.json* padrão para funções de orquestrador.
 
@@ -58,7 +58,7 @@ Este é o código que implementa a função:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -72,7 +72,7 @@ Uma vez iniciada, essa função de orquestrador faz o seguinte:
 O usuário recebe uma mensagem SMS com um código de 4 dígitos. Ele tem 90 segundos para enviar o mesmo código de 4 dígitos para a instância da função de orquestrador para concluir o processo de verificação. Se enviar o código errado, ele terá mais três tentativas para acertar (na mesma janela de 90 segundos).
 
 > [!NOTE]
-> Pode não ser óbvio a princípio, mas essa função de orquestrador é totalmente determinística. Isso ocorre porque a propriedade `CurrentUtcDateTime` é usada para calcular o tempo de expiração do temporizador e essa propriedade retorna o mesmo valor em cada reprodução nesse ponto no código do orquestrador. Isso é importante para garantir que o mesmo `winner` resulte de todas as chamadas repetidas para `Task.WhenAny`.
+> Pode não ser óbvio a princípio, mas essa função de orquestrador é totalmente determinística. Isso ocorre porque as propriedades `CurrentUtcDateTime` (.NET) e `currentUtcDateTime` (JavaScript) são usadas para calcular o tempo de término do temporizador, e essas propriedades retornam o mesmo valor em cada reprodução nesse ponto no código do orquestrador. Isso é importante para garantir que o mesmo `winner` resulte de todas as chamadas repetidas para `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript).
 
 > [!WARNING]
 > É importante [cancelar os temporizadores](durable-functions-timers.md) se você não precisar mais que eles expirem, como no exemplo acima quando uma resposta ao desafio é aceita.
@@ -89,7 +89,7 @@ E este é o código que gera o código de desafio de 4 dígitos e envia a mensag
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -106,6 +106,7 @@ Content-Type: application/json
 
 "+1425XXXXXXX"
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 695
@@ -115,12 +116,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-   > [!NOTE]
-   > Atualmente, funções de início de orquestração de JavaScript não podem retornar URIs de gerenciamento de instância. Essa funcionalidade será adicionada em uma versão posterior.
-
 A função de orquestrador recebe o número de telefone fornecido e envia imediatamente uma mensagem SMS para ele com um código de verificação de 4 dígitos gerado aleatoriamente &mdash;, por exemplo, *2168*. Em seguida, a função espera durante 90 segundos por uma resposta.
 
-Para responder com o código, você pode usar `RaiseEventAsync` dentro de outra função ou invocar o webhook de HTTP POST **sendEventUrl**, referenciado na resposta 202 acima, substituindo `{eventName}` pelo nome do evento, `SmsChallengeResponse`:
+Para responder com o código, você pode usar [`RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) dentro de outra função ou invocar o webhook de HTTP POST **sendEventUrl**, referenciado na resposta 202 acima, substituindo `{eventName}` pelo nome do evento, `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -135,6 +133,7 @@ Se você enviá-lo antes que o temporizador expire, a orquestração será concl
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
+
 ```
 HTTP/1.1 200 OK
 Content-Length: 144

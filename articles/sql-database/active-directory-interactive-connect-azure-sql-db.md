@@ -12,12 +12,12 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 04/06/2018
 manager: craigg
-ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055519"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958810"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Use o modo ActiveDirectoryInteractive para se conectar ao Banco de Dados SQL do Azure
 
@@ -66,23 +66,23 @@ Para usar a autenticação do Azure AD, o programa cliente em C# precisará forn
 
 1. Portal do Azure &gt; **Azure Active Directory** &gt; **Registro de aplicativo**
 
-    ![Registro do aplicativo](media\active-directory-interactive-connect-azure-sql-db\sshot-create-app-registration-b20.png)
+    ![Registro do aplicativo](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
 
 2. O valor de **ID do Aplicativo** é gerado e exibido.
 
-    ![ID do aplicativo exibida](media\active-directory-interactive-connect-azure-sql-db\sshot-application-id-app-regis-mk49.png)
+    ![ID do aplicativo exibida](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
 
 3. **Aplicativo registrado** &gt; **Configurações** &gt; **Permissões necessárias** &gt; **Adicionar**
 
-    ![Configurações de permissões do aplicativo registrado](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
+    ![Configurações de permissões do aplicativo registrado](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
 4. **Permissões necessárias** &gt; **Adicionar acesso à API** &gt; **Selecionar uma API** &gt; **Banco de Dados SQL do Azure**
 
-    ![Adicionar acesso à API para o Banco de Dados SQL do Azure](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+    ![Adicionar acesso à API para o Banco de Dados SQL do Azure](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
 5. **Acesso à API** &gt; **Selecionar permissões** &gt; **Permissões delegadas**
 
-    ![Delegar permissões à API para o Banco de Dados SQL do Azure](media\active-directory-interactive-connect-azure-sql-db\sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+    ![Delegar permissões à API para o Banco de Dados SQL do Azure](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. Definir o administrador do Azure AD em seu servidor de Banco de Dados SQL
@@ -124,13 +124,13 @@ O programa em C# se baseia no namespace **Microsoft.IdentityModel.Clients.Active
 
 O exemplo de C# se baseia no namespace **System.Data.SqlClient**. A enumeração **SqlAuthenticationMethod** é de interesse especial. Essa enumeração tem os seguintes valores:
 
-- **SqlAuthenticationMethod.ActiveDirectory \*Interactive**\*:&nbsp; use com um nome de usuário do Microsoft Azure AD para obter MFA (autenticação multifator).
+- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp;  Use esse com um nome de usuário do Azure AD para obter MFA de autenticação multifator.
     - Esse valor é o foco deste artigo. Ele produz uma experiência interativa exibindo caixas de diálogo para a senha do usuário e, em seguida, para a validação de MFA se ela é imposta ao usuário.
     - Esse valor está disponível a partir do .NET Framework versão 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory \*Integrated**\*:&nbsp; use para uma conta *federada*. Para uma conta federada, o nome de usuário é conhecido pelo domínio do Windows. Esse método não é compatível com a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp;  Use esse para uma conta *federada*. Para uma conta federada, o nome de usuário é conhecido pelo domínio do Windows. Esse método não é compatível com a MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory \*Password**\*:&nbsp; use para autenticação que requer um usuário do Microsoft Azure AD e a senha do usuário. O Banco de Dados SQL do Azure executa a autenticação. Esse método não é compatível com a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp;  Use esse para autenticação que exija um usuário do Azure AD e a senha do usuário. O Banco de Dados SQL do Azure executa a autenticação. Esse método não é compatível com a MFA.
 
 
 
@@ -183,11 +183,11 @@ Para compilar este exemplo em C#, você precisa adicionar uma referência ao ass
 
 - Namespace **System.Data.SqlClient**:
     - Pesquisa:&nbsp; [https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient)
-    - Direto:&nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
+    - Direta:&nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
 
 - Namespace **Microsoft.IdentityModel.Clients.ActiveDirectory**:
     - Pesquisa:&nbsp; [https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory)
-    - Direto:&nbsp; [Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
+    - Direta:&nbsp; [Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
 
 
 #### <a name="c-source-code-in-two-parts"></a>Código-fonte em C#, em duas partes

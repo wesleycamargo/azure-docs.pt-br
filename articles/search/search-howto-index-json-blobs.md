@@ -1,6 +1,6 @@
 ---
-title: Indexando blobs JSON com o indexador de blobs do Azure Search
-description: Indexando blobs JSON com o indexador de blobs do Azure Search
+title: Indexar blobs JSON no indexador de Blobs do Azure para pesquisa de texto completo – Azure Search
+description: Rastrear o conteúdo de texto em blobs JSON do Azure usando o indexador de Blobs do Azure Search. Os indexadores automatizam a ingestão de dados para fontes de dados selecionadas, como o Armazenamento de Blobs do Azure.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711065"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312520"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexando blobs JSON com o indexador de blobs do Azure Search
 Este artigo te mostra como configurar o indexador de blob do Azure Search para extrair o conteúdo estruturado de blobs que contêm JSON no armazenamento de Blob do Azure.
@@ -216,4 +217,4 @@ Se você tiver solicitações de recursos ou ideias para aperfeiçoamentos, entr
 + [Indexadores no Azure Search](search-indexer-overview.md)
 + [Indexação do Armazenamento de Blobs do Azure com o Azure Search](search-howto-index-json-blobs.md)
 + [Indexando blobs CSV com o indexador de blobs do Azure Search](search-howto-index-csv-blobs.md)
-+ [Tutorial: Pesquisar dados semi-estruturados do armazenamento de BLOBs do Azure](search-semi-structured-data.md)
++ [Tutorial: Pesquisar dados semiestruturados no Armazenamento de Blobs do Azure ](search-semi-structured-data.md)

@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f27ced5c67c5124d0792c5ce3884c88473fba056
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1c61286a24c3562e32cb4c734ea081526d38837a
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604188"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413142"
 ---
-# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início Rápido: Exigir MFA para aplicativos específicos com acesso condicional ao Azure Active Directory 
+# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início Rápido: Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory 
 
 Para simplificar a experiência de entrada dos usuários, talvez você deva permitir que eles entrem nos aplicativos de nuvem usando um nome de usuário e uma senha. Contudo, muitos ambientes têm pelo menos alguns aplicativos para os quais é aconselhável exigir uma forma mais forte de verificação de conta, como MFA (autenticação multifator). Isso pode ser verdadeiro, por exemplo, para acessar o sistema de email da sua organização ou seus aplicativos de RH. No Azure Active Directory (Azure AD), você pode atingir essa meta com uma política de acesso condicional.    
 
@@ -85,11 +85,11 @@ Em sua política, defina:
 
     ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-3. Na página **Azure Active Directory**, na seção **Gerenciar**, clique em **Acesso condicional**.
+3. Na página **Azure Active Directory**, na seção **Segurança**, clique em **Acesso Condicional**.
 
     ![Acesso condicional](./media/app-based-mfa/03.png)
  
-4. Na página **Acesso Condicional**, na barra de ferramentas na parte superior, clique em **Adicionar**.
+4. Na página **Acesso Condicional**, na barra de ferramentas na parte superior, clique em **Nova política**.
 
     ![Adicionar](./media/app-based-mfa/04.png)
 
@@ -105,7 +105,7 @@ Em sua política, defina:
 
     ![Usuários e grupos](./media/app-based-mfa/24.png)
 
-    a. Clique em **Selecionar usuários e grupos** e selecione **Usuários e grupos**.
+     a. Clique em **Selecionar usuários e grupos** e selecione **Usuários e grupos**.
 
     b. Clique em **Selecionar**.
 
@@ -121,7 +121,7 @@ Em sua política, defina:
 
     ![Selecionar aplicativos de nuvem](./media/app-based-mfa/26.png)
 
-    a. Clique em **Selecionar aplicativos**.
+     a. Clique em **Selecionar aplicativos**.
 
     b. Clique em **Selecionar**.
 
@@ -138,9 +138,9 @@ Em sua política, defina:
 
     ![Concessão](./media/app-based-mfa/11.png)
 
-    a. Selecione **Conceder acesso**.
+     a. Selecione **Conceder acesso**.
 
-    a. Selecione **Exigir autenticação multifator**.
+     a. Selecione **Exigir autenticação multifator**.
 
     b. Clique em **Selecionar**.
 
@@ -183,7 +183,7 @@ Para inicializar a ferramenta de avaliação de política “What If”, defina:
 
     ![Aplicativos na nuvem](./media/app-based-mfa/16.png)
 
-    a. Clique em **Aplicativos de nuvem**.
+     a. Clique em **Aplicativos de nuvem**.
 
     b. Na **Página de aplicativos de nuvem**, clique em **Selecionar aplicativos**.
 

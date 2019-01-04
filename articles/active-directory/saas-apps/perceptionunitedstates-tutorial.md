@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 61fb9904e69f5269c345b733ef2396294c6c790a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8c29d054f2e4e9ff4b57785a57e5c6ea512623a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448165"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Azure Active Directory ao Perception United States (não UltiPro)
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Perception United States (não UltiPro) pela galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações sobre logon único de domínio e URLs do Perception United States (não UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL: `https://perception.kanjoya.com/sp`
+     a. Na caixa de texto **Identificador**, digite a URL: `https://perception.kanjoya.com/sp`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
@@ -127,7 +127,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. Na seção **Configuração do Perception United States (não UltiPro)**, clique em **Configurar Perception United States (não UltiPro)** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.**
 
-    a. O aplicativo **Perception United States (não UltiPro)** exige que o valor da **ID da Entidade SAML**, que você copiou, seja codificado em URI. Para obter o valor codificado em URI, use o seguinte link:**http://www.url-encode-decode.com/**.
+     a. O aplicativo **Perception United States (não UltiPro)** exige que o valor da **ID da Entidade SAML**, que você copiou, seja codificado em URI. Para obter o valor codificado em URI, use o seguinte link:**http://www.url-encode-decode.com/**.
 
     b. Depois de obter o valor codificado em URI, combine-o com a **URL de resposta** conforme mencionado abaixo -
 
@@ -147,7 +147,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Usuário do Perception United States (não UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
-    a. Na caixa de texto **Nome da empresa**, digite o nome da **Empresa**.
+     a. Na caixa de texto **Nome da empresa**, digite o nome da **Empresa**.
     
     b. Na caixa de texto **Nome da conta**, digite o nome da **Conta**.
 
@@ -159,7 +159,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![SSOConfig do Perception United States (não UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
-    a. Selecione **Tipo de SAML NameID** como **EMAIL**.
+     a. Selecione **Tipo de SAML NameID** como **EMAIL**.
 
     b. Na caixa de texto **Nome da configuração de SSO**, digite o nome da sua **Configuração**.
     
@@ -173,7 +173,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -209,7 +209,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
   
 ### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>Criar um usuário de teste do Perception United States (não UltiPro)
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Perception United States (não UltiPro). Trabalhe com a [equipe de suporte do Perception United States (não UltiPro)](http://www.ultimatesoftware.com/Contact/ContactUs) para adicionar os usuários na plataforma do Perception United States (não UltiPro).
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Perception United States (não UltiPro). Trabalhe com a [equipe de suporte do Perception United States (não UltiPro)](https://www.ultimatesoftware.com/Contact/ContactUs) para adicionar os usuários na plataforma do Perception United States (não UltiPro).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -246,7 +246,7 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Perception United States (não UltiPro) no Painel de Acesso, deverá ser conectado automaticamente ao seu aplicativo Perception United States (não UltiPro).
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

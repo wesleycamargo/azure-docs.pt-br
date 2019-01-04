@@ -1,6 +1,6 @@
 ---
-title: Criar fluxos de trabalho com modelos - Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar fluxos de trabalho mais rapidamente usando modelos de aplicativo lógico no Aplicativo Lógico do Azure
+title: Criar fluxos de trabalho com modelos - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar fluxos de trabalho mais rapidamente usando modelos de aplicativo lógico nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration

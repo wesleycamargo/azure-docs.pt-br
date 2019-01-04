@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319175"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137830"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Firewall do sistema operacional de convidado VM do Azure está configurado incorretamente
 
@@ -33,29 +33,29 @@ Este artigo apresenta como corrigir o firewall do sistema operacional convidado 
 
 ## <a name="cause"></a>Causa
 
-Um erro de configuração do firewall do sistema convidado pode bloquear alguns ou todos os tipos de tráfego de rede para a VM. 
+Um erro de configuração do firewall do sistema convidado pode bloquear alguns ou todos os tipos de tráfego de rede para a VM.
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estas etapas, tire um instantâneo do disco do sistema do VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
 Para solucionar esse problema, use o Console serial ou [repare a VM off-line](troubleshoot-rdp-internal-error.md#repair-the-vm-offline) anexando o disco do sistema da VM a um VM de recuperação.
 
 ## <a name="online-mitigations"></a>Reduções online
 
-Conecte-se ao [Console serial e abra uma instância do PowerShell](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Se o Console Serial não estiver habilitado na VM, vá para a seção "Reparar a VM Off-line" do seguinte artigo do Azure:
+Conecte-se ao [Console serial e abra uma instância do PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se o Console Serial não estiver habilitado na VM, vá para a seção "Reparar a VM Off-line" do seguinte artigo do Azure:
 
  [Ocorre um erro interno quando você tenta se conectar a uma VM do Azure por meio da Área de Trabalho Remota](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-As regras a seguir podem ser editadas para permitir o acesso à VM (por meio do RDP) ou para fornecer uma experiência de solução de problemas mais fácil: 
+As regras a seguir podem ser editadas para permitir o acesso à VM (por meio do RDP) ou para fornecer uma experiência de solução de problemas mais fácil:
 
-*   Área de Trabalho Remota (TCP-In): Esta é a regra padrão que fornece acesso primário à VM, permitindo RDP no Azure.
+*   Área de Trabalho Remota (TCP-In): esta é a regra padrão que fornece acesso primário à VM, permitindo RDP no Azure.
 
-*   Gerenciamento Remoto do Windows (HTTP-In): essa regra permite que você se conecte à VM usando o PowerShell. No Azure, esse tipo de acesso permite usar o aspecto de script de scripts remotos e a solução de problemas.
+*   Gerenciamento Remoto do Windows (HTTP-In): essa regra permite que você se conecte à VM usando o PowerShell. No Azure, esse tipo de acesso permite usar o aspecto de criação de scripts remotos e a solução de problemas.
 
-*   Compartilhamento de arquivos e impressoras (SMB-In): essa regra permite o acesso ao compartilhamento de rede como uma opção de solução de problemas.
+*   Compartilhamento de Arquivos e Impressoras (SMB-In): essa regra habilita o acesso ao compartilhamento de rede como uma opção de solução de problemas.
 
-*   Compartilhamento de arquivos e impressoras (solicitação de eco - ICMPv4-In): essa regra permite executar o ping na VM. 
+*   Compartilhamento de Arquivos e Impressoras (solicitação de eco – ICMPv4-In): essa regra permite que você execute o ping da VM.
 
 Na instância do Serial Console Access, você pode consultar o status atual da regra de firewall.
 
@@ -83,7 +83,7 @@ Na instância do Serial Console Access, você pode consultar o status atual da r
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   Para solucionar problemas, você pode desativar os perfis do firewall: 
+*   Para solucionar problemas, você pode desativar os perfis do firewall:
 
     ```cmd
     netsh advfirewall set allprofiles state off

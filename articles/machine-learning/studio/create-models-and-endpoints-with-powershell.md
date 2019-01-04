@@ -1,12 +1,11 @@
 ---
-title: Crie vários modelos a partir de uma experiência - Azure Machine Learning Studio | Microsoft Docs
+title: Criar vários modelos por meio de um teste do Studio – Azure Machine Learning Studio | Microsoft Docs
 description: Use o PowerShell para criar vários modelos do Machine Learning e pontos de extremidade de serviço Web com o mesmo algoritmo, mas com conjuntos de dados de treinamento diferentes.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
@@ -16,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f54f9f9ff4b55ef1e2e68f61b709cef6635dc231
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316558"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250256"
 ---
-# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Microsoft Azure Machine Learning Studio: use o PowerShell para criar muitos modelos e pontos de extremidade de serviços da Web a partir de um experimento
+# <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Usar o PowerShell para criar modelos do Studio e pontos de extremidade de serviço Web por meio de um teste
 
-Este é um problema comum do aprendizado de máquina: você quer criar vários modelos que têm o mesmo fluxo de trabalho de treinamento e que usam o mesmo algoritmo. Mas quer que eles tenham conjuntos de dados de treinamento diferentes como entrada. Este artigo mostra como fazer isso em escala no Azure Machine Learning Studio usando apenas um único teste.
+Aqui está um problema comum do aprendizado de máquina: Você deseja criar vários modelos com o mesmo fluxo de trabalho de treinamento e usar o mesmo algoritmo. Mas quer que eles tenham conjuntos de dados de treinamento diferentes como entrada. Este artigo mostra como fazer isso em escala no Azure Machine Learning Studio usando apenas um único teste.
 
 Por exemplo, digamos que você tenha um negócio de franquia mundial de aluguel de bicicletas. Você deseja criar um modelo de regressão para prever a demanda de aluguel com base em dados históricos. Você tem 1.000 locais para locação no mundo todo e coletou um conjunto de dados para cada local. Eles incluem recursos importantes, como data, hora, clima e tráfego, que são específicos a cada local.
 

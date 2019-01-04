@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: ed0c387f9785336fbf18b3fd3c0cd9a7b09df633
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: efa367157a8fd896cdc9680bf2ab6ba6a9e3dbb0
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279430"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53429914"
 ---
 Transações principais (Máximo de transações permitidas em 10 segundos, por cofre, por região<sup>1</sup>):
 
@@ -24,8 +24,22 @@ Transações principais (Máximo de transações permitidas em 10 segundos, por 
 |ECC SECP256K1|5|1000|10|2000|
 |
 
+> [!NOTE]
+> Se você examinar a tabela a seguir, verá que para chaves protegidas por software, permitimos 2000 transações por 10 segundos e para HSM com suporte a chaves, permitimos 1000 transações por 10 segundos. A taxa de transações de software com suporte para 3072 chaves às chaves de 2048 é 500/2000 ou 0,4. Isso significa que, se um cliente fizer 500 3072 transações de chave em 10 segundos, atingirá seu limite máximo e não poderá fazer outras operações de chave. 
+   
+|Tipo de chave  | Chave de software |Chave HSM  |
+|---------|---------|---------|
+|RSA de 2048 bits     |    2000     |   1000    |
+|RSA de 3072 bits     |     500    |    250     |
+|RSA de 4096 bits     |    125     |    250     |
+|ECC P-256     |    2000     |  1000     |
+|ECC P-384     |    2000     |  1000     |
+|ECC P-521     |    2000     |  1000     |
+|ECC SECP256K1     |    2000     |  1000     |
+
+
 Transações de cofre, Segredos e Chaves de Conta de Armazenamento Gerenciadas:
-| Tipos de transação | Máximo de transações permitidas em 10 segundos, por cofre, por região<sup>1</sup> |
+| Tipo de transação | Máximo de transações permitidas em 10 segundos, por cofre, por região<sup>1</sup> |
 | --- | --- |
 | Todas as transações |2000 |
 |

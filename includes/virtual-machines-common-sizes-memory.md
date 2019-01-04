@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 6308710a12e983ba35d9bd20d9926cba4ae27c5c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dc78c8794923a180264058fc984a58aa29171c58
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400409"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978818"
 ---
 Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta para CPU que são ideais para servidores de banco de dados relacionais, caches médio a grande e análises in-memory. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
@@ -32,20 +32,20 @@ Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta pa
 
 ACU: 160-190 <sup>1</sup>
 
-Armazenamento Premium: com suporte
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium: com suporte
+Cache de Armazenamento Premium:  Com suporte
 
 As instâncias ESv3-series são baseadas no processador Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz e podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0, e utilizam armazenamento premium. As instâncias Ev3-series são ideais para aplicativos empresariais com uso intensivo de memória.
 
 
-| Tamanho             | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+| Tamanho             | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4,000 / 32 (50)                                                       | 3.200 / 48                                | 2 / 1,000                                   |
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6.400 / 96                                | 2 / 2,000                                   |
 | Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12.800 / 192                              | 4 / 4,000                                       |
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8 / 8,000                                       |
-| Standard_E20s_v3&nbsp;<sup>2</sup> | 20     | 160         | 320            | 32             | 40.000/320 (400)                                                    | 32.000/480                              | 8/10.000                                       |
+| Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 40.000/320 (400)                                                    | 32.000/480                              | 8/10.000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8 / 16.000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
@@ -62,9 +62,9 @@ As instâncias ESv3-series são baseadas no processador Intel XEON ® E5-2673 v4
 
 ACU: 160 - 190 <sup>1</sup>
 
-Armazenamento Premium: sem suporte
+Armazenamento Premium:  Sem suporte
 
-Cache de Armazenamento Premium: sem suporte
+Cache de Armazenamento Premium:  Sem suporte
 
 As instâncias Ev3-series são baseadas no processador Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz e podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0. As instâncias Ev3-series são ideais para aplicativos empresariais com uso intensivo de memória.
 
@@ -93,13 +93,13 @@ O armazenamento do disco de dados é faturado separadamente das máquinas virtua
 
 ACU: 160-180 <sup>1</sup>
 
-Armazenamento Premium: com suporte
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium: com suporte
+Cache de Armazenamento Premium:  Com suporte
 
-Acelerador de gravação: [com suporte](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Acelerador de Gravação:  [Com suporte](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Tamanho            | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+| Tamanho            | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218,75 | 256  | 8  | 10.000 / 100 (793)  | 5.000  / 125 | 4 / 2.000 |
 | Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437,5  | 512  | 16 | 20.000 / 200 (1,587) | 10.000 / 250 | 8 / 4.000 |
@@ -120,7 +120,7 @@ Acelerador de gravação: [com suporte](https://docs.microsoft.com/azure/virtual
 
 <sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série M
 
-<sup>2</sup> Mais de 64 vCPUs exigem um destes sistemas operacionais convidados com suporte: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux ou CentOS 7.3 ou Oracle Linux 7.3 com LIS 4.2.1.
+<sup>2</sup> mais de 64 Vcpus exigem um destes sistemas operacionais convidados com suporte: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux ou CentOS 7.3 ou Oracle Linux 7.3 com LIS 4.2.1.
 
 <sup>3</sup> Tamanhos limitados de núcleos disponíveis.
 
@@ -131,11 +131,11 @@ Acelerador de gravação: [com suporte](https://docs.microsoft.com/azure/virtual
 
 ACU: 180 - 240 <sup>1</sup>
 
-Armazenamento Premium: com suporte
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium: com suporte
+Cache de Armazenamento Premium:  Com suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10.000 / 100 (264) |5.000 / 125 |2 / 2000 |
 | Standard_GS2 |4 |56 |112 |16 |20.000 / 200 (528) |10.000 / 250 |2 / 4000 |
@@ -143,7 +143,7 @@ Cache de Armazenamento Premium: com suporte
 | Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80.000 / 800 (2.112) |40.000 / 1.000 |8 / 16000 |
 | Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160.000 / 1.600 (4.224) |80.000 / 2.000 |8 / 20000 |
 
-<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série GS pode ser limitada pelo número, tamanho e distribuição dos discos anexados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md). 
+<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série GS pode ser limitada pelo número, tamanho e distribuição dos discos anexados. Para obter detalhes, consulte [o Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
 <sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
 
@@ -155,13 +155,13 @@ Cache de Armazenamento Premium: com suporte
 
 ACU: 180 - 240
 
-Armazenamento Premium: sem suporte
+Armazenamento Premium:  Sem suporte
 
-Cache de Armazenamento Premium: sem suporte
+Cache de Armazenamento Premium:  Sem suporte
 
 | Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |
 | Standard_G3  | 8         | 112         | 1.536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8000                |
 | Standard_G4  | 16        | 224         | 3.072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 16000          |
@@ -175,11 +175,11 @@ Cache de Armazenamento Premium: sem suporte
 
 ACU: 210 - 250 <sup>1</sup>
 
-Armazenamento Premium: com suporte
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium: com suporte
+Cache de Armazenamento Premium:  Com suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8.000 / 64 (72) |6.400 / 96 |2 / 1500 |
 | Standard_DS12_v2&nbsp;<sup>3</sup> |4 |28 |56 |16 |16.000 / 128 (144) |12.800 / 192 |4 / 3000 |
@@ -188,7 +188,7 @@ Cache de Armazenamento Premium: com suporte
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80.000 / 640 (720) |64.000 / 960 |8 / 25000&nbsp;<sup>4</sup>
 
 
-<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, consulte [o Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 <sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
 
@@ -202,9 +202,9 @@ Cache de Armazenamento Premium: com suporte
 
 ACU: 210 - 250
 
-Armazenamento Premium: sem suporte
+Armazenamento Premium:  Sem suporte
 
-Cache de Armazenamento Premium: sem suporte
+Cache de Armazenamento Premium:  Sem suporte
 
 | Tamanho              | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

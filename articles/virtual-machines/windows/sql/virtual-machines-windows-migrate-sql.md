@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: jroth
-ms.openlocfilehash: 0677faa90c73ffe4c0c1c48600c2f1ef2d05eb50
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 298a8597ae111550dfbd44d1e7bd9efb212f08af
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628776"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323210"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrar um banco de dados do SQL Server para o SQL Server em uma VM do Azure
 
@@ -36,7 +36,7 @@ Os principais métodos de migração são:
 * Desanexar e copiar os arquivos de log e de dados para o armazenamento de blobs do Azure e, em seguida, anexar ao SQL Server em uma VM do Azure desde a URL
 * Converter a máquina física local em VHD do Hyper-V, carregar no armazenamento de Blob do Azure e, em seguida, implantar como nova máquina virtual usando o VHD carregado
 * Remeter o disco rígido usando o Serviço de Importação/Exportação do Windows
-* Caso você tenha uma implantação local do AlwaysOn, use o [Assistente para Adicionar uma Réplica do Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) para criar uma réplica no Azure e executar o failover, apontando os usuários para a instância do banco de dados do Azure
+* Caso você tenha uma implantação local do Grupo de Disponibilidade AlwaysOn, use o [Assistente para Adicionar uma Réplica do Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) para criar uma réplica no Azure e executar o failover, apontando os usuários para a instância do banco de dados do Azure
 * Use a [replicação transacional](https://msdn.microsoft.com/library/ms151176.aspx) do SQL Server para configurar a instância do SQL Server do Azure como um assinante e, em seguida, desabilite a replicação, apontando os usuários para a instância de banco de dados do Azure
 
 > [!TIP]

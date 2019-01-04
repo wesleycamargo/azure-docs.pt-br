@@ -1,28 +1,28 @@
 ---
-title: Configurar contas do Azure Active Directory de entrada como uma política interna no Azure Active Directory B2C | Microsoft Docs
-description: Configurar contas do Azure Active Directory de entrada como uma política interna no Azure Active Directory B2C.
+title: Configurar assinatura para uma organização do Active Directory do Azure no Azure Active Directory B2C | Microsoft Docs
+description: Configurar assinatura para uma organização do Active Directory do Azure específica no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c48e4696d572b87a4e1553f9d4a2dc9921361388
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312775"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719905"
 ---
-# <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configurar contas do Azure Active Directory de entrada como uma política interna no Azure Active Directory B2C
+# <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar assinatura para uma organização do Active Directory do Azure específica no Azure Active Directory B2C
 
 >[!NOTE]
 > Esse recurso está em uma versão prévia. Não use o recurso em ambientes de produção.
 
-Este artigo mostra como habilitar a entrada de usuários de uma organização do Azure AD (Azure Active Directory) específica usando uma política interna no Azure Active Directory (Azure AD) B2C.
+Este artigo mostra como habilitar a entrada de usuários de uma organização do Azure AD (Azure Active Directory) específica usando um fluxo de usuário no Azure Active Directory (Azure AD) B2C.
 
 ## <a name="create-an-azure-ad-app"></a>Criar um aplicativo Azure AD
 

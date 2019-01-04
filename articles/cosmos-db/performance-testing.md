@@ -1,22 +1,18 @@
 ---
-title: Testes de escala e desempenho do Azure Cosmos DB | Microsoft Docs
-description: Saiba como realizar testes de desempenho e escala com o Azure Cosmos DB
-keywords: testes de desempenho
-services: cosmos-db
+title: Teste de desempenho e escala com o Azure Cosmos DB
+description: Saiba como realizar testes de desempenho e escala com o Azure Cosmos DB. Também é possível avaliar a funcionalidade do Azure Cosmos DB para cenários de aplicativos de alto desempenho.
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2017
+ms.date: 12/07/2017
 ms.author: sngun
-ms.openlocfilehash: 09ed72c73acf16f944c3b1101aff5ea04acb624d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: 776956624dc1da12427d6e4f79ea5e59788f2459
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308164"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135348"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Teste de desempenho e escala com o Azure Cosmos DB
 
@@ -41,16 +37,16 @@ Se você estiver procurando opções de configuração do lado do cliente para m
 ## <a name="run-the-performance-testing-application"></a>Execute o aplicativo de teste de desempenho
 A maneira mais rápida de começar é compilar e executar o exemplo do .NET, conforme descrito nas etapas a seguir. Você também pode examinar o código-fonte e implementar configurações semelhantes nos seus aplicativos clientes.
 
-**Etapa 1:** baixe o projeto no [Exemplo de teste de desempenho do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou bifurque o repositório GitHub.
+**Etapa 1:** Baixe o projeto no [Exemplo de teste de desempenho do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou bifurque o repositório GitHub.
 
-**Etapa 2:** modificar as configurações de EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (opcional) em App.config.
+**Etapa 2:** Modifique as configurações de EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (opcional) em App.config.
 
 > [!NOTE]
 > Antes de provisionar as coleções com alta produtividade, consulte a [Página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para estimar os custos por coleção. O Azure Cosmos DB cobra o armazenamento e a produtividade de forma independente por hora. Você pode reduzir os custos excluindo ou diminuindo a produtividade de suas coleções de Azure Cosmos DB após o teste.
 > 
 > 
 
-**Etapa 3:** compile e execute o aplicativo de console da linha de comando. Você verá algo semelhante ao mostrado a seguir:
+**Etapa 3:** Compile e execute o aplicativo de console na linha de comando. Você verá algo semelhante ao mostrado a seguir:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -93,7 +89,7 @@ A maneira mais rápida de começar é compilar e executar o exemplo do .NET, con
     Press any key to exit...
 
 
-**Etapa 4 (se necessário):** a produtividade relatada (RU/s) da ferramenta deverá ser igual ou maior que a produtividade provisionada da coleção ou de um conjunto de coleções. Caso contrário, o aumento do DegreeOfParallelism em pequenos incrementos pode ajudar você a atingir o limite. Se a produtividade do aplicativo cliente estagnar, inicie várias instâncias do aplicativo em computadores cliente adicionais. Se precisar de ajuda com esta etapa, envie um email para askcosmosdb@microsoft.com ou preencha um tíquete de suporte no [portal do Azure](https://portal.azure.com).
+**Etapa 4 (se necessário):** A taxa de transferência (RU/s) da ferramenta deverá ser igual ou maior que a taxa de transferência provisionada da coleção ou de um conjunto de coleções. Caso contrário, o aumento do DegreeOfParallelism em pequenos incrementos pode ajudar você a atingir o limite. Se a produtividade do aplicativo cliente estagnar, inicie várias instâncias do aplicativo em computadores cliente adicionais. Se precisar de ajuda com esta etapa, envie um email para askcosmosdb@microsoft.com ou preencha um tíquete de suporte no [portal do Azure](https://portal.azure.com).
 
 Uma vez que o aplicativo estiver em execução, você poderá experimentar [Políticas de indexação](index-policy.md) e [Níveis de consistência](consistency-levels.md) diferentes para entender seu impacto na produtividade e na latência. Você também pode examinar o código-fonte e implementar configurações semelhantes no seus pacotes de teste ou aplicativos de produção.
 

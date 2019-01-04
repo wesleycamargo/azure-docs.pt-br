@@ -1,6 +1,6 @@
 ---
-title: Como restaurar ou remover permanentemente um usuário excluído recentemente no Azure Active Directory | Microsoft Docs
-description: Saiba como exibir usuários restauráveis, restaurar um usuário excluído ou excluir permanentemente um usuário com o Azure Active Directory.
+title: Restaurar ou remover permanentemente um usuário excluído recentemente - Azure Active Directory | Microsoft Docs
+description: Como exibir usuários restauráveis, restaurar um usuário excluído ou excluir permanentemente um usuário com o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 88d3c672cd072cd4b252f7ce4ede3a4c7b13a7db
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 5f747d90368b636cb2ab8cf0e20ef5e676f99af6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736165"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080496"
 ---
-# <a name="how-to-restore-or-permanently-remove-a-recently-deleted-user-with-azure-active-directory"></a>Como restaurar ou remover permanentemente um usuário excluído recentemente com o Azure Active Directory
+# <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover permanentemente um usuário excluído recentemente usando o Azure Active Directory
 Depois que você excluir um usuário, a conta permanecerá em um estado suspenso por 30 dias. Durante essa janela de 30 dias, a conta do usuário pode ser restaurada, juntamente com todas as suas propriedades. Depois que a janela de 30 dias passa, o usuário é excluído automaticamente e permanentemente.
 
 Você pode visualizar seus usuários restauráveis, restaurar um usuário excluído ou excluir permanentemente um usuário usando o Azure AD (Azure Active Directory) no portal do Azure.

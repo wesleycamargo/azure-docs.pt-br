@@ -5,14 +5,14 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210305"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310503"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>configurar a recuperação de desastres para uma implantação do Citrix XenApp e XenDesktop multicamada
 
@@ -130,17 +130,17 @@ Uma plano de recuperação agrupa as máquinas virtuais com requisitos semelhant
 
 1. Adicione máquinas virtuais de componente do XenApp no Plano de recuperação.
 2. Clique em Planos de Recuperação -> + Plano de Recuperação. Forneça um nome intuitivo para o plano de recuperação.
-3. Para máquinas virtuais do VMware: selecione a origem como o servidor de processo do VMware, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens.
-4. Para máquinas virtuais do Hyper-V: selecione a origem como o servidor do VMM, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens e, em seguida, selecione as VMs de implantação do XenApp.
+3. Para máquinas virtuais do VMware: Selecione a origem como o servidor de processo do VMware, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens.
+4. Para máquinas virtuais do Hyper-V: Selecione a origem como o servidor do VMM, o destino como o Microsoft Azure e o modelo de implantação como o Gerenciador de Recursos, e clique em Selecionar itens e, em seguida, selecione as VMs de implantação do XenApp.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Adicionar máquinas virtuais aos grupos de failover
 
 Os planos de recuperação podem ser personalizados para adicionar grupos de failover para a ordem de inicialização específica, scripts ou ações manuais. Os grupos a seguir precisam ser adicionados ao plano de recuperação.
 
-1. Grupo de failover 1: DNS AD
+1. Grupo de failover 1: DNS do AD
 2. Grupo de failover 2: VMs do SQL Server
 2. Grupo de failover 3: VM de imagem do VDA Master
-3. Grupo de failover 4: controlador de entrega e VMs do servidor StoreFront
+3. Grupo de failover 4: Controlador de entrega e VMs do servidor StoreFront
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Adicionar scripts ao plano de recuperação
@@ -149,16 +149,17 @@ Os scripts podem ser executados antes ou depois de um grupo específico em um pl
 
 O plano de recuperação personalizado parece com o seguinte:
 
-1. Grupo de failover 1: DNS AD
+1. Grupo de failover 1: DNS do AD
 2. Grupo de failover 2: VMs do SQL Server
 3. Grupo de failover 3: VM de imagem do VDA Master
 
    >[!NOTE]     
    >As etapas 4, 6 e 7, que contém ações manuais ou de script, são aplicáveis apenas a um XenApp local > ambiente com catálogos MCS/PVS.
 
-4. Grupo 3 Ação de manual ou script: Desligar a VM mestre do VDA A VM do Master VDA quando o failover para o Azure estará em um estado em execução. Para criar novos catálogos do MCS usando a hospedagem do Azure, é necessário que a VM mestre do VDA esteja no estado Parado (de alocado). Desligue a VM do portal do Azure.
+4. Ação de script ou manual do grupo 3: Desligar a VM do VDA Master.
+A VM do VDA Master estará em um estado de execução quando houver failover. Para criar novos catálogos do MCS usando a hospedagem do Azure, é necessário que a VM mestre do VDA esteja no estado Parado (de alocado). Desligue a VM do portal do Azure.
 
-5. Grupo de failover 4: controlador de entrega e VMs do servidor StoreFront
+5. Grupo de failover 4: Controlador de entrega e VMs do servidor StoreFront
 6. Ação manual ou de script do grupo 3 1:
 
     ***Adicionar conexão do host do Azure RM***

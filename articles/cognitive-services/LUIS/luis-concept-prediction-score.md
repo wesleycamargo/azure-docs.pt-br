@@ -1,23 +1,24 @@
 ---
-title: Pontuação de previsão - Intenção, entities - LUIS
-titleSuffix: Azure Cognitive Services
+title: Pontuações de previsão
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Uma pontuação de previsão indica o grau de confiança que o LUIS tem para resultados de previsão.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d082f8ee4d516e3c9571ec63653f39723cad8c77
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264379"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141978"
 ---
-# <a name="prediction-score"></a>Pontuação de previsão
+# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Pontuações de previsão indicam a precisão da previsão de intenções e entidades
 Uma pontuação de previsão indica o grau de confiança que o LUIS tem para resultados de previsão. 
 
 Uma pontuação de previsão é entre zero (0) e um (1). Um exemplo de uma pontuação com alta confiança do LUIS é 0,99. Um exemplo de uma pontuação com baixa confiança é 0,01. 

@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3cb403b7f2ac529c79af5f83a1cbe436dc670a25
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901867"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413363"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Guia de início rápido: Exigem termos de uso para ser aceito antes de acessar a aplicativos de nuvem 
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início rápido: Exigir a aceitação dos termos de uso antes de acessar os aplicativos de nuvem 
 
 Antes de acessar determinados aplicativos de nuvem em seu ambiente, talvez você queira obter o consentimento dos usuários na forma de aceitar os termos de uso (ToU). Acesso condicional do Azure AD (Active Directory do Azure) oferece: 
 
@@ -78,7 +78,7 @@ Esta seção fornece as etapas para criar um exemplo de termos de uso. Quando vo
 
     ![Azure Active Directory](./media/require-tou/02.png)
 
-5. Na página **Azure Active Directory**, na seção **Gerenciar**, clique em **Acesso condicional**.
+5. Na página do **Active Directory do Azure**, na seção **Segurança**, clique em **Acesso condicional**.
 
     ![Acesso condicional](./media/require-tou/03.png) 
 
@@ -94,7 +94,7 @@ Esta seção fornece as etapas para criar um exemplo de termos de uso. Quando vo
 
     ![Termos de uso](./media/require-tou/112.png) 
 
-    a. Na caixa de texto **Nome**, digite **Meus Termos de uso**.
+     a. Na caixa de texto **Nome**, digite **Meus Termos de uso**.
 
     b. Na caixa de texto **Exibir nome**, digite **Meus Termos de uso**.
 
@@ -145,7 +145,7 @@ Em sua política, defina:
 
     ![Usuários e grupos](./media/require-tou/24.png)
 
-    a. Clique em **Selecionar usuários e grupos** e selecione **Usuários e grupos**.
+     a. Clique em **Selecionar usuários e grupos** e selecione **Usuários e grupos**.
 
     b. Clique em **Selecionar**.
 
@@ -161,7 +161,7 @@ Em sua política, defina:
 
     ![Selecionar aplicativos de nuvem](./media/require-tou/26.png)
 
-    a. Clique em **Selecionar aplicativos**.
+     a. Clique em **Selecionar aplicativos**.
 
     b. Clique em **Selecionar**.
 
@@ -178,9 +178,9 @@ Em sua política, defina:
 
     ![Concessão](./media/require-tou/111.png)
 
-    a. Selecione **Conceder acesso**.
+     a. Selecione **Conceder acesso**.
 
-    a. Selecione **Meus Termos de uso**.
+     a. Selecione **Meus Termos de uso**.
 
     b. Clique em **Selecionar**.
 
@@ -224,7 +224,7 @@ Ao clicar em **What If**, é criado um relatório de simulação que mostra:
 
     ![Aplicativos na nuvem](./media/require-tou/16.png)
 
-    a. Clique em **Aplicativos de nuvem**.
+     a. Clique em **Aplicativos de nuvem**.
 
     b. Na **Página de aplicativos de nuvem**, clique em **Selecionar aplicativos**.
 

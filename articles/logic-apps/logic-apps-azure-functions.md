@@ -1,6 +1,6 @@
 ---
-title: Adicionar e executar código personalizado em aplicativos de lógica do Azure com funções do Azure | Microsoft Docs
-description: Saiba como adicionar e executar snippets de código personalizados nos aplicativos de lógica do Azure com as funções do Azure
+title: Adicionar e executar código personalizado em Aplicativos Lógicos do Azure com as Azure Functions | Microsoft Docs
+description: Saiba como adicionar e executar snippets de código personalizados nos Aplicativos Lógicos do Azure com as Azure Functions
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233303"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Adicionar e executar snippets de código personalizados em aplicativos de lógica do Azure com funções do Azure
+# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Adicionar e executar snippets de código personalizados nos Aplicativos Lógicos do Azure com as Azure Functions
 
 Quando você deseja executar somente código suficiente que executa um trabalho específico em seus aplicativos lógicos, você pode criar suas próprias funções com [Azure Functions](../azure-functions/functions-overview.md). Este serviço ajuda você a criar os snippets de código Node.js, C# e F#, para que você não precise compilar um aplicativo completo ou a infraestrutura para executar seu código. O Azure Functions fornece computação sem servidor na nuvem e é útil para executar tarefas, como estes exemplos:
 

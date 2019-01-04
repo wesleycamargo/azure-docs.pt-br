@@ -1,10 +1,8 @@
 ---
-title: API de tabela do Azure Cosmos DB para Python | Microsoft Docs
+title: API de Tabela do Azure Cosmos DB para Python
 description: Saiba tudo sobre a API de Tabela do Azure Cosmos DB, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: python
@@ -12,14 +10,14 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: sngun
 ms.custom: ''
-ms.openlocfilehash: d079b30657d3e8f770ea8ed6a7c419e7619ce99c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 165dbaf3faec90498cf42bad39257e26662da072
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024130"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869841"
 ---
-# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK do API de Tabela do Azure Cosmos DB para Python: Notas de versão e recursos
+# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK da API de Tabela do Azure Cosmos DB para Python: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)

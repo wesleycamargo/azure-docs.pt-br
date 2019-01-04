@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031298"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724495"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar trabalhos em seu aplicativo Azure IoT Central
 
@@ -56,8 +56,13 @@ Esta seção mostra como criar e executar um trabalho. Cada etapa percorre um ex
 
 Se você quiser parar um trabalho que está sendo executado, clique no nome do trabalho que gostaria de interromper. Escolha o botão **Parar** no painel. Você verá que o status do trabalho foi alterado para refletir que o trabalho foi interrompido.
 
-> [!NOTE]
-> Depois de interrompido, o trabalho não pode ser reiniciado. Você precisa criar outro trabalho com as operações e dispositivos desejados.
+   ![Parar o trabalho](./media/howto-run-a-job/stopjob.png)
+
+### <a name="run-a-stopped-job"></a>Executar um trabalho interrompido
+
+Se você quiser executar um trabalho que está atualmente parado, clique no nome do trabalho parado que pretende executar. Escolha o botão **Executar** no painel. Você verá que o status do trabalho foi alterado para refletir que o trabalho está novamente em execução.
+
+   ![Trabalho retomado](./media/howto-run-a-job/resumejob.png)
 
 ## <a name="view-the-job-status"></a>Exibir o status do trabalho
 

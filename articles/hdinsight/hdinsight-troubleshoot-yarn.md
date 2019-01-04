@@ -6,20 +6,19 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: c3904286fc998769b9a72522bd31d3a9797c55c2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 12/06/2018
+ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008038"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408823"
 ---
-# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Solucionar problemas de YARN usando o Azure HDInsight
+# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN do Apache Hadoop usando o Azure HDInsight
 
 Saiba mais sobre os principais problemas e suas soluções ao trabalhar com cargas de Apache Hadoop YARN no Apache Ambari.
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Como fazer para criar uma nova fila do YARN em um cluster?
-
 
 ### <a name="resolution-steps"></a>Etapas de resolução 
 
@@ -60,7 +59,7 @@ Essas alterações estarão visíveis imediatamente na interface do usuário do 
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Como fazer para baixar logs do YARN de um cluster?
@@ -132,16 +131,9 @@ Essas alterações estarão visíveis imediatamente na interface do usuário do 
 
 ### <a name="additional-reading-2"></a>Leitura adicional
 
-- [Conectar ao HDInsight (Hadoop) usando SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Conectar ao HDInsight (Apache Hadoop) usando SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Aplicativos e conceitos do Apache Hadoop YARN](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 
 ### <a name="see-also"></a>Veja também
 [Solucionar problemas usando o Azure HDInsight](hdinsight-troubleshoot-guide.md)
-
-
-
-
-
-
-

@@ -1,23 +1,24 @@
 ---
-title: Dados do Application Insights no LUIS usando o Node.js
+title: Application Insights, Node.js
 titleSuffix: Azure Cognitive Services
 description: Crie um bot integrado com um aplicativo do LUIS e o Application Insights usando Node.js.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321947"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255594"
 ---
-# <a name="add-luis-results-to-application-insights"></a>Adicionar os resultados do LUIS ao Application Insights
+# <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Adicionar resultados do LUIS às funções do Application Insights e do Azure
 Este tutorial adiciona informações de solicitação e resposta do LUIS ao armazenamento de dados telemétricos do [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando você tiver esses dados, poderá consultá-los com a linguagem de Kusto ou com o Power BI para analisar, agregar e relatar intenções e entidades do enunciado em tempo real. Esta análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo LUIS.
 
 O bot é criado com o Bot Framework 3.x e o bot de aplicativo Web do Azure.
@@ -34,7 +35,7 @@ Neste tutorial, você aprenderá como:
 * O bot de aplicativo Web do LUIS do **[tutorial anterior](luis-nodejs-tutorial-build-bot-framework-sample.md)** com o Application Insights ativado. 
 
 > [!Tip]
-> Se você ainda não tiver uma assinatura, poderá registrar-se para uma [conta gratuita](https://azure.microsoft.com/free/).
+> Se você ainda não tiver uma assinatura, poderá se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/).
 
 Todo o código neste tutorial está disponível no [repositório do GitHub LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) e cada linha associada a este tutorial é comentada com `//APPINSIGHT:`. 
 
@@ -58,7 +59,7 @@ Para capturar a solicitação e a resposta do LUIS, o bot do aplicativo Web prec
 
 3. No console, insira o seguinte comando para instalar o Application Insights e os pacotes Underscore:
 
-    ```
+    ```console
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
@@ -66,7 +67,7 @@ Para capturar a solicitação e a resposta do LUIS, o bot do aplicativo Web prec
 
     Aguarde a instalação dos pacotes:
 
-    ```
+    ```console
     luisbot@1.0.0 D:\home\site\wwwroot
     `-- applicationinsights@1.0.1 
       +-- diagnostic-channel@0.2.0 
@@ -142,7 +143,7 @@ O Application Insights oferece a capacidade de consultar os dados com a linguage
 
 3. Para extrair as principais intenções, pontuações e enunciados, adicione o seguinte logo acima da última linha na janela de consulta:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
     | extend score = todouble(customDimensions.LUIS_intent_score)
     | extend utterance = tostring(customDimensions.LUIS_text)

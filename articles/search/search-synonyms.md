@@ -1,20 +1,21 @@
 ---
-pageTitle: Synonyms in Azure Search | Microsoft Docs
-description: Use sinônimos para expandir o escopo de uma consulta de pesquisa
-author: mhko
+Title: Synonyms for query expansion over a search index  - Azure Search
+description: Crie um mapa de sinônimos para expandir o escopo de uma consulta de pesquisa em um índice do Azure Search. O escopo é ampliado para incluir termos equivalentes fornecidos por você em uma lista.
+author: brjohnstmsft
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
-ms.author: nateko
-ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: ce9eb8ed099a232128ba924da1466917df542fbb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468544"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315648"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinônimos no Azure Search
 
@@ -73,7 +74,7 @@ Como alternativa, use PUT e especifique o nome do mapa de sinônimos no URI. Se 
 
 ##### <a name="apache-solr-synonym-format"></a>Formato de sinônimo Apache Solr
 
-O formato Solr dá suporte a mapeamentos de sinônimo equivalentes e explícitos. Regras de mapeamento são compatíveis com a especificação de filtro de sinônimo de software livre do Apache Solr, descritos neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Abaixo está um exemplo de regra de sinônimos equivalentes.
+O formato Solr dá suporte a mapeamentos de sinônimo equivalentes e explícitos. As regras de mapeamento seguem a especificação de filtro de sinônimo de software livre do Apache Solr, descrito neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Abaixo está um exemplo de regra de sinônimos equivalentes.
 ```
 USA, United States, United States of America
 ```

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: b288bcbe14050c0f764f348d5e20186570e32866
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 34de89123e75f0c760fbcefa633b9aadf8d2b997
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442193"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878594"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integração do Azure Active Directory com o ForeSee CX Suite
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do ForeSee CX Suite por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -109,7 +109,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     ![Informações de logon único de Domínio e URLs do ForeSee CX Suite](./media/foreseecxsuite-tutorial/upload.png)
 
-    a. Clique em **Carregar arquivo de metadados**.
+     a. Clique em **Carregar arquivo de metadados**.
 
     ![Informações de logon único de Domínio e URLs do ForeSee CX Suite](./media/foreseecxsuite-tutorial/tutorial_foreseen_uploadconfig.png)
 
@@ -123,7 +123,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     ![Informações de logon único de Domínio e URLs do ForeSee CX Suite](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite a URL: `https://cxsuite.foresee.com/`
+     a. Na caixa de texto **URL de Logon**, digite a URL: `https://cxsuite.foresee.com/`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.okta.com/saml2/service-provider/<UniqueID>`
 
@@ -211,7 +211,7 @@ Nesta seção, você habilita Brenda Fernandes a usar o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do ForeSee CX Suite no Painel de Acesso, você será conectado automaticamente ao aplicativo do ForeSee CX Suite.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

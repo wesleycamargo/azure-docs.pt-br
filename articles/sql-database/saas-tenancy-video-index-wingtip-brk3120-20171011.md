@@ -12,19 +12,19 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: b472baf77cc8f253337aa0780321a6e7dd3fecac
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056669"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163966"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado e anotado para aplicativo SaaS multilocatário usando o Banco de Dados SQL do Azure
 
 Este artigo é um índice anotado para os locais de tempo de vídeo de 81 minutos sobre modelos de locação SaaS ou padrões. Este artigo permite que você avance ou recue o vídeo para a parte que for de seu interesse. O vídeo explica as principais opções de design para uma aplicação multilocatária no banco de dados SQL do Azure. O vídeo inclui demonstrações, explicações passo a passo sobre código de gerenciamento, e por vezes explicações mais detalhadas sobre experiências que podem estar em nossa documentação escrita.
 
 O vídeo amplifica informações em nossa documentação escrita, encontradas em: 
-- *Conceitual:* [Padrões de locação de bancos de dados multilocatários de SaaS][saas-concept-design-patterns-563e]
+- *Conceitual:* [Padrões de locatário de banco de dados de SaaS multilocatários][saas-concept-design-patterns-563e]
 - *Tutoriais:* [O aplicativo SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 O vídeo e os artigos descrevem as várias fases de criação de um aplicativo multilocatário no Banco de Dados SQL do Azure na nuvem. Os recursos especiais do Banco de Dados SQL do Azure facilitam o desenvolvimento e a implantação de aplicativos multilocatários fáceis de gerenciar e com desempenho confiável.
@@ -63,8 +63,8 @@ Os títulos a seguir são links para suas seções correspondentes anotadas que 
 - [17. Aplicativo SaaS multilocatário e híbrido da Canonical, 0:47:33](#anchor-image-wtip-min04733)
 - [18. Aplicativo de exemplo SaaS do Wingtip, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Cenários e padrões explorados nos tutoriais, 0:49:10](#anchor-image-wtip-min04910)
-- [20. Demonstração de tutoriais e repositório Github: 0:50:18](#anchor-image-wtip-min05018)
-- [21. Repositório Github Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
+- [20. Demonstração de tutoriais e repositório GitHub, 0:50:18](#anchor-image-wtip-min05018)
+- [21. Repositório GitHub Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. Explorando os padrões, 0:56:20](#anchor-image-wtip-min05620)
 - [23. Provisionamento de locatários e integração, 0:57:44](#anchor-image-wtip-min05744)
 - [24. Provisionamento de locatários e conexão de aplicativo, 0:58:58](#anchor-image-wtip-min05858)
@@ -94,11 +94,11 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 &nbsp; <a name="anchor-image-wtip-min00001"/>
 #### <a name="1-start-welcome-slide-00001"></a>1. *(Início)* Slide de boas-vindas, 0:00:01
 
-*Aprendendo com o MYOB: padrões para aplicativos SaaS no Banco de Ddos do SQL Azure - BRK3120*
+*Aprendendo com MYOB: Padrões de design para aplicativos SaaS no Banco de Dados SQL do Azure – BRK3120*
 
 [![Slide de boas-vindas][image-wtip-min00003-brk3120-whole-welcome]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1)
 
-- Título: Aprendendo com o MYOB: Padrões para aplicativos SaaS no Banco de Ddos do SQL Azure - BRK3120
+- Título: Aprendendo com MYOB: Padrões de design para aplicativos SaaS no Banco de Dados SQL do Azure
 - Bill.Gibson@microsoft.com
 - Entidade de Gerente de Programa, Banco de Dados SQL do Azure
 - Sessão BRK3120 do Microsoft Ignite, Orlando, Flórida, EUA, 11 de outubro de 2017
@@ -121,7 +121,7 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 
 &nbsp; <a name="anchor-image-wtip-min00505"/>
 #### <a name="4-multi-tenant-web-app-00500"></a>4. Aplicativo multilocatário da Web, 0:05:00
-[![Aplicativo de SaaS Wingtip: aplicativo Web multilocatário][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
+[![Aplicativo SaaS Wingtip: Aplicativo Web multilocatário][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
 
 
 &nbsp; <a name="anchor-image-wtip-min00555"/>
@@ -199,13 +199,13 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 
 
 &nbsp; <a name="anchor-image-wtip-min05018"/>
-#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demonstração de tutoriais e repositório Github, 0:50:12
-[![Demonstração de tutoriais e repositório Github][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demonstração de tutoriais e repositório GitHub, 0:50:12
+[![Tutoriais de demonstração e repositório GitHub][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp; <a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Repositório Github Microsoft/WingtipSaaS, 0:50:32
-[![Repositório Github Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Repositório GitHub Microsoft/WingtipSaaS, 0:50:32
+[![Repositório GitHub Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp; <a name="anchor-image-wtip-min05620"/>
@@ -294,14 +294,14 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 
 - [Postagem no blog, 22 de maio de 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Conceitual:* [Padrões de locação de bancos de dados multilocatários de SaaS][saas-concept-design-patterns-563e]
+- *Conceitual:* [Padrões de locatário de banco de dados de SaaS multilocatários][saas-concept-design-patterns-563e]
 
 - *Tutoriais:* [O aplicativo SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
-- Repositórios de Github para tipos de aplicativo de locação do Wingtip Tickets SaaS:
-    - [Repositório do Github para - modelo de aplicativo independente][github-wingtip-standaloneapp].
-    - [Repositório do Github para - modelo de banco de dados por locatário][github-wingtip-dbpertenant].
-    - [Repositório do Github para - modelo de banco de dados multilocatário][github-wingtip-multitenantdb].
+- Repositórios GitHub para tipos de aplicativo SaaS de locação Wingtip Tickets:
+    - [Repositório do GitHub para – modelo de aplicativo independente][github-wingtip-standaloneapp].
+    - [Repositório do GitHub para – modelo de banco de dados por locatário][github-wingtip-dbpertenant].
+    - [Repositório do GitHub para – modelo de banco de dados multilocatário][github-wingtip-multitenantdb].
 
 
 
@@ -322,7 +322,7 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 
 [image-wtip-min00417-agenda]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00417-agenda-app-management-models-patterns.png "Agenda."
 
-[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Aplicativo de Wingtip SaaS: aplicativo da Web multilocatário"
+[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Aplicativo SaaS Wingtip: Aplicativo Web multilocatário"
 
 [image-wtip-min00555-app-web-form]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00555-app-form-contoso-concert-hall-night-opera.png "Formulário do aplicativo da Web em ação"
 
@@ -354,9 +354,9 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Cenários e padrões explorados nos tutoriais"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demonstração de tutoriais e repositório Github"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demonstração de tutoriais e repositório GitHub"
 
-[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Repositório Github Microsoft/WingtipSaaS"
+[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Repositório GitHub Microsoft/WingtipSaaS"
 
 [image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.png "Explorando os padrões"
 

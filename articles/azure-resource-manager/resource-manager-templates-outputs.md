@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358358"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140448"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Seção de saídas nos modelos do Azure Resource Manager
 Na seção de saídas, você especifica valores que são retornados da implantação. Por exemplo, é possível retornar o URI para acessar um recurso implantado.
@@ -48,7 +48,9 @@ Para a CLI do Azure, use:
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-Você pode recuperar o valor de saída de um modelo vinculado usando a função [reference](resource-group-template-functions-resource.md#reference). Para obter um valor de saída de um modelo vinculado, recupere o valor da propriedade com uma sintaxe semelhante a: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Você pode recuperar o valor de saída de um modelo vinculado usando a função [reference](resource-group-template-functions-resource.md#reference). Para obter um valor de saída de um modelo vinculado, recupere o valor da propriedade com uma sintaxe semelhante a: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Ao obter uma propriedade de saída de um modelo vinculado, o nome da propriedade não pode incluir um traço.
 
 Por exemplo, você pode definir o endereço IP em um balanceador de carga recuperando um valor de um modelo vinculado.
 
@@ -58,7 +60,7 @@ Por exemplo, você pode definir o endereço IP em um balanceador de carga recupe
 }
 ```
 
-Não é possível usar a função `reference` na seção de saídas de um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
+Não é possível usar a `reference` função na seção de saídas de um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
 
 ## <a name="available-properties"></a>Propriedades disponíveis
 
@@ -75,9 +77,9 @@ O exemplo a seguir mostra a estrutura de uma definição de saída:
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| outputName |sim |Nome do valor de saída. Deve ser um identificador JavaScript válido. |
-| Tipo |sim |Tipo do valor de saída. Valores de saída oferecem suporte aos mesmos tipos que os parâmetros de entrada do modelo. |
-| value |sim |Expressão de linguagem do modelo avaliada e retornada como valor de saída. |
+| outputName |SIM |Nome do valor de saída. Deve ser um identificador JavaScript válido. |
+| Tipo |SIM |Tipo do valor de saída. Valores de saída oferecem suporte aos mesmos tipos que os parâmetros de entrada do modelo. |
+| value |SIM |Expressão de linguagem do modelo avaliada e retornada como valor de saída. |
 
 ## <a name="recommendations"></a>Recomendações
 

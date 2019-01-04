@@ -1,20 +1,21 @@
 ---
-title: Redefinir peerings do Azure ExpressRoute | Microsoft Docs
-description: Como desabilitar e habilitar emparelhamentos de um circuito do ExpressRoute.
+title: 'Redefinir emparelhamento de circuito – ExpressRoute:  Azure | Microsoft Docs'
+description: Como desabilitar e habilitar emparelhamentos de circuitos do ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415807"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132577"
 ---
-# <a name="reset-expressroute-peerings"></a>Redefinir os emparelhamentos do ExpressRoute
+# <a name="reset-expressroute-circuit-peerings"></a>Redefinir emparelhamentos de circuitos do ExpressRoute
 
 Este artigo descreve como desabilitar e habilitar peerings de um circuito da Rota Expressa usando o PowerShell. Quando você desativa um emparelhamento, a sessão do BGP na conexão principal e na conexão secundária do circuito da ExpressRoute será encerrada. Você perderá conectividade por meio desse peering para a Microsoft. Quando você ativa um emparelhamento, a sessão do BGP na conexão principal e na conexão secundária do circuito da ExpressRoute será ativada. Você vai recuperar a conectividade através deste peering para a Microsoft. Você pode habilitar e desabilitar o Microsoft Peering e o Azure Private Peering em um circuito do ExpressRoute de forma independente. Quando você configura primeiro os peerings em seu circuito da Rota Expressa, os peerings são ativados por padrão.
 

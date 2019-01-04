@@ -1,6 +1,6 @@
 ---
-title: Monitoramento remoto de IoT e notificações com o Aplicativo Lógico do Azure | Microsoft Docs
-description: Use o Aplicativo Lógico do Azure para monitoramento de temperatura de IoT em seu hub IoT e envio automático de notificações por email à sua caixa de correio sobre quaisquer anomalias detectadas.
+title: Monitoramento remoto de IoT e notificações com os Aplicativos Lógicos do Azure | Microsoft Docs
+description: Use os Aplicativos Lógicos do Azure para monitoramento de temperatura de IoT em seu hub IoT e envio automático de notificações por email à sua caixa de correio sobre quaisquer anomalias detectadas.
 author: rangv
 manager: ''
 keywords: monitoramento de iot, notificações de iot, monitoramento de temperatura de iot
@@ -17,13 +17,13 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/18/2018
 ms.locfileid: "49409434"
 ---
-# <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoramento remoto IoT e notificações com o Aplicativo Lógico do Azure conectando o hub IoT e a caixa de correio
+# <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoramento remoto IoT e notificações com os Aplicativos Lógicos do Azure conectando o hub IoT e a caixa de correio
 
 ![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/7.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-O Aplicativo Lógico do Azure fornecem uma maneira de automatizar processos como uma série de etapas. Um aplicativo lógico pode se conectar com vários serviços e protocolos. Ele começa com um gatilho como “Quando uma conta é adicionada”, seguido por uma combinação de ações semelhantes a “enviar uma notificação por push”. Esse recurso torna os aplicativos lógicos uma solução de IoT perfeita para monitoramento de IoT, como alertas a anomalias, entre outros cenários de uso.
+Os Aplicativos Lógicos do Azure fornecem uma maneira de automatizar processos como uma série de etapas. Um aplicativo lógico pode se conectar com vários serviços e protocolos. Ele começa com um gatilho como “Quando uma conta é adicionada”, seguido por uma combinação de ações semelhantes a “enviar uma notificação por push”. Esse recurso torna os aplicativos lógicos uma solução de IoT perfeita para monitoramento de IoT, como alertas a anomalias, entre outros cenários de uso.
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 

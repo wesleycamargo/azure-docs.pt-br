@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086634"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994530"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -81,7 +81,7 @@ O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a 
 A assinatura do método pode conter parâmetros diferentes daquela usada com o atributo de gatilho. Aqui estão alguns dos parâmetros adicionais que você pode incluir:
 
 * [Associações de entrada e saída](functions-triggers-bindings.md) marcadas como tal, decorando-os com atributos.  
-* Um parâmetro `ILogger` ou `TraceWriter` para [efetuar logon](#logging).
+* Um `ILogger` ou `TraceWriter` ([versão 1. x somente](functions-versions.md#creating-1x-apps)) parâmetro para [log](#logging).
 * Um parâmetro `CancellationToken` para [desligamento normal](#cancellation-tokens).
 * Parâmetros de [expressões de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) para obter metadados de gatilho.
 
@@ -154,7 +154,7 @@ O arquivo *function.json* gerado inclui uma propriedade `configurationSource` qu
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-A geração do arquivo *function.json* é realizada pelo pacote NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+A geração do arquivo *function.json* é realizada pelo pacote NuGet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
 O mesmo pacote é usado para a versão 1.x e 2.x do tempo de execução do Functions. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Estas são as partes relevantes dos arquivos *.csproj*, mostrando estruturas de destino diferentes e o mesmo pacote `Sdk`:
 
@@ -183,7 +183,7 @@ O mesmo pacote é usado para a versão 1.x e 2.x do tempo de execução do Funct
 
 Entre as dependências do pacote `Sdk` estão os gatilhos e associações. Um projeto do 1.x se refere a gatilhos e associações do 1.x, pois são direcionados ao .NET Framework, enquanto os gatilhos e associações do 2.x são direcionados ao .NET Core.
 
-O pacote `Sdk` também depende do [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) e, indiretamente, do [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Essas dependências garantem que seu projeto use as versões desses pacotes que funcionam com a versão de tempo de execução do Functions para a qual o projeto é direcionado. Por exemplo, o `Newtonsoft.Json` tem a versão 11 para o .NET Framework 4.6.1, mas o tempo de execução do Functions direcionado para o .NET Framework 4.6.1 só é compatível com o `Newtonsoft.Json` 9.0.1. Portanto, o código de sua função nesse projeto também tem que usar `Newtonsoft.Json` 9.0.1.
+O pacote `Sdk` também depende do [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) e, indiretamente, do [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Essas dependências garantem que seu projeto use as versões desses pacotes que funcionam com a versão de tempo de execução do Functions para a qual o projeto é direcionado. Por exemplo, o `Newtonsoft.Json` tem a versão 11 para o .NET Framework 4.6.1, mas o tempo de execução do Functions direcionado para o .NET Framework 4.6.1 só é compatível com o `Newtonsoft.Json` 9.0.1. Portanto, o código de sua função nesse projeto também tem que usar `Newtonsoft.Json` 9.0.1.
 
 O código-fonte para `Microsoft.NET.Sdk.Functions`está disponível no repositório GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Registro em log
 
-A saída de log para logs de streaming em C#, inclue um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos nomeá-lo como `log`. Evite usar `Console.Write` no Azure Functions.
+A saída de log para logs de streaming em C#, inclue um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). É recomendável que você nomeie `log`, conforme mostrado no exemplo a seguir:  
 
 ```csharp
 public static class SimpleExample
@@ -248,8 +248,7 @@ public static class SimpleExample
 } 
 ```
 
-> [!NOTE]
-> Para obter informações sobre uma estrutura de log mais recente que pode ser usada no lugar de `TraceWriter`, consulte [Gravar logs nas funções C#](functions-monitoring.md#write-logs-in-c-functions) no artigo **Monitorar o Azure Functions**.
+Evite usar `Console.Write` no Azure Functions. Para obter mais informações, consulte [Gravar logs mas funções C#](functions-monitoring.md#write-logs-in-c-functions) no artigo **Monitorar o Azure Functions**.
 
 ## <a name="async"></a>Assíncrono
 

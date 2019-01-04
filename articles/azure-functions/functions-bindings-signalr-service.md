@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 40cad9eec87c07a205a86f1009074cdbeaf58d15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 74092f57b3531a037aee71d433c33dddf8c2b694
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249940"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001792"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associações do Serviço SignalR para o Azure Functions
 
@@ -30,7 +30,7 @@ Este artigo explica como autenticar e enviar mensagens em tempo real para client
 
 ## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
 
-As associações do Serviço SignalR são fornecidas no pacote do NuGet [Microsoft.Azure.WebJobs.Extensions.SignalRService](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService), versão 1.0.0-preview1-*. O código-fonte do pacote está no repositório GitHub [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension).
+As associações do Serviço SignalR são fornecidas no pacote do NuGet [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService), versão 1.0.0-preview1-*. O código-fonte do pacote está no repositório GitHub [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension).
 
 > [!NOTE]
 > O Serviço Azure SignalR está disponível ao público em geral. No entanto, as associações do Serviço SignalR para Azure Functions estão atualmente em versão prévia.
@@ -249,7 +249,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**direction**|| Deve ser definido como `in`.|
 |**name**|| Nome da variável usada no código de função para o objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do hub SignalR para o qual as informações de conexão são geradas.|
-|**userId**|**UserId**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
+|**userId**|**UserId**| Opcional: O valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da configuração do aplicativo que contém a cadeia de conexão do SignalR Service (o padrão é "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR

@@ -1,21 +1,19 @@
 ---
-title: Implantar um aplicativo Web com um modelo – Azure Cosmos DB | Microsoft Docs
+title: Implantar um aplicativo Web com um modelo – Azure Cosmos DB
 description: Saiba como implantar uma conta do Azure Cosmos DB, Aplicativos Web do Serviço de Aplicativo do Azure e um aplicativo Web de exemplo usando um modelo do Azure Resource Manager.
 services: cosmos-db, app-service\web
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 29a2335a3a4077866b71e4303c240ad8352371ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243770"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076711"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implantar o Azure Cosmos DB e Aplicativos Web do Serviço de Aplicativo do Azure usando um modelo do Azure Resource Manager
 Este tutorial mostra como usar um modelo do Azure Resource Manager para implantar e integrar o [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), um aplicativo Web do [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e um aplicativo Web de exemplo.
@@ -60,7 +58,7 @@ Agora, vamos implantar seu primeiro modelo.
    ![Captura de tela da interface do usuário da implantação do modelo](./media/create-website/TemplateDeployment3.png)
 4. Clique em **Editar parâmetros**, forneça valores para cada um dos parâmetros obrigatórios e clique em **OK**.  Os parâmetros são os seguintes:
    
-   1. SITENAME: especifica o nome do aplicativo Web do Serviço de Aplicativo e é usado para construir a URL que é usada para acessar o aplicativo Web (por exemplo, se você especificar “mydemodocdbwebapp”, a URL pela qual você acessa o aplicativo Web é mydemodocdbwebapp.azurewebsites.net).
+   1. SITENAME: especifica o nome do aplicativo Web do Serviço de Aplicativo e é usado para construir a URL que é usada para acessar o aplicativo Web (por exemplo, se você especificar “mydemodocdbwebapp”, a URL pela qual você acessa o aplicativo Web será mydemodocdbwebapp.azurewebsites.net).
    2. HOSTINGPLANNAME: especifica o nome do plano de hospedagem do Serviço de Aplicativo a ser criado.
    3. LOCATION: especifica a localização do Azure na qual serão criados os recursos do Azure Cosmos DB e do aplicativo Web.
    4. DATABASEACCOUNTNAME: especifica o nome da conta do Azure Cosmos DB a ser criada.   
@@ -97,7 +95,7 @@ Agora, vamos implantar seu segundo modelo.  Esse modelo é útil para mostrar co
    ![Captura de tela da interface do usuário da implantação do modelo](./media/create-website/TemplateDeployment3.png)
 4. Clique em **Editar parâmetros**, forneça valores para cada um dos parâmetros obrigatórios e clique em **OK**.  Os parâmetros são os seguintes:
    
-   1. SITENAME: especifica o nome do aplicativo Web do Serviço de Aplicativo e é usado para construir a URL que será usada para acessar o aplicativo Web (por exemplo, se você especificar “mydemodocdbwebapp”, a URL pela qual você acessa o aplicativo Web é mydemodocdbwebapp.azurewebsites.net).
+   1. SITENAME: especifica o nome do aplicativo Web do Serviço de Aplicativo e é usado para construir a URL que será usada para acessar o aplicativo Web (por exemplo, se você especificar “mydemodocdbwebapp”, a URL pela qual você acessa o aplicativo Web será mydemodocdbwebapp.azurewebsites.net).
    2. HOSTINGPLANNAME: especifica o nome do plano de hospedagem do Serviço de Aplicativo a ser criado.
    3. LOCATION: especifica a localização do Azure na qual serão criados os recursos do Azure Cosmos DB e do aplicativo Web.
    4. DATABASEACCOUNTNAME: especifica o nome da conta do Azure Cosmos DB a ser criada.   
@@ -121,15 +119,15 @@ Agora, vamos implantar seu segundo modelo.  Esse modelo é útil para mostrar co
 ## <a name="next-steps"></a>Próximas etapas
 Parabéns! Você implantou o Azure Cosmos DB, um aplicativo Web do Serviço de Aplicativo e um aplicativo Web de exemplo usando modelos do Azure Resource Manager.
 
-* Para saber mais sobre o Azure Cosmos DB, clique [aqui](http://azure.com/docdb).
+* Para saber mais sobre o Azure Cosmos DB, clique [aqui](https://azure.microsoft.com/services/cosmos-db/).
 * Para saber mais sobre os aplicativos Web do Serviço de Aplicativo do Azure, clique [aqui](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Para saber mais sobre modelos do Gerenciador de Recursos do Azure, clique [aqui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](https://go.microsoft.com/fwlink/?LinkId=529714)
+* Para ver um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 

@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233677"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início rápido: Crie seu primeiro fluxo de trabalho automatizado com os Aplicativos Lógico do Azure - Portal do Azure
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início rápido: Crie seu primeiro fluxo de trabalho automatizado com os Aplicativos Lógicos do Azure - Portal do Azure
 
-Este início rápido apresenta como criar seu primeiro fluxo de trabalho automatizado com o [Aplicativos Lógico do Azure](../logic-apps/logic-apps-overview.md). Neste artigo, você cria um aplicativo lógico que verifica regularmente o RSS feed para novos itens. Se existirem novos itens, o aplicativo lógico envia um email para cada item. Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalho em alto nível:
+Este início rápido apresenta como criar seu primeiro fluxo de trabalho automatizado com o [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md). Neste artigo, você cria um aplicativo lógico que verifica regularmente o RSS feed para novos itens. Se existirem novos itens, o aplicativo lógico envia um email para cada item. Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalho em alto nível:
 
 ![Visão geral - exemplo de aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/overview.png)
 

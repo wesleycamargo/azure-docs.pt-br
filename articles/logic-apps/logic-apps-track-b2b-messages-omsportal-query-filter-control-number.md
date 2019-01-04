@@ -1,6 +1,6 @@
 ---
-title: Criar consultas de rastreamento para mensagens B2B no Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Crie consultas que rastreiam mensagens AS2, X12 e EDIFACT no Azure Log Analytics para aplicativos de lógica do Azure
+title: Criar consultas de rastreamento para mensagens B2B no Log Analytics - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Crie consultas que rastreiam mensagens AS2, X12 e EDIFACT no Azure Log Analytics para os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52995311"
 ---
-# <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Criar consultas de rastreamento para mensagens B2B no Azure Log Analytics para aplicativos de lógica do Azure
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Criar consultas de rastreamento para mensagens B2B no Azure Log Analytics para os Aplicativos Lógicos do Azure
 
 Para encontrar mensagens AS2, X12 ou EDIFACT que você está acompanhando com [Log de Análises do Azure](../log-analytics/log-analytics-overview.md), é possível criar consultas que filtram ações com base em critérios específicos. Por exemplo, você pode encontrar mensagens baseado em um número de controle de intercâmbio específico.
 

@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cbf9c1a49481de49fb8d9c6599acec7bc3600df3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233422"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837504"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparar o ambiente de destino para recuperação de desastre de VMs VMware ou servidores físicos para o Azure
 
@@ -27,12 +27,12 @@ Este artigo supõe que:
 
 ## <a name="prepare-target"></a>Preparar o destino
 
-Depois de concluir a **Etapa 1: Selecionar meta de proteção** e a **Etapa 2: Preparar origem**, você segue para a **Etapa 3: Destino**
+Após concluir a **Etapa 1: Selecione a meta de proteção** e **Etapa 2: Preparar a Fonte**, você será direcionado para a **Etapa 3: Destino**
 
 ![Preparar o destino](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
-1. **Assinatura:** no menu suspenso, escolha a assinatura na qual deseja replicar suas máquinas virtuais ou servidores físicos.
-2. **Modelo de Implantação:** escolha o modelo de implantação (Clássico ou Resource Manager)
+1. **Assinatura:** No menu suspenso, selecione a Assinatura na qual você quer replicar as máquinas virtuais ou os servidores físicos.
+2. **Modelo de Implantação:** Selecione o modelo de implantação (Clássico ou Resource Manager)
 
 Com base no modelo de implantação escolhido, uma validação é executada para garantir que você tenha pelo menos uma conta de armazenamento compatível e a rede virtual na assinatura de destino na qual replicar e fazer failover da máquina virtual ou servidor físico.
 

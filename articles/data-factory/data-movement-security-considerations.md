@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783365"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970619"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +43,7 @@ Se você estiver interessado na conformidade do Azure e como ele protege sua pr�
 
 Neste artigo, examinamos as considerações sobre segurança nestes dois cenários de movimentação de dados: 
 
-- **Cenário de nuvem**: neste cenário, sua origem e destino são publicamente acessíveis por meio da Internet. Eles incluem serviços de armazenamento em nuvem gerenciados como Armazenamento do Azure, SQL Data Warehouse do Azure, Banco de Dados SQL do Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como Salesforce e protocolos da Web como FTP e OData. Localizar uma lista completa de fontes de dados com suporte em [Armazenamentos de dados e formatos com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Cenário de nuvem**: neste cenário, sua origem e destino ficam acessíveis publicamente por meio da Internet. Eles incluem serviços de armazenamento em nuvem gerenciados como Armazenamento do Azure, SQL Data Warehouse do Azure, Banco de Dados SQL do Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como Salesforce e protocolos da Web como FTP e OData. Localizar uma lista completa de fontes de dados com suporte em [Armazenamentos de dados e formatos com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Cenário híbrido**: nesse cenário, sua origem ou destino está atrás de um firewall ou dentro de uma rede corporativa local. Ou, o armazenamento de dados está em uma particular ou rede virtual (geralmente a origem) e não está acessível publicamente. Os servidores de banco de dados hospedados em máquinas virtuais também se enquadram nesse cenário.
 
 ## <a name="cloud-scenarios"></a>Cenários de nuvem
@@ -167,7 +167,7 @@ A tabela a seguir fornece os requisitos de porta de entrada do Firewall do Windo
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Exigido pelo cmdlet de criptografia do PowerShell conforme descrito em [Criptografar credenciais para armazenamentos de dados locais no Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), e pelo aplicativo gerenciador de credenciais para definir credenciais com segurança para armazenamentos de dados locais no tempo de execução de integração auto-hospedado. |
 
-![Requisitos de porta do gateway](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![Requisitos de porta do gateway](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>Configurações de IP e lista de permissões em armazenamentos de dados
 Alguns armazenamentos de dados na nuvem também exigem a lista de permissões do endereço IP do computador que os acessa. Verifique se o endereço IP do computador do tempo de execução de integração auto-hospedado está na lista de permissões ou configurado no firewall corretamente.

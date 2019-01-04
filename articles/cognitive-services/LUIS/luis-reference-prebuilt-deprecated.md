@@ -1,28 +1,29 @@
 ---
-title: Referência de entidades preteridas predefinidas de LUIS – Azure | Microsoft Docs
+title: Entidades predefinidas preteridas
 titleSuffix: Azure
 description: Este artigo contém informações de entidade predefinidas preteridas em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334101"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138051"
 ---
-# <a name="deprecated-entities"></a>Entidades preteridas
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades predefinidas preteridas em um aplicativo LUIS
 As entidades predefinidas a seguir foram preteridas e não podem ser adicionadas a novos aplicativos de LUIS.
 
 * **Datetime**: os aplicativos de LUIS existentes que usam **datetime** devem ser migrados para **datetimeV2**, embora a entidade de datetime continue a funcionar em aplicativos preexistentes que a utilizam.
-* **Geografia**: haverá suporte para aplicativos de LUIS existentes que usam **geografia** até dezembro de 2018.
-* **Enciclopédia**: haverá suporte para aplicativos de LUIS existentes que usam **enciclopédia** até dezembro de 2018.
+* **Geography**: haverá suporte para aplicativos de LUIS existentes que usam **geography** até dezembro de 2018.
+* **Encyclopedia**: haverá suporte para aplicativos de LUIS existentes que usam **encyclopedia** até dezembro de 2018.
 
 ## <a name="geography-culture"></a>Cultura de geografia
 **Geografia** está disponível apenas na localidade `en-us`.
@@ -42,9 +43,9 @@ Entidade predefinida   |   Exemplo de enunciado   |   JSON
 **Enciclopédia** está disponível apenas na localidade `en-US`.
 
 #### <a name="encyclopedia-subtypes"></a>Subtipos de enciclopédia
-A entidade interna de enciclopédia inclui mais de 100 subtipos na tabela a seguir. Além disso, as entidades de enciclopédia geralmente são mapeadas para vários tipos. Por exemplo, a consulta Ronald Reagan gera: 
+A entidade interna encyclopedia inclui mais de 100 subtipos na tabela a seguir: Além disso, as entidades encyclopedia geralmente são mapeadas para vários tipos. Por exemplo, a consulta Ronald Reagan gera: 
 
-```JSON
+```json
 {
       "entity": "ronald reagan",
       "type": "builtin.encyclopedia.people.person"

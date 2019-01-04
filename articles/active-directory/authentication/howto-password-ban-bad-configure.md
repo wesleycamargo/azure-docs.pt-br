@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 34011144d4f960413e78f13c999dfddf6d2660bf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c4a289d1aeefc35f07e7598adf3780620b11f0da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742941"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252194"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurar a lista de senhas proibidas personalizada
 
 |     |
 | --- |
-| A proteção de senha do Azure AD é uma versão prévia do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| A proteção de senha do Azure Active Directory é uma versão prévia do recurso do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Muitas organizações descobrem que seus usuários criam senhas usando palavras locais comuns, como uma escola, uma equipe esportiva ou uma pessoa famosa, deixando-as fáceis de adivinhar. A lista de senhas proibidas personalizada da Microsoft permite que as organizações adicionem cadeia de caracteres para avaliar e bloquear, além da lista global de senhas proibidas, quando usuários e administradores tentam alterar ou redefinir uma senha.
@@ -36,7 +36,7 @@ A configuração da lista de senhas proibidas personalizada exige uma licença d
    * A lista de senhas proibidas personalizada pode conter até 1.000 palavras.
    * A lista de senhas proibidas personalizada não diferencia maiúsculas de minúsculas.
    * A lista de senhas proibidas personalizada considera a substituição de caracteres comuns.
-      * Exemplo: "o" e "0" ou "a" e "\@\"
+      * Exemplo: "o" e "0" ou "a" e "\@"
    * O comprimento mínimo da cadeia de caracteres é de quatro caracteres e o máximo é de 16 caracteres.
 1. Depois de adicionar todas as cadeia de caracteres, clique em **Salvar**.
 

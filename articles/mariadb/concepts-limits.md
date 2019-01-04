@@ -7,19 +7,19 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ac05a2dcee3adaa93d31e28e5597a788c0159ddd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955428"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835702"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações no Banco de Dados do Azure para o MariaDB
-O banco de dados do Azure para o serviço MariaDB está em pré-visualização pública. As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados.
+As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados.
 
 ## <a name="maximum-connections"></a>Número máximo de conexões
-O número máximo de conexões por tipo de preço e vCores durante a visualização é a seguinte:
+O número máximo de conexões por tipo de preço e vCores é o seguinte:
 
 |**Tipo de preço**|**vCore(s)**| **Máximo de conexões**|
 |---|---|---|
@@ -36,7 +36,7 @@ O número máximo de conexões por tipo de preço e vCores durante a visualizaç
 |Otimizado para memória| 16| 5.000|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
-> ERRO 1040 (08004): número excessivo de conexões
+> ERRO 1040 (08004): Muitas conexões
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
 
@@ -52,8 +52,8 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 ## <a name="privilege-support"></a>Suporte de privilégio
 
 ### <a name="unsupported"></a>Sem suporte
-- Função DBA: muitas configurações e parâmetros do servidor podem inadvertidamente prejudicar o desempenho do servidor ou negar as propriedades ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado.
-- Privilégio SUPER: semelhante a privilégio [SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
+- Função DBA: Muitas configurações e parâmetros do servidor podem, inadvertidamente, prejudicar o desempenho do servidor ou negar as propriedades de ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado.
+- Privilégio SUPER: De forma semelhante, o [privilégio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
 

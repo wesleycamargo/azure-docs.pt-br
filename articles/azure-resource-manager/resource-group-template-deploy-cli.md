@@ -10,14 +10,14 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80246114ac839efa0025dfbc29b9bdbbe2b740be
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5f27b34bda930d020461bd5f4f7986091ffd5549
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50084792"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413652"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
@@ -153,7 +153,7 @@ O formato arrayContent.json é:
 
 ### <a name="parameter-files"></a>Arquivos de parâmetros
 
-Em vez de passar parâmetros como valores embutidos no script, talvez seja mais fácil usar um arquivo JSON que contenha os valores de parâmetro. O arquivo de parâmetro pode ser um arquivo local ou um arquivo externo com um URI acessível.
+Em vez de passar parâmetros como valores embutidos no script, talvez seja mais fácil usar um arquivo JSON que contenha os valores de parâmetro. O arquivo de parâmetro deve ser um arquivo local. Não há suporte para arquivos de parâmetro externo com a CLI do Azure.
 
 O arquivo de parâmetro deve estar no seguinte formato:
 
@@ -249,7 +249,7 @@ Se seu modelo tem um erro de sintaxe, o comando retorna um erro indicando que el
 
 ## <a name="next-steps"></a>Próximas etapas
 * Os exemplos deste artigo implantam recursos em um grupo de recursos na sua assinatura padrão. Para usar outra assinatura, confira [Manage multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli) (Gerenciar várias assinaturas do Azure).
-* Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, consulte [Modos de implantação do Azure Resource Manager](deployment-modes.md).
+* Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, confira [Modos de implantação do Azure Resource Manager](deployment-modes.md).
 * Para entender como definir parâmetros em seu modelo, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre como implantar um modelo que exija um token SAS, veja [Implantar o modelo particular com o token SAS](resource-manager-cli-sas-token.md).

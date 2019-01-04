@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 0463a89b8c320b31929bf5e0322079088c2cdeab
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9cf5092dabf5649f4d063ce05dae169b90228378
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054124"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834087"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Tutorial: integração do Azure Active Directory ao ClearCompany
+# <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Tutorial: Integração do Azure Active Directory ao ClearCompany
 
 Neste tutorial, você aprenderá a integrar o ClearCompany ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o ClearCompany da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -119,7 +119,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.clearcompany.com`
     
     > [!NOTE] 
-    > O valor da URL de logon não é um valor real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do ClearCompany](http://www.clearcompany.com/support) para obter esse valor. 
+    > O valor da URL de logon não é um valor real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do ClearCompany](https://www.clearcompany.com/support) para obter esse valor. 
 
 5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
@@ -133,10 +133,10 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configuração do ClearCompany](./media/clearcompany-tutorial/tutorial_clearcompany_configure.png) 
 
-8. Para configurar o logon único no lado do **ClearCompany**, é necessário enviar o **Certificado (Base64)** baixado e a **URL do Serviço de Logon Único SAML** para a [equipe de suporte do ClearCompany](http://www.clearcompany.com/support). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+8. Para configurar o logon único no lado do **ClearCompany**, é necessário enviar o **Certificado (Base64)** baixado e a **URL do Serviço de Logon Único SAML** para a [equipe de suporte do ClearCompany](https://www.clearcompany.com/support). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -172,7 +172,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-clearcompany-test-user"></a>Criar um usuário de teste do ClearCompany
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no ClearCompany. Trabalhe com a [equipe de suporte do ClearCompany](http://www.clearcompany.com/support) para adicionar os usuários à plataforma ClearCompany. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no ClearCompany. Trabalhe com a  [equipe de suporte do ClearCompany](https://www.clearcompany.com/support) para adicionar os usuários à plataforma ClearCompany. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -209,7 +209,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco ClearCompany no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo ClearCompany.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

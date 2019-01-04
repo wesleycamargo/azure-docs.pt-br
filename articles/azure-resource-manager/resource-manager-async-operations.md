@@ -1,6 +1,6 @@
 ---
-title: Operações assíncronas do Azure | Microsoft Docs
-description: Descreve como rastrear operações assíncronas no Azure.
+title: Status de operações assíncronas – Azure Resource Manager
+description: Descreve como rastrear operações assíncronas no Azure. Mostra os valores que você pode usar para obter o status de uma operação de longa execução.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 601f4a899393d8ddd5ea698d4d01ade7141ee91f
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.custom: seodec18
+ms.openlocfilehash: 1b05ed50f08ddbf2eb5da8e08f5bf623596e1f9b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142071"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135450"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Rastrear operações assíncronas no Azure
 Algumas operações REST do Azure são executadas de forma assíncrona porque a operação não pode ser concluída com rapidez. Este artigo descreve como controlar o status das operações assíncronas por meio de valores retornados na resposta.  

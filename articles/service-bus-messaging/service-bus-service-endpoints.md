@@ -1,35 +1,53 @@
 ---
 title: Regras e pontos de extremidade de serviço de Rede Virtual para Barramento de Serviço do Microsoft Azure | Microsoft Docs
 description: Adicione um ponto de extremidade de serviço Microsoft.ServiceBus a uma rede virtual.
-services: event-hubs
+services: service-bus
 documentationcenter: ''
 author: clemensv
 manager: timlt
-ms.service: event-hubs
+ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 05930dfce64378d792213ccaefa3d15057bd5dfd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3e1bdcc9340cc6cf997bebcdf1567bf676521ea5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404988"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276121"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usar pontos de extremidade de serviço de Rede Virtual com Barramento de Serviço
 
-A integração de Barramento de Serviço com [Pontos de extremidade de serviço de VNet (rede virtual)][vnet-sep] permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades. 
+A integração de Barramento de Serviço com [Pontos de extremidade de serviço de VNet (rede virtual)][vnet-sep] permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades.
 
 Após ser configurado para associar-se a pelo menos um ponto de extremidade de serviço de sub-rede da rede virtual, o respectivo namespace de Barramento de Serviço não aceitará mais tráfego de nenhum lugar, exceto das redes virtuais autorizadas. Da perspectiva da rede virtual, a associação de um namespace de Barramento de Serviço a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens.
 
 O resultado é um relacionamento privado e isolado entre as cargas de trabalho associadas à sub-rede e o respectivo namespace de Barramento de Serviço, apesar do endereço de rede observável do ponto de extremidade de serviço de mensagens estar em um intervalo de IP público.
 
+>[!WARNING]
+> Implementar a integração de redes virtuais pode impedir que outros serviços do Azure interajam com o Barramento de Serviço.
+>
+> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas e serão disponibilizada em breve.
+>
+> Cenários comuns do Azure que não funcionam com as Redes Virtuais (observe que a lista **NÃO** é exaustiva) -
+> - Azure Monitor
+> - Stream Analytics do Azure
+> - Integração com a Grade de Eventos do Azure
+> - Rotas do Hub IoT do Azure
+> - Device Explorer do Azure IoT
+> - Azure Data Explorer
+>
+> Os serviços da Microsoft abaixo deve estar em uma rede virtual
+> - Aplicativos Web do Azure 
+> - Funções do Azure
+
+> [!IMPORTANT]
+> As redes virtuais têm suporte apenas em namespaces do Barramento de Serviço [camada Premium](service-bus-premium-messaging.md).
+
 ## <a name="enable-service-endpoints-with-service-bus"></a>Habilitar pontos de extremidade de serviço com o Barramento de Serviço
 
-As redes virtuais têm suporte apenas em namespaces do Barramento de Serviço [camada Premium](service-bus-premium-messaging.md). 
-
-Uma consideração importante ao usar pontos de extremidade de serviço de VNet com o Barramento de Serviço é que você não deve permitir esses pontos de extremidade em aplicativos que combinam os namespaces do Barramento de Serviço de camada Standard e Premium. Como a camada Standard não oferece suporte a VNets, o ponto de extremidade fica restrito apenas a namespaces da camada Premium. A VNet bloqueará o tráfego para o namespace Standard. 
+Uma consideração importante ao usar pontos de extremidade de serviço de VNet com o Barramento de Serviço é que você não deve permitir esses pontos de extremidade em aplicativos que combinam os namespaces do Barramento de Serviço de camada Standard e Premium. Como a camada Standard não oferece suporte a VNets, o ponto de extremidade fica restrito apenas a namespaces da camada Premium. A VNet bloqueará o tráfego para o namespace Standard.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração de VNet 
 
@@ -45,7 +63,7 @@ As *regras de rede virtual* são o recurso de segurança do firewall que control
 
 Associar um namespace de Barramento de Serviço a uma rede virtual é um processo de duas etapas. Primeiro é necessário criar um **ponto de extremidade de Rede Virtual** em uma sub-rede de Rede Virtual e habilitá-lo para "Microsoft.ServiceBus", conforme explicado na [visão geral do ponto de extremidade de serviço][vnet-sep]. Após adicionar o ponto de extremidade de serviço, você associa o namespace de Barramento de Serviço ao ponto de extremidade com uma *regra de rede virtual*.
 
-A regra de rede virtual é uma associação nomeada do namespace de Barramento de Serviço com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho associadas à sub-rede recebem acesso ao namespace de Barramento de Serviço. Os próprios Barramentos de Serviço nunca estabelecem conexões de saída, não precisam obter acesso e, portanto, nunca recebem acesso à sub-rede habilitando essa regra.
+A regra de rede virtual é uma associação do namespace de Barramento de Serviço com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho associadas à sub-rede recebem acesso ao namespace de Barramento de Serviço. Os próprios Barramentos de Serviço nunca estabelecem conexões de saída, não precisam obter acesso e, portanto, nunca recebem acesso à sub-rede habilitando essa regra.
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual com modelos do Azure Resource Manager
 
@@ -53,47 +71,121 @@ O modelo do Resource Manager a seguir permite incluir uma regra de rede virtual 
 
 Parâmetros de modelo:
 
-* **namespaceName**: namespace de Barramento de serviço.
-* **vnetRuleName**: nome da regra de Rede Virtual a ser criada.
-* **virtualNetworkingSubnetId**: caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
+* **namespaceName**: Namespace do Barramento de Serviço.
+* **virtualNetworkingSubnetId**: Caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
+
+> [!NOTE]
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Permitir"**, que não restringe as conexões.
+> Ao criar as regras de Rede Virtual ou de Firewalls, devemos alterar ***"defaultAction"***
+> 
+> de
+> ```json
+> "defaultAction": "Allow"
+> ```
+> para
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
 
 Modelo:
 
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "vnetRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "virtualNetworkSubnetId":{  
-             "type":"string",
-             "metadata":{  
-                "description":"subnet Azure Resource Manager ID"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "servicebusNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Service Bus namespace"
+        }
       },
+      "virtualNetworkName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('servicebusNamespaceName'), concat('/', 'default'))]",
+      "subNetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'), parameters('subnetName'))]"
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('vnetRuleName'))]",
-            "type":"Microsoft.ServiceBus/namespaces/VirtualNetworkRules",           
-            "properties": {             
-                "virtualNetworkSubnetId": "[parameters('virtualNetworkSubnetId')]"  
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('servicebusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2017-09-01",
+        "name": "[parameters('virtualNetworkName')]",
+        "location": "[parameters('location')]",
+        "type": "Microsoft.Network/virtualNetworks",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.0.0.0/23"
+            ]
+          },
+          "subnets": [
+            {
+              "name": "[parameters('subnetName')]",
+              "properties": {
+                "addressPrefix": "10.0.0.0/23",
+                "serviceEndpoints": [
+                  {
+                    "service": "Microsoft.ServiceBus"
+                  }
+                ]
+              }
             }
-        } 
-    ]
-}
+          ]
+        }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": 
+          [
+            {
+              "subnet": {
+                "id": "[variables('subNetId')]"
+              },
+              "ignoreMissingVnetServiceEndpoint": false
+            }
+          ],
+          "ipRules":[<YOUR EXISTING IP RULES>],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Para implantar o modelo, siga as instruções para o [Azure Resource Manager][lnk-deploy].

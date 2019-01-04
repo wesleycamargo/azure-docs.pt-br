@@ -1,5 +1,5 @@
 ---
-title: 'Depurar o Apache Hadoop no HDInsight: exibir logs e interpretar mensagens de erro - Azure '
+title: 'Depurar o Apache Hadoop: exibir logs e interpretar mensagens de erro – Azure HDInsight'
 description: Saiba quais são as mensagens de erro que você pode receber ao administrar o HDInsight usando o PowerShell, e as etapas que podem ser executadas para recuperação.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634627"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438805"
 ---
-# <a name="analyze-hadoop-logs"></a>Analisar logs do Hadoop
+# <a name="analyze-apache-hadoop-logs"></a>Analisar logs do Apache Hadoop
 
-Cada cluster Apache Hadoop no Azure HDInsight tem uma conta de armazenamento do Azure usada como o sistema de arquivos padrão. Essa conta de armazenamento é conhecida como a Conta de armazenamento padrão. O cluster usa o Armazenamento de Tabelas do Azure e o Armazenamento de Blobs na conta de armazenamento padrão para armazenar seus logs.  Para descobrir a conta de armazenamento padrão para o cluster, consulte [Gerenciar clusters do Hadoop no HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Os logs são mantidos na Conta de armazenamento mesmo após a exclusão do cluster.
+Cada cluster Apache Hadoop no Azure HDInsight tem uma conta de armazenamento do Azure usada como o sistema de arquivos padrão. Essa conta de armazenamento é conhecida como a Conta de armazenamento padrão. O cluster usa o Armazenamento de Tabelas do Azure e o Armazenamento de Blobs na conta de armazenamento padrão para armazenar seus logs.  Para descobrir a conta de armazenamento padrão para o cluster, confira [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) (Gerenciar clusters do Apache Hadoop no HDInsight). Os logs são mantidos na Conta de armazenamento mesmo após a exclusão do cluster.
 
 ## <a name="logs-written-to-azure-tables"></a>Logs gravados em Tabelas do Azure
 
@@ -72,7 +72,7 @@ Power Query pode ser instalado do [Microsoft Power Query para Excel](https://www
    
     ![Logs do HDInsight Hadoop armazenados no Armazenamento de Tabelas do Azure](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. Clique com o botão direito na tabela hadoopservicelog no painel **Navigator** e selecione **Editar**. Você deverá ver quatro colunas. Opcionalmente, exclua as colunas **Chave de Partição**, **Chave de Linha** e **Carimbo de Data/Hora** selecionando-as e clicando em **Remover Colunas** nas opções na faixa de opções.
-6. Clique no ícone de expansão na coluna Conteúdo para escolher as colunas que você deseja importar para a planilha do Excel. Para esta demonstração, escolhi TraceLevel e ComponentName: elas podem me dar algumas informações básicas sobre quais componentes apresentaram problemas.
+6. Clique no ícone de expansão na coluna Conteúdo para escolher as colunas que você deseja importar para a planilha do Excel. Para esta demonstração, escolhi TraceLevel e ComponentName: ela pode oferecer informações básicas sobre quais componentes apresentaram problemas.
    
     ![Logs do HDInsight Hadoop escolher colunas](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
 7. Clique em **OK** para importar os dados.
@@ -101,9 +101,11 @@ Agora você pode usar o Excel para filtrar e classificar conforme o necessário.
 ## <a name="logs-written-to-azure-blob-storage"></a>Logs gravados no Armazenamento de Blobs do Azure
 [Os logs gravados em Tabelas do Azure](#log-written-to-azure-tables) fornecem informações sobre o que está acontecendo com um cluster HDInsight. No entanto, essas tabelas não fornecem logs no nível da tarefa, que podem ser úteis para a análise mais detalhada dos problemas, quando eles ocorrerem. Para fornecer esse nível de detalhes, os clusters HDInsight são configurados para gravar logs de tarefas em sua conta de Armazenamento de Blobs para qualquer trabalho enviado por meio do Templeton. Na prática, isso significa os trabalhos enviados usando os cmdlets do Microsoft Azure PowerShell ou as APIs de envio de trabalho do .NET, não os trabalhos enviados por meio de acesso ao cluster por RDP/linha de comando. 
 
-Para exibir os logs, confira [Acessar os logs de aplicativo YARN no HDInsight baseado em Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Para exibir os logs, confira [Acessar logs do aplicativo Apache Hadoop YARN no HDInsight baseado em Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Para saber mais sobre os logs de aplicativos, confira [Como simplificar o gerenciamento de logs do usuário e o acesso no YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
+Para saber mais sobre os logs de aplicativos, confira [Simplifying user-logs management and access in Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/) (Como simplificar o gerenciamento de logs do usuário e o acesso no Apache Hadoop YARN).
+
 
 ## <a name="view-cluster-health-and-job-logs"></a>Exibir logs de trabalho e integridade do cluster
 ### <a name="access-the-ambari-ui"></a>Acessar a interface do usuário do Ambari
@@ -137,18 +139,18 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
 * **Descrição**: não foi possível criar o cluster na região *nameOfYourRegion*. Use uma região do HDInsight válida e repita a solicitação.
-* **Atenuação**: o cliente deve criar a região do cluster que atualmente dá suporte a ele: Sudeste da Ásia, Europa Ocidental, Norte da Europa, Leste dos EUA ou Oeste dos EUA.  
+* **Atenuação**: o cliente deve criar a região do cluster compatível com ele no momento: Sudeste Asiático, Europa Ocidental, Europa Setentrional, Leste dos EUA ou Oeste dos EUA.  
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
 * **Descrição**: o servidor não pôde localizar o registro do cluster solicitado.  
-* **Atenuação**: repita a operação.
+* **Atenuação**: Repita a operação.
 
 ### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
 * **Descrição**: o nome DNS do cluster *yourDnsName* é inválido. O nome deve começar e terminar com caracteres alfanuméricos e pode conter apenas o caractere especial '-'  
 * **Atenuação**: verifique se você usou um nome DNS válido para seu cluster que comece e termine com alfanuméricos e que não contenha caracteres especiais além do traço '-' e, em seguida, repita a operação.
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
-* **Descrição**: o nome do Cluster *yourClusterName* não está disponível. Escolha outro nome.  
+* **Descrição**: o nome do cluster *yourClusterName* não está disponível. Escolha outro nome.  
 * **Atenuação**: o usuário deve especificar um clustername exclusivo e que não exista e repetir. Se o usuário estiver usando o Portal, a interface do usuário irá notificá-lo se um nome de cluster já estiver sendo usado durante as etapas de criação.
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
@@ -156,28 +158,28 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 * **Atenuação**: forneça uma senha válida do cluster e repita a operação.
 
 ### <a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
-* **Description**: o nome de usuário do cluster é inválido. Verifique se o nome do usuário não contém caracteres especiais ou espaços.  
-* **Atenuação**: forneça um nome de usuário válido e repita a operação.
+* **Descrição**: o nome de usuário do cluster é inválido. Verifique se o nome do usuário não contém caracteres especiais ou espaços.  
+* **Atenuação**: forneça um nome de usuário válido do cluster e repita a operação.
 
 ### <a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
-* **Descrição**: o nome DNS do cluster *yourDnsClusterName é inválido* . O nome deve começar e terminar com caracteres alfanuméricos e pode conter apenas o caractere especial '-'  
-* **Atenuação**: forneça um nome de usuário DNS do cluster válido e repita a operação.
+* **Descrição**: o nome DNS do cluster *yourDnsClusterName* é inválido. O nome deve começar e terminar com caracteres alfanuméricos e pode conter apenas o caractere especial '-'  
+* **Atenuação**: forneça um nome de usuário válido do cluster DNS e repita a operação.
 
 ### <a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
-* **Descrição**: o nome do contêiner no URI *seuURIcontêiner* e o nome DNS *seuNomeDns* no corpo da solicitação devem ser iguais.  
+* **Descrição**: o nome do contêiner no URI *yourcontainerURI* e o nome DNS *yourDnsName* no corpo da solicitação devem ser iguais.  
 * **Atenuação**: verifique se o nome do contêiner e o seu nome DNS são os mesmos e repita a operação.
 
 ### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
-* **Descrição**: a configuração do cluster é inválida. Não é possível encontrar nenhuma definição de nó de dados no tamanho do nó.  
-* **Atenuação**: repita a operação.
+* **Descrição**: configuração do cluster inválida. Não é possível encontrar nenhuma definição de nó de dados no tamanho do nó.  
+* **Atenuação**: Repita a operação.
 
 ### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
 * **Descrição**: falha na exclusão da implantação do cluster  
 * **Atenuação**: repita a operação de exclusão.
 
 ### <a id="DnsMappingNotFound"></a>DnsMappingNotFound
-* **Descrição**: erro de configuração de serviço. Informações de mapeamento de DNS necessárias não encontradas.  
-* **Atenuação**: exclua e crie um novo cluster.
+* **Descrição**: Erro de configuração de serviço. Informações de mapeamento de DNS necessárias não encontradas.  
+* **Atenuação**: exclua e crie um cluster.
 
 ### <a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
 * **Descrição**: tentativa de criação de contêiner de cluster duplicado. Existe um registro para *nameOfYourContainer* mas as Etags não coincidem.
@@ -189,19 +191,19 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 
 ### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
 * **Descrição**: o servidor não pôde atualizar o estado da implantação do cluster.  
-* **Atenuação**: repita a operação. Se isso acontecer várias vezes, entre em contato com o CSS.
+* **Atenuação**: Repita a operação. Se isso acontecer várias vezes, entre em contato com o CSS.
 
 ### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
 * **Descrição**: o cluster *yourClusterName* foi excluído como parte da manutenção. Recrie o cluster.
 * **Atenuação**: recrie o cluster.
 
 ### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
-* **Descrição**: a configuração do cluster é inválida. Configuração de nó de cabeçalho necessária não encontrada nos tamanhos de nós.
-* **Atenuação**: repita a operação.
+* **Descrição**: configuração do cluster inválida. Configuração de nó de cabeçalho necessária não encontrada nos tamanhos de nós.
+* **Atenuação**: Repita a operação.
 
 ### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
 * **Descrição**: não é possível criar o serviço hospedado *nameOfYourHostedService*. Tente novamente a solicitação.  
-* **Atenuação**: repita a solicitação.
+* **Atenuação**: Tente novamente a solicitação.
 
 ### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
 * **Descrição**: o serviço hospedado *nameOfYourHostedService* já contém uma implantação em produção. Um serviço hospedado não pode conter várias implantações em produção. Tente novamente a solicitação com um nome de cluster diferente.
@@ -216,16 +218,16 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 * **Atenuação**: se o cluster estiver em estado de erro, exclua-o e tente novamente.
 
 ### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
-* **Descrição**: uma SubscriptionId *suaIdAssinatura* não tem núcleos restantes para criar o cluster *seuNnomeCluster*. Obrigatório: *resourcesRequired*, Disponível: *resourcesAvailable*.  
+* **Descrição**: uma SubscriptionId *yourSubscriptionId* não tem núcleos restantes para criar o cluster *yourClusterName*. Obrigatório: *resourcesRequired*, Disponível: *resourcesAvailable*.  
 * **Atenuação**: libere recursos em sua assinatura ou aumente os recursos disponíveis para a assinatura e tente criar o cluster novamente.
 
 ### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
-* **Descrição**: ID da Assinatura *suaIdAssinatura* não tem uma cota para um novo HostedService criar o cluster *seuNomeCluster*.  
+* **Descrição**: a ID da Assinatura *yourSubscriptionId* não tem uma cota para um novo HostedService criar o cluster *yourClusterName*.  
 * **Atenuação**: libere recursos em sua assinatura ou aumente os recursos disponíveis para a assinatura e tente criar o cluster novamente.
 
 ### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
-* **Descrição**: o servidor encontrou um erro interno. Tente novamente a solicitação.  
-* **Atenuação**: repita a solicitação.
+* **Descrição**: O servidor encontrou um erro interno. Tente novamente a solicitação.  
+* **Atenuação**: Tente novamente a solicitação.
 
 ### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
 * **Descrição**: o local de armazenamento do Azure *dataRegionName* não é um local válido. Verifique se a região está correta e tente novamente a solicitação.
@@ -237,10 +239,10 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 
 ### <a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
 * **Descrição**: o tamanho da VM é inválido para o nó de cabeçalho. Apenas o tamanho 'VM Extragrande' tem suporte para o nó de cabeçalho.  
-* **Atenuação**: especifique o tamanho de nó com suporte para o nó de cabeçalho e repita a operação.
+* **Atenuação**: especifique o tamanho de nó com suporte para o nó de cabeçalho e repita a operação
 
 ### <a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
-* **Descrição**: ID da Assinatura *suaIdAssinatura* sendo usada não tem permissões suficientes para executar a operação de exclusão do cluster *seuNomeCluster*.  
+* **Descrição**: ID da Assinatura *yourSubscriptionId* sendo usada não tem permissões suficientes para executar a operação de exclusão do cluster *yourClusterName*.  
 * **Atenuação**: se o cluster estiver em estado de erro, remova-o e tente novamente.  
 
 ### <a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
@@ -256,12 +258,12 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 * **Atenuação**: especifique um formato válido para a versão do cabeçalho e repita a solicitação.
 
 ### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
-* **Descrição**: a configuração do cluster é inválida. Encontrada mais de uma configuração de nó de cabeçalho.  
-* **Mitigação**: edite a configuração para que apenas um nó de cabeçalho seja especificado.
+* **Descrição**: configuração do cluster inválida. Encontrada mais de uma configuração de nó de cabeçalho.  
+* **Atenuação**: edite a configuração para que apenas um nó de cabeçalho seja especificado.
 
 ### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
 * **Descrição**: a operação não pôde ser concluída dentro do tempo permitido ou do número máximo de tentativas possível. Tente novamente a solicitação.  
-* **Atenuação**: repita a solicitação.
+* **Atenuação**: Tente novamente a solicitação.
 
 ### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
 * **Descrição**: o parâmetro *yourParameterName* não pode ser nulo ou vazio.  
@@ -269,15 +271,15 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 
 ### <a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
 * **Descrição**: uma ou mais das entradas se solicitação de criação de cluster não são válidas. Verifique se os valores de entrada estão corretos e tente novamente a solicitação.  
-* **Atenuação**: verifique se os valores de entrada estão corretos e repita a solicitação.
+* **Atenuação**: Verifique se os valores de entrada estão corretos e tente novamente a solicitação.
 
 ### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
-* **Descrição**: a capacidade da região não está disponível para a região *seuNomeRegião* e a ID da Assinatura *suaIdAssinatura*.  
-* **Atenuação**: especifique uma região que dê suporte a clusters HDInsight. As regiões com suporte público: Sudeste da Ásia, Europa Ocidental, Norte da Europa, Leste dos EUA ou oeste dos EUA.
+* **Descrição**: a capacidade da região não está disponível para a região *yourRegionName* e a ID da Assinatura *yourSubscriptionId*.  
+* **Atenuação**: especifique uma região que dê suporte a clusters HDInsight. As regiões com suporte público são: Sudeste Asiático, Europa Ocidental, Europa Setentrional, Leste dos EUA ou Oeste dos EUA.
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
-* **Descrição**: a conta de armazenamento *seuNomeContaArmazenamento* está na região *nomeRegiãoAtual*. Deveria ser igual à região do cluster *yourClusterRegionName*.  
-* **Atenuação**: especifique uma conta de armazenamento na mesma região em que seu cluster está ou, se os seus dados já estiverem na conta de armazenamento, crie um novo cluster na mesma região da conta de armazenamento existente. Se você estiver usando o Portal, a interface do usuário irá notificá-lo sobre esse problema com antecedência.
+* **Descrição**: a conta de armazenamento *yourStorageAccountName* está na região *currentRegionName*. Deveria ser igual à região do cluster *yourClusterRegionName*.  
+* **Atenuação**: especifique uma conta de armazenamento na mesma região em que seu cluster está ou, se os seus dados já estiverem na conta de armazenamento, crie um cluster na mesma região da conta de armazenamento existente. Se você estiver usando o Portal, a interface do usuário irá notificá-lo sobre esse problema com antecedência.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 * **Descrição**: a ID da assinatura *yourSubscriptionId* fornecida não está ativa.  
@@ -288,7 +290,7 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 * **Atenuação**: verifique se sua ID de assinatura é válida e repita a operação.
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
-* **Descrição**: não é possível resolver o *yourDnsUrl*do DNS. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
+* **Descrição**: não é possível resolver o *yourDnsUrl* do DNS. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
 * **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, inclusive começando com *http://* e terminando em *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
@@ -296,23 +298,23 @@ Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao 
 * **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, inclusive começando com *http://* e terminando em *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
-* **Descrição**: a capacidade de versão não está disponível para a versão *versãoEspecificada* e a ID da Assinatura *suaIdAssinatura*.  
+* **Descrição**: a capacidade de versão não está disponível para a versão *specifiedVersion* e a ID da Assinatura *yourSubscriptionId*.  
 * **Atenuação**: escolha uma versão que esteja disponível e repita a operação.
 
 ### <a id="VersionNotSupported"></a>VersionNotSupported
-* **Descrição**: não há suporte para a versão *specifiedVersion* .
-* **Atenuação**: escolha uma versão que tenha suporte e repita a operação.
+* **Descrição**: não há suporte para a versão *specifiedVersion*.
+* **Atenuação**: escolha uma versão que com suporte e repita a operação.
 
 ### <a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
-* **Descrição**: a versão *versãoEspecificada* não está disponível na região do Azure *regiãoEspecificada*.  
-* **Atenuação**: escolha uma versão que tenha suporte na região especificada e repita a operação.
+* **Descrição**: a versão *specifiedVersion* não está disponível na região do Azure *specifiedRegion*.  
+* **Atenuação**: escolha uma versão com suporte na região especificada e repita a operação.
 
 ### <a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
-* **Descrição**: a configuração do cluster é inválida. Configuração da conta WASB necessária não encontrada em contas externas.  
+* **Descrição**: configuração do cluster inválida. Configuração da conta WASB necessária não encontrada em contas externas.  
 * **Atenuação**: verifique se a conta existe e está corretamente especificada na configuração e repita a operação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight](../hdinsight-debug-ambari-tez-view.md)
-* [Habilitar despejos heap para serviços do Hadoop no HDInsight baseado em Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](../hdinsight-hadoop-manage-ambari.md)
+* [Use o Apache Ambari Views para depurar os trabalhos do Apache Tez no HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](../hdinsight-hadoop-manage-ambari.md)

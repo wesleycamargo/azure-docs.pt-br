@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635162"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413261"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referência host.json para o Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selecione a versão do tempo de execução Azure Functions que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
@@ -96,7 +96,23 @@ As seções seguintes deste artigo explicam cada propriedade de nível superior.
 
 Essa configuração é a filha de [Registro em log](#logging).
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Controla o [recurso de amostragem no Application Insights](./functions-monitoring.md#configure-sampling).
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|Propriedade  |Padrão | DESCRIÇÃO |
+|---------|---------|---------| 
+|isEnabled|verdadeiro|Habilita ou desabilita a amostragem.| 
+|maxTelemetryItemsPerSecond|5|O limite em que a amostragem começa.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -185,7 +201,28 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
 |logLevel|n/d|Objeto que define a filtragem da categoria de log para funções no aplicativo. A versão 2.x segue o layout do ASP.NET Core para filtragem de categoria de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|console|n/d| A configuração de log do [console](#console). |
 |applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights). |
+
+## <a name="console"></a>console
+
+Essa configuração é a filha de [Registro em log](#logging). Ela controla o log do console quando não está no modo de depuração.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|Propriedade  |Padrão | DESCRIÇÃO |
+|---------|---------|---------| 
+|isEnabled|falso|Habilita ou desabilita o log de console.| 
 
 ## <a name="queues"></a>filas
 

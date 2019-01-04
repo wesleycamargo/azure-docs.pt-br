@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 743fedd35bc45618f728ba71056f5dabc2fc1ed9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e4eb26ab91261d1888d3c756d611db1b31801e8f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300635"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720213"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte à implantação do Docker Compose no Azure Service Fabric (Versão prévia)
 
@@ -64,6 +64,12 @@ Para iniciar uma atualização da implantação do Compose por meio do PowerShel
 Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
 ```
 
+Para reverter uma atualização da implantação do Compose por meio do PowerShell, utilize o seguinte comando:
+
+```powershell
+Start-ServiceFabricComposeDeploymentRollback -DeploymentName TestContainerApp
+```
+
 Depois que a atualização é aceita, o andamento da atualização pode ser controlado usando o seguinte comando:
 
 ```powershell
@@ -94,6 +100,12 @@ Para iniciar uma atualização de implantação do Compose, use o seguinte coman
 
 ```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
+```
+
+Para reverter uma atualização da implantação do Compose, utilize o seguinte comando:
+
+```azurecli
+sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
 Depois que a atualização é aceita, o andamento da atualização pode ser controlado usando o seguinte comando:

@@ -12,22 +12,26 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/6/2017
+ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643025"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727708"
 ---
-# <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Fazer backup e restaurar Reliable Services e Reliable Actors
+# <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Fazer backup e restaurar Reliable Services e Reliable Actors
 O Azure Service Fabric é uma plataforma de alta disponibilidade que replica o estado em vários nós a fim de manter essa alta disponibilidade.  Portanto, mesmo se um nó do cluster falhar, os serviços continuarão disponíveis. Embora essa redundância interna fornecida pela plataforma possa ser suficiente para algumas pessoas, em certos casos é recomendável fazer o backup dos dados do serviço (em um repositório externo).
 
 > [!NOTE]
 > É essencial fazer backup e restaurar seus dados (e testar se funcionam conforme esperado) para que você possa se recuperar de cenários de perda de dados.
 > 
+
+> [!NOTE]
+> A Microsoft recomenda usar [Backup e restauração periódica](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar o backup de Reliable Actors e Serviços confiáveis com estado. 
 > 
+
 
 Por exemplo, convém fazer o backup dos dados de um serviço para se proteger nos seguintes cenários:
 
@@ -82,7 +86,7 @@ Uma solicitação para fazer um backup incremental pode falhar com `FabricMissin
 - a réplica ultrapassou o limite `MaxAccumulatedBackupLogSizeInMB`.
 
 Os usuários podem aumentar a probabilidade de conseguirem fazer backups incrementais configurando `MinLogSizeInMB` ou `TruncationThresholdFactor`.
-Observe que aumentar esses valores aumentará a utilização de disco por réplica.
+Aumentar esses valores aumentará a utilização de disco por réplica.
 Para mais informações, confira [Configuração do Reliable Services](service-fabric-reliable-services-configuration.md)
 
 `BackupInfo` fornece informações sobre o backup, incluindo a localização da pasta em que o tempo de execução salvou o backup (`BackupInfo.Directory`). A função de retorno de chamada pode mover `BackupInfo.Directory` para um repositório externo ou para outro local.  Além disso, esta função retorna um booliano que indica se ele foi capaz de mover a pasta de backup para seu local de destino.
@@ -176,7 +180,7 @@ Observe que:
   - Sempre que você restaura, há uma chance do backup restaurado ser mais antigo do que o estado da partição antes de os dados serem perdidos. Por isso, essa restauração deve ser usada apenas como último recurso para recuperar o máximo possível de dados.
   - A cadeia de caracteres que representa o caminho da pasta de backup e os caminhos dos arquivos dentro da pasta de backup podem ser maiores do que 255 caracteres, dependendo do caminho de FabricDataRoot e do comprimento do nome do Tipo de Aplicativo. Isso pode fazer com que alguns métodos .NET, como `Directory.Move`, lancem a exceção `PathTooLongException`. Uma solução alternativa é chamar diretamente as APIs do kernel32, como `CopyFile`.
 
-## <a name="backup-and-restore-reliable-actors"></a>Fazer backup e restaurar Reliable Actors
+## <a name="back-up-and-restore-reliable-actors"></a>Fazer backup e restaurar Reliable Actors
 
 
 A Estrutura Reliable Actors foi criada com base nos Reliable Services. O ActorService que hospeda os atores é um serviço confiável com estado. Desse modo, toda a funcionalidade de backup e restauração disponível em Reliable Services também está disponível em Reliable Actors (exceto comportamentos que são específicos do provedor de estado). Uma vez que os backups serão usados por partição, será feito backup dos estados de todos os atores nessa partição (e a restauração é semelhante e acontecerá de acordo com a partição). Para executar backup/restauração, o proprietário do serviço deve criar uma classe de serviço de ator personalizada derivada da classe ActorService e depois fazer backup/restauração semelhante para os Reliable Services, como descrito acima nas seções anteriores.
@@ -202,7 +206,7 @@ ActorRuntime.RegisterActorAsync<MyActor>(
    (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
 ```
 
-O provedor de estado padrão para Reliable Actors é `KvsActorStateProvider`. O backup incremental não é habilitado por padrão para `KvsActorStateProvider`. Você pode habilitar o backup incremental criando `KvsActorStateProvider` com a configuração apropriada em seu construtor e, em seguida, passando-o ao construtor ActorService, conforme mostrado no seguinte trecho de código:
+O provedor de estado padrão para Reliable Actors é `KvsActorStateProvider`. O backup incremental não é habilitado por padrão para `KvsActorStateProvider`. Você pode habilitar o backup incremental criando `KvsActorStateProvider` com a configuração apropriada em seu construtor e, em seguida, passando-o ao construtor ActorService, conforme mostrado no seguinte snippet de código:
 
 ```csharp
 class MyCustomActorService : ActorService
@@ -231,7 +235,7 @@ Ao fazer a restauração usando uma cadeia de backup, semelhante aos Reliable Se
 > Atualmente, `KvsActorStateProvider` ignora a opção RestorePolicy.Safe. O suporte a esse recurso está planejado para uma versão futura.
 > 
 
-## <a name="testing-backup-and-restore"></a>Testando o backup e a restauração
+## <a name="testing-back-up-and-restore"></a>Testar backup e restauração
 É importante garantir que o backup dos dados críticos esteja sendo feito e que os dados possam ser restaurados desse backup. Isso pode ser feito invocando o cmdlet `Start-ServiceFabricPartitionDataLoss` no PowerShell, que pode induzir à perda de dados em uma determinada partição para testar se a funcionalidade de backup e restauração de dados para seu serviço está funcionando conforme o esperado.  Também é possível invocar de modo programático a perda de dados e fazer a restauração a partir desse evento.
 
 > [!NOTE]
@@ -247,7 +251,7 @@ O Gerenciador de Estado Confiável permite a criação de backups consistentes s
 
 As transações confirmadas após `BackupAsync` ser chamado podem ou não estar no backup.  Depois da pasta de backup local ter sido populada pela plataforma (ou seja, o backup local é concluído pelo tempo de execução), o retorno de chamada de backup do serviço é invocado.  Esse retorno de chamada é responsável por mover a pasta de backups para um local externo, por exemplo, o Armazenamento do Azure.
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Restaurar
 O Gerenciador de Estado Confiável permite a restauração de um backup usando a API `RestoreAsync`.  
 O método `RestoreAsync` em `RestoreContext` pode ser chamado somente dentro do método `OnDataLossAsync`.
 O bool retornado por `OnDataLossAsync` indica se o serviço restaurou seu estado de uma fonte externa.
@@ -256,11 +260,11 @@ Isso significa que, para os implementadores de StatefulService, `RunAsync` não 
 Em seguida, `OnDataLossAsync` será invocado na nova primária.
 A API continua sendo chamada, até que um serviço conclua essa API com êxito, retornando verdadeiro ou falso, e conclua a reconfiguração relevante.
 
-Primeiro, `RestoreAsync` descarta todos os estados existentes na réplica primária na qual foi chamado. Depois, o Gerenciador de Estado Confiável cria todos os objetos Reliable que existem na pasta de backup. Em seguida, os objetos Reliable são instruídos a restaurar a partir dos pontos de verificação na pasta de backup. Finalmente, o Gerenciador de Reliable State recupera seu próprio estado a partir dos registros de log na pasta de backup e executa a recuperação. Como parte do processo de recuperação, as operações que começaram do "ponto de partida" e confirmaram os registros de log na pasta de backup são reproduzidas aos objetos Reliable. Essa etapa garante que o estado recuperado seja consistente.
+Primeiro, `RestoreAsync` descarta todos os estados existentes na réplica primária na qual foi chamado. Depois, o Gerenciador de Estado Confiável cria todos os objetos Reliable que existem na pasta de backup. Em seguida, os objetos Reliable são instruídos a restaurar a partir dos pontos de verificação na pasta de backup. Finalmente, o Gerenciador de Reliable State recupera seu próprio estado a partir dos registros de log na pasta de backup e executa a recuperação. Como parte do processo de recuperação, as operações que começaram do "ponto inicial" e confirmaram os registros de log na pasta de backup serão reproduzidas para os objetos Reliable. Essa etapa garante que o estado recuperado seja consistente.
 
 ## <a name="next-steps"></a>Próximas etapas
   - [Coleções Confiáveis](service-fabric-work-with-reliable-collections.md)
-  - [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+  - [Início Rápido dos Reliable Services](service-fabric-reliable-services-quick-start.md)
   - [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuração do Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

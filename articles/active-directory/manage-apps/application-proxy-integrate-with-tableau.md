@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246338"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138663"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy e Tableau do Aplicativo do Azure Active Directory 
 
@@ -29,7 +29,7 @@ O cenário neste artigo pressupõe que você tenha:
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) configurado. 
 
-- Um[conector do Proxy de Aplicativos](application-proxy-enable.md)instalado 
+- Um[conector do Proxy de Aplicativos](application-proxy-add-on-premises-application.md)instalado 
 
  
 ## <a name="enabling-application-proxy-for-tableau"></a>Habilitando o Proxy de Aplicativo para o Tableau 
@@ -43,7 +43,7 @@ Para publicar Tableau, você precisa publicar um aplicativo no Portal do Azure.
 
 Para:
 
-- Instruções detalhadas das etapas 1 a 8, consulte [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-publish-azure-portal.md). 
+- Instruções detalhadas das etapas 1 a 8, consulte [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-add-on-premises-application.md). 
 - Obter informações sobre como encontrar os valores de Tableau para os campos de Proxy de aplicativo, consulte a documentação de Tableau.  
 
 **Para publicar seu aplicativo**: 
@@ -59,9 +59,9 @@ Para:
 
 5. Preencha os campos obrigatórios com informações sobre seu novo aplicativo. Use as diretrizes a seguir para as configurações: 
 
-    - **URL interna**: Esse aplicativo deve ter um URL interno que seja o próprio URL do Tableau. Por exemplo, `https://adventure-works.tableau.com`. 
+    - **URL Interna**: Esse aplicativo deve ter um URL interno que seja o próprio URL do Tableau. Por exemplo, `https://adventure-works.tableau.com`. 
 
-    - **Método de Pré-autenticação**: Azure Active Directory (recomendado, mas não obrigatório) 
+    - **Método de pré-autenticação**: Azure Active Directory (recomendado, mas não obrigatório). 
 
 6. Selecione **Adicionar** na parte superior da folha. Seu aplicativo é adicionado e abre o menu de início rápido. 
 

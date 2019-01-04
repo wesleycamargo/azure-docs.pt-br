@@ -1,5 +1,5 @@
 ---
-title: Como paginar os resultados da pesquisa no Azure Search | Microsoft Docs
+title: Como paginar itens em uma página de resultados da pesquisa – Azure Search
 description: Paginação no Azure Search, um serviço de pesquisa de nuvem hospedado do Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.custom: seodec2018
+ms.openlocfilehash: 5f36dbb72e2518f7e3a27ef3aadec85312d751c2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527062"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309270"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Como paginar os resultados da pesquisa no Azure Search
 Este artigo fornece orientação sobre como usar a API REST do Serviço de Azure Search para implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação.

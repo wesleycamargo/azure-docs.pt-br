@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: deadbc8186d80b050fdb40879ecf29fd229c8709
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 12/05/2018
+ms.openlocfilehash: 16737ed525147968c97ca20a9f4e674a0dee34fc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465433"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955047"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (visualização)
 
 **Read Scale-Out** permite que você faça o balanceamento de carga das cargas de trabalho somente leitura do Banco de Dados SQL do Azure usando a capacidade de uma réplica somente leitura.
-
-## <a name="overview-of-read-scale-out"></a>Visão geral da expansão de leitura
 
 Cada banco de dados na camada Premium ([modelo de compra com base em DTU](sql-database-service-tiers-dtu.md)) ou na camada Comercialmente Crítico ([modelo de compra com base em vCore](sql-database-service-tiers-vcore.md)) é provisionado automaticamente com várias réplicas AlwaysON para oferecer suporte ao SLA de disponibilidade.
 
@@ -47,7 +45,7 @@ Um dos benefícios das réplicas é que as réplicas estão sempre no estado tra
 > [!NOTE]
 > As latências de replicação na região são baixas e essa situação é rara.
 
-## <a name="connecting-to-a-read-only-replica"></a>Conectar-se a uma réplica somente leitura
+## <a name="connect-to-a-read-only-replica"></a>Conectar-se a uma réplica somente leitura
 
 Quando você habilita a expansão de leitura para um banco de dados, a opção `ApplicationIntent` na cadeia de conexão fornecida pelo cliente determina se a conexão é roteada para a réplica de gravação ou para uma réplica somente leitura. Especificamente, se o valor `ApplicationIntent` é `ReadWrite` (o valor padrão), a conexão será direcionada para a réplica de leitura-gravação do banco de dados. Isso é idêntico ao comportamento existente. Se o valor de `ApplicationIntent` é `ReadOnly`, a conexão é roteada para uma réplica somente leitura.
 
@@ -65,6 +63,8 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
+## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>Verifique se uma conexão está pronta para réplica somente leitura
+
 Você pode verificar se você está conectado a uma réplica somente leitura ao executar a consulta a seguir. Ela retornará READ_ONLY quando conectado a uma réplica somente leitura.
 
 ```SQL
@@ -76,9 +76,9 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>Ativar e desativar o Escalonamento de Leitura
 
-A Escala de Leitura está habilitada por padrão em [Instância Gerenciada](sql-database-managed-instance.md) Camada Crítica de Negócios (Visualização). Ele deve ser habilitado explicitamente em [banco de dados é colocado no servidor lógico](sql-database-logical-servers.md) camadas Premium e comercialmente crítico. Os métodos para habilitar e desabilitar expansão de leitura é descrita aqui.
+A Expansão de Leitura está habilitada por padrão em [Instância Gerenciada](sql-database-managed-instance.md) Camada Comercialmente Crítico. Ele deve ser habilitado explicitamente em [banco de dados é colocado no servidor lógico](sql-database-logical-servers.md) camadas Premium e comercialmente crítico. Os métodos para habilitar e desabilitar expansão de leitura é descrita aqui.
 
-### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Habilitar e desabilitar a Expansão de leitura usando o Microsoft Azure PowerShell
+### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: Ativar e desativar o Escalonamento de Leitura
 
 Gerenciar a Expansão de leitura no Microsoft Azure PowerShell requer a versão de dezembro de 2016 do Microsoft Azure PowerShell ou mais recente. Para a versão mais recente do PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -102,7 +102,7 @@ Para criar um novo banco de dados com escala de leitura habilitada (substituindo
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Habilitar e desabilitar Expansão de leitura usando a API REST do Banco de Dados SQL do Azure
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>API REST: Ativar e desativar o Escalonamento de Leitura
 
 Para criar um banco de dados com expansão de leitura habilitada, ou para habilitar ou desabilitar a escala de leitura para um banco de dados existente, crie ou atualize a entidade de banco de dados correspondente com a propriedade `readScale` definida como `Enabled` ou `Disabled` como na solicitação de exemplo abaixo.
 

@@ -1,6 +1,6 @@
 ---
-title: Manipular mensagens EDIFACT com segmentos UNH 2.5 – Aplicativo Lógico do Azure | Microsoft Docs
-description: Resolver documentos EDIFACT com segmentos UNH 2.5 no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Manipular mensagens EDIFACT com segmentos UNH 2.5 – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Resolver documentos EDIFACT com segmentos UNH 2.5 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43122001"
 ---
-# <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Manipular documentos EDIFACT com segmentos UNH 2.5 no Aplicativo Lógico do Azure
+# <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Manipular documentos EDIFACT com segmentos UNH 2.5 nos Aplicativos Lógicos do Azure
 
 Quando está presente no documento EDIFACT, UNH2.5 está sendo usado para pesquisa de esquema. 
 

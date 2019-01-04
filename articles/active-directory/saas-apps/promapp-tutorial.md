@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Promapp | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Promapp | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Promapp.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 6bcd1add3985112fe60aab22f1799e40ad8889b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ed07ea3cc625c518d6733f7a86f4542f91f425c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421855"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017109"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: integração do Active Directory do Azure com o Promapp
+# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: Integração do Active Directory do Azure com o Promapp
 
 Neste tutorial, você aprende a integrar o Promapp ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Promapp da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,8 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/promapp-tutorial/tutorial_promapp_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    
     | |
     |--|
     | `https://go.promapp.com/TENANTNAME/`|
@@ -161,7 +162,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Logon Único do AD do Azure][14]
     
-    a. Cole a **URL do Serviço de Logon Único SAML** copiada do portal do Azure na caixa de texto **URL de Logon SSO**.
+     a. Cole a **URL do Serviço de Logon Único SAML** copiada do portal do Azure na caixa de texto **URL de Logon SSO**.
     
     b. Para **SSO - Modo Logon Único**, selecione **Opcional** e clique em **Salvar**.
 
@@ -171,7 +172,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     c. Abra o certificado baixado no bloco de notas, copie o conteúdo do certificado, sem a primeira linha (-----**BEGIN CERTIFICATE**-----) e a última linha (-----**END CERTIFICATE**-----), cole-o na caixa de texto **Certificado SSO-x.509** e clique em **Salvar**.
         
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -197,7 +198,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/promapp-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

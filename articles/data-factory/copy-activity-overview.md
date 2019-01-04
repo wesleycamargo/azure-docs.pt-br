@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457012"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082639"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -55,7 +55,7 @@ A atividade de cópia passa pelos seguintes estágios para copiar dados de uma o
 
 Você pode usar a atividade de cópia para **copiar arquivos como estão** entre dois armazenamentos de dados baseados em arquivo, caso em que os dados são copiados de forma eficiente sem nenhuma serialização/desserialização.
 
-A atividade de cópia também dá suporte à leitura de e à gravação em arquivos em formatos especificados: há suporte para **texto, JSON, Avro, ORC e Parquet** e codecs de compactação **GZip, Deflate, BZip2 e ZipDeflate**. Consulte [Formatos de arquivo e compactação com suporte](supported-file-formats-and-compression-codecs.md) para obter detalhes.
+A Atividade de cópia também dá suporte à leitura e à gravação de arquivos em formatos especificados: **Texto, JSON, Avro, ORC e Parquet** e os codecs de compactação **GZip, Deflate, BZip2 e ZipDeflate** têm suporte. Consulte [Formatos de arquivo e compactação com suporte](supported-file-formats-and-compression-codecs.md) para obter detalhes.
 
 Por exemplo, você pode fazer as seguintes atividades de cópia:
 
@@ -130,7 +130,7 @@ O modelo a seguir de uma atividade de cópia contém uma lista exaustiva das pro
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do coletor da atividade de cópia deve ser definida como: **Copy** | SIM |
+| Tipo | A propriedade type de uma atividade de cópia deve ser definida como: **Copy** | SIM |
 | inputs | Especifique o conjunto de dados criado que aponta para os dados de origem. A atividade de cópia dá suporte a apenas uma entrada. | SIM |
 | outputs | Especifique o conjunto de dados criado que aponta para os dados do coletor. A atividade de cópia dá suporte a apenas uma saída. | SIM |
 | typeProperties | Um grupo de propriedades para configurar a atividade de cópia. | SIM |
@@ -173,6 +173,7 @@ As características de desempenho e detalhes da execução da atividade de cópi
 | dataRead | Leitura do tamanho de dados da origem | Valor Int64 em **bytes** |
 | dataWritten | Tamanho dos dados gravado no coletor | Valor Int64 em **bytes** |
 | filesRead | Número de arquivos copiados, ao copiar dados do armazenamento de arquivos. | Valor Int64 (nenhuma unidade) |
+| fileScanned | Número de arquivos que estão sendo verificados do armazenamento de arquivo de origem. | Valor Int64 (nenhuma unidade) |
 | filesWritten | Número de arquivos copiados, ao copiar dados para armazenamento de arquivos. | Valor Int64 (nenhuma unidade) |
 | rowsCopied | Número de linhas que estão sendo copiadas (não aplicável para cópia binária). | Valor Int64 (nenhuma unidade) |
 | rowsSkipped | Número de linhas incompatíveis que está sendo ignoradas. Você pode ativar o recurso definindo "enableSkipIncompatibleRow" como true. | Valor Int64 (nenhuma unidade) |

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633505"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322697"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Logon único para aplicativos no Azure Active Directory
 Saiba como escolher o método de logon único mais apropriado ao configurar aplicativos no Azure AD (Azure Active Directory). 
@@ -42,7 +42,7 @@ A tabela a seguir resume os métodos de logon único e os links para obter mais 
 
 | Método de logon único | Tipos de aplicativos | Quando usar |
 | :------ | :------- | :----- |
-| [SAML](#saml-sso) | Somente nuvem | Sempre que possível, use SAML. O SAML funciona quando os aplicativos são configurados para usar um dos protocolos SAML.|
+| [SAML](#saml-sso) | Somente na nuvem | Sempre que possível, use SAML. O SAML funciona quando os aplicativos são configurados para usar um dos protocolos SAML.|
 | [Baseado em senha](#password-based-sso) | nuvem e local | Use quando o aplicativo for autenticado com o nome de usuário e senha. O logon único baseado em senha permite o armazenamento e a reprodução segura de senhas do aplicativo usando uma extensão de navegador da Web ou aplicativo móvel. Esse método utiliza o processo de entrada existente fornecido pelo aplicativo, mas permite que um administrador gerencie as senhas. |
 | [Vinculado](#linked-sso) | nuvem e local | Use o logon único vinculado quando o aplicativo estiver configurado para o logon único em outro serviço de provedor de identidade. Essa opção não adiciona o logon único ao aplicativo. No entanto, o aplicativo pode já ter o logon único implementado usando outro serviço, como Serviços de Federação do Active Directory (AD FS).|
 | [Desabilitado](#disabled-sso) | nuvem e local | Use o logon único desabilitado quando o aplicativo não estiver pronto para ser configurado para o logon único. Os usuários precisam inserir seu nome de usuário e senha toda vez que iniciarem este aplicativo.|
@@ -61,14 +61,13 @@ O logon único baseado em SAML é compatível com aplicativos que usam qualquer 
 
 - SAML 2.0
 - O certificado do provedor de identidade do Web Services Federation
-- OpenID Connect
 
 Para configurar um aplicativo para o logon único baseado em SAML, confira [Configurar o logon único baseado em SAML](configure-single-sign-on-portal.md). Além disso, muitos aplicativos têm [tutoriais específicos deles](../saas-apps/tutorial-list.md) que orientam você pela configuração do logon único baseado em SAML para aplicativos específicos. 
 
 Para obter mais informações sobre como o protocolo SAML funciona, confira [Protocolo SAML de logon único](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="password-based-sso"></a>SSO baseado em senha
-Com o logon único baseado em senha, o aplicativo faz a autenticação com um nome de usuário e senha. Os usuários finais entram no aplicativo na primeira vez que o acessam. Após o primeiro logon, o Azure Active Directory fornece o nome de usuário e senha para o aplicativo. 
+Com o logon baseado em senha, os usuários finais entram no aplicativo com um nome de usuário e senha a primeira vez que acessam. Após o primeiro logon, o Azure Active Directory fornece o nome de usuário e senha para o aplicativo. 
 
 O logon único baseado em senha usa os processos de autenticação existentes fornecidos pelo aplicativo. Quando você habilita o logon único de senha para um aplicativo, o Azure AD coleta e armazena de forma segura os nomes de usuário e senhas do aplicativo. As credenciais do usuário são armazenadas em um estado criptografado no diretório. 
 
@@ -178,6 +177,6 @@ Para obter mais informações, consulte [Edições do Active Directory do Azure]
 * [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Tutorial para a configuração do logon único](configure-single-sign-on-portal.md)
 * [Introdução ao gerenciamento do acesso a aplicativos](what-is-access-management.md)
-* Link de download: [Plano de implantação de logon único](http://aka.ms/SSODeploymentPlan).
+* Link de download: [Plano de implantação de logon único](https://aka.ms/SSODeploymentPlan).
 
 

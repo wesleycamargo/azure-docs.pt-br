@@ -1,5 +1,5 @@
 ---
-title: Configurar aplicativos Web no Serviço de Aplicativo do Azure
+title: Configurar aplicativos Web – Serviço de Aplicativo do Azure
 description: Como configurar um aplicativo Web nos Serviços de Aplicativos do Azure
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443501"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269423"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicativos Web no Serviço de Aplicativo do Azure
 
@@ -38,10 +39,10 @@ A folha **Configurações do aplicativo** tem configurações agrupadas em vári
 ### <a name="general-settings"></a>Configurações gerais
 **Versão do Framework**. Configurar essas opções se seu aplicativo usa qualquer um desses frameworks: 
 
-* **.NET Framework**: configure a versão do .NET framework. 
-* **PHP**: defina a versão do PHP ou **DESATIVADO** para desabilitar o PHP. 
-* **Java**: selecione a versão do Java ou **DESATIVADO** para desabilitar o Java. Use a opção **Contêiner da Web** para escolher entre as versões do Tomcat e Jetty.
-* **Python**: selecione a versão do Python ou **DESATIVADO** para desabilitar o Python.
+* **.NET Framework**: Defina a versão do .NET framework. 
+* **PHP**: defina a versão do PHP ou **DESLIGADO** para desabilitar o PHP. 
+* **Java**: selecione a versão do Java ou **DESLIGADO** para desabilitar o Java. Use a opção **Contêiner da Web** para escolher entre as versões do Tomcat e Jetty.
+* **Python**: selecione a versão do Python ou **DESLIGADO** para desabilitar o Python.
 
 Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as opções .NET, PHP e Python.
 
@@ -164,7 +165,7 @@ Para exibir seus slots de implantação, clique em **Todas as Configurações** 
 ### <a name="monitoring"></a>Monitoramento
 No modo Básico ou Standard, você pode testar a disponibilidade dos pontos de extremidade HTTP ou HTTPS, de até três locais geograficamente distribuídos. Um teste de monitoramento falhará se o código de resposta HTTP for um erro (4xx ou 5xx) ou se a resposta demorar mais de 30 segundos. Um ponto de extremidade será considerado disponível caso os testes de monitoramento tenham êxito a partir de todos os locais especificados. 
 
-Para saber mais, consulte [Como monitorar o status de pontos de extremidade da Web].
+Para obter mais informações, confira [Como monitorar o status de ponto de extremidade da Web].
 
 > [!NOTE]
 > Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo], em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
@@ -179,14 +180,14 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Portal do Azure]: https://portal.azure.com/
 [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure]: ./app-service-web-tutorial-custom-domain.md
 [Implantar em ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure]: ./web-sites-staged-publishing.md
 [Habilitar HTTPS para um aplicativo no Serviço de Aplicativo do Azure]: ./app-service-web-tutorial-custom-ssl.md
-[Como monitorar o status de pontos de extremidade da Web]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Como monitorar o status de ponto de extremidade da Web]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Conceitos básicos de monitoramento para aplicativos Web no Serviço de Aplicativo do Azure]: ./web-sites-monitor.md
-[modo de pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[modo de pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure]: ./web-sites-scale.md
 [Experimentar o Serviço de Aplicativo]: https://azure.microsoft.com/try/app-service/
 

@@ -1,6 +1,6 @@
 ---
-title: Adicionar loops que repetem ações ou processam matrizes – Aplicativo Lógico do Azure | Microsoft Docs
-description: Como criar loops que repetem ações de fluxo de trabalho ou processam matrizes no Aplicativo Lógico do Azure
+title: Adicionar loops que repetem ações ou processam matrizes – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Como criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233099"
 ---
-# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes no Aplicativo Lógico do Azure
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
 Para iterar sobre matrizes no aplicativo lógico, é possível utilizar um [loop "Foreach"](#foreach-loop) ou um [loop "Foreach" sequencial](#sequential-foreach-loop). As iterações em um loop "Foreach" padrão são executadas em paralelo, enquanto as iterações em um loop "Foreach" sequencial são executadas um de cada vez. Para o número máximo de itens de matriz que loops "Foreach" podem processar em uma única execução do aplicativo lógico, consulte [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
 

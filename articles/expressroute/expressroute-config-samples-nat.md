@@ -1,28 +1,23 @@
 ---
-title: Exemplos de configuração do roteador do cliente ExpressRoute | Microsoft Docs
+title: Exemplos de configuração do roteador – NAT – Azure ExpressRoute | Microsoft Docs
 description: Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 9764a03b0f3a3f70e59097359d5a714da821d3b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23012971"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105981"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemplos de configuração do roteador para configurar e gerenciar o NAT
-Esta página fornece exemplos de configuração do NAT para roteadores da série Cisco ASA e Juniper SRX. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede. 
+
+Esta página fornece exemplos de configuração do NAT para roteadores da série Cisco ASA e Juniper SRX ao trabalhar com o ExpressRoute. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede.
 
 > [!IMPORTANT]
 > Exemplos nesta página devem ser exclusivamente para obter orientação. Trabalhe com a equipe de vendas / equipe técnica e sua equipe de rede para exibir as configurações adequadas para atendar às suas necessidades. A Microsoft não oferecerá suporte a problemas relacionados a configurações listadas nesta página. Você deve entrar em contato com o fornecedor do dispositivo para problemas de suporte.

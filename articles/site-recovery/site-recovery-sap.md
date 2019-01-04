@@ -6,16 +6,15 @@ manager: rochakm
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 1f38cd62a1394d45716e7224cc03a059fcaf9e13
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9399f9d47d89215080b1f633423843f501fefb7b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247732"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850424"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo do SAP NetWeaver de várias camadas
 
@@ -167,5 +166,5 @@ Para obter mais informações, consulte [Failover de teste para Azure no Site Re
 Para obter mais informações, consulte [Failover no Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre como criar uma solução de recuperação de desastre para implantações do SAP NetWeaver usando o Site Recovery, confira o white paper para download [SAP NetWeaver: criando uma solução de recuperação de desastre com o Azure Site Recovery](https://aka.ms/asr-sap). O white paper aborda as recomendações para várias arquiteturas do SAP, lista de aplicativos com suporte e tipos de VM para SAP no Azure e descreve opções de planos de teste para a solução de recuperação de desastre.
+* Para saber mais sobre como criar uma solução de recuperação de desastre para implantações do SAP NetWeaver usando o Site Recovery, confira o white paper para download [SAP NetWeaver: Criando uma solução de recuperação de desastre com o Azure Site Recovery](https://aka.ms/asr-sap). O white paper aborda as recomendações para várias arquiteturas do SAP, lista de aplicativos com suporte e tipos de VM para SAP no Azure e descreve opções de planos de teste para a solução de recuperação de desastre.
 * Saiba mais sobre [como replicar outras cargas de trabalho](site-recovery-workload.md) usando o Site Recovery.

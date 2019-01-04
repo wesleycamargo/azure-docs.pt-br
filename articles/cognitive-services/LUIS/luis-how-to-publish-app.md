@@ -1,21 +1,22 @@
 ---
-title: Publicar seu aplicativo LUIS no ponto de extremidade de previsão
+title: Publicar aplicativo
 titleSuffix: Azure Cognitive Services
 description: Quando terminar de compilar e testar seu aplicativo LUIS ativo, disponibilize-o ao seu aplicativo cliente publicando-o no ponto de extremidade.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6eb48fd0f3290fbc3a249bc3880c809ace9f9ddb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 73788b05cad3abac19b1ef509f1250542d10dba2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886454"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136640"
 ---
 # <a name="publish-your-trained-app"></a>Publicar seu aplicativo treinado
 
@@ -37,7 +38,7 @@ O aplicativo é publicado em todas as regiões associadas aos recursos do LUIS a
 
 Quando seu aplicativo tiver sido publicado com êxito, uma notificação de êxito em verde será exibida na parte superior do navegador. A barra de notificação verde também inclui um link para os pontos de extremidade. 
 
-![Janela pop-up de publicação](./media/luis-how-to-publish-app/publish-success.png)
+![Publicando uma janela pop-up com link para o ponto de extremidade](./media/luis-how-to-publish-app/publish-success.png)
 
 Se você precisar da URL do ponto de extremidade, selecione o link. Você também pode obter as URLs do ponto de extremidade selecionando **Gerenciar** no menu superior, em seguida, selecione **Chaves e Pontos de Extremidade** no menu à esquerda. 
 

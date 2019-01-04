@@ -1,5 +1,5 @@
 ---
-title: Suporte para Java Enterprise para o Serviço de Aplicativo do Azure no Linux | Microsoft Docs
+title: Suporte para Java Enterprise no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Guia do desenvolvedor para implantar aplicativos Java Enterprise usando o Wildfly com o Serviço de Aplicativo do Azure no Linux.
 keywords: serviço de aplicativo do azure, aplicativo Web, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,16 +12,17 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161865"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338032"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia do Java Enterprise para o Serviço de Aplicativo no Linux
 
-O Serviço de Aplicativo do Azure no Linux permite que os desenvolvedores de Java criem, implantem e escalonem aplicativos JEE (Java Enterprise) em um serviço totalmente gerenciado baseado em Linux.  O ambiente de tempo de execução do Java Enterprise subjacente é o servidor de aplicativos de software livre [Wildfly](http://wildfly.org/).
+O Serviço de Aplicativo do Azure no Linux permite que os desenvolvedores de Java criem, implantem e escalonem aplicativos JEE (Java Enterprise) em um serviço totalmente gerenciado baseado em Linux.  O ambiente de tempo de execução do Java Enterprise subjacente é o servidor de aplicativos de software livre [Wildfly](https://wildfly.org/).
 
 Este guia fornece os principais conceitos e instruções para desenvolvedores de Java Enterprise que usam o Serviço de Aplicativo para Linux. Se você nunca implantou aplicativos Java com o Serviço de Aplicativo do Azure para Linux, você deve concluir o [início rápido do Java](quickstart-java.md) primeiro. Dúvidas sobre o Serviço de Aplicativo para Linux que não são específicas do Java Enterprise são respondidas no [guia do desenvolvedor de Java](app-service-linux-java.md) e nas [Perguntas frequentes do Serviço de Aplicativo no Linux](app-service-linux-faq.md).
 
@@ -81,7 +82,7 @@ Para configurar o Wildfly para uma conexão de fonte de dados, siga o mesmo proc
 2. Siga as etapas descritas em "Módulos e dependências" para criar e fazer upload do descritor de módulo XML, script da CLI JBoss, script de inicialização e dependência .jar do JDBC.
 
 
-Estão disponíveis mais informações sobre como configurar o Wildfly com [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html) e [Banco de Dados SQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898). É possível usar essas instruções personalizadas juntamente com a abordagem generalizada acima para adicionar definições de fonte de dados ao seu servidor.
+Estão disponíveis mais informações sobre como configurar o Wildfly com [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource) e [Banco de Dados SQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898). É possível usar essas instruções personalizadas juntamente com a abordagem generalizada acima para adicionar definições de fonte de dados ao seu servidor.
 
 ## <a name="messaging-providers"></a>Provedores de mensagens
 
@@ -103,7 +104,7 @@ Por padrão, o Serviço de Aplicativo no Linux usará cookies de afinidade de se
 - Se uma instância do aplicativo for reiniciada ou reduzida verticalmente, o estado de sessão do usuário no servidor de aplicativos será perdido.
 - Se os aplicativos tiverem configurações de tempo limite de sessão longo ou um número fixo de usuários, poderá levar algum tempo para que novas instâncias com dimensionamento automático recebam carga, uma vez que apenas novas sessões serão roteadas a instâncias recém-iniciadas.
 
-É possível configurar o Wildfly para usar um armazenamento de sessão externa como o [Cache Redis](/azure/redis-cache/). Será necessário [desabilitar a configuração de afinidade de instância do ARR existente](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) para desligar o roteamento baseado em cookie de sessão e permitir que o armazenamento de sessão do Wildfly configurado opere sem interferência.
+É possível configurar o Wildfly para usar um repositório de sessão externa como o [Cache Redis do Azure](/azure/azure-cache-for-redis/). Será necessário [desabilitar a configuração de afinidade de instância do ARR existente](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) para desligar o roteamento baseado em cookie de sessão e permitir que o armazenamento de sessão do Wildfly configurado opere sem interferência.
 
 ## <a name="enable-web-sockets"></a>Habilitar soquetes Web
 
@@ -114,5 +115,5 @@ Por padrão, os soquetes Web são habilitados no Serviço de Aplicativo. Para co
 O Serviço de Aplicativo oferece ferramentas para ajudar a solucionar problemas com seu aplicativo.
 
 -   Ative o log clicando em **Logs de diagnóstico** no painel de navegação à esquerda. Clique em **Sistema de Arquivos** para definir o período de retenção e a cota de armazenamento e salve suas alterações. É possível encontrar esses logs em `/home/LogFiles/`.
--   [Use o SSH para conectar-se à instância de aplicativo](/app-service-linux-ssh-support) para exibir logs para aplicativos em execução.
+-   [Use o SSH para conectar-se à instância de aplicativo](app-service-linux-ssh-support.md) para exibir logs para aplicativos em execução.
 -   Verifique os logs de diagnóstico no painel **Logs de diagnóstico** do Portal ou usando o comando da CLI do Azure: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `

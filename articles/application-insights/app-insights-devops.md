@@ -9,16 +9,15 @@ ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822663"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994405"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detalhados para aplicativos Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que eu preciso do Application Insights?
@@ -26,7 +25,7 @@ O Application Insights monitora seu aplicativo Web em execução. Ele informa so
 
 ![Aspectos da complexidade do fornecimento de aplicativos Web](./media/app-insights-devops/010.png)
 
-É essencial monitorar um aplicativo moderno enquanto ele está em execução. Acima de tudo, você deseja detectar falhas antes que a maioria de seus clientes o faça. Você também deseja descobrir e corrigir problemas de desempenho que, embora não sejam catastróficos, talvez deixem as coisas mais lentas ou causem alguma inconveniência para seus usuários. E quando o sistema estiver funcionando bem, você vai querer saber o que os usuários estão fazendo com ele: eles estão usando o recurso mais recente? Eles estão tendo êxito com ele?
+É essencial monitorar um aplicativo moderno enquanto ele está em execução. Acima de tudo, você deseja detectar falhas antes que a maioria de seus clientes o faça. Você também deseja descobrir e corrigir problemas de desempenho que, embora não sejam catastróficos, talvez deixem as coisas mais lentas ou causem alguma inconveniência para seus usuários. E quando o sistema estiver funcionando de acordo com sua satisfação, você vais querer saber o que os usuários estão fazendo com ele: Eles estão usando o recurso mais recente? Eles estão tendo êxito com ele?
 
 Os aplicativos Web modernos são desenvolvidos em um ciclo de fornecimento contínuo: liberar um novo recurso ou aperfeiçoamento; observar como ele funciona para os usuários; planejar o próximo incremento de desenvolvimento com base nesse conhecimento. Uma parte importante deste ciclo é a fase de observação. O Application Insights fornece as ferramentas para monitorar o desempenho e uso de um aplicativo Web.
 
@@ -79,8 +78,8 @@ As principais categorias de dados são:
 * Eventos personalizados que você pode usar para controlar os eventos de negócios
 * Rastreamentos de log usados para depuração.
 
-## <a name="case-study-real-madrid-fc"></a>Estudo de caso: Real Madrid F.C.
-O serviço Web do [Clube de Futebol Real Madrid](http://www.realmadrid.com/) atende a aproximadamente 450 milhões de fãs em todo o mundo. Os fãs o acessam por navegadores da Web e os aplicativos móveis do Clube. Os fãs podem não apenas podem reservar ingressos, mas também acessar informações e videoclipes sobre os resultados, jogadores e próximos jogos. Eles podem pesquisar com filtros como os números de gols marcados. Também há links para mídia social. A experiência do usuário altamente personalizada e é projetada como uma comunicação bidirecional para envolver os fãs.
+## <a name="case-study-real-madrid-fc"></a>Estudo de caso: Clube de Futebol Real Madrid.
+O serviço Web do [Clube de Futebol Real Madrid](https://www.realmadrid.com/) atende a aproximadamente 450 milhões de fãs em todo o mundo. Os fãs o acessam por navegadores da Web e os aplicativos móveis do Clube. Os fãs podem não apenas podem reservar ingressos, mas também acessar informações e videoclipes sobre os resultados, jogadores e próximos jogos. Eles podem pesquisar com filtros como os números de gols marcados. Também há links para mídia social. A experiência do usuário altamente personalizada e é projetada como uma comunicação bidirecional para envolver os fãs.
 
 A solução [é um sistema de serviços e aplicativos no Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). A escalabilidade é um requisito fundamental: o tráfego é variável e pode atingir volumes muito grandes durante e próximo das partidas.
 
@@ -103,7 +102,7 @@ Em ambos os casos, o alerta não apenas informa os sintomas descobertos, mas tam
 
 ![Email do diagnóstico proativo](./media/app-insights-devops/030.png)
 
-O cliente Samtec disse: "Durante uma migração de recurso recente, encontramos um banco de dados subdimensionado que estava atingindo seus limites de recursos e causando tempos limite. Os alertas de detecção proativos foram emitidos enquanto realizávamos a triagem do problema, quase em tempo real, conforme anunciado. Esse alerta juntamente com os alertas da plataforma Azure nos ajudou a corrigir o problema quase instantaneamente. O tempo de inatividade total foi menor que 10 minutos."
+Cliente Samtec disse: "Durante uma migração de recurso recente, encontramos um banco de dados subdimensionado que estava atingindo seus limites de recursos e causando tempos limite. Os alertas de detecção proativos foram emitidos enquanto realizávamos a triagem do problema, quase em tempo real, conforme anunciado. Esse alerta juntamente com os alertas da plataforma Azure nos ajudou a corrigir o problema quase instantaneamente. O tempo de inatividade total foi menor que 10 minutos."
 
 ## <a name="live-metrics-stream"></a>Live Metrics Stream
 A implantação do build mais recente pode causar certa ansiedade. Se houver algum problema, você desejará saber sobre ele imediatamente para que possa recuar, se necessário. O Live Metrics Stream fornece métricas importantes com uma latência de aproximadamente um segundo.
@@ -134,7 +133,7 @@ Por exemplo, é fácil:
 * Controlar as sessões e os tempos de resposta para usuários específicos para permitir que as equipes de operações e suporte forneçam suporte ao cliente instantâneo.
 * Determinar os recursos de aplicativo usados com frequência para responder a perguntas de priorização de recurso.
 
-Um cliente DNN afirma: "O Application Insights nos forneceu a parte que faltava para que pudéssemos combinar, classificar, consultar e filtrar os dados, conforme necessário. Permitindo que a nossa equipe usasse sua própria experiência e criatividade para localizar dados, com uma linguagem de consulta eficiente, nos permitiu ter insights e resolver problemas que nem mesmo sabíamos que tínhamos. Muitas respostas interessantes surgem das perguntas começando com *'Eu me pergunto se...'.*"
+Cliente DNN disse: "O Application Insights nos forneceu a parte que faltava para que pudéssemos combinar, classificar, consultar e filtrar os dados, conforme necessário. Permitindo que a nossa equipe usasse sua própria experiência e criatividade para localizar dados, com uma linguagem de consulta eficiente, nos permitiu ter insights e resolver problemas que nem mesmo sabíamos que tínhamos. Muitas respostas interessantes surgem das perguntas começando com *'Eu me pergunto se...'.*"
 
 ## <a name="development-tools-integration"></a>Integração de ferramentas de desenvolvimento
 ### <a name="configuring-application-insights"></a>Configurando o Application Insights

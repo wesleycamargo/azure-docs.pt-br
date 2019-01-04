@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262362"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002046"
 ---
-# <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: Dados confidenciais | Atenuações 
+# <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: dados confidenciais | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança de computador** | <ul><li>[Garantir que os binários sejam obscurecidos se contiverem informações confidenciais](#binaries-info)</li><li>[Considerar a utilização do sistema de arquivos criptografados (EFS) para proteger dados confidenciais específicos dos usuários](#efs-user)</li><li>[Garantir que os dados confidenciais armazenados pelo aplicativo no sistema de arquivos sejam criptografados](#filesystem)</li></ul> | 
@@ -130,7 +130,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Como: Criptografar seções de configuração no ASP.NET 2.0 usando DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Especificando um provedor de configuração protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Usando o Azure Key Vault para proteger os segredos do aplicativo](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Referências**              | [Como: Criptografar seções de configuração no ASP.NET 2.0 usando DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Especificar um provedor de configuração protegido](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Como usar o Azure Key Vault para proteger os segredos do aplicativo](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Etapas** | Arquivos de configuração, tais como Web. config e appsettings.json geralmente são usados para armazenar informações confidenciais, incluindo nomes de usuários, senhas, cadeias de conexão de banco de dados e chaves de criptografia. Se você não proteger essas informações, o aplicativo ficará vulnerável a usuários mal-intencionados, que podem obter informações sigilosas, como nomes usuários e senhas de contas, nomes de bancos de dados e nomes de servidores. Com base no tipo de implantação (no Azure ou local), criptografe as seções confidenciais dos arquivos de configuração usando a DPAPI ou serviços, como o Azure Key Vault. |
 
 ## <a id="autocomplete-input"></a>Desabilitar explicitamente o atributo HTML de preenchimento automático em formulários e entradas com informações confidenciais
@@ -193,7 +193,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Versão do SQL - Todas |
-| **Referências**              | [Criptografando dados confidenciais no SQL Server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [Como: criptografar uma coluna de dados no SQL Server](https://msdn.microsoft.com/library/ms179331), [Criptografar por certificado](https://msdn.microsoft.com/library/ms188061) |
+| **Referências**              | [Criptografar dados confidenciais no SQL server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [Como: Criptografar uma coluna de dados no SQL Server](https://msdn.microsoft.com/library/ms179331), [Criptografar por certificado](https://msdn.microsoft.com/library/ms188061) |
 | **Etapas** | Dados confidenciais, como números de cartão de crédito, devem ser criptografados no banco de dados. Isso pode ser feito usando a criptografia no nível da coluna ou uma função de aplicativo que utilize as funções de criptografia. |
 
 ## <a id="tde-enabled"></a>Garantir que a criptografia no nível do banco de dados (TDE) esteja habilitada
@@ -338,7 +338,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Criptografia no cliente e Azure Key Vault para o Armazenamento do Microsoft Azure](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Armazenando dados com segurança no Armazenamento de Blobs do Azure com as extensões de criptografia do Azure](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
+| **Referências**              | [Criptografia no cliente e Azure Key Vault para o Armazenamento do Microsoft Azure](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Tutorial: Criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Armazenar dados com segurança no Armazenamento de Blob do Azure com as extensões de criptografia do Azure](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
 | **Etapas** | <p>O pacote Nuget da Biblioteca de Clientes do Armazenamento do Azure para .NET dá suporte à criptografia de dados em aplicativos clientes antes do carregamento para o Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também dá suporte à integração com o Cofre de Chaves do Azure para o gerenciamento de chaves de contas de armazenamento. Aqui está uma breve descrição de como funciona a criptografia do lado do cliente:</p><ul><li>O SDK do cliente do Armazenamento do Azure gera uma CEK (chave de criptografia de conteúdo), que é uma chave simétrica de uso único.</li><li>Os dados do cliente são criptografados com essa CEK</li><li>O CEK é empacotada (criptografada) usando o KEK (Chave de Criptografia de Chave). A KEK é identificada por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica, podendo ser gerenciada localmente ou armazenada no Cofre da Chave do Azure. O cliente de Armazenamento, por si só, nunca tem acesso à KEK. Ele simplesmente chama o algoritmo de quebra de chave fornecido pelo Cofre da Chave. Os clientes podem escolher usar provedores personalizados para encapsular/desencapsular a chave, se desejado.</li><li>Os dados criptografados, em seguida, são carregados para o serviço de Armazenamento do Azure. Consulte os links na seção de referências para obter detalhes sobre a implementação de nível baixo.</li></ul>|
 
 ## <a id="pii-phones"></a>Criptografar os dados confidenciais ou de informações de identificação pessoal (PII) gravados no armazenamento local de telefones
@@ -429,7 +429,7 @@ Defina clientCredentialType para o certificado ou o Windows.
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, .NET Framework 3 |
 | **Atributos**              | Modo de segurança - Transport, Modo de segurança - Message |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [Noções básicas da segurança do WCF (CoDe Magazine)](http://www.codemag.com/article/0611051) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Noções básicas da segurança do WCF (CoDe Magazine)](http://www.codemag.com/article/0611051) |
 | **Etapas** | Nenhuma segurança foi definida para transporte ou mensagens. Os aplicativos que transmitem mensagens sem segurança de transporte ou de mensagem não podem garantir a integridade ou a confidenciabilidade das mensagens. Quando uma associação de segurança do WCF é definida como None, as seguranças de transporte e de mensagem são desabilitadas. |
 
 ### <a name="example"></a>Exemplo

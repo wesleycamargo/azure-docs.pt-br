@@ -1,6 +1,6 @@
 ---
-title: Dimensionamento de unidade reservada para mídia – Azure | Microsoft Docs
-description: Este tópico é uma visão geral do dimensionamento de processamento de mídia com os Serviços de Mídia do Azure.
+title: Usar a CLI para criar filtros com os Serviços de Mídia do Azure | Microsoft Docs
+description: Este tópico mostra como usar a CLI para criar filtros com os Serviços de Mídia.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 9099429097efb17629e88318430f004f0f763cc5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: a16024ad5d8b9d2355b579b9b508ef0de91f2ccd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336315"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133852"
 ---
 # <a name="creating-filters-with-cli"></a>Criando filtros com a CLI 
 
-Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), seu cliente pode precisar de mais flexibilidade que o que é descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Microsoft Azure permite que você defina filtros de conta e filtros de ativo para o seu conteúdo. Para obter mais informações, consulte [Filtros e manifestos dinâmicos](filters-dynamic-manifest-overview.md).
+Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), seu cliente pode precisar de mais flexibilidade que o que é descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo. Para obter mais informações, consulte [Filtros e manifestos dinâmicos](filters-dynamic-manifest-overview.md).
 
 Este tópico mostra como configurar um filtro para um ativo de vídeo sob demanda e usar a CLI para os Serviços de Mídia do Microsoft Azure v3 criem [filtros de conta](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtros de ativo](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
@@ -96,7 +97,7 @@ O comando [az-s-asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-fil
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @C:\tracks.json
 ```
 
-Consulte também [exemplos JSON para filtros](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).
+Além disso, veja [exemplos de JSON para filtros](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).
 
 ## <a name="next-step"></a>Próxima etapa
 

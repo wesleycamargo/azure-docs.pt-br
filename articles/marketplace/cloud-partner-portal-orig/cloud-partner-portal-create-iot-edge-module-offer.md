@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3cc1a09963c5f7fee613af24c63fd15b1cfffee
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bf7d639c682e443f29b31b3c6d7438e89c406fde
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804981"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838626"
 ---
 # <a name="how-to-publish-a-new-iot-edge-module-in-the-cloud-partner-portal"></a>Como publicar um novo módulo do IoT Edge no Portal do Cloud Partner
 
@@ -39,7 +39,7 @@ Para publicar um módulo do IoT Edge no Azure Marketplace, você precisa atender
 
     -   Descrição (formato HTML básico)
 
-    -   Um logotipo no formato de imagem png e nos seguintes tamanhos: 40 x 40, 90 x 90, 115 x 115 e 255 x 115 (em pixels).
+    -   Um logotipo no formato de imagem png e nos tamanhos a seguir: 40 pixels x 40 pixels, 90 pixels x 90 pixels, 115 pixels x 115 pixels, 255 pixels x 115 pixels.
 
     -   Termos de uso e política de privacidade
 
@@ -53,7 +53,7 @@ Siga estas etapas para preparar sua listagem do Módulo do IoT Edge:
 -   Entre na sua [conta do CPP](https://cloudpartner.azure.com/).
 
 >[!Note]
->Para obter informações gerais sobre o Portal do Cloud Partner, você pode verificar a [documentação de aprendizado](https://cloudpartner.azure.com/#learn)
+>Para obter informações gerais sobre o Portal do Cloud Partner, você pode verificar a [documentação de aprendizado](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)
 
 -   Selecione **Nova oferta** e, em seguida, selecione **Módulo do IoT Edge**.
 
@@ -75,7 +75,7 @@ Na guia Configurações da Oferta, insira as informações da oferta.
 
 Cada SKU corresponde a uma imagem de contêiner. Você precisa ter pelo menos um SKU e pode adicionar mais de um. Há duas partes em um SKU:
 
--   Metadados do SKU
+-   Metadados da SKU
 
 -   Metadados do contêiner
 
@@ -151,7 +151,7 @@ Na guia Marketplace, adicione o conteúdo de marketing específico. Essas inform
 
 -   **Categorias sugeridas** – selecione até cinco categorias. Elas serão mostradas em sua página de detalhes do produto. Atualmente, todos os módulos do IoT Edge são mostrados nas categorias *Internet das Coisas \> módulo do IoT Edge* nas páginas de navegação.
 
--   **Logotipos** – faça upload de suas imagens de logotipo do módulo do IoT Edge no formato PNG. Use exatamente os seguintes tamanhos: 40 x 40, 90 x 90, 115 x 115 e 255 x 115 (em pixels).
+-   **Logotipos** – faça upload de suas imagens de logotipo do módulo do IoT Edge no formato PNG. Use os seguintes tamanhos: e exatamente nos tamanhos a seguir: 40 pixels x 40 pixels, 90 pixels  x 90 pixels, 115 pixels x 115 pixels, 255 pixels x 115 pixels.
 
 -   **Capturas de tela** – capturas de tela são exibidas na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o módulo do IoT Edge faz e como ele funciona. Você pode exibir diagramas de arquitetura ou usar ilustrações de caso por exemplo.
 

@@ -1,12 +1,11 @@
 ---
 title: Módulos personalizados da Galeria de IA do Azure - Azure Machine Learning Studio | Microsoft Docs
-description: Descubra os módulos de aprendizado de máquina personalizados na Galeria de IA do Azure.
+description: Descubra os módulos de aprendizado de máquina personalizados na Galeria de IA do Azure. Os módulos personalizados expandem os recursos do Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: a504bcfbbcd70c1d6fc8402d4c232e7e8a5476b0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 92067a93a1f67711df0312f4daf484a577ff14d1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313734"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273181"
 ---
-# <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio: Descubra módulos de aprendizado de máquina personalizados na Galeria de IA do Azure
+# <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio: Descobrir os módulos de aprendizado de máquina personalizados na Galeria de IA do Azure
 
 A [Galeria de IA do Azure](http://gallery.cortanaintelligence.com) oferece vários [módulos personalizados](https://gallery.cortanaintelligence.com/customModules) que expandem os recursos do Azure Machine Learning Studio. Você pode importar esses módulos para usá-los em seus experimentos para que você possa desenvolver soluções ainda mais avançadas de análise preditiva.
 
@@ -94,5 +93,5 @@ Para usar um módulo importado:
 
 **[Vá para a Galeria](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

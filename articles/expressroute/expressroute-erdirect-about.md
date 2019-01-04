@@ -1,5 +1,5 @@
 ---
-title: Sobre o Azure ExpressRoute Direct | Microsoft Docs
+title: Sobre o ExpressRoute Direct – Azure | Microsoft Docs
 description: Esta página fornece uma visão geral do ExpressRoute Direct (versão prévia)
 services: expressroute
 author: mialdrid
@@ -7,21 +7,22 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 2f984eb8cb09e5d65c4a366b827f695c739003f3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959658"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163809"
 ---
 # <a name="about-expressroute-direct-preview"></a>Sobre o ExpressRoute Direct (versão prévia)
 
-O ExpressRoute Direct fornece aos clientes a capacidade de conectar-se diretamente à rede global da Microsoft em locais de emparelhamento distribuídos estrategicamente no mundo todo. O ExpressRoute Direct oferece conectividade dupla de 100 Gbps, que suporta conectividade ativa / ativa em escala.
+O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede global da Microsoft em localizações de emparelhamento estrategicamente distribuídas no mundo todo. O ExpressRoute Direct oferece conectividade dupla de 100 Gbps, que suporta conectividade ativa / ativa em escala.
 
 Os principais recursos que o ExpressRoute Direct fornece incluem, mas não estão limitados a:
 
 * Ingestão de dados em massa em serviços como Armazenamento e o Cosmos DB
-* Isolamento físico para indústrias que são regulamentadas e exigem conectividade dedicada e isolada, como: bancos, governo e varejo
+* Isolamento físico para setores regulamentados e que requerem conectividade dedicada e isolada, como: bancos, governo e varejo
 * Controle granular de distribuição de circuito com base em unidade de negócios
 
 > [!IMPORTANT]
@@ -44,7 +45,7 @@ Antes de usar o ExpressRoute Direct, você precisa registrar sua assinatura na v
 | --- | --- |
 | Utiliza provedores de serviços para permitir integração e conectividade rápidas na infraestrutura existente | Requer infra-estrutura de 100 Gbps e gerenciamento total de todas as camadas
 | Integra-se a centenas de fornecedores, inclusive Ethernet e MPLS | Capacidade direta/dedicada para setores regulamentados e ingestão de dados em massa |
-| SKUs de circuitos de 50 Mbps a 10 Gbps | Cliente pode selecionar uma combinação do circuito seguinte SKUs: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - limitados a um total de 200 Gbps
+| SKUs de circuitos de 50 Mbps a 10 Gbps | O cliente pode selecionar uma combinação dos seguintes SKUs de circuito: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps – limitados a um total de 200 Gbps
 | Otimizado para um único locatário | Otimizado para um único locatário/provedores de serviços de nuvem/várias unidades de negócios
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos do ExpressRoute Direct

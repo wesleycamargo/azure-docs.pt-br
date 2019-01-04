@@ -1,6 +1,6 @@
 ---
-title: Atualização para a versão mais recente da API REST do Serviço Azure Search | Microsoft Docs
-description: Atualização para a versão mais recente da API de REST do serviço de Azure Search
+title: Atualizar para a última versão da API REST do serviço Azure Search – Azure Search
+description: Examine as diferenças nas versões de API e saiba quais ações são necessárias para migrar o código existente para a versão mais recente da API REST do serviço Azure Search.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,14 +9,15 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.custom: seodec2018
+ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620222"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312180"
 ---
-# <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>Atualização para a versão mais recente da API de REST do serviço de Azure Search
+# <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Atualizar para a última versão da API REST do serviço Azure Search
 Se você estiver usando uma versão anterior da [API REST do serviço Azure Search](https://docs.microsoft.com/rest/api/searchservice/), este artigo o ajudará a atualizar o aplicativo para usar a versão mais recente da API disponível, 2017-11-11.
 
 A versão 2017-11-11 da API REST contém algumas alterações em relação a versões anteriores. Elas são principalmente compatíveis com versões anteriores. Portanto, a alteração do código deve exigir apenas um mínimo de esforço, dependendo da versão que você estava usando antes. Confira [Etapas da atualização](#UpgradeSteps) para obter instruções sobre como alterar o código para usar a nova versão da API.

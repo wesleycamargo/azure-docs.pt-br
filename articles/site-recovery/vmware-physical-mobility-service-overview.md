@@ -5,27 +5,27 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: efbbe048456c969f0045a0588bc5b64d1138ee15
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976954"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956501"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade para VMs do VMware e servidores físicos
 
 Ao configurar a recuperação de desastres para VMs do VMware e servidores físicos usando o [Azure Site Recovery](site-recovery-overview.md), instale o serviço de mobilidade do Site Recovery em cada VM do VMware local e servidor físico.  O Serviço de mobilidade captura gravações de dados no computador e as encaminha para o servidor de processo do Site Recovery. Você pode implantar o Serviço de Mobilidade usando os seguintes métodos:
 
-[Instalação por push](vmware-azure-install-mobility-service.md): configure o Site Recovery para executar uma instalação por push do Serviço de Mobilidade. Para isso, ao configurar a recuperação de desastre, você também tem de configurar uma conta que o servidor de processo do Site Recovery possa usar para acessar a VM ou servidor físico para fins de instalação do serviço.
-[Instalar manualmente](vmware-physical-mobility-service-install-manual.md): você pode instalar o serviço de mobilidade manualmente em cada computador usando a interface do usuário ou o prompt de comando.
-[Implantação automatizada](vmware-azure-mobility-install-configuration-mgr.md): você pode automatizar a instalação com ferramentas de implantação de software, como o System Center Configuration Manager.
+[Logs de instalação por push](vmware-azure-install-mobility-service.md): Configure a Recuperação do Site para executar uma instalação por push do serviço de mobilidade: Para isso, ao configurar a recuperação de desastre, você também tem de configurar uma conta que o servidor de processo do Site Recovery possa usar para acessar a VM ou servidor físico para fins de instalação do serviço.
+[Instalar manualmente](vmware-physical-mobility-service-install-manual.md): Você pode instalar o serviço de mobilidade manualmente em cada computador usando a interface do usuário ou o prompt de comando.
+[Implantação automatizada](vmware-azure-mobility-install-configuration-mgr.md): Você pode automatizar a instalação com ferramentas de implantação de software, como o System Center Configuration Manager.
 
 ## <a name="azure-virtual-machine-agent"></a>Agente de Máquina Virtual do Azure
 
-- **VMs do Windows**: a partir da versão 9.7.0.0 do serviço de mobilidade, o [agente de VM do Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) é instalado pelo instalador do serviço de mobilidade. Isso garante que, quando um computador fizer failover no Azure, a VM do Azure atenderá ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
-- **VMs do Linux**: O [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) deve ser instalado manualmente na VM do Azure após o failover.
+- **VMs do Windows**: A partir da versão 9.7.0.0 do serviço de mobilidade, o [agente de VM do Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) é instalado pelo instalador do serviço de mobilidade. Isso garante que, quando um computador fizer failover no Azure, a VM do Azure atenderá ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
+- **VMs Linux**: O [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) deve ser instalado manualmente na VM do Azure após o failover.
 
 ## <a name="installer-files"></a>Arquivos do instalador
 
@@ -56,11 +56,11 @@ Se as máquinas que você deseja replicar tiverem o software antivírus ativo em
 2. No portal, abra o cofre > **Itens replicados**.
 3. Se o servidor de configuração estiver na versão mais recente, você verá uma notificação que mostra "Nova atualização do agente de replicação de recuperação do site está disponível. Clique para instalar."
 
-     ![Janela Itens replicados](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Janela Itens replicados](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
 4. Clique na notificação e, em **Atualização do agente**, selecione os computadores nos quais você deseja atualizar o serviço de mobilidade. Em seguida, clique em **OK**.
 
-     ![Lista de VMs de itens replicados](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Lista de VMs de itens replicados](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. O trabalho Atualizar o Serviço de Mobilidade é iniciado para cada um dos computadores selecionados.
 
@@ -74,8 +74,8 @@ Quando você implantou o Site Recovery para habilitar a instalação por push do
 
 Desinstale pela interface do usuário ou por um prompt de comando.
 
-- **Pela interface de usuário**: no Painel de Controle do computador, selecione **Programas**. Selecione **Servidor de destino mestre/Serviço de Mobilidade do Microsoft Azure Site Recovery** > **Desinstalar**.
-- **Por um prompt de comando**: Abra uma janela de prompt de comando como administrador no computador local. Execute o comando a seguir: 
+- **Na interface de usuário**: No Painel de Controle do computador, selecione **Programas**. Selecione **Servidor de destino mestre/Serviço de Mobilidade do Microsoft Azure Site Recovery** > **Desinstalar**.
+- **Em um prompt de comando**: Abra uma janela de prompt de comando como administrador no computador. Execute o comando a seguir: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```

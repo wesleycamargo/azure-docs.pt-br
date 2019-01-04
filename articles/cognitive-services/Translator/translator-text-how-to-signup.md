@@ -1,5 +1,5 @@
 ---
-title: Como inscrever-se na Tradução de Texto - API de Tradução de Texto
+title: Introdução – API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
 description: Saiba como se inscrever para a API de Tradução de Texto e obter uma chave de assinatura.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e7ba72c95959a0c31ca724f91f519ac705d669fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 011e1db141c36c44ef51edc62d0123fdf3c036c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245776"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091541"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Como inscrever-se na API de Tradução de Texto
 
@@ -48,6 +49,8 @@ Quando você se inscrever na Tradução de Texto, você obtém uma chave de aces
 
 - [Exemplos de código no GitHub](https://github.com/MicrosoftTranslator)
 - [Fórum de suporte do Microsoft Translator](https://www.aka.ms/TranslatorForum)
+
+O Microsoft Translator normalmente permitirá a aprovação de suas primeiras solicitações antes de verificar o status da conta de assinatura. Se as primeiras solicitações da API do Microsoft Translator forem bem-sucedidas após a falha das chamadas, a resposta de erro indicará o problema. Registre a resposta da API para que você possa ver o motivo.
 
 ## <a name="pricing-options"></a>Opções de preços
 

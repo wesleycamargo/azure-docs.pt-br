@@ -1,23 +1,24 @@
 ---
-title: Testar em lote seu aplicativo LUIS – Reconhecimento vocal
-titleSuffix: Azure Cognitive Services
+title: Teste em lote
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use o teste em lote para trabalhar continuamente em seu aplicativo para aprimorá-lo e melhorar o reconhecimento do idioma.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 44abadc653c4679f37152e6592c882475b139bdd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333897"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133139"
 ---
-# <a name="batch-testing-in-luis"></a>Teste em lote no LUIS
+# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com 1.000 declarações no portal do LUIS
 
 O teste em lote valida o modelo treinado [ativo](luis-concept-version.md#active-version) para medir a precisão da previsão. Um teste em lote ajuda a exibir a precisão de cada intenção e entidade no modelo treinado atual em um gráfico. Examine os resultados do teste em lote para tomar a devida ação para melhorar a precisão, como adicionar mais declarações de exemplo a uma intenção, caso seu aplicativo falhe com frequência em identificar a intenção correta.
 

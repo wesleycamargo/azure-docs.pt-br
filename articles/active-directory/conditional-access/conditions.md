@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142032"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410051"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quais são as condições no acesso condicional do Active Directory do Azure? 
 
-Você pode controlar como usuários autorizados acessam seus aplicativos na nuvem usando [acesso condicional do Azure AD (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Em uma política de acesso condicional, você define a resposta ("Então, faça isso") para o motivo do acionamento de sua política ("Quando isso acontecer"). 
+Você pode controlar como usuários acessam seus aplicativos na nuvem usando [acesso condicional do Azure AD (Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Em uma política de acesso condicional, você define a resposta ("Então, faça isso") para o motivo do acionamento de sua política ("Quando isso acontecer"). 
 
 ![Motivo e resposta](./media/conditions/10.png)
 
@@ -50,7 +50,7 @@ Quando você seleciona **Todos os usuários**, sua política é aplicada a todos
 
 Quando você **selecionar usuários e grupos**, poderá definir as seguintes opções:
 
-* **Todos os usuários convidados** segmentam uma política para usuários convidados B2B. Essa condição corresponde a qualquer conta de usuário que tenha o atributo **userType** definido como **guest**. Você pode usar essa configuração quando uma política precisa ser aplicada assim que a conta é criada em um fluxo de convite no AD do Azure.
+* **Todos os usuários convidados** segmentam uma política para usuários convidados B2B. Essa condição corresponde a qualquer conta de usuário que tenha o atributo **userType** definido como **guest**. Use essa configuração quando uma política precisa ser aplicada assim que a conta é criada em um fluxo de convite no Azure AD.
 
 * **Funções de diretório** segmentam uma política com base na atribuição de função de um usuário. Essa condição suporta funções de diretório como **Administrador global** ou **Administrador de senha**.
 
@@ -74,7 +74,7 @@ Selecione:
 
 - **Todos os aplicativos na nuvem** para as políticas de linha de base a serem aplicadas a toda a organização. Um caso de uso comum para essa seleção é uma política que exige autenticação multifator quando o risco de entrada for detectado para qualquer aplicativo de nuvem. Uma política aplicada a **Todos os aplicativos na nuvem** se aplica ao acesso a todos os sites e serviços. Essa configuração não se limita aos aplicativos em nuvem exibidos na lista **Selecionar aplicativos**. 
 
-- Aplicativos de nuvem individuais para atingir serviços específicos pela política. Por exemplo, você pode exigir que os usuários tenham um [dispositivo compatível](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para acessar o SharePoint Online. Essa política também é aplicada a outros serviços quando eles acessam o conteúdo do SharePoint. Um exemplo é o Microsoft Teams. 
+- Escolha **Selecionar aplicativos** para direcionar sua política a serviços específicos. Por exemplo, você pode exigir que os usuários tenham um [dispositivo compatível](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para acessar o SharePoint Online. Essa política também é aplicada a outros serviços quando eles acessam o conteúdo do SharePoint. Um exemplo é o Microsoft Teams. 
 
 Você pode excluir aplicativos específicos de uma política. No entanto, esses aplicativos ainda estão sujeitos às políticas aplicadas aos serviços que acessam. 
 
@@ -82,7 +82,7 @@ Você pode excluir aplicativos específicos de uma política. No entanto, esses 
 
 ## <a name="sign-in-risk"></a>Risco de entrada
 
-Um risco de login é um indicador de probabilidade (alta, média ou baixa) de que uma tentativa de login não tenha sido feita pelo proprietário legítimo de uma conta de usuário. O Azure AD calcula o nível de risco de entrada durante a entrada do usuário. Você pode usar o nível de risco de conexão calculado como uma condição em uma política de acesso condicional.
+Um risco de entrada é um indicador de probabilidade (alta, média ou baixa) de que uma tentativa de entrada não tenha sido feita pelo proprietário legítimo de uma conta de usuário. O Azure AD calcula o nível de risco de entrada durante a entrada do usuário. Você pode usar o nível de risco de conexão calculado como uma condição em uma política de acesso condicional.
 
 ![Níveis de risco de login](./media/conditions/22.png)
 
@@ -93,7 +93,7 @@ Casos de uso comuns para essa condição são políticas que possuem as seguinte
 - Bloquear usuários com alto risco de login. Essa proteção impede que usuários potencialmente não legítimos acessem seus aplicativos na nuvem. 
 - Exigir autenticação multifatorial para usuários com risco médio de login. Ao aplicar a autenticação multifator, você pode fornecer confiança adicional de que o login é feito pelo proprietário legítimo de uma conta.
 
-Para obter mais informações, consulte [Entradas de risco](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+Para obter mais informações, veja [bloquear acesso quando for detectado um risco na sessão](app-sign-in-risk.md).  
 
 ## <a name="device-platforms"></a>Plataformas de dispositivo
 
@@ -111,13 +111,12 @@ Um caso de uso comum para essa condição é uma política que restringe o acess
 
 ## <a name="device-state"></a>Estado do dispositivo
 
-A condição de estado do dispositivo exclui dispositivos e dispositivos associados híbridos do Azure AD e dispositivos marcados como compatíveis a partir de uma política de acesso condicional. Essa condição é útil quando uma política deve se aplicar apenas a um dispositivo não gerenciado para fornecer segurança adicional à sessão. Por exemplo, apenas impor o controle de sessão do Microsoft Cloud App Security quando um dispositivo não é gerenciado. 
+A condição de estado do dispositivo exclui dispositivos e dispositivos associados híbridos do Azure AD e dispositivos marcados como compatíveis a partir de uma política de acesso condicional. 
 
 
 ![Configurar o estado do dispositivo](./media/conditions/112.png)
 
-Se você quiser bloquear o acesso de dispositivos não gerenciados, implemente [acesso condicional baseado em dispositivo](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
+Essa condição é útil quando uma política deve se aplicar apenas a um dispositivo não gerenciado para fornecer segurança adicional à sessão. Por exemplo, apenas impor o controle de sessão do Microsoft Cloud App Security quando um dispositivo não é gerenciado. 
 
 ## <a name="locations"></a>Locais
 
@@ -136,98 +135,67 @@ Para obter mais informações, consulte [Qual é a condição de local no acesso
 
 ## <a name="client-apps"></a>Aplicativos cliente
 
-Usando a condição de aplicativos do cliente, você pode aplicar uma política a diferentes tipos de aplicativos. Exemplos são sites, serviços, aplicativos móveis e aplicativos de área de trabalho. 
+Por padrão, uma política de acesso condicional se aplica aos seguintes aplicativos:
+
+- **[Aplicativos de navegador](technical-reference.md#supported-browsers)** – aplicativos de navegador incluem sites usando os protocolos SSO da Web OpenID Connnect, Web Services Federation ou SAML. Isso também se aplica a qualquer site ou serviço Web registrado como um cliente confidencial do OAuth. Por exemplo, o site do Office 365 SharePoint. 
+
+- **[Aplicativos móveis e da área de trabalho usando a autenticação moderna](technical-reference.md#supported-mobile-applications-and-desktop-clients)** – esses aplicativos incluem os aplicativos de telefone e aplicativos desktop do Office. 
 
 
+Além disso, você pode direcionar uma política para aplicativos cliente específicos que não estão usando autenticação moderna, por exemplo:
 
-Um aplicativo é classificado da seguinte maneira:
+- **[Clientes do Exchange ActiveSync](conditions.md#exchange-activesync-clients)** – quando uma política bloqueia usando o Exchange ActiveSync, os usuários afetados recebem um email de quarentena único com informações sobre o motivo pelo qual estão bloqueados. Se necessário, o email inclui instruções para inscrever o dispositivo no Intune.
 
-- Um site ou serviço se usar protocolos SSO da web, SAML, WS-Fed ou OpenID Connect para um cliente confidencial.
+- **[Outros clientes](block-legacy-authentication.md)** – esses aplicativos incluem clientes que usam autenticação básica com protocolos de email, como IMAP, MAPI, POP, SMTP e aplicativos mais antigos do Office que não usam autenticação moderna. Para obter mais informações, veja [Como funciona a autenticação moderna para os aplicativos cliente do Office 2013 e do Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
-- Um aplicativo de aplicativo ou desktop para dispositivos móveis se ele usar o aplicativo móvel OpenID Connect para um cliente nativo.
+![Aplicativos cliente](./media/conditions/41.png)
 
-Para obter uma lista dos aplicativos cliente que você pode usar na política de acesso condicional, consulte [Condição dos aplicativos cliente](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#client-apps-condition) na referência técnica do Acesso Condicional do Active Directory do Azure.
+Casos de uso comuns para essa condição são políticas com os seguintes requisitos:
 
-Casos de uso comuns para essa condição são políticas com as seguintes proteções: 
+- **[Exigir um dispositivo gerenciado](require-managed-devices.md)** para aplicativos móveis e de área de trabalho que baixem dados para um dispositivo. Ao mesmo tempo, permita o acesso do navegador a partir de qualquer dispositivo. Este cenário impede o salvamento e a sincronização de documentos para um dispositivo não gerenciado. Com esse método, você pode reduzir a probabilidade de perda de dados se o dispositivo é perdido ou roubado.
 
-- Exigir um dispositivo [compatível](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para aplicativos móveis e de área de trabalho que baixem grandes quantidades de dados para o dispositivo. Ao mesmo tempo, permita o acesso do navegador a partir de qualquer dispositivo.
+- **[Exigir um dispositivo gerenciado](require-managed-devices.md)** para aplicativos usando o ActiveSync para acessar o Exchange Online.
+
+- **[Bloquear a autenticação herdada](block-legacy-authentication.md)** ao Azure AD (outros clientes)
 
 - Bloqueie o acesso de aplicativos da Web, mas permita o acesso de aplicativos móveis e de desktop.
 
-Você pode aplicar essa condição ao SSO da Web e a protocolos de autenticação modernos. Você também pode aplicá-lo a aplicativos de e-mail que usem o Microsoft Exchange ActiveSync. Exemplos são os aplicativos de correio nativos na maioria dos smartphones. 
 
-Você só pode selecionar a condição de aplicativos cliente se o Microsoft Office 365 Exchange Online for o único aplicativo em nuvem selecionado.
 
-![Aplicativos na nuvem](./media/conditions/32.png)
+### <a name="exchange-activesync-clients"></a>Clientes do Exchange ActiveSync
 
-A seleção do **Exchange ActiveSync** como uma condição de aplicativos cliente é suportada somente se você não tiver outras condições configuradas em uma política. No entanto, você pode restringir o escopo dessa condição para se aplicar apenas a plataformas suportadas.
+Você só pode selecionar **clientes do Exchange ActiveSync** se:
 
+
+- O Microsoft Office 365 Exchange Online é o único aplicativo de nuvem que você selecionou.
+
+    ![Aplicativos na nuvem](./media/conditions/32.png)
+
+- Você não tem outras condições configuradas em uma política. No entanto, você pode restringir o escopo dessa condição para se aplicar apenas a [plataformas compatíveis](technical-reference.md#device-platform-condition).
  
-![Aplicar política apenas a plataformas suportadas](./media/conditions/33.png)
-
-A aplicação dessa condição apenas a plataformas suportadas é igual a todas as plataformas de dispositivos em uma condição de [plataforma de dispositivos](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
-![Configurar plataformas de dispositivos](./media/conditions/34.png)
+    ![Aplicar política apenas a plataformas suportadas](./media/conditions/33.png)
 
 
- Para obter mais informações, consulte estes artigos:
+Quando o acesso é bloqueado porque um [dispositivo gerenciado](require-managed-devices.md) é necessário, os usuários afetados obtêm um único email orientando-os a usar o Intune. 
+
+Se um aplicativo aprovado é necessário, os usuários afetados obtêm diretrizes para instalar e usar o cliente móvel do Outlook.
+
+Em outros casos, por exemplo, se a MFA é necessária, os usuários afetados são bloqueados, porque os clientes que usam autenticação básica não dão suporte à MFA.
+
+Você só pode direcionar essa configuração a usuários e grupos. Não oferece suporte a convidados ou funções. Se uma condição de convidado ou de função estiver configurada, todos os usuários poderão ser bloqueados porque o acesso condicional não poderá determinar se a política deve se aplicar ao usuário ou não.
+
+
+ Para obter mais informações, consulte:
 
 - [Configure o SharePoint Online e o Exchange Online para acesso condicional do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
 - [Acesso condicional baseado no aplicativo do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 
-### <a name="legacy-authentication"></a>Autenticação herdada  
-
-O acesso condicional agora se aplica a clientes antigos do Microsoft Office que não suportam autenticação moderna. Também se aplica a clientes que usam protocolos de e-mail como POP, IMAP e SMTP. Usando a autenticação legada, você pode configurar políticas como **bloquear o acesso de outros clientes**.
-
-
-![Configurar aplicativos cliente](./media/conditions/160.png)  
-
-
-#### <a name="known-issues"></a>Problemas conhecidos
-
-- A configuração de uma política para **Outros clientes** bloqueia determinados clientes, como SPConnect, para toda a organização. Esse bloqueio acontece porque os clientes mais antigos são autenticados de maneiras inesperadas. O problema não se aplica aos principais aplicativos do Office, como os antigos clientes do Office. 
-
-- Pode levar até 24 horas para que a política entre em vigor. 
-
-
-#### <a name="frequently-asked-questions"></a>Perguntas frequentes
-
-**P:** Esta autenticação bloqueará os Serviços Web do Microsoft Exchange?
-
-Depende do protocolo de autenticação usado pelo Exchange Web Services. Se o aplicativo Serviços Web do Exchange usar autenticação moderna, ele será abordado pelo aplicativo cliente **Aplicativos móveis e clientes de área de trabalho**. A autenticação básica é coberta pelo aplicativo cliente **Outros clientes**.
-
-
-**P:** Quais controles posso usar para **Outros clientes**?
-
-Qualquer controle pode ser configurado para **Outros clientes**. No entanto, a experiência do usuário final será bloqueada para todos os casos. **Outros clientes** não suportam controles como MFA, dispositivo compatível e ingresso no domínio. 
- 
-**P:** Quais condições posso usar para **Outros clientes**?
-
-Qualquer condição pode ser configurada para **Outros clientes**.
-
-**P:** O Exchange ActiveSync suporta todas as condições e controles?
-
-Não. A lista a seguir resume o suporte do Exchange ActiveSync: 
-
-- O Exchange ActiveSync oferece suporte somente à segmentação por usuário e grupo. Não oferece suporte a convidados ou funções. Se uma condição de convidado ou função for configurada, todos os usuários serão bloqueados. O Exchange ActiveSync bloqueia todos os usuários porque não pode determinar se a diretiva deve ser aplicada ao usuário ou não.
-
-- O Exchange ActiveSync funciona somente com o Microsoft Exchange Online como o aplicativo na nuvem. 
-
-- O Exchange ActiveSync não oferece suporte a nenhuma condição, exceto o próprio aplicativo cliente. 
-
-- O Exchange ActiveSync pode ser configurado com qualquer controle. Todos os controles, exceto a conformidade do dispositivo, levam a um bloqueio.
-
-**P:** As políticas se aplicam a todos os aplicativos clientes por padrão no futuro?
-
-Não. Não há mudanças no comportamento da política padrão. As políticas continuam a ser aplicadas a aplicativos móveis e de navegador e clientes de desktop por padrão.
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber como configurar uma política de acesso condicional, consulte [Guia de início rápido: exigir MFA para aplicativos específicos com acesso condicional do Active Directory do Azure](app-based-mfa.md).
+- Para descobrir como configurar uma política de acesso condicional, consulte [Início Rápido: exigir MFA para aplicativos específicos com acesso condicional ao Azure Active Directory](app-based-mfa.md).
 
 - Para configurar políticas de acesso condicional para o seu ambiente, consulte as [Práticas recomendadas para acesso condicional no Active Directory do Azure](best-practices.md). 
 

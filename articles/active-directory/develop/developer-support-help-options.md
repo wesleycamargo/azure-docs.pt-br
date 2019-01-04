@@ -17,14 +17,14 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422432"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337131"
 ---
-# <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores 
+# <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores
 
 Independentemente de você estar começando a integrar com o Azure Active Directory, identidades da Microsoft ou API do Microsoft Graph, ou quando está implementando um novo recurso no aplicativo, há vezes em que você precisa ter a ajuda da comunidade ou entender as opções de suporte que tem como desenvolvedor. Este artigo ajuda a entender essas opções; abaixo, um resumo:
 
@@ -38,7 +38,7 @@ Independentemente de você estar começando a integrar com o Azure Active Direct
 
 ## <a name="search"></a>Search
 
-Se você tiver uma pergunta relacionada ao desenvolvimento, talvez possa encontrar a resposta necessária em nossa documentação, nossos [exemplos de github](https://github.com/azure-samples) ou respostas para as perguntas do [Stack Overflow](https://www.stackoverflow.com).
+Se tiver uma pergunta relacionada a desenvolvimento, talvez possa encontrar a resposta necessária em nossa documentação, em nossos [exemplos do GitHub](https://github.com/azure-samples) ou em respostas às perguntas no [Stack Overflow](https://www.stackoverflow.com).
 
 ### <a name="scoped-search"></a>Pesquisa com Escopo
 Para obter resultados mais rápidos, direcione sua pesquisa para o Stack Overflow, nossa documentação e nossos exemplos de código usando o seguinte em seu [mecanismo de pesquisa favorito](https://bing.com):
@@ -76,7 +76,7 @@ Se você não encontrar uma resposta para o problema com uma pesquisa, envie uma
 |Qualquer outra área relacionada aos tópicos de autenticação ou autorização |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> As seguintes postagens do Stack Overflow contêm dicas sobre como fazer perguntas e como adicionar o código-fonte. As diretrizes a seguir podem ajudar a aumentar as chances dos membros da comunidade avaliarem e responderem rapidamente à sua pergunta:  
+> As seguintes postagens do Stack Overflow contêm dicas sobre como fazer perguntas e como adicionar o código-fonte. As diretrizes a seguir podem ajudar a aumentar as chances dos membros da comunidade avaliarem e responderem rapidamente à sua pergunta:
 > - [Como fazer uma boa pergunta](https://stackoverflow.com/help/how-to-ask)
 > - [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
 
@@ -106,4 +106,4 @@ Você também pode experimentar [nosso agente virtual](https://support.microsoft
 
 Você também pode usar nosso suporte via chat, que é gratuito para os Parceiros da Microsoft por um período limitado. Se sua empresa não for uma Parceira da Microsoft, você poderá inscrevê-la gratuitamente e obter outros benefícios [aqui](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
 
-Depois de inscrever sua empresa, será possível iniciar a solicitação de bate-papo [aqui](https://aka.ms/devchat).
+Depois de inscrever sua empresa, será possível iniciar a solicitação de chat [aqui](https://aka.ms/devchat).

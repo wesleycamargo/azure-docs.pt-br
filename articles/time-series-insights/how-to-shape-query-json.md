@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas para formatar o JSON nas consultas do Azure Time Series Insights.
-description: Saiba como melhorar a eficiência de consulta do Time Series Insights.
+title: JSON do Azure Time Series Insights – Melhores práticas para moldar JSON em consultas do Azure Time Series Insights | Microsoft Docs
+description: Saiba como melhorar a eficiência de consulta do Azure Time Series Insights.
 services: time-series-insights
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: b9d5e922a9a0a5f50e2ced896f5957fbc90d7eb4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 284bbf435c7940658753e7bbf1daff00a79d57a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364356"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273833"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Como formatar JSON para maximizar o desempenho da consulta 
 
@@ -96,7 +97,7 @@ Tabela de dados de referência (a propriedade de chave é deviceId):
 
 Tabela de eventos do Time Series Insights (após a mesclagem):
 
-| deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+| deviceId | messageId | deviceLocation |  timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | --- | --- | --- | --- | --- | --- |
 | FXXX | DADOS\_LINHA | UE | 2018-01-17T01:17:00Z | 1,0172575712203979 | 34,7 |
 | FXXX | DADOS\_LINHA | UE | 2018-01-17T01:17:00Z | 2,445906400680542 | 49,2 |
@@ -172,7 +173,7 @@ Dados de referência (as propriedades chave são deviceId e series.tagId):
 
 Tabela de eventos do Time Series Insights (após a mesclagem):
 
-| deviceId | series.tagId | messageId | deviceLocation | Tipo | unit | timestamp | series.value |
+| deviceId | series.tagId | messageId | deviceLocation | Tipo | unit |  timestamp | series.value |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | FXXX | pumpRate | DADOS\_LINHA | UE | Taxa de Fluxo | ft3/s | 2018-01-17T01:17:00Z | 1,0172575712203979 |
 | FXXX | oilPressure | DADOS\_LINHA | UE | Pressão de óleo do motor | psi | 2018-01-17T01:17:00Z | 34,7 |

@@ -12,31 +12,31 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 11/29/2018
 ms.author: dekapur
-ms.openlocfilehash: 5c184841602f269555ce2196ef660faba14dbf8a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 556b3375a0f5d138255ba4c46b034894b1037da0
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204603"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722319"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Consultar APIs do EventStore para eventos de cluster
 
 Este artigo mostra como consultar as APIs EventStore que estão disponíveis no Service Fabric versão 6.2 e posterior - se você quiser saber mais sobre o serviço EventStore, confira a [Visão geral do serviço EventStore](service-fabric-diagnostics-eventstore.md). No momento, o serviço EventStore só pode acessar dados para os últimos sete dias (isso se baseia na política de retenção de dados de diagnóstico do cluster).
 
 >[!NOTE]
->A partir do Service Fabric 6.2. As APIs do EventStore estão atualmente em versão prévia para clusters do Windows somente em execução no Azure. Estamos trabalhando mover essa funcionalidade para Linux, assim como para nossos clusters independentes.
+>As APIs de EventStore são GA a partir do Service Fabric versão 6.4 para somente os clusters do Windows em execução no Azure.
 
-As APIs EventStore pode ser acessada diretamente por meio de um ponto de extremidade REST ou programaticamente. Dependendo da consulta, há vários parâmetros necessários para coletar os dados certos. Isso geralmente inclui:
+As APIs EventStore pode ser acessada diretamente por meio de um ponto de extremidade REST ou programaticamente. Dependendo da consulta, há vários parâmetros necessários para coletar os dados certos. Normalmente, esses parâmetros incluem:
 * `api-version`: a versão das APIs EventStore que você está usando
 * `StartTimeUtc`: define o início do período que você está interessado em examinar
 * `EndTimeUtc`: final do período de tempo
 
-Além dessas, há parâmetros opcionais disponíveis, como:
-* `timeout`: substitua o tempo limite padrão de 60 segundos para executar a operação de solicitação
+Além desses parâmetros, há parâmetros opcionais disponíveis como:
+* `timeout`: substituir o tempo limite padrão de 60 segundos para executar a operação de solicitação
 * `eventstypesfilter`: isso dá a você a opção para filtrar os tipos de evento específicos
-* `ExcludeAnalysisEvents`: não retornam eventos do 'Analysis'. Por padrão, as consultas EventStore retornarão com eventos de "análise" onde possível - os eventos de análise são eventos de canal operacional mais avançados que contêm informações ou contexto adicional além de um evento normal do Service Fabric e fornecem mais detalhes.
+* `ExcludeAnalysisEvents`: não retornam eventos do 'Analysis'. Por padrão, consultas de EventStore retornarão com eventos de "análise" sempre que possível. Os eventos de análise são eventos de canal operacional mais avançados que contêm informações ou contexto adicional além de um evento normal do Service Fabric e fornecem mais detalhes.
 * `SkipCorrelationLookup`: não procura por eventos correlacionados potenciais no cluster. Por padrão, o EventStore tentará correlacionar eventos em um cluster e vincular os eventos sempre que possível. 
 
 As entidades em um cluster podem ser consultas de eventos. Você também pode consultar eventos para todas as entidades do tipo. Por exemplo, você pode consultar eventos de um nó específico ou de todos os nós no cluster. É o conjunto atual de entidades para o qual você pode consultar eventos (com como a consulta seria estruturada):
@@ -64,10 +64,10 @@ Por exemplo, para consultar todos os eventos de Cluster entre `2018-04-03T18:00:
 
 ```
 Method: GET 
-URL: http://mycluster:19080/EventsStore/Cluster/Events?api-version=6.2-preview&StartTimeUtc=2018-04-03T18:00:00Z&EndTimeUtc=2018-04-04T18:00:00Z
+URL: http://mycluster:19080/EventsStore/Cluster/Events?api-version=6.4&StartTimeUtc=2018-04-03T18:00:00Z&EndTimeUtc=2018-04-04T18:00:00Z
 ```
 
-Isso poderia retornar um erro se não houver eventos disponíveis ou, se a consulta for bem-sucedida, você verá eventos retornados em json:
+Isso também pode retornar nenhum evento ou a lista de eventos retornados em json:
 
 ```json
 Response: 200
@@ -136,39 +136,77 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
     .ToList();
 ```
 
+Aqui está outro exemplo que consultará a integridade do cluster e todos os eventos de nó em setembro de 2018 e imprime-os.
+
+```csharp
+  const int timeoutSecs = 60;
+  var clusterUrl = new Uri(@"http://localhost:19080"); // This example is for a Local cluster
+  var sfhttpClient = ServiceFabricClientFactory.Create(clusterUrl);
+
+  var clusterHealth = sfhttpClient.Cluster.GetClusterHealthAsync().GetAwaiter().GetResult();
+  Console.WriteLine("Cluster Health: {0}", clusterHealth.AggregatedHealthState.Value.ToString());
+
+  
+  Console.WriteLine("Querying for node events...");
+  var nodesEvents = sfhttpClient.EventsStore.GetNodesEventListAsync(
+      "2018-09-01T00:00:00Z",
+      "2018-09-30T23:59:59Z",
+      timeoutSecs,
+      "NodeDown,NodeUp")
+      .GetAwaiter()
+      .GetResult()
+      .ToList();
+  Console.WriteLine("Result Count: {0}", nodesEvents.Count());
+
+  foreach (var nodeEvent in nodesEvents)
+  {
+      Console.Write("Node event happened at {0}, Node name: {1} ", nodeEvent.TimeStamp, nodeEvent.NodeName);
+      if (nodeEvent is NodeDownEvent)
+      {
+          var nodeDownEvent = nodeEvent as NodeDownEvent;
+          Console.WriteLine("(Node is down, and it was last up at {0})", nodeDownEvent.LastNodeUpAt);
+      }
+      else if (nodeEvent is NodeUpEvent)
+      {
+          var nodeUpEvent = nodeEvent as NodeUpEvent;
+          Console.WriteLine("(Node is up, and it was last down at {0})", nodeUpEvent.LastNodeDownAt);
+      }
+  }
+```
+
 ## <a name="sample-scenarios-and-queries"></a>Cenários e consultas de exemplo
 
 Aqui estão alguns exemplos sobre como você pode chamar as APIs REST EventStore para reconhecer o status do cluster.
 
 *Upgrades de cluster:*
 
-Para ver a última vez em que o upgrade do cluster foi bem-sucedido ou foi tentado na semana passada, você poderá consultar as APIs para os upgrades concluídos recentemente para seu cluster consultando os eventos "ClusterUpgradeComplete" no EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeComplete`
+Para ver a última vez em que o upgrade do cluster foi bem-sucedido ou foi tentado na semana passada, você poderá consultar as APIs para os upgrades concluídos recentemente para seu cluster consultando os eventos "ClusterUpgradeCompleted" no EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
 
 *Problemas de upgrade de cluster:*
 
-Da mesma forma, se houver problemas com uma atualização recente do cluster, você poderia consultar todos os eventos para a entidade de cluster. Você verá diversos eventos, incluindo o início de upgrades e cada UD para os quais o upgrade foi distribuído com êxito. Você também verá eventos para o ponto em que a reversão foi iniciada e os eventos de integridade correspondentes. Aqui está a consulta que você deseja usar para isso: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Da mesma forma, se houver problemas com uma atualização recente do cluster, você poderia consultar todos os eventos para a entidade de cluster. Você verá diversos eventos, incluindo o início de upgrades e cada UD para os quais o upgrade foi distribuído com êxito. Você também verá eventos para o ponto em que a reversão foi iniciada e os eventos de integridade correspondentes. Aqui está a consulta que você deseja usar para isso: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *Alterações de status de nó:*
 
-Para ver as alterações do status do seu nó nos últimos dias - quando os nós são ativados ou desativados (pela plataforma, o serviço caos ou da entrada do usuário) - use a seguinte consulta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Para ver as alterações do status do seu nó nos últimos dias - quando os nós são ativados ou desativados (pela plataforma, o serviço caos ou da entrada do usuário) - use a seguinte consulta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *Eventos de aplicativo:*
 
-Você também pode acompanhar suas implantações e upgrades recentes de aplicativos. Use a consulta a seguir para ver todos os aplicativos relacionados a eventos em seu cluster: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Você também pode acompanhar suas implantações e upgrades recentes de aplicativos. Use a consulta a seguir para ver todos os eventos de aplicativo no seu cluster: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *Integridade do histórico de um aplicativo:*
 
-Além de ver apenas eventos de ciclo de vida do aplicativo, você talvez queira ver os dados históricos sobre a integridade de um aplicativo específico. Você pode fazer isso especificando o nome do aplicativo para o qual você deseja coletar os dados. Use esta consulta para obter todos os eventos de integridade do aplicativo: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReport`. Se você deseja incluir eventos de integridade que possam ter expirado (o tempo de vida (TTL) passou), adicione `,ExpiredDeployedApplicationEvent` ao final da consulta para filtrar dois tipos de eventos.
+Além de ver apenas eventos de ciclo de vida do aplicativo, você talvez queira ver os dados históricos sobre a integridade de um aplicativo específico. Você pode fazer isso especificando o nome do aplicativo para o qual você deseja coletar os dados. Use esta consulta para obter todos os eventos de integridade do aplicativo: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport`. Se você deseja incluir eventos de integridade que possam ter expirado (o tempo de vida (TTL) passou), adicione `,ApplicationHealthReportExpired` ao final da consulta para filtrar dois tipos de eventos.
 
 *Integridade do histórico para todos os serviços em "myApp":*
 
-Atualmente, os eventos de relatório de integridade para serviços aparecem como eventos do `DeployedServiceHealthReportCreated` sob a entidade correspondente do aplicativo. Para ver como seus serviços têm feito para "App1", use a seguinte consulta: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServiceHealthReportCreated`
+Atualmente, os eventos de relatório de integridade para serviços aparecem como eventos do `DeployedServicePackageNewHealthReport` sob a entidade correspondente do aplicativo. Para ver como seus serviços têm feito para "App1", use a seguinte consulta: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *Reconfiguração da partição:*
 
-Para ver todos os movimentos de partição que ocorreram em seu cluster, consulte o evento `ReconfigurationCompleted`. Isso pode ajudá-lo a descobrir quais cargas de trabalho foram executadas em qual nó em horários específicos ao diagnosticar problemas no seu cluster. Aqui está um exemplo de consulta que faz isso: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.2-preview&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigurationCompleted`
+Para ver todos os movimentos de partição que ocorreram em seu cluster, consulte o evento `PartitionReconfigured`. Isso pode ajudá-lo a descobrir quais cargas de trabalho foram executadas em qual nó em horários específicos ao diagnosticar problemas no seu cluster. Aqui está um exemplo de consulta que faz isso: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
 
 *Serviço Caos:*
 
-Há um evento para quando o serviço Caos é iniciado ou interrompido que é exposto no nível do cluster. Para ver seu uso recente do serviço Caos, use a seguinte consulta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
+Há um evento para quando o serviço Caos é iniciado ou interrompido que é exposto no nível do cluster. Para ver seu uso recente do serviço Caos, use a seguinte consulta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f95b71497b59eafff09d4add2b4bb1c20656592
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339351"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842265"
 ---
-# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: entrar usando um aplicativo iOS
+# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure Active Directory B2C: Entrar usando um aplicativo iOS
 
 A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. O uso de um protocolo de padrão aberto oferece mais opções de desenvolvedor ao selecionar uma biblioteca para integrar aos nossos serviços. Fornecemos este passo a passo e outros como ele para ajudar os desenvolvedores a escrever aplicativos que se conectam à plataforma Microsoft Identity. A maioria das bibliotecas que implementam [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode conectar-se à plataforma Microsoft Identity.
 
@@ -38,16 +38,16 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. O registro 
 * Copie a **ID de aplicativo** atribuída ao aplicativo. Você precisará desse GUID posteriormente.
 * Configure um **URI de redirecionamento** com um esquema personalizado (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Você precisará desse URI posteriormente.
 
-## <a name="create-your-policies"></a>Criar suas políticas
-No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Crie essa política conforme descrito no [artigo de referência da política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar a política, não se esqueça de fazer o seguinte:
+## <a name="create-your-user-flows"></a>Criar seus fluxos de usuário
+No Azure AD B2C, toda experiência do usuário é definida por um [fluxo de usuário](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Crie este fluxo de usuário, conforme descrito no [artigo de referência de fluxo de usuário](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Ao criar as duas políticas, não se esqueça de:
 
 * Em **Atributos de inscrição**, selecione o atributo **Nome de exibição**.  É possível selecionar outros atributos também.
 * Em **Declarações do aplicativo**, selecione as declarações **Nome de exibição** e **ID de Objeto do Usuário**. É possível selecionar outras declarações também.
-* Copie o **Nome** de cada política após criá-la. O nome da política é prefixado com `b2c_1_` quando a política é salva.  Posteriormente, você precisará do nome da política.
+* Copie o **Nome** de cada usuário após criá-lo. Seu nome de fluxo de usuário é prefixado com `b2c_1_` quando você salva o fluxo de usuário.  Você precisará do nome de fluxo do usuário mais tarde.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Depois de criar as políticas, você estará pronto para compilar o aplicativo.
+Depois de criar os fluxos de usuário, você estará pronto para compilar o aplicativo.
 
 ## <a name="download-the-sample-code"></a>Baixe o código de exemplo
 Nós fornecemos um exemplo funcional que usa o AppAuth com o Azure AD B2C [no GitHub](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Você pode baixar o código e executá-lo. Para usar seu próprio locatário Azure AD B2C, siga as instruções de [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md).
@@ -64,7 +64,7 @@ Este exemplo foi criado seguindo as instruções do LEIAME no [projeto AppAuth i
 
 Você pode configurar a comunicação com o Azure AD B2C especificando o ponto de extremidade de autorização e os URIs de ponto de extremidade de token.  Para gerar esses URIs, você precisa das seguintes informações:
 * ID do locatário (por exemplo, contoso.onmicrosoft.com)
-* Nome da política (por exemplo, B2C\_1\_SignUpIn)
+* Nome de fluxo do usuário (por exemplo, B2C\_1\_SignUpIn)
 
 O URI do ponto de extremidade de token pode ser gerado substituindo a ID\_do locatário e o nome\_da política na seguinte URL:
 

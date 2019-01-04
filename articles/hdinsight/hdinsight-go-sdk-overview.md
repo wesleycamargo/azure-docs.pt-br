@@ -5,14 +5,15 @@ services: hdinsight
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 9/21/2018
+ms.date: 09/21/2018
 ms.author: tyfox
-ms.openlocfilehash: f018130ca94c7efb7a9c6c873c150dcc382dbc4c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: 13bca67a48d1b9e73dc2f092979e455c72711316
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498301"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011328"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Versão prévia do SDK de Gerenciamento de Go do HDInsight
 
@@ -350,7 +351,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>Habilitar o monitoramento de OMS
 
 > [!NOTE]
-> Para habilitar o Monitoramento de OMS, você deve ter um workspace existente do Log Analytics. Se você já não tiver criado um, você pode aprender como fazer isso aqui: [Criar um workspace do Log Analytics no portal do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> Para habilitar o Monitoramento de OMS, você deve ter um workspace existente do Log Analytics. Se você ainda não criou, aprenda como fazer isso aqui: [Criar um workspace do Log Analytics no Portal do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 Para habilitar o Monitoramento de OMS no seu cluster:
 
@@ -378,7 +379,7 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 
 O HDInsight fornece uma função de configuração chamada ações de script que invoca os scripts personalizados para personalizar o cluster.
 > [!NOTE]
-> Mais informações sobre como usar as ações de script podem ser encontradas aqui: [Personalizar clusters HDInsight com base em Linux usando ações de script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+> Mais informações sobre como usar as ações de script podem ser encontradas aqui: [Customizar clusters HDInsight baseados em Linux usando as ações de script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
 
 ### <a name="execute-script-actions"></a>Executar ações de script
 

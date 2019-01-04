@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5d992d13a67c7b01f82b615e7131a20b84dec9e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300567"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850995"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para ADE (Azure Disk Encryption) para outra região do Azure
 
@@ -64,7 +64,7 @@ Se o usuário que estiver habilitando a recuperação de desastre (DR) não tive
 6. Aguarde o carregamento dos grupos de recursos e, em seguida, escolha o **grupo de recursos** de suas VMs.
 7. Escolha as VMs da lista de máquinas virtuais exibidas. Apenas as VMs habilitadas com a criptografia de disco do Azure são mostradas na lista.
 8. Escolha o **local de destino**.
-9. **Cofres de chaves de criptografia de disco**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", com base nas chaves de criptografia de disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado. Se necessário, escolha um cofre de chaves diferente na lista.
+9. **Cofres de chaves de criptografia de disco**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", baseado nas chaves de criptografia de disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado. Se necessário, escolha um cofre de chaves diferente na lista.
 10. **Cofres de chaves de criptografia de chave**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", com base nas chaves de criptografia de chave da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado. Se necessário, escolha um cofre de chaves diferente na lista.
 
 ## <a name="enable-replication"></a>Habilitar a replicação
@@ -74,26 +74,26 @@ Este procedimento pressupõe que a região do Azure primária seja Leste da Ási
 1. No cofre, clique em **+Replicar**.
 2. Observe os seguintes campos:
     - **Fonte**: o ponto de origem das VMs que, neste caso, é o **Azure**.
-    - **Local de origem**: a região do Azure onde você deseja proteger as máquinas virtuais. Para esta ilustração, a localização da fonte é 'Ásia Oriental'
-    - **Modelo de implantação**: o modelo de implantação do Azure de computadores de origem.
-    - **Assinatura de origem**: a assinatura à qual suas máquinas virtuais de origem pertencem. Pode ser qualquer assinatura dentro do mesmo locatário do Azure Active Directory na qual existe o cofre dos serviços de recuperação.
-    - **Grupo de recursos**: o grupo de recursos ao qual pertencem as máquinas virtuais de origem. Todas as máquinas virtuais do grupo de recursos selecionado são listadas para a proteção na próxima etapa.
+    - **Local de origem**: a região do Azure na qual você deseja proteger as máquinas virtuais. Para esta ilustração, a localização da fonte é 'Ásia Oriental'
+    - **Modelo de implantação**: o modelo de implantação do Azure para os computadores de origem.
+    - **Assinatura do Azure**: a assinatura à qual suas máquinas virtuais de origem pertencem. Pode ser qualquer assinatura dentro do mesmo locatário do Azure Active Directory na qual existe o cofre dos serviços de recuperação.
+    - **Grupo de recursos**: o grupo de recursos ao qual suas máquinas virtuais de origem pertencem. Todas as máquinas virtuais do grupo de recursos selecionado são listadas para a proteção na próxima etapa.
 
 3. Em **Máquinas Virtuais > Escolher máquinas virtuais**, clique e escolha cada VM que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
 
 4. Em **Configurações**, você também pode definir configurações do site de destino:
 
-    - **Local de destino**: o local onde seus dados de máquina virtual de origem serão replicados. Dependendo de seu local de máquinas selecionadas, a recuperação de Site fornece a lista de regiões de destino adequado. É recomendável que você mantenha o local de destino o mesmo do local do cofre dos Serviços de Recuperação.
-    - **Assinatura de destino**: a assinatura de destino usada para recuperação de desastres. Por padrão, a assinatura de destino será o mesma que a assinatura de origem.
+    - **Local de Destino**: o local no qual seus dados de máquina virtual de origem serão replicados. Dependendo de seu local de máquinas selecionadas, a recuperação de Site fornece a lista de regiões de destino adequado. É recomendável que você mantenha o local de destino o mesmo do local do cofre dos Serviços de Recuperação.
+    - **Assinatura de destino**: a assinatura de destino usada na recuperação de desastres. Por padrão, a assinatura de destino será o mesma que a assinatura de origem.
     - **Grupo de recursos de destino**: o grupo de recursos ao qual pertencem todas as máquinas virtuais replicadas. Por padrão, o Azure Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". Caso o grupo de recursos criado pelo Azure Site Recovery já exista, ele é reutilizado. Você também poderá escolher personalizá-lo conforme mostrado na seção abaixo. O local do grupo de recursos pode ser qualquer região do Azure exceto a região em que as máquinas virtuais de origem estão hospedadas.
-    - **Rede Virtual de Destino**: por padrão, o Site Recovery cria uma nova rede virtual na região de destino com o nome com um sufixo "asr". Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre o mapeamento de rede.
-    - **Contas de armazenamento de destino (se a VM de origem não usar discos gerenciados)**: por padrão, o Site Recovery cria uma nova conta de armazenamento de destino imitando sua configuração de armazenamento da VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
-    - **Discos gerenciados de réplica (se a VM de origem usar discos gerenciados)**: o Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) do disco gerenciado da VM de origem.
-    - **Contas de armazenamento em cache**: o Site Recovery precisa de uma conta de armazenamento extra, chamada armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino.
+    - **Rede virtual de destino**: Por padrão, o Site Recovery cria uma nova rede virtual na região de destino com o sufixo "asr". Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre o mapeamento de rede.
+    - **Contas de armazenamento de destino** (se a VM de origem não usa discos gerenciados): por padrão, o Site Recovery cria uma nova conta de armazenamento de destino imitando suas configurações de armazenamento da VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
+    - **Discos gerenciados de réplica** (se a VM de origem usar discos gerenciados): o Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) do disco gerenciado da VM de origem.
+    - **Contas de armazenamento em cache**: o Site Recovery precisa de uma conta de armazenamento adicional, chamada de armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino.
     - **Conjunto de disponibilidade**: por padrão, o Azure Site Recovery cria uma nova configuração de disponibilidade na região de destino com o sufixo "asr". Caso o conjunto de disponibilidade criado pelo Azure Site Recovery já exista, ele é reutilizado.
-    - **Cofres de chaves de criptografia de disco**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", com base nas chaves de criptografia de disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado.
+    - **Cofres de chaves de criptografia de disco**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", baseado nas chaves de criptografia de disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado.
     - **Cofres de chaves de criptografia de chave**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", com base nas chaves de criptografia de chave da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado.
-    - **Política de replicação**: define as configurações para histórico de retenção de ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de “24 horas” para retenção de pontos de recuperação e “60 minutos” para a frequência de instantâneo consistente do aplicativo.
+    - **Política de replicação**: define as configurações para o histórico de retenção do ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de “24 horas” para retenção de pontos de recuperação e “60 minutos” para a frequência de instantâneo consistente do aplicativo.
 
 
 

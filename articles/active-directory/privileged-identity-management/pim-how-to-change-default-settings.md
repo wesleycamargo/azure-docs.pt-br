@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038981"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835158"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Definir configurações de função do diretório do Azure AD no PIM
 
@@ -50,7 +50,15 @@ Use o controle deslizante **Ativações** para definir o tempo máximo, em horas
 
 ## <a name="notifications"></a>Notificações
 
-Use a opção **Notificações** para especificar se o sistema deve enviar emails aos administradores confirmando que ativaram uma função. Isso pode ser útil para detectar ativações não autorizadas ou ilegítimas.
+Use as **notificações** para especificar se os administradores receberão notificações por email quando as funções estiverem ativadas. Isso pode ser útil para detectar ativações não autorizadas ou ilegítimas.
+
+Quando definido como **Habilitar**, as notificações são enviadas para:
+
+- Administrador de função com privilégios
+- Administrador de segurança
+- Administrador global
+
+Para saber mais, confira [Notificações por email no PIM](pim-email-notifications.md).
 
 ## <a name="incidentrequest-ticket"></a>Tíquete de Incidente/Solicitação
 

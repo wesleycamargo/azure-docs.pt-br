@@ -1,5 +1,5 @@
 ---
-title: Certificados e o Ambiente do Serviço de Aplicativo do Azure
+title: Certificados e o Ambiente do Serviço de Aplicativo - Azure
 description: Explica diversos tópicos relacionados a certificados em um ASE
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 3d417d560d8a88100f31def27c7db5f9b2493062
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167579"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271888"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente do Serviço de Aplicativo 
 
@@ -32,8 +33,8 @@ Se você estiver usando um ASE externo, seus aplicativos serão acessados em [ap
 
 Há duas opções para configurar certificados com o ILB ASE.  Você pode definir um certificado padrão curinga para o ILB ASE ou definir certificados nos aplicativos Web individuais no ASE.  Independentemente da sua escolha, os seguintes atributos de certificado devem ser configurados corretamente:
 
-- **Entidade:** esse atributo deve ser definido como *.[seu-domínio-raiz-aqui] para um certificado de ILB ASE curinga. Se estiver criando o certificado para seu aplicativo, então ele deverá ser [appname].[seu-domínio-raiz-aqui]
-- **Nome Alternativo da Entidade**: esse atributo deve incluir *.[seu-domínio-raiz-aqui] e *.scm.[seu-domínio-raiz-aqui] para o certificado de ILB ASE curinga. Se estiver criando o certificado para seu aplicativo, então ele deverá ser [appname].[seu-domínio-raiz-aqui] e [appname].scm.[seu-domínio-raiz-aqui].
+- **Entidade:** Esse atributo deve ser definido como *.[seu-domínio-raiz-aqui] para um certificado de ILB ASE curinga. Se estiver criando o certificado para seu aplicativo, então ele deverá ser [appname].[seu-domínio-raiz-aqui]
+- **Nome Alternativo da Entidade**: Esse atributo deve incluir *.[seu-domínio-raiz-aqui] e *.scm.[seu-domínio-raiz-aqui] para o certificado de ILB ASE curinga. Se estiver criando o certificado para seu aplicativo, então ele deverá ser [appname].[seu-domínio-raiz-aqui] e [appname].scm.[seu-domínio-raiz-aqui].
 
 Como uma terceira variante, você pode criar um certificado de ILB ASE que inclua todos os nomes de aplicativo individuais na SAN do certificado em vez de usar uma referência de curinga. O problema com esse método é que você precisará saber com antecedência os nomes dos aplicativos que estiver colocando no ASE ou precisará ficar atualizando o certificado ILB ASE.
 

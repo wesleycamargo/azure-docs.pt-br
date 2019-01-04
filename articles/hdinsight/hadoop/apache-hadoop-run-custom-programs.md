@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: ccc30d336542622048cc28b991d5ecf616133c5a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c9cbea913a86a681620eea4adc0a5c99cc84f920
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633811"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433858"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Executar programas de MapReduce personalizados
 
@@ -25,7 +25,7 @@ Sistemas de big data baseados no Apache Hadoop, como HDInsight, permitem o proce
 | **Apache Hive usando HiveQL** | <ul><li>Uma solução excelente para processamento em lotes e análise de grandes quantidades de dados imutáveis, resumo de dados e consulta sob demanda. Ele usa uma sintaxe SQL familiar.</li><li>Ele pode ser usado para produzir tabelas de dados permanentes que podem ser facilmente dividas e indexadas.</li><li>Várias tabelas e visualizações externas podem ser criadas com os mesmos dados.</li><li>Ele dá suporte a um simples data warehouse que fornece recursos de grande expansão e tolerância a falhas para processamento e armazenamento de dados.</li></ul> | <ul><li>Ele requer que os dados de origem tenham pelo menos algumas estruturas de identificação.</li><li>Não é adequado para consultas em tempo real e atualizações de nível de linha. Ele é mais adequado para trabalhos em lotes com grandes conjuntos de dados.</li><li>Ele poderá não executar alguns tipos de tarefas de processamento complexo.</li></ul> |
 | **Apache Pig usando Pig Latin** | <ul><li>Uma solução excelente para manipulação de dados como conjuntos, mesclagem e filtragem de conjuntos de dados, para aplicação de funções a registros ou grupos de registros e para reestruturação de dados com a definição de colunas, pelo agrupamento de valores ou pela conversão de colunas em linhas.</li><li>Ele pode usar uma abordagem baseada em fluxo de trabalho como uma sequência de operações nos dados.</li></ul> | <ul><li>Os usuários do SQL podem achar o Pig Latin menos familiar e mais difícil de usar do que o HiveQL.</li><li>A saída padrão é geralmente um arquivo de texto e portanto pode ser mais difícil de usar com as ferramentas de visualização como o Excel. Normalmente, você cobrirá uma tabela Hive sobre a saída.</li></ul> |
 | **Mapa personalizado/redução** | <ul><li>Ele fornece controle total sobre o mapa e reduz fases e a execução.</li><li>Ele permite que as consultas sejam otimizadas para alcançar desempenho máximo do cluster, ou para reduzir a carga nos servidores e na rede.</li><li>Os componentes podem ser gravados em uma variedade de linguagens conhecidas.</li></ul> | <ul><li>É mais difícil do que usar o Pig ou o Hive porque você deve criar seu próprio mapa e reduzir os componentes.</li><li>Os processos que exigem a união de conjuntos de dados são mais difíceis de implementar.</li><li>Embora estruturas de teste estejam disponíveis, depurar códigos é mais complexo do que um aplicativo normal porque o código é executado como um trabalho em lotes sob o controle do Agendador de trabalho do Hadoop.</li></ul> |
-| **Apache HCatalog** | <ul><li>Ele abstrai os detalhes do caminho de armazenamento, facilitando a administração e removendo a necessidade dos usuários de saber onde os dados estão armazenados.</li><li>Isso possibilita a notificação de eventos como a disponibilidade de dados, permitindo que outras ferramentas, como o Oozie, detectem quando operações tiverem ocorrido.</li><li>Ele apresenta uma exibição relacional dos dados, incluindo o particionamento por chave e facilita o acesso de dados.</li></ul> | <ul><li>Ele dá suporte por padrão a formatos de arquivo RCFile, texto CSV, texto JSON, SequenceFile e ORC, mas talvez seja necessário gravar um SerDe personalizado para outros formatos.</li><li>O HCatalog não é thread-safe.</li><li>Há algumas restrições sobre os tipos de dados para colunas ao usar o carregador do HCatalog em scripts do Pig. Para obter mais informações, consulte [Tipos de Dados do HCatLoader](http://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes) na documentação do Apache HCatalog.</li></ul> |
+| **Apache HCatalog** | <ul><li>Ele abstrai os detalhes do caminho de armazenamento, facilitando a administração e removendo a necessidade dos usuários de saber onde os dados estão armazenados.</li><li>Isso possibilita a notificação de eventos como a disponibilidade de dados, permitindo que outras ferramentas, como o Oozie, detectem quando operações tiverem ocorrido.</li><li>Ele apresenta uma exibição relacional dos dados, incluindo o particionamento por chave e facilita o acesso de dados.</li></ul> | <ul><li>Ele dá suporte por padrão a formatos de arquivo RCFile, texto CSV, texto JSON, SequenceFile e ORC, mas talvez seja necessário gravar um SerDe personalizado para outros formatos.</li><li>O HCatalog não é thread-safe.</li><li>Há algumas restrições sobre os tipos de dados para colunas ao usar o carregador do HCatalog em scripts do Pig. Para obter mais informações, consulte [Tipos de Dados do HCatLoader](https://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes) na documentação do Apache HCatalog.</li></ul> |
 
 Normalmente, você usa a mais simples dessas soluções que podem fornecer os resultados que você precisa. Por exemplo, você poderá obter esses resultados usando apenas o Hive, mas para cenários mais complexos pode precisar usar o Pig, ou até mesmo gravar seu próprio mapa e reduzir os componentes. Você também pode decidir, depois de testar o Hive ou o Pig, que criar um mapa personalizado e reduzir componentes podem oferecer melhor desempenho, permitindo que você ajuste e otimize o processamento.
 
@@ -74,8 +74,8 @@ Os programas de MapReduce mais comuns são gravados em Java e compilados em um a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Usar o C# com MapReduce de streaming no Hadoop no HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Desenvolver programas do Java MapReduce para o Hadoop no HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Usar C# com streaming do MapReduce no Apache Hadoop no HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Desenvolver programas do MapReduce em Java para o Apache Hadoop no HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 * [Desenvolver programas MapReduce de streaming do Hadoop para o HDInsight](apache-hadoop-streaming-python.md)
-* [Usar o Kit de ferramentas do Azure para Eclipse para criar aplicativos Spark para um cluster HDInsight](../spark/apache-spark-eclipse-tool-plugin.md)
-* [Usar as UDF (Funções Definidas pelo Usuário) do Python com o Hive e o Pig no HDInsight](python-udf-hdinsight.md)
+* [Usar o Azure Toolkit for Eclipse para criar aplicativos do Apache Spark para um cluster HDInsight](../spark/apache-spark-eclipse-tool-plugin.md)
+* [Usar UDF (funções definidas pelo usuário) do Python com o Apache Hive e o Apache Pig no HDInsight](python-udf-hdinsight.md)

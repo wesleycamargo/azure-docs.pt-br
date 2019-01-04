@@ -1,6 +1,6 @@
 ---
-title: Importação de dados no Azure Search | Microsoft Docs
-description: Aprenda a carregar dados em um índice no Azure Search.
+title: Importação de dados para ingestão de dados em um índice de pesquisa – Azure Search
+description: Popule e carregue dados em um índice no Azure Search por meio de fontes de dados externas.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249771"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314849"
 ---
-# <a name="indexing-in-azure-search"></a>Indexação no Azure Search
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexando dados externos para consultas no Azure Search
 > [!div class="op_single_selector"]
 > * [Visão geral](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249771"
 > 
 > 
 
-No Azure Search, as consultas são executadas em seu conteúdo carregado em um [índice de pesquisa](search-what-is-an-index.md). Este artigo examina as duas abordagens básicas para carregar o conteúdo em um índice: envie por *push* seus dados para o índice programaticamente ou aponte um [indexador do Azure Search](search-indexer-overview.md) em uma fonte de dados com suporte para *pull* nos dados.
+No Azure Search, as consultas são executadas sobre o conteúdo carregado e salvo em um [índice de pesquisa](search-what-is-an-index.md). Este artigo examina as duas abordagens básicas para popular um índice: enviar os dados por *push* para o índice de forma programática ou apontar um [indexador do Azure Search](search-indexer-overview.md) em uma fonte de dados com suporte para efetuar *pull* dos dados.
 
 ## <a name="pushing-data-to-an-index"></a>Envio por push de dados para um índice
 O modelo de push, usado para enviar seus dados para o Azure Search, é a abordagem mais flexível. Primeiro, ele não tem restrições de tipo de fonte de dados. Qualquer conjunto de dados composto por documentos JSON pode ser enviado a um índice do Azure Search, supondo que cada documento no conjunto de dados tenha mapeamentos para campos definidos no seu esquema de índice. Em segundo lugar, ele não tem nenhuma restrição de frequência de execução. Você pode enviar por push as alterações para um índice sempre que desejar. Para os aplicativos com requisitos de latência muito baixos (por exemplo, se você precisar que as operações de pesquisa estejam sincronizadas com os bancos de dados de inventário), um modelo de push será sua única opção.

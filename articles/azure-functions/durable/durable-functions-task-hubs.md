@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 7a6346e594c5a7cc4cf02f3ea658aac4977e641a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637451"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336893"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tarefas nas Funções Duráveis (Azure Functions)
 
@@ -27,7 +27,7 @@ Cada aplicativo de funções tem um hub de tarefas separado. Se vários aplicati
 
 ## <a name="azure-storage-resources"></a>Recursos de Armazenamento do Azure
 
-Um hub de tarefas é composto pelos seguinte recursos de armazenamento: 
+Um hub de tarefas é composto pelos seguinte recursos de armazenamento:
 
 * Uma ou mais filas de controle.
 * Uma fila de item de trabalho.
@@ -41,7 +41,8 @@ Todos esses recursos são criados automaticamente na conta padrão do Armazename
 
 Os hubs de tarefas são identificados por um nome declarado no arquivo *host.json*, conforme mostrado no exemplo a seguir:
 
-### <a name="hostjson-functions-v1"></a>host.json (Funções v1)
+### <a name="hostjson-functions-1x"></a>host.json (funções 1.x)
+
 ```json
 {
   "durableTask": {
@@ -49,7 +50,9 @@ Os hubs de tarefas são identificados por um nome declarado no arquivo *host.jso
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json (funções v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (funções 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -60,9 +63,11 @@ Os hubs de tarefas são identificados por um nome declarado no arquivo *host.jso
   }
 }
 ```
+
 Os hubs de tarefas também podem ser configurados usando as configurações do aplicativo, conforme mostrado no seguinte arquivo de exemplo *host.json*:
 
-### <a name="hostjson-functions-v1"></a>host.json (Funções v1)
+### <a name="hostjson-functions-1x"></a>host.json (funções 1.x)
+
 ```json
 {
   "durableTask": {
@@ -70,7 +75,9 @@ Os hubs de tarefas também podem ser configurados usando as configurações do a
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json (funções v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (funções 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -81,14 +88,46 @@ Os hubs de tarefas também podem ser configurados usando as configurações do a
   }
 }
 ```
+
 O nome do hub de tarefas será definido com o valor da configuração do aplicativo `MyTaskHub`. O seguinte `local.settings.json` demonstra como definir a `MyTaskHub`configurar como `samplehubname`:
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "MyTaskHub" :  "samplehubname" 
+    "MyTaskHub" : "samplehubname"
   }
+}
+```
+
+Confira um exemplo pré-compilado em C# de como escrever uma função que usa um [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) para trabalhar com um hub de tarefas configurado como uma Configuração de Aplicativo:
+
+```csharp
+[FunctionName("HttpStart")]
+public static async Task<HttpResponseMessage> Run(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    string functionName,
+    ILogger log)
+{
+    // Function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    return starter.CreateCheckStatusResponse(req, instanceId);
+}
+```
+
+E abaixo está a configuração necessária para JavaScript. A propriedade do hub de tarefas no arquivo `function.json` é definida por meio da Configuração de Aplicativo:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
 }
 ```
 

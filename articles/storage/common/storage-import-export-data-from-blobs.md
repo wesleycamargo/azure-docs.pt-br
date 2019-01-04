@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 25ea4f41ac1fa36c7f9b6f64bc7c4eede4702f38
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821235"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315172"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para exportar com segurança grandes quantidades de dados do Armazenamento de Blobs do Azure. O serviço requer que você envie unidades vazias para o datacenter do Azure. O serviço exporta os dados de sua conta de armazenamento para as unidades e, em seguida, envia as unidades de volta.
@@ -67,7 +67,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
          ![Exportar tudo](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
 
     - Você pode especificar quais contêineres e blobs exportar.
-        - **Para especificar um blob para exportar**: Use o seletor **Igual a**. Especifique o caminho relativo do blob, começando com o nome do contêiner. Use *$root* para especificar o contêiner raiz.
+        - **Especificar um blob para exportar**: Use o seletor **Igual a**. Especifique o caminho relativo do blob, começando com o nome do contêiner. Use *$root* para especificar o contêiner raiz.
         - **Para especificar todos os blobs que começam com um prefixo**: Use o seletor **Começa com**. Especifique o prefixo, começando com uma barra '/'. O prefixo pode ser do nome do contêiner, o nome do contêiner completo ou o nome do contêiner completo seguido do prefixo do nome do blob. Você deve fornecer os caminhos de blob no formato válido para evitar erros durante o processamento, como mostrado nesta captura de tela. Para obter mais informações, consulte [Exemplos de caminhos de blob válido](#examples-of-valid-blob-paths). 
    
            ![Exporte os blobs e os contêineres selecionados](./media/storage-import-export-data-from-blobs/export-from-blob5.png) 
@@ -87,7 +87,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
     - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
         > [!TIP] 
-        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Os dados dos logs para a versão de dados na versão de conteúdo.
+        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
    
 5. Em **resumo**:
 
@@ -105,7 +105,7 @@ Se você não souber o número de unidades que você precisa, vá para [Verifica
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-3-update-the-job-with-tracking-information"></a>Etapa 3: Atualizar o trabalho com informações de controle
+## <a name="step-3-update-the-job-with-tracking-information"></a>Etapa 3: Atualizar o trabalho com informações de acompanhamento
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
@@ -127,7 +127,7 @@ A exportação foi concluída. Neste momento, você pode excluir o trabalho ou e
 
 Essa etapa *opcional* ajuda você a determinar o número de unidades necessárias para o trabalho de exportação. Execute essa etapa em um sistema Windows executando uma [versão do sistema operacional com suporte](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Baixe o WAImportExport versão 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) no sistema Windows. 
+1. [Baixe o WAImportExport versão 1](https://aka.ms/waiev1) no sistema Windows. 
 2. Descompacte para a pasta padrão `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
 3. Abra um PowerShell ou janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o seguinte comando:
     

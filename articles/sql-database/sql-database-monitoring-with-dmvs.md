@@ -1,5 +1,5 @@
 ---
-title: Monitoramento de Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico | Microsoft Docs
+title: Banco de Dados SQL do Azure de desempenho de monitoramento Usando DMVs | Microsoft Docs
 description: Saiba como detectar e diagnosticar problemas de desempenho comuns usando exibições de gerenciamento dinâmico para monitorar o Banco de Dados SQL do Microsoft Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88e0ad847d8d779bd769ed73d4f0393ddfb65588
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288520"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876306"
 ---
-# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico
+# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Desempenho de monitoramento do Banco de Dados SQL usando exibições de gerenciamento dinâmico
 
 O Banco de Dados SQL do Microsoft Azure permite um subconjunto de modos de exibição de gerenciamento dinâmico para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou demoradas, gargalos de recursos, planos de consulta ruins e assim por diante. Este tópico fornece informações sobre como detectar problemas de desempenho comuns usando exibições de gerenciamento dinâmico.
 

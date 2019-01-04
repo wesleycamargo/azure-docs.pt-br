@@ -1,21 +1,19 @@
 ---
-title: Dicas de desempenho do Azure Cosmos DB para .NET| Microsoft Docs
+title: Dicas de desempenho do Microsoft Azure Cosmos DB para .NET
 description: Saiba mais sobre as opções de configuração do cliente para melhorar o desempenho de banco de dados do Azure Cosmos DB
 keywords: como melhorar o desempenho do banco de dados
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 91da40613e940b3dd577362273cf14e68d019f26
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d4d730fe6c72b55a01f7c5f1f95cbd94ff145fba
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442464"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873743"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -32,7 +30,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 ## <a name="networking"></a>Rede
 <a id="direct-connection"></a>
 
-1. **Política de conexão: usar o modo de conexão direta**
+1. **Política de Conexão: Use o modo de conexão direta**
 
     Como um cliente se conecta ao Azure Cosmos DB tem implicações importantes sobre o desempenho, especialmente em termos da latência observada do lado do cliente. Há duas definições principais da configuração disponíveis para configurar a Política de conexão do cliente – o *modo* da conexão e o [protocolo da *conexão*](#connection-protocol).  Os dois modos disponíveis são:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Pacific Timesheet | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Pacific Timesheet | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Pacific Timesheet.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 051e39d0e7a58c79eb00bc3dfb73eaf5389617c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448356"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843641"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: integração do Azure Active Directory com o Pacific Timesheet
+# <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: Integração do Azure Active Directory com o Pacific Timesheet
 
 Neste tutorial, você aprenderá a integrar o Pacific Timesheet ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Pacific Timesheet da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,12 +112,12 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do cliente do Pacific Timesheet](http://www.pacifictimesheet.com/support) para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do cliente do Pacific Timesheet](https://www.pacifictimesheet.com/support) para obter esses valores.
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -131,10 +131,10 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_configure.png) 
 
-1. Para configurar o logon único no lado do **Pacific Timesheet**, é necessário enviar o **Certificado (Base64)** baixado, a **URL do Serviço de Logon Único SAML** e a **ID da Entidade SAML** para a [equipe de suporte do Pacific Timesheet](http://www.pacifictimesheet.com/support). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **Pacific Timesheet**, é necessário enviar o **Certificado (Base64)** baixado, a **URL do Serviço de Logon Único SAML** e a **ID da Entidade SAML** para a [equipe de suporte do Pacific Timesheet](https://www.pacifictimesheet.com/support). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -160,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/pacific-timesheet-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -170,7 +170,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-pacific-timesheet-test-user"></a>Criando um usuário de teste do Pacific Timesheet
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Pacific Timesheet. Trabalhe com a [equipe de suporte do Pacific Timesheet](http://www.pacifictimesheet.com/support) para criar um usuário no aplicativo.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Pacific Timesheet. Trabalhe com a [equipe de suporte do Pacific Timesheet](https://www.pacifictimesheet.com/support) para criar um usuário no aplicativo.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

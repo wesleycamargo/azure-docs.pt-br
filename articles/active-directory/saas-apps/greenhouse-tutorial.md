@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Greenhouse | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Greenhouse | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Greenhouse.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 7f48a0c11beb038370a8fc00e64d87127d356dec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 14cdf0ddf648fb4441785106d3a8123d73a4bde9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424736"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835889"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: integração do Active Directory do Azure ao Greenhouse
+# <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: Integração do Active Directory do Azure ao Greenhouse
 
 Neste tutorial, você aprende a integrar o Greenhouse ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Greenhouse por meio da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único em Domínio e URLs do Greenhouse](./media/greenhouse-tutorial/tutorial_greenhouse_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.greenhouse.io`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.greenhouse.io`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.greenhouse.io`
 
@@ -127,10 +127,10 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Botão Salvar em Configurar Logon Único](./media/greenhouse-tutorial/tutorial_general_400.png)
 
-1. Para configurar o logon único no lado do **Greenhouse**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Greenhouse](http://www.greenhouse.io/contact).
+1. Para configurar o logon único no lado do **Greenhouse**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Greenhouse](https://www.greenhouse.io/contact).
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -188,7 +188,7 @@ Para permitir que os usuários do Azure AD façam logon no Greenhouse, eles deve
    
    ![Adicionar Novo Usuário](./media/greenhouse-tutorial/ic790793.png "Adicionar Novo Usuário")
 
-   a. Na caixa de texto **Inserir email de usuários** , digite o endereço de email de uma conta válida do Active Directory do Azure que você deseja provisionar.
+    a. Na caixa de texto **Inserir email de usuários** , digite o endereço de email de uma conta válida do Active Directory do Azure que você deseja provisionar.
 
    b. Clique em **Salvar**.    
    

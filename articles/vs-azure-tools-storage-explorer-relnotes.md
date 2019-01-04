@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 608dd6067e5c9d31f720b97453615a3e8ead0a85
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038613"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101408"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
@@ -165,9 +165,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
@@ -221,9 +221,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
@@ -276,9 +276,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
@@ -336,9 +336,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
@@ -371,11 +371,11 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Definir o nível de acesso público para um contêiner removeria todas as políticas de acesso e vice-versa. Agora, o nível de acesso público e as políticas de acesso são preservados ao definir qualquer um dos dois. [Nº 197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
 * "AccessTierChangeTime" estava truncado na caixa de diálogo Propriedades. Esse problema foi corrigido. [Nº 145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
 * O prefixo "Gerenciador de Armazenamento do Microsoft Azure –" estava ausente na caixa de diálogo Criar novo diretório. Esse problema foi corrigido. [Nº 299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* Acessibilidade: a caixa de diálogo Adicionar entidade era difícil navegar usando o VoiceOver. Foram feitas melhorias. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* Acessibilidade: a cor da tela de fundo do botão recolher/expandir do painel Ações e Propriedades estava inconsistente com os controles da interface do usuário semelhantes no tema Preto em alto contraste. A cor mudou. [Nº 123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* Acessibilidade: no tema Preto em alto contraste, o estilo do foco do botão "X" na caixa de diálogo Propriedades não estava visível. Esse problema foi corrigido. [Nº 243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* Acessibilidade: as guias Ações e Propriedades com vários valores aria ausentes que resultavam em uma experiência de leitor de tela ruim. Agora os valores aria ausentes foram adicionados. [Nº 316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* Acessibilidade: os três nós recolhidos do lado esquerdo não receberam um valor aria expandido de falso. Esse problema foi corrigido. [Nº 352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* Acessibilidade: a caixa de diálogo Adicionar Entidade era difícil de navegar usando o VoiceOver. Foram feitas melhorias. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Acessibilidade: a cor de plano de fundo do botão recolher/expandir do painel Ações e Propriedades estava inconsistente com controles semelhantes da interface do usuário no tema Preto em alto contraste. A cor mudou. [Nº 123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Acessibilidade: no tema Preto em alto contraste, o estilo do foco do botão "X" na caixa de diálogo Propriedades não ficava visível. Esse problema foi corrigido. [Nº 243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Acessibilidade: as guias Ações e Propriedades tinham vários valores aria ausentes, o que resultava em uma experiência de leitor de tela ruim. Agora os valores aria ausentes foram adicionados. [Nº 316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* Acessibilidade: os três nós recolhidos no lado esquerdo não receberam um valor aria expandido “falso”. Esse problema foi corrigido. [Nº 352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Consulte [esse problema](https://github.com/Microsoft/AzureStorageExplorer/issues/537) para obter mais informações.
@@ -393,9 +393,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
    * Exclusão reversível
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
@@ -450,9 +450,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
@@ -504,9 +504,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
@@ -570,9 +570,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
@@ -607,9 +607,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
@@ -656,9 +656,9 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
@@ -702,9 +702,11 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -764,9 +766,11 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -818,9 +822,11 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
 * Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
 
     ```
@@ -913,11 +919,11 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 #### <a name="fixes"></a>Correções
 
-* Corrigido: o carregamento do arquivo tinha uma chance maior de causar um erro de falta de memória
+* Corrigido: o carregamento do arquivo tinha uma chance alta de causar um erro de falta de memória
 * Corrigido: agora você pode entrar com PIN/Cartão inteligente
 * Corrigido: a opção Abrir no Portal agora funciona com o Azure China, Azure Alemanha, Azure US Government e Azure Stack
-* Corrigido: às vezes, durante o carregamento de uma pasta em um contêiner de blob, um erro "Operação ilegal" ocorria
-* Corrigido: selecionar tudo foi desabilitado ao gerenciar instantâneos
+* Corrigido: às vezes, durante o carregamento de uma pasta em um contêiner de blob, ocorria um erro "Operação ilegal"
+* Corrigido: selecionar tudo foi desabilitado durante o gerenciamento de instantâneos
 * Corrigido: os metadados do blob de base podem ser substituídos após a exibição das propriedades de seus instantâneos
 
 #### <a name="known-issues"></a>Problemas conhecidos
@@ -1029,10 +1035,10 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 * Corrigido: agora, o Gerenciador de Armazenamento é um aplicativo confiável no Mac
 * Corrigido: o Ubuntu 14.04 tem suporte novamente
-* Corrigido: às vezes, a interface do usuário de adição de conta pisca ao carregar assinaturas
-* Corrigido: às vezes, nem todos os recursos de armazenamento foram listados no painel de navegação do lado esquerdo
-* Corrigido: o painel de ações, às vezes, exibido ações vazias
-* Corrigido: o tamanho da janela da última sessão fechada agora é retido
+* Corrigido: às vezes, a interface do usuário para adição de conta pisca ao carregar assinaturas
+* Corrigido: às vezes, nem todos os recursos de armazenamento são listados no painel de navegação à esquerda
+* Corrigido: o painel de ações às vezes exibia ações vazias
+* Corrigido: o tamanho da janela da última sessão fechada agora é mantido
 * Corrigido: você pode abrir várias guias para o mesmo recurso usando o menu de contexto
 
 #### <a name="known-issues"></a>Problemas conhecidos
@@ -1055,7 +1061,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Introduzimos novamente a pesquisa com escopo com nossa nova pesquisa avançada de subcadeia de caracteres, e agora você tem duas opções de pesquisa:
     * Pesquisa global – basta inserir um termo de pesquisa na caixa de texto de pesquisa
     * Pesquisa com escopo – clique no ícone de lupa ao lado de um nó, adicione um termo de pesquisa ao final do caminho, ou clique com o botão direito e selecione "Pesquisar aqui"
-* Adicionamos vários temas: luz (padrão), escuro, preto em alto contraste e branco em alto contraste. Acesse Editar –&gt; Temas para alterar sua preferência de temas
+* Adicionamos vários temas: claro (padrão), escuro, preto em alto contraste e branco em alto contraste. Acesse Editar –&gt; Temas para alterar sua preferência de temas
 * Você pode modificar as propriedades do Blob e do arquivo
 * Agora, damos suporte mensagens em fila codificadas (base64) e não codificadas
 * No Linux, um sistema operacional de 64 bits agora é necessário. Para esta versão, só há suporte para Ubuntu 16.04.1 LTS de 64 bits
@@ -1063,11 +1069,11 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 #### <a name="fixes"></a>Correções
 
-* Corrigido: Tela problemas congelamento
+* Corrigido: problemas de congelamento de tela
 * Corrigido: Segurança aprimorada
-* Corrigido: às vezes, contas anexadas duplicadas apareciam
-* Corrigido: um blob com um tipo de conteúdo indefinido pode gerar uma exceção
-* Corrigido: a abertura do Painel de Consulta em uma tabela vazia não era possível
+* Corrigido: às vezes apareciam contas anexadas duplicadas
+* Corrigido: um blob com um tipo de conteúdo indefinido poderia gerar uma exceção
+* Corrigido: não era possível abrir o Painel de Consulta em uma tabela vazia
 * Corrigido: vários bugs na Pesquisa
 * Corrigido: aumento do número de recursos carregados de 50 para 100 ao clicar em "Carregar Mais"
 * Corrigido: agora, na primeira execução, se uma conta for conectada, selecionamos todas as assinaturas para essa conta por padrão

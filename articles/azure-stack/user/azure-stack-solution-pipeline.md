@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967054"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714603"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implantar aplicativos no Azure e o Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implantar aplicativos no Azure Stack e no Azure
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Saiba como implantar um aplicativo do Azure e Azure Stack usando um pipeline de entrega (CI/CD) híbrida/integração contínua.
 
@@ -72,7 +72,7 @@ Este tutorial pressupõe que você tenha algum conhecimento básico do Azure e o
 ### <a name="azure-requirements"></a>Requisitos do Azure
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* Criar uma [aplicativo Web](https://docs.microsoft.com/azure/app-service/app-service-web-overview) no Azure. Observe da URL do aplicativo Web, você precisará usá-lo no tutorial.
+* Criar uma [aplicativo Web](https://docs.microsoft.com/azure/app-service/overview) no Azure. Observe da URL do aplicativo Web, você precisará usá-lo no tutorial.
 
 ### <a name="azure-stack-requirements"></a>Requisitos de pilha do Azure
 
@@ -166,7 +166,7 @@ Como parte da configuração do ponto de extremidade de serviço, serviços de D
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Conceder os direitos de entidade de serviço para implantar recursos na assinatura do Azure Stack
 
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões recomendadas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões recomendadas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: Funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que ele pode ler o grupo de recursos e qualquer um de seus recursos.
 
@@ -180,9 +180,7 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
 3. No Visual Studio Enterprise, selecione **controle de acesso (IAM)**.
 
-    ![IAM (Controle de Acesso)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Selecione **Adicionar**.
+4. Selecione **Adicionar atribuição de função**.
 
     ![Adicionar](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
@@ -350,7 +348,7 @@ CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutu
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Criar a implantação de aplicativo web independente para serviços de aplicativos em ambas as nuvens
 
-1. Editar o **WebApplication.csproj** arquivo: selecione **Runtimeidentifier** e, em seguida, adicione `win10-x64.` para obter mais informações, consulte [implantação autocontida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.
+1. Editar o **WebApplication.csproj** arquivo: Selecione **Runtimeidentifier** e, em seguida, adicione `win10-x64.` para obter mais informações, consulte [implantação autocontida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.
 
     ![Configurar Runtimeidentifier](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 
@@ -358,7 +356,7 @@ CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutu
 
 3. Confirme se o código do aplicativo foi marcado nos serviços de DevOps do Azure.
 
-### <a name="create-the-build-pipeline"></a>Criar o pipeline de compilação
+### <a name="create-the-build-pipeline"></a>Criar o pipeline de build
 
 1. Entrar nos serviços de DevOps do Azure com uma organização que pode criar um pipeline de compilação.
 

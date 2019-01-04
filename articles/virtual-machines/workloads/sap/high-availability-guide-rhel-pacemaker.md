@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: f8e16af629eaa18b49b054be9fc478d633263ddb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: d023bf4428790667ef192a3ce981087694224f50
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636792"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724529"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurando o Pacemaker no Red Hat Enterprise Linux no Azure
 
@@ -50,7 +50,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * O software SAP e combinações de SO (sistema operacional) e banco de dados com suporte.
   * A versão do kernel do SAP necessária para Windows e Linux no Microsoft Azure.
 * A Nota SAP [2015553] lista pré-requisitos para implantações de software SAP com suporte do SAP no Azure.
-* Nota SAP [2002167] recomendou configurações do SO para o Red Hat Enterprise Linux
+* Nota SAP [2002167] recomendou configurações do sistema operacional Red Hat Enterprise Linux
 * Nota SAP [2009879] tem diretrizes SAP HANA para Red Hat Enterprise Linux
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramentos relatadas para o SAP no Azure.
 * A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
@@ -224,10 +224,10 @@ Atribua a função personalizada “Função do Agente de Isolamento Linux" que 
 1. Abra a folha Todos os recursos
 1. Selecione a máquina virtual do primeiro nó do cluster
 1. Clique em Controle de acesso (IAM)
-1. Clique em Adicionar
+1. Clique em Adicionar atribuição de função
 1. Selecione a função "Função do Agente de Isolamento do Linux”
 1. Digite o nome do aplicativo criado acima
-1. Clique em OK
+1. Clique em Salvar
 
 Repita as etapas acima para o segundo nó do cluster.
 

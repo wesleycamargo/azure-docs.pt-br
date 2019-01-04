@@ -2,19 +2,19 @@
 title: Planejamento de capacidade de cluster no Azure HDInsight
 description: Como especificar um cluster HDInsight quanto a capacidade e desempenho.
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.author: hrasheed
+ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499105"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193851"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -32,7 +32,7 @@ As principais perguntas para o planejamento de capacidade são:
 
 A região do Azure determina o local em que o cluster é provisionado fisicamente. Para minimizar a latência de leituras e gravações, o cluster deve ficar próximo aos seus dados.
 
-O HDInsight está disponível em muitas regiões do Azure. Para localizar a região mais próxima, consulte a entrada *Linux HDInsight* em *Dados + Análise* em [Produtos do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).
+O HDInsight está disponível em muitas regiões do Azure. Para localizar a região mais próxima, consulte a entrada *HDInsight* em *Análise* em [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
 ## <a name="choose-storage-location-and-size"></a>Escolher o tamanho e o local de armazenamento
 
@@ -75,7 +75,7 @@ O tamanho e o tipo da VM são determinados pelo poder de processamento da CPU, p
 
 * RAM: o tamanho da VM também determina a quantidade de RAM disponível na VM. Para cargas de trabalho que armazenam dados na memória para processamento em vez de ler no disco, verifique se os nós de trabalho têm memória suficiente que se ajuste aos dados.
 
-* Rede: para a maioria dos tipos de cluster, os dados processados pelo cluster não estão no disco local mas, em vez disso, ficam em um serviço de armazenamento externo como o Data Lake Store ou o Armazenamento do Azure. Considere a largura de banda e taxa de transferência da rede entre a VM do nó e o serviço de armazenamento. Geralmente, a largura de banda da rede disponível para uma VM aumenta com tamanhos maiores. Para mais detalhes, consulte [Visão geral sobre tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Rede: para a maioria dos tipos de cluster, os dados processados pelo cluster não estão no disco local, mas, em vez disso, ficam em um serviço de armazenamento externo como o Data Lake Storage ou o Armazenamento do Azure. Considere a largura de banda e taxa de transferência da rede entre a VM do nó e o serviço de armazenamento. Geralmente, a largura de banda da rede disponível para uma VM aumenta com tamanhos maiores. Para mais detalhes, consulte [Visão geral sobre tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Escolher a escala do cluster
 
@@ -95,19 +95,39 @@ Você é cobrado pelo tempo de vida do cluster. Se houver apenas momentos espec�
 
 ### <a name="isolate-cluster-job-errors"></a>Isolar os erros de trabalho do cluster
 
-Às vezes, os erros podem ocorrer devido à execução paralela de vários componentes de mapeamento e redução em um cluster de vários nós. Para ajudar a isolar o problema, experimente os testes distribuídos através da execução simultânea de vários trabalhos em um cluster de nó único e, em seguida, expanda essa abordagem para executar várias tarefas simultaneamente em clusters que contenham mais de um nó. Para criar um cluster HDInsight de nó único no Azure, use a opção *avançada*.
+Às vezes, os erros podem ocorrer devido à execução paralela de vários mapas e componentes de redução em um cluster de vários nós. Para ajudar a isolar o problema, experimente os testes distribuídos através da execução simultânea de vários trabalhos em um cluster de nó único e, em seguida, expanda essa abordagem para executar várias tarefas simultaneamente em clusters que contenham mais de um nó. Para criar um cluster HDInsight de nó único no Azure, use a opção *avançada*.
 
-Você também pode instalar um ambiente de desenvolvimento de nó único em seu computador local e testar a solução nesse ambiente. A Hortonworks fornece um ambiente de desenvolvimento local de nó único para soluções baseadas em Hadoop que é útil para o desenvolvimento inicial, a prova de conceito e o teste. Para obter mais informações, consulte a [Área Restrita do Hortonworks](http://hortonworks.com/products/hortonworks-sandbox/).
+Você também pode instalar um ambiente de desenvolvimento de nó único em seu computador local e testar a solução nesse ambiente. A Hortonworks fornece um ambiente de desenvolvimento local de nó único para soluções baseadas em Hadoop que é útil para o desenvolvimento inicial, a prova de conceito e o teste. Para obter mais informações, consulte a [Área Restrita do Hortonworks](https://hortonworks.com/products/hortonworks-sandbox/).
 
 Para identificar o problema em um cluster local de nó único, você pode executar novamente os trabalhos com falha e ajustar os dados de entrada ou usar conjuntos de dados menores. A forma como você executa esses trabalhos depende da plataforma e do tipo da aplicação.
 
 ## <a name="quotas"></a>Cotas
 
-Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, verifique os limites de capacidade de cota atuais da sua assinatura. Ao atingir um limite de cota, você não poderá implantar novos clusters ou aumentar os clusters existentes, adicionando mais nós de trabalho. O limite de cota alcançado com mais frequência é a cota de Núcleos de CPU que existe nos níveis de assinatura, região e de série de VM. Por exemplo, sua assinatura pode ter um limite total de 200 núcleos, com um limite de 30 núcleos em sua região e um limite de 30 núcleos em instâncias de VM. Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, verifique os limites de capacidade de cota atuais da sua assinatura. Ao atingir um limite de cota, você não poderá implantar novos clusters ou aumentar os clusters existentes, adicionando mais nós de trabalho. O único limite de cota é a cota de Núcleos de CPU que existe no nível da região para cada assinatura. Por exemplo, sua assinatura pode ter o limite de 30 núcleos na região Leste dos EUA. Se precisar solicitar um aumento de cota, siga estes passos:
+
+1. Vá para o Portal do Azure
+1. Clique em **Ajuda e Suporte** no lado inferior esquerdo da página.
+1. Clique em **Nova Solicitação de Suporte**.
+1. Na página **Nova solicitação de suporte**, na guia **Noções básicas**, selecione as opções a seguir:
+    - **Tipo de problema**: **Limites de serviço e assinatura (cotas)**
+    - **Assinatura**: a assinatura que você quer modificar
+    - **Tipo de cota**: **HDInsight**
+    
+    ![Crie uma solicitação de suporte para aumentar a cota de núcleos do HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. Clique em **Próximo**.
+1. Na página **Detalhes**, insira uma descrição do problema, selecione a gravidade do problema e selecione o método de contato preferencial.
+1. Clique em **Avançar: Revisar + criar**.
+1. Na página **Revisar + criar**, clique em **Criar**.
+
+> [!Note]
+> Se precisar aumentar a cota de núcleos do HDInsight em uma região privada, [envie uma solicitação de lista de permissões](https://aka.ms/canaryintwhitelist).
+
+Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 No entanto, há alguns limites de cota fixos, por exemplo, uma única assinatura do Azure pode ter, no máximo, 10 mil núcleos. Para detalhes sobre esses limites, confira [Assinatura do Azure e limites, cotas e restrições de serviços](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configure os clusters no HDInsight com Apache Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como instalar e configurar clusters no HDInsight com Apache Hadoop, Spark, Kafka, Hive Interativo, HBase, Serviços ML ou Storm.
+* [Configurar clusters no HDInsight com Apache Hadoop, Spark, Kafka e mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como instalar e configurar clusters HDInsight com Apache Hadoop, Spark, Kafka, Hive Interativo, HBase, ML Services ou Storm.
 * [Monitorar o desempenho do cluster](hdinsight-key-scenarios-to-monitor.md): saiba mais sobre os principais cenários a serem monitorados em seu cluster HDInsight e que podem afetar a capacidade do seu cluster.

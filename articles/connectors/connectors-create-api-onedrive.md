@@ -1,6 +1,6 @@
 ---
-title: Conectar ao OneDrive – Aplicativo Lógico do Azure | Microsoft Docs
-description: Carregar e gerenciar arquivos com as APIs REST do OneDrive e o Aplicativo Lógico do Azure
+title: Conectar ao OneDrive – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Carregar e gerenciar arquivos com as APIs REST do OneDrive e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

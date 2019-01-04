@@ -1,6 +1,6 @@
 ---
-title: Implantar módulos no Azure IoT Edge | Microsoft Docs
-description: Saiba mais sobre como os módulos são implantados em dispositivos de borda
+title: Implantação automática para grupos de dispositivos - Azure IoT Edge | Microsoft Docs
+description: Use implantações automáticas do Azure IoT Edge para gerenciar grupos de dispositivos com base em marcas compartilhadas
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584835"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100099"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala
 

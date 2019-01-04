@@ -1,6 +1,6 @@
 ---
-title: Atualizando para o SDK do .NET do Azure Search versão 5 | Microsoft Docs
-description: Atualizando para o SDK do .NET do Azure Search versão 5
+title: Atualizar para o SDK do .NET do Azure Search versão 5 – Azure Search
+description: Migre o código para o SDK do .NET do Azure Search versão 5 de versões mais antigas. Conheça as novidades e quais alterações de código são necessárias.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: brjohnst
-ms.openlocfilehash: b08507d7685ce87a4c176385f750a72d6ae51ba3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091133"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316856"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Atualizando para o SDK do .NET do Azure Search versão 5
 Se você estiver usando a visualização da versão 4.0 ou mais antiga do [SDK .NET do Azure Search](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 5.
@@ -56,9 +57,9 @@ Depois de corrigir os avisos de build, será possível fazer alterações em seu
 ## <a name="breaking-changes-in-version-5"></a>Alterações significativas na versão 5
 A alteração de falha mais significativa na versão 5 é que o `Microsoft.Azure.Search` assembly e seu conteúdo foram dividido em quatro assemblies separados que agora são distribuídos como quatro pacotes do NuGet separados:
 
- - `Microsoft.Azure.Search`: este é um pacote meta que inclui todos os outros pacotes de pesquisa do Azure Search, como dependências. Se você estiver atualizando de uma versão anterior do SDK, a atualização e recriação deste pacote devem ser suficientes para iniciar usando uma nova versão.
- - `Microsoft.Azure.Search.Data`: use este pacote se você estiver desenvolvendo um aplicativo .NET usando o Azure Search e você só precisa consultar ou atualizar documentos em seus índices. Se você também precisa criar ou atualizar índices, mapas de sinônimo ou outros recursos de nível de serviço, use o `Microsoft.Azure.Search` pacote em vez disso.
- - `Microsoft.Azure.Search.Service`: use este pacote se você estiver desenvolvendo automação no .NET para gerenciar índices do Azure Search, mapas de sinônimo, indexadores, fontes de dados ou outros recursos de nível de serviço. Se você precisar apenas consultar ou atualizar em seus índices, use o `Microsoft.Azure.Search.Data` pacote em vez disso. Se você precisar de toda a funcionalidade do Azure Search, use o `Microsoft.Azure.Search` pacote em vez disso.
+ - `Microsoft.Azure.Search`: Esse é um metapacote que inclui todos os outros pacotes do Azure Search como dependências. Se você estiver atualizando de uma versão anterior do SDK, a atualização e recriação deste pacote devem ser suficientes para iniciar usando uma nova versão.
+ - `Microsoft.Azure.Search.Data`: Use esse pacote se estiver desenvolvendo um aplicativo .NET usando o Azure Search e só precisar consultar ou atualizar documentos nos índices. Se você também precisa criar ou atualizar índices, mapas de sinônimo ou outros recursos de nível de serviço, use o `Microsoft.Azure.Search` pacote em vez disso.
+ - `Microsoft.Azure.Search.Service`: Use esse pacote se estiver desenvolvendo a automação no .NET para gerenciar índices, mapas de sinônimos, indexadores, fontes de dados ou outros recursos no nível do serviço do Azure Search. Se você precisar apenas consultar ou atualizar em seus índices, use o `Microsoft.Azure.Search.Data` pacote em vez disso. Se você precisar de toda a funcionalidade do Azure Search, use o `Microsoft.Azure.Search` pacote em vez disso.
  - `Microsoft.Azure.Search.Common`: Tipos comuns necessários para as bibliotecas .NET do Azure Search. Você não precisa usar esse pacote diretamente em seu aplicativo; somente é destinada a ser usado como uma dependência.
  
 Essa alteração está interrompendo tecnicamente porque muitos tipos foram movidos entre os assemblies. É por isso que recriar seu aplicativo é necessário para atualizar para a versão 5 do SDK.

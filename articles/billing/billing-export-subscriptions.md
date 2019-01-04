@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: 5c32b90c8a291ff744b4894af12f8d623cb95137
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 09231ab69276f3b4763f07c51230921d15333f63
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391397"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339426"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Exportar e exibir as informações da assinatura de nível superior
 Caso seja necessário exibir o conjunto de IDs da assinatura associadas às credenciais do usuário, [baixe um arquivo .json com as informações da assinatura no Centro de Contas do Azure](http://account.azure.com/subscriptions/download).
@@ -28,12 +28,13 @@ Caso seja necessário exibir o conjunto de IDs da assinatura associadas às cred
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 O arquivo .json baixado fornece as informações a seguir:
-- Email: o endereço de email associado à conta.
+- Email: o endereço de email associado à sua conta.
 - Puid: o identificador exclusivo associado à conta de cobrança.
-- SubscriptionIds: uma lista de assinaturas que pertencem à conta, enumeradas pela ID da assinatura.
+- SubscriptionIds: uma lista das assinaturas que pertencem à conta, enumeradas pela ID da assinatura.
 
 ### <a name="subscriptionsjson-sample"></a>exemplo de subscriptions.json
-~~~~
+
+```json
 {
   "Email":"admin@contoso.com",
   "Puid":"00052xxxxxxxxxxx",
@@ -46,4 +47,4 @@ O arquivo .json baixado fornece as informações a seguir:
     "90757cdc-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   ]
 }
-~~~~
+```

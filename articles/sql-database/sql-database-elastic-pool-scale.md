@@ -3,7 +3,7 @@ title: Dimensionar os recursos de pool elástico – banco de dados do Azure SQL
 description: Esta página descreve os recursos de escala para pools elásticos no Banco de Dados do Azure SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,18 +12,18 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: cd9886f11685397cbfb82f88bb0b37c8ccc41b67
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 04fcb84b22e84060652b4a3743cb73e4543ee573
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240164"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868439"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar os recursos de pool elástico no banco de dados do Azure SQL
 
 Este artigo descreve como dimensionar os recursos de computação e armazenamento disponíveis para pools elásticos e bancos de dados em pool no Banco de Dados do Azure SQL.
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra com base em vCore: alterar o tamanho de armazenamento de pool elástico
+## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra baseado em vCore: Alterar o tamanho do armazenamento do pool elástico
 
 - O armazenamento pode ser provisionado até o limite de tamanho máximo:
 
@@ -35,7 +35,7 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Modelo de compra com base em vCore: alterar recursos de computação de pool elástico (vCores)
+## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Modelo de compra baseado em vCore: Alterar recursos de computação de pool elástico (vCores)
 
 Você pode aumentar ou diminuir o tamanho de computação para um pool elástico com base nos recursos necessários usando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), a [CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou a [API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
@@ -44,7 +44,7 @@ Você pode aumentar ou diminuir o tamanho de computação para um pool elástico
 - Em geral, a duração da alteração dos vCores mínimos ou dos vCores máximos por banco de dados é um processo de cinco minutos ou menos.
 - No downgrade de vCores de pool, o espaço usado do pool deve ser inferior ao tamanho máximo permitido para a camada de serviço e os vCores do pool de destino.
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra com base em DTU: alterar o tamanho de armazenamento do pool elástico
+## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra com base em DTU: Alterar o tamanho do armazenamento do pool elástico
 
 - O preço de eDTU para um pool elástico inclui uma determinada quantidade de armazenamento sem custo adicional. O armazenamento extra além da quantidade incluída pode ser provisionado mediante um custo adicional até o limite máximo de tamanho, em incrementos de 250 GB até 1 TB e, em seguida, em incrementos de 256 GB além de 1 TB. Para conhecer os valores de armazenamento incluídos e os limites de tamanho máximos, consulte [Pool elástico: tamanhos de armazenamento e de computação](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
 - É possível provisionar o armazenamento extra para um pool elástico aumentando seu tamanho máximo usando o [Portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), a [CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou a [API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
@@ -53,7 +53,7 @@ Você pode aumentar ou diminuir o tamanho de computação para um pool elástico
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modelo de compra com base em DTU: alterar recursos de computação de pool elástico (eDTUs)
+## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modelo de compra com base em DTU: Alterar recursos de computação de pool elástico (eDTUs)
 
 Você pode aumentar ou diminuir os recursos disponíveis para um pool elástico com base nos recurso necessários usando o [Portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), a [CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou a [API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 

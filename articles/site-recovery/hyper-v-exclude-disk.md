@@ -4,14 +4,14 @@ description: Descreve como excluir discos de VM da replicação durante a recupe
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 851da02ebd7486c0e96451a14086eb95d81968b4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7de9dc497b1c9ee29b46aa0d645b7b28676cb22d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213195"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849013"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 Este artigo descreve como excluir discos da replicação. Essa exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos de destino que esses discos utilizam.
@@ -57,7 +57,7 @@ Vamos considerar dois cenários para entender o recurso de disco de exclusão:
 - Disco tempdb do SQL Server
 - Disco (pagefile.sys) de arquivo de paginação
 
-## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir o disco tempdb do SQL Server
+## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir disco tempdb do SQL Server
 Vamos considerar uma máquina virtual do SQL Server que tenha um tempdb que possa ser excluído.
 
 O nome do disco virtual é SalesDB.
@@ -160,12 +160,12 @@ DB-disco 2 (disco excluídos) | Disk2 | E:\ | Arquivos temporários
 DB-Disk3 (disco excluídos) | Disk3 | F:\ | Banco de dados do tempdb do SQL (caminho da pasta (F:\MSSQL\Data\)
 DB-Disk4 | Disk4 | G:\ | User Database2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: excluir o disco (pagefile.sys) do arquivo de paginação
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: Excluir o disco (pagefile.sys) do arquivo de paginação
 
 Vamos considerar uma máquina virtual que tem um disco de arquivo de paginação que pode ser excluído.
 Existem dois casos.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: o arquivo de paginação é configurado na unidade D:
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: o arquivo de paginação está configurado na unidade D:
 Aqui está a configuração de disco:
 
 **Nome do disco** | **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
@@ -194,7 +194,7 @@ Aqui estão as configurações de arquivo de paginação na máquina virtual do 
 
 ![Configurações do arquivo de paginação na máquina virtual do Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: o arquivo de paginação é configurado em outra unidade (que não seja a unidade D:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: o arquivo de paginação está configurado em outra unidade (que não a unidade D:)
 
 Aqui está a configuração de disco de máquina virtual de origem:
 

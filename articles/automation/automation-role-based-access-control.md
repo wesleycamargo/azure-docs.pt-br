@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094210"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727895"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controle de acesso com base em função na Automação do Azure
 
@@ -73,7 +73,7 @@ Um Leitor pode exibir todos os recursos em uma conta de Automação, mas não po
 
 ### <a name="automation-operator"></a>Operador de automação
 
-Um Operador de Automação é capaz de criar e gerenciar trabalhos e ler nomes de runbook e propriedades para todos os runbooks em uma conta de Automação.  Observação: se você quiser controlar o acesso do operador a runbooks individuais, não defina essa função e, em vez disso, use as funções "Operador do Trabalho de Automação" e "Operador de Runbook de Automação" combinadas. A tabela a seguir mostra as permissões concedidas para a função:
+Um Operador de Automação é capaz de criar e gerenciar trabalhos e ler nomes de runbook e propriedades para todos os runbooks em uma conta de Automação.  Observação: Se você quiser controlar o acesso do operador a runbooks individuais, não defina essa função e, em vez disso, use as funções "Operador do Trabalho de Automação" e "Operador de Runbook de Automação" combinadas. A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
@@ -274,12 +274,13 @@ A seção a seguir mostra como configurar o RBAC em sua conta de automação por
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/) e abra sua conta de Automação na página Contas de Automação.
 2. Clique no controle **Controle de acesso (IAM)** no canto superior direito. Isso abre a página **Controle de acesso (IAM)** onde você pode adicionar novos usuários, grupos e aplicativos para gerenciar sua Conta de Automação e exibir as funções existentes que podem ser configuradas para ela.
+3. Clique na guia **Atribuições de função**.
 
    ![Botão de acesso](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Adicionar um novo usuário e atribuir uma função
 
-1. Na página **Controle de acesso (IAM)**, clique em **+ Adicionar** para abrir a página **Adicionar permissões**, na qual você pode adicionar um usuário, grupo ou aplicativo e atribuir uma função a eles.
+1. Na página **Controle de acesso (IAM)**, clique em **+ Adicionar atribuição de função** para abrir a página **Adicionar atribuição de função**, na qual você pode adicionar um usuário, grupo ou aplicativo e atribuir uma função a eles.
 
 2. Selecione uma função na lista de funções disponíveis. É possível escolher qualquer uma das funções internas disponíveis compatíveis com uma Conta de Automação ou qualquer função personalizada que você tenha definido.
 
@@ -333,7 +334,7 @@ AssignableScopes : {/}
 ```
 
 [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) lista as atribuições de função do RBAC do Microsoft Azure AD no escopo especificado. Sem parâmetros, esse comando retorna todas as atribuições de função realizadas na assinatura. Use o parâmetro **ExpandPrincipalGroups** para listar as atribuições de acesso para o usuário especificado, bem como para os grupos dos quais o usuário é membro.
-    **Exemplo:** use o comando a seguir para listar todos os usuários e suas funções em uma conta de automação.
+    **Exemplo:** Use o comando a seguir para listar todos os usuários e suas funções em uma conta de automação.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -354,7 +355,7 @@ ObjectType         : User
 ```
 
 [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) para atribuir acesso de usuários, grupos e aplicativos a um determinado escopo.
-    **Exemplo:** use o comando a seguir para atribuir a função "Operador de Automação" para um usuário no escopo da Conta de Automação.
+    **Exemplo:** Use o comando a seguir para atribuir a função "Operador de Automação" para um usuário no escopo da Conta de Automação.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -375,7 +376,7 @@ ObjectType         : User
 ```
 
 Use [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) para remover o acesso de um usuário, grupo ou aplicativo especificado de um determinado escopo.
-    **Exemplo:** use o comando a seguir para remover o usuário da função "Operador de Automação" do escopo da Conta de Automação.
+    **Exemplo:** Use o comando a seguir para remover o usuário da função "Operador de Automação" do escopo da Conta de Automação.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'

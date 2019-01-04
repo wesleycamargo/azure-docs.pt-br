@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345786"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105148"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -32,9 +32,9 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 * Você pode passar três tipos diferentes de argumentos em funções:
   
   1. Atributos, que devem ser colocados entre colchetes. Por exemplo: [attributeName]
-  2. Constantes de cadeia de caracteres, que devem ser colocadas entre aspas duplas. Por exemplo: "Estados Unidos"
-  3. Outras funções. Por exemplo: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
-* Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \"Contoso\""
+  2. Constantes de cadeia de caracteres, que devem ser colocadas entre aspas duplas. Por exemplo:  "Estados Unidos"
+  3. Outras funções. Por exemplo:  FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+* Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo:  "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
 [Anexar](#append)&nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Juntar](#join) &nbsp;&nbsp;&nbsp;&nbsp;[Mid](#mid)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacríticos](#normalizediacritics) [Não](#not) &nbsp;&nbsp;&nbsp;&nbsp;[Substitua](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [ StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp;[alternar](#switch)
@@ -63,7 +63,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 | NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-| **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obrigatório |Cadeia de caracteres |Formato da data de saída. |
 
 - - -
@@ -79,7 +79,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 | NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-| **source1  … sourceN ** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
+| **source1  … sourceN** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -141,6 +141,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
   * Se **source** tiver um valor, usa **oldValueRegexPattern** e **oldValueRegexGroupName** para extrair o valor de substituição da propriedade com **replacementPropertyName**. O valor de substituição é retornado como o resultado
 
 **Parâmetros:**<br> 
+
 | NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
@@ -166,7 +167,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN ** |Pelo menos 2 são necessários, sem limite superior |Cadeia de caracteres | Lista de regras de geração de valor exclusivo para avaliar |
+| **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |Cadeia de caracteres | Lista de regras de geração de valor exclusivo para avaliar |
 
 
 - - -
@@ -240,9 +241,9 @@ Você precisa gerar um alias de usuário selecionando as três primeiras letras 
 
 **Entrada/saída de exemplo:** <br>
 
-* **ENTRADA** (givenName): "Davi"
-* **ENTRADA** (sobrenome): "Barros"
-* **SAÍDA**: "DaviBarros"
+* **INPUT** (givenName): "John"
+* **INPUT** (sobrenome): "Doe"
+* **OUTPUT**:  "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Remover diacríticos de uma cadeia de caracteres
 Você precisa substituir caracteres que contenham os acentos por caracteres equivalentes que não contenham acentos.
@@ -253,7 +254,7 @@ NormalizeDiacritics([givenName])
 **Entrada/saída de exemplo:** <br>
 
 * **INPUT** (givenName): "Zoë"
-* **SAÍDA**:  "Zoe"
+* **OUTPUT**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
 
@@ -266,8 +267,8 @@ Você deseja enviar datas para um aplicativo SaaS em um determinado formato. <br
 
 **Entrada/saída de exemplo:**
 
-* **ENTRADA** (extensionAttribute1): "20150123105347.1Z"
-* **SAÍDA**:  "2015-01-23"
+* **INPUT** (extensionAttribute1): "20150123105347.1Z"
+* **OUTPUT**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base em um conjunto predefinido de opções
 
@@ -280,8 +281,8 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 
 **Entrada/saída de exemplo:**
 
-* **ENTRADA** (estado): "QLD"
-* **SAÍDA**: "Australia/Brisbane"
+* **INPUT** (state): "QLD"
+* **OUTPUT**: "Austrália/Brisbane"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
 

@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219555"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409166"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
@@ -57,7 +57,6 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Cache Redis do Azure](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
-* [Lote AI](#batch-ai-limits)
 * [Serviços do BizTalk](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Serviços de Nuvem](#cloud-services-limits)
@@ -220,9 +219,6 @@ Os seguintes limites do Serviço de Aplicativo incluem limites para Aplicativos 
 ### <a name="batch-limits"></a>Limites de lote
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### <a name="batch-ai-limits"></a>Limites da IA do Lote
-[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
-
 ### <a name="biztalk-services-limits"></a>Limites dos Serviços BizTalk
 A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 
@@ -329,7 +325,7 @@ Para saber mais sobre limites em um nível mais granular, como o tamanho do docu
 ### <a name="api-management-limits"></a>Limites de Gerenciamento de API
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-### <a name="azure-redis-cache-limits"></a>Limites do Cache Redis do Azure
+### <a name="azure-cache-for-redis-limits"></a>Limites do Cache Redis do Azure
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
 ### <a name="key-vault-limits"></a>Limites do Cofre da Chave

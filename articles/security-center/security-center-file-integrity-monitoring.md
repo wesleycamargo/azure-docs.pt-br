@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313973"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338508"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
@@ -136,7 +136,7 @@ A guia **Alterações** (mostrada abaixo) lista todas as alterações no workspa
 
   ![Configurações][11]
 
-  **Configuração do Workspace** abre exibindo três guias: **Registro do Windows**, **Arquivos do Windows** e **Arquivos do Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a Central de Segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  Editar a entidade permite que você habilite ou desabilite o FIM.
+  **Configuração do Espaço de trabalho** é aberta exibindo três guias: **Registro do Windows**, **Arquivos do Windows**, e **Arquivos Linux**. Cada guia lista as entidades que você pode editar nessa categoria. Para cada entidade listada, a Central de Segurança identifica se o FIM está habilitado (true) ou não está habilitado (false).  Editar a entidade permite que você habilite ou desabilite o FIM.
 
   ![Configuração do workspace][12]
 
@@ -205,7 +205,7 @@ Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a usar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança](security-center-azure-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciar recomendações de segurança](security-center-recommendations.md): saiba como as recomendações ajudam a proteger seus recursos do Azure.
 * [Monitoramento da integridade da segurança](security-center-monitoring.md): saiba como monitorar a integridade dos seus recursos do Azure.
 * [Gerenciar e responder aos alertas de segurança](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.

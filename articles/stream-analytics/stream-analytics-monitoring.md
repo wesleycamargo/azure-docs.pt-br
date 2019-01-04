@@ -1,35 +1,36 @@
 ---
 title: Noções básicas sobre o monitoramento de trabalhos no Azure Stream Analytics
-description: Este artigo descreve como monitorar trabalhos no Azure Stream Analytics
+description: Este artigo descreve como monitorar trabalhos do Azure Stream Analytics no portal do Azure.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 200df7602f94f70f3fb9c62ad81a0710923184c7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291386"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096562"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Noções básicas sobre o monitoramento de trabalhos do Stream Analytics e como monitorar consultas
 
-## <a name="introduction-the-monitor-page"></a>Introdução: Página do monitor
+## <a name="introduction-the-monitor-page"></a>Introdução A página do monitor
 O Portal do Azure exibe as principais métricas de desempenho que podem ser usadas para monitorar e solucionar problemas de desempenho de seus trabalhos e consultas. Para ver essas métricas, procure o trabalho do Stream Analytics em cujas métricas você está interessado em ver e exiba a seção **Monitoramento** na página de visão geral.  
 
-![Link de monitoramento](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![Link do monitoramento de trabalho do Stream Analytics](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
 A janela será exibida conforme mostrado:
 
-![Painel de Trabalho de monitoramento](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![Painel do monitoramento de trabalho do Stream Analytics](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponíveis para o Stream Analytics
 | Métrica                 | Definição                               |
 | ---------------------- | ---------------------------------------- |
-| Eventos de Entrada Acumulados       | Número de eventos de entrada que são`` com lista de pendências. |
+| Eventos de Entrada Acumulados       | Número de eventos de entrada com lista de pendências. |
 | Erros de conversão de dados | Número de eventos de saída que não pôde ser convertido para o esquema de saída esperado. |
 | Eventos de Entrada Antecipados       | Notificar os usuários de eventos recebidos. |
 | Solicitações de função com falha | Número de chamadas à função Azure Machine Learning com falha (se presente). |
@@ -49,7 +50,7 @@ A janela será exibida conforme mostrado:
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Personalizando o Monitoramento no Portal do Azure
 Você pode ajustar o tipo de gráfico, as métricas mostradas e o intervalo de hora nas configurações de Editar Gráfico. Para obter detalhes, veja [Como personalizar o monitoramento](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-  ![Grafo do Tempo do Monitor de Consultas](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Gráfico de tempo do monitor de consultas do Stream Analytics](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
 ## <a name="latest-output"></a>Saída mais recente

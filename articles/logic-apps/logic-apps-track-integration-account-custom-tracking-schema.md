@@ -1,6 +1,6 @@
 ---
-title: Esquemas de acompanhamento personalizados para mensagens B2B – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar esquemas de acompanhamento personalizados que monitorem mensagens B2B nas contas de integração para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Esquemas de acompanhamento personalizados para mensagens B2B – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar esquemas de acompanhamento personalizados que monitorem mensagens B2B nas contas de integração para os Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43124836"
 ---
-# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Criar esquemas de acompanhamento personalizados que monitorem fluxos de trabalho de ponta a ponta no Aplicativo Lógico do Azure
+# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Criar esquemas de acompanhamento personalizados que monitorem fluxos de trabalho de ponta a ponta nos Aplicativos Lógicos do Azure
 
 Há um acompanhamento interno que você pode habilitar para diferentes partes do fluxo de trabalho entre empresas, como acompanhamento de mensagens AS2 ou X12. Quando você cria fluxos de trabalho que incluem um aplicativo lógico, o BizTalk Server, o SQL Server ou qualquer outra camada, é possível habilitar o acompanhamento personalizado que registra eventos desde o início até o fim do fluxo de trabalho. 
 

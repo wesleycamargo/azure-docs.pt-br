@@ -1,5 +1,5 @@
 ---
-title: Monitorar cluster do Azure DC/OS - Gerenciamento de Operações
+title: (PRETERIDO) Monitorar cluster DC/OS do Azure - Gerenciamento de Operações
 description: Monitorar um cluster DC/OS do Serviço de Contêiner do Azure com Log Analytics.
 services: container-service
 author: keikhara
@@ -9,20 +9,22 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 4576d9decc6ba1e01ef39abdb8a3ef89461196e8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b5c1596066b02d5ad4f59ed553408d263acc825c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407785"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993563"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Monitorar um cluster DC/OS do Serviço de Contêiner do Azure com Log Analytics
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(PRETERIDO) Monitorar um cluster DC/OS do Serviço de Contêiner do Azure com Log Analytics
 
-O Log Analytics é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem. A Solução de Contêiner é uma solução do Log Analytics, que ajuda você a exibir o inventário, o desempenho e os logs de contêineres em um único local. É possível realizar auditoria e solucionar problemas de contêineres vendo os logs em um local centralizado, e localizar contêineres com ruídos e excesso de consumo em um host.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+O Log Analytics é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem. A Solução de Contêiner é uma solução do Log Analytics, que ajuda você a exibir o inventário, o desempenho e os logs de contêineres em um único local. É possível realizar auditoria e solucionar problemas de contêineres vendo os logs em um local centralizado, e localizar contêineres com ruídos e excesso de consumo em um host.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Para saber mais sobre a Solução de Contêiner, veja a [Solução de Contêiner do Log Analytics](../../log-analytics/log-analytics-containers.md).
+Para saber mais sobre a Solução de Contêiner, veja a [Solução de Contêiner do Log Analytics](../../azure-monitor/insights/containers.md).
 
 ## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Configuração do Log Analytics a partir do universo DC/OS
 
@@ -74,7 +76,7 @@ Depois de selecionar o workspace, clique em **Criar**.
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Para saber mais sobre a Solução de Contêiner do Log Analytics, veja [Solução de Contêiner do Log Analytics](../../log-analytics/log-analytics-containers.md).
+Para saber mais sobre a Solução de Contêiner do Log Analytics, veja [Solução de Contêiner do Log Analytics](../../azure-monitor/insights/containers.md).
 
 ### <a name="how-to-scale-log-analytics-agent-with-acs-dcos"></a>Como dimensionar o agente do Log Analytics com o ACS DC/SO 
 
@@ -99,4 +101,4 @@ O que funciona? O que falta? O que mais você precisa para que isso seja útil a
 
 ## <a name="next-steps"></a>Próximas etapas
 
- Agora que você configurou o Log Analytics para monitorar seus contêineres, [veja seu painel de contêineres](../../log-analytics/log-analytics-containers.md).
+ Agora que você configurou o Log Analytics para monitorar seus contêineres, [veja seu painel de contêineres](../../azure-monitor/insights/containers.md).

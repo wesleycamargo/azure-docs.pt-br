@@ -1,5 +1,5 @@
 ---
-title: Restaurar um aplicativo no Serviço de Aplicativo do Azure
+title: Restaurar do backup – Serviço de Aplicativo do Azure
 description: Saiba como restaurar seu aplicativo a partir de um instantâneo.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
-ms.openlocfilehash: e1ae8fcc30323c865aa96937f43054515f293394
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 174fbd8f3e4c652c25a78911185ef8a98a80bb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766658"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260031"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restaurar um aplicativo no Azure a partir de um instantâneo
 Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md) a partir de um instantâneo. Você pode restaurar seu aplicativo para um estado anterior, com base em um dos instantâneos do seu aplicativo. Você não precisa habilitar o backup de instantâneos, a plataforma salva automaticamente um instantâneo de todos os aplicativos para fins de recuperação de dados.

@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582438"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184042"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de conexão de dispositivo do Hub IoT usando o Azure Cosmos DB
 
@@ -200,11 +200,11 @@ No seu fluxo de trabalho de aplicativo lógico, as condições ajudam a executar
 
 2. Preencha a condição conforme mostrado abaixo para executar apenas para eventos de Dispositivo conectado e Dispositivo desconectado:
 
-  * Escolha um valor: **eventType**
-  * Altere “é igual” a para **termina com**
-  * Escolha um valor: **nected**
+   * Escolha um valor: **eventType**
+   * Altere “é igual” a para **termina com**
+   * Escolha um valor: **nected**
 
-   ![Preencher condição](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Preencher condição](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. Se a condição for verdadeira, clique em **Adicionar uma ação**.
   
@@ -248,13 +248,13 @@ Nesta seção, você configura o Hub IoT para publicar eventos à medida que oco
 
 4. Crie a assinatura de evento com os seguintes valores: 
 
-   * **Tipo de Evento**: desmarque a opção Assinar todos os tipos de evento e selecione **Dispositivo Criado** e **Dispositivo desconectado** no menu.
+   * **Tipo de evento**: Desmarque a opção Assinar todos os tipos de evento e selecione **Dispositivo Criado** e **Dispositivo desconectado** no menu.
 
-   * **Detalhes do Ponto de Extremidade**: selecione o Tipo de Ponto de Extremidade como **Web hook**, clique em Selecionar ponto de extremidade, cole a URL copiada do aplicativo lógico e confirme a seleção.
+   * **Detalhes do Ponto de Extremidade**: Selecione o Tipo de Ponto de Extremidade como **Web hook**, clique em Selecionar ponto de extremidade, cole a URL copiada do aplicativo lógico e confirme a seleção.
 
        ![selecionar a url de ponto de extremidade](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **Detalhes da Assinatura de Evento**: forneça um nome descritivo e selecione **Esquema da Grade de Eventos**.
+   * **Detalhes da Assinatura de Evento**: Forneça um nome descritivo e selecione **Esquema da Grade de Eventos**.
    O formulário é semelhante ao exemplo a seguir: 
 
        ![Exemplo de formulário de inscrição de evento](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)

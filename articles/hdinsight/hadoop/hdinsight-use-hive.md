@@ -10,28 +10,28 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 73c68e6946b3715bfa67561141e6c18e32e20c18
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633709"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011752"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
-[Apache Hive](http://hive.apache.org/) é um sistema de data warehouse para Apache Hadoop. O Hive permite o resumo de dados, consultas e análise de dados. Consultas de hive são escritas em HiveQL, que é uma linguagem de consulta semelhante ao SQL.
+[Apache Hive](https://hive.apache.org/) é um sistema de data warehouse para Apache Hadoop. O Hive permite o resumo de dados, consultas e análise de dados. Consultas de hive são escritas em HiveQL, que é uma linguagem de consulta semelhante ao SQL.
 
 O Hive permite que você projete estrutura em grandes volumes de dados sem estrutura. Depois de definir a estrutura, você pode usar o HiveQL para consultar os dados sem conhecimento de Java ou do MapReduce.
 
 O HDInsight fornece vários tipos de cluster, que são ajustados para cargas de trabalho específicas. Os seguintes tipos de cluster geralmente são usados para consultas de Hive:
 
-* __Consulta Interativa__: um cluster Hadoop que fornece funcionalidade [processamento analítico de baixa latência (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) para melhorar os tempos de resposta de consultas interativas. Para obter mais informações, confira o documento [Introdução à Consulta Interativa no HDInsight](../interactive-query/apache-interactive-query-get-started.md).
+* __Consulta Interativa__: Um cluster Hadoop que fornece funcionalidade [LLAP (Processamento Analítico de Baixa Latência)](https://cwiki.apache.org/confluence/display/Hive/LLAP) para melhorar os tempos de resposta de consultas interativas. Para obter mais informações, confira o documento [Introdução à Consulta Interativa no HDInsight](../interactive-query/apache-interactive-query-get-started.md).
 
-* __Hadoop__: um cluster Hadoop que está ajustado para cargas de trabalho de processamento em lotes. Para obter mais informações, confira o documento [Introdução ao Hadoop no HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* __Hadoop__: Um cluster Hadoop que está ajustado para cargas de trabalho de processamento em lotes. Para obter mais informações, confira o documento [Introdução ao Hadoop no HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* __Spark__: o Apache Spark tem funcionalidade interna para trabalhar com o Hive. Para obter mais informações, confira o documento [Introdução ao Spark no HDInsight](../spark/apache-spark-jupyter-spark-sql.md).
+* __Spark__: O Apache Spark tem funcionalidade interna para trabalhar com o Hive. Para obter mais informações, confira o documento [Introdução ao Spark no HDInsight](../spark/apache-spark-jupyter-spark-sql.md).
 
-* __HBase__: o HiveQL pode ser usado para consultar dados armazenados no HBase. Para obter mais informações, confira o documento [Introdução ao HBase no HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md).
+* __HBase__: O HiveQL pode ser usado para consultar dados armazenados no HBase. Para obter mais informações, confira o documento [Introdução ao HBase no HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="how-to-use-hive"></a>Como usar o Hive
 
@@ -78,14 +78,14 @@ Para obter mais informações sobre formatos de arquivo compatíveis com o Hive,
 
 Há dois tipos de tabelas que você pode criar com o Hive:
 
-* __Interna__: os dados são armazenados no data warehouse do Hive. O data warehouse está localizado no `/hive/warehouse/` no armazenamento padrão para o cluster.
+* __Interna__: Os dados são armazenados no data warehouse do Hive. O data warehouse está localizado no `/hive/warehouse/` no armazenamento padrão para o cluster.
 
     Use tabelas internas quando uma das condições a seguir se aplicar:
 
     * Os dados são temporários.
     * Você quer que o Hive gerencie o ciclo de vida da tabela e dos dados.
 
-* __Externa__: os dados são armazenados fora do data warehouse. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
+* __Externa__: Os dados são armazenados fora do data warehouse. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
 
     Use tabelas externas quando uma das condições a seguir se aplicar:
 
@@ -143,15 +143,15 @@ No exemplo anterior, as instruções HiveQL executam as seguintes ações:
     > [!NOTE]
     > Essa instrução só é necessária ao usar um cluster HDInsight baseado em Windows. O Tez é o mecanismo padrão de execução para HDInsight baseados em Linux.
 
-* `DROP TABLE`: se a tabela já existir, exclua-a.
+* `DROP TABLE`: Se a tabela já existir, exclua-a.
 
-* `CREATE EXTERNAL TABLE`: cria uma nova tabela **externa** no Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local e no formato originais.
+* `CREATE EXTERNAL TABLE`: Cria uma nova tabela **externa** no Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local e no formato originais.
 
-* `ROW FORMAT`: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+* `ROW FORMAT`: Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-* `STORED AS TEXTFILE LOCATION`: informa ao Hive o local em que os dados são armazenados (o diretório `example/data`) e se estão armazenados como texto. Os dados podem estar em um arquivo ou distribuídos em vários arquivos dentro do diretório.
+* `STORED AS TEXTFILE LOCATION`: Informa ao Hive o local em que os dados são armazenados (o diretório `example/data`) e se são armazenados como texto. Os dados podem estar em um arquivo ou distribuídos em vários arquivos dentro do diretório.
 
-* `SELECT`: seleciona uma contagem de todas as linhas nas quais a coluna **t4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, já que há três linhas que contêm esse valor.
+* `SELECT`: Seleciona uma contagem de todas as linhas nas quais a coluna **t4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, já que há três linhas que contêm esse valor.
 
 * `INPUT__FILE__NAME LIKE '%.log'`- O Hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que devemos retornar apenas dados de arquivos que terminam em .log.
 
@@ -180,11 +180,11 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Essas instruções executam as seguintes ações:
 
-* `CREATE TABLE IF NOT EXISTS`: se a tabela não existir, crie uma. Uma vez que a palavra-chave **EXTERNA** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.
+* `CREATE TABLE IF NOT EXISTS`: Se a tabela não existir, crie uma. Uma vez que a palavra-chave **EXTERNA** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.
 
-* `STORED AS ORC`: armazena os dados no formato Colunar de linha otimizado (ORC). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
+* `STORED AS ORC`: Armazena os dados no formato OCR (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
 
-* `INSERT OVERWRITE ... SELECT`: seleciona as linhas na tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela **errorLogs**.
+* `INSERT OVERWRITE ... SELECT`: Seleciona as linhas na tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela **errorLogs**.
 
 > [!NOTE]
 > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
@@ -193,7 +193,7 @@ Essas instruções executam as seguintes ações:
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](http://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. O Tez está habilitado por padrão para clusters HDInsight baseados em Linux.
+[Apache Tez](https://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. O Tez está habilitado por padrão para clusters HDInsight baseados em Linux.
 
 > [!NOTE]
 > Atualmente o Tez está desativado por padrão para clusters baseados no Windows HDInsight e deve ser habilitado. Para aproveitar o Tez, o seguinte valor deve ser definido para uma consulta Hive:
@@ -246,18 +246,18 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
 * [Usar trabalhos do MapReduce com o HDInsight][hdinsight-use-mapreduce]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: https://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -272,7 +272,7 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

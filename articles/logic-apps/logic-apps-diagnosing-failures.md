@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas e diagnosticar falhas – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Saiba como solucionar problemas e diagnosticar falhas de fluxo de trabalho no Aplicativo Lógico do Azure
+description: Saiba como solucionar problemas e diagnosticar falhas de fluxo de trabalho nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123680"
 ---
-# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solucionar problemas e diagnosticar falhas de fluxo de trabalho no Aplicativo Lógico do Azure
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solucionar problemas e diagnosticar falhas de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
 Seu aplicativo lógico gera informações que podem ajudar você a diagnosticar e depurar problemas nele. É possível diagnosticar um aplicativo lógico revisando cada etapa no fluxo de trabalho por meio do Portal do Azure. Ou então, você pode adicionar algumas etapas a um fluxo de trabalho para depuração no tempo de execução.
 

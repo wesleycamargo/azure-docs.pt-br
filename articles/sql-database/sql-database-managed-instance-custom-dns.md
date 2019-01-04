@@ -12,16 +12,19 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/23/2018
-ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7ad3b81b792b37d2c3667dd554d41319a5727045
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224266"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336400"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurar DNS personalizado para Instância Gerenciada do Banco de Dados SQL do Azure
 
-Uma Instância Gerenciada do Banco de Dados SQL do Azure deve ser implantada em uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure. Há alguns cenários (ou seja, servidores vinculados a outras instâncias do SQL em seu ambiente de nuvem ou híbrido) que exigem nomes de hosts privados para serem resolvidos da Instância Gerenciada. Nesse caso, você precisa configurar um DNS personalizado dentro do Azure. Uma vez que a Instância Gerenciada usa o mesmo DNS para seu funcionamento interno, a configuração de DNS da rede virtual deverá ser compatível com a Instância Gerenciada. 
+Uma Instância Gerenciada do Banco de Dados SQL do Azure deve ser implantada em uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure. Há alguns cenários (por exemplo, db mail, servidores vinculados a outras instâncias do SQL em seu ambiente de nuvem ou híbrido) que exigem nomes de hosts privados para serem resolvidos da Instância Gerenciada. Nesse caso, você precisa configurar um DNS personalizado dentro do Azure. Uma vez que a Instância Gerenciada usa o mesmo DNS para seu funcionamento interno, a configuração de DNS da rede virtual deverá ser compatível com a Instância Gerenciada. 
+
+   > [!IMPORTANT]
+   > Sempre use FQDNs (nomes de domínio totalmente qualificados) para os servidores de email, SQL Servers e outros serviços, mesmo que eles estejam dentro da zona DNS privado. Por exemplo, use `smtp.contoso.com` para o servidor de email porque `smtp` simples não será resolvido corretamente.
 
 Para tornar uma configuração personalizada do DNS compatível com a Instância Gerenciada, é necessário: 
 - Configurar o servidor DNS personalizado para que ele seja capaz de resolver nomes de domínio público 
@@ -38,10 +41,10 @@ Para tornar uma configuração personalizada do DNS compatível com a Instância
    ![opção de DNS personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Não definir o resolvedor recursivo do Azure na lista de DNS pode fazer com que a Instância Gerenciada entre em um estado de falha quando os servidores DNS personalizados estão indisponíveis por algum motivo. A recuperação desse estado pode exigir a criação de uma nova instância em uma VNet com as políticas de rede compatíveis, recriar dados em nível de instância e restaurar os bancos de dados. Definir o resolvedor recursivo do Azure como a última entrada na lista de DNS garante que os nomes públicos ainda poderão ser resolvidos, mesmo quando todos os servidores DNS personalizados falharem. Consulte [Configuração de VNET](sql-database-managed-instance-vnet-configuration.md).
+   > Não definir o resolvedor recursivo do Azure na lista de DNS pode fazer com que a Instância Gerenciada entre em um estado de falha quando os servidores DNS personalizados estão indisponíveis por algum motivo. A recuperação desse estado pode exigir a criação de uma nova instância em uma VNet com as políticas de rede compatíveis, recriar dados em nível de instância e restaurar os bancos de dados. Definir o resolvedor recursivo do Azure como a última entrada na lista de DNS garante que os nomes públicos ainda poderão ser resolvidos, mesmo quando todos os servidores DNS personalizados falharem.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral, consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md)
 - Para obter um tutorial mostrando como criar uma nova Instância Gerenciada, consulte [Criando uma Instância Gerenciada](sql-database-managed-instance-get-started.md).
-- Para obter informações sobre como configurar sua rede virtual à Instância Gerenciada, consulte [Configuração da rede virtual de Instâncias Gerenciadas](sql-database-managed-instance-vnet-configuration.md)
+- Para obter informações sobre como configurar sua rede virtual à Instância Gerenciada, consulte [Configuração da rede virtual de Instâncias Gerenciadas](sql-database-managed-instance-connectivity-architecture.md)

@@ -2,30 +2,30 @@
 title: Servidor de Backup do Azure protege o estado do sistema e restaura para o bare-metal
 description: Use o Servidor de Backup do Azure para fazer backup do estado do sistema e fornecer proteção de recuperação bare-metal (BMR).
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal
-ms.openlocfilehash: 7cb87847d6a1e191fb20dfa9cdf263066704eb6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238804"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880090"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Fazer backup de estado do sistema e restaurar bare-metal com o servidor de Backup do Azure
 
 Use o Servidor de Backup do Azure para fazer backup do estado do sistema e fornecer proteção de recuperação bare-metal (BMR).
 
-*   **Backup de estado do sistema**: faz backup de arquivos do sistema operacional, para que você possa recuperar quando um computador é iniciado, mas os arquivos do sistema e o registro serão perdidos. Um backup de estado do sistema inclui:
-    * Membro do domínio: arquivos de inicialização, o banco de dados de registro da classe COM+, o registro
-    * Controlador de domínio: Windows Server Active Directory (NTDS), arquivos de inicialização, o banco de dados de registro da classe COM+, o registro, o volume do sistema (SYSVOL)
-    * Computador que executa os serviços de cluster: metadados do servidor de Cluster
-    * Computador que executa os serviços de certificados: dados de certificado
-* **Backup bare-metal**: faz backup de arquivos do sistema operacional e todos os dados em volumes críticos (exceto dados do usuário). Por definição, um backup de BMR inclui um backup de estado do sistema. Ele oferece proteção quando um computador não será iniciado e você precisa recuperar tudo.
+*   **Backup de estado do sistema**: Faz backup dos arquivos do sistema operacional, para que você possa recuperar quando um computador é iniciado, mas os arquivos do sistema e o registro são perdidos. Um backup de estado do sistema inclui:
+    * Membro do domínio: Arquivos de inicialização, banco de dados de registro de classe COM+, registro
+    * Controlador de domínio: Windows Server Active Directory (NTDS), arquivos de inicialização, banco de dados de registro de classe COM+, registro, volume do sistema (SYSVOL)
+    * Computador que executa serviços de cluster: Metadados do servidor de cluster
+    * Computador que executa serviços de certificado: Dados do certificado
+* **Backup bare-metal**: Faz backup de arquivos do sistema operacional e de todos os dados em volumes críticos (exceto dados do usuário). Por definição, um backup de BMR inclui um backup de estado do sistema. Ele oferece proteção quando um computador não será iniciado e você precisa recuperar tudo.
 
 A tabela a seguir resume o que você pode fazer backup e recuperar. Para obter informações detalhadas sobre as versões de aplicativo que podem ser protegidos com o estado do sistema e a BMR, consulte [O que faz o servidor de Backup do Azure?](backup-mabs-protection-matrix.md).
 

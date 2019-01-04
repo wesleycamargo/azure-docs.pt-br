@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 24f834c907fee6f2ddae766ae7494f73a31447c5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d6180156e1a8f3fa053c7fbb247e38831f86e76a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202799"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998395"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicativo usando o modelo do Gerenciador de Recursos do Azure
 
@@ -77,7 +77,7 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -114,11 +114,11 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
     }
     ```
 
-1. Salve o arquivo. Você pode testar o modelo JSON e o modelo de parâmetro usando ferramentas de validação de JSON online, como [JSlint.com](http://www.jslint.com/).
+1. Salve o arquivo. Você pode testar o modelo JSON e o modelo de parâmetro usando ferramentas de validação de JSON online, como [JSlint.com](https://www.jslint.com/).
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Implantar o modelo do Gerenciador de Recursos do Azure usando o PowerShell
 
-Se você nunca usou o Azure PowerShell, visite: [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções para entrar no Azure e selecionar sua assinatura.
+Se você nunca usou o Azure PowerShell, consulte: [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções para entrar no Azure e selecionar sua assinatura.
 
 1. Fazer logon no PowerShell
 
@@ -159,7 +159,7 @@ Para implantar o modelo do Azure Resource Manager baixado usando a CLI do Azure,
 
 1. Se você nunca usou a CLI do Azure, confira [Instalar e configurar a CLI do Azure](/cli/azure/install-azure-cli) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 
-1. Se for necessário, execute o comando `az group create` para criar um grupo de recursos, conforme mostra o trecho de código abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, visite [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+1. Se for necessário, execute o comando `az group create` para criar um grupo de recursos, conforme mostra o snippet de código abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, visite [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
     ```azurecli
     az group create --location westus --name appgatewayRG
@@ -203,7 +203,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -226,9 +226,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se desejar configurar o descarregamento SSL, visite [Configurar um Gateway de Aplicativo para descarregamento SSL](tutorial-ssl-cli.md).
+Se quiser configurar o descarregamento SSL, visite: [Configurar um gateway de aplicativo para descarregamento SSL](tutorial-ssl-cli.md).
 
-Para configurar um Gateway de Aplicativo para usar com um balanceador de carga interno, visite [Criar um Gateway de Aplicativo com um ILB (balanceador de carga interno)](redirect-internal-site-cli.md).
+Se desejar configurar um gateway de aplicativo para usar com um balanceador de carga interno, visite: [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](redirect-internal-site-cli.md).
 
 Se deseja saber mais sobre as opções de balanceamento de carga no geral, visite:
 

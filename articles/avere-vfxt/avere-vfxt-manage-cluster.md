@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958909"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999053"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gerenciar cluster do Avere vFXT
 
@@ -81,9 +81,9 @@ O script vfxt.py pode ser usado para estas tarefas de gerenciamento de cluster:
 
 Como o Painel de Controle do Avere, operações vfxt.py tentam garantir que os dados alterados sejam armazenados permanentemente no armazenamento de back-end antes de desligar ou destruir o cluster ou nó. Essa é uma opção mais segura do que o portal Avere.
 
-O vfxt.py vem pré-instalado na VM do controlador de cluster. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
+O vfxt.py vem pré-instalado na VM do controlador de cluster. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-Um guia completo de uso do vfxt.py está disponível no GitHub: [Gerenciamento de clusters na nuvem com vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
+Um guia de uso completo do vfxt.py está disponível no GitHub: [Gerenciamento de cluster de nuvem com vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Adicionar nós de cluster com vfxt.py
 

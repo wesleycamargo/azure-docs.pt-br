@@ -1,6 +1,6 @@
 ---
-title: Entenda a sequência de implantação nos Blueprints do Azure
-description: Aprenda sobre o ciclo de vida pelo qual um blueprint passa e detalhes sobre cada estágio.
+title: Entender a ordem da sequência de implantação
+description: Aprenda sobre o ciclo de vida de um blueprint e os detalhes de cada estágio.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,12 +8,13 @@ ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: bd12aabf0ca8f82261e6b3c677d7306ee46c4171
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620588"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308610"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entenda a sequência de implantação nos Blueprints do Azure
 

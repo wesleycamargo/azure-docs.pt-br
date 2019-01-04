@@ -1,6 +1,6 @@
 ---
-title: Conectar ao Vídeo do Office 365 – Aplicativo Lógico do Azure | Microsoft Docs
-description: Gerenciar vídeos com as APIs REST do Vídeo do Office 365 e o Aplicativo Lógico do Azure
+title: Conectar ao Vídeo do Office 365 – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Gerenciar vídeos com as APIs REST do Vídeo do Office 365 e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

@@ -1,5 +1,5 @@
 ---
-title: Como escalar um aplicativo em um Ambiente do Serviço de Aplicativo
+title: Como escalar um aplicativo em um Ambiente do Serviço de Aplicativo – Azure
 description: Escalando um aplicativo em um Ambiente do Serviço de Aplicativo
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: d04a5fce920dae25507cdf2f64832574e24c51dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986311"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269338"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Escalando aplicativos em um Ambiente do Serviço de Aplicativo
 No Serviço de Aplicativo do Azure normalmente há três itens que você pode dimensionar:
@@ -39,7 +40,7 @@ A alteração de qualquer um dos itens é feita por meio da interface do usuári
 
 ![][1]
 
-Você não pode escalar verticalmente seu ASP além do número de recursos de computação disponíveis no pool de trabalho em que o ASP está localizado.  Se precisar de recursos de computação no pool de trabalho, providencie para que o administrador do ASE os adicione.  Para obter informações sobre a reconfiguração de seu ASE, leia as informações fornecidas aqui: [Como configurar um ambiente do Serviço de Aplicativo][HowtoConfigureASE].  Também convém aproveitar os recursos de autoescala do ASE para adicionar capacidade com base no agendamento ou em métricas.  Para obter mais detalhes sobre como configurar a autoescala para o ambiente ASE propriamente dito, confira [Como configurar a autoescala para um Ambiente do Serviço de Aplicativo][ASEAutoscale].
+Você não pode escalar verticalmente seu ASP além do número de recursos de computação disponíveis no pool de trabalho em que o ASP está localizado.  Se precisar de recursos de computação no pool de trabalho, providencie para que o administrador do ASE os adicione.  Para obter informações sobre a reconfiguração do ASE leia as informações fornecidas aqui: [Como configurar um Ambiente do Serviço de Aplicativo][HowtoConfigureASE].  Também convém aproveitar os recursos de autoescala do ASE para adicionar capacidade com base no agendamento ou em métricas.  Para obter mais detalhes sobre como configurar a autoescala para o ambiente ASE propriamente dito, confira [Como configurar a autoescala para um Ambiente do Serviço de Aplicativo][ASEAutoscale].
 
 Você pode criar vários planos de serviço de aplicativo usando recursos de computação de pools de trabalho diferentes, ou pode usar o mesmo pool de trabalho.  Por exemplo, se tiver (10) recursos de computação disponíveis no Pool de trabalho 1, você poderá optar por criar um plano de serviço de aplicativo que usa (6) recursos de computação e um segundo plano de serviço de aplicativo que usa (4) recursos de computação.
 
@@ -79,7 +80,7 @@ Para se familiarizar com os Ambientes do Serviço de Aplicativo, confira [Como c
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
 [Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [AppScale]: ../web-sites-scale.md
-[AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
+[AppWarmup]: https://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/

@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 80ba42d7eab1726c7add6c4c9426b7dde3b55480
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445918"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100048"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Vinculando uma assinatura do Azure a um locatário Azure AD B2C
 
 > [!IMPORTANT]
-> Obtenha as informações mais recentes sobre o uso de cobrança e preços para Azure AD B2C na seguinte página: [Preços do Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Obtenha as informações mais recentes sobre o uso de cobrança e preços para o Azure AD B2C na página a seguir: [Preços do Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 Os encargos de uso para o Azure AD B2C são cobrados de uma assinatura do Azure. Quando um locatário do Azure AD B2C é criado, o administrador de inquilinos precisa vincular explicitamente o locatário do Azure AD B2C a uma assinatura do Azure. Este artigo mostra como fazer isso.
 
 > [!NOTE]
-> Uma assinatura vinculada a um locatário do Azure AD B2C só pode ser usada para a cobrança do uso do Azure AD B2C. A assinatura não pode ser usada para adicionar outros serviços do Azure ou licenças do Office 365 *ao locatário do Azure AD B2C*.
+> Uma assinatura vinculada a um locatário do Azure AD B2C pode ser usada para a cobrança de uso do Azure AD B2C ou outros recursos do Azure, incluindo recursos adicionais do Azure AD B2C.  A assinatura não pode ser usada para adicionar outros serviços baseados em licença do Azure ou licenças do Office 365 no locatário do Azure AD B2C.
 
  O link de assinatura é obtido com a criação de um “recurso” do Azure AD B2C na assinatura de destino do Azure. Vários “recursos” do Azure AD B2C podem ser vinculados a uma única assinatura do Azure juntamente com outros recursos do Azure (por exemplo, VMs, armazenamento de dados, Aplicativos Lógicos). Você pode ver todos os recursos na assinatura, indo para o locatário do Azure AD ao qual a assinatura está associada.
 

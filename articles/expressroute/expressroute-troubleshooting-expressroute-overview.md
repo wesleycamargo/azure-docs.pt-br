@@ -1,28 +1,22 @@
 ---
-title: 'Verificando a conectividade: Guia de Solução de Problemas do Azure ExpressRoute | Microsoft Docs'
+title: 'verificar a conectividade – Guia de solução de problemas do ExpressRoute: Azure| Microsoft Docs'
 description: Esta página fornece instruções sobre solução de problemas e validação de conectividade de ponta a ponta de um circuito ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/26/2017
-ms.author: cherylmc
-ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: rambala
+ms.custom: seodec18
+ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753431"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272796"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
-O ExpressRoute, que estende uma rede local para a Microsoft Cloud por uma conexão privada que é facilitada por um provedor de conectividade, envolve as três seguintes zonas da rede distintas:
+Este artigo ajuda você a verificar e solucionar problemas de conectividade do ExpressRoute. O ExpressRoute, que estende uma rede local para a Microsoft Cloud por uma conexão privada que é facilitada por um provedor de conectividade, envolve as três seguintes zonas da rede distintas:
 
 -   Rede do Cliente
 -   Rede do Provedor
@@ -161,7 +155,7 @@ Uma resposta de exemplo é:
     Sku                              : Standard
     Status                           : Enabled
 
-Para confirmar se um circuito do ExpressRoute está funcionando, preste atenção especial aos seguintes campos: ServiceProviderProvisioningState : Provisioned Status                           : Enabled
+Para confirmar se um circuito do ExpressRoute está funcionando, preste atenção especial aos seguintes campos: ServiceProviderProvisioningState: Status Provisionado: habilitado
 
 >[!NOTE]
 >Se o *Status* não for habilitado, entre em contato com o [Suporte da Microsoft][Support]. Se o *ServiceProviderProvisioningState* não for provisionado, entre em contato com seu provedor de serviços.
@@ -169,7 +163,7 @@ Para confirmar se um circuito do ExpressRoute está funcionando, preste atençã
 >
 
 ## <a name="validate-peering-configuration"></a>Validar Configuração de Emparelhamento
-Depois que o provedor de serviços concluir o provisionamento do circuito do ExpressRoute, uma configuração de roteamento poderá ser criada no circuito do ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito do ExpressRoute pode ter um, dois ou três contextos de roteamento habilitados: emparelhamento privado do Azure (tráfego para redes virtuais privadas no Azure), emparelhamento público do Azure (tráfego para endereços IP públicos no Azure) e emparelhamento da Microsoft (tráfego para Office 365 e Dynamic 365). Para obter mais informações sobre como criar e modificar a configuração de roteamento, consulte o artigo [Create and modify routing for an ExpressRoute circuit][CreatePeering] (Criar e modificar o roteamento para um circuito do ExpressRoute).
+Depois que o provedor de serviços concluir o provisionamento do circuito do ExpressRoute, uma configuração de roteamento poderá ser criada no circuito do ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito do ExpressRoute pode ter um, dois ou três contextos de roteamentos habilitados: Emparelhamento privado do Azure (tráfego para redes virtuais privadas no Azure), emparelhamento público do Azure (tráfego para endereços IP públicos no Azure) e emparelhamento da Microsoft (tráfego para Office 365 e Dynamics 365). Para obter mais informações sobre como criar e modificar a configuração de roteamento, consulte o artigo [Create and modify routing for an ExpressRoute circuit][CreatePeering] (Criar e modificar o roteamento para um circuito do ExpressRoute).
 
 ### <a name="verification-via-the-azure-portal"></a>Verificação por meio do Portal do Azure
 

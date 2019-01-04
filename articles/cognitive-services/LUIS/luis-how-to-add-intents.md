@@ -1,21 +1,22 @@
 ---
-title: Adicionar intenções a aplicativos do LUIS
-titleSuffix: Azure Cognitive Services
+title: Adicionar tentativas
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Adicione intenções ao seu aplicativo do LUIS para identificar grupos de perguntas ou comandos que têm as mesmas intenções.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3e6064b4c202c36e4b63d6e06edfbf3149f6665f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139901"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139846"
 ---
 # <a name="add-intents"></a>Adicionar tentativas 
 
@@ -57,7 +58,7 @@ Enunciados de exemplo são exemplos de texto de comandos ou perguntas do usuári
 
 Um enunciado em uma intenção pode ter uma discrepância de previsão de intenção entre a intenção selecionada e a pontuação de predição. LUIS indica essa discrepância com uma caixa vermelha em torno da **intenção marcada** na linha da expressão do exemplo. 
 
-![Captura de tela da página Detalhes de intenções, com o enunciado realçado](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![Captura de tela da página Detalhes de intenções, com erros de discrepância de previsão de declaração](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 Na navegação superior, selecione **Treinar**. A discrepância de previsão desapareceu.
 
@@ -106,7 +107,7 @@ As seguintes ações podem ser executadas em uma declaração individual a parti
 
 * Editar: alterar o texto da declaração
 * Excluir: Remova a expressão a intenção. Se você ainda quer o enunciado, um método melhor é movê-lo para a intenção **Nenhum**. 
-* Adicionar um padrão: um padrão permite que você usar uma expressão comum e marcar texto e substituíveis texto ignorável, reduzindo assim a necessidade de mais declarações na intenção. 
+* Adicionar um padrão: um padrão permite que você use uma declaração comum e marque texto substituível e texto ignorável, reduzindo assim a necessidade de mais declarações para a intenção. 
 
 A coluna **Labeled intent** permite que você altere a intenção da expressão.
 

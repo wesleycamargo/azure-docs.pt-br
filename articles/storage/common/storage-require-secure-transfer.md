@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523008"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876495"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requer transferência segura no Armazenamento do Microsoft Azure
 
 A opção "Transferência segura obrigatória" melhora a segurança da sua conta de armazenamento, permitindo apenas solicitações para a conta de conexões seguras. Por exemplo, ao chamar APIs REST para acessar sua conta de armazenamento, será necessário estar conectado utilizando o HTTPS. "Transferência segura obrigatória" rejeita solicitações que usam HTTP.
 
-Quando você usar o serviço de Arquivos do Azure, qualquer conexão sem criptografia falhará quando "Transferência segura obrigatória" estiver habilitada. Isso inclui cenários que usam SMB 2.1, SMB 3.0 sem criptografia e algumas versões do cliente Linux SMB. 
+Quando você usar o serviço de Arquivos do Azure, qualquer conexão sem criptografia falhará quando "Transferência segura obrigatória" estiver habilitada. Isso inclui cenários que usam SMB 2.1, SMB 3.0 sem criptografia e algumas versões do cliente Linux SMB. 
 
-Por padrão, a opção "Transferência segura obrigatória" está desabilitada.
+Por padrão, a opção "Transferência segura obrigatória" está desabilitada quando você cria uma conta de armazenamento com o SDK. E ele é habilitado por padrão quando você cria uma conta de armazenamento no portal do Azure.
 
 > [!NOTE]
 > Como o armazenamento do Azure não dá suporte a HTTPS para nomes de domínio personalizado, essa opção não será aplicada ao usar um nome de domínio personalizado. Não há suporte para contas de armazenamento clássicas.
@@ -49,13 +49,13 @@ Você pode habilitar a "Transferência segura obrigatória" ao criar uma conta d
 
 Para exigir a transferência segura programaticamente, use a configuração _supportsHttpsTrafficOnly_ nas propriedades da conta de armazenamento com a API REST, ferramentas ou bibliotecas:
 
-* [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (Versão: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (Versão: 4.1.0)
-* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (Versão: 2.0.11)
-* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (Versão: 1.1.0)
-* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (Versão: 6.3.0)
-* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (Versão: 1.1.0)
-* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (Versão: 0.11.0)
+* [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (versão: 2016-12-01)
+* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (versão: 4.1.0)
+* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (versão: 2.0.11)
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (versão: 1.1.0)
+* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (versão: 6.3.0)
+* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (versão: 1.1.0)
+* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (versão: 0.11.0)
 
 ### <a name="enable-secure-transfer-required-setting-with-powershell"></a>Habilitar a configuração "Transferência segura obrigatória" com o PowerShell
 

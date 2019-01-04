@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458183"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340038"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de alocação personalizadas
 
@@ -94,15 +94,15 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
 
 2. Selecione a guia **Gerenciar registros** e clique no botão **Adicionar grupo de registros** na parte superior da página. 
 
-3. Em **Adicionar grupo de registros**, insira as informações a seguir e clique no botão **Salvar**.
+3. Em **Adicionar Grupo de Registros**, insira as informações a seguir e clique no botão **Salvar**.
 
-    **Nome do grupo**: insira **contoso-custom-allocated-devices**.
+    **Nome do grupo**: Insira **contoso-custom-allocated-devices**.
 
-    **Tipo de atestado**: selecione **Chave simétrica**.
+    **Tipo de Atestado**: Selecione **Chave Simétrica**.
 
-    **Gerar chaves automaticamente**: esta caixa de seleção já deve estar marcada.
+    **Gerar Chaves Automaticamente**: Esta caixa de seleção já deve estar marcada.
 
-    **Selecione como você deseja atribuir dispositivos a hubs**: selecione **Personalizado (Usar a função do Azure)**.
+    **Selecione como deseja atribuir dispositivos aos hubs**: Selecione **Personalizado (Use o Azure Functions)**.
 
     ![Adicionar grupo de registros de alocação personalizado para atestado de chave simétrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -111,11 +111,11 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
 
     Você precisa executar esta etapa para ambos os Hubs IoT divisionários.
 
-    **Assinatura**: se você tem várias assinaturas, escolha a assinatura em que você criou os Hubs IoT divisionários.
+    **Assinatura**: Se você tem várias assinaturas, escolha a assinatura em que você criou os Hubs IoT divisionários.
 
-    **Hub IoT**: selecione um dos hubs divisionários que você criou.
+    **Hub IoT**: Selecione um dos hubs divisionários que você criou.
 
-    **Política de acesso**: escolha **iothubowner**.
+    **Política de Acesso**: Escolha **iothubowner**.
 
     ![Vincular os Hubs IoT divisionários ao serviço de provisionamento](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
@@ -129,11 +129,11 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
 
 7. Na página de criação de **Aplicativo de funções** que é aberta, insira as seguintes configurações para sua nova função e clique em **Criar**:
 
-    **Nome do aplicativo**: insira um nome de aplicativo de funções exclusivo. **contoso-function-app-1098** é mostrado como um exemplo.
+    **Nome do aplicativo**: Insira um nome de aplicativo de funções exclusivo. **contoso-function-app-1098** é mostrado como um exemplo.
 
-    **Grupo de recursos**: selecione **Usar existente** e **contoso-us-resource-group** para manter juntos todos os recursos criados neste artigo.
+    **Grupo de recursos**: Selecione **Usar existente** e **contoso-us-resource-group** para manter juntos todos os recursos criados neste artigo.
 
-    **Application Insights**: para este exercício, você pode desativar esse recurso.
+    **Application Insights**: Para este exercício, você pode desativar esse recurso.
 
     ![Crie o aplicativo de funções](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
@@ -390,7 +390,7 @@ Esta seção é voltada para uma estação de trabalho baseada em Windows. Para 
 4. Execute o comando a seguir, que cria uma versão do SDK específica para a plataforma cliente de desenvolvimento. Uma solução do Visual Studio para o dispositivo simulado será gerada no diretório `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Se `cmake` não encontrar o compilador do C++, você poderá obter erros de build ao executar o comando acima. Se isso acontecer, tente executar esse comando no [prompt de comando do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Esta seção é voltada para uma estação de trabalho baseada em Windows. Para 
     Após o sucesso da compilação, as últimas linhas de saída serão semelhantes à seguinte saída:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -449,20 +449,24 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 6. Clique com botão direito do mouse no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Inicialização**. 
 
+
 #### <a name="simulate-the-contoso-toaster-device"></a>Simular o dispositivo de resistência da Contoso
 
-1. Na janela *Gerenciador de Soluções* do Visual Studio, navegue até o projeto **hsm\_security\_client** e expanda-a. Expanda **Arquivos de Origem** e abra **hsm\_client\_key.c**. 
-
-    Localize a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as alterações a seguir ao arquivo e salve-o.
-
-    Atualize o valor da constante `REGISTRATION_NAME` com a ID do registro para o dispositivo de resistência **breakroom499-contoso-tstrsd-007**.
-    
-    Atualize o valor da constante `SYMMETRIC_KEY_VALUE` com a chave do dispositivo gerado para o dispositivo de resistência. O valor **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** é fornecido apenas como um exemplo.
+1. Para simular o dispositivo de resistência, localize a chamada para `prov_dev_set_symmetric_key_info()` em **prov\_dev\_client\_sample.c** que é comentado.
 
     ```c
-    static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
+
+    Remova a marca de comentário da chamada de função e substitua os valores de espaço reservado (incluindo os colchetes angulares) pela ID de registro da resistência e a chave de dispositivo derivada gerada anteriormente. O valor da chave **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** mostrado abaixo é fornecido apenas como um exemplo.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
+    ```
+   
+    Salve o arquivo.
 
 2. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes da execução.
 
@@ -485,20 +489,16 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Simular o dispositivo de bomba térmica da Contoso
 
-1. De volta na janela *Gerenciador de Soluções* do Visual Studio, navegue até o projeto **hsm\_security\_client** e expanda-a. Expanda **Arquivos de origem** e abra **hsm\_client\_key.c**. 
-
-    Localize a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as alterações a seguir ao arquivo e salve-o.
-
-    Atualize o valor da constante `REGISTRATION_NAME` com a ID do registro para o dispositivo de bomba térmica **mainbuilding167-contoso-hpsd-088**.
-    
-    Atualize o valor da constante `SYMMETRIC_KEY_VALUE` com a chave do dispositivo gerado para o dispositivo de resistência. O valor **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** é fornecido apenas como um exemplo.
+1. Para simular o dispositivo de bomba térmica, atualize a chamada para `prov_dev_set_symmetric_key_info()` em **prov\_dev\_client\_sample.c** novamente com a ID de registro de bomba térmica e a chave do dispositivo derivada gerada anteriormente. O valor de chave **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** mostrado abaixo também é fornecido apenas como um exemplo.
 
     ```c
-    static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
-    static const char* const SYMMETRIC_KEY_VALUE = "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
+   
+    Salve o arquivo.
 
-7. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes da execução.
+2. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes da execução.
 
     A saída a seguir é um exemplo do dispositivo de bomba térmica simulado inicializando com êxito e, em seguida, conectando-se à instância do serviço de provisionamento a ser atribuído ao Hub IoT de bombas térmicas pela política de alocação personalizada:
 
@@ -517,8 +517,6 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     ```
 
 
-
-
 ## <a name="troubleshooting-custom-allocation-policies"></a>Solução de problemas em políticas de alocação personalizadas
 
 A tabela a seguir mostra cenários esperados e os códigos de erro de resultados que podem ser encontrados. Use esta tabela para ajudar a solucionar problemas de falhas de política de alocação personalizada com o Azure Functions.
@@ -530,7 +528,7 @@ A tabela a seguir mostra cenários esperados e os códigos de erro de resultados
 | O webhook retorna 200 OK com 'iotHubHostName' presente na resposta, mas definido como uma cadeia de caracteres vazia ou nula | Status do resultado: Com falha<br><br> Código de erro: CustomAllocationIotHubNotSpecified (400208) | O SDK retorna PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | O webhook retorna 401 Não Autorizado | Status do resultado: Com falha<br><br>Código de erro: CustomAllocationUnauthorizedAccess (400209) | O SDK retorna PROV_DEVICE_RESULT_UNAUTHORIZED |
 | Um registro individual foi criado para desabilitar o dispositivo | Status do resultado: Desabilitado | O SDK retorna PROV_DEVICE_RESULT_DISABLED |
-| O webhook retorna o código de erro >= 429 | Orquestração do DPS tentará novamente várias vezes. A política de repetição atualmente é:<br><br>&nbsp;&nbsp;- Contagem de repetições: 10<br>&nbsp;&nbsp;- Intervalo inicial: 1 s<br>&nbsp;&nbsp;- Incremento: 9 s | O SDK ignorará o erro e enviará outra mensagem de obtenção de status no tempo especificado |
+| O webhook retorna o código de erro >= 429 | Orquestração do DPS tentará novamente várias vezes. A política de repetição atualmente é:<br><br>&nbsp;&nbsp;– Contagem de repetições: 10<br>&nbsp;&nbsp;– Intervalo inicial: 1s<br>&nbsp;&nbsp;– Incremento: 9s | O SDK ignorará o erro e enviará outra mensagem de obtenção de status no tempo especificado |
 | O webhook retorna qualquer outro código de status | Status do resultado: Com falha<br><br>Código de erro: CustomAllocationFailed (400207) | O SDK retorna PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 

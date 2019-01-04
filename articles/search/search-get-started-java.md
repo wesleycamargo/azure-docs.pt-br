@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Azure Search no Java | Microsoft Docs
+title: Introdução ao Azure Search no Java – Azure Search
 description: Como criar um aplicativo de pesquisa hospedado na nuvem no Azure usando Java como linguagem de programação.
 services: search
 author: jj09
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419292"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316930"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução ao Azure Search em Java
 > [!div class="op_single_selector"]
@@ -45,13 +46,13 @@ Neste aplicativo, o programa **SearchServlet.java** cria e carrega o índice usa
 ## <a name="about-the-program-files"></a>Sobre os arquivos de programa
 A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 
-* Search.jsp: fornece a interface do usuário
-* SearchServlet.java: fornece métodos (semelhantes a um controlador em MVC)
-* SearchServiceClient.java: lida com solicitações HTTP
-* SearchServiceHelper.java: uma classe auxiliar que fornece métodos estáticos
-* Document.Java: fornece o modelo de dados
-* config.properties: define a URL do serviço Search e a chave de Api
-* pom.xml: uma dependência do Maven
+* Search.jsp: Fornece a interface do usuário
+* SearchServlet.java: Fornece métodos (semelhante a um controlador no MVC)
+* SearchServiceClient.java: Manipula as solicitações HTTP
+* SearchServiceHelper.java: Uma classe auxiliar que fornece métodos estáticos
+* Document.java: Fornece o modelo de dados
+* config.properties: Define a URL e a chave de API do serviço de Pesquisa
+* pom.xml: Uma dependência do Maven
 
 <a id="sub-2"></a>
 

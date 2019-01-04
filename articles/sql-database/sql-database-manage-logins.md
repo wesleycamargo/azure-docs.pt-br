@@ -4,7 +4,7 @@ description: Saiba mais sobre o gerenciamento de segurança de Banco de Dados SQ
 keywords: segurança do banco de dados SQL, gerenciamento de segurança de banco de dados, segurança de logon, segurança de banco de dados, acesso ao banco de dados
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: f2627aab2598a706e717e8e1d18fd2f8c944835c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/29/2018
+ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161449"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864937"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlando e concedendo acesso de banco de dados a Banco de Dados SQL e SQL Data Warehouse
 
@@ -28,7 +28,7 @@ Após as regras de firewall terem sido configuradas, as pessoas poderão se cone
 >  Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. 
 
 > [!TIP]
-> Para obter um tutorial, consulte [Proteger o Banco de Dados SQL do Azure](sql-database-security-tutorial.md).
+> Para obter um tutorial, consulte [Proteger o Banco de Dados SQL do Azure](sql-database-security-tutorial.md). Este tutorial não se aplica à **Instância Gerenciada do Banco de Dados SQL do Azure**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Contas administrativas irrestritas
 Há duas contas administrativas (**Administrador do servidor** e **Administrador do Active Directory**) que agem como administradores. Para identificar essas contas de administrador do servidor SQL, abra o portal do Azure e navegue até as propriedades do servidor SQL.
@@ -68,13 +68,17 @@ Para obter uma explicação passo a passo da criação de um servidor, de um ban
 
 
 ## <a name="additional-server-level-administrative-roles"></a>Funções administrativas no nível do servidor adicionais
+
+>[!IMPORTANT]
+>Esta seção não se aplica à **Instância Gerenciada do Banco de Dados SQL do Azure** como essas funções são específicas para o **Banco de Dados SQL do Microsoft Azure**.
+
 Além das funções administrativas no nível do servidor discutidas anteriormente, o Banco de Dados SQL fornece duas funções administrativas restritas no banco de dados mestre, às quais as contas de usuário podem ser adicionadas para a concessão de permissões para manter o banco de dados ou gerenciar logons.
 
 ### <a name="database-creators"></a>Criadores de Banco de Dados
 Uma dessas funções administrativas é a função **dbmanager**. Os membros dessa função podem criar novos bancos de dados. Para usar essa função, você cria um usuário no banco de dados `master` e, em seguida, adiciona o usuário à função de banco de dados **dbmanager**. Para criar um banco de dados, o usuário deve ser um usuário baseado em um logon do SQL Server no banco de dados mestre ou um usuário de banco de dados baseado em um usuário do Azure Active Directory independente.
 
 1. Com uma conta de administrador, conecte-se ao banco de dados mestre.
-2. Etapa opcional: crie um logon de autenticação do SQL Server usando a instrução [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) . Exemplo de instrução:
+2. Etapa opcional: Crie um logon de autenticação do SQL Server usando a instrução [CRIAR LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemplo de instrução:
    
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -180,7 +184,7 @@ Ao gerenciar logons e usuários no Banco de Dados SQL, considere o seguinte:
 * Ao executar a instrução `CREATE USER` com a opção `FOR/FROM LOGIN`, ela deve ser a única instrução em um lote do Transact-SQL.
 * Ao executar a instrução `ALTER USER` com a opção `WITH LOGIN`, ela deve ser a única instrução em um lote do Transact-SQL.
 * Para o `CREATE/ALTER/DROP`, um usuário requer a permissão `ALTER ANY USER` no banco de dados.
-* Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para essa função de banco de dados, pode ocorrer o seguinte erro: **O usuário ou a função “Nome” não existe neste banco de dados.** Esse erro ocorre porque o usuário não está visível para o proprietário. Para resolver esse problema, conceda ao proprietário da função a permissão `VIEW DEFINITION` no usuário. 
+* Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para essa função de banco de dados, pode ocorrer o seguinte erro: **Usuário ou função 'Nome' não existe neste banco de dados.**  Esse erro ocorre porque o usuário não está visível para o proprietário. Para resolver esse problema, conceda ao proprietário da função a permissão `VIEW DEFINITION` no usuário. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

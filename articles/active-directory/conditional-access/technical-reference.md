@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2018
+ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619632"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408571"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -179,22 +179,29 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 |---|---|---|
 |Aplicativo Remoto do Azure|Serviço de Aplicativo Remoto do Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
 |Aplicativo Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, iOS e Android|
-|Aplicativo de Calendário/Email/Pessoas, Outlook 2016 Outlook 2013 (com autenticação moderna)|Office 365 Exchange Online|Windows 10|
+|Aplicativo de Email/Calendário/Contatos, Outlook 2016, Outlook 2013 |Office 365 Exchange Online|Windows 10|
 |Política de localização e MFA para aplicativos. Políticas baseadas em dispositivos não têm suporte. |Qualquer serviço de aplicativo de Meus Aplicativos|Android e iOS|
 |Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web|Equipes da Microsoft|Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
-|Aplicativos do Office 2016, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Aplicativos do Office 2016, aplicativos universais do Office, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte aos Grupos do Office planejado para o futuro, suporte aos aplicativos do SharePoint planejado para o futuro|Office 365 SharePoint Online|Windows 10|
+|Aplicativos do Office 2016, Office 2013, cliente de sincronização do OneDrive (confira as [observações](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Aplicativos do Office 2016, aplicativos universais do Office, Office 2013, cliente de sincronização do OneDrive (confira as [observações](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte aos Grupos do Office planejado para o futuro, suporte aos aplicativos do SharePoint planejado para o futuro|Office 365 SharePoint Online|Windows 10|
 |Office 2016 para macOS (somente Word, Excel, PowerPoint, OneNote). Suporte para OneDrive for Business planejado para o futuro|Office 365 SharePoint Online|Mac OS X|
 |Aplicativos móveis do Office|Office 365 SharePoint Online|Android, iOS|
 |Aplicativo Office Yammer|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016 (Office para macOS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Outlook 2016, Outlook 2013, Skype for Business|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Aplicativo móvel do Outlook|Office 365 Exchange Online|Android, iOS|
 |Aplicativo PowerBI|Serviço PowerBI|Windows 10, Windows 8.1, Windows 7, Android e iOS|
 |Skype for Business|Office 365 Exchange Online|Android, IOS |
 |Aplicativo do Azure DevOps|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS e Android|
 
 
+## <a name="support-for-legacy-authentication"></a>Suporte para autenticação herdada
+
+Ao selecionar **Outros clientes**, é possível especificar uma condição que afeta os aplicativos que usam autenticação básica com protocolos de email, como IMAP, MAPI, POP, SMTP e aplicativos mais antigos do Office que não usam autenticação moderna.  
+
+![Outros clientes](./media/technical-reference/11.png)
+
+Para saber mais, confira [Aplicativos clientes](conditions.md#client-apps).
 
 ## <a name="approved-client-app-requirement"></a>Requisito de aplicativo cliente aprovado 
 

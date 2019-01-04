@@ -1,6 +1,6 @@
 ---
-title: Conectar ao banco de dados IBM Informix – Aplicativo Lógico do Azure | Microsoft Docs
-description: Gerenciar recursos com as APIs REST do IBM Informix e o Aplicativo Lógico do Azure
+title: Conectar ao banco de dados IBM Informix – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Gerenciar recursos com as APIs REST do IBM Informix e os Aplicativos Lógicos do Azure
 author: gplarsen
 manager: jeconnoc
 ms.author: plarsen

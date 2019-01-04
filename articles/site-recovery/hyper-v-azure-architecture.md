@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 23b12f5b0423f717e96ec1f59480f0175648c75f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: eb177852be273f1c9af06b1f9d85fbba4cc98567
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210645"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845460"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Hyper-V para o Azure
 
@@ -131,9 +131,9 @@ Se um erro de replicação ocorrer, haverá uma repetição interna. Tentar nova
 Depois que sua infraestrutura local estiver funcionando novamente, você poderá fazer failback. O failback ocorre em três estágios:
 
 1. Dispare um failover planejado do Azure para o site local:
-    - **Minimizar o tempo de inatividade**: se você usar essa opção, o Site Recovery sincronizará os dados antes do failover. Ele verifica blocos de dados alterados e baixa-os para o site local, enquanto a VM do Azure continua em execução, minimizando o tempo de inatividade. Quando você especificar manualmente que o failover deve ser concluído, a VM do Azure será desligada, quaisquer eventuais alterações delta finais serão copiadas e o failover iniciará.
-    - **Download completo**: com essa opção, os dados são sincronizados durante o failover. Esta opção baixa todo o disco. Ela é mais rápida porque nenhuma soma de verificação é calculada, mas há mais tempo de inatividade. Use essa opção se você esteve executando as VMs de réplica do Azure por algum tempo ou se a VM local foi excluída.
-    - **Criar VM**: você pode selecionar para fazer failback para a mesma VM ou para uma outra VM. Você pode especificar que o Site Recovery deve criar a VM se ela ainda não existe.
+    - **Minimizar o tempo de inatividade**: Se você usar essa opção, o Site Recovery sincronizará os dados antes do failover. Ele verifica blocos de dados alterados e baixa-os para o site local, enquanto a VM do Azure continua em execução, minimizando o tempo de inatividade. Quando você especificar manualmente que o failover deve ser concluído, a VM do Azure será desligada, quaisquer eventuais alterações delta finais serão copiadas e o failover iniciará.
+    - **Download completo**: Com essa opção, os dados são sincronizados durante o failover. Esta opção baixa todo o disco. Ela é mais rápida porque nenhuma soma de verificação é calculada, mas há mais tempo de inatividade. Use essa opção se você esteve executando as VMs de réplica do Azure por algum tempo ou se a VM local foi excluída.
+    - **Criar VM**: Você pode selecionar para fazer failback para a mesma VM ou para uma outra VM. Você pode especificar que o Site Recovery deve criar a VM se ela ainda não existe.
 
 2. Após a conclusão da sincronização inicial, você seleciona para concluir o failover. Depois de concluí-lo, você pode fazer logon na VM local para verificar se tudo está funcionando conforme o esperado. No Portal do Azure, você pode ver que as VMs do Azure foram interrompidas.
 3.  Em seguida, você confirma o failover para concluir e começar a acessar a carga de trabalho da VM local novamente.

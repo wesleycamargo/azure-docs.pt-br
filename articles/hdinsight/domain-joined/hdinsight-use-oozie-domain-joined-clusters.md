@@ -1,22 +1,23 @@
 ---
-title: Fluxos de trabalho do Oozie do Apache Hadoop em clusters do Azure HDInsight com o Enterprise Security Package
-description: Use o Oozie do Hadoop em um Enterprise Security Package do HDInsight baseado no Linux. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
+title: Proteger os fluxos de trabalho do Apache Oozie com o Enterprise Security Package – Azure HDInsight
+description: Proteja os fluxos de trabalho do Apache Oozie usando o Enterprise Security Package do Azure HDInsight. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: mamccrea
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 298277b720045c06d78f1c4964de2246dac22f08
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633658"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436272"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Executar o Apache Oozie em clusters do HDInsight Hadoop com o Enterprise Security Package
+
 O Apache Oozie é um sistema de fluxo de trabalho e coordenação que gerencia os trabalhos do Apache Hadoop. O Oozie é integrado à pilha do Hadoop e dá suporte aos seguintes trabalhos:
 - Apache MapReduce
 - Apache Pig
@@ -26,10 +27,11 @@ O Apache Oozie é um sistema de fluxo de trabalho e coordenação que gerencia o
 Você também pode usar o Oozie para agendar trabalhos específicos para um sistema, como programas Java ou scripts de shell.
 
 ## <a name="prerequisite"></a>Pré-requisito
+
 - Um cluster do Azure HDInsight Hadoop com o ESP (Enterprise Security Package). Confira [Configurar clusters do HDInsight com ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
-    > [!NOTE]
-    > Para obter instruções detalhadas de como usar o Oozie em clusters que não são do ESP, confira [Usar fluxos de trabalho do Oozie do Hadoop no Azure HDInsight baseado em Linux](../hdinsight-use-oozie-linux-mac.md).
+    > [!NOTE]  
+    > Para obter instruções detalhadas sobre como usar o Oozie em clusters que não são do ESP, confira [Usar fluxos de trabalho do Apache Oozie do Hadoop no Azure HDInsight baseado em Linux](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="connect-to-an-esp-cluster"></a>Conectar a um cluster ESP
 
@@ -50,7 +52,7 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
     Um código de resposta de status **200 OK** indica um registro bem-sucedido. Verifique o nome de usuário e a senha, caso uma resposta não autorizada seja recebida, como 401.
 
 ## <a name="define-the-workflow"></a>Definir o fluxo de trabalho
-As definições de fluxos de trabalho do Oozie são escritas em Hadoop Process Definition Language (hPDL). hPDL é uma linguagem de definição de processo XML. Realize as etapas a seguir para definir o fluxo de trabalho:
+As definições de fluxos de trabalho do Oozie estão gravadas em Apache Hadoop Process Definition Language (hPDL). hPDL é uma linguagem de definição de processo XML. Realize as etapas a seguir para definir o fluxo de trabalho:
 
 1.  Configurando um workspace de um usuário de domínio:
  ```bash
@@ -224,8 +226,11 @@ nano workflow.xml
    Esse arquivo de propriedades precisa estar presente localmente durante a execução de trabalhos do Oozie.
 
 ## <a name="create-custom-hive-scripts-for-oozie-jobs"></a>Crie scripts personalizados do Hive para os trabalhos do Oozie
+
 Você pode criar os dois scripts de Hive para o servidor Hive 1 e Servidor Hive 2 conforme exibido nas seções a seguir.
+
 ### <a name="hive-server-1-file"></a>Arquivo do Servidor do Hive 1
+
 1.  Criar e editar um arquivo para ações de servidor Hive 1:
     ```bash
     nano countrowshive1.hql
@@ -238,12 +243,13 @@ Você pode criar os dois scripts de Hive para o servidor Hive 1 e Servidor Hive 
     select devicemake from hivesampletable limit 2;
     ```
 
-3.  Salve o arquivo para o Sistema de Arquivos Distribuído Hadoop (HDFS):
+3.  Salve o arquivo para o Sistema de Arquivos Distribuído Apache Hadoop (HDFS):
     ```bash
     hdfs dfs -put countrowshive1.hql countrowshive1.hql
     ```
 
 ### <a name="hive-server-2-file"></a>Arquivo do Servidor do Hive 2
+
 1.  Criar e editar um campo para ações do Hive server 2:
     ```bash
     nano countrowshive2.hql
@@ -262,12 +268,14 @@ Você pode criar os dois scripts de Hive para o servidor Hive 1 e Servidor Hive 
     ```
 
 ## <a name="submit-oozie-jobs"></a>Enviar trabalhos de Oozie
+
 O envio de trabalhos do Oozie para clusters ESP é semelhante ao envio de trabalhos do Oozie em clusters que não são ESP.
 
-Para obter mais informações, consulte [Usar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux](../hdinsight-use-oozie-linux-mac.md).
+Para obter mais informações, consulte [Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="results-from-an-oozie-job-submission"></a>Resultados do envio de trabalhos do Oozie
-Os trabalhos do Oozie são executados para o usuário. Então, Apache YARN e o Apache Ranger auditam logs mostram os trabalhos que está sendo executados como o usuário representado. A saída de interface de linha de comando de um trabalho do Oozie se parece com o código a seguir:
+Os trabalhos do Oozie são executados para o usuário. Então, o Apache Hadoop YARN e o Apache Ranger auditam logs mostram os trabalhos que estão sendo executados como o usuário representado. A saída de interface de linha de comando de um trabalho do Oozie se parece com o código a seguir:
+
 
 
 ```bash
@@ -304,13 +312,15 @@ Os trabalhos do Oozie são executados para o usuário. Então, Apache YARN e o A
 Os logs de auditoria do Ranger para as ações do servidor do Hive 2 mostram o Oozie executando a ação para o usuário. As exibições do Ranger e do YARN só estão visíveis para o administrador do cluster.
 
 ## <a name="configure-user-authorization-in-oozie"></a>Configurar a autorização de usuário no Oozie
+
 O Oozie por si só tem uma configuração de autorização do usuário, que pode impedir a interrupção dos usuários, encerrando os trabalhos de outro usuário. Para habilitar essa configuração, defina as `oozie.service.AuthorizationService.security.enabled` para `true`. 
 
-Para obter mais informações, consulte [Instalação e Configuração do Oozie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
+Para obter mais informações, consulte [Instalação e Configuração do Apache Oozie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 
 Para componentes como o servidor do Hive 1, no qual o plug-in do Ranger não está disponível ou é compatível, é possível apenas realizar a autorização de alta granularidade do HDFS. A autorização refinada está disponível por meio dos plug-ins do Ranger.
 
 ## <a name="get-the-oozie-web-ui"></a>Obtenha a IU web do Oozie
+
 A IU da Web do Oozie fornece um modo de exibição baseado na web sobre o status dos trabalhos do Oozie no cluster. Para obter a interface do usuário da Web, execute as seguintes etapas em clusters ESP:
 
 1. Adicionar um [nó de borda](../hdinsight-apps-use-edge-node.md) e habilitar a [autenticação SSH Kerberos](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -318,6 +328,6 @@ A IU da Web do Oozie fornece um modo de exibição baseado na web sobre o status
 2. Siga as etapas da [interface do usuário da Web do Oozie](../hdinsight-use-oozie-linux-mac.md) para habilitar o túnel SSH no nó de borda e acessar a interface do usuário da Web.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Usar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux](../hdinsight-use-oozie-linux-mac.md).
-* [Usar coordenador do Oozie baseado em tempo](../hdinsight-use-oozie-coordinator-time.md).
-* [Conectar ao HDInsight (Hadoop) usando o SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* [Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux](../hdinsight-use-oozie-linux-mac.md).
+* [Usar coordenadores do Apache Oozie baseados em tempo](../hdinsight-use-oozie-coordinator-time.md).
+* [Conectar ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

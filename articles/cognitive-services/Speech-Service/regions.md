@@ -1,5 +1,5 @@
 ---
-title: Regiões do Serviço de Fala
+title: Regiões – Serviços de Fala
 titlesuffix: Azure Cognitive Services
 description: Referência para regiões do serviço de Fala.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: mahilleb
-ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712884"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091638"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões com suporte do Serviço de Fala
 
@@ -45,7 +46,7 @@ O SDK DE fala está disponível nessas regiões para **reconhecimento de Fala** 
 
 ### <a name="intent-recognition"></a>Reconhecimento de intenção
 
-**Reconhecimento de intenção** para o SKD de Fala compartilha suporte de regiões com LUIS. Para obter uma lista completa das regiões disponíveis, consulte [Publicar regiões e ponto de extremidade - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)
+**Reconhecimento de intenção** para o SKD de Fala compartilha suporte de regiões com LUIS. Para obter uma lista completa das regiões disponíveis, consulte [Publicar regiões e ponto de extremidade - LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
 
 As regiões disponíveis para **reconhecimento de intenção** por meio do SDK de Fala estão listadas na [página da região do serviço da API de Reconhecimento Vocal](/azure/cognitive-services/luis/luis-reference-regions).
 

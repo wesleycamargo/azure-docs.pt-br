@@ -4,15 +4,15 @@ description: Este artigo resume as perguntas comuns ao configurar a recuperaçã
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.author: mayg
+ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162476"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256495"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -27,8 +27,8 @@ Analise os detalhes em [Preços do Azure Site Recovery](https://azure.microsoft.
 Durante a replicação, os dados são replicados para o armazenamento do Azure e não é necessário pagar nenhuma alteração de VM. Ao executar um failover no Azure, o Site Recovery cria automaticamente as máquinas virtuais da IaaS do Azure. Depois disso, serão cobrados os recursos de computação consumidos no Azure.
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>O que é possível fazer com a replicação de VMware para Azure?
-- **Recuperação de desastre**: é possível configurar a recuperação de desastre completa. Nesse cenário, você replica VMs VMware locais para o armazenamento do Azure. Em seguida, se a infraestrutura local estiver indisponível, será possível fazer failover para o Azure. Ao fazer failover, as VMs do Azure são criadas usando os dados replicados. Você poderá acessar os aplicativos e as cargas de trabalho nas VMs do Azure até que o datacenter local esteja disponível novamente. Em seguida, será possível fazer failback do Azure para o site local.
-- **Migração**: é possível utilizar o Site Recovery para migrar VMs VMware locais para o Azure. Nesse cenário, você replica VMs VMware locais para o armazenamento do Azure. Em seguida, você faz failover do local para o Azure. Após o failover, os aplicativos e as cargas de trabalho estarão disponíveis e em execução nas VMs do Azure.
+- **Recuperação de desastre**: É possível configurar a recuperação de desastre completa. Nesse cenário, você replica VMs VMware locais para o armazenamento do Azure. Em seguida, se a infraestrutura local estiver indisponível, será possível fazer failover para o Azure. Ao fazer failover, as VMs do Azure são criadas usando os dados replicados. Você poderá acessar os aplicativos e as cargas de trabalho nas VMs do Azure até que o datacenter local esteja disponível novamente. Em seguida, será possível fazer failback do Azure para o site local.
+- **Migração**: É possível utilizar o Site Recovery para migrar VMs VMware locais para o Azure. Nesse cenário, você replica VMs VMware locais para o armazenamento do Azure. Em seguida, você faz failover do local para o Azure. Após o failover, os aplicativos e as cargas de trabalho estarão disponíveis e em execução nas VMs do Azure.
 
 
 
@@ -74,7 +74,7 @@ Os dados replicam para o armazenamento do Azure. Ao executar um failover, o Site
 O Site Recovery replica dados do local para o armazenamento do Azure em um ponto de extremidade público ou utilizando o emparelhamento público do ExpressRoute. A replicação de uma rede VPN site a site não tem suportada.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>É possível replicar para o Azure com o ExpressRoute?
-Sim, o ExpressRoute pode ser utilizado para replicar VMs para o Azure. O Site Recovery replica dados para uma Conta de Armazenamento do Microsoft Azure em um ponto de extremidade público e é necessário configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) para replicação do Site Recovery. Após fazer failover das VMs para uma rede virtual do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Sim, o ExpressRoute pode ser utilizado para replicar VMs para o Azure. O Site Recovery replica dados para uma Conta de Armazenamento do Microsoft Azure em um ponto de extremidade público e é necessário configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) para replicação do Site Recovery. Após fazer failover das VMs para uma rede virtual do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar em VPN?
@@ -146,11 +146,14 @@ Sim. Faça o download o MySQL e colocá-lo na pasta **C:\Temp\ASRSetup**. Em seg
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Posso evitar de fazer o download de MySQL mas permitir que o Site Recovery instale-o?
 Sim. Faça o download do instalador do MySQL e coloque-o na pasta **C:\Temp\ASRSetup**.  Quando você configurar a VM do servidor de configuração, aceite os termos e clique em **Faça o download e instale**, o portal usará o instalador que você adicionou para instalar o MySQL.
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>Posso usar a VM do servidor de configuração para mais alguma coisa?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Posso usar a VM do servidor de configuração para mais alguma coisa?
 Não, você só deve usar a VM para o servidor de configuração. 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Posso clonar um servidor de configuração e usá-lo para orquestração?
+Não, você deve configurar um servidor de configuração atualizado para evitar problemas de registro.
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Posso alterar o cofre registrado no servidor de configuração?
- Não. Depois que um cofre é registrado no servidor de configuração, ele não pode ser alterado.
+ Não. Depois que um cofre é registrado no servidor de configuração, ele não pode ser alterado. Revisão [deste artigo](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) para obter as etapas do novo registro.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Posso usar o mesmo servidor de configuração para recuperação de desastres de VMs VMware e servidores físicos
 Sim, mas observe que a máquina física só pode ser reprovada em uma VM do VMware.

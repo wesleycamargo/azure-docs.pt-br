@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a45e8c7bdb616eb389d95be8421bea7d31eafe29
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974162"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849218"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
 
@@ -30,8 +30,8 @@ Depois de concluir a **Etapa 1: Selecionar meta de proteção** e a **Etapa 2: P
 
 ![Preparar o destino](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **Assinatura:** no menu suspenso, escolha a assinatura na qual você quer replicar seus servidores físicos.
-2. **Modelo de Implantação:** escolha o modelo de implantação (Clássico ou Resource Manager)
+1. **Assinatura:** Mo menu suspenso, escolha a assinatura na qual você quer replicar seus servidores físicos.
+2. **Modelo de Implantação:** Selecione o modelo de implantação (Clássico ou Resource Manager)
 
 Com base no modelo de implantação escolhido, uma validação é executada para garantir que você tenha pelo menos uma conta de armazenamento compatível e a rede virtual na assinatura de destino na qual replicar e fazer failover dos servidores físicos.
 

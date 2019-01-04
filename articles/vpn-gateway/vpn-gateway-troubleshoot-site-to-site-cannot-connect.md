@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: a2330cee3d5ea48f9f679ac02f6889ccce6c1d7c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 18900c4a1dbc25526a3f60c7410ad87e7dd9a9fa
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242748"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967837"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: uma conexão VPN site a site do Azure não consegue se conectar e deixa de funcionar
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solucionar problemas: A conexão VPN Site a Site do Azure não pode se conectar e para de funcionar
 
 Depois de configurar uma conexão VPN site a site entre uma rede local e uma rede virtual do Azure, a conexão VPN repentinamente deixa de funcionar e não pode ser reconectada. Este artigo apresenta etapas para a solução de problemas para ajudá-lo a resolver esse problema. 
 
@@ -39,7 +39,7 @@ Verifique o tipo do gateway de VPN do Azure.
 
 2. Verifique a página **Visão Geral** do gateway de VPN para as informações de tipo.
     
-    ![Visão geral do gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![Visão geral do gateway](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Etapa 1. Verifique se o dispositivo VPN local está validado
 
@@ -100,7 +100,7 @@ Verifique e remova o UDR (roteamento definido pelo usuário) ou NSG (grupos de s
 2. Clique no aviso do certificado.
 3. Se você receber uma resposta, o gateway de VPN será considerado íntegro. Se você não receber uma resposta, o gateway poderá não estar íntegro ou um NSG na sub-rede do gateway estará causando o problema. O texto a seguir é uma resposta de exemplo:
 
-    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Instância primária: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    &lt;? xml versão = "1.0"? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Instância primária: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Etapa 8. Verifique se o dispositivo VPN local tem o recurso PFS habilitado
 

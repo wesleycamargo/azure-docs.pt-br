@@ -1,25 +1,25 @@
 ---
-title: Criar um balanceador de carga voltado para a Internet - Azure PowerShell clássico | Microsoft Docs
+title: Criar um balanceador de carga voltado para a Internet – Azure PowerShell clássico
+titlesuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga para a Internet no modo clássico usando o PowerShell
 services: load-balancer
 documentationcenter: na
 author: genlin
 manager: cshepard
 tags: azure-service-management
-ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: 07d3658ff86a46875a57cb3359a60661911e0c8b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dbb8708f8872c8d16baa13725edbff6de37ac171
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539862"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139821"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Introdução à criação de um balanceador de carga para a Internet (clássico) no PowerShell
 

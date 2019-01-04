@@ -1,13 +1,12 @@
 ---
-title: Seus dados estão prontos para a ciência de dados? Avaliação de dados - Azure Machine Learning Studio | Microsoft Docs
+title: Avaliação de dados - Azure Machine Learning Studio | Microsoft Docs
 description: Quatro critérios que seus dados precisam atender para estarem prontos para ciência de dados. Este vídeo tem exemplos concretos para ajudar na avaliação dos dados básicos.
 keywords: dados relevantes, avaliar dados, preparar dados, critérios dos dados, dados prontos
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 5e7949edb13bfec72fa7d80d86d2e77214ceaa37
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2a9101ed510c617df81f422aea92ca1ef2b28cd8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316201"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261221"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Seus dados estão prontos para a ciência de dados?
-## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Série de ciência de dados para iniciantes
+## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciência de Dados para série de Iniciantes
 Aprenda como avaliar seus dados para assegurar que eles atendem aos critérios básicos de preparo para a ciência de dados.
 
 Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
@@ -38,9 +37,9 @@ Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a list
 ## <a name="other-videos-in-this-series"></a>Outros vídeos nesta série
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
 
-* Vídeo 1: [As cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
+* Vídeo 1: [As cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5min 14s)*
 * Vídeo 2: Seus dados estão prontos para a ciência de dados?
-* Video 3: [Faça uma pergunta que você possa responder com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
+* Vídeo 3: [Faça uma pergunta que você poderá responder usando dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
 * Vídeo 4: [Preveja uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
 * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
 

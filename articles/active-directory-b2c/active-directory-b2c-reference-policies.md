@@ -1,50 +1,36 @@
 ---
-title: Políticas internas no Azure Active Directory B2C | Microsoft Docs
-description: Um tópico sobre a estrutura da política extensível do Azure Active Directory B2C e sobre como criar vários tipos de política.
+title: Fluxos dos usuários no Azure Active Directory B2C | Microsoft Docs
+description: Um tópico sobre a estrutura de política extensível do Azure Active Directory B2C e como criar vários tipos de fluxo de usuário.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/26/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f26db8bcb50fa09a8d2829d477f90cac8c52533f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d4a93b04b8ad86a6a6d36a5bdaf3209b49e7a9dc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337567"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877075"
 ---
-# <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: políticas internas
+# <a name="azure-active-directory-b2c-user-flows"></a>Azure Active Directory B2C: Fluxos dos usuários
 
 
-A estrutura de política extensível do Azure AD (Azure Active Directory) B2C é o principal ponto forte do serviço. As políticas descrevem totalmente as experiências de identidade do consumidor, como inscrição, entrada ou edição de perfil. Por exemplo, uma política de inscrição permite controlar comportamentos definindo as seguintes configurações:
+A estrutura de política extensível do Azure AD (Azure Active Directory) B2C é o principal ponto forte do serviço. As políticas descrevem totalmente as experiências de identidade do consumidor, como inscrição, entrada ou edição de perfil. Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos dos usuários**. Por exemplo, um fluxo de usuário de inscrição permite controlar comportamentos definindo as seguintes configurações:
 
 * Tipos de conta (contas sociais, como o Facebook ou contas locais, como um endereço de email) que os consumidores podem usar para se inscrever no aplicativo
 * Atributos (como nome, código postal e tamanho do calçado, por exemplo) que serão coletados junto ao consumidor durante a inscrição
 * Uso da Autenticação Multifator do Microsoft Azure
 * A aparência e funcionalidade de todas as páginas de inscrição
-* Informações (que se manifestam como declarações em um token) que o aplicativo recebe quando a execução da política é concluída
+* Informações (que manifestam-se como declarações em um token) que o aplicativo recebe quando a execução de fluxo de usuário termina
 
-Você pode criar várias políticas de tipos diferentes em seu locatário e usá-las em seus aplicativos, conforme necessário. As políticas podem ser reutilizadas entre os aplicativos. Essa flexibilidade permite aos desenvolvedores definir e modificar experiências de identidade do consumidor com pouca ou nenhuma alteração no código.
+É possível criar vários fluxos dos usuários de diferentes tipos no locatário e usá-los nos aplicativos, conforme necessário. Fluxos dos usuários podem ser reutilizados nos aplicativos. Essa flexibilidade permite aos desenvolvedores definir e modificar experiências de identidade do consumidor com pouca ou nenhuma alteração no código.
 
-As políticas estão disponíveis para uso por meio de uma interface simples do desenvolvedor. O aplicativo dispara uma política usando uma solicitação de autenticação HTTP padrão (passando um parâmetro de política na solicitação) e recebe um token personalizado como resposta. Por exemplo, a única diferença entre solicitações que invocam uma política de inscrição e aquelas que invocam uma política de entrada é o nome da política usado no parâmetro de cadeia de caracteres de consulta "p":
-
-```
-
-https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
-&redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
-&response_mode=form_post                            // 'query', 'form_post' or 'fragment'
-&response_type=id_token
-&scope=openid
-&nonce=dummy
-&state=12345                                        // Any value provided by your application
-&p=b2c_1_siup                                       // Your sign-up policy
-
-```
+Fluxos de usuários estão disponíveis para uso por meio de uma interface simples do desenvolvedor. O aplicativo dispara um fluxo de usuário, usando uma solicitação de autenticação HTTP padrão (passando um parâmetro de fluxo de usuário na solicitação) e recebe um token personalizado como resposta. Por exemplo, a única diferença entre solicitações que invocam um fluxo de usuário de inscrição e solicitações que invocam um fluxo de usuário de entrada é o nome do fluxo de usuário usado no parâmetro de cadeia de caracteres de consulta "p":
 
 ```
 
@@ -56,49 +42,63 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &scope=openid
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
-&p=b2c_1_siin                                       // Your sign-in policy
+&p=b2c_1_siup                                       // Your sign-up user flow
 
 ```
 
-## <a name="create-a-sign-up-or-sign-in-policy"></a>Criar uma política de inscrição ou credenciais
+```
 
-Esta política controla as duas experiências de inscrição e credenciais do consumidor com uma única configuração. Os consumidores são conduzidos para o caminho certo (inscrição ou credenciais), dependendo do contexto. Ele também descreve o conteúdo de tokens que o aplicativo receberá mediante inscrições ou entradas bem-sucedidas.  Há um exemplo de código para a política de **inscrição ou entrada**, [disponível aqui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  É recomendável usar essa política em uma política de **inscrição** ou uma política de **entrada**.  
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
+&redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
+&response_mode=form_post                            // 'query', 'form_post' or 'fragment'
+&response_type=id_token
+&scope=openid
+&nonce=dummy
+&state=12345                                        // Any value provided by your application
+&p=b2c_1_siin                                       // Your sign-in user flow
+
+```
+
+## <a name="create-a-sign-up-or-sign-in-user-flow"></a>Criar um fluxo de usuário de inscrição ou entrada
+
+Esse fluxo de usuário lida com ambas as experiências de inscrição e entrada do consumidor com uma única configuração. Os consumidores são conduzidos para o caminho certo (inscrição ou credenciais), dependendo do contexto. Ele também descreve o conteúdo de tokens que o aplicativo receberá mediante inscrições ou entradas bem-sucedidas.  Um exemplo de código para o fluxo de usuário de **inscrição ou entrada** está [disponível aqui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  É recomendável usar esse fluxo de usuário em um fluxo de usuário de **inscrição** ou um fluxo de usuário de **entrada**.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-## <a name="create-a-sign-up-policy"></a>Criar uma política de inscrição
+## <a name="create-a-sign-up-user-flow"></a>Criar um fluxo de usuário de inscrição
 
 [!INCLUDE [active-directory-b2c-create-sign-up-policy](../../includes/active-directory-b2c-create-sign-up-policy.md)]
 
-## <a name="create-a-sign-in-policy"></a>Usar uma política de entrada
+## <a name="create-a-sign-in-user-flow"></a>Criar um fluxo de usuário de entrada
 
 [!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
 
-## <a name="create-a-profile-editing-policy"></a>Criar uma política de edição de perfil
+## <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de usuário de edição de perfil
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-## <a name="create-a-password-reset-policy"></a>Criar uma política de redefinição de senha
+## <a name="create-a-password-reset-user-flow"></a>Criar um fluxo de usuário de redefinição de senha
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-## <a name="preview-policies"></a>Visualizar políticas
+## <a name="preview-user-flows"></a>Visualizar fluxos dos usuários
 
-Como podemos lançar novos recursos, alguns deles podem não estar disponíveis em políticas existentes.  Planejamos substituir as versões anteriores com a versão mais recente do mesmo tipo depois que essas políticas entrarem no GA.  As políticas existentes não serão alterado e para aproveitar esses novos recursos você precisa criar novas políticas.
+Na medida em que lançamos novos recursos, alguns deles talvez não estejam disponíveis nos fluxos dos usuários ou políticas existentes.  Planejamos substituir as versões mais antigas pelas mais recentes, da mesma forma quando esses fluxos dos usuários entram em GA.  Os fluxos dos usuários ou políticas existentes não serão alterados e, para aproveitar esses novos recursos, será necessário criar novos fluxos dos usuários.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Como fazer para vincular uma política de inscrição ou entrada a uma política de redefinição de senha?
-Ao criar uma política de **inscrição ou entrada** (com contas locais), você verá um link **Esqueceu a senha?** na primeira página da experiência. Clicar nesse link não dispara automaticamente uma política de redefinição de senha. 
+### <a name="how-do-i-link-a-sign-up-or-sign-in-user-flow-with-a-password-reset-user-flow"></a>Como fazer para vincular um fluxo de usuário de inscrição ou entrada a um fluxo de usuário de redefinição de senha?
+Ao criar um fluxo de usuário de **inscrição ou entrada** (com contas locais), você verá um link **Esqueceu a senha?** na primeira página da experiência. Clicar nesse link não dispara automaticamente um fluxo de usuário de redefinição de senha. 
 
-Em vez disso, o código de erro **`AADB2C90118`** é retornado para seu aplicativo. Seu aplicativo precisa lidar com esse código de erro invocando uma política de redefinição de senha específica. Para obter mais informações, consulte um [exemplo que demonstra a abordagem de vinculação de políticas](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+Em vez disso, o código de erro **`AADB2C90118`** é retornado para seu aplicativo. O aplicativo precisa lidar com esse código de erro invocando um fluxo de usuário de redefinição de senha específico. Para obter mais informações, consulte um exemplo [que demonstra a abordagem de vinculação dos fluxos dos usuários](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
-### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Eu devo usar uma política de inscrição ou entrada ou uma política de inscrição e uma política de entrada?
-É recomendável que você use uma política de **inscrição ou entrada** em uma política de **inscrição** e uma política de **entrada**.  
+### <a name="should-i-use-a-sign-up-or-sign-in-user-flow-or-a-sign-up-user-flow-and-a-sign-in-user-flow"></a>Devo usar um fluxo de usuário de inscrição ou entrada ou um fluxo de usuário de inscrição e um fluxo de usuário de entrada?
+É recomendável que você use um fluxo de usuário de **inscrição ou entrada** em um fluxo de usuário de **inscrição** e um fluxo de usuário de **entrada**.  
 
-A política de **inscrição ou entrada** tem mais recursos que a política de **entrada**. Ela também permite que você use a personalização da interface do usuário da página e tem melhor suporte para localização. 
+O fluxo de usuário de **inscrição ou entrada** tem mais recursos que o fluxo de usuário de **entrada**. Ela também permite que você use a personalização da interface do usuário da página e tem melhor suporte para localização. 
 
-A política de **entrada** será recomendável, se você não precisar localizar suas políticas e precisar apenas de pequenos recursos de personalização para identidade visual e quiser redefinir a senha interna.
+O fluxo de usuário de **entrada** é recomendado se não for necessário localizar os fluxos dos usuários, apenas precisar de recursos menores de personalização para a identidade visual e quiser redefinir a senha incorporada.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configuração de token, de sessão e de logon único](active-directory-b2c-token-session-sso.md)

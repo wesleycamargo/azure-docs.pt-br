@@ -10,17 +10,15 @@ ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: d0156ccc3caea2f47296740d57422ccc706f84f1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634227"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184111"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorar o status da replicação do Active Directory com o Log Analytics
 
@@ -33,7 +31,7 @@ O pacote de solução de Status de Replicação do Active Directory monitora reg
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
 
-* Você deve instalar os agentes em controladores de domínio membros do domínio a ser avaliado. Ou você deve instalar agentes em servidores membros e configurar os agentes para enviar dados de replicação do AD para o Log Analytics. Para entender como conectar computadores Windows ao Log Analytics, consulte [Conectar computadores Windows ao Log Analytics](../../azure-monitor/platform/agent-windows.md). Se o controlador de domínio já fizer parte de um ambiente existente do System Center Operations Manager que você quer conectar ao Log Analytics, veja [Conectar o Operations Manager ao Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+* Você deve instalar os agentes em controladores de domínio membros do domínio a ser avaliado. Ou você deve instalar agentes em servidores membros e configurar os agentes para enviar dados de replicação do AD para o Log Analytics. Para entender como conectar computadores Windows ao Log Analytics, consulte [Conectar computadores Windows ao Log Analytics](../../azure-monitor/platform/agent-windows.md). Se o controlador de domínio já fizer parte de um ambiente existente do System Center Operations Manager que você quer conectar ao Log Analytics, veja [Conectar o Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md).
 * Adicione a solução de Status de Replicação do Active Directory ao workspace do Log Analytics usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../../azure-monitor/insights/solutions.md).  Não é necessária nenhuma configuração.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de coleta de dados do Status de Replicação do AD
@@ -48,7 +46,7 @@ Se não quiser conectar qualquer um dos seus controladores de domínio diretamen
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Habilitar um controlador que não seja de domínio para enviar dados do AD para o Log Analytics
 1. Verifique se o computador é um membro do domínio que você deseja monitorar usando a solução de Status de Replicação do AD.
-2. [Conecte o computador Windows ao Log Analytics](../../log-analytics/log-analytics-om-agents.md) ou [conecte-o usando seu ambiente existente do Operations Manager para Log Analytics](../../log-analytics/log-analytics-om-agents.md), se ele ainda não estiver conectado.
+2. [Conecte o computador Windows ao Log Analytics](../../azure-monitor/platform/om-agents.md) ou [conecte-o usando seu ambiente existente do Operations Manager para Log Analytics](../../azure-monitor/platform/om-agents.md), se ele ainda não estiver conectado.
 3. Nesse computador, defina a seguinte chave do Registro:
 
    * Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
@@ -110,7 +108,7 @@ Ao clicar em qualquer item de uma das listas, verá detalhes adicionais sobre el
 
 ![Erros de status de replicação do AD nos resultados da pesquisa](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Aqui, você pode filtrar ainda mais, modificar a consulta de pesquisa e muito mais. Para obter mais informações sobre como usar a Pesquisa de Log, consulte [Pesquisas de log](../../log-analytics/log-analytics-queries.md).
+Aqui, você pode filtrar ainda mais, modificar a consulta de pesquisa e muito mais. Para obter mais informações sobre como usar a Pesquisa de Log, consulte [Pesquisas de log](../../azure-monitor/log-query/log-query-overview.md).
 
 O campo **HelpLink** mostra a URL de uma página do TechNet com detalhes adicionais sobre esse erro específico. Você pode copiar e colar esse link na janela do navegador para ver informações sobre solução de problemas e corrigir o erro.
 
@@ -123,25 +121,25 @@ Você também pode clicar em **Exportar** para exortar os resultados para o Exce
 R: As informações são atualizadas a cada cinco dias.
 
 **P: Há uma maneira de configurar a frequência com que tais dados são atualizados?**
- R: Não no momento.
+R: Não no momento.
 
 **P: Preciso adicionar todos os meus controladores de domínio ao meu workspace do Log Analytics para ver o status de replicação?**
- R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu workspace do Log Analytics, dados de todos eles serão enviados para o Log Analytics.
+R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu workspace do Log Analytics, dados de todos eles serão enviados para o Log Analytics.
 
 **P: Não quero adicionar qualquer controlador de domínio ao meu workspace do Log Analytics. Ainda posso usar a solução Status de Replicação do AD?**
 R: Sim. Você pode definir o valor de uma chave do Registro para habilitá-la. Consulte [Habilitar um controlador que não seja de domínio para enviar dados do AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **P: Qual é o nome do processo que faz a coleta de dados?**
- R: AdvisorAssessment.exe
+R: AdvisorAssessment.exe
 
 **P: Quanto tempo leva para os dados serem coletados?**
- R: O tempo de coleta de dados depende do tamanho do ambiente do Active Directory, mas geralmente leva menos de 15 minutos.
+R: O tempo de coleta de dados depende do tamanho do ambiente do Active Directory, mas geralmente leva menos de 15 minutos.
 
 **P: Que tipo de dados é coletado?**
- R: Informações de replicação são coletadas por meio do LDAP.
+R: Informações de replicação são coletadas por meio do LDAP.
 
 **P: Há uma maneira de configurar quando os dados são coletados?**
- R: Não no momento.
+R: Não no momento.
 
 **P: De quais permissões preciso para coletar dados?**
 R: As permissões de usuário normais para o Active Directory são suficientes.
@@ -149,9 +147,9 @@ R: As permissões de usuário normais para o Active Directory são suficientes.
 ## <a name="troubleshoot-data-collection-problems"></a>Solucionar problemas de coleta de dados
 Para coletar dados, o pacote de solução de Status de Replicação do AD requer pelo menos um controlador de domínio esteja conectado ao seu workspace do Log Analytics. Até você conectar um controlador de domínio, será exibida uma mensagem indicando que os **dados ainda estão sendo coletados**.
 
-Se você precisar de assistência para conectar um dos seus controladores de domínio, você poderá exibir a documentação em [Conectar computadores Windows ao Log Analytics](../../log-analytics/log-analytics-om-agents.md). Como alternativa, se o controlador de domínio já estiver conectado a um ambiente existente do System Center Operations Manager, você poderá exibir a documentação em [Conectar o System Center Operations Manager ao Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Se você precisar de assistência para conectar um dos seus controladores de domínio, você poderá exibir a documentação em [Conectar computadores Windows ao Log Analytics](../../azure-monitor/platform/om-agents.md). Como alternativa, se o controlador de domínio já estiver conectado a um ambiente existente do System Center Operations Manager, você poderá exibir a documentação em [Conectar o System Center Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 Se você não quiser conectar nenhum controlador de domínio diretamente ao Log Analytics ou System Center Operations Manager, consulte [Para habilitar um controlador que não seja de domínio para enviar dados do AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [Pesquisas de log no Log Analytics](../../log-analytics/log-analytics-queries.md) para exibir dados detalhados de status de replicação do Active Directory.
+* Use [Pesquisas de log no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para exibir dados detalhados de status de replicação do Active Directory.

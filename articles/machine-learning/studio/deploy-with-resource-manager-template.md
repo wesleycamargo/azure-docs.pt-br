@@ -1,12 +1,11 @@
 ---
-title: Implantar um Workspace do Machine Learning com o Azure Resource Manager | Microsoft Docs
+title: Implantar um Workspace do Studio com o Azure Resource Manager – Azure Machine Learning Studio | Microsoft Docs
 description: Como implantar um workspace para o Azure Machine Learning usando o modelo do Azure Resource Manager
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
@@ -15,15 +14,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/05/2018
-ms.openlocfilehash: 82a9cfec0efe60e3a0cdf16efa373e68efebee59
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 02/05/2018
+ms.openlocfilehash: ac9cecd07d600189f0fb08771b0992d49236aea9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307973"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268913"
 ---
-# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implantar Workspace do Machine Learning usando o Azure Resource Manager
+# <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Implantar o Workspace do Azure Machine Learning Studio usando o Azure Resource Manager
 
 Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar Workspace do Azure Machine Learning, por exemplo, você precisa configurar uma conta de armazenamento do Azure e implantar seu workspace. Imagine fazer isso manualmente para centenas de workspaces. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um Workspace do Azure Machine Learning e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 

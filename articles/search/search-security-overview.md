@@ -1,5 +1,5 @@
 ---
-title: Segurança e privacidade de dados no Azure Search | Microsoft Docs
+title: Segurança e privacidade de dados – Azure Search
 description: O Azure Search está em conformidade com as certificações SOC 2, HIPAA e outras. Conexão e criptografia de dados, autenticação e acesso de identidade por meio de identificadores de segurança do grupo e usuário nos filtros do Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.custom: seodec2018
+ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092624"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311704"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Segurança e privacidade de dados no Azure Search
 
@@ -99,7 +100,7 @@ O acesso por usuário ao conteúdo de um índice é implementado por meio de fil
 |[Filtragem de segurança com base nos filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para implementar o controle de acesso de identidade do usuário. Ele aborda a adição de identificadores de segurança a um índice e explica a filtragem em relação a esse campo para cortar resultados de conteúdo proibido. |
 |[Filtragem de segurança com base em Identidades do Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo aprofunda o artigo anterior, fornecendo etapas para recuperar identidades do Azure Active Directory (AAD), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma de nuvem do Azure. |
 
-## <a name="table-permissioned-operations"></a>Tabela: operações permitidas
+## <a name="table-permissioned-operations"></a>Tabela: Operações permitidas
 
 A tabela a seguir resume as operações permitidas no Azure Search e qual chave desbloqueia o acesso a uma determinada operação.
 

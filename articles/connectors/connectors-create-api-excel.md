@@ -1,6 +1,6 @@
 ---
-title: Conectar ao Excel Online – Aplicativo Lógico do Azure | Microsoft Docs
-description: Gerenciar dados com as APIs REST do Excel Online e o Aplicativo Lógico do Azure
+title: Conectar ao Excel Online – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Gerenciar dados com as APIs REST do Excel Online e os Aplicativos Lógicos do Azure
 ms.service: logic-apps
 services: logic-apps
 author: ecfan
@@ -17,9 +17,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230944"
 ---
-# <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerenciar dados do Excel Online com Aplicativo Lógico do Azure
+# <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerenciar dados do Excel Online com Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do Excel Online, você pode criar tarefas automatizadas e fluxos de trabalho com base em seus dados no Excel Online for Business ou OneDrive. Esse conector fornece ações que ajudam você a trabalhar com seus dados e gerenciar planilhas, por exemplo: 
+Com os Aplicativos Lógicos do Azure e o conector do Excel Online, você pode criar tarefas automatizadas e fluxos de trabalho com base em seus dados no Excel Online for Business ou OneDrive. Esse conector fornece ações que ajudam você a trabalhar com seus dados e gerenciar planilhas, por exemplo: 
 
 * Crie novas planilhas e tabelas.
 * Obter e gerenciar planilhas, tabelas e linhas.
@@ -30,7 +30,7 @@ Em seguida, você pode usar as saídas dessas ações com ações para outros se
 Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> Os conectores do [Excel Online for Business](/connectors/excelonlinebusiness/) e do [Excel Online for OneDrive](/connectors/excelonline/) funcionam com o Aplicativo Lógico do Azure e diferem do [conector do Excel para o PowerApps](/connectors/excel/).
+> Os conectores do [Excel Online for Business](/connectors/excelonlinebusiness/) e do [Excel Online for OneDrive](/connectors/excelonline/) funcionam com os Aplicativos Lógicos do Azure e diferem do [conector do Excel para o PowerApps](/connectors/excel/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -1,20 +1,19 @@
 ---
-title: Escolhendo o nível de consistência correto para seu aplicativo que usa o Azure Cosmos DB | Microsoft Docs
+title: Escolhendo o nível de consistência correto para seu aplicativo que usa o Azure Cosmos DB
 description: Como escolher o nível certo de coerência para o seu aplicativo no Azure Cosmos DB.
 keywords: coerência, desempenho, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: 42128a05ad9f82ff6b202eb6566c1fea60caa760
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a1c7d750bcd0c3f37d2269aee299e0ccd8c4ef4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162400"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849285"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>Escolher o nível certo de coerência para o seu aplicativo
 

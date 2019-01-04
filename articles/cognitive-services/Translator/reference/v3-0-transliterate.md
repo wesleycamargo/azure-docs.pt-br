@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018614"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967326"
 ---
-# <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3.0: transliteração
+# <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3.0: Transliterate
 
 Converte texto em um idioma de um script em outro script.
 
@@ -42,15 +42,15 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>Linguagem</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto a converter de um script para outro. Idiomas possíveis estão listados no escopo de `transliteration` obtido consultando o serviço para os seus [idiomas compatíveis](.\v3-0-languages.md).</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto a converter de um script para outro. Idiomas possíveis estão listados no escopo de `transliteration` obtido consultando o serviço para os seus [idiomas compatíveis](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o script usado pelo texto de entrada. Pesquisa [linguagens compatíveis](.\v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de entrada disponíveis para a linguagem selecionada.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script usado pelo texto de entrada. Pesquisa [linguagens compatíveis](./v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de entrada disponíveis para a linguagem selecionada.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o script de saída. Pesquisa [linguagens compatíveis](.\v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de saída disponíveis para a combinação selecionada de linguagem de entrada e script de entrada.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script de saída. Pesquisa [linguagens compatíveis](./v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de saída disponíveis para a combinação selecionada de linguagem de entrada e script de entrada.</td>
   </tr>
 </table> 
 

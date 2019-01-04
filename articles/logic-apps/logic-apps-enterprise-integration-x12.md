@@ -1,6 +1,6 @@
 ---
 title: Mensagens X12 para integração de empresas B2B – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Trocar mensagens X12 em formato EDI para Enterprise Integration B2B no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+description: Trocar mensagens X12 em formato EDI para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123950"
 ---
-# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para Enterprise Integration B2B no Aplicativo Lógico do Azure com Enterprise Integration Pack
+# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com Enterprise Integration Pack
 
 Antes de trocar mensagens X12 para aplicativos lógicos do Azure, você deve criar um contrato X12 e armazenar esse contrato na sua conta de integração. Seguem as etapas sobre como criar um contrato X12.
 

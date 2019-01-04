@@ -3,7 +3,7 @@ title: Limites de recursos baseados em vCore do Banco de Dados SQL do Azure – 
 description: Esta página descreve alguns limites de recursos baseados em vCore comuns para pools elásticos no Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: f41974c6e2b2b0565f0a2703cfd638777a6bb9eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354165"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878016"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limites do modelo de compra baseado em vCore para Banco de Dados SQL do Azure para pools elásticos
 
@@ -33,7 +33,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 > [!NOTE]
 > Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com o mesmo tamanho de computação. Por exemplo, o máximo de trabalhos simultâneos para um banco de dados GP_Gen4_1 é 200. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool de GP_Gen4_1 também é 200. Observe que o número total de trabalhos simultâneos no pool de GP_Gen4_1 é 210.
 
-## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviço de uso geral: tamanhos de armazenamento e tamanhos de computação
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviço de Uso Geral: Tamanhos de armazenamento e tamanhos de computação
 
 ### <a name="generation-4-compute-platform"></a>Plataforma de computação de Geração 4
 
@@ -85,7 +85,7 @@ Você pode definir a camada de serviço, o tamanho de computação e a quantidad
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 |||
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Camada de Serviço Comercialmente Crítico: tamanhos de armazenamento e tamanhos de computação
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviço Comercialmente Crítico: Tamanhos de armazenamento e tamanhos de computação
 
 ### <a name="generation-4-compute-platform"></a>Plataforma de computação de Geração 4
 

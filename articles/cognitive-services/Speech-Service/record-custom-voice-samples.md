@@ -1,5 +1,5 @@
 ---
-title: Gravar amostras de voz para criar uma voz personalizada
+title: Registrar exemplos de voz personalizada – Serviços de Fala
 titleSuffix: Azure Cognitive Services
 description: Construa uma voz personalizada com qualidade de produção, preparando um script robusto, contratando bons talentos de voz e gravando profissionalmente.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/5/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6aaa638504dd441240879050531952b269d02d15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471179"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081074"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Gravar amostras de voz para criar uma voz personalizada
 
@@ -50,7 +51,7 @@ Escolha o ator de voz cuja voz natural você aprecia. É possível criar vozes e
 > [!TIP]
 > De modo geral, evite usar vozes reconhecíveis para criar uma voz personalizada — a não ser, evidentemente, que o objetivo seja produzir uma voz de celebridade. Vozes menos conhecidas, geralmente distraem menos a atenção dos usuários.
 
-O fator mais importante para a escolha de talentos de voz é a consistência. As gravações devem soar como se fossem feitas no mesmo dia e na mesma sala. É possível aproximar-se desse ideal por meio de melhores práticas de gravação e engenharia. 
+O fator mais importante para a escolha de talentos de voz é a consistência. As gravações devem soar como se fossem feitas no mesmo dia e na mesma sala. É possível aproximar-se desse ideal por meio de melhores práticas de gravação e engenharia.
 
 O ator de voz é a outra metade da equação. Ele ou ela deve ser capaz de falar com nível de volume, densidade, tom e velocidade consistentes. A dicção clara é uma obrigação. O locutor também precisa ser capaz de controlar rigorosamente a variação da densidade de voz, o efeito emocional e os maneirismos de fala.
 
@@ -71,7 +72,7 @@ Os enunciados no script podem vir de qualquer lugar: ficção, não ficção, tr
 
 Os enunciados não precisam ser originados da mesma fonte ou do mesmo tipo de fonte. Nem precisam ser relacionados entre si. No entanto, se você usar frases configuradas (por exemplo, "Você fez logon com êxito") no aplicativo de fala, inclua-as no script. Isso dará à voz personalizada uma possibilidade melhor de pronunciar bem essas frases. E, caso decida usar uma gravação no lugar da fala sintetizada, você já a terá na mesma voz.
 
-Embora a consistência seja a chave na escolha do ator de voz, a variedade é a marca registrada de um bom script. O script deve incluir muitas palavras e frases diferentes com uma variedade de comprimentos de frases, estruturas e estados de humor. Cada som no idioma deve ser representado várias vezes e em vários contextos (chamado *cobertura fonética).* 
+Embora a consistência seja a chave na escolha do ator de voz, a variedade é a marca registrada de um bom script. O script deve incluir muitas palavras e frases diferentes com uma variedade de comprimentos de frases, estruturas e estados de humor. Cada som no idioma deve ser representado várias vezes e em vários contextos (chamado *cobertura fonética).*
 
 Além disso, o texto deve incorporar todas as maneiras pelas quais um determinado som pode ser representado por escrito e colocar cada som em lugares diferentes nas frases. Tanto as sentenças declarativas quanto as perguntas devem ser incluídas e lidas com entonação apropriada.
 
@@ -188,9 +189,9 @@ Grave uns bons cinco segundos de silêncio antes da primeira gravação para cap
 > [!TIP]
 > Tudo o que você realmente precisa capturar é o locutor para que possa fazer uma gravação monofônica (apenas um canal) apenas das falas. No entanto, se você gravar em estéreo, poderá usar o segundo canal para gravar a conversa na sala de controle e capturar a discussão de determinadas falas ou tomadas. Remova essa faixa da versão enviada para o portal de Voz Personalizada.
 
-Ouça atentamente, usando fones de ouvido, a performance do ator de voz. Você está procurando uma boa dicção natural, pronúncia correta e ausência de sons indesejados. Não hesite em pedir ao ator de voz para regravar um enunciado que não atenda a esses padrões. 
+Ouça atentamente, usando fones de ouvido, a performance do ator de voz. Você está procurando uma boa dicção natural, pronúncia correta e ausência de sons indesejados. Não hesite em pedir ao ator de voz para regravar um enunciado que não atenda a esses padrões.
 
-> [!TIP] 
+> [!TIP]
 > Se você estiver usando um alto volume de enunciados, um único enunciado poderá não ter um efeito perceptível na voz personalizada resultante. Pode ser mais fácil simplesmente anotar quaisquer enunciados com problemas, excluí-los do conjunto de dados e verificar como a voz personalizada é exibida. Você sempre poderá retornar ao estúdio posteriormente e gravar as amostras com falha.
 
 Observe o número da tomada ou código de tempo no script para cada enunciado. Peça para o engenheiro marcar cada um dos enunciados nos metadados da gravação ou na lista de deixas.
