@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249627"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717391"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurar seu aplicativo do Python para o Serviço de Aplicativo do Azure no Linux
 
@@ -132,4 +132,4 @@ Se o Serviço de Aplicativo não encontrar um aplicativo Flask, um aplicativo Dj
 - **Você verá a mensagem "Serviço Não Disponível" no navegador.** O navegador atingiu o tempo limite aguardando uma resposta do Serviço de Aplicativo, o que indica que o Serviço de Aplicativo iniciou o servidor Gunicorn, mas os argumentos que especificam o código do aplicativo estão incorretos.
   - Atualize o navegador, especialmente se você estiver usando os tipos de preço mais baixos no seu plano de Serviço de Aplicativo. O aplicativo pode levar mais tempo para ser iniciado ao usar camadas gratuitas, por exemplo, e se tornar responsivo novamente depois que você atualizar o navegador.
   - Verifique se seu aplicativo está estruturado como o Serviço de Aplicativo espera para [Django](#django-app) ou [Flask](#flask-app), ou use um [comando de inicialização personalizados](#custom-startup-command).
-  - Use SSH ou o Console do Kudu para se conectar ao Serviço de Aplicativo, então examine os logs de diagnóstico armazenados na pasta *LogFiles*. Para obter mais informações sobre registro em log, veja [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](../web-sites-enable-diagnostic-log.md).
+  - Use SSH ou o Console do Kudu para se conectar ao Serviço de Aplicativo, então examine os logs de diagnóstico armazenados na pasta *LogFiles*. Para obter mais informações sobre registro em log, veja [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](../troubleshoot-diagnostic-logs.md).

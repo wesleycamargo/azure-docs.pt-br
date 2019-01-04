@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344220"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539714"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Compilar um aplicativo Web Java EE e um aplicativo Web Postgres no Azure
 
@@ -170,7 +170,7 @@ Recomendamos muito a leitura do conteúdo desses arquivos, especialmente do _jbo
 
 ### <a name="ftp-the-configuration-files"></a>Enviar por FTP os arquivos de configuração
 
-Precisaremos enviar o conteúdo de `wildfly_config/` por FTP para nossa instância do Serviço de Aplicativo. Para obter as credenciais do FTP, clique no botão **Obter Perfil de Publicação** na folha Serviço de Aplicativo no portal do Azure. O nome de usuário e a senha do FTP estarão no documento XML baixado. Para saber mais sobre o perfil de publicação, confira [este documento](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+Precisaremos enviar o conteúdo de `wildfly_config/` por FTP para nossa instância do Serviço de Aplicativo. Para obter as credenciais do FTP, clique no botão **Obter Perfil de Publicação** na folha Serviço de Aplicativo no portal do Azure. O nome de usuário e a senha do FTP estarão no documento XML baixado. Para saber mais sobre o perfil de publicação, confira [este documento](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 Usando sua ferramenta de FTP preferida, transfira os quatro arquivos em `wildfly_config/` para `/home/site/deployments/tools/`. (Observe que você não deve transferir o diretório, apenas os arquivos.)
 

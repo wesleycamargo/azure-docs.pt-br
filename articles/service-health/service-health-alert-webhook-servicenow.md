@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6dc66e551c1bce94b473a356cf4648e5c2353a2b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3f8e0e94cf3b63b3ea409b46cb9eec3d5d97eb6f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271293"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580310"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Configurar alertas de integridade do serviço com o ServiceNow
 
@@ -158,7 +158,7 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 1. Defina na lista de **Ações**:
 
-     a. **Tipo de Ação:** *Webhook*
+     a. **Tipo de ação:** *Webhook*
 
     b. **Detalhes:** A **URL de Integração** do ServiceNow salva anteriormente.
 
@@ -175,7 +175,7 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 1. Adicione à lista de **Ações**:
 
-     a. **Tipo de Ação:** *Webhook*
+     a. **Tipo de ação:** *Webhook*
 
     b. **Detalhes:** A **URL de Integração** do ServiceNow salva anteriormente.
 
@@ -202,5 +202,5 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
 - Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Saiba mais sobre as [notificações de integridade do serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Saiba mais sobre as [notificações de integridade do serviço](../azure-monitor/platform/service-notifications.md).
 - Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

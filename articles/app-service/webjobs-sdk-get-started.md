@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339800"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606967"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -54,7 +54,7 @@ O [As funções do Azure](../azure-functions/functions-overview.md) se baseia no
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você tenha [uma conta do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) e experiência com [aplicativos no Serviço de Aplicativo do Azure](app-service-web-overview.md). Para completar as etapas neste artigo:
+Este artigo pressupõe que você tenha [uma conta do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) e experiência com [aplicativos no Serviço de Aplicativo do Azure](overview.md). Para completar as etapas neste artigo:
 
 * [Instale o Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/) com a carga de trabalho de **desenvolvimento do Azure**. Se você já tiver o Visual Studio, mas não tiver essa carga de trabalho, adicione a carga de trabalho selecionando **Ferramentas > Obter Ferramentas e Recursos**.
 * [Crie um aplicativo do Serviço de Aplicativo](app-service-web-get-started-dotnet-framework.md). Se já tiver um no qual possa implantar um WebJob, você poderá usá-lo em vez de criar um novo.

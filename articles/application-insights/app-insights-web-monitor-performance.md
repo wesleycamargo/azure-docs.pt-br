@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e11c34b2587dcb7602161d36ba4deda1dca73c82
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5e5a53027126f96c27a6a6f0abb8aeacb94d7c11
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720959"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000337"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
@@ -32,11 +32,11 @@ No lado do cliente, o Application Insights pode realizar a telemetria de página
 ## <a name="setup"></a>Configurar o monitoramento de desempenho
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
 
-* [Aplicativos Web ASP.NET](app-insights-asp-net.md)
-  * [Adicionar monitoramento de exceção](app-insights-asp-net-exceptions.md)
-  * [Adicionar monitoramento de dependência](app-insights-monitor-performance-live-website-now.md)
-* [Aplicativos Web J2EE](app-insights-java-get-started.md)
-  * [Adicionar monitoramento de dependência](app-insights-java-agent.md)
+* [Aplicativos Web ASP.NET](../azure-monitor/app/asp-net.md)
+  * [Adicionar monitoramento de exceção](../azure-monitor/app/asp-net-exceptions.md)
+  * [Adicionar monitoramento de dependência](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Aplicativos Web J2EE](../azure-monitor/app/java-get-started.md)
+  * [Adicionar monitoramento de dependência](../azure-monitor/app/java-agent.md)
 
 ## <a name="view"></a>Explorando métricas de desempenho
 No [portal do Azure](https://portal.azure.com), navegue até o recurso do Application Insights que você configurou para seu aplicativo. A folha de visão geral mostra os dados de desempenho básicos:
@@ -152,14 +152,14 @@ A experiência de investigação de desempenho mostra insights relevantes ao lad
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-asp-net.md
+[availability]: ../azure-monitor/app/monitor-web-app-availability.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
+[livestream]: ../azure-monitor/app/live-stream.md
 [snapshot]: app-insights-snapshot-debugger.md
 
 

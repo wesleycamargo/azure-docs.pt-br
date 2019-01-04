@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: c2202a194c3912bd9a8b8f534df792e6f1a3543b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991557"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998686"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Começar a monitorar o aplicativo Web Node.js
 
@@ -124,7 +124,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
    ![Grafo de métricas do servidor](./media/app-insights-nodejs-quick-start/009-Black.png)
 
-Para saber mais sobre como monitorar o Node.js, confira a [documentação adicional do Node.js do Application Insights](app-insights-nodejs.md).
+Para saber mais sobre como monitorar o Node.js, confira a [documentação adicional do Node.js do Application Insights](../azure-monitor/app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

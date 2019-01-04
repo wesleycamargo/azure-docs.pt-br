@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 39e2f136e30ebb6dcfc003c435382f3384af1052
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4b608f9237b9f7f98173168e055b5e83635bc2d7
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23659339"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753754"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorar e alertar sobre a integridade do aplicativo com o Azure Application Insights
 
@@ -34,11 +34,11 @@ Para concluir este tutorial:
 - Instale o [Visual Studio 2017](https://www.visualstudio.com/downloads/) com as cargas de trabalho a seguir:
     - Desenvolvimento Web e ASP.NET
     - Desenvolvimento do Azure
-    - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](app-insights-asp-net.md). 
+    - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../azure-monitor/app/asp-net.md). 
 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-availability-test"></a>Criar teste de disponibilidade
 Testes de disponibilidade no Application Insights permitem testar automaticamente seu aplicativo de vários locais em todo o mundo.   Neste tutorial, você executará um teste simples para garantir que o aplicativo esteja disponível.  Você também pode criar um passo a passo completo para testar sua operação detalhada. 
@@ -75,7 +75,7 @@ Além de enviar alertas de um teste de disponibilidade, você pode criar um aler
     ![Adicionar alerta da métrica](media/app-insights-tutorial-alert/add-metric-alert.png)
 
 4. Digite um **Nome** para a regra de alerta e selecione seu aplicativo no menu suspenso para **Recurso**.
-5. Selecione uma **Métrica** a amostrar.  Um gráfico é exibido para indicar que o valor dessa solicitação nas últimas 24 horas.  Isso ajuda a configurar a condição para a métrica.
+5. Selecione uma **Métrica** a amostrar.  Um grafo é exibido para indicar que o valor dessa solicitação nas últimas 24 horas.  Isso ajuda a configurar a condição para a métrica.
 
     ![Adicionar regra de alerta](media/app-insights-tutorial-alert/add-alert-01.png)
 
@@ -88,7 +88,7 @@ Além de enviar alertas de um teste de disponibilidade, você pode criar um aler
 ## <a name="proactively-send-information"></a>Enviar informações proativamente
 Os alertas são criados em reação a um conjunto específico de problemas identificados em seu aplicativo e normalmente reservam alertas para condições críticas que exigem atenção imediata.  Você pode receber informações proativamente sobre o seu aplicativo com um Aplicativo Lógico que seja executado automaticamente em um agendamento.  Por exemplo, você enviar um email aos administradores diariamente com informações de resumo que exijam mais avaliação.
 
-Para obter detalhes sobre a criação de um Aplicativo Lógico com o Application Insights, consulte [Automatizar processos do Application Insights usando Aplicativos Lógicos](automate-with-logic-apps.md)
+Para obter detalhes sobre a criação de um Aplicativo Lógico com o Application Insights, consulte [Automatizar processos do Application Insights usando Aplicativos Lógicos](../azure-monitor/app/automate-with-logic-apps.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu a alertar sobre problemas, avance para o próximo tutorial para aprender a analisar como os usuários estão interagindo com o seu aplicativo.

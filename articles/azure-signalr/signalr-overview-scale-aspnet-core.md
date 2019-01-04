@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e739f3905ff2bbb60669b1f1e214a4630b896db4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 695cc2afbfd231758e90889eea2c154fbc16dffb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255458"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602606"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Dimensionar aplicativos do SignalR do ASP.NET Core com o Serviço Azure SignalR
 
@@ -21,7 +21,7 @@ Atualmente, há [duas versões](https://docs.microsoft.com/aspnet/core/signalr/v
 
 O ASP.NET Core SignalR é uma reformulação da versão anterior. Como resultado, o ASP.NET Core SignalR não é compatível com a versão anterior do SignalR. As APIs e os comportamentos são diferentes. O SDK do ASP.NET Core SignalR tem como destino o .NET Standard, então você ainda pode usá-lo com o .NET Framework. No entanto, você deve usar as novas APIs em vez das antigas. Se você estiver usando o SignalR e quiser mudar para o ASP.NET Core SignalR, ou para o Serviço Azure SignalR, será necessário alterar o código para lidar com as diferenças nas APIs.
 
-Com o Serviço Azure SignalR, o componente do servidor do ASP.NET Core SignalR é hospedado no Azure. No entanto, como a tecnologia é incorporada ao ASP.NET Core, você pode executar o aplicativo Web em várias plataformas (Windows, Linux e MacOS), podendo hospedar com o [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache) ou [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index). Você também pode usar a auto-hospedagem em seu próprio processo.
+Com o Serviço Azure SignalR, o componente do servidor do ASP.NET Core SignalR é hospedado no Azure. No entanto, como a tecnologia tem base no ASP.NET Core, você tem a capacidade de executar seu aplicativo Web real em várias plataformas (Windows, Linux e MacOS) durante a hospedagem com o [Serviço de Aplicativo Azure](../app-service/overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache), [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index). Você também pode usar a auto-hospedagem em seu próprio processo.
 
 Se os objetivos de seu aplicativo incluírem: suporte à funcionalidade mais recente para atualização de clientes da Web com atualizações de conteúdo em tempo real, execução em várias plataformas (Azure, Windows, Linux e macOS) e hospedagem em ambientes diferentes, a melhor escolha será aproveitar o Serviço Azure SignalR.
 

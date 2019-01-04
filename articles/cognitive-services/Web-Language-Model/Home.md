@@ -11,14 +11,14 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99d48e2abdc166fe6472195c86d890c3c1060cfa
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3c7f9e4cc4cf023aa93bd80ad1165ba9595e9034
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863781"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807426"
 ---
-# <a name="what-is-the-web-language-model-api-preview"></a>O que é a API de Modelo de Linguagem da Web?  (Visualização)
+# <a name="what-is-the-web-language-model-api-preview"></a>O que é a API de Modelo de Linguagem da Web? (Visualização)
 
 > [!IMPORTANT]
 > A versão prévia do Modelo de Linguagem da Web foi encerrada em 9 de agosto de 2018. Recomendamos usar os [módulos de Análise de Texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para análise e processamento de texto.
@@ -44,7 +44,7 @@ A API de Modelo de Linguagem da Web dá suporte a quatro operações de pesquisa
 1. Assine o serviço.
 2. Baixe o [SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
 3. Execute o código de exemplo do SDK.
-4. Consulte a [Referência da API](http://web.archive.org/web/20170503191852/ https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) para obter detalhes completos dos pontos de extremidade, incluindo trechos de código em uma variedade de linguagens.
+4. Consulte a [Referência da API](http://web.archive.org/web/20170503191852/westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) para obter detalhes completos dos pontos de extremidade, incluindo trechos de código em uma variedade de linguagens.
 
 ## <a name="underlying-technology"></a>A tecnologia subjacente
 
