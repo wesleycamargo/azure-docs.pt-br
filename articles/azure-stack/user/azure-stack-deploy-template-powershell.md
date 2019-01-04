@@ -12,60 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: cf39ba6b1754a5e809e7295f2783846e95636ce8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 34ced37213ddb585b382965cf73c454d4c9f93e9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241729"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014039"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Implantar um modelo para o Azure Stack usando o PowerShell
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Você pode usar o PowerShell para implantar modelos do Azure Resource Manager para o Azure Stack. Este artigo descreve como usar o PowerShell para implantar um modelo.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>Executar cmdlets do AzureRM PowerShell
 
-Este exemplo usa cmdlets do AzureRM PowerShell e um modelo armazenado no GitHub. O modelo cria uma máquina virtual do Windows Server 2012 R2 Datacenter.
+Este exemplo usa **AzureRM** cmdlets do PowerShell e um modelo armazenado no GitHub. O modelo cria uma máquina virtual do Windows Server 2012 R2 Datacenter.
 
 >[!NOTE]
 >Antes de tentar Este exemplo, certifique-se de que você já [configurado o PowerShell](azure-stack-powershell-configure-user.md) para um usuário do Azure Stack.
 
-1. Vá para [ http://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) e localize o **101-simple-windows-vm** modelo. Salve o modelo para este local: c:\\modelos\\azuredeploy-101-simple-windows-vm.json.
+1. Vá para [ http://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) e localize o **101-simple-windows-vm** modelo. Salve o modelo para este local: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Abra um prompt de comando elevado do PowerShell.
-3. Substitua *nome de usuário* e *senha* no script a seguir com seu nome de usuário e senha e, em seguida, execute o script.
+3. Substitua `username` e `password` no script a seguir com seu nome de usuário e senha e, em seguida, execute o script:
 
-   ```PowerShell
-   # Set deployment variables
-   $myNum = "001" #Modify this per deployment
-   $RGName = "myRG$myNum"
-   $myLocation = "local"
+    ```PowerShell
+    # Set deployment variables
+    $myNum = "001" # Modify this per deployment
+    $RGName = "myRG$myNum"
+    $myLocation = "local"
    
-   # Create resource group for template deployment
-   New-AzureRmResourceGroup -Name $RGName -Location $myLocation
+    # Create resource group for template deployment
+    New-AzureRmResourceGroup -Name $RGName -Location $myLocation
    
-   # Deploy simple IaaS template
-   New-AzureRmResourceGroupDeployment `
-       -Name myDeployment$myNum `
-       -ResourceGroupName $RGName `
-       -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
-       -NewStorageAccountName mystorage$myNum `
-       -DnsNameForPublicIP mydns$myNum `
-       -AdminUsername <username> `
-       -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
-       -VmName myVM$myNum `
-       -WindowsOSVersion 2012-R2-Datacenter
-   ```
+    # Deploy simple IaaS template
+    New-AzureRmResourceGroupDeployment `
+        -Name myDeployment$myNum `
+        -ResourceGroupName $RGName `
+        -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
+        -NewStorageAccountName mystorage$myNum `
+        -DnsNameForPublicIP mydns$myNum `
+        -AdminUsername <username> `
+        -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
+        -VmName myVM$myNum `
+        -WindowsOSVersion 2012-R2-Datacenter
+    ```
 
-   >[!IMPORTANT]
-   >Sempre que você executar esse script, incremente o valor da `$myNum` parâmetro para evitar a substituição de sua implantação.
+    >[!IMPORTANT]
+    >Sempre que você executar esse script, incremente o valor da `$myNum` parâmetro para evitar a substituição de sua implantação.
 
 4. Abra o portal, selecione Azure Stack **navegue**e, em seguida, selecione **máquinas virtuais** para encontrar sua nova máquina virtual (**myDeployment001**).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar modelos com o Visual Studio](azure-stack-deploy-template-visual-studio.md)
+- [Implantar modelos com o Visual Studio](azure-stack-deploy-template-visual-studio.md)

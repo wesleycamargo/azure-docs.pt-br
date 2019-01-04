@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811011"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002477"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -309,6 +309,11 @@ Você pode usar o **gerenciamento de região** lado a lado para verificar se o r
     [ ![Bloco de gerenciamento de região](media/azure-stack-registration/admin1sm.png "bloco de gerenciamento de região") ](media/azure-stack-registration/admin1.png#lightbox)
 
 3. Selecione **Propriedades**. Essa folha mostra o status e os detalhes do seu ambiente. O status pode ser **registrado** ou **não registrado**. Se registrado, ele também mostra a ID da assinatura do Azure que é usado para registrar seu Azure Stack, juntamente com o grupo de recursos de registro e o nome.
+
+Como alternativa, você pode verificar se o seu registro foi bem-sucedido usando o recurso de gerenciamento do Marketplace. Se você vir uma lista de itens do marketplace na folha de gerenciamento do Marketplace, seu registro foi bem-sucedido. No entanto, em ambientes desconectados, você não poderá ver os itens do marketplace no gerenciamento do Marketplace. No entanto, você pode usar a ferramenta offline para verificar o registro.
+
+> [!NOTE]
+> Após a conclusão do registro, o Active Directory aviso por não registrar não aparecerá mais. Em cenários desconectados, você verá uma mensagem no gerenciamento de Marketplace solicitando que você se registrar e ativar o Azure Stack, mesmo se você tiver registrado com êxito.
 
 ## <a name="renew-or-change-registration"></a>Renovar ou alterar o registro
 

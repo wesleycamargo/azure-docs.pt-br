@@ -99,7 +99,7 @@ items:
       - name: Rastreamento distribuído
         href: app/distributed-tracing.md
       - name: Métricas pré-agregadas e baseadas em log
-        href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
+        href: app/pre-aggregated-metrics-log-metrics.md
     - name: Contêineres
       href: insights/container-insights-overview.md
     - name: Máquinas Virtuais
@@ -155,7 +155,7 @@ items:
       - name: Workspaces
         href: platform/manage-access.md
       - name: APLICATIVOS
-        href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
+        href: app/resources-roles-access-control.md
       - name: Endereços IP
         href: app/ip-addresses.md
     - name: Monitorar aplicativos
@@ -273,7 +273,7 @@ items:
           - name: Visão geral
             href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
           - name: Habilitar Profiler para um Serviço de Aplicativo
-            href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler.md
           - name: Habilitar Profiler para um Serviço de Nuvem
             href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
           - name: Habilitar Profiler para um Aplicativo do Service Fabric
@@ -289,7 +289,7 @@ items:
         - name: Diagnósticos
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Visualizações
-          href: ../application-insights/app-insights-previews.md?toc=/azure/azure-monitor/toc.json
+          href: app/previews.md
       - name: Aplicativos ASP.NET
         items:
         - name: Aplicativos Web
@@ -304,11 +304,11 @@ items:
           href: app/asp-net-core.md
           items:
           - name: Criador de perfil para serviços de Aplicativos Linux
-            href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-aspnetcore-linux.md
         - name: Console
           href: app/console.md
         - name: Painel do aplicativo
-          href: ../application-insights/app-insights-overview-dashboard.md?toc=/azure/azure-monitor/toc.json
+          href: app/overview-dashboard.md
         - name: Obter mais telemetria
           href: app/asp-net-more.md
         - name: Exceções
@@ -316,7 +316,7 @@ items:
         - name: Rastreamentos de log
           href: app/asp-net-trace-logs.md
         - name: contadores de desempenho
-          href: ../application-insights/app-insights-performance-counters.md?toc=/azure/azure-monitor/toc.json
+          href: app/performance-counters.md
         - name: Dependências
           href: app/asp-net-dependencies.md
         - name: Anotações da versão
@@ -324,7 +324,7 @@ items:
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
         - name: Depurador de instantâneo
-          href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: app/snapshot-debugger.md
       - name: Aplicativos Java
         items:
         - name: Aplicativos Web
@@ -346,7 +346,7 @@ items:
       - name: Aplicativos do Node.js
         items:
         - name: Node.js
-          href: ../application-insights/app-insights-nodejs.md?toc=/azure/azure-monitor/toc.json
+          href: app/nodejs.md
       - name: Páginas da Web
         items:
         - name: JavaScript
@@ -356,38 +356,38 @@ items:
       - name: Rastreamento distribuído
         items:
         - name: Encaminhador local
-          href: ../application-insights/opencensus-local-forwarder.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-local-forwarder.md
         - name: Python
-          href: ../application-insights/opencensus-python.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-python.md
         - name: Go
-          href: ../application-insights/opencensus-go.md?toc=/azure/azure-monitor/toc.json
+          href: app/opencensus-go.md
       - name: Outras plataformas
         items:
         - name: Sites do SharePoint
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
-          href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
+          href: app/sample-mscrm.md
       - name: Detecção inteligente
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
         - name: Anomalias de falha
-          href: ../application-insights/app-insights-proactive-failure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-failure-diagnostics.md
         - name: Anomalias de desempenho
-          href: ../application-insights/app-insights-proactive-performance-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-performance-diagnostics.md
         - name: Degradação do rastreamento
-          href: ../application-insights/app-insights-proactive-trace-severity.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-trace-severity.md
         - name: Volume de exceção
-          href: ../application-insights/app-insights-proactive-exception-volume.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-exception-volume.md
         - name: Vazamento de memória
-          href: ../application-insights/app-insights-proactive-potential-memory-leak.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-potential-memory-leak.md
         - name: Utilização de recursos
-          href: ../application-insights/app-insights-proactive-low-utilization-cloud-resources.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-low-utilization-cloud-resources.md
         - name: Detecção de segurança
-          href: ../application-insights/app-insights-proactive-application-security-detection-pack.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-application-security-detection-pack.md
         - name: Serviços de nuvem do Azure
-          href: ../application-insights/app-insights-proactive-cloud-services.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-cloud-services.md
         - name: Gerenciar regras de detecção inteligente
-          href: ../application-insights/app-insights-proactive-arm-config.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-arm-config.md
       - name: Criar um recurso
         href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
       - name: Solucionar problemas
@@ -433,7 +433,7 @@ items:
       - name: Gerenciador de Configurações
         href: platform/collect-sccm.md
       - name: Monitoramento de desempenho de aplicativos usando SCOM
-        href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
+        href: app/scom.md
     - name: Rotear dados
       items:
       - name: Arquivar log de atividades
@@ -472,13 +472,13 @@ items:
         - name: Search
           href: app/diagnostic-search.md
         - name: Métricas
-          href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
+          href: app/metrics-explorer.md
         - name: Fluxo ao vivo
-          href: ../application-insights/app-insights-live-stream.md?toc=/azure/azure-monitor/toc.json
+          href: app/live-stream.md
         - name: Mapa de aplicativo
           href: app/app-map.md
         - name: Diagnóstico da transação
-          href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/transaction-diagnostics.md
         - name: Dados do HockeyApp
           href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
@@ -830,7 +830,7 @@ items:
     - name: Uso e custos estimados
       href: platform/usage-estimated-costs.md
     - name: Uso do aplicativo e custos
-      href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
+      href: app/pricing.md
     - name: Uso de dados de log e custos
       href: platform/manage-cost-storage.md
   - name: Automatizar
@@ -844,13 +844,13 @@ items:
       - name: APLICATIVOS
         items:
         - name: Criar recursos do Application Insights
-          href: ../application-insights/app-insights-powershell.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell.md
         - name: Criar recursos
-          href: ../application-insights/app-insights-powershell-script-create-resource.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-script-create-resource.md
         - name: Definir alertas
-          href: ../application-insights/app-insights-powershell-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-alerts.md
         - name: Obter diagnóstico do Azure
-          href: ../application-insights/app-insights-powershell-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/powershell-azure-diagnostics.md
     - name: Exemplos da CLI do Azure
       href: platform/cli-samples.md
     - name: Modelos do Gerenciador de Recursos
@@ -880,7 +880,7 @@ items:
       - name: Filtrando e pré-processando telemetria
         href: app/api-filtering-sampling.md
       - name: amostragem
-        href: ../application-insights/app-insights-sampling.md?toc=/azure/azure-monitor/toc.json
+        href: app/sampling.md
     - name: Soluções de monitoramento
       items:
       - name: Design e compilação
@@ -908,7 +908,7 @@ items:
     - name: Pacotes NuGet
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
     - name: Suporte à plataforma
-      href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
+      href: app/platforms.md
   - name: Modelo de dados do Application Insights
     items:
     - name: Visão geral
@@ -989,9 +989,9 @@ items:
     - name: Atualizações de serviço do Log Analytics
       href: https://azure.microsoft.com/updates/?product=log-analytics
     - name: Notas de versão do SDK
-      href: ../application-insights/app-insights-release-notes.md
+      href: app/release-notes.md
     - name: Notas de versão para o Developer Analytics Tools
-      href: ../application-insights/app-insights-release-notes-vsix.md
+      href: app/release-notes-vsix.md
   - name: Análise do Windows
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Disponibilidade regional
@@ -1004,9 +1004,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 1b80318e470995d060467f42aa61cdf6f4e8f34b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0cfca3a41157065f2e64c0da8062ebd011375f70
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974566"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016098"

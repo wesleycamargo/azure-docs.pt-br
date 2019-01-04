@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299853"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024936"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública do Azure Stack
 
@@ -31,7 +31,7 @@ O Azure Stack tem uma rede de infraestrutura pública usando acessíveis externa
 - Como preparar, validar e usar esses certificados durante a implantação
 
 > [!Note]  
-> Durante a implantação, você deve copiar certificados para a pasta de implantação que corresponde ao provedor de identidade que você está implantando contra (Azure AD ou AD FS). Se você usar um único certificado para todos os pontos de extremidade, você deve copiar esse arquivo de certificado para cada pasta de implantação, conforme descrito nas tabelas a seguir. A estrutura de pasta é criada previamente na máquina virtual de implantação e podem ser encontrada em: C:\CloudDeployment\Setup\Certificates. 
+> Durante a implantação, você deve copiar certificados para a pasta de implantação que corresponde ao provedor de identidade que você está implantando contra (Azure AD ou AD FS). Se você usar um único certificado para todos os pontos de extremidade, você deve copiar esse arquivo de certificado para cada pasta de implantação, conforme descrito nas tabelas a seguir. A estrutura de pasta é criada previamente na máquina virtual de implantação e pode ser encontrada em: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 A lista a seguir descreve os requisitos de certificado são necessários para implantar o Azure Stack: 
