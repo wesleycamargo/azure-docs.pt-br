@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386223"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994040"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar APIs de Pesquisa Cognitiva (Versão Prévia)
 
@@ -35,7 +35,7 @@ Saída é um índice de pesquisa de texto completo no Azure Search. Você pode a
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
-> Iniciando em 21 de dezembro de 2018, você poderá associar um recurso de Serviços Cognitivos com um conjunto de habilidades do Azure Search. Isso nos permitirá a começar a avançar para a execução do conjunto de habilidades. Nessa data, também começaremos a cobrar para extração de imagem como parte do estágio de decodificação de documentos. A extração de texto de documentos continuará sendo oferecida sem custo adicional.
+> Iniciando em 21 de dezembro de 2018, você poderá associar um recurso de Serviços Cognitivos com um conjunto de habilidades do Azure Search. Isso nos permitirá começar a cobrar pela execução do conjunto de habilidades. Nessa data, também passaremos a cobrar pela extração de imagem como parte do estágio de decodificação de documentos. A extração de texto de documentos continuará sendo oferecida sem custo adicional.
 >
 > A execução do conjunto de qualificações será cobrada com o [Preço pago conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existente. O preço da extração de imagem será cobrado com o preço da versão prévia, o que está descrito na [página de preço do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
 
@@ -59,7 +59,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
 1. Para o grupo de recursos, crie um grupo de recursos para conter todos os recursos que você cria neste tutorial. Isso torna mais fácil limpar os recursos, depois de concluir o tutorial.
 
-1. Para o local, escolha uma das [regiões com suporte](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) para Pesquisa Cognitiva.
+1. Para o local, escolha uma das [regiões com suporte](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions) para Pesquisa Cognitiva.
 
 1. Para a camada de preços, você pode criar um serviço **Livre** para completar tutoriais e guias de início rápido. Para uma investigação mais detalhada usando seus próprios dados, crie um [serviço pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** ou **Standard**. 
 

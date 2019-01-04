@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8782db64a39ab3994c4689e7f809005c20c6dacd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b8ab4acd24a53267711fde4408bb9fa8f52c35f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017450"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635571"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>Analise os dados do Twitter usando o Apache Hive no HDInsight
 Sites sociais são uma das forças principais para a adoção de big data. APIs públicas fornecidas por sites, como o Twitter, são uma fonte útil de dados para analisar e compreender as tendências populares.
 Neste tutorial, você obterá tweets usando uma API de streaming do Twitter e, em seguida, usará [Apache Hive](https://hive.apache.org/) no Azure HDInsight para obter uma lista de usuários do Twitter que enviaram a maioria dos tweets que continham determinada palavra.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > As etapas deste documento exigem um cluster HDInsight baseado em Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para etapas específicas de um cluster baseado em Linux, consulte [Analisar dados do Twitter usando o Apache Hive no HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,7 +42,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
     Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > O suporte do Azure PowerShell para gerenciar os recursos do HDInsight usando o Gerenciador de Serviços do Azure está **preterido** e foi removido em 1º de janeiro de 2017. As etapas neste documento usam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
     >
     > Siga as etapas em [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar a versão mais recente do Azure PowerShell. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets que funcionam com o Azure Resource Manager, confira [Migrando para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) para obter mais informações.
@@ -61,12 +61,12 @@ A tabela a seguir lista os arquivos usados neste tutorial:
 ## <a name="get-twitter-feed"></a>Obter feed do Twitter
 Neste tutorial, você usará as [APIs de streaming do Twitter][twitter-streaming-api]. A API de streaming específica do Twitter que você usará é [statuses/filter][twitter-statuses-filter].
 
-> [!NOTE]
+> [!NOTE]  
 > Um arquivo contendo 10.000 tweets e o arquivo de script do Hive (abordado na próxima seção) foram carregados em um contêiner de Blob público. Você pode ignorar esta seção se quiser usar os arquivos carregados.
 
 Dados de tweets são armazenados no formato JSON (JavaScript Object Notation) que contém uma estrutura aninhada complexa. Em vez de escrever várias linhas de código usando uma linguagem de programação convencional, você pode transformar essa estrutura aninhada em uma tabela do Hive para que possa ser consultada por uma linguagem semelhante à SQL chamada HiveQL.
 
-O Twitter usa OAuth para oferecer acesso autorizado à sua API. OAuth é um protocolo de autenticação que permite ao usuários aprovar os aplicativos para atuar em seu nome sem compartilhar sua senha. Mais informações podem ser encontradas em [oauth.net](http://oauth.net/) ou no excelente [Guia para iniciantes do OAuth](http://hueniverse.com/oauth/) no Hueniverse.
+O Twitter usa OAuth para oferecer acesso autorizado à sua API. OAuth é um protocolo de autenticação que permite ao usuários aprovar os aplicativos para atuar em seu nome sem compartilhar sua senha. Mais informações podem ser encontradas em [oauth.net](https://oauth.net/) ou no excelente [Guia para iniciantes do OAuth](https://hueniverse.com/oauth/) no Hueniverse.
 
 A primeira etapa para usar OAuth é criar um novo aplicativo no site do desenvolvedor do Twitter.
 
@@ -80,7 +80,7 @@ A primeira etapa para usar OAuth é criar um novo aplicativo no site do desenvol
    | --- | --- |
    |  NOME |MyHDInsightApp |
    |  DESCRIÇÃO |MyHDInsightApp |
-   |  Site |http://www.myhdinsightapp.com |
+   |  Site |https://www.myhdinsightapp.com |
 4. Marque **Sim, eu concordo** e, em seguida, clique em **Criar seu aplicativo do Twitter**.
 5. Clique na guia **Permissões** . A permissão padrão é **Somente leitura**. Isso é suficiente para este tutorial.
 6. Clique na guia **Chaves e Tokens de acesso** .
@@ -90,7 +90,7 @@ A primeira etapa para usar OAuth é criar um novo aplicativo no site do desenvol
 
 Neste tutorial, você usa o Windows PowerShell para fazer a chamada de serviço Web. A outra ferramenta popular para fazer chamadas de serviço da Web é o [*Curl*][curl]. O Curl pode ser baixado [aqui][curl-download].
 
-> [!NOTE]
+> [!NOTE]  
 > Quando usar o comando curl no Windows, use aspas duplas, em vez de aspas simples, para os valores de opção.
 
 **Para obter tweets**
@@ -245,7 +245,7 @@ Como um procedimento de validação, você pode verificar o arquivo de saída, *
 ## <a name="create-hiveql-script"></a>Criar o script HiveQL
 Usando o Azure PowerShell, você pode executar várias instruções [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual), uma de cada vez, ou empacotar a instrução HiveQL em um arquivo de script. Neste tutorial, você irá criar um script HiveQL. O arquivo de script deve ser carregado para o armazenamento de Blob do Azure. Na próxima seção, você executará o arquivo de script usando o PowerShell do Azure.
 
-> [!NOTE]
+> [!NOTE]  
 > O arquivo de script do Hive e um arquivo contendo 10.000 tweets foram carregados em um contêiner de Blob público. Você pode ignorar esta seção se quiser usar os arquivos carregados.
 
 O script HiveQL executará o seguinte:
@@ -453,7 +453,7 @@ Você concluiu todo o trabalho de preparação. Agora, você pode chamar o scrip
 ### <a name="submit-a-hive-job"></a>Enviar um trabalho do Hive
 Use o seguinte script do Windows PowerShell para executar o script do Hive. Você precisará definir a primeira variável.
 
-> [!NOTE]
+> [!NOTE]  
 > Para usar os tweets e o script [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) que você carregou nas duas últimas seções, configure $ hqlScriptFile para "/tutorials/twitter/twitter.hql". Para usar os que foram carregados em um blob público para você, defina $hqlScriptFile como "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 ```powershell
@@ -529,7 +529,7 @@ Write-Host "==================================" -ForegroundColor Green
 #end region
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > A tabela Hive usa \001 como o delimitador de campo. O delimitador não é visível na saída.
 
 Depois que os resultados da análise tiverem sido colocados no armazenamento de BLOBs do Azure, é possível exportar os dados para um banco de dados SQL/SQL Server do Azure, exportar os dados para o Excel usando Power Query ou conectar seu aplicativo aos dados usando o Driver ODBC do Hive. Para obter mais informações, consulte [Use o Apache Sqoop com HDInsight][hdinsight-use-sqoop], [Analise os dados de atraso de voo usando o HDInsight][hdinsight-analyze-flight-delay-data], [Conecte o Excel ao HDInsight com Consulta de energia][hdinsight-power-query] e [Conecte o Excel ao HDInsight com o Driver ODBC do Microsoft Hive][hdinsight-hive-odbc].
@@ -543,7 +543,7 @@ Neste tutorial, vimos como transformar um conjunto de dados JSON não estruturad
 * [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive][hdinsight-hive-odbc]
 * [Usar o Apache Sqoop com HDInsight][hdinsight-use-sqoop]
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial

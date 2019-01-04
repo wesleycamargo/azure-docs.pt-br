@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e3fb703d49b97b7e8fa4136f8cd49fed20ee12a9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877177"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720707"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bancos de dados na nuvem
 As transações de banco de dados elástico para Banco de dados SQL (BD SQL) do Azure permitem que você execute transações que abranjam vários bancos de dados no BD SQL. As transações de banco de dados elástico do BD SQL estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -92,7 +92,7 @@ As transações de banco de dados elástico do BD SQL também oferecem suporte a
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Instalação do .NET para os Serviços de Nuvem do Azure
-O Azure fornece várias ofertas para hospedar aplicativos .NET. Uma comparação entre as diferentes ofertas está disponível em [Comparação entre o Serviço de Aplicativo do Azure, os Serviços de Nuvem e as Máquinas Virtuais](../app-service/choose-web-site-cloud-service-vm.md). Se o SO convidado da oferta for inferior ao .NET 4.6.1 exigido para transações elásticas, será necessário atualizar o SO para 4.6.1. 
+O Azure fornece várias ofertas para hospedar aplicativos .NET. Uma comparação entre as diferentes ofertas está disponível em [Comparação entre o Serviço de Aplicativo do Azure, os Serviços de Nuvem e as Máquinas Virtuais](../app-service/overview-compare.md). Se o SO convidado da oferta for inferior ao .NET 4.6.1 exigido para transações elásticas, será necessário atualizar o SO para 4.6.1. 
 
 Para os Serviços de Aplicativos do Azure, não há suporte para atualizações para o SO convidado. Para as Máquinas virtuais do Azure, basta fazer logon na VM e executar o instalador do .NET Framework mais recente. Para os Serviços de Nuvem do Azure, você precisará incluir a instalação de uma versão mais recente do .NET em tarefas de inicialização da sua implantação. Os conceitos e as etapas estão documentados em [Instalar o .NET em uma Função do Serviço de Nuvem](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 

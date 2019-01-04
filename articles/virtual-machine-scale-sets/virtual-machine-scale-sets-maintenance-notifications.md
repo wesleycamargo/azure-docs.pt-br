@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270120"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546854"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planejada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -32,7 +32,7 @@ O Azure executa periodicamente atualizações para melhorar a confiabilidade, o 
 
 Uma manutenção planejada que requer uma reinicialização é agendada em ondas. Cada onda tem um escopo diferente (regiões):
 
-- Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada ao proprietário e aos coproprietários da assinatura. É possível adicionar destinatários e opções de mensagens como email, SMS e webhooks às notificações, usando [alertas do Log de Atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) do Azure.  
+- Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada ao proprietário e aos coproprietários da assinatura. É possível adicionar destinatários e opções de mensagens como email, SMS e webhooks às notificações, usando [alertas do Log de Atividades](../azure-monitor/platform/activity-logs-overview.md) do Azure.  
 - Com a notificação, uma *janela de autoatendimento* é disponibilizada. Durante essa janela, é possível descobrir quais das VMs estão incluídas na onda. É possível iniciar a manutenção proativamente de acordo com suas próprias necessidades de agendamento.
 - Após a janela de autoatendimento, *janela de manutenção agendada* inicia. Em algum ponto durante essa janela, o Azure agenda e aplica a manutenção necessária à VM. 
 
@@ -95,7 +95,7 @@ A **Manutenção de autoatendimento** agora aparece na lista de conjuntos de dim
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
 
-O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. É possível adicionar destinatários e canais a essa comunicação, criando alertas do Log de Atividades. Para obter mais informações, consulte [Monitorar a atividade da assinatura com o Log de Atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. É possível adicionar destinatários e canais a essa comunicação, criando alertas do Log de Atividades. Para obter mais informações, consulte [Monitorar a atividade da assinatura com o Log de Atividades do Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, selecione **Monitorar**. 

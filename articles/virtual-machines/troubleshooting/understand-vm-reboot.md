@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c1f48e3273ac0a237c72565acf25049b763dba8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0ea9d8be9bf341c77c993bc04d438953241915c2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246660"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544828"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Entender uma reinicialização do sistema para VM do Azure
 
@@ -64,7 +64,7 @@ Atualizações de múltiplas instâncias (para VMs em um conjunto de disponibili
     
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Ações de reinicialização ou desligamento iniciado pelo usuário
  
-Se você executar uma reinicialização no portal do Azure, no Azure PowerShell, na interface de linha de comando ou na API de redefinição, poderá encontrar o evento no [Log de atividades do Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Se você executar uma reinicialização no portal do Azure, no Azure PowerShell, na interface de linha de comando ou na API de redefinição, poderá encontrar o evento no [Log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
 Se você executar a ação do sistema operacional da VM, poderá encontrar o evento nos logs do sistema.
 

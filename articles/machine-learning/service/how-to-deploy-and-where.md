@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 17193bf3285a2052a913293ec3adc6f9b8884f72
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0c171ff768395540c123c4ef2a19168d926b0661
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435932"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633820"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implantar modelos com o serviço do Azure Machine Learning
 
@@ -164,7 +164,7 @@ Para implantar nas Instâncias de Contêiner do Azure, use as etapas a seguir:
     > [!TIP]
     > Se houver erros durante a implantação, use `service.get_logs()` para visualizar os logs de serviço do AKS. As informações registradas podem indicar a causa do erro.
 
-Para obter mais informações, consulte a documentação de referência para as classes [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.comS/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py).
+Para obter mais informações, consulte a documentação de referência para as classes [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
 ### <a id="aks"></a> Implantar o Serviço de Kubernetes do Azure
 
@@ -184,7 +184,7 @@ Para implantar no Serviço de Kubernetes do Azure, use as etapas a seguir:
 1. Para criar um cluster do AKS, use o código a seguir:
 
     > [!IMPORTANT]
-    > Criar o cluster do AKS é um processo único para o seu workspace. Uma vez criado, você pode reutilizar este cluster para várias implantações. Se você excluir o cluster ou o grupo de recursos que o contém, será necessário criar outro cluster na próxima vez que precisar implantar.
+    > Criar o cluster AKS é um processo único para o seu workspace. Uma vez criado, você pode reutilizar este cluster para várias implantações. Se você excluir o cluster ou o grupo de recursos que o contém, será necessário criar outro cluster na próxima vez que precisar implantar.
     > Para [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se você escolher valores personalizados para agent_count e vm_size, será necessário certificar-se de que agent_count multiplicado por vm_size será maior ou igual a 12 CPUs virtuais. Por exemplo, se você usar um vm_size de "Standard_D3_v2", que tenha 4 CPUs virtuais, será necessário escolher um agent_count de 3 ou maior.
 
     ```python
@@ -211,6 +211,7 @@ Para implantar no Serviço de Kubernetes do Azure, use as etapas a seguir:
     > Se você já tiver o cluster do AKS na assinatura do Azure e a versão for 1.11.*, poderá usá-lo para implantar a imagem. O código a seguir demonstra como anexar um cluster existente ao workspace:
     >
     > ```python
+    > from azureml.core.compute import AksCompute, ComputeTarget
     > # Set the resource group that contains the AKS cluster and the cluster name
     > resource_group = 'myresourcegroup'
     > cluster_name = 'mycluster'
@@ -218,7 +219,7 @@ Para implantar no Serviço de Kubernetes do Azure, use as etapas a seguir:
     > # Attatch the cluster to your workgroup
     > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
     >                                          cluster_name = cluster_name)
-    > compute = ComputeTarget.attach(ws, 'mycompute', attach_config)
+    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
     > 
     > # Wait for the operation to complete
     > aks_target.wait_for_completion(True)
@@ -275,7 +276,7 @@ Os módulos do Azure IoT Edge são implantados no dispositivo a partir de um reg
 ssh <yourusername>@<yourdeviceip>
 sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
 sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
 ```
 
 Salve a cadeia de conexão resultante após "cs": "{copie esta cadeia de caracteres}".
@@ -294,7 +295,7 @@ O nó do IoT Edge está pronto para receber a cadeia de conexão do Hub IoT. Pro
 Saiba mais sobre como registrar o dispositivo e instalar o tempo de execução do IoT passo a passo, seguindo o [Início rápido: Implante o primeiro módulo do IoT Edge em um documento do dispositivo Linux x64](../../iot-edge/quickstart-linux.md).
 
 
-#### <a name="get-the-container-registry-credentials"></a>Obter as credenciais do registro de contêiner
+#### <a name="get-the-container-registry-credentials"></a>Obter as credenciais do registro do contêiner
 Para implantar um módulo do IoT Edge no dispositivo, o Azure IoT precisa das credenciais de registro de contêiner, nas quais o serviço do Azure Machine Learning armazena imagens do docker.
 
 É possível recuperar facilmente as credenciais de registro de contêiner necessárias de duas maneiras:

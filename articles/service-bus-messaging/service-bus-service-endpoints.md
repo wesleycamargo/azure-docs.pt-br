@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 3e1bdcc9340cc6cf997bebcdf1567bf676521ea5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87a89ffd627454752924bfc69e44da87b071b5e5
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276121"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651428"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usar pontos de extremidade de serviço de Rede Virtual com Barramento de Serviço
 
@@ -30,7 +30,7 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 >
 > Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas e serão disponibilizada em breve.
 >
-> Cenários comuns do Azure que não funcionam com as Redes Virtuais (observe que a lista **NÃO** é exaustiva) -
+> Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
 > - Azure Monitor
 > - Stream Analytics do Azure
 > - Integração com a Grade de Eventos do Azure
@@ -38,8 +38,8 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 > - Device Explorer do Azure IoT
 > - Azure Data Explorer
 >
-> Os serviços da Microsoft abaixo deve estar em uma rede virtual
-> - Aplicativos Web do Azure 
+> Os serviços da Microsoft abaixo devem estar em uma rede virtual
+> - Serviço de aplicativo do Azure
 > - Funções do Azure
 
 > [!IMPORTANT]
@@ -72,11 +72,11 @@ O modelo do Resource Manager a seguir permite incluir uma regra de rede virtual 
 Parâmetros de modelo:
 
 * **namespaceName**: Namespace do Barramento de Serviço.
-* **virtualNetworkingSubnetId**: Caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
+* **virtualNetworkingSubnetId**: caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Permitir"**, que não restringe as conexões.
-> Ao criar as regras de Rede Virtual ou de Firewalls, devemos alterar ***"defaultAction"***
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"**, o que não restringe as conexões.
+> Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
 > de
 > ```json

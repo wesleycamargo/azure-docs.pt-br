@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311313"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714348"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -56,7 +56,7 @@ Ao buscar o caminho mais rápido para publicar seus projetos baseados na web, co
 
 Você pode criar aplicativos Web, back-ends de aplicativos móveis e aplicativos de API.
 
-Como todos os três tipos de aplicativos compartilham o tempo de execução do Serviço de Aplicativo, é possível hospedar um site, oferecer suporte a clientes móveis e expor suas APIs no Azure, tudo a partir do mesmo projeto ou solução. Para saber mais sobre o Serviço de Aplicativo, consulte [O que são Aplicativos Web do Azure](../../app-service/app-service-web-overview.md).
+Como todos os três tipos de aplicativos compartilham o tempo de execução do Serviço de Aplicativo, é possível hospedar um site, oferecer suporte a clientes móveis e expor suas APIs no Azure, tudo a partir do mesmo projeto ou solução. Para saber mais sobre o Serviço de Aplicativo, consulte [O que são Aplicativos Web do Azure](../../app-service/overview.md).
 
 O Serviço de Aplicativo foi projetado com o DevOps em mente. Ele dá suporte a várias ferramentas para implantações de integração contínua e publicações, incluindo webhooks GitHub, Jenkins, Azure DevOps, TeamCity e outros.
 
@@ -168,7 +168,7 @@ O Azure fornece várias maneiras de utilizar contêineres em seus aplicativos.
 
     >**Quando usar**: Quando desejar habilitar a autenticação em um aplicativo do Serviço de Aplicativo usando o Azure AD, provedores de identidade social ou ambos.
 
-    >**Introdução**: Para saber mais sobre a autenticação no Serviço de Aplicativo, confira [Autenticação e autorização no Serviço de Aplicativo do Azure](../../app-service/app-service-authentication-overview.md).
+    >**Introdução**: Para saber mais sobre a autenticação no Serviço de Aplicativo, confira [Autenticação e autorização no Serviço de Aplicativo do Azure](../../app-service/overview-authentication-authorization.md).
 
 Para saber mais sobre as melhores práticas de segurança no Azure, consulte [Padrões e melhores práticas de segurança do Azure](../../security/security-best-practices-and-patterns.md).
 
@@ -190,7 +190,7 @@ Quer seja provisionando VMs ou publicando seus aplicativos Web com integração 
 
 >**Experimentar agora:** [Experimente várias das integrações DevOps](https://azure.microsoft.com/try/devops/).
 
->**Introdução**: Para ver as opções de DevOps para um aplicativo do Serviço de Aplicativo, confira [Implantação contínua no Serviço de Aplicativo do Azure](../../app-service/app-service-continuous-deployment.md).
+>**Introdução**: Para ver as opções de DevOps para um aplicativo do Serviço de Aplicativo, confira [Implantação contínua no Serviço de Aplicativo do Azure](../../app-service/deploy-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Regiões do Azure

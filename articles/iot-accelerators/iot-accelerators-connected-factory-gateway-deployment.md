@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139217"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599937"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Implantar um gateway edge para o acelerador de Fábrica conectada no Windows ou Linux
 
@@ -70,7 +70,7 @@ Para obter mais informações, consulte a referência do mecanismo de encaixe [ 
 
 Antes de instalar os componentes OPC, conclua as etapas a seguir para preparar o seu ambiente:
 
-1. Para concluir a implementação do gateway, você precisa da sequência de conexão  **do proprietário**  do Hub IoT na sua implantação do Connected Factory. No  [Portal do Azure](http://portal.azure.com/), navegue para o Hub IoT no grupo de recursos criado quando você implantou a solução Connected Factory. Clique em  **Políticas de acesso compartilhado**  para acessar a sequência de conexão  **do proprietário** :
+1. Para concluir a implementação do gateway, você precisa da sequência de conexão  **do proprietário**  do Hub IoT na sua implantação do Connected Factory. No  [Portal do Azure](https://portal.azure.com/), navegue para o Hub IoT no grupo de recursos criado quando você implantou a solução Connected Factory. Clique em  **Políticas de acesso compartilhado**  para acessar a sequência de conexão  **do proprietário** :
 
     ![Localizar a cadeia de conexão Hub IoT](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

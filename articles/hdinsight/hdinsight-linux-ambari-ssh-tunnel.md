@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409515"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743844"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Usar o Túnel SSH para acessar a interface do usuário da Web do Apache Ambari, JobHistory, NameNode, Apache Oozie e outras UIs da Web
 
@@ -47,7 +47,7 @@ Se você usar as Ações de Script para personalizar seu cluster, todos os servi
 
 * Um navegador da Web que pode ser configurado para usar um proxy SOCKS5.
 
-    > [!WARNING]
+    > [!WARNING]  
     > O suporte a proxy SOCKS integrado das configurações de Internet do Windows não dá suporte a SOCKS5 e não funciona com as etapas neste documento. Os navegadores a seguir contam com as configurações de proxy do Windows e não funcionam com as etapas neste documento:
     >
     > * Microsoft Edge
@@ -78,7 +78,7 @@ Quando o comando terminar, o tráfego enviado para a porta 9876 no computador lo
 
 ## <a name="useputty"></a>Criar um túnel usando o PuTTY
 
-O [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH gráfico do Windows. Se você não estiver familiarizado com PuTTY, consulte a [documentação do PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use as etapas a seguir para criar um túnel SSH usando o PuTTY:
+O [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH gráfico do Windows. Se você não estiver familiarizado com PuTTY, consulte a [documentação do PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use as etapas a seguir para criar um túnel SSH usando o PuTTY:
 
 ### <a name="create-or-load-a-session"></a>Criar ou carregar uma sessão
 
@@ -120,7 +120,7 @@ O [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH g
    > [!NOTE]  
    > Selecionar **DNS Remoto** resolve as solicitações de DNS (Sistema de Nomes de Domínio) usando o cluster HDInsight. Essa configuração resolve o DNS usando o nó principal do cluster.
 
-2. Verifique se o túnel funciona, visitando um site como [http://www.whatismyip.com/](http://www.whatismyip.com/). O IP retornado deve ser um IP usado pelo data center do Microsoft Azure.
+2. Verifique se o túnel funciona, visitando um site como [https://www.whatismyip.com/](https://www.whatismyip.com/). O IP retornado deve ser um IP usado pelo data center do Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Verifique com a interface do usuário do Ambari Web
 

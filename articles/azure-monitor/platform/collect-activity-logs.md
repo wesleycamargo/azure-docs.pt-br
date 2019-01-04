@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184933"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540224"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Coletar e analisar os logs de atividades do Azure no Log Analytics
 
 ![Símbolo dos logs de atividades do Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
-A solução Análise do Log de Atividades o ajuda a analisar e pesquisar o [Log de atividades do Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) em todas as suas assinaturas do Azure. O Log de Atividades do Azure é um log que fornece análise das operações executadas nos recursos em sua assinatura. O Log de atividades era conhecido como *Logs de Auditoria* ou *Logs Operacionais*, pois relata eventos de suas assinaturas.
+A solução Análise do Log de Atividades o ajuda a analisar e pesquisar o [Log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) em todas as suas assinaturas do Azure. O Log de Atividades do Azure é um log que fornece análise das operações executadas nos recursos em sua assinatura. O Log de atividades era conhecido como *Logs de Auditoria* ou *Logs Operacionais*, pois relata eventos de suas assinaturas.
 
 Usando o Log de atividades, você pode determinar o *quê*, *quem* e *quando* para qualquer operação de gravação (PUT, POST, DELETE) feitas para os recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo de implantação Clássico.
 

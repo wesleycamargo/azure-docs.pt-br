@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185424"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606775"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrar dados do SIM na solução de monitoramento remoto
 
 Os dispositivos IoT geralmente se conectam à nuvem usando um cartão SIM que permite enviar fluxos de dados de qualquer lugar. A solução de Monitoramento Remoto de IoT do Azure permite a integração de dados de Conectividade Gerenciada de IoT, de modo que os operadores também possam acompanhar a integridade do dispositivo por meio dos dados fornecidos pelo SIM de IoT.
 
-O Monitoramento Remoto fornece integração pronta para uso com a Conectividade IoT da Telefónica, permitindo que os clientes que usam sua Plataforma de Conectividade IoT sincronizem os dados de conectividade dos SIMs de seus dispositivos com as soluções. Essa solução pode ser estendida para dar suporte a outros provedores de Conectividade IoT por meio do [repositório](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) GitHub.
+O Monitoramento Remoto fornece integração pronta para uso com a Conectividade IoT da Telefónica, permitindo que os clientes que usam sua Plataforma de Conectividade IoT sincronizem os dados de conectividade dos SIMs de seus dispositivos com as soluções. Essa solução pode ser estendida para dar suporte a outros provedores de Conectividade IoT por meio do [repositório](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) GitHub.
 
 Neste tutorial, você aprenderá como:
 

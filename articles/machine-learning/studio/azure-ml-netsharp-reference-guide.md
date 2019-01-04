@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272228"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631118"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação de rede neural Net # para o Microsoft Azure Machine Learning Studio
 
@@ -388,7 +388,7 @@ O exemplo ilustra alguns comandos básicos da seguinte maneira:
 
 + A primeira linha define a camada de entrada (denominada `Data`). Quando você usa a palavra-chave `auto`, a rede neural automaticamente inclui todas as colunas de recurso nos exemplos de entrada. 
 + A segunda linha cria a camada oculta. O nome `H` é atribuído à camada oculta, que tem 200 nós. Essa camada é totalmente conectada à camada de entrada.
-+ A terceira linha define a camada de saída (denominada `O`), que contém 10 nós de saída. Se a rede neural for usada para classificação, haverá um nó de saída por classe. A palavra-chave **sigmoide** indica que a função de saída é aplicada à camada de saída.
++ A terceira linha define a camada de saída (denominada `Out`), que contém 10 nós de saída. Se a rede neural for usada para classificação, haverá um nó de saída por classe. A palavra-chave **sigmoide** indica que a função de saída é aplicada à camada de saída.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Definir várias camadas ocultas: exemplo de visão do computador
 

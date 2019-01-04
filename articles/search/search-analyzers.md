@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310531"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631933"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores para processamento de texto no Azure Search
 
@@ -76,7 +76,7 @@ Se uma pesquisa não retornar os resultados esperados, o cenário mais provável
 
 ### <a name="compare-english-analyzers"></a>Comparar analisadores em inglês
 
-A [Demonstração do analisador de pesquisa](http://alice.unearth.ai/) é um aplicativo de demonstração de terceiros que mostra uma comparação lado a lado do analisador Lucene padrão, do analisador do idioma inglês do Lucene e do processador de idioma natural inglês da Microsoft. O índice é fixo; ele contém o texto de uma história popular. Para cada entrada de pesquisa fornecida, os resultados de cada analisador são exibidos nos painéis adjacentes, dando uma ideia de como cada analisador processa a mesma cadeia de caracteres. 
+A [Demonstração do analisador de pesquisa](https://alice.unearth.ai/) é um aplicativo de demonstração de terceiros que mostra uma comparação lado a lado do analisador Lucene padrão, do analisador do idioma inglês do Lucene e do processador de idioma natural inglês da Microsoft. O índice é fixo; ele contém o texto de uma história popular. Para cada entrada de pesquisa fornecida, os resultados de cada analisador são exibidos nos painéis adjacentes, dando uma ideia de como cada analisador processa a mesma cadeia de caracteres. 
 
 ## <a name="examples"></a>Exemplos
 
@@ -244,13 +244,13 @@ Campos que contêm cadeias de caracteres em idiomas diferentes podem usar um ana
 
 + Examine nossa explicação abrangente sobre [como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md). Esse artigo usa exemplos para explicar comportamentos que, à primeira vista, podem parecer contraintuitivos.
 
-+ Tente outras sintaxes de consulta a partir da seção de exemplo [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) da [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) no gerenciador de pesquisa no portal.
++ Tente outras sintaxes de consulta a partir da seção de exemplo [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) da [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) no gerenciador de pesquisa no portal.
 
 + Saiba como aplicar [analisadores léxicos específico do idioma](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurar analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para o mínimo de processamento ou processamento especializado em campos individuais.
 
-+ [Compare os analisadores padrão e inglês](http://alice.unearth.ai/) em painéis adjacentes neste site da Web de demonstração. 
++ [Compare os analisadores padrão e inglês](https://alice.unearth.ai/) em painéis adjacentes neste site da Web de demonstração. 
 
 ## <a name="see-also"></a>Consulte também
 

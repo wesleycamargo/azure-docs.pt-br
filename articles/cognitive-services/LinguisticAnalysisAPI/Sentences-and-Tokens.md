@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
 ROBOTS: NOINDEX
-ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 96c2bd1c11554481e441662a6051620f4b2e2993
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237867"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972355"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Separação de frases e geração de tokens
 
@@ -75,4 +75,4 @@ Essa geração de tokens nos permite lidar com a palavra *didn't* e a frase *did
 ## <a name="specification"></a>Especificação
 
 É importante tomar decisões consistentes sobre o que consiste uma oração e um token.
-Contamos com as especificações do [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (alguns detalhes adicionais estão disponíveis em ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).
+Contamos com as especificações do [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42) (alguns detalhes adicionais estão disponíveis em ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).

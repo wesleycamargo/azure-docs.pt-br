@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10044f17baee8fb4d7afe9223abdbb518952e71f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 52c07ee66e37f6bc14c5c9d6414bc47a1225af65
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52741851"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000336"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorando uso e desempenho de aplicativos de área de trabalho clássica do Windows
 
-Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar proveito do Application Insights. A única limitação é a necessidade de [permitir a comunicação](app-insights-ip-addresses.md) para o serviço do Application Insights. Para monitorar os aplicativos da Plataforma Universal do Windows (UWP), recomendamos o [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
+Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar proveito do Application Insights. A única limitação é a necessidade de [permitir a comunicação](../azure-monitor/app/ip-addresses.md) para o serviço do Application Insights. Para monitorar os aplicativos da Plataforma Universal do Windows (UWP), recomendamos o [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Para enviar telemetria ao Application Insights a partir de um aplicativo do Windows clássico
 1. No [portal do Azure](https://portal.azure.com), [crie um recurso Application Insights](app-insights-create-new-resource.md). Para o tipo de aplicativo, escolha o aplicativo ASP.NET.
@@ -36,7 +36,7 @@ Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar prove
     `<InstrumentationKey>`*sua chave*`</InstrumentationKey>` 
    
     Se você usar ApplicationInsights.config, verifique se suas propriedades no Gerenciador de Soluções estão definidas como **Ação de Compilação = Conteúdo, Copiar para Diretório de Saída = Copiar**.
-5. [Use a API](app-insights-api-custom-events-metrics.md) para enviar telemetria.
+5. [Use a API](../azure-monitor/app/api-custom-events-metrics.md) para enviar telemetria.
 6. Execute o aplicativo e veja a telemetria no recurso criado no Portal do Azure.
 
 ## <a name="telemetry"></a>Código de exemplo
@@ -77,8 +77,8 @@ Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar prove
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar um painel](app-insights-dashboards.md)
-* [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md)
-* [Explorar métricas](app-insights-metrics-explorer.md)
-* [Escrever consultas do Analytics](app-insights-analytics.md)
+* [Criar um painel](../azure-monitor/app/app-insights-dashboards.md)
+* [Pesquisa de Diagnóstico](../azure-monitor/app/diagnostic-search.md)
+* [Explorar métricas](../azure-monitor/app/metrics-explorer.md)
+* [Escrever consultas do Analytics](../azure-monitor/app/analytics.md)
 

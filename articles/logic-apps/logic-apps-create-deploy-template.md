@@ -1,5 +1,5 @@
 ---
-title: Criar modelos de implantação para Aplicativo Lógico do Azure | Microsoft Docs
+title: Criar modelos de implantação para Aplicativos Lógicos do Azure | Microsoft Docs
 description: Criar modelos do Azure Resource Manager para implantar aplicativos lógicos
 services: logic-apps
 ms.service: logic-apps
@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089694"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000556"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Criar modelos do Azure Resource Manager para implantar aplicativos lógicos
 
@@ -187,7 +187,7 @@ Há um script de exemplo no GitHub sob o projeto [LogicAppConnectionAuth](https:
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta como o Azure Pipelines no Azure DevOps com um modelo de implantação de aplicativo lógico. O Azure DevOps inclui uma tarefa [Implantar Grupo de Recursos do Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que pode ser adicionada a qualquer build ou pipeline de lançamento. Você precisa ter uma [entidade de serviço](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) da autorização a implantar e pode, então, gerar o pipeline de lançamento.
+Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta como o Azure Pipelines no Azure DevOps com um modelo de implantação de aplicativo lógico. O Azure DevOps inclui uma tarefa [Implantar Grupo de Recursos do Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) que pode ser adicionada a qualquer build ou pipeline de lançamento. Você precisa ter uma [entidade de serviço](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) da autorização a implantar e pode, então, gerar o pipeline de lançamento.
 
 1. No Azure Pipelines, selecione **Vazio** para criar um pipeline vazio.
 
