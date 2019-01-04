@@ -41,7 +41,7 @@ O AMQP (Advanced Message Queuing Protocol) 1.0 é um protocolo de mensagens efic
 * **Flexível**: o AMQP 1.0 é um protocolo flexível que pode ser usado para oferecer suporte a topologias diferentes. O mesmo protocolo pode ser usado para comunicações de cliente a cliente, agente de cliente e agente de agente.
 * **Independente do modelo de agente**: a especificação do AMQP 1.0 não faz quaisquer requisitos no modelo de mensagens usado por um agente. Isso significa que é possível adicionar facilmente suporte AMQP 1.0 para corretores de mensagens existentes.
 
-## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 é um padrão (com um capital')
+## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 é um Padrão (com P maiúsculo)
 O AMQP 1.0 é um padrão internacional aprovado pela ISO e IEC como ISO/IEC 19464:2014.
 
 AMQP 1.0 foi desenvolvida desde 2008 por um grupo central de mais de 20 empresas, fornecedores de tecnologia e empresas de usuário final. Durante esse tempo, empresas de usuário contribuíram suas necessidades de negócios reais e os fornecedores de tecnologia se desenvolveram o protocolo para atender a esses requisitos. Durante todo o processo, fornecedores participaram workshops colaboraram para validar a interoperabilidade entre suas implementações.
