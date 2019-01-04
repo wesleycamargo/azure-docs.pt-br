@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094341"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556213"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para agir como gateway transparente
 
@@ -41,7 +41,7 @@ As etapas a seguir o orientará no processo de criação de certificados e insta
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Um dispositivo do IoT Edge para configurar como gateway. Você pode usar seu computador de desenvolvimento ou uma máquina virtual como dispositivo do IoT Edge seguindo as etapas para os seguintes sistemas operacionais:
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
@@ -60,7 +60,7 @@ Instale o OpenSSL para Windows no computador que você está usando para gerar o
    >[!NOTE]
    >Se já tiver o OpenSSL instalado em seu dispositivo Windows, você pode ignorar esta etapa, mas verifique se openssl.exe está disponível na variável de ambiente PATH.
 
-* **Mais fácil:** Faça o download e instale todos os [binários do OpenSSL de terceiros](https://wiki.openssl.org/index.php/Binaries), por exemplo, [este projeto no SourceForge](https://sourceforge.net/projects/openssl/). Adicione o caminho completo para openssl.exe à variável de ambiente PATH. 
+* **Mais fácil:** Faça o download e instale todos os binários do OpenSSL de terceiros, por exemplo, [este projeto no SourceForge](https://sourceforge.net/projects/openssl/). Adicione o caminho completo para openssl.exe à variável de ambiente PATH. 
    
 * **Recomendados:** Faça o download do código-fonte do OpenSSL e construa os binários em sua máquina sozinho ou por meio do [vcpkg](https://github.com/Microsoft/vcpkg). As instruções a seguir usam vcpkg para baixar o código-fonte, compilação e instalar o OpenSSL em seu computador Windows com etapas simples.
 

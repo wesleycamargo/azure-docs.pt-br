@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: billgib
+ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ad1ae537038c84aac7bebe40a1db124521933f3d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163966"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608895"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado e anotado para aplicativo SaaS multilocatário usando o Banco de Dados SQL do Azure
 
 Este artigo é um índice anotado para os locais de tempo de vídeo de 81 minutos sobre modelos de locação SaaS ou padrões. Este artigo permite que você avance ou recue o vídeo para a parte que for de seu interesse. O vídeo explica as principais opções de design para uma aplicação multilocatária no banco de dados SQL do Azure. O vídeo inclui demonstrações, explicações passo a passo sobre código de gerenciamento, e por vezes explicações mais detalhadas sobre experiências que podem estar em nossa documentação escrita.
 
 O vídeo amplifica informações em nossa documentação escrita, encontradas em: 
-- *Conceitual:* [Padrões de locatário de banco de dados de SaaS multilocatários][saas-concept-design-patterns-563e]
+- *Conceitual:* Padrões de locatário de banco de dados de SaaS multilocatários[saas-concept-design-patterns-563e]
 - *Tutoriais:* [O aplicativo SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 O vídeo e os artigos descrevem as várias fases de criação de um aplicativo multilocatário no Banco de Dados SQL do Azure na nuvem. Os recursos especiais do Banco de Dados SQL do Azure facilitam o desenvolvimento e a implantação de aplicativos multilocatários fáceis de gerenciar e com desempenho confiável.
@@ -294,7 +294,7 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 
 - [Postagem no blog, 22 de maio de 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Conceitual:* [Padrões de locatário de banco de dados de SaaS multilocatários][saas-concept-design-patterns-563e]
+- *Conceitual:* Padrões de locatário de banco de dados de SaaS multilocatários[saas-concept-design-patterns-563e]
 
 - *Tutoriais:* [O aplicativo SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
