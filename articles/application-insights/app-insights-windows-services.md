@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b760780912642dac664f68c1f2b9d8d4ebf8cbde
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001733"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809889"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurar manualmente o Application Insights para aplicativos .NET
 
-Você pode configurar o [Application Insights](app-insights-overview.md) para monitorar uma ampla variedade de aplicativos ou funções de aplicativo, componentes ou microsserviços. Para aplicativos Web e serviços, o Visual Studio oferece [configuração em uma etapa](app-insights-asp-net.md). Para outros tipos de aplicativos .NET, como funções de servidor de back-end ou aplicativos de área de trabalho, você pode configurar o Application Insights manualmente.
+Você pode configurar o [Application Insights](app-insights-overview.md) para monitorar uma ampla variedade de aplicativos ou funções de aplicativo, componentes ou microsserviços. Para aplicativos Web e serviços, o Visual Studio oferece [configuração em uma etapa](../azure-monitor/app/asp-net.md). Para outros tipos de aplicativos .NET, como funções de servidor de back-end ou aplicativos de área de trabalho, você pode configurar o Application Insights manualmente.
 
 ![Gráficos de exemplo de monitoramento de desempenho](./media/app-insights-windows-services/10-perf.png)
 
@@ -90,7 +90,7 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 * Defina a chave de instrumentação no código, por exemplo, em `main()`: 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "` *sua chave* `";` 
-* [Escreva sua própria telemetria usando a API](app-insights-api-custom-events-metrics.md#ikey).
+* [Escreva sua própria telemetria usando a API](../azure-monitor/app/api-custom-events-metrics.md#ikey).
 
 **Se tiver instalado outros pacotes do Application Insights,** se preferir, você poderá usar o arquivo .config para definir a chave de instrumentação:
 
@@ -119,7 +119,7 @@ Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobr
 
 ### <a name="no-data"></a>Não há dados?
 * Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
-* Abra o bloco [Pesquisar](app-insights-diagnostic-search.md) para ver eventos individuais. Às vezes, os eventos demoram um pouco mais para passar pelo pipeline de métricas.
+* Abra o bloco [Pesquisar](../azure-monitor/app/diagnostic-search.md) para ver eventos individuais. Às vezes, os eventos demoram um pouco mais para passar pelo pipeline de métricas.
 * Aguarde alguns segundos e clique em **Atualizar**. Os gráficos se atualizam periodicamente, mas você pode atualizá-los manualmente se estiver aguardando para alguns dados serem exibidos.
 * Consulte [Solucionar problemas](app-insights-troubleshoot-faq.md).
 
@@ -134,7 +134,7 @@ Quando você executa no modo de depuração, a telemetria é expressa através d
 Abra estas portas para tráfego de saída no firewall do servidor. Confira [essa página](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) para obter a lista de endereços necessários 
 
 ### <a name="trouble-on-your-build-server"></a>Problemas no servidor de compilação?
-Consulte [este item de solução de problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
+Consulte [este item de solução de problemas](../azure-monitor/app/asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
 > Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. 
@@ -147,5 +147,5 @@ Consulte [este item de solução de problemas](app-insights-asp-net-troubleshoot
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicione mais telemetria](app-insights-asp-net-more.md) para obter uma visão de 360 graus completa de seu aplicativo.
+* [Adicione mais telemetria](../azure-monitor/app/asp-net-more.md) para obter uma visão de 360 graus completa de seu aplicativo.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: e3159ac4074e7ff437e052e0e2c1ae7d31378abe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8fd7161208f6303e03deaacca6a1e2fad24ec45e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344811"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580869"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrar alertas do Azure em eventos de gerenciamento para alertas do Log de Atividades
 
@@ -110,9 +110,9 @@ Os alertas em eventos de gerenciamento que você criou anteriormente não serão
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre o [Log de Atividades](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* Saiba mais sobre o [Log de Atividades](../../azure-monitor/platform/activity-logs-overview.md)
 * Configurar [alertas do Log de Atividades por meio do Portal do Azure](../../azure-monitor/platform/activity-log-alerts.md)
 * Configurar [alertas do Log de Atividades por meio do Resource Manager](../../azure-monitor/platform/alerts-activity-log.md)
 * Examine o [esquema do webhook de alertas do Log de Atividade](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Saiba mais sobre as [Notificações de Serviço](../../monitoring-and-diagnostics/monitoring-service-notifications.md)
+* Saiba mais sobre as [Notificações de Serviço](../../azure-monitor/platform/service-notifications.md)
 * Saiba mais sobre [Grupos de Ação](../../azure-monitor/platform/action-groups.md)
