@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f3a3261fa1b7aa2075a05d7b87ea3fc29c5b9fab
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f2e0767e78119b224f7be9256ab7050deca37e32
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385866"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546973"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
 
-Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. Com os [ logs de diagnóstico de recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), é possível monitorar e enviar logs para o [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), e exportá-los para o [Log Analytics](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. Com os [ logs de diagnóstico de recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md), é possível monitorar e enviar logs para o [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), e exportá-los para o [Log Analytics](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
 ![Log de diagnósticos para Armazenamento, Hubs de Eventos ou Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -304,6 +304,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [o registro em log de diagnóstico de recurso do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Saiba mais sobre [o registro em log de diagnóstico de recurso do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Consulte [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) na ajuda do PowerShell.

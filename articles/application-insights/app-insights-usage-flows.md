@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 05853cb494ef6cc615bea7eecb1cfac288b46f3b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 54155346c7f417be8beb0ced8ef825ec22a08237
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721945"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971606"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do usuário com o Fluxos de Usuário no Azure Application Insights
 
@@ -34,7 +34,7 @@ A ferramenta Fluxos de Usuário visualiza como os usuários navegam entre as pá
 A ferramenta Fluxos de Usuário inicia de uma exibição de página inicial, evento personalizado, ou exceção que você especificar. Devido a esse evento inicial, os Fluxos de Usuário mostra os eventos que ocorreram antes e depois durante as sessões do usuário. Linhas de espessura variada mostram quantas vezes cada caminho foi seguido por usuários. Nós especiais de **Sessão Iniciada** mostram onde os nós subsequentes iniciaram uma sessão. Nós especiais de **Sessão Finalizada** mostram quantos usuários não enviaram exibições de página nem eventos personalizados após o nó anterior, realçando o ponto em que os usuários provavelmente deixaram seu site.
 
 > [!NOTE]
-> O recurso do Application Insights deve conter exibições de página ou eventos personalizados para usar a ferramenta Fluxos de Usuário. [Saiba como configurar seu aplicativo para coletar exibições de página automaticamente com o SDK do JavaScript do Application Insights](app-insights-javascript.md).
+> O recurso do Application Insights deve conter exibições de página ou eventos personalizados para usar a ferramenta Fluxos de Usuário. [Saiba como configurar seu aplicativo para coletar exibições de página automaticamente com o SDK do JavaScript do Application Insights](../azure-monitor/app/javascript.md).
 >
 >
 
@@ -59,7 +59,7 @@ Se as exibições de página ou eventos personalizados que você espera ver na v
 * Verifique a seção **Eventos excluídos** no menu **Editar**.
 * Use os botões de adição em **Outros** nós para incluir eventos menos frequentes na visualização.
 * Se a exibição de página ou evento personalizado que você espera que é enviado com pouca frequência pelos usuários, tente aumentar o intervalo de tempo da visualização no menu **Editar**.
-* Certifique-se de que a exibição de página, evento personalizado ou exceção que você espera está configurado para ser coletado pelo SDK do Application Insights no código-fonte do seu site. [Saiba mais sobre como coletar eventos personalizados.](app-insights-api-custom-events-metrics.md)
+* Certifique-se de que a exibição de página, evento personalizado ou exceção que você espera está configurado para ser coletado pelo SDK do Application Insights no código-fonte do seu site. [Saiba mais sobre como coletar eventos personalizados.](../azure-monitor/app/api-custom-events-metrics.md)
 
 Se você quiser ver mais etapas na visualização, use os menus suspensos **Etapas anteriores** e **Próximas etapas** acima da visualização.
 
@@ -99,4 +99,4 @@ Use as opções **Dividir por** no menu **Editar**:
 * [Visão geral do uso](app-insights-usage-overview.md)
 * [Usuários, Sessões e Eventos](app-insights-usage-segmentation.md)
 * [Retenção](app-insights-usage-retention.md)
-* [Adicionando eventos personalizados ao aplicativo](app-insights-api-custom-events-metrics.md)
+* [Adicionando eventos personalizados ao aplicativo](../azure-monitor/app/api-custom-events-metrics.md)

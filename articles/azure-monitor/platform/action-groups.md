@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 432f1a89979829bd43596d0d6a3ab7a2a3bfb996
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2b427669fe692704343d5a3c2096df92cffb8d76
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336454"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583979"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
@@ -98,7 +98,7 @@ Intervalos de endereços IP de fonte
     - 13.106.38.148
     - 13.106.57.196
 
-Para receber atualizações sobre as alterações para esses endereços IP, é recomendável que você configure um [alerta de Integridade do Serviço do Azure](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) que monitora notificações informativas sobre o serviço de grupos de ação.
+Para receber atualizações sobre as alterações para esses endereços IP, é recomendável que você configure um [alerta de Integridade do Serviço do Azure](./../../azure-monitor/platform/service-notifications.md) que monitora notificações informativas sobre o serviço de grupos de ação.
 
 
 ## <a name="next-steps"></a>Próximas etapas ##

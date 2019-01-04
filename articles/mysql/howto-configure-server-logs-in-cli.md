@@ -1,21 +1,18 @@
 ---
 title: Logs do servidor de acesso no Banco de Dados do Azure para MySQL usando a CLI do Azure
 description: Este artigo descreve como acessar os logs de servidor no Banco de Dados do Azure para MySQL usando o utilitário de linha de comando da CLI do Azure.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e3940f07ab97eb2ad03c347c39bf2412a8497f5e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978447"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547024"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e acessar logs de servidor usando a CLI do Azure
 É possível baixar os logs de servidor do Banco de Dados do Azure para MySQL usando a CLI do Azure, o utilitário de linha de comando do Azure.
@@ -28,7 +25,7 @@ Para seguir este guia de instruções, você precisa:
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>Configurar o registro em log para o Banco de Dados do Azure para MySQL
 É possível configurar o servidor para acessar os logs de consulta lenta do MySQL executando as seguintes etapas:
 1. Ative o registro em log definindo o parâmetro **slow\_query\_log** como ON.
-2. Ajuste outros parâmetros como **long\_query\_time** e **log\_slow\_admin\_statements**.
+2. Ajuste outros parâmetros como **long\_query\_time** e **log\_slow\_admin\_statements**.
 
 Para saber como definir o valor desses parâmetros por meio da CLI do Azure, consulte [Como configurar parâmetros do servidor](howto-configure-server-parameters-using-cli.md). 
 

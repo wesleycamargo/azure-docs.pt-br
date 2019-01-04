@@ -1,5 +1,5 @@
 ---
-title: Dados de referência do Azure Time Series Insights – Gerenciar os dados de referência no ambiente do Azure Time Series Insights usando o C# | Microsoft Docs
+title: Gerenciar dados de referência do ambiente do Azure Time Series Insights usando C# | Microsoft Docs
 description: Este artigo descreve como gerenciar dados de referência para um ambiente do Azure Time Series Insights criando um aplicativo personalizado escrito na linguagem C# (C-sharp) do .NET.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: 299f1de73b1b0023f55089417b9d9ee5ba98b93f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: cded580e9083b9056bafe8070626a34726e8595a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276821"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555992"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gerenciar dados de referência do ambiente de Análise de Séries Temporais do Azure usando C#
 

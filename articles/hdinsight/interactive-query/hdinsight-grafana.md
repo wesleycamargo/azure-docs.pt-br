@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7f33742fc5e765aa5ab0c66d13e844b3be2bab9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322287"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599869"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Acessar Grafana no Microsoft Azure HDInsight
 
@@ -34,7 +34,7 @@ Nesta seção, você criará um cluster do Interactive Query no HDInsight usando
 
 2. Insira ou selecione os valores, conforme sugerido na captura de tela a seguir:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Os valores fornecidos devem ser exclusivos e seguir as diretrizes de nomenclatura. O modelo não executa verificações de validação. Se os valores que você fornecer já estiverem em uso ou não seguirem as diretrizes, você receberá um erro após o envio do modelo.       
     > 
     >
@@ -66,10 +66,8 @@ Nesta seção, você criará um cluster do Interactive Query no HDInsight usando
 5. O bloco também lista o armazenamento padrão associado ao cluster. Cada cluster tem uma dependência na [conta de Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Ela é conhecida como a conta de armazenamento padrão. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocados na mesma região do Azure. A exclusão dos clusters não exclui a conta de armazenamento.
     
 
-> [!NOTE]
-> Para obter outros métodos de criação de cluster e Noções básicas sobre as propriedades usadas neste tutorial, confira [Criar clusters do HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).       
-> 
->
+> [!NOTE]  
+> Para obter outros métodos de criação de cluster e Noções básicas sobre as propriedades usadas neste tutorial, confira [Criar clusters do HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## <a name="access-the-grafana-dashboard"></a>Acessar o painel do Grafana
 
@@ -94,10 +92,8 @@ Nesta seção, você criará um cluster do Interactive Query no HDInsight usando
 ## <a name="clean-up-resources"></a>Limpar recursos
 Após a conclusão do artigo, convém excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. 
 
-> [!NOTE]
+> [!NOTE]  
 > Se você for prosseguir *imediatamente* no próximo tutorial para saber como executar operações de ETL usando Hadoop no HDInsight, convém manter o cluster em execução. Isso porque, no tutorial, você precisa criar um cluster Hadoop novamente. No entanto, se você não for conferir o próximo tutorial imediatamente, exclua o cluster agora.
-> 
-> 
 
 **Para excluir o cluster e/ou a conta de armazenamento padrão**
 
@@ -124,7 +120,7 @@ Para saber mais sobre como analisar dados com o HDInsight, consulte os seguintes
 
 * Para saber mais sobre como usar o Hive com o HDInsight, incluindo como executar consultas do Hive no Visual Studio, consulte [Usar o Apache Hive com o HDInsight](../hdinsight-use-hive.md).
 * Para aprender sobre o Pig, uma linguagem usada para transformar dados, consulte [Use o Apache Pig com o HDInsight](../hdinsight-use-pig.md).
-* Para aprender sobre o Apache Hadoop MapReduce, uma maneira de escrever programas que processam dados no Hadoop, consulte [Use o Apache Hadoop MapReduce com o HDInsight](../hdinsight-use-mapreduce.md).
+* Para saber mais sobre o MapReduce, uma maneira de gravar programas que processam dados no Hadoop, consulte [Usar o MapReduce com HDInsight](../hdinsight-use-mapreduce.md).
 * Para saber mais sobre como usar as Ferramentas do HDInsight para o Visual Studio para analisar dados no HDInsight, consulte [Introdução às ferramentas do Hadoop do Visual Studio para o HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 

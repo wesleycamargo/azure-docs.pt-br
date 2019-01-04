@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bf9d9368207f8791c33db84e1467d44201d6a5af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d478107f3176e79c88a05d9cbe6207606a6246d5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38765910"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53443950"
 ---
 No portal do Azure, você pode exibir o status da conexão de um Gateway de VPN do Resource Manager navegando até a conexão. As etapas a seguir mostram uma maneira de navegar para a conexão e verificar.
 
@@ -21,4 +21,4 @@ No portal do Azure, você pode exibir o status da conexão de um Gateway de VPN 
 2. Na folha do gateway de rede virtual, clique em **Conexões**. Você pode ver o status de cada conexão.
 3. Clique no nome da conexão que você deseja verificar para abrir **Essentials**. No Essentials, você pode exibir mais informações sobre a conexão. O **Status** será 'Êxito' e 'Conectado' quando você tiver feito uma conexão bem-sucedida.
 
-  ![Verifique a conexão do Gateway de VPN usando o portal do Azure](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)
+   ![Verifique a conexão do Gateway de VPN usando o portal do Azure](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)

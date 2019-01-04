@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842332"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993324"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Solucionar problemas de replicação em andamento do VM do Azure para o Azure
 
@@ -78,8 +78,8 @@ Essa opção só é possível se a variação de dados do disco é menor que 10 
 
 #### <a name="network-latency-to-cache-storage-account-"></a>Latência de rede para a conta de armazenamento em Cache:
  O Site Recovery envia dados replicados para a conta de armazenamento em cache e o problema pode acontecer se o upload dos dados da máquina virtual para a conta de armazenamento em cache for mais lento que 4 MB em 3 segundos. Para verificar se há algum problema relacionado à latência, use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) para fazer upload de dados da máquina virtual para a conta de armazenamento em cache.<br>
-Se a latência for alta, verifique se você está usando dispositivos virtuais de rede para controlar o tráfego de rede de saída das VMs. O appliance pode ser acelerado se todo o tráfego de replicação passar pelo NVA. Recomendamos criar um ponto de extremidade de serviço de rede em sua rede virtual para "Armazenamento", para que o tráfego da replicação não acesse a NVA. Consulte [configuração de dispositivo virtual de rede](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+Se a latência for alta, verifique se você está usando dispositivos virtuais de rede para controlar o tráfego de rede de saída das VMs. O appliance pode ser acelerado se todo o tráfego de replicação passar pelo NVA. Recomendamos criar um ponto de extremidade de serviço de rede em sua rede virtual para "Armazenamento", para que o tráfego da replicação não acesse a NVA. Consulte [configuração de dispositivo virtual de rede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
 
 #### <a name="network-connectivity"></a>Conectividade de rede
 Para replicação de recuperação de Site para o trabalho, conectividade de saída para intervalos específicos de IP ou URLs é necessária da VM. Se a VM estiver atrás de um firewall ou usa regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, você poderá enfrentar um desses problemas.</br>
-Consulte [Conectividade de saída para URLs de recuperação do site ](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)para garantir que todos os URLs estejam conectados 
+Consulte [Conectividade de saída para URLs de recuperação do site ](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)para garantir que todos os URLs estejam conectados 

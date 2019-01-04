@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273333"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634602"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar o Portal do Azure para criar alertas para o Banco de Dados SQL do Azure e para o Data Warehouse
 
@@ -46,13 +46,13 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
 1. No [Portal](https://portal.azure.com/), localize o recurso no qual você está interessado em monitor e selecione-o.
 2. Selecione **Alertas (Clássicos)** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes.  
    
-     ![Monitoramento](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
+     ![Monitoramento](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **SOMENTE SQL DW**: Clique no grafo **Uso de DWU**. Selecione **exibir alertas clássicos**
 
 3. Selecione o botão **adicionar alerta de métrica (clássico)** preencha os campos.
    
-    ![Adicionar alerta](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
+    ![Adicionar alerta](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. Dê um **Nome** para o alerta de regra e escolha uma **Descrição**, que também mostre os emails de notificação.
 5. Selecione a **Métrica** que você deseja monitorar, escolha uma **Condição** e um valor de **Limite** para a métrica. Escolha também o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar. Por exemplo, se você usar o período "PT5M" e o alerta procurar CPU acima de 80%, o alerta disparará quando a **média** da CPU estiver consistentemente acima de 80% por 5 minutos. Após a ocorrência do primeiro disparo, ele disparará novamente quando a média da CPU estiver abaixo de 80% durante 5 minutos. A medição da CPU ocorre a cada um minuto. Consulte a tabela abaixo para ver janelas de tempo com suporte e o tipo de agregação que cada alerta usa – nem todos os alertas usam o valor médio.   
 6. Verifique **Proprietários de email...** se quiser que os administradores e coadministradores recebem um email quando o alerta disparar.
@@ -117,5 +117,5 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 ## <a name="next-steps"></a>Próximas etapas
 * [Obter uma visão geral do monitoramento do Azure](../monitoring-and-diagnostics/monitoring-overview.md) , incluindo os tipos de informações que você pode coletar e monitorar.
 * Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Tenha uma [visão geral dos logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e colete métricas detalhadas de alta frequência em seu serviço.
+* Tenha uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) e colete métricas detalhadas de alta frequência em seu serviço.
 * Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.

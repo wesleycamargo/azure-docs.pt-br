@@ -5,32 +5,25 @@ services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
 manager: jeconnoc
-editor: ''
-ms.assetid: 57759670-0baa-44db-ae14-8cdc00d3a906
 ms.service: backup, virtual-machines-windows
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 3/26/2018
+ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8426a2472a28cf287dfe574cb80da56108394ae8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4d942e21afbf1d87ab67d79e90119a4122d889da
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944858"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632188"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensão de janelas de VM instantânea para Azure Backup
 
-## <a name="overview"></a>Visão geral
-
 O Backup do Azure oferece suporte para backup de cargas de trabalho do local para nuvem e fazendo backup de recursos de nuvem para o cofre de Serviços de Recuperação. Azure Backup usa extensão de VM instantânea para levar um backup consistente de aplicativo da máquina virtual do Azure sem a necessidade de desligar a VM. Extensão de VM instantânea é publicada e suportada pela Microsoft como parte do serviço de Azure Backup. Azure Backup irá instalar a extensão como parte do primeiro backup agendado disparado após habilitar o backup. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão de VM Instantânea.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
-Para obter uma lista dos sistemas operacionais suportados, consulte [Sistemas Operacionais com suporte pelo Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup)
+Para obter uma lista dos sistemas operacionais suportados, consulte [Sistemas Operacionais com suporte pelo Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 

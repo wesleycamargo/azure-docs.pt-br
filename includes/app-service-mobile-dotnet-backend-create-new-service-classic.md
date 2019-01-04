@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134230"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729400"
 ---
 1. Entre no [Portal do Azure].
 2. Selecione **+NOVO** > **Web + Celular** > **Aplicativo Móvel** e, em seguida, forneça um nome para o back-end dos Aplicativos Móveis.
 3. Em **Grupo de Recursos**, selecione um grupo de recursos existente ou crie um novo(usando o mesmo nome do seu aplicativo). 
 4. Para o **Plano do Serviço de Aplicativo**, o plano padrão (na [camada Standard](https://azure.microsoft.com/pricing/details/app-service/)) está selecionado. Você também pode selecionar um plano diferente ou [criar um novo](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
 
-   As configurações de plano de Serviço de Aplicativo determinam o [local, os recursos, o custo e os recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados ao seu aplicativo. Para saber mais sobre os Planos do Serviço de Aplicativo e como criar um novo plano em um tipo de preço e em seu local desejado, confira [Visão geral detalhada dos Planos do Serviço de Aplicativo do Azure](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+   As configurações de plano de Serviço de Aplicativo determinam o [local, os recursos, o custo e os recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados ao seu aplicativo. Para saber mais sobre os Planos do Serviço de Aplicativo e como criar um novo plano em um tipo de preço e em seu local desejado, confira [Visão geral detalhada dos Planos do Serviço de Aplicativo do Azure](../articles/app-service/overview-hosting-plans.md).
    
 5. Selecione **Criar**. Essa etapa cria o back-end dos Aplicativos Móveis. 
 6. No painel **Configurações** do novo back-end dos Aplicativos Móveis, selecione **Início Rápido** > sua plataforma de aplicativo cliente > **Conectar um banco de dados**. 

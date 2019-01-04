@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315784"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633854"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Como funciona a pesquisa de texto completo no Azure Search
 
@@ -385,7 +385,7 @@ Este artigo explorou a pesquisa de texto completo no contexto do Azure Search. E
 
 + Criar o índice de exemplo, experimentar consultas diferentes e examinar os resultados. Para obter instruções, consulte [Criar e consultar um índice no portal](search-get-started-portal.md#query-index).
 
-+ Tente outras sintaxes de consulta a partir da seção de exemplo [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) da [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) no gerenciador de pesquisa no portal.
++ Tente outras sintaxes de consulta a partir da seção de exemplo [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) da [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) no gerenciador de pesquisa no portal.
 
 + Analise os [perfis de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para ajustar a classificação no seu aplicativo de pesquisa.
 
@@ -393,7 +393,7 @@ Este artigo explorou a pesquisa de texto completo no contexto do Azure Search. E
 
 + [Configurar analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para o mínimo de processamento ou processamento especializado em campos específicos.
 
-+ [Compare os analisadores padrão e inglês](http://alice.unearth.ai/) lado a lado neste site da Web de demonstração. 
++ [Compare os analisadores padrão e inglês](https://alice.unearth.ai/) lado a lado neste site da Web de demonstração. 
 
 ## <a name="see-also"></a>Consulte também
 

@@ -15,19 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 53cecc845ed8bd15311e1bcec3ec9b36db8f5c2c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94d574d16b1b9951ab91a09023f9193723f850a7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727861"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583341"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar administradores de assinatura do Azure
 
 Para gerenciar o acesso aos recursos do Azure, você deve ter a função de administrador apropriada. Este artigo descreve como adicionar ou alterar a função de administrador para um usuário no nível da assinatura.
-
-> [!div class="nextstepaction"]
-> [Ajudar a melhorar os documentos de cobrança do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Qual função de administrador usar?
 

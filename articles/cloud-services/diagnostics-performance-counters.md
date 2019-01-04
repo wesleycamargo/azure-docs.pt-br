@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d332a792f693b099ce925e9b5705f09e52507522
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322936"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000233"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para o Serviço de Nuvem do Azure
 
@@ -84,7 +84,7 @@ Um contador de desempenho pode ser adicionado ao serviço de nuvem para o Diagn�
 
 ### <a name="application-insights"></a>Application Insights
 
-O Azure Application Insights para Serviços de Nuvem permite especificar quais contadores de desempenho deseja coletar. Após [Adicionar o Application Insights ao seu projeto ](../application-insights/app-insights-cloudservices.md#sdk), um arquivo de configuração nomeado **ApplicationInsights.config** será adicionado ao seu projeto do Visual Studio. Este arquivo de configuração define o tipo de informação que Application Insights coleta e envia para o Azure.
+O Azure Application Insights para Serviços de Nuvem permite especificar quais contadores de desempenho deseja coletar. Após [Adicionar o Application Insights ao seu projeto ](../azure-monitor/app/cloudservices.md#sdk), um arquivo de configuração nomeado **ApplicationInsights.config** será adicionado ao seu projeto do Visual Studio. Este arquivo de configuração define o tipo de informação que Application Insights coleta e envia para o Azure.
 
 Abra o arquivo **ApplicationInsights.config** e localize o elemento **ApplicationInsights** > **TelemetryModules**. Cada elemento filho `<Add>` define um tipo de telemetria para coletar, juntamente com sua configuração. O tipo de módulo de telemetria do contador de desempenho é `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Se esse elemento já estiver definido, não adicione-o novamente. Cada contador de desempenho para coletar é definido sob um nó nomeado `<Counters>`. Aqui está um exemplo que coleta os contadores de desempenho da unidade:
 
@@ -116,7 +116,7 @@ O Application Insights coleta automaticamente os seguintes contadores de desempe
 * \Processo(??APP_WIN32_PROC??)\Bytes de dados de ES/s
 * \Processador(_Total)\% Tempo do processador
 
-Para obter mais informações, consulte [Contadores de desempenho do sistema em Application Insights](../application-insights/app-insights-performance-counters.md) e [Application Insights para Serviços de Nuvem do Azure](../application-insights/app-insights-cloudservices.md#performance-counters).
+Para obter mais informações, consulte [Contadores de desempenho do sistema em Application Insights](../azure-monitor/app/performance-counters.md) e [Application Insights para Serviços de Nuvem do Azure](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
@@ -294,7 +294,7 @@ Como indicado anteriormente, os contadores de desempenho que você deseja coleta
 
 ## <a name="more-information"></a>Mais informações
 
-- [Application Insights para Serviços de Nuvem do Azure](../application-insights/app-insights-cloudservices.md#performance-counters)
-- [Contadores de desempenho do sistema no Application Insights](../application-insights/app-insights-performance-counters.md)
+- [Application Insights para Serviços de Nuvem do Azure](../azure-monitor/app/cloudservices.md#performance-counters)
+- [Contadores de desempenho do sistema no Application Insights](../azure-monitor/app/performance-counters.md)
 - [Especificar um Caminho do Contador](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Esquema do Diagnóstico do Azure - Contadores de Desempenho](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

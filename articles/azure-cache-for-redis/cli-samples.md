@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: wesmc
-ms.openlocfilehash: fabd21f9d7fe5ac1511f6b4cc07b8c17b055befe
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 15166ae5eaab72849564ce8f03daf65eefae11f1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020937"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584030"
 ---
 # <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Exemplos de CLI do Azure o Azure Cache para Redis
 
@@ -33,7 +33,7 @@ A tabela a seguir inclui links para bash scripts criados usando a CLI do Azure.
 | [Obter detalhes do cache](./scripts/show-cache.md) | Obtém detalhes de uma instância de Azure Cache para instância Redis, incluindo status de provisionamento. |
 | [Obter nome de host, portas e chaves](./scripts/cache-keys-ports.md) | Obtém nome de host, portas e chaves para uma instância do Azure Cache para Redis. |
 |**Aplicativo Web mais cache**||
-| [Conectar um aplicativo Web a um Cache do Azure para Redis](./../app-service/scripts/app-service-cli-app-service-redis.md) | Cria um aplicativo Web do Azure e um Cache do Azure para Redis e, em seguida, adiciona detalhes da conexão redis às configurações do aplicativo. |
+| [Conectar um aplicativo Web a um Cache do Azure para Redis](./../app-service/scripts/cli-connect-to-redis.md) | Cria um aplicativo Web do Azure e um Cache do Azure para Redis e, em seguida, adiciona detalhes da conexão redis às configurações do aplicativo. |
 |**Excluir cache**||
 | [Excluir um cache](./scripts/delete-cache.md) | Exclui uma instância de Cache do Azure para Redis  |
 | | |

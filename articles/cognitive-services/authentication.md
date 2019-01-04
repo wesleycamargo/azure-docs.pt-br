@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435762"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726283"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar solicitações para os Serviços Cognitivos do Azure
 
@@ -34,7 +34,7 @@ Vamos analisar rapidamente os cabeçalhos de autenticação disponíveis para us
 
 | Cabeçalho | DESCRIÇÃO |
 |--------|-------------|
-| Ocp-Apim-Subscription-Key | Use esse cabeçalho para autenticar com uma chave de assinatura para um serviço específico ou uma chave de assinatura para vários serviços. Se usar uma chave de assinatura para vários serviços, a região da assinatura deve ser fornecida como o cabeçalho `Ocp-Apim-Subscription-Region`. |
+| Ocp-Apim-Subscription-Key | Use esse cabeçalho para autenticar com uma chave de assinatura para um serviço específico ou uma chave de assinatura para vários serviços. |
 | Ocp-Apim-Subscription-Region | Esse cabeçalho só é necessário ao usar uma chave de assinatura para vários serviços com a [API de Tradução de Texto](./Translator/reference/v3-0-reference.md). Use esse cabeçalho para especificar a região da assinatura. |
 | Autorização | Use esse cabeçalho se você está usando um token de autenticação. As etapas para executar uma troca de tokens estão detalhadas nas seções a seguir. O valor fornecido segue este formato: `Bearer <TOKEN>`. |
 

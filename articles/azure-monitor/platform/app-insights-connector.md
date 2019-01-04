@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8c601bdd7fbba536aa5b8a4d1965f4ef2bb906f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187835"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726206"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gerenciamento Conector do Application Insights (versão prévia)
 
@@ -161,8 +161,8 @@ A solução recebe os seguintes tipos de telemetria de dados dos aplicativos con
 - Disponibilidade
 - Exceções
 - Requests
-- Exibições de página – para que o workspace receba exibições de página, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Eventos personalizados – para que o workspace receba eventos personalizados, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Exibições de página – para que o workspace receba exibições de página, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Eventos personalizados – para que o workspace receba eventos personalizados, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Os dados provenientes do Application Insights são recebidos pelo Log Analytics assim que estiverem disponíveis.
 
@@ -183,7 +183,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 | DeviceType | Dispositivo de cliente |
 | ScreenResolution |   |
 | Continente | Continente de origem da solicitação |
-| País | País de origem da solicitação |
+| País/Região | País de origem da solicitação |
 | Província | Província, Estado ou localidade de origem da solicitação |
 | City | Cidade de origem da solicitação |
 | isSynthetic | Indica se a solicitação foi criada por um usuário ou por um método automatizado. True = gerado pelo usuário ou false = método automatizado |

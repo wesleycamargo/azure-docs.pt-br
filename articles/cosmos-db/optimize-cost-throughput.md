@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 501fe1d2da89b6968f5a3619fc8e02b01b1abd7a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f0d0442a8640a75b21e95e3ae024fd7994602b51
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263431"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807934"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Otimizar o custo de taxa de transferência no Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Conforme mostrado na tabela a seguir, dependendo da opção de API, você pode p
 |API|Na taxa de transferência **compartilhada**, configure |Na taxa de transferência **dedicada**, configure |
 |----|----|----|
 |API do SQL|Banco de dados|Contêiner|
-|API do MongoDB|Banco de dados|Coleção|
+|API do Azure Cosmos DB para MongoDB|Banco de dados|Coleção|
 |API Cassandra|Keyspace|Tabela|
 |API do Gremlin|Conta de banco de dados|Grafo|
 |API de Tabela|Conta de banco de dados|Tabela|

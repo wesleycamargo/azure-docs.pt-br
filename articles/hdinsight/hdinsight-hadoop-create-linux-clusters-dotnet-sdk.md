@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 06135ff77cb9c2a5b8fa2ae674206406469ed293
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 52f67d21c3a130df4d85c220baca9c6af8eb06c1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870598"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793471"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
 
@@ -23,7 +23,7 @@ ms.locfileid: "52870598"
 
 Saiba como criar um cluster do [Apache Hadoop](https://hadoop.apache.org/) no cluster do Azure HDInsight usando o .NET SDK.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > As etapas neste documento criam um cluster com um nó de trabalho. Se você pretende ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, precisa selecionar um tamanho de nó de cabeçalho com, pelo menos, 8 núcleos e 14 GB de RAM.
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -367,7 +367,7 @@ static void Main(string[] args)
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você criou com êxito um cluster HDInsight, use o seguinte para aprender a trabalhar com o seu cluster. 
@@ -375,7 +375,7 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 ### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
 * [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
 * [Usar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
-* [Usar o Apache Hadoop MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Usar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clusters do Apache HBase
 * [Introdução ao Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)

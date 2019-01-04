@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a88d4b09178ea32526cb8d035b47e1aef9c19dc3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ea2fe0f7e326db00a63529c0279c9c15d30c744c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384218"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744812"
 ---
 # <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>Usar o Apache Maven para compilar aplicativos Java que usam o Apache HBase com o HDInsight baseado no Windows (Apache Hadoop)
-Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.org/) em Java usando o Apache Maven. Então, use o aplicativo com o Azure HDInsight (Apache Hadoop).
+Saiba como criar e compilar um aplicativo [HBase no Apache](https://hbase.apache.org/) em Java usando o Apache Maven. Então, use o aplicativo com o Azure HDInsight (Apache Hadoop).
 
-[Apache Maven](http://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentações e relatórios para projetos Java. Neste artigo, você aprende como usá-lo para criar um aplicativo Java básico que cria, consulta e exclui uma tabela HBase em um cluster Azure HDInsight.
+[Apache Maven](https://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentações e relatórios para projetos Java. Neste artigo, você aprende como usá-lo para criar um aplicativo Java básico que cria, consulta e exclui uma tabela HBase em um cluster Azure HDInsight.
 
 > [!IMPORTANT]  
 > As etapas deste documento exigem um cluster HDInsight que usa Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Requisitos
 * [Plataforma Java JDK](https://aka.ms/azure-jdks) 7 ou superior
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 * Um cluster HDInsight baseado no Windows com HBase
 
     > [!NOTE]  
@@ -40,7 +40,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
     Isso cria um novo diretório dentro do diretório atual, com o nome especificado pelo parâmetro **artifactID** (**hbaseapp** neste exemplo). Esse diretório contém os seguintes itens:
 
-   * **pom.xml**:  O [POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) (Modelo de Objeto de Projeto) contém informações e detalhes de configuração usados para compilar o projeto.
+   * **pom.xml**:  O [POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) (Modelo de Objeto de Projeto) contém informações e detalhes de configuração usados para compilar o projeto.
    * **src**: O diretório que contém o diretório **main\java\com\microsoft\examples**, no qual você criará o aplicativo.
 3. Exclua o arquivo **src\test\java\com\microsoft\examples\apptest.java**, já que ele não será utilizado neste exemplo.
 
@@ -53,7 +53,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
           <version>1.1.2</version>
         </dependency>
 
-    Isso informa ao Maven que o projeto exige o **hbase-client** versão **1.1.2**. No momento da compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Apache Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre essa dependência.
+    Isso informa ao Maven que o projeto exige o **hbase-client** versão **1.1.2**. No momento da compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Apache Maven](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre essa dependência.
 
    > [!IMPORTANT]  
    > O número da versão deve corresponder à versão do HBase fornecida com o cluster HDInsight. Use a tabela a seguir para localizar o número da versão correta.
@@ -127,7 +127,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
    >
    >
 
-    Essa seção `<plugins>` configura o [Plug-in Compiler do Apache Maven](http://maven.apache.org/plugins/maven-compiler-plugin/) e o [Plug-in Shade do Apache Maven](http://maven.apache.org/plugins/maven-shade-plugin/). O plug-in compilador é usado para compilar a topologia. O plug-in de tonalidade é usado para evitar a duplicação de licenças no pacote JAR que é criado pelo Maven. O motivo do uso desse recurso é que os arquivos de licença duplicados causam um erro no momento da execução no cluster do HDInsight. Utilizar o plug-in de tonalidade do Maven com a implementação `ApacheLicenseResourceTransformer` evita esse erro.
+    Essa seção `<plugins>` configura o [Plug-in Compiler do Apache Maven](https://maven.apache.org/plugins/maven-compiler-plugin/) e o [Plug-in Shade do Apache Maven](https://maven.apache.org/plugins/maven-shade-plugin/). O plug-in compilador é usado para compilar a topologia. O plug-in de tonalidade é usado para evitar a duplicação de licenças no pacote JAR que é criado pelo Maven. O motivo do uso desse recurso é que os arquivos de licença duplicados causam um erro no momento da execução no cluster do HDInsight. Utilizar o plug-in de tonalidade do Maven com a implementação `ApacheLicenseResourceTransformer` evita esse erro.
 
     O plug-in de tonalidade do Maven também produzirá um uber jar (ou fat jar), que contém todas as dependências exigidas pelo aplicativo.
 4. Salve o arquivo **pom.xml** .
@@ -147,7 +147,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
           * "License"); you may not use this file except in compliance
           * with the License.  You may obtain a copy of the License at
           *
-          *     http://www.apache.org/licenses/LICENSE-2.0
+          *     https://www.apache.org/licenses/LICENSE-2.0
           *
           * Unless required by applicable law or agreed to in writing, software
           * distributed under the License is distributed on an "AS IS" BASIS,

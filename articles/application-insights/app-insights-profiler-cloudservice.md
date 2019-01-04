@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 28e21180fde50d19154830694cd4959795ae9d5c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721843"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789374"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Faça o perfil dos serviços em nuvem do Azure com o Application Insights
 
 Você também pode implantar o Profiler do Application Insights nesses serviços:
-* [Aplicativos Web do Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicativo do Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicativos do Service Fabric](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -30,7 +30,7 @@ O Application Insights Profiler é instalado com a extensão WAD (Windows Azure 
 
 ## <a name="enable-profiler-for-your-azure-cloud-service"></a>Ativar o criador de perfil para seu Serviço de Nuvem do Azure
 1. Verifique que você usar [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior.  É suficiente confirmar que os arquivos *ServiceConfiguration.\*.cscfg* têm um valor `osFamily` de "5" ou posterior.
-1. Adicione o [Application Insights SDK ao serviço em nuvem](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Adicione o [Application Insights SDK ao serviço em nuvem](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Acompanhe as solicitações com o Application Insights:
 
     Para as funções da Web do ASP.Net, o Application Insights pode rastrear as solicitações automaticamente.
@@ -63,7 +63,7 @@ O Application Insights Profiler é instalado com a extensão WAD (Windows Azure 
       </WadCfg>
       ```
 
-    >   **OBSERVAÇÃO:** Se o arquivo *diagnostics.wadcfgx* também tiver outro coletor do tipo `ApplicationInsights`, todas as três chaves de instrumentação deverão corresponder:  
+    >   **OBSERVAÇÃO:** Se o arquivo diagnostics.wadcfgx* também tiver outro coletor do tipo `ApplicationInsights`, todas as três chaves de instrumentação deverão corresponder:  
     >  * A chave que é usada pelo seu aplicativo.  
     >  * A chave que é usada pelo coletor `ApplicationInsights`.  
     >  * A chave que é usada pelo coletor `ApplicationInsightsProfiler`.  

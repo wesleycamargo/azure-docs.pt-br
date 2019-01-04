@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3a0b92e2c2a588fa8ef7edcddaa8c692780814f0
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388094"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721556"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
@@ -163,7 +163,7 @@ Para obter mais informações, consulte [Configurar aplicativos web no Serviço 
 
 O Azure Load Balancer tem uma configuração de tempo limite de ociosidade padrão de quatro minutos. Isso geralmente é um limite de tempo de resposta razoável para uma solicitação da web. Se seu aplicativo web requer o processamento em segundo plano, é recomendável usar o Azure WebJobs. O aplicativo web do Azure pode chamar WebJobs e ser notificado quando o processamento em segundo plano estiver concluído. Você pode escolher entre vários métodos para usar WebJobs, inclusive filas e gatilhos.
 
-O WebJobs foi projetado para processamento em segundo plano. Você pode fazer quantos processamentos em segundo plano desejar em um WebJob. Para obter mais informações sobre WebJobs, consulte [Executar tarefas em segundo plano com o WebJobs](web-sites-create-web-jobs.md).
+O WebJobs foi projetado para processamento em segundo plano. Você pode fazer quantos processamentos em segundo plano desejar em um WebJob. Para obter mais informações sobre WebJobs, consulte [Executar tarefas em segundo plano com o WebJobs](webjobs-create.md).
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>Aplicativos ASP.NET Core que são hospedados no Serviço de Aplicativo, às vezes, param de responder. Como faço para corrigir esse problema?
 

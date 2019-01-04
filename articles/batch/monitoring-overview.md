@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 3053e136ab08c38d9460d60f64464a17f6f61574
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824074"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543403"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorar soluções do Lote
 
@@ -26,7 +26,7 @@ Para obter uma visão geral dos componentes e serviços do Azure disponíveis pa
 
 ## <a name="subscription-level-monitoring"></a>Monitoramento no nível da assinatura
 
-No nível da assinatura, que inclui as contas do Lote, o [Log de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) coleta dados do evento operacional em [várias categorias](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log).
+No nível da assinatura, que inclui as contas do Lote, o [Log de atividades](../azure-monitor/platform/activity-logs-overview.md) coleta dados do evento operacional em [várias categorias](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
 
 Para as contas do Lote e especificamente, o log de atividades coleta eventos relacionados à criação e exclusão de contas e ao gerenciamento de chaves.
 
@@ -34,7 +34,7 @@ Uma maneira de recuperar eventos do log de atividades é usar o Portal do Azure.
 
 ## <a name="batch-account-level-monitoring"></a>Monitoramento no nível de conta do Lote
 
-Monitore cada conta do Lote usando os recursos do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor coleta [métricas](../azure-monitor/platform/data-collection.md#metrics) e, opcionalmente, [logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para recursos com escopo no nível de uma conta do Lote, como pools, trabalhos e tarefas. Colete e consuma esses dados manualmente ou programaticamente para monitorar atividades na conta do Lote e para diagnosticar problemas. Para obter detalhes, consulte [Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico](batch-diagnostics.md).
+Monitore cada conta do Lote usando os recursos do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor coleta [métricas](../azure-monitor/platform/data-collection.md#metrics) e, opcionalmente, [logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) para recursos com escopo no nível de uma conta do Lote, como pools, trabalhos e tarefas. Colete e consuma esses dados manualmente ou programaticamente para monitorar atividades na conta do Lote e para diagnosticar problemas. Para obter detalhes, consulte [Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico](batch-diagnostics.md).
  
 > [!NOTE]
 > As métricas estão disponíveis por padrão na conta do Lote sem configuração adicional e têm um histórico de 30 dias. Você deve habilitar o log de diagnóstico para uma conta do Lote e pode incorrer em custos adicionais para armazenar ou processar dados de log de diagnóstico. 

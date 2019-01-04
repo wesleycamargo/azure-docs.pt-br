@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438263"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582704"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Como monitorar o Cache Redis do Azure
 O Cache Redis do Azure usa o [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para fornecer várias opções para monitorar suas instâncias de cache. Você pode exibir métricas, fixar gráficos de métricas ao quadro inicial, personalizar o intervalo de data e hora de gráficos de monitoramento, adicionar/remover as métricas de gráficos e definir alertas quando determinadas condições forem atendidas. Essas ferramentas permitem monitorar a integridade de suas instâncias do Cache Redis do Azure e ajudá-lo a gerenciar seus aplicativos de cache.
@@ -79,7 +79,7 @@ Para configurar uma conta de armazenamento para suas métricas de cache:
 >
 >
 
-Para acessar suas métricas, você pode exibi-las no Portal do Azure conforme descrito anteriormente neste artigo, e também pode acessá-las usando a [API REST das métricas do Azure Monitor](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Para acessar suas métricas, você pode exibi-las no Portal do Azure conforme descrito anteriormente neste artigo, e também pode acessá-las usando a [API REST das métricas do Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Se você alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecerão disponíveis para download, mas não serão exibidos no portal do Azure.  
@@ -105,7 +105,7 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cac
 | Gravação no Cache |A quantidade de dados gravados no cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de adaptador de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. Esse valor corresponde à largura de banda de rede de dados enviados para o cache do cliente. |
 | Clientes conectados |O número de conexões de cliente com o cache durante o intervalo de relatório especificado. Esse número é mapeado para `connected_clients` do comando INFO do Redis. Assim que o [limite de conexão](cache-configure.md#default-redis-server-configuration) for atingido, as tentativas de conexão subsequentes ao cache falharão. Observe que, mesmo que não haja aplicativos clientes ativos, ainda poderá haver algumas instâncias de clientes conectados devido a processos e conexões internas. |
 | CPU |A utilização da CPU do servidor do Cache Redis do Azure como um percentual durante o intervalo de relatório especificado. Esse valor é mapeado para o contador de desempenho `\Processor(_Total)\% Processor Time` do sistema operacional. |
-| Errors | Falhas específicas e problemas de desempenho que o cache pode estar enfrentando durante um intervalo de relatório especificado. Essa métrica tem oito dimensões representando diferentes tipos de erros, mas poderia ter mais adicionadas no futuro. Os tipos de erros representados agora são os seguintes: <br/><ul><li>**Failover** – quando um cache falha (escravo promove para mestre)</li><li>**Falha (Crash)** – quando o cache falha inesperadamente em qualquer um dos nós</li><li>**Perda de Dados** – quando há perda de dados no cache</li><li>**UnresponsiveClients** – quando os clientes não estão lendo dados do servidor com rapidez suficiente</li><li>**AOF** – quando há um problema relacionado à persistência do AOF</li><li>**RDB** – quando há um problema relacionado à persistência do RDB</li><li>**Importação** – quando há um problema relacionado à Importação do RDB</li><li>**Exportação** – quando há um problema relacionado à Exportação do RDB</li></ul> |
+| Errors | Falhas específicas e problemas de desempenho que o cache pode estar enfrentando durante um intervalo de relatório especificado. Essa métrica tem oito dimensões representando diferentes tipos de erros, mas poderia ter mais adicionadas no futuro. Os tipos de erros representados agora são os seguintes: <br/><ul><li>**Failover** – quando um cache falha (subordinado promove para mestre)</li><li>**Falha (Crash)** – quando o cache falha inesperadamente em qualquer um dos nós</li><li>**Perda de Dados** – quando há perda de dados no cache</li><li>**UnresponsiveClients** – quando os clientes não estão lendo dados do servidor com rapidez suficiente</li><li>**AOF** – quando há um problema relacionado à persistência do AOF</li><li>**RDB** – quando há um problema relacionado à persistência do RDB</li><li>**Importação** – quando há um problema relacionado à Importação do RDB</li><li>**Exportação** – quando há um problema relacionado à Exportação do RDB</li></ul> |
 | Chaves removidas |O número de itens removidos do cache durante o intervalo de relatório especificado devido ao limite de `maxmemory` . Esse número é mapeado para `evicted_keys` do comando INFO do Redis. |
 | Chaves expiradas |O número de itens expirados do cache durante o intervalo de relatório especificado. Esse valor é mapeado para `expired_keys` do comando INFO do Redis.|
 | Gets |O número de operações get do cache durante o intervalo de relatório especificado. Esse valor é a soma dos seguintes valores de informações do comando INFO all do Redis: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` e `cmdstat_getrange`. Ele é equivalente à soma de acertos e erros de cache durante o intervalo de relatório. |
@@ -142,7 +142,7 @@ Os logs de atividades fornecem insights sobre as operações realizadas nas inst
 
 Para exibir logs de atividade do seu cache, clique em **Logs de atividade** no **menu Recursos**.
 
-Para saber mais sobre como Logs de atividade, consulte [Visão geral dos logs de atividade do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Para saber mais sobre como Logs de atividade, consulte [Visão geral dos logs de atividade do Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 
 

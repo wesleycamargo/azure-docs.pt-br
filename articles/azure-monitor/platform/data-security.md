@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/19/2018
 ms.author: magoedte
-ms.openlocfilehash: fa7d89d749d50d62ce54ea71d604831e8919b454
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 581d5ddc0930a84bad4dd74a0e8dbcc3787f1a16
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189839"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652057"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
 Este documento destina-se a fornecer informações específicas do Log Analytics, que é um recurso do Azure Monitor, para complementar as informações na [Central de Confiabilidade do Azure](../../security/security-microsoft-trust-center.md).  
@@ -60,7 +60,7 @@ Depois que seus dados são ingeridos pelo serviço Log Analytics, os dados são 
 ## <a name="data-retention"></a>Retenção de dados
 Dados indexados de pesquisa de log são armazenados e retidos de acordo com o plano de preço. Para obter mais informações, consulte [Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Como parte do seu [contrato de assinatura](https://azure.microsoft.com/support/legal/subscription-agreement/), a Microsoft manterá seus dados de acordo com os termos do contrato.  Quando os dados são excluídos, também excluímos a conta do Armazenamento do Azure onde os dados residem.  Quando os dados do cliente são removidos, não ocorre a destruição de nenhuma unidade física.  
+Como parte do seu [contrato de assinatura](https://azure.microsoft.com/support/legal/subscription-agreement/), a Microsoft manterá seus dados de acordo com os termos do contrato.  Quando os dados do cliente são removidos, não ocorre a destruição de nenhuma unidade física.  
 
 A tabela a seguir lista algumas das soluções disponíveis e fornece exemplos de tipo de dados coletados.
 
@@ -150,7 +150,7 @@ Para sua organização enviar dados ao Log Analytics, você deve configurar um a
 * [ID Organizacional](../../active-directory/fundamentals/sign-up-organization.md)
 * [Conta da Microsoft - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
-Um workspace do Log Analytics é onde os dados são coletados, agregados, analisados e apresentados. Um workspace é usado principalmente como um meio para particionar dados e cada workspace é exclusivo. Por exemplo, talvez você queira ter seus dados de produção gerenciados com um workspace e seus dados de teste gerenciados com outro workspace. Os workspaces também ajudam um administrador a controlar o acesso dos usuários aos dados. Cada workspace pode ter várias contas de usuário associadas a ele, e cada conta de usuário pode acessar vários workspaces do Log Analytics. Você cria os workspaces com base na região do datacenter. Cada workspace é replicado para outros datacenters na região, principalmente para disponibilidade do serviço Log Analytics.
+Um workspace do Log Analytics é onde os dados são coletados, agregados, analisados e apresentados. Um workspace é usado principalmente como um meio para particionar dados e cada workspace é exclusivo. Por exemplo, talvez você queira ter seus dados de produção gerenciados com um workspace e seus dados de teste gerenciados com outro workspace. Os workspaces também ajudam um administrador a controlar o acesso dos usuários aos dados. Cada workspace pode ter várias contas de usuário associadas a ele, e cada conta de usuário pode acessar vários workspaces do Log Analytics. Você cria os workspaces com base na região do datacenter.
 
 Para o Operations Manager, o grupo de gerenciamento do Operations Manager estabelece uma conexão com o serviço Log Analytics. Você configura quais sistemas gerenciados por agente no grupo de gerenciamento têm permissão para coletar e enviar dados para o serviço. Dependendo da solução que você habilitou, dados dessas soluções são enviados diretamente de um servidor de gerenciamento do Operations Manager para o serviço Log Analytics ou por causa do volume de dados coletados pelo sistema gerenciado por agente, são enviados diretamente do agente para o serviço. Para sistemas não monitorados pelo Operations Manager, cada um se conecta com segurança ao serviço Log Analytics diretamente.
 

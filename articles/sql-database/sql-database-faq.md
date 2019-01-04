@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270392"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541602"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Perguntas Frequentes do Banco de Dados SQL (FAQ)
 
@@ -51,11 +51,11 @@ Os modelos baseados em DTU e vCore continuarão a existir paralelamente. Estamos
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Como devo escolher entre o modelo de compra baseado em DTU em comparação ao modelo de compra baseado em vCore?
 
-A DT (Unidade de Transmissão de Dados) é baseada em uma medida combinada de CPU, memória, leituras e gravações. Os tamanhos de computação baseados em DTU representam pacotes pré-configurados de recursos para gerar níveis diferentes de desempenho do aplicativo. Clientes que não querem se preocupar com os recursos subjacentes e preferem a simplicidade de um pacote pré-configurado enquanto pagam um valor fixa a cada mês podem achar o modelo baseado em DTU mais adequado às suas necessidades. No entanto, para clientes que precisam de mais informações sobre os recursos subjacentes ou precisam escaloná-los independentemente para atingir o desempenho ideal, o modelo baseado em vCore será a melhor escolha.  Além disso, se um cliente tiver um SA (Software Assurance) ativo para SQL Server, ele poderá aproveitar o investimento existente e economizar até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  As opções dentro de cada um dos modelos de compra fornecem os benefícios de um serviço totalmente gerenciado, como backups automáticos, atualizações de software e patches.
+A DT (Unidade de Transmissão de Dados) é baseada em uma medida combinada de CPU, memória, leituras e gravações. Os tamanhos de computação baseados em DTU representam pacotes pré-configurados de recursos para gerar níveis diferentes de desempenho do aplicativo. Clientes que não querem se preocupar com os recursos subjacentes e preferem a simplicidade de um pacote pré-configurado enquanto pagam um valor fixa a cada mês podem achar o modelo baseado em DTU mais adequado às suas necessidades. No entanto, para clientes que precisam de mais informações sobre os recursos subjacentes ou precisam escaloná-los independentemente para atingir o desempenho ideal, o modelo baseado em vCore será a melhor escolha.  Além disso, se um cliente tiver um SA (Software Assurance) ativo para SQL Server, ele poderá aproveitar o investimento existente e economizar até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  As opções dentro de cada um dos modelos de compra fornecem os benefícios de um serviço totalmente gerenciado, como backups automáticos, atualizações de software e patches.
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>O que é o Benefício Híbrido do Azure para SQL Server?
 
-O [Benefício Híbrido do Azure para SQL Server ](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ajuda você a maximizar o valor de seus investimentos em licenciamento atuais e acelerar sua migração para a nuvem. O Benefício Híbrido do Azure para SQL Server é um benefício baseado no Azure que permite usar as licenças do SQL Server com o Software Assurance para pagar uma taxa reduzida (“taxa base”) no Banco de Dados SQL. O Benefício Híbrido do Azure para SQL Server está disponível na visualização pública do modelo de compra baseado em vCore para bancos de dados individuais do Bando de Dados SQL e pools elásticos. É possível aplicar esse benefício mesmo se a SKU estiver ativa, mas observe que a taxa base será aplicada a partir do momento em que selecioná-la no Portal do Azure. Não há emissão retroativa de crédito.
+O [Benefício Híbrido do Azure para SQL Server ](https://azure.microsoft.com/pricing/hybrid-benefit/) ajuda você a maximizar o valor de seus investimentos em licenciamento atuais e acelerar sua migração para a nuvem. O Benefício Híbrido do Azure para SQL Server é um benefício baseado no Azure que permite usar as licenças do SQL Server com o Software Assurance para pagar uma taxa reduzida (“taxa base”) no Banco de Dados SQL. O Benefício Híbrido do Azure para SQL Server está disponível na visualização pública do modelo de compra baseado em vCore para bancos de dados individuais do Bando de Dados SQL e pools elásticos. É possível aplicar esse benefício mesmo se a SKU estiver ativa, mas observe que a taxa base será aplicada a partir do momento em que selecioná-la no Portal do Azure. Não há emissão retroativa de crédito.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Há direitos de uso duplo com o Benefício Híbrido do Azure para o SQL Server
 
@@ -127,13 +127,13 @@ Sim, você pode converter facilmente o banco de dados para qualquer objetivo de 
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Posso fazer o upgrade ou o downgrade entre as camadas de serviço General Purpose e Business Critical?
 
-Sim, com algumas restrições. A SKU de destino deve atender ao tamanho máximo do banco de dados ou do pool elástico que você configurou para a implantação existente. Se você estiver usando o [Benefício Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), o SKU Crítico para os Negócios estará disponível apenas para clientes com licenças Enterprise Edition. Somente os clientes que migraram de local para Uso Geral usando o Benefício Híbrido do Azure para SQL Server com licenças do Enterprise Edition poderão fazer upgrade para Comercialmente Crítico. Para obter detalhes, consulte [quais são os direitos específicos do benefício híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
+Sim, com algumas restrições. A SKU de destino deve atender ao tamanho máximo do banco de dados ou do pool elástico que você configurou para a implantação existente. Se você estiver usando o [Benefício Híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), o SKU Crítico para os Negócios estará disponível apenas para clientes com licenças Enterprise Edition. Somente os clientes que migraram de local para Uso Geral usando o Benefício Híbrido do Azure para SQL Server com licenças do Enterprise Edition poderão fazer upgrade para Comercialmente Crítico. Para obter detalhes, consulte [quais são os direitos específicos do benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)?
 
 Essa conversão não resultará em tempo de inatividade e pode ser iniciada usando o portal do Azure, o PowerShell, a CLI do Azure, o T-SQL ou a API REST. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-scale.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Estou usando um banco de dados Premium RS que não estará disponível em geral - posso atualizá-lo para um novo nível e obter um benefício semelhante de preço / desempenho
 
-Como o modelo vCore permite o controle independente da quantidade de computação e armazenamento provisionados, você pode gerenciar com mais eficiência os custos resultantes, tornando-se um destino atraente para os bancos de dados Premium RS. Além disso, o [Benefício Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) fornece um desconto substancial quando o modelo baseado em vCore é usado.
+Como o modelo vCore permite o controle independente da quantidade de computação e armazenamento provisionados, você pode gerenciar com mais eficiência os custos resultantes, tornando-se um destino atraente para os bancos de dados Premium RS. Além disso, o [Benefício Híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) fornece um desconto substancial quando o modelo baseado em vCore é usado.
 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Com que frequência posso ajustar os recursos por pool
 

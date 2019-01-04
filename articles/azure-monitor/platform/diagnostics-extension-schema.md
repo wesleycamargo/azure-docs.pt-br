@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 42ed050606dd242e43903ed980a5670b4aa6f3df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 064c1b8100e165627d5227b9f24b87aefae2e769
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343166"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790751"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões de esquema de configuração da extensão do Diagnóstico do Azure
 Esta página indexa versões de esquema de extensão do Diagnóstico do Azure fornecidas como parte do SDK do Microsoft Azure.  
@@ -175,7 +175,7 @@ Tipo de armazenamento adicionado a PublicConfig. StorageType pode ser *Table*, *
 Adição da habilidade para rotear ao Hub de Eventos.
 
 ### <a name="diagnostics-extension-15"></a>Extensão do diagnóstico 1.5
-Adição do elemento de coleta e a capacidade de enviar dados de diagnósticos ao [Application Insights](../../application-insights/app-insights-cloudservices.md), facilitando o diagnóstico de problemas em seu aplicativo, bem como no nível do sistema e da infraestrutura.
+Adição do elemento de coleta e a capacidade de enviar dados de diagnósticos ao [Application Insights](../../azure-monitor/app/cloudservices.md), facilitando o diagnóstico de problemas em seu aplicativo, bem como no nível do sistema e da infraestrutura.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>SDK 2.6 do Azure e esquema de extensão 1.3
 Para projetos do Serviço de Nuvem no Visual Studio, as seguintes alterações foram feitas. (Essas alterações também se aplicam a versões mais recentes do SDK do Azure).

@@ -1,21 +1,18 @@
 ---
-title: Tratamento de erros de conectividade transitória para o Banco de Dados do Azure para PostgreSQL | Microsoft Docs
+title: Manipulação de erros de conectividade transitória para Banco de Dados do Azure para PostgreSQL
 description: Saiba como tratar erros de conectividade transitória para o Banco de Dados do Azure para PostgreSQL.
 keywords: conexão do postgresql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
-services: postgresql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 021fad5e59e76444351711fb529c542d428af189
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 264656da38608026e3f9e866e2184ff55ba102d8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890053"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536212"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>Manipulação de erros de conectividade transitória para Banco de Dados do Azure para PostgreSQL
 

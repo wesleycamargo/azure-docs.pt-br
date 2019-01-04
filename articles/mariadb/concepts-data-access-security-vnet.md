@@ -3,17 +3,15 @@ title: Visão geral do ponto de extremidade de serviços de Vnet do Banco de Dad
 description: Descreve como os pontos de extremidade de serviço de VNet funcionam no servidor do Banco de Dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 8c4f14849c39414217837a3c86fb6e067cd87c90
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 82b72b45f9577c83e2c6619220b26e26d696c4f1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434334"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540225"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MariaDB
 

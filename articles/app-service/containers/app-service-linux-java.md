@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407330"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976725"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux
 
@@ -28,7 +28,7 @@ Este guia mostra os principais conceitos e instruções para desenvolvedores de 
 
 ## <a name="logging-and-debugging-apps"></a>Aplicativos de registro em log e depuração
 
-Relatórios de desempenho, visualizações de tráfego e verificações de integridade estão disponíveis para cada aplicativo por meio do portal do Azure. Confira a [Visão geral de diagnóstico do Serviço de Aplicativo do Azure](/azure/app-service/app-service-diagnostics) para saber mais sobre como acessar e usar essas ferramentas de diagnóstico.
+Relatórios de desempenho, visualizações de tráfego e verificações de integridade estão disponíveis para cada aplicativo por meio do portal do Azure. Confira a [Visão geral de diagnóstico do Serviço de Aplicativo do Azure](/azure/app-service/overview-diagnostics) para saber mais sobre como acessar e usar essas ferramentas de diagnóstico.
 
 ## <a name="application-performance-monitoring"></a>Monitoramento de desempenho de aplicativos
 
@@ -54,11 +54,11 @@ Em seguida, transmita os logs para o console usando `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-Para saber mais, confira [Transmitir logs com a CLI do Azure](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
+Para saber mais, confira [Transmitir logs com a CLI do Azure](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
 ### <a name="app-logging"></a>Registro em log do aplicativo
 
-Habilite o [registro em log de aplicativos](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) por meio do portal do Azure ou da [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o Serviço de Aplicativo do Azure para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no Armazenamento de Blobs do Azure. O registro em log na instância do sistema de arquivos do Serviço de Aplicativo local será desabilitado 12 horas após ser configurado. Se você precisar de uma retenção mais longa, configure o aplicativo para gravar a saída em um contêiner do armazenamento de blobs.
+Habilite o [registro em log de aplicativos](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) por meio do portal do Azure ou da [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o Serviço de Aplicativo do Azure para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no Armazenamento de Blobs do Azure. O registro em log na instância do sistema de arquivos do Serviço de Aplicativo local será desabilitado 12 horas após ser configurado. Se você precisar de uma retenção mais longa, configure o aplicativo para gravar a saída em um contêiner do armazenamento de blobs.
 
 Se o aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) para rastreamento, será possível encaminhá-los para revisão no Azure Application Insights usando as instruções de configuração de estrutura de registros em [Explorar os logs de rastreamento de Java no Application Insights](/azure/application-insights/app-insights-java-trace-logs). 
 
@@ -173,9 +173,6 @@ Para configurar o Tomcat para usar a JDBC (Conectividade de Banco de Dados Java)
 
 Ou defina as variáveis de ambiente na folha "Configurações de Aplicativo" no portal do Azure.
 
->[!NOTE]
-> Se você estiver usando o banco de dados do Azure para Postgres, substitua `ssl=true` por `sslmode=require` na cadeia de conexão JDBC.
-
 Em seguida, determine se a fonte de dados deve estar disponível para um aplicativo ou para todos os aplicativos em execução no servlet do Tomcat.
 
 #### <a name="for-application-level-data-sources"></a>Para fontes de dados no nível do aplicativo: 
@@ -259,7 +256,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para um aplicat
 
     3. Faça a conexão da porta de túnel local com o cliente SFTP e carregue os arquivos na pasta `/home/tomcat/lib`.
 
-    Como alternativa, você pode usar um cliente de FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais FTP](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+    Como alternativa, você pode usar um cliente de FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais FTP](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Se você tiver uma fonte de dados no nível do servidor, reinicie o aplicativo Linux Serviço de Aplicativo. O Tomcat redefinirá `CATALINA_HOME` como `/home/tomcat/conf` e usará a configuração atualizada.
 

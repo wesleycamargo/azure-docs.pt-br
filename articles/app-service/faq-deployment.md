@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388123"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549421"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação de Aplicativos Web no Azure
 
@@ -36,7 +36,7 @@ Estas são algumas opções para publicar seu código do aplicativo Web:
 *   Implante usando o Visual Studio. Se você tiver a solução do Visual Studio, clique com o botão direito do mouse no projeto de aplicativo da Web e selecione **Publicar**.
 *   Implante usando um cliente FTP. No portal do Azure, baixe o perfil de publicação do aplicativo Web no qual você deseja implantar o código. Em seguida, carregue os arquivos em \site\wwwroot usando as mesmas credenciais FTP do perfil de publicação.
 
-Para obter mais informações, consulte [Implantar seu aplicativo no Serviço de Aplicativo](app-service-deploy-local-git.md).
+Para obter mais informações, consulte [Implantar seu aplicativo no Serviço de Aplicativo](deploy-local-git.md).
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Recebi uma mensagem de erro ao tentar implantar por meio do Visual Studio. Como resolver isso?
 
@@ -51,7 +51,7 @@ O tutorial [Criar seu primeiro aplicativo Web ASP.NET no Azure em cinco minutos]
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quais são os diferentes tipos de credenciais de implantação?
 
-O Serviço de Aplicativo dá suporte a dois tipos de credenciais para a implantação local do Git e a implantação de FTP/S. Para obter mais informações sobre como configurar as credenciais de implantação, consulte [Configurar as credenciais de implantação para o Serviço de Aplicativo](app-service-deployment-credentials.md).
+O Serviço de Aplicativo dá suporte a dois tipos de credenciais para a implantação local do Git e a implantação de FTP/S. Para obter mais informações sobre como configurar as credenciais de implantação, consulte [Configurar as credenciais de implantação para o Serviço de Aplicativo](deploy-configure-credentials.md).
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>Qual é a estrutura de arquivos ou de diretórios de meu aplicativo Web do Serviço de Aplicativo?
 
@@ -63,7 +63,7 @@ Se você receber essa mensagem, é provável que você esteja atingindo uma cota
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Como fazer para configurar a implantação contínua em meu aplicativo Web do Serviço de Aplicativo?
 
-É possível configurar a implantação contínua por meio de vários recursos, incluindo o Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox e outros repositórios Git. Essas opções estão disponíveis no portal. [Implantação contínua para o Serviço de Aplicativo](app-service-continuous-deployment.md) é um tutorial útil que explica como configurar a implantação contínua.
+É possível configurar a implantação contínua por meio de vários recursos, incluindo o Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox e outros repositórios Git. Essas opções estão disponíveis no portal. [Implantação contínua para o Serviço de Aplicativo](deploy-continuous-deployment.md) é um tutorial útil que explica como configurar a implantação contínua.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Como fazer para solucionar problemas com a implantação contínua do GitHub e do Bitbucket?
 
@@ -100,4 +100,4 @@ A implantação contínua de código para essas duas opções depende dos fluxos
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Como fazer para usar o FTP ou o FTPS para implantar meu aplicativo no Serviço de Aplicativo?
 
-Para obter informações sobre como usar o FTP ou o FTPS para implantar o aplicativo Web no Serviço de Aplicativo, consulte [Implantar o aplicativo no Serviço de Aplicativo usando o FTP/S](app-service-deploy-ftp.md).
+Para obter informações sobre como usar o FTP ou o FTPS para implantar o aplicativo Web no Serviço de Aplicativo, consulte [Implantar o aplicativo no Serviço de Aplicativo usando o FTP/S](deploy-ftp.md).

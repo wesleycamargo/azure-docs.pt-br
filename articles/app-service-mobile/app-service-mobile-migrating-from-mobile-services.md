@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961596"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714314"
 ---
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
 Com a [disponibilidade geral do Serviço de Aplicativo do Azure], sites de Serviços Móveis do Azure podem ser migrados facilmente no local para aproveitar todos os recursos do Serviço de Aplicativo do Azure.  Este documento explica o que esperar ao migrar seu site dos Serviços Móveis do Azure para o Serviço de Aplicativo do Azure.
@@ -376,25 +376,25 @@ Agora que o aplicativo foi migrado para o serviço de aplicativo, há ainda mais
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Dimensionamento automático]: ../app-service/web-sites-scale.md
-[Serviço de Aplicativo do Azure]: ../app-service/app-service-web-overview.md
+[Serviço de Aplicativo do Azure]: ../app-service/overview.md
 [Portal Clássico do Azure]: https://manage.windowsazure.com
 [Portal do Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [Planos do Agendador do Azure]: ../scheduler/scheduler-plans-billing.md
-[implantar continuamente]: ../app-service/app-service-continuous-deployment.md
+[implantar continuamente]: ../app-service/deploy-continuous-deployment.md
 [Converter seus namespaces mistos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: https://curl.haxx.se/
 [nomes de domínio personalizados]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: https://www.telerik.com/fiddler
 [disponibilidade geral do Serviço de Aplicativo do Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Registro em log]: ../app-service/web-sites-enable-diagnostic-log.md
+[Registro em log]: ../app-service/troubleshoot-diagnostic-logs.md
 [SDK do Node.js de Aplicativos Móveis]: https://github.com/azure/azure-mobile-apps-node
 [Serviços Móveis versus Serviço de Aplicativo]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Hubs de Notificação]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [monitoramento de desempenho]: ../app-service/web-sites-monitor.md
 [Postman]: https://www.getpostman.com/
-[slots de preparo]: ../app-service/web-sites-staged-publishing.md
+[slots de preparo]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Funções]: ../azure-functions/functions-overview.md

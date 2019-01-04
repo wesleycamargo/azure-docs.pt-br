@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0b3c4a4c21bc9b124a98b1f204f85e6e78ff233e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099555"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994327"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução ao Azure Data Lake Storage Gen2 Preview
 
-O Azure Data Lake Storage Gen2 Preview é um conjunto de recursos dedicados à análise de big data, criado sobre o [Armazenamento de Blobs do Azure](storage-blobs-introduction.md). O Data Lake Storage Gen2 é o resultado obtido ao convergir os recursos de nossos dois serviços de armazenamento existentes, o Armazenamento de Blobs do Azure e o Azure Data Lake Storage Gen1. Os recursos do [Azure Data Lake Storage Gen1](https://docs.microsoft.com/en-us/azure/data-lake-store/index), como semântica do sistema de arquivos, diretório e segurança e escala em nível de arquivo, são combinados com armazenamento em camadas de baixo custo, alta disponibilidade/recursos de recuperação de desastre do [Armazenamento de Blobs do Azure](storage-blobs-introduction.md).
+O Azure Data Lake Storage Gen2 Preview é um conjunto de recursos dedicados à análise de big data, criado sobre o [Armazenamento de Blobs do Azure](storage-blobs-introduction.md). O Data Lake Storage Gen2 é o resultado obtido ao convergir os recursos de nossos dois serviços de armazenamento existentes, o Armazenamento de Blobs do Azure e o Azure Data Lake Storage Gen1. Os recursos do [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), como semântica do sistema de arquivos, diretório e segurança e escala em nível de arquivo, são combinados com armazenamento em camadas de baixo custo, alta disponibilidade/recursos de recuperação de desastre do [Armazenamento de Blobs do Azure](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Projetado para análise de big data da empresa
 

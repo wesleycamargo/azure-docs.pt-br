@@ -2,20 +2,17 @@
 title: Manipulação de erros de conectividade transitória para o Banco de Dados do Azure para MariaDB | Microsoft Docs
 description: Aprenda a lidar com erros transitórios de conectividade do Banco de Dados do Azure para MariaDB.
 keywords: conexão do mysql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
-services: mariadb
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 203401e3842912169371f315048f6930c8dc80eb
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f5f5915e6fdb240fa519ee10526c935a524cb5b4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568090"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546276"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Manipulação de erros de conectividade transitórios para o Banco de Dados do Azure para MariaDB
 
@@ -39,7 +36,7 @@ A primeira e a segunda ocorrência são razoavelmente diretas de lidar. Tente ab
 * Para cada próxima repetição, a espera aumenta exponencialmente, para até 60 segundos.
 * Defina um número máximo de repetições no ponto em que seu aplicativo considera que a operação falhou.
 
-Quando uma conexão com uma transação ativa falha, é mais difícil de lidar com a recuperação corretamente. Há dois casos: se a transação era somente leitura por natureza, é seguro para reabrir a conexão e tentar a transação novamente. Se, no entanto, a transação também estava gravando no banco de dados, você deve determinar se a transação foi revertida ou se ela foi bem-sucedida antes da ocorrência do erro transitório. Nesse caso, você pode simplesmente não ter recebido a confirmação da confirmação do servidor de banco de dados.
+Quando uma conexão com uma transação ativa falha, é mais difícil de lidar com a recuperação corretamente. Existem dois casos: Se a transação era somente leitura por natureza, é seguro para reabrir a conexão e tentar a transação novamente. Se, no entanto, a transação também estava gravando no banco de dados, você deve determinar se a transação foi revertida ou se ela foi bem-sucedida antes da ocorrência do erro transitório. Nesse caso, você pode simplesmente não ter recebido a confirmação da confirmação do servidor de banco de dados.
 
 Uma maneira de fazer isso, é gerar uma ID exclusiva no cliente que é usado para todas as tentativas. Você pode passar essa ID exclusiva como parte da transação para o servidor e armazená-los em uma coluna com uma restrição exclusiva. Dessa forma, com segurança, você pode repetir a transação. Ela terá êxito se a transação anterior tiver sido revertida e a ID exclusiva do cliente gerada ainda não existir no sistema. Ocorrerá uma falha indicando que uma violação de chave duplicada se a ID exclusiva foi armazenada anteriormente porque a transação anterior foi concluída com êxito.
 

@@ -1,21 +1,20 @@
 ---
 title: Testar um trabalho do Azure Stream Analytics com dados de exemplo
-description: Como testar as consultas em trabalhos do Stream Analytics.
-keywords: Este artigo descreve como usar o portal do Azure para testar um trabalho do Azure Stream Analytics, uma entrada de exemplo e fazer o upload de dados de exemplo.
+description: Este artigo descreve como usar o portal do Azure para testar um trabalho do Azure Stream Analytics, uma entrada de exemplo e fazer o upload de dados de exemplo.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 139ad76826f3e67577beba0369f6d4425e242af9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: fca76b632e9bcc27ed762886eaea696a5696ad3f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978342"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557625"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testar uma consulta do Stream Analytics com dados de exemplo
 

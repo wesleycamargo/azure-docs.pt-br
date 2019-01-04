@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338151"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789749"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão Diagnóstico do Azure
 A extensão Diagnóstico do Azure é um agente no Azure que permite a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem do Azure (clássico), as Máquinas Virtuais, os conjuntos de dimensionamento de Máquinas Virtuais e o Service Fabric. Outros serviços do Azure têm métodos diferentes de diagnósticos. Consulte [Visão geral do monitoramento no Azure](../../azure-monitor/overview.md).
@@ -42,7 +42,7 @@ A extensão Diagnóstico do Azure pode coletar os seguintes tipos de dados:
 ## <a name="data-storage"></a>Armazenamento de dados
 A extensão armazena seus dados em uma [conta do Armazenamento do Azure](diagnostics-extension-to-storage.md) especificada.
 
-Você também pode enviá-los para o [Application Insights](../../application-insights/app-insights-cloudservices.md). Outra opção é transmiti-los para o [Hub de Eventos](../../event-hubs/event-hubs-about.md), que permite o envio dos dados para serviços de monitoramento que não fazem parte do Azure.
+Você também pode enviá-los para o [Application Insights](../../azure-monitor/app/cloudservices.md). Outra opção é transmiti-los para o [Hub de Eventos](../../event-hubs/event-hubs-about.md), que permite o envio dos dados para serviços de monitoramento que não fazem parte do Azure.
 
 ### <a name="azure-monitor"></a>Azure Monitor
 Você também tem a opção de envio de dados para o Azure Monitor. Neste momento, esse coletor só é aplicável aos Contadores de Desempenho. Ele permite o envio de contadores de desempenho coletados em sua VM, VMSS ou serviço de nuvem para o Azure Monitor como métricas personalizadas. O coletor do Azure Monitor dá suporte a:
@@ -66,7 +66,7 @@ Escolha de qual serviço você está tentando coletar diagnósticos e use os seg
 
 Para tópicos mais avançados, veja
 
-* [Uso dos Diagnósticos do Azure com o Application Insights para Serviços de Nuvem](../../application-insights/app-insights-cloudservices.md)
+* [Uso dos Diagnósticos do Azure com o Application Insights para Serviços de Nuvem](../../azure-monitor/app/cloudservices.md)
 * [Rastrear o fluxo de um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Usar o PowerShell para configurar o diagnóstico nos Serviços de Nuvem](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

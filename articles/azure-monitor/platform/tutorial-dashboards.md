@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 417f542bcf1711b2ac8e986663353e29a3705fb3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388107"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545307"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure
 
-[Os logs de diagnóstico do Monitor do Azure](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) são registros emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os logs de diagnóstico disponíveis por meio do Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço emitir propriedades exclusivas para seus próprios eventos.
+[Os logs de diagnóstico do Monitor do Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) são registros emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os logs de diagnóstico disponíveis por meio do Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço emitir propriedades exclusivas para seus próprios eventos.
 
 Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e da `category` identifica exclusivamente um esquema. Este artigo descreve o esquema de nível superior para os logs de diagnóstico e os vínculos para o esquema de cada serviço.
 
@@ -205,7 +205,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre logs de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Transmitir logs de diagnóstico de recurso os **Hubs de Eventos**](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Saiba mais sobre logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Transmitir logs de diagnóstico de recurso os **Hubs de Eventos**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Alterar as configurações de diagnóstico do recurso usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analisar logs do Armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

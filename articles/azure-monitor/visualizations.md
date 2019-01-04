@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 76e3a219d440bab4c6e277887aabb1e01f5e1d9c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435439"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728339"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de log e métrica armazenados no Azure Monitor.
@@ -32,7 +32,7 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a princi
 ### <a name="advantages"></a>Vantagens
 - Integração profunda no Azure. As visualizações podem ser fixadas em painéis por meio de várias páginas do Azure, incluindo análise de métricas, Log Analytics e Application Insights.
 - Suporta métricas e logs.
-- Combine dados de várias origens, incluindo a saída do [Metrics Explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics consultas](../azure-monitor/log-query/log-query-overview.md) e [mapas](../application-insights/app-insights-app-map.md) e [disponibilidade]() no Application Insights.
+- Combine dados de várias origens, incluindo a saída do [Metrics Explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics consultas](../azure-monitor/log-query/log-query-overview.md) e [mapas](../azure-monitor/app/app-map.md) e [disponibilidade]() no Application Insights.
 - Opção para os painéis de pessoais ou compartilhadas. Integrado com a autenticação baseada em função do Azure [(RBAC)](../role-based-access-control/overview.md).
 - Atualização automática. A atualização de métricas depende do intervalo de tempo com um mínimo de cinco minutos. Registra a atualização em um minuto.
 - Painéis de métricas parametrizadas com carimbo de data/hora e parâmetros personalizados.

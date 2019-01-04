@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: bb427575d7cff69f0db778c5eb0e0bdf0671d8dd
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343268"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583724"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do log de atividades em notificações de serviço
 ## <a name="overview"></a>Visão geral
@@ -196,7 +196,7 @@ Depois de criar um alerta, ele ficará visível na seção **Alertas** do **Moni
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](../../service-health/service-health-alert-webhook-guide.md).
-- Saiba mais sobre as [notificações de integridade do serviço](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Saiba mais sobre as [notificações de integridade do serviço](../../azure-monitor/platform/service-notifications.md).
 - Saiba mais sobre [limitação de taxa de notificação](../../azure-monitor/platform/alerts-rate-limiting.md).
 - Examine o [esquema do webhook de alertas de log de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Obtenha uma [visão geral dos alertas do log de atividades](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas. 

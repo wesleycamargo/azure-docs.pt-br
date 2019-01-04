@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7d6f34c75069f91e06d58c960249d040b2bda8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6e3ab097b08e3a15d012ccc644307bc8f4b281ab
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299179"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971675"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de Blobs do Azure para um banco de dados SQL usando o Azure Data Factory
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para um banco de dados SQL. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -74,7 +74,7 @@ Agora, prepare seu armazenamento de blobs e o banco de dados SQL para o tutorial
 
 1. Permita que os serviços do Azure acessem o SQL Server. Verifique se a opção **Permitir acesso aos serviços do Azure** está **ATIVADA** para o SQL Server, para que o Data Factory possa gravar dados no SQL Server. Para verificar e ativar a configuração, siga estas etapas:
 
-    a. À esquerda, selecione **Mais serviços** > **SQL Servers**.
+     a. À esquerda, selecione **Mais serviços** > **SQL Servers**.
 
     b. Selecione o servidor e, em **CONFIGURAÇÕES**, selecione **Firewall**.
 
@@ -97,7 +97,7 @@ Nesta etapa, você cria um data factory e inicia a interface do usuário do Data
 1. Selecione a **assinatura** do Azure na qual deseja criar o data factory. 
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
      
-    a. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
+     a. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
 
     b. Selecione **Criar novo**e insira o nome de um grupo de recursos. 
          
@@ -188,7 +188,7 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
     ![Serviço vinculado](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
 1. Na janela **Novo Serviço Vinculado**, siga as etapas a seguir: 
 
-    a. Em **Nome**, insira **AzureSqlDatabaseLinkedService**.
+     a. Em **Nome**, insira **AzureSqlDatabaseLinkedService**.
 
     b. Em **Nome do servidor**, selecione sua instância do SQL Server.
 
@@ -217,7 +217,7 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
 
     ![Guia Pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
-### <a name="confugure-mapping"></a>Configurar o mapeamento
+### <a name="configure-mapping"></a>Configurar o mapeamento
 
 Vá para a guia **Mapeamento** na parte inferior da janela **Propriedades** e selecione **Importar Esquemas**. Observe que a primeira e segunda colunas no arquivo de origem são mapeadas para **FirstName** e **LastName** no banco de dados SQL.
 
@@ -264,7 +264,7 @@ Nesse cronograma, você criará um gatilho de agenda para o pipeline. O gatilho 
     ![Novo botão](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
 1. Na janela **Novo Gatilho**, siga estas etapas: 
 
-    a. Em **Nome**, digite **RunEveryMinute**.
+     a. Em **Nome**, digite **RunEveryMinute**.
 
     b. Em **Término**, selecione **Na Data**.
 

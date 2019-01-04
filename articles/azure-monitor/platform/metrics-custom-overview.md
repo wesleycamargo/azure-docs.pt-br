@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 2b3e8877713fde088be2147bbfa8969e351a3f06
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: aacfc98a9132a59c90a8f67d5a3877b75fa59dfe
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325226"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605578"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
@@ -25,7 +25,7 @@ Métricas personalizadas podem ser enviadas ao Monitor do Azure por vários mét
 - Instrua seu aplicativo usando o SDK do Azure Application Insights e envie a telemetria personalizada ao Monitor do Azure. 
 - Instale a extensão WAD (Windows Azure Diagnostics) em [VM](collect-custom-metrics-guestos-resource-manager-vm.md), [máquina virtual do Azure configurada](collect-custom-metrics-guestos-resource-manager-vmss.md), [VM clássica](collect-custom-metrics-guestos-vm-classic.md) ou [Serviços em nuvem clássicos](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e enviar contadores de desempenho para o Monitor do Azure. 
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) em sua VM do Azure Linux e envie as métricas usando o plug-in de saída do Monitor do Azure.
-- Envie métricas personalizadas [diretamente para a API REST do Azure Monitor](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Envie métricas personalizadas [diretamente para a API REST do Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 Quando você envia as métricas personalizadas para o Azure Monitor, cada ponto de dados ou valor, relatado deve incluir as informações a seguir.
 
@@ -193,6 +193,6 @@ Use métricas personalizadas de diferentes serviços:
  - [Conjunto de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas virtuais do Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Linux Virtual Machine usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API REST](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md)
+ - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Serviços de nuvem clássico](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

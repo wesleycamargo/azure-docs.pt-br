@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336456"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584292"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
 
@@ -33,7 +33,7 @@ O procedimento a seguir descreve como criar uma regra de alerta de métrica no p
 
 3. Clique em **Selecionar destino**, no painel de contexto que é carregado, e selecione um recurso de destino que você deseja modificar. Use os menus suspensos **Assinatura** e **Tipo de recurso** para localizar o recurso que deseja monitorar. Também é possível usar a barra de pesquisa para localizar o recurso.
 
-4. Se o recurso selecionado tiver métricas com base nas quais você pode criar alertas, os **Sinais disponíveis** na parte inferior direita incluirão as métricas. Você pode exibir a lista completa dos tipos de recurso com suporte para alertas de métrica neste [artigo](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+4. Se o recurso selecionado tiver métricas com base nas quais você pode criar alertas, os **Sinais disponíveis** na parte inferior direita incluirão as métricas. Você pode exibir a lista completa dos tipos de recurso com suporte para alertas de métrica neste [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 5. Após selecionar um recurso de destino, clique em **Adicionar critérios**
 
@@ -130,4 +130,4 @@ As seções anteriores descreveram como criar, exibir e gerenciar regras de aler
 
 - [Criar alertas de métrica usando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Compreender como os alertas de métrica funcionam](alerts-metric-overview.md).
-- [Compreender o esquema de web hook para alertas de métrica](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)
+- [Compreender o esquema de web hook para alertas de métrica](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

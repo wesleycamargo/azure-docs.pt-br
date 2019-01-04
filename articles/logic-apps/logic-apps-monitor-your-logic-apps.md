@@ -1,6 +1,6 @@
 ---
-title: Verificar o status, configurar o log e receber alertas – Aplicativo Lógico do Azure | Microsoft Docs
-description: Monitorar o status, registrar dados de diagnóstico e configurar alertas para o Aplicativo Lógico do Azure
+title: Verificar o status, configurar o log e receber alertas – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Monitorar o status, registrar dados de diagnóstico e configurar alertas para os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,14 +10,14 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434249"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543849"
 ---
-# <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativo Lógico do Azure
+# <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativos Lógicos do Azure
 
 Depois de [criar e executar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md), verifique seu histórico de execuções, histórico de gatilhos, status e desempenho. Para monitoramento de eventos em tempo real e depuração mais avançada, configure o [log de diagnósticos](#azure-diagnostics) do aplicativo lógico. Dessa forma, você poderá [encontrar e exibir eventos](#find-events), como eventos de gatilho, eventos de execução e eventos de ação. Use também esses [dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure. 
 
@@ -156,7 +156,7 @@ Para refinar a consulta adicionando um filtro, escolha **+Adicionar**.
 Junto com o Azure Log Analytics, você pode estender a maneira de usar os dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo: 
 
 * [Arquivar logs do Diagnóstico do Azure no Armazenamento do Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Transmitir logs do Diagnóstico do Azure para os Hubs de Eventos do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+* [Transmitir logs do Diagnóstico do Azure para os Hubs de Eventos do Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
 Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../azure-monitor/platform/powerbi.md). Por exemplo: 
 
@@ -207,7 +207,7 @@ Para configurar alertas sem o [Azure Log Analytics](../log-analytics/log-analyti
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Configurações e detalhes de eventos do Diagnóstico do Azure
 
-Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, acompanhamento e registro em log de forma programática, é possível usar esses detalhes com a [API REST para Aplicativo Lógico do Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST para Diagnóstico do Microsoft Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
+Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, acompanhamento e registro em log de forma programática, é possível usar esses detalhes com a [API REST para Aplicativos Lógicos do Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST para Diagnóstico do Microsoft Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
 Por exemplo, o evento `ActionCompleted` tem as propriedades `clientTrackingId` e `trackedProperties`, que podem ser usadas para acompanhamento e monitoramento:
 

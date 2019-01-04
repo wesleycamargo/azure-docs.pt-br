@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 5657cfb40e9017918f5842c573895872940b307a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273690"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579321"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor  
 
@@ -96,7 +96,7 @@ Use este procedimento:
     É possível habilitar, desabilitar, editar ou excluir uma regra. [Saiba mais](#view-and-manage-activity-log-alert-rules-in-azure-portal) sobre o gerenciamento de regras do log de atividades.
 
 
-Como alternativa, uma analogia simples para entender as condições nas quais as regras de alerta podem ser criadas no log de atividades é explorar ou filtrar eventos por meio do [Log de atividades no portal do Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). No Azure Monitor – Log de atividades, é possível filtrar ou localizar os eventos necessários e, em seguida, criar um alerta usando o botão **Adicionar alerta do log de atividades** e, em seguida, seguir as etapas 4 em diante, conforme mencionado no tutorial acima.
+Como alternativa, uma analogia simples para entender as condições nas quais as regras de alerta podem ser criadas no log de atividades é explorar ou filtrar eventos por meio do [Log de atividades no portal do Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). No Azure Monitor – Log de atividades, é possível filtrar ou localizar os eventos necessários e, em seguida, criar um alerta usando o botão **Adicionar alerta do log de atividades** e, em seguida, seguir as etapas 4 em diante, conforme mencionado no tutorial acima.
     
  ![ adicionar alerta do log de atividades](media/alerts-activity-log/add-activity-log.png)
     
@@ -223,4 +223,4 @@ O arquivo *sampleActivityLogAlert.parameters.json* tem os valores fornecidos aos
 - [Esquema de webhook para os logs de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 - [Visão geral dos logs de atividades](../../azure-monitor/platform/activity-log-alerts.md) 
 - Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).  
-- Saiba mais sobre as [notificações de integridade do serviço](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Saiba mais sobre as [notificações de integridade do serviço](../../azure-monitor/platform/service-notifications.md).

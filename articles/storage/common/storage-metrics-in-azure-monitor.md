@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 27523a3746e3afe649df3fcf78975b501a922ff8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957292"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994429"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -25,7 +25,7 @@ O Azure Monitor fornece interfaces de usuário unificadas para monitoramento em 
 
 O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessá-los da [portal do Azure](https://portal.azure.com), as APIs do Azure Monitor (REST e .Net) e soluções de análise como Hubs de Eventos. Para saber mais, consulte [Métricas do Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-As métricas são ativadas por padrão e você pode acessar os últimos 93 dias de dados. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) no Azure Monitor.
+As métricas são ativadas por padrão e você pode acessar os últimos 93 dias de dados. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) no Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Acessar as métricas no portal do Azure
 
@@ -332,14 +332,14 @@ O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure M
 
 | Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
-| UsedCapacity | A quantidade de armazenamento utilizada pela conta de armazenamento. Para contas de armazenamento Standard, é a soma da capacidade usada por blob, tabela, arquivo e fila. Para contas de armazenamento Premium e contas de armazenamento de Blob, é o mesmo que Capacidade de Blob. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Exemplo de valor: 1024 |
+| UsedCapacity | A quantidade de armazenamento utilizada pela conta de armazenamento. Para contas de armazenamento Standard, é a soma da capacidade usada por blob, tabela, arquivo e fila. Para contas de armazenamento Premium e contas de armazenamento de Blob, é o mesmo que Capacidade de Blob. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="blob-storage"></a>Armazenamento de blob
 
 | Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
-| BlobCapacity | O total de armazenamento de Blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([Definição](#metrics-dimensions)) |
-| BlobCount    | O número de objetos blob armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([Definição](#metrics-dimensions)) |
+| BlobCapacity | O total de armazenamento de Blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([Definição](#metrics-dimensions)) |
+| BlobCount    | O número de objetos blob armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensão: BlobType ([Definição](#metrics-dimensions)) |
 | ContainerCount    | O número de contêineres na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="table-storage"></a>Armazenamento de tabela

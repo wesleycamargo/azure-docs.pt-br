@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: a7e7c04b458575cdc9f2608d0c84f0df105bf202
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4a772977130f5679da2d879cc12738b89be09f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261748"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726724"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Criar aplicativos Web do Serviço de Aplicativo do Azure usando o Ansible
-Os [Aplicativos Web do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (ou apenas Aplicativos Web) hospedam aplicativos Web, APIs REST e back-ends móveis. Você pode desenvolver usando sua linguagem favorita&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
+Os [Aplicativos Web do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/overview) (ou apenas Aplicativos Web) hospedam aplicativos Web, APIs REST e back-ends móveis. Você pode desenvolver usando sua linguagem favorita&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
 
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Este artigo mostra como usar o Ansible para criar um aplicativo Web usando o tempo de execução Java. 
 
@@ -93,7 +93,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>Criar um serviço de aplicativo usando o Gerenciador de Tráfego
 Você pode usar o [Gerenciador de Tráfego do Azure](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) para controlar como as solicitações de clientes Web são distribuídas aos aplicativos no Serviço de Aplicativo do Azure. Quando os pontos de extremidade do Serviço de Aplicativo são adicionados a um perfil do Gerenciador de Tráfego do Azure, o Gerenciador de Tráfego rastreia o status dos aplicativos do Serviço de Aplicativo. Os status incluem em execução, parado e excluído. O Gerenciador de Tráfego, em seguida, pode decidir quais desses pontos de extremidade devem receber tráfego.
 
-No Serviço de Aplicativo, um aplicativo é executado em um [Plano de Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+No Serviço de Aplicativo, um aplicativo é executado em um [Plano de Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
 ). Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Você pode gerenciar o Plano do Serviço de Aplicativo e o aplicativo Web em grupos diferentes.
 
 Esta seção apresenta um guia estratégico de exemplo do Ansible que define os seguintes recursos:

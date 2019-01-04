@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c1af73d57255b3c74bbab4c69767d1756b24a6da
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140739"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541567"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Usar o gerenciador do Azure Cosmos DB para gerenciar os dados 
 
@@ -51,4 +51,4 @@ Atualmente, a experiência de **Abrir Modo de Exibição de Tela Inteira** que p
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu como começar a usar o gerenciador do Azure Cosmos DB para gerenciar os dados, em seguida, poderá:
 
-* Começar a definir[consultas](sql-api-query-reference.md) usando a sintaxe SQL e executar [programação do lado do servidor](programming.md), usando procedimentos armazenados, UDFs, gatilhos. 
+* Começar a definir[consultas](sql-api-query-reference.md) usando a sintaxe SQL e executar [programação do lado do servidor](stored-procedures-triggers-udfs.md), usando procedimentos armazenados, UDFs, gatilhos. 

@@ -22,7 +22,7 @@ ms.locfileid: "53309239"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabalhar com arquivos de dados em projetos do Azure Notebook
 
-Os dados são a força vital de muitos blocos de notas do Jupyter, especialmente os blocos de notas utilizados na ciência de dados. Com os Azure Notebooks, é fácil importar de várias fontes para um projeto e, em seguida, usar esses dados dos blocos de anotações. Você também pode fazer com que os blocos de anotações gerem dados que serão armazenados no projeto e que poderão ser baixados para serem usados em outro lugar.
+Os dados são a força vital de muitos blocos de notas do Jupyter, especialmente os blocos de notas utilizados na ciência de dados. Com o Azure Notebooks, é fácil importar de várias fontes para um projeto e, em seguida, usar esses dados dos blocos de anotações. Você também pode fazer com que os blocos de anotações gerem dados que serão armazenados no projeto e que poderão ser baixados para serem usados em outro lugar.
 
 O menu **Dados** dentro de um bloco de anotações em execução também disponibiliza comandos **Carregar** e **Fazer o download** que funcionam com arquivos no projeto e com arquivos temporários da sessão atual do bloco de anotações.
 

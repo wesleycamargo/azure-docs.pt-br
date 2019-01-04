@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268709"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714293"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o Serviço de Aplicativo do Azure
 
@@ -35,7 +35,7 @@ Este tutorial mostra como proteger seu aplicativo Web criando (comprando) um Cer
 Para seguir este guia de instruções, é necessário ter:
 
 - [Crie um aplicativo do Serviço de Aplicativo](/azure/app-service/)
-- [Mapear um nome de domínio para seu aplicativo Web](app-service-web-tutorial-custom-domain.md) ou [comprar e configurá-lo no Azure](custom-dns-web-site-buydomains-web-app.md)
+- [Mapear um nome de domínio para seu aplicativo Web](app-service-web-tutorial-custom-domain.md) ou [comprar e configurá-lo no Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -91,7 +91,7 @@ Selecione **Verificação do Serviço de Aplicativo**. Uma vez que você já map
 > Há suporte para quatro tipos de métodos de verificação de domínio: 
 > 
 > - **Serviço de Aplicativo** – a opção mais conveniente quando o domínio já está mapeado para um aplicativo do Serviço de Aplicativo na mesma assinatura. Ela tira proveito do fato de que o aplicativo de Serviço de Aplicativo já verificou a propriedade de domínio.
-> - **Domínio** – verifique um [domínio do Serviço de Aplicativo que você adquiriu do Azure](custom-dns-web-site-buydomains-web-app.md). O Azure adiciona automaticamente a verificação do registro TXT para você e conclui o processo.
+> - **Domínio** – verifique um [domínio do Serviço de Aplicativo que você adquiriu do Azure](manage-custom-dns-buy-domain.md). O Azure adiciona automaticamente a verificação do registro TXT para você e conclui o processo.
 > - **Email** – verifique o domínio enviando um email para o administrador de domínio. As instruções são fornecidas quando você seleciona a opção.
 > - **Manual** – verifique o domínio usando uma página HTML (apenas certificado **Standard**) ou um registro TXT do DNS. As instruções são fornecidas quando você seleciona a opção.
 

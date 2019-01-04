@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4a610780d11452a8207a1108e4469bc9de62ecb8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0c44501a483b9a988c3ef048d12455eb3e5ae337
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620911"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546392"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de logs de entrada do Microsoft Azure Active Directory no Azure Monitor (visualização)
 
@@ -172,4 +172,4 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Interpretar o esquema de trilhas de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Saiba mais sobre os Logs de Diagnóstico do Azure](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Saiba mais sobre os Logs de Diagnóstico do Azure](../../azure-monitor/platform/diagnostic-logs-overview.md)

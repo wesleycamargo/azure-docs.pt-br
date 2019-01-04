@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 6d063eb0ae2a468bc8aa73d18b88135f1f119bec
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a5b82cb5f2ea90876001fe2db0f62d8b1df64f0c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344808"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580239"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
-Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar [alertas de métricas novos](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) no Azure Monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Alertas de métrica novos estão disponíveis atualmente [neste conjunto de tipos de recurso](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar [alertas de métricas novos](../../azure-monitor/platform/alerts-metric-near-real-time.md) no Azure Monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Alertas de métrica novos estão disponíveis atualmente [neste conjunto de tipos de recurso](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > O modelo do Resource Manager especificado para o alerta de métrica não funcionará para o tipo de recurso: Microsoft.OperationalInsights/workspaces; como suporte para métricas do Log Analytics está em versão prévia. Os usuários interessados em usar a funcionalidade de versão prévia com o modelo de recurso podem entrar em contato por meio dos [Comentários de Alertas do Azure](mailto:azurealertsfeedback@microsoft.com)

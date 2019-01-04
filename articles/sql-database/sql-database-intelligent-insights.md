@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6969744ff52e9aff9d486d2eab6fffc2c3ac8b74
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278127"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607993"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights usando IA para monitorar e solucionar problemas de desempenho de banco de dados
 
@@ -97,7 +97,7 @@ O exemplo a seguir mostra um Intelligent Insights exibido por meio da Análise d
 
 ### <a name="set-up-with-event-hubs"></a>Configuração com os Hubs de Eventos
 
-Para usar o Intelligent Insights com Hubs de Eventos, configure os dados de log do Intelligent Insights para serem transmitidos para Hubs de Eventos, consulte [Transmitir logs de diagnóstico do Azure de fluxo para Hubs de Eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+Para usar o Intelligent Insights com Hubs de Eventos, configure os dados de log do Intelligent Insights para serem transmitidos para Hubs de Eventos, consulte [Transmitir logs de diagnóstico do Azure de fluxo para Hubs de Eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
 
 Para usar os Hubs de Eventos para configurar o monitoramento e alertas personalizados, consulte [O que fazer com métricas e logs de diagnóstico no Hub de Eventos](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -180,4 +180,4 @@ Se qualquer uma das exceções críticas monitoradas cruzar os limites absolutos
 - Saiba como [Solucionar problemas de desempenho do Banco de Dados SQL com Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use o [log de diagnóstico de desempenho do Banco de dados SQL com Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Saiba como [monitorar o Banco de Dados SQL por meio de Análise de SQL](../azure-monitor/insights/azure-sql.md).
-- Saiba como [coletar e consumir dados de log dos recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Saiba como [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).

@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840191"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723664"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -30,7 +30,7 @@ Os itens a seguir são necessários para concluir as etapas neste artigo:
 
 - Um cluster HDInsight. Para criar um cluster, consulte [Introdução ao HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
-- [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono só é necessário para Linux e MacOS.
+- [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono só é necessário para Linux e MacOS.
 
 ## <a name="install-the-hdinsight-tools"></a>Instalar as Ferramentas do HDInsight
    
@@ -87,7 +87,7 @@ Antes de enviar scripts para clusters HDInsight a partir do VS Code, você preci
 
     Depois que você estiver conectado, o nome da conta do Azure será mostrado na barra de status no canto inferior esquerdo da janela do VS Code. 
 
-    > [!NOTE]
+    > [!NOTE]  
     > Devido a um problema conhecido de autenticação do Azure, você precisa abrir um navegador em modo privado ou incógnito. Se a sua conta do Azure tem dois fatores habilitados, é recomendável usar a autenticação por telefone, em vez da autenticação por PIN.
   
 
@@ -113,7 +113,7 @@ Antes de enviar scripts para clusters HDInsight a partir do VS Code, você preci
    
    ![caixa de diálogo para vincular cluster](./media/hdinsight-for-vscode/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > O nome de usuário e a senha vinculados serão usados se o cluster foi registrado na assinatura do Azure e vinculou um cluster. 
    
 3. É possível ver um cluster vinculado usando o comando **List Cluster**. Agora, você pode enviar um script para esse cluster vinculado.
@@ -231,7 +231,7 @@ Com as Ferramentas do HDInsight para VS Code, você pode enviar consultas intera
 
    ![Enviar resultado do trabalho do Python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) O status de envio aparece à esquerda da barra de status inferior ao executar consultas. Não envie outras consultas quando o status for **PySpark Kernel (ocupado)**. 
 
->[!NOTE]
+>[!NOTE]  
 >Os clusters podem manter as informações da sessão. A variável definida, a função e os valores correspondentes são mantidos na sessão para que possam ser consultados em várias chamadas de serviço para o mesmo cluster. 
 
 ### <a name="to-disable-environment-check"></a>Para desabilitar a verificação do ambiente

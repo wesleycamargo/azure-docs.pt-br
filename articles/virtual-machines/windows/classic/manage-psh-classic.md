@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
-ms.openlocfilehash: 942141fad09e6233efc7f850212a73f8a39c163c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b7fafa148417ba1667ec0277b414105f95e428ce
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30918298"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971777"
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Gerenciar suas máquinas virtuais usando o Azure PowerShell
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para comandos comuns do PowerShell usando o modelo do Resource Manager, veja [aqui](../../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para comandos comuns do PowerShell usando o modelo do Resource Manager, veja [aqui](../../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automatizadas usando cmdlets do Azure PowerShell. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
 
@@ -42,7 +42,7 @@ Essa é uma tarefa básica que você usará com frequência. Use-a para obter in
 
 Para obter informações sobre a VM, execute este comando, substituindo tudo entre aspas, incluindo os caracteres < e >:
 
-     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+    Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 Para armazenar a saída em uma variável $vm, execute:
 
@@ -54,7 +54,7 @@ Execute estes comandos:
 > [!NOTE]
 > Você pode obter o nome do serviço de nuvem e de máquina virtual na exibição do comando **Get-AzureVM** .
 > 
-> $svcName = "<cloud service name>" $vmName = "<virtual machine name>" $localPath = "<local da unidade e da pasta para armazenar o arquivo RDP baixado, exemplo: c:\temp >" $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+> $svcName = `"<cloud service name>"` $vmName = `"<virtual machine name>"` $localPath = `"<drive and folder location to store the downloaded RDP file, example: c:\temp >"` $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 > 
 > 
 
@@ -64,7 +64,7 @@ Execute este comando:
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 > [!IMPORTANT]
-> Use esse parâmetro para manter o VIP (IP virtual) do serviço de nuvem, caso essa seja a última VM no serviço de nuvem. <br><br> Se usar o parâmetro StayProvisioned, você ainda será cobrado pela VM.
+> Use esse parâmetro para manter o VIP (IP virtual) do serviço de nuvem, caso essa seja a última VM no serviço de nuvem. <br><br>  Se usar o parâmetro StayProvisioned, você ainda será cobrado pela VM.
 > 
 > 
 

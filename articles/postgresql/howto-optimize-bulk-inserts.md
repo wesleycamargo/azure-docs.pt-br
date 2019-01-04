@@ -3,16 +3,15 @@ title: Otimizar inserções em massa no Banco de Dados do Azure para PostgreSQL
 description: Este artigo descreve como você pode otimizar operações de inserção em massa no Banco de Dados do Azure para PostgreSQL.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 2fe3c3cc71823880d71223334b89816199561ca9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9d2bfcddc649e4fff68bdba49df0945e88067036
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628285"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545222"
 ---
 # <a name="optimizing-bulk-inserts-and-use-of-transient-data-on-azure-database-for-postgresql-server"></a>Otimizando inserções em massa e uso de dados temporários no banco de dados do Azure para PostgreSQL 
 Este artigo descreve como você pode otimizar operações de inserção em massa e o uso de dados temporários em um banco de dados do Azure para PostgreSQL.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b8db52623eead2800b0a5d8154a222573808750
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192423"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810263"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -124,4 +124,4 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre como os dados do Log Analytcs são coletados, processados e protegidos, veja [Segurança de dados do Log Analytics](../../azure-monitor/platform/data-security.md).
-- Para saber mais sobre como os dados do Application Insights são coletados, processados e protegidos, confira [Segurança de dados do Application Insights](../../application-insights/app-insights-data-retention-privacy.md).
+- Para saber mais sobre como os dados do Application Insights são coletados, processados e protegidos, confira [Segurança de dados do Application Insights](../../azure-monitor/app/data-retention-privacy.md).

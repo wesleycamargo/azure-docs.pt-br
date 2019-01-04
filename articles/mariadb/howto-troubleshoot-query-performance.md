@@ -1,20 +1,17 @@
 ---
 title: Como solucionar problemas de desempenho de consulta no Banco de Dados do Azure para MariaDB
 description: Este artigo descreve como usar o EXPLAIN para solucionar problemas de desempenho de consulta no Banco de Dados do Azure para MariaDB.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 6bbaffeccbca77f1cab3058152f8c001f721332e
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 672635c8d8c84fa16c106ae79e97332fd740928d
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347435"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53541074"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Como usar o EXPLAIN para perfilar o desempenho da consulta no Banco de Dados do Azure para MariaDB
 **EXPLAIN** é uma ferramenta útil para otimizar consultas. A instrução EXPLAIN pode ser utilizada para obter informações sobre como as instruções SQL são executadas. A saída a seguir mostra um exemplo da execução de uma instrução EXPLAIN.

@@ -22,7 +22,7 @@ ms.locfileid: "53104077"
 ---
 # <a name="manage-and-configure-projects"></a>Gerenciar e configurar projetos
 
-Um projeto no Azure Notebooks é essencialmente uma configuração da máquina virtual do Linux subjacente na qual os Jupyter Notebooks são executados, juntamente com uma pasta de arquivos e metadados descritivos. O painel do projeto em Azure Notebooks permite que você gerencie arquivos e configure as demais características do projeto:
+Um projeto no Azure Notebooks é essencialmente uma configuração da máquina virtual do Linux subjacente na qual os Jupyter Notebooks são executados, juntamente com uma pasta de arquivos e metadados descritivos. O painel do projeto no Azure Notebooks permite que você gerencie arquivos e configure as demais características do projeto:
 
 - Os metadados do projeto incluem um nome, uma descrição, um identificador que é usado ao compartilhar o projeto e a informação de se o projeto é público ou privado.
 - Você gerencia o notebook, os dados e outros arquivos do projeto como faria com qualquer outro sistema de arquivos.

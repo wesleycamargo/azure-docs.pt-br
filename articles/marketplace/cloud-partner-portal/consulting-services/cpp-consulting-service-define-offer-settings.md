@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6ce51dc9bbcdc7b46593a4800c4fce07a42f3171
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344799"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972164"
 ---
 # <a name="offer-settings-tab"></a>Guia Configurações da Oferta
 
@@ -43,9 +43,6 @@ Esse identificador está relacionado à sua conta. Quando você estiver conectad
 
 É essa cadeia de caracteres que será exibida como nome da oferta no AppSource ou no Azure Marketplace. O campo *nome* é limitado a 50 caracteres.  O revisor pode precisar editar o título para permitir o acréscimo do nome da oferta com a duração e o tipo de oferta.
 
->[!Note]
->Importante: Insira aqui apenas o nome do serviço real. Não inclua a duração e o tipo de serviço.
-
 O exemplo a seguir da Edgewater Fullscope mostra como o nome da oferta é montado. O nome da oferta aparece como:
 
 ![Criação de uma nova oferta de serviços de consultoria](media/cppsampleconsultingoffer.png)
@@ -62,17 +59,17 @@ O nome da oferta é composto de quatro partes:
 
 A lista a seguir fornece vários nomes de oferta adequados:
 
--   Conceitos básicos para Serviços Profissionais: Resumo de 1 hora
--   Plataforma de Migração na Nuvem: Resumo de 1 hora
--   PowerApps e Microsoft Flow: Workshop de um dia
--   Serviços do Azure Machine Learning: Prova de conceito de 3 semanas
--   Solução de varejo Brick and Click: Resumo de 1 hora
--   Traga seus próprios Dados: Workshop de uma semana
--   Análise de Nuvem: Workshop de três dias
--   Treinamento em Power BI: Workshop de três dias
--   Solução de Gerenciamento de Alertas: Implementação de 1 semana
--   Início rápido do CRM: Workshop de um dia
--   Dynamics 365 for Sales: Avaliação de dois dias
+-   Conceitos básicos para Serviços profissionais: resumo de uma hora
+-   Plataforma de Migração na Nuvem: resumo de uma hora
+-   PowerApps e Microsoft Flow: workshop de um dia
+-   Serviços do Azure Machine Learning: prova de conceito de três semanas
+-   Solução de varejo Brick and Click: resumo de uma hora
+-   Traga seus próprios dados: workshop de uma semana
+-   Análise de nuvem: workshop de três dias
+-   Treinamento em Power BI: workshop de três dias
+-   Solução de gerenciamento de vendas: implementação de uma semana
+-   Início rápido para CRM: workshop de um dia
+-   Dynamics 365 for Sales: avaliação de dois dias
 
 Depois de concluir a guia **Configurações da oferta**, é possível salvar seu envio. Agora, o nome da oferta será exibido acima do editor e você poderá encontrá-lo em Todas as ofertas.
 

@@ -1,20 +1,17 @@
 ---
 title: Conectar o Serviço de Kubernetes do Azure (AKS) ao Banco de Dados do Azure para PostgreSQL
 description: Saiba mais sobre a conexão do Serviço de Kubernetes do Azure com o Banco de Dados do Azure para PostgreSQL
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.date: 11/27/2018
-ms.topic: article
-ms.openlocfilehash: 770a583ad09ec1aaa8191f5dafb3db61b2386e68
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.topic: conceptual
+ms.openlocfilehash: ff8508db55b04d2c55158b5846325d0c13665048
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166227"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542740"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>Conectar o Serviço de Kubernetes do Azure e o Banco de Dados do Azure para PostgreSQL
 

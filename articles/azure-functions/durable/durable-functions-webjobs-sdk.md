@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c1a778a006c7743b6ea19062d79cff3cfeaba3d8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343149"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713261"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar funções duráveis como WebJobs
 
-[Azure Functions](../functions-overview.md) e extensão de [Funções Duráveis](durable-functions-overview.md) baseiam-se no [SDK do WebJobs](../../app-service/web-sites-create-web-jobs.md). O `JobHost` SDK do WebJobs é o tempo de execução no Azure Functions. Se você precisa controlar `JobHost` comportamento de maneiras que não são possíveis no Azure Functions, você pode desenvolver e executar funções duráveis usando o SDK do WebJobs por conta própria. Você pode executar funções duráveis em um Azure WebJob ou em qualquer lugar que um aplicativo de console é executado.
+[Azure Functions](../functions-overview.md) e extensão de [Funções Duráveis](durable-functions-overview.md) baseiam-se no [SDK do WebJobs](../../app-service/webjobs-create.md). O `JobHost` SDK do WebJobs é o tempo de execução no Azure Functions. Se você precisa controlar `JobHost` comportamento de maneiras que não são possíveis no Azure Functions, você pode desenvolver e executar funções duráveis usando o SDK do WebJobs por conta própria. Você pode executar funções duráveis em um Azure WebJob ou em qualquer lugar que um aplicativo de console é executado.
 
 O exemplo de funções duráveis de encadeamento de propriedades está disponível em uma versão do SDK do WebJobs: realize download ou clonar as funções do [repositório durável](https://github.com/azure/azure-functions-durable-extension/) e navegue até a *pasta de exemplos \\webjobssdk\\oencadeamento*.
 

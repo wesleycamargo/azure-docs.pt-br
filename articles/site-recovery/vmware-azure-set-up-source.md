@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 7d81b7f0d84eb8751e4e95a31be58ed49a96bb2d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b4ed878b19b2eebe01c9888388949600e85c56e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834979"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792962"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para replicação de VMware no Azure
 
@@ -83,8 +83,6 @@ Exclua estas pastas do software antivírus
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. Diretório de instalação do servidor de processo, de carga balanceada ASR, exemplo: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
-## <a name="common-issues"></a>Problemas comuns
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 [Configurar o ambiente de destino](./vmware-azure-set-up-target.md) 

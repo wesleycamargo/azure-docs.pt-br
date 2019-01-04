@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 5f03f4fe1422f1665d857269c98a50827ed75d55
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: b880a80e19c5a85a35d5e1d78022fe4acc74f0e1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958350"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999162"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualize seu aplicativo Java de Service Fabric anterior para buscar bibliotecas Java do Maven
 Recentemente, movemos os binários de Java do Service Fabric do SDK de Java do Service Fabric para hospedagem do Maven. Agora você pode usar **mavencentral** para buscar as dependências mais recentes de Java do Service Fabric. Esse início rápido o ajuda a atualizar seus aplicativos Java existentes, que você criou anteriormente para ser usado com o SDK de Java do Service Fabric, usando qualquer modelo Yeoman ou Eclipse, para ser compatível com a compilação baseada em Maven.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 1. Primeiro você precisa desinstalar o SDK de Java existente.
 
   ```bash
@@ -220,7 +220,7 @@ task copyDeps <<{
     }
 }
 ```
-Em geral, para obter uma ideia geral sobre como o script de compilação seria semelhante para um serviço de Java sem estado do Service Fabric, você pode consultar qualquer um dos nossos exemplos de introdução. Aqui está o [gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) para o exemplo EchoServer.
+Em geral, para obter uma ideia geral sobre como o script de compilação seria semelhante para um serviço de Java sem estado do Service Fabric, você pode consultar qualquer um dos nossos exemplos de introdução. Aqui está o [gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle) para o exemplo EchoServer.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Migrar Serviço de Ator do Service Fabric
 

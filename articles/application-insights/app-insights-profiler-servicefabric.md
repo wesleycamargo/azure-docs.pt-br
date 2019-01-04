@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3eb5b2300ea2af7bc778e0831d105f286eab247c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3808b3e93ed7e3ad374054c3c32fd54930f50972
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721401"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606564"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Criar perfil de aplicativos ativos do Azure Service Fabric com o Application Insights
 
 Você também pode implantar o Profiler do Application Insights nesses serviços:
-* [Aplicativos Web do Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicativo do Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços de Nuvem](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

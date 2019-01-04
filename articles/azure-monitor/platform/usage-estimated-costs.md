@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 072201dd552f5d68a9b6621b2ca7c83acd76a1f5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439563"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001610"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorar uso e custos estimados
 
@@ -22,7 +22,7 @@ ms.locfileid: "53439563"
 > Este artigo descreve como exibir o uso e os custos estimados nos vários recursos de monitoramento do Azure para diferentes modelos de preços.  Consulte os seguintes artigos para informações relacionadas.
 > - [Gerenciar o custo controlando a retenção e o volume de dados no Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) descreve como controlar os custos, alterando seu período de retenção de dados.
 > - [Analisar o uso de dados no Log Analytics](../../azure-monitor/platform/data-usage.md) descreve como analisar e alertar sobre o uso de dados.
-> - [Gerenciar preços e volume de dados no Application Insights](../../application-insights/app-insights-pricing.md) descreve como analisar o uso de dados no Application Insights.
+> - [Gerenciar preços e volume de dados no Application Insights](../../azure-monitor/app/pricing.md) descreve como analisar o uso de dados no Application Insights.
 
 No hub do Monitor do Portal do Azure, a página **Uso e custos estimados** explica o uso dos principais recursos de monitoramento, como [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Para clientes nos planos de preços disponíveis antes de abril de 2018, isso também inclui o uso do Log Analytics adquirido por meio das ofertas do Insights e do Analytics.
 

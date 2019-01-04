@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: be86e961d04b600f112a173c041b60cbe50ea00d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339205"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725041"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor  
 
@@ -23,7 +23,7 @@ Este artigo mostra como configurar alertas usando a interface de alertas no port
 - Critérios: condição ou lógica específica que, quando aparecer no sinal, deverá disparar uma ação
 - Ação: chamada específica enviada a um destinatário de uma notificação: email, SMS, webhook, etc.
 
-O termo **Alertas de Log** para descrever alertas em que o sinal é baseado em consulta personalizada no [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou no [Application Insights](../../application-insights/app-insights-analytics.md). Saiba mais sobre a funcionalidade, a terminologia e o tipos em [Alertas de log – visão geral](../../azure-monitor/platform/alerts-unified-log.md).
+O termo **Alertas de Log** para descrever alertas em que o sinal é baseado em consulta personalizada no [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou no [Application Insights](../../azure-monitor/app/analytics.md). Saiba mais sobre a funcionalidade, a terminologia e o tipos em [Alertas de log – visão geral](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Os dados de log populares do [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) agora também estão disponíveis na plataforma de métricas no Azure Monitor. Para obter uma exibição detalhada, confira [Alerta de métrica para logs](../../azure-monitor/platform/alerts-metric-logs.md)
@@ -245,6 +245,6 @@ Operação bem-sucedida, 201 será retornado para a criação da regra de alerta
 
 * Saiba mais sobre os [Alertas de log nos alertas do Azure](../../azure-monitor/platform/alerts-unified-log.md)
 * Entender [Ações de Webhook para alertas de log](../../azure-monitor/platform/alerts-log-webhook.md)
-* Saiba mais sobre o [Application Insights](../../application-insights/app-insights-analytics.md)
+* Saiba mais sobre o [Application Insights](../../azure-monitor/app/analytics.md)
 * Saiba mais sobre o [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
 
