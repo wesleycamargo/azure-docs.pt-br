@@ -10,29 +10,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380209"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036232"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões de API do provedor de recursos com suporte pelos perfis no Azure Stack
 
 Você pode encontrar o provedor de recursos e os números de versão para cada perfil de API usada pela pilha do Azure neste artigo. As tabelas neste artigo listam as versões com suporte para cada provedor de recursos e as versões de API dos perfis. Cada provedor de recursos contém um conjunto de tipos de recursos e os números de versão específica.
 
 O perfil de API usa convenções de nomenclatura de três:
- - mais recente
- - Aaaa-mm-dd-hybrid
- - aaaa-mm-dd-perfil
+
+ - **latest**
+ - **yyyy-mm-dd-hybrid**
+ - **yyyy-mm-dd-profile**
 
 Para obter uma explicação dos perfis de API e a cadência de lançamento de versão para o Azure Stack, consulte [perfis de versão da API de gerenciar no Azure Stack](azure-stack-version-profiles.md).
 
 > [!Note]  
-> O **mais recente** perfil de API contém a versão mais recente da versão de API do provedor de recursos e não está listado neste artigo.
+> O **mais recente** perfil de API contém a versão mais recente da API do provedor de recursos e não está listado neste artigo.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Visão geral de 2018 – 03-01-hybrid
 
@@ -76,23 +77,23 @@ Para mais de uma lista das versões para cada tipo de recurso para os provedores
 | Resources_Locks | 2016-09-01 |
 | Assinaturas | 2016-06-1 |
 
-Para mais de uma lista das versões para cada tipo de recurso para os provedores no perfil de api, consulte [detalhes para 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid)
+Para obter uma lista das versões de cada tipo de recurso para os provedores no perfil de API, consulte a próxima seção.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Detalhes de 2018-03-01-hybrid
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-Você pode usar o controle de acesso baseado em função para gerenciar as ações que os usuários em sua organização podem executar nos recursos. Esse conjunto de operações permite que você definir funções, atribuir funções a usuários ou grupos e obtenha informações sobre permissões. Para obter mais informações, consulte [autorização](https://docs.microsoft.com/rest/api/authorization/).
+Você pode usar o controle de acesso baseado em função para gerenciar as ações que os usuários em sua organização podem executar nos recursos. Esse conjunto de operações permite que você definir funções, atribuir funções a usuários ou grupos e obtenha informações sobre permissões. Para obter mais informações, consulte [autorização](/rest/api/authorization/).
 
 | Tipos de recurso | Versões de API |
 |---------------------|--------------------|
 | Bloqueios | 2017-04-01 |
 | Operações | 2015-07-01 |
 | Permissões | 2015-07-01 |
-| Atribuições de Política | 2016-12-01 (2017-06-01-preview) |
+| Atribuições de Políticas | 2016-12-01 (2017-06-01-preview) |
 | Definições de Política | 2016-12-01 |
 | Operações do provedor | 2015-07-01-preview |
-| Atribuições de função | 2015-07-01 |
+| Atribuições de Funções | 2015-07-01 |
 | Definições de função | 2015-07-01 |
 
 ### <a name="microsoftcommerce"></a>Microsoft.Commerce
@@ -108,7 +109,7 @@ Você pode usar o controle de acesso baseado em função para gerenciar as açõ
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-As APIs de computação do Azure oferecem acesso programático a máquinas virtuais e seus recursos de suporte. Para obter mais informações, consulte [computação do Azure](https://docs.microsoft.com/rest/api/compute/).
+As APIs de computação do Azure oferecem acesso programático a máquinas virtuais e seus recursos de suporte. Para obter mais informações, consulte [computação do Azure](/rest/api/compute/).
 
 | Tipo de recurso | Versão da API |
 |---------------------------------------------------------------|-------------|
@@ -155,7 +156,7 @@ As APIs de computação do Azure oferecem acesso programático a máquinas virtu
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-Gerenciar sua chave de cofres, bem como as chaves, segredos e certificados dentro de seus cofres de chaves. Para obter mais informações, consulte [referência da API REST do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/).
+Gerenciar sua chave de cofres, bem como as chaves, segredos e certificados dentro de seus cofres de chaves. Para obter mais informações, consulte o [referência da API REST do Azure Key Vault](/rest/api/keyvault/).
 
 | Tipos de recurso | Versões de API |
 |-------------------------|--------------|
@@ -166,7 +167,7 @@ Gerenciar sua chave de cofres, bem como as chaves, segredos e certificados dentr
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Resultado da chamada de operações é uma representação da lista de operações de nuvem de rede disponíveis. Para obter mais informações, consulte [operação REST API](https://docs.microsoft.com/rest/api/operation/).
+O resultado da chamada de operações é uma representação da lista de operações de nuvem de rede disponível. Para obter mais informações, consulte [operação REST API](/rest/api/operation/).
 
 | Tipos de recurso | Versões de API |
 |---------------------------|--------------|
@@ -188,7 +189,7 @@ Resultado da chamada de operações é uma representação da lista de operaçõ
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-O Azure Resource Manager permite que você implante e gerencie a infraestrutura para suas soluções do Azure. Organize os recursos relacionados em grupos de recursos e implante seus recursos com modelos JSON. Para obter uma introdução à implantação e gerenciamento de recursos com o Resource Manager, consulte [visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+O Azure Resource Manager permite que você implante e gerencie a infraestrutura para suas soluções do Azure. Organize os recursos relacionados em grupos de recursos e implante seus recursos com modelos JSON. Para obter uma introdução à implantação e gerenciamento de recursos com o Resource Manager, consulte a [visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 | Tipos de recurso | Versões de API |
 |-----------------------------------------|-------------------|
@@ -220,7 +221,7 @@ O Azure Resource Manager permite que você implante e gerencie a infraestrutura 
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
-O provedor de recursos de armazenamento (SRP) permite que você gerencie sua conta de armazenamento e as chaves programaticamente. Para obter mais informações, consulte [referência de API REST do provedor de recursos de armazenamento do Azure](https://docs.microsoft.com/rest/api/storagerp/).
+O provedor de recursos de armazenamento (SRP) permite que você gerencie sua conta de armazenamento e as chaves programaticamente. Para obter mais informações, consulte o [referência de API de REST do provedor de recursos de armazenamento do Azure](/rest/api/storagerp/).
 
 | Tipos de recurso | Versões de API |
 |-------------------------|--------------|
@@ -240,10 +241,10 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 | Bloqueios | 2017-04-01 |
 | Operações | 2015-07-01 |
 | Permissões | 2015-07-01 |
-| Atribuições de Política | 2016-12-01 (2017-06-01-preview) |
+| Atribuições de Políticas | 2016-12-01 (2017-06-01-preview) |
 | Definições de Política | 2016-12-01 |
 | Operações do provedor | 2015-07-01-preview |
-| Atribuições de função | 2015-07-01 |
+| Atribuições de Funções | 2015-07-01 |
 | Definições de função | 2015-07-01 |
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
