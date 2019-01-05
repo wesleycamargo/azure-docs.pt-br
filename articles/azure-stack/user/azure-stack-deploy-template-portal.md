@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 63f0c1846a6e32dc5a5fcc9b1162d343890387a1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363115"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053510"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Implantar modelos usando o portal do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Você pode usar o portal para implantar modelos do Azure Resource Manager para o Azure Stack.
 
 ## <a name="to-deploy-a-template"></a>Implantar um modelo
 
 1. Entre no portal, selecione **+ criar um recurso**e, em seguida, selecione **personalizado**.
-2. Selecione **implantação de modelo**.
+2. Selecione **Implantação de modelo**.
 3. Selecione **Editar modelo**e, em seguida, cole o código de modelo JSON na janela de código. Clique em **Salvar**.
 4. Selecione **Editar parâmetros**, forneça valores para os parâmetros que são mostrados e, em seguida, selecione **Okey**.
 5. Selecione **assinatura**. Escolha a assinatura que você deseja usar e, em seguida, selecione **Okey**.
@@ -40,6 +40,6 @@ Você pode usar o portal para implantar modelos do Azure Resource Manager para o
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como implantar modelos, consulte:
+Para saber mais sobre como implantar modelos, consulte o artigo a seguir:
 
-[Implantar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)
+- [Implantar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)
