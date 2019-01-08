@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: ''
+ms.openlocfilehash: 34804dae53fcf06d1a18bf503cdabea61f272585
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244042"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065385"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considerações sobre o modelo do Azure Resource Manager
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Ao desenvolver um aplicativo, é importante garantir a portabilidade do modelo entre o Azure e o Azure Stack. Este artigo fornece considerações sobre o desenvolvimento do Azure Resource Manager [modelos](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), de modo que você possa construir protótipos do seu aplicativo e testar sua implantação no Azure sem acesso a um ambiente do Azure Stack.
 
 ## <a name="resource-provider-availability"></a>Disponibilidade do provedor de recursos
 
-O modelo que você está planejando implantar somente deve usar os serviços do Microsoft Azure que já estão disponíveis ou na visualização no Azure Stack.
+O modelo que você planeja implantar somente deve usar os serviços do Microsoft Azure que já estão disponíveis ou na visualização no Azure Stack.
 
 ## <a name="public-namespaces"></a>Namespaces públicos
 
-Como o Azure Stack está hospedado no seu datacenter, ele tem namespaces de ponto de extremidade de serviço diferentes do da nuvem pública do Azure. Como resultado, os pontos de extremidade públicos no Azure Resource Manager templates embutidos em código falharem quando você tentar implantá-los para o Azure Stack. Você pode criar dinamicamente os pontos de extremidade de serviço usando o *referência* e *concatenar* funções para recuperar valores do provedor de recursos durante a implantação. Por exemplo, em vez de codificar *blob.core.windows.net* em seu modelo, recuperar as [primaryendpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) para definir dinamicamente o *osdisk. URI* ponto de extremidade:
+Como o Azure Stack está hospedado no seu datacenter, ele tem namespaces de ponto de extremidade de serviço diferentes do da nuvem pública do Azure. Como resultado, pontos de extremidade públicos embutidos nos modelos do Azure Resource Manager falharem quando você tenta implantá-los para o Azure Stack. Você pode criar dinamicamente os pontos de extremidade de serviço usando o `reference` e `concatenate` funções para recuperar valores do provedor de recursos durante a implantação. Por exemplo, em vez de embutir *blob.core.windows.net* em seu modelo, recuperar as [primaryendpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) para definir dinamicamente o *osdisk. URI* ponto de extremidade:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -56,7 +56,7 @@ As versões de serviço do Azure podem ser diferentes entre o Azure e o Azure St
 
 ## <a name="template-functions"></a>Funções de modelo
 
-O Azure Resource Manager [funções](../../azure-resource-manager/resource-group-template-functions.md) fornecem os recursos necessários para criar modelos dinâmicos. Por exemplo, você pode usar funções para tarefas como:
+O Azure Resource Manager [funções](../../azure-resource-manager/resource-group-template-functions.md) fornecem os recursos necessários para compilar modelos dinâmicos. Por exemplo, você pode usar funções para tarefas como:
 
 * CONCATENAR ou filtrar cadeias de caracteres.
 * Fazer referência a valores de outros recursos.
