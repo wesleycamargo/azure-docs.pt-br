@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1ad8435626b35859968bdf93589f22dc81e74e02
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101595"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557692"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Crie e provisione um dispositivo de borda do TPM simulado no Windows
 
@@ -61,14 +61,13 @@ Depois de criar o registro individual, salve o valor do **ID de registro**. Voc�
 
 Depois de concluir a seção anterior, você deve ver o novo dispositivo listado como um dispositivo IoT Edge em seu Hub IoT. Agora, você precisa instalar o tempo de execução do IoT Edge no dispositivo. 
 
-O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda. Em dispositivos que executam o Windows, você pode optar por usar contêineres do Windows ou contêineres do Linux. Escolha o tipo de contêineres que você deseja usar e siga as etapas. Certifique-se de configurar o tempo de execução do IoT Edge para provisionamento automático, não manual. 
+O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda.  
 
-Siga as instruções para instalar o tempo de execução do IoT Edge no dispositivo que está executando o TPM simulado da seção anterior. 
+Siga as instruções para instalar o tempo de execução do IoT Edge no dispositivo que está executando o TPM simulado da seção anterior. Certifique-se de configurar o tempo de execução do IoT Edge para provisionamento automático, não manual.
 
-Saiba seu DPS **Escopo da ID** e do dispositivo **ID de registro** antes de começar estes artigos. 
+Saiba o **Escopo da ID** do DPS e a **ID de Registro** do dispositivo antes de instalar o IOT Edge no seu dispositivo. 
 
-* [Contêineres do Windows](how-to-install-iot-edge-windows-with-windows.md)
-* [Contêineres do Linux](how-to-install-iot-edge-windows-with-linux.md)
+[Instalar e provisionar automaticamente o IOT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida
 

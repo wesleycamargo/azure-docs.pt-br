@@ -1,5 +1,5 @@
 ---
-title: Obter chaves de assinatura para a API do Computer Vision
+title: Obter chaves de assinatura - Pesquisa Visual Computacional
 titlesuffix: Azure Cognitive Services
 description: Saiba como obter chaves de assinatura para chamadas à API do Computer Vision no Azure Cognitive Services.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
-ms.openlocfilehash: db4d589bb0c7611e632a90f2174ad8e9c415bf6a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 820531cc2254d9cbc7aaf7e758dd0457b282d892
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985415"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580800"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Como obter chaves de assinatura
 
-Os serviços de visão do computador exigem chaves de assinatura especial. Todas as chamadas à API de visão do computador requer uma chave de assinatura. Essa chave precisa ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação.
+Os serviços de visão do computador exigem chaves de assinatura especial. Toda chamada à API da Pesquisa Visual Computacional requer uma chave de assinatura. Essa chave precisa ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação.
 
 Para se inscrever em chaves de assinatura, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). É gratuito para se inscrever. Os preços desses serviços estão sujeito a alterações.
 

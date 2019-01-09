@@ -1,22 +1,23 @@
 ---
-title: Executar trabalhos de Lote do Microsoft Azure usando modelos de ponta a ponta | Microsoft Docs
+title: Executar trabalhos de ponta a ponta usando modelos - Lote do Azure | Microsoft Docs
 description: Crie pools de lote, trabalhos e tarefas com arquivos de amostra e a CLI do Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964285"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547670"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
 
@@ -37,7 +38,7 @@ Os modelos do Lote compilam o [suporte do Lote existente na CLI do Azure](batch-
 
 Os trabalhos geralmente usam arquivos de dados de entrada e produzem arquivos de dados de saída. Uma conta de armazenamento é associada, por padrão, a cada conta do Lote. Transfira arquivos de e para essa conta de armazenamento usando a CLI, sem codificação e sem credenciais de armazenamento.
 
-Por exemplo, [ffmpeg](http://ffmpeg.org/) é um aplicativo popular que processa arquivos de áudio e vídeo. Aqui estão as etapas com a CLI do Lote do Azure para invocar o ffmpeg para transcodificar arquivos de vídeo de origem em diferentes resoluções.
+Por exemplo, [ffmpeg](https://ffmpeg.org/) é um aplicativo popular que processa arquivos de áudio e vídeo. Aqui estão as etapas com a CLI do Lote do Azure para invocar o ffmpeg para transcodificar arquivos de vídeo de origem em diferentes resoluções.
 
 -   Crie um modelo de pool. O usuário criando o modelo sabe como chamar o aplicativo ffmpeg e os respectivos requisitos; ele especifica o sistema operacional apropriado, o tamanho da VM, como o ffmpeg é instalado (de um pacote de aplicativos ou usando um gerenciador de pacotes, por exemplo) e outros valores de propriedade do pool. Parâmetros são criados para que, quando o modelo for usado, somente a ID do pool e o número de VMs precisem ser especificados.
 

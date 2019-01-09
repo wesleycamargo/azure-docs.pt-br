@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231611"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720859"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Proteção contra DDoS do Azure: práticas recomendadas e arquiteturas de referência
+# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Proteção contra DDoS do Azure: Melhores práticas e arquiteturas de referência
 
 Este artigo é destinado a tomadores de decisões de TI e à equipe de segurança. Espera que você esteja familiarizado com o Azure, rede e segurança.
 
@@ -81,7 +81,7 @@ O mais importante é garantir que um aplicativo seja resiliente o suficiente par
 
 A escalabilidade é como um sistema pode tratar aumentos de carga. Você deve projetar seus aplicativos para [escalar horizontalmente](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) para atender à demanda de uma carga amplificada, especificamente em caso de ataque de DDoS. Se seu aplicativo depender de uma única instância de um serviço, ele criará um único ponto de falha. O provisionamento de várias instâncias torna o sistema mais resiliente e mais escalonável.
 
-Para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md), selecione um [Plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) que ofereça várias instâncias. Para Serviços de Nuvem do Azure, configure cada uma das suas funções para usar [várias instâncias](../cloud-services/cloud-services-choose-me.md). Para [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), verifique se sua arquitetura de VM inclui mais de uma VM e se cada uma delas está incluída em um [conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-manage-availability.md). É recomendável usar [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para obter recursos de dimensionamento automático.
+Para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md), selecione um [Plano do Serviço de Aplicativo](../app-service/overview-hosting-plans.md) que ofereça várias instâncias. Para Serviços de Nuvem do Azure, configure cada uma das suas funções para usar [várias instâncias](../cloud-services/cloud-services-choose-me.md). Para [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), verifique se sua arquitetura de VM inclui mais de uma VM e se cada uma delas está incluída em um [conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-manage-availability.md). É recomendável usar [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para obter recursos de dimensionamento automático.
 
 ### <a name="defense-in-depth"></a>Defesa completa
 
@@ -96,7 +96,7 @@ Muitos recursos locais dos clientes são atacados juntamente com seus recursos n
 
 ## <a name="azure-offerings-for-ddos-protection"></a>Ofertas do Azure para proteção contra DDoS
 
-O Azure tem duas ofertas de serviço de DDoS que fornecem proteção contra ataques de rede (camadas 3 e 4): Proteção contra DDoS Básica e Standard. 
+O Azure tem duas ofertas de serviço DDoS que fornecem proteção contra ataques de rede (Camada 3 e 4): Proteção contra DDoS Básica e Proteção contra DDoS Standard. 
 
 ### <a name="ddos-protection-basic"></a>Proteção contra DDoS Básica
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5f747d90368b636cb2ab8cf0e20ef5e676f99af6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080496"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556774"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover permanentemente um usuário excluído recentemente usando o Azure Active Directory
 Depois que você excluir um usuário, a conta permanecerá em um estado suspenso por 30 dias. Durante essa janela de 30 dias, a conta do usuário pode ser restaurada, juntamente com todas as suas propriedades. Depois que a janela de 30 dias passa, o usuário é excluído automaticamente e permanentemente.
@@ -59,6 +59,9 @@ Enquanto a conta de um usuário é suspensa, todas as informações de diretóri
 2. Selecione **Restaurar usuário**.
 
     ![Usuários - página de usuários excluídos, com a opção de restauração de usuário realçada](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+
+>[!NOTE]
+>Anteriormente, quando um usuário era removido do escopo de sincronização local e excluído na nuvem, o status DirSyncEnabled da conta erroneamente era definida como "False". Se, posteriormente, esse usuário era restaurado manualmente da Lixeira do Azure AD, ele mostrava um estado incorreto de conta "Somente Nuvem". Esse problema agora foi corrigido e o valor do status DirSyncEnabled é sempre mantido como "True" quando um usuário é removido do escopo de sincronização, depois excluído reversivelmente e, em seguida, restaurado manualmente da Lixeira do Azure AD.
 
 ## <a name="permanently-delete-a-user"></a>Excluir permanentemente um usuário
 Você pode excluir permanentemente um usuário do seu diretório sem esperar os 30 dias para exclusão automática. Um usuário excluído permanentemente não pode ser restaurado por você, por outro administrador nem pelo suporte ao cliente da Microsoft.

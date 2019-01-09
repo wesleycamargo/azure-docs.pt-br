@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496912"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579950"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster do ML Services no Azure HDInsight
 
@@ -22,13 +22,13 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster do ML Services no HDInsight** : Para obter instruções, consulte [Introdução ao ML Services no HDInsight](r-server-get-started.md).
+* **Um cluster do ML Services no HDInsight**: Para obter instruções, consulte [Introdução aos Serviços ML no HDInsight](r-server-get-started.md).
 
-* **Um cliente Secure Shell (SSH)**: um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente do Secure Shell (SSH)**: Um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operacionalizar o cluster do ML Services com configuração de uma caixa
 
-> [!NOTE]
+> [!NOTE]  
 > As etapas abaixo aplicam-se ao Microsoft R Server 9.0 e ML Server 9.1. Para o ML Server 9.3, consulte [Usar a ferramenta de administração para gerenciar a configuração de operacionalização](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH no nó de borda.
@@ -173,7 +173,7 @@ Siga estas etapas para desativar os nós de trabalho:
 
 1. Saia do utilitário de administração.
 
-### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Etapa 3: adicionar detalhes de nós de computação no nó da Web
+### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Etapa 3: Adicionar detalhes de nós de computação no nó da Web
 
 Depois que todos os nós de trabalho encerrados forem configurados para executar o nó de computação, volte ao nó de borda e adicione os endereços IP dos nós de trabalho encerrados na configuração do nó de web do ML Server:
 

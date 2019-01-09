@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8d6e768e5cf846cb2c34ceb61d269854418e1dc5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238617"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976589"
 ---
 # <a name="constituency-parsing"></a>Análise de clientes
 
@@ -61,7 +61,7 @@ Uma representação natural dessas frase é uma árvore, como o seguinte:
 ![Árvore](./Images/tree.png)
 
 Nesta árvore, as ramificações marcadas como "NP" são frases nominais.
-Há várias dessas frases: *Eu*, *um automóvel híbrido novo*, *Bluetooth*, e *um automóvel híbrido novo com Bluetooth*.
+Há várias frases desse tipo: *Eu*, *um automóvel híbrido novo*, *Bluetooth* e *um automóvel híbrido novo com Bluetooth*.
 
 ## <a name="phrase-types"></a>Tipos de frase (locuções)
 
@@ -97,4 +97,4 @@ Há várias dessas frases: *Eu*, *um automóvel híbrido novo*, *Bluetooth*, e *
 
 ## <a name="specification"></a>Especificação
 
-As árvores aqui usam as expressões de S do [Treebank Universidade](https://catalog.ldc.upenn.edu/ldc99t42).
+As árvores aqui usam as expressões de S do [Treebank Universidade](https://catalog.ldc.upenn.edu/LDC99T42).

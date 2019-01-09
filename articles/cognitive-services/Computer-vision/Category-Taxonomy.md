@@ -1,5 +1,5 @@
 ---
-title: As 86 categorias de taxonomia da API do Computer Vision
+title: Taxonomia de categorias de imagem - API da Pesquisa Visual Computacional
 titlesuffix: Azure Cognitive Services
 description: Obtenha as 86 categorias de taxonomia para a API do Computer Vision nos Serviços Cognitivos do Azure.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: reference
 ms.date: 12/19/2016
 ms.author: kefre
-ms.openlocfilehash: b5da9a19d51bef6ae31b89c5b8fc8ae4b7c5177e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 184babea3b11f611850cb33fc9994e9ea79f69a7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984900"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582143"
 ---
 # <a name="86-categories-taxonomy"></a>86 Categorias de taxonomia
 

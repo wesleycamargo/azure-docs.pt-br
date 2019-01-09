@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/26/2018
 ms.author: juliako
-ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000251"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788201"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -34,7 +34,7 @@ Este artigo fornece uma visão geral detalhada, orientação e inclui diagramas 
 
 Para fornecer transmissões on-demand ou ao vivo com os Serviços de Mídia do Azure, você precisa ter pelo menos um [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Quando sua conta de Serviços de Mídia é criada, um StreamingEndpoint **padrão** é adicionado à sua conta no estado **Parado**. Você precisa iniciar o StreamingEndpoint do qual deseja transmitir seu conteúdo para seus espectadores. Você pode usar o **StreamingEndpoint** padrão ou criar outro **StreamingEndpoint** personalizado com as configurações de CDN e configuração desejadas. Você pode decidir ativar vários StreamingEndpoints, cada um segmentando um CDN diferente e fornecendo um nome de host exclusivo para a entrega de conteúdo. 
 
-Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e processamento dos feeds de vídeo ao vivo. Quando você cria um LiveEvent, é criado um terminal de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. O codificador dinâmico remoto envia o feed de contribuição para esse terminal de entrada usando o protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4).  
+Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e processamento dos feeds de vídeo ao vivo. Quando você cria um LiveEvent, é criado um terminal de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. O codificador dinâmico remoto envia o feed de contribuição para esse terminal de entrada usando o protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4). Para o protocolo de ingestão Smooth Streaming, os esquemas de URL com suporte são `http://` ou `https://`. Para o protocolo de ingestão RTMP, os esquemas de URL com suporte são `rtmp://` ou `rtmps://`. Para obter mais informações, consulte [Codificadores de transmissão ao vivo recomendados](recommended-on-premises-live-encoders.md).
 
 Quando o **LiveEvent** começar a receber o feed de contribuição, você poderá usar o ponto de extremidade de visualização (URL de visualização para visualizar e validar que está recebendo a transmissão ao vivo antes de publicar mais. Depois de verificar se o fluxo de visualização é bom, você pode usar o LiveEvent para disponibilizar a transmissão ao vivo para entrega por meio de um ou mais **StreamingEndpoints** (pré-criados). Para conseguir isso, crie uma nova [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) no **LiveEvent**. 
 
@@ -44,7 +44,7 @@ Com os Serviços de Mídia, você pode aproveitar o **Dynamic Packaging**, que p
 
 Com os Serviços de Mídia, você pode entregar seu conteúdo criptografado dinamicamente (**Criptografia Dinâmica**) com a criptografia AES-128 (Advanced Encryption Standard) ou qualquer um dos três principais sistemas de DRM: Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Serviços de Mídia também fornecem um serviço para entrega de chaves AES e licenças DRM a clientes autorizados. Para obter mais informações sobre como criptografar seu conteúdo com os Serviços de Mídia, consulte [Protegendo a visão geral do conteúdo](content-protection-overview.md)
 
-Se desejar, você também pode aplicar a Filtragem dinâmica, que pode ser usada para controlar o número de faixas, formatos, taxas de bits e janelas de tempo de apresentação que são enviadas aos jogadores. 
+Se desejar, você também pode aplicar a Filtragem dinâmica, que pode ser usada para controlar o número de faixas, formatos, taxas de bits e janelas de tempo de apresentação que são enviadas aos jogadores. Para obter mais informações, consulte [Filtros e manifestos dinâmicos](filters-dynamic-manifest-overview.md).
 
 ### <a name="new-capabilities-for-live-streaming-in-v3"></a>Novos recursos para transmissão ao vivo na v3
 
@@ -57,7 +57,7 @@ Com as APIs v3 dos serviços de mídia, você se beneficia dos novos recursos a 
 
 ## <a name="liveevent-types"></a>Tipos de LiveEvent
 
-A  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) pode ser de dois tipos: pass-through e codificação ativa. 
+Um [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) pode ser de dois tipos: de passagem e codificação ativa. 
 
 ### <a name="pass-through"></a>Passagem
 
@@ -77,7 +77,7 @@ Veja um exemplo em tempo real no [MediaV3LiveApp](https://github.com/Azure-Sampl
 
 ![Codificação ativa](./media/live-streaming/live-encoding.png)
 
-Ao usar a codificação ao vivo com os Serviços de Mídia, você configuraria seu codificador dinâmico local para enviar um único vídeo de taxa de bits como o feed de contribuição para o LiveEvent (usando o protocolo RTMP ou Fragmented-Mp4). O LiveEvent codifica esse fluxo de entrada de taxa de bits única para um fluxo de vídeo de [taxa de bits múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), tornando-o disponível para entrega para reproduzir dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar esse tipo de LiveEvent, especifique o tipo de codificação como **Básico** (LiveEventEncodingType.Basic).
+Ao usar a codificação ao vivo com os Serviços de Mídia, você configuraria seu codificador dinâmico local para enviar um único vídeo de taxa de bits como o feed de contribuição para o LiveEvent (usando o protocolo RTMP ou Fragmented-Mp4). O LiveEvent codifica esse fluxo de entrada de taxa de bits única para um fluxo de vídeo de [taxa de bits múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), tornando-o disponível para entrega para reproduzir dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar esse tipo de LiveEvent, especifique o tipo de codificação como **Standard** (LiveEventEncodingType.Standard).
 
 Você pode enviar a alimentação de contribuição com resolução de até 1080p a uma taxa de quadros de 30 quadros/segundo, com codec de vídeo H.264/AVC e codec de áudio AAC (AAC-LC, HE-AAC v1 ou HE-AAC v2). Veja o artigo [ Comparação de tipos e limitações do LiveEvent ](live-event-types-comparison.md) para mais detalhes.
 

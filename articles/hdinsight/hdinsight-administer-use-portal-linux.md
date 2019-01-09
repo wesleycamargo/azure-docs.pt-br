@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: c615188e5f198cb8707b12643e0942e8d8821983
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ce30b752ecf1d5413ae534fa03907cbf11b1c694
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725175"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794474"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 
@@ -22,140 +22,117 @@ ms.locfileid: "52725175"
 
 Usando o [portal do Microsoft Azure][azure-portal], você pode gerenciar clusters do [Apache Hadoop](https://hadoop.apache.org/) no Azure HDInsight. Use o seletor de guias acima para saber mais sobre como criar clusters Hadoop no HDInsight usando outras ferramentas.
 
-**Pré-requisito**
+**Pré-requisitos**
+- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Um cluster existente do Apache Hadoop no HDInsight.  Consulte [Criar clusters baseados em Linux no HDInsight usando o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-Para seguir as etapas neste artigo, será necessária uma **assinatura o Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-## <a name="open-the-azure-portal"></a>Abrir o portal do Azure
-1. Entre em [https://portal.azure.com](https://portal.azure.com).
-2. Depois de abrir o portal, você poderá:
-
-   * Clique em **Criar um recurso** no menu à esquerda para criar um novo cluster:
-
-       ![novo botão do cluster HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
-
-       Digite **HDInsight** em **Pesquisar no Marketplace**, clique em **HDInsight** e, em seguida, clique em **Criar**.
-
-   * Clique em **Clusters HDInsight** no menu à esquerda para listar os clusters existentes:
-
-       ![Botão do cluster HDInsight do Portal do Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
-
-       Se o botão **Clusters do HDInsight** não for exibido, clique em **Clusters do HDInsight** na seção **Inteligência + Análise**.
+## <a name="getting-started"></a>Introdução
+Entre em [https://portal.azure.com](https://portal.azure.com).
 
 
-## <a name="create-clusters"></a>Criar clusters
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+## <a name="showClusters"></a> Listar e mostrar clusters
+A página **Clusters do HDInsight** lista os clusters existentes.  Do portal:
+1. Selecione **Todos os serviços** no menu esquerdo.
+2. Selecione **Clusters do HDInsight** em **ANÁLISES**.
 
-O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obter a lista dos componentes verificados e suportados, consulte [Qual versão do Apache Hadoop está no Azure HDInsight?](hdinsight-component-versioning.md) Para obter informações de criação de cluster geral, consulte [Criar Apache clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="homePage"></a> Página inicial do cluster 
+Selecione o nome do cluster da página [ **Clusters HDInsight**](#showClusters).  Isso abrirá a exibição **Visão geral**, que é semelhante à seguinte imagem:
 
-### <a name="access-control-requirements"></a>Requisitos de controle de acesso
+![Fundamentos do cluster HDInsight do portal do Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
 
-Você deve especificar uma assinatura do Azure, quando você cria um cluster HDInsight. Este cluster pode ser criado em um novo grupo de recursos do Azure ou em um grupo de recursos existente. Você pode usar as seguintes etapas para verificar as permissões a fim de criar os clusters do HDInsight:
+**Menu principal:**  
+- **Mover**: Move o cluster para outro grupo de recursos ou outra assinatura.  
+- **Excluir**: Exclui o cluster.  
+- **Atualizar**:  Atualiza a exibição.
 
-- Para criar um novo grupo de recursos:
+**Menu à esquerda:**  
+ - **Menu do canto superior esquerdo**  
+    - **Visão geral**:  Fornece informações gerais para o cluster.
+    -  **Log de atividades**: Mostra e consulta logs de atividades.
+    - **Controle de acesso (IAM)**: Utiliza as atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
+    - **Marcas**: Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.
+    - **Diagnosticar e resolver problemas**: Exibe informações sobre solução de problemas.
+    - **Início rápido**:  Exibe informações que ajudam você a começar a usar o HDInsight.
+    - **Ferramentas**: Informações de ajuda para ferramentas relacionadas ao HDInsight.
 
-    1. Entre no [Portal do Azure](https://portal.azure.com).
-    2. Clique em **Assinatura** no menu à esquerda. Ele tem um ícone amarelo de chave. Você verá uma lista de assinaturas.
-    3. Clique na assinatura que você usa para criar clusters. 
-    4. Clique em **Minhas permissões**.  Isso mostra a [função](../role-based-access-control/built-in-roles.md) na assinatura. Você precisa de pelo menos acesso de Colaborador para criar o cluster do HDInsight.
+- **Menu Configurações**  
+  - **Tamanho do cluster**: Verifique, aumente e diminua o número de nós do trabalhador do cluster. Ver [Dimensionar clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
+  - **Limites de cota**: Exibe os núcleos usados e disponíveis para sua assinatura.
+  - **SSH + logon do Cluster**: Mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH). Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+  - **Data Lake Storage Gen1**: Configura o acesso ao Data Lake Storage Gen1.  Confira [Início Rápido: Configura clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+  - **Contas de armazenamento**: Exibe as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.
+  - **Aplicativos**: Adicionar/remove aplicativos do HDInsight.  Consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
+  - **Ações de script**: Execute scripts Bash no cluster. Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
+  - **Metastores externos**: Exiba os metastores [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). Os metastores só podem ser configurados durante o processo de criação do cluster.
+  - **Parceiro HDInsight**: Adiciona/remove o parceiro do HDInsight atual.
+  - **Propriedades**: Exibe as [propriedades do cluster](#properties).
+  - **Bloqueios**: Adiciona um bloqueio para impedir que o cluster seja modificado ou excluído.
+  -  **Script de automação**: Exibe e exporta o modelo do Azure Resource Manager para o cluster. No momento, você pode exportar apenas a conta de armazenamento do Azure dependente. Consulte [Criar clusters do Apache Hadoop baseados em Linux no HDInsight usando os modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-- Para usar um grupo de recursos existente:
+- **Menu Monitoramento**
+  - **Alertas**: Gerencia os alertas e ações.
+  - **Métricas**: Monitora as métricas do cluster no Azure Log Analytics.
+  - **Configurações de diagnóstico**: Configurações sobre onde armazenar as métricas de diagnóstico.
+  - **Operations Management Suite**:  monitore o seu cluster no Azure Operations Management Suite (OMS) e no Azure Log Analytics.
 
-    1. Entre no [Portal do Azure](https://portal.azure.com).
-    2. Clique em **Grupos de recursos** no menu à esquerda para listar os grupos de recursos.
-    3. Clique no grupo de recursos que você deseja usar para criar o cluster do HDInsight.
-    4. Clique em **Controle de acesso (IAM)** e **Atribuições de função** e verifique se você (ou um grupo ao qual você pertence) tem pelo menos o acesso de Colaborador para o grupo de recursos.
-
-Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistration, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
-
-## <a name="list-and-show-clusters"></a>Listar e mostrar clusters
-1. Entre em [https://portal.azure.com](https://portal.azure.com).
-2. Clique em **Clusters HDInsight** no menu à esquerda para listar os clusters existentes. Se **Clusters do HDInsight** não for exibido, clique primeiro em **Todos os serviços**.
-3. Clique no nome do cluster. Se a lista de clusters for longa, você poderá usar o filtro na parte superior da página.
-4. Clique em um cluster da lista para ver a página de visão geral:
-
-    ![Fundamentos do cluster HDInsight do Portal do Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **Menu Visão geral:**
-    * **Painel**: Abre a interface do usuário da Web do Ambari no cluster.
-    * **Secure Shell**: Mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
-    * **Dimensionar cluster**: Permite alterar o número de nós de trabalho deste cluster.
-    * **Mover**: Move o cluster para outro grupo de recursos ou outra assinatura.
-    * **Excluir**: Exclui o cluster.
-
-**Menu à esquerda:**
-    * **Logs de atividades**: Mostra e consulta logs de atividades.
-    * **Controle de acesso (IAM)**: Utiliza as atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
-    * **Marcas**: Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.
-* **Diagnosticar e resolver problemas**: Exibe informações sobre solução de problemas.
-    * **Início rápido**:  Exibe informações que ajudam você a começar a usar o HDInsight.
-    * **Ferramentas para HDInsight**: Informações de ajuda para ferramentas relacionadas ao HDInsight.
-**Configurações**
-* **Tamanho do cluster**: Verifique, aumente e diminua o número de nós do trabalhador do cluster. Ver [Dimensionar clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Limites de cota**: Exibe os núcleos usados e disponíveis para sua assinatura.
-    * **SSH + logon do Cluster**: Mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH). Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-* **Data Lake Store Gen1**: Configura o acesso ao Data Lake Store Gen1.  Confira [Início Rápido: Configura clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
-    * **Contas de armazenamento**: Exibe as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.
-    * **Aplicativos**: Adicionar/remove aplicativos do HDInsight.  Consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
-    * **Ações de script**: Execute scripts Bash no cluster. Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
-    * **Parceiro HDInsight**: Adiciona/remove o parceiro do HDInsight atual.
-    * **Propriedades**: Exibe as propriedades do cluster.
-* **Bloqueios**: Adiciona um bloqueio para impedir que o cluster seja modificado ou excluído.
-    * **Script de automação**: Exibe e exporta o modelo do Azure Resource Manager para o cluster. No momento, você pode exportar apenas a conta de armazenamento do Azure dependente. Consulte [Criar clusters do Apache Hadoop baseados em Linux no HDInsight usando os modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
-**Monitoramento**
-* **Alertas**: Gerencia os alertas e ações.
-    * **Métricas**: Monitora as métricas do cluster no Azure Log Analytics.
-* **Configurações de diagnóstico**: Configurações sobre onde armazenar as métricas de diagnóstico **Suporte + solução de problemas**
-    * **Integridade de recursos**: Confira [Visão geral do Azure Resource Health](../service-health/resource-health-overview.md).
-    * **Nova solicitação de suporte**: Permite criar um tíquete de suporte com o suporte da Microsoft.
+- **Menu Suporte + solução de problemas**
+  - **Integridade de recursos**: Confira [Visão geral do Azure Resource Health](../service-health/resource-health-overview.md).
+  - **Nova solicitação de suporte**: Permite criar um tíquete de suporte com o suporte da Microsoft.
     
-6. Clique em **Propriedades**:
+## <a name="properties"></a> Propriedades do cluster
+Na [página inicial do cluster](#homePage), em **Configurações**, selecione **Propriedades**.
+* **Nome do host**: Nome do cluster.
+* **URL do cluster**: A URL para a interface da Web do Ambari.
+* **Secure Shell (SSH)**: O nome de usuário e o nome do host a ser usado para acessar o cluster por meio do SSH.
+* **Status**: Um destes: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued ou ClusterCustomization.
+* **Região**: Localização do Azure. Para ter acesso à lista de locais do Azure com suporte, veja a caixa de listagem suspensa **Região** em [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+* **Data de criação**: A data em que o cluster foi implantado.
+* **Sistema operacional**: **Windows** ou **Linux**.
+* **Tipo**: Hadoop, HBase, Storm, Spark.
+* **Versão**. Consulte [HDInsight versions](hdinsight-component-versioning.md) (Versões do HDInsight).
+* **Assinatura**: Nome da assinatura.
+* **Fonte de dados padrão**: O sistema de arquivos padrão do cluster.
+* **Tamanho dos nós de trabalho**: O tamanho selecionado da VM dos nós de trabalho.
+* **Tamanho do nó de cabeçalho**: O tamanho selecionado da VM dos nós de cabeçalho.
+* **Rede virtual**: O nome da Rede Virtual na qual o cluster é implantado, caso uma tenha sido selecionada durante a implantação.
 
-    As propriedades são:
+## <a name="move-clusters"></a>Mover clusters
 
-   * **Nome do host**: Nome do cluster.
-   * **URL do cluster**: A URL para a interface da Web do Ambari.
-   * **Secure Shell (SSH)**: O nome de usuário e o nome do host a ser usado para acessar o cluster por meio do SSH.
-   * **Status**: Um destes: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued ou ClusterCustomization.
-   * **Região**: Localização do Azure. Para ter acesso à lista de locais do Azure com suporte, consulte a caixa de listagem suspensa **Região** em [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-   * **Data de criação**: A data em que o cluster foi implantado.
-   * **Sistema operacional**: **Windows** ou **Linux**.
-   * **Tipo**: Hadoop, HBase, Storm, Spark.
-   * **Versão**. Consulte [HDInsight versions](hdinsight-component-versioning.md) (Versões do HDInsight).
-   * **Assinatura**: Nome da assinatura.
-   * **Fonte de dados padrão**: O sistema de arquivos padrão do cluster.
-   * **Tamanho dos nós de trabalho**: O tamanho selecionado da VM dos nós de trabalho.
-   * **Tamanho do nó de cabeçalho**: O tamanho selecionado da VM dos nós de cabeçalho.
-   * **Rede virtual**: O nome da Rede Virtual na qual o cluster é implantado, caso uma tenha sido selecionada durante a implantação.
+Você pode mover um cluster do HDInsight para outro grupo de recursos do Azure ou outra assinatura. 
+
+Na [home page do cluster](#homePage):
+
+1. Selecione **Mover** no menu superior.
+2. Selecione **Mover para outro grupo de recursos** ou **Mover para outra assinatura**.
+3. Siga as instruções da página nova.
 
 ## <a name="delete-clusters"></a>Excluir clusters
 Excluir um cluster não excluirá a conta de armazenamento padrão, nem nenhuma conta de armazenamento vinculada. Você pode recriar o cluster usando as mesmas contas de armazenamento e as mesmas metastores. Recomendamos usar um novo contêiner de Blobs padrão ao recriar o cluster.
 
-1. Conecte-se no [Portal][azure-portal].
-2. Clique em **Clusters HDInsight** no menu esquerdo. Se **Clusters do HDInsight** não for exibido, clique primeiro em **Todos os serviços**.
-3. Clique no cluster que você deseja excluir.
-4. Clique em **Excluir** no menu superior e siga as instruções.
+Na [home page do cluster](#homePage):
+
+1. Selecione **Excluir** no menu superior.
+2. Siga as instruções da página nova.
 
 Consulte também [Pausar/desligar clusters](#pauseshut-down-clusters).
 
 ## <a name="add-additional-storage-accounts"></a>Adicionar outras contas de armazenamento
 
-Depois de criar um cluster, você pode adicionar outras contas do Armazenamento do Azure e contas do Azure Data Lake Store. Para saber mais, confira [Adicionar outras contas de armazenamento ao HDInsight](./hdinsight-hadoop-add-storage.md).
+Depois de criar um cluster, você pode adicionar outras contas do Armazenamento do Azure e contas do Azure Data Lake Storage. Para saber mais, confira [Adicionar outras contas de armazenamento ao HDInsight](./hdinsight-hadoop-add-storage.md).
 
 ## <a name="scale-clusters"></a>Dimensionar clusters
 O recurso de colocação em escala de clusters permite que você altere o número de nós de trabalhador usados por um cluster Azure HDInsight sem precisar recriar o cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades.  Confira [Listar e mostrar clusters](#list-and-show-clusters).
->
->
-**Para dimensionar clusters**
 
-1. Conecte-se no [Portal][azure-portal].
-2. Clique em **Clusters HDInsight** no menu esquerdo.
-3. Clique no cluster que você deseja dimensionar.
-3. Clique em **Dimensionar Cluster**.
-4. Insira o **Número de Nós de Trabalho**. O limite no número de nós de cluster varia entre as assinaturas do Azure. Contate o suporte de cobrança para aumentar o limite.  As informações de custo refletem as alterações feitas no número de nós.
+Na [home page do cluster](#homePage):
 
-    ![HDInsight hadoop hbase storm spark dimensionar](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
+1. Em **Configurações**, selecione **Tamanho do cluster**.
+2. Insira **Número de nós de trabalho** na caixa de texto numérica. O limite no número de nós de cluster varia entre as assinaturas do Azure. Contate o suporte de cobrança para aumentar o limite.  As informações de custo refletem as alterações feitas no número de nós.
+3. Clique em **Salvar**.
+
+    ![HDInsight hadoop hbase storm spark dimensionar](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster2.png)
 
 O impacto da alteração do número de nós de dados varia em cada tipo de cluster com suporte do HDInsight:
 
@@ -169,9 +146,9 @@ O impacto da alteração do número de nós de dados varia em cada tipo de clust
     Você pode adicionar ou remover diretamente nós do cluster HBase enquanto ele é executado. Servidores Regionais são equilibrados automaticamente em alguns minutos após o término da operação de dimensionamento. No entanto, você pode equilibrar manualmente os servidores regionais fazendo logon no nó de cabeçalho do cluster e executando os seguintes comandos em uma janela de prompt de comando:
 
     ```bash
-    >pushd %HBASE_HOME%\bin
-    >hbase shell
-    >balancer
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
     ```
 
     Para obter mais informações sobre como usar o shell do HBase, consulte [Introdução a um exemplo do Apache HBase em HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
@@ -185,7 +162,7 @@ O impacto da alteração do número de nós de dados varia em cada tipo de clust
   * Interface da Web Storm
   * Ferramenta CLI (interface de linha de comando)
 
-    Consulte a [documentação do Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
+    Consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
 
     A IU da Web do Storm está disponível no cluster HDInsight:
 
@@ -215,9 +192,7 @@ Há várias maneiras de programar o processo:
 
 Para saber mais sobre preços, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para excluir um cluster do Portal, veja [Excluir clusters](#delete-clusters)
 
-## <a name="move-cluster"></a>Mover cluster
 
-Você pode mover um cluster do HDInsight para outro grupo de recursos do Azure ou outra assinatura.  Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
 ## <a name="upgrade-clusters"></a>Atualizar clusters
 
@@ -227,40 +202,37 @@ Consulte [Atualizar o cluster do HDInsight para uma versão mais recente](./hdin
 
 O Ambari fornece uma interface do usuário da Web de gerenciamento do Hadoop intuitiva e fácil de usar com suporte de suas APIs RESTful. O Ambari permite aos administradores do sistema gerenciar e monitorar clusters Hadoop.
 
-1. Abra um cluster HDInsight no portal do Azure.  Confira [Listar e mostrar clusters](#list-and-show-clusters).
-2. Clique em **Painel do Cluster**.
+Na [home page do cluster](#homePage):
 
-    ![Menu do cluster HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+1. Selecione **Painéis do cluster**.
 
-1. Insira o nome de usuário do cluster e a senha.  O nome de usuário do cluster padrão é _admin_. A interface do usuário da Web do Ambari tem esta aparência:
+    ![Menu do cluster HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
 
-    ![Interface do usuário do Ambari no HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+1. Selecione **Página inicial do Ambari** na página nova.
+2. Insira o nome de usuário do cluster e a senha.  O nome de usuário do cluster padrão é _admin_. A interface do usuário da Web do Ambari tem esta aparência:
 
 Para obter mais informações, consulte [Gerenciar clusters do HDInsight usando a interface da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="change-passwords"></a>Alterar senhas
-Um cluster HDInsight pode ter duas contas de usuário. A conta de usuário do cluster HDInsight (também conhecido como conta de usuário HTTP) e a conta de usuário SSH são criadas durante o processo de criação. Você pode usar a interface do usuário do Ambari Web para alterar o nome de usuário e a senha da conta de usuário do cluster e ações de script para alterar a conta de usuário do SSH
+Um cluster HDInsight pode ter duas contas de usuário. A conta de usuário do cluster HDInsight (também conhecido como conta de usuário HTTP) e a conta de usuário SSH são criadas durante o processo de criação. Você pode usar a interface do usuário do portal para alterar a senha da conta de usuário do cluster e ações de script para alterar a conta de usuário do SSH.
 
 ### <a name="change-the-cluster-user-password"></a>Alterar a senha de usuário do cluster
-Você pode usar a interface do usuário do Ambari Web para alterar a senha do usuário do cluster. Para fazer logon no Ambari, você deve usar o nome de usuário e a senha existente do cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > Alterar a senha de usuário (admin) do cluster poderá fazer as ações de script executadas em relação a esse cluster falharem. Se você tiver ações de script persistente direcionadas para nós de trabalho, esses scripts poderão falhar quando você adicionar nós ao cluster por meio de operações de redimensionamento. Para saber mais sobre as Ações de Script, confira [Personalizar clusters HDInsight usando ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
->
->
 
-1. Entre na interface do usuário do Ambari Web usando as credenciais de usuário do cluster HDInsight. O nome de usuário padrão é **admin**. A URL é **https://&lt;Nome do Cluster HDInsight>azurehdinsight.net**.
-2. Clique em **Administrador** no menu superior e depois clique em "Gerenciar Ambari".
-3. No menu à esquerda, clique em **Usuários**.
-4. Clique em **Administrador**.
-5. Clique em **Alterar Senha**.
+Na [home page do cluster](#homePage):
+1. Selecione **SSH + login do cluster** em **Configurações**.
+2. Selecione **Redefinir credencial**.
+3. Insira e confirme a nova senha nas caixas de texto.
+4. Selecione **OK**.
 
-Em seguida, o Ambari altera a senha em todos os nós no cluster.
+A senha é alterada em todos os nós no cluster.
 
 ### <a name="change-the-ssh-user-password"></a>Alterar a senha de usuário de SSH
 1. Usando um editor de texto, salve o seguinte texto como um arquivo denominado **changepassword.sh**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Você deve usar um editor que usa LF como o fim da linha. Se o editor usar CRLF, então ele não funcionará.
 
     ```bash
@@ -271,16 +243,16 @@ Em seguida, o Ambari altera a senha em todos os nós no cluster.
     ```
 
 2. Carregue o arquivo para um local de armazenamento que possa ser acessado no HDInsight usando um endereço HTTP ou HTTPS. Por exemplo, um repositório de arquivos público como o OneDrive ou o Armazenamento de Blobs do Azure. Salve o URI (endereço HTTP ou HTTPS) no arquivo, pois esse URI será necessário na próxima etapa.
-3. No Portal do Azure, clique em **Clusters HDInsight**.
-4. Clique em seu cluster HDInsight.
-4. Clique em **Ações de Script**.
-4. Na folha **Ações de Script**, selecione **Enviar Novo**. Quando a folha **Enviar ação de script** aparecer, insira estas informações:
+3. Na [home page do cluster](#homePage), selecione **Ações do script**, em **Configurações**.
+4. Na folha **Ações de Script**, selecione **Enviar Novo**. 
+5. Na folha **Enviar ação do script**, insira as seguintes informações:
 
    | Campo | Valor |
    | --- | --- |
-   | Nome |Alterar senha SSH |
+   | Tipo de script | Selecione **- Personalizar** na lista suspensa.|
+   | NOME |"Alterar senha ssh" |
    | URI do script Bash |O URI do arquivo changepassword.sh |
-   | Nós (Principal, Trabalho, Nimbus, Supervisor, Zookeeper etc.) |✓ para todos os tipos de nó listados |
+   | Tipos de nó: (Principal, Trabalho, Nimbus, Supervisor, Zookeeper etc.) |✓ para todos os tipos de nó listados |
    | parâmetros |Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha. |
    | Persistir esta ação de script... |Deixe este campo desmarcado. |
 5. Selecione **Criar** para aplicar o script. Quando o script for concluído, você poderá se conectar ao cluster usando SSH com a nova senha.
@@ -297,63 +269,23 @@ Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviço
 Por padrão, esses serviços são concedidos para acesso. Você pode revogar/conceder o acesso usando [CLI do Azure Classic](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) e [do Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Localizar a ID da assinatura
-
-**Para localizar suas IDs da assinatura do Azure**
-
-1. Conecte-se no [Portal][azure-portal].
-2. Clique em **Assinaturas**. Cada assinatura tem um nome e uma ID.
-
-Cada cluster é vinculado a uma assinatura do Azure. A ID da assinatura é mostrada no bloco **Fundamentos** do cluster. Confira [Listar e mostrar clusters](#list-and-show-clusters).
+Cada cluster é vinculado a uma assinatura do Azure.  A ID de assinatura do Azure está visível na [página inicial do cluster](#homePage).
 
 ## <a name="find-the-resource-group"></a>Encontrar o grupo de recursos
-No modo Azure Resource Manager, cada cluster HDInsight é criado com um grupo do Azure Resource Manager. O grupo do Resource Manager ao qual um cluster pertence aparece em:
-
-* A lista de clusters tem uma coluna **Grupo de Recursos** .
-* Bloco **Fundamentos** do cluster.  
-
-Confira [Listar e mostrar clusters](#list-and-show-clusters).
+No modo Azure Resource Manager, cada cluster HDInsight é criado com um grupo do Azure Resource Manager. O grupo Resource Manager está visível na [página inicial do cluster](#homePage).
 
 ## <a name="find-the-storage-accounts"></a>Localizar contas de armazenamento
+Os clusters do HDInsight usam uma conta de Armazenamento do Azure ou um Azure Data Lake Storage para armazenar dados. Cada cluster do HDInsight pode ter uma conta de armazenamento padrão e um número de contas de armazenamento vinculadas. Para listar as contas de armazenamento, na [página inicial do cluster](#homePage), em **Configurações**, selecione **Contas de armazenamento**.
 
-Os clusters do HDInsight usam uma conta de Armazenamento do Azure ou um Azure Data Lake Store para armazenar dados. Cada cluster do HDInsight pode ter uma conta de armazenamento padrão e um número de contas de armazenamento vinculadas. Para listar as contas de armazenamento, primeiro abra o cluster no portal e, em seguida, clique em **Contas de armazenamento**:
-
-![Contas de armazenamento de cluster do HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
-
-Na captura de tela anterior, há uma coluna __Padrão__ que indica se a conta é a conta de armazenamento padrão.
-
-Para listar as contas do Data Lake Store, clique em **Acesso do Data Lake Store** na captura de tela anterior.
-
-## <a name="run-apache-hive-queries"></a>Executar consultas do Apache Hive
-Você não pode executar o trabalho do Hive diretamente do portal do Azure, mas pode usar a Exibição do Hive na interface do usuário do Ambari Web.
-
-**Para executar consultas do Hive usando a Exibição do Hive do Ambari**
-
-1. Entre na interface do usuário do Ambari Web usando as credenciais de usuário do cluster HDInsight. O nome de usuário padrão é **admin**. A URL é **https://&lt;Nome do Cluster HDInsight>azurehdinsight.net**.
-2. Abra a Exibição do Hive como mostrado nesta captura de tela:  
-
-    ![Exibição do Hive do HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
-
-3. Clique em **Consulta** no menu superior.
-4. Insira uma consulta Hive no **Editor de Consultas**, em seguida, clique em **Executar**.
 
 ## <a name="monitor-jobs"></a>Monitorar trabalhos
 Consulte [Gerenciar clusters do HDInsight usando a interface da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md#monitoring).
 
-## <a name="browse-files"></a>Procurar arquivos
-Usando o portal do Azure, você pode procurar conteúdos do contêiner padrão.
-
-1. Entre em [https://portal.azure.com](https://portal.azure.com).
-2. Clique em **Clusters HDInsight** no menu à esquerda para listar os clusters existentes.
-3. Clique no nome do cluster. Se a lista de clusters for longa, você poderá usar o filtro na parte superior da página.
-4. Clique em **Contas de Armazenamento** no menu esquerdo do cluster.
-5. Clique em uma conta de Armazenamento.
-7. Clique no bloco **Blobs** .
-8. Clique no nome de contêiner padrão.
 
 ## <a name="monitor-cluster-usage"></a>Monitorar o uso do cluster
 A seção **Uso** da folha do cluster do HDInsight exibe informações sobre o número de núcleos disponíveis para sua assinatura para uso com o HDInsight, bem como o número de núcleos alocados para esse cluster e como eles são alocados para os nós presentes no cluster. Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Para monitorar os serviços fornecidos pelo cluster HDInsight, você deve usar o Ambari Web ou a API REST do Ambari. Para obter mais informações sobre o uso do Ambari, consulte [Gerenciar clusters do HDInsight usando o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ## <a name="connect-to-a-cluster"></a>Conectar a um cluster
@@ -363,7 +295,7 @@ A seção **Uso** da folha do cluster do HDInsight exibe informações sobre o n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu algumas funções administrativas básicas. Para saber mais, consulte os seguintes artigos:
+Neste artigo, você aprendeu algumas funções administrativas básicas. Para saber mais, confira os seguintes artigos:
 
 * [Administrar o HDInsight usando o PowerShell do Azure](hdinsight-administer-use-powershell.md)
 * [Administrar o HDInsight usando a CLI Clássica do Azure](hdinsight-administer-use-command-line.md)

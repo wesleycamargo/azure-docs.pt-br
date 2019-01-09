@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338772"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556553"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -33,7 +33,7 @@ A IEF envia dados em declarações e recebe dados de volta em declarações. A t
 
 Você pode usar as declarações recebidas posteriormente para alterar o fluxo de execução.
 
-Você também pode projetar a interação como um perfil de validação. Para obter mais informações, veja [Passo a passo: integrar as trocas de declarações da API REST no seu percurso do usuário do Azure AD B2C como validação sobre a entrada do usuário](active-directory-b2c-rest-api-validation-custom.md).
+Você também pode projetar a interação como um perfil de validação. Para saber mais, confira [Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário](active-directory-b2c-rest-api-validation-custom.md).
 
 O cenário é aquele em que, quando um usuário realiza uma edição de perfil, desejamos:
 
@@ -45,9 +45,9 @@ O cenário é aquele em que, quando um usuário realiza uma edição de perfil, 
 
 - Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
 - Um ponto de extremidade de API REST com o qual se irá interagir. Este passo a passo usa um webhook de aplicativo de funções simples do Azure como um exemplo.
-- *Recomendado*: conclua o [passo a passo da troca de declarações da API REST como uma etapa de validação](active-directory-b2c-rest-api-validation-custom.md).
+- *Recomendados*: conclua o [passo a passo da troca de declarações da API REST como uma etapa de validação](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Etapa 1: preparar a função da API REST
+## <a name="step-1-prepare-the-rest-api-function"></a>Etapa 1: Preparar a função da API REST
 
 > [!NOTE]
 > A configuração das funções da API REST está fora do escopo deste artigo. O [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) fornece um kit de ferramentas excelente para criar serviços RESTful na nuvem.
@@ -81,7 +81,7 @@ Um aplicativo de funções do Azure facilita a obtenção da URL da função, a 
 
 ## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Etapa 2: configurar a troca de declarações da API RESTful como um perfil técnico no arquivo TrustFrameworExtensions.xml
 
-Um perfil técnico é a configuração completa da troca desejada com o serviço RESTful. Abra o arquivo TrustFrameworkExtensions.xml e adicione o seguinte trecho de código XML dentro do elemento `<ClaimsProvider>`.
+Um perfil técnico é a configuração completa da troca desejada com o serviço RESTful. Abra o arquivo TrustFrameworkExtensions.xml e adicione o seguinte snippet de código XML dentro do elemento `<ClaimsProvider>`.
 
 > [!NOTE]
 > No XML a seguir, o provedor RESTful `Version=1.0.0.0` é descrito como o protocolo. Considere-o como a função que interagirá com o serviço externo. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
@@ -97,6 +97,7 @@ Um perfil técnico é a configuração completa da troca desejada com o serviço
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -211,7 +212,7 @@ O XML final da jornada do usuário deve ter esta aparência:
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Etapa 5: adicionar a declaração `city` ao seu arquivo de política de terceira parte confiável para que a declaração seja enviada ao seu aplicativo
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Etapa 5: adicionar a declaração `city` ao seu arquivo de política de terceira parte confiável para que a declaração seja enviada ao aplicativo
 
 Edite o arquivo RP (terceira parte confiável), ProfileEdit.xml e modifique o elemento `<TechnicalProfile Id="PolicyProfile">` para adicionar o seguinte: `<OutputClaim ClaimTypeReferenceId="city" />`.
 
@@ -232,8 +233,8 @@ Depois de adicionar a nova declaração, o perfil técnico terá esta aparência
 
 Substitua as versões existentes da política.
 
-1.  (Opcional:) Salve a versão existente (baixando-a) do seu arquivo de extensões antes de continuar. Para reduzir a complexidade inicial, é recomendável que você não carregue várias versões do arquivo de extensões.
-2.  (Opcional:) Renomeie a nova versão da ID de política do arquivo de edição de política alterando `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+1.  (Opcional:) salve a versão existente (baixando-a) do seu arquivo de extensões antes de continuar. Para reduzir a complexidade inicial, é recomendável que você não carregue várias versões do arquivo de extensões.
+2.  (Opcional:) renomeie a nova versão da ID de política do arquivo de edição de política alterando `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
 3.  Carregue o arquivo de extensões.
 4.  Carregue o arquivo RP de edição de política.
 5.  Use **Executar Agora** para testar a política. Examine o token que a IEF retorna ao aplicativo.

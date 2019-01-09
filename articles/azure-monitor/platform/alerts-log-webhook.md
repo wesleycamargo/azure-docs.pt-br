@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4502f7232d2bcfaf4a32a384d24556cd668dc50b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283372"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720298"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta do log
 Quando um [alerta de log é criado no Azure](alerts-log.md), você tem a opção de [configurar usando grupos de ações](action-groups.md) para executar uma ou mais ações.  Este artigo descreve as diferentes ações do webhook que estão disponíveis e os detalhes sobre a configuração do webhook baseado em JSON personalizado.
@@ -73,13 +73,13 @@ Essa carga de exemplo seria resolvida como algo semelhante ao mostrado a seguir 
 ```
 Como todas as variáveis em um webhook personalizado devem ser especificadas no compartimento JSON como "#searchinterval", o webhook resultante também terá dados variáveis dentro do compartimento como "00:05:00".
 
-Para incluir resultados de pesquisa em um conteúdo personalizado, assegure-se de que **IncudeSearchResults** está definido como uma propriedade de nível superior no conteúdo JSON. 
+Para incluir resultados de pesquisa em um conteúdo personalizado, assegure-se de que **IncludeSearchResults** está definido como uma propriedade de nível superior no conteúdo JSON. 
 
 ## <a name="sample-payloads"></a>Cargas de exemplo
 Essa seção mostra o conteúdo de exemplo para webhook para Alertas do Log, inclusive quando o conteúdo for padrão e quando for personalizado.
 
 > [!NOTE]
-> Para garantir a compatibilidade com versões anteriores, o conteúdo padrão do webhook para alertas usando o Azure Log Analytics é o mesmo que do [Gerenciamento de Alertas do Log Analytics](alerts-metric.md). Mas para alertas do log usando o [Application Insights](../../application-insights/app-insights-analytics.md), o conteúdo do webhook é baseado no esquema do Grupo de Ações.
+> Para garantir a compatibilidade com versões anteriores, o conteúdo padrão do webhook para alertas usando o Azure Log Analytics é o mesmo que do [Gerenciamento de Alertas do Log Analytics](alerts-metric.md). Mas para alertas do log usando o [Application Insights](../../azure-monitor/app/analytics.md), o conteúdo do webhook é baseado no esquema do Grupo de Ações.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook padrão para Alertas do Log 
 Ambos exemplos declararam uma carga fictícia com apenas duas colunas e duas linhas.
@@ -200,5 +200,5 @@ A seguir, é apresentado um conteúdo de amostra para uma ação do webhook pers
 - Saiba mais sobre os [Alertas de log nos Alertas do Azure](alerts-unified-log.md)
 - Entender como [gerenciar alertas de log no Azure](alerts-log.md)
 - Criar e gerenciar [grupos de ações no Azure](action-groups.md)
-- Saiba mais sobre o [Application Insights](../../application-insights/app-insights-analytics.md)
+- Saiba mais sobre o [Application Insights](../../azure-monitor/app/analytics.md)
 - Saiba mais sobre o [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 

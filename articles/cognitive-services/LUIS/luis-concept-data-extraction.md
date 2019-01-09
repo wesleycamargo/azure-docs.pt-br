@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a97da5542395b57fa9a6ca6e4c38dd25e524ec3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098634"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969413"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extração de dados de intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
@@ -28,7 +28,7 @@ O LUIS fornece os dados do [ponto de extremidade](luis-glossary.md#endpoint) pub
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-O `appID` estará disponível na página **Configurações** do seu aplicativo LUIS, assim como parte da URL (após `/apps/`) quando você estiver editando esse aplicativo LUIS. A `subscription-key` é a chave do ponto de extremidade usada para consultar seu aplicativo. Embora seja possível usar a chave início/criação gratuita enquanto estiver treinando o LUIS, é importante alterar a chave de ponto de extremidade para uma chave que dê suporte ao [uso esperado do LUIS](luis-boundaries.md#key-limits). A unidade `timezoneOffset` é de minutos.
+O `appID` estará disponível na página **Configurações** do aplicativo LUIS, assim como parte da URL (após `/apps/`) quando você estiver editando esse aplicativo do LUIS. A `subscription-key` é a chave do ponto de extremidade usada para consultar seu aplicativo. Embora seja possível usar a chave início/criação gratuita enquanto estiver treinando o LUIS, é importante alterar a chave de ponto de extremidade para uma chave que dê suporte ao [uso esperado do LUIS](luis-boundaries.md#key-limits). A unidade `timezoneOffset` é de minutos.
 
 A **resposta HTTPS** contém todas as informações de intenção e de entidade que o LUIS pode determinar com base no modelo publicado atual do ponto de extremidade de preparo ou de produção. A URL de ponto de extremidade é encontrada no site [LUIS](luis-reference-regions.md), na seção **Gerenciar**, na página **Chaves e os pontos de extremidade**.
 
@@ -425,7 +425,11 @@ Entidades de [expressão regular](luis-concept-entity-types.md) são descobertas
 ```
 
 ## <a name="extracting-names"></a>Extraindo nomes
-Obter nomes de uma declaração é difícil, porque um nome pode ser quase qualquer combinação de letras e palavras. Dependendo de qual tipo de nome você está extraindo, você tem várias opções. Elas não são regras, são diretrizes.
+Obter nomes de uma declaração é difícil, porque um nome pode ser quase qualquer combinação de letras e palavras. Dependendo de qual tipo de nome você está extraindo, haverá várias opções. As sugestões a seguir não são regras, mas mais diretrizes.
+
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Adicionar entidades PersonName e GeographyV2 predefinidas
+
+As entidades [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) estão disponíveis em algumas [culturas de linguagem](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nomes de pessoas
 Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade hierárquica com nomes e sobrenomes como filhos ou uma entidade simples com funções de nome e sobrenome. Certifique-se de dar exemplos que usam o nome e o sobrenome em diferentes partes da declaração, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a intenção None. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
@@ -434,7 +438,7 @@ Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultu
 Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Se seu aplicativo usar um conjunto conhecido de locais, considere a entidade de lista. Se você precisar localizar todos os nomes de locais, crie uma entidade simples e forneça uma variedade de exemplos. Adicione uma lista de frase de nomes de local para reforçar qual é a aparência de nomes de local em seu aplicativo. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
-Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esse é o tipo mais difícil de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esses tipos de nomes são os tipos mais difíceis de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ## <a name="pattern-roles-data"></a>Dados de funções de padrão
 Funções são diferenças contextuais de entidades.
@@ -603,6 +607,7 @@ A entidade de extração de frases-chave retorna frases-chave na declaração, f
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Dados que correspondem a várias entidades
+
 O LUIS retorna todas as entidades descobertas na declaração. Como resultado, seu chatbot pode precisar tomar uma decisão com base nos resultados. Uma declaração pode ter muitas entidades em uma declaração:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
@@ -728,6 +733,46 @@ O ponto de extremidade LUIS pode descobrir os mesmos dados em diferentes entidad
           "value": "business"
         }
       ]
+    }
+  ]
+}
+```
+
+## <a name="data-matching-multiple-list-entities"></a>Dados que correspondem a várias entidades de lista
+
+Se uma palavra ou frase for correspondente a mais de uma entidade de lista, a consulta de ponto de extremidade retornará cada entidade de lista.
+
+Para a consulta `when is the best time to go to red rock?`, e o aplicativo tiver a palavra `red` em mais de uma lista, o LUIS reconhecerá todas as entidades e retornará uma matriz de entidades como parte da resposta do ponto de extremidade JSON: 
+
+```JSON
+{
+  "query": "when is the best time to go to red rock?",
+  "topScoringIntent": {
+    "intent": "Calendar.Find",
+    "score": 0.06701678
+  },
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 31,
+      "endIndex": 33,
+      "resolution": {
+        "values": [
+          "Red"
+        ]
+      }
+    },
+    {
+      "entity": "red rock",
+      "type": "Cities",
+      "startIndex": 31,
+      "endIndex": 38,
+      "resolution": {
+        "values": [
+          "Destinations"
+        ]
+      }
     }
   ]
 }

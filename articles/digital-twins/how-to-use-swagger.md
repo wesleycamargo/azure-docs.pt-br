@@ -1,21 +1,22 @@
 ---
-title: Entenda como usar os Gêmeos Digitais do Azure Swagger | Microsoft Docs
-description: Usar o Gêmeos Digitais do Azure Swagger
+title: Noções básicas sobre como usar Swagger de referência de Gêmeos Digitais do Azure | Microsoft Docs
+description: Noções básicas sobre como usar a documentação de referência do Swagger de Gêmeos Digitais do Azure.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/31/2018
 ms.author: adgera
-ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624243"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975637"
 ---
-# <a name="use-azure-digital-twins-swagger"></a>Usar o Gêmeos Digitais do Azure Swagger
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência do Swagger de Gêmeos Digitais do Azure
 
 Cada instância de Gêmeos Digitais do Azure provisionada inclui sua própria documentação de referência do Swagger gerada automaticamente.
 
@@ -34,19 +35,19 @@ O Swagger fornece um resumo interativo da sua API, que inclui:
 * Exemplo de informações de resposta usadas para validar e confirmar respostas HTTP.
 * Informações de código de erro.
 
-O Swagger é uma ferramenta conveniente para auxiliar no desenvolvimento e no teste de chamadas feitas para a API de gerenciamento.
+O Swagger é uma ferramenta conveniente para auxiliar no desenvolvimento e teste de chamadas feitas às APIs de Gerenciamento de Gêmeos Digitais do Azure.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Material de referência
 
-Material de referência gerada automaticamente explica conceitos importantes e modelos de objeto.
+O material de referência do Swagger gerado automaticamente fornece uma visão geral rápida de conceitos importantes, pontos de extremidade de API de Gerenciamento disponíveis e uma descrição de cada modelo de objeto para auxiliar o desenvolvimento e teste.
 
 Um resumo descreve a API.
 
 ![Parte superior do Swagger][1]
 
-Modelos de objeto de API de núcleo também são listados.
+Os modelos de objeto da API de Gerenciamento também são listados.
 
 ![Modelos do Swagger][2]
 
@@ -58,7 +59,7 @@ Os modelos de objeto Swagger gerados são convenientes para ver todos os [objeto
 
 ## <a name="endpoint-summary"></a>Resumo de ponto de extremidade
 
-O Swagger também fornece uma visão completa de todos os pontos de extremidade que compõem a API.
+O Swagger também fornece uma visão geral completa de todos os pontos de extremidade que compõem as APIs de Gerenciamento.
 
 Cada terminal listado também inclui as informações de solicitação necessárias, como:
 

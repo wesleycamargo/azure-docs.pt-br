@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301541"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548588"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implantação contínua para Azure Functions
 As Funções do Azure facilitam a implantação do seu aplicativo de função utilizando a integração contínua do Serviço de Aplicativo. O Functions integra-se com BitBucket, Dropbox, GitHub e Azure DevOps. Isso permite que um fluxo de trabalho em que atualizações de código de função feitas utilizando um desses serviços integrados acione a implantação ao Azure. Se você for iniciante no Azure Functions, comece pela [Visão geral do Azure Functions](functions-overview.md).
@@ -26,7 +26,7 @@ A implantação contínua é uma ótima opção para projetos nos quais várias 
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * Repositório externo (Git ou Mercurial)
-* [Repositório local Git](../app-service/app-service-deploy-local-git.md)
+* [Repositório local Git](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Azure DevOps Services](https://www.visualstudio.com/team-services/)
@@ -52,7 +52,7 @@ Utilize o procedimento a seguir para configurar a implantação contínua para u
  
     ![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. Na folha **Origem da implantação**, clique em **Escolher fonte**, preencha as informações da origem de implantação escolhida e clique em **OK**.
+3. Na folha **Origem da implantação**, clique em **Escolher fonte**, preencha as informações da origem de implantação escolhida e clique em **OK**.
    
     ![Escolher a fonte de implantação](./media/functions-continuous-deployment/choose-deployment-source.png)
 
@@ -93,9 +93,9 @@ Quando houver funções existentes que você criou e manteve no portal, será pr
 > [!NOTE]
 > Depois de configurar a integração contínua, você não poderá mais editar os arquivos de origem no portal de Funções.
 
-- [Como configurar credenciais de implantação](#credentials)
-- [Como baixar arquivos usando FTP](#downftp)
-- [Como: baixar arquivos usando o repositório Git local](#downgit)
+- [Como: configurar credenciais de implantação](#credentials)
+- [Como: fazer o download de arquivos usando FTP](#downftp)
+- [Como: fazer o download de arquivos usando o repositório Git local](#downgit)
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>Como: configurar credenciais de implantação
@@ -108,7 +108,7 @@ Antes de baixar arquivos do aplicativo de funções com o FTP ou repositório Gi
 2. Digite um nome de usuário e senha e clique em **Salvar**. Agora você pode usar essas credenciais para acessar seu aplicativo de função do FTP ou do repositório Git interno.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Como: baixar arquivos usando FTP
+#### <a name="how-to-download-files-using-ftp"></a>Como: fazer o download de arquivos usando FTP
 
 1. No aplicativo de função do [Portal do Azure](https://portal.azure.com), clique em **recursos de Plataforma**e **Propriedades**, e copie os valores para **Usuário de FTP/Implantação**,**Nome do Host FTP** e**Nome de Host FTPS**.  
 
@@ -119,7 +119,7 @@ Antes de baixar arquivos do aplicativo de funções com o FTP ou repositório Gi
 2. No cliente de FTP, use as informações de conexão coletadas para se conectar ao aplicativo e baixar os arquivos de origem para suas funções.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Como: baixar arquivos usando o repositório Git local
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>Como: fazer o download de arquivos usando o repositório Git local
 
 1. Em seu aplicativo de função no [portal do Azure](https://portal.azure.com), clique em **Recursos da plataforma** e **Opções de implantação**. 
    

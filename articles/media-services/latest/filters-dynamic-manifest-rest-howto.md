@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/17/2018
 ms.author: juliako
-ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083404"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650834"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Criando filtros com a API REST de Serviços de Mídia do Microsoft Azure
 
@@ -31,12 +31,13 @@ Este tópico mostra como definir um filtro para um ativo vídeo por demanda e us
 Para concluir as etapas descritas neste tópico, você precisa:
 
 - Analise [Filtros e manifestos dinâmicos](filters-dynamic-manifest-overview.md).
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services. 
 - [Configurar o Postman para chamadas à API REST de Serviços de Mídia do Azure](media-rest-apis-with-postman.md).
+
+    Certifique-se de seguir a última etapa no tópico [Obter token do Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Definir um filtro  
 
-A seguir, o exemplo **Request body**, que define as condições de seleção de faixas adicionadas ao manifesto. Este filtro inclui todas as faixas de áudio inglesas com EC-3 e quaisquer faixas de vídeo com taxa de bits na faixa de 0 a 1000000.
+A seguir, o exemplo **Request body**, que define as condições de seleção de faixas adicionadas ao manifesto. Esse filtro inclui quaisquer faixas de áudio que sejam EC-3 e quaisquer faixas de vídeo com taxa de bits na faixa de 0 a 1000000.
 
 ```json
 {
@@ -50,14 +51,9 @@ A seguir, o exemplo **Request body**, que define as condições de seleção de 
                         "operation": "Equal"
                     },
                     {
-                        "property": "Language",
-                        "value": "en",
-                        "operation": "Equal"
-                    },
-                    {
                         "property": "FourCC",
                         "value": "EC-3",
-                        "operation": "NotEqual"
+                        "operation": "Equal"
                     }
                 ]
             },
@@ -86,7 +82,9 @@ Na coleção do Postman que você fez o download, selecione **Account Filters**-
 
 O método de solicitação HTTP **PUT** é semelhante a:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
 
 Selecione a guia **Body** e cole o código json [definido anteriormente](#define-a-filter).
 
@@ -98,11 +96,13 @@ Para mais informações, consulte [Criar ou atualizar](https://docs.microsoft.co
 
 ## <a name="create-asset-filters"></a>Crie filtros de ativos  
 
-Na coleção do Postman "Serviços de Mídia v3" que você fez o download, selecione **Ativos** -> ** Criar ou atualizar o Filtro de Ativos.
+Na coleção do Postman dos "Serviços de Mídia v3" que você baixou, selecione **Ativos**->**Criar ou atualizar Filtro de Ativos**.
 
 O método de solicitação HTTP **PUT** é semelhante a:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
 
 Selecione a guia **Body** e cole o código json [definido anteriormente](#define-a-filter).
 

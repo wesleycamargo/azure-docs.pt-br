@@ -1,22 +1,21 @@
 ---
 title: Cenários de uso da Loja de Consultas no Banco de Dados do Azure para o PostgreSQL
 description: Este artigo descreve alguns cenários para o Query Store no Banco de Dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: fc354a9545f3073a858c2b669d428d1fa4185073
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 24bd6fbcf47a340020b5ed171b84aeed9fa96fe8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377458"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53534649"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Cenários de uso de Store de consulta
 
-**Aplica-se a:** banco de dados do Azure para PostgreSQL 9.6 e 10
+**Aplica-se a:** Banco de Dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
 > O recurso Query Store está na visualização pública.

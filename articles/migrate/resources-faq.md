@@ -4,14 +4,14 @@ description: Apresenta respostas para perguntas frequentes sobre Migrações par
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
-ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257787"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975467"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -48,12 +48,13 @@ O Migrações para Azure é uma ferramenta de planejamento da migração e o Pla
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Em quais regiões geográficas do Azure há suporte das Migrações para Azure?
 
-No momento, as Migrações para Azure dão suporte aos Estados Unidos e ao Azure Governamental como regiões geográficas de projeto. Embora os projetos de migração possam ser criados apenas nessas regiões geográficas, você ainda pode avaliar os computadores de [vários locais de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A região geográfica do projeto é usada apenas para armazenar os metadados descobertos.
+No momento, as Migrações para Azure dão suporte a Europa, Estados Unidos e ao Azure Governamental como regiões geográficas de projeto. Embora os projetos de migração possam ser criados apenas nessas regiões geográficas, você ainda pode avaliar os computadores de [vários locais de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A região geográfica do projeto é usada apenas para armazenar os metadados descobertos.
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
-Estados Unidos | Centro-oeste dos EUA ou Leste dos EUA
 Azure Government | Gov. dos EUA – Virgínia
+Europa | Europa Setentrional ou Europa Ocidental
+Estados Unidos | Leste dos EUA ou Centro-oeste dos EUA
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Como o site local se conecta a Migrações para Azure?
 

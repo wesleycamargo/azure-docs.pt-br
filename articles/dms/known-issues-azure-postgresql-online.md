@@ -4,19 +4,19 @@ description: Saiba mais sobre as limitações de migração e os problemas conhe
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282869"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724124"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemas conhecidos/limitações de migração com migrações online para o BD do Azure para PostgreSQL
 
@@ -76,32 +76,32 @@ O problemas e limitações conhecidos associados às migrações online do Postg
 
 ## <a name="datatype-limitations"></a>Limitações de tipo de dados
 
-- **Limitação**: se houver um tipo de dados ENUM no banco de dados de origem do PostgreSQL, a migração falhará durante a sincronização contínua.
+- **Limitação**: Se houver um tipo de dados ENUM no banco de dados PostgreSQL de origem, a migração falhará durante a sincronização contínua.
 
-    **Solução alternativa**: modifique o tipo de dados ENUM para caractere que varie no Banco de Dados do Azure para PostgreSQL.
+    **Solução alternativa**: Modifique o tipo de dados ENUM para caractere que varie no Banco de Dados do Azure para PostgreSQL.
 
-- **Limitação**: se não houver nenhuma chave primária nas tabelas, a sincronização contínua falhará.
+- **Limitação**: Se não houver nenhuma chave primária nas tabelas, a sincronização contínua falhará.
 
-    **Solução alternativa**: defina temporariamente uma chave primária para a tabela para migração continuar. Você poderá remover a chave primária após a conclusão da migração de dados.
+    **Solução alternativa**: Defina temporariamente uma chave primária para a tabela para migração continuar. Você poderá remover a chave primária após a conclusão da migração de dados.
 
 ## <a name="lob-limitations"></a>Limitações de LOB
 Colunas de LOB (Objeto Grande) são colunas que podem crescer muito. Para PostgreSQL, exemplos de tipos de dados de LOB incluem XML, JSON, IMAGE, TEXT, etc.
 
-- **Limitação**: se tipos de dados de LOB forem usados como chaves primárias, a migração falhará.
+- **Limitação**: Se tipos de dados LOB forem usados como chaves primárias, a migração falhará.
 
-    **Solução alternativa**: substitua a chave primária por outros tipos de dados ou colunas que não sejam LOB.
+    **Solução alternativa**: Substitua a chave primária por outros tipos de dados ou colunas que não sejam LOB.
 
-- **Limitação**: se o tamanho da coluna de LOB (Objeto Grande) for maior que 32 KB, os dados poderão ser truncados no destino. Você pode verificar o tamanho da coluna de LOB usando esta consulta:
+- **Limitação**: Se o tamanho da coluna LOB (Objeto Grande) for maior que 32 KB, os dados poderão ser truncados no destino. Você pode verificar o tamanho da coluna de LOB usando esta consulta:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solução alternativa**: se houver um objeto LOB com mais de 32 KB, contate a equipe de engenharia em [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+    **Solução alternativa**: Se houver um objeto LOB com mais de 32 KB, contate a equipe de engenharia em [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
 
-- **Limitação**: se houver colunas de LOB na tabela e não houver conjunto de chaves primárias para a tabela, os dados podem não ser migrados para essa tabela.
+- **Limitação**: Se houver colunas LOB na tabela, e não houver conjunto de chaves primárias para a tabela, os dados podem não ser migrados para essa tabela.
 
-    **Solução alternativa**: defina temporariamente uma chave primária para a tabela para migração continuar. Você poderá remover a chave primária após a conclusão da migração de dados.
+    **Solução alternativa**: Defina temporariamente uma chave primária para a tabela para migração continuar. Você poderá remover a chave primária após a conclusão da migração de dados.
 
 ## <a name="postgresql10-workaround"></a>Solução alternativa do PostgreSQL10
 O PostgreSQL 10.x efetua várias alterações nos nomes das pastas pg_xlog e, portanto, faz com que a migração não seja executada conforme o esperado. Se você estiver migrando do PostgreSQL 10.x para o Banco de Dados do Azure para PostgreSQL 10.3, execute o seguinte script no Banco de Dados do Azure para PostgreSQL de origem para criar uma função wrapper em torno das funções pg_xlog.

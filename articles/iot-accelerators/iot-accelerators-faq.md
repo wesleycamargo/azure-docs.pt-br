@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre os aceleradores de solução do Azure IoT | Microsoft Docs
+title: Perguntas frequentes sobre aceleradores de solução do IoT - Azure | Microsoft Docs
 description: Perguntas frequentes sobre os aceleradores de solução do IoT
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253323"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608742"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas frequentes sobre os aceleradores de solução do IoT
 
@@ -32,7 +32,7 @@ O código-fonte é armazenado nos seguintes repositórios GitHub:
 
 É possível localizar links para as diferentes SDKs do dispositivo IoT de linguagem (C, .NET, Java, Node.js, Python) nos repositórios do GitHub das [SDKs de IoT do Microsoft Azure](https://github.com/Azure/azure-iot-sdks).
 
-Se você estiver usando o dispositivo DevKit, poderá encontrar recursos e exemplos no repositório do GitHub da [SDK de DevKit de IoT](https://github.com/Microsoft/devkit-sdk).
+Se você estiver usando o dispositivo DevKit, poderá encontrar recursos e exemplos no repositório GitHub do [SDK de DevKit do IoT](https://github.com/Microsoft/devkit-sdk).
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>A nova arquitetura de microsserviços está disponível para todos os três aceleradores de solução?
 
@@ -40,7 +40,28 @@ Atualmente, apenas a solução de monitoramento remoto usa a arquitetura de micr
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Quais são as vantagens que a nova arquitetura de software livre baseada em microsserviços fornecem na nova atualização?
 
-Nos últimos dois anos, arquitetura de nuvem evoluiu bastante. Os microsserviços foram lançados como um ótimo padrão para obter flexibilidade e escala sem sacrificar a velocidade de desenvolvimento. Esse padrão de arquitetura é usado em vários serviços da Microsoft internamente, com resultados de escalabilidade e confiabilidade excelentes. Estamos colocando esse aprendizado em prática para que os clientes se beneficiem dele.
+Nos últimos dois anos, arquitetura de nuvem evoluiu bastante. Os microsserviços foram lançados como um ótimo padrão para obter flexibilidade e escala sem sacrificar a velocidade de desenvolvimento. Esse padrão de arquitetura é usado em vários serviços da Microsoft internamente, com resultados de escalabilidade e confiabilidade excelentes. A Microsoft está colocando essas aprendizagens em prática nos aceleradores de solução para que os clientes possam aproveitá-las.
+
+### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>Sou um administrador de serviços e gostaria de alterar o mapeamento de diretório entre minha assinatura e um locatário específico do Azure AD. Como posso concluir esta tarefa?
+
+Consulte [Como adicionar uma assinatura existente ao seu diretório do Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Quero alterar um Administrador de Serviços ou um Coadministrador quando o logon for feito com uma conta organizacional
+
+Consulte o artigo de suporte [Alterar um Administrador de Serviços e um Coadministrador quando o logon for feito com uma conta organizacional](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
+
+### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Por que vejo este erro? "Sua conta não tem as permissões adequadas para criar uma solução. Verifique com o administrador da conta ou tente com uma conta diferente."
+
+Observe o seguinte diagrama para obter orientação:
+
+![Fluxograma de permissões](media/iot-accelerators-faq/flowchart.png)
+
+> [!NOTE]
+> Se você continuar recebendo o erro após validar que é um administrador global no locatário do Azure AD e um coadministrador na assinatura, solicite ao administrador da conta que remova o usuário e reatribua as permissões necessárias nesta ordem. Primeiro, adicione o usuário como um administrador global e adicione o usuário como um coadministrador na assinatura do Azure. Se o problema persistir, contate [Ajuda e Suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Por que estou vendo este erro se eu tenho uma assinatura do Azure? “Uma assinatura do Azure é necessária para criar soluções pré-configuradas. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos.”
+
+Se você tiver certeza de que tem uma assinatura do Azure, valide o mapeamento de locatário da assinatura e verifique se o locatário correto está selecionado no menu suspenso. Se você validou que o locatário está correto, siga o diagrama anterior e valide o mapeamento da assinatura e esse locatário do Azure AD.
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Onde posso encontrar informações sobre a versão anterior da solução de Monitoramento Remoto?
 
@@ -52,12 +73,12 @@ Sim, o novo monitoramento remoto está disponível nas mesmas regiões geográfi
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Qual é a diferença entre excluir um grupo de recursos no portal do Azure e clicar em excluir em um acelerador de solução no site azureiotsuite.com?
 
-* Se você excluir o acelerador de solução no site [azureiotsuite.com](https://www.azureiotsolutions.com/), todos os recursos provisionados na criação do acelerador de solução serão excluídos. Se você adicionou mais recursos ao grupo de recursos, esses recursos também serão excluídos.
+* Se você excluir o acelerador de solução no site [azureiotsuite.com](https://www.azureiotsolutions.com/), todos os recursos implantados na criação do acelerador de solução serão excluídos. Se você adicionou mais recursos ao grupo de recursos, esses recursos também serão excluídos.
 * Se você excluir o grupo de recursos no [Portal do Azure](https://portal.azure.com), somente os recursos nesse grupo de recursos serão excluídos. Você também precisa excluir o aplicativo do Azure Active Directory associado ao acelerador de solução.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Posso continuar meus investimentos existentes nos aceleradores de solução do Azure IoT?
 
-Sim. Qualquer solução que existe atualmente continuará a funcionar na sua assinatura do Azure e o código-fonte permanecerá disponível no GitHub.
+Sim. As soluções atualmente existentes continuarão funcionando na assinatura do Azure e o código-fonte ficará disponível no GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Hub IoT posso provisionar em uma assinatura?
 
@@ -78,7 +99,7 @@ Duas. Você só pode criar dois Bing Mapas de Transações Internas de Nível 1 
 
 Atualmente, você não pode criar um acelerador de solução com uma conta do [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/). No entanto, você pode criar uma [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos que permite a você criar um acelerador de solução.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Como posso excluir um locatário do AAD?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Como fazer para excluir um locatário do Azure AD?
 
 Veja a postagem no blog de Eric Golpe, [Passo a passo da exclusão de um locatário do Azure AD](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963587"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600294"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -37,7 +37,7 @@ veja [inscrever-se para uma assinatura do Azure com sua conta do Office 365](bil
 Outro nome para o [aplicativo de Serviço de Aplicativo](#app-service-app).
 
 ## <a name="app-service-app"></a>Aplicativo de Serviço de Aplicativo
-Os recursos de computação que o [Serviço de Aplicativo do Azure](app-service/app-service-web-overview.md) fornece para hospedar um site ou aplicativo Web, API Web ou [back-end de aplicativo móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicativos de Serviços de Aplicativos também são conhecidos como *Serviços de Aplicativos*, *aplicativos Web*, *aplicativos de API* e *aplicativos móveis*.
+Os recursos de computação que o [Serviço de Aplicativo do Azure](app-service/overview.md) fornece para hospedar um site ou aplicativo Web, API Web ou [back-end de aplicativo móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicativos de Serviços de Aplicativos também são conhecidos como *Serviços de Aplicativos*, *aplicativos Web*, *aplicativos de API* e *aplicativos móveis*.
 
 ## <a name="availability-set"></a>conjunto de disponibilidade
 Uma coleção de máquinas virtuais gerenciadas em conjunto a fim de fornecer redundância e confiabilidade de aplicativo. O uso de um conjunto de disponibilidade garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível.  
@@ -112,7 +112,7 @@ Veja [Visão geral do Azure Resource Manager](azure-resource-manager/resource-gr
 
 ## <a name="role"></a>função
 Um meio para controlar o acesso que pode ser atribuído a usuários, grupos e serviços. As funções são capazes de executar ações, por exemplo, criar, gerenciar e ler recursos do Azure.  
-Veja [RBAC: funções internas](role-based-access-control/built-in-roles.md)
+Consulte [RBAC: funções internas](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>SLA (contrato de nível de serviço)
 O contrato que descreve os compromissos da Microsoft em relação ao tempo de atividade e à conectividade. Cada serviço do Azure tem um SLA específico.  

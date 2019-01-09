@@ -9,18 +9,18 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 4c4a0ccfc93a6a48a0178183b94cc03cb576930a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0948251c18ad8eece974914ee33dff18b5930553
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226561"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535796"
 ---
 # <a name="text-moderation"></a>Moderação de texto
 
 Use a moderação de texto assistida por computador do Content Moderator e os recursos de [análise humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar o conteúdo de texto.
 
-Você bloqueia, aprova ou analisa o conteúdo com base nas políticas e limites. Use-o para aumentar a moderação humana de ambientes em que parceiros, funcionários e consumidores geram conteúdo de texto. Isso inclui salas de chat, quadros de discussão, chatbots, catálogos de comércio eletrônico e documentos. 
+Você bloqueia, aprova ou analisa o conteúdo com base nas políticas e limites. Use-o para aumentar a moderação humana de ambientes em que parceiros, funcionários e consumidores geram conteúdo de texto. Isso inclui salas de chat, fóruns de discussão, chatbots, catálogos de comércio eletrônico e documentos. 
 
 A resposta de serviço inclui as informações a seguir:
 

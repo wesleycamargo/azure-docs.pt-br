@@ -5,26 +5,26 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: f0765e010cb40a89f3f57d143c51bdfba72a4ba0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9a12ca5deeadfb7272532f404cc9cf7c030fb6c0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341925"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994344"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
 > [!NOTE]
-> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte para [alertas de métrica em tempo quase real mais recentes e uma nova experiência de alertas](../../azure-monitor/platform/alerts-overview.md). 
+> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte para [alertas de métrica em tempo quase real mais recentes e uma nova experiência de alertas](../../azure-monitor/platform/alerts-overview.md). Os alertas clássicos estão [agendados para serem desativados](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement).  
 >
 
 Os alertas permitem que você configure condições sobre dados e seja notificado quando as condições corresponderem aos dados de monitoramento mais recentes.
 
 ## <a name="old-and-new-alerting-capabilities"></a>Recursos de alerta novos e antigos
 
-No Azure Monitor anterior, o Application Insights, o Log Analytics e a Integridade do Serviço tinham recursos separados de alerta. Com o tempo, o Azure aprimorou e combinou a interface do usuário e os diferentes métodos de alerta. A consolidação ainda está em processo. Alertas
+Anteriormente, o Azure Monitor, Application Insights, Log Analytics e a Integridade do Serviço tinham recursos de alerta separados. Com o tempo, o Azure aprimorou e combinou a interface do usuário e os diferentes métodos de alerta. A consolidação ainda está em processo. Alertas
 
 Você pode exibir alertas clássicos apenas na tela do usuário de alertas clássicos no portal do Azure. Essa tela é obtida com o botão **Exibir alertas clássicos** na tela de alertas. 
 
@@ -39,7 +39,7 @@ A nova experiência de usuário de alertas tem os seguintes benefícios em rela�
 -   **Consolidação de alertas inteligentes** e **configuração do estado de alerta** – alertas mais recentes incluem a funcionalidade de agrupamento automático que mostra alertas semelhantes juntos para reduzir a sobrecarga na interface do usuário. 
 
 Os alertas de métrica mais recentes têm os seguintes benefícios em relação aos alertas de métrica clássicos:
--   **Latência melhorada**: alertas de métrica mais recentes podem ser executados com uma frequência mínima a cada um minuto. Os alertas de métrica antigos são sempre executados em uma frequência de 5 minutos. Os alertas mais recentes aumentam o atraso menor, desde a ocorrência do problema até a notificação ou ação (de 3 a 5 minutos). Alertas mais antigos são de 5 a 15 minutos, dependendo do tipo.  Normalmente, alertas de log têm de 10 a 15 minutos de atraso devido ao tempo necessário para ingerir os logs, mas métodos de processamento mais recentes estão reduzindo esse tempo. 
+-   **Latência melhorada**: alertas de métrica mais recentes podem ser executados com uma frequência mínima a cada um minuto. Os alertas de métrica antigos são sempre executados em uma frequência de 5 minutos. Os alertas mais recentes aumentam o atraso menor, desde a ocorrência do problema até a notificação ou ação (de 3 a 5 minutos). Alertas mais antigos são de 5 a 15 minutos, dependendo do tipo.  Os alertas do log normalmente têm um atraso de 10 a 15 minutos devido ao tempo gasto para ingerir os logs, mas os métodos de processamento mais recentes estão reduzindo esse tempo. 
 -   **Suporte para métricas multidimensionais**: você pode alertar sobre métricas dimensionais, permitindo que você monitore um segmento interessante da métrica.
 -   **Mais controle sobre as condições de métrica**: você pode definir regras de alerta mais avançadas. Os alertas mais recentes dão suporte ao monitoramento dos valores máximo, mínimo, média e total das métricas.
 -   **Monitoramento combinado de várias métricas**: você pode monitorar várias métricas (atualmente, até duas métricas) com uma única regra. Um alerta é disparado quando ambas as métricas violam seus respectivos limites para o período especificado.
@@ -50,9 +50,9 @@ Os alertas de métrica mais recentes têm os seguintes benefícios em relação 
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Alertas clássicos sobre dados do Azure Monitor
 Há dois tipos de alertas clássicos disponíveis - alertas de métrica e alertas de registro de atividades.
 
-* **Alertas de métrica clássicos**: este alerta é disparado quando o valor de uma métrica especificada ultrapassa um limite que você atribui. O alerta gera uma notificação quando é "Ativado" (quando o limite é ultrapassado e a condição de alerta é atendida). Ele também gera uma notificação quando é "Resolvido" (quando o limite é ultrapassado novamente e a condição não é mais atendida).
+* **Alertas de métrica clássicos**: este alerta é disparado quando o valor de uma métrica especificada ultrapassa um limite que você atribui. O alerta gera uma notificação quando esse limite é ultrapassado e a condição de alerta é atendida. Nesse ponto, o alerta é considerado "Ativado". Ele gera outra notificação quando é "Resolvido" - isto é, quando o limite é ultrapassado novamente e a condição não é mais atendida.
 
-* **Alertas do log de atividade clássicos** – um alerta do log de streaming que dispara quando um evento do Log de Atividades for gerado correspondendo aos critérios do filtro que você atribuiu. Esses alertas têm apenas um estado, "Ativado", pois o mecanismo de alerta simplesmente aplica os critérios do filtro a qualquer evento novo. Esses alertas podem ser usados para receber uma notificação quando um novo incidente de Integridade do Serviço ocorrer, ou quando um usuário ou aplicativo executar uma operação em sua assinatura, por exemplo, "Excluir a máquina virtual".
+* **Alertas clássicos do log de atividades** - Um alerta de log de streaming que é disparado em uma entrada de evento do Log de Atividades que corresponde aos critérios de filtragem. Esses alertas têm apenas um estado, "Ativado". O mecanismo de alertas simplesmente aplica os critérios de filtragem a qualquer novo evento. Ele não procura encontrar entradas mais antigas. Esses alertas podem notificá-lo quando ocorrer um novo incidente de Integridade do Serviço ou quando um usuário ou aplicativo executar uma operação na assinatura, por exemplo, "Excluir máquina virtual."
 
 Para dados de Log de Diagnóstico disponíveis por meio do Azure Monitor, roteie os dados para o Log Analytics (anteriormente OMS) e usar um alerta de consulta do Log Analytics. O Log Analytics agora usa o [novo método de alerta](../../azure-monitor/platform/alerts-overview.md) 
 
@@ -71,12 +71,12 @@ O Azure usa os termos a seguir para descrever alertas clássicos e suas funçõe
 ## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Como eu recebo uma notificação de um alerta clássico do Azure Monitor?
 Historicamente, os alertas do Azure de serviços diferentes usavam seus próprios métodos de notificação internos. 
 
-O Azure Monitor criou um agrupamento de notificação reutilizável chamado *grupos de ações*. Os grupos de ações especificam um conjunto de receptores para uma notificação, e sempre que um alerta que faça referência ao Grupo de Ações é ativado, todos os receptores recebem essa notificação. Os grupos de ações permitem que você reutilize um agrupamento de receptores (por exemplo, sua lista de engenheiros em serviço) em vários objetos de alerta. Os grupos de ações dão suporte para notificação, postando em uma URL do webhook além de endereços de email, números de SMS e várias outras ações.  Para obter mais informações, consulte [grupos de ações](../../azure-monitor/platform/action-groups.md). 
+O Azure Monitor criou um agrupamento de notificação reutilizável chamado *grupos de ações*. Grupos de ações especificam um conjunto de receptores para uma notificação. Sempre que um alerta for ativado fazendo referência ao Grupo de Ações, todos os receptores receberão essa notificação. Os grupos de ações permitem reutilizar um agrupamento de receptores (por exemplo, sua lista de engenheiros de plantão) em vários objetos de alerta. Os grupos de ações dão suporte para notificação, postando em uma URL do webhook além de endereços de email, números de SMS e várias outras ações.  Para obter mais informações, consulte [grupos de ações](../../azure-monitor/platform/action-groups.md). 
 
 Os alertas de log de atividades clássicos mais antigos usam grupos de ações.
 
 No entanto, os alertas de métrica mais antigos não usam grupos de ações. Em vez disso, é possível configurar as ações a seguir: 
-- Enviar notificações por email para o administrador do serviço, coadministradores e/ou emails adicionais especificados.
+- Enviar notificações por email ao administrador de serviços, aos administradores ou aos endereços de email adicionais que você especificar.
 - Chamar um webhook, o que permite inicializar ações de automação adicionais.
 
 Webhooks permite automação e correção, por exemplo, usando:
@@ -93,7 +93,7 @@ Obter informações sobre as regras de alerta e sobre como configurá-las usando
 * Configurar [PowerShell de alertas de métrica clássicos](alerts-classic-portal.md)
 * Configurar a [CLI (interface de linha de comando) de alertas de métrica clássicos](alerts-classic-portal.md)
 * Configurar a [API REST do Azure Monitor de alertas de métrica clássicos](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Saiba mais sobre o [Log de Atividades](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* Saiba mais sobre o [Log de Atividades](../../azure-monitor/platform/activity-logs-overview.md)
 * Configurar [alertas do Log de Atividades por meio do Portal do Azure](../../azure-monitor/platform/activity-log-alerts.md)
 * Configurar [alertas do Log de Atividades por meio do Resource Manager](alerts-activity-log.md)
 * Examine o [esquema do webhook de alertas do Log de Atividade](../../azure-monitor/platform/activity-log-alerts-webhook.md)

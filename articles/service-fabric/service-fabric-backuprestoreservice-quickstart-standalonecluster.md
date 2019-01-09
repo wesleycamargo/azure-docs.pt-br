@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721554"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580409"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e restauração periódicos no Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -146,6 +146,9 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+> [!IMPORTANT]
+> Devido a um problema no tempo de execução, certifique-se de que a duração da retenção na política de retenção está configurada para menos de 24 dias ou, caso contrário, resultará em um serviço de restauração de Backup para entrar em failover de réplica pós perda de quorum.
+
 ### <a name="enable-periodic-backup"></a>Habilitar backup periódico
 Depois de definir a política para atender aos requisitos de proteção de dados do aplicativo, a política de backup deve ser associada ao aplicativo. Dependendo do requisito, a política de backup pode ser associada um aplicativo, serviço ou partição.
 
@@ -222,9 +225,13 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+## <a name="known-issues"></a>Problemas conhecidos
+- Certifique-se de que a duração de retenção está configurada para ser menor que 24 dias. 
+- O serviço de Restauração de Backup não será exibido em locais onde o separador decimal for diferente de '.'
+- O serviço de Restauração de Backup não é exibido no cluster protegido com segurança baseada em gMSA.
+
 ## <a name="limitation-caveats"></a>Limite/Limitações
 - Nenhum cmdlet do PowerShell interno ao Service Fabric.
-- Não há suporte para a CLI do Service Fabric.
 - Não há suporte para clusters do Service Fabric no Linux.
 
 ## <a name="next-steps"></a>Próximas etapas

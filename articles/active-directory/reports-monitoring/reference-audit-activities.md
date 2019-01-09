@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622867"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971368"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
 
@@ -166,7 +166,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Autorização|Obter aplicativos V1|
 |Autorização|Obter aplicativo V2|
 |Autorização|Obter aplicativos V2|
-|Autorização|Obter um recurso de diretório do B2C|
+|Autorização|Obter recurso do Active Directory B2C|
 |Autorização|Obter uma lista de domínios personalizados no locatário|
 |Autorização|Obter um Percurso do Usuário|
 |Autorização|Obter declarações do aplicativo permitidas para o Percurso do Usuário|
@@ -227,9 +227,9 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Autorização|Atualizar política|
 |Autorização|Atualizar atributo de usuário|
 |Autorização|Carregar uma chave CPIM criptografada|
-|Autorização|Autorização do usuário: a API está desabilitada para o conjunto de recursos do locatário|
-|Autorização|Autorização do usuário: acesso concedido ao usuário como ‘Administrador do locatário’|
-|Autorização|Autorização do usuário: direitos de acesso concedidos ao usuário como 'Usuários autenticados'|
+|Autorização|Autorização do usuário: A API está desabilitada para o featureset do locatário|
+|Autorização|Autorização do usuário: Acesso concedido ao usuário como 'Admin Locatário'|
+|Autorização|Autorização do usuário: O usuário recebeu os direitos de acesso 'Usuários Autenticados'|
 |Autorização|Verificar se o recurso B2C está habilitado|
 |Autorização|Verificar se o recurso está habilitado|
 |Autorização|Criar programa|
@@ -395,7 +395,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de diretórios|Obter os recursos de diretório do B2C em uma assinatura|
 |Gerenciamento de diretórios|Obter IDP personalizado|
 |Gerenciamento de diretórios|Obter IDP|
-|Gerenciamento de diretórios|Obter um recurso de diretório do B2C|
+|Gerenciamento de diretórios|Obter recurso do Active Directory B2C|
 |Gerenciamento de diretórios|Obter um Percurso do Usuário|
 |Gerenciamento de diretórios|Obter declarações do aplicativo permitidas para o Percurso do Usuário|
 |Gerenciamento de diretórios|Obter declarações autodeclaradas permitidas para o Percurso do Usuário|
@@ -515,10 +515,10 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de grupos|Revisar solicitação de aprovação de solicitação|
 |Gerenciamento de grupos|Atualizar revisão de acesso|
 |Gerenciamento de grupos|Atualizar configurações de notificação de email da revisão de acesso|
-|Gerenciamento de grupos|Atualizar configuração da contagem de recorrência da revisão de acesso|
-|Gerenciamento de grupos|Atualizar configuração da duração de recorrência da revisão de acesso em dias|
-|Gerenciamento de Usuários|Atualizar configuração de tipo e recorrência da revisão de acesso|
-|Gerenciamento de Usuários|Atualizar configuração de tipo de recorrência da revisão de acesso|
+|Gerenciamento de grupos|Atualizar a configuração de contagem de recorrências da revisão de acesso|
+|Gerenciamento de grupos|Atualizar a duração de recorrência da revisão de acesso na configuração de dias|
+|Gerenciamento de Usuários|Atualizar a configuração do tipo final de recorrência da revisão de acesso|
+|Gerenciamento de Usuários|Atualizar a configuração do tipo de recorrência da revisão de acesso|
 
 
 
@@ -593,4 +593,4 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 - [Visão geral dos relatórios do Azure AD](overview-reports.md).
 - [Relatório de logs de auditoria](concept-audit-logs.md). 
-- [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)
+- [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)

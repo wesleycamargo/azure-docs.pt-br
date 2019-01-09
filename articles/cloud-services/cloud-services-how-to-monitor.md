@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42141660"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789459"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução ao Monitoramento de Serviço de Nuvem
 
-Você pode monitorar as principais métricas de desempenho de qualquer serviço de nuvem. Toda função de serviço de nuvem coleta o mínimo de dados: uso da CPU, uso da rede e utilização do disco. Se o serviço de nuvem tiver a extensão `Microsoft.Azure.Diagnostics` aplicada a uma função, essa função poderá coletar outros pontos de dados. Este artigo fornece uma introdução aos Diagnósticos do Azure para Serviços de Nuvem.
+Você pode monitorar as principais métricas de desempenho de qualquer serviço de nuvem. Cada função de serviço de nuvem coleta dados mínimos: uso da CPU, uso de rede e utilização de disco. Se o serviço de nuvem tiver a extensão `Microsoft.Azure.Diagnostics` aplicada a uma função, essa função poderá coletar outros pontos de dados. Este artigo fornece uma introdução aos Diagnósticos do Azure para Serviços de Nuvem.
 
 Com o monitoramento básico, os dados do contador de desempenho das instâncias de função passam por amostragem e são coletados em intervalos de três minutos. Esses dados de monitoramentos básico não são armazenados em sua conta de armazenamento, e não há custo adicional associado a eles.
 
@@ -93,13 +93,13 @@ Provavelmente, você tem dois arquivos **.cscfg**, um chamado **ServiceConfigura
 
 ## <a name="use-application-insights"></a>Usar o Application insights
 
-Ao publicar o Serviço de Nuvem do Visual Studio, você recebe a opção de enviar os dados de diagnóstico ao Application Insights. Você pode criar o recurso do Azure no Application Insights a qualquer momento ou enviar os dados para um recurso existente do Azure. Seu serviço de nuvem pode ser monitorado pelo Application Insights com relação à disponibilidade, ao desempenho, falhas e uso. É possível adicionar gráficos personalizados ao Application Insights, para que você veja os dados mais importantes. Os dados de instância da função podem ser coletados usando o SDK do Application Insights em seu projeto de serviço de nuvem. Para saber mais sobre como integrar o Application Insights, consulte [Application Insights com Serviços de Nuvem](../application-insights/app-insights-cloudservices.md).
+Ao publicar o Serviço de Nuvem do Visual Studio, você recebe a opção de enviar os dados de diagnóstico ao Application Insights. Você pode criar o recurso do Azure no Application Insights a qualquer momento ou enviar os dados para um recurso existente do Azure. Seu serviço de nuvem pode ser monitorado pelo Application Insights com relação à disponibilidade, ao desempenho, falhas e uso. É possível adicionar gráficos personalizados ao Application Insights, para que você veja os dados mais importantes. Os dados de instância da função podem ser coletados usando o SDK do Application Insights em seu projeto de serviço de nuvem. Para saber mais sobre como integrar o Application Insights, consulte [Application Insights com Serviços de Nuvem](../azure-monitor/app/cloudservices.md).
 
 Perceba que embora você possa usar o Application Insights para exibir os contadores de desempenho (e as outras configurações) especificados por meio da extensão de Diagnóstico do Windows Azure, você só terá uma experiência mais rica integrando o SDK do Application Insights às suas funções de trabalho e da Web.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba mais sobre o Application Insights com o Serviços de Nuvem](../application-insights/app-insights-cloudservices.md)
+- [Saiba mais sobre o Application Insights com o Serviços de Nuvem](../azure-monitor/app/cloudservices.md)
 - [Configurar contadores de desempenho](diagnostics-performance-counters.md)
 

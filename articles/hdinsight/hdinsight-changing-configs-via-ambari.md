@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498660"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722916"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use o Apache Ambari para otimizar as configurações de cluster do HDInsight
 
-O HDInsight fornece clusters [Apache Hadoop](https://hadoop.apache.org/) para aplicativos de processamento de dados de larga escala. Gerenciar, monitorar e otimizar esses clusters complexos com vários nós pode ser desafiador. [Apache Ambari](http://ambari.apache.org/) é uma interface da Web voltada para gerenciar e monitorar clusters Linux do HDInsight.  Para clusters do Windows, use a [API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+O HDInsight fornece clusters [Apache Hadoop](https://hadoop.apache.org/) para aplicativos de processamento de dados de larga escala. Gerenciar, monitorar e otimizar esses clusters complexos com vários nós pode ser desafiador. [Apache Ambari](https://ambari.apache.org/) é uma interface da Web voltada para gerenciar e monitorar clusters Linux do HDInsight.  Para clusters do Windows, use a [API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Para ver uma introdução ao uso da interface do usuário da Web do Ambari, consulte [Gerenciar clusters HDInsight usando a interface de usuário do Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
 
@@ -82,8 +82,8 @@ O Hive fornece dois mecanismos de execução: [Apache Hadoop MapReduce](https://
 
 O Hadoop tenta dividir (*mapear*) arquivos únicos em vários arquivos e processar os arquivos resultantes em paralelo. O número de mapeadores depende do número de divisões. Os dois parâmetros de configuração a seguir definem o número de divisões para o mecanismo de execução Tez:
 
-* `tez.grouping.min-size`: limite inferior do tamanho de uma divisão agrupada, com um valor padrão de 16 MB (16.777.216 bytes).
-* `tez.grouping.max-size`: limite superior do tamanho de uma divisão agrupada, com um valor padrão de 1 GB (1.073.741.824 bytes).
+* `tez.grouping.min-size`: Limite inferior do tamanho de uma divisão agrupada, com um valor padrão de 16 MB (16.777.216 bytes).
+* `tez.grouping.max-size`: Limite superior do tamanho de uma divisão agrupada, com um valor padrão de 1 GB (1.073.741.824 bytes).
 
 Como regra de desempenho geral, diminua esses dois parâmetros para melhorar a latência e aumente para aumentar a taxa de transferência.
 
@@ -189,7 +189,7 @@ Como regra geral, é importante que o método de compactação seja divisível. 
 
     ![Compactação intermediária de execução do Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Para compactar arquivos intermediários, escolha um codec de compactação com menor custo de CPU, mesmo se o codec não tiver uma alta saída de compactação.
 
 1. Para definir o codec de compactação intermediário, adicione a propriedade personalizada `mapred.map.output.compression.codec` ao arquivo `hive-site.xml` ou `mapred-site.xml`.
@@ -210,7 +210,7 @@ Como regra geral, é importante que o método de compactação seja divisível. 
 
     Isso compactará o arquivo intermediário usando a compactação do Snappy. Após ser adicionada, a propriedade aparecerá no painel hive-site personalizado.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Este procedimento modifica o arquivo `$HADOOP_HOME/conf/hive-site.xml`.
 
 ### <a name="compress-final-output"></a>Compactar a saída final
@@ -299,7 +299,7 @@ Propriedades de [Apache Pig](https://pig.apache.org/) podem ser modificadas da i
 
     ![Propriedades avançadas de Pig](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > As configurações de nível de sessão substituem os valores de propriedade no arquivo `pig.properties`.
 
 ### <a name="tune-execution-engine"></a>Ajustar mecanismo de execução
@@ -333,18 +333,18 @@ O Pig copia os arquivos JAR exigidos pelo UDFs para um cache distribuído para t
 
 As seguintes configurações de memória podem ajudar a otimizar o desempenho de script do Pig.
 
-* `pig.cachedbag.memusage`: a quantidade de memória alocada a um recipiente. Um recipiente é um conjunto de tuplas. Uma tupla é um conjunto ordenado de campos e um campo é uma parte dos dados. Se estiverem além da memória alocada, os dados em um recipiente serão despejados para o disco. O valor padrão é 0.2, que representa 20 por cento da memória disponível. Essa memória é compartilhada entre todos os recipientes em um aplicativo.
+* `pig.cachedbag.memusage`: A quantidade de memória alocada a um recipiente. Um recipiente é um conjunto de tuplas. Uma tupla é um conjunto ordenado de campos e um campo é uma parte dos dados. Se estiverem além da memória alocada, os dados em um recipiente serão despejados para o disco. O valor padrão é 0.2, que representa 20 por cento da memória disponível. Essa memória é compartilhada entre todos os recipientes em um aplicativo.
 
-* `pig.spill.size.threshold`: recipientes maiores que esse limite de tamanho de despejo (em bytes) são despejados para o disco. O valor padrão é 5 MB.
+* `pig.spill.size.threshold`: Recipientes maiores que esse limite de tamanho de despejo (em bytes) são despejados para o disco. O valor padrão é 5 MB.
 
 
 ### <a name="compress-temporary-files"></a>Compactar arquivos temporários
 
 O Pig gera arquivos temporários durante a execução do trabalho. Compactar os arquivos temporários resulta em uma melhoria do desempenho ao ler ou gravar arquivos no disco. As configurações a seguir podem ser usadas para compactar arquivos temporários.
 
-* `pig.tmpfilecompression`: quando for true, habilitará a compactação de arquivos temporários. O valor padrão é falso.
+* `pig.tmpfilecompression`: Quando for true, habilitará a compactação de arquivos temporários. O valor padrão é falso.
 
-* `pig.tmpfilecompression.codec`: o codec de compactação a ser usado para compactar os arquivos temporários. Os codecs de compactação recomendados são o [LZO](https://www.oberhumer.com/opensource/lzo/) e o Snappy para menor utilização da CPU.
+* `pig.tmpfilecompression.codec`: O codec de compactação a ser usado para compactar os arquivos temporários. Os codecs de compactação recomendados são o [LZO](https://www.oberhumer.com/opensource/lzo/) e o Snappy para menor utilização da CPU.
 
 ### <a name="enable-split-combining"></a>Habilitar combinação de divisão
 
@@ -395,9 +395,9 @@ O cache do bloco é o cache de leitura. Seu tamanho é controlado pelo parâmetr
 
 Todas as edições são armazenadas no buffer de memória, chamado de *Memstore*. Isso aumenta a quantidade total de dados que podem ser gravados em disco em uma única operação e acelera o acesso posterior às edições recentes. O tamanho do Memstore é definido pelos dois parâmetros a seguir:
 
-* `hbase.regionserver.global.memstore.UpperLimit`: define o percentual máximo do servidor de região que o Memstore combinado pode usar.
+* `hbase.regionserver.global.memstore.UpperLimit`: Define o percentual máximo do servidor de região que o Memstore combinado pode usar.
 
-* `hbase.regionserver.global.memstore.LowerLimit`: define o percentual mínimo do servidor de região que o Memstore combinado pode usar.
+* `hbase.regionserver.global.memstore.LowerLimit`: Define o percentual mínimo do servidor de região que o Memstore combinado pode usar.
 
 Para otimizar leituras aleatórias, você pode reduzir os limites superior e inferior do Memstore.
 
@@ -408,7 +408,7 @@ A configuração `hbase.client.scanner.caching` define o número de linhas lidas
 
 ![Número de linhas buscadas no HBase](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Não defina o valor de modo que o tempo entre a invocação do método seguinte em um scanner seja maior que o tempo limite do scanner. A duração do tempo limite do scanner é definida pela propriedade `hbase.regionserver.lease.period`.
 
 

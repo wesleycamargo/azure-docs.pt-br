@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db24cb1e1b303fbd3f0981390940732685c98baf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075853"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558797"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal Cloudyn
 
@@ -29,7 +29,7 @@ Existem três tipos de relatórios Cloudyn:
 
 - Relatórios ao longo do tempo. Por exemplo, o relatório Custo ao Longo do Tempo. Os relatórios ao longo do tempo mostram uma série de tempo dos dados ao longo de um intervalo selecionado com uma resolução predefinida e mostram uma resolução semanal para os últimos dois meses. Você pode usar o agrupamento e a filtragem para ampliar e ver vários pontos de dados.
   - Os relatórios ao longo do tempo podem ajudá-lo a exibir as tendências e detectar picos ou anomalias.
-- Relatórios de análise. Por exemplo, relatório de análise de custos. Esses relatórios mostram dados agregados ao longo de um período que você define e permite o agrupamento e a filtragem dos dados.
+- Relatórios de análise. Por exemplo, o relatório de Análise de Custo. Esses relatórios mostram dados agregados ao longo de um período que você define e permite o agrupamento e a filtragem dos dados.
   - Os relatórios de análise podem ajudá-lo a exibir os picos e determinar as causas raiz de anomalias e mostrar uma análise granular dos seus dados.
 - Relatórios tabulares. Você pode exibir qualquer relatório como uma tabela, mas alguns relatórios são exibidos apenas como uma tabela. Esses relatórios fornecem listas detalhadas de itens.
   - As recomendações são relatórios tabulares, não há visualizações para recomendações. No entanto, você pode visualizar os resultados de recomendações. Por exemplo, a economia ao longo do tempo.
@@ -63,7 +63,7 @@ Muitos relatórios Cloudyn mostram informações de orçamento depois de ter cri
 
 ## <a name="reports-and-reporting-features"></a>Relatórios e recursos de relatórios
 
-O Clouydn inclui os seguintes relatórios e recursos de relatórios.
+O Cloudyn inclui os seguintes relatórios e recursos de relatório.
 
 ### <a name="cost-navigator-report"></a>Relatório do Navegador de Custo
 

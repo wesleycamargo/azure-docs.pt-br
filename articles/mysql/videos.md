@@ -1,20 +1,17 @@
 ---
 title: Vídeos sobre o Banco de Dados do Azure para MySQL
 description: Esta página lista o conteúdo de vídeo relevante para saber mais sobre o Banco de Dados do Azure para MySQL, a oferta de MySQL gerenciado da Microsoft no Azure.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: f1fdab096c91290f58f5ec7263adc50ebaee5232
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 7bb584e24dcfaff34bbca2bc8a9db99a7007c8f0
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266543"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538576"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Vídeos sobre o Banco de Dados do Azure para MySQL
 

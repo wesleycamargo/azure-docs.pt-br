@@ -1,9 +1,9 @@
 ---
-title: Compilar soluções do Lote com modelos do Visual Studio - Azure | Microsoft Docs
+title: Compilar soluções com modelos do Visual Studio - Lote do Azure | Microsoft Docs
 description: Saiba como os modelos de projeto do Visual Studio podem ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote do Azure.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114089"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538116"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
 
@@ -111,21 +111,21 @@ O restante desta seção descreve os diferentes arquivos e sua estrutura de cód
 
 **Arquivos do Framework**
 
-* `Configuration.cs`: encapsula o carregamento de dados de configuração de trabalho, como detalhes da conta do Lote, credenciais da conta de armazenamento vinculada, informações sobre o trabalho e as tarefas e parâmetros do trabalho. Ele também fornece acesso a variáveis de ambiente definidas pelo Lote (consulte Configurações de ambiente para tarefas, na documentação do Lote) por meio da classe Configuration.EnvironmentVariable.
-* `IConfiguration.cs`: abstrai a implementação da classe Configuration, para que você possa testar a unidade de seu divisor de trabalho usando um objeto de configuração falso ou fictício.
-* `JobManager.cs`: coordena os componentes do programa Gerenciador de trabalho. Ele é responsável pela inicialização do divisor de trabalho, invocação do divisor de trabalho e distribuição de tarefas retornadas pelo divisor de trabalho para o emissor de tarefas.
-* `JobManagerException.cs`: representa um erro que exige o encerramento do Gerenciador de trabalho. JobManagerException é usado para encapsular erros “esperados”, em que as informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
-* `TaskSubmitter.cs`: essa classe é responsável por adicionar tarefas retornadas pelo divisor de trabalho para o trabalho do Lote. A classe JobManager agrega a sequência de tarefas em lotes para uma adição eficiente, e em tempo hábil, ao trabalho. Em seguida, ela chama TaskSubmitter.SubmitTasks em um thread em segundo plano para cada lote.
+* `Configuration.cs`: Encapsula o carregamento de dados de configuração de trabalho, como detalhes da conta do Lote, credenciais da conta de armazenamento vinculada, informações sobre o trabalho e as tarefas e parâmetros do trabalho. Ele também fornece acesso a variáveis de ambiente definidas pelo Lote (consulte Configurações de ambiente para tarefas, na documentação do Lote) por meio da classe Configuration.EnvironmentVariable.
+* `IConfiguration.cs`: Abstrai a implementação da classe Configuration, para que você possa testar a unidade de seu divisor de trabalho usando um objeto de configuração falso ou fictício.
+* `JobManager.cs`: Coordena os componentes do programa Gerenciador de trabalho. Ele é responsável pela inicialização do divisor de trabalho, invocação do divisor de trabalho e distribuição de tarefas retornadas pelo divisor de trabalho para o emissor de tarefas.
+* `JobManagerException.cs`: Representa um erro que exige o encerramento do gerenciador de trabalho. JobManagerException é usado para encapsular erros “esperados”, em que as informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
+* `TaskSubmitter.cs`: Essa classe é responsável por adicionar tarefas retornadas pelo divisor de trabalho para o trabalho do Lote. A classe JobManager agrega a sequência de tarefas em lotes para uma adição eficiente, e em tempo hábil, ao trabalho. Em seguida, ela chama TaskSubmitter.SubmitTasks em um thread em segundo plano para cada lote.
 
 **Divisor de trabalho**
 
-`JobSplitter.cs`: essa classe contém uma lógica específica ao aplicativo para dividir o trabalho em tarefas. O framework invoca o método JobSplitter.Split para obter uma sequência de tarefas, a qual ele adiciona ao trabalho à medida que o método as retorna. Essa é a classe na qual você injetará a lógica de seu trabalho. Implemente o método Split para retornar uma sequência de instâncias CloudTask representando as tarefas nas quais você deseja dividir o trabalho.
+`JobSplitter.cs`: Essa classe contém uma lógica específica ao aplicativo para dividir o trabalho em tarefas. O framework invoca o método JobSplitter.Split para obter uma sequência de tarefas, a qual ele adiciona ao trabalho à medida que o método as retorna. Essa é a classe na qual você injetará a lógica de seu trabalho. Implemente o método Split para retornar uma sequência de instâncias CloudTask representando as tarefas nas quais você deseja dividir o trabalho.
 
 **Arquivos de projeto de linha de comando .NET padrão**
 
-* `App.config`: arquivo de configuração padrão de aplicativo .NET.
-* `Packages.config`: arquivo de dependência padrão do pacote NuGet.
-* `Program.cs`contém o ponto de entrada do programa e a manipulação de exceção de nível superior.
+* `App.config`: Arquivo de configuração padrão de aplicativo .NET.
+* `Packages.config`: Arquivo de dependência padrão do pacote NuGet.
+* `Program.cs`: Contém o ponto de entrada do programa e a manipulação de exceção de nível superior.
 
 ### <a name="implementing-the-job-splitter"></a>Implementação do divisor de trabalho
 Quando você abre o projeto de modelo do Gerenciador de trabalhos, o projeto fará o arquivo JobSplitter.cs ser aberto por padrão. Você pode implementar a lógica de divisão para as tarefas em sua carga de trabalho usando o método Split() exibido abaixo:
@@ -280,13 +280,13 @@ O restante desta seção descreve os diferentes arquivos e sua estrutura de cód
 
 **Arquivos do Framework**
 
-* `Configuration.cs`: encapsula o carregamento de dados de configuração de trabalho, como detalhes da conta do Lote, credenciais da conta de armazenamento vinculada, informações sobre o trabalho e as tarefas e parâmetros do trabalho. Ele também fornece acesso a variáveis de ambiente definidas pelo Lote (consulte Configurações de ambiente para tarefas, na documentação do Lote) por meio da classe Configuration.EnvironmentVariable.
-* `IConfiguration.cs`: abstrai a implementação da classe Configuration, para que você possa testar a unidade de seu divisor de trabalho usando um objeto de configuração falso ou fictício.
-* `TaskProcessorException.cs`: representa um erro que exige o encerramento do Gerenciador de trabalho. TaskProcessorException é usado para encapsular erros “esperados”, em que as informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
+* `Configuration.cs`: Encapsula o carregamento de dados de configuração de trabalho, como detalhes da conta do Lote, credenciais da conta de armazenamento vinculada, informações sobre o trabalho e as tarefas e parâmetros do trabalho. Ele também fornece acesso a variáveis de ambiente definidas pelo Lote (consulte Configurações de ambiente para tarefas, na documentação do Lote) por meio da classe Configuration.EnvironmentVariable.
+* `IConfiguration.cs`: Abstrai a implementação da classe Configuration, para que você possa testar a unidade de seu divisor de trabalho usando um objeto de configuração falso ou fictício.
+* `TaskProcessorException.cs`: Representa um erro que exige o encerramento do gerenciador de trabalho. TaskProcessorException é usado para encapsular erros “esperados”, em que as informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
 
 **Processador de tarefas**
 
-* `TaskProcessor.cs`: executa a tarefa. O framework invoca o método TaskProcessor.Run. Essa é a classe na qual você injetará a lógica específica ao aplicativo de sua tarefa. Implemente o método Run para:
+* `TaskProcessor.cs`: Executa a tarefa. O framework invoca o método TaskProcessor.Run. Essa é a classe na qual você injetará a lógica específica ao aplicativo de sua tarefa. Implemente o método Run para:
   * Analisar e validar qualquer parâmetro de tarefa
   * Compor a linha de comando para qualquer programa externo que você deseja invocar
   * Registrar quaisquer informações de diagnóstico que você possa precisar para fins de depuração
@@ -297,9 +297,9 @@ O restante desta seção descreve os diferentes arquivos e sua estrutura de cód
 
 **Arquivos de projeto de linha de comando .NET padrão**
 
-* `App.config`: arquivo de configuração padrão de aplicativo .NET.
-* `Packages.config`: arquivo de dependência padrão do pacote NuGet.
-* `Program.cs`contém o ponto de entrada do programa e a manipulação de exceção de nível superior.
+* `App.config`: Arquivo de configuração padrão de aplicativo .NET.
+* `Packages.config`: Arquivo de dependência padrão do pacote NuGet.
+* `Program.cs`: Contém o ponto de entrada do programa e a manipulação de exceção de nível superior.
 
 ## <a name="implementing-the-task-processor"></a>Implementação do Processador de tarefa
 Quando você abre o projeto de modelo do Processador de tarefas, o projeto fará o arquivo TaskProcessor.cs ser aberto por padrão. Você pode implementar a lógica de execução para as tarefas em sua carga de trabalho usando o método Run() exibido abaixo:

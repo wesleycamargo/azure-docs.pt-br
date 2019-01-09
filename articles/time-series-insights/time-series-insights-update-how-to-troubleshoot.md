@@ -1,5 +1,5 @@
 ---
-title: Versão prévia do Azure Time Series Insights – diagnosticar e solucionar problemas | Microsoft Docs
+title: Diagnosticar e solucionar problemas da versão prévia do Azure Time Series Insights | Microsoft Docs
 description: Entenda como diagnosticar e solucionar problemas com a Versão prévia do Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e35439c80dea8ac47033464eeb57f7e9859fdcf5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275288"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556825"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnosticar e solucionar problemas
 

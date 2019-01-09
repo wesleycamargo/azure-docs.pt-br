@@ -1,6 +1,6 @@
 ---
-title: Configurar aplicativos Web – Serviço de Aplicativo do Azure
-description: Como configurar um aplicativo Web nos Serviços de Aplicativos do Azure
+title: Configurar aplicativos - Serviço de Aplicativo do Azure
+description: Como configurar um aplicativo no Serviço de Aplicativo do Azure
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,22 +15,20 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269423"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716456"
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicativos Web no Serviço de Aplicativo do Azure
+# <a name="configure-apps-in-azure-app-service"></a>Configurar aplicativos no Serviço de Aplicativo do Azure
 
-Este tópico explica como configurar um aplicativo Web usando o [Portal do Azure].
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Este tópico explica como configurar um aplicativo Web, back-end móvel ou aplicativo de API usando o [Portal do Azure].
 
 ## <a name="application-settings"></a>Configurações do aplicativo
-1. No [Portal do Azure], abra a folha do aplicativo Web.
-3. Clique em **Configurações do aplicativo**.
+1. No [Portal do Azure], abra a folha do aplicativo.
+2. Clique em **Configurações do aplicativo**.
 
 ![Configurações do aplicativo][configure01]
 
@@ -51,10 +49,10 @@ Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web Sockets**. Defina a opção como **ATIVADO** para habilitar o protocolo WebSocket; por exemplo, se seu aplicativo Web usar [ASP.NET SignalR] ou [socket.io](https://socket.io/).
+**Web Sockets**. Defina a opção como **ATIVADO** para habilitar o protocolo WebSocket; por exemplo, se seu aplicativo usar [ASP.NET SignalR] ou [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Sempre ativado**. Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um determinado período de tempo. Isso permite ao sistema conservar recursos. No modo Básico ou Padrão, você pode habilitar a opção **Sempre Ativado** para manter o aplicativo carregado o tempo todo. Se o aplicativo executar WebJobs contínuos ou executar WebJobs disparados com uma expressão CRON, você deverá habilitar a opção **Sempre ativo** ou os trabalhos Web poderão não ser executados de forma confiável.
+**Sempre ativado**. Por padrão, os aplicativos serão descarregados se estiverem ociosos por um determinado período de tempo. Isso permite ao sistema conservar recursos. No modo Básico ou Padrão, você pode habilitar a opção **Sempre Ativado** para manter o aplicativo carregado o tempo todo. Se o aplicativo executar WebJobs contínuos ou executar WebJobs disparados com uma expressão CRON, você deverá habilitar a opção **Sempre ativo** ou os trabalhos Web poderão não ser executados de forma confiável.
 
 **Versão do Pipeline Gerenciado**. Configurar o IIS [modo de pipeline]. Deixar este conjunto como Integrado (o padrão), a menos que você tenha um aplicativo herdado que exija uma versão anterior do IIS.
 
@@ -65,13 +63,13 @@ Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as
 
 **Afinidade ARR**. Em um aplicativo escalado horizontalmente para várias instâncias de VM, os cookies Afinidade ARR garantem que o cliente seja roteado para a mesma instância durante a vida útil da sessão. Para melhorar o desempenho de aplicativos sem estado, defina essa opção para **Off**.   
 
-**Troca Automática**. Se você habilitar a Troca Automática para um slot de implantação, o Serviço de Aplicativo alternará automaticamente o aplicativo Web em produção quando você enviar uma atualização por push para esse slot. Para saber mais, consulte [Implantar em slots de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md).
+**Troca Automática**. Se você habilitar a Troca Automática para um slot de implantação, o Serviço de Aplicativo alternará automaticamente o aplicativo em produção quando você enviar uma atualização por push para esse slot. Para saber mais, veja [Implantar em slots de preparo para aplicativos no Serviço de Aplicativo do Azure](deploy-staging-slots.md).
 
 ### <a name="debugging"></a>Depurando
-**Depuração Remota**. Habilita a depuração remota. Quando habilitado, você pode usar o depurador remoto no Visual Studio para conectar-se diretamente com seu aplicativo Web. A depuração remota permanecerá habilitada por 48 horas. 
+**Depuração Remota**. Habilita a depuração remota. Quando habilitado, você pode usar o depurador remoto no Visual Studio para conectar-se diretamente com seu aplicativo. A depuração remota permanecerá habilitada por 48 horas. 
 
 ### <a name="app-settings"></a>Configurações do aplicativo
-Esta seção contém pares de nome/valor que seu aplicativo Web carregará na inicialização. 
+Esta seção contém pares de nome/valor que seu aplicativo carregará na inicialização. 
 
 * Para aplicativos .NET, essas configurações serão injetadas em sua configuração `AppSettings` em tempo de execução, substituindo as configurações existentes. 
 * Para o Serviço de Aplicativo do Azure no Linux ou no Aplicativo Web para Contêineres, se você tiver aninhado a estrutura de chave json em seu nome, como `ApplicationInsights:InstrumentationKey` você precisará ter `ApplicationInsights__InstrumentationKey` como nome da chave. Portanto, observe que quaisquer `:` devem ser substituídos por `__` (ou seja, um sublinhado duplo).
@@ -102,7 +100,7 @@ As cadeias de conexão podem ser resolvidas a partir do Key Vault usando as [Ref
 ### <a name="default-documents"></a>Documentos padrão
 O documento padrão é a página da Web exibida na URL raiz de um site.  O primeiro arquivo correspondente na lista é usado. 
 
-Os aplicativos Web podem utilizar módulos que rotearão na URL, em vez de atender ao conteúdo estático, nesse caso, não há um documento padrão como tal.    
+Os aplicativos podem utilizar módulos que rotearão na URL, em vez de atender ao conteúdo estático, nesse caso, não há um documento padrão como tal.    
 
 ### <a name="handler-mappings"></a>Mapeamentos de manipulador
 Use essa área para adicionar processadores de script personalizados para manipular solicitações de extensões de arquivo específicas. 
@@ -117,7 +115,7 @@ Para configurar diretórios e aplicativos virtuais, especifique cada diretório 
 ## <a name="enabling-diagnostic-logs"></a>Habilitar logs de diagnóstico
 Para habilitar logs de diagnóstico:
 
-1. Na folha do seu aplicativo Web, clique em **Todas as configurações**.
+1. Na folha do seu aplicativo, clique em **Todas as configurações**.
 2. Clique em **Logs de diagnóstico**. 
 
 Opções para gravar os logs de diagnóstico de um aplicativo web que ofereça suporte ao registro em log: 
@@ -134,31 +132,31 @@ Opções para gravar os logs de diagnóstico de um aplicativo web que ofereça s
 
 Para exibir os arquivos de log, você deve criar credenciais FTP da seguinte maneira:
 
-1. Na folha do seu aplicativo Web, clique em **Todas as configurações**.
+1. Na folha do seu aplicativo, clique em **Todas as configurações**.
 2. Clique em **Credenciais de implantação**.
 3. Digite um nome de usuário e uma senha.
 4. Clique em **Salvar**.
 
 ![Definir credenciais de implantação][configure03]
 
-O nome de usuário completo do FTP é "app\nomedousuário", onde *app* é o nome do seu aplicativo Web. O nome de usuário é listado no aplicativo Web, em **Essentials**.
+O nome de usuário completo do FTP é "app\nomedousuário", onde *app* é o nome do seu aplicativo. O nome de usuário é listado no aplicativo, em **Essentials**.
 
 ![Credenciais de implantação FTP][configure02]
 
 ## <a name="other-configuration-tasks"></a>Outras tarefas de configuração
 ### <a name="ssl"></a>SSL
-no modo Básico ou Padrão, você pode carregar certificados SSL para domínios personalizados. Para saber mais, confira [Habilitar HTTPS para um aplicativo Web](app-service-web-tutorial-custom-ssl.md). 
+no modo Básico ou Padrão, você pode carregar certificados SSL para domínios personalizados. Para saber mais, confira [Habilitar HTTPS para um aplicativo](app-service-web-tutorial-custom-ssl.md). 
 
 Para exibir os certificados carregados, clique em **Todas as Configurações** > **Domínios personalizados e SSL**.
 
 ### <a name="domain-names"></a>Nomes de domínio
-Adicione nomes de domínio personalizados para seu aplicativo Web. Para saber mais, confira [Configurar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md).
+Adicione nomes de domínio personalizados para seu aplicativo. Para saber mais, confira [Configurar um nome de domínio personalizado para um aplicativo no Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md).
 
 Para exibir seus nomes de domínio, clique em **Todas as Configurações** > **Domínios personalizados e SSL**.
 
 ### <a name="deployments"></a>Implantações
-* Configure a implantação contínua. Confira [Usando Git para implantar aplicativos Web no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
-* Slots de implantação. Veja [Implantar em ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure].
+* Configure a implantação contínua. Confira [Como usar o Git para implantar aplicativos no Serviço de Aplicativo do Azure](deploy-local-git.md).
+* Slots de implantação. Veja [Implantar em ambientes de preparo no Serviço de Aplicativo do Azure].
 
 Para exibir seus slots de implantação, clique em **Todas as Configurações** > **Slots de implantação**.
 
@@ -167,29 +165,23 @@ No modo Básico ou Standard, você pode testar a disponibilidade dos pontos de e
 
 Para obter mais informações, confira [Como monitorar o status de ponto de extremidade da Web].
 
-> [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo], em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-> 
-> 
-
 ## <a name="next-steps"></a>Próximas etapas
 * [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure]
 * [Habilitar HTTPS para um aplicativo no Serviço de Aplicativo do Azure]
-* [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure]
-* [Conceitos básicos de monitoramento para aplicativos Web no Serviço de Aplicativo do Azure]
+* [Dimensionar um aplicativo no Serviço de Aplicativo do Azure]
+* [Conceitos básicos de monitoramento no Serviço de Aplicativo do Azure]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Portal do Azure]: https://portal.azure.com/
 [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure]: ./app-service-web-tutorial-custom-domain.md
-[Implantar em ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure]: ./web-sites-staged-publishing.md
+[Implantar em ambientes de preparo no Serviço de Aplicativo do Azure]: ./deploy-staging-slots.md
 [Habilitar HTTPS para um aplicativo no Serviço de Aplicativo do Azure]: ./app-service-web-tutorial-custom-ssl.md
 [Como monitorar o status de ponto de extremidade da Web]: https://go.microsoft.com/fwLink/?LinkID=279906
-[Conceitos básicos de monitoramento para aplicativos Web no Serviço de Aplicativo do Azure]: ./web-sites-monitor.md
+[Conceitos básicos de monitoramento no Serviço de Aplicativo do Azure]: ./web-sites-monitor.md
 [modo de pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure]: ./web-sites-scale.md
-[Experimentar o Serviço de Aplicativo]: https://azure.microsoft.com/try/app-service/
+[Dimensionar um aplicativo no Serviço de Aplicativo do Azure]: ./web-sites-scale.md
 
 <!-- IMG List -->
 

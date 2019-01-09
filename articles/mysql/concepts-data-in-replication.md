@@ -1,20 +1,17 @@
 ---
 title: Replicar dados no Banco de Dados do Azure para MySQL.
 description: Este artigo descreve a replicação nos dados para o Banco de Dados do Azure para MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666069"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544219"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados no Banco de Dados do Azure para MySQL
 
@@ -23,8 +20,8 @@ A Replicação nos dados permite sincronizar dados de um Servidor MySQL em execu
 ## <a name="when-to-use-data-in-replication"></a>Quando usar a replicação nos dados
 Os cenários principais nos quais considerar o uso da replicação nos dados são:
 
-- **Sincronização de dados híbrida:** com a replicação nos dados, você pode manter os dados sincronizados entre os servidores locais e o Banco de Dados do Azure para MySQL. Essa sincronização é útil para criar aplicativos híbridos. Esse método é atraente quando você tem um servidor de banco de dados local existente, mas deseja mover os dados para uma região mais próxima aos usuários finais.
-- **Sincronização de várias nuvens:** para soluções de nuvem complexas, use a replicação nos dados para sincronizar dados entre o Banco de Dados do Azure para MySQL e provedores de nuvem diferentes, incluindo máquinas virtuais e serviços de banco de dados nessas nuvens.
+- **Sincronização de Dados Híbrida:** Com a Replicação de Dados, você pode manter os dados sincronizados entre os servidores locais e o Banco de Dados do Azure para MySQL. Essa sincronização é útil para criar aplicativos híbridos. Esse método é atraente quando você tem um servidor de banco de dados local existente, mas deseja mover os dados para uma região mais próxima aos usuários finais.
+- **Sincronização de várias nuvens:** Para soluções na nuvem complexas, use Replicação de Dados para sincronizar dados entre o Banco de Dados do Azure para MySQL e diferentes provedores de nuvem, incluindo máquinas virtuais e serviços de banco de dados hospedados nessas nuvens.
 
 ## <a name="limitations-and-considerations"></a>Limitações e considerações
 

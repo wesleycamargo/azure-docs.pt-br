@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: cb7e867ea4304cf8b8741eac183e60d325c752c7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 09c8b63cddde547b0dc42cf1f15a8ac5002d0a3e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141842"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725131"
 ---
 # <a name="content-protection-overview"></a>Visão geral de proteção do conteúdo
 
@@ -180,7 +180,7 @@ Como você autorizar solicitações para transmitir vídeos com a criptografia A
 
 A abordagem correta é aproveitar o STS (serviço de Token seguro):
 
-No STS, dependendo do perfil do usuário, adicione declarações diferentes (por exemplo, "Usuário Premium", "Usuário básico", "Usuário de avaliação gratuita"). Com diferentes declarações JWT, o usuário pode ver é diferente do conteúdo. É claro que, para conteúdo diferente/ativo, o ContentKeyPolicyRestriction terá o RequiredClaims correspondente.
+No STS, dependendo do perfil do usuário, adicione declarações diferentes (como "Usuário Premium", "Usuário Básico", "Usuário de Avaliação Gratuita"). Com diferentes declarações JWT, o usuário pode ver é diferente do conteúdo. É claro que, para conteúdo diferente/ativo, o ContentKeyPolicyRestriction terá o RequiredClaims correspondente.
 
 Use APIs de serviços de mídia do Azure para configurar a licença/chave entrega e criptografar seus ativos (conforme mostrado em [Este exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
 

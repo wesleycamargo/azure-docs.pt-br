@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 78c840efebd2e451747e2490fc4d2f363afa9a09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 618be936ef0326a1b9f5db426d4c37bb2bd1c760
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263251"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535651"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Otimizar o custo de armazenamento no Azure Cosmos DB
 
@@ -27,7 +27,7 @@ O Azure Cosmos DB espera que o tamanho do item seja 2 MB ou menos para um desemp
 
 ## <a name="optimize-cost-with-indexing"></a>Otimizar o custo com a indexação
 
-Por padrão, os dados são automaticamente indexados, o que pode aumentar o armazenamento total consumido. No entanto, você pode aplicar políticas de índice personalizadas para reduzir essa sobrecarga. Indexação automática que não foi ajustada por meio da diretiva é cerca de 10 a 20% do tamanho do item. Removendo ou personalizando as políticas de índice, você não paga por gravações de custo extra e não exige a capacidade de taxa de transferência adicional. Consulte [Indexação no Cosmos DB](indexing-policies.md) para configurar as políticas de indexação personalizadas. Se você tiver trabalhado com bancos de dados relacionais antes, você pode pensar que "indexar tudo" significa a duplicação de armazenamento ou superior. No entanto, no Azure Cosmos DB, no caso médio, é muito menor. No Azure Cosmos DB, a sobrecarga de armazenamento de índice é normalmente baixa (10 a 20%) mesmo com a indexação automática, porque foi projetado para um volume de armazenamento baixo. Ao gerenciar a política de indexação, você pode controlar a compensação de desempenho de consulta e o espaço de índice de uma maneira mais refinada.
+Por padrão, os dados são automaticamente indexados, o que pode aumentar o armazenamento total consumido. No entanto, você pode aplicar políticas de índice personalizadas para reduzir essa sobrecarga. Indexação automática que não foi ajustada por meio da diretiva é cerca de 10 a 20% do tamanho do item. Removendo ou personalizando as políticas de índice, você não paga por gravações de custo extra e não exige a capacidade de taxa de transferência adicional. Consulte [Indexar no Azure Cosmos DB](indexing-policies.md) para configurar políticas de indexação personalizadas. Se você tiver trabalhado com bancos de dados relacionais antes, você pode pensar que "indexar tudo" significa a duplicação de armazenamento ou superior. No entanto, no Azure Cosmos DB, no caso médio, é muito menor. No Azure Cosmos DB, a sobrecarga de armazenamento de índice é normalmente baixa (10 a 20%) mesmo com a indexação automática, porque foi projetado para um volume de armazenamento baixo. Ao gerenciar a política de indexação, você pode controlar a compensação de desempenho de consulta e o espaço de índice de uma maneira mais refinada.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Otimizar o custo com tempo live e o feed de alterações
 
@@ -54,10 +54,10 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 
 A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmos DB nos seguintes artigos:
 
-* Saiba mais em [Otimizar para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais em [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais sobre [Otimizando para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre [Entendendo sua cobrança do Azure Cosmos DB](understand-your-bill.md)
 * Saiba mais em [Otimizar o custo da taxa de transferência](optimize-cost-throughput.md)
 * Saiba mais em [Otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais em [Otimizar o custo de consultas](optimize-cost-queries.md)
-* Saiba mais em [Otimizar o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)
+* Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
+* Saiba mais sobre [Otimizando o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)
 

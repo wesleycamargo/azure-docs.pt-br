@@ -1,7 +1,7 @@
 ---
 title: Descrevendo imagens – pesquisa Visual computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados à descrição de imagens usando a API do Computer Vision.
+description: Conceitos relacionados ao recurso de descrição de imagem da API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 423d1be57bc800108a08a81b72587ca2711bbc3d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 5b920e4ce8df131b81a9ef6ce2d66c7082d8f5e4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342408"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583401"
 ---
-# <a name="describing-images"></a>Descrever imagens
+# <a name="describe-images-with-human-readable-language"></a>Descrever imagens com linguagem legível por humanos
 
 Algoritmos do pesquisa Visual computacional analisam o conteúdo em uma imagem. Essa análise constitui a base para a 'description' exibida como um idioma legível por humanos em sentenças completas. A descrição resume o que é encontrado na imagem. Os algoritmos da Computer Vision geram várias descrições baseadas nos recursos visuais identificados na imagem. Cada descrição é avaliada e uma pontuação de confiança é gerada. Uma lista é então retornada, ordenada pela pontuação de confiança mais alta à mais baixa.
 
@@ -25,7 +26,7 @@ Algoritmos do pesquisa Visual computacional analisam o conteúdo em uma imagem. 
 
 A resposta JSON a seguir ilustra o que o Computer Vision retorna ao descrever a imagem de exemplo com base em seus recursos visuais.
 
-![Edifícios P&B](./Images/bw_buildings.png)
+![Uma imagem em preto e branco dos edifícios em Manhattan](./Images/bw_buildings.png)
 
 ```json
 {

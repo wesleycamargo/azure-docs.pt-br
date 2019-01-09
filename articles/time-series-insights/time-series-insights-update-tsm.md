@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights – Modelo do Time Series | Microsoft Docs
+title: Modelo do Time Series na Versão Prévia do Azure Time Series Insights | Microsoft Docs
 description: Entendendo o modelo do Time Series do Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278178"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716575"
 ---
 # <a name="time-series-model"></a>Modelo do Time Series
 
@@ -136,7 +136,7 @@ Considere o exemplo abaixo, em que a hierarquia H1 tem *building*, *floor* e *ro
  H1 = [“building”, “floor”, “room”]
 ```
 
-Dependendo dos *campos de instância*, os atributos e valores da hierarquia aparecem conforme mostrado na tabela abaixo: 
+Dependendo dos *campos de instância*, os atributos e valores da hierarquia aparecem conforme mostrado na tabela abaixo:
 
 | ID da série temporal | Campos de instância |
 | --- | --- |
@@ -144,9 +144,9 @@ Dependendo dos *campos de instância*, os atributos e valores da hierarquia apar
 | ID2 | “building” = “1000”, “room” = “55” |
 | ID3 | “floor” = “10” |
 | ID4 | “building” = “1000”, “floor” = “10”  |
-| ID5 | |
+| ID5 | Nenhum de "edifício", "andar" ou "sala" está definido |
 
-No exemplo anterior, ID1 aparece como parte da hierarquia H1 na interface do usuário/experiência do usuário, e o restante é classificado como *Instâncias Órfãs* porque não está em conformidade com a hierarquia de dados especificada.
+No exemplo anterior, ID1 e ID4 são mostrados como parte da hierarquia H1 no explorador do Azure Time Series Insights e os restantes são classificados em *Instâncias Órfãs* porque não estão em conformidade com a hierarquia de dados especificada.
 
 ## <a name="time-series-model-instances"></a>Instâncias do modelo do Time Series
 

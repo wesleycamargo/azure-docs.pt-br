@@ -1,20 +1,17 @@
 ---
 title: Conectar aplicativos ao Banco de Dados do Azure para MySQL
 description: Este documento lista as cadeias de conexão com suporte no momento para os aplicativos se conectarem ao Banco de Dados do Azure para MySQL, incluindo ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python e Ruby.
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 06bd91adb0a86198f7709d0989624657ce00dfa9
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 721950160974ef21f88791e64a41cfe0dd2b23ba
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037855"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546752"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como conectar aplicativos ao Banco de Dados do Azure para MySQL
 Este tópico lista os tipos de cadeia de conexão com suporte do Banco de Dados do Azure para MySQL, juntamente com modelos e exemplos. Você pode ter parâmetros e configurações diferentes na cadeia de conexão.
@@ -65,7 +62,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obter os detalhes da cadeia de conexão no portal do Azure
-No [Portal do Azure](https://portal.azure.com), acesse o servidor de Banco de Dados do Azure para MySQL e clique em **Cadeias de conexão** para obter a lista de cadeia de caracteres da sua instância: ![O painel Cadeias de conexão no Portal do Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
+No [portal do Azure](https://portal.azure.com), acesse o servidor de Banco de Dados do Azure para MySQL e clique em **Cadeias de conexão** para obter a lista de cadeia de caracteres da sua instância: ![O painel Cadeias de conexão no portal do Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 A cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados. Modifique esses exemplos para usar seus próprios parâmetros, como o nome do banco de dados, a senha e assim por diante. Depois, use essa cadeia de caracteres para se conectar ao servidor por meio do código e dos aplicativos.
 

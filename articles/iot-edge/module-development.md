@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 50e9c0667761e43c63b03fbaf5f8ce93eb49e749
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 878ff5901df80398afff7f429c41f102da3edba4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100082"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793577"
 ---
-# <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge
+# <a name="develop-your-own-iot-edge-modules"></a>Desenvolva seus próprios módulos do IoT Edge
 
-Este artigo explica quais funcionalidades estão disponíveis ao escrever aplicativos que são executados como módulo do IoT Edge e como aproveitar esses recursos.
+Os módulos do Azure IoT Edge podem conectar outros serviços do Azure e contribuir para o pipeline de dados em nuvem maior. Este artigo descreve como é possível desenvolver módulos para comunicação com o tempo de execução do IoT Edge e Hub IoT e, portanto, com o restante da nuvem do Azure. 
 
 ## <a name="iot-edge-runtime-environment"></a>Ambiente de tempo de execução do IoT Edge
 O tempo de execução do IoT Edge fornece a infraestrutura para integrar a funcionalidade de vários módulos do IoT Edge e implantá-los nos dispositivos IoT Edge. Em um nível alto, qualquer programa pode ser empacotado como um módulo do IoT Edge. No entanto, para aproveitar ao máximo as funcionalidades de gerenciamento e comunicação do IoT Edge, um programa em execução em um módulo pode se conectar ao hub do IoT Edge local, integrado no tempo de execução do IoT Edge.
@@ -37,17 +37,14 @@ No momento, um módulo não pode receber mensagens de nuvem para dispositivo nem
 
 Ao gravar um módulo, você pode usar o [Azure IoT Device SDK](../iot-hub/iot-hub-devguide-sdks.md) para se conectar ao hub IoT Edge e usar a funcionalidade acima como faria ao usar o IoT Hub com um aplicativo de dispositivo, a única diferença sendo que, de seu back-end de aplicativo, você deve se referir à identidade do módulo em vez da identidade do dispositivo.
 
-Consulte [Desenvolver e implantar um módulo IoT Edge em um dispositivo simulado](tutorial-csharp-module.md) para obter um exemplo de um aplicativo de módulo que envia mensagens de dispositivo para nuvem e usa o módulo gêmeo.
-
 ### <a name="device-to-cloud-messages"></a>Mensagens do dispositivo para a nuvem
-Para habilitar o processamento complexo de mensagens de dispositivo para nuvem, o hub do IoT Edge fornece o roteamento declarativo de mensagens entre módulos e entre módulos e Hub IoT. O roteamento declarativo permite que os módulos interceptem e processem mensagens enviadas por outros módulos e os propaguem em pipelines complexos. O artigo [Composição do módulo](module-composition.md) explica como compor módulos em pipelines complexos usando rotas.
+Para habilitar o processamento complexo de mensagens de dispositivo para nuvem, o Hub do IoT Edge fornece roteamento declarativo de mensagens entre módulos e entre módulos e Hub IoT. O roteamento declarativo permite que os módulos interceptem e processem mensagens enviadas por outros módulos e os propaguem em pipelines complexos. Para obter mais informações, consulte [implantar módulos e estabelecer rotas no IoT Edge](module-composition.md).
 
 Um módulo IoT Edge, em oposição a um aplicativo de dispositivo Hub IoT normal, pode receber mensagens de dispositivo para nuvem que estão sendo intermediadas por proxy por seu hub IoT Edge local para processá-las.
 
-O hub IoT Edge propaga as mensagens para o seu módulo com base nas rotas declarativas descritas no artigo [Module composition](module-composition.md). Ao desenvolver um módulo IoT Edge, você pode receber essas mensagens definindo manipuladores de mensagens.
+O Hub do IoT Edge propaga as mensagens para o módulo com base nas rotas declarativas descritas no [manifesto de implantação](module-composition.md). Ao desenvolver um módulo IoT Edge, você pode receber essas mensagens definindo manipuladores de mensagens.
 
-Para simplificar a criação de rotas, o IoT Edge adiciona o conceito de pontos de extremidade de *entrada* e *saída* do módulo. Um módulo pode receber todas as mensagens de dispositivo para nuvem roteadas a ele sem especificar nenhuma entrada e pode enviar mensagens de dispositivo para nuvem sem especificar nenhuma saída.
-Usar entradas e saídas explícitas, porém, torna as regras de roteamento mais simples de entender. Para obter mais informações sobre regras de roteamento e pontos de extremidade de entrada e saídos para os módulos, consulte [composição do módulo](module-composition.md).
+Para simplificar a criação de rotas, o IoT Edge inclui o conceito de pontos de extremidade de *entrada* e *saída*. Um módulo pode receber todas as mensagens de dispositivo para nuvem roteadas a ele sem especificar nenhuma entrada e pode enviar mensagens de dispositivo para nuvem sem especificar nenhuma saída. Usar entradas e saídas explícitas, porém, torna as regras de roteamento mais simples de entender. 
 
 Por fim, as mensagens de dispositivo para nuvem tratadas pelo hub do Edge são marcadas com as seguintes propriedades de sistema:
 
@@ -60,12 +57,11 @@ Por fim, as mensagens de dispositivo para nuvem tratadas pelo hub do Edge são m
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Conectar-se ao hub do IoT Edge a partir de um módulo
 Conectar-se ao hub IoT Edge local a partir de um módulo envolve duas etapas: 
-1. Use a cadeia de conexão fornecida pelo tempo de execução do IoT Edge quando o módulo é iniciado.
+1. Crie uma instância ModuleClient no aplicativo.
 2. Verifique se que seu aplicativo aceita o certificado apresentado pelo hub do IoT Edge nesse dispositivo.
 
-A cadeia de conexão a ser usada é injetada pelo tempo de execução do IoT Edge na variável de ambiente `EdgeHubConnectionString`. Isso a disponibiliza para qualquer programa que deseje usá-la.
+Crie uma instância ModuleClient para conectar o módulo ao Hub do IoT Edge em execução no dispositivo, de modo semelhante como as instâncias DeviceClient conectam dispositivos ao Hub IoT. Para obter mais informações sobre a classe ModuleClient e seus métodos de comunicação, consulte a referência de API para seu idioma preferencial do SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C and Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), or [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
-De maneira semelhante, o certificado a ser usado para validar a conexão de hub do IoT Edge é injetado pelo tempo de execução do IoT Edge em um arquivo cujo caminho está disponível na variável de ambiente `EdgeModuleCACertificateFile`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

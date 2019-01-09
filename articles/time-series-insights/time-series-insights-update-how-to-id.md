@@ -1,5 +1,5 @@
 ---
-title: Versão prévia do Azure Time Series Insights - Práticas recomendadas para a escolha de uma ID do Time Series | Microsoft Docs
+title: Melhores práticas para escolher uma ID do Time Series na Versão Prévia do Azure Time Series Insights | Microsoft Docs
 description: Noções básicas sobre as práticas recomendadas quando você escolhe uma ID do Time Series na Versão prévia do Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 766bd0c838ead707e5af3f43bf7be9f1ffd9658e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 44c6c8a55bbcbf76cf48fd17a6e52d188a5e99fc
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272534"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556604"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Práticas recomendadas para escolher uma ID do Time Series
 

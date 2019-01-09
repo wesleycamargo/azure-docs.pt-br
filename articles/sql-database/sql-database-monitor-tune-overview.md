@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272857"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602339"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoramento e ajuste de desempenho
 
@@ -91,7 +91,7 @@ O problema de PSP (plano confidencial de parâmetro) se refere a um cenário em 
 
 Há várias soluções alternativas, usadas para atenuar os problemas, cada uma com seus prós e contras:
 
-- Use a dica de consulta [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) em cada execução da consulta. Essa solução alternativa equilibra tempo de compilação e aumento de CPU para melhor qualidade do plano. Muitas vezes não é possível usar a opção `RECOMPILE` para cargas de trabalho que exigem uma alta taxa de transferência.
+- Use a dica de consulta [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) em cada execução da consulta. Essa solução negocia o tempo de compilação e aumenta a CPU para melhorar a qualidade do plano. Muitas vezes não é possível usar a opção `RECOMPILE` para cargas de trabalho que exigem uma alta taxa de transferência.
 - Use a dica de consulta [OPTION (OPTIMIZE FOR…)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) para substituir o valor de parâmetro real por um valor de parâmetro típico que produz um plano bom o suficiente para a maioria das possibilidades de valor de parâmetro.   Essa opção requer uma boa compreensão dos valores de parâmetro ideais e características de plano associadas.
 - Use a dica de consulta [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) para substituir o valor do parâmetro real em troca de usar a média do vetor de densidade. Outra maneira de fazer isso é capturar os valores de parâmetro de entrada em variáveis locais e, em seguida, usar as variáveis locais dentro de predicados, em vez de usar parâmetros em si. A densidade média deve ser *boa o suficiente* com esse conserto específico.
 - Desabilite totalmente a detecção de parâmetro usando a dica de consulta [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query).
@@ -104,7 +104,7 @@ Para obter informações adicionais sobre como resolver esses tipos de problemas
 
 - Esta postagem no blog [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) (farejar um parâmetro)
 - Esta postagem no blog [parameter sniffing problem and workaroundss](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) (problema de detecção de parâmetro e soluções alternativas)
-- Esta postagem no blog [elephant and mouse parameter sniffing](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) (detecção de parâmetro de elefante e camundongo)
+- Esta postagem no blog [elephant and mouse parameter sniffing](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) (detecção de parâmetro de elefante e camundongo)
 - Esta postagem no blog [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) (sql dinâmico vs. qualidade de plano para consultas parametrizadas)
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Solução de problemas de atividade de compilação devido a parametrização inadequada

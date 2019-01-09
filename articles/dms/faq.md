@@ -4,19 +4,19 @@ description: Saiba mais sobre as perguntas frequentes sobre o uso do Serviço de
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 12/19/2018
+ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887097"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714688"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Perguntas Frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure
 Este artigo lista as perguntas frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure junto com as respostas relacionadas.
@@ -28,7 +28,7 @@ O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente ge
 - Investimento contínuo em migrações sem conflitos.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>P. Para quais pares de origem e destino o Serviço de Migração de Banco de Dados do Azure oferece suporte?
-Atualmente, o serviço dá suporte a migrações do SQL Server para Banco de Dados SQL do Azure e você pode acessar o portal do Azure agora para começar a usar o Serviço de Migração de Banco de Dados do Azure para este cenário. Outros pares de destino de origem, como Oracle para Banco de Dados SQL do Azure, estão disponíveis por meio de uma Versão Prévia Privada limitada. Para uma oportunidade de participar da Versão Prévia Privada limitada desses cenários, inscreva-se [aqui](https://aka.ms/dms-preview/).
+O serviço atualmente dá suporte para uma variedade de cenários de migração. Para obter uma listagem completa do status de cada cenário de migração disponível, consulte o artigo [Status dos cenários de migração com suporte pelo Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/resource-scenario-status). Outros cenários de migração estão em versão prévia limitada e exigem o envio de uma nominação por meio do site da Versão Prévia do DMS. Para obter uma listagem completa dos cenários de visualização limitada e para inscrever-se para participar de uma dessas ofertas, consulte o [site da Versão Prévia do DMS](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>P. Como o Serviço de Migração de Banco de Dados do Azure se compara com outras ferramentas de migração de banco de dados da Microsoft, como o Assistente de Migração de Banco de Dados (DMA) ou o Assistente de Migração do SQL Server (SSMA)?
 O Serviço de Migração de Banco de Dados do Azure é o método preferencial para a migração de banco de dados para o Microsoft Azure em grande escala. Para obter mais detalhes sobre como o Serviço de Migração de Banco de Dados do Azure se compara a outras ferramentas de migração de banco de dados da Microsoft e para obter recomendações sobre como usar o serviço para vários cenários, consulte a postagem de blog [Diferenciando serviços e ferramentas de migração de banco de dados da Microsoft](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).

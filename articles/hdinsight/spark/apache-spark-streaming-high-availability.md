@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1d9a7caa7ab70ef1f0da41e1ec3f30780f93536a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581894"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649714"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Crie tarefas do Apache Spark Streaming de alta disponibilidade com o YARN
 
@@ -122,6 +122,6 @@ Para resumir, usando o ponto de verificação + WAL + receptores confiáveis, vo
 
 * [Visão geral do Streaming do Apache Spark](apache-spark-streaming-overview.md)
 * [Criar trabalhos de Streaming do Apache Spark com exatamente-uma vez o evento de processamento](apache-spark-streaming-exactly-once.md)
-* [Trabalhos de Streaming do Apache de longa execução Spark no YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
-* [Streaming estruturado: semântica de tolerância a falhas](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Streams discretizado: um modelo de tolerância a falhas para processamento de fluxo escalonável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Trabalhos de Streaming do Apache de longa execução Spark no YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Fluxo Estruturado: Semântica de tolerância a falhas](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [Streams discretizados: Um modelo tolerante a falhas para processamento de stream escalonável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

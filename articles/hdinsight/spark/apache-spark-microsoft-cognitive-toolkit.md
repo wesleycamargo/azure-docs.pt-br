@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: f3e590ec5dded03ce9c6ab2f7a21d51048020622
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012582"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651820"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Use o modelo de aprendizado profundo treinado das Ferramentas Cognitivas da Microsoft com o cluster do Azure HDInsight Spark
 
@@ -39,15 +39,15 @@ Essa solução é dividida entre este artigo e um Notebook Jupyter que é carreg
 
 As seguintes etapas restantes são abordadas no Notebook Jupyter.
 
-- Carregar imagens de exemplo em um Conjunto de dados distribuído resiliente, ou RDD, do Spark
-   - Carregar módulos e definir predefinições
-   - Baixar o conjunto de dados localmente no cluster do Spark
-   - Converter o conjunto de dados em um RDD
-- Classificar as imagens usando um modelo treinado do Kit de Ferramentas Cognitivas
-   - Baixar o modelo treinado do Kit de Ferramentas Cognitivas no cluster do Spark
-   - Definir funções a serem usadas por nós de trabalho
-   - Classificar as imagens em nós de trabalho
-   - Avaliar a precisão do modelo
+- Carregar imagens de exemplo em um Conjunto de Dados Distribuído Resiliente, ou RDD, do Spark.
+   - Carregar módulos e definir predefinições.
+   - Baixar o conjunto de dados localmente no cluster do Spark.
+   - Converter o conjunto de dados em um RDD.
+- Classificar as imagens usando um modelo treinado do Cognitive Toolkit.
+   - Baixar o modelo treinado do Cognitive Toolkit no cluster do Spark.
+   - Definir funções a serem usadas por nós de trabalho.
+   - Classificar as imagens em nós de trabalho.
+   - Avaliar a precisão do modelo.
 
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>Instalar o Kit de Ferramentas Cognitivas da Microsoft
@@ -90,15 +90,15 @@ Para usar o Kit de Ferramentas Cognitivas da Microsoft com o cluster do Azure HD
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Apache Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema de HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de log do site usando o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Análise de dados do Application Insight telemetria usando o Apache Spark no HDInsight](apache-spark-analyze-application-insight-logs.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos
 * [Criar um aplicativo autônomo usando Scala](apache-spark-create-standalone-application.md)
-* [Executar trabalhos remotamente em um cluster do Apache Spark usando o Livy](apache-spark-livy-rest-interface.md)
+* [Execute trabalhos remotamente em um cluster do Apache Spark usando o Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](apache-spark-intellij-tool-plugin.md)

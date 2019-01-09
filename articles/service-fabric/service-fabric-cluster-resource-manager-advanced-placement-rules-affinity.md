@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 57abea79a620aa83e16ad4cc2fd78a4294f2b278
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204848"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543829"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurando e usando a afinidade de serviço no Service Fabric
 A afinidade é um controle fornecido principalmente para ajudar a facilitar a transição de aplicativos monolíticos maiores para a nuvem e o mundo de microsserviços. Ela também é usada como uma otimização para melhorar o desempenho de serviços, embora fazer isso possa ter efeitos colaterais.
@@ -72,7 +72,7 @@ Atualmente, o Gerenciador de Recursos de Cluster não é capaz de modelar cadeia
 ![Cadeias vs. estrelas no contexto de relações de afinidade][Image2]
 </center>
 
-Outra coisa a ser observada sobre as relações atuais de afinidade é que elas são direcionais. Isso significa que a regra de afinidade impõe apenas que o filho seja posicionado onde o pai estiver. Ela não garante que o pai fique localizado com o filho. Também é importante observar que a relação de afinidade não pode ser perfeita ou imposta instantaneamente, pois serviços diferentes têm ciclos de vida diferentes e podem falhar e mover-se independentemente. Por exemplo, digamos que o pai, de repente, faça failover para outro nó após uma falha. O Gerenciador de Recursos de Cluster e o Gerenciador de Failover lidam com o failover primeiro, pois manter os serviços em atividade, consistentes e disponíveis é a prioridade. Quando o failover for concluído, a relação de afinidade estará interrompida, mas o Gerenciador de Recursos de Cluster considerará que tudo está indo bem até perceber que o filho não está localizado com o pai. Esses tipos de verificações são executados periodicamente. Mais informações sobre como o Gerenciador de Recursos de Cluster avalia restrições estão disponíveis [neste artigo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types) e [este](service-fabric-cluster-resource-manager-balancing.md) fala mais sobre como configurar a cadência com que essas restrições são avaliadas.   
+Outro aspecto a ser observado sobre as relações de afinidade atualmente é que elas são direcionais por padrão. Isso significa que a regra de afinidade impõe apenas que o filho seja posicionado onde o pai estiver. Ela não garante que o pai fique localizado com o filho. Portanto, se houver uma violação de afinidade e, para corrigir a violação por algum motivo não for viável mover o filho para o nó pai, então - mesmo se movesse o pai para o nó filho pudesse corrigir a violação - o pai não será movido para o nó filho. Definindo a configuração [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) como verdadeiro removeria a direcionalidade. Também é importante observar que a relação de afinidade não pode ser perfeita ou imposta instantaneamente, pois serviços diferentes têm ciclos de vida diferentes e podem falhar e mover-se independentemente. Por exemplo, digamos que o pai, de repente, faça failover para outro nó após uma falha. O Gerenciador de Recursos de Cluster e o Gerenciador de Failover lidam com o failover primeiro, pois manter os serviços em atividade, consistentes e disponíveis é a prioridade. Quando o failover for concluído, a relação de afinidade estará interrompida, mas o Gerenciador de Recursos de Cluster considerará que tudo está indo bem até perceber que o filho não está localizado com o pai. Esses tipos de verificações são executados periodicamente. Mais informações sobre como o Gerenciador de Recursos de Cluster avalia restrições estão disponíveis [neste artigo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types) e [este](service-fabric-cluster-resource-manager-balancing.md) fala mais sobre como configurar a cadência com que essas restrições são avaliadas.   
 
 
 ### <a name="partitioning-support"></a>Suporte ao particionamento

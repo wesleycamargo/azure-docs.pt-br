@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271378"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993052"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Recurso de lista de frases em seu aplicativo LUIS
 
@@ -29,6 +29,10 @@ Uma lista de frases inclui um grupo de valores (palavras ou frases) que pertence
 
 Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um segundo sinal ao LUIS sobre essas palavras.
 
+## <a name="phrase-lists-help-all-models"></a>Listas de frases ajudam todos os modelos
+
+As listas de frases não são vinculadas a uma intenção ou entidade específica, mas são adicionadas como um boost em todos os modelos. Sua finalidade é melhorar a detecção de intenções e a classificação de entidades.
+
 ## <a name="how-to-use-phrase-lists"></a>Como usar as listas de frase
 No [tutorial de entidade simples](luis-quickstart-primary-and-secondary-data.md) do aplicativo de Recursos Humanos, o aplicativo usa a lista de frases **Trabalho** para tipos de trabalho, como programador, carpinteiro e secretária. Se você rotular um desses valores como uma entidade de aprendizado de máquina, o LUIS aprenderá a reconhecer os outros. 
 
@@ -40,6 +44,7 @@ Uma lista de frases pode ser intercambiável ou não. Uma lista de frases *inter
 |Não intercambiável|Vocabulário do aplicativo, específico de seu aplicativo, mais do que outras palavras do idioma de modo geral.|
 
 Listas de frases não só ajudam com a detecção de entidade, mas também com a classificação intenção, em que o uso de termos não intercambiáveis faz sentido, como ao adicionar palavras de vocabulário que não são conhecidas no idioma inglês.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

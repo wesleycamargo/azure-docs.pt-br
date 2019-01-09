@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833305"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974347"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -20,6 +20,7 @@ Se sua máquina virtual protegida for uma máquina virtual do Windows, será nec
 
 > [!IMPORTANT]
 > A partir da versão 9.10.0 do servidor de destino mestre, o servidor de destino mestre mais recente somente pode ser instalado em um servidor Ubuntu 16.04. Novas instalações não são permitidas em servidores CentOS6.6. No entanto, você pode continuar a atualizar os servidores de destino mestre antigos usando a versão 9.10.0.
+> Não há suporte para o servidor de destino mestre no LVM.
 
 ## <a name="overview"></a>Visão geral
 Este artigo fornece instruções sobre como instalar um destino mestre do Linux.
@@ -59,7 +60,7 @@ Há suporte para os kernels do Ubuntu a seguir.
 
 Use as seguinte as etapas para instalar o sistema de operacional de 64 bits do Ubuntu 16.04.2.
 
-1.   Vá até o [link de download](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64) e escolha o espelho mais próximo para baixar um ISO do Ubuntu 16.04.2 Minimal de 64 bits.
+1.   Vá até o [link de download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso) e escolha o espelho mais próximo para baixar um ISO do Ubuntu 16.04.2 Minimal de 64 bits.
 Mantenha um ISO do Ubuntu 16.04.2 Minimal de 64 bits na unidade de DVD e inicie o sistema.
 
 1.  Selecione **Inglês** como o idioma de preferência e selecione **Enter**.

@@ -1,8 +1,8 @@
 ---
-title: Executar tarefas em contas de usuário no Lote do Azure | Microsoft Docs
+title: Executar tarefas em contas de usuário - Lote do Azure | Microsoft Docs
 description: Configurar contas de usuário para executar tarefas no Lote do Azure
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: danlep
-ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133191"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542825"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
@@ -58,7 +59,7 @@ Para saber mais sobre como acessar arquivos e diretórios de uma tarefa, confira
 
 O nível de elevação da conta de usuário indica se uma tarefa é executada com acesso elevado. Tanto uma conta de usuário automático, quanto uma conta de usuário nomeado podem ser executadas com acesso elevado. As duas opções de nível de elevação são:
 
-- **Não Administrador:** a tarefa é executada como um usuário padrão sem acesso elevado. O nível de elevação padrão de uma conta de usuário do Lote é sempre **Não Administrador**.
+- **Não administrador:** a tarefa é executada como um usuário padrão sem acesso elevado. O nível de elevação padrão de uma conta de usuário do Lote é sempre **Não Administrador**.
 - **Administrador:** a tarefa é executada como um usuário com acesso elevado e opera com permissões completas de Administrador. 
 
 ## <a name="auto-user-accounts"></a>Contas de usuário automático
@@ -93,7 +94,7 @@ Você pode configurar a especificação de usuário automático para privilégio
 >
 >
 
-Os trechos de código a seguir mostram como configurar a especificação de usuário automático. Os exemplos definem o nível de elevação para `Admin` e o escopo para `Task`. O escopo de tarefa é a configuração padrão, mas está incluído aqui em virtude do exemplo.
+Os snippets de código a seguir mostram como configurar a especificação de usuário automático. Os exemplos definem o nível de elevação para `Admin` e o escopo para `Task`. O escopo de tarefa é a configuração padrão, mas está incluído aqui em virtude do exemplo.
 
 #### <a name="batch-net"></a>.NET no Lote
 
@@ -142,7 +143,7 @@ O compartilhamento de segredos entre tarefas é um cenário em que a execução 
 
 Outro cenário em que talvez seja conveniente executar tarefas em uma conta de usuário automático com escopo de pool é em um compartilhamento de arquivos MPI (Interface de Transmissão de Mensagens). Um compartilhamento de arquivos MPI é útil quando os nós da tarefa MPI precisam trabalhar nos mesmos dados de arquivo. O nó de cabeçalho cria um compartilhamento de arquivos que os nós filho podem acessar se estiverem sendo executados na mesma conta de usuário automático. 
 
-O trecho de código a seguir define o escopo do usuário automático para escopo de pool em uma tarefa do .NET no Lote. O nível de elevação é omitido, de modo que a tarefa é executada na conta de usuário automático em todo o pool padrão.
+O snippet de código a seguir define o escopo do usuário automático para escopo de pool em uma tarefa do .NET no Lote. O nível de elevação é omitido, de modo que a tarefa é executada na conta de usuário automático em todo o pool padrão.
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
@@ -162,7 +163,7 @@ As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É p
 
 ### <a name="create-named-user-accounts"></a>Criar contas de usuário nomeado
 
-Para criar contas de usuário nomeado no Lote, adicione um conjunto de contas de usuário no pool. Os trechos de código a seguir mostram como criar contas de usuário nomeado em .NET, Java e Python. Esses trechos de código mostram como criar contas nomeadas de administrador e não administrador em um pool. Os exemplos criam pools usando a configuração de serviço de nuvem, mas você usa a mesma abordagem na criação de um pool do Windows ou Linux usando a configuração da máquina virtual.
+Para criar contas de usuário nomeado no Lote, adicione um conjunto de contas de usuário no pool. Os snippets de código a seguir mostram como criar contas de usuário nomeado em .NET, Java e Python. Esses snippets de código mostram como criar contas nomeadas de administrador e não administrador em um pool. Os exemplos criam pools usando a configuração de serviço de nuvem, mas você usa a mesma abordagem na criação de um pool do Windows ou Linux usando a configuração da máquina virtual.
 
 #### <a name="batch-net-example-windows"></a>Exemplo de .NET do Lote (Windows)
 
@@ -296,7 +297,7 @@ batch_client.pool.add(pool)
 
 Para executar uma tarefa como um usuário com acesso elevado, defina a propriedade **UserIdentity** da tarefa como uma conta de usuário nomeado que foi criada com sua propriedade **ElevationLevel** definida como `Admin`.
 
-Este trecho de código especifica que a tarefa deve ser executada em uma conta de usuário nomeado. Essa conta de usuário nomeado foi definida no pool quando este foi criado. Nesse caso, a conta de usuário nomeado foi criada com permissões de administrador:
+Este snippet de código especifica que a tarefa deve ser executada em uma conta de usuário nomeado. Essa conta de usuário nomeado foi definida no pool quando este foi criado. Nesse caso, a conta de usuário nomeado foi criada com permissões de administrador:
 
 ```csharp
 CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");

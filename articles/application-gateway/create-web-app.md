@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 99a4dd25539db754a893ddda7480c64e5a13a5bd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353332"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631508"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Configurar Aplicativos Web do Serviço de Aplicativo com o Gateway de Aplicativo
+# <a name="configure-app-service-with-application-gateway"></a>Configurar Serviço de Aplicativo com Gateway de Aplicativo
 
-O gateway de aplicativo permite que você tenha um Aplicativo Web do Azure, ou outro serviço multilocatário, como um membro de pool de back-ends. Neste artigo, você aprenderá a configurar um aplicativo Web do Azure com o Gateway de Aplicativo. O primeiro exemplo mostra como configurar um gateway de aplicativo existente para usar um aplicativo Web como membro do pool de back-ends. O segundo exemplo mostra como criar um novo gateway de aplicativo com um aplicativo Web como membro do pool de back-ends.
+O Gateway de Aplicativo permite que você tenha um aplicativo do Serviço de Aplicativo ou outro serviço multilocatário como um membro do pool de back-end. Neste artigo, você aprenderá como configurar um aplicativo do Serviço de Aplicativo com Gateway de Aplicativo. O primeiro exemplo mostra como configurar um gateway de aplicativo existente para usar um aplicativo Web como membro do pool de back-ends. O segundo exemplo mostra como criar um novo gateway de aplicativo com um aplicativo Web como membro do pool de back-ends.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>Configurar um aplicativo Web por trás de um gateway de aplicativo existente
 
@@ -163,4 +163,4 @@ Uma forma de você restringir o acesso a seus aplicativos web de uma maneira é 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como configurar o redirecionamento visitando: [Configurar o redirecionamento no Gateway de Aplicativo com o PowerShell](redirect-overview.md).
+Saiba como configurar o redirecionamento, visitando: [Como configurar o redirecionamento no Gateway de Aplicativo com PowerShell](redirect-overview.md).

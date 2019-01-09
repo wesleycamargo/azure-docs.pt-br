@@ -1,7 +1,7 @@
 ---
 title: Controle de versão
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Saiba como usar versões para gerenciar alterações no LUIS (Reconhecimento vocal)
+description: As versões no LUIS são semelhantes às versões na programação tradicional. Cada versão é um instantâneo no tempo do aplicativo. Antes de fazer alterações no aplicativo, crie uma nova versão. É mais fácil voltar para o aplicativo exato e, em seguida, tentar remover e retornar a intenção e os enunciados do aplicativo para um estado anterior.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 3dae1256e93bb15777225ada742539c5a0ebdccc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 522f1cff2d735081daecc8be6384badcd378fd75
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015561"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599579"
 ---
-# <a name="versions"></a>Versões
+# <a name="understand-how-and-when-to-use-a-luis-version"></a>Reconhecer como e quando usar uma versão do LUIS
+
+As versões no LUIS são semelhantes às versões na programação tradicional. Cada versão é um instantâneo no tempo do aplicativo. Antes de fazer alterações no aplicativo, crie uma nova versão. É mais fácil voltar para o aplicativo exato e, em seguida, tentar remover e retornar a intenção e os enunciados do aplicativo para um estado anterior. 
+
 Crie modelos diferentes do mesmo aplicativo com [versões](luis-how-to-manage-versions.md). 
 
 ## <a name="version-id"></a>ID da versão

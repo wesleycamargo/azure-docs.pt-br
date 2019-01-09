@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257600"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554748"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Treinar novamente um serviço Web clássico do Azure Machine Learning Studio
-O Serviço Web Preditivo implantado é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e os experimentos de pontuação; portanto, o modelo treinado para o ponto de extremidade padrão não pode ser substituído. Para adaptar novamente o serviço Web, você deve adicionar um novo ponto de extremidade ao serviço Web. 
+O Serviço Web Preditivo implantado é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e os experimentos de pontuação; portanto, o modelo treinado para o ponto de extremidade padrão não pode ser substituído. Para adaptar novamente o serviço Web, você deve adicionar um novo ponto de extremidade ao serviço Web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em [Readaptar os modelos do Machine Learning de forma programática](retrain-models-programmatically.md). 
+Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em [Readaptar os modelos do Machine Learning de forma programática](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> O experimento de previsão deve ser implantado como um serviço Web do Machine Learning clássico. 
-> 
-> 
+> O experimento de previsão deve ser implantado como um serviço Web do Machine Learning clássico.
+>
+>
 
 Para obter mais informações sobre como implantar os serviços Web, veja [Implantar um serviço Web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Adicionar um novo ponto de extremidade
-O serviço Web de previsão implantado contém um padrão de pontuação de ponto de extremidade que é mantido sincronizado com o treinamento original e com o modelo de treinamento de experimentos de pontuação. Para atualizar seu serviço Web com um novo modelo de treinamento, você deve criar um novo ponto de extremidade de pontuação. 
+O serviço Web de previsão implantado contém um padrão de pontuação de ponto de extremidade que é mantido sincronizado com o treinamento original e com o modelo de treinamento de experimentos de pontuação. Para atualizar seu serviço Web com um novo modelo de treinamento, você deve criar um novo ponto de extremidade de pontuação.
 
 Para criar um novo ponto de extremidade de pontuação, no Serviço da Web Preditivo que possa ser atualizado com o modelo treinado:
 
 > [!NOTE]
 > Certifique-se de que você está adicionando o ponto de extremidade ao serviço Web de previsão e não ao serviço da Web de treinamento. Se você tiver implantado corretamente um serviço Web de previsão e um serviço da Web de treinamento, você verá dois serviços Web separados listados. O serviço Web de previsão deve terminar com "[predictive exp.]".
-> 
-> 
+>
+>
 
 Há duas maneiras de adicionar um novo ponto de extremidade a um serviço Web:
 
@@ -51,7 +51,7 @@ Há duas maneiras de adicionar um novo ponto de extremidade a um serviço Web:
 2. Use o portal dos Serviços do BizTalk do Microsoft Azure
 
 ### <a name="programmatically-add-an-endpoint"></a>Adicionar um ponto de extremidade programaticamente
-Você pode adicionar pontos de extremidade de pontuação usando o código de exemplo fornecido neste [repositório github](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
+Você pode adicionar pontos de extremidade de pontuação usando o código de exemplo fornecido neste [repositório GitHub](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Usar o portal dos Serviços Web do Microsoft Azure para adicionar um ponto de extremidade
 1. No Estúdio de Machine Learning, clique em Serviços Web na coluna de navegação à esquerda.

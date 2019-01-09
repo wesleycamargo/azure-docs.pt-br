@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f86107c5fcd4c0175d59689718dca15736aa3b17
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497353"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994701"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificar e solucionar problemas de instalação de alta disponibilidade de expansão do SAP HANA no SLES 12 SP3 
 
@@ -173,7 +173,7 @@ O arquivo de configuração **corosync** precisa estar correto em todos os nós 
 
 O conteúdo do **corosync.conf** do sistema de teste é um exemplo.
 
-A primeira seção é **totem**, conforme descrito em [Instalação do cluster](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), etapa 11. Você pode ignorar o valor para **mcastaddr**. Apenas mantenha a entrada existente. As entradas para o **token** e **consenso** devem ser definidas de acordo com a [documentação do Microsoft Azure SAP HANA][sles-pacemaker-ha-guide].
+A primeira seção é **totem**, conforme descrito em [Instalação do cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), etapa 11. Você pode ignorar o valor para **mcastaddr**. Apenas mantenha a entrada existente. As entradas para o **token** e **consenso** devem ser definidas de acordo com a [documentação do Microsoft Azure SAP HANA][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -280,7 +280,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>Dispositivo SBD
 
-Como configurar um dispositivo SBD em uma VM do Azure é descrito em [ SBD fence ](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
+Como configurar um dispositivo SBD em uma VM do Azure é descrito em [ SBD fence ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
 
 Primeiro, verifique a VM do servidor do SBD se houver entradas da ACL para cada nó no cluster. Execute o seguinte comando na VM do servidor SBD:
 
@@ -423,7 +423,7 @@ No lado da VM de destino, **hso-hana-vm-s2-2** neste exemplo, você pode encontr
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Verifique se as entradas em **/etc/sysconfig/sbd** correspondem à descrição em [Configurando o Pacemaker no SUSE Linux Enterprise Server no Azure](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Verifique se a configuração de inicialização em **/etc/iscsi/iscsid.conf** está definida como automática.
+Verifique se as entradas em **/etc/sysconfig/sbd** correspondem à descrição em [Configurando o Pacemaker no SUSE Linux Enterprise Server no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Verifique se a configuração de inicialização em **/etc/iscsi/iscsid.conf** está definida como automática.
 
 As seguintes entradas são importantes em **/etc/sysconfig/sbd**. Adapte o valor **id**, se necessário:
 
@@ -458,7 +458,7 @@ Durante os testes e verificações, após o reinício de uma VM, o dispositivo S
 5. Acima do nome do iniciador, verifique se o valor **Service Start** está definido como **Ao inicializar**.
 6. Se não estiver, defina-o como **inicializar quando** em vez de **manualmente**.
 7. Em seguida, mude a guia superior para **Targets conectados**.
-8. Na tela **Targets Conectados**, você deve ver uma entrada para o dispositivo SBD como este exemplo: **10.0.0.19:3260 iqn.2006-04.dbhso.local: dbhso**.
+8. Na tela **Destinos Conectados**, você deve ver uma entrada para o dispositivo SBD como este exemplo: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
 9. Verifique se o valor **Start-Up** está definido como **na inicialização**.
 10. Se não, escolha **editar** e alterá-lo.
 11. Salve as alterações e sair do YaST2.

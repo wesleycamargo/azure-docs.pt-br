@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 820176d60968f6072be4ad19475016be8a3d8ea3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1c29ed47e499ee23fab9f3b34e3974f479e3dbb7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096835"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604264"
 ---
 # <a name="about-the-speech-service-sdk"></a>Sobre o SDK do serviço de fala
 
@@ -34,12 +34,12 @@ Para o Windows, suportamos os seguintes idiomas:
 
 * C# (UWP e .NET), C++: você pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de Fala. O pacote inclui bibliotecas de clientes de 32 e 64 bits e bibliotecas gerenciadas (.NET). O SDK pode ser instalado no Visual Studio usando o NuGet. Pesquise **Microsoft.CognitiveServices.Speech**.
 
-* Java: você pode fazer referência e usar a versão mais recente do nosso pacote do Maven de SDK de Fala, que dá suporte apenas ao Windows x64. Em seu projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/`como um repositório adicional e faça referência`com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` como uma dependência.
+* Java: você pode fazer referência e usar a versão mais recente do nosso pacote do Maven de SDK de Fala, que dá suporte apenas ao Windows x64. Em seu projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/`como um repositório adicional e faça referência`com.microsoft.cognitiveservices.speech:client-sdk:1.2.0` como uma dependência.
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> Atualmente, suportamos apenas o Ubuntu 16.04 em um PC (x86 ou x64 para desenvolvimento C ++ e x64 para .NET Core e Java).
+> Atualmente, suportamos apenas o Ubuntu 16.04 e 18.04 em um PC (x86 ou x64 para desenvolvimento C ++ e x64 para .NET Core e Java).
 
 Verifique se você tem o compilador e as bibliotecas necessários instalados executando os seguintes comandos do shell:
 
@@ -51,10 +51,10 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 * C#: você pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de Fala. Para referenciar o SDK, adicione a seguinte referência de pacote ao seu projeto:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.1.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.2.0" />
   ```
 
-* Java: você pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de Fala. Em seu projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/`como um repositório adicional e faça referência`com.microsoft.cognitiveservices.speech:client-sdk:1.1.0` como uma dependência.
+* Java: você pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de Fala. Em seu projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/`como um repositório adicional e faça referência`com.microsoft.cognitiveservices.speech:client-sdk:1.2.0` como uma dependência.
 
 * C++: baixe o SDK como um [pacote .tar](https://aka.ms/csspeech/linuxbinary) e descompacte os arquivos em um diretório de sua escolha. A tabela a seguir mostra a estrutura da pasta do SDK:
 
@@ -70,7 +70,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 ### <a name="android"></a>Android
 
-O SDK do Java para Android é empacotado como um [AAR (Biblioteca Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias, bem como as permissões necessárias do Android para usá-lo. Está hospedado em um repositório Maven em `https://csspeechstorage.blob.core.windows.net/maven/` como pacote `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0`.
+O SDK do Java para Android é empacotado como um [AAR (Biblioteca Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias e as permissões necessárias do Android. Está hospedado em um repositório Maven em `https://csspeechstorage.blob.core.windows.net/maven/` como pacote `com.microsoft.cognitiveservices.speech:client-sdk:1.2.0`.
 
 Para consumir o pacote do seu projeto do Android Studio, faça as seguintes alterações:
 
@@ -83,7 +83,7 @@ Para consumir o pacote do seu projeto do Android Studio, faça as seguintes alte
 * No arquivo build.gradle de nível de módulo, inclua o seguinte na seção `dependencies`:
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.1.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.2.0'
   ```
 
 O SDK do Java também faz parte do [SDK dos Dispositivos de Fala](speech-devices-sdk.md).

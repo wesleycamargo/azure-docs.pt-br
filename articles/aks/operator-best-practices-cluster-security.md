@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 5acabc8381422b9202b041cf849af3b35809a3c0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110536"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717204"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para atualizações e segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -54,7 +54,7 @@ Para um controle mais granular das ações de contêiner, você também pode usa
 
 ### <a name="app-armor"></a>Armadura de aplicativo
 
-Para limitar as ações que os contêineres podem realizar, você pode usar o módulo de segurança de kernel do Linux [AppAmour][k8s-apparmor]. O AppArmor está disponível como parte do sistema operacional do nó do AKS subjacente e é habilitado por padrão. Você cria perfis do AppArmor que restringem ações como leitura, gravação ou execução ou ainda funções de sistema como montagem de sistemas de arquivos. Perfis padrão do AppArmor restringem o acesso a vários locais `/proc` e `/sys` e fornecem um meio para isolar logicamente os contêineres do nó subjacente. O AppArmor funciona para qualquer aplicativo executado no Linux, não apenas para os pods do Kubernetes.
+Para limitar as ações que os contêineres podem realizar, é possível usar o módulo de segurança de kernel do Linux [AppAmour][k8s-apparmor]. O AppArmor está disponível como parte do sistema operacional do nó do AKS subjacente e é habilitado por padrão. Você cria perfis do AppArmor que restringem ações como leitura, gravação ou execução ou ainda funções de sistema como montagem de sistemas de arquivos. Perfis padrão do AppArmor restringem o acesso a vários locais `/proc` e `/sys` e fornecem um meio para isolar logicamente os contêineres do nó subjacente. O AppArmor funciona para qualquer aplicativo executado no Linux, não apenas para os pods do Kubernetes.
 
 ![Perfis de AppArmor em uso em um cluster do AKS para limitar as ações de contêiner](media/operator-best-practices-container-security/apparmor.png)
 

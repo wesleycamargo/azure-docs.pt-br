@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 8acb1c70dc21efc87e13e0e5e94d9a61acfe01e9
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291684"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554649"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do Video Indexer produzida pela API v2
 
@@ -78,8 +78,8 @@ Esta seção mostra o resumo das informações.
 |Atributo | DESCRIÇÃO|
 |---|---|
 |Nome|O nome do vídeo. Por exemplo, o Azure Monitor.|
-|shortId|A ID do vídeo. Por exemplo, 63c6d532ff.|
-|privacyMode|Seu detalhamento pode ter um dos seguintes modos: **Particular**, **Público**. **Público**: o vídeo é visível para todos na sua conta e para qualquer pessoa que tenha um link para o vídeo. **Privada** -o vídeo é visível para todos em sua conta.|
+|ID|A ID do vídeo. Por exemplo, 63c6d532ff.|
+|privacyMode|O detalhamento pode ter um dos seguintes modos: **Privado**, **Público**. **Público**: o vídeo é visível para todos na sua conta e para qualquer pessoa que tenha um link para o vídeo. **Privada** -o vídeo é visível para todos em sua conta.|
 |duration|Contém uma duração que descreve o tempo que uma percepção ocorreu. Duração é em segundos.|
 |thumbnailVideoId|A ID do vídeo da qual a miniatura foi tirada.
 |thumbnailId|A ID da miniatura do vídeo. Para obter a miniatura real, chame Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passe seu thumbnailVideoId e thumbnailId.|
@@ -149,7 +149,7 @@ Esta seção mostra o resumo das informações.
 
 Os insights são um conjunto de dimensões (por exemplo, linhas transcritas, faces, marcas, etc.), em que cada dimensão é uma lista de elementos exclusivos (por exemplo, face1, face2, face3) e cada elemento tem seus próprios metadados e uma lista de suas instâncias (que são intervalos de tempo com metadados opcionais adicionais).
 
-Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista de suas instâncias temporais (por exemplo: 00:00:05 - 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 - 00:41:49.) Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face coordena (20,230,60,60).
+Um rosto pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista de suas instâncias temporais (por exemplo: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 – 00:41:49). Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face coordena (20,230,60,60).
 
 |Versão|A versão do código|
 |---|---|
@@ -553,7 +553,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 |NOME|DESCRIÇÃO|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
-|WordCount|O número de palavras por alto-falante.|
+|SpeakerWordCount|O número de palavras por alto-falante.|
 |SpeakerNumberOfFragments|A quantidade de fragmentos que o orador tem em um vídeo.|
 |SpeakerLongestMonolog|O mais longo monólogo do orador. Se o falante tiver silêncios dentro do monólogo, ele será incluído. O silêncio no início e no final do monólogo é removido.| 
 |SpeakerTalkToListenRatio|O cálculo é baseado no tempo gasto no monólogo do locutor (sem o silêncio intermediário) dividido pelo tempo total do vídeo. A hora é arredondada para o terceiro ponto decimal.|
@@ -767,8 +767,8 @@ O Video Indexer faz inferências dos principais tópicos das transcrições. Qua
 |NOME|DESCRIÇÃO|
 |---|---|
 |ID|A ID do tópico.|
-|Nome|O nome do tópico, por exemplo: "Produtos farmacêuticos".|
-|referenceId|Trilhas refletindo a hierarquia de tópicos. Por exemplo: "Saúde e bem-estar/Medicina e atendimento à saúde /Produtos farmacêuticos".|
+|Nome|O nome do tópico, por exemplo: "Farmacêuticos".|
+|referenceId|Trilhas refletindo a hierarquia de tópicos. Por exemplo:  "Saúde e bem-estar / Medicina e serviços de saúde / Produtos farmacêuticos".|
 |confidence|A pontuação de confiança no intervalo [0,1]. Um valor mais alto indica maior confiança.|
 |Linguagem|O idioma usado no tópico.|
 |iptcName|O nome do código de mídia IPTC se detectado.|

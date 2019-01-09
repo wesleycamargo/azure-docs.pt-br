@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054397"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606020"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Diretrizes gerais para trabalhar com aplicativos SaaS de exemplo do Wingtip Tickets
 
@@ -57,7 +57,7 @@ Definir esses valores aqui simplesmente impede que você precise atualizar esses
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Execute os scripts pressionando F5
 
-Vários scripts usam *$PSScriptRoot* para permitir a navegação em pastas e *$PSScriptRoot* é avaliada somente quando o script é executado, ao pressionar **F5**.  Realçar e executar uma seleção (**F8**) pode resultar em erros, então pressione **F5** ao executar scripts.
+Vários scripts usam *$PSScriptRoot* para permitir a navegação em pastas e *$PSScriptRoot* é avaliada somente quando o script é executado, ao pressionar **F5**.  Realçar e executar uma seleção (**F8**) pode resultar em erros, então pressione **F5** ao executar scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Percorrer os scripts para examinar a implementação
 
@@ -94,7 +94,7 @@ Para garantir uma conexão de demonstração bem-sucedida, todos os servidores t
 
    ![servidor catalog](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. As credenciais de demonstração são: logon = *developer*, senha = *P@ssword1*
+3. As credenciais de demonstração são: Logon = *developer*, Senha = *P@ssword1*
 
     A imagem abaixo demonstra o logon para o padrão *Banco de dados por locatário*. 
     ![conexão](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

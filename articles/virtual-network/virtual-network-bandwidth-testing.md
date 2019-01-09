@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fa0adef58ae1eda8604cefc9c3d7e3a4c32d63d0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023808"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793532"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Teste de Largura de Banda/Taxa de Transferência (NTTTCP)
 
@@ -29,13 +29,14 @@ Copie a ferramenta para duas VMs do Azure do mesmo tamanho. Uma VM funciona como
 
 #### <a name="deploying-vms-for-testing"></a>Implantando VMs para teste
 Para fins deste teste, as duas VMs devem estar no mesmo Serviço de Nuvem ou no mesmo Conjunto de Disponibilidade, para que possamos usar seus IPs internos e excluir os Balanceadores de Carga do teste. É possível testar com o VIP, mas essa variante de teste está fora do escopo deste documento.
- 
+
 Anote o endereço IP do RECEPTOR. Vamos chamar esse IP de “a.b.c.r”
 
-Anote o número de núcleos da VM. Vamos chamar isso de “\#num\_ núcleos"  
+Anote o número de núcleos da VM. Vamos chamar isso de “\#num\_cores”
+
 Execute o teste NTTTCP durante 300 segundos (ou 5 minutos) na VM remetente e na VM receptora.
 
-Dica: ao configurar esse teste pela primeira vez, você poderá tentar um período de teste mais curto para obter comentários mais rápidos. Depois que a ferramenta estiver funcionando como esperado, estenda o período de teste para 300 segundos para obter os resultados mais precisos.
+Dica: Ao configurar esse teste pela primeira vez, você poderá tentar um período de teste mais curto para obter um feedback mais rápido. Depois que a ferramenta estiver funcionando como esperado, estenda o período de teste para 300 segundos para obter os resultados mais precisos.
 
 > [!NOTE]
 > O remetente **e** o receptor devem especificar **o mesmo** parâmetro de duração de teste (-t).

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435541"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744319"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix no HDInsight
 
-O [Apache Phoenix](http://phoenix.apache.org/) é um banco de dados relacional de software livre altamente paralelo criado no [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite que você use consultas SQL em HBase. O Phoenix usa drivers JDBC abaixo para permitir aos usuários criar, excluir, alterar tabelas SQL, índices, exibições e as sequências e linhas upsert individualmente e em massa. O Phoenix usa compilação nativa noSQL, em vez de usar o MapReduce para compilar consultas, permitindo a criação de aplicativos de baixa latência sobre HBase. O Phoenix adiciona coprocessadores para oferecer suporte à execução de código fornecido pelo cliente no espaço de endereço do servidor, executando o código colocalizado junto com os dados. Essa abordagem minimiza a transferência de dados do cliente/servidor.
+O [Apache Phoenix](https://phoenix.apache.org/) é um banco de dados relacional de software livre altamente paralelo criado no [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite que você use consultas SQL em HBase. O Phoenix usa drivers JDBC abaixo para permitir aos usuários criar, excluir, alterar tabelas SQL, índices, exibições e as sequências e linhas upsert individualmente e em massa. O Phoenix usa compilação nativa noSQL, em vez de usar o MapReduce para compilar consultas, permitindo a criação de aplicativos de baixa latência sobre HBase. O Phoenix adiciona coprocessadores para oferecer suporte à execução de código fornecido pelo cliente no espaço de endereço do servidor, executando o código colocalizado junto com os dados. Essa abordagem minimiza a transferência de dados do cliente/servidor.
 
-O Apache Phoenix abre consultas de Big Data para não desenvolvedores que podem usar uma sintaxe semelhante ao SQL em vez de programação. O Phoenix é altamente otimizado para o HBase, ao contrário de outras ferramentas, como o [Hive](hadoop/hdinsight-use-hive.md) e o Apache Spark SQL. Os benefícios para os desenvolvedores está gravando altamente consultas de alto desempenho com muito menos código.
+O Apache Phoenix abre consultas de Big Data para não desenvolvedores que podem usar uma sintaxe semelhante ao SQL em vez de programação. O Phoenix é altamente otimizado para o HBase, diferentemente de outras ferramentas, como o [Apache Hive](hadoop/hdinsight-use-hive.md) e o Apache Spark SQL. Os benefícios para os desenvolvedores está gravando altamente consultas de alto desempenho com muito menos código.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quando você envia uma consulta SQL, Phoenix compila a consulta a chamadas nativas HBase e executa a verificação (ou plano) em paralelo para otimização. Essa camada de abstração libera o desenvolvedor de gravar os trabalhos de MapReduce para se concentrar na lógica de negócios e no fluxo de trabalho de seu aplicativo de armazenamento de big data do Phoenix.
@@ -70,17 +70,17 @@ Para adicionar mais colunas posteriormente, use a instrução `ALTER VIEW`.
 
 ### <a name="skip-scan"></a>Verificação de ignorar
 
-Verificação de ignorar usa uma ou mais colunas de um índice composto para localizar valores distintos. Ao contrário de uma verificação de intervalo, verificação de ignorar implementa verificação intralinha, produzindo [melhor desempenho](http://phoenix.apache.org/performance.html#Skip-Scan). Durante a verificação, o primeiro valor correspondente será ignorado junto com o índice até o próximo valor ser encontrado.
+Verificação de ignorar usa uma ou mais colunas de um índice composto para localizar valores distintos. Ao contrário de uma verificação de intervalo, verificação de ignorar implementa verificação intralinha, produzindo [melhor desempenho](https://phoenix.apache.org/performance.html#Skip-Scan). Durante a verificação, o primeiro valor correspondente será ignorado junto com o índice até o próximo valor ser encontrado.
 
 Uma verificação de ignorar usa a enumeração `SEEK_NEXT_USING_HINT` do filtro HBase. Usando `SEEK_NEXT_USING_HINT`, a verificação de ignorar mantém o controle do conjunto de chaves ou intervalos de chaves, que estão sendo pesquisados para cada coluna. A verificação de ignorar, em seguida, usa uma chave que foi passada durante a avaliação de filtro e determina se ela é uma das combinações. Caso contrário, a verificação de ignorar avalia a próxima chave mais alta a ser avaliada.
 
 ### <a name="transactions"></a>Transações
 
-Enquanto HBase fornece transações de nível de linha, Phoenix integra [Tephra](http://tephra.io/) para adicionar suporte a transações entre linhas e de tabela cruzada com semântica [ACID](https://en.wikipedia.org/wiki/ACID) completa.
+Enquanto HBase fornece transações de nível de linha, Phoenix integra [Tephra](https://tephra.io/) para adicionar suporte a transações entre linhas e de tabela cruzada com semântica [ACID](https://en.wikipedia.org/wiki/ACID) completa.
 
 Da mesma forma que transações SQL tradicionais, as transações fornecidas por meio do gerenciador de transações Phoenix permitem que você certifique-se de que uma unidade atômica de dados é introduzida com êxito, revertendo a transação se a operação de inserção falhar em qualquer tabela de transações habilitadas.
 
-Para habilitar transações Phoenix, consulte a [documentação de transação do Apache Phoenix](http://phoenix.apache.org/transactions.html).
+Para habilitar transações Phoenix, consulte a [documentação de transação do Apache Phoenix](https://phoenix.apache.org/transactions.html).
 
 Para criar uma nova tabela com transações habilitadas, defina a `TRANSACTIONAL` propriedade `true` em uma `CREATE` instrução:
 
@@ -94,7 +94,7 @@ Para alterar uma tabela existente para ser transacional, use a mesma propriedade
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Você não pode reverter uma tabela transacional novamente em uma não-transacional.
 
 ### <a name="salted-tables"></a>Tabelas Distribuídas

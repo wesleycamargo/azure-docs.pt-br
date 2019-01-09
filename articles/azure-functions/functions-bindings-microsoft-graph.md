@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301009"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793981"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -63,7 +63,7 @@ Se você estiver usando o Visual Studio, poderá obter as extensões instalando 
 
 ### <a name="configuring-authentication--authorization"></a>Configurando a Autenticação/Autorização
 
-As associações descritas neste artigo exigem que uma identidade seja usada. Isso permite que o Microsoft Graph aplique permissões e interações de auditoria. A identidade pode ser um usuário acessando seu aplicativo ou o aplicativo em si. Para configurar essa identidade, configure [Autenticação/Autorização do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) com o Azure Active Directory. Você também precisará solicitar quaisquer permissões de recurso que suas funções exijam.
+As associações descritas neste artigo exigem que uma identidade seja usada. Isso permite que o Microsoft Graph aplique permissões e interações de auditoria. A identidade pode ser um usuário acessando seu aplicativo ou o aplicativo em si. Para configurar essa identidade, configure [Autenticação/Autorização do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) com o Azure Active Directory. Você também precisará solicitar quaisquer permissões de recurso que suas funções exijam.
 
 > [!Note] 
 > A extensão do Microsoft Graph tem suporte apenas para autenticação do Azure AD. Os usuários precisam fazer logon com uma conta corporativa ou de estudante.
@@ -226,7 +226,8 @@ A associação em si não requer permissões do Azure AD, mas, dependendo de com
 
 O token sempre é apresentado ao código como uma cadeia de caracteres.
 
-
+> [!Note]
+> Ao desenvolver localmente com qualquer opção de `userFromId`, `userFromToken` ou `userFromRequest`, o token necessário pode ser [obtido manualmente](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) e especificado no cabeçalho de solicitação `X-MS-TOKEN-AAD-ID-TOKEN` de um aplicativo de cliente de chamada.
 
 
 <a name="excel-input"></a>

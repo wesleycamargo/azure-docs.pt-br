@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: a15a704cfba9260daac0cd5edfdf8b4566348628
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 419ad6681af39aee468a23319b773de23619984d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263441"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555448"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>TCO (Custo Total de Propriedade) com o Azure Cosmos DB
 
@@ -27,7 +27,7 @@ O modelo de provisionamento sem servidor do Azure Cosmos DB elimina a necessidad
 
 * **Excelente valor pelo preço:** Analistas de mercado, clientes e parceiros confirmaram um maior valor de todos os recursos que o Azure Cosmos DB oferece por um preço muito menor em comparação com o que os clientes podem obter ao implementar essas soluções por conta própria ou por meio de outros fornecedores. Os recursos do banco de dados, tais como distribuição global, modelos de consistência de vários mestres bem definidos e intuitivos e indexação automática, são bastante simplificados com o Azure Cosmos DB sem qualquer complexidade, sobrecarga ou tempo de inatividade.
 
-* **Não é necessária nenhuma administração de devops do NoSQL:** Com o Azure Cosmos DB, não é necessário empregar devops para gerenciar implantações, executar manutenção, escala ou patch. É possível executar as todas as cargas de trabalho que você faria com cluster NoSQL de OSS hospedado localmente ou na infraestrutura de nuvem.
+* **Nenhuma administração de DevOps do NoSQL é necessária:** Com o Azure Cosmos DB, não é necessário empregar DevOps para gerenciar implantações, executar manutenção, escala ou patch. É possível executar as todas as cargas de trabalho que você faria com cluster NoSQL de OSS hospedado localmente ou na infraestrutura de nuvem.
 
 ![Custo de propriedade do Azure Cosmos DB](./media/total-cost-ownership/tco.png)
 
@@ -59,9 +59,9 @@ O modelo de provisionamento sem servidor do Azure Cosmos DB elimina a necessidad
 
 * Saiba mais sobre [Como o modelo de preços do Azure Cosmos DB é econômico para os clientes](total-cost-ownership.md)
 * Saiba mais em [Otimizar para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais em [Otimizar o custo da taxa de transferência](optimize-cost-throughput.md)
-* Saiba mais em [Otimizar o custo de armazenamento](optimize-cost-storage.md)
-* Saiba mais em [Otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais em [Otimizar o custo de consultas](optimize-cost-queries.md)
+* Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
+* Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
+* Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
+* Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
 * Saiba mais em [Otimizar o custo de contas do Cosmos em várias regiões](optimize-cost-regions.md)
 * Saiba mais sobre [O Custo Total de (Não) Propriedade de um Serviço de Nuvem de Banco de Dados NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)

@@ -1,20 +1,18 @@
 ---
 title: Visão geral do serviço de banco de dados relacional Banco de Dados do Azure para MySQL
 description: Visão geral do serviço de banco de dados relacional Banco de Dados do Azure para MySQL.
-services: mysql
 ms.service: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.custom: mvc
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0d78b978f6454170b52a95f538f143b9f24505
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9385ccf61f8cb8de0b3a459ac00c05b32d2630e4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684783"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536875"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é o Banco de Dados do Azure para MySQL?
 O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional na nuvem da Microsoft com base no mecanismo de banco de dados [MySQL Community Edition](https://www.mysql.com/products/community/), versões 5.6 e 5.7. O Banco de Dados do Azure para MySQL fornece:

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 12/12/2018
-ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314390"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789900"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solução de problemas da instalação por push do Serviço de Mobilidade
 
@@ -135,9 +135,8 @@ Outros artigos de solução de problemas do WMI foi possível encontrar os artig
 
 ## <a name="unsupported-operating-systems"></a>Sistema operacional sem suporte
 
-Outro motivo mais comum para falha pode ser devido ao sistema operacional sem suporte. Verifique se que você estiver usando a versão do Kernel do sistema operacional com suporte para uma instalação bem-sucedida do serviço de mobilidade.
-
-Para saber mais sobre quais sistemas operacionais com suporte pelo Azure Site Recovery, consulte nosso [documento da matriz de suporte](vmware-physical-azure-support-matrix.md#replicated-machines).
+Outro motivo mais comum para falha pode ser devido ao sistema operacional sem suporte. Verifique se que você estiver usando a versão do Kernel do sistema operacional com suporte para uma instalação bem-sucedida do serviço de mobilidade. Evite o uso de patch privado.
+Para ver a lista dos sistemas operacionais e versões do kernel com suporte do Azure Site Recovery, consulte nosso [documento da matriz de suporte](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>As partições/os volumes de inicialização e do sistema não estão no mesmo disco (ErrorID: 95309)
 
@@ -146,6 +145,10 @@ Antes da versão 9.20, partições/volumes de inicialização e do sistema local
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Partição do sistema em vários discos (ErrorID: 95313)
 
 Antes da versão 9.20, a partição ou o volume raiz disposto em vários discos era uma configuração sem suporte. Começando na [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), há suporte para essa configuração. Use a última versão para esse suporte.
+
+## <a name="grub-uuid-failure-errorid-95320"></a>Falha do GRUB UUID (ErrorID: 95320)
+
+Se o GRUB do computador de origem estiver usando o nome do dispositivo em vez do UUID, ocorre falha na instalação do agente de mobilidade. Contate o administrador do sistema para fazer as alterações ao arquivo GRUB.
 
 ## <a name="lvm-support-from-920-version"></a>Suporte do LVM começando na versão 9.20
 

@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 86331f60e1be7d55c39e5d59f85b0f090a322587
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 613bf104f023b092016e6881dbc285e667453f92
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573851"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628435"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
 
-Os protocolos TLS e SSL são protocolos criptográficos que fornecem segurança de comunicações em uma rede de computadores. Foram localizados SSL 1.0, 2.0 e 3.0 vulneráveis. Eles foram proibidos pelo RFC. O TLS 1.0 torna-se não seguro por usar codificação de Bloco (DES CBC e RC2 CBC) e codificação de bloco de Fluxo (RC4) não seguras. O conselho PCI também recomendou a migração para versões superiores do TLS. Para obter mais detalhes, consulte [Protocolo TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+Os protocolos TLS e SSL são protocolos criptográficos que fornecem segurança de comunicações em uma rede de computadores. Foram localizados SSL 1.0, 2.0 e 3.0 vulneráveis. Eles foram proibidos pelo RFC. O TLS 1.0 torna-se não seguro por usar codificação de Bloco (DES CBC e RC2 CBC) e criptografia de Fluxo (RC4) não seguras. O conselho PCI também recomendou a migração para versões superiores do TLS. Para obter mais detalhes, consulte [Protocolo TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
 
 O Armazenamento do Microsoft Azure encerrou o SSL 3.0 desde 2015 e usa o TLS 1.2 em pontos de extremidade HTTPs públicos, mas o TLS 1.0 e o TLS 1.1 ainda têm suporte para compatibilidade com versões anteriores.
 
@@ -48,10 +48,11 @@ O exemplo a seguir mostra como habilitar TLS 1.2 no cliente .NET.
 
 ## <a name="enable-tls-12-in-powershell-client"></a>Habilitar TLS 1.2 no cliente do PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)] 
+
 O exemplo a seguir mostra como habilitar TLS 1.2 no cliente do PowerShell.
 
 ```powershell
-
 # Enable TLS 1.2 before connecting to Azure Storage
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 
@@ -60,11 +61,10 @@ $storageAccountName = "{YourStorageAccountNme}"
 $prefix = "foo"
 
 # Connect to Azure Storage
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccountName
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccountName
 $ctx = $storageAccount.Context
-$listOfContainers = Get-AzureStorageContainer -Context $ctx -Prefix $prefix
+$listOfContainers = Get-AzStorageContainer -Context $ctx -Prefix $prefix
 $listOfContainers
-
 ```
 
 ## <a name="verify-tls-12-connection"></a>Verificar a conexão TLS 1.2

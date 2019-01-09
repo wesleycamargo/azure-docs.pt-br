@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581418"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653842"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Execute o Apache Spark no Shell Spark
 
@@ -63,7 +63,7 @@ O comando shell do Spark (`spark-shell`, `pyspark` ou `sparkR`) dá suporte a v�
 | switch | Descrição | exemplo |
 | --- | --- | --- |
 | --master MASTER_URL | Especifica a URL mestre. No HDInsight, esse valor é sempre `yarn`. | `--master yarn`|
-| --jars JAR_LIST | Lista separada por vírgulas de jars locais a ser incluída em classpaths de driver e executor. No HDInsight, essa lista é composta de caminhos para o sistema de arquivos padrão no Armazenamento do Microsoft Azure ou no Data Lake Store. | `--jars /path/to/examples.jar` |
+| --jars JAR_LIST | Lista separada por vírgulas de jars locais a ser incluída em classpaths de driver e executor. No HDInsight, essa lista é composta de caminhos para o sistema de arquivos padrão no Armazenamento do Microsoft Azure ou no Data Lake Storage. | `--jars /path/to/examples.jar` |
 | --packages MAVEN_COORDS | Lista separada por vírgulas de coordenadas maven de jars para incluir nos classpaths de driver e executor. Pesquisa o repositório local maven e, em seguida, o maven central e todos os repositórios remotos adicionais especificados com `--repositories`. O formato das coordenadas é *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | Apenas para Python, uma lista separada por vírgulas de arquivos .zip, .egg ou .py a ser colocada no PYTHONPATH. | `--pyfiles "samples.py"` |
 
@@ -72,4 +72,3 @@ O comando shell do Spark (`spark-shell`, `pyspark` ou `sparkR`) dá suporte a v�
 - Ver [Introdução ao Apache Spark no Azure HDInsight](apache-spark-overview.md) para uma visão geral.
 - Consulte [Criar um cluster Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md) para trabalhar com clusters Spark e SparkSQL.
 - Ver [o que é o Streaming estruturado do Apache Spark?](apache-spark-streaming-overview.md) para gravar aplicativos que processam dados de streaming com o Spark.
-

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408877"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971300"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -39,7 +39,7 @@ Para respostas para perguntas comuns sobre como usar um nome de domínio persona
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Como comprar um novo domínio personalizado para meu aplicativo web?
 
-Para saber como adquirir e configurar um domínio personalizado para seu aplicativo web do Serviço de Aplicativo, consulte [Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo](custom-dns-web-site-buydomains-web-app.md).
+Para saber como adquirir e configurar um domínio personalizado para seu aplicativo web do Serviço de Aplicativo, consulte [Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo](manage-custom-dns-buy-domain.md).
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Como carregar e configurar um certificado SSL existente para meu aplicativo web?
@@ -72,9 +72,11 @@ Para definir o fuso horário do servidor para o meu aplicativo web:
     * Valor = *o fuso horário que você deseja*
 3. Clique em **Salvar**.
 
+Consulte a coluna **Fuso horário** no artigo [Fusos Horários Padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para ver os valores aceitos.
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que meus WebJobs contínuos às vezes falham?
 
-Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um período de tempo definido. Isso permite ao sistema conservar recursos. Em planos básico e padrão, você pode ativar a configuração **Sempre Ativo** para manter o aplicativo web carregado o tempo todo. Se seu aplicativo web executar continuamente WebJobs, você deve habilitar a opção **Sempre Ativo**; ou é possível que os WebJobs não sejam executados com segurança. Para obter mais informações, consulte [Criar um WebJob de execução contínua](web-sites-create-web-jobs.md#CreateContinuous).
+Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um período de tempo definido. Isso permite ao sistema conservar recursos. Em planos básico e padrão, você pode ativar a configuração **Sempre Ativo** para manter o aplicativo web carregado o tempo todo. Se seu aplicativo web executar continuamente WebJobs, você deve habilitar a opção **Sempre Ativo**; ou é possível que os WebJobs não sejam executados com segurança. Para obter mais informações, consulte [Criar um WebJob de execução contínua](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Como obter o endereço IP de saída para o meu aplicativo web?
 
@@ -124,7 +126,7 @@ Para obter mais informações, consulte [Conformidade do aplicativo web do Servi
 
 Nos planos Standard e Premium do Serviço de Aplicativo, ao implantar seu aplicativo web a Serviço de Aplicativo, você pode implantar um slot de implantação separado em vez de no slot de produção padrão. Os slots de implantação são aplicativos Web dinâmicos com seus próprios nomes de host. Os elementos de configuração e conteúdo de aplicativo Web podem ser permutados entre dois slots de implantação, incluindo o slot de produção.
 
-Para obter mais informações sobre como usar os slots de implantação, consulte [Configurar um ambiente de preparo no Serviço de Aplicativo](web-sites-staged-publishing.md).
+Para obter mais informações sobre como usar os slots de implantação, consulte [Configurar um ambiente de preparo no Serviço de Aplicativo](deploy-staging-slots.md).
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>Como acessar e examine os logs de WebJob?
 
@@ -248,7 +250,7 @@ Você pode criar um WebJob agendado usando expressões CRON:
     {month} {day of the week}" }
     ```
 
-Para obter mais informações sobre WebJobs agendados, consulte [Criar um WebJob agendado usando uma expressão Cron](web-sites-create-web-jobs.md#CreateScheduledCRON).
+Para obter mais informações sobre WebJobs agendados, consulte [Criar um WebJob agendado usando uma expressão Cron](webjobs-create.md#CreateScheduledCRON).
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Como executar testes de penetração para meu aplicativo de Serviço de Aplicativo?
 

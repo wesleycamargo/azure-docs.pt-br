@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8882970471b554f6d05a9cf3028e7be572292ef6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 605ce97f786b6b674a4adf8d6b1ee50957ef25fa
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582693"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582728"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Upgrade para pilha de Backup de VM V2 do Azure
 
@@ -147,3 +147,6 @@ Instantâneos incrementais são usados para discos não gerenciados. Para discos
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Como obter suporte a disco gerenciado SSD Standard para uma máquina virtual?
 Atualize para a pilha V2 do Backup de VM do Azure para obter suporte ao Backup do Azure para os [Discos gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+
+### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-snapshot-tier1"></a>O que acontece se eu selecionar o período de retenção do ponto de restauração (Tier2) menor que o instantâneo (Tier1)?
+A pilha de backup da VM v2 não permite excluir o ponto de restauração (Tier2), a menos que o instantâneo (Tier1) seja excluído. Atualmente, há suporte para período de retenção de 7 dias para exclusão de instantâneo (Tier1), portanto, o período de retenção do ponto de restauração (Tier2) menor que 7 dias não é atendido. É recomendável agendar período de retenção do ponto de restauração (Tier2) maior que 7 dias.

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a95c9f1edd6983c915316f2900885a8131245860
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 57897060e79ffbd750b47b21e97bb16d651f835c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437819"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583503"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solucionar problemas de trabalhadores de runbooks híbridos
 
@@ -34,7 +34,7 @@ A execução do runbook falha e você recebe o seguinte erro:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Seu runbook foi suspenso logo depois de tentar executá-lo três vezes. Há condições que podem interromper a execução com êxito do runbook e a mensagem de erro relacionada não incluir nenhuma informação adicional que indique o motivo.
+Seu runbook foi suspenso logo depois de tentar executá-lo três vezes. Existem condições que podem impedir o runbook de ser concluído. Quando isso acontece, a mensagem de erro relacionada não pode incluir informações adicionais que informam o motivo.
 
 #### <a name="cause"></a>Causa
 
@@ -46,23 +46,47 @@ A seguir estão possíveis causas possíveis:
 
 * Os runbooks não podem autenticar com recursos locais
 
-* O computador designado para executar o recurso Hybrid Runbook Worker atende aos requisitos mínimos de hardware.
+* O computador configurado para executar o recurso Hybrid Runbook Worker atende aos requisitos mínimos de hardware.
 
 #### <a name="resolution"></a>Resolução
 
 Verifique se o computador tem acesso de saída para *.azure automation.net na porta 443.
 
-Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de serem designados para hospedar esse recurso. Caso contrário, dependendo da utilização de recursos de outros processos em segundo plano e da contenção durante a execução do runbook, o computador fica sobrecarregado e causará atrasos de trabalho de runbook ou tempos limite.
+Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de serem configurados para hospedar esse recurso. Runbooks e os processos em segundo plano usados podem causar que o sistema se sobrecarregue e provocará atrasos ou tempos limite de trabalho de runbook.
 
-Confirme se o computador designado para executar o recurso Hybrid Runbook Worker atende aos requisitos mínimos de hardware. Se isso acontecer, monitore a utilização de CPU e memória para determinar qualquer correlação entre o desempenho de processos do Hybrid Runbook Worker e o Windows. Se não houver memória ou pressão da CPU, isso pode indicar a necessidade de atualizar ou adicionar mais processadores ou aumentar a memória para eliminar o gargalo de recursos e resolver o erro. Como alternativa, selecione um recurso de computação diferente que consiga dar suporte aos requisitos mínimos e ajuste a escala quando a demanda da carga de trabalho indicar que um aumento é necessário.
+Confirme o computador que executará o recurso Hybrid Runbook Worker atende aos requisitos mínimos de hardware. Se isso acontecer, monitore o uso de CPU e memória para determinar qualquer correlação entre o desempenho de processos do Hybrid Runbook Worker e o Windows. Se houver pressão da CPU e memória, isso pode indicar a necessidade de atualizar os recursos. Você também pode selecionar um recurso de computação diferente que consiga dar suporte aos requisitos mínimos e ajuste a escala quando a demanda da carga de trabalho indicar que um aumento é necessário.
 
 Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondente com descrição *Processo Win32 Encerrado com o código [4294967295]*. A causa desse erro é que você ainda não configurou a autenticação em seus runbooks ou especificou as credenciais Executar como para o grupo do Hybrid Worker. Analise as [Permissões de runbook](../automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que a autenticação dos runbooks está configurada corretamente.
+
+### <a name="no-cert-found"></a>Cenário: Nenhum certificado foi encontrado no repositório de certificados no Hybrid Runbook Worker
+
+#### <a name="issue"></a>Problema
+
+Um runbook em execução em um Hybrid Runbook Worker falha com a seguinte mensagem de erro:
+
+```error
+Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+At line:3 char:1
++ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro ocorre quando você tenta usar um [Executar como Conta](../manage-runas-account.md) em um runbook que é executado em um Hybrid Runbook Worker em que o certificado de Executar como Conta não está presente. Hybrid Runbook Workers não tem o ativo de certificado localmente, por padrão, o que é necessário para o Executar como Conta funcione corretamente.
+
+#### <a name="resolution"></a>Resolução
+
+Se seu Hybrid Runbook Worker é uma VM do Azure, você pode usar [Identidades gerenciadas para recursos do Azure](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) em vez disso. Esse cenário permite que você se autentique nos recursos do Azure usando a identidade gerenciada da VM do Azure, em vez de Executar como Conta, simplificando a autenticação. Quando o Hybrid Runbook Worker é um computador local, você precisará instalar o certificado de Executar como Conta no computador. Para saber como instalar o certificado, consulte as etapas para executar o runbook [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script).
 
 ## <a name="linux"></a>Linux
 
 O Hybrid Runbook Worker do Linux depende do Agente do OMS para Linux para se comunicar com sua conta de Automação para registrar o worker, receber trabalhos de runbook e relatar status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro:
 
 ### <a name="oms-agent-not-running"></a>Cenário: O Agente do OMS para Linux não está em execução
+
 
 Se o Agente do OMS para Linux não estiver em execução, isso impedirá o Hybrid Runbook Worker do Linux de se comunicar com a Automação do Azure. Verifique se o agente está em execução digitando o seguinte comando: `ps -ef | grep python`. Você deverá ver uma saída semelhante à seguinte, os processos de python com conta de usuário **nxautomation**. Se as soluções de Gerenciamento de Atualizações ou de Automação do Azure não estiverem ativadas, nenhum dos processos a seguir estará em execução.
 
@@ -74,11 +98,12 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 A lista a seguir mostra os processos que são iniciados para um Hybrid Runbook Worker do Linux. Eles estão todos localizados no diretório `/var/opt/microsoft/omsagent/state/automationworker/`.
 
-* **oms.conf** - Este é o processo do gerenciador de trabalho, que é iniciado diretamente no DSC.
+
+* **oms.conf** - esse valor é o processo do gerenciador do trabalhador. Ele é iniciado diretamente do DSC.
 
 * **worker.conf** -Este processo é o processo do Hybrid Worker Registrado Automaticamente, ele é iniciado pelo gerenciador de trabalho. Esse processo é usado pelo Gerenciamento de Atualizações e é transparente para o usuário. Este processo não está presente se a solução de Gerenciamento de Atualizações não estiver ativada na máquina.
 
-* **diy/worker.conf** - Este processo é o processo do Hybrid Worker DIY. O processo do Hybrid Worker DIY é usado para executar runbooks de usuário no Hybrid Runbook Worker. Ele é diferente apenas do processo do Hybrid Worker Registrado Automaticamente nos detalhes da chave, visto que usa uma configuração diferente. Esse processo não estará presente se a solução de Automação do Azure não estiver habilitada e o DIY Linux Hybrid Worker não estiver registrado.
+* **diy/worker.conf** - Este processo é o processo do Hybrid Worker DIY. O processo do Hybrid Worker DIY é usado para executar runbooks de usuário no Hybrid Runbook Worker. Ele é diferente apenas do processo do Hybrid Worker Registrado Automaticamente nos detalhes da chave, visto que usa uma configuração diferente. Esse processo não estará presente se a solução de Automação do Azure estiver desabilitada e o DIY Linux Hybrid Worker não estiver registrado.
 
 Se o Agente do OMS para Linux não estiver em execução, execute o comando a seguir para iniciar o serviço: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
@@ -102,7 +127,7 @@ O serviço `healthservice` não está sendo executado na máquina Hybrid Runbook
 
 #### <a name="cause"></a>Causa
 
-Se o serviço do Windows Microsoft Monitoring Agent não estiver em execução, este cenário impedirá o Hybrid Runbook Worker de se comunicar com a Automação do Azure.
+Se o serviço do Windows Microsoft Monitoring Agent não estiver em execução, este estado impedirá o Hybrid Runbook Worker de se comunicar com a Automação do Azure.
 
 #### <a name="resolution"></a>Resolução
 

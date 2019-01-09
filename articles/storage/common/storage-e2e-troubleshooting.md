@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262311"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634500"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -94,6 +94,8 @@ Para configurar o log e as métricas da conta de armazenamento usando o [portal 
 
 **Por meio do PowerShell**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 1. Use o cmdlet [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) para adicionar sua conta de usuário do Azure à janela do PowerShell:
@@ -114,13 +116,13 @@ Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o 
 4. Habilite log de armazenamento para o serviço Blob:
    
     ```powershell
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 5. Habilite as métricas do armazenamento para o serviço Blob, definindo **-MetricsType** para `Minute`:
    
     ```powershell
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 ### <a name="configure-net-client-side-logging"></a>Configurar o log de cliente .NET
@@ -198,11 +200,11 @@ O Analisador de Mensagem inclui ativos para o Armazenamento do Azure que ajudam 
 2. Inicie o Analisador de Mensagem.
 3. No menu **Ferramentas**, selecione **Gerenciador de Ativos**. Na caixa de diálogo **Gerenciador de Ativos**, escolha **Downloads** e filtre por **Armazenamento do Azure**. Você verá os ativos de Armazenamento do Azure, conforme mostrado na figura abaixo.
 4. Clique em **Sincronizar Todos os Itens Exibidos** para instalar os Ativos de Armazenamento do Azure. Os ativos disponíveis incluem:
-   * **Regras de Cores do Armazenamento do Azure:** as regras de cores do Armazenamento do Azure permitem que você defina filtros especiais que usam estilos de fonte, texto e cor para realçar as mensagens que contêm informações específicas em um rastreamento.
-   * **Grafos de Armazenamento do Azure:** os grafo de Armazenamento do Azure são grafos predefinidos que representam os dados de log do servidor. Observe que para usar os gráficos de Armazenamento do Azure no momento, você pode carregar apenas o log do servidor na Grade de Análise.
-   * **Analisadores de Armazenamento do Azure:** os analisadores de Armazenamento do Azure analisam os logs HTTP, do servidor e do cliente de Armazenamento do Azure para exibí-los na Grade de Análise.
-   * **Filtros de Armazenamento do Azure:** os filtros de Armazenamento do Azure são critérios predefinidos que você pode usar para consultar os dados na Grade de Análise.
-   * **Layouts de Exibição do Armazenamento do Azure:** os layouts de exibição do Armazenamento do Azure são layouts de coluna predefinidos e agrupamentos na Grade de Análise.
+   * **Regras de cores do Armazenamento do Azure:** As regras de cores do Armazenamento do Azure permitem que você defina filtros especiais que usam estilos de fontes, texto e cor para realçar as mensagens que contêm informações específicas em um rastreamento.
+   * **Gráficos do Armazenamento do Azure:** Os gráficos do Armazenamento do Azure são gráficos predefinidos que representam os dados de log do servidor. Observe que para usar os gráficos de Armazenamento do Azure no momento, você pode carregar apenas o log do servidor na Grade de Análise.
+   * **Analisadores do Armazenamento do Azure:** Os analisadores do Armazenamento do Azure analisam os logs do cliente, do servidor e do HTTP do Armazenamento do Azure para exibi-los na Grade de Análise.
+   * **Filtros do Armazenamento do Azure:** Os filtros do Armazenamento do Azure são critérios predefinidos que você pode usar para consultar os dados na Grade de Análise.
+   * **Layouts de Exibição do Armazenamento do Azure:** Os layouts de exibição do Armazenamento do Azure são layouts e agrupamentos de colunas predefinidos na Grade de Análise.
 5. Reinicie o Analisador de Mensagem depois de instalar os ativos.
 
 ![Gerenciador de Ativos do Analisador de Mensagem](./media/storage-e2e-troubleshooting/mma-start-page-1.png)

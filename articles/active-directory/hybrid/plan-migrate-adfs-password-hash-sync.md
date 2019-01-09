@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410254"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555091"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Migrar da federação para a sincronização de hash de senha do Azure AD
 O documento a seguir fornece orientação sobre como mudar dos Serviços de Federação do Active Directory (AD FS) para a sincronização de hash de senha.
@@ -295,7 +295,7 @@ Use esse método quando o AD FS foi configurado inicialmente usando o Azure AD C
    > Neste momento, todos os seus domínios federados serão alterados para a autenticação gerenciada que agora aproveitará a sincronização de hash de senha como o método de autenticação.
        
    7. Abra o portal do Azure AD, selecione Azure Active Directory e, em seguida, selecione o Azure AD Connect.
-   8. Verifique se a federação está desabilitada e se o logon único contínuo e a sincronização de senha estão habilitadas.  
+   8. Verifique se a Federação está Desativada enquanto o logon único Contínuo e a Sincronização de Senha estão Habilitadas.  
   ![Figura 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
    9. Vá para [Testes e próximas etapas](#testing-and-next-steps).
    
@@ -336,7 +336,7 @@ Como parte desse processo, você habilitará o SSO contínuo e mudará seus dom�
    > [!IMPORTANT]
    > Neste momento, não será feita nenhuma alteração à forma como os usuários entram.  
    
-   7. No portal do Azure AD, verifique se a federação continua habilitada e se agora o logon único contínuo está habilitado.
+   7. No portal do Azure AD, verifique se a Federação continua Habilitada e o logon único Contínuo agora está Habilitado.
    ![Figura 42](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
 
 #### <a name="convert-domains-from-federated-to-managed"></a>Converter domínios de federado em gerenciado

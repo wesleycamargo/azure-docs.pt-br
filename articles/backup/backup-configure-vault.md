@@ -4,17 +4,16 @@ description: Use o agente de Backup do Microsoft Azure para fazer backup de seus
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: cofre de backup; fazer backup de um Windows server; backup do windows;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873998"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788388"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Fazer backup de um cliente ou servidor do Windows Azure usando o modelo de implantação do Gerenciador de Recursos
 Este artigo explica como fazer backup dos seus arquivos e pastas do Windows Server (ou cliente Windows) no Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de recursos.
@@ -183,6 +182,8 @@ Se seu computador/proxy tiver acesso limitado à Internet, verifique se as confi
 A política de backup é a agenda de quando os pontos de recuperação são criados e por quanto tempo esses pontos de recuperação serão mantidos. Use o agente de Backup do Microsoft Azure para criar a política de backup para arquivos e pastas.
 
 ### <a name="to-create-a-backup-schedule"></a>Para criar uma agenda de backup
+
+Defina o agendamento de backup no computador do qual que você deseja fazer backup. Observe que o tempo definido para o backup pode diferir da hora do computador local, porque o Backup do Azure não leva em consideração o horário de verão (DST). 
 1. Abra o Agente de Backup do Microsoft Azure. Você pode localizá-lo pesquisando no seu computador por **Backup do Microsoft Azure**.
 
     ![Iniciar o agente de Backup do Azure](./media/backup-configure-vault/snap-in-search.png)

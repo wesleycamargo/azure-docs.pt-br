@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40886f54083a1619635f31af57841138f1706d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e055d1e10ddf8c18c84af5376cf4a284d48fde6b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086599"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603320"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Editar uma base de dados de conhecimento no QnA Maker
 
 O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhecimento, fornecendo uma experiência de edição fácil de usar.
 
-## <a name="edit-your-knowledge-base-content"></a>Editar o conteúdo da base de conhecimento
+## <a name="edit-your-knowledge-base-content"></a>Editar o conteúdo da base de dados de conhecimento
 
 1.  Selecione **Minhas bases de dados de conhecimento** na barra de navegação superior. 
 
@@ -36,14 +36,14 @@ O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhe
   
     |Objetivo|Ação|
     |--|--|
-    |Adicionar URL|Você pode adicionar novos URLs para adicionar novos conteúdos de perguntas frequentes à base de conhecimento clicando em **Gerenciar base de conhecimento -> link "+ Adicionar URL"**.|
+    |Adicionar URL|Você pode adicionar novas URLs para adicionar novos conteúdos de perguntas frequentes à base de dados de conhecimento, clicando em **Gerenciar base de dados de conhecimento -> link "+ Adicionar URL"**.|
     |Excluir URL|Você pode excluir URLs existentes selecionando o ícone de exclusão, a lixeira.|
-    |Atualizar o conteúdo da URL|Se você quiser que sua base de conhecimento rastreie o conteúdo mais recente de URLs existentes, marque a caixa de seleção **Atualizar**. Isso atualizará a base de conhecimento com o conteúdo mais recente da URL.|
-    |Adicionar arquivo|Você pode adicionar um documento de arquivo suportado para fazer parte de uma base de conhecimento, selecionando **Gerenciar base de conhecimento** e, em seguida, selecionando **+ Adicionar Arquivo**|
-    |Importar|Você também pode importar qualquer base de conhecimento existente, selecionando o botão **Base de dados de Conhecimento Ímport**. |
-    |Atualizar|A atualização da base de conhecimento depende do **nível de preço de gerenciamento** usado durante a criação do serviço QnA Maker associado à sua base de conhecimento. Você também pode atualizar o tipo de gerenciamento no portal do Azure, se necessário.
+    |Atualizar o conteúdo da URL|Se você quiser que a base de dados de conhecimento rastreie o conteúdo mais recente de URLs existentes, marque a caixa de seleção **Atualizar**. Isso atualizará a base de dados de conhecimento com o conteúdo mais recente da URL.|
+    |Adicionar arquivo|Você pode adicionar um documento de arquivo com suporte para fazer parte de uma base de dados de conhecimento, selecionando **Gerenciar base de dados de conhecimento** e, em seguida, selecionando **+ Adicionar Arquivo**|
+    |Importar|Você também pode importar qualquer base de dados de conhecimento existente, selecionando o botão **Importar base de dados de conhecimento**. |
+    |Atualizar|A atualização da base de dados de conhecimento depende do **nível de preço de gerenciamento** usado durante a criação do serviço QnA Maker associado à sua base de dados de conhecimento. Você também pode atualizar o tipo de gerenciamento no portal do Azure, se necessário.
 
-1. Quando terminar de fazer alterações na base de conhecimento, selecione **Salvar e treinar** no canto superior direito da página para manter as alterações.    
+1. Quando terminar de fazer alterações na base de dados de conhecimento, selecione **Salvar e treinar** no canto superior direito da página para manter as alterações.    
 
     ![Salvar e Treinar](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
@@ -71,7 +71,7 @@ Adicione perguntas alternativas para um par de QnA existente para melhorar a pro
 ## <a name="add-metadata"></a>Adicionar metadados
 
 
-Adicionar pares de metadados, selecionando o ícone de filtro
+Adicionar pares de metadados selecionando o ícone de metadados
 
 ![Adicionar Metadados](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -80,15 +80,21 @@ Adicionar pares de metadados, selecionando o ícone de filtro
 
 ## <a name="manage-large-knowledge-bases"></a>Gerenciar grandes bases de conhecimento
 
-1. Os QnAs são **agrupados** pela fonte de dados da qual eles foram extraídos. Você pode expandir ou recolher a fonte de dados.
-2. Você pode **pesquisar** a base de dados de conhecimento digitando na caixa de texto na parte superior da tabela da Base de Dados de Conhecimento. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
-3. **Paginação** permite que você gerencie grandes bases de dados de conhecimento
+* **Grupos de fonte de dados**: Os QnAs são agrupados pela fonte de dados a partir da qual foram extraídos. Você pode expandir ou recolher a fonte de dados.
 
-    ![Pesquisar, Paginar, Agrupar](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Usar a barra de fonte de dados do QnA Maker para recolher e expandir perguntas e respostas da fonte de dados](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **Pesquisar na base de dados de conhecimento**: É possível pesquisar a base de dados de conhecimento, digitando a caixa de texto na parte superior da tabela da Base de Dados de Conhecimento. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
+
+    ![Usar a caixa de pesquisa do QnA Maker acima das perguntas e respostas para reduzir a exibição apenas para itens correspondentes ao filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **Paginação**: Mover rapidamente pelas fontes de dados para gerenciar grandes bases de dados de conhecimento
+
+    ![Usar os recursos de paginação do QnA Maker acima das perguntas e respostas para percorrer as páginas de perguntas e respostas](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>Excluir as bases de dados de conhecimento
 
-Excluir uma base de conhecimento (KB) é uma operação permanente. Não pode ser desfeito. Antes de excluir uma base de conhecimento, você deverá exportar a base de dados de conhecimento da página **Configurações** do portal do QnA Maker. 
+Excluir um KB (base de dados de conhecimento) é uma operação permanente. Não pode ser desfeito. Antes de excluir uma base de dados de conhecimento, você deverá exportar a base de dados de conhecimento da página **Configurações** do portal do QnA Maker. 
 
 Se você compartilhar seu KB com [colaboradores](collaborate-knowledge-base.md) e então o excluir, todos perderão acesso ao KB. 
 

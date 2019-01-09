@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4c2cebe2225e475ccd40460e7b10a6ba3ed428d5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: beb0c1f9d6b54c029af48684fd81b38699dd2720
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723585"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630641"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Limites de recurso e objeto do Analysis Services
 
@@ -23,7 +23,7 @@ Este artigo descreve os limites de objeto de recurso e modelo.
 
 ### <a name="developer-tier"></a>Camada de Desenvolvedor
 
-Essa camada é recomendada para cenários de avaliação, desenvolvimento e teste. Um único plano inclui a mesma funcionalidade da camada Standard, mas é limitado em capacidade de processamento, QPUs e tamanho de memória. Escalar horizontalmente réplica de consulta *não está disponível* para essa camada. Essa camada não oferece um SLA.
+Essa camada é recomendada para cenários de avaliação, desenvolvimento e teste. Um único plano inclui a mesma funcionalidade da camada Standard, mas é limitado em capacidade de processamento, QPUs e tamanho de memória. A expansão de réplica de consulta não está disponível para essa camada. Essa camada não oferece um SLA.
 
 |Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
@@ -32,7 +32,7 @@ Essa camada é recomendada para cenários de avaliação, desenvolvimento e test
 
 ### <a name="basic-tier"></a>Camada básica
 
-O nível é recomendado para soluções de produção com modelos tabulares menores, concorrência limitada do usuário e requisitos simples de atualização de dados. Escalar horizontalmente réplica de consulta *não está disponível* para essa camada. Perspectivas, várias partições e recursos do modelo tabular do DirectQuery *não têm suporte* nessa camada.  
+O nível é recomendado para soluções de produção com modelos tabulares menores, concorrência limitada do usuário e requisitos simples de atualização de dados. A expansão de réplica de consulta *não está disponível* para essa camada. Não há suporte para perspectivas, múltiplas partições e recursos de modelo tabular do DirectQuery nessa camada.  
 
 |Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
@@ -56,20 +56,20 @@ Essa camada é para aplicativos de produção críticos, que exigem simultaneida
 
 ## <a name="object-limits"></a>Limites do objeto
 
-Estes são os limites teóricos. Desempenho será ser diminuído em números mais baixos.
+Esses limites são teóricos. Desempenho será ser diminuído em números mais baixos.
 
 |Objeto|Tamanho máximo/números|  
 |------------|----------------------------|  
 |Bancos de dados em uma instância|16.000|  
 |Número combinado de tabelas e colunas em um banco de dados|16.000|  
-|Linhas em uma tabela|Ilimitado<br /><br /> **Aviso:** com a restrição de que nenhuma coluna única na tabela pode ter mais de 1.999.999.997 valores distintos.|  
+|Linhas em uma tabela|Ilimitado<br /><br /> **Aviso:** Com a restrição de que nenhuma coluna única na tabela pode ter mais de 1.999.999.997 valores distintos.|  
 |Hierarquias em uma tabela|15,999|  
 |Níveis em uma hierarquia|15,999|  
 |Relações|8.000|  
 |Colunas de chave na tabela de todos os|15,999|  
-|Medidas em uma tabela|2 ^ 31-1 = 2.147.483.647|  
+|Medidas em tabelas|2 ^ 31-1 = 2.147.483.647|  
 |Células retornadas por uma consulta|2 ^ 31-1 = 2.147.483.647|  
-|Tamanho do registro de consulta de fonte|64 K|  
+|Tamanho do registro de consulta de fonte|64 k|  
 |Comprimento de nomes de objeto|512 caracteres|  
 
 

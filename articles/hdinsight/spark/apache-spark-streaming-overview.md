@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583206"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652074"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral de Streaming do Apache Spark
 
@@ -203,7 +203,7 @@ As funções de janela deslizante disponíveis na API Spark Streaming incluem wi
 
 ## <a name="checkpointing"></a>Ponto de verificação
 
-Para fornecer resiliência e tolerância a falhas, o Spark Streaming conta com um ponto de verificação para garantir que o processamento do fluxo continue sem interrupções, mesmo que ocorram falhas nos nós. No HDInsight, o Spark cria pontos de verificação para que o armazenamento seja durável (Armazenamento do Microsoft Azure ou Data Lake Store). Esses pontos de verificação armazenam os metadados sobre o aplicativo de streaming, como a configuração, as operações definidas pelo aplicativo e quaisquer lotes enfileirados que ainda não foram processados. Em alguns casos, os pontos de verificação também incluirão o salvamento dos dados nos RDDs, a fim de reconstruir o estado dos dados mais rapidamente em relação ao que está presente nos RDDs gerenciados pelo Spark.
+Para fornecer resiliência e tolerância a falhas, o Spark Streaming conta com um ponto de verificação para garantir que o processamento do fluxo continue sem interrupções, mesmo que ocorram falhas nos nós. No HDInsight, o Spark cria pontos de verificação para um armazenamento durável (Armazenamento do Azure ou Data Lake Storage). Esses pontos de verificação armazenam os metadados sobre o aplicativo de streaming, como a configuração, as operações definidas pelo aplicativo e quaisquer lotes enfileirados que ainda não foram processados. Em alguns casos, os pontos de verificação também incluirão o salvamento dos dados nos RDDs, a fim de reconstruir o estado dos dados mais rapidamente em relação ao que está presente nos RDDs gerenciados pelo Spark.
 
 ## <a name="deploying-spark-streaming-applications"></a>Implantar aplicativos Spark Streaming
 

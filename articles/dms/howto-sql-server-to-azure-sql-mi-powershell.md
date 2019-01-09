@@ -4,19 +4,19 @@ description: Saiba como migrar do SQL Server local para uma Instância Gerenciad
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c4ccbe8a6f1e1923e83d2bdcbeb2d61429083aee
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247142"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724191"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrar o SQL Server local para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure PowerShell
 Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2005 ou posterior para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Microsoft Azure PowerShell. Migre bancos de dados de uma instância local do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o módulo `AzureRM.DataMigration` no Microsoft Azure PowerShell.
@@ -176,7 +176,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 ### <a name="select-logins"></a>Selecionar logons
-Crie uma lista de logons a serem migrados, conforme mostrado no exemplo abaixo: Observação: atualmente, o DMS dá suporte apenas à migração de logons de SQL. 
+Crie uma lista de logons a serem migrados, conforme mostrado no exemplo abaixo:  Observe que, atualmente, o DMS dá suporte apenas para migração de logons do SQL. 
 
 ```powershell
 $selectedLogins = @("user1", "user2")
@@ -186,7 +186,7 @@ $selectedLogins = @("user1", "user2")
 Crie uma lista de trabalhos do agente a serem migradas, conforme mostrado no exemplo abaixo:
 
 >[!NOTE]
->Atualmente, o DMS dá a trabalhos apenas com as etapas de trabalho do subsistema T-SQL.
+>Atualmente, o DMS dá suporte a trabalhos apenas com as etapas de trabalho do subsistema T-SQL.
 
 ```powershell
 $selectedAgentJobs = @("agentJob1", "agentJob2")
