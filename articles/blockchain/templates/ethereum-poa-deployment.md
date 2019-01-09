@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240493"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974039"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Prova de autoridade do consórcio Ethereum
 
@@ -198,7 +198,7 @@ Esse processo requer uma assinatura do Azure que possa dar suporte à implantaç
 
 Quando uma assinatura for protegida, vá para o portal do Azure. Selecione “+”, Microsoft Azure Marketplace (“Ver todos”) e procure Ethereum PoA Consortium.
 
-A seção a seguir levará você para a configuração do volume do membro na rede. O fluxo de implantação é dividido em cinco etapas: Noções básicas, Regiões de implantação, Tamanho de rede e desempenho, Configurações de Ethereum, Azure Monitor.
+A seção a seguir levará você para a configuração do volume do membro na rede. O fluxo de implantação é dividido em cinco etapas: Noções básicas, regiões de Implantação, tamanho e desempenho da Rede, configurações do Ethereum, Azure Monitor.
 
 #### <a name="basics"></a>Noções básicas
 
@@ -212,7 +212,7 @@ Criar uma nova rede ou ingressar em uma rede existente?|Criar uma nova rede ou i
 Endereço de Email (opcional)|Você receberá uma notificação por email quando sua implantação for concluída com informações sobre sua implantação.|Endereço de email inválido|ND
 Nome de usuário da VM|Nome de usuário do administrador de cada VM implantada (somente caracteres alfanuméricos)|1 a 64 caracteres|ND
 Tipo de autenticação|O método para autenticar para a máquina virtual.|Senha ou chave pública SSH|Senha
-Senha (Tipo de Autenticação = Senha)|A senha para a conta de administrador para cada uma das máquinas virtuais implantadas.  A senha deve conter 3 dos seguintes: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial. Embora todas as VMs tenham inicialmente a mesma senha, você pode alterar a senha após o fornecimento.|12 a 72 caracteres|ND
+Senha (Tipo de Autenticação = Senha)|A senha para a conta de administrador para cada uma das máquinas virtuais implantadas.  A senha deve conter 3 dos seguintes elementos: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial. Embora todas as VMs tenham inicialmente a mesma senha, você pode alterar a senha após o fornecimento.|12 a 72 caracteres|ND
 Chave SSH (tipo de autenticação = chave pública)|A chave de shell segura usada para login remoto.||ND
 Assinatura|A assinatura para a qual deseja implantar a rede consortium||ND
 Grupo de recursos|O grupo de recursos para o qual implantar a rede do consórcio.||ND
@@ -292,7 +292,7 @@ A folha Monitoramento permite que você configure um recurso do Log Analytics pa
 Monitoramento|Opção para habilitar o monitoramento|Habilitar ou Desabilitar|Habilitar
 Conecte-se ao Log Analytics existente|Criar uma nova instância do Log Analytics ou ingressar em uma instância existente|Criar nova ou ingresar em existente|Criar Novo
 Local do monitor (conectar ao Log Analytics existente = criar)|A região em que a nova instância do Log Analytics será implantada|Todas as regiões do Log Analytics|ND
-ID do workspace existente do Log Analytics (conectar-se ao Log Analytics existente = ingressar no existente)|ID do espaço de trabalho da instância existente do Log Analytics||ND
+ID do workspace existente do Log Analytics (conectar-se ao Log Analytics existente = ingressar no existente)|ID do workspace da instância existente do Log Analytics||ND
 Chave primária do Log Analytics existente (conectar-se ao Log Analytics existente = ingressar no existente)|A chave primária usada para conectar-se à instância existente do Log Analytics||ND
 
 
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>Depurar o contrato inteligente com o Truffle
 
-Truffle tem uma rede de desenvolvimento local que está disponível para depuração inteligente do contrato. Você pode encontrar o tutorial completo [aqui](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+Truffle tem uma rede de desenvolvimento local que está disponível para depuração inteligente do contrato. Você pode encontrar o tutorial completo [aqui](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### <a name="webassembly-wasm-support"></a>Suporte de WebAssembly (WASM)
 

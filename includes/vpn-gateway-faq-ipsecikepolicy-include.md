@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/14/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 87d5389abd72875c62ea3484fc3f9ca43c339447
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240109"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53443976"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>A política de IPsec/IKE personalizada tem suporte em todos os SKUs de Gateway de VPN do Azure?
 A política de IPsec/IKE personalizada tem suporte nos gateways de VPN do Azure **VpnGw1, VpnGw2, VpnGw3, Standard** e **HighPerformance**. A SKU **Básica** **não** tem suporte.
@@ -102,3 +102,6 @@ Sim. Um túnel de VNet para VNet consiste em dois recursos de conexão no Azure,
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>A política de IPsec/IKE personalizada funciona em conexão de ExpressRoute?
 Não. A política IPsec/IKE só funciona em conexões VNet para VNet e VPN S2S por meio de gateways de VPN do Azure.
+
+### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Onde posso encontrar mais informações de configuração para o IPsec?
+Veja [Configurar a política de IPsec/IKE para conexões VPN S2S ou VNet para VNet](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

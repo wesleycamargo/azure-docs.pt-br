@@ -3,17 +3,15 @@ title: Conectar aplicativos ao Banco de Dados do Azure para MariaDB
 description: Este documento lista as cadeias de conexão atualmente com suporte para os aplicativos conectarem-se o Banco de Dados do Azure para MariaDB, incluindo ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python e Ruby.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 706bf395df98bd78fa36273a4948a11d4b59067d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 70cd25ff63101fa2a477cde2502d5d286b289366
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967924"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536567"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Como conectar aplicativos ao Banco de Dados do Azure para MariaDB
 Este tópico lista os tipos de cadeia de conexão com suporte no Banco de Dados do Azure para MariaDB, juntamente com modelos e exemplos. Você pode ter parâmetros e configurações diferentes na cadeia de conexão.
@@ -64,7 +62,7 @@ client = Mysql2::Client.new(username: "{username@servername}", password: {your_p
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obter os detalhes da cadeia de conexão no portal do Azure
-No [portal do Azure](https://portal.azure.com), acesse o servidor do Banco de Dados do Azure para MariaDB e clique em **Cadeias de conexão** para obter a lista de cadeia de caracteres da sua instância: ![O painel Cadeias de conexão no portal do Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
+No [portal do Azure](https://portal.azure.com), acesse o servidor de Banco de Dados do Azure para MariaDB e clique em **Cadeias de conexão** para obter a lista de cadeia de caracteres da sua instância: ![O painel de cadeias de conexão no portal do Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 A cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados. Modifique esses exemplos para usar seus próprios parâmetros, como o nome do banco de dados, a senha e assim por diante. Depois, use essa cadeia de caracteres para se conectar ao servidor por meio do código e dos aplicativos.
 

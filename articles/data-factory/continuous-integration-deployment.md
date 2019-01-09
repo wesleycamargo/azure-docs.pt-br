@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 950336db215bbca76f20c15527397212c6fe5ffd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623752"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554921"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração e entrega contínua (CI / CD) no Azure Data Factory
 
@@ -733,12 +733,12 @@ Aqui está um exemplo de script para parar os gatilhos antes da implantação e 
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder="$(env:System.DefaultWorkingDirectory)/Dev/",
-    [parameter(Mandatory = $false)] [String] $armTemplate="$rootFolder\arm_template.json",
-    [parameter(Mandatory = $false)] [String] $ResourceGroupName="sampleuser-datafactory",
-    [parameter(Mandatory = $false)] [String] $DataFactoryName="sampleuserdemo2",
-    [parameter(Mandatory = $false)] [Bool] $predeployment=$true
-
+    [parameter(Mandatory = $false)] [String] $rootFolder,
+    [parameter(Mandatory = $false)] [String] $armTemplate,
+    [parameter(Mandatory = $false)] [String] $ResourceGroupName,
+    [parameter(Mandatory = $false)] [String] $DataFactoryName,
+    [parameter(Mandatory = $false)] [Bool] $predeployment=$true,
+    [parameter(Mandatory = $false)] [Bool] $deleteDeployment=$false
 )
 
 $templateJson = Get-Content $armTemplate | ConvertFrom-Json
@@ -762,7 +762,6 @@ if ($predeployment -eq $true) {
     }
 }
 else {
-
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
@@ -789,7 +788,7 @@ else {
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
 
-    #delte resources
+    #Delete resources
     Write-Host "Deleting triggers"
     $deletedtriggers | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
@@ -820,7 +819,25 @@ else {
         Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
 
-    #Start Active triggers - After cleanup efforts (moved code on 10/18/2018)
+    if ($deleteDeployment -eq $true) {
+        Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
+        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
+        $deploymentName = $deploymentsToConsider[0].DeploymentName
+
+       Write-Host "Deployment to be deleted: " $deploymentName
+        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
+
+        $deploymentsToDelete | ForEach-Object { 
+            Write-host "Deleting inner deployment: " $_.properties.targetResource.id
+            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+        }
+        Write-Host "Deleting deployment: " $deploymentName
+        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+    }
+
+    #Start Active triggers - After cleanup efforts
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
@@ -958,3 +975,17 @@ O exemplo a seguir mostra um arquivo de parâmetros de amostra. Use este exemplo
     }
 }
 ```
+
+## <a name="linked-resource-manager-templates"></a>Modelos Vinculados do Resource Manager
+
+Se você configurou a integração e implantação contínua (CI/CD) para as Fábricas de Dados, é possível observar que, à medida que sua fábrica cresce, atinge os limites de modelo do Resource Manager, como o número máximo de recursos ou a carga máxima em um modelo do Resource Manager. Para cenários como esses, juntamente com a geração de modelo completo do Resource Manager completo para uma fábrica, o Data Factory agora também gera modelos vinculados do Resource Manager. Como resultado, você tem a carga de fábrica inteira dividida em vários arquivos, assim você não atinge os limites mencionados.
+
+Se você tiver o Git configurado, os modelos vinculados são gerados e salvos juntamente com os modelos completos do Resource Manager, na ramificação `adf_publish`, em uma nova pasta chamada `linkedTemplates`.
+
+![Pasta de modelos vinculados do Resource Manager](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+
+Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um conjunto de modelos filho vinculados ao mestre. O modelo pai é chamado `ArmTemplate_master.json`, e os modelos filho são nomeados com o padrão `ArmTemplate_0.json`, `ArmTemplate_1.json` e assim por diante. Para mudar o uso do modelo completo do Resource Manager completo para o uso dos modelos vinculados, atualize sua tarefa de CI/CD para indicar `ArmTemplate_master.json` em vez de indicar `ArmTemplateForFactory.json` (ou seja, o modelo completo do Resource Manager). O Resource Manager também requer que você carregue os modelos vinculados em uma conta de armazenamento para que eles possam ser acessados pelo Azure durante a implantação. Para obter mais informações, consulte [Implantar Modelos ARM Vinculados com VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+
+Lembre-se de adicionar os scripts do Data Factory no pipeline de CI/CD antes e depois a tarefa de implantação.
+
+Se você não tiver o Git configurado, os modelos vinculados são acessíveis por meio do gesto **Exportar modelo ARM**.

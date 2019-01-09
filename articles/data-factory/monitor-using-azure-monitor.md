@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 99cca60fe13b9757b3328d00cf66b673c95f66ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387475"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558423"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Monitorar e alertar data factories usando o Azure Monitor
 Os aplicativos em nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça ativo e em execução em um estado íntegro. Ele também ajuda a afastar os problemas potenciais ou solucionar problemas antigos. Além disso, você pode usar os dados de monitoramento para obter mais informações sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que normalmente exigiriam intervenção manual.
@@ -31,7 +31,7 @@ O Data Factory armazena apenas os dados executados no pipeline por 45 dias. Se v
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 
 * Salve-os em uma **Conta de Armazenamento** para inspeção manual ou de auditoria. Você pode especificar o tempo (em dias) de retenção usando as configurações de diagnóstico.
-* Transmita-os para os **Hubs de Eventos** para ingestão por um serviço de terceiros ou uma solução de análises personalizadas, como o PowerBI.
+* Transmita-os para os **Hubs de Eventos** para ingestão por um serviço de terceiros ou uma solução de análises personalizadas, como o Power BI.
 * Analise-os com o **Log Analytics**
 
 Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que não esteja na mesma assinatura como o recurso que está emitindo logs. O usuário que define a configuração deve ter o devido acesso RBAC (controle de acesso baseado em função) para ambas as assinaturas.
@@ -41,9 +41,9 @@ Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que
 ### <a name="diagnostic-settings"></a>Configurações de Diagnóstico
 Os Logs de Diagnóstico para os recursos de não computação são configurados usando as configurações de diagnóstico. Configurações de diagnóstico para um controle de recursos:
 
-* Para onde os logs de diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos e/ou Log Analytics).
+* Para onde os logs de diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos ou Log Analytics).
 * Quais categorias de log são enviadas.
-* Quanto tempo cada categoria de log deve ser mantida em uma conta de armazenamento
+* Quanto tempo cada categoria de log deve ser mantida em uma conta de armazenamento.
 * Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
 * Se as políticas de retenção estiverem definidas, mas o armazenamento de logs em uma conta de armazenamento estiver desabilitado (por exemplo, apenas as opções Hubs de Eventos ou Log Analytics forem selecionadas), as políticas de retenção não terão efeito.
 * As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
@@ -465,15 +465,7 @@ Você pode visualizar as métricas acima, examinar as consultas por trás dessas
 
 ## <a name="alerts"></a>Alertas
 
-Você pode gerar alertas em métricas com suporte no Data Factory. Clique no botão **alertas** na página **Monitor** do Data Factory.
-
-![Opção de alertas](media/monitor-using-azure-monitor/alerts_image1.png)
-
-Isso leva você para a página **Alertas**.
-
-![Página de alertas](media/monitor-using-azure-monitor/alerts_image2.png)
-
-Você também pode fazer logon no Portal do Azure e clicar em **Monitorar -&gt; Alertas** para alcançar a página **Alertas** diretamente.
+Faça logon no portal do Azure e clique **Monitor -&gt; Alertas** para criar alertas.
 
 ![Alertas no menu do portal](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +501,5 @@ Você também pode fazer logon no Portal do Azure e clicar em **Monitorar -&gt; 
     ![Grupo de ação, tela de 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte o artigo [Monitorar e gerenciar os pipelines programaticamente](monitor-programmatically.md) para saber mais sobre o monitoramento e o gerenciamento de pipelines ao executar.
+
+Consulte o artigo [Monitorar e gerenciar os pipelines programaticamente](monitor-programmatically.md) para saber mais sobre o monitoramento e o gerenciamento de pipelines com código.

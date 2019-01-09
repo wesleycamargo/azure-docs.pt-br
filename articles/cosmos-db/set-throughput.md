@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5b2847914007df414c37397d61632567c277d1b2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075345"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999417"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Taxa de transferência de provisionamento nos contêineres e bancos de dados do Azure Cosmos
 
@@ -27,9 +27,9 @@ A configuração da taxa de transferência provisionada em um contêiner é a op
 
 Recomendamos a configuração da taxa de transferência na granularidade do contêiner se você quiser um desempenho garantido para o contêiner.
 
-A taxa de transferência provisionada em um contêiner do Azure Cosmos é uniformemente distribuída em todas as partições lógicas do contêiner. Como uma ou mais partições lógicas de um contêiner são hospedadas por uma partição de recursos, as partições físicas pertencem exclusivamente ao contêiner e dão suporte à taxa de transferência provisionada no contêiner. A imagem a seguir mostra como uma partição de recursos hospeda uma ou mais partições lógicas de um contêiner:
+A taxa de transferência provisionada em um contêiner do Azure Cosmos é uniformemente distribuída em todas as partições lógicas do contêiner. Como uma ou mais partições lógicas de um contêiner são hospedadas por uma partição física, as partições físicas pertencem exclusivamente ao contêiner e dão suporte à taxa de transferência provisionada no contêiner. A imagem a seguir mostra como uma partição física hospeda uma ou mais partições lógicas de um contêiner:
 
-![Partição de recursos](./media/set-throughput/resource-partition.png)
+![Partição física](./media/set-throughput/resource-partition.png)
 
 ## <a name="setting-throughput-on-a-database"></a>Configurar a taxa de transferência em um banco de dados
 
@@ -47,11 +47,11 @@ Recomendamos a configuração da taxa de transferência em um banco de dados qua
 
 * Compartilhar a taxa de transferência provisionada de um banco de dados em um conjunto de contêineres é útil quando você está migrando um banco de dados NoSQL (como MongoDB, Cassandra) hospedado em um cluster de VMs ou de servidores físicos locais para o Azure Cosmos DB. Você pode pensar na taxa de transferência provisionada configurada em seu banco de dados do Azure Cosmos como um equivalente lógico (mas mais econômico e elástico) do que a capacidade de computação de seu cluster do MongoDB ou do Cassandra.  
 
-A qualquer momento, a taxa de transferência alocada a um contêiner dentro de um banco de dados será distribuída entre todas as partições lógicas desse contêiner. Quando os contêineres compartilham a taxa de transferência provisionada em um banco de dados, não é possível aplicar seletivamente a taxa de transferência a um contêiner específico ou a uma partição lógica. Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada a uma partição lógica específica, suas operações sofrerão limitação de taxa. Quando ocorre essa limitação de taxa, você pode aumentar a taxa de transferência para todo o contêiner ou tentar novamente a operação. Para saber mais sobre particionamento, confira [Partições lógicas](partition-data.md).
+Todos os contêineres criados em um banco de dados com taxa de transferência provisionada devem ser criados com uma chave de partição. A qualquer momento, a taxa de transferência alocada a um contêiner dentro de um banco de dados será distribuída entre todas as partições lógicas desse contêiner. Quando os contêineres compartilham a taxa de transferência provisionada em um banco de dados, não é possível aplicar seletivamente a taxa de transferência a um contêiner específico ou a uma partição lógica. Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada a uma partição lógica específica, suas operações sofrerão limitação de taxa. Quando ocorre essa limitação de taxa, você pode aumentar a taxa de transferência para todo o contêiner ou tentar novamente a operação. Para saber mais sobre particionamento, confira [Partições lógicas](partition-data.md).
 
-É possível hospedar várias partições lógicas que compartilham a taxa de transferência provisionada para um banco de dados em uma partição de recurso único. Embora o escopo de uma partição lógica individual de um contêiner esteja sempre dentro de uma partição de recursos, as partições lógicas "L" em contêineres "C" que compartilham a taxa de transferência provisionada de um banco de dados podem ser mapeadas e hospedadas em partições físicas "R". A imagem a seguir mostra como uma partição de recursos pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
+É possível hospedar várias partições lógicas que compartilham a taxa de transferência provisionada para um banco de dados em uma partição física única. Embora o escopo de uma partição lógica individual de um contêiner esteja sempre dentro de uma partição física, as partições lógicas "L" em contêineres "C" que compartilham a taxa de transferência provisionada de um banco de dados podem ser mapeadas e hospedadas em partições físicas "R". A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes dentro de um banco de dados:
 
-![Partição de recursos](./media/set-throughput/resource-partition2.png)
+![Partição física](./media/set-throughput/resource-partition2.png)
 
 ## <a name="setting-throughput-on-a-database-and-a-container"></a>Configurar a taxa de transferência em um banco de dados e um contêiner
 

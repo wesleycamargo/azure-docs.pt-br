@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42635852bb5c6e7b388d4dc58b9d5bfaa6212438
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980297"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725840"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia do desenvolvedor do Azure Functions
 No Azure Functions, funções específicas compartilham alguns componentes e conceitos técnicos, independentemente da linguagem ou da associação usada. Antes de aprender detalhes específicos de uma determinada linguagem ou binding, leia esta visão geral que se aplica a todos eles.
@@ -76,7 +76,7 @@ Ao configurar um projeto para implantar funções em um aplicativo de funções 
 ## <a id="fileupdate"></a> Como atualizar os arquivos de aplicativo de funções
 O editor de funções interno do portal do Azure permite que você atualize o arquivo *function.json* e o arquivo de código de uma função. Para carregar ou atualizar outros arquivos, como *package.json* ou *project.json*, ou dependências, você precisa usar outros métodos de implantação.
 
-Os aplicativos de funções baseiam-se no Serviço de Aplicativo; portanto, todas as [opções de implantação disponíveis para aplicativos Web padrão](../app-service/app-service-deploy-local-git.md) também estão disponíveis para aplicativos de funções. Aqui estão alguns métodos que você pode usar para carregar ou atualizar os arquivos de aplicativos de função. 
+Os aplicativos de funções baseiam-se no Serviço de Aplicativo; portanto, todas as [opções de implantação disponíveis para aplicativos Web padrão](../app-service/deploy-local-git.md) também estão disponíveis para aplicativos de funções. Aqui estão alguns métodos que você pode usar para carregar ou atualizar os arquivos de aplicativos de função. 
 
 #### <a name="use-local-tools-and-publishing"></a>Usar ferramentas locais e publicação
 Aplicativos de funções podem ser criados e publicados usando várias ferramentas, incluindo [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md) e [Azure Functions Core Tools](./functions-develop-local.md). Para mais informações, confira [Codificar e testar o Azure Functions localmente](./functions-develop-local.md).
@@ -87,7 +87,7 @@ Aplicativos de funções podem ser criados e publicados usando várias ferrament
 Siga as instruções no tópico [Implantação contínua para funções do Azure](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Execução paralela
-Quando vários eventos de gatilho ocorrem mais rápido do que um tempo de execução single-threaded de função pode processar, o tempo de execução pode invocar a função várias vezes em paralelo.  Se um aplicativo de funções estiver usando o [Plano de hospedagem de consumo](functions-scale.md#how-the-consumption-plan-works), ele poderá escalar horizontalmente de maneira automática.  Cada instância do aplicativo de funções, quer seja executada no Plano de hospedagem de consumo, quer em um [Plano de hospedagem do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) comum, pode processar invocações de função simultâneas em paralelo usando vários threads.  O número máximo de invocações de função simultâneas em cada instância do aplicativo de funções varia com base no tipo de gatilho que está sendo usado, bem como nos recursos usados por outras funções no aplicativo de funções.
+Quando vários eventos de gatilho ocorrem mais rápido do que um tempo de execução single-threaded de função pode processar, o tempo de execução pode invocar a função várias vezes em paralelo.  Se um aplicativo de funções estiver usando o [Plano de hospedagem de consumo](functions-scale.md#how-the-consumption-plan-works), ele poderá escalar horizontalmente de maneira automática.  Cada instância do aplicativo de funções, quer seja executada no Plano de hospedagem de consumo, quer em um [Plano de hospedagem do Serviço de Aplicativo](../app-service/overview-hosting-plans.md) comum, pode processar invocações de função simultâneas em paralelo usando vários threads.  O número máximo de invocações de função simultâneas em cada instância do aplicativo de funções varia com base no tipo de gatilho que está sendo usado, bem como nos recursos usados por outras funções no aplicativo de funções.
 
 ## <a name="functions-runtime-versioning"></a>Controle de versão de tempo de execução de funções
 
@@ -120,5 +120,5 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor em F# do Azure Functions](functions-reference-fsharp.md)
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
-* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Azure Functions: a jornada) no blog da equipe do Serviço de Aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
+* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) no blog da equipe do Serviço de Aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
 

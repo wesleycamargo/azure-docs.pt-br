@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857815"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603820"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços de Nuvem do Azure
-Os Serviços de Nuvem do Azure são um exemplo de uma [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (Plataforma como Serviço). Como o [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Da mesma forma que o Serviço de Aplicativo é hospedado em máquinas virtuais (VMs), os Serviços de Nuvem do Azure também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software em VMs que usam os Serviços de Nuvem do Azure acessá-las remotamente.
+Os Serviços de Nuvem do Azure são um exemplo de uma [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (Plataforma como Serviço). Como o [Serviço de Aplicativo do Azure](../app-service/overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Da mesma forma que o Serviço de Aplicativo é hospedado em máquinas virtuais (VMs), os Serviços de Nuvem do Azure também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software em VMs que usam os Serviços de Nuvem do Azure acessá-las remotamente.
 
 ![Diagrama dos Serviços de Nuvem do Azure](./media/cloud-services-choose-me/diagram.png)
 
@@ -29,9 +29,9 @@ Mais controle também significa menos facilidade de uso. A menos que você preci
 
 Há dois tipos de funções do Serviço de Nuvem do Azure. A única diferença entre os dois é o modo como sua função é hospedada nas VMs:
 
-* **Função da Web**: implanta e hospeda o aplicativo automaticamente por IIS.
+* **Função Web**: Implanta e hospeda o aplicativo automaticamente por IIS.
 
-* **Função de Trabalho**: não usa IIS e executa o aplicativo de modo autônomo.
+* **Função de trabalho**: não usa IIS e executa o aplicativo de modo autônomo.
 
 Por exemplo, um aplicativo simples pode usar apenas uma única função web, atendendo a um site. Um aplicativo mais complexo pode usar uma função Web para lidar com solicitações de entrada de usuários e, em seguida, passar essas solicitações a uma função de trabalho para processamento. (Essa comunicação pode usar [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) ou [Armazenamento de Filas do Azure](../storage/common/storage-introduction.md).)
 

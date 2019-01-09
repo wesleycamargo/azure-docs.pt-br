@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d013f2cdd9f33f55d579638386355e5cbaccb7e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878277"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714943"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de banco de dados sem servidor usando o Azure Cosmos DB e o Azure Functions
 
@@ -29,7 +29,7 @@ O Azure Cosmos DB e o Azure Functions permitem integrar bancos de dados e aplica
 * Associe uma função a um contêiner do Azure Cosmos DB usando uma **associação de saída**. As associações de saída gravam dados em um contêiner quando uma função é concluída.
 
 > [!NOTE]
-> Atualmente, o gatilho, associações de entrada e de saída do Azure Cosmos DB têm suporte apenas para uso com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados a partir de sua função usando o cliente estático para sua API, incluindo a API do MongoDB, API do Cassandra, API do Gremlin e API de Tabela.
+> Atualmente, o gatilho, associações de entrada e de saída do Azure Cosmos DB têm suporte apenas para uso com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados a partir de sua função usando o cliente estático para sua API.
 
 
 O seguinte diagrama ilustra cada uma destas três integrações: 

@@ -1,5 +1,5 @@
 ---
-title: O que fazer no caso de uma interrupção de serviço do Azure afetar o Cofre de Chaves do Azure | Microsoft Docs
+title: O que fazer no caso de uma interrupção de serviço do Azure afetar o Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Saiba o que fazer no caso de uma interrupção de serviço do Azure afetar o Cofre de Chaves do Azure.
 services: key-vault
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: key-vault
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 5ab6fc207d8a7732062a51a6215c25a4a0fac006
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0479e5f7e51d02a08f6d542515212c88b3a43df5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465836"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999230"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de Chaves do Azure
+
 O Cofre de Chaves do Azure tem várias camadas de redundância, a fim de garantir que seus segredos e chaves permaneçam disponíveis para seu aplicativo até mesmo se os componentes individuais do serviço falharem.
 
 O conteúdo de seu cofre de chaves é replicado na região e em uma região secundária a pelo menos 150 milhas de distância, mas na mesma região geográfica. Isso mantém a alta durabilidade de seus segredos e chaves. Consulte o documento [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) para obter detalhes sobre pares de regiões específicos.

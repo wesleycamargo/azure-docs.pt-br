@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271004"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630454"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -151,7 +151,7 @@ Todos esses endereços IP ficam visíveis em um ASEv2 no portal do Azure, na int
 
 ### <a name="app-assigned-ip-addresses"></a>Endereços IP atribuídos ao aplicativo ###
 
-Com um ASE externo, você pode atribuir endereços IP a aplicativos individuais. Você não pode fazer isso com um ASE ILB. Para saber mais sobre como configurar seu aplicativo para ter o próprio endereço IP, confira [Associar um certificado SSL personalizado existente a aplicativos Web do Azure](../app-service-web-tutorial-custom-ssl.md).
+Com um ASE externo, você pode atribuir endereços IP a aplicativos individuais. Você não pode fazer isso com um ASE ILB. Para saber mais sobre como configurar seu aplicativo para que tenha seu próprio endereço IP, confira [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](../app-service-web-tutorial-custom-ssl.md).
 
 Quando um aplicativo tem seu próprio endereço SSL com base em IP, o ASE reserva duas portas para mapear para esse endereço IP. Uma porta é para o tráfego HTTP e a outra porta é para HTTPS. Essas portas estão listadas na interface de usuário do ASE na seção de endereços IP. O tráfego deverá ser capaz de alcançar essas portas do VIP ou os aplicativos ficarão inacessíveis. É importante lembrar-se desse requisito ao configurar NSGs (grupos de segurança de rede).
 

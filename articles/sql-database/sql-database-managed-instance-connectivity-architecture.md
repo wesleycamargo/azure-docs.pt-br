@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 964f91f412645e141ca003d511480f6f6eb438a3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343270"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536042"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de Conectividade de Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -113,7 +113,10 @@ Para implantar uma Instância Gerenciada, em uma sub-rede dedicada (sub-rede da 
 
   > [!Note]
   > Embora as regras de segurança de entrada obrigatórias permitam o tráfego de _Qualquer_ origem nas portas 9000, 9003, 1438, 1440, 1452 essas portas são protegidas por firewall interno. Este [artigo](sql-database-managed-instance-find-management-endpoint-ip-address.md) mostra como você pode descobrir o endereço IP do ponto de extremidade de gerenciamento e verificar as regras de firewall. 
-
+  
+  > [!Note]
+  > Se estiver usando uma replicação transacional na instância gerenciada e qualquer banco de dados na instância gerenciada for usado como publicador ou distribuidor, a porta 445 (TCP de saída) também precisa ser aberto nas regras de segurança da sub-rede para acessar o compartilhamento de arquivos do Azure.
+  
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para uma visão geral, consulte  [O que é uma instância gerenciada](sql-database-managed-instance.md)

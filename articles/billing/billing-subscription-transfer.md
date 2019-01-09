@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2fe018139fd99f395ff88eae39ca8836eded5677
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583305"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581514"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
 
@@ -31,9 +31,6 @@ Transfira sua assinatura para outro usuário no Centro de Contas para alterar o 
 > [!IMPORTANT]
 > 
 > Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino.
-
-> [!div class="nextstepaction"]
-> [Ajudar a melhorar os documentos de cobrança do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma assinatura do Azure
 
@@ -177,4 +174,4 @@ Se não for possível transferir a propriedade da assinatura, migre os recursos 
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [ crie uma solicitação de suporte ](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

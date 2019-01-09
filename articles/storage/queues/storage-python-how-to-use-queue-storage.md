@@ -4,18 +4,17 @@ description: Saiba como usar o serviço Fila do Azure do Python para criar e exc
 services: storage
 author: tamram
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 12/14/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0edb90ca7324d47beaa5133d423928e615ff33a9
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162980"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742806"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Como usar o Armazenamento de fila do Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -31,7 +30,7 @@ Este guia mostra como executar cenários comuns usando o serviço de armazenamen
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Baixar e instalar o SDK do Armazenamento do Azure para Python
 
-O SDK do Armazenamento do Azure para Python requer Python 2.7, 3.3, 3.4, 3.5 ou 3.6 e é fornecido em 4 pacotes diferentes: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` e `azure-storage-queue`. Neste tutorial, usaremos o pacote `azure-storage-queue`.
+O [SDK do Armazenamento do Azure para Python](https://github.com/azure/azure-storage-python) requer o Python 2.7, 3.3, 3.4, 3.5 ou 3.6.
  
 ### <a name="install-via-pypi"></a>Instalar por meio de PyPi
 
@@ -41,15 +40,19 @@ Para instalar por meio do Índice de Pacote do Python (PyPI), digite:
 pip install azure-storage-queue
 ```
 
-
 > [!NOTE]
-> Se você estiver atualizando do SDK do Armazenamento do Azure para Python versão 0.36 ou anterior, você primeiro precisará desinstalá-la usando `pip uninstall azure-storage`, já que não lançaremos mais o SDK do Armazenamento para Python em um único pacote.
-> 
-> 
+> Se você estiver fazendo upgrade do SDK de Armazenamento do Azure para Python versão 0.36 ou anterior, desinstale o SDK mais antigo usando `pip uninstall azure-storage` antes de instalar o pacote mais recente.
 
-Para métodos de instalação alternativos, visite o [SDK do Armazenamento do Microsoft Azure para Python no GitHub](https://github.com/Azure/azure-storage-python/).
+Para métodos de instalação alternativos, confira o [SDK do Armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python/).
+
+## <a name="view-the-sample-application"></a>Visualizar o aplicativo de exemplo
+
+Para exibir e executar um aplicativo de exemplo que mostra como usar o Python com Filas do Azure, confira [Armazenamento do Azure: Introdução às Filas do Azure no Python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
+
+Para executar o aplicativo de exemplo, verifique se você instalou os pacotes `azure-storage-queue` e `azure-storage-common`.
 
 ## <a name="how-to-create-a-queue"></a>Como: criar uma fila
+
 O objeto **QueueService** permite que você trabalhe com filas. O código a seguir cria um objeto **QueueService** . Adicione o seguinte próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente:
 
 ```python
@@ -129,8 +132,6 @@ Agora que você aprendeu os conceitos básicos do Armazenamento de Filas, siga e
 
 * [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355)
-* [Blog da equipe de Armazenamento do Azure]
-* [SDK do Armazenamento do Microsoft Azure para Python]
 
-[Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1b4ca22faf8ef01cab4b2e7231fea8ed49f0fcb3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 698806bdedd9994f2c9de53118cb42c9df1c36cd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494582"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724395"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Coletar despejos de heap no armazenamento de Blob para depurar e analisar serviços do Apache Hadoop
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
@@ -23,8 +23,8 @@ Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os
 
 A coleção de despejos de heap para vários serviços deve ser habilitada para serviços em clusters individuais. O padrão para esse recurso deve ser desativado para um cluster. Esses despejos de heap podem ser grandes; portanto, é aconselhável monitorar a conta de armazenamento de Blob na qual eles são salvos após habilitar a coleta.
 
-> [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). As informações neste artigo aplicam-se apenas ao HDInsight baseado no Windows. Para obter informações sobre o HDInsight baseado em Linux, consulte [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> [!IMPORTANT]  
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). As informações neste artigo aplicam-se apenas ao HDInsight baseado no Windows. Para saber mais sobre o HDInsight baseado em Linux, confira [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
 
 ## <a name="eligible-services-for-heap-dumps"></a>Serviços qualificados para despejos de heap

@@ -9,25 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7722076c3b0031da8580dd88efdc0b575fd5a3be
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 33bb3186493b2ea2a0d676f250282574b27f7988
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875562"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718466"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrando para ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters HDInsight
 
 O HDInsight está preterindo as ferramentas baseadas em ASM (Azure Service Manager) para o HDInsight. Se você usa o Azure PowerShell, a CLI Clássica do Azure ou o SDK do .NET do HDInsight para trabalhar com clusters HDInsight, nós o incentivamos a usar as versões do Azure Resource Manager do PowerShell, da CLI e do SDK do .NET no futuro. Este artigo fornece sugestões sobre como migrar para a nova abordagem baseada no Resource Manager. Sempre que aplicável, este documento destaca as diferenças entre as abordagens do ASM e do Resource Manager em relação ao HDInsight.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O suporte para o PowerShell, a CLI e o SDK do .NET baseado em ASM será descontinuado em **1º de janeiro de 2017**.
-> 
-> 
 
 ## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Migrando a CLI Clássica do Azure para o Azure Resource Manager
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > A CLI do Azure não oferece suporte para trabalhar com clusters HDInsight. Você ainda pode usar a CLI Clássica do Azure com HDInsight, no entanto, a CLI Clássica do Azure foi preterida.
 
 A seguir, há comandos básicos para trabalhar com o HDInsight por meio da CLI clássica do Azure:
@@ -51,11 +49,11 @@ Os novos comandos disponíveis no Azure Resource Manager são:
 ### <a name="deprecated-commands"></a>Comandos preteridos
 Se você usar os comandos `azure hdinsight job` para enviar trabalhos para o cluster HDInsight, esses comandos não estarão disponíveis por meio dos comandos do Resource Manager. Se você precisar enviar trabalhos ao HDInsight por meio de scripts de forma programática, será necessário usar as APIs REST fornecidas pelo HDInsight. Para obter mais informações sobre como enviar trabalhos usando as APIs REST, confira os seguintes documentos.
 
-* [Executar trabalhos do MapReduce do Apache Hadoop com Hadoop no HDInsight usando cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Executar trabalhos do MapReduce com o Hadoop no HDInsight usando a cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Executar consultas do Apache Hive com Apache Hadoop no HDInsight usando cURL](hadoop/apache-hadoop-use-hive-curl.md)
 * [Executar trabalhos do Apache Pig com Apache Hadoop no HDInsight usando cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
-Para obter mais informações sobre outras maneiras de executar o MapReduce do Apache Hadoop, Apache Hive e Apache Pig de forma interativa, consulte [Usar o MapReduce do Apache Hadoop com Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md), [Usar o Apache Hive com Apache Hadoop no HDInsight](hadoop/hdinsight-use-hive.md) e [Usar o Apache Pig com Apache Hadoop no HDInsight](hadoop/hdinsight-use-pig.md).
+Para saber mais sobre outras maneiras de executar o MapReduce do Apache Hadoop, Apache Hive e Apache Pig de forma interativa, veja [Usar o MapReduce do Apache Hadoop com Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md), [Usar o Apache Hive com Apache Hadoop no HDInsight](hadoop/hdinsight-use-hive.md) e [Usar o Apache Pig com Apache Hadoop no HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Exemplos
 **Criando um cluster**
@@ -73,10 +71,8 @@ Para obter mais informações sobre outras maneiras de executar o MapReduce do A
 * Comando antigo (ASM) - `azure hdinsight cluster list`
 * Novo comando – `azure hdinsight cluster list`
 
-> [!NOTE]
+> [!NOTE]  
 > Para o comando “list”, a especificação do grupo de recursos usando `-g` retornará apenas os clusters no grupo de recursos especificado.
-> 
-> 
 
 **Mostrar informações de cluster**
 
@@ -145,7 +141,7 @@ Para obter mais informações de uso, veja [Personalizar clusters HDInsight base
 
 **Cmdlets relacionados à identidade do cluster:**
 
-* **Add-AzureRmHDInsightClusterIdentity**: Adiciona uma identidade de cluster a um objeto de configuração de cluster para que o cluster HDInsight possa acessar o Azure Data Lake Stores. Veja [Criar um cluster HDInsight com o Repositório Data Lake usando o Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Add-AzureRmHDInsightClusterIdentity**: Adiciona uma identidade de cluster a um objeto de configuração de cluster para que o cluster HDInsight possa acessar o Azure Data Lake Storage. Veja [Criar um cluster HDInsight com o Data Lake Storage usando o Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Exemplos
 **Criar cluster**

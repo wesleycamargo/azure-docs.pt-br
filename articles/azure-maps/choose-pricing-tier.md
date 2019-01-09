@@ -3,17 +3,17 @@ title: Escolha o tipo de preço para Azure Mapas | Microsoft Docs
 description: Saiba mais sobre tipo de preço oferecido pelo Azure Mapas
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998374"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993953"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Escolha o certo tipo de preço no Azure Mapas
 
@@ -53,9 +53,8 @@ Consulte a tabela com **Clientes de destino do tipo de preço** para obter uma m
 
 | Tipo de preço  |        Clientes de destino                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>O tipo de preço S0 é para clientes que são as empresas de pequeno ou médio porte. É um direito de tipo de preço para você se você não espera grandes volumes de usuários simultâneos e seus requisitos de serviço são atendidos pelas APIs geoespaciais conforme indicado pela tabela a seguir. Essa camada está disponível e é aplicável para aplicativos em todos os estágios de produção desde o desenvolvimento da prova de conceito e teste da etapa para a produção e implantação do aplicativo.<p>|
+| S0            |    <p>O tipo de preço S0 é para clientes que são as empresas de pequeno ou médio porte. É um direito de tipo de preço para você se você não espera grandes volumes de usuários simultâneos e seus requisitos de serviço são atendidos pelas APIs geoespaciais conforme indicado pela tabela acima. Essa camada está disponível e é aplicável para aplicativos em todos os estágios de produção desde o desenvolvimento da prova de conceito e teste da etapa para a produção e implantação do aplicativo.<p>|
 | S1            |    <p>O tipo de preço S1 é para clientes em necessidade de transporte para empresa de grande porte, aplicativos de missão crítica, volumes altos de usuários concorrentes ou requer serviços geoespaciais avançados.</p>|
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

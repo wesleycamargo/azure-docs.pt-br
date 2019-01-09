@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1fbf77bfb771bd94ed9acdecb3c54e4c6894687
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 183afaeb40b90de078a44f4677dd0218b8d86ba8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182103"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968971"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Facebook usando o Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Para usar uma conta do Facebook como um provedor de identidade no Azure AD (Azur
 13. Escolha **Produtos** e, em seguida, escolha **Configurar** em **Logon do Facebook**.
 14. Escolha **Configurações** em **Logon do Facebook**.
 15. Em **URIs de Redirecionamento do OAuth Válidos**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant-name` pelo nome do seu locatário. Clique em **Salvar Alterações** na parte inferior da página.
-16. Para disponibilizar seu aplicativo do Facebook para o Azure AD B2C, escolha **Análise de Aplicativo**, defina **Tornar meu aplicativo público?** como **SIM**, depois clique em **Confirmar**.
+16. Para disponibilizar seu aplicativo do Facebook ao Azure AD B2C, clique no seletor de Status na parte superior direita da página e **Ative-o** para tornar o aplicativo público e, depois, clique em **Confirmar**.  Neste ponto, o Status deverá mudar de **Desenvolvimento** para **Ativo**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurar o Facebook como um provedor de identidade
 

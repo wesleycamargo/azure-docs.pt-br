@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 92f6bc358fe8cc5ab8f7242d94edc3004eaab4b9
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c1f4690d2ce10fe83d613b37ef2514effd2cef63
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163371"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598814"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de anotações do Jupyter em seu computador e conectar-se ao Apache Spark no HDInsight
 
@@ -22,9 +22,9 @@ Neste artigo, você aprenderá a instalar o notebook Jupyter, com os kernels PyS
 
 Há três etapas principais envolvidas na instalação do Jupyter e da mágica do Spark em seu computador.
 
-* Instalar bloco de notas Jupyter
-* Instalar os kernels PySpark e Spark com a mágica do Spark
-* Configure a mágica do Spark para acessar o cluster Spark no HDInsight
+* Instalar Jupyter notebook.
+* Instale os kernels PySpark e Spark com a mágica do Spark.
+* Configure a mágica do Spark para acessar o cluster Spark no HDInsight.
 
 Para saber mais sobre os kernels personalizados e a sobre a mágica Spark disponível para blocos de notas Jupyter com o cluster HDInsight, confira [Kernels disponíveis para blocos de notas Jupyter com clusters do Apache Spark Linux no HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
@@ -43,7 +43,7 @@ Você deve instalar o Python antes de instalar notebooks do Jupyter. Ambos o Pyt
 
         conda install jupyter
 
-    Para obter mais informações sobre a instalação do Jupyter, confira [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html)(Instalando o Jupyter usando o Anaconda).
+    Para obter mais informações sobre a instalação do Jupyter, confira [Installing Jupyter using Anaconda](https://jupyter.readthedocs.io/en/latest/install.html)(Instalando o Jupyter usando o Anaconda).
 
 ## <a name="install-the-kernels-and-spark-magic"></a>Instalar os kernels e a mágica do Spark
 
@@ -100,7 +100,7 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
             "livy_server_heartbeat_timeout_seconds": 60,
             "heartbeat_retry_seconds": 1
 
-    >[!TIP]
+    >[!TIP]  
     >As pulsações são enviadas para garantir que as sessões não sejam perdidas. Quando um computador entra em suspensão ou está desligado, a pulsação não é enviada e, como resultado, a sessão é limpa. Para clusters v3.4, se desejar desabilitar esse comportamento, você poderá definir a configuração Livy `livy.server.interactive.heartbeat.timeout` para `0` da interface do usuário do Ambari. Para clusters v3.5, se você não definir a configuração de 3.5 ou acima, a sessão não será excluída.
 
 1. Inicie o Jupyter. Use o comando do prompt de comando a seguir.
@@ -120,7 +120,7 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 
     Se você puder recuperar a saída com êxito, a conexão com o cluster HDInsight será testada.
 
-    >[!TIP]
+    >[!TIP]  
     >Se você quiser atualizar a configuração do bloco de notas para se conectar a um cluster diferente, atualize o config.json com o novo conjunto de valores, conforme mostrado na Etapa 3 acima.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Por que devo instalar o Jupyter no meu computador?
@@ -132,7 +132,7 @@ Pode haver vários motivos pelos quais você pode querer instalar o Jupyter em s
 * Você pode trabalhar com blocos de notas localmente sem sequer ter um cluster em operação. É preciso apenas um cluster no qual testar seus blocos de notas, e não para gerenciar manualmente os blocos de notas ou um ambiente de desenvolvimento.
 * Pode ser mais fácil configurar seu próprio ambiente de desenvolvimento local que configurar a instalação do Jupyter no cluster.  É possível aproveitar todo o software que você tem instalado localmente sem configurar um ou mais clusters remotos.
 
-> [!WARNING]
+> [!WARNING]  
 > Com o Jupyter instalado no computador local, vários usuários podem executar o mesmo bloco de notas no mesmo cluster Spark ao mesmo tempo. Nessa situação, várias sessões Livy são criadas. Se você tiver um problema e desejar depurá-lo, será uma tarefa complexa rastrear qual sessão Livy pertence a qual usuário.
 >
 >
@@ -141,9 +141,9 @@ Pode haver vários motivos pelos quais você pode querer instalar o Jupyter em s
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Apache Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema de HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de log do site usando o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicativos

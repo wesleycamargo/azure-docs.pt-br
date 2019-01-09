@@ -10,27 +10,27 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f07f462fc33761f7d29944594491a72f283cd31
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 6044c0e565a4e321b57789f51e01473933f63d44
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582546"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630472"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia Apache Storm em Java
 
-Aprenda a criar uma topologia baseada em Java para o [Apache Storm](http://storm.apache.org/). Crie uma topologia Storm que implementa um aplicativo de contagem de palavras. Use o [Apache Maven](https://maven.apache.org/) para compilar e empacotar o projeto. Em seguida, você aprenderá como definir a topologia usando a estrutura Flux.
+Aprenda a criar uma topologia baseada em Java para o [Apache Storm](https://storm.apache.org/). Crie uma topologia Storm que implementa um aplicativo de contagem de palavras. Use o [Apache Maven](https://maven.apache.org/) para compilar e empacotar o projeto. Em seguida, você aprenderá como definir a topologia usando a estrutura Flux.
 
 Depois de concluir as etapas neste documento, você pode implantar a topologia para o Apache Storm no HDInsight.
 
-> [!NOTE]
+> [!NOTE]  
 > Uma versão completa dos exemplos de topologia do Storm criados neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks)
 
-* [Apache Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven é um sistema de compilação de projetos para projetos Java.
+* [Apache Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): O Maven é um sistema de construção de projetos para projetos Java.
 
 * Um editor de texto ou IDE.
 
@@ -56,16 +56,16 @@ Na linha de comando, use o seguinte comando para criar um novo projeto do Maven 
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Se você estiver usando o PowerShell, coloque os parâmetros `-D` com aspas duplas.
 >
 > `mvn archetype:generate "-DarchetypeArtifactId=maven-archetype-quickstart" "-DgroupId=com.microsoft.example" "-DartifactId=WordCount" "-DinteractiveMode=false"`
 
 Esse comando cria um diretório chamado `WordCount` no local atual, que contém um projeto básico do Maven. O diretório `WordCount` contém os seguintes itens:
 
-* `pom.xml`: contém configurações para o projeto Maven.
-* `src\main\java\com\microsoft\example`: contém o código do aplicativo.
-* `src\test\java\com\microsoft\example`: contém testes para o seu aplicativo. 
+* `pom.xml`: Contém configurações para o projeto Maven.
+* `src\main\java\com\microsoft\example`: Contém o código do aplicativo.
+* `src\test\java\com\microsoft\example`: Contém testes para o aplicativo. 
 
 ### <a name="remove-the-generated-example-code"></a>Remover o exemplo de código gerado
 
@@ -76,7 +76,7 @@ Exclua o teste gerado e os arquivos do aplicativo:
 
 ## <a name="add-maven-repositories"></a>Adicionar repositórios Maven
 
-Como o HDInsight tem base no HDP (Hortonworks Data Platform), recomendamos o uso do repositório Hortonworks para baixar dependências de seus projetos do Apache Storm. No arquivo __pom.xml__, adicione o seguinte XML após a linha `<url> http://maven.apache.org</url>`:
+Como o HDInsight tem base no HDP (Hortonworks Data Platform), recomendamos o uso do repositório Hortonworks para baixar dependências de seus projetos do Apache Storm. No arquivo __pom.xml__, adicione o seguinte XML após a linha `<url> https://maven.apache.org</url>`:
 
 ```xml
 <repositories>
@@ -93,7 +93,7 @@ Como o HDInsight tem base no HDP (Hortonworks Data Platform), recomendamos o uso
         </snapshots>
         <id>HDPReleases</id>
         <name>HDP Releases</name>
-        <url>http://repo.hortonworks.com/content/repositories/releases/</url>
+        <url>https://repo.hortonworks.com/content/repositories/releases/</url>
         <layout>default</layout>
     </repository>
     <repository>
@@ -109,7 +109,7 @@ Como o HDInsight tem base no HDP (Hortonworks Data Platform), recomendamos o uso
         </snapshots>
         <id>HDPJetty</id>
         <name>Hadoop Jetty</name>
-        <url>http://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
+        <url>https://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
         <layout>default</layout>
     </repository>
 </repositories>
@@ -147,7 +147,7 @@ Adicione uma dependência para componentes do Storm. Abra o arquivo `pom.xml` e 
 
 No momento da compilação, o Maven usa essas informações para pesquisar `storm-core` no repositório Maven. Ele primeiro procura no repositório em seu computador local. Se os arquivos não estiverem lá, o Maven os baixará do repositório Maven público e os armazenará no repositório local.
 
-> [!NOTE]
+> [!NOTE]  
 > Observe a linha `<scope>provided</scope>` nesta seção. Essa configuração informa ao Maven para excluir o **storm-core** de qualquer arquivo JAR criado, pois ele será fornecido pelo sistema.
 
 ## <a name="build-configuration"></a>Configuração de compilação
@@ -163,11 +163,11 @@ Plug-ins do Maven permitem que você personalize os estágios de compilação do
 </build>
 ```
 
-Esta seção será usada para adicionar plug-ins, recursos e outras opções de configuração de compilação. Para obter uma referência completa do arquivo **pom.xml**, consulte [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
+Esta seção será usada para adicionar plug-ins, recursos e outras opções de configuração de compilação. Para obter uma referência completa do arquivo **pom.xml**, consulte [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html).
 
 ### <a name="add-plug-ins"></a>Adicionar plug-ins
 
-Para topologias Apache Storm implementadas em Java, o [plug-in Maven Exec](http://www.mojohaus.org/exec-maven-plugin/) é útil porque permite que você execute com facilidade a topologia localmente em seu ambiente de desenvolvimento. Adicione o seguinte à seção `<plugins>` do arquivo `pom.xml` para incluir o plug-in Exec Maven:
+Para topologias Apache Storm implementadas em Java, o [plug-in Maven Exec](https://www.mojohaus.org/exec-maven-plugin/) é útil porque permite que você execute com facilidade a topologia localmente em seu ambiente de desenvolvimento. Adicione o seguinte à seção `<plugins>` do arquivo `pom.xml` para incluir o plug-in Exec Maven:
 
 ```xml
 <plugin>
@@ -192,7 +192,7 @@ Para topologias Apache Storm implementadas em Java, o [plug-in Maven Exec](http:
 </plugin>
 ```
 
-Outro plug-in útil é o [Plug-in do compilador Apache Maven](http://maven.apache.org/plugins/maven-compiler-plugin/), que é usado para alterar opções de compilação. Ele muda a versão do Java que o Maven usa para a origem e o destino de seu aplicativo.
+Outro plug-in útil é o [Plug-in do compilador Apache Maven](https://maven.apache.org/plugins/maven-compiler-plugin/), que é usado para alterar opções de compilação. Ele muda a versão do Java que o Maven usa para a origem e o destino de seu aplicativo.
 
 * Para HDInsight __3.4 ou anterior__, defina a versão Java de origem e de destino como __1.7__.
 
@@ -232,21 +232,21 @@ Esse exemplo adiciona o diretório de recursos na raiz do projeto (`${basedir}`)
 
 Uma topologia Apache Storm baseada em Java consiste em três componentes que você deve criar (ou referenciar) como uma dependência.
 
-* **Spouts**: lê dados de fontes externas e a emite fluxos de dados para a topologia.
+* **Spouts**: Lê dados de fontes externas e emite fluxos de dados para a topologia.
 
-* **Bolts**: executa processamento em fluxos emitidos por spouts ou outros bolts e emite um ou mais fluxos.
+* **Bolts**: Executa o processamento em fluxos emitidos por spouts ou outros bolts e emite um ou mais fluxos.
 
-* **Topologia**: define como os spouts e bolts são organizados e fornece o ponto de entrada para a topologia.
+* **Topologia**: Define como os spouts e bolts são organizados e fornece o ponto de entrada para a topologia.
 
 ### <a name="create-the-spout"></a>Criar o spout
 
 Para reduzir os requisitos para configurar fontes de dados externas, o seguinte spout simplesmente emite sentenças aleatórias. É uma versão modificada de um spout fornecido com os [exemplos Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).
 
-> [!NOTE]
+> [!NOTE]  
 > Para obter um exemplo de um spout que lê de uma fonte de dados externa, consulte um dos exemplos a seguir:
 >
-> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): um spout de exemplo que lê do Twitter
-> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): um spout que lê do Kafka
+> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Um spout de exemplo que lê do Twitter.
+> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): Um spout que lê do Kafka.
 
 Para o spout, crie um arquivo chamado `RandomSentenceSpout.java` no diretório `src\main\java\com\microsoft\example` e use o código Java a seguir como conteúdo:
 
@@ -312,18 +312,18 @@ public class RandomSentenceSpout extends BaseRichSpout {
 }
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Embora essa topologia use apenas um spout, outras pessoas poderão ter vários que alimentam dados de origens diferentes na topologia.
 
 ### <a name="create-the-bolts"></a>Criar os bolts
 
 Bolts manipulam o processamento de dados. Essa topologia usa dois bolts:
 
-* **SplitSentence**: divide as sentenças emitidas por **RandomSentenceSpout** em palavras individuais.
+* **SplitSentence**: Divide as sentenças emitidas pelo **RandomSentenceSpout** em palavras individuais.
 
-* **WordCount**: conta quantas vezes cada palavra ocorreu.
+* **WordCount**: Conta quantas vezes cada palavra ocorreu.
 
-> [!NOTE]
+> [!NOTE]  
 > Os bolts podem fazer qualquer coisa, por exemplo, computação, persistência ou conversar com componentes externos.
 
 Crie dois novos arquivos, `SplitSentence.java` e `WordCount.java`, no diretório `src\main\java\com\microsoft\example`. Use o texto a seguir como conteúdo dos arquivos:
@@ -559,10 +559,10 @@ Esse XML configura um novo agente de log para a classe `com.microsoft.example`, 
 
 A seção `<Root level="error">` configura o nível raiz do registro em log (tudo que não está em `com.microsoft.example`) para registrar apenas as informações de erro.
 
-Para obter mais informações sobre como configurar registro em log para Log4j 2, consulte [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+Para obter mais informações sobre como configurar registro em log para Log4j 2, consulte [https://logging.apache.org/log4j/2.x/manual/configuration.html](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
-> [!NOTE]
-> Storm versão 0.10.0 e superior usa Log4j 2.x. Versões mais antigas do storm usavam Log4j 1.x, que usava um formato diferente para a configuração de log. Para obter informações sobre a configuração antiga, consulte [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+> [!NOTE]  
+> Storm versão 0.10.0 e superior usa Log4j 2.x. Versões mais antigas do storm usavam Log4j 1.x, que usava um formato diferente para a configuração de log. Para obter informações sobre a configuração antiga, consulte [https://wiki.apache.org/logging-log4j/Log4jXmlFormat](https://wiki.apache.org/logging-log4j/Log4jXmlFormat).
 
 ## <a name="test-the-topology-locally"></a>Testar a topologia localmente
 
@@ -588,14 +588,14 @@ Há um intervalo de cinco segundos entre a emissão de palavras e as contagens. 
 
 ## <a name="convert-the-topology-to-flux"></a>Converter a topologia para Flux
 
-[Flux](http://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) é uma nova estrutura disponível com o Storm 0.10.0 e superior, que permite que você separe a configuração da implementação. Os componentes ainda são definidos em Java, mas a topologia é definida usando um arquivo YAML. Você pode empacotar uma definição de topologia padrão com seu projeto, ou usar um arquivo autônomo ao enviar a topologia. Ao enviar a topologia para o Storm, você pode usar variáveis de ambiente ou arquivos de configuração para preencher os valores na definição de topologia YAML.
+[Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) é uma nova estrutura disponível com o Storm 0.10.0 e superior, que permite que você separe a configuração da implementação. Os componentes ainda são definidos em Java, mas a topologia é definida usando um arquivo YAML. Você pode empacotar uma definição de topologia padrão com seu projeto, ou usar um arquivo autônomo ao enviar a topologia. Ao enviar a topologia para o Storm, você pode usar variáveis de ambiente ou arquivos de configuração para preencher os valores na definição de topologia YAML.
 
 O arquivo YAML define os componentes a serem usados para a topologia, e o fluxo de os dados entre eles. Você pode incluir um arquivo YAML como parte do arquivo jar ou usar um arquivo YAML externo.
 
 Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
 
-> [!WARNING]
-> Devido a um [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) com o Storm 1.0.1, será necessário instalar um [ambiente de desenvolvimento Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html) para executar topologias do Flux localmente.
+> [!WARNING]  
+> Devido a um [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) com o Storm 1.0.1, será necessário instalar um [ambiente de desenvolvimento Storm](https://storm.apache.org/releases/current/Setting-up-development-environment.html) para executar topologias do Flux localmente.
 
 1. Mova o arquivo `WordCountTopology.java` para fora do projeto. Anteriormente, este arquivo definia a topologia, mas isso não é necessário com o Flux.
 
@@ -713,10 +713,10 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
     mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
     ```
 
-    > [!WARNING]
-    > Se a topologia usar bits do Storm 1.0.1, esse comando falhará. Esta falha é causada por [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Em vez disso, [instale o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/current/Setting-up-development-environment.html) e use as informações a seguir:
+    > [!WARNING]  
+    > Se a topologia usar bits do Storm 1.0.1, esse comando falhará. Esta falha é causada por [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Em vez disso, [instale o Storm no ambiente de desenvolvimento](https://storm.apache.org/releases/current/Setting-up-development-environment.html) e use as informações a seguir:
     >
-    > Se você tiver [instalado o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/current/Setting-up-development-environment.html), poderá usar os seguintes comandos em vez disso:
+    > Se você tiver [instalado o Storm no ambiente de desenvolvimento](https://storm.apache.org/releases/current/Setting-up-development-environment.html), poderá usar os seguintes comandos em vez disso:
     >
     > ```bash
     > mvn compile package
@@ -762,15 +762,15 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
 
     Depois que a topologia começar, você deverá observar uma alteração no tempo entre os lotes emitidos refletindo o valor em newtopology.yaml. Veja então que você pode alterar sua configuração por meio de um arquivo YAML sem ter que recompilar a topologia.
 
-Para obter mais informações sobre esses e outros recursos da estrutura do Flux, consulte [Flux (http://storm.apache.org/releases/current/flux.html)](http://storm.apache.org/releases/current/flux.html).
+Para obter mais informações sobre esses e outros recursos da estrutura do Flux, consulte [Flux (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html).
 
 ## <a name="trident"></a>Trident
 
-O [Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) é uma abstração de alto nível fornecida pelo Storm. Ele dá suporte ao processamento com monitoramento de estado. A principal vantagem do Trident é que ele pode garantir que todas as mensagens que entrarem na topologia sejam processadas somente uma vez. Sem usar o Trident, sua topologia só pode garantir que as mensagens sejam processadas pelo menos uma vez. Também existem outras diferenças, como componentes internos que podem ser usados em vez da criação de bolts. Na verdade, os bolts são substituídos por componentes menos genéricos, como filtros, projeções e funções.
+O [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) é uma abstração de alto nível fornecida pelo Storm. Ele dá suporte ao processamento com monitoramento de estado. A principal vantagem do Trident é que ele pode garantir que todas as mensagens que entrarem na topologia sejam processadas somente uma vez. Sem usar o Trident, sua topologia só pode garantir que as mensagens sejam processadas pelo menos uma vez. Também existem outras diferenças, como componentes internos que podem ser usados em vez da criação de bolts. Na verdade, os bolts são substituídos por componentes menos genéricos, como filtros, projeções e funções.
 
 Os aplicativos Trident podem ser criados usando projetos Maven. Use as mesmas etapas básicas como apresentado anteriormente neste artigo — somente o código é diferente. O Trident também (atualmente) não pode ser usado com a estrutura do Flux.
 
-Para obter mais informações sobre o Trident, consulte a [Visão geral da API do Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html).
+Para obter mais informações sobre o Trident, consulte a [Visão geral da API do Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 

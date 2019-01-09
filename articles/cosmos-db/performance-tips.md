@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: d4d730fe6c72b55a01f7c5f1f95cbd94ff145fba
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f8045153482cdd8b9a13c0a6f2ebdb26627d44e4
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873743"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811402"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -23,7 +23,7 @@ ms.locfileid: "52873743"
 > * [.NET](performance-tips.md)
 > 
 
-O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Azure Cosmos DB. Aumentar e diminuir a escala é tão fácil quanto fazer uma única chamada de API. Para saber mais, veja [como provisionar a taxa de transferência do contêiner](how-to-provision-container-throughput.md) ou [como provisionar a taxa de transferência do banco de dados](how-to-provision-database-throughput.md). No entanto, como o Azure Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o melhor desempenho ao usar o [SDK do SQL .NET](documentdb-sdk-dotnet.md).
+O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Azure Cosmos DB. Aumentar e diminuir a escala é tão fácil quanto fazer uma única chamada de API. Para saber mais, confira [como provisionar a taxa de transferência do contêiner](how-to-provision-container-throughput.md) ou [como provisionar a taxa de transferência do banco de dados](how-to-provision-database-throughput.md). No entanto, como o Azure Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o melhor desempenho ao usar o [SDK do SQL .NET](documentdb-sdk-dotnet.md).
 
 Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?" considere as seguintes opções:
 
@@ -45,7 +45,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     * TCP
     * HTTPS
 
-    Ao usar o modo Gateway, o Azure Cosmos DB usa a porta 443 e a API do MongoDB usa as portas 10250, 10255 e 10256. Os mapeamentos de 10250 porta a uma instância do Mongodb padrão sem replicação geográfica e mapa de portas 10255/10256 para a instância do Mongodb com funcionalidade de replicação geográfica. Ao usar o TCP no Modo Direto, além das portas do Gateway, você precisa garantir que o intervalo de portas de 10000 a 20000 está aberto, pois o Azure Cosmos DB usa portas TCP dinâmicas. Se essas portas não estiverem abertas e você tentar usar TCP, você receberá o erro 503 Serviço indisponível. A tabela a seguir mostra os modos de conectividade disponíveis para APIs diferentes e o usuário de portas de serviço para cada API:
+    Ao usar o modo de Gateway, o Cosmos DB usa a porta 443 e as portas 10250, 10255 e 10256 ao usar a API do Azure Cosmos DB para MongoDB. A porta 10250 mapeia para a uma instância do MongoDB padrão sem replicação geográfica, e as portas 10255/10256 mapeiam para a instância do MongoDB com funcionalidade de replicação geográfica. Ao usar o TCP no Modo Direto, além das portas do Gateway, você precisa garantir que o intervalo de portas de 10000 a 20000 está aberto, pois o Azure Cosmos DB usa portas TCP dinâmicas. Se essas portas não estiverem abertas e você tentar usar TCP, você receberá o erro 503 Serviço indisponível. A tabela a seguir mostra os modos de conectividade disponíveis para APIs diferentes e o usuário de portas de serviço para cada API:
 
     |Modo da conexão  |Protocolo com Suporte  |SDKs com suporte  |Porta/serviço de API  |
     |---------|---------|---------|---------|

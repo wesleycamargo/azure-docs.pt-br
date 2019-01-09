@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232487"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002392"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Agora que você está agregando eventos no Armazenamento do Azure, [configure o 
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implantar a extensão de Diagnóstico por meio do Azure Resource Manager
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Criar um cluster com a extensão de diagnóstico
-Para criar um cluster usando o Resource Manager, você precisa adicionar a configuração de Diagnóstico JSON para o modelo do Resource Manager completo antes de criar o cluster. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure: [cluster cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Para criar um cluster usando o Resource Manager, você precisa adicionar a configuração de Diagnóstico JSON ao modelo do Resource Manager completo. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Veja isso neste local na Galeria de exemplos do Azure: [cluster de cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Para ver a configuração do Diagnóstico no modelo do Resource Manager, abra o arquivo azuredeploy.json e pesquise **IaaSDiagnostics**. Para criar um cluster usando este modelo, selecione o botão **Implantar no Azure** disponível no link anterior.
 
@@ -196,18 +196,18 @@ Como as tabelas preenchidas pela extensão aumentam até que a cota seja atingid
 ## <a name="log-collection-configurations"></a>Configurações de coleção de log
 Logs de canais adicionais também estão disponíveis para coleção, aqui estão algumas das configurações mais comuns que você pode fazer no modelo para clusters em execução no Azure.
 
-* Canal Operacional - Base: Habilitadas por padrão, operações de alto nível executadas pelo Service Fabric e pelo cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de upgrade, etc. Para obter uma relação de eventos, consulte [Eventos Operacionais do Canal](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canal operacional – Básico: habilitado por padrão, operações de alto nível executadas pelo Service Fabric e pelo cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de upgrade etc. Para obter uma relação de eventos, consulte [Eventos Operacionais do Canal](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canal operacional - Detalhado: Inclui relatórios de integridade e balanceamento de cargo, além de tudo no canal operacional de base. Esses eventos são gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
+* Canal operacional – Detalhado: inclui relatórios de integridade e balanceamento de cargo, além de tudo no canal operacional básico. Esses eventos são gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Canal de Dados e Mensagens- Base: logs e eventos críticos gerados no sistema de mensagens (atualmente, apenas o ReverseProxy) e o caminho de dados, além dos logs do canal operacional detalhado. Esses eventos são falhas de processamento de solicitações e outros problemas críticos no ReverseProxy, bem como solicitações processadas. **Essa é a nossa recomendação para o registro em log abrangente**. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de provedores de ETW.
+* Canal de Dados e Mensagens – Básico: logs e eventos críticos gerados no sistema de mensagens (atualmente, apenas o ReverseProxy) e o caminho de dados, além dos logs do canal operacional detalhado. Esses eventos são falhas de processamento de solicitações e outros problemas críticos no ReverseProxy, bem como solicitações processadas. **Essa é a nossa recomendação para o registro em log abrangente**. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de provedores de ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
@@ -223,7 +223,7 @@ Logs de canais adicionais também estão disponíveis para coleção, aqui estã
 >Este canal tem um volume muito alto de eventos, habilitando a coleção de eventos neste canal detalhado resulta na rápida geração de uma grande quantidade de rastreamentos e pode consumir a capacidade de armazenamento. Ative esta opção somente quando absolutamente necessário.
 
 
-Para habilitar o **Canal Operacional de Base** nossa recomendação para o log abrangente com a menor quantidade de ruído, o `EtwManifestProviderConfiguration` no `WadCfg` do seu modelo seria semelhante ao seguinte:
+Para habilitar o **Canal Operacional Básico** nossa recomendação para o log abrangente com a menor quantidade de ruído, o `EtwManifestProviderConfiguration` no `WadCfg` do seu modelo seria semelhante ao seguinte:
 
 ```json
   "WadCfg": {

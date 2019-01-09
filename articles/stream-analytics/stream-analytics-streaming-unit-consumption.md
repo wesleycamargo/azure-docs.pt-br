@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 0907739bc0e67228f9f7f12594df7b9067e32578
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984971"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002647"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Streaming
 
@@ -22,7 +22,7 @@ SUs (Unidades de Streaming) representam recursos de computação que são alocad
 
 Para obter o processamento de streaming de baixa latência, os trabalhos do Azure Stream Analytics executam todo o processamento na memória. Quando a memória está acabando, o trabalho de streaming falha. Como resultado, em um trabalho de produção, é importante monitorar o uso de recursos de um trabalho de streaming e verificar se há recursos suficientes alocados para manter os trabalhos em execução 24/7.
 
-A métrica de utilização % SU, que varia de 0% a 100%, descreve o consumo de memória da carga de trabalho. Para um trabalho de streaming com volume mínimo, a métrica costuma ficar entre 10 a 20%. Se a utilização SU% for baixa e eventos de entrada forem incluídos na lista de pendências, sua carga de trabalho provavelmente exigirá mais recursos de computação, o que requer o aumento do número de SUs. É melhor manter a métrica de SU abaixo de 80% para levar em conta os picos ocasionais. A Microsoft recomenda a configuração de um alerta na métrica de utilização SU de 80% para evitar o esgotamento de recursos. Para obter mais informações, consulte [Tutorial: Configurar alertas para trabalhos do Azure Stream Analytics](stream-analytics-set-up-alerts.md).
+A métrica de utilização % SU, que varia de 0% a 100%, descreve o consumo de memória da carga de trabalho. Para um trabalho de streaming com volume mínimo, a métrica costuma ficar entre 10 a 20%. Se a utilização SU% for baixa e eventos de entrada forem incluídos na lista de pendências, sua carga de trabalho provavelmente exigirá mais recursos de computação, o que requer o aumento do número de SUs. É melhor manter a métrica de SU abaixo de 80% para levar em conta os picos ocasionais. A Microsoft recomenda a configuração de um alerta na métrica de utilização SU de 80% para evitar o esgotamento de recursos. Para obter mais informações, confira [Tutorial: Configurar alertas para trabalhos do Stream Analytics do Azure](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configurar as Unidades de Streaming (SU) do Stream Analytics
 1. Entre no [Portal do Azure](https://portal.azure.com/)
@@ -48,7 +48,7 @@ A escolha do número de SUs necessárias para um trabalho específico depende da
 
 Em geral, a prática recomendada é iniciar com 6 SUs para consultas que não usam **PARTITION BY**. Em seguida, determine o ponto ideal usando um método de tentativa e erro no qual você modifica o número de SUs depois de passar volumes representativos de dados, e examine a métrica % de Utilização de SU. O número total de unidades de streaming que pode ser usado por um trabalho do Stream Analytics depende do número de etapas na consulta definida para o trabalho e do número de partições em cada etapa. Saiba mais sobre os limites [aqui](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
-Para saber mais sobre como escolher o número correto de SUs, consulte esta página: [Escalar trabalhos do Azure Stream Analytics para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
+Para saber mais sobre como escolher o número correto de SUs, confira esta página: [Dimensionar trabalhos do Azure Stream Analytics para aumentar a produtividade](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > A escolha de quantas SUs são necessárias para um trabalho específico depende da configuração de partição das entradas e da consulta definida para o trabalho. Você pode selecionar até sua cota de SUs para um trabalho. Por padrão, cada assinatura do Azure tem uma cota de até 200 SUs para todos os trabalhos analíticos em uma região específica. Para aumentar as SUs para suas assinaturas, entre em contato com o [Suporte da Microsoft](https://support.microsoft.com). Os valores válidos para o SUs por trabalho são 1, 3, 6 e em incrementos de 6.
@@ -57,13 +57,15 @@ Para saber mais sobre como escolher o número correto de SUs, consulte esta pág
 
 Elementos de consulta temporal (orientados ao tempo) são o conjunto principal de operadores com monitoração de estado fornecido por Stream Analytics. O Stream Analytics gerencia o estado dessas operações internamente em nome de usuário, ao gerenciar o consumo de memória, pontos de verificação para a resiliência e a recuperação de estado durante as atualizações de serviço. Embora o Stream Analytics gerencia totalmente os estados, há um número de práticas recomendadas que os usuários devem considerar.
 
+Observe que um trabalho com lógica de consulta complexa pode ter alta utilização de % de SU mesmo quando não estiver recebendo eventos de entrada continuamente. Isso pode acontecer após um aumento repentino nos eventos de entrada e saída. Se a consulta for complexa, o trabalho poderá continuar a manter o estado na memória.
+
 ## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta com estado em elementos temporais
 Um dos recursos exclusivos do trabalho do Azure Stream Analytics é a execução do processamento com estado, como funções de análise temporal, de junções temporais e de agregações em janela. Cada um desses operadores mantém as informações de estados. O tamanho máximo da janela para esses elementos de consulta é sete dias. 
 
 O conceito de janela temporal é exibido em vários elementos de consulta do Stream Analytics:
-1. Agregações em janela: GROUP BY Em cascata, Salto e Janelas deslizantes
+1. Agregações em janelas: GROUP BY Em cascata, Salto e Janelas deslizantes
 
-2. Junções temporais: JOIN à função DATEDIFF
+2. Junções temporais: JOIN com a função DATEDIFF
 
 3. Funções analíticas temporais: ISFIRST, LAST e a LAG com LIMIT DURATION
 

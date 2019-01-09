@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 09fd2f38c3746cf92d576325058dc36221ae50cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c31c57cc28b1e817cbb772154cfb2f04ff349640
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668020"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973699"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-create-pipelines.md)
 > * [Versão 2 (versão atual)](../concepts-pipelines-activities.md)
 
@@ -95,9 +95,9 @@ Vamos dar uma olhada mais próxima em como um pipeline é definido no formato JS
 
 | Marca | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Nome |Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |sim |
-| Descrição | Especifique o texto descrevendo para que o pipeline é usado. |sim |
-| atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a próxima seção para obter detalhes sobre o elemento das atividades JSON. | sim |  
+| Nome |Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |SIM |
+| Descrição | Especifique o texto descrevendo para que o pipeline é usado. |SIM |
+| atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a próxima seção para obter detalhes sobre o elemento das atividades JSON. | SIM |  
 | iniciar | Data e hora de início para o pipeline. Deve estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, EST. Veja este exemplo: `2016-02-27T06:00:00-05:00`", que é 6 AM EST.<br/><br/>As propriedades de início e término especificam o período ativo para o pipeline. Fatias de saída são produzidas somente nesse período ativo. |Não <br/><br/>Se você especificar um valor para a propriedade final, será necessário especificar um valor para a propriedade inicial.<br/><br/>Os horários de início e fim podem estar vazios para criar um pipeline. Você deve especificar ambos os valores para definir um período ativo de execução do pipeline. Se não especificar os horários de início e fim ao criar um pipeline, você poderá defini-los depois usando o cmdlet Set-AzureRmDataFactoryPipelineActivePeriod. |
 | end | Data e hora de término para o pipeline. Se especificado, deve estar no formato ISO. Por exemplo: `2016-10-14T17:32:41Z` <br/><br/>É possível especificar uma hora local, por exemplo, EST. Veja este exemplo: `2016-02-27T06:00:00-05:00`, que é 6 AM EST.<br/><br/>Para executar o pipeline indefinidamente, especifique 9999-09-09 como o valor da propriedade end. <br/><br/> Um pipeline está ativo somente entre sua hora de início e de término. Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline for pausado, ele não será executado independentemente da sua hora de início e término. Para um pipeline ser executado, ele não deve estar pausado. Confira [Agendamento e Execução](data-factory-scheduling-and-execution.md) para saber como funciona o agendamento e a execução no Azure Data Factory. |Não  <br/><br/>Se você especificar um valor para a propriedade inicial, será necessário especificar um valor para a propriedade final.<br/><br/>Confira as observações para a propriedade **iniciar** . |
 | isPaused | Se definido como true, o pipeline não será executado. Ele está no estado pausado. Valor padrão = falso. Você pode usar essa propriedade para habilitar ou desabilitar o pipeline. |Não  |
@@ -133,11 +133,11 @@ A seguinte tabela descreve as propriedades na definição de JSON da atividade:
 
 | Marca | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |sim |
-| Descrição | Texto que descreve para que a atividade é usada |sim |
-| Tipo | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities) e [Atividades de transformação de dados](#data-transformation-activities) para diferentes tipos de atividade. |sim |
-| inputs |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |sim |
-| outputs |Tabelas de saída utilizadas pela atividade.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |sim |
+| Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |SIM |
+| Descrição | Texto que descreve para que a atividade é usada |SIM |
+| Tipo | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities) e [Atividades de transformação de dados](#data-transformation-activities) para diferentes tipos de atividade. |SIM |
+| inputs |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |SIM |
+| outputs |Tabelas de saída utilizadas pela atividade.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |SIM |
 | linkedServiceName |Nome do serviço vinculado usado pela atividade. <br/><br/>Uma atividade pode exigir que você especifique o serviço vinculado que é vinculado ao ambiente de computação necessário. |Sim para Atividade do HDInsight e Atividade de Pontuação de Lote do Azure Machine Learning <br/><br/>Não para todas as outros |
 | typeProperties |As propriedades na seção **typeProperties** dependem do tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não  |
 | policy |Políticas que afetam o comportamento de tempo de execução da atividade. Se não for especificado, as políticas padrão serão utilizadas. |Não  |
@@ -152,8 +152,8 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 | simultaneidade |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade paralela que podem ocorrer em divisões diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de concorrência maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordem das divisões de dados que estão sendo processadas.<br/><br/>Por exemplo, se houver duas fatias (uma ocorre às 16h e a outra às 17h),e ambas estiverem com a execução pendente. Se você definir executionPriorityOrder como NewestFirst, a divisão às 17h será processada primeiro. De modo semelhante, se você definir executionPriorityORder como OldestFIrst, a fatia às 16h será processada. |
 | tentar novamente |Número inteiro<br/><br/>O valor máximo pode ser 10 |0 |Número de novas tentativas antes do processamento de dados da divisão ser marcado como Com falha. A execução da atividade para uma divisão de dados é repetida até a contagem de repetição especificada. A nova tentativa é feita logo após a falha. |
-| Tempo limite |timespan |00:00:00 |Tempo limite para a atividade. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite será infinito.<br/><br/>Se o tempo de processamento de dados em uma divisão exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da propriedade de repetição. Quando atingir o tempo limite, o status será TimedOut. |
-| atrasar |timespan |00:00:00 |Especifique o atraso antes do processamento de dados da divisão começar.<br/><br/>A execução da atividade de uma fatia de dados será iniciada após o atraso passar do tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica um atraso de 10 minutos) |
+| Tempo limite |timespan |00:00:00 |Tempo limite para a atividade. Exemplo: 00:10:00 (pressupõe um tempo de limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite será infinito.<br/><br/>Se o tempo de processamento de dados em uma divisão exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da propriedade de repetição. Quando atingir o tempo limite, o status será TimedOut. |
+| atrasar |timespan |00:00:00 |Especifique o atraso antes do processamento de dados da divisão começar.<br/><br/>A execução da atividade de uma fatia de dados será iniciada após o atraso passar do tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (pressupõe um atraso de 10 minutos) |
 | longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas repetidas longas antes que a execução da divisão falhe.<br/><br/>Tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre tentativas de repetição, use longRetry. Se Retry e longRetry forem especificados, cada tentativa de longRetry incluirá tentativas de Retry, e o número máximo de tentativas será Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes configurações na política de atividade:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Presumindo que haja apenas uma fatia para execução (o status é Aguardando) e a execução da atividade sempre falhe. Inicialmente haveria três tentativas consecutivas de execução. Após cada tentativa, o status de divisão seria Retry. Depois das três primeiras tentativas, o status da divisão seria LongRetry.<br/><br/>Depois de uma hora (ou seja, valor de longRetryInteval), deve haver outro conjunto de três tentativas consecutivas de execução. Depois disso, o status da divisão seria Com falha e não haveria nova tentativa. Portanto, em geral, foram feitas seis tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o status da fatia seria Ready e não haverá mais nenhuma tentativa.<br/><br/>longRetry pode ser usado em situações em que dados dependentes chegam em horários não determinísticos ou o ambiente geral está instável onde o processamento de dados ocorre. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.<br/><br/>Advertência: não defina valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
 | longRetryInterval |timespan |00:00:00 |O intervalo entre tentativas de repetição longa |
 
@@ -209,7 +209,7 @@ Observe os seguintes pontos:
 * A entrada da atividade é definida como **InputDataset** e a saída da atividade é definida como **OutputDataset**. Confira o artigo [Conjuntos de dados](data-factory-create-datasets.md) para definir conjuntos de dados em JSON. 
 * Na seção **typeProperties**, **BlobSource** é especificado como o tipo de origem e **SqlSink** é especificado como o tipo de coletor. Na seção [Atividades de movimentação de dados](#data-movement-activities), clique no repositório de dados que você quer usar como uma fonte ou um coletor para aprender mais sobre como mover dados bidirecionalmente nesse repositório de dados. 
 
-Para obter uma explicação completa da criação desse pipeline, confira [Tutorial: copiar dados de Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Para obter uma explicação completa da criação desse pipeline, confira [Tutorial: Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 ## <a name="sample-transformation-pipeline"></a>Pipeline de transformação de exemplo
 No pipeline de exemplo a seguir, há uma atividade do tipo **HDInsightHive** in the **atividades** . Neste exemplo, a [atividade de Hive do HDInsight](data-factory-hive-activity.md) transforma os dados de um Armazenamento de Blobs do Azure executando um arquivo de script do Hive em um cluster Hadoop do HDInsight do Azure. 
@@ -267,7 +267,7 @@ Observe os seguintes pontos:
 
 A seção **typeProperties** é diferente para cada atividade de transformação. Para saber mais sobre as propriedades de tipo com suporte para uma atividade de transformação, clique na atividade de transformação na tabela [Atividades de transformação de dados](#data-transformation-activities). 
 
-Para obter uma explicação completa da criação desse pipeline, confira [Tutorial: criar seu primeiro pipeline para processar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md). 
+Para obter uma explicação completa da criação desse pipeline, confira [Tutorial: Criar seu primeiro pipeline para processar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Várias atividades em um pipeline
 Os dois pipelines de exemplo anteriores têm apenas uma atividade neles. Você pode ter mais de uma atividade em um pipeline.  
@@ -278,7 +278,7 @@ Se você tiver várias atividades em um pipeline e se a saída de uma atividade 
 
 ![Encadeando atividades no mesmo pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
-Neste exemplo, o pipeline tem duas atividades: Activity1 e Activity2. A Activity1 usa Dataset1 como entrada e gera uma saída Dataset2. A Activity usa Dataset2 como entrada e gera uma saída Dataset3. Uma vez que a saída da Activity1 (Dataset2) é a entrada da Activity2, a Activity2 é executada apenas após a conclusão com êxito da Atividade e gera a fatia Dataset2. Se a Activity1 falhar por algum motivo e não gerar a fatia Dataset2, a Activity2 não será executada para essa fatia (por exemplo: 9:00 às 10:00). 
+Neste exemplo, o pipeline tem duas atividades: Activity1 e Activity2. A Activity1 usa Dataset1 como entrada e gera uma saída Dataset2. A Activity usa Dataset2 como entrada e gera uma saída Dataset3. Uma vez que a saída da Activity1 (Dataset2) é a entrada da Activity2, a Activity2 é executada apenas após a conclusão com êxito da Atividade e gera a fatia Dataset2. Se a Activity1 falhar por algum motivo e não gerar a fatia Dataset2, a Activity2 não será executada para essa fatia (por exemplo: 9h às 10h). 
 
 Também é possível encadear atividades que estão em pipelines diferentes.
 

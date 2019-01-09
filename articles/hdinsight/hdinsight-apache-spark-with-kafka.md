@@ -10,24 +10,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 5f4b7994ad5061c64021f3625f42ac028cbee859
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165785"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653400"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Exemplo de streaming do Apache Spark (DStream) com o Apache Kafka no HDInsight
 
 Saiba como usar o [Apache Spark](https://spark.apache.org/) para transmitir dados para dentro ou fora do [Apache Kafka](https://kafka.apache.org/) no HDInsight usando [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html). Este exemplo usa uma [Jupyter Notebook](https://jupyter.org/) que é executado no cluster Spark.
 
-> [!NOTE]
+> [!NOTE]  
 > As etapas neste documento criam um grupo de recursos do Azure que contém um Spark no HDInsight e um Kafka no cluster de HDInsight. Esses clusters são ambos localizados em uma Rede Virtual do Azure, que permite que o cluster Spark se comunique diretamente com o cluster Kafka.
 >
 > Quando você terminar as etapas neste documento, lembre-se de excluir os clusters para evitar cobranças em excesso.
 
-> [!IMPORTANT]
-> Este exemplo usa DStreams, que é uma tecnologia de streaming do Spark mais antiga. Para obter um exemplo que utiliza recursos de streaming do Spark mais recentes, consulte o documento [Streaming estruturado do Spark com Kafka](hdinsight-apache-kafka-spark-structured-streaming.md).
+> [!IMPORTANT]  
+> Este exemplo usa DStreams, que é uma tecnologia de streaming do Spark mais antiga. Para obter um exemplo que utiliza recursos de streaming do Spark mais recentes, consulte o documento [Streaming estruturado do Spark com Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md).
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
@@ -35,7 +35,7 @@ Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela interne
 
 ![Diagrama de clusters Spark e Kafka em uma rede virtual do Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Embora Kafka em si esteja limitado a comunicação na rede virtual, outros serviços do cluster, como o SSH e Ambari podem ser acessados pela Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, consulte [portas e URIs usados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark manualmente, é mais fácil usar um modelo do Azure Resource Manager. Use as seguintes etapas para implantar uma rede virtual do Azure, Kafka e clusters de Spark para sua assinatura do Azure.
@@ -46,7 +46,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
     
     O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Para garantir a disponibilidade do Kafka no HDInsight, o cluster deve conter pelo menos três nós de trabalho. Este modelo cria um cluster de Kafka que contém três nós de trabalho.
 
     Este modelo cria um cluster HDInsight 3.6 para Kafka e Spark.
@@ -77,7 +77,7 @@ Depois que os recursos tiverem sido criados, uma página de resumo será exibida
 
 ![Resumo de grupo de recursos para a rede virtual e clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Observe que os nomes dos clusters HDInsight são **spark-BASENAME** e **kafka-BASENAME**, em que BASENAME é o nome fornecido para o modelo. Você usa esses nomes em etapas posteriores ao se conectar aos clusters.
 
 ## <a name="use-the-notebooks"></a>Usar os blocos de anotações

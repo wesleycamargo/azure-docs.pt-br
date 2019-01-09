@@ -1,21 +1,18 @@
 ---
 title: Configurar e acessar logs do servidor para PostgreSQL usando a CLI do Azure
 description: Este artigo descreve como configurar e acessar os registros de serviço no Banco de Dados do Azure para PostgreSQL usando a linha de comando da CLI do Azure.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: af5a0843acced4611b219088b7662f9ea4b32beb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 938aadaa1d17135808cbeb34adac5139bd61f833
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969573"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545015"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e acessar logs de servidor usando a CLI do Azure
 Você pode listar e baixar logs de erro do servidor PostgreSQL do Azure usando a interface de linha de comando (CLI do Azure). No entanto, não há suporte para acesso aos logs de transação. 
@@ -28,7 +25,7 @@ Para seguir este guia de instruções, você precisa:
 ## <a name="configure-logging-for-azure-database-for-postgresql"></a>Configurar o registro em log para o Banco de Dados do Azure para PostgreSQL
 Você pode configurar o servidor para acessar os logs de erro e os logs de consulta. Os logs de erros podem ter informações de ponto de verificação, conexão e vácuo automático.
 1. Ative o registro em log.
-2. Para ativar o registro em log de consulta, atualize **log\_statement** e **log\_min\_duration\_statement**.
+2. Para ativar o registro em log de consulta, atualize **log\_statement** e **log\_min\_duration\_statement**.
 3. Atualize o período de retenção.
 
 Para mais informações, confira [Personalizando os parâmetros de configuração do servidor](howto-configure-server-parameters-using-cli.md).

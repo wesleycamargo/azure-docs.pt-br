@@ -1,24 +1,21 @@
 ---
-title: 'Apresentação preliminar: Proteger VMs do Azure com um cofre de serviços de recuperação'
-description: Proteger as VMs do Azure com um cofre de serviços de recuperação. Use backups de VMs implantadas pelo Gerenciador de Recursos, VMs implantadas clássicas, VMs de Armazenamento Premium, VMs Criptografadas, VMs em Discos Gerenciados para proteger seus dados. Crie e registre um cofre de Serviços de Recuperação. Registre as VMs, crie uma política e proteger as VMs no Azure.
+title: Fazer backup de VMs do Azure com o serviço de Backup do Azure
+description: Aprenda a fazer backup de VMs do Azure com o serviço de Backup do Azure
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: backups; backup de VM
-ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869921"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631576"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure no cofre dos Serviços de Recuperação
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Fazer backup de VMs do Azure com o serviço de Backup do Azure
 
 Este artigo explica como configurar a proteção de uma máquina virtual no menu Operações de máquinas virtuais ou na área segura do Recovery Services. Os cofres dos Serviços de Recuperação protegem:
 
@@ -32,7 +29,7 @@ Este artigo explica como configurar a proteção de uma máquina virtual no menu
 
 Para saber mais sobre como proteger VMs de Armazenamento Premium, confira o artigo [Backup e restauração de VMs de Armazenamento Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Para obter mais informações sobre o suporte para VMs de disco gerenciado, consulte [Backup e restauração de VMs em discos gerenciados](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Para saber mais sobre a estrutura de pré e pós-script para backup de VM do Linux, confira [backup de VM do Linux consistente com aplicativo usando pré e pós-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Para saber mais sobre o que pode e não ter backup realizado, consulte [Prepare your environment to back up Azure VMs](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm) (Preparar seu ambiente para fazer backup de VMs do Azure).
+Para saber mais sobre o que pode e não ter backup realizado, consulte [Prepare your environment to back up Azure VMs](backup-azure-arm-vms-prepare.md#before-you-start) (Preparar seu ambiente para fazer backup de VMs do Azure).
 
 > [!NOTE]
 > O serviço de backup cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de Backup.
@@ -337,7 +334,9 @@ O serviço de Backup instala a extensão de backup, mesmo se a VM não estiver e
 Se você tiver problemas para realizar algumas das tarefas neste artigo, confira as [Diretrizes da solução de problemas](backup-azure-vms-troubleshoot.md).
 
 ## <a name="pricing"></a>Preços
-O custo do backup de VMs do Azure tem base no número de instâncias protegidas. Para ter uma definição de uma instância protegida, confira [O que é uma instância protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Para obter um exemplo de cálculo de custos do backup de uma máquina virtual, confira [Como são calculadas as instâncias protegidas](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Consulte a página de Preços do Backup do Azure para saber os [Preços do Backup](https://azure.microsoft.com/pricing/details/backup/).
+O custo do backup de VMs do Azure tem base no número de instâncias protegidas. Para ter uma definição de uma instância protegida, confira [O que é uma instância protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Consulte a página de Preços do Backup do Azure para saber os [Preços do Backup](https://azure.microsoft.com/pricing/details/backup/).
 
-## <a name="questions"></a>Perguntas?
-Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](https://aka.ms/azurebackup_feedback).
+## <a name="next-steps"></a>Próximas etapas
+
+[Gerenciar](backup-azure-manage-vms.md) seus backups.
+

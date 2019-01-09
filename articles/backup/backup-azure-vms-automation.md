@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877850"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743894"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Usar o PowerShell para fazer backup e restaurar máquinas virtuais
 
-Este artigo mostra como usar os cmdlets do Azure PowerShell para fazer backup e recuperar uma máquina virtual do Azure (VM) de uma área segura do Recovery Services. Um cofre do Recovery Services é um recurso do Azure Resource Manager usado para proteger dados e ativos nos serviços do Azure Backup e do Azure Site Recovery. 
+Este artigo mostra como usar os cmdlets do Azure PowerShell para fazer backup e recuperar uma máquina virtual do Azure (VM) de uma área segura do Recovery Services. Um cofre do Recovery Services é um recurso do Azure Resource Manager usado para proteger dados e ativos nos serviços do Azure Backup e do Azure Site Recovery.
 
 > [!NOTE]
 > O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Resource Manager e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo destina-se a VMs criadas usando o modelo do Resource Manager.
@@ -28,6 +28,7 @@ Este artigo mostra como usar os cmdlets do Azure PowerShell para fazer backup e 
 Ele guiará você sobre como usar o PowerShell para proteger uma VM e como restaurar dados de um ponto de recuperação.
 
 ## <a name="concepts"></a>Conceitos
+
 Se você não estiver familiarizado com o serviço Backup do Azure, para obter uma visão geral do serviço, consulte o artigo [O que é o Backup do Azure?](backup-introduction-to-azure-backup.md) Antes de começar, assegure-se de cobrir os pré-requisitos necessários com o Backup do Azure e as limitações da solução atual de backup da VM.
 
 Para usar efetivamente o PowerShell, é necessário compreender a hierarquia de objetos e de onde começar.
@@ -43,7 +44,7 @@ Para começar:
 1. [Baixe a última versão do PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (a versão mínima necessária é: 1.4.0)
 
 2. Localize os cmdlets do PowerShell do Backup do Azure disponíveis digitando o seguinte comando:
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -326,7 +327,7 @@ $rp[0]
 
 A saída deverá ser semelhante ao seguinte exemplo:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -350,6 +351,7 @@ Para restaurar as informações de discos e de configuração:
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### <a name="restore-managed-disks"></a>Restaurar discos gerenciados
 
 > [!NOTE]
@@ -359,16 +361,15 @@ $restorejob
 
 Forneça um parâmetro adicional **TargetResourceGroupName** para especificar o RG para o qual os discos gerenciados serão restaurados.
 
-
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 O arquivo **VMConfig.JSON** será restaurado para a conta de armazenamento, e os discos gerenciados serão restaurados para o RG de destino especificado.
 
-
 A saída deverá ser semelhante ao seguinte exemplo:
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -397,6 +398,27 @@ Depois de restaurar os discos, use as seguintes etapas para criar e configurar a
 > Para criar VMs criptografadas de discos restaurados, a função do Azure deverá ter permissão para executar a ação **Microsoft.KeyVault/vaults/deploy/action**. Se sua função não tem essa permissão, crie uma função personalizada com esta ação. Para obter mais informações, veja [Funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md).
 >
 >
+
+> [!NOTE]
+> Após a restauração dos discos, você pode obter um modelo de implantação para criar diretamente uma nova VM. Não há mais cmdlets diferentes do PS para criar VMs gerenciadas/não gerenciadas que são criptografadas/descriptografadas.
+
+Os detalhes do trabalho resultante fornecem o URI do modelo, o qual pode ser consultado e implantado.
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+Basta implantar o modelo para criar uma nova VM, conforme explicado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+A seção a seguir lista as etapas necessárias para criar uma VM usando o arquivo "VMConfig".
+
+> [!NOTE]
+> Recomendamos muito o uso do modelo de implantação detalhado acima para criar uma VM. Esta seção (pontos 1 a 6) será preterida em breve.
 
 1. Consulte as propriedades do disco restaurado para obter os detalhes do trabalho.
 
@@ -476,14 +498,14 @@ Depois de restaurar os discos, use as seguintes etapas para criar e configurar a
    * **VMs gerenciadas e não criptografadas** ‒ para as VMs não criptografadas gerenciadas, anexe os discos gerenciados restaurados. Para obter informações detalhadas, consulte o artigo [Anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
    * **VMs gerenciadas e criptografadas (apenas BEK)** ‒ para VMs criptografadas gerenciadas (criptografadas usando apenas BEK), anexe os discos gerenciados restaurados. Para obter informações detalhadas, consulte o artigo [Anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-   
-      Use o seguinte comando para ativar manualmente a criptografia dos discos de dados.
+
+     Use o seguinte comando para ativar manualmente a criptografia dos discos de dados.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **VMs gerenciadas e criptografadas (BEK e KEK)** ‒ para VMs criptografadas gerenciadas (criptografadas usando BEK e KEK), anexe os discos gerenciados restaurados. Para obter informações detalhadas, consulte o artigo [Anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md). 
+   * **VMs gerenciadas e criptografadas (BEK e KEK)** ‒ para VMs criptografadas gerenciadas (criptografadas usando BEK e KEK), anexe os discos gerenciados restaurados. Para obter informações detalhadas, consulte o artigo [Anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
       Use o seguinte comando para ativar manualmente a criptografia dos discos de dados.
 
@@ -520,7 +542,6 @@ As etapas básicas para restaurar um arquivo de um backup de VM do Azure são:
 * Monte os discos do ponto de recuperação
 * Copie os arquivos necessários
 * Desmonte o disco
-
 
 ### <a name="select-the-vm"></a>Selecione a VM
 
@@ -575,7 +596,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 A saída deverá ser semelhante ao seguinte exemplo:
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

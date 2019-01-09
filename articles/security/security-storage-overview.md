@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 63967face89c12f6769d397bd5be78c23bc9f851
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259132"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973121"
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral de segurança do Armazenamento do Azure
 
@@ -67,11 +67,11 @@ A criptografia em trânsito é um mecanismo de proteção de dados quando eles s
 Saiba mais sobre a criptografia do cliente:
 
 * [Client-Side Encryption for Microsoft Azure Storage (Criptografia do cliente para o Armazenamento do Microsoft Azure)](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Cloud security controls series: Encrypting Data in Transit (Série sobre controles de segurança de nuvem: criptografando dados em trânsito)](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Série de controles de segurança de nuvem: criptografia de dados em trânsito](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Criptografia em repouso
 
-Para muitas organizações, a [criptografia de dados em repouso](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos do Azure que fornecem criptografia de dados que estão em repouso:
+Para muitas organizações, a [criptografia de dados em repouso](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos do Azure que fornecem criptografia de dados que estão em repouso:
 
 * [Criptografia do Serviço de Armazenamento](../storage/common/storage-security-guide.md#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
 * [Criptografia do cliente](../storage/common/storage-security-guide.md#client-side-encryption) também fornece o recurso de criptografia em repouso.
@@ -110,7 +110,7 @@ Saiba mais:
 
 * [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
 * [Borda da caixa de dados do Azure](../databox-online/data-box-edge-overview.md)
-* [Gateway de caixa de dados do Azure](..//databox-online/data-box-gateway-overview.md)
+* [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
 
 ## <a name="advanced-threat-protection"></a>Proteção Avançada contra Ameaças
 

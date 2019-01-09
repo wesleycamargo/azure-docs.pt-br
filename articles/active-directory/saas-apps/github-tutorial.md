@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao GitHub | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com GitHub | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o GitHub.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: dbd4634c575fd4f1886d3e7714ef9ddabbde0f8a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 41e8fb40f07a88cb6fa2108a38db7f973fccd2f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341150"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607791"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Azure Active Directory ao GitHub
+# <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Azure Active Directory com GitHub
 
 Neste tutorial, você aprenderá a integrar o GitHub ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,8 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o GitHub da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -59,21 +60,21 @@ Para configurar a integração do GitHub ao Azure AD, você precisará adicionar
 
 **Para adicionar o GitHub por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![image](./media/github-tutorial/selectazuread.png)
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![image](./media/github-tutorial/a_select_app.png)
-    
+
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![image](./media/github-tutorial/a_new_app.png)
 
 4. Na caixa de pesquisa, digite **GitHub**, selecione **GitHub** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
+    ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -103,15 +104,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![image](./media/github-tutorial/b1_b2_saml_sso.png)
 
-3. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Configuração básica de SAML**.
+3. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
     ![image](./media/github-tutorial/b1-domains_and_urlsedit.png)
 
-4. Na seção **Configuração básica de SAML**, execute as etapas a seguir:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    ![image](./media/github-tutorial/tutorial_github_url.png) 
+    ![image](./media/github-tutorial/tutorial_github_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://github.com/orgs/<entity-id>/sso`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://github.com/orgs/<entity-id>/sso`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://github.com/orgs/<entity-id>`
 
@@ -122,9 +123,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![image](./media/github-tutorial/i3-attribute.png)
 
-6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
-    
-    a. Clique em **Editar** para abrir a caixa de diálogo **Gerenciar declarações de usuário**.
+6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
+
+     a. Clique em **Editar** para abrir a caixa de diálogo **Gerenciar declarações de usuário**.
 
     ![image](./media/github-tutorial/i2-attribute.png)
 
@@ -133,20 +134,20 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     b. Na lista **Atributo de origem**, selecione o valor do atributo.
 
     c. Clique em **Salvar**.
- 
+
 7. Na seção **Certificado de Assinatura SAML**, clique em **Baixar** para baixar o **certificado (Base64)** e salve-o em seu computador.
 
     ![image](./media/github-tutorial/tutorial_github_certficate.png)
 
 8. Na seção **Configurar o GitHub**, copie a URL apropriada, de acordo com suas necessidades.
 
-    a. URL de logon
+     a. URL de logon
 
     b. Identificador do Azure AD
 
     c. URL de logoff
 
-    ![image](./media/github-tutorial/d1_samlsonfigure.png) 
+    ![image](./media/github-tutorial/d1_samlsonfigure.png)
 
 9. Em outra janela do navegador da Web, faça logon em seu site de organização do GitHub como administrador.
 
@@ -162,7 +163,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurações](./media/github-tutorial/tutorial_github_config_github_051.png)
 
-    a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
+     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
     b. Na caixa de texto **Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -170,8 +171,8 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     d. Clique no ícone **Editar** para editar o **Método de Assinatura** e **Método de Resumo** do **RSA-SHA1** e **SHA1** para **RSA-SHA256** e **SHA256** conforme mostrado abaixo.
 
-    ![image](./media/github-tutorial/tutorial_github_sha.png) 
-    
+    ![image](./media/github-tutorial/tutorial_github_sha.png)
+
 13. Clique em **Testar configuração de SAML** para confirmar que não há falhas de validação ou erros durante o SSO.
 
     ![Configurações](./media/github-tutorial/tutorial_github_config_github_06.png)
@@ -179,13 +180,13 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 14. Clique em **Salvar**
 
 > [!NOTE]
-> O logon único no GitHub se autentica em uma organização específica no GitHub e não substitui a autenticação do GitHub em si. Portanto, se a sessão do usuário GitHub.com tiver expirado, poderá ser solicitado que você se autentique com a ID e senha do GitHub durante o processo de logon único.
+> O logon único no GitHub se autentica em uma organização específica no GitHub e não substitui a autenticação do GitHub em si. Portanto, se a sessão do github.com do usuário expirou, você poderá ser solicitado a autenticar-se com a ID/senha do GitHub durante o processo de logon único.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![image](./media/github-tutorial/d_users_and_groups.png)
 
@@ -197,7 +198,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![image](./media/github-tutorial/d_userproperties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -205,7 +206,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Selecione **Criar**.
- 
+
 ### <a name="create-a-github-test-user"></a>Criar um usuário de teste do GitHub
 
 O objetivo desta seção é criar um usuário chamado Britta Simon no GitHub. O GitHub dá suporte ao provisionamento automático de usuário, que está habilitado por padrão. Você pode encontrar [aqui](github-provisioning-tutorial.md) mais detalhes de como configurar o provisionamento automático de usuário.
@@ -224,7 +225,7 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no GitHub. O 
 
 4. Na caixa de diálogo **Convidar membro**, execute as seguintes etapas:
 
-    a. Na caixa de texto **Email**, digite o endereço de email da conta de Brenda Fernandes.
+     a. Na caixa de texto **Email**, digite o endereço de email da conta de Brenda Fernandes.
 
     ![Convidar Pessoas](./media/github-tutorial/tutorial_github_config_github_10.png "Convidar Pessoas")
 
@@ -239,7 +240,7 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no GitHub. O 
 
 Nesta seção, você permitirá que Britta Simon use o logon único do Azure concedendo-lhe acesso ao GitHub.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
+1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
 
     ![image](./media/github-tutorial/d_all_applications.png)
 
@@ -255,16 +256,16 @@ Nesta seção, você permitirá que Britta Simon use o logon único do Azure con
 
     ![image](./media/github-tutorial/d_assign_user.png)
 
-4. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+4. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
 5. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
-    
+
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do GitHub no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo GitHub.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

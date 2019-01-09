@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: trinadhk
-ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465713"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635758"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerenciar backups de máquinas virtuais do Azure
 
-Este artigo fornece orientações sobre como gerenciar backups de VM e explica as informações sobre alertas de backup disponíveis no painel do portal. As diretrizes neste artigo se aplicam ao uso das VMs com cofres dos Serviços de Recuperação. Este artigo não aborda a criação das máquinas virtuais, nem explica como protegê-las. Para ter instruções elementares sobre como proteger as VMs implantadas pelo Azure Resource Manager no Azure com um cofre dos Serviços de Recuperação, consulte [Primeiro examinar: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md).
+Este artigo fornece orientações sobre como gerenciar backups de VM e explica as informações sobre alertas de backup disponíveis no painel do portal. As diretrizes neste artigo se aplicam ao uso das VMs com cofres dos Serviços de Recuperação. Este artigo não aborda a criação das máquinas virtuais, nem explica como protegê-las. Para ter instruções elementares sobre como proteger as VMs implantadas pelo Azure Resource Manager no Azure com um cofre dos Serviços de Recuperação, confira [Apresentação preliminar: Backup de VMs no cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md).
 
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Gerenciar cofres e máquinas virtuais protegidas
 No portal do Azure, o painel do cofre dos Serviços de Recuperação fornece acesso a informações sobre o cofre, inclusive:
@@ -37,7 +37,7 @@ Muitas tarefas de gerenciamento com um backup da máquina virtual começam abrin
 ![Exibição completa com controle deslizante](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Abra um cofre dos Serviços de Recuperação no painel:
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Cofre de Serviços de Recuperação**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -77,7 +77,7 @@ No procedimento anterior, você abriu o painel do cofre. Para abrir o painel do 
 
     ![Painel dos itens de backup com a folha Configurações](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    No painel de itens do cofre, você pode executar muitas tarefas de gerenciamento principais, como:
+    No painel de itens do cofre, você pode executar muitas tarefas principais, como:
 
    * Alterar políticas ou Criar uma nova política de backup
    * visualizar os pontos de restauração e ver seus estados de consistência
@@ -85,7 +85,7 @@ No procedimento anterior, você abriu o painel do cofre. Para abrir o painel do 
    * Interromper a proteção de máquinas virtuais
    * Retomar a proteção de uma máquina virtual
    * excluir os dados do backup (ou ponto de recuperação)
-   * [restaurar discos de backup](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [restaurar discos de backup](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 Para os procedimentos a seguir, o ponto de partida é o painel de itens do cofre.
 
@@ -214,4 +214,4 @@ Para excluir os dados de backup em uma máquina virtual com o *Backup desabilita
     Uma mensagem de notificação permite que você conheça os dados do backup que foram excluídos.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre o monitoramento de eventos, confira [Monitorar alertas para backups de máquina virtual do Azure](backup-azure-monitor-vms.md).
+Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se você precisar de mais informações sobre como proteger as máquinas virtuais, consulte [Apresentação preliminar: Backup de VMs no cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre o monitoramento de eventos, confira [Monitorar alertas para backups de máquina virtual do Azure](backup-azure-monitor-vms.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ba955e9e71926a513f6c083acb6508b3ec330d17
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cc9368bfe95aba3da3dba3a4ac4293790bb09cd3
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094552"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754077"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Perguntas frequentes do Azure Disk Encryption para VMs de IaaS
 
@@ -44,10 +44,10 @@ O Azure Disk Encryption tem suporte nas seguintes distribuições e versões do 
 | --- | --- |--- |
 | Ubuntu | 16.04-LTS-DIÁRIO | SO e disco de dados |
 | Ubuntu | 14.04.5-LTS-DIÁRIO | SO e disco de dados |
-| RHEL | 7.5 | Disco de dados* |
-| RHEL | 7.4 | Disco de dados* |
-| RHEL | 7.3 | Disco de dados* |
-| RHEL | 7,2 | Disco de dados* |
+| RHEL | 7.5 | SO e disco de dados* |
+| RHEL | 7.4 | SO e disco de dados* |
+| RHEL | 7.3 | SO e disco de dados* |
+| RHEL | 7,2 | SO e disco de dados* |
 | RHEL | 6,8 | Disco de dados* |
 | RHEL | 6.7 | Disco de dados* |
 | CentOS | 7.4 | SO e disco de dados |
@@ -67,7 +67,7 @@ O Azure Disk Encryption tem suporte nas seguintes distribuições e versões do 
 | SLES | 11 SP4 | Disco de dados |
 
 
-*__O ADE tem suporte pelo RHEL para disco de dados. A implementação atual do ADE funciona para o disco do SO, mas atualmente não tem suporte em conjunto. A Microsoft e Red Hat estão trabalhando em uma solução para suporte em conjunto. Enquanto isso, você pode fazer referência ao [artigo](azure-security-disk-encryption-linux.md) Azure Disk Encryption para Linux__
+*__A nova implementação ADE tem suporte para o SO RHEL e disco de dados para imagens RHEL7 com pagamento conforme o uso. Atualmente, o ADE não dá suporte para imagens RHEL BYOS (Traga sua própria assinatura). Consulte também o artigo [Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) para saber mais.__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Como posso começar a usar o Azure Disk Encryption?
 

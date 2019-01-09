@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: efccea36dd94120934b1a9729f583e0596316bc7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a222e66b896886d724572982626fd0bc2c277a8
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338559"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809957"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -446,7 +446,7 @@ O gatilho de blob usa uma fila internamente, portanto, o número máximo de invo
 
 [O plano de consumo](functions-scale.md#how-the-consumption-plan-works) limita um aplicativo de funções em uma VM (máquina virtual) a 1,5 GB de memória. A memória é usada por cada instância de execução de execução simultânea e pelo próprio tempo de execução de Funções. Se uma função disparada por blob carregar todo o blob na memória, a memória máxima usada por essa função apenas para blobs será tamanho máximo de blob 24 *. Por exemplo, um aplicativo de funções com três funções disparadas por blob e as configurações padrão teriam uma concorrência máxima por VM de 3*24 = 72 invocações de função.
 
-As funções de JavaScript carregam todo o blob na memória, e as funções C# fazem isso se você associar a `string`, `Byte[]` ou POCO.
+As funções de JavaScript e Java carregam todo o blob na memória, e as funções C# fazem isso se você associar a `string`, `Byte[]` ou POCO.
 
 ## <a name="trigger---polling"></a>Disparar - sondagem
 
@@ -462,7 +462,7 @@ Consulte o exemplo específico a um idioma:
 
 * [C#](#input---c-example)
 * [Script do C# (.csx)](#input---c-script-example)
-* [Java](#input---java-example)
+* [Java](#input---java-examples)
 * [JavaScript](#input---javascript-example)
 * [Python](#input---python-example)
 
@@ -630,22 +630,61 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
     return inputblob
 ```
 
-### <a name="input---java-example"></a>Entrada - exemplo de Java
+### <a name="input---java-examples"></a>Entrada - Exemplos Java
 
-O exemplo a seguir é uma função Java que usa um acionador de fila e uma ligação de blob de entrada. A mensagem da fila contém o nome do blob e a função registra o tamanho do blob.
+Esta seção contém os seguintes exemplos:
+
+* [Gatilho HTTP, o nome do blob da cadeia de caracteres de consulta](#http-trigger-look-up-blob-name-from-query-string-java)
+* [Gatilho de fila, receber o nome do blob da mensagem da fila](#queue-trigger-receive-blob-name-from-queue-message-java)
+
+#### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>Gatilho HTTP, o nome do blob da cadeia de caracteres de consulta (Java)
+
+ O exemplo a seguir mostra uma função de Java que usa a anotação ```HttpTrigger``` para receber um parâmetro que contém o nome de um arquivo em um contêiner de armazenamento de blob. Em seguida, a anotação ```BlobInput``` lê o arquivo e passa seu conteúdo para a função como um ```byte[]```.
 
 ```java
-@FunctionName("getBlobSize")
-@StorageAccount("AzureWebJobsStorage")
-public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
-                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
-       final ExecutionContext context) {
+  @FunctionName("getBlobSizeHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage blobSize(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    final ExecutionContext context) {
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-receive-blob-name-from-queue-message-java"></a>Gatilho de fila, receber o nome do blob da mensagem da fila (Java)
+
+ O exemplo a seguir mostra uma função de Java que usa a anotação ```QueueTrigger``` para receber uma mensagem que contém o nome de um arquivo em um contêiner de armazenamento de blob. Em seguida, a anotação ```BlobInput``` lê o arquivo e passa seu conteúdo para a função como um ```byte[]```.
+
+```java
+  @FunctionName("getBlobSize")
+  @StorageAccount("Storage_Account_Connection_String")
+  public void blobSize(
+    @QueueTrigger(
+      name = "filename", 
+      queueName = "myqueue-items-sample") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{queueTrigger}") 
+    byte[] content,
+    final ExecutionContext context) {
       context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
- }
- ```
+  }
+```
 
-  Na biblioteca de tempo de execução de funções [Java](/java/api/overview/azure/functions/runtime), use a anotação `@BlobInput` nos parâmetros cujo valor viria de um blob.  Essa anotação pode ser usada com tipos nativos do Java, POJOs ou valores que permitem valor nulos usando `Optional<T>`.
-
+Na biblioteca de tempo de execução de funções [Java](/java/api/overview/azure/functions/runtime), use a anotação `@BlobInput` nos parâmetros cujo valor viria de um blob.  Essa anotação pode ser usada com tipos nativos do Java, POJOs ou valores que permitem valor nulos usando `Optional<T>`.
 
 ## <a name="input---attributes"></a>Entrada – atributos
 
@@ -728,7 +767,7 @@ Consulte o exemplo específico a um idioma:
 
 * [C#](#output---c-example)
 * [Script do C# (.csx)](#output---c-script-example)
-* [Java](#output---java-example)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-example)
 * [Python](#output---python-example)
 
@@ -915,23 +954,72 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-### <a name="output---java-example"></a>Saída - exemplo de Java
+### <a name="output---java-examples"></a>Saída - Exemplo Java
 
-O exemplo a seguir mostra as ligações de entrada e saída de blobs em uma função Java. A função faz uma cópia de um blob de texto. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo blob é nomeado {originalblobname}-Copy
+Esta seção contém os seguintes exemplos:
+
+* [Gatilho HTTP, usando OutputBinding](#http-trigger-using-outputbinding-java)
+* [Gatilho de fila, usando o valor de retorno de função](#queue-trigger-using-function-return-value-java)
+
+#### <a name="http-trigger-using-outputbinding-java"></a>Gatilho HTTP, usando OutputBinding (Java)
+
+ O exemplo a seguir mostra uma função de Java que usa a anotação ```HttpTrigger``` para receber um parâmetro que contém o nome de um arquivo em um contêiner de armazenamento de blob. Em seguida, a anotação ```BlobInput``` lê o arquivo e passa seu conteúdo para a função como um ```byte[]```. A anotação ```BlobOutput``` associa-se a ```OutputBinding outputItem```, que é usado pela função para gravar o conteúdo do blob de entrada para o contêiner de armazenamento configurado.
 
 ```java
-@FunctionName("copyTextBlob")
-@StorageAccount("AzureWebJobsStorage")
-@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
-public String blobCopy(
-    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
-    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+  @FunctionName("copyBlobHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage copyBlobHttp(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    @BlobOutput(
+      name = "target", 
+      path = "myblob/{Query.file}-CopyViaHttp")
+    OutputBinding<String> outputItem,
+    final ExecutionContext context) {
+      // Save blob to outputItem
+      outputItem.setValue(new String(content, StandardCharsets.UTF_8));
+
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-using-function-return-value-java"></a>Gatilho de fila, usando o valor de retorno de função (Java)
+
+ O exemplo a seguir mostra uma função de Java que usa a anotação ```QueueTrigger``` para receber uma mensagem que contém o nome de um arquivo em um contêiner de armazenamento de blob. Em seguida, a anotação ```BlobInput``` lê o arquivo e passa seu conteúdo para a função como um ```byte[]```. A anotação ```BlobOutput``` associa-se ao valor de retorno da função, que é usado pelo tempo de execução para gravar o conteúdo do blob de entrada para o contêiner de armazenamento configurado.
+
+```java
+  @FunctionName("copyBlobQueueTrigger")
+  @StorageAccount("Storage_Account_Connection_String")
+  @BlobOutput(
+    name = "target", 
+    path = "myblob/{queueTrigger}-Copy")
+  public String copyBlobQueue(
+    @QueueTrigger(
+      name = "filename", 
+      dataType = "string",
+      queueName = "myqueue-items") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      path = "samples-workitems/{queueTrigger}") 
+    String content,
+    final ExecutionContext context) {
+      context.getLogger().info("The content of \"" + filename + "\" is: " + content);
       return content;
- }
- ```
+  }
+```
 
- Na [biblioteca de tempo de execução das funções Java](/java/api/overview/azure/functions/runtime) , use a anotação `@BlobOutput` nos parâmetros da função cujo valor seria gravado em um objeto no armazenamento de blobs.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
-
+ Na [biblioteca de tempo de execução das funções Java](/java/api/overview/azure/functions/runtime) , use a anotação `@BlobOutput` nos parâmetros da função cujo valor seria gravado em um objeto no armazenamento de blobs.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo ou um POJO.
 
 ## <a name="output---attributes"></a>Saída - atributos
 

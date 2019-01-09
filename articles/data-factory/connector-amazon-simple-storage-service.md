@@ -8,17 +8,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 9098e8e6af76ed14ad42d5fe5917fcd36097c222
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7373cc23654e2168963a364e4b4069331bf196c5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103278"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969923"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Versão atual](connector-amazon-simple-storage-service.md)
 
@@ -29,6 +29,9 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 Você pode copiar dados do Amazon S3 para qualquer repositório de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados que têm suporte como fontes ou coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Especificamente, este conector do Amazon S3 dá suporte à cópia de arquivos no estado em que se encontram ou à análise de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
+
+>[!TIP]
+>Use esse conector do Amazon S3 para copiar dados de **qualquer provedor de armazenamento compatível com S3**, por exemplo, [Google Cloud Storage](#copy-from-google-cloud-storage). Especifique a URL do serviço correspondente na configuração do serviço vinculado.
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
@@ -54,7 +57,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do Amazon S3:
 | Tipo | A propriedade type deve ser definida como: **AmazonS3**. | SIM |
 | accessKeyId | ID da chave de acesso secreta. |SIM |
 | secretAccessKey | A chave de acesso do secreta em si. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |SIM |
+| serviceUrl | Se você estiver copiando dados de um provedor de armazenamento compatível com S3 diferente do serviço oficial do Amazon S3, especifique o ponto de extremidade personalizado do S3. Por exemplo, para [copiar dados do Google Cloud Storage](#copy-from-google-cloud-storage), especifique `https://storage.googleapis.com`. | Não  |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
+
+>[!TIP]
+>Se você estiver copiando dados de um armazenamento compatível com S3 diferente do serviço oficial do Amazon S3, especifique a URL personalizado do serviço S3.
 
 >[!NOTE]
 >Este conector requer chaves de acesso da conta IAM para copiar dados do Amazon S3. [Não há suporte para a credencial de segurança temporária](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
@@ -70,8 +77,8 @@ Veja um exemplo:
         "typeProperties": {
             "accessKeyId": "<access key id>",
             "secretAccessKey": {
-                    "type": "SecureString",
-                    "value": "<secret access key>"
+                "type": "SecureString",
+                "value": "<secret access key>"
             }
         },
         "connectVia": {
@@ -95,10 +102,10 @@ Para copiar dados do Amazon S3, defina a propriedade type do conjunto de dados c
 | chave | O **filtro de nome ou curinga** da chave do objeto S3 sob o bucket especificado. Aplica-se apenas quando a propriedade "prefix" não é especificada. <br/><br/>O filtro curinga é suportado apenas para a parte do nome do arquivo, mas não para a parte da pasta. Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>– Exemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Use `^` para se seu nome de arquivo real curinga ou esse caractere de escape dentro de escape. |Não  |
 | prefixo | Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a propriedade "chave" não é especificada. |Não  |
 | version | A versão do objeto S3 se o controle de versão do S3 está habilitado. |Não  |
-| modifiedDatetimeStart | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> As propriedades podem ser NULL, que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que os arquivos cujo último atributo modificado é maior que ou igual ao valor de data e hora que será selecionado.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora que será selecionado.| Não  |
-| modifiedDatetimeEnd | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> As propriedades podem ser NULL, que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que os arquivos cujo último atributo modificado é maior que ou igual ao valor de data e hora que será selecionado.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora que será selecionado.| Não  |
+| modifiedDatetimeStart | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não  |
+| modifiedDatetimeEnd | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.| Não  |
 | formato | Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quer analisar ou gerar arquivos com um formato específico, os seguintes tipos de formato de arquivo são compatíveis: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não (somente para o cenário de cópia binária) |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos com suporte são: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Níveis com suporte são: **Ideal** e **Mais Rápido**. |Não  |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Níveis compatíveis são: **Ideal** e **Mais Rápido**. |Não  |
 
 >[!TIP]
 >Para copiar todos os arquivos em uma pasta, especifique **bucketName** para bucket e **prefixo** para a parte da pasta.<br>Para copiar um único arquivo com um determinado nome, especifique **bucketName** para bucket e **chave** para o nome da parte mais o arquivo de pasta.<br>Para copiar um subconjunto de arquivos em uma pasta, especifique **bucketName** para bucket e **chave** para o nome da parte mais o arquivo de pasta.
@@ -206,5 +213,35 @@ Para copiar dados do Amazon S3, defina o tipo de fonte na atividade de cópia co
     }
 ]
 ```
+
+## <a name="copy-from-google-cloud-storage"></a>Copiar do Google Cloud Storage
+
+Como o Google Cloud Storage fornece interoperabilidade compatível com S3, você pode usar o conector do Amazon S3 para copiar dados do Google Cloud Storage para qualquer [armazenamento de dados de coletor com suporte](copy-activity-overview.md#supported-data-stores-and-formats). 
+
+Encontre a entrada específica do Google Cloud Storage na galeria de conectores da interface do usuário de criação do ADF, que preenche automaticamente a URL do serviço como `https://storage.googleapis.com`. Para localizar a chave de acesso e o segredo, acesse **Google Cloud Storage** > **Configurações** > **Interoperabilidade**. Consulte este artigo desde o início para ter uma visão geral detalhada de como usar o conector S3 para copiar dados.
+
+**Exemplo de serviço vinculado:**
+
+```json
+{
+    "name": "GoogleCloudStorageLinkedService",
+    "properties": {
+        "type": "AmazonS3",
+        "typeProperties": {
+            "accessKeyId": "<access key id>",
+            "secretAccessKey": {
+                "type": "SecureString",
+                "value": "<secret access key>"
+            },
+            "serviceUrl": "https://storage.googleapis.com"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados que têm suporte como origens e coletores na atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

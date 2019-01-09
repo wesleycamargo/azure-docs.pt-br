@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0621c2d1632dead41463810b9e71ebf0404a8cbe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6de5fefa3d70c1daecf00909d3ce44d4a4d8561c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077742"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543556"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -166,7 +166,7 @@ Sim. Você pode ter até 10 conexões de redes virtuais em um circuito de Expres
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Tenho várias assinaturas do Azure que contêm redes virtuais. Posso conectar redes virtuais pertencentes a assinaturas separadas a um circuito do ExpressRoute?
 
-Sim. Você pode autorizar até 10 outras assinaturas do Azure para usar um único circuito de ExpressRoute. Esse limite pode ser aumentado habilitando o recurso premium da ExpressRoute.
+Sim. Você pode vincular até 10 redes virtuais na mesma assinatura que o circuito ou assinaturas diferentes usando um único circuito do ExpressRoute. Esse limite pode ser aumentado habilitando o recurso premium da ExpressRoute.
 
 Para obter mais informações, consulte [Compartilhando um circuito de ExpressRoute entre várias assinaturas](expressroute-howto-linkvnet-arm.md).
 

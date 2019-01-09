@@ -1,104 +1,105 @@
 ---
-title: Verificando erros no pool e no nó do Lote
+title: Verifique se há erros de pool e dos nós - Lote do Microsoft Azure
 description: Erros a serem verificados e como evitá-los ao criar pools e nós
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 9/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc09089fa9984e9042166938da19499afca21509
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 4e1e645c25d2f1e49e222e39ecd719a414e1404e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435814"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790462"
 ---
-# <a name="checking-for-pool-and-node-errors"></a>Verificando erros no pool e no nó
+# <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
-Ao criar e gerenciar pools do Lote, há operações que acontecem imediatamente e há operações assíncronas que não são imediatas, são executadas em segundo plano e podem levar vários minutos para serem concluídas.
+Ao criar e gerenciar os pools do Lote do Microsoft Azure, algumas operações acontecem imediatamente. No entanto, algumas operações são assíncronas e executadas em segundo plano. Isso pode demorar vários minutos.
 
 A detecção de falhas para operações que ocorrem imediatamente é simples, uma vez que quaisquer falhas serão retornadas imediatamente pela API, CLI ou interface do usuário.
 
-Este artigo aborda as operações em segundo plano que podem ser realizadas para pools e nós de pool – ele especifica como as falhas podem ser detectadas e evitadas.
+Este artigo aborda as operações em segundo plano que podem ocorrer para pools e nós de pool. Ele especifica como se pode detectar e evitar falhas.
 
 ## <a name="pool-errors"></a>Erros do pool
 
 ### <a name="resize-timeout-or-failure"></a>Redimensionar tempo limite ou falha
 
-Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado.  A operação será concluída imediatamente, mas a alocação real de novos nós ou a remoção de nós existentes ocorre em segundo plano durante o que pode levar alguns minutos.  Um tempo limite de redimensionamento é especificado na API [criar](https://docs.microsoft.com/rest/api/batchservice/pool/add) ou [redimensionar](https://docs.microsoft.com/rest/api/batchservice/pool/resize) – se o número de destino de nós não puder ser obtido no período de tempo limite do redimensionamento, a operação será interrompida com o pool atingindo um estado estável e apresentando erros de redimensionamento.
+Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado.  A operação é concluída imediatamente, mas a alocação real de novos nós ou a remoção de nós existentes pode levar vários minutos.  Especifique o tempo limite de redimensionamento em [crie](https://docs.microsoft.com/rest/api/batchservice/pool/add) ou [redimensionar](https://docs.microsoft.com/rest/api/batchservice/pool/resize) a API. Se o lote não obter o número de nós de destino durante o período de tempo limite de redimensionamento, ele interrompe a operação. O pool entra em um estado estável e relata os erros de redimensionamento.
 
-Um tempo limite de redimensionamento é relatado pela propriedade [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) para a última avaliação, que lista um ou mais erros que ocorreram.
+A propriedade [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) para a avaliação mais recente relata um tempo de limite de redimensionamento e lista os erros ocorridos.
 
 As causas comuns dos tempos limite de redimensionamento incluem:
+
 - O tempo limite de redimensionamento é muito curto
-  - O tempo limite padrão é de 15 minutos, o que normalmente é um tempo amplo para que nós de pool sejam alocados ou removidos.
-  - Ao alocar um grande número de nós (mais de 1000 nós de uma imagem do Marketplace ou mais de 300 nós de uma imagem personalizada), durante a criação ou redimensionamento do pool, então é recomendável um tempo limite de 30 minutos.
+  - Na maioria das circunstâncias, o tempo limite padrão de 15 minutos é longo o suficiente para que os nós de pool sejam alocados ou removidos.
+  - Se estiver alocando um grande número de nós, recomendamos definir o tempo limite de redimensionamento para 30 minutos. Por exemplo, quando estiver redimensionando a mais de 1.000 nós de uma imagem do Microsoft Azure Marketplace ou a mais de 300 nós de uma imagem VM personalizada.
 - Cota de núcleo insuficiente
-  - Uma conta de lote tem uma cota para o número de núcleos alocados entre todos os pools.  O lote não alocará nós após essa cota ter sido atingida.  A cota de núcleo [pode ser aumentada](https://docs.microsoft.com/azure/batch/batch-quota-limit) para permitir que mais nós sejam alocados.
+  - Uma conta de lote é limitadas em um número de núcleos alocados em todos os pools. O lote não alocará nós após essa cota ter sido atingida. Você [pode aumentar](https://docs.microsoft.com/azure/batch/batch-quota-limit) a cota de núcleos para esse lote possa alocar mais nós.
 - IPs de sub-rede insuficientes quando um [pool está em uma rede virtual](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Uma sub-rede de rede virtual deve ter endereços IP não atribuídos suficientes a serem alocados a todos os nós de pool que estão sendo solicitados, caso contrário, os nós não poderão ser criados.
+  - Uma sub-rede de rede virtual deve ter suficiente endereços IP não atribuídos para alocar cada nó de pool solicitado. Caso contrário, os nós não podem ser criados.
 - Recursos insuficientes quando um [pool está em uma rede virtual](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Recursos como balanceadores de carga, IPs públicos e NSGs são criados na assinatura usada para criar a conta do Lote.  As cotas de assinatura para esses recursos devem ser suficientes.
-- Usando uma imagem de VM personalizada para grandes pools
-  - Grandes pools que usam imagens personalizadas podem demorar mais para alocar, e podem ocorrer tempos limite de redimensionamento.  Recomendações sobre limites e configuração são fornecidas em um [artigo específico](https://docs.microsoft.com/azure/batch/batch-custom-images). 
+  - É possível criar recursos como grupos de segurança de rede, IPs públicos e grupo de segurança de rede na mesma assinatura que a conta do lote. Verifique se as cotas de assinatura para esses recursos são suficientes.
+- Grandes pools com imagens de VM personalizadas
+  - Grandes pools que usam imagens personalizadas de VM podem demorar mais para alocar, e podem ocorrer tempos limite de redimensionamento.  Consulte [Usar uma imagem personalizada para criar um pool de máquinas virtuais](https://docs.microsoft.com/azure/batch/batch-custom-images) para obter recomendações sobre limites e configuração.
 
-### <a name="auto-scale-failures"></a>Falhas de dimensionamento automático
+### <a name="automatic-scaling-failures"></a>Falhas de dimensionamento automático
 
-Em vez de definir explicitamente o número de destino de nós para um pool na criação ou redimensionamento de pools, o número de nós em um pool pode ser dimensionado automaticamente.  Uma [fórmula de dimensionamento automático pode ser criada para um pool](https://docs.microsoft.com/azure/batch/batch-automatic-scaling), que será avaliado em um intervalo configurável regular para definir o número de destino de nós do pool.  Os tipos de problemas a seguir podem ocorrer e serem detectados:
+Também se pode definir o Lote do Microsoft Azure para dimensionar automaticamente o número de nós em um pool. Defina os parâmetros da [fórmula de dimensionamento automático para um pool](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). O serviço de lote usa a fórmula para avaliar o número de nós no pool periodicamente e definir um novo número de destino. Os tipos de problemas a seguir podem ocorrer:
 
-- A avaliação de dimensionamento automático pode falhar.
+- A fórmula de dimensionamento automático falhar.
 - A operação de redimensionamento resultante pode falhar e atingir o tempo limite.
-- Pode haver um problema com a fórmula de dimensionamento automático, levando a valores de destino de nó incorretos, com o redimensionamento funcionando ou atingindo o tempo limite.
+- Um problema com a fórmula de dimensionamento automático pode resultar em valores de destino de nó incorretos. O redimensionamento funcionar ou atingir o tempo limite.
 
-Informações sobre a última avaliação de dimensionamento automático são obtidas usando a propriedade [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun), que relata o horário da avaliação, os valores e o resultado da avaliação e quaisquer erros ao executar a avaliação.
+Obtenha informações sobre a última avaliação do dimensionamento automático usando a propriedade [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun). Essa propriedade informa o tempo de avaliação, os valores, o resultado e quaisquer erros de desempenho.
 
 Informações sobre todas as avaliações são capturadas automaticamente por um [evento completo de redimensionamento de pool](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event).
 
 ### <a name="delete"></a>Excluir
 
-Supondo que há nós em um pool, então uma operação de exclusão do pool faz os nós serem excluídos primeiro, seguidos pelo próprio objeto do pool.  A exclusão dos nós do pool pode levar alguns minutos para ser concluída.
+Ao excluir um pool que contém nós, o primeiro lote exclui os nós. Em seguida, ele exclui o próprio objeto do pool. A exclusão dos nós do pool pode levar alguns minutos para ser concluída.
 
-O [estado do pool](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) será definido como "excluindo" durante o processo de exclusão.  O aplicativo de chamada pode detectar se a exclusão do pool está demorando demais usando as propriedades "state" e "stateTransitionTime".
+O lote define o [estado do pool](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) será definido como **excluindo** durante o processo de exclusão. O aplicativo de chamada pode detectar se a exclusão do pool está demorando demais usando as propriedades **state** e **stateTransitionTime**.
 
 ## <a name="pool-compute-node-errors"></a>Erros do nó de computação do pool
 
-Os nós podem ser alocados com êxito em um pool, mas vários problemas podem tornar os nós não íntegros e não utilizáveis.  Depois que os nós forem alocados em um pool, eles incorrem em encargos; portanto, é importante detectar problemas para evitar pagar por nós que não poderão ser usados.
+Mesmo quando o lote aloca com êxito os nós em um pool, diversos problemas podem causar que alguns dos nós sejam não íntegros e inutilizável. Esses nós incorrem em encargos. É importante detectar problemas para não pagar por nós inutilizáveis.
 
 ### <a name="start-task-failure"></a>Falha na tarefa inicial
 
-Uma [tarefa inicial](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) opcional pode ser especificada para um pool.  Assim como acontece com qualquer tarefa, uma linha de comando e os arquivos de recurso a serem baixados do armazenamento podem ser especificados.  A tarefa inicial é especificada para o pool, mas executada em cada nó – depois que cada nós tiver sido iniciado, então a tarefa inicia será executada.  Uma propriedade adicional da [tarefa inicial](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask), "waitForSuccess", especifica se o Lote deve aguardar a conclusão com êxito da tarefa inicial antes de agendar quaisquer tarefas para um nó.
+Você talvez queira especificar um opcional [Iniciar tarefa](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) para um pool. Assim como acontece com qualquer tarefa, uma linha de comando e os arquivos de recurso para fazer o download do armazenamento podem ser especificados. A tarefa inicial é executada para cada nó depois que ele é iniciado. A propriedade **waitForSuccess** especifica se o lote aguarda até que a tarefa inicial seja concluída com êxito antes de agendar as tarefas para um nó.
 
-Se uma tarefa inicial falhar e sua configuração for especificada para aguardar a conclusão bem-sucedida, o nó não será utilizável e ainda incorrerão encargos.
+E se o nó tiver sido configurado para aguardar a conclusão do iniciar tarefa com êxito, mas o iniciar tarefa falhar? Nesse caso, o nó não poderá ser usado, mas ainda incorrerá em encargos.
 
 Falhas na tarefa inicial podem ser detectadas usando as propriedades [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) e [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) da propriedade de nó [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) de nível superior.
 
-Uma tarefa inicial com falha também faz o [estado](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) do nó ser definido como "starttaskfailed", mas apenas se "waitForSuccess" foi definido como "true".
+Um iniciar tarefa que falhar também faz com que o lote defina o nó [state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) em **starttaskfailed** se definir o **waitForSuccess** como **true**.
 
 Assim como acontece com qualquer tarefa, pode haver muitas causas para a falhar na tarefa inicial.  Para solucionar problemas, stdout, stderr e quaisquer arquivos de log de tarefas específicas adicionais devem ser verificados.
 
 ### <a name="application-package-download-failure"></a>Falha no download do pacote de aplicativos
 
-Um ou mais pacotes de aplicativos podem ser especificados opcionalmente para um pool, com os arquivos do pacote especificado sendo baixados para cada nó e descompactados após o nó ser iniciado, mas antes de as tarefas serem agendadas.  É comum usar uma linha de comando de tarefa inicial, em conjunto com os pacotes de aplicativos, para copiar arquivos para um local diferente ou executar a configuração, por exemplo.
+Você pode especificar um ou mais pacotes de aplicativos de um pool. O lote faz o download de arquivos de pacote especificados para cada nó e descompacta os arquivos depois que o nó for iniciado, mas antes que as tarefas forem agendadas. É comum usar uma linha de comando de tarefa inicial em conjunto com pacotes de aplicativos. Por exemplo, para copiar arquivos para um local diferente ou para executar a instalação.
 
-Uma falha no download e descompactação de um pacote de aplicativos será relatada pela propriedade [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) do nó.  O estado do nó será definido como "inutilizável".
+Uma falha ao fazer o download e a descompactação de um pacote de aplicativos será relatada pela propriedade [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) do nó. O lote define o estado do nó como **inutilizável**.
 
 ### <a name="node-in-unusable-state"></a>Nó em estado inutilizável
 
-O [estado do nó](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) pode ser definido como "inutilizável" por muitos motivos.  Quando forem "inutilizáveis", as tarefas não poderão ser agendadas para o nó, mas o nó ainda incorrerá em encargos.
+O Lote do Microsoft Azure pode definir o [estado do nó](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) pode ser definido como **inutilizável** por muitos motivos. Com o estado do nó definido como **inutilizável**, as tarefas não podem ser agendadas para o nó, mas ainda incorrerá em encargos.
 
 O lote sempre tentará recuperar nós inutilizáveis, mas a recuperação pode ou não ser possível, dependendo da causa.
 
-Quando a causa puder ser determinada, ela será relatada pela propriedade [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) do nó.
+Se o lote poder determinar a causa, a propriedade do nó [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) irá reportá-lo.
 
-Alguns outros exemplos de causas para nós "inutilizáveis":
+Alguns outros exemplos de causas para nós **inutilizáveis** incluem:
 
-- Imagem personalizada inválida; não preparada corretamente, por exemplo.
-- Falha na infraestrutura ou atualização de baixo nível fazendo a VM subjacente ser movida; o Lote recuperará o nó.
+- A imagem de VM personalizada é inválida. Por exemplo, uma imagem que não é preparada corretamente.
+- Uma VM é movida devido a uma falha de infraestrutura ou de uma atualização de nível baixo. O lote recupera o nó.
 
 ### <a name="node-agent-log-files"></a>Arquivos de log do agente de nó
 
-Se for necessário contatar suporte com relação a um problema de nó de pool, então os arquivos de log do processo do agente do Lote executado em cada nó do pool poderão ser obtidos.  Os arquivos de log para um nó podem ser carregados por meio do portal do Azure, do Batch Explorer ou de uma [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs).  Carregar e salvar os arquivos de log pode ser extremamente útil, porque o nó ou o pool pode ser excluído para salvar o custo dos nós em execução.
+O processo do agente do lote que é executado em cada nó do pool pode fornecer arquivos de log que podem ser útil se você precisar entrar em contato sobre um problema de nó do pool. Os arquivos de log para um nó podem ser carregados por meio do portal do Microsoft Azure, do Batch Explorer ou de uma [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). É útil carregar e salvar os arquivos de log. Depois disso, pode-se excluir o nó ou o pool para economizar o custo de nós em execução.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Certifique-se de que seu aplicativo implementou a verificação de erros abrangente, principalmente para operações assíncronas, para que os problemas possam ser detectados rapidamente e diagnosticados.
+Verifique se definiu seu aplicativo para implementar a verificação de erro abrangente, especialmente para operações assíncronas. Isso pode ser fundamental para detectar e diagnosticar problemas imediatamente.

@@ -1,25 +1,25 @@
 ---
-title: 'BCDR (continuidade dos negócios e recuperação de desastre): regiões emparelhadas do Azure | Microsoft Docs'
+title: 'BCDR (continuidade de negócios e recuperação de desastres): Regiões combinadas do Azure | Microsoft Docs'
 description: Saiba mais sobre os pares regionais do Azure, que garantem que os aplicativos sejam resilientes durante falhas de data centers.
 author: rayne-wiselman
 ms.service: multiple
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 12/23/2018
 ms.author: raynew
-ms.openlocfilehash: 983a551da26e08797b2a65f609cff17954a52828
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954803"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792300"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
+# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR (continuidade de negócios e recuperação de desastres): Regiões combinadas do Azure
 
 ## <a name="what-are-paired-regions"></a>O que são regiões emparelhadas?
 
 O Azure opera em várias regiões geográficas em todo o mundo. Uma geografia do Azure é uma área definida do mundo que contém, pelo menos, uma Região do Azure. Uma região do Azure é uma área dentro de uma região geográfica que contém um ou mais datacenters.
 
-Cada região do Azure é emparelhada com outra região na mesma área geográfica, formando juntas um par regional. A exceção é o Sul do Brasil, que está associado a uma região fora de sua área geográfica. Entre os pares de região, o Azure serializará atualizações da plataforma (manutenção planejada) para que apenas uma região emparelhada seja atualizada por vez. Além disso, em caso de interrupção que afete várias regiões, pelo menos uma região em cada par será priorizada para recuperação.
+Cada região do Azure é emparelhada com outra região na mesma área geográfica, formando juntas um par regional. A exceção é o Sul do Brasil, que está associado a uma região fora de sua área geográfica. Entre os pares de região, o Azure serializa atualizações da plataforma (manutenção planejada) para que apenas uma região emparelhada seja atualizada por vez. Em caso de interrupção que afete várias regiões, pelo menos uma região em cada par será priorizada para recuperação.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
@@ -30,7 +30,7 @@ Figura 1 – Pares regionais do Azure
 | Ásia |Ásia Oriental |Sudeste Asiático |
 | Austrália |Leste da Austrália |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
-| Brasil |Sul do Brasil 2 |Centro-Sul dos Estados Unidos |
+| Brasil |Sul do Brasil |Centro-Sul dos Estados Unidos |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
@@ -38,7 +38,7 @@ Figura 1 – Pares regionais do Azure
 | França |França Central|Sul da França|
 | Alemanha |Alemanha Central |Nordeste da Alemanha |
 | Índia |Índia Central |Sul da Índia |
-| Índia |Índia Ocidental (1) |Sul da Índia |
+| Índia |Índia Ocidental |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia do Sul |Coreia Central |Sul da Coreia |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
@@ -48,15 +48,15 @@ Figura 1 – Pares regionais do Azure
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
 | Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
 | Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
-| Governo dos EUA |US Gov Iowa (3) |Gov. dos EUA – Virgínia |
-| Governo dos EUA |Gov. EUA - Virgínia (4) |Governo dos EUA do Texas |
+| Governo dos EUA |US Gov Iowa |Gov. dos EUA – Virgínia |
+| Governo dos EUA |Gov. dos EUA – Virgínia |Governo dos EUA do Texas |
 
 Tabela 1 – mapeamento de pares regionais do Azure
 
-- (1) Índia Ocidental é diferente porque ele está associado a outra região em apenas uma direção. A região secundária da Índia Ocidental é o Sul da Índia, mas a região secundária do Sul da Índia é a Índia Central.
-- (2) O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é o Centro-Sul dos EUA. No entanto, a região secundária do Centro-Sul dos EUA não é o Sul do Brasil.
-- (3) A região secundária do US Gov Iowa é US Gov Virginia, mas região secundária de US Gov Virginia não está no US Gov Iowa.
-- (4) A região secundária do Gov. EUA Virgínia é Gov. EUA Texas, mas região secundária de Gov. EUA Texas não está no Gov. EUA Virgínia.
+- Índia Ocidental é diferente porque ele está associado a outra região em apenas uma direção. A região secundária da Índia Ocidental é o Sul da Índia, mas a região secundária do Sul da Índia é a Índia Central.
+- O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é o Centro-Sul dos EUA. No entanto, a região secundária do Centro-Sul dos EUA não é o Sul do Brasil.
+- A região secundária do US Gov Iowa é US Gov - Virgínia, mas região secundária de US Gov - Virgínia não está no US Gov Iowa.
+- A região secundária do US Gov - Virgínia é US Gov - Texas, mas região secundária de US Gov - Texas não está no US Gov - Virgínia.
 
 
 É recomendável que você configure a recuperação de desastre de continuidade de negócios (BCDR) entre os pares regionais para se beneficiar das políticas de isolamento e a disponibilidade do Azure. Para aplicativos que dão suporte a várias regiões do Active Directory, recomendamos usar ambas as regiões em um par de regiões, sempre que possível. Isso irá garantir a disponibilidade ideal para aplicativos e tempo de recuperação minimizado em caso de desastre. 
@@ -77,7 +77,7 @@ Como mencionado na Figura 2.
 
 ![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Banco de Dados SQL do Azure** – Com a Replicação Geográfica do Banco de Dados SQL do Azure é possível configurar a replicação assíncrona de transações para qualquer região do mundo, no entanto, é recomendável que você implemente esses recursos em uma região emparelhada para a maioria dos cenários de recuperação de desastre. Para saber mais, confira [Replicação geográfica no Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** – O Resource Manager fornece de maneira inerente isolamento lógico dos componentes do gerenciamento de serviço entre as regiões. Isso significa que falhas lógicas em uma região são apresentam menor probabilidade de afetar as outras.
+![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** – O Resource Manager fornece de maneira inerente isolamento lógico dos componentes entre as regiões. Isso significa que falhas lógicas em uma região são apresentam menor probabilidade de afetar as outras.
 
 ## <a name="benefits-of-paired-regions"></a>Benefícios de uma região emparelhada
 Como mencionado na Figura 2.  

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 8696f4780db8b98457b56dd7f1162553697023d4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93d52101569e911c90377f26a9773d61eeaaf229
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237920"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653672"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerenciar o Gerenciador de Tráfego
 
@@ -111,7 +111,7 @@ Em todos os três casos, os pontos de extremidade podem ser adicionados de duas 
 
 Os pontos de extremidade do Azure fazem referência a serviços hospedados no Azure. Há suporte para dois tipos de pontos de extremidade do Azure:
 
-1. Aplicativos Web do Azure 
+1. Serviço de aplicativo do Azure
 2. Recursos PublicIpAddress do Azure (que podem ser anexados ao balanceador de carga ou a uma NIC de máquina virtual). O PublicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
 
 Em cada caso:
@@ -121,9 +121,9 @@ Em cada caso:
 * A especificação de “Weight” é opcional. Os pesos só serão usados se o perfil for configurado para usar o método de roteamento de tráfego “Weighted”. Caso contrário, eles serão ignorados. Se especificado, o valor deve ser um número entre 1 e 1000. O valor padrão é '1'.
 * A especificação de “Priority” é opcional. As prioridades só serão usadas se o perfil for configurado para usar o método de roteamento de tráfego “Priority”. Caso contrário, eles serão ignorados. Os valores válidos são de 1 a 1000; valores mais baixos indicam uma prioridade mais alta. Se especificados para um ponto de extremidade, deverão ser especificados para todos os pontos de extremidade. Se omitidos, os valores padrão começando por 1 serão aplicados na ordem em que os pontos de extremidade forem listados.
 
-### <a name="example-1-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Exemplo 1: adicionar pontos de extremidade do aplicativo Web usando `Add-AzureRmTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Exemplo 1: Adicionar pontos de extremidade de Serviço de Aplicativo usando `Add-AzureRmTrafficManagerEndpointConfig`
 
-Neste exemplo, podemos criar um perfil do Gerenciador de Tráfego e adicionar dois pontos de extremidade do aplicativo Web usando o cmdlet `Add-AzureRmTrafficManagerEndpointConfig`.
+Neste exemplo, podemos criar um perfil do Gerenciador de Tráfego e adicionar dois pontos de extremidade do Serviço de Aplicativo usando o cmdlet `Add-AzureRmTrafficManagerEndpointConfig`.
 
 ```powershell
 $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -152,7 +152,7 @@ Ao especificar pontos de extremidade externos:
 * Se o método de roteamento de tráfego “Desempenho” for usado, o 'EndpointLocation' será necessário. Caso contrário, será opcional. O valor deve ser um [nome válido da região do Azure](https://azure.microsoft.com/regions/).
 * “Weight” e “Priority” são opcionais.
 
-### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: adicionar pontos de extremidade externos usando `Add-AzureRmTrafficManagerEndpointConfig` e `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Adicionar pontos de extremidade externos usando `Add-AzureRmTrafficManagerEndpointConfig` e `Set-AzureRmTrafficManagerProfile`
 
 Neste exemplo, podemos criar um perfil do Gerenciador de Tráfego, adicionar dois pontos de extremidade externos e confirmar as alterações.
 
@@ -163,7 +163,7 @@ Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManage
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: adicionar pontos de extremidade externos usando `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: Adicionar pontos de extremidade externos usando `New-AzureRmTrafficManagerEndpoint`
 
 Neste exemplo, adicionamos um ponto de extremidade externo a um perfil existente. O perfil é especificado usando os nomes de grupo de recursos e perfil.
 
@@ -182,7 +182,7 @@ Os pontos de extremidade aninhados são configurados no perfil pai, usando um ti
 * 'Weight' e 'Priority' são opcionais, como os Pontos de Extremidade do Azure.
 * O parâmetro “MinChildEndpoints” é opcional. O valor padrão é '1'. Caso o número de pontos de extremidade disponíveis esteja abaixo desse limite, o perfil pai considerará o perfil filho como “prejudicado” e desviará o tráfego para os outros pontos de extremidade do perfil pai.
 
-### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: adicionar pontos de extremidade aninhados usando `Add-AzureRmTrafficManagerEndpointConfig` e `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Adicionar pontos de extremidade aninhados usando `Add-AzureRmTrafficManagerEndpointConfig` e `Set-AzureRmTrafficManagerProfile`
 
 Neste exemplo, podemos criar novos perfis pai e filho do Gerenciador de Tráfego, adicionar o filho como um ponto de extremidade aninhado no pai e confirmar as alterações.
 
@@ -195,7 +195,7 @@ Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 
 Para não demorarmos neste exemplo, não adicionamos outros pontos de extremidade aos perfis filho ou pai.
 
-### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: adicionar pontos de extremidade aninhados usando `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: Adicionar pontos de extremidade aninhados usando `New-AzureRmTrafficManagerEndpoint`
 
 Neste exemplo, adicionamos um perfil filho existente como um ponto de extremidade aninhado a um perfil pai existente. O perfil é especificado usando os nomes de grupo de recursos e perfil.
 
@@ -223,7 +223,7 @@ Há duas maneiras de atualizar um ponto de extremidade existente do Gerenciador 
 1. Obtenha o perfil do Gerenciador de Tráfego usando `Get-AzureRmTrafficManagerProfile`, atualize as propriedades do ponto de extremidade no perfil e confirme as alterações usando `Set-AzureRmTrafficManagerProfile`. Esse método apresenta a vantagem de poder atualizar mais de um ponto de extremidade em uma única operação.
 2. Obtenha o ponto de extremidade do Gerenciador de Tráfego usando `Get-AzureRmTrafficManagerEndpoint`, atualize as propriedades do ponto de extremidade e confirme as alterações usando `Set-AzureRmTrafficManagerEndpoint`. Esse método é mais simples, pois não exige a indexação na matriz dos Pontos de Extremidade no perfil.
 
-### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: atualizar pontos de extremidade usando `Get-AzureRmTrafficManagerProfile` e `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Atualizar pontos de extremidade usando `Get-AzureRmTrafficManagerProfile` e `Set-AzureRmTrafficManagerProfile`
 
 Neste exemplo, modificamos a prioridade em dois pontos de extremidade em um perfil existente.
 
@@ -234,7 +234,7 @@ $profile.Endpoints[1].Priority = 1
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Exemplo 2: atualizar um ponto de extremidade usando `Get-AzureRmTrafficManagerEndpoint` e `Set-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Exemplo 2: Atualizar um ponto de extremidade usando `Get-AzureRmTrafficManagerEndpoint` e `Set-AzureRmTrafficManagerEndpoint`
 
 Neste exemplo, modificamos o peso de um ponto de extremidade simples em um perfil existente.
 
@@ -249,7 +249,7 @@ Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 O Gerenciador de Tráfego permite que os pontos de extremidade individuais sejam habilitados e desabilitados, além de permitir a habilitação e a desabilitação de perfis inteiros.
 Faça essas alterações ao obter/atualizar/definir os recursos de ponto de extremidade ou de perfil. Para simplificar essas operações comuns, eles também têm suporte por meio de cmdlets dedicados.
 
-### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Exemplo 1: Habilitando e desabilitando um perfil do Gerenciador de Tráfego
+### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Exemplo 1: Habilitar e desabilitar um perfil do Gerenciador de Tráfego
 
 Para habilitar um perfil do Gerenciador de Tráfego, use `Enable-AzureRmTrafficManagerProfile`. O perfil pode ser especificado usando um objeto de perfil. O objeto de perfil pode ser passado por meio do pipeline ou usando o parâmetro '-TrafficManagerProfile'. Neste exemplo, podemos especificar o perfil pelo nome do grupo de recursos e perfil.
 
@@ -265,7 +265,7 @@ Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResour
 
 O cmdlet Disable-AzureRmTrafficManagerProfile solicita confirmação. Esse aviso pode ser suprimido usando o parâmetro '-Force'.
 
-### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exemplo 2: Habilitando e desabilitando um ponto de extremidade do Gerenciador de Tráfego
+### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exemplo 2: Habilitar e desabilitar um ponto de extremidade do Gerenciador de Tráfego
 
 Para habilitar um ponto de extremidade do Gerenciador de Tráfego, use `Enable-AzureRmTrafficManagerEndpoint`. Há duas maneiras de especificar o ponto de extremidade
 

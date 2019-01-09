@@ -5,16 +5,18 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3ae2289112948dea7d2649c4fad6b1cafb3804b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285685"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53443965"
 ---
+#### <a name="process-automation"></a>Automação de processos
+
 | Recurso | Limite máximo |Observações|
 | --- | --- |---|
 | Número máximo de novos trabalhos que podem ser enviados a cada 30 segundos por conta de automação (trabalhos não agendados) |100 |Quando esse limite é atingido, as solicitações subsequentes para criar um trabalho falham. O cliente recebe uma resposta de erro.|
@@ -33,5 +35,19 @@ ms.locfileid: "51285685"
 | Parâmetros de Max Runbook   | 50|Você pode passar uma cadeia de caracteres JSON ou XML para um parâmetro e analisá-lo com o runbook se atingir o limite parâmetro 50|
 | Tamanho máximo de carga de webhook |  512 kb|
 | Máximo de dias que os dados de trabalho são retidos|30 dias|
+| Tamanho do estado do fluxo de trabalho do Max PowerShell |5 MB| Aplica-se aos runbooks de fluxo de trabalho do PowerShell no fluxo de trabalho de ponto de verificação.|
 
 **<sup>1</sup>**  Uma área restrita é um ambiente compartilhado que pode ser usado por vários trabalhos, trabalhos usando a mesma área restrita são associados pelas limitações de recursos da área de segurança.
+
+#### <a name="change-tracking-and-inventory"></a>Controle de Alterações e Inventário
+
+A tabela a seguir mostra os limites de item controlados por máquina para Controle de Alterações.
+
+| **Recurso** | **Limite**| **Observações** |
+|---|---|---|
+|Arquivo|500||
+|Registro|250||
+|Software do Windows|250|Não inclui as atualizações de software|
+|Pacotes do Linux|1250||
+|Serviços|250||
+|Daemon|250||

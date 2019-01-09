@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: b751fe4feab48e6ed706a2e28bba8406f4f4891c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9bbaf23999c04eba5157ebe7dff73ed47418c99a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185691"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634177"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 Você pode solucionar os erros encontrados durante a utilização do Servidor de Backup do Azure com as informações listadas na tabela a seguir:
@@ -69,11 +69,11 @@ Você pode solucionar os erros encontrados durante a utilização do Servidor de
 | O tipo de conta de armazenamento especificada para a operação de restauração não está online: <br>Certifique-se de que a conta de armazenamento especificada na operação de restauração está online. |Esse erro pode ocorrer devido a um erro transitório no Armazenamento do Microsoft Azure ou devido a uma interrupção. Escolha outra conta de armazenamento. |
 | A cota do grupo de recursos foi atingida: <br>Exclua alguns grupos de recursos do portal do Azure ou entre em contato com o suporte do Azure para aumentar os limites. |Nenhum |
 | A sub-rede selecionada não existe: <br>Selecione uma sub-rede que existe. |Nenhum |
-| O serviço de Backup não tem autorização para acessar recursos em sua assinatura. |Para resolver esse erro, primeiro restaure discos, usando as etapas em [Restaurar discos com backup](backup-azure-arm-restore-vms.md#restore-backed-up-disks). Em seguida, use as etapas do PowerShell em [Criar uma VM de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar uma VM completa de discos restaurados. |
+| O serviço de Backup não tem autorização para acessar recursos em sua assinatura. |Para resolver esse erro, primeiro restaure discos, usando as etapas em [Restaurar discos com backup](backup-azure-arm-restore-vms.md#create-new-restore-disks). Em seguida, use as etapas do PowerShell em [Criar uma VM de discos restaurados](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Backup ou restauração demoram
 Se seu backup levar mais de 12 horas ou restauração levar mais de 6 horas:
-* Reconheça os [fatores que contribuem para o tempo de backup](backup-azure-vms-introduction.md#total-vm-backup-time) e os [fatores que contribuem para o tempo de restauração](backup-azure-vms-introduction.md#total-restore-time).
+* Reconheça os [fatores que contribuem para o tempo de backup](backup-azure-vms-introduction.md#time-considerations) e os [fatores que contribuem para o tempo de restauração](backup-azure-vms-introduction.md#restore-considerations).
 * Siga as [melhores práticas de Backup](backup-azure-vms-introduction.md#best-practices).
 
 ## <a name="vm-agent"></a>Agente de VM

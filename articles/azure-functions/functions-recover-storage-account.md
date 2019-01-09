@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887199"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000012"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Como solucionar o problema "Functions Runtime inacessível"
 
@@ -37,6 +37,7 @@ Vamos percorrer os quatro casos de erro mais comuns e aprender como identificar 
 1. Configurações de aplicativo da conta de armazenamento excluídas
 1. Credenciais da conta de armazenamento inválidas
 1. Conta de armazenamento inacessível
+1. Cota de execução diária total
 
 ## <a name="storage-account-deleted"></a>Conta de armazenamento excluída
 
@@ -79,18 +80,25 @@ Seu aplicativo de funções precisa ser capaz de acessar a conta de armazenament
 * Aplicativos de funções implantados em Ambientes do Serviço de Aplicativo sem as regras de rede corretas para permitir o tráfego de e para a conta de armazenamento
 * O firewall da conta de armazenamento está habilitado e não está configurado para permitir o tráfego de e para as funções. [Leia mais sobre a configuração de firewall da conta de armazenamento aqui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>Cota de execução diária total
+
+Se uma cota de execução diária estiver configurada, seu Aplicativo de funções será temporariamente desabilitado e muitos dos controles de portal ficarão indisponíveis. 
+
+* Para verificar, veja Recursos de Plataforma abertos > Configurações do Aplicativo de funções no portal. Nesse caso, aparecerá a seguinte mensagem de erro se estiver em uma cota
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* Remova a cota e reinicie o aplicativo para resolver o problema.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que seu aplicativo de funções retornou e está operacional, confira nossos guias de início rápido e nossas referências para o desenvolvedor para colocá-lo em funcionamento novamente!
 
 * [Criar sua primeira Função do Azure](functions-create-first-azure-function.md)  
-  Crie diretamente sua primeira função usando o início rápido do Azure Functions. 
+   Crie diretamente sua primeira função usando o início rápido do Azure Functions. 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
-  Fornece informações mais técnicas sobre o tempo de execução do Azure Functions e uma referência para funções de codificação e definição de associações e gatilhos.
+   Fornece informações mais técnicas sobre o tempo de execução do Azure Functions e uma referência para funções de codificação e definição de associações e gatilhos.
 * [Testando o Azure Functions](functions-test-a-function.md)  
-  Descreve várias ferramentas e técnicas para testar suas funções.
+   Descreve várias ferramentas e técnicas para testar suas funções.
 * [Como escalar o Azure Functions](functions-scale.md)  
   Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo. 
-* [Saiba mais sobre o Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md)  
+* [Saiba mais sobre o Serviço de Aplicativo do Azure](../app-service/overview.md)  
   O Azure Functions aproveita o Serviço de Aplicativo do Azure para a funcionalidade básica como implantações, variáveis de ambiente e diagnóstico. 

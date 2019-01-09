@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o Cofre de Chaves do Azure usando a Automação do Azure | Microsoft Docs
+title: Gerenciar o Azure Key Vault usando a Automação do Azure - Azure Key Vault | Microsoft Docs
 description: Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar o Cofre da Chave do Azure.
 services: Key-Vault, automation
 documentationcenter: ''
@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/29/2016
+ms.date: 01/02/2019
 ms.author: magoedte
-ms.openlocfilehash: be7829c35f299381a5e82621412feb13cc2e8bb2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e95e7dac0c6668078a9399342617c041eee6fd7d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299229"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998601"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gerenciar o Cofre da Chave do Azure usando a Automação do Azure
+
 Este guia apresentará a você o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento de suas chaves e segredos no cofre da chave do Azure.
 
 ## <a name="what-is-azure-automation"></a>O que é Automação do Azure?
+
 [Automação do Azure](../automation/automation-intro.md) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processos e por uma configuração de estado desejada. Com o uso da Automação do Azure, as tarefas manuais, repetidas, de execução longa e propensas a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e o tempo de retorno para sua organização.
 
 A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho altamente confiável e altamente disponível que é dimensionado para atender às suas necessidades. Na Automação do Azure, os processos podem ser inicializados manualmente por sistemas de terceiros ou a intervalos agendados para que as tarefas aconteçam exatamente quando necessário.
@@ -32,6 +34,7 @@ A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho a
 Reduza o custo operacional e libere a equipe de TI e DevOps para se concentrar no trabalho que agrega valor de negócios, transferindo as tarefas de gerenciamento de nuvem para serem executadas automaticamente pela Automação do Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Como a Automação do Azure pode ajudar a gerenciar o cofre da chave do Azure?
+
 O Cofre de Chaves pode ser gerenciado na Automação do Azure usando os [cmdlets do Cofre de Chave AzureRM](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e os [cmdlets do Cofre de Chaves Clássico do Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure). O módulo do Azure para gerenciar o Cofre da Chave clássico está disponível automaticamente na Automação do Azure, e você pode importar o [módulo AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) para a Automação do Azure, para executar muitas de suas tarefas de gerenciamento do Cofre da Chave dentro do serviço. Você também pode combinar esses cmdlets na automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
 
 Com os cmdlets do Cofre de Chaves do Azure, você pode executar as seguintes tarefas, entre outras: 
@@ -49,6 +52,7 @@ Veja alguns exemplos de uso do PowerShell para gerenciar o Cofre da Chave:
 * [Configurando um Cofre da Chave do Azure](https://www.simple-talk.com/cloud/platform-as-a-service/setting-up-and-configuring-an-azure-key-vault)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Cofre da Chave do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
 * Consulte o [Tutorial de introdução](../automation/automation-first-runbook-graphical.md)da Automação do Azure.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00f57ccc0e02c8805e9a41fc5bce8f0ca4a3303a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090050"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542519"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Início Rápido: converter texto em fala usando o Python
 
@@ -86,7 +86,7 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> Para obter mais informações sobre autenticação, consulte [Como obter um token de acesso](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> Para obter mais informações sobre autenticação, consulte [Autenticar com um token de acesso](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="make-a-request-and-save-the-response"></a>Faça uma solicitação e salve a resposta
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261816"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715598"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Práticas Recomendadas para o Serviço de Aplicativo do Azure
 Este artigo resume as práticas recomendadas para usar o [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -39,7 +39,7 @@ Quando você observar que um aplicativo consome mais memória do que o esperado,
 ## <a name="CPUresources"></a>Quando aplicativos consomem mais CPU do que o esperado
 Quando você observar que um aplicativo consome mais CPU que o esperado ou enfrenta picos de CPU repetidos, conforme indicado pelo monitoramento ou pelas recomendações serviço, considere escalar verticalmente ou horizontalmente o plano de Serviço de Aplicativo. Se seu aplicativo estiver com estado, escalar verticalmente será a única opção, enquanto que, se seu aplicativo estiver sem estado, escalar horizontalmente dará mais flexibilidade e maior potencial de escala. 
 
-Para obter mais informações sobre os aplicativos "com estado" versus "sem estado", assista a este vídeo: [Planejando um aplicativo escalonável de várias camadas, de ponta a ponta no aplicativo Web do Microsoft Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para saber mais sobre como as opções de colocação em escala e dimensionamento automático, veja [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md).  
+Para obter mais informações sobre os aplicativos "com estado" versus "sem estado", assista a este vídeo: [Planejar um aplicativo escalonável de várias camadas e de ponta a ponta no Serviço de Aplicativo do Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para saber mais sobre como as opções de colocação em escala e dimensionamento automático, veja [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Quando os recursos de soquete são exauridos
 Uma razão comum para esgotar as conexões TCP de saída é o uso de bibliotecas de cliente que não são implementadas para reutilizar conexões TCP ou quando um protocolo de nível superior como HTTP - Keep-Alive não estiver sendo utilizado. Consulte a documentação para cada uma das bibliotecas referenciadas pelos aplicativos no seu Plano de Serviço de Aplicativo para garantir que eles são configurados ou acessados em seu código para reutilização eficiente de conexões de saída. Além disso, siga as diretrizes de documentação biblioteca de criação correta e versão ou de limpeza para evitar vazamento de conexões. Embora essas investigações de bibliotecas de cliente estejam em andamento, o impacto pode ser reduzido escalando horizontalmente para várias instâncias.
@@ -68,7 +68,7 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="appbackup"></a>Quando o backup de seu aplicativo começa a falhar
 Os dois motivos mais comuns para as falhas no backup do aplicativo são: configurações de armazenamento inválidas e configuração de banco de dados inválida. Essas falhas normalmente ocorrem quando há alterações de recursos de armazenamento ou do banco de dados, ou alterações no modo de acesso desses recursos (por exemplo, credenciais atualizadas para o banco de dados selecionado nas configurações de backup). Os backups são normalmente executados com base em um agendamento e exigem acesso ao armazenamento (para gerar o backup dos arquivos) e aos bancos de dados (para copiar e ler o conteúdo a ser incluído no backup). O resultado da falha de acesso de qualquer um desses recursos seria uma falha de backup consistente. 
 
-Quando ocorrerem falhas de backup, examine os resultados mais recentes para entender qual tipo de falha está ocorrendo. Para falhas de acesso ao armazenamento, revise e atualize as configurações de armazenamento usadas na configuração do backup. No caso de falhas de acesso ao banco de dados, analise e atualize suas cadeias de conexão como parte das configurações do aplicativo; em seguida, atualize a configuração de backup para incluir corretamente os bancos de dados necessários. Para saber mais sobre o backup do aplicativo, confira [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md).
+Quando ocorrerem falhas de backup, examine os resultados mais recentes para entender qual tipo de falha está ocorrendo. Para falhas de acesso ao armazenamento, revise e atualize as configurações de armazenamento usadas na configuração do backup. No caso de falhas de acesso ao banco de dados, analise e atualize suas cadeias de conexão como parte das configurações do aplicativo; em seguida, atualize a configuração de backup para incluir corretamente os bancos de dados necessários. Para saber mais sobre o backup do aplicativo, confira [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](manage-backup.md).
 
 ## <a name="nodejs"></a>Quando novos aplicativos Node.js são implantados no Serviço de Aplicativo do Azure
 A configuração padrão do Serviço de Aplicativo do Azure para aplicativos Node.js destina-se a melhor atender às necessidades dos aplicativos mais comuns. Se a configuração do seu aplicativo Node.js pode se beneficiar de ajustes personalizados para melhorar o desempenho ou otimizar o uso de recursos de memória/CPU/rede, veja [Práticas recomendadas e guia de solução de problemas para aplicativos Node no Serviço de Aplicativo do Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Este artigo descreve as configurações de iisnode que podem precisar ser definidas seu aplicativo Node.js, descreve os vários cenários ou problemas que seu aplicativo pode enfrentar e mostra como resolver esses problemas.

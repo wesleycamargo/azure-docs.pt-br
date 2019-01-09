@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4cf59e6aa7e6edc73db2e22b9fa8ce40301b07c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212957"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790326"
 ---
 <a name="saas-sell-through-azure---apis"></a>Venda de SaaS por meio do Azure – APIs
 ==============================
@@ -67,8 +67,8 @@ Para registrar um novo aplicativo usando o portal do Azure, realize as seguintes
         - Selecione **Nativo** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que são instalados localmente em um dispositivo. Essa configuração é usada para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos OAuth.
         - Selecione **Aplicativo Web/API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [recurso/aplicativos de API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que estão instalados em um servidor seguro. Essa configuração é usada para [clientes Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidenciais OAuth e [clientes baseados em agente de usuário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) públicos.
         O mesmo aplicativo também pode expor um cliente e o recurso/API.
-    -   **URL de logon**: para aplicativos Web/API, informe a URL base do aplicativo. Por exemplo, **http://localhost:31544** pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam então essa URL para entrar em um aplicativo cliente Web.
-    -   **URI de redirecionamento:** para aplicativos nativos, informe o URI usado pelo Azure AD para retornar respostas de token. Insira um valor específico para o aplicativo, por exemplo, **http://MyFirstAADApp**.
+    -   **URL de logon**: para aplicativos e API da Web, informe a URL base do aplicativo. Por exemplo, **http://localhost:31544** pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam então essa URL para entrar em um aplicativo cliente Web.
+    -   **URI de redirecionamento**: para aplicativos públicos, informe o URI usado pelo Microsoft Azure Active Directory para retornar respostas de token. Insira um valor específico para o aplicativo, por exemplo, **http://MyFirstAADApp**.
 
         ![Registros de Aplicativo do AD de SaaS](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) Para obter exemplos específicos de aplicativos Web ou aplicativos nativos, confira as configurações de início rápido guiado que estão disponíveis na seção de Introdução do [Guia de desenvolvedores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
 
@@ -136,7 +136,7 @@ Token de resposta de exemplo:
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "b3cca048-ed2e-406c-aff2-40cf19fe7bf5",
+      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
@@ -172,7 +172,7 @@ A ação POST ao resolver o ponto de extremidade permite que os usuários resolv
 | x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Isso correlaciona todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | Content-type       | SIM          | `application/json`                                        |
 | authorization      | SIM          | O token de portador JWT (Token Web JSON).                    |
-| x-ms-marketplace-token| SIM| O parâmetro de consulta de token na URL quando o usuário é redirecionado ao site do ISV SaaS partindo do Azure. **Observação:** realize a decodificação URL do valor do token do navegador antes de usá-lo.|
+| x-ms-marketplace-token| SIM| O parâmetro de consulta de token na URL quando o usuário é redirecionado ao site do ISV SaaS partindo do Azure. **Observação:** Esse token é válido somente por 1 hora. Realize também a decodificação URL do valor do token do navegador antes de usá-lo.|
 |  |  |  |
   
 
@@ -201,7 +201,7 @@ A ação POST ao resolver o ponto de extremidade permite que os usuários resolv
 | **Código de status HTTP** | **Código de erro**     | **Descrição**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token resolvido com êxito.                                                            |
-| 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou um valor inválido de api-version foi especificado. Falha ao resolver o token porque o ele é malformado ou expirou. |
+| 400                  | `BadRequest`         | Os cabeçalhos necessários estão ausentes ou um valor inválido de api-version foi especificado. Falha ao resolver o token porque ou ele está malformado ou expirou (o token só é válido por 1 hora depois de gerado). |
 | 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                                 |
 | 429                  | `RequestThrottleId`  | O serviço está ocupado processando solicitações, tente novamente mais tarde.                                |
 | 503                  | `ServiceUnavailable` | Serviço inativo temporariamente, tente novamente mais tarde.                                        |
@@ -513,7 +513,7 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 | offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou.         |
 | planId                 | Cadeia de caracteres        | ID do plano que o usuário assinou.          |
 | saasSubscriptionName   | Cadeia de caracteres        | O nome da assinatura de SaaS.                |
-| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
+| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`:  a assinatura do Azure está suspensa.  |
 | criado                | Datetime      | Valor do carimbo de data/hora de criação da assinatura em UTC. |
 | lastModified           | Datetime      | Valor do carimbo de data/hora de modificação da assinatura em UTC. |
 |  |  |  |
@@ -587,7 +587,7 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 | offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou.         |
 | planId                 | Cadeia de caracteres        | ID do plano que o usuário assinou.          |
 | saasSubscriptionName   | Cadeia de caracteres        | O nome da assinatura de SaaS.                |
-| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
+| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`:  a assinatura do Azure está suspensa.  |
 | criado                | Datetime      | Valor do carimbo de data/hora de criação da assinatura em UTC. |
 | lastModified           | Datetime      | Valor do carimbo de data/hora de modificação da assinatura em UTC. |
 |  |  |  |
@@ -612,4 +612,36 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 | x-ms-correlationid | SIM          | A ID de correlação se passada pelo cliente. Caso contrário, é a ID de correlação do servidor.                   |
 | x-ms-activityid    | SIM          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações. |
 | Retry-After        | Não            | Intervalo com o qual o cliente pode verificar o status.                                                       |
+|  |  |  |
+
+### <a name="saas-webhook"></a>Webhook de SaaS
+
+Um webhook de SaaS é usado para notificar sobre alterações de forma proativa para o serviço de SaaS. Essa API de POSTAGEM deve ser autenticado e será chamado pelo serviço da Microsoft. O serviço de SaaS deve chamar as operações API para validar e autorizar antes de fazer a notificação de webhook. 
+
+
+*Corpo*
+
+``` json
+  { 
+    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
+    "offerId": "sampleSaaSOffer", // Provided with "Update" action
+    "publisherId": "contoso", 
+    "planId": "silver",     // Provided with "Update" action
+    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
+    "timeStamp": "2018-12-01T00:00:00"
+  }
+```
+
+| **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
+|------------------------|---------------|-----------------------------------------------|
+| ID  | Cadeia de caracteres       | ID exclusiva para a operação disparada.                |
+| activityId   | Cadeia de caracteres        | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações.               |
+| subscriptionId                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |
+| offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou. Fornecido somente com a ação "Atualizar".        |
+| publisherId                | Cadeia de caracteres        | ID do editor da oferta de SaaS         |
+| planId                 | Cadeia de caracteres        | ID do plano que o usuário assinou. Fornecido somente com a ação "Atualizar".          |
+| ação                 | Cadeia de caracteres        | A ação que está disparando esta notificação. Os valores possíveis: ativar, excluir, suspender, restabelecer, atualizar          |
+| timeStamp                 | Cadeia de caracteres        | Valor de carimbo de hora em UTC quando essa notificação foi disparada.          |
 |  |  |  |

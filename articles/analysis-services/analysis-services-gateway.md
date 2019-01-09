@@ -5,18 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 84c82da933b17679e8c69c08b0c9cc7372951cfd
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3f87a4c520327f1a13a48c70502b6737c0aa9b3a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802046"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630964"
 ---
-# <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local do Azure
-O gateway de dados local atua como uma ponte, fornecendo transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. É possível associar vários serviços na mesma assinatura e mesma região com um único gateway. 
+# <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local
+O gateway de dados local fornece transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. É possível associar vários serviços na mesma assinatura e mesma região com um único gateway. 
 
 Instalar o gateway pela primeira vez é um processo de quatro partes:
 
@@ -55,7 +55,7 @@ O gateway cria uma conexão de saída para o Barramento de Serviço do Azure. El
 Recomendamos a inclusão dos endereços IP em uma lista de permissões para a região de dados em seu firewall. Baixe a [lista de IPs de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). A lista é atualizada semanalmente.
 
 > [!NOTE]
-> Os Endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Para saber mais, consulte [Roteamento entre Domínios sem Classificação](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+> Os Endereços IP listados na lista de IP de Datacenter do Azure estão em notação CIDR. Para saber mais, confira [Roteamento entre Domínios sem Classificação](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -94,10 +94,10 @@ Não há nenhum único local onde os administradores de locatários possam geren
 ### <a name="general"></a>Geral
 
 **P**: Preciso de um gateway para fontes de dados na nuvem, como o Banco de Dados SQL do Azure? <br/>
-**R**: Não. Um gateway é necessário para se conectar a fontes de dados locais apenas.
+**R**:  Não. Um gateway é necessário para se conectar a fontes de dados locais apenas.
 
-**Pergunta**: O gateway precisa ser instalado no mesmo computador que a fonte de dados? <br/>
-**R**: Não. O gateway precisa apenas da capacidade de se conectar ao servidor, geralmente na mesma rede.
+**P**: O gateway precisa ser instalado no mesmo computador que a fonte de dados? <br/>
+**R**:  Não. O gateway precisa apenas da capacidade de se conectar ao servidor, geralmente na mesma rede.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -105,7 +105,7 @@ Não há nenhum único local onde os administradores de locatários possam geren
 **R**: Você só pode usar uma conta corporativa ou de estudante ao instalar o gateway de dados local. E essa conta deve estar no mesmo locatário que a assinatura na qual você está configurando o recurso de gateway. Sua conta de entrada é armazenada em um locatário gerenciado pelo Azure AD (Azure Active Directory). Geralmente, o nome UPN da conta do Azure AD corresponde ao endereço de email.
 
 **P**: Em que local minhas credenciais são armazenadas? <br/>
-**R**: As credenciais inseridas para uma fonte de dados são criptografadas e armazenadas no Serviço de Nuvem do Gateway. As credenciais são descriptografadas no gateway de dados local.
+**R**: As credenciais inseridas para uma fonte de dados são criptografadas e armazenadas no serviço de nuvem do gateway. As credenciais são descriptografadas no gateway de dados local.
 
 **P**: Há algum requisito de largura de banda de rede? <br/>
 **R**: Recomendamos que sua conexão de rede tenha uma boa taxa de transferência. Cada ambiente é diferente, e a quantidade de dados enviados afeta os resultados. Usar o ExpressRoute pode ajudar a assegurar um nível de taxa de transferência entre os datacenters locais e do Azure.
@@ -118,7 +118,7 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 **R**: Os resultados são enviados por meio do Barramento de Serviço do Azure.
 
 **P**: Existem conexões de entrada para o gateway da nuvem? <br/>
-**R**: Não. O gateway usa conexões de saída para o Barramento de Serviço do Azure.
+**R**:  Não. O gateway usa conexões de saída para o Barramento de Serviço do Azure.
 
 **P**: O que acontecerá se eu bloquear conexões de saída? O que preciso abrir? <br/>
 **R**: Verifique as portas e os hosts que o gateway usa.
@@ -127,12 +127,15 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 **R**: Em Serviços, o gateway é chamado de Serviço de gateway de dados local.
 
 **P**: O serviço Windows do gateway pode ser executado com uma conta do Azure Active Directory? <br/>
-**R**: Não. O serviço do Windows deve ter uma conta válida do Windows. Por padrão, o serviço é executado com o SID de Serviço, NT SERVICE\PBIEgwService.
+**R**:  Não. O serviço do Windows deve ter uma conta válida do Windows. Por padrão, o serviço é executado com o SID de Serviço, NT SERVICE\PBIEgwService.
 
-**P**: como faço para controlar um gateway? <br/>
+**P**: Como faço para controlar um gateway? <br/>
 **R**: Para controlar um gateway (ao executar Instalar/Alterar no Painel de Controle > Programas), você precisa ser um Proprietário do recurso do gateway no Azure e ter a chave de recuperação. Os Proprietários de recursos do gateway são configuráveis no Controle de Acesso.
 
 ### <a name="high-availability"></a>Alta disponibilidade e recuperação de desastres
+
+**P**: Como podemos ter alta disponibilidade?  
+**R**: Você pode instalar um gateway em outro computador para criar um cluster. Para saber mais, confira [Clusters de alta disponibilidade para o gateway de dados local](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters) nos documentos do Power BI Gateway.
 
 **P**: Quais opções estão disponíveis para recuperação de desastre? <br/>
 **R**: Você pode usar a chave de recuperação para restaurar ou mover um gateway. Ao instalar o gateway, especifique a chave de recuperação.
@@ -157,7 +160,7 @@ Você também pode examinar ferramentas de rastreamento de consultas disponibili
 
 Muitos problemas podem surgir quando a versão do gateway fica desatualizada. Como prática geral recomendada, use a última versão. Se você não atualiza o gateway há um mês ou mais, convém instalar a versão mais recente do gateway e verificar se o problema pode ser reproduzido.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Erro: falha ao adicionar usuário ao grupo. (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Erro: Falha ao adicionar usuário ao grupo. (-2147463168 PBIEgwService Performance Log Users)
 
 Você poderá obter esse erro se tentar instalar o gateway em um controlador de domínio, o que não tem suporte. Implante o gateway em um computador que não seja um controlador de domínio.
 
@@ -184,7 +187,7 @@ Telemetria pode ser usada para monitorar e solucionar problemas. Por padrão
 
 **Para ativar a telemetria**
 
-1.  Verifique o diretório do cliente de gateway de dados local no computador. Normalmente, é **%systemdrive%\Program Files\On-premises data gateway**. Ou, você pode abrir um console de Serviços e verificar o Caminho para o executável: uma propriedade do serviço do gateway de dados local.
+1.  Verifique o diretório do cliente de gateway de dados local no computador. Normalmente, é **%systemdrive%\Program Files\On-premises data gateway**. Ou você pode abrir um console de serviços e verificar o caminho para o executável: Uma propriedade do serviço de gateway de dados local.
 2.  No arquivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config do diretório do cliente. Altere a configuração SendTelemetry para true.
         
     ```
@@ -193,7 +196,7 @@ Telemetria pode ser usada para monitorar e solucionar problemas. Por padrão
         </setting>
     ```
 
-3.  Salve suas alterações e reinicie o serviço do Windows: serviço do gateway de dados local.
+3.  Salve as alterações e reinicie o serviço Windows: Serviço de gateway de dados local.
 
 
 

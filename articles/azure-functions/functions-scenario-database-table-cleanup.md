@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: e59c0b6994a64972b1458c0f295f24d0a615d871
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740103"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608572"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
 
@@ -70,7 +70,7 @@ Você precisa adicionar o pacote do NuGet que contém a biblioteca do SqlClient.
 
 1. Na guia **Procurar**, pesquise ```System.Data.SqlClient``` e quando encontrar, selecione.
 
-1. Na página **System.Data.SqlClient**, clique em **Instalar**.
+1. Na página **System.Data.SqlClient**, selecione a versão `4.5.1` e clique em **Instalar**.
 
 1. Quando a instalação for concluída, revise as alterações e então clique em **OK** para fechar a janela **Visualização**.
 
@@ -139,6 +139,6 @@ Em seguida, aprenda como usar. Functions com Aplicativos Lógicos para integraç
 Para obter mais informações sobre o Functions, veja os seguintes artigos:
 
 + [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
-  Referência do programador para codificação de funções e definição de gatilhos e de associações.
+   Referência do programador para codificação de funções e definição de gatilhos e de associações.
 + [Testando o Azure Functions](functions-test-a-function.md)  
-  Descreve várias ferramentas e técnicas para testar suas funções.  
+   Descreve várias ferramentas e técnicas para testar suas funções.  

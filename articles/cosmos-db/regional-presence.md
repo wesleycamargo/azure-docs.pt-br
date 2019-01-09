@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.custom: seodec18
-ms.openlocfilehash: c3299b2ea777577281ede234cd1aa5137ce5a445
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2062862670f5b373d3153c473e45455e10d5e996
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138102"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548673"
 ---
 # <a name="regional-presence-of-azure-cosmos-db"></a>Presença regional do Azure Cosmos DB
 
 Atualmente, o Azure está disponível em [54 regiões](https://azure.microsoft.com/global-infrastructure/regions/) em todo o mundo. O Azure Cosmos DB é um serviço de base no Azure e está disponível em todas as regiões onde o Azure está disponível.
 
-![Disponibilidade regional do Azure Cosmos DB](./media/regional-presence/regional-presence.png)
+[![Regiões onde o Azure Cosmos DB está disponível](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
 
 O Cosmos DB está disponível em todos os cinco ambientes distintos de nuvem do Azure disponíveis para os clientes:
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: c239464a37637b21504227951d917977cfea6726
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8be453ae479e88d441a240ce472f3314b3f4de31
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343948"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809736"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca do executor em massa do .NET: Fazer o download das informações 
 
@@ -77,7 +77,7 @@ ms.locfileid: "53343948"
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
 * Adicionado suporte para a operação de BulkDelete para contas de API de SQL do Azure Cosmos DB.
-* Adicionado suporte para a operação de BulkImport para contas de API do MongoDB do Azure Cosmos DB.
+* Adicionado suporte para a operação de BulkImport para API do Azure Cosmos DB para MongoDB.
 * E aumentado a dependência do SDK .NET do DocumentDB para a versão 2.0.0. 
 
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2

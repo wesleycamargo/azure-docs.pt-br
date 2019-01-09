@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5dde36bb8710190627a8780ed740957e62a57da0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406548"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994574"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -135,7 +135,7 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 
  Para habilitar a conectividade com outros serviços do Azure e serviços de infraestrutura, verifique se um dos seguintes itens está em vigor:
 
-* O emparelhamento público do Azure está habilitado para rotear o tráfego para pontos de extremidade públicos
+* O emparelhamento público do Azure está habilitado para rotear o tráfego para pontos de extremidade públicos.
 * Você usa o roteamento definido pelo usuário para permitir a conectividade da Internet para cada sub-rede que requer conectividade com a Internet.
 
 > [!NOTE]

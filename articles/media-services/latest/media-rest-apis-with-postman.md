@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: b110a57526d6e23ba53afce0a91d735fad6d247c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215873"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604092"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar Postman para chamadas de API de REST dos Serviços de Mídia
 
@@ -30,7 +30,7 @@ Este artigo mostra como configurar o **Postman** para que ele possa ser usado pa
 - Obtenha as informações necessárias para [acessar as APIs](access-api-cli-how-to.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as APIs de REST mostradas em alguns dos tutoriais do REST AMS. 
 
-    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
+    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. As outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Baixar arquivos Postman
 
@@ -75,7 +75,7 @@ Esta seção configura o Postman.
 
 Antes de começar a manipular os recursos do AMS v3, você precisa obter e definir o token do Azure AD para Autenticação do Principal de Serviço.
 
-1. Na janela esquerda do Postman, selecione "Etapa 1: Obter token de autenticação do AAD".
+1. Na janela esquerda do Postman, selecione "Etapa 1: obter token de autenticação do Azure Active Directory".
 2. Em seguida, selecione "Obter token do Microsoft Azure AD para autenticação de entidade de serviço".
 3. Pressione **Enviar**.
 
@@ -85,7 +85,7 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
     https://login.microsoftonline.com/:tenantId/oauth2/token
     ```
 
-4. A resposta retorna com o token e define a variável de ambiente "AccessToken" como o valor de token. Para ver o código que define "AccessToken", clique na guia **Testes**. 
+4. A resposta retorna com o token e define a variável de ambiente "AccessToken" como o valor de token.  
 
     ![Obter token do AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 

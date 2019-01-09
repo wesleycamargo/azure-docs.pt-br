@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b00982cbc30b2345d9eacea376e3c5164ce1b078
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408673"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745050"
 ---
-# <a name="run-apache-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Executar amostras do MapReduce do Apache Hadoop no HDInsight baseado no Windows
+# <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Executar exemplos do MapReduce no HDInsight baseado em Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 Um conjunto de amostras é fornecido para ajudá-lo a começar a executar trabalhos do MapReduce em clusters do Apache Hadoop usando o Azure HDInsight. Essas amostras são disponibilizadas em cada um dos clusters gerenciados do HDInsight que você cria. A execução dessas amostras fará você se familiarizar com o uso dos cmdlets do Azure PowerShell para executar trabalhos em clusters do Hadoop.
@@ -167,7 +167,7 @@ O script fornecido para este exemplo envia um trabalho jar do Hadoop e está con
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>Graysort de 10 GB
-Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos MapReduce desenvolvidos por Owen O'Malley e Arun Murthy que ganharam o parâmetro de comparação anual de classificação de terabytes de finalidade geral ("daytona") em 2009, com uma taxa de 0,578 TB/m (100 TB em 173 minutos). Para obter mais informações sobre esse e outros benchmarks de classificação, consulte o site [Sortbenchmark](http://sortbenchmark.org/) .
+Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos MapReduce desenvolvidos por Owen O'Malley e Arun Murthy que ganharam o parâmetro de comparação anual de classificação de terabytes de finalidade geral ("daytona") em 2009, com uma taxa de 0,578 TB/m (100 TB em 173 minutos). Para obter mais informações sobre esse e outros benchmarks de classificação, consulte o site [Sortbenchmark](https://sortbenchmark.org/) .
 
 Este exemplo usa três conjuntos de programas MapReduce:
 
@@ -383,7 +383,7 @@ O código Java do estimador de pi que contém as funções de mapeador e de redu
 * "License"); you may not use this file except in compliance
 * with the License. You may obtain a copy of the License at
 *
-* http://www.apache.org/licenses/LICENSE-2.0
+* https://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -722,7 +722,7 @@ O código do programa MapReduce TeraSort é apresentado para inspeção nesta se
     * "License"); you may not use this file except in compliance
     * with the License.  You may obtain a copy of the License at
     *
-    *     http://www.apache.org/licenses/LICENSE-2.0
+    *     https://www.apache.org/licenses/LICENSE-2.0
     *
     * Unless required by applicable law or agreed to in writing, software
     * distributed under the License is distributed on an "AS IS" BASIS,

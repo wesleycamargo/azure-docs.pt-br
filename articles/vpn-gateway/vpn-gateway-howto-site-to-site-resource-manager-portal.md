@@ -1,18 +1,18 @@
 ---
-title: 'Conectar a sua rede local para uma rede virtual do Azure: VPN Site a Site: portal | Microsoft Docs'
+title: 'Conecte sua rede local a uma rede virtual do Azure: VPN site a site: Portal | Microsoft Docs'
 description: Etapas para criar uma conexão IPsec de sua rede local para uma rede virtual do Azure pela Internet pública. Essas etapas o ajudarão a criar uma conexão de Gateway de VPN Site a Site entre locais usando o portal.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: dd29b4af85826e350e116b31fa53031aacaba067
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457112"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651632"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma conexão Site a Site no portal do Azure
 
@@ -35,30 +35,30 @@ Uma conexão de gateway de VPN Site a Site é usada para conectar a rede local a
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
 * Verifique se você possui um dispositivo VPN compatível e alguém que possa configurá-lo. Para obter mais informações sobre dispositivos VPN compatíveis e a configuração de dispositivo, confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
-* Verifique se você possui um endereço IPv4 público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
+* Verifique se você possui um endereço IPv4 público voltado para o exterior para seu dispositivo VPN.
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede local, você precisará trabalhar em conjunto com alguém que possa lhe fornecer os detalhes. Ao criar essa configuração, você deve especificar os prefixos de intervalo de endereços IP que o Azure roteará para seu local. Nenhuma das sub-redes da rede local podem se sobrepor às sub-redes de rede virtual às quais você deseja se conectar. 
 
 ### <a name="values"></a>Valores de exemplo
 
 Os exemplos neste artigo usam os seguintes valores. Você pode usar esses valores para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo. Para obter mais informações sobre configurações de Gateway de VPN em geral, confira [Sobre as configurações de Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **Nome da rede virtual:** TestVNet1
-* **Espaço de Endereço:** 10.1.0.0/16
-* **Assinatura**: a assinatura que você quer usar
+* **Nome da VNet:** TestVNet1
+* **Espaço de endereço:** 10.1.0.0/16
+* **Assinatura:** A assinatura que você quer usar
 * **Grupo de recursos:** TestRG1
-* **Local:** Leste dos EUA
-* **Sub-rede**: Front-end: 10.1.0.0/24, Back-end: 10.1.1.0/24 (opcional para este exercício)
-* **Nome da Sub-rede de Gateway:** GatewaySubnet (isso preencherá automaticamente o portal)
+* **Localização:** Leste dos EUA
+* **Sub-rede:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (opcional para este exercício)
+* **Nome da sub-rede do gateway:** GatewaySubnet (isso preencherá automaticamente o portal)
 * **Intervalo de endereços da Sub-rede do Gateway:** 10.1.255.0/27
-* **Servidor DNS:** 8.8.8.8 - opcional. O endereço IP do seu servidor DNS.
+* **Servidor DNS:** 8.8.8.8 - Opcional. O endereço IP do seu servidor DNS.
 * **Nome do gateway de rede virtual:** VNet1GW
 * **IP público:** VNet1GWIP
-* **Tipo de VPN:** baseada em rota
-* **Tipo de Conexão:** site a site (IPsec)
+* **Tipo de VPN:** Baseado em rotas
+* **Tipo de conexão:** Site a Site (IPsec)
 * **Tipo de gateway:** VPN
 * **Nome do Gateway de Rede Local:** Site1
-* **Nome da Conexão:** VNet1toSite1
-* **Chave compartilhada:** para esse exemplo, usaremos abc123. Mas você pode usar o que for compatível com o hardware de VPN. O importante é que os valores correspondam em ambos os lados da conexão.
+* **Nome da conexão:** VNet1toSite1
+* **Chave compartilhada:** Para este exemplo, usaremos abc123. Mas você pode usar o que for compatível com o hardware de VPN. O importante é que os valores correspondam em ambos os lados da conexão.
 
 ## <a name="CreatVNet"></a>1. Criar uma rede virtual
 

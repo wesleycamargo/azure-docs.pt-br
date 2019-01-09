@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: caf3ecb64d0bdb5771b2fde705fdcbffdffccacb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957456"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969294"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning usando a atividade de atualização de recursos
-Este artigo complementa o principal Azure Data Factory - Artigo de integração do Azure Machine Learning: [Criar pipelines de previsão usando o Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
+Este artigo complementa o artigo principal sobre o Azure Data Factory - integração do Azure Machine Learning: [Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
 
 ## <a name="overview"></a>Visão geral
 Como parte do processo de operacionalização de modelos do Azure Machine Learning, o modelo é treinado e salvo. Em seguida, será possível utilizá-lo para criar um serviço Web preditivo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis.
@@ -93,7 +93,7 @@ Para o segundo serviço vinculado do Azure Machine Learning, a configuração é
 Se o serviço web é o novo tipo de serviço da web que expõe um ponto de extremidade do Azure Resource Manager, você não precisa adicionar o segundo **não-padrão** ponto de extremidade. O **updateResourceEndpoint** no serviço vinculado está no formato: 
 
 ```
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
 Você pode obter valores para espaços reservados na URL ao consultar o serviço da web sobre o [Portal de serviços da Web do Azure Machine Learning](https://services.azureml.net/). 
@@ -118,7 +118,7 @@ Aqui está uma definição do serviço vinculado de exemplo:
             "type": "SecureString",
             "value": "APIKeyOfEndpoint1"
             },
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. ",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
             "type": "SecureString",
@@ -133,7 +133,7 @@ Aqui está uma definição do serviço vinculado de exemplo:
 O cenário a seguir fornece mais detalhes. Ele tem um exemplo de readaptação e atualização de modelos de AM do Azure de um pipeline do Azure Data Factory.
 
 
-## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exemplo: treinando novamente e atualizando um modelo do Azure Machine Learning
+## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exemplo: Como treinar novamente e atualizar um modelo do Azure Machine Learning
 
 Esta seção fornece um pipeline de exemplo que usa a **atividade de Execução em lote do AM do Azure** para treinar novamente um modelo. O pipeline também usa a **atividade do Recurso de atualização do AM do Azure** para atualizar o modelo no serviço Web de pontuação. A seção também fornece snippets de JSON para todos os serviços vinculados, conjuntos de dados e pipeline no exemplo.
 

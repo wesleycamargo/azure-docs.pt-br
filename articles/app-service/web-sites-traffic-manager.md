@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 85405a96d141188203ddc88410c96654667fa83a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 11e5a654f2bfcb497eec3a4dfea81f3684f5b551
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270103"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599801"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controle do tráfego do Serviço de Aplicativo do Azure com o Gerenciador de Tráfego do Azure
 > [!NOTE]
@@ -52,7 +52,7 @@ Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguin
 * Você só pode especificar um ponto de extremidade do Serviço de Aplicativo por região em um perfil. Quando você seleciona um aplicativo como um ponto de extremidade para uma região, os aplicativos restantes nessa região ficam indisponíveis para seleção para esse perfil.
 * Os pontos de extremidade do Serviço de Aplicativo que você especificar no perfil do Gerenciador de Tráfego do Azure serão exibidos na seção **Nomes de Domínio** da página Configurar do aplicativo no perfil, mas não serão configuráveis lá.
 * Depois que você adicionar um aplicativo a um perfil, a **URL do Site** no Painel da página do portal do aplicativo exibirá a URL do domínio personalizado do aplicativo se você tiver configurado uma. Caso contrário, exibe a URL do perfil do Gerenciador de Tráfego (por exemplo, `contoso.trafficmanager.net`). O nome de domínio direto do aplicativo e a URL do Gerenciador de Tráfego estarão visíveis na página Configurar do aplicativo na seção **Nomes de Domínio**.
-* Os nomes de domínio personalizados funcionam conforme esperado, mas, além de adicioná-los a seus aplicativos, você também deve configurar o mapa DNS para apontar para a URL do Gerenciador de Tráfego. Para saber mais sobre como configurar um domínio personalizado para um aplicativo do Serviço de Aplicativo, veja [Mapear um nome DNS personalizado existente para Aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md).
+* Os nomes de domínio personalizados funcionam conforme esperado, mas, além de adicioná-los a seus aplicativos, você também deve configurar o mapa DNS para apontar para a URL do Gerenciador de Tráfego. Para saber mais sobre como configurar um domínio personalizado para um aplicativo do Serviço de Aplicativo, confira [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md).
 * Você só pode adicionar aplicativos que estejam no modo padrão ou premium para um perfil do Gerenciador de Tráfego do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas

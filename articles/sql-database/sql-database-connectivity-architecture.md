@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435702"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715895"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -26,7 +26,7 @@ Este artigo explica a arquitetura de conectividade do Banco de Dados SQL do Azur
 > [!IMPORTANT]
 > **[Alteração futura] Para conexões de ponto de extremidade de serviço para servidores do SQL do Azure, um comportamento de conectividade `Default` é alterado para `Redirect`.**
 >
-> A alteração já estará em vigor a partir de 10 de novembro de 2019 para as regiões Sul do Brasil e Europa Ocidental. Para todas as outras regiões, a alteração entrará em vigor a partir de 2 de janeiro de 2019.
+> A alteração já estará em vigor a partir de 10 de novembro de 2018 para as regiões Sul do Brasil e Europa Ocidental. Para todas as outras regiões, a alteração entrará em vigor a partir de 2 de janeiro de 2019.
 >
 > Para impedir a interrupção da conectividade por meio de um ponto de extremidade de serviço em ambientes existentes como resultado dessa alteração, usamos a telemetria para fazer o seguinte:
 > - Para os servidores que detectamos que foram acessados por meio de pontos de extremidade de serviço antes da alteração, alternamos o tipo de conexão para `Proxy`.

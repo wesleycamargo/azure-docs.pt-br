@@ -1,6 +1,6 @@
 ---
 title: Configurar a autenticação mútua TLS – Serviço de Aplicativo do Azure
-description: Saiba como configurar o aplicativo Web para usar a autenticação de certificado do cliente no TLS.
+description: Saiba como configurar o aplicativo para usar a autenticação de certificado do cliente no TLS.
 services: app-service
 documentationcenter: ''
 author: naziml
@@ -15,40 +15,38 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252874"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650390"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Como configurar a autenticação mútua TLS para Aplicativo Web
+# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>Como configurar a autenticação mútua TLS para o Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
-Você pode restringir o acesso ao aplicativo Web do Azure, permitindo diferentes tipos de autenticação para ele. Uma maneira de fazer isso é autenticar usando um certificado de cliente quando a solicitação for por TLS/SSL. Esse mecanismo é chamado de autenticação mútua TLS ou autenticação de certificado de cliente e este artigo mostrará detalhadamente como configurar seu aplicativo Web para usar a autenticação de certificado de cliente.
+Você pode restringir o acesso ao Serviço de Aplicativo do Azure, permitindo diferentes tipos de autenticação para ele. Uma maneira de fazer isso é autenticar usando um certificado de cliente quando a solicitação for por TLS/SSL. Esse mecanismo é chamado de autenticação mútua TLS ou autenticação de certificado de cliente e este artigo mostrará detalhadamente como configurar seu aplicativo para usar a autenticação de certificado de cliente.
 
 > **Observação:** se você acessar seu site por HTTP e não por HTTPS, você não receberá nenhum certificado do cliente. Por isso, se seu aplicativo exigir certificados de cliente, você não deve permitir solicitações ao seu aplicativo via HTTP.
 > 
 > 
 
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-## <a name="configure-web-app-for-client-certificate-authentication"></a>Configurar o aplicativo Web para autenticação de certificado do cliente
-Para configurar o aplicativo Web para exigir certificados de cliente, você precisa adicionar a configuração de site clientCertEnabled ao aplicativo Web e defini-la como true. Essa configuração também pode ser configurada no portal do Azure, na folha de certificados SSL.
+## <a name="configure-app-service-for-client-certificate-authentication"></a>Configurar o Serviço de Aplicativo para autenticação de certificado do cliente
+Para configurar o aplicativo para exigir certificados de cliente, você precisa adicionar a configuração de site clientCertEnabled ao aplicativo e defini-la como true. Essa configuração também pode ser configurada no portal do Azure, na folha de certificados SSL.
 
 Você pode usar a [ferramenta ARMClient](https://github.com/projectkudu/ARMClient) para facilitar a chamada à API REST. Depois de entrar na ferramenta, emita o seguinte comando:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-substituindo tudo que está entre {} pelas informações do aplicativo Web e criando um arquivo chamado enableclientcert.json com o seguinte conteúdo JSON:
+substituindo tudo que está entre {} pelas informações do aplicativo e criando um arquivo chamado enableclientcert.json com o seguinte conteúdo JSON:
 
     {
-        "location": "My Web App Location",
+        "location": "My App Location",
         "properties": {
             "clientCertEnabled": true
         }
     }
 
-Lembre-se de alterar o valor de "local" para onde seu aplicativo Web está localizado, por exemplo, Centro-Norte dos EUA ou Oeste dos EUA.
+Lembre-se de alterar o valor de "local" para onde seu aplicativo está localizado, por exemplo, Centro-Norte dos EUA ou Oeste dos EUA.
 
 Você também pode usar https://resources.azure.com para inverter a propriedade `clientCertEnabled` para `true`.
 
@@ -56,11 +54,11 @@ Você também pode usar https://resources.azure.com para inverter a propriedade 
 > 
 > 
 
-## <a name="accessing-the-client-certificate-from-your-web-app"></a>Acessando o certificado do cliente do aplicativo Web
+## <a name="accessing-the-client-certificate-from-app-service"></a>Acessando o certificado do cliente do Serviço de Aplicativo
 Se você estiver usando ASP.NET e configurar seu aplicativo para usar a autenticação de certificado de cliente, o certificado estará disponível por meio da propriedade **HttpRequest.ClientCertificate** . Para outras pilhas de aplicativo, o certificado do cliente estará disponível no seu aplicativo por meio de um valor codificado na base64 no cabeçalho da solicitação "X-ARR-ClientCert". O aplicativo pode criar um certificado a partir desse valor e, em seguida, usá-lo para fins de autenticação e autorização.
 
 ## <a name="special-considerations-for-certificate-validation"></a>Considerações especiais para validação de certificado
-O certificado do cliente que é enviado ao aplicativo não passa por qualquer validação da plataforma de aplicativos da Web do Azure. Validar o certificado é de responsabilidade do aplicativo Web. Veja o exemplo de código ASP.NET que valida as propriedades do certificado para fins de autenticação.
+O certificado do cliente que é enviado ao aplicativo não passa por qualquer validação da plataforma do Serviço de Aplicativo do Azure. Validar o certificado é de responsabilidade do aplicativo. Veja o exemplo de código ASP.NET que valida as propriedades do certificado para fins de autenticação.
 
     using System;
     using System.Collections.Specialized;

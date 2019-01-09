@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a5dee53bee20438098d1aaeb773ebf08f252d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408027"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993443"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código no Azure Functions
 
@@ -43,8 +43,9 @@ Para configurar o ambiente, crie uma função e teste o aplicativo. As etapas a 
 1. [Crie um aplicativo de funções](./functions-create-first-azure-function.md) e nomeie-o como *Functions*
 2. [Crie uma função HTTP do modelo](./functions-create-first-azure-function.md) e nomeie-a *HttpTrigger*.
 3. [Crie uma função temporizadora do modelo](./functions-create-scheduled-function.md) e nomeie-a *TimerTrigger*.
-4. [Crie um aplicativo de teste xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) e nomeie-o *Functions.Test*.
-5. [Referencie o aplicativo *Functions* no](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) aplicativo *Functions.Test*.
+4. [Crie um aplicativo de teste xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) no Visual Studio, clicando em **Arquivo > Novo > Projeto > Visual C# > .NET Core > Projeto de teste xUnit** e nomeie-o *Functions.Test*. 
+5. Use o Nuget para adicionar uma referência do aplicativo para teste a [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) e [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. [Referencie o aplicativo *Functions* no](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) aplicativo *Functions.Test*.
 
 ### <a name="create-test-classes"></a>Criar classes de teste
 
@@ -203,7 +204,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -212,7 +213,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -220,7 +221,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            TimerFunction.Run(null, logger);
+            TimerTrigger.Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }

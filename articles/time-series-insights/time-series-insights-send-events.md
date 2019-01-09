@@ -1,5 +1,5 @@
 ---
-title: Eventos de envio do Azure Time Series Insights – Enviar eventos para um ambiente do Azure Time Series Insights | Microsoft Docs
+title: Enviar eventos para um ambiente do Azure Time Series Insights | Microsoft Docs
 description: Saiba como configurar um hub de eventos e executar um aplicativo de exemplo para efetuar push de eventos que podem ser exibidos no Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 69d16292f5b71179ee66fb5f7d6c4a6f11cbb9de
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 424476b91537c60a6d7f0f9a854453353bf98633
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276138"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557012"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights usando um hub de eventos
 

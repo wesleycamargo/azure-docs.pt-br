@@ -1,5 +1,5 @@
 ---
-title: 'Backup do Azure: restaurar máquinas virtuais usando o portal do Azure'
+title: 'Serviço de Backup do Azure: restaurar máquinas virtuais usando o portal do Azure'
 description: Restaure uma máquina virtual do Azure de um ponto de recuperação usando o portal do Azure
 services: backup
 author: geethalakshmig
@@ -9,32 +9,30 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 0d78ae294cea383fbe59a1f7968d8bf18b1942d1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ac0c727e41ad9b361ea9f558a97f16446c12ef0e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422949"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793369"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
 Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados nos cofres dos Serviços de Recuperação. Se for necessário reparar ou recriar uma VM (máquina virtual), você poderá restaurá-la de qualquer um dos pontos de recuperação salvos. Quando restaura um ponto de recuperação, você pode:
 
-* Criar uma nova VM, que é uma representação pontual da VM copiada em backup.
-* Restaurar discos e usar o modelo que acompanha o processo para personalizar a VM restaurada ou fazer uma recuperação de arquivos individuais.
+* Criar uma nova VM: De um ponto de recuperação pontual da sua VM de backup.
+* Restaurar discos: usar o modelo que acompanha o processo para personalizar a VM restaurada ou fazer uma recuperação de arquivos individuais.
 
 Este artigo explica como restaurar uma VM em uma nova VM, ou restaurar todos os discos de backup. Para a recuperação de arquivos individuais, consulte [Recuperar arquivos do backup de VM do Azure](backup-azure-restore-files-from-vm.md).
 
 ![Três maneiras de restaurar do backup de VM](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
-> [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [o Azure Resource Manager e o clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece as informações e os procedimentos usados para restaurar VMs implantadas usando o modelo do Resource Manager.
->
->
 
 A restauração de uma VM ou de todos os discos do backup de VM envolve duas etapas:
 
 * Selecionar um ponto para restauração.
-* Selecionar o tipo de restauração, criar uma nova VM ou restaurar discos e especificar os parâmetros necessários.
+* Selecionar o tipo de restauração
+    - Opção 1: Criar uma nova VM
+    - Opção 2: Restaurar discos.
 
 ## <a name="select-a-restore-point-for-restore"></a>Selecionar um ponto de restauração para restauração
 1. Entre no [Portal do Azure](http://portal.azure.com/).
@@ -60,106 +58,84 @@ A restauração de uma VM ou de todos os discos do backup de VM envolve duas eta
     ![Lista de VMs no cofre](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault1.png)
 
 7. Na lista, selecione uma VM para abrir o painel. O painel da VM é aberto na área de monitoramento, que contém os **pontos de recuperação**. Todas as operações no nível da VM, como **Backup agora**, **Recuperação de arquivos**, **Parar backup** podem ser realizadas a partir deste blade.
-Restauração pode ser realizada de várias maneiras nessa folha. Observe que Esta folha lista apenas os últimos 30 dias de pontos de recuperação.
+Restauração pode ser realizada de várias maneiras nessa folha. Observe que esta folha lista apenas os últimos 30 dias de pontos de recuperação.
 
-    a) Clique com o botão direito do mouse no ponto de recuperação neste blade (menos de 30 dias) e inicie **Restore VM**.
-
-    b) para restaurar a recuperação de pontos de maior que 30 dias, clique aqui fornecida na folha pode ser usado.
-
-    c) **A restauração da VM** no cabeçalho do menu fornece uma opção para listar e filtrar as VMs em datas personalizadas, conforme preferir.
-
-    Usar o filtro para alterar o intervalo de tempo dos pontos de restauração é exibido. Por padrão, são exibidos pontos de restauração de todas as consistências. Modifique o filtro Todos os pontos de restauração para selecionar uma consistência de ponto de restauração específica. Para saber mais sobre cada tipo de ponto de restauração, consulte [Consistência de dados](backup-azure-vms-introduction.md#data-consistency).
-
-    Opções de consistência de ponto de restauração:
-    - Pontos de restauração com controle de falhas
-    - Pontos de restauração consistentes do aplicativo
-    - Pontos de restauração consistentes de sistema de arquivos
-    - Todos os pontos de restauração
+    - Para restaurar usando um ponto de restauração dos últimos 30 dias, clique com o botão direito na VM > **Restaurar VM**.
+    - Para restaurar usando um ponto de restauração com mais de 30 dias, clique no link em **Pontos de restauração**.
+    - Para listar e filtrar as VMs com datas personalizadas, clique em **Restaurar VM** no menu. Use o filtro para modificar o intervalo de tempo para os pontos de restauração exibidos. Você também pode filtrar os tipos diferentes de consistência de dados.
+8. Examine as configurações do ponto de restauração:
+    - A consistência de dados mostra o [tipo de consistência](backup-azure-vms-introduction.md#consistency-types) no ponto de recuperação.
+    - O **Tipo de Recuperação** mostra onde o ponto é armazenado (em uma conta de armazenamento, no cofre ou ambos. [Saiba mais](https://azure.microsoft.com/blog/large-disk-support/) sobre ponto de recuperação instantânea.
 
   ![Pontos de restauração](./media/backup-azure-arm-restore-vms/vm-blade1.png)
+9. Selecione um ponto de restauração.
 
-    >  [!NOTE]
-    > O tipo de recuperação representa se está na conta de armazenamento do cliente, no cofre ou em ambos. Saiba mais sobre [ponto de recuperação instantânea](https://azure.microsoft.com/blog/large-disk-support/).
-
-8. Na folha **Restaurar**, selecione **Ponto de restauração**.
-
-    ![Folha Selecionar ponto de restauração](./media/backup-azure-arm-restore-vms/select-recovery-point1.png)
-
-    A folha **restaurar** mostra que o ponto de restauração é definido ao clicar em **Ok**.
-9. Se ainda não estiver nela, vá até a folha **Restaurar**. Verifique se um [ponto de restauração está selecionado](#select-a-restore-point-for-restore) e selecione **Configuração de restauração**. A folha **Configuração de restauração** é aberta.
+10. Selecione **Restaurar Configuração**. A folha **Configuração de restauração** é aberta.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Escolha uma configuração de restauração de VM
 Após selecionar o ponto de restauração, escolha uma configuração de restauração de VM. Para configurar a VM restaurada, você pode usar o portal do Azure ou o PowerShell.
 
-1. Se ainda não estiver nela, vá até a folha **Restaurar**. Verifique se um [ponto de restauração está selecionado](#select-a-restore-point-for-restore) e selecione **Configuração de restauração**. A folha **Configuração de restauração** é aberta.
-2. Atualmente, este blade tem duas opções, uma sendo **Create New**, que é o padrão e a outra é **Replace existing**, que é uma restauração no local para substituir o (s) disco (s) apenas mantendo as configurações existentes. extensões.
+### <a name="restore-options"></a>Restaurar opções
+
+**Opção** | **Detalhes**
+--- | ---
+**Criar nova VM** | Equivalente à criação rápida de uma VM. Coloca uma VM básica em funcionamento a partir de um ponto de restauração.<br/><br/> As configurações da VM podem ser modificadas como parte do processo de restauração.
+**Criar novo disco de restauração** | Cria uma VM que você pode personalizar como parte do processo de restauração.<br/><br/> Esta opção copia VHDs à conta de armazenamento que você especificar.<br/><br/> - A conta de armazenamento deve estar na mesma localização que o cofre.<br/><br/> Se você não tiver uma conta de armazenamento apropriada, precisará criar uma.<br/><br/> O tipo de replicação da conta de armazenamento é mostrado entre parênteses. Não há suporte para ZRS (Armazenamento com redundância de zona).<br/><br/> Na conta de armazenamento, você pode anexar os discos restaurados a uma VM existente ou criar uma nova VM a partir de discos restaurados usando o PowerShell.
+**Substituir existente** | Com essa opção, você não precisa criar uma VM.<br/><br/> A VM atual deve existir. Se ela tiver sido excluída, essa opção não poderá ser usada.<br/><br/> O Backup do Azure tira um instantâneo da VM existente e o armazena no local de preparo especificado. Os discos existentes conectados à VM são então substituídos pelo ponto de restauração selecionado. O instantâneo criado anteriormente é copiado para o cofre e armazenado como um ponto de recuperação de acordo com a política de retenção de backup.<br/><br/> Substituir existente tem suporte para VMs gerenciadas não criptografadas. Não há suporte para discos não gerenciados, [VMs generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), ou para VMs [criadas usando imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Se o ponto de restauração tiver mais ou menos discos que a VM atual, o número de discos no ponto de restauração refletirá apenas na VM.
 
 > [!NOTE]
-> Estamos trabalhando para substituir a VM inteira com o (s) disco (s), configurações de rede, configurações e extensões nos próximos meses.
->
->
+> Se você deseja restaurar uma VM com configurações de rede avançadas, por exemplo, se ela for gerenciada pelo balanceador de carga interno ou externo, ou ter várias NICs ou vários endereços IP reservados, restaure-a com o PowerShell. [Saiba mais](#restore-vms-with-special-network-configurations).
+> Se uma VM do Windows usa [licenciamento de HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), use a opção **Criar um novo disco de restauração** e, em seguida, use o PowerShell ou o modelo de restauração para criar a VM com o **Tipo de licença** definido como **Windows_Server**. Essa configuração também pode ser aplicada após a criação da VM.
 
- Na opção **Criar Novo**, que restaura os dados para a nova VM ou novo (s) disco (s), você tem duas opções:
 
- ![Assistente de configuração de restauração](./media/backup-azure-arm-restore-vms/restore-configuration-create-new.png)
+Especifique as configurações de restauração da seguinte maneira:
 
- - **Criar máquina virtual**
- - **Restaurar discos**
+1. Em **Restaurar**, selecione um [ponto de restauração](#select-a-restore-point-for-restore) > **Restaurar configuração**.
+2. Em **Restaurar configuração**, selecione como você deseja restaurar a VM de acordo com as configurações resumidas na tabela acima.
 
-![Assistente de configuração de restauração](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
+    ![Assistente de configuração de restauração](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
 
-O portal fornece uma opção de **Criação Rápida** para a VM restaurada. Para personalizar a configuração da VM ou os nomes dos recursos criados como parte da criação de uma nova opção de VM, use o PowerShell ou o portal para restaurar os discos de backup. Use comandos do PowerShell para anexá-los à sua opção de configuração da VM. Ou você pode usar o modelo fornecido com os discos restaurados para personalizar a VM restaurada. Para obter informações sobre como restaurar uma VM que tem várias NICs ou que está sob um balanceador de carga, consulte [Restaurar uma VM com configurações de rede especiais](#restore-vms-with-special-network-configurations). Se sua VM do Windows usar o [licenciamento de HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure os discos e use o PowerShell/modelo conforme especificado neste artigo para criar a VM. Não deixe de especificar o **Tipo de Licença** como "Windows_Server" ao criar a VM para tirar proveito dos benefícios do HUB na VM restaurada. Observe que isso pode ser feito posteriormente após a criação da VM.
 
-## <a name="create-a-new-vm-from-a-restore-point"></a>Criar uma nova VM de um ponto de restauração
-1. Sobre o **restaurar configuração** folha mencionado na antes da seção, insira ou selecione valores para cada um dos seguintes campos:
+## <a name="create-new-create-a-vm"></a>Criar uma nova VM
 
-     a. **Tipo de Restauração**. Crie uma máquina virtual.
-
-    b. **Nome da máquina virtual**. Insira o nome da VM que não existe na assinatura.
-
-    c. **Grupo de recursos**. Use um grupo de recursos existente ou crie um novo. Se estiver restaurando uma VM clássica, use este campo para especificar o nome de um novo serviço de nuvem. Se estiver criando um novo grupo de recursos/serviço de nuvem, o nome deverá ser exclusivo globalmente. Normalmente, o nome do serviço de nuvem está associado a uma URL voltada para o público, por exemplo: [cloudservice].cloudapp.net. Se você tentar usar um nome de serviço de nuvem/grupo de recursos de nuvem que já esteja sendo usado, o Azure atribuirá ao serviço de nuvem/grupo de recursos o mesmo nome que o da VM. O Azure exibe serviços de nuvem/grupos de recursos e VMs não associadas a nenhum grupo de afinidades. Para obter mais informações, consulte [Como migrar de grupos de afinidades para uma rede virtual regional](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
-    d. **Rede virtual**. Quando você cria a VM, selecione a rede virtual. O campo fornece todas as redes virtuais associadas à assinatura. O grupo de recursos da VM é exibido entre parênteses.
-
-    e. **Sub-rede**. Se a rede virtual tiver sub-redes, a primeira sub-rede será selecionada por padrão. Se houver sub-redes adicionais, selecione a sub-rede desejada.
-
-    f. **Local de armazenamento**. Contas de armazenamento são o local de preparo. Este menu lista as contas de armazenamento no mesmo local que o cofre dos Serviços de Recuperação. Não há suporte para contas de armazenamento com redundância de zona. Se não houver nenhuma conta de armazenamento no mesmo local que o cofre dos Serviços de Recuperação, você deverá criar uma antes de iniciar a operação de restauração. O tipo de replicação da conta de armazenamento é exibido entre parênteses.
+1. Em **Restaurar configuração** > **Criar nova** > **Tipo de restauração**, selecione **Criar uma máquina virtual**.
+2. Em **Nome da máquina virtual**, especifique uma máquina virtual que não exista na assinatura.
+3. No **Grupo de recursos**, selecione um grupo de recursos existente para a nova máquina virtual ou crie um novo com um nome exclusivo globalmente. Se você atribuir um nome que já exista, o Azure atribuirá ao grupo o mesmo nome que a VM.
+4. Em **Rede virtual**, selecione a rede virtual na qual a VM será colocada. Todas as redes virtuais associadas à assinatura são exibidas. Escolher a sub-rede. A primeira sub-rede será selecionada por padrão.
+5. Em **Local de Armazenamento**, especifique o tipo de armazenamento usado para a VM.
 
     ![Assistente de configuração de restauração](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
-    > [!NOTE]
-    > * Uma rede virtual é opcional para uma VM clássica e obrigatória para a VM implementada pelo Resource Manager.
+6. Em **Restaurar configuração**, selecione **OK**. Em **Restaurar**, clique em **Restaurar** para disparar a operação de restauração.
 
-    > * O tipo de armazenamento fornecido na conta de armazenamento (premium ou padrão) no local temporário decide o tipo de armazenamento em disco de restauração. Atualmente, não há suporte para um modo misto de discos durante a restauração.
-    >
-    >
 
-2. Na folha **Configuração de restauração**, clique em **OK** para finalizar a configuração da restauração. Na folha **Restaurar**, selecione **Restaurar** para disparar a operação de restauração.
 
-## <a name="restore-backed-up-disks"></a>Restaurar discos com backup
-Valor do tipo de restauração **Disco de restauração** em **A lâmina da configuração de restauração** permite criar uma VM com configurações personalizadas. Durante a restauração de discos, a conta de armazenamento a ser selecionada deve estar no mesmo local que a segurança de serviços de recuperação. É obrigatório criar uma conta de armazenamento, se não houver contas de armazenamento com o mesmo local que o cofre do Recovery Services. Não há suporte para contas de armazenamento do ZRS. Tipo de replicação da conta de armazenamento é exibido entre parênteses.
+## <a name="create-new-restore-disks"></a>Criar novos discos de restauração
 
-Após a operação de restauração, use abaixo:
-* [Usar o modelo para personalizar a VM restaurada](#use-templates-to-customize-restore-vm)
-* [Usar os discos restaurados para anexar a uma VM existente](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [Criar uma nova VM usando o PowerShell de discos restaurados](./backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Em **Restaurar configuração** > **Criar nova** > **Tipo de restauração**, selecione **Restaurar discos**.
+2. No **Grupo de recursos**, selecione um grupo de recursos existente para os discos recuperados ou crie um novo com um nome exclusivo globalmente.
+3. Em **Conta de armazenamento**, especifique a conta para a qual copiar os VHDs. Verifique se a conta está na mesma região que o cofre.
 
-Na folha **Configuração de restauração**, clique em **OK** para finalizar a configuração da restauração. Na folha **Restaurar**, selecione **Restaurar** para disparar a operação de restauração.
+    ![Configuração de recuperação concluída](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
-![Configuração de recuperação concluída](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+4. Em **Restaurar configuração**, selecione **OK**. Em **Restaurar**, clique em **Restaurar** para disparar a operação de restauração.
+5. Depois que o disco for restaurado, você poderá fazer qualquer uma das opções a seguir para concluir a operação de restauração de VM.
 
-Em **Restauração do Local** está sendo feita através da guia **Replace Existing**.
+    - Use o modelo que foi gerado como parte da operação de restauração para personalizar as configurações e disparar a implantação da VM. Você edita as configurações de modelo padrão e envia o modelo para implantação da VM.
+    - Você pode [anexar os discos restaurados](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps) a uma VM existente.
+    - Você pode [criar uma nova VM](backup-azure-vms-automation.md#restore-an-azure-vm) de discos restaurados usando o PowerShell.
 
-## <a name="replace-existing-disks-from-a-restore-point"></a>Substituir discos existentes de um ponto de restauração
-A opção **Substituir existente** ajuda a substituir os discos existentes na VM atual pelo ponto de restauração selecionado. Esta operação só pode ser executada se a VM atual existir. Se ele foi excluído por qualquer motivo, essa operação não poderá ser executada; Como alternativa, recomendamos que você faça **Criar nova** VM ou discos para continuar com as operações de restauração. Durante esta operação, como medida de precaução, fazemos backup dos dados antes de iniciar as operações de substituição de discos. Isso cria um instantâneo e também um ponto de recuperação no vault com período de retenção, conforme programado na política de backup configurada. Se o ponto de restauração tiver discos mais / menos que a VM atual, o número de discos no ponto de restauração refletirá apenas na VM. No momento, não há suporte para a opção **Substituir existente** para Discos Não Gerenciados e VMs Criptografadas. Ela também não tem suporte em [VMs generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) e VMs criadas usando [imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
- No blade **Restore Configuration**, a única entrada que precisa ser selecionada é **Staging Location**.
+## <a name="replace-existing-disks"></a>Substituir discos existentes
+
+Use essa opção para substituir discos existentes na VM atual pelo ponto de restauração selecionado.
+
+1. Em **Restaurar configuração**, clique em **Substituir existente**.
+2. Em **Tipo de restauração**, selecione **Substituir discos** (o ponto de restauração que substituirá o disco ou os discos de VM existentes).
+3. Em **local de preparo**, especifique onde os instantâneos dos discos gerenciados atuais devem ser salvos.
 
    ![Restaurar o Assistente de configuração de substituir existente](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
-  a. **Tipo de Restauração**. Substitua o (s) disco (s) que representam o ponto de restauração selecionado e substituirá o (s) disco (s) na VM existente.
-
- b. **Local de preparo**. Contas de armazenamento são o local de preparo dos discos gerenciados. Este menu lista as contas de armazenamento no mesmo local que o cofre dos Serviços de Recuperação. Não há suporte para contas de armazenamento com redundância de zona. Se não houver nenhuma conta de armazenamento no mesmo local que o cofre dos Serviços de Recuperação, você deverá criar uma antes de iniciar a operação de restauração. O tipo de replicação da conta de armazenamento é exibido entre parênteses.
 
 ## <a name="track-the-restore-operation"></a>Acompanhar a operação de restauração
 Após você disparar a operação de restauração, o serviço de backup cria um trabalho para acompanhar a operação de restauração. O serviço de backup também cria e exibe temporariamente a notificação na área de **Notificações** do portal. Se não vir a notificação, selecione o símbolo **Notificações** para exibir suas notificações.
@@ -171,6 +147,15 @@ Clique no hiperlink das notificações para acessar a lista **BackupJobs**. Todo
 A folha **Trabalhos de backup** é aberta e exibe a lista de trabalhos.
 
 ![Lista de VMs em um cofre](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
+
+A **Barra de progresso** agora está disponível na folha **Detalhes de restauração**. A folha **Detalhes de Restauração** pode ser aberta clicando em qualquer trabalho de restauração que tenha o status **em andamento**. A **barra de progresso** está disponível em todas as variantes de restaurações, como **Criar nova**, **Restaurar disco** e **Substituir existente**. Os detalhes transportados pela barra de progresso de restauração são **tempo de restauração estimado**, **percentual da restauração** e **número de bytes transferidos**.
+
+Os detalhes da barra de progresso de restauração são fornecidos abaixo:
+
+- **Tempo estimado de restauração** inicialmente fornece o tempo necessário para concluir a operação de restauração. À medida que a operação progride, o tempo gasto reduz e chega a 0 quando a operação de restauração é concluída.
+- **Porcentagem de restauração** fornece o percentual de dados que a operação de restauração concluiu.
+- **Número de bytes transferidos** está disponível na subtarefa quando a restauração ocorre por meio de criar nova VM. Isso fornece os detalhes de quantos números de bytes foram transferidos em relação ao número total de bytes a serem transferidos.
+
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>Usar modelos para personalizar uma VM restaurada
 Após a [conclusão da operação de restauração de discos](#Track-the-restore-operation), use o modelo que foi gerado como parte da operação de restauração para criar uma nova VM com uma configuração diferente da configuração de backup. Você também pode usar isso para personalizar os nomes dos recursos que foram criados durante o processo de criação de uma nova VM de um ponto de restauração.

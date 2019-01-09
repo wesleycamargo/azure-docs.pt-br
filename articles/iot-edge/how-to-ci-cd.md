@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386818"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582908"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua no Azure IoT Edge
 
@@ -40,7 +40,7 @@ Nesta seção, você criará uma solução de exemplo do IoT Edge contendo teste
 
 3. Agora, sua solução do IoT Edge está pronta. O módulo C# padrão atua como um módulo de mensagem do pipe. No `deployment.template.json`, você verá que esta solução contém dois módulos. A mensagem será gerada pelo módulo `tempSensor`, será enviada diretamente pelo pipe por meio de `FilterModule` e, em seguida, será enviada para o Hub IoT.
 
-4. Salve esses projetos e confirme em seus Azure Repos.
+4. Salve esses projetos e confirme em seus Azure Repos repositórios.
     
 > [!NOTE]
 > Para obter mais informações de como usar o Azure Repos, confira [Compartilhar seu código com o GIT do Visual Studio e do Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -93,7 +93,7 @@ Nesta seção, você criará um pipeline de build configurado para ser executado
 
     ![Ativar o gatilho de integração contínua](./media/how-to-ci-cd/configure-trigger.png)
 
-    Salve o novo pipeline de build. Clique no botão **Salvar** .
+    Salve o novo pipeline de build com o botão **Salvar**.
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Configurar o Azure Pipelines para implantação contínua
@@ -115,7 +115,7 @@ Nesta seção, você criará um pipeline de lançamento configurado para ser exe
 
     ![Adicionar artefatos](./media/how-to-ci-cd/add-artifacts.png)  
     
-    Em **Adicionar uma página de artefato**, escolha **Build** como o Tipo de origem. Em seguida, selecione o projeto e o pipeline de build que você criou. Clique em **Adicionar**.
+    Em **Adicionar uma página de artefato**, escolha **Build** como o Tipo de origem. Em seguida, selecione o projeto e o pipeline de build que você criou. Em seguida, selecione**Adicionar**.
 
     ![Adicionar um artefato de build](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -135,13 +135,13 @@ Nesta seção, você criará um pipeline de lançamento configurado para ser exe
 
     ![Implantar na garantia de qualidade](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    Salve o novo pipeline de lançamento. Clique no botão **Salvar** . E, em seguida, clique em **Pipeline** para voltar para o pipeline.
+    Salve o novo pipeline de build com o botão **Salvar**. E, em seguida, clique em **Pipeline** para voltar para o pipeline.
 
 6. A segunda etapa é para seu ambiente de produção. Para adicionar um novo estágio "PROD", você pode simplesmente clonar o estágio de "Garantia de Qualidade" e renomear estágio clonado como **PROD**,
 
     ![Clonar estágio](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configure as tarefas para seu ambiente de produção. Considere que você tem vários dispositivos IoT Edge que foram marcados como “prod”, nas configurações da tarefa, atualize a Condição de Destino para “prod” e defina a ID de implantação como “deploy-prod” nas configurações avançadas. Clique no botão **Salvar** . E, em seguida, clique em **Pipeline** para voltar para o pipeline.
+7. Configure as tarefas para seu ambiente de produção. Considere que você tem vários dispositivos IoT Edge que foram marcados como “prod”, nas configurações da tarefa, atualize a Condição de Destino para “prod” e defina a ID de implantação como “deploy-prod” nas configurações avançadas. Salve ele com o botão **Salvar**. E, em seguida, clique em **Pipeline** para voltar para o pipeline.
     
     ![Implantar na produção](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ Nesta seção, você criará um pipeline de lançamento configurado para ser exe
 
         ![Abrir Condições de pré-implantação](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Defina **Habilitado** em **Aprovações de pré-implantação**. E preencha a entrada **Aprovadores**. Em seguida, clique em **Salvar**.
+    2. Defina **Habilitado** em **Aprovações de pré-implantação**. E preencha a entrada **Aprovadores**. Salve ele com o botão **Salvar**.
     
         ![Definir condições](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 

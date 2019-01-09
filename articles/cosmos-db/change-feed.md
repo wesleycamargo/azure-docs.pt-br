@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c8870fdb0ff0a62c9b1a3b690724aa004e911bb3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133739"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810875"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed de alterações no Azure Cosmos DB
 
@@ -32,7 +32,7 @@ O feed de alterações no Azure Cosmos DB permite que você crie soluções efic
 
 No momento, o recurso é compatível com os seguintes SDKs do cliente e APIs do Azure Cosmos DB.
 
-| **Drivers do cliente** | **CLI do Azure** | **API do SQL** | **API do Cassandra** | **API do MongoDB** | **API do Gremlin**|**API de Tabela** |
+| **Drivers do cliente** | **CLI do Azure** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | ND | SIM | Não | Não  | Sim | Não  |
 |Java|ND|SIM|Não|Não |Sim|Não |

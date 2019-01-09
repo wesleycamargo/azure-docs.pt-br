@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: c7ec0b29e200710070cb1243ff8bfadd5e31e8eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879402"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975449"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Apache Hadoop sob demanda no HDInsight usando o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -55,7 +55,7 @@ Esta seção usa um script do Azure PowerShell para criar a conta de armazenamen
 
 
 **Para preparar a conta de armazenamento e copiar os arquivos usando o Azure PowerShell:**
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Especifique nomes para o grupo de recursos do Azure e a conta de armazenamento do Azure que será criada pelo script.
 > Anote o **nome do grupo de recursos**, o **nome da conta de armazenamento**, e a **chave da conta de armazenamento** produzidos pelo script. Você precisa deles na próxima seção.
 
@@ -166,7 +166,11 @@ Neste artigo, você deve configurar a atividade de Hive para criar um cluster Ha
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**.
+1. No menu esquerdo, selecione **+ Criar um recurso**.
+
+1. Em **Azure Marketplace**, selecione **Análises**.
+
+1.  Sob **Em destaque**, selecione **Data Factory**.
 
     ![Azure Data Factory no portal](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Data Factory no portal")
 
@@ -181,19 +185,18 @@ Neste artigo, você deve configurar a atividade de Hive para criar um cluster Ha
     |**Nome** |  Insira um nome para o data factory. Esse nome deve ser globalmente exclusivo.|
     |**Assinatura**     |  Selecione sua assinatura do Azure. |
     |**Grupo de recursos**     | Selecione **Usar existente** e, em seguida, selecione o grupo de recursos que você criou usando o script do PowerShell. |
-    |**Versão**     | Selecione **V2 (versão prévia)** |
-    |**Localidade**     | O local é definido automaticamente para o local que você especificou ao criar o grupo de recursos anterior. Para este tutorial, o local é definido como **Leste dos EUA 2**. |
+    |**Versão**     | Selecione **V2** |
+    |**Localidade**     | O local é definido automaticamente para o local que você especificou ao criar o grupo de recursos anterior. Para este tutorial, o local é definido como **Leste dos EUA**. |
     
 
-1. Escolha **Fixar no painel** e selecione **Criar**. Você verá um novo bloco chamado **Enviando a implantação** no painel do portal. Criar um data factory pode levar entre 2 a 4 minutos.
+1. Selecione **Criar**. Criar um data factory pode levar entre 2 a 4 minutos.
 
-    ![Progresso da implantação de modelo](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "Progresso da implantação de modelo") 
- 
-1. Depois que o data factory é criado, o portal mostra a visão geral do data factory.
 
-    ![Visão geral do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Visão geral do Azure Data Factory")
+1. Depois que o data factory for criado. você receberá uma notificação de **Implantação bem-sucedida** com um botão **Ir para o recurso**.  Selecione **ir para o recurso** para abrir a exibição padrão do Data Factory.
 
 1. Selecione **Autor & Monitor** para iniciar o portal de criação e monitoramento do Azure Data Factory.
+
+    ![Visão geral do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Visão geral do Azure Data Factory")
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 

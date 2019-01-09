@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Azure Key Vault usando CLI | Microsoft Docs
+title: Gerenciar o Azure Key Vault usando a CLI - Azure Key Vault | Microsoft Docs
 description: Use este artigo para automatizar tarefas comuns no Key Vault usando a CLI do Azure
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 632620bf8140ba855198a9354fbd7e50604e18c3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256436"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000301"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerenciar o Key Vault usando a CLI do Azure 
 
@@ -133,7 +133,7 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 
 A saída do comando mostra as propriedades do cofre da chave que você criou. As duas propriedades mais importantes são:
 
-* **name**: no exemplo, o nome é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
+* **nome**: no exemplo, o nome é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
 * **vaultUri**: no exemplo, o URI é https://contosokeyvault.vault.azure.net. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
 Sua conta do Azure agora está autorizada a executar qualquer operação neste cofre de chave. Até o momento, ninguém mais tem autorização.
@@ -228,7 +228,7 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar políticas avançadas para o cofre de chaves. 
 
- Habilitar o Key Vault para implantação: permite que as máquinas virtuais recuperem certificados armazenados como segredos do cofre.
+ Habilitar o Key Vault para a implantação: Permitir que as máquinas virtuais recuperem certificados armazenados como segredos do cofre.
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
  ``` 
@@ -239,7 +239,7 @@ Habilitar o Key Vault para criptografia de disco: exigido ao usar o cofre para c
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
  ```  
 
-Habilitar o Key Vault para implantação de modelo: permite que o Resource Manager recupere segredos do cofre.
+Habilitar o Key Vault para implantação de modelo: Permite que o Resource Manager recupere segredos do cofre.
  ```azurecli 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```

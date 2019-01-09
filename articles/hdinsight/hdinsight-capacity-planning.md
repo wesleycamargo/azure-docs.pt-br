@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193851"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716133"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -38,17 +38,17 @@ O HDInsight está disponível em muitas regiões do Azure. Para localizar a regi
 
 ### <a name="location-of-default-storage"></a>Local do armazenamento padrão
 
-O armazenamento padrão, seja uma conta de Armazenamento do Azure ou um Azure Data Lake Store, deve estar no mesmo local que o cluster. O Armazenamento do Azure está disponível em todos os locais. O Data Lake Store Gen1 está disponível em algumas regiões - veja a disponibilidade atual do Data Lake Store em *Armazenamento* em [Produtos do Azure Disponíveis por Região](https://azure.microsoft.com/regions/services/).
+O armazenamento padrão, seja uma conta de Armazenamento do Azure ou um Azure Data Lake Storage, deve estar no mesmo local que o cluster. O Armazenamento do Azure está disponível em todos os locais. O Data Lake Storage Gen1 está disponível em algumas regiões - veja a disponibilidade atual do Data Lake Storage em *Armazenamento* em [Produtos do Azure Disponíveis por Região](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Local dos dados existentes
 
-Se você já tem uma conta de armazenamento ou o um Data Lake Store que contém seus dados e deseja usar este armazenamento como o armazenamento de padrão do seu cluster, é necessário implantar o cluster nesse mesmo local.
+Se você já tem uma conta de armazenamento ou o um Data Lake Storage que contém seus dados e deseja usar este armazenamento como o armazenamento de padrão do seu cluster, é necessário implantar o cluster nesse mesmo local.
 
 ### <a name="storage-size"></a>Tamanho do armazenamento
 
-Depois de implantar um cluster HDInsight, você poderá anexar mais contas do Armazenamento do Azure ou acessar outros Data Lake Stores. Todas as suas contas de armazenamento devem residir no mesmo local que o cluster. Um Data Lake Store pode estar em um local diferente, embora isso possa causar alguma latência na leitura/gravação de dados.
+Depois de implantar um cluster HDInsight, você poderá anexar mais contas do Armazenamento do Azure ou acessar outros Data Lake Storage. Todas as suas contas de armazenamento devem residir no mesmo local que o cluster. Um Data Lake Storage pode estar em um local diferente, embora isso possa causar alguma latência na leitura/gravação de dados.
 
-O Armazenamento do Azure tem alguns [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto o Data Lake Store Gen1 é virtualmente ilimitado.
+O Armazenamento do Azure tem alguns [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto o Data Lake Storage Gen1 é virtualmente ilimitado.
 
 Um cluster pode acessar uma combinação de contas de armazenamento diferentes. Exemplos comuns incluem:
 
@@ -89,7 +89,7 @@ Você pode aumentar o cluster para atender ao pico das demandas de carga e reduz
 
 Você é cobrado pelo tempo de vida do cluster. Se houver apenas momentos específicos em que você precisa de seu cluster em execução, você poderá [criar clusters sob demanda usando o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Você também pode criar scripts do PowerShell que provisionam e excluem o cluster e, em seguida, agendar esses scripts usando a [Automação do Azure](https://azure.microsoft.com/services/automation/).
 
-> [!NOTE]
+> [!NOTE]  
 > Quando um cluster é excluído, seu metastore do Hive padrão também é excluído. Para manter o metastore para a próxima recriação de cluster, use um repositório de metadados externo, como o Banco de Dados do Azure ou [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -120,7 +120,7 @@ Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, v
 1. Clique em **Avançar: Revisar + criar**.
 1. Na página **Revisar + criar**, clique em **Criar**.
 
-> [!Note]
+> [!NOTE]  
 > Se precisar aumentar a cota de núcleos do HDInsight em uma região privada, [envie uma solicitação de lista de permissões](https://aka.ms/canaryintwhitelist).
 
 Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).

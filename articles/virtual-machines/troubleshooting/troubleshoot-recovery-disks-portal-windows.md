@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: c68febc7bd6aac0262c41cc8b33602f8496eb215
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436393"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809090"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solucionar problemas de uma VM Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure
 Se ocorrer um erro de disco ou de inicialização na VM (máquina virtual) Windows no Azure, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar o disco rígido virtual a outra VM Windows para corrigir erros e, em seguida, recriar a VM original.
@@ -133,7 +133,7 @@ Depois de resolver os erros, desanexe o disco rígido virtual existente da VM de
     Aguarde até que a VM tenha desanexo o disco de dados corretamente antes de continuar.
 
 ## <a name="create-vm-from-original-hard-disk"></a>Criar a VM com base no disco rígido original
-Para criar uma VM com base no disco rígido virtual original, use [esse modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). O modelo implanta uma VM em uma rede virtual existente, usando a URL do VHD do comando anterior. Clique no botão **Implantar no Azure** da seguinte maneira:
+Para criar uma VM com base no disco rígido virtual original, use [esse modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet). O modelo implanta uma VM em uma rede virtual nova ou existente, usando a URL do VHD do comando anterior. Clique no botão **Implantar no Azure** da seguinte maneira:
 
 ![Implantar a VM com base no modelo do GitHub](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833866"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789850"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de Backup do Azure: Problemas com o agente ou extensão
 
@@ -52,8 +52,7 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 * Esse problema também pode ocorrer se vários backups são disparados por dia. No momento, é recomendável fazer apenas um backup por dia, já que os pontos de recuperação instantâneos são mantidos por 7 dias e apenas 18 pontos de recuperação instantâneos podem ser associados a uma VM em um determinado momento. <br>
 
 Ação recomendada:<br>
-Para resolver esse problema, remova o bloqueio do grupo de recursos e repita a operação para disparar a limpeza.
-
+Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repita a operação para disparar a limpeza. 
 > [!NOTE]
     > O serviço de backup cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de Backup. O formato de nomenclatura do grupo de recursos criado pelo serviço de Backup é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 

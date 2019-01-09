@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
 ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51251995"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar arquivos de configuração de cliente VPN para autenticação RADIUS P2S
@@ -62,8 +62,8 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
  
 Executar o comando retorna um link. Copie e cole o link em um navegador da Web para baixar o arquivo **VpnClientConfiguration.zip**. Descompacte o arquivo para ver as seguintes pastas: 
  
-* **WindowsAmd64** e **WindowsX86**: essas pastas contêm os pacotes dos instaladores do Windows de 64 bits e 32 bits, respectivamente. 
-* **Genérica**: essa pasta contém informações gerais utilizadas para criar sua própria configuração do cliente VPN. Essa pasta não é necessária para as configurações de autenticação de nome de usuário/senha.
+* **WindowsAmd64** e **WindowsX86**: Essas pastas contêm os pacotes dos instaladores do Windows de 64 bits e 32 bits, respectivamente. 
+* **Genérica:** essa pasta contém informações gerais utilizadas para criar sua própria configuração do cliente VPN. Essa pasta não é necessária para as configurações de autenticação de nome de usuário/senha.
 * **Mac**: se IKEv2 foi configurado ao criar o gateway de rede virtual, você verá uma pasta nomeada **Mac** que contém um arquivo **mobileconfig**. Esse arquivo é utilizado para configurar clientes Mac.
 
 Se você já criou arquivos de configuração do cliente, poderá recuperá-los utilizando o cmdlet`Get-AzureRmVpnClientConfiguration`. Porém, se você fizer alterações na configuração VPN do P2S, como o tipo de protocolo VPN ou o tipo de autenticação, a configuração não será atualizada automaticamente. Você deve executar o cmdlet `New-AzureRmVpnClientConfiguration` para criar uma nova configuração de fazer o download.
@@ -193,8 +193,8 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 
 Executar o comando retorna um link. Copie e cole o link em um navegador da Web para baixar o VpnClientConfiguration.zip. Descompacte o arquivo para ver as seguintes pastas:
 
-* **WindowsAmd64** e **WindowsX86**: essas pastas contêm os pacotes dos instaladores do Windows de 64 bits e 32 bits, respectivamente. 
-* **GenericDevice** : essa pasta contém informações gerais utilizadas para criar sua própria configuração de cliente VPN.
+* **WindowsAmd64** e **WindowsX86**: Essas pastas contêm os pacotes dos instaladores do Windows de 64 bits e 32 bits, respectivamente. 
+* **GenericDevice**: essa pasta contém informações gerais usadas para criar sua própria configuração de cliente VPN.
 
 Se você já criou arquivos de configuração do cliente, poderá recuperá-los utilizando o cmdlet`Get-AzureRmVpnClientConfiguration`. Porém, se você fizer alterações na configuração VPN do P2S, como o tipo de protocolo VPN ou o tipo de autenticação, a configuração não será atualizada automaticamente. Você deve executar o cmdlet `New-AzureRmVpnClientConfiguration` para criar uma nova configuração de fazer o download.
 
@@ -266,7 +266,7 @@ Para usar um tipo de autenticação diferente (por exemplo, OTP) ou usar um prot
  
 3. A pasta **GenenericDevice** contém um arquivo XML chamado **VpnSettings**. Este arquivo contém todas as informações necessárias:
 
-   * **VpnServer**: FQDN do gateway de VPN do Azure. Este é o endereço ao qual o cliente se conecta.
+   * **VpnServer**: FQDN do Gateway de VPN do Azure. Este é o endereço ao qual o cliente se conecta.
    * **VpnType**: tipo de túnel utilizado conectar-se.
    * **Rotas**: rotas que você precisa configurar no perfil para que somente o tráfego associado à rede virtual do Azure seja enviado via túnel P2S.
    

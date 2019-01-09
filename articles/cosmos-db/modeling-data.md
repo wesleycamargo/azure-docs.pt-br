@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0197c11673f49214dc2cea09b53290993a00c6b3
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166635"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744931"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelando dados de documentos para bancos de dados NoSQL
 
@@ -172,7 +172,7 @@ Veja este snippet de JSON.
         ]
     }
 
-Isto pode representar o portfólio de ações de alguém. Nós optamos por inserir as informações das ações em cada documento do portfólio. Em um ambiente onde dados relacionados mudam com frequência, como um aplicativo de corretagem de ações, inserir dados que mudam frequentemente significa que você atualiza constantemente cada documento do portfólio, sempre que uma ação for negociada.
+Isto pode representar o portfólio de ações de alguém. Optamos por inserir as informações das ações em cada documento do portfólio. Em um ambiente onde dados relacionados mudam com frequência, como um aplicativo de corretagem de ações, inserir dados que mudam frequentemente significa que você atualiza constantemente cada documento do portfólio, sempre que uma ação for negociada.
 
 A ação *zaza* pode ser negociada centenas de vezes em apenas um dia, e milhares de usuários podem ter a ação *zaza* em seus portfólios. Com um modelo de dados como o acima, teríamos que atualizar vários milhares de documentos de portfólio muitas vezes por dia, o que levaria a um sistema a mal dimensionado. 
 
@@ -259,7 +259,7 @@ Observemos o JSON abaixo que modela editoras e livros.
     ...
     {"id": "100", "name": "Learn about Azure Cosmos DB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
 Se o número de livros por editora for pequeno, com crescimento limitado, armazenar a referência do livro no documento da editora pode ser útil. No entanto, se o número de livros por editora for ilimitado, esse modelo de dados levaria a matrizes crescentes e mutáveis, como no exemplo de documento de editora abaixo. 
 
@@ -278,7 +278,7 @@ Mudar um pouco as coisas resultaria em um modelo que ainda representa os mesmos 
     ...
     {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
 No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez disso, temos apenas uma referência à editora em cada documento de livro.
 
@@ -298,7 +298,7 @@ Você pode ficar tentado a fazer a mesma coisa usando documentos e produzir um m
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
     {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -319,7 +319,7 @@ Considere o seguinte.
     {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
+    {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
 Agora, se eu tivesse um autor, eu saberia imediatamente quais livros ele escreveu e, da mesma forma, se carregasse o documento de um livro, saberia quem é o autor. Isso anula a consulta intermediária, da tabela de junção, reduzindo o número de viagens de ida e volta ao servidor que o aplicativo precisa fazer. 
 
@@ -381,7 +381,7 @@ Claro, se o nome do autor mudasse ou se ele quisesse alterar sua foto, teríamos
 
 No exemplo, há valores **agregados pré-calculados** para reduzir o processamento extensivo das operações de leitura. No exemplo, alguns dos dados inseridos no documento do autor são calculados em tempo de execução. Sempre que um novo livro é publicado, um documento de livro é criado **e** o campo countOfBooks, relativo à contagem de livros, é definido como um valor calculado com base no número de documentos de livros que existem para um dado autor. Essa otimização seria útil em sistemas com grandes volumes de leitura nos quais podemos computar as gravações para otimizar as leituras.
 
-A capacidade de ter um modelo com campos pré-calculados é possibilitada porque o Azure Cosmos DB dá suporte a **transações de vários documentos**. Muitos repositórios NoSQL não podem fazer transações entre documentos e por isso defendem decisões de design, como "sempre inserir tudo", devido a essa limitação. Com o Azure Cosmos DB, você pode usar gatilhos do lado do servidor ou procedimentos armazenados, que inserem manuais e atualizam autores, tudo isso em uma transação ACID. Você não **precisa** inserir tudo em um documento para garantir que seus dados permaneçam consistentes.
+A capacidade de ter um modelo com campos pré-calculados é possibilitada porque o Azure Cosmos DB dá suporte a **transações de vários documentos**. Muitos repositórios NoSQL não podem fazer transações entre documentos e por isso defendem decisões de design, como "sempre inserir tudo", devido a essa limitação. Com o Azure Cosmos DB, você pode usar gatilhos do lado do servidor ou procedimentos armazenados, que inserem manuais e atualizam autores, tudo isso em uma transação ACID. Você não **precisa** inserir tudo em um documento para garantir a consistência de seus dados.
 
 ## <a name="NextSteps"></a>Próximas etapas
 O principal aspecto deste artigo é entender que modelar dados em um ambiente sem esquemas é tão importante como sempre foi. 

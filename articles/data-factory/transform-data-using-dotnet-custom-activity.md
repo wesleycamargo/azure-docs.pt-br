@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 424de36dbbd3b09e635679900110148b9edd0242
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bfacad5064862f8ff20fc33b2b242c00ec416661
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422875"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000335"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -104,10 +104,12 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 | Tipo                  | Para a atividade personalizada, o tipo de atividade é **Personalizado**. | SIM      |
 | linkedServiceName     | Serviço vinculado ao Lote do Azure. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  | SIM      |
 | command               | Comando do aplicativo personalizado a ser executado. Se o aplicativo já estiver disponível no nó do pool do Lote do Azure, resourceLinkedService e folderPath poderão ser ignorados. Por exemplo, você pode especificar o comando como `cmd /c dir`, que tem suporte nativo no nó do pool do Lote do Windows. | SIM      |
-| resourceLinkedService | Serviço de vinculado do Armazenamento do Azure para a conta de armazenamento na qual o aplicativo personalizado é armazenado | Não        |
-| folderPath            | Caminho para a pasta do aplicativo personalizado e de todas as suas dependências<br/><br/>Se você tiver dependências armazenadas em subpastas - ou seja, em uma estrutura hierárquica de pastas em *folderPath* - a estrutura de pastas estará nivelada quando os arquivos forem copiados para o Lote do Azure. Ou seja, todos os arquivos são copiados em uma única pasta sem subpastas. Para contornar esse comportamento, considere compactar os arquivos, copiando o arquivo compactado e, em seguida, descompactá-lo com código personalizado no local desejado. | Não        |
+| resourceLinkedService | Serviço de vinculado do Armazenamento do Azure para a conta de armazenamento na qual o aplicativo personalizado é armazenado | No&#42;       |
+| folderPath            | Caminho para a pasta do aplicativo personalizado e de todas as suas dependências<br/><br/>Se você tiver dependências armazenadas em subpastas - ou seja, em uma estrutura hierárquica de pastas em *folderPath* - a estrutura de pastas estará nivelada quando os arquivos forem copiados para o Lote do Azure. Ou seja, todos os arquivos são copiados em uma única pasta sem subpastas. Para contornar esse comportamento, considere compactar os arquivos, copiando o arquivo compactado e, em seguida, descompactá-lo com código personalizado no local desejado. | No&#42;       |
 | referenceObjects      | Uma matriz de serviços vinculados e conjuntos de dados existentes. Os serviços vinculados e os conjuntos de dados referenciados são passados para o aplicativo personalizado no formato JSON para que o seu código personalizado possa referenciar os recursos do Data Factory | Não        |
 | extendedProperties    | Propriedades definidas pelo usuário que podem ser passadas para o aplicativo personalizado no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | Não        |
+
+&#42; As propriedades `resourceLinkedService` e `folderPath` devem ser especificadas ou omitidas em conjunto.
 
 ## <a name="custom-activity-permissions"></a>Permissões de atividade personalizada
 
@@ -353,7 +355,7 @@ Para obter um exemplo completo de como o exemplo DLL e pipeline de ponta a ponta
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Lote do Azure
 Você também pode criar um pool de Lotes do Azure com o recurso **autoscale** . Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes. 
 
-A fórmula de exemplo alcança o seguinte comportamento: quando o pool é criado pela primeira vez, ele começa com uma VM. A métrica de $PendingTasks define o número de tarefas em execução + estado ativo (em fila).  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated adequadamente. Isso garante que TargetDedicated nunca ultrapasse 25 VMs. Assim, o pool aumenta automaticamente conforme novas tarefas são enviadas e, conforme as tarefas são concluídas, as VMs se liberam uma a uma e são reduzidas pelo dimensionamento automático. startingNumberOfVMs e maxNumberofVMs podem ser ajustados às suas necessidades.
+A fórmula de exemplo aqui obtém o comportamento a seguir: Quando o pool é criado inicialmente, ele começa com uma VM. A métrica de $PendingTasks define o número de tarefas em execução + estado ativo (em fila).  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated adequadamente. Isso garante que TargetDedicated nunca ultrapasse 25 VMs. Assim, o pool aumenta automaticamente conforme novas tarefas são enviadas e, conforme as tarefas são concluídas, as VMs se liberam uma a uma e são reduzidas pelo dimensionamento automático. startingNumberOfVMs e maxNumberofVMs podem ser ajustados às suas necessidades.
 
 Fórmula de dimensionamento automático:
 

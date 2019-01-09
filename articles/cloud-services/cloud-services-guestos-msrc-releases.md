@@ -11,22 +11,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 12/14/2018
 ms.author: raiye
-ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854264"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541023"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
 
-## <a name="november-2018-guest-os"></a>SO convidado de novembro de 2018
+## <a name="december-2018-guest-os"></a>SO convidado de dezembro de 2018
 
 >[!NOTE]
->O sistema operacional convidado de novembro está sendo implantado nas VMs do Cloud Service que estão configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no sistema operacional novembro Guest. Esta lista está sujeita a alterações.
+>O sistema operacional convidado de dezembro está sendo implantado nas VMs do Cloud Service que estão configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no sistema operacional convidado de dezembro. Esta lista está sujeita a alterações.
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Segurança do Windows 10 | 5.26 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4471328] | Segurança do Windows   | 2.81 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4471326] | Segurança do Windows   | 3.68 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4471322] | Segurança do Windows   | 4.61 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4470600] | .NET 3.x Security  | 2.81 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4470601] | .NET 3.x Security  | 3.68 | 11 de dezembro de 2018|
+| Rel 18-12 | [4470602] | .NET 3.x Security  | 4.61 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4470493] | .NET 4.x Security  | 2.81 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4470492] | .NET 4.x Security  | 3.68 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4470491] | .NET 4.x Security  | 4.61| 11 de dezembro de 2018 |
+| Rel 18-12 | [4471331] | Piscando  | 3.68, 4.61, 5.26 | 5 de dezembro de 2018  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 de dezembro de 2018 |
+| N/D | [4468323] | Atualização de fuso horário    | 2.81, 3.68, 4.61 | 13 de dezembro de 2018 |
+| N/D | [4467107] | Pacote cumulativo de atualizações não relacionado à segurança de novembro   | 2.81 | 13 de novembro de 2018 |
+| N/D | [4467701] | Pacote cumulativo de atualizações não relacionado à segurança de novembro     | 3.68 | 13 de novembro de 2018 |
+| N/D | [4467697] | Pacote cumulativo de atualizações não relacionado à segurança de novembro     | 4.61 | 13 de novembro de 2018 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## <a name="november-2018-guest-os"></a>SO convidado de novembro de 2018
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
@@ -474,7 +512,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[3185331] |Pacote cumulativo de atualizações de qualidade de segurança mensal de outubro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.38 |8 de novembro de 2016 |
 | N/D |[3192404] |Pacote cumulativo de atualizações de qualidade de visualização mensal de outubro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.38 |8 de novembro de 2016 |
 | N/D |[3199986] |Atualização da pilha de manutenção para o Windows 10 versão 1607: 27 de outubro de 2016 |5,3 |8 de novembro de 2016 |
-| N/D |[3197954] |Atualização cumulativa para o Windows 10 versão 1607 e Windows Server 2016: 27 de outubro de 2016 |5,3 |8 de novembro de 2016 |
+| N/D |[3197954] |Atualização cumulativa para Windows 10 versão 1607 e Windows Server 2016: 27 de outubro de 2016 |5,3 |8 de novembro de 2016 |
 
 ## <a name="october-2016-guest-os"></a>SO convidado de outubro de 2016
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -581,7 +619,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[3133977] |O BitLocker não pode criptografar unidades devido a falhas de serviço no processo de svchost.exe no Windows 7 ou Windows Server 2008 R2  |2.51 |10 de maio de 2016 |
 | N/D |[3133681] |Máquinas virtuais não respondem à sua operação no SCVMM no Windows Server 2012 R2  |4.32 |10 de maio de 2016 |
 | N/D |[3123245] |Atualização melhora a identificação de esgotamento de porta no Windows Server 2012 R2  |4.32 |10 de maio de 2016 |
-| N/D |[Desabilitar RC4] | Comunicado de segurança da Microsoft: atualizar para desabilitar o RC4  |4.32, 3.39, 2.51 |10 de maio de 2016 |
+| N/D |[Desabilitar RC4] | Orientação de segurança da Microsoft: Atualização para desabilitar o RC4  |4.32, 3.39, 2.51 |10 de maio de 2016 |
 
 ## <a name="april-2016-guest-os"></a>SO convidado de abril de 2016
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -630,7 +668,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | MS16-005 |[3124584] |Atualização de Segurança para os Drivers do Modo Kernel do Windows para Endereçar a Execução de Código Remota |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-007 |[3124901] |Atualização de segurança para o Microsoft Windows para solucionar a execução remota de código |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-008 |[3124605] |Atualização de Segurança do Kernel para Endereçar a Elevação de Privilégio |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
-| Revisão da Consultoria de Segurança da Microsoft |[2755801] |Atualizar para as Vulnerabilidades no Adobe Flash Player no Internet Explorer (Pacote KB: TBD) - Espaço Reservado da Consultoria |4.28, 3.35 |12 de janeiro de 2016 |
+| Revisão da Consultoria de Segurança da Microsoft |[2755801] |Atualizar para as Vulnerabilidades no Adobe Flash Player no Internet Explorer (Pacote KB: TBD) - Espaço Reservado para Consultoria |4.28, 3.35 |12 de janeiro de 2016 |
 | Comunicado de Segurança da Microsoft |[3109853] |Atualizar para Melhorar a Interoperabilidade TLS |4.28, 3.35 |12 de janeiro de 2016 |
 | Comunicado de Segurança da Microsoft |[3123479] |Substituição do Algoritmo de Hash SHA-1 para o Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | Comunicado de Segurança da Microsoft |[2736233] |Atualizações para os ActiveX Kill Bits |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
@@ -778,7 +816,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | MS15-014 |[3004361] |Vulnerabilidade no SMB poderia permitir a não utilização de recurso de segurança |4.17, 3.24, 2.36 |N/D |
 | MS15-015 |[3031432] |Vulnerabilidade no Microsoft Windows poderia permitir elevação de privilégio |4.17, 3.24, 2.36 |N/D |
 | MS15-016 |[3029944] |Vulnerabilidade no componente gráfico da Microsoft poderia permitir a divulgação de informações |4.17, 3.24, 2.36 |N/D |
-| N/D |[3004375] |Atualização para Melhorar a Auditoria da Linha de Comando do Windows<p/>**Observação**: ela é instalada, mas a chave de registro para habilitá-la está desativada |4.17, 3.24, 2.36 |N/D |
+| N/D |[3004375] |Atualização para Melhorar a Auditoria da Linha de Comando do Windows<p/>**Observação**: A atualização é instalada, mas a chave do Registro para habilitá-la está desativada |4.17, 3.24, 2.36 |N/D |
 
 ## <a name="january-2015-guest-os"></a>SO convidado de janeiro de 2015
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |

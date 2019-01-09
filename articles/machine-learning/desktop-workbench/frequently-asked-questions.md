@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f573cda9f06837bf44ee39a680b207af1ba0fe07
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313925"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973223"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Machine Learning
 
@@ -55,18 +55,17 @@ Os dois primeiros usuários associados ao seu Serviço de Experimentação do Az
 
 **Posso ser cobrado com base em quantos experimentos eu executo?**
 
-Não, o Serviço de Experimentação permite tantos experimentos quantos você precisar e as cobranças são baseadas somente no número de usuários. Os recursos de computação de experimentação são cobrados separadamente. Recomendamos que você execute vários experimentos para que possa encontrar o modelo mais adequado à sua solução.   
+Não, o Serviço de Experimentação permite tantos experimentos quantos você precisar e as cobranças são baseadas somente no número de usuários. Os recursos de computação de experimentação são cobrados separadamente. Recomendamos que você execute vários experimentos para que possa encontrar o modelo mais adequado à sua solução.
 
 **Que tipos específicos de recursos de computação e armazenamento posso usar?**
 
-O serviço Experimentação pode executar seus experimentos em computadores locais (diretos ou baseado em Docker), [Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/) e [HDInsight](https://azure.microsoft.com/services/hdinsight/). O serviço também acessa uma conta de [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) para armazenar as saídas de execução e pode aproveitar uma conta do [Serviço do Visual Studio Team](https://azure.microsoft.com/services/visual-studio-team-services/) para controle de versão e armazenamento de Git. Note que você será cobrado independentemente por qualquer recurso de computação e de armazenamento consumido com base no preço individual.  
-
+O serviço Experimentação pode executar seus experimentos em computadores locais (diretos ou baseado em Docker), [Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/) e [HDInsight](https://azure.microsoft.com/services/hdinsight/). O serviço também acessa uma conta de [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) para armazenar as saídas de execução e pode aproveitar uma conta do [Azure DevOps](https://azure.microsoft.com/services/devops/) para controle de versão e armazenamento de Git. Note que você será cobrado independentemente por qualquer recurso de computação e de armazenamento consumido com base no preço individual.
 
 ## <a name="model-management"></a>Gerenciamento de Modelos
 
 **O que é o Gerenciamento de Modelos do Azure Machine Learning?**
 
-O Gerenciamento de Modelos do Azure Machine Learning é um serviço gerenciado do Azure que permite a cientistas de dados e equipes de operações de desenvolvimento implantar modelos preditivos de maneira confiável em uma ampla variedade de ambientes. Repositórios Git e contêineres do Docker proporcionam capacidade de acompanhamento e de repetição. Os modelos podem ser implantados de maneira confiável na nuvem, localmente ou na borda. Uma vez em produção, você pode gerenciar o desempenho do modelo e treinar novamente de modo proativo se o desempenho diminuir. Você pode implantar modelos em computadores locais, como [VMs do Azure](https://azure.microsoft.com/services/virtual-machines/), Spark em [HDInsight](https://azure.microsoft.com/services/hdinsight/) ou clusters do [Serviço de Contêiner do Azure](https://azure.microsoft.com/services/container-service/) orquestrados por Kubernetes.  
+O Gerenciamento de Modelos do Azure Machine Learning é um serviço gerenciado do Azure que permite a cientistas de dados e equipes de operações de desenvolvimento implantar modelos preditivos de maneira confiável em uma ampla variedade de ambientes. Repositórios Git e contêineres do Docker proporcionam capacidade de acompanhamento e de repetição. Os modelos podem ser implantados de maneira confiável na nuvem, localmente ou na borda. Uma vez em produção, você pode gerenciar o desempenho do modelo e treinar novamente de modo proativo se o desempenho diminuir. Você pode implantar modelos em computadores locais, como [VMs do Azure](https://azure.microsoft.com/services/virtual-machines/), Spark em [HDInsight](https://azure.microsoft.com/services/hdinsight/) ou clusters do [Serviço de Contêiner do Azure](https://azure.microsoft.com/services/container-service/) orquestrados por Kubernetes.
 
 **O que é um “modelo”?**
 
@@ -78,15 +77,15 @@ Um modelo é a saída de um processo de treinamento e é a aplicação de um alg
  
 **O que é uma “implantação”?**
 
-Gerenciamento de Modelos permite que você implante modelos como contêineres de serviço Web empacotados no Azure. Esses serviços Web podem ser invocados usando APIs REST. Cada serviço Web é contado como uma implantação única e o número total de implantações ativas é contado para o seu plano. Usando o exemplo de previsão de vendas, ao implantar seu modelo de melhor desempenho, seu plano é incrementado em uma implantação. Se você então treinar novamente e implantar outra versão, terá duas implantações. Se você determinar que o modelo mais recente é melhor e excluir o original, sua contagem de implantação diminuirá em uma.  
+Gerenciamento de Modelos permite que você implante modelos como contêineres de serviço Web empacotados no Azure. Esses serviços Web podem ser invocados usando APIs REST. Cada serviço Web é contado como uma implantação única e o número total de implantações ativas é contado para o seu plano. Usando o exemplo de previsão de vendas, ao implantar seu modelo de melhor desempenho, seu plano é incrementado em uma implantação. Se você então treinar novamente e implantar outra versão, terá duas implantações. Se você determinar que o modelo mais recente é melhor e excluir o original, sua contagem de implantação diminuirá em uma.
 
 **Quais recursos de computação específicos estão disponíveis para as minhas implantações?** 
 
-O Gerenciamento de Modelos pode executar suas implantações como contêineres do Docker registrados para o [Serviço de Contêiner do Azure](https://azure.microsoft.com/services/container-service/), como [Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/) ou em computadores locais. Mais destinos de implantação serão adicionados em breve. Note que você será cobrado independentemente por qualquer recurso de computação consumido com base no seu preço individual.     
+O Gerenciamento de Modelos pode executar suas implantações como contêineres do Docker registrados para o [Serviço de Contêiner do Azure](https://azure.microsoft.com/services/container-service/), como [Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/) ou em computadores locais. Mais destinos de implantação serão adicionados em breve. Note que você será cobrado independentemente por qualquer recurso de computação consumido com base no seu preço individual.
 
 **Posso usar o Gerenciamento de Modelos do Azure Machine Learning para implantar modelos criados usando ferramentas diferentes daquelas do Serviço de Experimentação?**
 
-Você obtém a melhor experiência quando implanta modelos criados usando o Serviço de Experimentação. No entanto, você pode implantar os modelos criados usando outras ferramentas e estruturas. Há suporte para uma variedade de modelos, incluindo MMLSpark, TensorFlow, Kit de Ferramentas Cognitivas Microsoft, scikit-learn, Keras etc. 
+Você obtém a melhor experiência quando implanta modelos criados usando o Serviço de Experimentação. No entanto, você pode implantar os modelos criados usando outras ferramentas e estruturas. Há suporte para uma variedade de modelos, incluindo MMLSpark, TensorFlow, Microsoft Cognitive Toolkit, scikit-learn, Keras etc. 
 
 **Posso usar meus próprios recursos do Azure?**
 
@@ -108,15 +107,15 @@ Sim, você pode implantar diversas versões do mesmo modelo. O Gerenciamento de 
 
 **O que é o Azure Machine Learning Workbench?**
 
-O Azure Machine Learning Workbench é um aplicativo complementar criado para cientistas de dados profissionais. Disponível para Windows e Mac, o Machine Learning Workbench oferece visão geral, gerenciamento e controle para soluções de aprendizado de máquina. O Machine Learning Workbench inclui acesso a estruturas de AI de ponta da Microsoft e da comunidade de software livre. Incluímos os kits de ferramentas de ciência de dados mais populares, incluindo TensorFlow, Kit de Ferramentas Cognitivas da Microsoft, Spark ML, scikit-learn e muito mais. Também habilitamos integração com IDEs de ciência de dados populares, como blocos de anotações do Jupyter, PyCharm e do Visual Studio Code. O Machine Learning Workbench tem recursos de preparação de dados internos para rapidamente amostrar, entender e preparar dados, sejam estruturados ou não. Nossa nova ferramenta de preparação de dados, chamada [PROSE](https://microsoft.github.io/prose/), se baseia na tecnologia de última geração da Microsoft Research.  
+O Azure Machine Learning Workbench é um aplicativo complementar criado para cientistas de dados profissionais. Disponível para Windows e Mac, o Machine Learning Workbench oferece visão geral, gerenciamento e controle para soluções de aprendizado de máquina. O Machine Learning Workbench inclui acesso a estruturas de AI de ponta da Microsoft e da comunidade de software livre. Incluímos os kits de ferramentas de ciência de dados mais populares, incluindo TensorFlow, Kit de Ferramentas Cognitivas da Microsoft, Spark ML, scikit-learn e muito mais. Também habilitamos integração com IDEs de ciência de dados populares, como blocos de anotações do Jupyter, PyCharm e do Visual Studio Code. O Machine Learning Workbench tem recursos de preparação de dados internos para rapidamente amostrar, entender e preparar dados, sejam estruturados ou não. Nossa nova ferramenta de preparação de dados, chamada [PROSE](https://microsoft.github.io/prose/), se baseia na tecnologia de última geração da Microsoft Research.
 
 **O Workbench é um IDE?**
 
- Não. O Machine Learning Workbench foi projetado como um complemento a IDEs populares, como Blocos de Anotações do Jupyter, Visual Studio Code e PyCharm, mas não é um IDE totalmente funcional. O Machine Learning Workbench oferece alguns recursos básicos de edição de texto, mas depuração, intellisense e outros recursos de IDE comumente usados não têm suporte. É recomendável que você use seu IDE favorito para o desenvolvimento, edição e depuração de código. Você também poderá tentar [Ferramentas para AI do Visual Studio Code](https://www.visualstudio.com/downloads/ai-tools-vscode).
+ Não. O Machine Learning Workbench foi projetado como um complemento a IDEs populares, como Blocos de Anotações do Jupyter, Visual Studio Code e PyCharm, mas não é um IDE totalmente funcional. O Machine Learning Workbench oferece alguns recursos básicos de edição de texto, mas depuração, intellisense e outros recursos de IDE comumente usados não têm suporte. É recomendável que você use seu IDE favorito para o desenvolvimento, edição e depuração de código. Você também poderá tentar [Ferramentas para AI do Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
 **Há um custo para usar o Azure Machine Learning Workbench?**
 
- Não. O Azure Machine Learning Workbench é um aplicativo gratuito. Você pode baixá-lo em tantos computadores e usuários quantos precisar. Para usar o Azure Machine Learning Workbench, você deve ter uma conta de Experimentação. .  
+ Não. O Azure Machine Learning Workbench é um aplicativo gratuito. Você pode baixá-lo em tantos computadores e usuários quantos precisar. Para usar o Azure Machine Learning Workbench, você deve ter uma conta de Experimentação.
 
 **Há suporte para funcionalidades de linha de comando?**
 
@@ -138,7 +137,7 @@ A versão atual do Jupyter incluída no Workbench inicializa um kernel Python 3 
 **Quais formatos de arquivo têm suporte no momento para ingestão de dados no Workbench?**
 
 As ferramentas de preparação de dados no Workbench atualmente dão suporte para ingestão dos seguintes formatos: 
-- Arquivos delimitados, como CSV, TSV etc.  
+- Arquivos delimitados, como CSV, TSV etc.
 - Arquivos de largura fixa
 - Arquivos de texto sem formatação
 - Excel (.xls/xlsx)
@@ -157,7 +156,7 @@ Para visualização pública, o Workbench dá suporte à ingestão de dados de:
 
 **Quais tipos de agrupamento, preparação e transformações de dados estão disponíveis?**
 
-Para visualização pública, o Workbench dá suporte a "Derivar Coluna por Exemplo", "Dividir Coluna por Exemplo", "Clustering de Texto", "Tratar Valores Ausentes" e muitos outros.  O Workbench também dá suporte à conversão de tipo de dados, agregação de dados (CONTAGEM, MÉDIA, VARIÂNCIA etc.) e associações de dados complexos. Para obter uma lista completa de funcionalidades com suporte, acesse nossa documentação de produto. 
+Para visualização pública, o Workbench dá suporte a "Derivar Coluna por Exemplo", "Dividir Coluna por Exemplo", "Clustering de Texto", "Tratar Valores Ausentes" e muitos outros. O Workbench também dá suporte à conversão de tipo de dados, agregação de dados (CONTAGEM, MÉDIA, VARIÂNCIA etc.) e associações de dados complexos. Para obter uma lista completa de funcionalidades com suporte, acesse nossa documentação de produto. 
 
 **Há qualquer limites de tamanho de dados imposto pelo Azure Machine Learning Workbench, Experimentação ou Gerenciamento de Modelos?**
 

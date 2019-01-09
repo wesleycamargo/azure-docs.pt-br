@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295556"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727795"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem de implantação dos recursos em modelos do Azure Resource Manager
 Para um determinado recurso, pode ser necessário que existam outros recursos antes que o recurso em questão seja implantado. Por exemplo, um SQL Server deve existir antes que você tente implantar um Banco de Dados SQL. Você define essa relação marcando um recurso como dependente do outro. Defina uma dependência com o elemento **dependsOn** ou usando a função **reference**. 
@@ -143,18 +143,9 @@ No exemplo a seguir, um ponto de extremidade CDN depende explicitamente do perfi
 
 Você pode usar esse elemento ou o elemento dependsOn para especificar dependências, mas não é necessário usar ambos para o mesmo recurso dependente. Sempre que possível, use uma referência implícita para evitar adicionar uma dependência desnecessária.
 
-Para saber mais, consulte [Função de referência](resource-group-template-functions-resource.md#reference).
+Para saber mais, confira [Função de referência](resource-group-template-functions-resource.md#reference).
 
-## <a name="recommendations-for-setting-dependencies"></a>Recomendações para a configuração de dependências
-
-Ao decidir quais são as dependências a serem definidas, use as seguintes diretrizes:
-
-* Defina o mínimo de dependências possível.
-* Defina um recurso filho como dependente do recurso pai.
-* Use o **referência** de função e transmitir o nome de recurso para definir dependências implícita entre os recursos que precisam compartilhar uma propriedade. Não adicione uma dependência explícita (**dependsOn**) quando você já tiver definido uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias. 
-* Defina uma dependência quando um recurso não pode ser **criado** sem a funcionalidade de outro recurso. Não defina uma dependência se os recursos interagem somente após a implantação.
-* Coloque as dependências em cascata sem defini-las explicitamente. Por exemplo, sua máquina virtual depende de uma interface de rede virtual e a interface de rede virtual depende de uma rede virtual e de endereços IP públicos. Portanto, a máquina virtual é implantados depois que todos os três recursos, mas não definir explicitamente a máquina virtual como todos os três recursos dependentes. Essa abordagem esclarece a ordem de dependência e facilita a alteração do modelo mais tarde.
-* Se um valor pode ser determinado antes da implantação, tente implantar o recurso sem uma dependência. Por exemplo, se um valor de configuração precisa do nome de outro recurso, talvez não seja necessário uma dependência. Este guia nem sempre funciona porque alguns recursos verificar a existência de outro recurso. Se você receber um erro, adicione uma dependência. 
+## <a name="circular-dependencies"></a>Dependências circulares
 
 O Resource Manager identifica dependências circulares durante a validação do modelo. Se você receber um erro indicando que existe uma dependência circular, avalie o modelo para ver se qualquer dependência não é necessários e pode ser removida. Se remover dependências não funcionar, você pode evitar dependências circulares ao mover algumas operações de implantação em recursos filho que são implantados após os recursos que possuem a dependência circular. Por exemplo, suponha que você estiver implantando duas máquinas virtuais, mas você deve definir propriedades em cada um deles que se referem a outro. Você pode implantá-los na seguinte ordem:
 
@@ -168,6 +159,7 @@ Para obter informações sobre como avaliar a ordem de implantação e resolver 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para passar por um tutorial, consulte [Tutorial: crie modelos do Azure Resource Manager com recursos dependentes ](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* Para ver recomendações sobre de configuração de dependências, confira [Melhores práticas para modelos do Azure Resource Manager](template-best-practices.md).
 * Para saber mais sobre a solução de problemas de dependência durante a implantação, confira [Solucionar erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 * Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).

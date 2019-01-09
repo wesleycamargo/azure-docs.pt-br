@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 77b19b708b32003edc4555745a233a01d6f60b71
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: eab9f13ad41d4109bb44ae196a7f8e2177886532
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026272"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994191"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -409,6 +409,50 @@ O Azure tem várias nuvens soberanas, como o [Azure Governamental](https://azure
   echo $environment
 ```
 
+### <a name="failover-clustering-in-windows-server"></a>Cluster de failover do Windows Server
+
+Para determinados cenários, ao consultar o Serviço de Metadados de Instância com clustering de failover, é necessário adicionar uma rota à tabela de roteamento.
+
+1. Abra uma prompt de comando com privilégios de administrador.
+
+2. Execute o seguinte comando e anote o endereço da Interface de rede de destino (`0.0.0.0`) na tabela de rotas do IPv4.
+
+```bat
+route print
+```
+
+> [!NOTE] 
+> A seguinte saída de exemplo de uma VM do Windows Server com o cluster de failover habilitado contém apenas a tabela de rotas IPv4 para manter a simplicidade.
+
+```bat
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         10.0.1.10    266
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
+```
+
+3. Execute o seguinte comando e anote o endereço da Interface de rede de destino (`0.0.0.0`) que é o (`10.0.1.10`) neste exemplo.
+
+```bat
+route add 169.254.169.254/32 10.0.1.10 metric 1 -p
+```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de como chamar o serviço de metadados usando diferentes idiomas dentro da VM 
 

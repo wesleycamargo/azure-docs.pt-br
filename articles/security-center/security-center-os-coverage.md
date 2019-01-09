@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185572"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608827"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e recursos compatíveis com a Central de Segurança do Azure
 
@@ -30,7 +30,7 @@ As recomendações e o monitoramento do estado de segurança estão disponíveis
 >
 >
 
-## <a name="supported-platforms"></a>Plataformas com suporte 
+## <a name="platforms-that-support-the-data-collection-agent"></a>Plataformas que dão suporte ao agente de coleta de dados 
 
 Esta seção lista as plataformas em que o agente da Central de Segurança do Azure pode ser executado e das quais ele pode coletar dados.
 
@@ -43,6 +43,10 @@ Os sistemas operacionais Windows a seguir são compatíveis:
 * Windows Server 2012 R2
 * Windows Server 2016
 
+> [!NOTE]
+> A integração com o Windows Defender ATP dá suporte a apenas ao Windows Server 2012 R2 e ao Windows Server 2016.
+>
+>
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas com suporte para computadores Linux e VMs
 Os sistemas operacionais Linux a seguir são compatíveis:
@@ -55,11 +59,6 @@ Os sistemas operacionais Linux a seguir são compatíveis:
 * Oracle Linux versões 5, 6 e 7.
 * Amazon Linux 2012.09 a 2017.
 * OpenSSL 1.1.0 só é compatível com plataformas x86_64, 64 bits.
-
-> [!NOTE]
-> A análise de comportamento de máquina virtual ainda não está disponível para sistemas operacionais Linux.
->
->
 
 ## <a name="vms-and-cloud-services"></a>VMs e Serviços de Nuvem
 VMs que são executadas em um serviço de nuvem também são compatíveis. Apenas funções Web e de trabalho de serviços de nuvem que são executadas em slots de produção são monitorados. Para saber mais sobre os serviços de nuvem, confira [Visão geral dos Serviços de Nuvem do Azure](../cloud-services/cloud-services-choose-me.md).

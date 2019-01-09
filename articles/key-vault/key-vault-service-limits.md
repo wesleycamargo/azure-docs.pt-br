@@ -1,5 +1,5 @@
 ---
-title: Limites de serviços do Cofre de Chaves do Azure | Microsoft Docs
+title: Limites de serviço do Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Saiba mais sobre os limites de serviço do Cofre da Chave do Azure.
 documentationcenter: dev-center-name
 services: key-vault
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2017
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 4ea228fba8e4dd1369e898b9e33db58b0a53a2ec
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 82848012d7ee3e96c66c73412a6b575f7d1aa4b0
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297444"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999774"
 ---
 # <a name="azure-key-vault-service-limits"></a>Limites de serviços do Azure Key Vault
+
 Esses são os limites de serviço para o Azure Key Vault.
 
 [!INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]

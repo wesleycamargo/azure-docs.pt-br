@@ -1,26 +1,26 @@
 ---
 title: Autenticar com um Registro de contêiner do Azure
-description: Opções de autenticação para um Registro de Contêiner do Azure, incluindo o logon do registro e o logon direto de entidades de serviço do Azure Active Directory.
+description: Opções de autenticação para um registro de contêiner do Azure, incluindo o logon com uma identidade do Azure Active Directory, usando entidades de serviço e usando credenciais de administrador opcionais.
 services: container-registry
 author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0c2323d1864be24edbf6005d634ae1d08bba8ea
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116599"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752870"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um Registro de contêiner privado do Docker
 
 Há várias maneiras de autenticar com um Registro de Contêiner do Azure, cada uma das quais é aplicável a um ou mais cenários de uso do registro.
 
-Você pode fazer logon em um registro diretamente por meio de [logon individual](#individual-login-with-azure-ad) e seus aplicativos e orquestradores de contêiner podem realizar a autenticação autônoma ou "remota" usando uma [entidade de serviço](#service-principal) do Azure AD (Azure Active Directory).
+Você pode fazer logon em um registro diretamente por meio de [logon individual](#individual-login-with-azure-ad) ou seus aplicativos e orquestradores de contêiner podem realizar a autenticação autônoma ou "remota" usando uma [entidade de serviço](#service-principal) do Azure AD (Azure Active Directory).
 
 O Registro de Contêiner do Azure não dá suporte a operações de Docker não autenticadas nem a acesso anônimo. Para imagens públicas, você pode usar o [Hub do Docker](https://docs.docker.com/docker-hub/).
 
@@ -32,43 +32,47 @@ Ao trabalhar com o registro diretamente, assim como ao extrair imagens para sua 
 az acr login --name <acrName>
 ```
 
-Ao fazer logon com `az acr login`, a CLI usa o token criado quando você executou `az login` para, sem interrupções, autenticar a sessão com o registro. Depois de você fazer logon dessa maneira, suas credenciais são armazenadas em cache e os comandos `docker` subsequentes não requerem um nome de usuário ou senha. Se o token expirar, você poderá atualizá-lo usando o comando `az acr login` novamente para se reautenticar. Usar `az acr login` com identidades do Azure fornece [acesso baseado em função](../role-based-access-control/role-assignments-portal.md).
+Ao fazer logon com `az acr login`, a CLI usa o token criado quando você executou [az login](/cli/azure/reference-index#az-login) para, sem interrupções, autenticar a sessão com o registro. Depois de você fazer logon dessa maneira, suas credenciais são armazenadas em cache e os comandos `docker` subsequentes não requerem um nome de usuário ou senha. Se o token expirar, você poderá atualizá-lo usando o comando `az acr login` novamente para se reautenticar. Usar `az acr login` com identidades do Azure fornece [acesso baseado em função](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="service-principal"></a>Entidade de serviço
 
-Você pode atribuir uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) ao registro e seu aplicativo ou serviço pode usá-lo para a autenticação remota. As entidades de serviço permitem [acesso baseado em função](../role-based-access-control/role-assignments-portal.md) a um registro ao qual você pode atribuir várias entidades de serviço. Várias entidades de serviço permitem que você defina acesso diferente para diferentes aplicativos.
+Se você atribuir uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) ao registro, seu aplicativo ou serviço poderá usá-lo na autenticação remota. As entidades de serviço permitem [acesso baseado em função](../role-based-access-control/role-assignments-portal.md) a um registro ao qual você pode atribuir várias entidades de serviço. Várias entidades de serviço permitem que você defina acesso diferente para diferentes aplicativos.
 
-As funções disponíveis são:
+As funções disponíveis para um registro de contêiner incluem:
 
-  * **Leitor**: pull
-  * **Colaborador**: pull e push
-  * **Proprietário**: pull, push e atribuir funções a outros usuários
+* **AcrPull**: efetuar pull
+
+* **AcrPush**: efetuar pull e push
+
+* **Proprietário**: pull, push e atribuir funções a outros usuários
+
+Para obter uma lista completa de funções, confira [Funções e permissões do Registro de Contêiner do Azure](container-registry-roles.md).
+
+Para que os scripts da CLI criem uma senha e uma ID do aplicativo de entidade de serviço para autenticar com um registro de contêiner do Azure ou para usar uma entidade de serviço existente, confira [Autenticação do Registro de Contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md).
 
 As entidades de serviço permitem conectividade remota a um registro tanto em cenários de push quanto nos de pull, tais como os seguintes:
 
-  * *Leitor*: implantações de contêiner de um registro para sistemas de orquestração, incluindo DC/SO, Docker Swarm e Kubernetes. Também é possível efetuar pull de registros de contêiner para serviços do Azure relacionados, como [AKS](../aks/index.yml), [Serviço de Aplicativo](../app-service/index.yml), [Lote](../batch/index.yml) e [Service Fabric](/azure/service-fabric/), entre outros.
+  * *Pull*: implanta contêineres de um registro para sistemas de orquestração, incluindo DC/SO, Docker Swarm e Kubernetes. Também é possível efetuar pull de registros de contêiner para serviços do Azure relacionados, como [AKS](container-registry-auth-aks.md), [Instâncias de Contêiner do Azure](container-registry-auth-aci.md), [Serviço de Aplicativo](../app-service/index.yml), [Lote](../batch/index.yml), [Service Fabric](/azure/service-fabric/), entre outros.
 
-  * *Colaborador*: soluções de integração e implantação contínuas como Azure Pipelines ou Jenkins, que criam imagens de contêiner e as enviam por push para um Registro.
-
-> [!TIP]
-> Você pode regenerar a senha de uma entidade de serviço executando o comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
->
+  * *Push*: crie imagens de contêiner e envie-as por push para um registro usando soluções de integração e implantação contínuas, como o Azure Pipelines ou o Jenkins.
 
 Você também pode fazer logon diretamente com uma entidade de serviço. Forneça a ID do aplicativo e a senha da entidade de serviço para o comando `docker login`:
 
 ```
-docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+docker login myregistry.azurecr.io -u <SP_APP_ID> -p <SP_PASSWD>
 ```
 
 Depois de conectado, o Docker armazena em cache as credenciais, portanto, você não precisa se lembrar da ID do aplicativo.
 
 Dependendo da versão do Docker que você tiver instalado, você verá um aviso de segurança recomendando o uso do parâmetro `--password-stdin`. Embora seu uso esteja fora do escopo deste artigo, é recomendável seguir essa prática recomendada. Para obter mais informações, consulte a referência do comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
-Para obter mais informações sobre como usar uma entidade de serviço para a autenticação remota ao ACR, consulte [Autenticação do Registro de Contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md).
+> [!TIP]
+> Você pode regenerar a senha de uma entidade de serviço executando o comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
+>
 
 ## <a name="admin-account"></a>Conta de administrador
 
-Cada registro de contêiner inclui uma conta de usuário administrador, que fica desabilitada por padrão. Você pode habilitar o usuário administrador e gerenciar as credenciais dele no [Portal do Azure](container-registry-get-started-portal.md#create-a-container-registry) ou usando a CLI do Azure.
+Cada registro de contêiner inclui uma conta de usuário administrador, que fica desabilitada por padrão. Você pode habilitar o usuário administrador e gerenciar as credenciais dele no [Portal do Azure](container-registry-get-started-portal.md#create-a-container-registry) ou usando a CLI do Azure ou outras ferramentas do Azure.
 
 > [!IMPORTANT]
 > A conta do administrador destina-se para um único usuário acessar o registro, principalmente para fins de teste. Não é recomendável compartilhar as credenciais da conta do administrador com vários usuários. Todos os usuários que se autenticam com a conta do administrador aparecem como um único usuário com acesso de push e de pull ao registro. Alterar ou desabilitar essa conta desabilita o acesso ao registro para todos os usuários que usam as credenciais dela. Para cenários remotos, recomenda-se identidade individual para usuários e entidades de serviço.

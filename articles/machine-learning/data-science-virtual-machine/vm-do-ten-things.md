@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 52f0a298b1a9e9f3f209f51c1bc0362b8ddf2c4e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1c56be7a7d9b03d115516b05c10c0b87c6956c47
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075669"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727659"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -102,36 +102,41 @@ Quando você operacionaliza seu modelo no Azure Machine Learning, um serviço We
 ### <a name="build-and-operationalize-python-models"></a>Compilar e operacionalizar modelos em Python
 Veja um snippet de código desenvolvido em um Notebook Jupyter Python que compila um modelo simples usando a biblioteca SciKit-learn.
 
-    #IRIS classification
-    from sklearn import datasets
-    from sklearn import svm
-    clf = svm.SVC()
-    iris = datasets.load_iris()
-    X, y = iris.data, iris.target
-    clf.fit(X, y)
+```python
+#IRIS classification
+from sklearn import datasets
+from sklearn import svm
+clf = svm.SVC()
+iris = datasets.load_iris()
+X, y = iris.data, iris.target
+clf.fit(X, y)
+```
 
 O método usado para implantar seus modelos em python no Machine Learning do Azure insere a previsão do modelo em uma função, e a decora com atributos fornecidos pela biblioteca pré-instalada de python do Machine Learning do Azure, indicando sua ID do workspace, Chave de API e os parâmetros de entrada e retorno do Machine Learning do Azure.  
 
-    from azureml import services
-    @services.publish(workspaceid, auth_token)
-    @services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
-    @services.returns(int) #0, or 1, or 2
-    def predictIris(sep_l, sep_w, pet_l, pet_w):
-     inputArray = [sep_l, sep_w, pet_l, pet_w]
-    return clf.predict(inputArray)
+```python
+from azureml import services
+@services.publish(workspaceid, auth_token)
+@services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
+@services.returns(int) #0, or 1, or 2
+def predictIris(sep_l, sep_w, pet_l, pet_w):
+    inputArray = [sep_l, sep_w, pet_l, pet_w]
+return clf.predict(inputArray)
+```
 
 Agora, um cliente pode fazer chamadas ao serviço Web. Há wrappers de conveniência que constroem as solicitações à API REST. Veja um exemplo de código para consumir o serviço Web.
 
-    # Consume through web service URL and keys
-    from azureml import services
-    @services.service(url, api_key)
-    @services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
-    @services.returns(float)
-    def IrisPredictor(sep_l, sep_w, pet_l, pet_w):
-    pass
+```python
+# Consume through web service URL and keys
+from azureml import services
+@services.service(url, api_key)
+@services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
+@services.returns(float)
+def IrisPredictor(sep_l, sep_w, pet_l, pet_w):
+pass
 
-    IrisPredictor(3,2,3,4)
-
+IrisPredictor(3,2,3,4)
+```
 
 > [!NOTE]
 > Atualmente, a biblioteca de Machine Learning do Azure só tem suporte no Python 2.7.   
@@ -153,44 +158,50 @@ Estes são o procedimento e os snippets de código que podem ser usados para con
 
 Estrutura do arquivo settings.json:
 
-    {"workspace":{
-    "id"                  : "ENTER YOUR AZUREML WORKSPACE ID",
-    "authorization_token" : "ENTER YOUR AZUREML AUTH TOKEN"
-    }}
-
+```json
+{"workspace":{
+"id"                  : "ENTER YOUR AZUREML WORKSPACE ID",
+"authorization_token" : "ENTER YOUR AZUREML AUTH TOKEN"
+}}
+```
 
 #### <a name="build-a-model-in-r-and-publish-it-in-azure-machine-learning"></a>Compilar um modelo em R e publicá-lo no Azure Machine Learning
-    library(AzureML)
-    ws <- workspace(config="~/.azureml/settings.json")
 
-    if(!require("lme4")) install.packages("lme4")
-    library(lme4)
-    set.seed(1)
-    train <- sleepstudy[sample(nrow(sleepstudy), 120),]
-    m <- lm(Reaction ~ Days + Subject, data = train)
+```r
+library(AzureML)
+ws <- workspace(config="~/.azureml/settings.json")
 
-    # Define a prediction function to publish based on the model:
-    sleepyPredict <- function(newdata){
-          predict(m, newdata=newdata)
-    }
+if(!require("lme4")) install.packages("lme4")
+library(lme4)
+set.seed(1)
+train <- sleepstudy[sample(nrow(sleepstudy), 120),]
+m <- lm(Reaction ~ Days + Subject, data = train)
 
-    ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema = sleepstudy, data.frame=TRUE)
+# Define a prediction function to publish based on the model:
+sleepyPredict <- function(newdata){
+        predict(m, newdata=newdata)
+}
+
+ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema = sleepstudy, data.frame=TRUE)
+```
 
 #### <a name="consume-the-model-deployed-in-azure-machine-learning"></a>Consumir o modelo implantado no Azure Machine Learning
 Para consumir o modelo em um aplicativo cliente, usamos a biblioteca do Machine Learning do Azure para pesquisar o serviço Web publicado por nome usando a chamada à API `services` para determinar o ponto de extremidade. Em seguida, basta chamar a função `consume` e passar o quadro de dados a ser previsto.
 O código a seguir é usado para consumir o modelo publicado como um serviço Web do Machine Learning do Azure.
 
-    library(AzureML)
-    library(lme4)
-    ws <- workspace(config="~/.azureml/settings.json")
+```r
+library(AzureML)
+library(lme4)
+ws <- workspace(config="~/.azureml/settings.json")
 
-    s <-  services(ws, name = "sleepy lm")
-    s <- tail(s, 1) # use the last published function, in case of duplicate function names
+s <-  services(ws, name = "sleepy lm")
+s <- tail(s, 1) # use the last published function, in case of duplicate function names
 
-    ep <- endpoints(ws, s)
+ep <- endpoints(ws, s)
 
-    # OK, try this out, and compare with raw data
-    ans = consume(ep, sleepstudy)$ans
+# OK, try this out, and compare with raw data
+ans = consume(ep, sleepstudy)$ans
+```
 
 Saiba mais sobre a biblioteca de R do Machine Learning do Azure [aqui](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf).
 
@@ -210,33 +221,35 @@ Os cientistas de dados podem compartilhar grandes conjuntos de dados, códigos o
 
 É possível usar o Azure Powershell para criar um compartilhamento do Serviço de Arquivos do Azure. Veja o script a ser executado no Azure PowerShell para criar um compartilhamento do Serviço de Arquivos do Azure.
 
-    # Authenticate to Azure.
-    Connect-AzureRmAccount
-    # Select your subscription
-    Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
-    # Create a new resource group.
-    New-AzureRmResourceGroup -Name <dsvmdatarg>
-    # Create a new storage account. You can reuse existing storage account if you wish.
-    New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
-    # Set your current working storage account
-    Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
+```powershell
+# Authenticate to Azure.
+Connect-AzureRmAccount
+# Select your subscription
+Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
+# Create a new resource group.
+New-AzureRmResourceGroup -Name <dsvmdatarg>
+# Create a new storage account. You can reuse existing storage account if you wish.
+New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
+# Set your current working storage account
+Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
-    # Create a Azure File Service Share
-    $s = New-AzureStorageShare <<teamsharename>>
-    # Create a directory under the FIle share. You can give it any name
-    New-AzureStorageDirectory -Share $s -Path <directory name>
-    # List the share to confirm that everything worked
-    Get-AzureStorageFile -Share $s
-
+# Create a Azure File Service Share
+$s = New-AzureStorageShare <<teamsharename>>
+# Create a directory under the FIle share. You can give it any name
+New-AzureStorageDirectory -Share $s -Path <directory name>
+# List the share to confirm that everything worked
+Get-AzureStorageFile -Share $s
+```
 
 Agora que você criou um compartilhamento de arquivos do Azure, é possível montá-lo em qualquer máquina virtual no Azure. É altamente recomendável que a VM esteja no mesmo datacenter do Azure que a conta de armazenamento para evitar latência e cobranças por transferência de dados. Aqui estão os comandos para montar a unidade na DSVM que você pode executar no Azure PowerShell.
 
-    # Get storage key of the storage account that has the Azure file share from Azure portal. Store it securely on the VM to avoid prompted in next command.
-    cmdkey /add:<<mydatadisk>>.file.core.windows.net /user:<<mydatadisk>> /pass:<storage key>
+```powershell
+# Get storage key of the storage account that has the Azure file share from Azure portal. Store it securely on the VM to avoid prompted in next command.
+cmdkey /add:<<mydatadisk>>.file.core.windows.net /user:<<mydatadisk>> /pass:<storage key>
 
-    # Mount the Azure file share as Z: drive on the VM. You can chose another drive letter if you wish
-    net use z:  \\<mydatadisk>.file.core.windows.net\<<teamsharename>>
-
+# Mount the Azure file share as Z: drive on the VM. You can chose another drive letter if you wish
+net use z:  \\<mydatadisk>.file.core.windows.net\<<teamsharename>>
+```
 
 Agora, você pode acessar essa unidade como faria com qualquer unidade normal na VM.
 
@@ -282,14 +295,14 @@ Substitua **C:\minhapasta** pelo caminho em que seu arquivo está armazenado, **
 
 Execute o comando AzCopy no PowerShell ou em um prompt de comando. Veja um exemplo de uso do comando AzCopy:
 
-    # Copy *.sql from local machine to a Azure Blob
-    "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
+```powershell
+# Copy *.sql from local machine to a Azure Blob
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
 
-    # Copy back all files from Azure Blob container to Local machine
+# Copy back all files from Azure Blob container to Local machine
 
-    "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Dest:"c:\Aaqs\Data Science Scripts\temp" /Source:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /SourceKey:[ENTER STORAGE KEY] /S
-
-
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Dest:"c:\Aaqs\Data Science Scripts\temp" /Source:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /SourceKey:[ENTER STORAGE KEY] /S
+```
 
 Depois de executar o comando AzCopy para copiar um blob do Azure, seu arquivo será mostrado resumidamente no Gerenciador de Armazenamento do Microsoft Azure.
 
@@ -314,43 +327,47 @@ Você pode usar **BlobService** biblioteca para ler dados diretamente do blob em
 
 Primeiro, importe os pacotes necessários:
 
-    import pandas as pd
-    from pandas import Series, DataFrame
-    import numpy as np
-    import matplotlib.pyplot as plt
-    from time import time
-    import pyodbc
-    import os
-    from azure.storage.blob import BlobService
-    import tables
-    import time
-    import zipfile
-    import random
+```python
+import pandas as pd
+from pandas import Series, DataFrame
+import numpy as np
+import matplotlib.pyplot as plt
+from time import time
+import pyodbc
+import os
+from azure.storage.blob import BlobService
+import tables
+import time
+import zipfile
+import random
+```
 
 Em seguida, conecte suas credenciais de conta do Blob do Azure e leia os dados no Blob:
 
-    CONTAINERNAME = 'xxx'
-    STORAGEACCOUNTNAME = 'xxxx'
-    STORAGEACCOUNTKEY = 'xxxxxxxxxxxxxxxx'
-    BLOBNAME = 'nyctaxidataset/nyctaxitrip/trip_data_1.csv'
-    localfilename = 'trip_data_1.csv'
-    LOCALDIRECTORY = os.getcwd()
-    LOCALFILE =  os.path.join(LOCALDIRECTORY, localfilename)
+```python
+CONTAINERNAME = 'xxx'
+STORAGEACCOUNTNAME = 'xxxx'
+STORAGEACCOUNTKEY = 'xxxxxxxxxxxxxxxx'
+BLOBNAME = 'nyctaxidataset/nyctaxitrip/trip_data_1.csv'
+localfilename = 'trip_data_1.csv'
+LOCALDIRECTORY = os.getcwd()
+LOCALFILE =  os.path.join(LOCALDIRECTORY, localfilename)
 
-    #download from blob
-    t1 = time.time()
-    blob_service = BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-    blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILE)
-    t2 = time.time()
-    print(("It takes %s seconds to download "+BLOBNAME) % (t2 - t1))
+#download from blob
+t1 = time.time()
+blob_service = BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
+blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILE)
+t2 = time.time()
+print(("It takes %s seconds to download "+BLOBNAME) % (t2 - t1))
 
-    #unzipping downloaded files if needed
-    #with zipfile.ZipFile(ZIPPEDLOCALFILE, "r") as z:
-    #    z.extractall(LOCALDIRECTORY)
+#unzipping downloaded files if needed
+#with zipfile.ZipFile(ZIPPEDLOCALFILE, "r") as z:
+#    z.extractall(LOCALDIRECTORY)
 
-    df1 = pd.read_csv(LOCALFILE, header=0)
-    df1.columns = ['medallion','hack_license','vendor_id','rate_code','store_and_fwd_flag','pickup_datetime','dropoff_datetime','passenger_count','trip_time_in_secs','trip_distance','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude']
-    print 'the size of the data is: %d rows and  %d columns' % df1.shape
+df1 = pd.read_csv(LOCALFILE, header=0)
+df1.columns = ['medallion','hack_license','vendor_id','rate_code','store_and_fwd_flag','pickup_datetime','dropoff_datetime','passenger_count','trip_time_in_secs','trip_distance','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude']
+print 'the size of the data is: %d rows and  %d columns' % df1.shape
+```
 
 Os dados são lidos como em um quadro de dados:
 
@@ -389,45 +406,45 @@ No Visual Studio, você pode ler dados no armazenamento de blobs, manipular algu
 
 Você pode usar as seguintes consultas U-SQL no Visual Studio:
 
-    @a =
-        EXTRACT medallion string,
-                hack_license string,
-                vendor_id string,
-                rate_code string,
-                store_and_fwd_flag string,
-                pickup_datetime string,
-                dropoff_datetime string,
-                passenger_count int,
-                trip_time_in_secs double,
-                trip_distance double,
-                pickup_longitude string,
-                pickup_latitude string,
-                dropoff_longitude string,
-                dropoff_latitude string
+```usql
+@a =
+    EXTRACT medallion string,
+            hack_license string,
+            vendor_id string,
+            rate_code string,
+            store_and_fwd_flag string,
+            pickup_datetime string,
+            dropoff_datetime string,
+            passenger_count int,
+            trip_time_in_secs double,
+            trip_distance double,
+            pickup_longitude string,
+            pickup_latitude string,
+            dropoff_longitude string,
+            dropoff_latitude string
 
-        FROM "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Input Data File Name>"
-        USING Extractors.Csv();
+    FROM "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Input Data File Name>"
+    USING Extractors.Csv();
 
-    @b =
-        SELECT vendor_id,
-        COUNT(medallion) AS cnt_medallion,
-        SUM(passenger_count) AS cnt_passenger,
-        AVG(trip_distance) AS avg_trip_dist,
-        MIN(trip_distance) AS min_trip_dist,
-        MAX(trip_distance) AS max_trip_dist,
-        AVG(trip_time_in_secs) AS avg_trip_time
-        FROM @a
-        GROUP BY vendor_id;
+@b =
+    SELECT vendor_id,
+    COUNT(medallion) AS cnt_medallion,
+    SUM(passenger_count) AS cnt_passenger,
+    AVG(trip_distance) AS avg_trip_dist,
+    MIN(trip_distance) AS min_trip_dist,
+    MAX(trip_distance) AS max_trip_dist,
+    AVG(trip_time_in_secs) AS avg_trip_time
+    FROM @a
+    GROUP BY vendor_id;
 
-    OUTPUT @b   
-    TO "swebhdfs://<Azure Data Lake Storage Account Name>.azuredatalakestore.net/<Folder Name>/<Output Data File Name>"
-    USING Outputters.Csv();
+OUTPUT @b   
+TO "swebhdfs://<Azure Data Lake Storage Account Name>.azuredatalakestore.net/<Folder Name>/<Output Data File Name>"
+USING Outputters.Csv();
 
-    OUTPUT @b   
-    TO "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Output Data File Name>"
-    USING Outputters.Csv();
-
-
+OUTPUT @b   
+TO "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Output Data File Name>"
+USING Outputters.Csv();
+```
 
 Depois que a consulta for enviada ao servidor, será exibido um diagrama mostrando o status do seu trabalho.
 
@@ -474,94 +491,95 @@ O Azure HDInsight é um serviço gerenciado do Apache Hadoop, Spark, HBase e Sto
 
 * Carregue os dados usando o IPython Notebook. Primeiro, importe os pacotes necessários, insira as credenciais, crie um banco de dados em sua conta de armazenamento e carregue os dados nos clusters HDI.
 
-        #Import required Packages
-        import pyodbc
-        import time as time
-        import json
-        import os
-        import urllib
-        import urllib2
-        import warnings
-        import re
-        import pandas as pd
-        import matplotlib.pyplot as plt
-        from azure.storage.blob import BlobService
-        warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
+```python
+#Import required Packages
+import pyodbc
+import time as time
+import json
+import os
+import urllib
+import urllib2
+import warnings
+import re
+import pandas as pd
+import matplotlib.pyplot as plt
+from azure.storage.blob import BlobService
+warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 
-        #Create the connection to Hive using ODBC
-        SERVER_NAME='xxx.azurehdinsight.net'
-        DATABASE_NAME='nyctaxidb'
-        USERID='xxx'
-        PASSWORD='xxxx'
-        DB_DRIVER='Microsoft Hive ODBC Driver'
-        driver = 'DRIVER={' + DB_DRIVER + '}'
-        server = 'Host=' + SERVER_NAME + ';Port=443'
-        database = 'Schema=' + DATABASE_NAME
-        hiveserv = 'HiveServerType=2'
-        auth = 'AuthMech=6'
-        uid = 'UID=' + USERID
-        pwd = 'PWD=' + PASSWORD
-        CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
-        connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-        cursor=connection.cursor()
+#Create the connection to Hive using ODBC
+SERVER_NAME='xxx.azurehdinsight.net'
+DATABASE_NAME='nyctaxidb'
+USERID='xxx'
+PASSWORD='xxxx'
+DB_DRIVER='Microsoft Hive ODBC Driver'
+driver = 'DRIVER={' + DB_DRIVER + '}'
+server = 'Host=' + SERVER_NAME + ';Port=443'
+database = 'Schema=' + DATABASE_NAME
+hiveserv = 'HiveServerType=2'
+auth = 'AuthMech=6'
+uid = 'UID=' + USERID
+pwd = 'PWD=' + PASSWORD
+CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
+connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
+cursor=connection.cursor()
 
 
-        #Create Hive database and tables
-        queryString = "create database if not exists nyctaxidb;"
-        cursor.execute(queryString)
+#Create Hive database and tables
+queryString = "create database if not exists nyctaxidb;"
+cursor.execute(queryString)
 
-        queryString = """
-                        create external table if not exists nyctaxidb.trip
-                        (
-                            medallion string,
-                            hack_license string,
-                            vendor_id string,
-                            rate_code string,
-                            store_and_fwd_flag string,
-                            pickup_datetime string,
-                            dropoff_datetime string,
-                            passenger_count int,
-                            trip_time_in_secs double,
-                            trip_distance double,
-                            pickup_longitude double,
-                            pickup_latitude double,
-                            dropoff_longitude double,
-                            dropoff_latitude double)  
-                        PARTITIONED BY (month int)
-                        ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                        STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
-                    """
-        cursor.execute(queryString)
+queryString = """
+                create external table if not exists nyctaxidb.trip
+                (
+                    medallion string,
+                    hack_license string,
+                    vendor_id string,
+                    rate_code string,
+                    store_and_fwd_flag string,
+                    pickup_datetime string,
+                    dropoff_datetime string,
+                    passenger_count int,
+                    trip_time_in_secs double,
+                    trip_distance double,
+                    pickup_longitude double,
+                    pickup_latitude double,
+                    dropoff_longitude double,
+                    dropoff_latitude double)  
+                PARTITIONED BY (month int)
+                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
+                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
+            """
+cursor.execute(queryString)
 
-        queryString = """
-                        create external table if not exists nyctaxidb.fare
-                        (
-                            medallion string,
-                            hack_license string,
-                            vendor_id string,
-                            pickup_datetime string,
-                            payment_type string,
-                            fare_amount double,
-                            surcharge double,
-                            mta_tax double,
-                            tip_amount double,
-                            tolls_amount double,
-                            total_amount double)
-                        PARTITIONED BY (month int)
-                        ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                        STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
-                    """
-        cursor.execute(queryString)
+queryString = """
+                create external table if not exists nyctaxidb.fare
+                (
+                    medallion string,
+                    hack_license string,
+                    vendor_id string,
+                    pickup_datetime string,
+                    payment_type string,
+                    fare_amount double,
+                    surcharge double,
+                    mta_tax double,
+                    tip_amount double,
+                    tolls_amount double,
+                    total_amount double)
+                PARTITIONED BY (month int)
+                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
+                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
+            """
+cursor.execute(queryString)
 
 
-        #Upload data from blob storage to HDI cluster
-        for i in range(1,13):
-            queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
-            cursor.execute(queryString)
-            queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
-            cursor.execute(queryString)
-
+#Upload data from blob storage to HDI cluster
+for i in range(1,13):
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
+    cursor.execute(queryString)
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
+    cursor.execute(queryString)
+```
 
 * Como alternativa, você pode seguir este [passo a passo](../team-data-science-process/hive-walkthrough.md) para carregar os dados sobre Táxis de NYC no cluster HDI. As principais etapas incluem:
   
@@ -575,214 +593,224 @@ Depois que os dados são carregados no cluster HDI, você pode verificá-los no 
 
 Uma vez que os dados estão no cluster Hadoop, você pode usar o pacote pyodbc para se conectar aos Clusters Hadoop e consultar o banco de dados usando Hive para exploração e engenharia de recurso. É possível exibir as tabelas existentes que criamos na etapa de pré-requisitos.
 
-    queryString = """
-        show tables in nyctaxidb2;
-        """
-    pd.read_sql(queryString,connection)
-
+```python
+queryString = """
+    show tables in nyctaxidb2;
+    """
+pd.read_sql(queryString,connection)
+```
 
 ![Exibir tabelas existentes](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
 
 Vamos examinar o número de registros em cada mês e as frequências de gorjetas na tabela de corridas:
 
-    queryString = """
-        select month, count(*) from nyctaxidb.trip group by month;
-        """
-    results = pd.read_sql(queryString,connection)
+```python
+queryString = """
+    select month, count(*) from nyctaxidb.trip group by month;
+    """
+results = pd.read_sql(queryString,connection)
 
-    %matplotlib inline
+%matplotlib inline
 
-    results.columns = ['month', 'trip_count']
-    df = results.copy()
-    df.index = df['month']
-    df['trip_count'].plot(kind='bar')
-
+results.columns = ['month', 'trip_count']
+df = results.copy()
+df.index = df['month']
+df['trip_count'].plot(kind='bar')
+```
 
 ![Gráfico do número de registros a cada mês](./media/vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
 
-    queryString = """
-        SELECT tipped, COUNT(*) AS tip_freq
-        FROM
-        (
-            SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
-            FROM nyctaxidb.fare
-        )tc
-        GROUP BY tipped;
-        """
-    results = pd.read_sql(queryString,connection)
+```python
+queryString = """
+    SELECT tipped, COUNT(*) AS tip_freq
+    FROM
+    (
+        SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
+        FROM nyctaxidb.fare
+    )tc
+    GROUP BY tipped;
+    """
+results = pd.read_sql(queryString,connection)
 
-    results.columns = ['tipped', 'trip_count']
-    df = results.copy()
-    df.index = df['tipped']
-    df['trip_count'].plot(kind='bar')
-
+results.columns = ['tipped', 'trip_count']
+df = results.copy()
+df.index = df['tipped']
+df['trip_count'].plot(kind='bar')
+```
 
 ![Gráfico das frequências de dicas](./media/vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
 
 Você também pode computar a distância entre o local de captura e o local de entrega e compará-la com a distância do trajeto.
 
-    queryString = """
-                    select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
-                        3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-                        *radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-                        *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-                        /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-                        +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*
-                        pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance
-                        from nyctaxidb.trip
-                        where month=1
-                            and pickup_longitude between -90 and -30
-                            and pickup_latitude between 30 and 90
-                            and dropoff_longitude between -90 and -30
-                            and dropoff_latitude between 30 and 90;
-                """
-    results = pd.read_sql(queryString,connection)
-    results.head(5)
-
+```python
+queryString = """
+                select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
+                    3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
+                    *radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
+                    *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
+                    /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
+                    +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*
+                    pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance
+                    from nyctaxidb.trip
+                    where month=1
+                        and pickup_longitude between -90 and -30
+                        and pickup_latitude between 30 and 90
+                        and dropoff_longitude between -90 and -30
+                        and dropoff_latitude between 30 and 90;
+            """
+results = pd.read_sql(queryString,connection)
+results.head(5)
+```
 
 ![Linha superiores da tabela de saída e chegada](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
-    results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                       'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-    df = results.loc[results['trip_distance']<=100] #remove outliers
-    df = df.loc[df['direct_distance']<=100] #remove outliers
-    plt.scatter(df['direct_distance'], df['trip_distance'])
-
+```python
+results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
+                    'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
+df = results.loc[results['trip_distance']<=100] #remove outliers
+df = df.loc[df['direct_distance']<=100] #remove outliers
+plt.scatter(df['direct_distance'], df['trip_distance'])
+```
 
 ![Gráfico da distância de coleta/entrega em relação à distância de viagem](./media/vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
 
 Agora, vamos preparar uma conjunto reduzido de dados (1%) para modelagem. Você pode usar esses dados no módulo de leitor do Machine Learning.
 
-        queryString = """
-        create  table if not exists nyctaxi_downsampled_dataset_testNEW (
-        medallion string,
-        hack_license string,
-        vendor_id string,
-        rate_code string,
-        store_and_fwd_flag string,
-        pickup_datetime string,
-        dropoff_datetime string,
-        pickup_hour string,
-        pickup_week string,
-        weekday string,
-        passenger_count int,
-        trip_time_in_secs double,
-        trip_distance double,
-        pickup_longitude double,
-        pickup_latitude double,
-        dropoff_longitude double,
-        dropoff_latitude double,
-        direct_distance double,
-        payment_type string,
-        fare_amount double,
-        surcharge double,
-        mta_tax double,
-        tip_amount double,
-        tolls_amount double,
-        total_amount double,
-        tipped string,
-        tip_class string
-        )
-        row format delimited fields terminated by ','
-        lines terminated by '\\n'
-        stored as textfile;
-        """
-        cursor.execute(queryString)
+```python
+queryString = """
+create  table if not exists nyctaxi_downsampled_dataset_testNEW (
+medallion string,
+hack_license string,
+vendor_id string,
+rate_code string,
+store_and_fwd_flag string,
+pickup_datetime string,
+dropoff_datetime string,
+pickup_hour string,
+pickup_week string,
+weekday string,
+passenger_count int,
+trip_time_in_secs double,
+trip_distance double,
+pickup_longitude double,
+pickup_latitude double,
+dropoff_longitude double,
+dropoff_latitude double,
+direct_distance double,
+payment_type string,
+fare_amount double,
+surcharge double,
+mta_tax double,
+tip_amount double,
+tolls_amount double,
+total_amount double,
+tipped string,
+tip_class string
+)
+row format delimited fields terminated by ','
+lines terminated by '\\n'
+stored as textfile;
+"""
+cursor.execute(queryString)
+```
 
-        --- now insert contents of the join into the preceding internal table
+Agora insira o conteúdo da junção na tabela interna anterior
 
-        queryString = """
-        insert overwrite table nyctaxi_downsampled_dataset_testNEW
-        select
-        t.medallion,
-        t.hack_license,
-        t.vendor_id,
-        t.rate_code,
-        t.store_and_fwd_flag,
-        t.pickup_datetime,
-        t.dropoff_datetime,
-        hour(t.pickup_datetime) as pickup_hour,
-        weekofyear(t.pickup_datetime) as pickup_week,
-        from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
-        t.passenger_count,
-        t.trip_time_in_secs,
-        t.trip_distance,
-        t.pickup_longitude,
-        t.pickup_latitude,
-        t.dropoff_longitude,
-        t.dropoff_latitude,
-        t.direct_distance,
-        f.payment_type,
-        f.fare_amount,
-        f.surcharge,
-        f.mta_tax,
-        f.tip_amount,
-        f.tolls_amount,
-        f.total_amount,
-        if(tip_amount>0,1,0) as tipped,
-        if(tip_amount=0,0,
-        if(tip_amount>0 and tip_amount<=5,1,
-        if(tip_amount>5 and tip_amount<=10,2,
-        if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
-        from
-        (
-        select
-        medallion,
-        hack_license,
-        vendor_id,
-        rate_code,
-        store_and_fwd_flag,
-        pickup_datetime,
-        dropoff_datetime,
-        passenger_count,
-        trip_time_in_secs,
-        trip_distance,
-        pickup_longitude,
-        pickup_latitude,
-        dropoff_longitude,
-        dropoff_latitude,
-        3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-        radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-        *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-        /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-        +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance,
-        rand() as sample_key
+```python
+queryString = """
+insert overwrite table nyctaxi_downsampled_dataset_testNEW
+select
+t.medallion,
+t.hack_license,
+t.vendor_id,
+t.rate_code,
+t.store_and_fwd_flag,
+t.pickup_datetime,
+t.dropoff_datetime,
+hour(t.pickup_datetime) as pickup_hour,
+weekofyear(t.pickup_datetime) as pickup_week,
+from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
+t.passenger_count,
+t.trip_time_in_secs,
+t.trip_distance,
+t.pickup_longitude,
+t.pickup_latitude,
+t.dropoff_longitude,
+t.dropoff_latitude,
+t.direct_distance,
+f.payment_type,
+f.fare_amount,
+f.surcharge,
+f.mta_tax,
+f.tip_amount,
+f.tolls_amount,
+f.total_amount,
+if(tip_amount>0,1,0) as tipped,
+if(tip_amount=0,0,
+if(tip_amount>0 and tip_amount<=5,1,
+if(tip_amount>5 and tip_amount<=10,2,
+if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
+from
+(
+select
+medallion,
+hack_license,
+vendor_id,
+rate_code,
+store_and_fwd_flag,
+pickup_datetime,
+dropoff_datetime,
+passenger_count,
+trip_time_in_secs,
+trip_distance,
+pickup_longitude,
+pickup_latitude,
+dropoff_longitude,
+dropoff_latitude,
+3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
+radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
+*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
+/sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
++cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance,
+rand() as sample_key
 
-        from trip
-        where pickup_latitude between 30 and 90
-            and pickup_longitude between -90 and -30
-            and dropoff_latitude between 30 and 90
-            and dropoff_longitude between -90 and -30
-        )t
-        join
-        (
-        select
-        medallion,
-        hack_license,
-        vendor_id,
-        pickup_datetime,
-        payment_type,
-        fare_amount,
-        surcharge,
-        mta_tax,
-        tip_amount,
-        tolls_amount,
-        total_amount
-        from fare
-        )f
-        on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
-        where t.sample_key<=0.01
-        """
-        cursor.execute(queryString)
+from trip
+where pickup_latitude between 30 and 90
+    and pickup_longitude between -90 and -30
+    and dropoff_latitude between 30 and 90
+    and dropoff_longitude between -90 and -30
+)t
+join
+(
+select
+medallion,
+hack_license,
+vendor_id,
+pickup_datetime,
+payment_type,
+fare_amount,
+surcharge,
+mta_tax,
+tip_amount,
+tolls_amount,
+total_amount
+from fare
+)f
+on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
+where t.sample_key<=0.01
+"""
+cursor.execute(queryString)
+```
 
 Após alguns instantes, você pode ver que os dados foram carregados nos clusters Hadoop:
 
-    queryString = """
-        select * from nyctaxi_downsampled_dataset limit 10;
-        """
-    cursor.execute(queryString)
-    pd.read_sql(queryString,connection)
-
+```python
+queryString = """
+    select * from nyctaxi_downsampled_dataset limit 10;
+    """
+cursor.execute(queryString)
+pd.read_sql(queryString,connection)
+```
 
 ![Linhas superiores de dados da tabela](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
@@ -828,17 +856,17 @@ Visualize o arquivo JSON Volcano do exemplo anterior do Cosmos DB no Power BI pa
 
 Em vez das etapas anteriores, você pode colar o código a seguir que extrai do script as etapas usadas no Editor Avançado do Power BI, permitindo escrever as transformações de dados em uma linguagem de consulta.
 
-    let
-        Source = Json.Document(Web.Contents("https://cahandson.blob.core.windows.net/samples/volcano.json")),
-        #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
-        #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"Volcano Name", "Country", "Region", "Location", "Elevation", "Type", "Status", "Last Known Eruption", "id"}, {"Volcano Name", "Country", "Region", "Location", "Elevation", "Type", "Status", "Last Known Eruption", "id"}),
-        #"Expanded Location" = Table.ExpandRecordColumn(#"Expanded Column1", "Location", {"coordinates"}, {"coordinates"}),
-        #"Added Custom" = Table.AddColumn(#"Expanded Location", "LatLong", each Text.From([coordinates]{1})&","&Text.From([coordinates]{0})),
-        #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Elevation", type number}})
-    in
-        #"Changed Type"
-
-
+```pqfl
+let
+    Source = Json.Document(Web.Contents("https://cahandson.blob.core.windows.net/samples/volcano.json")),
+    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"Volcano Name", "Country", "Region", "Location", "Elevation", "Type", "Status", "Last Known Eruption", "id"}, {"Volcano Name", "Country", "Region", "Location", "Elevation", "Type", "Status", "Last Known Eruption", "id"}),
+    #"Expanded Location" = Table.ExpandRecordColumn(#"Expanded Column1", "Location", {"coordinates"}, {"coordinates"}),
+    #"Added Custom" = Table.AddColumn(#"Expanded Location", "LatLong", each Text.From([coordinates]{1})&","&Text.From([coordinates]{0})),
+    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Elevation", type number}})
+in
+    #"Changed Type"
+```
 
 Agora você tem os dados no modelo de dados do Power BI. A área de trabalho do Power BI deve aparecer da seguinte maneira:
 

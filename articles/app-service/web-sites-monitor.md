@@ -1,6 +1,6 @@
 ---
 title: Monitorar aplicativos – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Saiba como monitorar Aplicativos no Serviço de Aplicativo do Azure usando o Portal do Azure.
+description: Saiba como monitorar aplicativos no Serviço de Aplicativo do Azure usando o portal do Azure.
 services: app-service
 documentationcenter: ''
 author: btardif
@@ -15,150 +15,135 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 103b5c1d2bc70f187b6e65a9fa9d80a35ad8e0c1
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321572"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994939"
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>Como: Monitorar aplicativos no Serviço de Aplicativo do Azure
-O [Serviço de Aplicativo](https://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade de monitoramento no [Portal do Azure](https://portal.azure.com).
-O portal do Azure inclui a capacidade de examinar **cotas** e **métricas** para um aplicativo, bem como o Plano do Serviço de Aplicativo, configurar **alertas** e até mesmo **dimensionar** automaticamente de acordo com essas métricas.
+# <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no Serviço de Aplicativo do Azure
+O [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) fornece uma funcionalidade de monitoramento interno para aplicativos Web, back-ends móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
 
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+No portal do Azure, você pode revisar *cotas* e *métricas* para um aplicativo, revisar o plano do Serviço de Aplicativo e configurar automaticamente *alertas* e *dimensionamento* baseados nas métricas.
 
-## <a name="understanding-quotas-and-metrics"></a>Noções básicas sobre cotas e métricas
-### <a name="quotas"></a>Cotas
-Aplicativos hospedados no Serviço de Aplicativo estão sujeitos a determinados *limites* de recursos que eles podem usar. Os limites são definidos pelo **Plano do Serviço de Aplicativo** associado ao aplicativo.
+## <a name="understand-quotas"></a>Entender cotas
+
+Aplicativos hospedados no Serviço de Aplicativo estão sujeitos a determinados limites de uso de recursos. Os limites são definidos pelo plano do Serviço de Aplicativo associado ao aplicativo.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Se o aplicativo estiver hospedado em um plano **Gratuito** ou **Compartilhado**, os limites de uso dos recursos que o aplicativo pode usar são definidos por **Cotas**.
+Se o aplicativo estiver hospedado em um plano *Gratuito* ou *Compartilhado*, os limites de uso dos recursos por parte do aplicativo são definidos por cotas.
 
-Se o aplicativo estiver hospedado em um plano **Básico**, **Standard** ou **Premium**, os limites de uso dos recursos que podem usar são definidos pelo **tamanho** (Pequeno, Médio, Grande) e **contagem de instâncias** (1, 2, 3,...) do **Plano do Serviço de Aplicativo**.
+Se o aplicativo estiver hospedado em um plano *Básico*, *Standard* ou *Premium*, os limites de uso dos recursos são definidos pelo *tamanho* (Pequeno, Médio, Grande) e *contagem de instâncias* (1, 2, 3...) do Plano do Serviço de Aplicativo.
 
-**Cotas** para aplicativos **Gratuitos** ou **Compartilhados** são:
+As cotas para aplicativos Gratuitos ou Compartilhados são:
 
-* **CPU(Curto)**
-  * Quantidade de CPU permitida para esse aplicativo em um intervalo de cinco minutos. Essa cota é definida novamente a cada cinco minutos.
-* **CPU(dia)**
-  * Quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC.
-* **Memória**
-  * Quantidade total de memória permitida para esse aplicativo.
-* **Largura de banda**
-  * Quantidade total de largura de banda de saída permitida para esse aplicativo em um dia.
-    Essa cota é definida novamente a cada 24 horas, à meia-noite UTC.
-* **Sistema de arquivos**
-  * Quantidade total de armazenamento permitida.
+| Quota | DESCRIÇÃO |
+| --- | --- |
+| **CPU (Curto)** | A quantidade de CPU permitida para esse aplicativo em um intervalo de cinco minutos. Essa cota é definida novamente a cada cinco minutos. |
+| **CPU (Dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
+| **Memória** | A quantidade total de memória permitida para esse aplicativo. |
+| **Largura de banda** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
+| **Sistema de arquivos** | A quantidade total de armazenamento permitida. |
 
-A única cota aplicável aos aplicativos hospedados no plano **Básico**, **Standard** e **Premium** é **Sistema de arquivos**.
+A única cota aplicável aos aplicativos hospedados no plano *Básico*, *Standard* e *Premium* é Sistema de arquivos.
 
-Para saber mais sobre cotas, limites e recursos específicos disponíveis para SKUs diferentes do Serviço de Aplicativo, confira: [Limites de Serviço da assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits)
+Para saber mais sobre cotas, limites e recursos específicos disponíveis para os vários SKUs de Serviço de Aplicativo, confira [Limites do serviço de assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits).
 
-#### <a name="quota-enforcement"></a>Aplicação de cota
-Se um aplicativo exceder a cota **CPU (curto)**, **CPU (dia)** ou **largura de banda**, o aplicativo será interrompido até que a cota seja redefinida. Durante esse tempo, todas as solicitações de entrada resultarão em um **HTTP 403**.
-![][http403]
+### <a name="quota-enforcement"></a>Aplicação de cota
 
-Se a cota **memória** do aplicativo for excedida, o aplicativo será reiniciado.
+Se um aplicativo exceder a cota *CPU (Curto)*, *CPU (Dia)* ou *largura de banda*, o aplicativo será interrompido até que a cota seja redefinida. Durante esse tempo, todas as solicitações de entrada resultarão em um erro HTTP 403.
 
-Se a cota **Sistema de arquivos** for excedida, qualquer operação falhará, incluindo a gravação em logs.
+![Mensagem de erro 403][http403]
 
-As cotas podem ser aumentadas ou removidas de seu aplicativo pela atualização de seu Plano do Serviço de Aplicativo.
+Se a cota de Memória do aplicativo for excedida, o aplicativo será reiniciado.
 
-### <a name="metrics"></a>Métricas
-**Métricas** fornecem informações sobre o aplicativo, ou sobre o comportamento do Plano do Serviço de Aplicativo.
+Se a cota de Sistema de arquivos for excedida, qualquer operação de gravação falhará. Falhas em operações de gravação incluem gravações em logs.
 
-Para um **Aplicativo**, as métricas disponíveis são:
+Aumente ou remova cotas de seu aplicativo atualizando seu Plano do Serviço de Aplicativo.
 
-* **Tempo Médio de Resposta**
-  * O tempo médio necessário para o aplicativo atender às solicitações em ms.
-* **Conjunto de trabalho de memória média**
-  * A quantidade média de memória em MiBs usada pelo aplicativo.
-* **Tempo de CPU**
-  * A quantidade de CPU em segundos consumida pelo aplicativo. Para obter mais Informações sobre essa métrica, confira: [Tempo de CPU versus percentual de CPU](#cpu-time-vs-cpu-percentage)
-* **Entrada de Dados**
-  * A quantidade de largura de banda de entrada consumida pelo aplicativo em MiBs.
-* **Saída de dados**
-  * A quantidade de largura de banda de saída consumida pelo aplicativo em MiBs.
-* **Http 2xx**
-  * Contagem de solicitações que resultam em um código de status HTTP > = 200, mas < 300.
-* **Http 3xx**
-  * Contagem de solicitações que resultam em um código de status HTTP > = 300, mas < 400.
-* **Http 401**
-  * Contagem de solicitações que resultam em um código de status HTTP 401.
-* **Http 403**
-  * Contagem de solicitações que resultam em um código de status HTTP 403.
-* **Http 404**
-  * Contagem de solicitações que resultam em um código de status HTTP 404.
-* **Http 406**
-  * Contagem de solicitações que resultam em um código de status HTTP 406.
-* **Http 4xx**
-  * Contagem de solicitações que resultam em um código de status HTTP > = 400, mas < 500.
-* **Erros do Servidor Http**
-  * Contagem de solicitações que resultam em um código de status HTTP > = 500, mas < 600.
-* **Conjunto de trabalho de memória**
-  * Quantidade atual de memória usada pelo aplicativo em MiBs.
-* **Solicitações**
-  * Número total de solicitações, independentemente de seu código de status HTTP resultante.
+## <a name="understand-metrics"></a>Entender as métricas
 
-Para um **Plano do Serviço de Aplicativo**, as métricas disponíveis são:
+Métricas fornecem informações sobre o aplicativo ou sobre o comportamento do Plano do Serviço de Aplicativo.
+
+Para um aplicativo, as métricas disponíveis são:
+
+| Métrica | DESCRIÇÃO |
+| --- | --- |
+| **Tempo Médio de Resposta** | O tempo médio necessário para o aplicativo atender às solicitações em milissegundos. |
+| **Conjunto de trabalho de memória média** | A quantidade média de memória usada pelo aplicativo em mebibytes (MiB). |
+| **Tempo de CPU** | A quantidade de CPU consumida pelo aplicativo em segundos. Para saber mais sobre essa métrica, consulte: [Tempo de CPU versus percentual de CPU](#cpu-time-vs-cpu-percentage). |
+| **Entrada de Dados** | A quantidade de largura de banda de entrada consumida pelo aplicativo em MiB. |
+| **Saída de dados** | A quantidade de largura de banda de saída consumida pelo aplicativo em MiB. |
+| **Http 2xx** | A contagem de solicitações que resultam em um código de status HTTP ≥ 200, mas < 300. |
+| **Http 3xx** | A contagem de solicitações que resultam em um código de status HTTP ≥ 300, mas < 400. |
+| **Http 401** | A contagem de solicitações que resultam em um código de status HTTP 401. |
+| **Http 403** | A contagem de solicitações que resultam em um código de status HTTP 403. |
+| **Http 404** | A contagem de solicitações que resultam em um código de status HTTP 404. |
+| **Http 406** | A contagem de solicitações que resultam em um código de status HTTP 406. |
+| **Http 4xx** | A contagem de solicitações que resultam em um código de status HTTP ≥ 400, mas < 500. |
+| **Erros do Servidor Http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 500, mas < 600. |
+| **Conjunto de trabalho de memória** | A quantidade atual de memória usada pelo aplicativo em MiB. |
+| **Solicitações** | O número total de solicitações, independentemente de seu código de status HTTP resultante. |
+
+Para um Plano do Serviço de Aplicativo, as métricas disponíveis são:
 
 > [!NOTE]
-> As métricas do Plano do Serviço de Aplicativo só estão disponíveis para os planos nos níveis **Básico**, **Standard** e **Premium**.
-> 
+> As métricas do Plano do Serviço de Aplicativo só estão disponíveis para os planos *Básico*, *Standard* e *Premium*.
 > 
 
-* **Porcentagem de CPU**
-  * A média de CPU usada em todas as instâncias do plano.
-* **Porcentagem de Memória**
-  * A média de memória usada em todas as instâncias do plano.
-* **Entrada de Dados**
-  * A média de largura de banda de entrada usada em todas as instâncias do plano.
-* **Saída de dados**
-  * A média de largura de banda de saída usada em todas as instâncias do plano.
-* **Tamanho da fila do disco**
-  * O número médio de solicitações de leitura e gravação enfileiradas no armazenamento. Um tamanho grande de fila de disco é uma indicação de um aplicativo que pode estar lento devido ao excesso de E/S de disco.
-* **Tamanho da Fila de Http**
-  * O número médio de solicitações HTTP que tiveram de esperar na fila antes de serem atendidas. Um tamanho de fila HTTP alto ou crescente é um sintoma de um plano sob carga pesada.
+| Métrica | DESCRIÇÃO |
+| --- | --- |
+| **Porcentagem de CPU** | A média de CPU usada em todas as instâncias do plano. |
+| **Porcentagem de Memória** | A média de memória usada em todas as instâncias do plano. |
+| **Entrada de Dados** | A média de largura de banda de entrada usada em todas as instâncias do plano. |
+| **Saída de dados** | A média de largura de banda de saída usada em todas as instâncias do plano. |
+| **Tamanho da fila do disco** | O número médio de solicitações de leitura e gravação enfileiradas no armazenamento. Uma fila de disco grande é uma indicação de um aplicativo que pode estar lento devido ao excesso de E/S de disco. |
+| **Tamanho da Fila de Http** | O número médio de solicitações HTTP que tiveram de esperar na fila antes de serem atendidas. Um tamanho de fila HTTP alto ou crescente é um sintoma de um plano sob carga pesada. |
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>Tempo de CPU versus porcentagem de CPU
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
-Há duas métricas que refletem o uso da CPU. **Tempo de CPU** e **Percentual de CPU**
+Há duas métricas que refletem o uso da CPU:
 
-**Tempo de CPU** é útil para aplicativos hospedados nos planos **Gratuito** ou **Compartilhado** desde que uma de suas cotas seja definida em minutos de CPU usados pelo aplicativo.
+**Tempo de CPU**: Útil para aplicativos hospedados nos planos Gratuito ou Compartilhado, pois uma de suas cotas é definida em minutos de CPU usados pelo aplicativo.
 
-A **porcentagem de CPU** é útil para os aplicativos hospedados nos planos **básico**, **padrão** e **premium**, pois podem ser dimensionados. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
+**Percentual de CPU**: Útil para aplicativos hospedados nos planos Básico, Standard e Premium, pois podem ser dimensionados. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
 
-## <a name="metrics-granularity-and-retention-policy"></a>Granularidade de Métricas e a Política de Retenção
-As métricas de um aplicativo e de um Plano do Serviço de Aplicativo são registradas e agregadas pelo serviço com as seguintes granularidades e políticas de retenção:
+## <a name="metrics-granularity-and-retention-policy"></a>Granularidade de métricas e política de retenção
+As métricas de um aplicativo e de um plano do Serviço de Aplicativo são registradas e agregadas pelo serviço com as seguintes granularidades e políticas de retenção:
 
-* Métricas de granularidade de **minuto** são mantidas por **30 horas**
-* Métricas de granularidade de **hora** são mantidas por **30 dias**
-* Métricas de granularidade de **dia** são mantidas por **30 dias**
+* Métricas de granularidade de **minuto** são mantidas por 30 horas.
+* Métricas de granularidade de **hora** são mantidas por 30 dias.
+* Métricas de granularidade de **dia** são mantidas por 30 dias.
 
-## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoramento de cotas e métricas no Portal do Azure.
-Você pode examinar o status das diferentes **cotas** e **métricas** que afetam um aplicativo no [Portal do Azure](https://portal.azure.com).
+## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoramento de cotas e métricas no portal do Azure
+Para examinar o status das várias cotas e métricas que afetam um aplicativo, acesse o [portal do Azure](https://portal.azure.com).
 
-![][quotas]
-**Cotas** podem ser encontradas em Configurações >**Cotas**. A experiência do usuário permite que você examine: (1) o nome das cotas, (2) o intervalo de redefinição, (3) o limite atual e (4) o valor atual.
+![Gráfico de cotas no portal do Azure][quotas]
 
-![][metrics]
-**Métricas** podem ser acessadas diretamente da página do recurso. Também é possível personalizar o gráfico: (1) **clicando** nele e selecionando (2) **editar gráfico**.
-A partir daqui, você pode alterar (3) o **intervalo de tempo**, (4) o **tipo de gráfico** e (5) as **métricas** a serem exibidas.  
+Para encontrar as cotas, selecione **Configurações** > **Cotas**. No gráfico, você pode ver: 
+1. O nome da cota.
+1. O intervalo de redefinição.
+1. O limite atual.
+1. O valor atual.
 
-Você pode aprender mais sobre as métricas aqui: [Monitorar métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+![Gráfico de métrica no portal do Azure][metrics] Você pode acessar as métricas diretamente da página **Recurso**. Para personalizar o gráfico: 
+1. Selecione o gráfico.
+1. Selecione **Editar gráfico**.
+1. Edite o **Intervalo de Tempo**.
+1. Edite o **Tipo de gráfico**.
+1. Edite as métricas que você deseja exibir.  
+
+Para saber mais sobre as métricas, confira [Monitorar as métricas do serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertas e dimensionamento automático
-As métricas para um Aplicativo ou Plano do Serviço de Aplicativo podem ser vinculadas a alertas. Para saber mais, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
+As métricas para um aplicativo ou Plano do Serviço de Aplicativo podem ser vinculadas a alertas. Para obter mais informações, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Aplicativos do Serviço de Aplicativo hospedados em Planos do Serviço de Aplicativo Básico, Standard ou Premium oferecem suporte ao **Dimensionamento Automático**. O dimensionamento automático permite que você configure regras que monitoram as métricas do Plano do serviço de aplicativo. As regras podem aumentar ou diminuir a contagem de instâncias fornecendo os recursos adicionais conforme necessário. As regras também podem ajudar a economizar dinheiro quando o aplicativo está excessivamente provisionado. Você pode aprender mais sobre o dimensionamento automático aqui: [Como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e aqui, [Práticas recomendadas para dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
+Aplicativos do Serviço de Aplicativo hospedados em Planos do Serviço de Aplicativo Básico, Standard ou Premium oferecem suporte ao dimensionamento automático. Com o dimensionamento automático, você pode configurar regras que monitoram as métricas do Plano do Serviço de Aplicativo. As regras podem aumentar ou diminuir a contagem de instâncias, o que pode fornecer recursos adicionais, conforme o necessário. As regras também podem ajudar você a economizar dinheiro quando o aplicativo for excessivamente provisionado. 
 
-> [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-> 
-> 
+Para saber mais sobre o dimensionamento automático, confira [Como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e [Melhores práticas para o dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

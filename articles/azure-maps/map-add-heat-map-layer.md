@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ec1343f85216171adac22f873f9be2e72bb4c282
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: cbf134640f981056c0996ffc6768ebc1381ce2ac
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892754"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995143"
 ---
 # <a name="add-a-heat-map-layer"></a>Adicionar uma camada do mapa de calor
 
 Mapas de calor, também conhecidos como ponto de mapas de densidade, são um tipo de visualização de dados usado para representar a densidade de dados usando um intervalo de cores. Geralmente são usados para mostrar os dados de "pontos de acesso" em um mapa e são uma ótima maneira de processar grandes conjuntos de dados de ponto.  Por exemplo, dezenas de milhares de pontos dentro da exibição de mapa de renderização como símbolos abrangem a maior parte da área do mapa e resultaria em muitos símbolos sendo cobertos por outras pessoas, dificultando obter muitas informações sobre os dados. No entanto, visualizar esse mesmo conjunto de dados como um mapa de calor torna mais fácil ver onde os dados de ponto são o densest e a densidade relativa para outras áreas. Há muitos cenários nos quais os mapas de calor são usados. Veja alguns exemplos;
 
 * Dados de temperatura normalmente são renderizados como mapa de calor, pois ele fornece aproximações para a temperatura entre dois pontos de dados.
-* Renderização de dados de sensores de ruído, como um mapa de calor não só mostra a insanidade do ruído em que o sensor está, mas também pode fornecer ideias sobre a dissipação de uma distância. O nível de ruído em um site não pode ser alto, no entanto, se sobrepõe a área de cobertura de ruído de vários sensores, é possível que essa área de sobreposição possa enfrentar níveis mais altos de ruído e, portanto, deve estar visível no mapa de calor.
+* Renderização de dados de sensores de ruído, como um mapa de calor não só mostra a intensidade do ruído em que o sensor está, mas também pode fornecer ideias sobre a dissipação de uma distância. O nível de ruído em um site não pode ser alto, no entanto, se sobrepõe a área de cobertura de ruído de vários sensores, é possível que essa área de sobreposição possa enfrentar níveis mais altos de ruído e, portanto, deve estar visível no mapa de calor.
 * Visualizar um traço de GPS que inclua a velocidade, como um mapa de altura de peso em que a intensidade de cada ponto de dados se baseia na velocidade é uma ótima maneira de ver rapidamente onde o veículo estava acelerando.
 
 > [!TIP]

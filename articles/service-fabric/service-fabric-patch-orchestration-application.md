@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285043"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754026"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -43,10 +43,10 @@ O aplicativo de orquestração de patch fornece os recursos a seguir:
 
 O aplicativo de orquestração de patch é composto dos seguintes subcomponentes:
 
-- **Serviço de Coordenador**: este serviço com estado é responsável por:
+- **Serviço de coordenador**: este serviço com estado é responsável por:
     - Coordenar o trabalho do Windows Update em todo o cluster.
     - Armazenar o resultado das operações concluídas do Windows Update.
-- **Serviço de Agente do Nó**: é um serviço sem estado, executado em todos os nós de cluster do Service Fabric. O serviço é responsável por:
+- **Serviço de agente do nó**: esse serviço sem estado é executado em todos os nós de cluster do Service Fabric. O serviço é responsável por:
     - Inicialização de NTService do Agente do Nó.
     - Monitoramento do NTService do Agente do Nó.
 - **NTService do Agente do Nó**: este serviço Windows NT é executado em um privilégio de nível superior (SISTEMA). Em comparação, o Serviço de Agente do Nó e o Serviço de Coordenador são executados em um nível inferior de privilégio (SERVIÇO DE REDE). O serviço é responsável por executar os seguintes trabalhos do Windows Update em todos os nós de cluster:
@@ -157,11 +157,11 @@ O comportamento do aplicativo de orquestração de patch pode ser configurado pa
 | WUOperationTimeOutInMinutes | int <br>(Padrão: 90)                   | Especifica o tempo limite para qualquer operação do Windows Update (pesquisar, baixar ou instalar). Se a operação não for concluída dentro do tempo limite especificado, ela será anulada.       |
 | WURescheduleCount     | int <br> (Padrão: 5)                  | O número máximo de vezes que o serviço reagendaria o Windows Update no caso de falha persistente na operação.          |
 | WURescheduleTimeInMinutes | int <br>(Padrão: 30) | O intervalo ao qual o serviço reagendaria o Windows Update no caso de persistência da falha. |
-| WUFrequency           | Cadeia de caracteres separada por vírgula (padrão: "Semanalmente, quarta-feira, 7:00:00")     | A frequência para a instalação do Windows Update. O formato e os valores possíveis são: <br>-   Mensal, DD, HH:MM:SS, por exemplo, Mensal, 5,12:22:32. <br> -   Semanal, DIA, HH:MM:SS, por exemplo, Semanal, terça-feira, 12:22:32.  <br> -   Diário, HH:MM:SS, por exemplo, Diário, 12:22:32.  <br> -  Nenhum indica que o Windows Update não deve ser executado.  <br><br> Observe que os horários estão em UTC.|
+| WUFrequency           | Cadeia de caracteres separada por vírgula (Padrão: "Semanais, quarta-feira, 7:00:00")     | A frequência para a instalação do Windows Update. O formato e os valores possíveis são: <br>-   Mensal, DD, HH:MM:SS, por exemplo, Mensal, 5,12:22:32. <br> -   Semanal, DIA, HH:MM:SS, por exemplo, Semanal, terça-feira, 12:22:32.  <br> -   Diário, HH:MM:SS, por exemplo, Diário, 12:22:32.  <br> -  Nenhum indica que o Windows Update não deve ser executado.  <br><br> Observe que os horários estão em UTC.|
 | AcceptWindowsUpdateEula | BOOLEAN <br>(Padrão: true) | Ao definir esse sinalizador, o aplicativo aceita o Contrato de licença do usuário final para o Windows Update em nome do proprietário do computador.              |
 
 > [!TIP]
-> Se você quiser que o Windows Update seja executado imediatamente, defina `WUFrequency` em relação ao tempo de implantação do aplicativo. Por exemplo, suponha que você tem um cluster de teste de cinco nós e planeja implantar o aplicativo em torno de 5:00 PM UTC. Se você considera que o upgrade ou implantação do aplicativo leva 30 minutos no máximo, defina a WUFrequency como "Diariamente, 17:30:00".
+> Se você quiser que o Windows Update seja executado imediatamente, defina `WUFrequency` em relação ao tempo de implantação do aplicativo. Por exemplo, suponha que você tem um cluster de teste de cinco nós e planeja implantar o aplicativo em torno de 5:00 PM UTC. Se você considera que o upgrade ou implantação do aplicativo leva 30 minutos no máximo, defina a WUFrequency como "Diariamente, 17:30:00"
 
 ## <a name="deploy-the-app"></a>Implantar o aplicativo
 
@@ -316,7 +316,7 @@ Se o cluster puder tolerar a execução em um número N-1 de domínios de atuali
 
 P. **Quanto tempo demora a aplicação de patch em um nó?**
 
-a. A aplicação de patch em um nó pode levar de minutos (por exemplo: [atualizações de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions)) até horas (por exemplo: [atualizações cumulativas do Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). O tempo necessário para a aplicação de patch em um nó depende principalmente 
+a. A correção de um nó pode levar alguns minutos (por exemplo: [Atualizações de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions)) horas (por exemplo: [atualizações cumulativas do Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). O tempo necessário para a aplicação de patch em um nó depende principalmente 
  - Do tamanho das atualizações
  - Do número de atualizações que precisam ser aplicadas em uma janela de aplicação de patch
  - Do tempo necessário para instalar as atualizações, reinicializar o nó (se necessário) e concluir as etapas de instalação pós-reinicialização.
@@ -327,7 +327,7 @@ P. **Quanto tempo leva a aplicação de patch a um cluster inteiro?**
 a. O tempo necessário para aplicação de patch a um cluster inteiro depende dos seguintes fatores:
 
 - Tempo necessário para aplicar o patch a um nó.
-- A política do Serviço do Coordinator. – A política padrão, `NodeWise`, resulta na aplicação de patch em apenas um nó por vez, o que seria mais lento que `UpgradeDomainWise`. Por exemplo: se a aplicação de patch a um nó leva aproximadamente 1 hora, para aplicar o patch em um cluster com 20 nós (o mesmo tipo de nós) com 5 domínios de atualização, cada um contendo de 4 nós.
+- A política do Serviço do Coordinator. – A política padrão, `NodeWise`, resulta na aplicação de patch em apenas um nó por vez, o que seria mais lento que `UpgradeDomainWise`. Por exemplo:  se um nó demorar cerca de uma hora para ser corrigido, para corrigir um cluster de 20 nós (mesmo tipo de nós) com 5 domínios de atualização, cada um contendo 4 nós.
     - Deve levar aproximadamente 20 horas para aplicar o patch em todo o cluster, se a política é `NodeWise`
     - Deve levar cerca de 5 horas se a política é `UpgradeDomainWise`
 - Carga do cluster – cada operação de aplicação de patch exige realocação da carga de trabalho do cliente para outros nós disponíveis no cluster. O nó passando por aplicação de patch estaria no estado [Desabilitando](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante esse tempo. Se o cluster está executando perto de carga de pico, o processo de desabilitação levaria mais tempo. Portanto, o processo geral de aplicação de patch pode parecer lento em condições assim, sob pressão.

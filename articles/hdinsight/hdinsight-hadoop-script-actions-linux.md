@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384183"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718921"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -134,7 +134,7 @@ Os clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que est
 
 ### <a name="bPS6"></a>Configurar os componentes personalizados para usar armazenamento de Blob do Azure
 
-Os componentes que você instala no cluster podem ter uma configuração padrão que usa o armazenamento HDFS (Sistema de Arquivos Distribuído do Apache Hadoop). O HDInsight usa o Armazenamento de Blobs do Azure ou o Azure Data Lake Store como o repositório padrão. Ambos fornecem um sistema de arquivos compatível com HDFS que faz os dados persistirem mesmo que o cluster seja excluído. Talvez você precise configurar os componentes instalados para usar o WASB ou ADL em vez de HDFS.
+Os componentes que você instala no cluster podem ter uma configuração padrão que usa o armazenamento HDFS (Sistema de Arquivos Distribuído do Apache Hadoop). O HDInsight usa o Armazenamento de Blobs do Azure ou o Azure Data Lake Storage como o repositório padrão. Ambos fornecem um sistema de arquivos compatível com HDFS que faz os dados persistirem mesmo que o cluster seja excluído. Talvez você precise configurar os componentes instalados para usar o WASB ou ADL em vez de HDFS.
 
 Para a maioria das operações, você não precisa especificar o sistema de arquivos. Por exemplo, o arquivo giraph-examples.jar é copiado do sistema de arquivos local para o armazenamento de cluster no exemplo a seguir:
 
@@ -142,7 +142,7 @@ Para a maioria das operações, você não precisa especificar o sistema de arqu
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-Neste exemplo, o comando `hdfs` usa o armazenamento de cluster padrão de modo transparente. Para algumas operações, talvez seja necessário especificar o URI. Por exemplo, `adl:///example/jars` para Data Lake Store ou `wasb:///example/jars` para o Armazenamento do Azure.
+Neste exemplo, o comando `hdfs` usa o armazenamento de cluster padrão de modo transparente. Para algumas operações, talvez seja necessário especificar o URI. Por exemplo, `adl:///example/jars` para o Data Lake Storage ou `wasb:///example/jars` para o Armazenamento do Azure.
 
 ### <a name="bPS7"></a>Gravar informações para STDOUT e STDERR
 
@@ -163,7 +163,7 @@ Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo
 >&2 echo "An error occurred installing Foo"
 ```
 
-Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez disso. Para obter mais informações sobre redirecionamento de E/S, consulte [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez disso. Para obter mais informações sobre redirecionamento de E/S, consulte [ https://www.tldp.org/LDP/abs/html/io-redirection.html ](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Para saber mais sobre exibição de informações registradas em log por ações de script, confira [Personalizar clusters HDInsight usando ação de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -278,17 +278,17 @@ Scripts usados para personalizar um cluster devem ser armazenados em um dos segu
 
 * Um URI __que pode ser lido publicamente__. Por exemplo, uma URL para dados armazenados no OneDrive, Dropbox ou outro serviço de hospedagem de arquivos.
 
-* Uma __conta do Azure Data Lake Store__ que está associada com o cluster HDInsight. Para obter mais informações sobre como usar o Azure Data Lake Store com HDInsight, consulte o [Guia de Início Rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Uma __conta do Azure Data Lake Storage__ que está associada com o cluster do HDInsight. Para obter mais informações sobre como usar o Azure Data Lake Storage com HDInsight, consulte o [Início Rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]  
-    > A entidade de serviço que HDInsight usa para acessar o Data Lake Store deve ter acesso de leitura para o script.
+    > A entidade de serviço que HDInsight usa para acessar o Data Lake Storage deve ter acesso de leitura para o script.
 
 Recursos usados pelo script também devem estar publicamente disponíveis.
 
-Armazenar os arquivos em uma conta de Armazenamento do Azure ou Azure Data Lake Store fornece acesso rápido, pois ambos estão dentro da rede do Azure.
+Armazenar os arquivos em uma conta de Armazenamento do Azure ou Azure Data Lake Storage fornece acesso rápido, pois ambos estão dentro da rede do Azure.
 
 > [!NOTE]  
-> O formato de URI usado para referenciar o script difere dependendo do serviço que está sendo usado. Para contas de armazenamento associadas ao cluster HDInsight, use `wasb://` ou `wasbs://`. Para URIs lidas publicamente, use `http://` ou `https://`. Para Data Lake Store, use `adl://`.
+> O formato de URI usado para referenciar o script difere dependendo do serviço que está sendo usado. Para contas de armazenamento associadas ao cluster HDInsight, use `wasb://` ou `wasbs://`. Para URIs lidas publicamente, use `http://` ou `https://`. Para o Data Lake Storage, use `adl://`.
 
 ### <a name="checking-the-operating-system-version"></a>Verificando a versão do sistema operacional
 

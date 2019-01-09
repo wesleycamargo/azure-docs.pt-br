@@ -1,19 +1,20 @@
 ---
-title: Provisionar o pool do Lote do Azure em uma rede virtual | Microsoft Docs
+title: Provisionar o pool em uma rede virtual | Microsoft Docs
 description: Como criar um pool de lotes em uma rede virtual do Azure para que os nós de computação possam se comunicar com segurança com outras VMs na rede, como um servidor de arquivos.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: danlep
-ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091940"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543896"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
 
@@ -37,7 +38,7 @@ Um pool do Lote do Azure tem configurações que permitem que os nós de computa
 
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Criar um pool com uma rede virtual no portal
 
-Depois de criar sua rede virtual e ter atribuído uma sub-rede a ele, você pode criar um pool do Lote com essa rede virtual. Siga estas etapas para criar um pool no portal do Azure: 
+Depois de criar sua rede virtual e ter atribuído uma sub-rede a ele, você pode criar um pool do Lote com essa rede virtual. Siga estas etapas para criar um pool no portal do Azure: 
 
 1. Navegue até sua conta do Lote no portal do Azure. Esta conta deve estar na mesma assinatura e na mesma região que o grupo de recursos que contém a imagem que você deseja usar. 
 2. Na janela **Configurações** à esquerda, selecione o item de menu **Pools**.

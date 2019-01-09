@@ -7,12 +7,12 @@ author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: afc3b9dbb1965ea28995d67f8f5e174721d73197
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957582"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999428"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas no Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Uma distribuição desigual de taxa de transferência pode causar partições *q
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinar a distribuição de armazenamento nas partições
 
-Ter uma boa cardinalidade em sua partição é essencial para qualquer aplicativo escalonável. Para determinar a distribuição da produtividade de qualquer contêiner particionado dividida por partições, acesse a folha Métricas no [portal do Azure](https://portal.azure.com). Na guia Taxa de transferência, a divisão do armazenamento é mostrada no gráfico Máx. de RUs/segundo consumidas para cada partição física. O gráfico a seguir ilustra uma distribuição ruim de dados, conforme mostrado pela partição distorcida na extrema esquerda.
+Ter uma boa cardinalidade em sua partição é essencial para qualquer aplicativo escalonável. Para determinar a distribuição de armazenamento de qualquer contêiner particionado dividida por partições, acesse a folha Métricas no [portal do Azure](https://portal.azure.com). Na guia Armazenamento, a divisão de armazenamento é mostrada no armazenamento Dados + índice consumido pelo gráfico de chaves de partição superior. O gráfico a seguir ilustra uma distribuição ruim de armazenamento de dados, conforme mostrado pela partição distorcida na extrema esquerda.
 
 ![Exemplo de distribuição de dados ruim](media/use-metrics/metrics-07.png)
 

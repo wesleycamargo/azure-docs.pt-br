@@ -1,25 +1,24 @@
 ---
 title: Repositório de Consultas no Banco de Dados do Azure para PostgreSQL
 description: Este artigo descreve o recurso de Repositório de Consultas no Banco de Dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379154"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546905"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
 **Aplica-se a:** Banco de Dados do Azure para PostgreSQL 9.6 e 10
 
 > [!IMPORTANT]
-> O recurso de Repositório de Consultas está em versão prévia pública.
+> O recurso Query Store está na visualização pública.
 
 
 O recurso de Repositório de Consultas no Banco de Dados do Azure para PostgreSQL fornece uma maneira de acompanhar o desempenho de consultas ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas ajudando você a rapidamente localizar as consultas de execução mais longa e que consomem mais recursos. O Repositório de Consultas captura automaticamente um histórico das estatísticas de tempo de execução e consultas e o retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver padrões de uso do banco de dados. Os dados de todos os usuários, bancos de dados e consultas são armazenados em um banco de dados chamado **azure_sys** na instância do Banco de Dados do Azure para PostgreSQL.
@@ -114,30 +113,30 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 |runtime_stats_entry_id |bigint | | ID da tabela runtime_stats_entries|
 |user_id    |oid    |pg_authid.oid  |OID do usuário que executou a instrução|
 |db_id  |oid    |pg_database.oid    |OID do banco de dados no qual a instrução foi executada|
-|query_id   |bigint  || Código hash interno, computado da árvore de análise da instrução|
-|query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
+|query_id   |bigint  || Código hash interno, computado da árvore de análise da instrução|
+|query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
 |plan_id    |bigint |   |ID do plano correspondente a essa consulta, ainda não disponível|
-|start_time |timestamp  ||  Consultas são agregadas por buckets de tempo: o período de um bucket é de 15 minutos por padrão. Essa é a hora de início correspondente ao bucket de tempo para esta entrada.|
-|end_time   |timestamp  ||  Hora de término correspondente ao bucket de tempo para esta entrada.|
-|chamadas  |bigint  || Número de vezes que a consulta foi executada|
-|total_time |double precision   ||  Tempo total de execução da consulta em milissegundos|
+|start_time | timestamp  ||  Consultas são agregadas por buckets de tempo: o período de um bucket é de 15 minutos por padrão. Essa é a hora de início correspondente ao bucket de tempo para esta entrada.|
+|end_time   | timestamp  ||  Hora de término correspondente ao bucket de tempo para esta entrada.|
+|chamadas  |bigint  || Número de vezes que a consulta foi executada|
+|total_time |double precision   ||  Tempo total de execução da consulta em milissegundos|
 |min_time   |double precision   ||  Tempo mínimo de execução da consulta em milissegundos|
 |max_time   |double precision   ||  Tempo máximo de execução da consulta em milissegundos|
 |mean_time  |double precision   ||  Tempo médio de execução da consulta em milissegundos|
 |stddev_time|   double precision    ||  Desvio padrão de tempo de execução da consulta em milissegundos |
-|rows   |bigint ||  Número total de linhas recuperadas ou afetadas pela instrução|
-|shared_blks_hit|   bigint  ||  Número total de ocorrências no cache do bloco compartilhado pela instrução|
+|rows   |bigint ||  Número total de linhas recuperadas ou afetadas pela instrução|
+|shared_blks_hit|   bigint  ||  Número total de ocorrências no cache do bloco compartilhado pela instrução|
 |shared_blks_read|  bigint  ||  Número total de blocos compartilhados lidos pela instrução|
-|shared_blks_dirtied|   bigint   || Número total de blocos compartilhados sujos pela instrução |
-|shared_blks_written|   bigint  ||  Número total de blocos compartilhados gravados pela instrução|
+|shared_blks_dirtied|   bigint   || Número total de blocos compartilhados sujos pela instrução |
+|shared_blks_written|   bigint  ||  Número total de blocos compartilhados gravados pela instrução|
 |local_blks_hit|    bigint ||   Número total de ocorrências no cache do bloco local pela instrução|
-|local_blks_read|   bigint   || Número total de leituras de blocos locais pela instrução|
-|local_blks_dirtied|    bigint  ||  Número total de blocos locais sujos pela instrução|
-|local_blks_written|    bigint  ||  Número total de blocos locais gravados pela instrução|
-|temp_blks_read |bigint  || Número total de leituras de blocos temporários pela instrução|
-|temp_blks_written| bigint   || Número total de gravações de blocos temporários pela instrução|
-|blk_read_time  |double precision    || Tempo total que a instrução passou lendo blocos em milissegundos (se track_io_timing estiver habilitado, caso contrário, zero)|
-|blk_write_time |double precision    || Tempo total que a instrução passou gravando blocos em milissegundos (se track_io_timing estiver habilitado, caso contrário, zero)|
+|local_blks_read|   bigint   || Número total de leituras de blocos locais pela instrução|
+|local_blks_dirtied|    bigint  ||  Número total de blocos locais sujos pela instrução|
+|local_blks_written|    bigint  ||  Número total de blocos locais gravados pela instrução|
+|temp_blks_read |bigint  || Número total de leituras de blocos temporários pela instrução|
+|temp_blks_written| bigint   || Número total de gravações de blocos temporários pela instrução|
+|blk_read_time  |double precision    || Tempo total que a instrução passou lendo blocos em milissegundos (se track_io_timing estiver habilitado, caso contrário, zero)|
+|blk_write_time |double precision    || Tempo total que a instrução passou gravando blocos em milissegundos (se track_io_timing estiver habilitado, caso contrário, zero)|
     
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 Essa exibição retorna os dados de texto da consulta no Repositório de Consultas. Há uma linha para cada query_text distinto.
@@ -145,7 +144,7 @@ Essa exibição retorna os dados de texto da consulta no Repositório de Consult
 |**Nome**|  **Tipo**|   **Descrição**|
 |---|---|---|
 |query_text_id  |bigint     |ID da tabela query_texts|
-|query_sql_text |Varchar(10000)     |Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
+|query_sql_text |Varchar(10000)     |Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
 
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 Essa exibição retorna os dados de eventos de espera no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário, ID de consulta e evento distinto.
@@ -154,8 +153,8 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |OID do usuário que executou a instrução|
 |db_id  |oid    |pg_database.oid    |OID do banco de dados no qual a instrução foi executada|
-|query_id   |bigint     ||Código hash interno, computado da árvore de análise da instrução|
-|event_type |text       ||O tipo de evento pelo qual o back-end está esperando|
+|query_id   |bigint     ||Código hash interno, computado da árvore de análise da instrução|
+|event_type |text       ||O tipo de evento pelo qual o back-end está esperando|
 |evento  |text       ||O nome do evento de espera se o back-end estiver esperando no momento|
 |chamadas  |Número inteiro        ||Número do mesmo evento capturado|
 
@@ -163,11 +162,11 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 ### <a name="functions"></a>Funções
 Query_store.qs_reset() retorna void
 
-`qs_reset` descarta todas as estatísticas coletadas até o momento pelo Repositório de Consultas. Essa função só pode ser executada pela função de administrador de servidor.
+`qs_reset` descarta todas as estatísticas coletadas até o momento pelo Repositório de Consultas. Essa função só pode ser executada pela função de administrador de servidor.
 
 Query_store.staging_data_reset() retorna void
 
-`staging_data_reset` descarta todas as estatísticas coletadas na memória pelo Repositório de Consultas (isto é, os dados na memória que ainda não foram liberados para o banco de dados). Essa função só pode ser executada pela função de administrador de servidor.
+`staging_data_reset` descarta todas as estatísticas coletadas na memória pelo Repositório de Consultas (isto é, os dados na memória que ainda não foram liberados para o banco de dados). Essa função só pode ser executada pela função de administrador de servidor.
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 - Se um servidor PostgreSQL tem o parâmetro default_transaction_read_only ativo, o Repositório de Consultas não é capaz de capturar dados.

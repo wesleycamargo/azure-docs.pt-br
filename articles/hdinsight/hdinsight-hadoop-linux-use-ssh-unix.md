@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: bcd550ac8f4b75002648f2e4737a4683349aa45f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: a7ba66fae3f2a8426cc333cca109a4c6793d1da2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384625"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724310"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Conectar o HDInsight (Apache Hadoop) usando SSH
 
@@ -63,7 +63,7 @@ Por padrão, o Microsoft Windows não instala clientes SSH. Os clientes `ssh` e 
 
 * [Git (https://git-scm.com/)](https://git-scm.com/): Os comandos `ssh` e `scp` já estão disponíveis por meio da linha de comando GitBash.
 
-Também há vários clientes SSH gráficos, como [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) e [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Embora esses clientes possam ser usados para se conectar ao HDInsight, o processo de conexão é diferente do que usa o utilitário `ssh`. Para obter mais informações, confira a documentação do cliente gráfico que você está usando.
+Também há vários clientes SSH gráficos, como [PuTTY (https://www.chiark.greenend.org.uk/~sgtatham/putty/)](https://www.chiark.greenend.org.uk/~sgtatham/putty/) e [MobaXterm (https://mobaxterm.mobatek.net/)](https://mobaxterm.mobatek.net/). Embora esses clientes possam ser usados para se conectar ao HDInsight, o processo de conexão é diferente do que usa o utilitário `ssh`. Para obter mais informações, confira a documentação do cliente gráfico que você está usando.
 
 ## <a id="sshkey"></a>Autenticação: Chaves SSH
 
@@ -252,7 +252,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 >
 > * [HDInsight usando o Armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md).
 >
-> * [HDInsight usando o Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md).
+> * [HDInsight usando o Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

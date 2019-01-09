@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a51efa18672b81ef3e23e292abbe2b34c1936205
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957445"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994735"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gerenciar a conectividade e mensagens confiáveis usando SDKs do dispositivo do Hub IoT do Azure
 
@@ -62,13 +62,13 @@ As etapas a seguir descrevem o processo de repetição quando forem detectados e
 1. O SDK detecta o erro e o erro associado na rede, protocolo ou aplicativo.
 1. O SDK usa o filtro de erro para determinar o tipo de erro e decidir se uma nova tentativa é necessária.
 1. Se o SDK identifica um **erro irrecuperável**, operações, como a conexão, enviar e receber são interrompidos. O SDK notificará o usuário. Exemplos de erros irrecuperáveis incluem um erro de autenticação e um erro de ponto de extremidade ruim.
-1. Se o SDK identifica um **erro recuperável**, ele tentará novamente de acordo com a política de repetição especificado até que tenha decorrido o tempo limite definido.
+1. Se o SDK identifica um **erro recuperável**, ele tentará novamente de acordo com a política de repetição especificada até que tenha decorrido o tempo limite definido.  Observe que o SDK usa a política de repetição por padrão **de retorno exponencial com tremulação**.
 1. Quando o tempo limite definido expira, o SDK para de tentar conectar ou enviar. Notifica o usuário.
 1. O SDK permite ao usuário anexar um retorno de chamada para receber alterações no status da conexão.
 
 Os SDKs fornecem três políticas de repetição:
 
-- **Retirada exponencial com tremulação**: Essa política de repetição padrão tende a ser agressiva no início e diminuir ao longo do tempo até atingir um atraso máximo. O design é baseado nas [Diretrizes de repetição do Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
+- **Retirada exponencial com tremulação**: Essa política de repetição padrão tende a ser agressiva no início e diminuir ao longo do tempo até atingir um atraso máximo. O design é baseado nas [Diretrizes de repetição do Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
 - **Repetição personalizada**: Para alguns idiomas do SDK, é possível criar uma política de repetição personalizada mais adequada ao seu cenário e, em seguida, injetá-la na RetryPolicy. Repetição personalizada não está disponível no SDK do C.
 - **Nenhuma repetição**: É possível definir a política de repetição para "nenhuma repetição", que desabilitará a lógica de repetição. O SDK tenta conectar uma vez e enviar uma mensagem uma vez, assumindo que a conexão foi estabelecida. Essa política é normalmente usada em cenários com questões de largura de banda ou custo. Se você escolher essa opção, as mensagens que não forem enviadas serão perdidas e não poderão ser recuperadas.
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 995bf4586b88671c65077d965b0588de8de74e5c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e62dbc31976187f4bd37a3567169da2ffa0909b
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048927"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807645"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar dados da tabela da Web usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,13 +27,19 @@ ms.locfileid: "37048927"
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um banco de dados de tabela da Web. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
+A diferença entre esse conector de tabela da Web, o [conector REST](connector-rest.md) e o [conector HTTP](connector-http.md) é:
+
+- O **conector da tabela da Web** extrai o conteúdo da tabela de uma página da Web em HTML.
+- O **conector REST** especificamente dá suporte à cópia de dados de APIs RESTful.
+- O **conector HTTP** é genérico para recuperar dados de qualquer ponto de extremidade HTTP, por exemplo, para baixar o arquivo. 
+
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
 Você pode copiar dados de um banco de dados de tabela da Web para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Especificamente, esse conector de tabela da Web dá suporte à **extração de conteúdo de tabela de uma página HTML**. Para recuperar dados de um ponto de extremidade HTTP/s, use o [conector HTTP](connector-http.md) em vez disso.
+Especificamente, esse conector de tabela da Web dá suporte à **extração de conteúdo de tabela de uma página HTML**.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar este conector de tabela da Web, você precisa configurar um Tempo de Execução de Integração Auto-hospedado. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
 
@@ -49,10 +55,10 @@ As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Web** |sim |
-| url | URL para a origem da Web |sim |
-| authenticationType | O valor permitido é: **Anônimo**. |sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |sim |
+| Tipo | A propriedade type deve ser definida como: **Web** |SIM |
+| url | URL para a origem da Web |SIM |
+| authenticationType | O valor permitido é: **Anônimo**. |SIM |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |SIM |
 
 **Exemplo:**
 
@@ -81,9 +87,9 @@ Para copiar dados da tabela web, defina a propriedade type do conjunto de dados 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **WebTable** | sim |
-| caminho |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
-| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **WebTable** | SIM |
+| caminho |Uma URL relativa para o recurso que contém a tabela. | Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
+| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |SIM |
 
 **Exemplo:**
 

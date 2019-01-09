@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89663db23962cbc82ead331f05cb39c0ef5d2e87
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344958"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722559"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger seu serviço RESTful usando certificados do cliente
 
@@ -41,7 +41,7 @@ Este artigo detalha como:
 Para configurar o **Serviço de Aplicativo do Azure** para exigir certificados do cliente, defina a configuração do site `clientCertEnabled` do aplicativo Web como *true*. Para fazer esta mudança, no Portal do Azure, abra a página do aplicativo Web. Na navegação esquerda, em **Configurações** selecione **Configurações SSL**. No **certificados de cliente** seção, ative o **certificado de cliente de entrada** opção.
 
 >[!NOTE]
->Verifique se seu plano de Serviço de Aplicativo do Azure é Standard ou superior. Para obter mais informações, consulte [Visão geral detalhada de planos de serviço de aplicativo do Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Verifique se seu plano de Serviço de Aplicativo do Azure é Standard ou superior. Para obter mais informações, consulte [Visão geral detalhada de planos de serviço de aplicativo do Azure](https://docs.microsoft.com/azure/app-service/overview-hosting-plans).
 
 >[!NOTE]
 >Para obter mais informações sobre como definir a propriedade **clientCertEnabled**, consulte [Como configurar a autenticação mútua TLS para Aplicativo Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
@@ -85,7 +85,7 @@ Para dar suporte à autenticação de certificado do cliente na sua política pe
     <Item Key="AuthenticationType">ClientCertificate</Item>
     ```
 
-5. Adicione o seguinte trecho de código XML logo após fechar o elemento `<Metadata>`: 
+5. Adicione o seguinte snippet de código XML logo após fechar o elemento `<Metadata>`: 
 
     ```xml
     <CryptographicKeys>
@@ -93,11 +93,11 @@ Para dar suporte à autenticação de certificado do cliente na sua política pe
     </CryptographicKeys>
     ```
 
-    Depois de adicionar o trecho de código, seu perfil técnico será semelhante ao seguinte código XML:
+    Depois de adicionar o snippet de código, seu perfil técnico será semelhante ao seguinte código XML:
 
     ![Defina os elementos XML de autenticação ClientCertificate](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-tech-profile.png)
 
-## <a name="step-4-upload-the-policy-to-your-tenant"></a>Etapa 4: Carregar a política para o seu locatário
+## <a name="step-4-upload-the-policy-to-your-tenant"></a>Etapa 4: Carregar a política ao seu locatário
 
 1. No [Portal do Azure](https://portal.azure.com), mude para o [contexto do locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e, em seguida, selecione **Azure AD B2C**.
 
@@ -111,7 +111,7 @@ Para dar suporte à autenticação de certificado do cliente na sua política pe
 
 6. Carregue o arquivo *TrustFrameworkExtensions.xml* e verifique se a validação dele é aprovada.
 
-## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Etapa 5: Testar a política personalizada usando Executar Agora
+## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Etapa 5: Testar a política personalizada usando a opção Executar Agora
 1. Abra **Configurações do Azure AD B2C** e selecione **Estrutura de Experiência de Identidade**.
 
     >[!NOTE]
@@ -152,7 +152,7 @@ Para dar suporte à autenticação de certificado do cliente na sua política pe
    >Se você receber a mensagem de erro *O nome não é válido, forneça um nome válido*, isso significará que o Azure AD B2C chamou com êxito seu serviço RESTful quando enquanto ele apresentou o certificado do cliente. A próxima etapa é validar o certificado.
 
 ## <a name="step-6-add-certificate-validation"></a>Etapa 6: Adicionar validação do certificado
-O certificado do cliente que o Azure AD B2C envia para seu serviço RESTful não realiza nenhuma validação na plataforma de Aplicativos Web do Azure, exceto para verificar se o certificado existe. Validar o certificado é de responsabilidade do aplicativo Web. 
+O certificado do cliente que o Azure AD B2C envia para seu serviço RESTful não realiza nenhuma validação na plataforma de Serviço de Aplicativo do Azure, exceto para verificar se o certificado existe. Validar o certificado é de responsabilidade do aplicativo Web. 
 
 Nesta seção, você adicionará o código ASP.NET que valida as propriedades do certificado para fins de autenticação.
 
@@ -273,7 +273,7 @@ No exemplo de código anterior, o certificado só será aceito como uma opção 
 >Dependendo da confidencialidade do seu serviço, pode ser necessário adicionar mais validações. Por exemplo, pode ser necessário testar se há cadeias confiáveis para uma autoridade raiz confiável, a validação do nome da organização emissora e assim por diante.
 
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 Chamar a função IsValidClientCertificate
-Abra o arquivo *Controllers\IdentityController.cs* e adicione o trecho de código a seguir no início da função `SignUp()`: 
+Abra o arquivo *Controllers\IdentityController.cs* e adicione o snippet de código a seguir no início da função `SignUp()`: 
 
 ```csharp
 if (IsValidClientCertificate() == false)
@@ -282,7 +282,7 @@ if (IsValidClientCertificate() == false)
 }
 ```
 
-Depois de adicionar o trecho de código, seu controlador `Identity` se parecerá com seguinte código:
+Depois de adicionar o snippet de código, seu controlador `Identity` se parecerá com seguinte código:
 
 ![Adicionar código de validação do certificado](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-code.png)
 

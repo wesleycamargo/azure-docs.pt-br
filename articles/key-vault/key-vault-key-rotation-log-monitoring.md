@@ -1,5 +1,5 @@
 ---
-title: Configurar o Cofre de Chaves do Azure com a rotação de chaves e auditoria de ponta a ponta | Microsoft Docs
+title: Configurar o Cofre de Chaves do Azure com a rotação de chaves e auditoria de ponta a ponta - Azure Key Vault | Microsoft Docs
 description: Use estas instruções para ajudá-lo a concluir a configuração com a rotação de chaves e o monitoramento de logs do Cofre de Chaves.
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 11506f63089564b5187ebd6177f7187f1faf6655
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302010"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999584"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Azure Key Vault com a rotação de chaves e auditoria
 
@@ -414,7 +414,7 @@ Adicione um arquivo chamado project.json com o seguinte conteúdo:
 
 Após **Salvar**, as Funções do Azure baixarão os binários necessários.
 
-Mude para a guia **Integrar** e atribua ao parâmetro do temporizador um nome significativo para ser usado na função. No código anterior, ele espera que o timer seja chamado de *myTimer*. Especifique uma [expressão CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) da seguinte maneira: 0 \* \* \* \* \* para o temporizador que fará com que a função seja executada uma vez por minuto.
+Mude para a guia **Integrar** e atribua ao parâmetro do temporizador um nome significativo para ser usado na função. No código anterior, ele espera que o timer seja chamado de *myTimer*. Especifique uma [expressão CRON](../app-service/webjobs-create.md#CreateScheduledCRON) da seguinte maneira: 0 \* \* \* \* \* para o temporizador que fará com que a função seja executada uma vez por minuto.
 
 Na mesma guia **Integrar**, adicione uma entrada do tipo **Armazenamento de Blobs do Azure**. Ela apontará para o arquivo sync.txt que contém o carimbo de data/hora do último evento analisado pela função. Isso será disponibilizado na função pelo nome do parâmetro. No código anterior, a entrada do Armazenamento de Blobs do Azure espera que o nome do parâmetro seja *inputBlob*. Escolha a conta de armazenamento em que o arquivo sync.txt residirá (pode ser a mesma ou outra conta de armazenamento). No campo do caminho, forneça o caminho em que o arquivo reside, no formato {nome-do-contêiner}/caminho/to/sync.txt.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2237d523b8023c0a6551515f9a2740e92e7beb3f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244586"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548911"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -316,16 +316,16 @@ Saiba mais:
 Ataques de DDoS (negação de serviço distribuído) são uma das maiores preocupações de disponibilidade e de segurança enfrentadas pelos clientes que estão migrando seus aplicativos para a nuvem. Um ataque de DDoS tenta esgotar os recursos de um aplicativo, fazendo com que o aplicativo não fique disponível para usuários legítimos. Ataques de DDoS podem ser direcionadas a qualquer ponto de extremidade publicamente acessível pela Internet.
 A Microsoft fornece proteção contra DDoS conhecido como **Básico** como parte da plataforma Azure. Isso é fornecido sem custo adicional e sempre inclui monitoramento ativo e em tempo real mitigação de ataques comuns de nível de rede. Além das proteções incluídas com a proteção contra DDoS **Básico** você pode permitir que a opção **Standard**. Os recursos da Proteção contra DDoS do Azure Standard:
 
-* **Integração de plataforma nativa:** nativamente integrado ao Azure. Inclui a configuração por meio do Portal do Azure. A Proteção contra DDoS Standard compreende seus recursos e a respectiva configuração.
+* **Integração de plataforma nativa:** nativamente integrada ao Azure. Inclui a configuração por meio do Portal do Azure. A Proteção contra DDoS Standard compreende seus recursos e a respectiva configuração.
 * **Proteção imediata:** a configuração simplificada protege de maneira imediata todos os recursos em uma rede virtual assim que a Proteção contra DDoS Standard é habilitada. Nenhuma definição ou intervenção do usuário é necessária. A Proteção contra DDoS Standard atenua o ataque de maneira instantânea e automática, assim que ele é detectado.
 * **Monitoramento de tráfego Always On:** seus padrões de tráfego do aplicativo são monitorados 24 horas por dia, 7 dias por semana, procurando indicadores de ataques de DDoS. A mitigação é realizada quando as políticas de proteção são excedidas.
 * **Relatórios de Mitigação de Ataque** Os Relatórios de Mitigação de Ataques usam dados de fluxo de rede agregados para fornecer informações detalhadas sobre ataques direcionados a seus recursos.
 * **Registros de Fluxo de Mitigação de Ataque** Os Registros de Fluxo de Mitigação de Ataque permitem que você revise o tráfego perdido, o tráfego encaminhado e outros dados de ataque quase em tempo real durante um ataque DDoS ativo.
-* **Ajuste adaptável:** a criação de perfil de tráfego inteligente aprende sobre o tráfego do seu aplicativo ao longo do tempo e seleciona e atualiza o perfil é o mais adequado para seu serviço. O perfil se ajusta conforme o tráfego é alterado ao longo do tempo. Proteção das camadas 3 a 7: fornece Proteção contra DDoS para toda a pilha quando usado com um Firewall do Aplicativo Web.
+* **Ajuste adaptável:** a criação de perfil de tráfego inteligente aprende sobre o tráfego do seu aplicativo ao longo do tempo e seleciona e atualiza o perfil é o mais adequado para seu serviço. O perfil se ajusta conforme o tráfego é alterado ao longo do tempo. Proteção das camadas 3 a 7: fornece proteção contra DDoS de pilha completa, quando usado com um firewall do aplicativo Web.
 * **Escala de mitigação ampla:** mais de 60 tipos de ataques diferentes podem ser atenuados, com capacidade global, para proteger contra os maiores ataques de DDoS conhecidos.
-* **Métricas de ataque:** métricas resumidas de cada ataque são acessíveis por meio do Azure Monitor.
+* **Métricas de ataque:** as métricas resumidas de cada ataque são acessíveis por meio do Azure Monitor.
 * **Alerta de ataque:** alertas podem ser configurados no início, durante e após a interrupção de um ataque, usando métricas de ataque internas. Os alertas integram-se ao software operacional, como o Microsoft Azure Log Analytics, Splunk, Armazenamento do Microsoft Azure, Email e o Portal do Azure.
-* **Garantia de custo:** créditos de serviço de expansão de aplicativo para ataques de DDoS documentados.
+* **Garantia de custo:**  créditos de serviço de expansão de aplicativo para ataques de DDoS documentados.
 * **DDoS Os clientes do padrão de proteção DDoS** de resposta rápida agora têm acesso à equipe de resposta rápida durante um ataque ativo. A DRR pode ajudar na investigação de ataques, atenuações personalizadas durante uma análise de ataque e pós-ataque.
 
 
@@ -394,7 +394,7 @@ Saiba mais:
 
 O log em um nível de rede é uma função essencial em qualquer cenário de segurança de rede. No Azure, é possível registrar as informações obtidas dos NSGs para obter informações de log no nível de rede. Com o log do NSG, você obtém informações dos seguintes:
 
-* [Logs de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Use esses logs para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
+* [Logs de atividade](../azure-monitor/platform/activity-logs-overview.md). Use esses logs para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
 * Logs de eventos. Esses logs fornecem informações sobre quais regras do NSG foram aplicadas.
 * Logs de contador. Esses logs permitem saber quantas vezes cada regra NSG foi aplicada para negar ou permitir o tráfego.
 

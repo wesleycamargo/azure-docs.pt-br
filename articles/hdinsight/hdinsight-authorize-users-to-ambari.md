@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496889"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725262"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizar usuários para o Apache Ambari Views
 
 [Empresa Pacote de Segurança (ESP) habilitados aglomerados HDInsight](./domain-joined/apache-domain-joined-introduction.md) fornecer recursos de nível empresarial, incluindo autenticação Azure com base no Active Directory. Você pode [sincronizar novos usuários](hdinsight-sync-aad-users-to-cluster.md) adicionados aos grupos do Azure AD e que receberam acesso ao cluster, permitindo a esses usuários específicos executar determinadas ações. Trabalhar com usuários, grupos e permissões no [ Apache Ambari ](https://ambari.apache.org/) é suportado para clusters ESP HDInsight e clusters HDInsight padrão.
 
-Os usuários do Active Directory podem fazer logon nos nós de cluster usando suas credenciais de domínio. Eles também podem usar suas credenciais de domínio para autenticar interações de cluster com outros terminais aprovados, como [Hue](http://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell e APIs REST.
+Os usuários do Active Directory podem fazer logon nos nós de cluster usando suas credenciais de domínio. Eles também podem usar suas credenciais de domínio para autenticar interações de cluster com outros terminais aprovados, como [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell e APIs REST.
 
-> [!WARNING]
+> [!WARNING]  
 > Não altere a senha do watchdog Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. A alteração da senha interrompe a capacidade de usar as ações de script ou executar operações de dimensionamento com o cluster.
 
 Se você ainda não fez isso, siga [estas instruções](./domain-joined/apache-domain-joined-configure.md) para provisionar um novo cluster ESP.

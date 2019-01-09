@@ -1,5 +1,5 @@
 ---
-title: Segurança da Versão prévia do Azure Time Series Insights – configurar segurança para acessar e gerenciar a Versão prévia do Azure Time Series Insights | Microsoft Docs
+title: Configurar a segurança para acessar e gerenciar a versão prévia do Azure Time Series Insights | Microsoft Docs
 description: Este artigo descreve como configurar a segurança e as permissões como políticas de gerenciamento de acesso e políticas de acesso a dados para proteger a Versão prévia do Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7f8eb66feecd58b766b3414b1bbc6bd4e27bf4f7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275458"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558508"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 

@@ -14,16 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223065"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753958"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guia de publicação do Microsoft Azure Marketplace e AppSource
 
 O guia de publicação do Marketplace foi projetado para ajudar editores novos e existentes a saber mais sobre como usar vitrines no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) para expandir os negócios em parceria com a Microsoft, listando aplicativos e serviços.
+
+>[!Note]
+>O Marketplace nesse caso se refere ao Azure Marketplace e ao AppSource.  Veja [Um Marketplace, duas vitrines](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) para obter mais informações.
 
 Este guia abrange os seguintes tópicos: 
 *   O que é o Marketplace e como funciona 
@@ -60,11 +63,11 @@ Obtenha informações sobre o desempenho de suas listagens por meio de insights 
 
 As novas listagens no Marketplace são qualificadas para um conjunto diversificado de benefícios gratuitos para ajudar os parceiros a expandir os negócios no Marketplace. Esses benefícios se enquadram nas seguintes categorias: 
 
-*   Técnica: tudo o que é necessário para preparar o aplicativo para lançamento. Envolve suporte técnico, design de aplicativo, design de arquitetura e créditos Azure para desenvolvimento e teste. 
+*   Técnico: Tudo o que é necessário para preparar o aplicativo para lançamento. Envolve suporte técnico, design de aplicativo, design de arquitetura e créditos Azure para desenvolvimento e teste. 
 
-*   Ações conjuntas de marketing: tudo o que é necessário para lançar a oferta. Acesse os Conceitos Básicos de Lançamento de Entrada no Mercado da Microsoft gratuitos que podem ajudá-lo a lançar e promover soluções. Além disso, você pode qualificar-se para a inclusão de uma campanha de marketing adicional da Microsoft e criar oportunidades para destacar-se no Marketplace.
+*   Marketing conjunto: Tudo o que é necessário para lançar a oferta. Acesse os Conceitos Básicos de Lançamento de Entrada no Mercado da Microsoft gratuitos que podem ajudá-lo a lançar e promover soluções. Além disso, você pode qualificar-se para a inclusão de uma campanha de marketing adicional da Microsoft e criar oportunidades para destacar-se no Marketplace.
 
-*   Vendas conjuntas: comece ou impulsione sua jornada para vender com a Microsoft no Marketplace. Acesse programas e suporte para gerar vendas conjuntas com as equipes da Microsoft.
+*   Venda conjunta: Comece ou impulsione sua jornada para vender com a Microsoft no Marketplace. Acesse programas e suporte para gerar vendas conjuntas com as equipes da Microsoft.
 
 Após [enviar a solução](https://azuremarketplace.microsoft.com/sell/signup) ao Marketplace, nossa equipe de integração entrará em contato com você para auxiliá-lo na experiência de publicação.
 

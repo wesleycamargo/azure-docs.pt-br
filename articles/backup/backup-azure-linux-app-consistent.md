@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
-ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605205"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581837"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente com o aplicativo de VMs Linux do Azure
 
@@ -36,10 +36,10 @@ Pré-scripts invocam APIs nativas do aplicativo, que fecham as E/Ss para novas s
 
 4. Verifique se estas permissões existem para os arquivos:
 
-   - **VMSnapshotScriptPluginConfig.json**: permissão “600.” Por exemplo, apenas o usuário "raiz" deve ter permissões de "leitura" e "gravação" para esse arquivo e nenhum usuário deve ter permissões de "execução".
+   - **VMSnapshotScriptPluginConfig.json**: Permissão "600". Por exemplo, apenas o usuário "raiz" deve ter permissões de "leitura" e "gravação" para esse arquivo e nenhum usuário deve ter permissões de "execução".
 
-   - **Arquivo de pré-script**: permissão "700".  Por exemplo, apenas o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" para esse arquivo.
-  
+   - **Arquivo de pré-script**: Permissão "700".  Por exemplo, apenas o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" para esse arquivo.
+
    - **Pós-script** permissão "700". Por exemplo, apenas o usuário "raiz" deve ter permissões de "leitura", "gravação" e "execução" para esse arquivo.
 
    > [!Important]
@@ -48,25 +48,25 @@ Pré-scripts invocam APIs nativas do aplicativo, que fecham as E/Ss para novas s
    >
 
 5. Configure o **VMSnapshotScriptPluginConfig.json** conforme descrito aqui:
-    - **pluginName**: deixe esse campo como está ou os scripts podem não funcionar conforme o esperado.
+    - **pluginName**: Deixe esse campo como está, ou talvez os scripts não funcionem conforme o esperado.
 
-    - **preScriptLocation**: forneça o caminho completo do pré-script na VM que passará pelo backup.
+    - **preScriptLocation**: Forneça o caminho completo do pré-script na VM que passará pelo backup.
 
-    - **postScriptLocation**: forneça o caminho completo do pós-script na VM que passará pelo backup.
+    - **postScriptLocation**: Forneça o caminho completo do pós-script na VM que passará pelo backup.
 
-    - **preScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pré-script. Todos os parâmetros devem estar entre aspas. Se usar vários parâmetros, separe-os com uma vírgula.
+    - **preScriptParams**: Forneça os parâmetros opcionais que precisam ser passados para o pré-script. Todos os parâmetros devem estar entre aspas. Se usar vários parâmetros, separe-os com uma vírgula.
 
-    - **postScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pós-script. Todos os parâmetros devem estar entre aspas. Se usar vários parâmetros, separe-os com uma vírgula.
+    - **postScriptParams**: Forneça os parâmetros opcionais que precisam ser passados para o pós-script. Todos os parâmetros devem estar entre aspas. Se usar vários parâmetros, separe-os com uma vírgula.
 
-    - **preScriptNoOfRetries**: defina o número de vezes que o pré-script deve ser repetido caso haja qualquer erro antes do encerramento. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
+    - **preScriptNoOfRetries**: Defina o número de vezes que o pré-script deve ser repetido caso haja qualquer erro antes do encerramento. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
 
-    - **postScriptNoOfRetries**: defina o número de vezes que o pós-script deve ser repetido caso haja qualquer erro antes do encerramento. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
-    
-    - **timeoutInSeconds**: especifique os tempos limites individuais para o pré-script e o pós-script.
+    - **postScriptNoOfRetries**:  Defina o número de vezes que o pós-script deve ser repetido caso haja qualquer erro antes do encerramento. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
 
-    - **continueBackupOnFailure**: defina esse valor como **true** se você quiser que o Backup do Azure passe por fallback para um backup consistente com falha/ consistente com o sistema de arquivos, se o pré-script ou pós-script falhar. Definir isso como **false** causará a falha do backup no caso de falha do script (exceto quando você tiver uma VM de disco único que passa por fallback par a um backup consistente com a falha independentemente dessa configuração).
+    - **timeoutInSeconds**: Especifique os tempos limites individuais para o pré-script e o pós-script (o valor máximo pode ser 1800).
 
-    - **fsFreezeEnabled**: especifique se Linux fsfreeze deve ser chamado durante a obtenção do instantâneo da VM para garantir a consistência do sistema de arquivos. Recomendamos manter essa configuração como **true**, a menos que seu aplicativo tenha dependência na desabilitação do fsfreeze.
+    - **continueBackupOnFailure**: Defina esse valor como **true** se quiser que o Backup do Azure passe por fallback para um backup consistente com falha/consistente com o sistema de arquivos, se o pré-script ou pós-script falhar. Definir isso como **false** causará a falha do backup no caso de falha do script (exceto quando você tiver uma VM de disco único que passa por fallback par a um backup consistente com a falha independentemente dessa configuração).
+
+    - **fsFreezeEnabled**: Especifique se Linux fsfreeze deve ser chamado durante a obtenção do instantâneo da VM para garantir a consistência do sistema de arquivos. Recomendamos manter essa configuração como **true**, a menos que seu aplicativo tenha dependência na desabilitação do fsfreeze.
 
 6. A estrutura de script está configurada. Se o backup da VM já estiver configurado, o próximo backup invocará os scripts e disparará o backup consistente com o aplicativo. Se o backup da VM não estiver configurado, configure-o usando [Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 

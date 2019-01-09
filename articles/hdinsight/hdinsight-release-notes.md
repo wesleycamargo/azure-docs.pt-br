@@ -2,19 +2,19 @@
 title: Notas da versão mais recente do Microsoft Azure HDInsight
 description: Notas da versão mais recente do Microsoft Azure HDInsight. Obtenha detalhes e dicas de desenvolvimento para Hadoop, Spark, Microsoft R Server, Hive e muito mais.
 services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/01/2018
-ms.author: hrasheed
-ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/02/2019
+ms.openlocfilehash: 49087792efa5e377beadc78746bcf99c88954e9b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438856"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000063"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas da versão mais recente do Microsoft Azure HDInsight
 
@@ -35,7 +35,7 @@ Os recursos e novas atualizações se enquadram nas categorias a seguir:
 
      a.  [**Novos recursos no Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Novos recursos no Apache Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Novos recursos no Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
 2.  ***Atualize o R Server 9.1 para o Serviços de Machine Learning 9.3*** - Com esta versão, estamos oferecendo aos cientistas de dados e engenheiros o melhor do código aberto aprimorado com inovações algorítmicas e facilidade de operacionalização, todos disponíveis em seu idioma preferido a velocidade do Apache Spark. Esta versão expande os recursos oferecidos no R Server com suporte adicional ao Python, levando à alteração do nome do cluster de R Server para ML Services. 
 
@@ -1300,14 +1300,24 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 
 |**Componente do Apache**|**Apache JIRA**|**Resumo**|**Detalhes**|
 |--|--|--|--|
-|**Spark 2.3** |**N/D** |**Notas de versão de alterações conforme documentado no Apache Spark** |-Há um documento de "Substituição" e um guia de "Alteração de comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Para parte do SQL, há outra guia de migração"detalhado" (de 2.2 a 2.3), http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**N/D** |**Notas de versão de alterações conforme documentado no Apache Spark** |-Há um documento de "Substituição" e um guia de "Alteração de comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Para parte do SQL, há outra guia de migração"detalhado" (de 2.2 a 2.3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Trabalho do Spark concluído com êxito, mas há um erro de total de cota de disco HDFS |**Cenário:** Executando **insert overwrite** quando uma cota é definida na pasta da Lixeira do usuário que executa o comando.<br /><br />**Comportamento anterior:** O trabalho for bem-sucedido, mesmo que ele não consiga mover os dados para a Lixeira. O resultado incorretamente pode conter alguns dos dados esteja presentes na tabela.<br /><br />**Novo comportamento:** Quando a mudança para a pasta da Lixeira falha, os arquivos são excluídos permanentemente.|
-|**Kafka 1.0**|**N/D**|**Notas de versão de alterações conforme documentado no Apache Spark** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1.0**|**N/D**|**Notas de versão de alterações conforme documentado no Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive / Ranger** | |Políticas de hive do ranger adicionais necessárias para INSERT OVERWRITE |**Cenário:** Políticas de hive do ranger adicionais necessárias para **INSERT OVERWRITE**<br /><br />**Comportamento anterior:** Consultas **INSERT OVERWRITE** do Hive realizadas com êxito como de costume.<br /><br />**Novo comportamento:** Consultas **INSERT OVERWRITE** do Hive estão falhando inesperadamente após a atualização para HDP-2.6.x com o erro:<br /><br />Erro ao compilar a instrução: FALHA: HiveAccessControlException Permissão negada: usuário jdoe não tem o privilégio WRITE em /tmp/\*(state=42000,code=40000)<br /><br />A partir das consultas HDP-2.6.0 Hive **INSERT OVERWRITE** exigem uma política de URI do Ranger para permitir operações de gravação, mesmo se o usuário tem o privilégio de gravação concedido por meio da política HDFS.<br /><br />**Solução alternativa/esperado ação do cliente:**<br /><br />1. Crie uma nova política do repositório do Hive.<br />2. Na lista suspensa onde você vê que o banco de dados, selecione o URI.<br />3. Atualizar o caminho (exemplo: / tmp / *)<br />4. Adicionar os usuários e grupos e salve.<br />5. Tente novamente a consulta insert.|
 |**HDFS**|**N/D** |HDFS deve dar suporte para vários Uris de KMS |**Comportamento anterior:** propriedade dfs.encryption.key.provider.uri foi usada para configurar o caminho de provedor do KMS.<br /><br />**Novo comportamento:** dfs.encryption.key.provider.uri foi preterido em favor de hadoop.security.key.provider.path para configurar o caminho de provedor do KMS.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opção para desabilitar o agendador |**Componente afetado:** Servidor do Zeppelin<br /><br />**Comportamento anterior:** Nas versões anteriores do Zeppelin, não havia nenhuma opção para desabilitar o agendador.<br /><br />**Novo comportamento:** Por padrão, os usuários não poderão mais ver o agendador, pois ele está desabilitado por padrão.<br /><br />**Solução alternativa/esperado ação do cliente:** Se você quiser habilitar o agendador, precisará adicionar azeppelin.notebook.cron.enable com valor de true no site do Zeppelin personalizados nas configurações do Zeppelin do Ambari.|
 
 ## <a name="known-issues"></a>Problemas conhecidos
+
+-   **Integração do HDInsight com o ADLS Gen 2** Há dois problemas em clusters do HDInsight ESP que usam o Azure Data Lake Storage Gen 2 com diretórios de usuário e permissões:
+   
+   1. Os diretórios base para os usuários não estão sendo criados no Nó de Cabeçalho 1. Como alternativa, crie os diretórios manualmente e altere a propriedade para o UPN do usuário respectivo.
+   
+   2. As permissões no diretório /hdp não estão definidas atualmente como 751. Isso precisa ser definido como 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
 
 -   **Spark 2.3**
 
@@ -1409,6 +1419,10 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
             val = \_.escape(val);//N. da linha:460
             
             Depois de remover a linha acima, a interface do usuário do Ranger permitirá que você crie políticas com a condição da política que pode conter caracteres especiais e a política de avaliação será bem-sucedida para a mesma política.
+
+**Integração do HDInsight com o ADLS Gen 2: Problema de diretórios e permissões de usuário com clusters do ESP**
+    1.  Os diretórios base para os usuários não estão sendo criados no Nó de Cabeçalho 1. A alternativa é criá-los manualmente e alterar a propriedade para o UPN do usuário respectivo.
+    2.  As permissões no /hdp não estão definidas atualmente como 751. Isso precisa ser definido como a.  chmod 751 /hdp b.  chmod –R 755 /hdp/apps
 
 ## <a name="deprecation"></a>Reprovação
 

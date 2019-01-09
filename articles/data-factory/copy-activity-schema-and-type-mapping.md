@@ -11,27 +11,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 16275ddc4d4ad85bdac54244ceeec568603fdfef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 54c334aa9363ac5ca75cc4ad5b107524f502011e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112092"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810604"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
-Este artigo descreve como a atividade de cópia do Azure Data Factory faz o mapeamento de esquema e de tipo de dados dos dados de origem para os dados do coletor ao realizar a cópia dos dados.
+Este artigo descreve como a atividade de cópia do Azure Data Factory faz o mapeamento de esquema e de tipo de dados dos dados de origem para os dados do coletor ao executar a cópia dos dados.
 
 ## <a name="column-mapping"></a>Mapeamento de coluna
 
-Por padrão, atividade de cópia **mapeia dados de origem para o coletor por nomes de coluna**, a menos que o [mapeamento de coluna explícito](#explicit-column-mapping) esteja configurado. Mais especificamente, a atividade de cópia:
+O mapeamento de colunas é aplicado ao copiar dados entre dados em formato de tabela. Por padrão, atividade de cópia **mapeia dados de origem para o coletor por nomes de coluna**, a menos que o [mapeamento de coluna explícito](#explicit-column-mapping) esteja configurado. Mais especificamente, a atividade de cópia:
 
 1. Lê os dados da origem e determina o esquema de origem
 
     * Para fontes de dados com um esquema predefinido no armazenamento de dados/formato de arquivo, por exemplo, bancos de dados/arquivos com metadados (Avro/ORC/Parquet/Texto com cabeçalho), o esquema de origem é extraído do resultado da consulta ou dos metadados do arquivo.
-    * Para fontes de dados com esquema flexível, por exemplo, Tabela do Azure/Cosmos DB, o esquema de origem é inferido do resultado da consulta. Você pode substituí-lo fornecendo "structure" no conjunto de dados.
-    * Para o arquivo de texto sem cabeçalho, os nomes de coluna padrão são gerados com o padrão "Prop_0", "Prop_1",... Você pode substituí-lo fornecendo "structure" no conjunto de dados.
+    * Para fontes de dados com esquema flexível, por exemplo, Tabela do Azure/Cosmos DB, o esquema de origem é inferido do resultado da consulta. Você pode substituí-lo ao configurar "structure" no conjunto de dados.
+    * Para o arquivo de texto sem cabeçalho, os nomes de coluna padrão são gerados com o padrão "Prop_0", "Prop_1",... Você pode substituí-lo configurando "structure" no conjunto de dados.
     * Para a origem do Dynamics, você precisa fornecer as informações de esquema na seção "structure" do conjunto de dados.
 
 2. Aplica o mapeamento de coluna explícito se especificado.
@@ -135,11 +135,86 @@ O JSON a seguir define uma atividade de cópia em um pipeline. As colunas da ori
 }
 ```
 
-Se você estava utilizando a sintaxe de `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` para especificar o mapeamento de coluna, ainda há suporte no estado em que se encontra.
+Se você está utilizando a sintaxe de `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` para especificar o mapeamento de coluna, ainda há suporte no estado em que se encontra.
 
 **Fluxo de mapeamento de coluna:**
 
 ![Fluxo de mapeamento de coluna](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
+
+## <a name="schema-mapping"></a>Mapeamento de esquema
+
+O mapeamento de esquema é aplicado ao copiar dados entre dados em formato hierárquico e dados em forma de tabela, por exemplo, copie do MongoDB/REST para o arquivo de texto e copie do SQL para a API do Azure Cosmos DB para MongoDB. As propriedades a seguir têm suporte na seção `translator` da atividade de cópia:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |
+| Tipo | A propriedade type do tradutor da atividade de cópia deve ser definida como: **TabularTranslator** | SIM |
+| schemaMapping | Uma coleção de pares de valores-chave, que representa a relação de mapeamento do lado tabular para o lado hierárquico.<br/>- **Chave:** o nome da coluna de dados tabulares conforme definido na estrutura do conjunto de dados.<br/>- **Valor:** a expressão de caminho JSON para cada campo de extrair e mapear. Para os campos sob o objeto root, comece com root $; para os campos dentro da matriz escolhidos pela propriedade `collectionReference`, comece do elemento de matriz.  | SIM |
+| collectionReference | Se você quiser fazer uma iteração e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON da matriz para realizar a aplicação cruzada. Essa propriedade só terá suporte quando os dados hierárquicos forem a origem. | Não  |
+
+**Exemplo: copiar do MongoDB para o SQL:**
+
+Por exemplo, se você tiver o documento do MongoDB com o seguinte conteúdo: 
+
+```json
+{
+    "id": {
+        "$oid": "592e07800000000000000000"
+    },
+    "number": "01",
+    "date": "20170122",
+    "orders": [
+        {
+            "prod": "p1",
+            "price": 23
+        },
+        {
+            "prod": "p2",
+            "price": 13
+        },
+        {
+            "prod": "p3",
+            "price": 231
+        }
+    ],
+    "city": [ { "name": "Seattle" } ]
+}
+```
+
+e você deseja copiá-lo para uma tabela do Azure SQL no formato a seguir, ao nivelar os dados de dentro da matriz *(order_pd e order_price)* e fazer uma união cruzada com as informações de raiz comuns *(número, data e cidade)*:
+
+| orderNumber | orderDate | order_pd | order_price | city |
+| --- | --- | --- | --- | --- |
+| 01 | 20170122 | P1 | 23 | Seattle |
+| 01 | 20170122 | P2 | 13 | Seattle |
+| 01 | 20170122 | P3 | 231 | Seattle |
+
+Configure a regra de mapeamento de esquema como o seguinte exemplo JSON de atividade de cópia:
+
+```json
+{
+    "name": "CopyFromMongoDBToSqlAzure",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "MongoDbV2Source"
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "translator": {
+            "type": "TabularTranslator",
+            "schemaMapping": {
+                "orderNumber": "$.number", 
+                "orderDate": "$.date", 
+                "order_pd": "prod", 
+                "order_price": "price",
+                "city": " $.city[0].name"
+            },
+            "collectionReference":  "$.orders"
+        }
+    }
+}
+```
 
 ## <a name="data-type-mapping"></a>Mapeamento de tipo de dados
 
@@ -152,7 +227,7 @@ Você pode encontrar o mapeamento entre o tipo nativo para o tipo provisório na
 
 ### <a name="supported-data-types"></a>Tipos de dados com suporte
 
-O Data Factory dá suporte aos seguintes tipos de dados provisórios: você pode especificar abaixo dos valores ao fornecer informações de tipo em [estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure) configuração:
+O Data Factory dá suporte aos seguintes tipos de dados provisórios: você pode especificar os valores a seguir ao configurar informações de tipo na configuração da [estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure):
 
 * Byte[]
 * BOOLEAN
@@ -186,7 +261,7 @@ Nos cenários abaixo, a seção “structure” no conjunto de dados é necessá
 
 Nos cenários abaixo, a seção “structure” no conjunto de dados é sugerida ao:
 
-* Copiar do arquivo de texto sem cabeçalho (conjunto de dados de entrada). Você pode especificar os nomes de coluna para o arquivo de texto alinhando com as colunas correspondentes do coletor, para poupar do fornecimento de mapeamento de coluna explícito.
+* Copiar do arquivo de texto sem cabeçalho (conjunto de dados de entrada). Você pode especificar os nomes de coluna para o alinhamento do arquivo de texto com as colunas de coletor correspondentes para salvar a configuração do mapeamento de coluna explícito.
 * Copiar dados dos armazenamentos de dados com esquema flexível, por exemplo, Tabela do Azure/Cosmos DB (conjunto de dados de entrada), para garantir os dados (colunas) esperados sendo copiados em vez de deixar a atividade de cópia inferir o esquema com base nas linhas superiores durante cada execução da atividade.
 
 

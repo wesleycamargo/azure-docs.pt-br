@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao SuccessFactors | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o SuccessFactors | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o SuccessFactors.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 89224b32efaecdf7a2797b034b1beac7ad191ee5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 467db4046c0600142338dcfa39e136f45255caba
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685218"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Azure Active Directory com o SuccessFactors
 
@@ -150,9 +150,9 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     | `https://<companyname>.sapsf.cn/<companyname>`|
          
     > [!NOTE] 
-    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do cliente do SuccessFactors](https://www.successfactors.com/support.html) para obter esses valores. 
+    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do cliente do SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html) para obter esses valores. 
 
-5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer o download do **Certificado (Base64)** e salve o arquivo do certificado no computador.
+5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para baixar o **Certificado (Base64)** e salve o arquivo do certificado no computador.
 
     ![O link de download do Certificado](./media/successfactors-tutorial/tutorial_successfactors_certificate.png) 
 
@@ -247,7 +247,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -261,7 +261,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 Para permitir que os usuários do Azure AD façam logon no SuccessFactors, eles deverão ser provisionados no SuccessFactors.  
 No caso do SuccessFactors, o provisionamento será uma tarefa manual.
 
-Para obter os usuários criados no SuccessFactors, você precisará entrar em contato com a [equipe de suporte do SuccessFactors](https://www.successfactors.com/support.html).
+Para obter os usuários criados no SuccessFactors, você precisará entrar em contato com a [equipe de suporte do SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

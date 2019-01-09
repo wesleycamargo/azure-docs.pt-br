@@ -9,18 +9,40 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d5dd2e2943d78291fc9c4903c15fb4d3767edbea
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b8f77f404a8e5d2d1625a327a1e50c0e169b6135
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442005"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744421"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de Arquivos do Azure no Linux
 
-Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Linux. Também fornece as possíveis causas e resoluções para esses problemas. 
+Este artigo lista os problemas comuns relacionados aos Arquivos do Azure quando você se conecta de clientes Linux. Também fornece as possíveis causas e resoluções para esses problemas. 
 
 Além das etapas de solução de problemas deste artigo, você pode usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) para garantir que o cliente Linux tenha pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo. Isso ajuda a configurar seu ambiente para obter um desempenho ideal. Você também pode encontrar essas informações na solução de problemas do [Compartilhamento de arquivos do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). A solução de problemas fornece etapas para ajudá-lo com problemas de conexão, o mapeamento e montar os compartilhamentos de arquivos do Azure.
+
+<a id="mounterror13"></a>
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Error de montagem(13): Permissão negada" quando você monta um compartilhamento de arquivos do Azure
+
+### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação não criptografado
+
+Por motivos de segurança, as conexões para compartilhamentos de arquivos do Azure são bloqueadas se o canal de comunicação não está criptografado e a tentativa de conexão não é feita do mesmo datacenter onde residem os compartilhamentos de arquivos do Azure. As conexões não criptografadas dentro do mesmo datacenter também podem ser bloqueadas se o [transferência segura obrigatória](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada na conta de armazenamento. Um canal de comunicação criptografado é fornecido somente quando o sistema operacional do cliente do usuário dá suporte à criptografia SMB.
+
+Para saber mais, confira [Pré-requisitos para montar um compartilhamento de arquivos do Azure com o Linux e o pacote cifs-utils](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+
+### <a name="solution-for-cause-1"></a>Solução para a causa 1
+
+1. Conecte-se de um cliente com suporte à criptografia SMB ou conecte a partir de uma máquina virtual que está no mesmo datacenter da conta de armazenamento do Azure usada para o compartilhamento de arquivos do Azure.
+2. Verifique se a configuração [Transferência segura obrigatória](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está desabilitada na conta de armazenamento se o cliente não oferecer suporte à criptografia SMB.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: As regras de firewall ou de rede virtual estão habilitadas na conta de armazenamento 
+
+Se as regras de firewall e de VNET (rede virtual) estiverem configuradas na conta de armazenamento, o tráfego de rede terá acesso negado a menos que o endereço IP do cliente ou da rede virtual tenha permissão de acesso.
+
+### <a name="solution-for-cause-2"></a>Solução para a causa 2
+
+Verifique se regras de firewall e de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtuais estão causando o problema, altere temporariamente a configuração da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, confira [Configurar redes virtuais e firewalls do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>“[permissão negada] Cota de disco excedida” ao tentar abrir um arquivo
@@ -47,7 +69,7 @@ Reduza o número de identificadores abertos simultâneos fechando alguns deles e
     - Use o [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre compartilhamentos de arquivos e um computador local.
 
 <a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>“Erro de montagem (112): o host está inativo” devido a um tempo limite de reconexão
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Erro de montagem(112): o host está inativo" devido a um tempo limite de reconexão
 
 Um erro de montagem “112” ocorre no cliente Linux quando o cliente ficou ocioso por um longo período. Após um tempo ocioso estendido, o cliente se desconecta e a conexão atinge o tempo limite.  
 
@@ -64,8 +86,8 @@ Esse problema de reconexão no kernel do Linux agora foi corrigido como parte da
 
 - [Corrigir a reconexão para não adiar a sessão smb3 por muito tempo após a reconexão do soquete](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 - [Chamar o serviço de eco imediatamente após a reconexão do soquete](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS: corrigir uma possível corrupção de memória durante a reconexão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
-- [CIFS: corrigir um possível bloqueio duplo de mutex durante a reconexão (para kernel v4.9 e posterior)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
+- [CIFS: corrija uma possível corrupção de memória durante a reconexão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: corrija um possível bloqueio duplo de mutex durante a reconexão (para kernel v4.9 e posterior)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 No entanto, essas alterações ainda podem não ter sido portadas para todas as distribuições do Linux. Esta correção e outras correções de reconexão estão nos seguintes kernels populares do Linux: 4.4.40, 4.8.16 e 4.9.1. Obtenha essa correção fazendo upgrade para uma dessas versões recomendadas de kernel.
 
@@ -76,7 +98,7 @@ Resolva esse problema especificando uma montagem rígida. Uma montagem rígida f
 Se você não pode atualizar para as versões mais recentes do kernel, você pode contornar esse problema mantendo um arquivo no compartilhamento de arquivos do Azure que você grava a cada 30 segundos ou menos. Essa deve ser uma operação de gravação, como regravar a data de criação ou de modificação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a reconexão.
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>“Erro de montagem (115): operação em andamento” durante a montagem dos Arquivos do Azure usando o SMB 3.0
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Erro de montagem(115): a operação está em andamento" durante a montagem dos Arquivos do Azure usando o SMB 3.0
 
 ### <a name="cause"></a>Causa
 
@@ -87,6 +109,27 @@ Algumas distribuições Linux ainda não suportam recursos de criptografia no SM
 O recurso de criptografia para SMB 3.0 para Linux foi introduzido no kernel 4.11. Esse recurso permite a montagem de um compartilhamento de arquivos do Azure de local ou de uma região diferente do Azure. No momento da publicação deste artigo, essa funcionalidade foi retrocompatibilizada para o Ubuntu 17.04 e Ubuntu 16.10. 
 
 Se o seu cliente SMB do Linux não oferecer suporte à criptografia, monte os arquivos do Azure usando o SMB 2.1 de uma VM do Azure Linux que esteja no mesmo datacenter do compartilhamento de arquivos. Verifique se a configuração [Transferência segura necessária]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está desativada na conta de armazenamento. 
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erro "Acesso negado" ao procurar um compartilhamento de arquivos do Azure no portal
+
+A navegar até um compartilhamento de arquivos do Azure no portal, você pode receber o erro a seguir:
+
+Acesso negado  
+Você não tem acesso  
+Parece que você não tem acesso a este conteúdo. Para obter acesso, contate o proprietário.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 1: Sua conta de usuário não tem acesso à conta de armazenamento
+
+### <a name="solution-for-cause-1"></a>Solução para a causa 1
+
+Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azure está localizado, clique em **Controle de acesso (IAM)** e verifique se sua conta de usuário tem acesso à conta de armazenamento. Para saber mais, confira [Como proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: As regras de firewall ou de rede virtual estão habilitadas na conta de armazenamento
+
+### <a name="solution-for-cause-2"></a>Solução para a causa 2
+
+Verifique se regras de firewall e de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtuais estão causando o problema, altere temporariamente a configuração da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, confira [Configurar redes virtuais e firewalls do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Desempenho lento em um compartilhamento de arquivos do Azure montado em uma VM Linux
@@ -163,11 +206,11 @@ Para resolver o problema, use o [ferramenta de solução de problemas para os ar
 * Dá orientação prescritiva sobre auto-fixação.
 * Coleta os rastreamentos de diagnóstico.
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: não é possível acessar '&lt;caminho&gt;': erro de entrada/saída
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>Is: não é possível acessar "&lt;caminho&gt;": Erro de entrada/saída
 
 Quando você tenta listar arquivos em um compartilhamento de arquivos do Azure usando o comando ls, o comando trava ao listar arquivos. Você obterá o seguinte erro:
 
-**ls: não é possível acessar '&lt;caminho&gt;': erro de entrada/saída**
+**Is: não é possível acessar "&lt;caminho&gt;": Erro de entrada/saída**
 
 
 ### <a name="solution"></a>Solução
@@ -178,7 +221,7 @@ Atualize o kernel do Linux para as seguintes versões que possuem uma correção
 - 4.12.11+
 - Todas as versões que são maiores ou iguais a 4,13
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Não é possível criar links simbólicos - ln: falhou ao criar link simbólico 't': Operação não suportada
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Não é possível criar links simbólicos - ln: falha ao criar link simbólico "t": Operação sem suporte
 
 ### <a name="cause"></a>Causa
 Por padrão, a montagem de compartilhamentos de arquivos do Azure no Linux usando o CIFS não habilita o suporte a links simbólicos (links simbólicos). Você verá um erro como este:

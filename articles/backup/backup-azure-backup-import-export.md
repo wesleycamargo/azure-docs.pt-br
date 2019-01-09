@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955093"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974430"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. Durante o processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup offline no Azure.
@@ -75,11 +75,11 @@ Esta seção descreve o fluxo de trabalho de backup offline para que os dados po
 
   A descrição das entradas é a seguinte:
 
-    * **Local de preparo**: o local de armazenamento temporário no qual a cópia de backup inicial é gravada. O local de preparo pode estar em um compartilhamento de rede ou em um computador local. Se o computador de cópia e o computador de origem são diferentes, é recomendável especificar o caminho completo de rede do local de preparo.
-    * **Conta de Armazenamento do Azure Resource Manager**: o nome da conta de armazenamento de tipo do Resource Manager, em qualquer assinatura do Azure.
-    * **Contêiner de Armazenamento do Azure**: o nome do blob de armazenamento de destino na conta de Armazenamento do Azure em que os dados de backup são importados antes de serem copiados para o cofre de Serviços de Recuperação.
-    * **ID da Assinatura do Azure**: a ID da assinatura do Azure em que a conta de Armazenamento do Azure é criada.
-    * **Nome do trabalho de importação do Azure**: o nome exclusivo pelo qual o serviço Importação do Azure e o Backup do Azure controlam a transferência de dados enviados em discos no Azure. 
+    * **Local de preparo**: O local de armazenamento temporário no qual a cópia de backup inicial é gravada. O local de preparo pode estar em um compartilhamento de rede ou em um computador local. Se o computador de cópia e o computador de origem são diferentes, é recomendável especificar o caminho completo de rede do local de preparo.
+    * **Conta de Armazenamento do Azure Resource Manager**: O nome da conta de armazenamento de tipo do Resource Manager, em qualquer assinatura do Azure.
+    * **Contêiner do Armazenamento do Azure**: O nome do blob de armazenamento de destino na conta de Armazenamento do Azure em que os dados de backup são importados antes de serem copiados para o cofre de Serviços de Recuperação.
+    * **ID de assinatura do Azure**: A ID da assinatura do Azure em que a conta de Armazenamento do Azure é criada.
+    * **Nome do trabalho de importação do Azure**: O nome exclusivo pelo qual o serviço Importação do Azure e o Backup do Azure controlam a transferência de dados enviados em discos no Azure. 
   
   Forneça as entradas na tela e clique em **Avançar**. Salve o *Local de preparo* e o *Nome do Trabalho de Importação do Azure* fornecidos, pois essas informações são necessárias para preparar os discos.
 

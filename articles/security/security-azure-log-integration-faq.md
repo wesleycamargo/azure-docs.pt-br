@@ -15,23 +15,23 @@ ms.workload8: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: bec62b8c6b70706fa6519cbc2fd59bf69f119e9d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 458b615ea872b62a412a71cbbb0b3827ccb4d9b8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236256"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580919"
 ---
 # <a name="azure-log-integration-faq"></a>Perguntas frequentes sobre a Integração de Logs do Azure
 
 Este artigo responde as perguntas frequentes (FAQ) sobre a Integração de Logs do Azure.
 
 >[!IMPORTANT]
-> O recurso Integração de log do Azure será preterido em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer, veja a postagem [Usar o monitor do Azure para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> O recurso Integração de log do Azure será preterido em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer para prosseguir com a análise da postagem [Usar o Azure Monitor para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 A Integração de Logs do Azure é um serviço do sistema operacional Windows que permite integrar logs brutos de recursos do Azure a seus sistemas locais de SIEM (Gerenciamento de Eventos e Informações de Segurança). Essa integração oferece um painel unificado para todos os seus ativos, locais ou na nuvem. Você pode então agregar, correlacionar, analisar e alertar sobre eventos de segurança associados a seus aplicativos.
 
-É o método preferencial para integrar os logs do Azure usando o conector do Azure Monitor do seu fornecedor SIEM e seguindo estas [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
+É o método preferencial para integrar os logs do Azure usando o conector do Azure Monitor do seu fornecedor SIEM e seguindo estas [instruções](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>O software Integração de Log do Azure é gratuito?
 
@@ -97,7 +97,7 @@ O comando **azlog createazureid** tenta criar uma entidade de serviço em todos 
 
 Erro:
 
-  *Aviso ao criar Atribuição de Função – AuthorizationFailed: O cliente janedo@microsoft.com' com a id de objeto 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' além do escopo '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
+  *Aviso ao criar Atribuição de Função – AuthorizationFailed: O cliente janedo@microsoft.com com a id de objeto 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' além do escopo '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
 
 O comando **azlog authorize** tenta criar a função de leitor para a entidade de serviço do Azure AD (criada com **azlog createazureid**) para as assinaturas fornecidas. Se o logon do Azure não for um coadministrador nem um proprietário da assinatura, ele falhará com a mensagem de erro “Falha na Autorização”. O RBAC (Controle de Acesso Baseado em Função) do coadministrador ou proprietário é necessário para concluir essa ação.
 

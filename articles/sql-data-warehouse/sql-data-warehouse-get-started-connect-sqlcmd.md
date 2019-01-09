@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao sqlcmd do SQL Data Warehouse do Azure | Microsoft Docs
-description: Use o utilitário de linha de comando [sqlcmd][sqlcmd] para conectar-se ao SQL Data Warehouse do Azure e fazer uma consulta.
+description: Use o utilitário de linha de comando sqlcmd para conectar-se ao SQL Data Warehouse do Azure e fazer uma consulta.
 services: sql-data-warehouse
 author: kavithaj
 manager: craigg
@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 94f3955f9ce94fa52e89180fa649c4e412b80109
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247706"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976402"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Conecte-se ao SQL Data Warehouse com sqlcmd
 > [!div class="op_single_selector"]
@@ -32,9 +32,9 @@ Use o utilitário de linha de comando [sqlcmd][sqlcmd] para conectar-se ao SQL D
 ## <a name="1-connect"></a>1. Connect
 Para começar com o [sqlcmd][sqlcmd], abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do banco de dados SQL Data Warehouse. A cadeia de conexão precisará dos seguintes parâmetros:
 
-* **Servidor (-S):** Servidor no formato `<`Nome do Servidor`>`.database.windows.net
+* **Servidor (-S):** servidor no formato `<`Nome do Servidor`>`.database.windows.net
 * **Banco de dados (-d):** nome do banco de dados.
-* **Habilitar Identificadores com Cotas (-I):** os identificadores com cotas devem ser habilitados para conectarem uma instância do SQL Data Warehouse.
+* **Habilitar identificadores entre aspas (-I):** os identificadores entre aspas devem ser habilitados para conectarem uma instância do SQL Data Warehouse.
 
 Para usar a Autenticação do SQL Server, você precisa adicionar os parâmetros do nome de usuário/senha:
 
