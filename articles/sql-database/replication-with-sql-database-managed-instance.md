@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240385"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547585"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replicação com a Instância Gerenciada do Banco de Dados SQL
 
@@ -63,6 +63,8 @@ A configuração com publicador e distribuidor no Banco de Dados SQL do Azure re
 - A conectividade usa Autenticação SQL entre os participantes da replicação.
 
 - Um compartilhamento da Conta de Armazenamento do Azure para o diretório de trabalho de replicação.
+
+- A porta 445 (TCP de saída) precisa ser aberta nas regras de segurança de sub-rede da Instância Gerenciada para acessar o compartilhamento de arquivos do Azure
 
 ## <a name="features"></a>Recursos
 

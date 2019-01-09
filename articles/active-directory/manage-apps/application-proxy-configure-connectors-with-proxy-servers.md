@@ -2,25 +2,21 @@
 title: Trabalhar com servidores proxy locais existentes e o Azure AD | Microsoft Docs
 description: Cobre como trabalhar com os servidores proxy locais existentes.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404946"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720094"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
 
@@ -107,15 +103,16 @@ Há quatro aspectos a considerar no proxy de saída:
 * Inspeção SSL
 
 #### <a name="proxy-outbound-rules"></a>Regras de saída do proxy
-Permita o acesso aos seguintes pontos de extremidade para acesso ao serviço de conector:
+Permita o acesso às seguintes URLs:
 
-* * .msappproxy.net
-* * .servicebus.windows.net
+| URL | Como ele é usado |
+| --- | --- |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do Proxy de Aplicativo |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure usa essas URLs para verificar os certificados |
+| login.windows.net<br>login.microsoftonline.com | O conector usa essas URLs durante o processo de registro. |
 
-Para o registro inicial, permita o acesso aos seguintes pontos de extremidade:
+Se o firewall ou o proxy permitir uma lista de permissões de DNS, você poderá adicionar as conexões com \*.msappproxy.net e \*.servicebus.windows.net à lista de permissões. Caso contrário, você precisará permitir o acesso aos [intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
 
-* login.windows.net
-* login.microsoftonline.com
 
 Se você não puder permitir a conectividade pelo FQDN e precisar especificar intervalos IP, use estas opções:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165332"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790887"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreamento distribuído e correlação por meio de mensagens do Barramento de Serviço
 
@@ -45,9 +45,9 @@ A instrumentação permite controlar todas as chamadas para o serviço de mensag
 O [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) fornece recursos de monitoramento de desempenho avançado, incluindo solicitações automáticas e rastreamento de dependências.
 
 Dependendo do tipo do seu projeto, instale o SDK do Application Insights:
-- [ASP.NET](../application-insights/app-insights-asp-net.md) - instalar a versão 2.5-beta2 ou superior
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - instalar a versão 2.2.0-beta2 ou superior.
-Esses links fornecem detalhes sobre como instalar o SDK, criando recursos e configurando o SDK (se necessário). Para aplicativos diferentes do ASP.NET, consulte o artigo [Application Insights do Azure para aplicativos de Console](../application-insights/application-insights-console.md).
+- [ASP.NET](../azure-monitor/app/asp-net.md) - instalar a versão 2.5-beta2 ou superior
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - instalar a versão 2.2.0-beta2 ou superior.
+Esses links fornecem detalhes sobre como instalar o SDK, criando recursos e configurando o SDK (se necessário). Para aplicativos diferentes do ASP.NET, consulte o artigo [Application Insights do Azure para aplicativos de Console](../azure-monitor/app/console.md).
 
 Se você usar [padrão de manipulador de mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, você conclui: todas as chamadas de Barramento de Serviço feitas pelo serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Caso contrário, consulte o exemplo a seguir para o controle de processamento de mensagem manual.
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 Neste exemplo, `RequestTelemetry` é relatado para cada mensagem processada, com um carimbo de hora, a duração e o resultado (êxito). A telemetria também tem um conjunto de propriedades de correlação.
 Rastreamentos aninhados e exceções relatadas durante o processamento da mensagem também são marcadas com propriedades de correlação que os representam como filhos do `RequestTelemetry`.
 
-Caso faça chamadas para componentes externos com suporte durante o processamento da mensagem, eles também serão automaticamente controlados e correlacionados. Consulte [Acompanhar operações personalizadas com o SDK do .NET do Application Insights](../application-insights/application-insights-custom-operations-tracking.md) para rastreamento manual e correlação.
+Caso faça chamadas para componentes externos com suporte durante o processamento da mensagem, eles também serão automaticamente controlados e correlacionados. Consulte [Acompanhar operações personalizadas com o SDK do .NET do Application Insights](../azure-monitor/app/custom-operations-tracking.md) para rastreamento manual e correlação.
 
 ### <a name="tracking-without-tracing-system"></a>Controle sem o sistema de rastreamento
 Caso seu sistema de rastreamento não ofereça suporte ao controle de chamadas do Barramento de Serviço automático, você poderá considerar adicionar esse suporte em um sistema de rastreamento ou em seu aplicativo. Esta seção descreve eventos de diagnóstico enviados pelo cliente .NET do Barramento de Serviço.  
@@ -141,7 +141,7 @@ Neste exemplo, o ouvinte registra duração, resultado, identificador exclusivo 
 
 #### <a name="events"></a>Eventos
 
-Para cada operação, dois eventos são enviados: 'Start' e 'Stop'. Provavelmente, você só está interessado em eventos de 'Stop'. Eles fornecem o resultado da operação, bem como hora de início e duração como propriedades de uma atividade.
+Para cada operação, dois eventos são enviados: 'Iniciar' e 'Parar'. Provavelmente, você só está interessado em eventos de 'Stop'. Eles fornecem o resultado da operação, bem como hora de início e duração como propriedades de uma atividade.
 
 A carga do evento fornece um ouvinte com o contexto da operação, ele replica os parâmetros de entrada de API e valor de retorno. A carga do evento de 'Stop' tem todas as propriedades da carga do evento de 'Start', portanto você pode ignorar o evento de 'Start' completamente.
 
@@ -227,6 +227,6 @@ Na presença de vários `DiagnosticSource` ouvintes para a mesma fonte, é sufic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Correlação de Application Insights](../application-insights/application-insights-correlation.md)
-* [Monitore Dependências do Application Insights](../application-insights/app-insights-asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão causando lentidão.
-* [Acompanhar operações personalizadas com o SDK do .NET do Application Insights](../application-insights/application-insights-custom-operations-tracking.md)
+* [Correlação de Application Insights](../azure-monitor/app/correlation.md)
+* [Monitore Dependências do Application Insights](../azure-monitor/app/asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão causando lentidão.
+* [Acompanhar operações personalizadas com o SDK do .NET do Application Insights](../azure-monitor/app/custom-operations-tracking.md)

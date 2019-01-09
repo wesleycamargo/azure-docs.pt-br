@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: d5e10e04ea9567e2656f592407855a53a70d7b0f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ec603df7005b9151f1cf760df80de9aaffc78b3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263351"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539697"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Otimizar o custo para implantações de várias regiões no Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Você pode adicionar ou remover regiões da sua conta do Azure Cosmos a qualquer
 
 1. `T x (N+1) RU/s` se sua conta do Azure Cosmos for configurada com todas as regiões capazes de processar gravações. 
 
-A taxa de transferência provisionada com região de gravação única custa US$ 0,008 por hora por 100 RU/s e a taxa de transferência provisionada com várias regiões graváveis custa US$ 0,016/hora por 100 RU/s. Para saber mais, confira a [página de Preços](https://azure.microsoft.com/pricing/details/cosmos-db/) do Cosmos DB.
+A taxa de transferência provisionada com região de gravação única custa US$ 0,008 por hora por 100 RU/s e a taxa de transferência provisionada com várias regiões graváveis custa US$ 0,016/hora por 100 RU/s. Para saber mais, confira a [página de Preços](https://azure.microsoft.com/pricing/details/cosmos-db/) do Microsoft Azure Cosmos DB.
 
 ## <a name="costs-for-multiple-write-regions"></a>Custos de várias regiões de gravação
 
@@ -53,10 +53,10 @@ Se você tiver uma utilização ineficaz, por exemplo, uma ou mais regiões subu
 
 A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmos DB nos seguintes artigos:
 
-* Saiba mais em [Otimizar para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais em [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
-* Saiba mais em [Otimizar o custo da taxa de transferência](optimize-cost-throughput.md)
-* Saiba mais em [Otimizar o custo de armazenamento](optimize-cost-storage.md)
-* Saiba mais em [Otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
+* Saiba mais sobre [Otimizando para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre [Entendendo sua cobrança do Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
+* Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
+* Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
 * Saiba mais em [Otimizar o custo de consultas](optimize-cost-queries.md)
 

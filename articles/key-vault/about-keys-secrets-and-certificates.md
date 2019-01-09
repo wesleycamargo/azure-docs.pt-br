@@ -1,5 +1,5 @@
 ---
-title: Sobre chaves, segredos e certificados do Azure Key Vault
+title: Sobre chaves, segredos e certificados - Azure Key Vault
 description: Visão geral dos detalhes de interface e desenvolvedor de REST do Azure Key Vault para chaves, segredos e certificados.
 services: key-vault
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 464574716971388f3785879ba40ad3e8a624fc7f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384778"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002613"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 
@@ -36,7 +36,7 @@ Para obter mais informações gerais sobre o Key Vault do Azure, consulte [O que
 
 As seções a seguir oferecem informações gerais aplicável durante a implementação do serviço Key Vault.
 
-###  <a name="supporting-standards"></a>Padrões de suporte
+### <a name="supporting-standards"></a>Padrões de suporte
 
 O JavaScript Object Notation (JSON) e especificações de criptografia e autenticação do objeto de JavaScript (JOSE) são informações importantes.  
 
@@ -60,7 +60,7 @@ Consulte as especificações JOSE para tipos de dados relevantes para as chaves,
 -   **Identity** - uma identidade do Azure Active Directory (AAD).  
 -   **IntDate** - um valor decimal de JSON que representa o número de segundos desde 1970-01-01T0:0:0Z UTC até a data/hora de UTC especificada. Consulte RFC3339 para obter detalhes sobre data/hora em geral e o UTC em particular.  
 
-###  <a name="objects-identifiers-and-versioning"></a>Objetos, identificadores e controle de versão
+### <a name="objects-identifiers-and-versioning"></a>Objetos, identificadores e controle de versão
 
 Objetos armazenados no Key Vault são submetidos ao controle de versão sempre que uma nova instância de um objeto é criada. Cada versão é atribuída a um identificador exclusivo e a uma URL. Quando um objeto é criado pela primeira vez, ele recebe um identificador de versão exclusivo e é marcado como a versão atual do objeto. A criação de uma nova instância com o mesmo nome de objeto fornece ao novo objeto um identificador de versão exclusivo, fazendo com que ele se torne a versão atual.  
 
@@ -85,7 +85,7 @@ Em que:
 
 ## <a name="key-vault-keys"></a>Chaves do Cofre de Chaves
 
-###  <a name="keys-and-key-types"></a>Chaves e tipos de chave
+### <a name="keys-and-key-types"></a>Chaves e tipos de chave
 
 As chaves de criptografia no Key Vault são representadas como objetos de chave da Web JSON [JWK]. As especificações JWK/JWA base também são estendidas para habilitar tipos de chave exclusivos para a implementação do Key Vault. Por exemplo, a importação de chaves usando um empacotamento específico do fornecedor do HSM, permite um transporte seguro de chaves que só pode ser usado em HSMs do Key Vault.  
 

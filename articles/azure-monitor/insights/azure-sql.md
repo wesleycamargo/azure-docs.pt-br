@@ -7,22 +7,22 @@ ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/26/2018
-ms.author: v-daljep
-ms.openlocfilehash: bf2cbdb57276fccd31af61f2df1b76eeba816e66
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 12/17/2018
+ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341619"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546702"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
 ![Símbolo da Análise de SQL do Azure](./media/azure-sql/azure-sql-symbol.png)
 
-A Análise de SQL do Azure é uma solução de monitoramento em nuvem para monitorar o desempenho de bancos de dados SQL do Azure, pools elásticos e Instâncias Gerenciadas em escala e em várias assinaturas através de um único painel de vidro. Ela coleta e visualiza importantes métricas de desempenho do Banco de Dados SQL do Azure com inteligência interna para solução de problemas de desempenho.
+A Análise de SQL do Azure é uma solução de monitoramento em nuvem avançada para monitorar o desempenho de bancos de dados SQL do Azure, pools elásticos e Instâncias Gerenciadas em escala e em várias assinaturas através de um único painel de vidro. Ela coleta e visualiza importantes métricas de desempenho do Banco de Dados SQL do Azure com inteligência interna para solução de problemas de desempenho.
 
 Usando as métricas que coleta com a solução, você pode criar alertas e regras de monitoramentos personalizadas. A solução ajuda a identificar problemas em cada camada da pilha do aplicativo. Ela usa as métricas de Diagnóstico do Azure junto com as exibições do Log Analytics para apresentar dados sobre todos os Bancos de Dados SQL do Azure, pools elásticos e bancos de dados em Instâncias Gerenciadas em um único workspace de Log Analytics. O Log Analytics ajuda a coletar, correlacionar e visualizar dados estruturados e não estruturados.
 

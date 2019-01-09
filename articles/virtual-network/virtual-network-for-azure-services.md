@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 5b21ec36215dfde964b845a1ee28c02b562e1dd7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4e136d4a0a60838af7d2b1a111982b0c16b06dd2
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340667"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975144"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integração de rede virtual para os serviços do Azure
 
 A integração dos serviços do Azure a uma rede virtual do Azure permite o acesso privado ao serviço de máquinas virtuais ou de recursos de computação na rede virtual.
-Você pode integrar serviços do Azure à sua rede virtual com as seguintes opções: Implantando diretamente instâncias dedicadas do serviço em uma rede virtual. Os serviços podem ser acessados de maneira privada dentro da rede virtual e de redes locais.
-Estendendo uma rede virtual ao serviço, por meio de pontos de extremidade de serviço. Pontos de extremidade de serviço permitem que os recursos de serviço individuais da rede virtual sejam protegidos.
+Você pode integrar serviços do Azure à sua rede virtual com as seguintes opções:
+- Implantando instâncias dedicadas do serviço em uma rede virtual. Os serviços podem ser acessados de maneira privada dentro da rede virtual e de redes locais.
+- Estendendo uma rede virtual ao serviço, por meio de pontos de extremidade de serviço. Pontos de extremidade de serviço permitem que os recursos de serviço individuais da rede virtual sejam protegidos.
 
 Para integrar vários serviços do Azure à sua rede virtual, é possível combinar um ou mais dos padrões acima. Por exemplo, é possível implantar o HDInsight em sua rede virtual e proteger uma conta de armazenamento para a sub-rede do HDInsight por meio de pontos de extremidade de serviço.
  

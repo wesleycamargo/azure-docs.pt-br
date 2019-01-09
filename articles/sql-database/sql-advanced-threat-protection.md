@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/16/2018
+ms.openlocfilehash: 40f6b6effa509fd2cfa40ecfc758ac37e0a66778
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997605"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538589"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Proteção Avançada contra Ameaças para o Banco de Dados SQL do Microsoft Azure
 
@@ -30,7 +30,7 @@ A Proteção Contra Ameaça Avançada SQL (ATP) fornece um conjunto de recursos 
 - A [Avaliação de Vulnerabilidade ](sql-vulnerability-assessment.md) é um serviço fácil de ser configurado que pode descobrir, acompanhar e ajudá-lo a corrigir vulnerabilidades potenciais do banco de dados. Fornece visibilidade sobre o estado de segurança e inclui etapas acionáveis para resolver problemas de segurança e aperfeiçoar as fprtificações do banco de dados.
 - A [Detecção de Ameaças](sql-database-threat-detection-overview.md) detecta atividades anômalas, indicando tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. Monitora continuamente o banco de dados com relação a atividades suspeitas e fornece alertas de segurança imediata sobre vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso anormal do banco de dados. Os alertas da detecção de ameaças fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça.
 
-Ativar ATP SQL depois habilitar todos esses recursos incluídos. Com um clique, você pode habilitar a ATP em todo o seu servidor de banco de dados, aplicando-se a todos os bancos de dados no servidor. 
+Ativar ATP SQL depois habilitar todos esses recursos incluídos. Com um clique, você pode habilitar a ATP em todo o seu servidor de banco de dados, aplicando-se a todos os bancos de dados no servidor. Habilitar ou gerenciar as configurações ATP requer pertencer à função do [Gerenciador de Segurança de SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), função de administrador do banco de dados SQL ou função de administrador do servidor SQL. 
 
 O preço da ATP está alinhado à camada padrão da Central de Segurança do Azure, na qual cada servidor de Banco de Dados SQL protegido é contado como um nó. Recursos protegidos recentemente se qualificam para uma avaliação gratuita da camada Standard da Central de Segurança. Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança do Azure.
 

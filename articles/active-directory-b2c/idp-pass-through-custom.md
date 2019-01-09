@@ -10,17 +10,20 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e32e62a050b54334a37b09f001798b9a62e2e6b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7a40ded3ff6af1c519400c755d1ee6d9bd73ba9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637101"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602283"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso por meio de uma politica personalizada para seu aplicativo no Azure Active Directory B2C
 
 > [!NOTE]
 > Esse recurso está atualmente em visualização pública.
+
+> [!Important]
+> Esse versão prévia do recurso pública está temporariamente indisponível.
 
 Uma [política personalizada](active-directory-b2c-get-started-custom.md) no Azure Active Directory (Azure AD) B2C fornece aos usuários do seu aplicativo uma oportunidade de se inscrever ou entrar com um provedor de identidade. Quando isso acontece, o Azure AD B2C recebe um [token de acesso](active-directory-b2c-reference-tokens.md) do provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. Adicione um tipo de declaração e declaração de saída para a sua política personalizada para passar o token para os aplicativos que você registra no ?Azure Active Directory B2C. 
 

@@ -8,16 +8,16 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: d02ae48bab6a17cbf5568996b30ccb39ccb81c59
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994007"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755012"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implantar instâncias de contêiner que usam recursos GPU
 
-Para executar determinadas cargas de trabalho de computação intensiva em Instâncias de Contêiner do Azure, implantar grupos de contêineres com *recursos GPU*. As instâncias de contêiner podem acessar um ou mais GPUs NVIDIA Tesla ao executar cargas de trabalho de contêiner, como CUDA e aplicativos de aprendizado profundo.
+Para executar determinadas cargas de trabalho de computação intensiva em Instâncias de Contêiner do Azure, implante seus [grupos de contêineres](container-instances-container-groups.md) com *recursos GPU*. As instâncias de contêiner no grupo podem acessar um ou mais GPUs NVIDIA Tesla ao executar cargas de trabalho de contêiner, como CUDA e aplicativos de aprendizado profundo.
 
 Conforme mostrado neste artigo, você pode adicionar recursos GPU, quando você implanta um grupo de contêineres usando um [arquivo YAML](container-instances-multi-container-yaml.md) ou [modelo do Resource Manager](container-instances-multi-container-group.md).
 
@@ -87,7 +87,7 @@ Ao implantar recursos GPU, defina recursos de CPU e memória apropriada para a c
 
 ## <a name="yaml-example"></a>Exemplo YAML
 
-Copie o YAML a seguir para um novo arquivo chamado *aci.yaml implantar gpu*, em seguida, salve o arquivo. Esse YAML cria um grupo de contêiner chamado *gpucontainergroup* especificando uma instância de contêiner com uma GPU K80. A instância é executada em um aplicativo de adição de vetor CUDA de exemplo. As solicitações de recurso são suficientes para executar a carga de trabalho.
+Uma maneira de adicionar recursos GPU é implantar um grupo de contêineres usando um [arquivo YAML](container-instances-multi-container-yaml.md). Copie o YAML a seguir para um novo arquivo chamado *aci.yaml implantar gpu*, em seguida, salve o arquivo. Esse YAML cria um grupo de contêiner chamado *gpucontainergroup* especificando uma instância de contêiner com uma GPU K80. A instância é executada em um aplicativo de adição de vetor CUDA de exemplo. As solicitações de recurso são suficientes para executar a carga de trabalho.
 
 ```YAML
 additional_properties: {}
@@ -134,7 +134,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Exemplo de modelo do Resource Manager
 
-Crie um arquivo chamado `gpudeploy.json` e copie o seguinte JSON para ele. Este exemplo implanta uma instância de contêiner com um GPU V100 que executa um trabalho de treinamento [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) em relação a [conjunto de dados MNIST](http://yann.lecun.com/exdb/mnist/). As solicitações de recurso são suficientes para executar a carga de trabalho.
+Outra maneira de implantar um grupo de contêineres com recursos GPU é usando um [modelo do Resource Manager](container-instances-multi-container-group.md). Crie um arquivo chamado `gpudeploy.json` e copie o seguinte JSON para ele. Este exemplo implanta uma instância de contêiner com um GPU V100 que executa um trabalho de treinamento [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) em relação a [conjunto de dados MNIST](http://yann.lecun.com/exdb/mnist/). As solicitações de recurso são suficientes para executar a carga de trabalho.
 
 ```JSON
 {

@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 36b4fbac13e012de2fbef137c6637fd7e2daea8f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161286"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598883"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 As contas de GPv2 de Armazenamento do Microsoft Azure permitem que você forneça conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Aproveitar a hospedagem no Armazenamento do Microsoft Azure permite que você use arquiteturas sem servidor incluindo [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS.
 
-Em contraste com a hospedagem de site estático, sites dinâmicos que dependem do código do lado do servidor que melhor são hospedados usando [Aplicativos Web do Serviço de Aplicativo do Azure](/azure/app-service/app-service-web-overview).
+Em contraste com a hospedagem de site estático, sites dinâmicos que dependem do código do lado do servidor que melhor são hospedados usando o [Serviço de Aplicativo do Azure](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Como ele funciona?
 Quando você habilita o site estático hospedando em sua conta de armazenamento, selecione o nome do arquivo padrão e, opcionalmente, forneça um caminho para uma página 404 personalizada. Conforme o recurso é habilitado, um contêiner denominado *$web* será criado se ele ainda não existir. 
@@ -161,6 +161,6 @@ Sim, o ponto de extremidade da Web diferencia maiúsculas e minúsculas exatamen
 * [Usar a CDN do Azure para acessar blobs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurar um nome de domínio personalizado para seu ponto de extremidade de Blobs ou web](storage-custom-domain-name.md)
 * [Funções do Azure](/azure/azure-functions/functions-overview)
-* [Aplicativos Web do Azure](/azure/app-service/app-service-web-overview)
+* [Serviço de Aplicativo do Azure](/azure/app-service/overview)
 * [Compile seu primeiro aplicativo web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Hospedar seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)
+* [Tutorial: Hospede seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)

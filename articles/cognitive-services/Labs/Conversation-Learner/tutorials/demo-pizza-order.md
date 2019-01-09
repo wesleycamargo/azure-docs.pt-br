@@ -10,23 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e23ff60a0a2ea10ace09130ba115e72b4e1c9ad7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9b35c0fd412dd48137a3cb362f20fae067c80461
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249805"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792621"
 ---
-# <a name="demo-pizza-order"></a>Demonstração: pedido de pizza
-Esta demonstração ilustra um bot de pedido de pizza. Ele dá suporte ao pedido de uma única pizza com esta funcionalidade:
+# <a name="demo-pizza-order"></a>Demonstração: Pedido de pizza
+Essa demonstração ilustra um bot de pedido de pizza, que dá suporte a um pedido único de pizza ao:
 
-- reconhecer as coberturas de pizza em elocuções do usuário
-- verificar se as coberturas de pizza estão no estoque ou fora de estoque e responder adequadamente
-- reconhecer as coberturas de pizza de um pedido anterior e oferecer-se para iniciar um novo pedido com as mesmas coberturas
+- reconhecer os sabores de pizza de enunciados do usuário
+- gerenciar inventário de sabores e responder adequadamente
+- lembrar-se de pedidos anteriores e acelerar a reordenação de uma pizza idêntica
 
 ## <a name="video"></a>Vídeo
 
-[![Versão prévia da demostração de pedido de pizza](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
+[![Versão prévia da demostração de pedido de pizza](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de pedido de pizza esteja em execução
@@ -39,72 +39,66 @@ Na lista Modelo da interface do usuário da Web, clique no TutorialDemo de Pedid
 
 ## <a name="entities"></a>Entidades
 
-Você criou três entidades.
+O modelo contém três entidades:
 
-- Coberturas: essa entidade acumulará as coberturas que o usuário pediu. Inclui as coberturas válidas que estão em estoque. Verifica se uma cobertura está no estoque ou fora de estoque.
-- OutofStock: essa entidade é usada para comunicar ao usuário que a cobertura selecionada não está em estoque.
-- LastToppings: após um pedido, essa entidade é usada para oferecer ao usuário a lista de coberturas em seu pedido.
+- "Sabores" acumulam ingredientes especificados do cliente, se disponível.
+- "Sem estoque" sinaliza que o sabor selecionado pelo usuário está fora de estoque
+- “Últimos Sabores" contém o histórico de sabores de pedidos anteriores
 
 ![](../media/tutorial_pizza_entities.PNG)
 
 ### <a name="actions"></a>Ações
 
-Você criou um conjunto de ações, incluindo a solicitação do que o usuário deseja em sua pizza, informando-o do que foi adicionado até o momento, e assim por diante.
+O modelo contém um conjunto de ações que pede ao usuário a seleção de sabor, sabores acumulados e muito mais.
 
-Também há duas chamadas à API:
+Também são fornecidas duas chamadas de API:
 
-- FinalizeOrder: para fazer o pedido da pizza
-- UseLastToppings: para migrar as coberturas do pedido anterior 
+- "Finalizar Pedidor" lida com o preenchimento de pedidos
+- "Usar Últimos Sabores" processa as informações de histórico de ingredientes
 
 ![](../media/tutorial_pizza_actions.PNG)
 
 ### <a name="training-dialogs"></a>Diálogos de treinamento
-Você definiu alguns diálogos de treinamento. 
+
+Várias caixas de diálogo de treinamento são encontradas no modelo.
 
 ![](../media/tutorial_pizza_dialogs.PNG)
 
-Por exemplo, vamos tentar uma sessão de ensino.
+Vamos treinar o modelo um pouco mais com a criação de outra caixa de diálogo Treinar.
 
-1. Clique em Diálogos de Treinamento e, em seguida, em Novo Diálogo de Treinamento.
-1. Insira 'pedir uma pizza'.
-2. Clique em Pontuar Ação.
-3. Clique para selecionar 'o que você gostaria em sua pizza?'
-4. Insira 'cogumelos e queijo'.
-    - Observe que o LUIS rotulou ambos como Coberturas. Se isso não estiver correto, você poderá clicar para realçar e corrigi-lo.
-    - O sinal '+' ao lado da entidade significa que ela está sendo adicionada ao conjunto de coberturas.
-5. Clique em “Score Actions” (Pontuar ações).
-    - Aviso `mushrooms` e `cheese` não estão na memória de Coberturas.
-3. Clique para selecionar 'você tem $Toppings em sua pizza'
-    - Observe que essa é uma ação sem espera e, portanto, o bot solicitará a próxima ação.
-6. Selecione 'Deseja mais alguma coisa?'
-7. Insira 'remover cogumelos e adicionar pimenta'.
-    - Aviso `mushroom` tem um sinal '-' ao lado para ser removido. E `peppers` tem um sinal '+' ao lado dele, para adicioná-lo às coberturas.
-2. Clique em “Score Action” (Pontuar Ação).
-    - Aviso `peppers` está agora em negrito, pois é novo. E `mushrooms` foi eliminado.
-8. Clique para selecionar 'você tem $Toppings em sua pizza'
-6. Selecione 'Deseja mais alguma coisa?'
-7. Insira 'adicionar ervilhas'.
-    - `Peas` é um exemplo de cobertura que está fora de estoque. Ainda é rotulado como uma cobertura.
-2. Clique em “Score Action” (Pontuar Ação).
-    - `Peas` aparece como OutOfStock.
-    - Para ver como isso aconteceu, abra o código em `C:\<\installedpath>\src\demos\demoPizzaOrder.ts`. Observe o método EntityDetectionCallback. Esse método é chamado após cada cobertura para ver se ela está em estoque. Caso contrário, ele a limpa do conjunto de coberturas e adiciona-a à entidade OutOfStock. A variável inStock é definida acima desse método que tem a lista de coberturas em estoque.
-6. Selecione 'Não temos $OutOfStock'.
-7. Selecione 'Deseja mais alguma coisa?'
-8. Insira 'não'.
-9. Clique em Ação de Pontuação.
-10. Selecione a chamada à API 'FinalizeOrder'. 
-    - Isso chamará a função 'FinalizeOrder' definida no código. Isso limpa as coberturas e retorna 'seu pedido está sendo processado'. 
-2. Insira 'fazer outro pedido'. Estamos começando um novo pedido.
-9. Clique em “Score Action” (Pontuar Ação).
-    - 'queijo' e 'pimentões' estão na memória como coberturas do último pedido.
-1. Selecione 'Deseja $LastToppings'.
-2. Insira 'sim'
-3. Clique em Ação de Pontuação.
-    - O bot deseja executar a ação UseLastToppings. Esse é o segundo dos dois métodos de retorno de chamada. Ele copiará as coberturas do último pedido para coberturas e limpar as últimas coberturas. Essa é uma maneira de lembrar o último pedido e fornecer essas coberturas como opções, caso o usuário informe que deseja outra pizza.
-2. Clique para selecionar 'você tem $Toppings em sua pizza'.
-3. Selecione 'Deseja mais alguma coisa?'
-8. Insira 'não'.
-4. Clique em “Done Teaching” (Ensino concluído).
+1. No painel esquerdo, clique em "Diálogos de Treinamento" e, em seguida, no botão "Novo Diálogo de Treinamento".
+2. No painel de chat, onde está escrito "Digite sua mensagem...", digite "Pedir uma pizza com queijo"
+    - A palavra "queijo" foi extraída pelo extrator de entidade.
+3. Clique no botão "Ações de Pontuação".
+4. Selecione a resposta, "Você tem queijo na sua pizza".
+5. Selecione a resposta, “Gostaria de algo mais?”
+6. No painel de chat, onde está escrito "Digite sua mensagem...", digite "adicionar cogumelos e pimenta”
+7. Clique no botão "Ações de Pontuação".
+8. Selecione a resposta, "Você tem queijo, cogumelos e pimenta na sua pizza”.
+9. Selecione a resposta, “Gostaria de algo mais?”
+10. No painel de chat, onde está escrito "Digite sua mensagem...", digite "remover pimenta e acrescentar calabresa”
+11. Clique no botão "Ações de Pontuação".
+12. Selecione a resposta, "Você tem queijo, cogumelos e calabresa na sua pizza”.
+13. Selecione a resposta, “Gostaria de algo mais?”
+14. No painel de chat, onde está escrito "Digite sua mensagem...", digite "adicionar inhame"
+15. Clique no botão "Ações de Pontuação".
+    - O valor de "inhame" foi adicionado à "Fora de Estoque" pelo código de retorno de chamada de detecção de entidade, uma vez que o texto não correspondeu a nenhum ingredientes com suporte.
+16. Selecione a resposta, "Fora de Estoque"
+17. Selecione a resposta, “Gostaria de algo mais?”
+18. No painel de chat, onde está escrito "Digite sua mensagem...", digite "não".
+    - "Não" não está marcado como qualquer tipo de intenção. Em vez disso, selecionaremos a ação relevante com base no contexto atual.
+19. Clique no botão "Ações de Pontuação".
+20. Selecione a resposta, "Finalizar Pedido"
+    - Selecionar essa Ação resultou nos sabores atuais do cliente sendo salvos na entidade “Últimos Sabores” e na exclusão da entidade “Sabores” pelo código de retorno de chamada de Finalizar Pedido.
+21. No painel de chat, onde está escrito "Digite sua mensagem...", digite "pedir outra"
+22. Clique no botão "Ações de Pontuação".
+23. Selecione a resposta, "Gostaria de queijo, cogumelos e calabresa?”
+    - Essa Ação agora está disponível devido a entidade "Últimos Sabores" sendo definida.
+24. No painel de chat, onde está escrito "Digite sua mensagem...", digite "sim".
+25. Clique no botão "Ações de Pontuação".
+26. Selecione a resposta, "Usar Últimos Sabores"
+27. Selecione a resposta, "Você tem queijo, cogumelos e calabresa na sua pizza”.
+28. Selecione a resposta, “Gostaria de algo mais?”
 
 ![](../media/tutorial_pizza_callbackcode.PNG)
 
@@ -113,4 +107,4 @@ Por exemplo, vamos tentar uma sessão de ensino.
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Demonstração – inicializador de aplicativos VR](./demo-vr-app-launcher.md)
+> [Implantando um bot Aprendiz de Conversa](../deploy-to-bf.md)

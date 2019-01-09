@@ -3,16 +3,15 @@ title: Otimizar o vácuo automático no Banco de Dados do Azure para PostgreSQL
 description: Este artigo descreve como você pode otimizar o vácuo automático no Banco de Dados do Azure para PostgreSQL.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685983"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539782"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Otimizar o vácuo automático no Banco de Dados do Azure para PostgreSQL 
 Este artigo descreve como você pode otimizar o vácuo automático de modo eficaz no Banco de Dados do Azure para PostgreSQL.

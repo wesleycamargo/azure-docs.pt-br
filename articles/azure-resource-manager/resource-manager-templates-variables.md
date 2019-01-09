@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08728a3c0b4d4578939004e2d1b1ee2d30a682ab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359281"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712739"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Seção de variáveis dos modelos do Azure Resource Manager
 Na seção de variáveis, você constrói valores que podem ser usados em todo o seu modelo. Você não precisa definir variáveis, mas normalmente elas simplificam seu modelo reduzindo expressões complexas.
@@ -269,13 +269,6 @@ Essa abordagem funciona bem quando você precisa utilizar valores de parâmetro 
 }
 ```
 
-## <a name="recommendations"></a>Recomendações
-As seguintes informações podem ser úteis quando você trabalha com variáveis:
-
-* Use variáveis para valores que você precisa usar mais de uma vez em um modelo. Se um valor for usado apenas uma vez, um valor embutido em código facilita a leitura do modelo.
-* Não é possível usar a função [reference](resource-group-template-functions-resource.md#reference) na seção de **variables** do modelo. A função **reference** deriva seu valor do estado de tempo de execução do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que precisam da função **reference** diretamente na seção **resources** ou **outputs** do modelo.
-* Inclua variáveis em nomes de recurso que devem ser exclusivos.
-
 ## <a name="example-templates"></a>Modelos de exemplo
 
 Esses modelos de exemplo demonstram alguns cenários de uso de variáveis. Implante-os para testar como as variáveis são tratadas em cenários diferentes. 
@@ -290,5 +283,5 @@ Esses modelos de exemplo demonstram alguns cenários de uso de variáveis. Impla
 ## <a name="next-steps"></a>Próximas etapas
 * Para exibir modelos completos para muitos tipos diferentes de soluções, consulte os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que podem ser usadas em um modelo, consulte [Funções do Modelo do Azure Resource Manager](resource-group-template-functions.md).
-* Para combinar vários modelos durante a implantação, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Essa situação é comum ao trabalhar com contas de armazenamento ou redes virtuais compartilhadas com vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](resource-group-template-functions-resource.md#resourceid).
+* Para ver recomendações sobre como criar modelos, confira [Práticas recomendadas para modelos do Azure Resource Manager](template-best-practices.md).
+* Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Essa situação é comum ao trabalhar com contas de armazenamento ou redes virtuais que são compartilhadas com vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](resource-group-template-functions-resource.md#resourceid).

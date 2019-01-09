@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 1612c2d47f88b6d065e5307be5ff3c99d8f6d405
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0349e3f482923a236ea29332abfc3a9206828ba7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433433"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976878"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Fontes de monitoramento no Azure Monitor
 Este artigo descreve as fontes de dados coletadas pelo Azure Monitor para monitorar a integridade e o desempenho de seus recursos e dos aplicativos executados nelas. Esses recursos podem ser no Azure, em outra nuvem ou localmente.  Veja os [Dados coletados pelo Azure Monitor](data-collection.md) para obter detalhes sobre como esses dados são armazenados e como você pode exibi-los.
@@ -41,12 +41,12 @@ A telemetria relacionada à integridade e à operação do Azure propriamente di
 ![Coleção de assinatura do Azure](media/data-sources/azure-collection.png)
 
 ### <a name="azure-service-health"></a>Integridade do Serviço do Azure
-[A Integridade do Serviço do Azure](../../monitoring-and-diagnostics/monitoring-service-notifications.md) fornece informações sobre a integridade dos serviços do Azure na assinatura dos quais o aplicativo e os recursos dependem. Você pode criar alertas para ser notificado sobre problemas críticos atuais e esperados que podem afetar o aplicativo. Registros da Integridade do Serviço são armazenados no [log de Atividades do Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), portanto, você pode exibi-los no Explorador do Log de Atividades e copiá-los para os logs do Azure Monitor.
+[A Integridade do Serviço do Azure](../../azure-monitor/platform/service-notifications.md) fornece informações sobre a integridade dos serviços do Azure na assinatura dos quais o aplicativo e os recursos dependem. Você pode criar alertas para ser notificado sobre problemas críticos atuais e esperados que podem afetar o aplicativo. Registros da Integridade do Serviço são armazenados no [log de Atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md), portanto, você pode exibi-los no Explorador do Log de Atividades e copiá-los para os logs do Azure Monitor.
 
 ### <a name="azure-activity-log"></a>Log de Atividades do Azure
-O [Log de Atividades do Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) inclui registros de integridade do serviço junto com os registros de alterações de configuração feitas aos recursos do Azure. O Log de Atividades está disponível para todos os recursos do Azure e representa a exibição _externa_ desses recursos. Os tipos específicos de registros no Log de Atividades são descritos no [esquema de eventos do Log de Atividades do Azure](../../azure-monitor/platform/activity-log-schema.md).
+O [Log de Atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) inclui registros de integridade do serviço junto com os registros de alterações de configuração feitas aos recursos do Azure. O Log de Atividades está disponível para todos os recursos do Azure e representa a exibição _externa_ desses recursos. Os tipos específicos de registros no Log de Atividades são descritos no [esquema de eventos do Log de Atividades do Azure](../../azure-monitor/platform/activity-log-schema.md).
 
-Você pode exibir o Log de Atividades para um recurso específico na página desse recurso no portal do Azure ou exibir logs de vários recursos no [Explorador do Log de Atividades](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). É particularmente útil copiar as entradas de log para o Azure Monitor para combiná-las com outros dados de monitoramento. Você também pode enviá-las para outros locais usando [Hubs de Eventos](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
+Você pode exibir o Log de Atividades para um recurso específico na página desse recurso no portal do Azure ou exibir logs de vários recursos no [Explorador do Log de Atividades](../../azure-monitor/platform/activity-logs-overview.md). É particularmente útil copiar as entradas de log para o Azure Monitor para combiná-las com outros dados de monitoramento. Você também pode enviá-las para outros locais usando [Hubs de Eventos](../../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 
 
@@ -61,9 +61,9 @@ A maioria dos serviços do Azure gerará [métricas de plataforma](data-collecti
 
 
 ### <a name="resource-diagnostic-logs"></a>Logs de diagnóstico de recurso
-Embora o Log de Atividades forneça informações sobre as operações executadas em recursos do Azure, [logs de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) em nível de recurso fornecem informações sobre a operação do recurso propriamente dito.   Os requisitos de configuração e o conteúdo desses logs [variam de acordo com o tipo de recurso](../../azure-monitor/platform/tutorial-dashboards.md).
+Embora o Log de Atividades forneça informações sobre as operações executadas em recursos do Azure, [logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) em nível de recurso fornecem informações sobre a operação do recurso propriamente dito.   Os requisitos de configuração e o conteúdo desses logs [variam de acordo com o tipo de recurso](../../azure-monitor/platform/tutorial-dashboards.md).
 
-Você não pode exibir os logs de diagnóstico diretamente no portal do Azure, mas você pode [enviá-los para o Armazenamento do Azure para arquivamento](../../azure-monitor/platform/archive-diagnostic-logs.md) e exportá-los para [Hub de Eventos](../../event-hubs/event-hubs-about.md) para redirecionamento a outros serviços, ou então para o [Log Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) para análise. Alguns recursos podem gravar diretamente no Log Analytics, enquanto outros gravam em uma conta de armazenamento antes de serem [importados para o Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+Você não pode exibir os logs de diagnóstico diretamente no portal do Azure, mas você pode [enviá-los para o Armazenamento do Azure para arquivamento](../../azure-monitor/platform/archive-diagnostic-logs.md) e exportá-los para [Hub de Eventos](../../event-hubs/event-hubs-about.md) para redirecionamento a outros serviços, ou então para o [Log Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) para análise. Alguns recursos podem gravar diretamente no Log Analytics, enquanto outros gravam em uma conta de armazenamento antes de serem [importados para o Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Soluções de monitoramento
  As [soluções de monitoramento](../insights/solutions.md) coletam dados para fornecer insight adicional sobre a operação de um serviço ou aplicativo específico. Elas coletam dados para os logs do Azure Monitor, em que podem ser analisadas usando a [linguagem de consulta](../log-query/log-query-overview.md) ou [exibições](view-designer.md) que são normalmente incluídas na solução.
@@ -93,13 +93,13 @@ Além da telemetria que seu aplicativo pode gravar no sistema operacional convid
 ### <a name="application-data"></a>Dados do aplicativo
 Quando você habilita o Application Insights para um aplicativo por meio da instalação de um pacote de instrumentação, ele coleta as métricas e logs relacionados ao desempenho e à operação do aplicativo. Isso inclui informações detalhadas sobre exibições de página, solicitações de aplicativo e exceções. O Application Insights armazena os dados que coleta no Azure Monitor. Ele inclui ferramentas abrangentes para analisar esses dados, mas você também pode analisá-los com dados de outras fontes usando ferramentas como a análise de métrica e a análise de logs.
 
-Você também pode usar o Application Insights para [criar uma métrica personalizada](../../application-insights/app-insights-api-custom-events-metrics.md).  Isso permite que você defina sua própria lógica para calcular um valor numérico e, em seguida, armazenar esse valor com outras métricas que podem ser acessadas a partir do Metrics Explorer e usadas para [autoescala](../../azure-monitor/platform/autoscale-custom-metric.md) e alertas de métrica.
+Você também pode usar o Application Insights para [criar uma métrica personalizada](../../azure-monitor/app/api-custom-events-metrics.md).  Isso permite que você defina sua própria lógica para calcular um valor numérico e, em seguida, armazenar esse valor com outras métricas que podem ser acessadas a partir do Metrics Explorer e usadas para [autoescala](../../azure-monitor/platform/autoscale-custom-metric.md) e alertas de métrica.
 
 ### <a name="dependencies"></a>Dependências
-Para monitorar as diferentes operações lógicas de um aplicativo, você precisa [coletar a telemetria em vários componentes](../../application-insights/app-insights-transaction-diagnostics.md). O Application Insights dá suporte à [correlação de telemetria distribuída](../../application-insights/application-insights-correlation.md), que identifica as dependências entre componentes, permitindo que você os analise conjuntamente.
+Para monitorar as diferentes operações lógicas de um aplicativo, você precisa [coletar a telemetria em vários componentes](../../application-insights/app-insights-transaction-diagnostics.md). O Application Insights dá suporte à [correlação de telemetria distribuída](../../azure-monitor/app/correlation.md), que identifica as dependências entre componentes, permitindo que você os analise conjuntamente.
 
 ### <a name="availability-tests"></a>Testes de disponibilidade
-Os [testes de disponibilidade](../../application-insights/app-insights-monitor-web-app-availability.md) no Application Insights permitem que você teste a disponibilidade e a capacidade de resposta de seu aplicativo de diferentes locais na Internet pública. Você pode fazer um teste de ping simples para verificar se o aplicativo está ativo ou usar o Visual Studio para criar um teste da Web que simula um cenário de usuário.  Testes de disponibilidade não exigem nenhuma instrumentação no aplicativo.
+Os [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) no Application Insights permitem que você teste a disponibilidade e a capacidade de resposta de seu aplicativo de diferentes locais na Internet pública. Você pode fazer um teste de ping simples para verificar se o aplicativo está ativo ou usar o Visual Studio para criar um teste da Web que simula um cenário de usuário.  Testes de disponibilidade não exigem nenhuma instrumentação no aplicativo.
 
 ## <a name="custom-sources"></a>Fontes personalizadas
 Além das camadas padrão de um aplicativo, você precisa monitorar outros recursos que têm a telemetria que não pode ser coletada com outras fontes de dados. Para esses recursos, você precisará gravar esses dados usando uma API do Azure Monitor.

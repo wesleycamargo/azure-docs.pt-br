@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: b89c2607a1b21b999e5f95224e4aefc97e321f14
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251348"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634415"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Fila do Azure com o Azure PowerShell
 
@@ -27,16 +27,18 @@ O armazenamento de filas do Azure é um serviço para armazenamento de um grande
 > * Excluir uma mensagem 
 > * Excluir uma fila
 
-Estas instruções exigem o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Estas instruções exigem o módulo do Azure PowerShell, versão 0.7 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
 Não há nenhum cmdlet do PowerShell para o plano de dados para filas. Para executar os dados de operações do plano, como adicionar uma mensagem, ler uma mensagem e excluir uma mensagem, você deverá usar a biblioteca de cliente de armazenamento do .NET da forma como ela é exposta no PowerShell. Você cria um objeto de mensagem e então pode usar comandos como AddMessage para executar operações nessa mensagem. Este artigo mostra como fazer isso.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Recuperar a lista de locais
@@ -44,28 +46,28 @@ Connect-AzureRmAccount
 Se você não sabe qual localização deseja usar, você pode listar as localizações disponíveis. Depois que a lista for exibida, encontre o que deseja usar. Este exercício usará **eastus**. Armazene-a na variável **local** para uso futuro.
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 ```
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Armazene o nome do grupo de recursos em uma variável para uso futuro. Neste exemplo, um grupo de recursos denominado *howtoqueuesrg* é criado na região *eastus*.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
 ## <a name="create-storage-account"></a>Criar Conta de Armazenamento
 
-Crie uma conta de armazenamento padrão de uso geral com o armazenamento localmente redundante (LRS) usando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Obtenha o contexto da conta de armazenamento que define a conta de armazenamento a ser usada. Ao agir em uma conta de armazenamento, você pode referenciar o contexto em vez de fornecer repetidamente as credenciais.
+Crie uma conta de armazenamento padrão de uso geral com o armazenamento localmente redundante (LRS) usando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Obtenha o contexto da conta de armazenamento que define a conta de armazenamento a ser usada. Ao agir em uma conta de armazenamento, você pode referenciar o contexto em vez de fornecer repetidamente as credenciais.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS
@@ -75,27 +77,27 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-O exemplo a seguir primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primária. -Em seguida, ele chama o cmdlet [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) para criar uma fila denominada 'queuename'.
+O exemplo a seguir primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primária. Em seguida, ele chama o cmdlet [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) para criar uma fila denominada 'queuename'.
 
 ```powershell
 $queueName = "howtoqueue"
-$queue = New-AzureStorageQueue –Name $queueName -Context $ctx
+$queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
 Para obter informações sobre convenções de nomenclatura do serviço Fila do Azure, consulte [Nomear filas e metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 ## <a name="retrieve-a-queue"></a>Recuperar uma fila
 
-Você pode consultar e recuperar uma lista de todas as filas em uma conta de armazenamento ou de uma fila específica. Os exemplos a seguir demonstram como recuperar todas as filas na conta de armazenamento e uma fila específica; os dois comandos utilizam o cmdlet [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue).
+Você pode consultar e recuperar uma lista de todas as filas em uma conta de armazenamento ou de uma fila específica. Os exemplos a seguir demonstram como recuperar todas as filas na conta de armazenamento e uma fila específica; os dois comandos utilizam o cmdlet [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue).
 
 ```powershell
 # Retrieve a specific queue
-$queue = Get-AzureStorageQueue –Name $queueName –Context $ctx
+$queue = Get-AzStorageQueue –Name $queueName –Context $ctx
 # Show the properties of the queue
 $queue
 
 # Retrieve all queues and show their names
-Get-AzureStorageQueue -Context $ctx | select Name
+Get-AzStorageQueue -Context $ctx | select Name
 ```
 
 ## <a name="add-a-message-to-a-queue"></a>Adicionar uma mensagem a uma fila
@@ -157,11 +159,11 @@ $queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Excluir uma fila
-Para excluir uma fila e todas as mensagens contidas nela, chame o cmdlet Remove-AzureStorageQueue. O exemplo a seguir mostra como excluir a fila específica usada neste exercício usando o cmdlet Remove-AzureStorageQueue.
+Para excluir uma fila e todas as mensagens contidas nela, chame o cmdlet Remove-AzStorageQueue. O exemplo a seguir mostra como excluir a fila específica usada neste exercício usando o cmdlet Remove-AzStorageQueue.
 
 ```powershell
 # Delete the queue 
-Remove-AzureStorageQueue –Name $queueName –Context $ctx
+Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -169,7 +171,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 Para remover todos os ativos que você criou neste exercício, remova o grupo de recursos. Isso também exclui todos os recursos contidos no grupo. Nesse caso, ele remove a conta de armazenamento criada e o próprio grupo de recursos.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -185,7 +187,7 @@ Neste artigo de instruções, você aprendeu sobre gerenciamento de armazenament
 > * Excluir uma fila
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlets de Armazenamento do Microsoft Azure PowerShell
-* [Cmdlets do PowerShell do Armazenamento](/powershell/module/azurerm.storage#storage)
+* [Cmdlets do PowerShell do Armazenamento](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Gerenciador do Armazenamento do Microsoft Azure
 * [O Gerenciador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.

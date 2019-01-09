@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091036"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000539"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aproveitar a paralelização de consultas no Azure Stream Analytics
 Este artigo mostra como tirar proveito da paralelização no Azure Stream Analytics. Aprenda a dimensionar trabalhos do Stream Analytics configurando partições de entrada e ajustando a definição da consulta de análise.
@@ -41,12 +41,13 @@ Quando você trabalha com o Stream Analytics, você pode tirar proveito do parti
 -   Funções do Azure
 -   tabela do Azure
 -   Armazenamento de Blob (é possível definir a chave de partição explicitamente)
--   CosmosDB (é preciso definir a chave de partição explicitamente)
--   EventHub (é preciso definir a chave de partição explicitamente)
+-   Azure Cosmos DB (é preciso definir a chave de partição explicitamente)
+-   Hubs de Eventos (é preciso definir a chave de partição explicitamente)
 -   Hub IoT (é preciso definir a chave de partição explicitamente)
 -   Barramento de Serviço
+- SQL e SQL Data Warehouse com o particionamento opcional: obter mais informações sobre a [Saída para a página do SQL Data Warehouse do Microsoft Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-Saídas do Power BI, SQL e SQL Data Warehouse não oferecem suporte ao particionamento. No entanto, você ainda pode particionar a entrada, conforme descrito [nesta seção](#multi-step-query-with-different-partition-by-values) 
+O Power BI não dá suporte ao particionamento. No entanto, você ainda pode particionar a entrada, conforme descrito [nesta seção](#multi-step-query-with-different-partition-by-values) 
 
 Para obter mais informações sobre partições, consulte os seguintes artigos:
 
@@ -115,9 +116,9 @@ Nesse caso, não importa qual é a consulta. Se a contagem de partição de entr
 
 ### <a name="query-using-non-partitioned-output"></a>Consultar usando a saída não particionada
 * Entrada: Hub de eventos com 8 partições
-* Saída: PowerBI
+* Saída: Power BI
 
-Atualmente, a saída do PowerBI não suporta particionamento. Portanto, esse cenário não é embaraçosamente paralelo.
+Atualmente, a saída do Power BI não suporta particionamento. Portanto, esse cenário não é embaraçosamente paralelo.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Consulta de várias etapas com diferentes valores de PARTITION BY
 * Entrada: Hub de eventos com 8 partições

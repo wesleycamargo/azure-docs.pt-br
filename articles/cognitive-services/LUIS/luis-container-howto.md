@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013809"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970263"
 ---
-# <a name="install-and-run-containers"></a>Instalar e executar contêineres
+# <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
 O contêiner do Serviço Inteligente de Reconhecimento Vocal (LUIS) carrega o modelo de reconhecimento vocal treinado ou publicado, também conhecido como um [aplicativo LUIS](https://www.luis.ai), em um contêiner do Docker e fornece acesso às previsões de consulta dos pontos de extremidade da API do contêiner. Você pode coletar logs de consulta do contêiner e carregá-los novamente no modelo do Serviço Inteligente de Reconhecimento Vocal do Azure para aumentar a precisão da previsão do aplicativo.
 
@@ -34,7 +34,7 @@ Para executar o contêiner do LUIS, você precisará ter o seguinte:
 
 |Obrigatório|Finalidade|
 |--|--|
-|Mecanismo Docker| Para concluir esta versão prévia, você precisará ter um mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
 |Recurso de Reconhecimento Vocal (LUIS) e aplicativo associado |Para usar o contêiner, você precisará ter:<br><br>* Um [recurso do Azure de _Reconhecimento Vocal_](luis-how-to-azure-subscription.md), junto com a chave do ponto de extremidade associada e o URI do ponto de extremidade (usado como o ponto de extremidade de cobrança).<br>* Um aplicativo publicado ou treinado empacotado como uma entrada montada para o contêiner com sua ID do aplicativo associado.<br>* A Chave de Criação para baixar o pacote do aplicativo, se você estiver fazendo isso a partir da API.<br><br>Esses requisitos são usados para transmitir argumentos de linha de comando para as seguintes variáveis:<br><br>**{AUTHORING_KEY}** : Essa chave é usada para obter o aplicativo empacotado do serviço de LUIS na nuvem e carregar os logs de consulta novamente na nuvem. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Essa ID é usada para selecionar o aplicativo. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Essa chave é usada para iniciar o contêiner. Você pode encontrar a chave do ponto de extremidade em dois locais. O primeiro é o portal do Azure na lista de chaves do recurso _Reconhecimento Vocal_. A chave do ponto de extremidade também está disponível no portal do LUIS na página Configurações de chaves e de ponto de extremidade. Não use a chave de inicialização.<br><br>**{BILLING_ENDPOINT}** : O valor do ponto de extremidade de cobrança está disponível na página Visão Geral do Serviço Inteligente de Reconhecimento Vocal do portal do Azure. Um exemplo é: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>A [chave de criação e a chave do ponto de extremidade](luis-boundaries.md#key-limits) têm finalidades diferentes. Não use uma no lugar da outra. |
 
@@ -42,9 +42,9 @@ Para executar o contêiner do LUIS, você precisará ter o seguinte:
 
 O **host** é o computador que executa o contêiner do Docker. Ele pode ser um computador local ou um serviço de hospedagem do Docker no Azure, incluindo:
 
-* [Serviço de Kubernetes do Azure](/azure/aks/)
-* [Instâncias de Contêiner do Azure](/azure/container-instances/)
-* Cluster [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+* [Serviço de Kubernetes do Azure](../../aks/index.yml)
+* [Instâncias de Contêiner do Azure](../../container-instances/index.yml)
+* Cluster [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](../../azure-stack/index.yml). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendações e requisitos do contêiner
 

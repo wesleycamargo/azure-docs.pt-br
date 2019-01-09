@@ -1,5 +1,5 @@
 ---
-title: Recursos JSON do Banco de Dados SQL do Azure | Microsoft Docs
+title: Trabalhando com dados JSON no Banco de Dados SQL do Microsoft Azure| Microsoft Docs
 description: O Banco de Dados SQL do Azure permite que você analise, consulte e formate dados na notação JSON (JavaScript Object Notation).
 services: sql-database
 ms.service: sql-database
@@ -11,27 +11,20 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: c3f1cb7499be57be94cc387eb40d37c1710f2f75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/17/2018
+ms.openlocfilehash: bc4e27f45b905e00c1c809a781a5cf034a0da8ca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230522"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543778"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introdução aos recursos do JSON no Banco de Dados SQL do Azure
-O Banco de Dados SQL do Azure permite que você analise e consulte os dados representados no formato JavaScript Object Notation [(JSON)](http://www.json.org/) e exporte seus dados relacionais como texto JSON.
-
-JSON é um formato de dados popular usado para a troca de dados em aplicativos Web modernos e móveis. O JSON também é usado para armazenar dados semi-estruturados em arquivos de log ou em bancos de dados NoSQL como [Banco de Dados do Azure Cosmos](https://azure.microsoft.com/services/documentdb/). Muitos serviços de Web REST retornam resultados formatados como texto JSON ou aceitam dados formatados como JSON. A maioria dos serviços do Azure como o [Azure Search](https://azure.microsoft.com/services/search/), o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) e o [Banco de dados do Azure Cosmos](https://azure.microsoft.com/services/documentdb/) tem pontos de extremidade REST que retornam ou consomem JSON.
-
-O Banco de Dados SQL do Azure lhe permite trabalhar facilmente com dados JSON e integrar seu banco de dados com serviços modernos.
-
-## <a name="overview"></a>Visão geral
-O Banco de Dados SQL do Azure fornece as seguintes funções para trabalhar com dados JSON:
-
-![Funções JSON](./media/sql-database-json-features/image_1.png)
-
-Se você tiver texto JSON, pode extrair dados JSON ou verificar se o JSON está formatado corretamente usando as funções internas [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) e [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). A função [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) permite que você atualize o valor dentro do texto JSON. Para consultas e análises mais avançadas, a função [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) pode transformar uma matriz de objetos JSON em um conjunto de linhas. Qualquer consulta SQL pode ser executada no conjunto de resultados retornado. Finalmente, há uma cláusula [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) que lhe permite formatar os dados armazenados nas tabelas relacionais como texto JSON.
+O Banco de Dados SQL do Azure permite que você analise e consulte os dados representados no formato JavaScript Object Notation [(JSON)](http://www.json.org/) e exporte seus dados relacionais como texto JSON. Os cenários JSON a seguir estão disponíveis no Banco de Dados SQL do Azure:
+- [Formatação de dados relacional no formato JSON](#formatting-relational-data-in-json-format) usando `FOR JSON` cláusula.
+- [Trabalhando com dados JSON](#working-with-json-data)
+- [Consultando dados JSON](#querying-json-data) usando funções escalares JSON.
+- [Transformando JSON em formato tabular](#transforming-json-into-tabular-format) usando a função `OPENJSON`.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Formatação de dados relacional no formato JSON
 Se você tiver um serviço Web que usa dados da camada de banco de dados e fornece uma resposta no formato JSON ou bibliotecas ou estruturas JavaScript do lado do cliente que aceitam dados formatados como JSON, você pode formatar o conteúdo do banco de dados como JSON diretamente em uma consulta SQL. Você não precisa escrever o código do aplicativo que formata os resultados do Banco de Dados SQL do Azure como JSON ou incluir uma biblioteca de serialização JSON para converter os resultados de consulta de tabela e, em seguida, serializar objetos no formato JSON. Em vez disso, você pode usar a cláusula FOR JSON para formatar os resultados da consulta SQL como JSON no Banco de Dados SQL do Azure e usá-lo diretamente em seu aplicativo.
@@ -79,7 +72,7 @@ A saída dessa consulta tem o seguinte aspecto:
 
 Neste exemplo é retornado um único objeto JSON em vez de uma matriz, especificando a opção [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx). Você pode usar essa opção se souber que está retornando um único objeto como resultado da consulta.
 
-O principal valor da cláusula FOR JSON é que ela permite retornar dados hierárquicos complexos de seu banco de dados formatado como matrizes ou objetos JSON aninhados. O exemplo a seguir mostra como incluir Pedidos que pertencem ao Cliente como uma matriz aninhada de Pedidos:
+O principal valor da cláusula FOR JSON é que ela permite retornar dados hierárquicos complexos de seu banco de dados formatado como matrizes ou objetos JSON aninhados. O exemplo a seguir mostra como incluir as linhas da tabela `Orders` que pertencem ao `Customer` como uma matriz aninhada de `Orders`:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,

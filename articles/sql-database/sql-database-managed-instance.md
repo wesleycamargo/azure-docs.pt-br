@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 57dd6fc822e0285b33368987d2af7c690d4f7786
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337811"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994752"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Use a Instância Gerenciada do Banco de Dados SQL com redes virtuais e quase 100% de compatibilidade
 
@@ -30,7 +30,7 @@ O diagrama a seguir apresenta os principais recursos da Instância Gerenciada:
 
 ![principais recursos](./media/sql-database-managed-instance/key-features.png)
 
-A Instância Gerenciada do Banco de Dados SQL do Azure foi desenvolvida para clientes que desejam migrar um grande número de aplicativos do ambiente local ou IaaS, autocompilados, ou fornecido pelo ISV para o ambiente de nuvem de PaaS totalmente gerenciado, com o menor esforço de migração possível. Usando o [Serviço de Migração de Dados (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) totalmente automatizado no Azure, os clientes podem elevar e deslocar seu SQL Server local para uma Instância Gerenciada que oferece compatibilidade com o SQL Server local e isolamento completo de instâncias do cliente com suporte nativo VNet.  Com o Software Assurance, você pode trocar suas licenças existentes por tarifas com desconto em uma Instância Gerenciada do Banco de Dados SQL usando o [Benefício Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A Instância Gerenciada do Banco de Dados SQL é o melhor destino da migração na nuvem para instâncias do SQL Server que exigem alta segurança e uma superfície de programação avançada.
+A Instância Gerenciada do Banco de Dados SQL do Azure foi desenvolvida para clientes que desejam migrar um grande número de aplicativos do ambiente local ou IaaS, autocompilados, ou fornecido pelo ISV para o ambiente de nuvem de PaaS totalmente gerenciado, com o menor esforço de migração possível. Usando o [Serviço de Migração de Dados (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) totalmente automatizado no Azure, os clientes podem elevar e deslocar seu SQL Server local para uma Instância Gerenciada que oferece compatibilidade com o SQL Server local e isolamento completo de instâncias do cliente com suporte nativo VNet.  Com o Software Assurance, você pode trocar suas licenças existentes por tarifas com desconto em uma Instância Gerenciada do Banco de Dados SQL usando o [Benefício Híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  A Instância Gerenciada do Banco de Dados SQL é o melhor destino da migração na nuvem para instâncias do SQL Server que exigem alta segurança e uma superfície de programação avançada.
 
 Por Disponibilidade Geral, a Instância Gerenciada visa entregar aproximadamente 100% de compatibilidade de área de superfície com a última versão do SQL Server local por meio de um plano de lançamento em etapas.
 
@@ -70,7 +70,7 @@ Os principais recursos de instância gerenciada são mostrados na tabela a segui
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
-O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) na Instância Gerenciada oferece flexibilidade, controle, transparência e uma maneira direta de traduzir os requisitos de carga de trabalho local para a nuvem. Este modelo permite que você altere computação, memória e armazenamento com base em suas necessidades de carga de trabalho. O modelo vCore também é elegível para economias de até 30% com o [benefício híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) na Instância Gerenciada oferece flexibilidade, controle, transparência e uma maneira direta de traduzir os requisitos de carga de trabalho local para a nuvem. Este modelo permite que você altere computação, memória e armazenamento com base em suas necessidades de carga de trabalho. O modelo vCore também é elegível para economias de até 30% com o [benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 No modelo vCore, você pode escolher entre gerações de hardware.
 

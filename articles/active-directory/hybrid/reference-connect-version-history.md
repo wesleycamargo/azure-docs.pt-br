@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5e13f21971c7babaeaebc9714fe2a040229eebb2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278671"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608436"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -36,6 +36,17 @@ Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar 
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
 
 Download | [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="12700"></a>1.2.70.0
+
+### <a name="release-status"></a>Status de liberação
+
+18/12/2018: Liberado para download
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+
+Esta compilação atualiza os conectores não padrão (por exemplo, conector LDAP genérico e conector SQL genérico) fornecidos com o Azure AD Connect. Para obter mais informações sobre conectores aplicáveis, consulte a versão 1.1.911.0 no [Histórico de lançamento de Versão do Conector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history).
+
 
 ## <a name="12690"></a>1.2.69.0
 

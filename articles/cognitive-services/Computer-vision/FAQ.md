@@ -1,5 +1,5 @@
 ---
-title: FAQs para a API do Computer Vision
+title: Perguntas frequentes - Pesquisa Visual Computacional
 titlesuffix: Azure Cognitive Services
 description: Obtenha respostas a perguntas frequentes sobre a API do Computer Vision nos Serviços Cognitivos do Azure.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 3146650280af80923a4ed9cbb78a5ce6d43e5bce
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166365"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584268"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Perguntas frequentes da API da Pesquisa Visual Computacional
 
@@ -37,7 +38,7 @@ ms.locfileid: "49166365"
 
 **Pergunta**: *Quais idiomas são compatíveis com a Pesquisa Visual Computacional?*
 
-**Resposta**: Os idiomas com suporte incluem:
+**Resposta**: As linguagens com suporte incluem:
 
 | | | Idiomas com suporte | | |
 |---------------- |------------------ |------------------ |--------------------------- |--------------------

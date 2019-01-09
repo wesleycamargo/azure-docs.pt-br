@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a07f052cf89da039bb9fe091f1cd997c19d2fcc7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499459"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584523"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introdução aos Serviços ML e recursos R de código aberto no HDInsight
 
-> [!NOTE]
+> [!NOTE]  
 > Em setembro de 2017, o Microsoft R Server foi lançado com o novo nome de **Microsoft Machine Learning Server** ou ML Server. Consequentemente, o cluster de Servidores R no HDInsight agora é chamado de **Clusters de Serviços de Aprendizado de Máquina** ou **ML Services** no HDInsight. Para obter mais informações sobre a alteração do nome do Servidor R, consulte [Microsoft R Server agora é o Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server).
 
 O Microsoft Machine Learning Server está disponível como uma opção de implantação quando você cria clusters HDInsight no Azure. O tipo de cluster que fornece essa opção é chamado **Serviços ML**. Essa funcionalidade fornece aos cientistas de dados, estatísticos e programadores de R o acesso sob demanda a métodos escalonáveis e distribuídos de análise no HDInsight.
@@ -29,7 +29,7 @@ O ML Services no HDInsight fornece os recursos mais recentes para análise de R 
 
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do ScaleR nos núcleos do servidor do nó de borda. Você também pode executá-los nos nós do cluster usando os contextos de cálculo Hadoop Map Reduce ou Apache Spark do ScaleR.
 
-Os modelos ou previsões que resultam de análises podem ser baixados para uso local. Elas também podem ser operacionalizadas em qualquer lugar no Azure, como por meio de um [serviço Web](../../machine-learning/studio/publish-a-machine-learning-web-service.md) no [Azure Machine Learning Studio](http://studio.azureml.net).
+Os modelos ou previsões que resultam de análises podem ser baixados para uso local. Elas também podem ser operacionalizadas em qualquer lugar no Azure, como por meio de um [serviço Web](../../machine-learning/studio/publish-a-machine-learning-web-service.md) no [Azure Machine Learning Studio](https://studio.azureml.net).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introdução ML Services no HDInsight
 

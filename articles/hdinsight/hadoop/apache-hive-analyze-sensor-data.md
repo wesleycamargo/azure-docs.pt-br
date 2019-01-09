@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b9c8f1af612c220534e45c5c66651f0ad8600826
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634406"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628179"
 ---
 # <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>Analise os dados do sensor usando o Apache Hive Query Console no Apache Hadoop no HDInsight
 
-Aprenda a analisar os dados do sensor usando o Hive Query Console com o HDInsight (Apache Hadoop) e visualize os dados no Microsoft Excel usando o Power View.
+Aprenda a analisar os dados do sensor usando o Apache Hive Query Console com o HDInsight (Apache Hadoop) e visualize os dados no Microsoft Excel usando o Power View.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > As etapas neste documento só funcionam com clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
@@ -35,10 +35,10 @@ Neste exemplo, usamos o Hive para processar dados históricos e identificar prob
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do HDInsight (Hadoop): veja [Criar clusters Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obter informações sobre como criar um cluster.
+* Cluster do HDInsight (Hadoop): Consulte [Criar Clusters Apache Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obter informações sobre criar um cluster.
 * Microsoft Excel 2013
 
-  > [!NOTE]
+  > [!NOTE]  
   > O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
 * [Driver ODBC do Microsoft Hive](https://www.microsoft.com/download/details.aspx?id=40886)

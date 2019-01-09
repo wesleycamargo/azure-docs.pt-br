@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 865525d9c978f3168a4c580dec20f0f91f0a0d16
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 62478eed2eb647a2f29e488e60e41dd9ae501273
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074064"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605833"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>O que é uma base de dados de conhecimento do QnA Maker?
 
@@ -26,7 +26,7 @@ Uma base de dados de conhecimento de QnA Maker consiste em um conjunto de pares 
 
 * **Perguntas** – uma pergunta contém texto que melhor representa uma consulta de usuário. 
 * **Respostas** – uma resposta é a resposta que é retornada quando uma consulta de usuário é comparada com a pergunta associada.  
-* **Metadados** – os metadados são marcas associadas a um par de QnA e são representados como pares chave-valor. Metadados são usados para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência da consulta será executada.
+* **Metadados** – os metadados são marcas associadas a um par de QnA e são representados como pares chave-valor. As marcas de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência da consulta será executada.
 
 Um único QnA, representado por uma ID numérica do QnA, tem diversas variantes de uma pergunta (perguntas alternativas) que são mapeadas para uma única resposta. Além disso, cada par pode ter vários campos de metadados associados a ele.
 

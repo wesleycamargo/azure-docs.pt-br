@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jejiang
 ms.custom: seodec18
-ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138119"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809753"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gerenciar recursos do Azure Cosmos DB usando o Gerenciador de Armazenamento do Azure
 
-O uso do Azure Cosmos DB no Gerenciador de Armazenamento do Azure permite que os usuários gerenciem entidades do Azure Cosmos DB, manipulem dados, atualizem procedimentos armazenados e gatilhos junto com outras entidades do Azure, como os blobs de armazenamento e as filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local. Neste momento, o Gerenciador de Armazenamento do Azure oferece suporte para contas do SQL, MongoDB, Graph e Tabela.
+O uso do Azure Cosmos DB no Gerenciador de Armazenamento do Azure permite que os usuários gerenciem entidades do Azure Cosmos DB, manipulem dados, atualizem procedimentos armazenados e gatilhos junto com outras entidades do Azure, como os blobs de armazenamento e as filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local. Neste momento, o Gerenciador de Armazenamento do Microsoft Azure oferece suporte para contas do Cosmos, configuradas para SQL, MongoDB, Graph e APIs de Tabela.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta do Azure Cosmos DB para a API do SQL<!--or MongoDB API-->. Se você não tiver uma conta, poderá criar uma no portal do Azure, conforme descrito em [Azure Cosmos DB: Crie um aplicativo Web de API de SQL com .NET e o portal do Azure](create-sql-api-dotnet.md).
+Uma conta do Cosmos com API SQL ou API do Azure Cosmos DB para MongoDB. Se você não tiver uma conta, poderá criar uma no portal do Azure, conforme descrito em [Azure Cosmos DB: Crie um aplicativo Web de API de SQL com .NET e o portal do Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalação
 

@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/18/2018
 ms.author: adgera
-ms.openlocfilehash: b22bf34a06966f917cdcdd07c28ead2d042061c1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163989"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974984"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman para os Gêmeos Digitais do Azure
 
@@ -31,7 +31,7 @@ Configurar o aplicativo Azure Active Directory para usar o fluxo de concessão i
 
 1. Siga as etapas neste [início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar um aplicativo do Azure Active Directory do tipo Nativo. Ou você pode reutilizar um registro de aplicativo Nativo.
 
-1. Em **Permissões necessárias**, digite `Azure Digital Twins` e selecione **Permissões Delegadas**. Em seguida, selecione **conceder permissões**.
+1. Sob **permissões necessárias**, selecione **Add** e insira **Gêmeos Digitais do Azure** sob **adicionar acesso à API**. Se sua pesquisa não localizar a API, pesquise por **Espaços Inteligentes do Azure** em vez disso. Em seguida, selecione **conceder permissões > permissões delegadas** e **feito**.
 
     ![API de registros do aplicativo do Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
@@ -65,7 +65,7 @@ Em seguida, instale e configure o Postman para obter um token do Azure Active Di
     | Campo  | Valor |
     |---------|---------|
     | Tipo de concessão | `Implicit` |
-    | URL de retorno de chamada | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
+    | URL de retorno de chamada | `https://www.getpostman.com/oauth2/callback` |
     | URL de autenticação | Use a **URL de Autorização** da etapa 2 acima |
     | ID do cliente | Use a **ID do aplicativo** para o aplicativo do Azure Active Directory que foi criado ou redefinido na seção anterior |
     | Escopo | Deixar em branco |
