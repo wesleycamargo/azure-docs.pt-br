@@ -1,5 +1,5 @@
 ---
-title: 'Implantar serviços de aplicativos: O Azure Stack | Microsoft Docs'
+title: 'Implante serviços de aplicativos: O Azure Stack | Microsoft Docs'
 description: Instruções detalhadas para implantar o serviço de aplicativo no Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635366"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104753"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo para o Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Use as diretrizes neste artigo para implantar o serviço de aplicativo no Azure Stack.
 
@@ -204,13 +204,13 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     Se você estiver implantando em uma rede virtual existente e usando um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída. Essa regra permite o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
 
-    - Fonte: qualquer
+    - Origem: Qualquer
     - Intervalo de porta de origem: *
     - Destino: Endereços IP
-    - Intervalo de endereços IP de destino: intervalo de IPs para seu servidor de arquivos
+    - Intervalo de endereços IP de destino: Intervalo de IPs para seu servidor de arquivos
     - Intervalo de porta de destino: 445
     - Protocolo: TCP
-    - Ação: permitir
+    - Ação: PERMITIR
     - Prioridade: 700
     - Nome: Outbound_Allow_SMB445
 
@@ -260,9 +260,9 @@ Você também pode experimentar outras [plataforma como um serviço (PaaS) servi
  - [Provedor de recursos MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png
