@@ -22,7 +22,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51262243"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados do Teradata usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](data-factory-onprem-teradata-connector.md)
 > * [Versão 2 (versão atual)](../connector-teradata.md)
 
