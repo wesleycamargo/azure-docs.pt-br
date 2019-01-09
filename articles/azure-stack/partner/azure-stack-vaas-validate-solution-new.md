@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 7949e764baa7a4e20eb988c78817b6b4f0045593
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e6cfdca207b114871a478262f14ea960be5985df
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333761"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104955"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Validar uma nova solução do Azure Stack
 
@@ -35,32 +35,53 @@ Para certificar sua solução, execute o fluxo de trabalho de validação de sol
 ## <a name="create-a-solution-validation-workflow"></a>Criar um fluxo de trabalho de validação de soluções
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
-2. Selecione **iniciar** sobre o **validações de solução** lado a lado.
+
+3. Selecione **iniciar** sobre o **validações de solução** lado a lado.
 
     ![Bloco de fluxo de trabalho de validações de solução](media/tile_validation-solution.png)
 
-3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
-4. Selecione o **configuração da solução**.
+4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+
+5. Selecione o **configuração da solução**.
     - **Mínimo**: a solução é configurada com o número mínimo com suporte de nós.
     - **Máximo**: a solução é configurada com o número máximo com suporte de nós.
-5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
     ![Informações sobre validação de soluções](media/workflow_validation-solution_info.png)
 
-6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Parâmetros de ambiente não podem ser modificados depois de criar um fluxo de trabalho.
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
-8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Você será redirecionado à página de resumo de testes.
 
-## <a name="execute-solution-validation-tests"></a>Executar testes de validação de soluções
+## <a name="run-solution-validation-tests"></a>Executar testes de validação de soluções
 
 No **resumo de testes de validação de solução** página, você verá uma lista dos testes são necessárias para concluir a validação.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+Nos fluxos de trabalho validação **agendamento** um teste usa os parâmetros comuns de nível de fluxo de trabalho que você especificou durante a criação de fluxo de trabalho (consulte [parâmetros comuns de fluxo de trabalho para validação de pilha do Azure como um serviço](azure-stack-vaas-parameters.md)). Se qualquer um dos valores de parâmetro de teste se tornar inválido, deve resupply-las conforme as instruções [modifique os parâmetros de fluxo de trabalho](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+> [!NOTE]
+> Um teste de validação no agendamento sobre uma instância existente, você criará uma nova instância no lugar da instância antiga no portal. Os logs para a instância antiga serão retidos, mas não são acessíveis a partir do portal.  
+Depois que um teste for concluído com êxito, o **agendamento** ação for desabilitada.
+
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
+2. Selecione os seguintes testes:
+    - Mecanismo de simulação de nuvem
+    - Suite operacional do SDK de computação
+    - Teste de identificação de disco
+    - Suite operacional do SDK de extensão do Cofre de chaves
+    - Suite operacionais do SDK do KeyVault
+    - Rede SDK operacional Suite
+    - Conta de armazenamento SDK Suite operacional
+
+3. Selecione **agendamento** no menu de contexto para abrir um prompt para agendar a instância de teste.
+
+4. Revise os parâmetros de teste e, em seguida, selecione **enviar** para agendar o teste para execução.
 
 ![Teste de validação de solução de agendamento](media/workflow_validation-solution_schedule-test.png)
 

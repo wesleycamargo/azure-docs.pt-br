@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 34ced37213ddb585b382965cf73c454d4c9f93e9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 76348ef6984585856565ff39bfa707f1319477bb
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014039"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107188"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Implantar um modelo para o Azure Stack usando o PowerShell
 
@@ -35,7 +35,7 @@ Este exemplo usa **AzureRM** cmdlets do PowerShell e um modelo armazenado no Git
 >[!NOTE]
 >Antes de tentar Este exemplo, certifique-se de que você já [configurado o PowerShell](azure-stack-powershell-configure-user.md) para um usuário do Azure Stack.
 
-1. Vá para [ http://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) e localize o **101-simple-windows-vm** modelo. Salve o modelo para este local: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+1. Vá para [ https://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) e localize o **101-simple-windows-vm** modelo. Salve o modelo para este local: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Abra um prompt de comando elevado do PowerShell.
 3. Substitua `username` e `password` no script a seguir com seu nome de usuário e senha e, em seguida, execute o script:
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a3703133e5dc5f0525638562fab98f9416bcf26e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971497"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104651"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure Stack protegido pelo AD FS
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]
 > Aplicar a atualização 1809 seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar 1.4 de serviço de aplicativo do Azure.
@@ -88,7 +88,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
     >
     
     3. No **locais da pilha do Azure** , selecione o local que corresponde à região em que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento do Azure Stack.
-    4. Clique em **Próximo**.
+    4. Clique em **Avançar**.
 
     ![Instalador do serviço de aplicativo][4]
 
@@ -116,7 +116,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
     2. No **arquivo de certificado de identidade de aplicativo** caixa, digite (ou procure) o local do arquivo de certificado.
     3. No **senha do certificado de identidade de aplicativo** , digite a senha do certificado. Essa senha é aquela que você anotou quando você usou o script para criar os certificados.
     4. No **arquivo de certificado raiz do Azure Resource Manager** caixa, digite (ou procure) o local do arquivo de certificado.
-    5. Clique em **Próximo**.
+    5. Clique em **Avançar**.
 
     ![Instalador do serviço de aplicativo][10]
 
@@ -171,12 +171,12 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
     > [!NOTE]
     > **Windows Server 2016 Core não é uma imagem de plataforma com suporte para uso com o serviço de aplicativo do Azure no Azure Stack.  Não use imagens de avaliação para implantações de produção.  Serviço de aplicativo do Azure no Azure Stack requer que o Microsoft.NET 3.5.1 SP1 é ativado na imagem usada para a implantação.   Marketplace de imagens não têm esse recurso habilitado do Windows Server 2016 seja distribuído, portanto você deve criar e usar uma imagem do Windows Server 2016 com esse recurso habilitado previamente.**
 
-14. No **selecione a imagem de plataforma** , escolha sua imagem de máquina virtual de implantação do Windows Server 2016 a partir daqueles disponíveis no provedor de recursos de computação para a nuvem de serviço de aplicativo. Clique em **Próximo**.
+14. No **selecione a imagem de plataforma** , escolha sua imagem de máquina virtual de implantação do Windows Server 2016 a partir daqueles disponíveis no provedor de recursos de computação para a nuvem de serviço de aplicativo. Clique em **Avançar**.
 
 15. Na próxima página:
      1. Insira o nome de usuário do administrador de máquina virtual de função de trabalho e a senha.
      2. Insira o nome de usuário do administrador de máquina virtual de outras funções e a senha.
-     3. Clique em **Próximo**.
+     3. Clique em **Avançar**.
 
     ![Instalador do serviço de aplicativo][16]
 
@@ -203,13 +203,13 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
 
 > [!NOTE]
 > Se você optar por implantar em uma rede virtual existente e um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
-> * Fonte: qualquer
+> * Origem: Qualquer
 > * Intervalo de porta de origem: *
 > * Destino: Endereços IP
-> * Intervalo de endereços IP de destino: intervalo de IPs para seu servidor de arquivos
+> * Intervalo de endereços IP de destino: Intervalo de IPs para seu servidor de arquivos
 > * Intervalo de porta de destino: 445
 > * Protocolo: TCP
-> * Ação: permitir
+> * Ação: PERMITIR
 > * Prioridade: 700
 > * Nome: Outbound_Allow_SMB445
 >
@@ -257,9 +257,9 @@ Você também pode experimentar outras [plataforma como um serviço (PaaS) servi
 - [Provedor de recursos MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: 45c06afd0d298c467d8f0a3a42b68bf1948c6ed3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: cfeb1ce7791db463dc0ac39376baa8228dd96daf
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726739"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106283"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>O Azure Monitor no Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Este artigo fornece uma visão geral do serviço do Azure Monitor no Azure Stack. Ele aborda a operação do Azure Monitor e informações adicionais sobre como usar o Azure Monitor no Azure Stack. 
 
@@ -126,7 +126,7 @@ Em geral, você pode manipular o controle, roteamento e recuperação dos dados 
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Interface(CLI) de linha de comando de plataforma cruzada](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [API REST](https://docs.microsoft.com/rest/api/monitor)
- - [SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+ - [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Próximas etapas
 

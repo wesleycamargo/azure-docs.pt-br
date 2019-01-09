@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e3b0de577186cb7eb032a2042d234a0ffa2e3bb9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261795"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105535"
 ---
 # <a name="validate-oem-packages"></a>Validar pacotes de OEM
 
@@ -56,7 +56,7 @@ Crie um contêiner na conta de armazenamento de blobs do pacote. Esse contêiner
 
 Ao criar uma **validação de pacote** fluxo de trabalho no portal do VaaS, você precisará fornecer uma URL para o blob de armazenamento do Azure que contém o pacote.
 
-#### <a name="option-1-generating-an-account-sas-url"></a>Opção 1: Gerar uma URL de SAS de conta
+#### <a name="option-1-generating-an-account-sas-url"></a>Opção 1: Gerando uma URL SAS de conta
 
 1. No [portal do Azure](https://portal.azure.com/), vá para sua conta de armazenamento e navegue até o arquivo. zip que contém o pacote
 
@@ -70,7 +70,7 @@ Ao criar uma **validação de pacote** fluxo de trabalho no portal do VaaS, voc�
 
 Use **URL de SAS de Blob** ao iniciar uma nova **validação de pacote** fluxo de trabalho no portal do VaaS.
 
-#### <a name="option-2-using-public-read-container"></a>Opção 2: Usar o contêiner público de leitura
+#### <a name="option-2-using-public-read-container"></a>Opção 2: Usando um contêiner público de leitura
 
 > [!CAUTION]
 > Essa opção abre o contêiner para acesso anônimo de somente leitura.
@@ -113,9 +113,23 @@ Use **URL de SAS de Blob** ao iniciar uma nova **validação de pacote** fluxo d
 
 ## <a name="run-package-validation-tests"></a>Executar testes de validação de pacote
 
-No **resumo de testes de validação de pacote** página, você verá uma lista dos testes são necessárias para concluir a validação. Executar testes nesse fluxo de trabalho por aproximadamente 24 horas.
+1. No **resumo de testes de validação do pacote** página, você verá uma lista dos testes são necessárias para concluir a validação. Executar testes nesse fluxo de trabalho por aproximadamente 24 horas.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    Nos fluxos de trabalho validação **agendamento** um teste usa os parâmetros comuns de nível de fluxo de trabalho que você especificou durante a criação de fluxo de trabalho (consulte [parâmetros comuns de fluxo de trabalho para validação de pilha do Azure como um serviço](azure-stack-vaas-parameters.md)). Se qualquer um dos valores de parâmetro de teste se tornar inválido, deve resupply-las conforme as instruções [modifique os parâmetros de fluxo de trabalho](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+    > [!NOTE]
+    > Um teste de validação no agendamento sobre uma instância existente, você criará uma nova instância no lugar da instância antiga no portal. Os logs para a instância antiga serão retidos, mas não são acessíveis a partir do portal.  
+    Depois que um teste for concluído com êxito, o **agendamento** ação for desabilitada.
+
+2. Selecione o agente que executará o teste. Para obter informações sobre como adicionar locais agentes de execução de teste, consulte [implantar o agente local](azure-stack-vaas-local-agent.md).
+
+3. Para cada um dos testes a seguir, a etapa quatro e cinco:
+    - Verificação do pacote de extensão de OEM
+    - Mecanismo de simulação de nuvem
+
+4. Selecione **agendamento** no menu de contexto para abrir um prompt para agendar a instância de teste.
+
+5. Revise os parâmetros de teste e, em seguida, selecione **enviar** para agendar o teste para execução.
 
 Quando todos os testes foi concluído com êxito, envie o nome da sua solução VaaS e validação de pacote para [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) para solicitar a assinatura do pacote.
 

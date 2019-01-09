@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: e35a63a36a84316815d609afa178f9a896415c2b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2ccfe09e35dc819542739df77d26a6f8a08152f5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584109"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102815"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Criar uma máquina virtual usando uma senha segura armazenada no cofre de chaves do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Este artigo aborda a implantação de uma máquina virtual do Windows Server usando uma senha armazenada no cofre de chaves do Azure Stack. Usando uma senha do Cofre de chaves é mais seguro do que passando uma senha de texto sem formatação.
 
@@ -88,7 +88,7 @@ Atualize o arquivo de azuredeploy.parameters.json com o URI de KeyVault, secretN
 
 ```json
 {
-    "$schema":  "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema":  "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion":  "1.0.0.0",
     "parameters":  {
        "adminUsername":  {

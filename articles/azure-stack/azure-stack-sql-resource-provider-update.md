@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 8fc8be105c6c610e6b246fa0ec619fecc81b1dd9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: b39cc799218a4c6f865acac8b98f5fb977c83bdc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966238"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117785"
 ---
 # <a name="update-the-sql-resource-provider"></a>Atualizar o provedor de recursos do SQL
 
-*Aplica-se a: sistemas integrados do Azure Stack.*
+*Aplica-se a: Sistemas integrados do Azure Stack.*
 
 Um novo provedor de recursos do SQL pode ser liberado quando o Azure Stack é atualizado para uma nova compilação. Embora o adaptador existente continua a funcionar, é recomendável atualizar para a compilação mais recente assim que possível.
 

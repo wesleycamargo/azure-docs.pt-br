@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: John.Haskin
-ms.openlocfilehash: fc2659fb9bbe043a61f1ad49bb4290b7ccf834f8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 245826e816f77db3394d1fc3858246ec5d1d605a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422007"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101999"
 ---
 # <a name="create-an-oem-package"></a>Criar um pacote de OEM
 
@@ -28,7 +28,7 @@ O pacote de extensão de OEM do Azure Stack é o mecanismo pelo qual OEM conteú
 
 ## <a name="creating-the-package"></a>Criação do pacote
 
-Depois de criado e validado, o pacote de extensão do OEM pode ser usado em VaaS.  Antes de continuar, certifique-se de que você tenha concluído as etapas para [criando um pacote do OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). O pacote, em seguida, é enviado à Microsoft, juntamente com os resultados de teste VaaS para entrar no fluxo de trabalho de validação do pacote. As etapas a seguir detalham como empacotar os arquivos gerados em um único arquivo zip que VaaS pode consumir.
+Depois de criado e validado, o pacote de extensão do OEM pode ser usado em VaaS.  Antes de continuar, certifique-se de que você tenha concluído as etapas para [criando um pacote do OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). O pacote, em seguida, é enviado à Microsoft, juntamente com os resultados de teste VaaS para entrar no fluxo de trabalho de validação de soluções. As etapas a seguir detalham como empacotar os arquivos gerados em um único arquivo zip que VaaS pode consumir.
 
 1. Identificar o conteúdo a seguir para o pacote:
     - Um arquivo executável chamado `<Publisher>-<Model>-<Version>.exe`
@@ -49,7 +49,7 @@ Para validar a estrutura do arquivo zip, inspecione-o e verifique se há sem sub
 
 ![Conteúdo do pacote compactado corretamente](media/vaas-create-oem-package-3.png)
 
-O arquivo zip agora pode ser carregado VaaS e assinado pela Microsoft no fluxo de trabalho de validação do pacote.
+O arquivo zip pode agora ser carregado VaaS e assinado pela Microsoft no fluxo de trabalho de validação de solução.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: da88be76d01b246e273739566d629348895b68b6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: ca924494231f422d6edc8990ef851c9ef454cd1d
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971990"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119995"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do MySQL no Azure Stack
 
@@ -45,6 +45,7 @@ Existem vários pré-requisitos que precisam estar em vigor antes de implantar o
 
   |Versão mínima do Azure Stack|Versão do MySQL RP|
   |-----|-----|
+  |Versão 1811 (1.1811.0.101)|[RP MySQL versão 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
   |Versão 1808 (1.1808.0.97)|[RP MySQL versão 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
   |Versão 1804 (1.0.180513.1)|[RP MySQL versão 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
@@ -97,7 +98,7 @@ Você pode especificar esses parâmetros da linha de comando. Se você não fize
 | **RetryDuration** | O intervalo de tempo limite entre novas tentativas, em segundos. | 120 |
 | **Desinstalar** | Remove o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não  |
 | **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
-| **AcceptLicense** | Ignora o prompt para aceitar a licença GPL.  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
+| **AcceptLicense** | Ignora o prompt para aceitar a licença GPL.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Implantar o provedor de recursos do MySQL usando um script personalizado
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 49d49553a9375baa92160d9d9a89936acc7dd461
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632782"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102611"
 ---
 # <a name="azure-stack-servicing-policy"></a>Política de manutenção de pilha do Azure
 
@@ -30,7 +30,7 @@ Este artigo descreve a política de manutenção para sistemas integrados do Azu
 
 A Microsoft divulgará total mensal pacotes de atualização, bem como pacotes de hotfix para abordar problemas específicos. 
 
-Pacotes de atualização mensal são hospedados em um ponto de extremidade seguro do Azure. Você pode baixá-los manualmente usando o [ferramenta de atualizações de pilha do Azure da downloader](http://aka.ms/azurestackupdatedownload). Se sua unidade de escala estiver conectada, a atualização é exibida automaticamente no portal do administrador conforme **atualização disponível**. Full, mensalmente pacotes de atualização são bem documentados em cada versão. Para obter mais informações sobre cada versão, você pode clicar em qualquer versão dos [cadência de lançamento do pacote de atualização](#update-package-release-cadence) seção deste artigo.
+Pacotes de atualização mensal são hospedados em um ponto de extremidade seguro do Azure. Você pode baixá-los manualmente usando o [ferramenta de atualizações de pilha do Azure da downloader](https://aka.ms/azurestackupdatedownload). Se sua unidade de escala estiver conectada, a atualização é exibida automaticamente no portal do administrador conforme **atualização disponível**. Full, mensalmente pacotes de atualização são bem documentados em cada versão. Para obter mais informações sobre cada versão, você pode clicar em qualquer versão dos [cadência de lançamento do pacote de atualização](#update-package-release-cadence) seção deste artigo.
 
 Pacotes de atualização de hotfix são hospedados no mesmo seguro do Azure ponto de extremidade. Você pode baixá-los manualmente usando os links inseridos em cada um dos artigos da KB hotfix respectivos; Por exemplo, [do Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Como os pacotes de atualização completa, mensal, operadores do Azure Stack podem baixar os arquivos. XML,. bin e .exe e importá-los usando o procedimento em [aplicar as atualizações no Azure Stack](azure-stack-apply-updates.md). Operadores do Azure Stack com unidades de escala conectado verá os hotfixes aparecem automaticamente no portal do administrador com a mensagem **atualização disponível**.
 

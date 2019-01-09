@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: ddc6942b56e3ad4d1f5b16c86dde87f408c1a2c1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c5dc19c2f3e939f9721fd0885761a3927826b25b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262980"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102051"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Parâmetros comuns de fluxo de trabalho para validação de pilha do Azure como um serviço
 
@@ -56,7 +56,7 @@ Valores de parâmetro de ambiente também podem ser localizadas manualmente na *
 
 Parâmetros comuns de teste incluem informações confidenciais que não podem ser armazenadas em arquivos de configuração. Eles devem ser fornecidos manualmente.
 
-Parâmetro    | Description
+Parâmetro    | DESCRIÇÃO
 -------------|-----------------
 Usuário de administrador de locatários                            | Administrador do Azure Active Directory locatário que foi provisionado pelo administrador de serviços no diretório do AAD. Esse usuário executa ações de nível de locatário, como implantação de modelos para configurar recursos (VMs, contas de armazenamento, etc.) e executar cargas de trabalho. Para obter detalhes sobre como provisionar a conta de locatário, consulte [adicionar um novo locatário do Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
 Usuário de administrador de serviço             | Administrador de diretório Active Directory do Azure do locatário de diretório do AAD especificado durante a implantação do Azure Stack. Pesquise `AADTenant` na configuração ECE de arquivo e selecione o valor no `UniqueName` elemento.

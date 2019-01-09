@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 6d28eea434b081602f0e2455b22fcc58022a800e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343836"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117106"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerenciar o registro de locatário no Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Este artigo contém detalhes sobre operações de registro. Você pode usar essas operações:
 - Gerenciar registros do inquilino
@@ -59,7 +59,7 @@ Para obter mais informações sobre perfis de API e o Azure Stack, consulte [per
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet New-AzureRmResource para atualizar o recurso de registro. Entrar no Azure (`Add-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
+Use o cmdlet New-AzureRmResource para atualizar o recurso de registro. Aqui está um exemplo de como adicionar um locatário:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -70,8 +70,8 @@ Use o cmdlet New-AzureRmResource para atualizar o recurso de registro. Entrar no
 **Operação**: PUT  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Resposta**: 201 criado  
-**Corpo da resposta**: vazio  
+**Resposta**: 201 Criado  
+**Corpo da resposta**: Vazio  
 
 ## <a name="list-all-registered-tenants"></a>Listar todos os locatários
 
@@ -100,7 +100,7 @@ Use o cmdlet Get-AzureRmResource para listar todos os locatários. Entrar no Azu
 
 Você pode obter uma lista de todos os mapeamentos de locatário usando a operação GET
 
-**Operação**: Introdução  
+**Operação**: GET  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
@@ -149,12 +149,12 @@ Você pode remover um locatário que tenha sido adicionado a um registro. Se ess
 
 Você pode remover mapeamentos de locatário usando a operação de exclusão.
 
-**Operação**: excluir  
+**Operação**: EXCLUIR  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Resposta**: 204 sem conteúdo  
-**Corpo da resposta**: vazio
+**Resposta**: 204 Sem Conteúdo  
+**Corpo da resposta**: Vazio
 
 ## <a name="next-steps"></a>Próximas etapas
 
