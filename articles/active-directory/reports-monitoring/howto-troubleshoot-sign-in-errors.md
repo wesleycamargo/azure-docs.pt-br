@@ -13,14 +13,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2bba11cd8b0e90f7835872e496c790aa56fcddc8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 47a89da808e2f53cf8dfc901c64eba3d78842d13
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276853"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652023"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como solucionar problemas de erros de logon usando relatórios do Azure Active Directory Domain Services
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Solucionar problemas de erros de logon usando relatórios do Azure Active Directory Domain Services
 
 O [relatório de logins](concept-sign-ins.md) no Azure AD (Azure Active Directory Domain Services) permite que você encontre respostas a perguntas sobre como gerenciar o acesso aos aplicativos em sua organização, incluindo:
 
@@ -35,7 +35,7 @@ Além disso, o relatório de logins também pode ajudar você a solucionar falha
 
 Você precisa de:
 
-* Um locatário do Microsoft Azure Active Directory com uma licença premium (P1/P2). 
+* Um locatário do Microsoft Azure Active Directory com uma licença premium (P1/P2). Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory.
 * Um usuário, que está na função de **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Solucionar problemas de erros de entrada usando o relatório de entradas

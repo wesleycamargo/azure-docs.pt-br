@@ -10,12 +10,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6f88ff8ecd1aee588cb82c08ae2eda58fe2eb1e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f3d2276c92868bd2f9d98b119bc31aee4db13a81
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626650"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717545"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é um espaço de trabalho do Tradutor Personalizado?
 
@@ -31,7 +31,7 @@ Um projeto é um wrapper para um modelo, documentos e testes. Cada projeto inclu
 
 A categoria identifica o domínio – a área de terminologia e estilo que você deseja usar – do seu projeto. Escolha a categoria mais relevante para seus documentos. Em alguns casos, a escolha da categoria influencia diretamente o comportamento do Tradutor Personalizado.
 
-Ainda não há modelos personalizados para categorias, exceto um sistema geral de linha de base. Ainda assim, é recomendável que os usuários selecionem a categoria mais aplicável ao domínio, de modo que possa ser utilizada como um identificador na ID de Categoria. Para projetos no domínio de tecnologia, selecionar "Tecnologia" garantirá que quando um modelo de linha de base estiver disponível, seu projeto poderá utilizá-lo.
+Temos dois conjuntos de modelos de linha de base. Eles são geral e tecnologia. Se a categoria **tecnologia** é selecionada, os modelos de linha de base da tecnologia serão usados. Para qualquer outra seleção de categoria, os modelos de linha de base geral são usados. O modelo de linha de base da tecnologia funciona bem no domínio de tecnologia, mas ele mostra uma qualidade inferior, se as frases usadas para tradução não se enquadram dentro do domínio de tecnologia. Sugerimos que os clientes selecionem a categoria Tecnologia somente se as frases se enquadram estritamente dentro do domínio de tecnologia.
 
 No mesmo espaço de trabalho, é possível criar projetos para o mesmo par de idiomas em diferentes categorias. O Tradutor Personalizado impede a criação de um projeto duplicado com o mesmo par de idiomas e categoria. Aplicar um rótulo ao projeto permite evitar essa restrição. Não use rótulos, a menos que esteja criando sistemas de tradução para vários clientes, pois adicionar um rótulo exclusivo ao projeto refletirá na ID de Categoria de projetos.
 

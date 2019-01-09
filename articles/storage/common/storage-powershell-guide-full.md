@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 35813573be9b069cc920f5ede813503ab1b99b4a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0db6cc02be385ab82d41ecef214c5b158892c415
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227207"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628127"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usando o PowerShell do Azure com o Armazenamento do Azure
 
@@ -34,7 +34,9 @@ Este artigo fornece links para vários outros artigos do PowerShell sobre Armaze
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este exercício exige o módulo do Azure PowerShell da versão 4.4 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Este exercício exige o módulo Az do Azure PowerShell versão 0.7 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). 
 
 Neste exercício, é possível digitar os comandos em uma janela normal do PowerShell ou usar o [ISE (Ambiente de Script Integrado) do Windows PowerShell](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) e digitar os comandos em um editor e, em seguida, testar um ou mais comandos de cada vez conforme os exemplos são analisados. É possível realçar as linhas a serem executadas e clicar em Executar Selecionado para executar apenas esses comandos.
 
@@ -42,18 +44,18 @@ Para saber mais sobre as contas de armazenamento, consulte [Introdução ao Arma
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Listar as contas de armazenamento na assinatura
 
-Execute o cmdlet [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) para recuperar a lista de contas de armazenamento na assinatura atual. 
+Execute o cmdlet [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) para recuperar a lista de contas de armazenamento na assinatura atual. 
 
 ```powershell
-Get-AzureRMStorageAccount | Select StorageAccountName, Location
+Get-AzStorageAccount | Select StorageAccountName, Location
 ```
 
 ## <a name="get-a-reference-to-a-storage-account"></a>Obtenha uma referência a uma conta de armazenamento
@@ -62,13 +64,13 @@ Em seguida, será necessária uma referência a uma conta de armazenamento. É p
 
 ### <a name="use-an-existing-storage-account"></a>Usar uma conta de armazenamento existente 
 
-Para recuperar uma conta de armazenamento existente, é necessário o nome do grupo de recursos e o nome da conta de armazenamento. Defina as variáveis para os dois campos e, em seguida, use o cmdlet [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount). 
+Para recuperar uma conta de armazenamento existente, é necessário o nome do grupo de recursos e o nome da conta de armazenamento. Defina as variáveis para os dois campos e, em seguida, use o cmdlet [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount). 
 
 ```powershell
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
 
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
 ```
 
@@ -76,23 +78,23 @@ Agora, você tem $storageAccount, que aponta para uma conta de armazenamento exi
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
-O script a seguir mostra como criar uma conta de armazenamento de uso geral usando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Depois de criar a conta, recupere seu contexto, que pode ser usado em comandos subsequentes em vez de especificar a autenticação com cada chamada.
+O script a seguir mostra como criar uma conta de armazenamento de uso geral usando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Depois de criar a conta, recupere seu contexto, que pode ser usado em comandos subsequentes em vez de especificar a autenticação com cada chamada.
 
 ```powershell
 # Get list of locations and select one.
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 
 # Create a new resource group.
 $resourceGroup = "teststoragerg"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
 $skuName = "Standard_LRS"
     
 # Create the storage account.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName $skuName
@@ -103,11 +105,11 @@ $ctx = $storageAccount.Context
 
 O script usa os seguintes cmdlets do PowerShell: 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation): recupera uma lista dos locais válidos. O exemplo usa `eastus` como local.
+*   [Get-AzLocation](/powershell/module/az.resources/get-azlocation): recupera uma lista dos locais válidos. O exemplo usa `eastus` como local.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): cria um novo grupo de recursos. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O nosso se chama `teststoragerg`. 
+*   [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup): cria um novo grupo de recursos. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O nosso se chama `teststoragerg`. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) -- cria a conta de armazenamento real. O exemplo usa `testpshstorage`.
+*   [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) -- cria a conta de armazenamento real. O exemplo usa `testpshstorage`.
 
 O nome da SKU indica o tipo de replicação da conta de armazenamento, como LRS (armazenamento com redundância local). Para saber mais sobre a replicação, consulte [Replicação do Armazenamento do Azure](storage-redundancy.md).
 
@@ -123,7 +125,7 @@ Agora que você tem uma referência a uma nova conta de armazenamento ou uma exi
 
 ### <a name="storage-account-properties"></a>Propriedades da conta de armazenamento
 
-Para alterar as configurações de uma conta de armazenamento, use [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount). Embora não seja possível alterar o local de uma conta de armazenamento ou o grupo de recursos em que ela reside, é possível alterar muitas outras propriedades. A seguir estão listadas algumas das propriedades que podem ser alteradas usando o PowerShell.
+Para alterar as configurações de uma conta de armazenamento, use [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). Embora não seja possível alterar o local de uma conta de armazenamento ou o grupo de recursos em que ela reside, é possível alterar muitas outras propriedades. A seguir estão listadas algumas das propriedades que podem ser alteradas usando o PowerShell.
 
 * O **domínio personalizado** atribuído à conta de armazenamento.
 
@@ -137,19 +139,19 @@ Para alterar as configurações de uma conta de armazenamento, use [Set-AzureRmS
 
 ### <a name="manage-the-access-keys"></a>Gerenciar as chaves de acesso
 
-Uma conta de armazenamento do Azure é fornecida com duas chaves de conta. Para recuperar as chaves, use [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey). Este exemplo recupera a primeira chave. Para recuperar a outra, use `Value[1]` em vez de `Value[0]`.
+Uma conta de armazenamento do Azure é fornecida com duas chaves de conta. Para recuperar as chaves, use [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey). Este exemplo recupera a primeira chave. Para recuperar a outra, use `Value[1]` em vez de `Value[0]`.
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzureRmStorageAccountKey `
+    (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroup `
     -Name $storageAccountName).Value[0]
 ```
 
-Para regenerar a chave, use [New-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccountKey). 
+Para regenerar a chave, use [New-AzStorageAccountKey](/powershell/module/az.Storage/New-azStorageAccountKey). 
 
 ```powershell
-New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
+New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -KeyName key1 
 ```
@@ -164,10 +166,10 @@ Regenere uma das chaves e, em seguida, recupere-a novamente para ver o novo valo
 
 ### <a name="delete-a-storage-account"></a>Excluir uma conta de armazenamento 
 
-Para excluir uma conta de armazenamento, use [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount).
+Para excluir uma conta de armazenamento, use [Remove-AzStorageAccount](/powershell/module/az.storage/Remove-azStorageAccount).
 
 ```powershell
-Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
+Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
 > [!IMPORTANT]
@@ -179,9 +181,9 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 Por padrão, todas as contas de armazenamento são acessíveis por qualquer rede que tenha acesso à Internet. No entanto, é possível configurar regras de rede para permitir que somente aplicativos de redes virtuais específicas acessem uma conta de armazenamento. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](storage-network-security.md). 
 
 O artigo mostra como gerenciar essas configurações usando os seguintes cmdlets do PowerShell:
-* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Remove-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.storage/remove-azurermstorageaccountnetworkrule?view=azurermps-6.8.1)
+* [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+* [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
+* [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
 ## <a name="use-storage-analytics"></a>Usar a análise de armazenamento  
 
@@ -231,7 +233,7 @@ Para saber mais sobre como acessar essas nuvens e seu armazenamento com o PowerS
 Se tiver criado um novo grupo de recursos e uma conta de armazenamento para este exercício, você poderá remover todos os ativos que criou ao remover o grupo de recursos. Isso também exclui todos os recursos contidos no grupo. Nesse caso, ele remove a conta de armazenamento criada e o próprio grupo de recursos.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -248,6 +250,6 @@ Este artigo de instruções abrange operações que usam os cmdlets do plano de 
 
 Este artigo fornece também referências a vários outros artigos, relacionados a como gerenciar os objetos de dados, como habilitar o Storage Analytics e como acessar as nuvens independentes do Azure, como a Nuvem da China, a Nuvem da Alemanha e a Nuvem Governamental. Veja mais artigos e recursos relacionados para referência:
 
-* [Cmdlets do PowerShell do plano de controle do Armazenamento do Azure](/powershell/module/AzureRM.Storage/)
+* [Cmdlets do PowerShell do plano de controle do Armazenamento do Azure](/powershell/module/az.storage/)
 * [Cmdlets do PowerShell do plano de dados do Armazenamento do Azure](/powershell/module/azure.storage/)
 * [Referência do Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)

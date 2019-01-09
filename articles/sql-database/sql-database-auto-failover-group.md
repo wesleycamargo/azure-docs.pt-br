@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 3da4d6ffe8660c490d39f223dff105ed126fa10b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283112"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994633"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
-O grupos de failover automático é um recurso do Banco de Dados SQL que permite que você gerencie a replicação e failover de um grupo de bancos de dados em um servidor lógico ou todos os bancos de dados em uma Instância Gerenciada para outra região (atualmente em versão prévia pública para a Instância Gerenciada). Ele usa a mesma tecnologia subjacente da [replicação geográfica ativa](sql-database-active-geo-replication.md). Você pode iniciar o failover manualmente ou pode delegá-lo para o serviço de Banco de Dados SQL com base em uma política definida pelo usuário usando uma política definida pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulte em perda total ou parcial de disponibilidade do serviço de Banco de Dados SQL na região primária. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático incluem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Servidores primários e secundários para bancos de dados no grupo de failover devem estar na mesma assinatura. Os grupos de failover automático oferecem suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
+O grupos de failover automático é um recurso do Banco de Dados SQL que permite que você gerencie a replicação e failover de um grupo de bancos de dados em um servidor lógico ou todos os bancos de dados em uma Instância Gerenciada para outra região (atualmente em versão prévia pública para a Instância Gerenciada). Ele usa a mesma tecnologia subjacente da [replicação geográfica ativa](sql-database-active-geo-replication.md). Você pode iniciar o failover manualmente ou pode delegá-lo para o serviço de Banco de Dados SQL com base em uma política definida pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulte em perda total ou parcial de disponibilidade do serviço de Banco de Dados SQL na região primária. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático incluem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Servidores primários e secundários para bancos de dados no grupo de failover devem estar na mesma assinatura. Os grupos de failover automático oferecem suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
 
 > [!NOTE]
 > Ao trabalhar com bancos de dados individuais ou em pool em um servidor lógico, se você quiser vários secundários nas mesmas regiões ou em regiões diferentes, use a [replicação geográfica ativa](sql-database-active-geo-replication.md).
@@ -203,7 +203,7 @@ Se o aplicativo usar a Instância Gerenciada como a camada de dados, siga estas 
 
 - **Prepare-se para degradação de desempenho**
 
-  A decisão de failover do SQL é independente do restante do aplicativo ou de outros serviços usados. O aplicativo pode estar "misturado", com alguns componentes em uma região e outros em outra. Para evitar a degradação, garanta a implantação do aplicativo redundante na região de recuperação de desastre e siga essas [diretrizes de segurança de rede](#Failover groups-and-network-security).
+  A decisão de failover do SQL é independente do restante do aplicativo ou de outros serviços usados. O aplicativo pode estar "misturado", com alguns componentes em uma região e outros em outra. Para evitar a degradação, garanta a implantação do aplicativo redundante na região de recuperação de desastre e siga essas [diretrizes de segurança de rede](#failover-groups-and-network-security).
 
 - **Prepare-se para a perda de dados**
 
@@ -306,17 +306,17 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 #### <a name="install-the-newest-pre-release-version-of-powershell"></a>Instalar a versão de pré-lançamento mais recente do PowerShell
 
-1. Atualize o módulo powershellget para 1.6.5 (ou a versão prévia mais recente). Confira o [site da versão prévia do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
+1. Atualize o módulo PowerShellGet para 1.6.5 (ou a versão prévia mais recente). Confira o [site da versão prévia do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
    ```Powershell
-      install-module powershellget -MinimumVersion 1.6.5 -force
+      install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Em uma nova janela do PowerShell, execute os comandos a seguir:
 
    ```Powershell
-      import-module powershellget
-      get-module powershellget #verify version is 1.6.5 (or newer)
+      import-module PowerShellGet
+      get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```

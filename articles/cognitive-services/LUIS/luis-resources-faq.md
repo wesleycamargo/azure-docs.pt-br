@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163626"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714195"
 ---
-# <a name="language-understanding-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
 Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal).
 
@@ -212,7 +212,7 @@ Os seguintes recursos foram lançados na Conferência Build 2018:
 |Integrações|Integração de [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) da [análise de sentimento](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integração de [fala](https://docs.microsoft.com/azure/cognitive-services/speech) da preparação de fala junto com o [SDK de Fala](https://aka.ms/SpeechSDK)|
 |Ferramenta de Expedição|Parte de [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), [ferramenta](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) de linha de comando de Expedição para combinar vários aplicativos LUIS e QnA Maker em único aplicativo de LUIS para um melhor reconhecimento de intenção em um Bot
 
-[Rotas de API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) de criação adicionais foram incluídas.
+[Rotas de API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) de criação adicionais foram incluídas.
 
 Vídeos:
 * [Azure Friday no Build 2018: Serviços Cognitivos – Linguagem (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)

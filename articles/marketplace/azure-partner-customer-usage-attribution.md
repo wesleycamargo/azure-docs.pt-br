@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262594"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602164"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de uso do cliente do parceiro do Azure
 
@@ -29,8 +29,8 @@ A Microsoft agora oferece um método para ajudar os parceiros a rastrear melhor 
 
 Como parceiro da Microsoft, você pode associar o uso do Azure a quaisquer recursos do Azure fornecidos em nome de um cliente. Você pode formar a associação por meio do Azure Marketplace, do repositório do Quickstart, dos repositórios privados do GitHub e do envolvimento individual do cliente. Para habilitar o rastreamento, as duas abordagens estão disponíveis:
 
-- Modelos do Azure Resource Manager: modelos do Gerenciador de Recursos ou modelos de solução para implantar os serviços do Azure para executar o software do parceiro. Os parceiros podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração de sua solução do Azure. Um modelo do Resource Manager permite que você e seus clientes implantem sua solução em todo o seu ciclo de vida. Você pode ter certeza de que seus recursos são implantados em um estado consistente. 
-- APIs do Azure Resource Manager: os parceiros podem chamar as APIs do Resource Manager diretamente para implantar um modelo do Resource Manager ou gerar as chamadas da API para provisionar diretamente os serviços do Azure. 
+- Modelos do Azure Resource Manager: Modelos do Resource Manager ou modelos de solução para implantar os serviços do Azure para executar o software do parceiro. Os parceiros podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração de sua solução do Azure. Um modelo do Resource Manager permite que você e seus clientes implantem sua solução em todo o seu ciclo de vida. Você pode ter certeza de que seus recursos são implantados em um estado consistente. 
+- APIs do Azure Resource Manager: Os parceiros podem chamar as APIs do Resource Manager diretamente para implantar um modelo do Resource Manager ou gerar as chamadas da API para provisionar diretamente os serviços do Azure. 
 
 A atribuição de uso do cliente é obrigatória em todos os [modelos de solução](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publicados no Azure Marketplace. 
 
@@ -270,15 +270,11 @@ A Microsoft fornece aos parceiros uma visão das implantações de clientes de s
 
 **Quem pode adicionar um GUID para um modelo?**
 
-O recurso de rastreamento destina-se a conectar a solução do parceiro ao uso do Azure do cliente. Os dados de uso estão vinculados à identidade do Microsoft Partner Network de um parceiro (ID do MPN). Os relatórios estão disponíveis para parceiros no CPP.
+O recurso de rastreamento destina-se a conectar a solução do parceiro ao uso do Azure do cliente. Os dados de uso estão vinculados à identidade do Microsoft Partner Network de um parceiro (ID do MPN). 
 
 **Depois de um GUID é adicionado, ela pode ser alterada?**
  
 Sim, um cliente ou parceiro de implementação pode personalizar o modelo e alterar ou remover o GUID. Sugerimos que os parceiros proativamente descrevem a função do recurso e do GUID a seus clientes e parceiros para evitar a remoção ou edições para o GUID de rastreamento. Alterar o GUID afeta somente implantações e recursos novos e não existentes.
-
-**Quando os relatórios estarão disponível?**
-
-Uma versão beta dos relatórios deve estar disponível em breve. Emissão de relatórios será integrado ao CPP.
 
 **Posso acompanhar modelos implantados de um repositório não Microsoft como o GitHub?**
 

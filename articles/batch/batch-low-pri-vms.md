@@ -1,5 +1,5 @@
 ---
-title: Executar cargas de trabalho do Lote do Azure em VMs econômicas de baixa prioridade | Microsoft Docs
+title: Executar cargas de trabalho em VMs econômicas de baixa prioridade - Lote do Azure | Microsoft Docs
 description: Saiba como provisionar VMs de baixa prioridade para reduzir o custo das cargas de trabalho do Lote do Azure.
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092996"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546786"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usar VMs de baixa prioridade com o Lote
 
@@ -42,11 +43,11 @@ Dadas as características das VMs de baixa prioridade, quais cargas de trabalho 
 
 Alguns exemplos de casos de uso de processamento em lote adequados ao uso de VMs de baixa prioridade são:
 
--   **Desenvolvimento e teste**: em particular, se soluções de grande escala estiverem sendo desenvolvidas, economias significativas podem ser obtidas. Todos os tipos de testes podem ser beneficiados, mas testes de carga de larga escala e testes de regressão são ótimas opções.
+-   **Desenvolvimento e teste**: Em particular, se soluções de grande escala estiverem sendo desenvolvidas, economias significativas podem ser obtidas. Todos os tipos de testes podem ser beneficiados, mas testes de carga de larga escala e testes de regressão são ótimas opções.
 
 -   **Complementação de capacidade sob demanda**: VMs de baixa prioridade podem ser usadas para complementar VMs dedicadas regulares – quando disponíveis, os trabalhos podem ser dimensionados e, portanto, concluídos mais rapidamente para reduzir o custo; quando não estiverem disponíveis, a linha de base de VMs dedicadas permanecerá disponível.
 
--   **Tempo de execução de trabalho flexível**: se houver flexibilidade quanto ao tempo necessário para concluir os trabalhos, quedas potencias na capacidade poderão ser toleradas. No entanto, com a adição de VMs de baixa prioridade, frequentemente os trabalhos são executados mais rapidamente e por um custo mais baixo.
+-   **Tempo de execução do trabalho flexível**: Se houver flexibilidade quanto ao tempo necessário para concluir os trabalhos, quedas potencias na capacidade poderão ser toleradas. No entanto, com a adição de VMs de baixa prioridade, frequentemente os trabalhos são executados mais rapidamente e por um custo mais baixo.
 
 Pools do Lote podem ser configurados para usar as VMs de baixa prioridade de algumas maneiras, dependendo da flexibilidade no tempo de execução do trabalho:
 

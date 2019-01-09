@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 633a5c26711b7ef9f891455c6712b77238fd3a62
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 419f34d6240df9b4df160c6ff9665b32aef1e3ca
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631959"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653859"
 ---
-# <a name="submit-hadoop-jobs-in-hdinsight"></a>Enviar trabalhos Hadoop no HDInsight
+# <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Enviar trabalhos do Apache Hadoop no HDInsight
 
 Você pode enviar tarefas do Apache Hadoop no HDInsight do Azure usando o Microsoft .NET SDK para HDInsight, curl ou o Azure PowerShell.
 
@@ -25,24 +25,24 @@ Você pode enviar tarefas do Apache Hadoop no HDInsight do Azure usando o Micros
 - **SDK .NET**:
 
   - [Criar aplicativos .NET de autenticação não interativa](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
-  - [Executar consultas Hive usando o SDK .NET do HDInsight](apache-hadoop-use-hive-dotnet-sdk.md)
-  - [Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight](apache-hadoop-use-pig-dotnet-sdk.md)
-  - [Executar trabalhos do Sqoop usando o SDK do .NET para Hadoop no HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
+  - [Executar consultas Apache Hive usando o SDK .NET do HDInsight](apache-hadoop-use-hive-dotnet-sdk.md)
+  - [Executar tarefas do Apache Pig usando o SDK do .NET para o Apache Hadoop no HDInsight](apache-hadoop-use-pig-dotnet-sdk.md)
+  - [Executar tarefas do Apache Sqoop usando o SDK do .NET para o Apache Hadoop no HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [Executar trabalhos MapReduce usando o SDK .NET do HDInsight](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
 - **curl**:
 
-  - [Executar consultas Hive com Hadoop no HDInsight usando o curl](apache-hadoop-use-hive-curl.md)
-  - [Executar trabalhos do Pig com Hadoop no HDInsight usando o curl](apache-hadoop-use-pig-curl.md)
-  - [Executar trabalhos do Sqoop com Hadoop no HDInsight usando o curl](apache-hadoop-use-sqoop-curl.md)
-  - [Executar trabalhos MapReduce com Hadoop no HDInsight usando o curl](apache-hadoop-use-mapreduce-curl.md)
+  - [Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a curl](apache-hadoop-use-hive-curl.md)
+  - [Executar trabalhos do Apache Pig com o Apache Hadoop no HDInsight usando a curl](apache-hadoop-use-pig-curl.md)
+  - [Executar trabalhos do Apache Sqoop com o Apache Hadoop no HDInsight usando a curl](apache-hadoop-use-sqoop-curl.md)
+  - [Executar trabalhos do MapReduce com o Apache Hadoop no HDInsight usando a curl](apache-hadoop-use-mapreduce-curl.md)
 
 - **PowerShell**:
 
-  - [Executar consultas Hive usando o PowerShell](apache-hadoop-use-hive-powershell.md)
-  - [Executar trabalhos do Pig usando o PowerShell](apache-hadoop-use-pig-powershell.md)
-  - [Usar Sqoop com o Hadoop no HDInsight](apache-hadoop-use-sqoop-powershell.md)
-  - [Executar trabalhos MapReduce com Hadoop no HDInsight usando o PowerShell](apache-hadoop-use-mapreduce-powershell.md)
+  - [Executar consultas do Apache Hive usando o PowerShell](apache-hadoop-use-hive-powershell.md)
+  - [Executar trabalhos do Apache Pig usando o PowerShell](apache-hadoop-use-pig-powershell.md)
+  - [Usar o Apache Sqoop com o Apache Hadoop no HDInsight](apache-hadoop-use-sqoop-powershell.md)
+  - [Executar trabalhos do MapReduce com Apache Hadoop no HDInsight usando o PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
 ## <a name="see-also"></a>Consulte também
 

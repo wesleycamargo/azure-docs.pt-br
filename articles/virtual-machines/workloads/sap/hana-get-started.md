@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: a instalação manual de instância única SAP HANA em máquinas virtuais do Azure | Microsoft Docs'
+title: 'Início Rápido: Instalação manual de instância única SAP HANA em máquinas virtuais do Azure | Microsoft Docs'
 description: Guia de início rápido para a instalação manual do SAP HANA de instância única em máquinas virtuais do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032065"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976895"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Início rápido: instalação manual do SAP HANA de instância única em VMs do Azure
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Início Rápido: Instalação manual do SAP HANA de instância única em VMs do Azure
 ## <a name="introduction"></a>Introdução
 Esta guia ajuda você a configurar o SAP HANA de instância única em máquinas virtuais (VMs) do Azure, ao instalar o SAP NetWeaver 7.5 e SAP HANA 1.0 SP12 manualmente. O objetivo desta guia é tratar da implantação do SAP HANA no Azure. Ele não substitui a documentação do SAP. 
 
@@ -62,20 +62,20 @@ Para obter informações sobre como fazer backup de bancos de dados do SAP HANA 
 Para obter informações sobre o uso da biblioteca de dispositivo de nuvem SAP para implantar S/4HANA ou BW/4HANA, confira [Como implantar SAP S/4HANA ou BW/4HANA no Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
 
 ### <a name="sap-hana-supported-operating-systems"></a>Sistemas operacionais SAP HANA com suporte
-Para obter informações sobre os sistemas operacionais com suporte SAP HANA, confira [Observação de suporte SAP nº 2235581 - SAP HANA: sistemas operacionais com suporte](https://launchpad.support.sap.com/#/notes/2235581/E). As VMs do Azure oferecem suporte a apenas um subconjunto desses sistemas operacionais. Os seguintes sistemas operacionais têm suporte para implantar o SAP HANA no Azure: 
+Para obter informações sobre os sistemas operacionais com suporte SAP HANA, confira [Observação de suporte SAP nº 2235581 - SAP HANA: Sistemas operacionais com suporte](https://launchpad.support.sap.com/#/notes/2235581/E). As VMs do Azure oferecem suporte a apenas um subconjunto desses sistemas operacionais. Os seguintes sistemas operacionais têm suporte para implantar o SAP HANA no Azure: 
 
 * SUSE Linux Enterprise Server 12.x
 * Red Hat Enterprise Linux 7.2
 
 Para obter documentação SAP adicional sobre o SAP HANA e sistemas operacionais Linux diferentes, confira:
 
-* [Observação de suporte SAP nº 171356 — software SAP no Linux: informações gerais](https://launchpad.support.sap.com/#/notes/1984787)
+* [Nota de suporte SAP n° 171356 – software SAP no Linux:  Informações gerais](https://launchpad.support.sap.com/#/notes/1984787)
 * [Observação de suporte SAP nº 1944799 — diretrizes SAP HANA para instalação do sistema operacional SLES](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [Observação de suporte SAP nº 2205917 — configurações do sistema operacional recomendadas para o SAP HANA DB para SLES 12 para aplicativos SAP](https://launchpad.support.sap.com/#/notes/2205917/E)
-* [Observação de suporte SAP nº 1984787 — SUSE Linux Enterprise Server 12: observações de instalação](https://launchpad.support.sap.com/#/notes/1984787)
+* [Nota de suporte SAP n° 1984787 – SUSE Linux Enterprise Server 12:  Notas de instalação](https://launchpad.support.sap.com/#/notes/1984787)
 * [Observação de suporte SAP nº 1391070 — soluções UUID do Linux](https://launchpad.support.sap.com/#/notes/1391070)
 * [Observação de suporte SAP 2009879 – diretrizes SAP HANA para o sistema operacional RHEL (Red Hat Enterprise Linux)](https://launchpad.support.sap.com/#/notes/2009879)
-* [2292690 - Banco de dados do SAP HANA: configurações do sistema operacional recomendadas para RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
+* [2292690 - SAP HANA DB: Configurações do sistema operacional recomendadas para RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
 
 ### <a name="sap-monitoring-in-azure"></a>Monitoramento SAP no Azure
 Para obter informações sobre o monitoramento SAP no Azure, confira:
@@ -87,7 +87,7 @@ Para obter informações sobre o monitoramento SAP no Azure, confira:
 ### <a name="azure-vm-types"></a>Tipos de VM do Azure
 Os tipos de VM do Azure e os cenários de carga de trabalho com suporte do SAP no SAP HANA estão documentados nas [Plataformas de IaaS certificadas pela SAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). 
 
-Os tipos de VM do Azure que são certificados pela SAP para SAP NetWeaver ou para a camada de aplicativo S/4HANA estão documentados pelo SAP em [Observação SAP 1928533 — Aplicativos SAP no Azure: tipos de VM do Azure e produtos com suporte](https://launchpad.support.sap.com/#/notes/1928533/E).
+Os tipos de VM do Azure que são certificados pela SAP para SAP NetWeaver ou para a camada de aplicativo S/4HANA estão documentados pelo SAP em [Observação SAP 1928533 — Aplicativos SAP no Azure: Produtos suportados e tipos de VM do Azure](https://launchpad.support.sap.com/#/notes/1928533/E).
 
 >[!Note]
 >A integração SAP-Linux-Azure tem suporte apenas no Azure Resource Manager e não no modelo de implantação clássico. 
@@ -208,7 +208,7 @@ Para obter mais informações sobre como anexar discos para VMs do Azure executa
 
 O armazenamento premium do Azure permite definir modos de cache de disco. Para a conjunto de faixa contendo /hana/data e /hana/log, o cache de disco deve ser desabilitado. Para os outros volumes (discos), o modo de cache deve ser definido como **ReadOnly**.
 
-Para saber mais, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../../windows/premium-storage.md).
+Para saber mais, veja [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de Máquina Virtual do Azure](../../windows/premium-storage.md).
 
 Para localizar modelos JSON de exemplo para criar VMs, vá para [Modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 O modelo vm-simple-sles é um modelo básico. Ele inclui uma seção de armazenamento com um disco de dados de 100 GB adicionais. Esse modelo pode ser usado como base. Você pode adaptar o modelo em sua configuração específica.
@@ -404,7 +404,7 @@ Além de instalar o SAP HANA como parte de uma instalação distribuída usando 
 Para obter mais informações sobre a ferramenta HANA HDBLCM, confira:
 
 * [Choosing the Correct SAP HANA HDBLCM for Your Task (Escolhendo o HDBLCM do SAP HANA correto para sua tarefa)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA Lifecycle Management Tools (Ferramentas de gerenciamento de ciclo de vida do SAP HANA)](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+* [SAP HANA Lifecycle Management Tools (Ferramentas de gerenciamento de ciclo de vida do SAP HANA)](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
 * [SAP HANA Server Installation and Update Guide (Guia de instalação e atualização do servidor SAP HANA)](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 Para evitar problemas com uma configuração de ID de grupo padrão para `\<HANA SID\>adm user` (criado pela ferramenta HDBLCM), defina um novo grupo chamado `sapsys` usando o ID de grupo `1001` antes de instalar o SAP HANA com HDBLCM:

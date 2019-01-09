@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 568d63f984980e91b4dc059211dcf0eaceb73820
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d7be248e49baf4e7fd10d6b37df1473e92ccfce7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164221"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651717"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar backup e replicação para Apache HBase e Apache Phoenix no HDInsight
 
@@ -26,7 +26,7 @@ Apache HBase oferece suporte a várias abordagens para proteger contra perda de 
 * Instantâneos
 * Replicação
 
-> [!NOTE]
+> [!NOTE]  
 > O Apache Phoenix armazena seus metadados nas tabelas do HBase, para que seja executado o backup dos metadados quando você fizer o backup de tabelas de catálogo do sistema HBase.
 
 As seções a seguir descrevem o cenário de uso para cada uma dessas abordagens.
@@ -35,7 +35,7 @@ As seções a seguir descrevem o cenário de uso para cada uma dessas abordagens
 
 Com essa abordagem, você copia todos os dados do HBase sem ser capaz de selecionar um subconjunto de tabelas ou famílias de colunas. Abordagens subsequentes fornecem maior controle.
 
-O HBase no HDInsight usa o armazenamento padrão selecionado ao criar o cluster, blobs de Armazenamento do Microsoft Azure ou Azure Data Lake Store. Em ambos os casos, o HBase armazena seus arquivos de metadados e dados no seguinte caminho:
+O HBase no HDInsight usa o armazenamento padrão selecionado ao criar o cluster, blobs de Armazenamento do Microsoft Azure ou Azure Data Lake Storage. Em ambos os casos, o HBase armazena seus arquivos de metadados e dados no seguinte caminho:
 
     /hbase
 
@@ -45,7 +45,7 @@ O HBase no HDInsight usa o armazenamento padrão selecionado ao criar o cluster,
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* No Azure Data Lake Store, a pasta `hbase` reside no caminho raiz especificado durante o provisionamento de um cluster. Normalmente, esse caminho raiz tem uma pasta `clusters`, com uma subpasta nomeada de acordo com o seu cluster do HDInsight:
+* No Azure Data Lake Storage, a pasta `hbase` reside no caminho raiz especificado durante o provisionamento de um cluster. Normalmente, esse caminho raiz tem uma pasta `clusters`, com uma subpasta nomeada de acordo com o seu cluster do HDInsight:
 
     ```
     /clusters/<clusterName>/hbase
@@ -57,7 +57,7 @@ Depois de excluir o cluster, você pode deixar os dados no local ou copiar os da
 
 * Crie uma nova instância do HDInsight apontando para o local de armazenamento atual. A nova instância é criada com todos os dados existentes.
 
-* Copie a pasta `hbase` para um contêiner de blob de Armazenamento do Microsoft Azure diferente e, em seguida, inicie um novo cluster com esses dados. Para o Armazenamento do Microsoft Azure, use [AzCopy](../../storage/common/storage-use-azcopy.md), e para o Data Lake Store, use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copie a pasta `hbase` para um contêiner de blob de Armazenamento do Azure diferente ou local do Data Lake Storage e, em seguida, inicie um novo cluster com esses dados. Para o Armazenamento do Azure, use [AzCopy](../../storage/common/storage-use-azcopy.md), e para o Data Lake Storage, use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Exportar e importar
 
@@ -75,7 +75,7 @@ Especifique o caminho completo de exportação para o armazenamento padrão ou p
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-No Azure Data Lake Store, a sintaxe é:
+No Azure Data Lake Storage, a sintaxe é:
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -117,7 +117,7 @@ O utilitário CopyTable também oferece suporte a parâmetros para especificar o
 
 OmCopyTable examina o conteúdo da tabela de origem inteiro que será copiado na tabela de destino. Isso pode reduzir o desempenho do seu cluster do HBase enquanto o CopyTable está sendo executado.
 
-> [!NOTE]
+> [!NOTE]  
 > Para automatizar a cópia de dados entre tabelas, consulte o script `hdi_copy_table.sh` no repositórios dos [utilitários do HBase do Azure](https://github.com/Azure/hbase-utils/tree/master/replication) no GitHub.
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Coletar manualmente a lista do quorum do Apache ZooKeeper

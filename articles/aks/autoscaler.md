@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0b2e49bb0e269c91ed6a1bf7294565a729082db3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713078"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975127"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Dimensionador automático de cluster no AKS (serviço de Kubernetes do Azure) – versão prévia
 
@@ -398,7 +398,7 @@ O status do escalonamento automático de cluster permite que você veja o estado
     * Um candidato ao scale down é um nó que o autoescalador de cluster determinou que pode ser removido sem afetar a capacidade do cluster de manipular sua carga de trabalho. 
     * Os tempos de fornecido mostram a última vez que o cluster foi verificado para candidatos de dimensionamento e seu último tempo de transição.
 
-Por fim, em eventos, você pode ver até qualquer escala ou reduzir verticalmente a eventos, com falhas ou êxito e seus tempos, que executou o dimensionador automático de cluster.
+Por fim, em eventos, você pode ver qualquer evento para escalar ou reduzir verticalmente, com falhas ou êxito e seus tempos, que executou o dimensionador automático de cluster.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
 title: Criar APIs Web e APIs REST para Aplicativos Lógicos do Azure | Microsoft Docs
-description: Criar APIs Web e APIs REST para chamar suas APIs, serviços ou sistemas para integrações do sistema no Aplicativo Lógico do Azure
+description: Criar APIs Web e APIs REST para chamar suas APIs, serviços ou sistemas para integrações do sistema nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233507"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600703"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas dos Aplicativos Lógicos do Azure
 
@@ -25,11 +25,11 @@ Embora os Aplicativos Lógicos do Azure ofereçam [mais de 100 conectores intern
 * Ajudar os clientes a usar seu serviço para gerenciar tarefas profissionais ou pessoais.
 * Expandir o alcance, a descoberta e o uso do seu serviço.
 
-Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou Node.js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
+Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou Node.js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
 
 Para que as APIs personalizadas funcionem com aplicativos lógicos, sua API pode fornecer [ *ações* ](./logic-apps-overview.md#logic-app-concepts) que executam tarefas específicas em fluxos de trabalho de aplicativos lógicos. Sua API também pode atuar como um [ *gatilho* ](./logic-apps-overview.md#logic-app-concepts) que inicia um fluxo de trabalho do aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Este tópico descreve padrões comuns que você pode seguir para criar ações e gatilhos em sua API, com base no comportamento que a API deve fornecer.
 
-Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma hospedagem de API fácil e altamente escalonável.
+Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma hospedagem de API fácil e altamente escalonável.
 
 > [!TIP] 
 > Embora você possa implantar suas APIs como aplicativos Web, considere implantar suas APIs como aplicativos de API, o que pode facilitar o trabalho quando você criar, hospedar e consumir APIs locais e na nuvem. Você não precisa alterar o código em suas APIs; basta implantar seu código para um aplicativo de API. Por exemplo, saiba como criar aplicativos de API criados com estas linguagens: 
@@ -104,9 +104,9 @@ Aqui estão as etapas específicas que sua API deve seguir, descritas da perspec
    
    A resposta `202 ACCEPTED` deve incluir estes cabeçalhos:
    
-   * *Obrigatório*: um cabeçalho `location` que especifica o caminho absoluto para uma URL onde o mecanismo dos Aplicativos Lógicos pode verificar o status do trabalho da API
+   * *Obrigatório*: Um cabeçalho `location` que especifica o caminho absoluto para uma URL onde o mecanismo dos Aplicativos Lógicos pode verificar o status do trabalho da API
 
-   * *Opcional*: um cabeçalho `retry-after` que especifica o número de segundos que o mecanismo deve aguardar antes de verificar a URL `location` em relação ao status do trabalho. 
+   * *Opcional*: Um cabeçalho `retry-after` que especifica o número de segundos que o mecanismo deve aguardar antes de verificar a URL `location` em relação ao status do trabalho. 
 
      Por padrão, o mecanismo verifica a cada 20 segundos. Para especificar um intervalo diferente, inclua o cabeçalho `retry-after` e o número de segundos até o próximo intervalo de sondagem.
 
@@ -134,9 +134,9 @@ Quando o trabalho está pronto, sua API usa a URL para notificar o mecanismo e r
 
 Para esse padrão, configure dois pontos de extremidade em seu controlador: `subscribe` e `unsubscribe`
 
-*  Ponto de extremidade `subscribe`: quando a execução atinge a ação da API no fluxo de trabalho, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que a API armazena e, em seguida, aguarda o retorno de chamada da API quando o trabalho é concluído. Sua API retorna a chamada com um HTTP POST para a URL e transmite o conteúdo retornado e os cabeçalhos como entrada para o aplicativo lógico.
+*  Ponto de extremidade `subscribe`: Quando a execução atinge a ação da API no fluxo de trabalho, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que a API armazena e, em seguida, aguarda o retorno de chamada da API quando o trabalho é concluído. Sua API retorna a chamada com um HTTP POST para a URL e transmite o conteúdo retornado e os cabeçalhos como entrada para o aplicativo lógico.
 
-* Ponto de extremidade `unsubscribe`: se a execução do aplicativo lógico for cancelada, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
+* Ponto de extremidade `unsubscribe`: Se a execução do aplicativo lógico for cancelada, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
 
 ![Padrão de ação do Webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -196,9 +196,9 @@ Por exemplo, para verificar periodicamente novos arquivos no serviço, você pod
 Um gatilho de webhook é um *gatilho de envio por push* que aguarda e escuta novos dados ou eventos em seu ponto de extremidade de serviço. Se novos dados ou um evento atendem à condição especificada, o gatilho será acionado e criará uma instância de aplicativo lógico que processa os dados como entrada.
 Os gatilhos de webhook atuam como as [ações de webhook](#webhook-actions) descritas anteriormente neste tópico e são configuradas com pontos de extremidade `subscribe` e `unsubscribe`. 
 
-* Ponto de extremidade `subscribe`: quando você adiciona e salva um gatilho de webhook em seu aplicativo lógico, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que é armazenada pela API. Quando há novos dados ou um evento que atenda à condição especificada, sua API retorna a chamada com um HTTP POST para a URL. A carga de conteúdo e os cabeçalhos são transmitidos como entrada para o aplicativo lógico.
+* Ponto de extremidade `subscribe`: Quando você adiciona e salva um gatilho de webhook em seu aplicativo lógico, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que é armazenada pela API. Quando há novos dados ou um evento que atenda à condição especificada, sua API retorna a chamada com um HTTP POST para a URL. A carga de conteúdo e os cabeçalhos são transmitidos como entrada para o aplicativo lógico.
 
-* Ponto de extremidade `unsubscribe`: se o gatilho de webhook ou o aplicativo lógico inteiro for excluído, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
+* Ponto de extremidade `unsubscribe`: Se o gatilho de webhook ou o aplicativo lógico inteiro for excluído, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
 
 ![Padrão de gatilho de webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

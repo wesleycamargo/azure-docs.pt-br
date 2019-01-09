@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251021"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794347"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
@@ -97,7 +97,7 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 
 ### <a name="configure-settings"></a>Configurar definições
 
-1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade** e, em seguida, selecione a NIC que será usada pelo servidor de processo para receber o tráfego de replicação das VMs. Em seguida, selecione **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida.
+1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade** e, em seguida, selecione a NIC que será usada pelo servidor de processo para receber o tráfego de replicação das VMs. Em seguida, selecione **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida. É altamente recomendável não alterar o endereço IP de um servidor de configuração. Certifique-se de que o IP atribuído ao servidor de configuração é o IP estático e não o IP DHCP.
 2. Em **Selecionar cofre de Serviços de Recuperação**, entre no Microsoft Azure, selecione sua assinatura do Azure e o grupo de recursos e o cofre relevantes.
 
     > [!NOTE]
@@ -150,7 +150,11 @@ Para evitar interrupções na replicação em andamento, assegure-se de que o en
     No **Cofre dos Serviços de Recuperação**, **Gerenciar** > **Infraestrutura do Site Recovery** > **Servidores de Configuração**. Em Servidores, selecione **Baixar chave de registro** para baixar o arquivo de credenciais do cofre.
 8. Posso clonar um servidor de configuração existente e usá-lo para orquestração de replicação?
 
-    **Não**, não há suporte para o uso de um componente de servidor de configuração clonado. 
+    **Não**, não há suporte para o uso de um componente de servidor de configuração clonado.
+
+9. Posso alterar o IP do servidor de configuração?
+
+    **Não**, é altamente recomendável não alterar o endereço IP de um servidor de configuração. Certifique-se de que todos os IPs atribuídos ao servidor de configuração são IPs estáticos e não IPs DHCP.
 
 ## <a name="troubleshoot-deployment-issues"></a>Solucionar problemas de implantação
 

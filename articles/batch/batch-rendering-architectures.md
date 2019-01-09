@@ -1,18 +1,19 @@
 ---
-title: Renderização do Azure - arquiteturas de referência
+title: Arquiteturas de referência de renderização do Azure - Lote do Azure
 description: Arquiteturas para usar o Lote do Microsoft Azure e outros serviços do Azure para estender um farm de renderização local disparando na nuvem
 services: batch
 author: davefellows
 manager: jeconnoc
-ms.author: danlep
+ms.author: lahugh
 ms.date: 08/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0fe101ee6eb88094034b90c4d39f06ba509c9512
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.custom: seodec18
+ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099610"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543488"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização do Azure
 
@@ -24,7 +25,7 @@ O diagrama a seguir mostra um cenário híbrido que inclui os serviços do Azure
 
 * **Computação** - Pool do Lote do Azure ou Conjunto de Dimensionamento de Máquinas Virtuais.
 
-* **Rede** - Local: VPN ou Microsoft Azure ExpressRoute. Azure: VNET do Azure.
+* **Rede** - local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
 * **Armazenamento** - Arquivos de entrada e saída: NFS ou CFS usando VMs do Azure, sincronizados com armazenamento local por meio da Sincronização de Arquivos do Azure e RSync.
 
@@ -36,9 +37,9 @@ O diagrama a seguir mostra um cenário híbrido que inclui os serviços do Azure
 
 * **Computação** - Pool do Lote do Azure ou Conjunto de Dimensionamento de Máquinas Virtuais.
 
-* **Rede** - Local: VPN ou Microsoft Azure ExpressRoute. Azure: VNET do Azure.
+* **Rede** - local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** - Arquivos de entrada e saída: armazenamento de Blobs, montado para computar recursos por meio do Azure Blobfuse.
+* **Armazenamento** - Arquivos de entrada e saída: Armazenamento de Blobs, montado para computar recursos por meio do Azure Blobfuse.
 
   ![Intermitência de nuvem - Híbrido com Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
@@ -48,7 +49,7 @@ O diagrama a seguir mostra um cenário híbrido totalmente conectado para comput
 
 * **Computação** - Pool do Lote do Azure ou Conjunto de Dimensionamento de Máquinas Virtuais.
 
-* **Rede** - Local: VPN ou Microsoft Azure ExpressRoute. Azure: VNET do Azure.
+* **Rede** - local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
 * **Armazenamento** - Entre instalações: Avere vFXT. Arquivamento opcional de arquivos locais por meio do Azure Data Box para armazenamento de Blobs.
 

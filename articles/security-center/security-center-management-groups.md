@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964110"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720808"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo ajuda você a começar fazendo várias ações que maximizam os benefícios que o Centro de Segurança do Azure oferece. A execução dessas ações permite que você obtenha visibilidade de todas as assinaturas do Azure vinculadas ao locatário do Azure Active Directory e gerencie com eficiência a postura de segurança da organização em escala, aplicando políticas de segurança em várias assinaturas de maneira agregada.
@@ -71,13 +71,13 @@ Um administrador de locatário do Azure Active Directory não tem acesso direto 
 
    ![Azure Active Directory – captura de tela](./media/security-center-management-groups/aad-properties.png)
 
-3. Em **Administrador global pode gerenciar Assinaturas do Azure e Grupos de Gerenciamento**, selecione a opção **Sim**.
+3. Em **Gerenciamento de acesso para recursos do Azure**, defina a opção para **Sim**.
 
    ![O Administrador global pode gerenciar Assinaturas do Azure e Grupos de Gerenciamento – captura de tela](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - Ao selecionar a opção **Sim**, sua conta de Administrador global (conectada no usuário no momento) é adicionada à função de Administrador de Acesso do Usuário no Azure RBAC no escopo raiz (`/`), o que lhe concede acesso de visualização e relatório em todas as assinaturas do Azure associadas ao seu locatário do Azure AD.
+   - Quando você define a opção para Sim, recebe a função de Administrador do Acesso do Usuário no RBAC do Azure no escopo raiz (/). Isso concede a você permissão para atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Essa opção está disponível apenas para usuários com a função de administrador global no Azure AD.
 
-   - Ao selecionar a opção **Não**, sua conta de Administrador global (conectada no usuário no momento) é removida da função de Administrador de Acesso do Usuário no Azure RBAC. Não é possível ver todas as assinaturas do Azure associadas ao locatário do Azure AD, sendo possível visualizar e gerenciar apenas as assinaturas do Azure às quais você recebeu acesso.
+  - Quando você define a opção para Não, a função Administrador de Acesso do Usuário no RBAC do Azure é removida da sua conta de usuário. Você não pode mais atribuir funções a todas as assinaturas e grupos de gerenciamento do Azure associados a esse diretório do AD do Azure. Você pode exibir e gerenciar somente as assinaturas do Azure e os grupos de gerenciamento aos quais você recebeu acesso.
 
 4. Clique em **Salvar**, para salvar suas configurações.
 

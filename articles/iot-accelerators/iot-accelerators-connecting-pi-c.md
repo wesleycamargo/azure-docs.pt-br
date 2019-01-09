@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 838a33fd390b28fec609c42487dca225ddc6eaa8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831093"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628197"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Conectar seu dispositivo Raspberry Pi ao acelerador da solução de monitoramento remoto (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 Este tutorial mostra como conectar um dispositivo físico ao acelerador de solução de monitoramento remoto. Assim como acontece com a maioria dos aplicativos inseridos que são executados em dispositivos restritos, o código do cliente do aplicativo do dispositivo Raspberry Pi é escrito em C. Neste tutorial, você cria o aplicativo em um Raspberry Pi executando o sistema operacional Raspbian.
+
+Se você preferir simular um dispositivo, consulte [Criar e testar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### <a name="required-hardware"></a>Requisitos de hardware
 
@@ -36,7 +38,7 @@ Um computador desktop para que você possa se conectar remotamente à linha de c
 
 É necessário um cliente SSH em seu computador desktop para que você possa acessar remotamente a linha de comando no Raspberry Pi.
 
-- O Windows não inclui um cliente SSH. Recomendamos o uso de [PuTTY](http://www.putty.org/).
+- O Windows não inclui um cliente SSH. Recomendamos o uso de [PuTTY](https://www.putty.org/).
 - A maioria das distribuições do Linux e Mac OS incluem o utilitário de linha de comando do SSH. Para obter mais informações, consulte [SSH usando o Linux ou Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ### <a name="required-raspberry-pi-software"></a>Software do Raspberry Pi necessário
@@ -75,7 +77,7 @@ As etapas a seguir descrevem como usar *CMake* para compilar o aplicativo client
 
 1. Edite o arquivo **remote_monitoring** para substituir `<connectionstring>` pela cadeia de conexão do dispositivo que você anotou no início deste guia de instruções, quando adicionou um dispositivo do acelerador de solução.
 
-1. Navegue até a raiz da sua cópia clonada do [repositório de SDKs IoT C do Azure](https://github.com/Azure/azure-iot-sdk-c) e execute os seguintes comandos para compilar o aplicativo cliente:
+1. Navegue até a raiz da sua cópia clonada do [repositório de SDKs C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) e execute os seguintes comandos para compilar o aplicativo cliente:
 
     ```sh
     mkdir cmake

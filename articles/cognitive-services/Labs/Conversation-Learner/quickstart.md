@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166125"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791058"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Como criar um modelo de Aprendiz de Conversa usando Node.js
 
@@ -112,14 +112,11 @@ As instruções acima iniciaram o bot vazio genérico.  Para executar um tutoria
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. Caso ainda não esteja, alterne para a interface do usuário da Web do Aprendiz de Conversa no Chrome, carregando http://localhost:5050/home. 
 
-5. Clique em "Importar tutoriais" (é necessário fazer somente uma vez).  Isso levará cerca de um minuto e copiará os modelos de Aprendiz de Conversa de todos os tutoriais para a sua conta de Aprendiz de Conversa.
-
-6. Clique no modelo de demonstração na interface do usuário do Aprendiz de Conversa que corresponde à demonstração que você iniciou.
+5. Clique em “Importar tutoriais” e selecione o modelo de demonstração na interface do usuário do Aprendiz de Conversa que corresponde à demonstração que você iniciou.
 
 Os arquivos de origem das demonstrações estão em `cl-bot-01/src/demos`
 
@@ -181,4 +178,4 @@ Este projeto adotou o [Código de Conduta Microsoft Open Source](https://opensou
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Olá, Mundo](./tutorials/1-hello-world.md)
+> [Olá, Mundo](./tutorials/01-hello-world.md)

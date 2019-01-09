@@ -4,22 +4,22 @@ description: Saiba mais sobre o status dos cenários de migração compatíveis 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/11/2018
-ms.openlocfilehash: 9eea3c28751ecaec0ffdb27e08f84cad1bf62acd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 12/19/2018
+ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53267859"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722072"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status dos cenários de migração compatíveis com o Serviço de Migração de Banco de Dados do Azure
-O Serviço de Migração de Banco de Dados do Azure foi projetado para oferecer suporte a diversos cenários de migração (pares de origem/destino), tanto para migrações offline (uma vez) como para migrações online (sincronização contínua). A cobertura do cenário fornecido pelo Serviço de Migração de Banco de Dados do Azure está sendo estendida ao longo do tempo. Novos cenários são adicionados regularmente. Este artigo identifica os cenários de migração atualmente compatíveis com o Serviço de Migração de Banco de Dados do Azure e o status (versão prévia privada, visualização pública ou geralmente disponível).
+O Serviço de Migração de Banco de Dados do Azure foi projetado para oferecer suporte a diversos cenários de migração (pares de origem/destino), tanto para migrações offline (uma vez) como para migrações online (sincronização contínua). A cobertura do cenário fornecido pelo Serviço de Migração de Banco de Dados do Azure está sendo estendida ao longo do tempo. Novos cenários são adicionados regularmente. Este artigo identifica os cenários de migração atualmente compatíveis com o Serviço de Migração de Banco de Dados do Azure e o status (versão prévia privada [ou limitada], visualização pública ou geralmente disponível).
 
 ## <a name="offline-versus-online-migrations"></a>Migrações offline versus online
 Ao migrar bancos de dados para o Azure usando o Serviço de Migração de Banco de Dados do Azure, é possível fazer uma migração offline ou online. Nas migrações *offline*, o tempo de inatividade do aplicativo começa quando a migração inicia. Para migrações *online*, o tempo de inatividade está limitado ao tempo necessário para fazer a transferência para o novo ambiente quando a migração for concluída. É recomendável que você teste uma migração offline para determinar se o tempo de inatividade é aceitável; caso contrário, faça uma migração online.

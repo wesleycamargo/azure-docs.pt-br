@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 2e7b7d9b0a194b13de9bdf759f4f3be645ed7c2e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 01a9852157cbaefd966be974a3175c25e7ff69f8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442162"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001695"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Usar o Visual Studio para simplificar a escrita e o gerenciamento de seus aplicativos do Service Fabric
 É possível gerenciar os serviços e aplicativos do Service Fabric do Azure por meio do Visual Studio. Depois de [configurar o ambiente de desenvolvimento](service-fabric-get-started.md),você pode usar o Visual Studio para criar aplicativos do Service Fabric, adicionar serviços, ou pacotes, registrar e implantar aplicativos no cluster de desenvolvimento local.
@@ -47,7 +47,7 @@ O Visual Studio fornece uma propriedade chamada **Modo de Depuração de Aplicat
 
 #### <a name="application-debug-modes"></a>Modos de depuração do aplicativo
 
-1. **Atualizar aplicativo** Esse modo permite que você altere e depurar seu código rapidamente e dá suporte à edição de arquivos da Web estáticos durante a depuração. Esse modo funciona apenas se o cluster de desenvolvimento local está em [Modo 1 Nó]. Esse é o modo de Depuração de Aplicativo padrão.(/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Atualizar aplicativo** Esse modo permite que você altere e depurar seu código rapidamente e dá suporte à edição de arquivos da Web estáticos durante a depuração. Esse modo funciona apenas se o cluster de desenvolvimento local está em [Modo 1 Nó](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Esse é o modo de depuração do aplicativo padrão.
 2. **Remover Aplicativo** faz com que o aplicativo seja removido quando a sessão de depuração termina.
 3. **Atualização Automática**: o aplicativo continua em execução quando a sessão de depuração termina. A próxima sessão de depuração tratará a implantação como uma atualização. O processo de atualização preserva todos os dados inseridos em uma sessão de depuração anterior.
 4. **Manter Aplicativo** O aplicativo é mantido em execução no cluster quando a sessão de depuração termina. No início da próxima sessão de depuração, o aplicativo será removido.

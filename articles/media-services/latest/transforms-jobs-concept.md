@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: e13afe26d06f5b5b2dcf7eddf00f9ee481312b2c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95079813cf3ade41d17393168116e4767ca26e99
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024249"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742772"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Trabalhos
  
-Os Serviços de Mídia do Microsoft Azure v3 introduzem novo recurso de modelo de fluxo de trabalho para uma receita que você deseja usar para codificar e/ou analisar seus vídeos, chamados [Transformações](https://docs.microsoft.com/rest/api/media/transforms). **Transformações** podem ser usadas para configurar as tarefas comuns para codificar ou analisar os vídeos. Cada **Transformação** descreve uma receita ou um fluxo de trabalho de tarefas para processar os arquivos de áudio ou vídeos. 
+Use [Transformações](https://docs.microsoft.com/rest/api/media/transforms) para configurar tarefas comuns para codificar ou analisar vídeos. Cada **Transformação** descreve uma receita ou um fluxo de trabalho de tarefas para processar os arquivos de áudio ou vídeos. 
 
-Um **Trabalho** é a solicitação real para os serviços de mídia do Azure para aplicar a **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. O **Trabalho** especifica informações como o local do vídeo de entrada e o local para a saída. Você pode especificar o local de sua entrada usando vídeo: URLs HTTPs, URLs de SAS, ou [Ativos de Serviços de Mídia](https://docs.microsoft.com/rest/api/media/assets).  
+Um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real para os serviços de mídia do Azure para aplicar a **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. O **Trabalho** especifica informações como o local do vídeo de entrada e o local para a saída. É possível especificar a localização do vídeo de entrada usando: URLs HTTPS, URLs SAS, ou [Ativos dos Serviços de Mídia](https://docs.microsoft.com/rest/api/media/assets).  
 
 ## <a name="typical-workflow"></a>Fluxo de trabalho típico
 
