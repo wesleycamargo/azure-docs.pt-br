@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: e86e1d862644aa143046045e74ec994d42a5598e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050159"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159359"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Managed Disks do Azure Stack: diferenças e considerações
 
@@ -29,7 +29,7 @@ Este artigo resume as diferenças conhecidas [Managed Disks do Azure Stack](azur
 Managed Disks simplifica o gerenciamento de disco para VMs IaaS ao gerenciar o [contas de armazenamento](../azure-stack-manage-storage-accounts.md) associados com os discos de VM.
 
 > [!Note]  
-> Discos gerenciados no Azure Stack está disponível na versão 1808.
+> Discos gerenciados no Azure Stack está disponível na atualização 1808. Ele é habilitado por padrão durante a criação de máquinas virtuais usando o portal do Azure Stack do 1811 update.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>Folha de dados: Diferenças do disco de gerenciado
@@ -67,7 +67,7 @@ Pilha de Managed Disks do Azure suporta as seguintes versões de API:
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-Depois de aplicar a [1811 atualizar](../azure-stack-update-1811.md), você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
+Depois de aplicar as atualizações após 1808, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
 
 - Se a assinatura foi criada antes da atualização 1808, implantando uma VM com discos gerenciados pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas para cada assinatura:
    1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.

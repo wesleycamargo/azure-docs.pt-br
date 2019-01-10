@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: Balsu.G
-ms.openlocfilehash: 75b942ea99dace60b3c086b84e3b3e2157f8b821
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf0d0f5bb87d1a7750775d3e22c8c50dcd8cf24d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093719"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159427"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>Conectar-se ao Azure Stack com o PowerShell como um usuário
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Este artigo fornece as etapas para conectar-se à instância do Azure Stack. Conecte-se para gerenciar os recursos do Azure Stack com o PowerShell. Por exemplo, você pode usar o PowerShell para assinar a oferta, criar máquinas virtuais e implantar modelos do Azure Resource Manager. para executar os cmdlets do PowerShell.
 
@@ -50,6 +50,7 @@ Certifique-se de que substituir as seguintes variáveis de script com valores da
 ## <a name="connect-with-azure-ad"></a>Conectar-se com o Azure AD
 
 ```PowerShell  
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"

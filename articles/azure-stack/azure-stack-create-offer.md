@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 079f45e37bef24ac974a0e2df7b1e81f1002cac0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077333"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159070"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Criar uma oferta no Azure Stack
 
-[Oferece](azure-stack-key-features.md) são grupos de um ou mais planos que os provedores apresentam aos usuários para comprar ou inscrever-se. Este documento mostra como criar uma oferta que inclui o [plano que você criou](azure-stack-create-plan.md). Esta oferta fornece a capacidade de configurar as máquinas virtuais de assinantes.
+[Oferece](azure-stack-key-features.md) são grupos de um ou mais planos que os provedores apresentam aos usuários, o que esses usuários podem comprar ou inscrever-se. Este artigo descreve como criar uma oferta que inclui o [plano que você criou](azure-stack-create-plan.md). Esta oferta fornece a capacidade de configurar máquinas virtuais (VMs) de assinantes.
 
-1. Entrar no portal do administrador do Azure Stack (https://adminportal.local.azurestack.external) e selecione **+ criar um recurso** > **planos + locatário oferece** > **oferecem**.
+1. Entrar para o [portal do administrador do Azure Stack](https://adminportal.local.azurestack.external) e selecione **+ criar um recurso**, em seguida, **planos + locatário oferece**e, em seguida, **oferecem**.
 
    ![Criar uma oferta](media/azure-stack-create-offer/image01.png)
   
-2. Sob **nova oferta**, insira um **nome de exibição** e um **nome do recurso**e, em **grupo de recursos**, selecione **criar novos** ou **usar existente**. O nome de exibição é o nome amigável para a oferta. Esse nome amigável é a única informação sobre a oferta que os usuários veem ao assinar uma oferta. Use um nome intuitivo que ajuda os usuários a entender o que vem com a oferta. Somente o administrador pode ver o Nome do Recurso. Esse é o nome que os administradores usam para trabalhar com a oferta como um recurso do Gerenciador de Recursos do Azure.
+2. Sob **nova oferta**, insira um **nome de exibição** e um **nome do recurso**e, em **grupo de recursos**, selecione **criar novos** ou **usar existente**. O nome de exibição é o nome amigável para a oferta. Esse nome amigável é a única informação sobre a oferta que os usuários veem quando eles assinem uma oferta. Use um nome intuitivo que ajuda os usuários a entender o que vem com a oferta. Somente o administrador pode ver o nome do recurso. Esse é o nome que os administradores usam para trabalhar com a oferta como um recurso do Gerenciador de Recursos do Azure.
 
    ![Nova oferta](media/azure-stack-create-offer/image01a.png)
   
@@ -37,17 +37,17 @@ ms.locfileid: "49077333"
 
    ![Selecionar plano](media/azure-stack-create-offer/image02.png)
   
-4. Depois de criar a oferta, você pode alterar seu estado. Ofertas devem ser feitas *pública* para que os usuários tenham a exibição completa com a assinatura. Ofertas podem ser:
+4. Depois de criar a oferta, você pode alterar seu estado. Ofertas devem ser feitas **pública** para que os usuários tenham a exibição completa com a assinatura. Ofertas podem ser:
 
-   - **Público**: visível para os usuários.
-   - **Privada**: visíveis somente para administradores de nuvem. Essa configuração é útil ao preparar o plano ou oferta, ou se o administrador de nuvem deseja [criar cada assinatura para usuários](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Desativados**: fechados para novos assinantes. O administrador de nuvem pode usar "desativado" para evitar futuras assinaturas, mas deixar os assinantes atuais inalterados.
+   - **Público**: Visível para os usuários.
+   - **Privado**: Só é visível para os administradores de nuvem. Essa configuração é útil ao preparar o plano ou oferta, ou se o administrador de nuvem deseja [criar cada assinatura para usuários](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+   - **Descomissionado**: Fechado para novos assinantes. O administrador da nuvem pode encerrar ofertas para evitar futuras assinaturas, mas deixar os assinantes atuais inalterados.
 
    > [!TIP]  
-   > As alterações para a oferta não são visíveis imediatamente ao usuário. Para ver as alterações, os usuários podem ter sair e entrar novamente para o portal do usuário para ver a nova oferta.
+   > As alterações para a oferta não serão visíveis imediatamente para o usuário. Para ver as alterações, os usuários podem ter sair e entrar novamente para o portal do usuário para ver a nova oferta.
 
-   Na visão geral da oferta, selecione **estado de acessibilidade**. Escolha o estado em que você deseja usar (por exemplo, **pública**) e, em seguida, selecione **salvar**.
- 
+   Na tela de visão geral da oferta, selecione **estado de acessibilidade**. Escolha o estado em que você deseja usar (por exemplo, **pública**) e, em seguida, selecione **salvar**.
+
      ![Escolha o estado](media/azure-stack-create-offer/change-stage-1807.png)
 
      Como alternativa, selecione **alterar estado** e, em seguida, escolha um estado.
@@ -55,7 +55,7 @@ ms.locfileid: "49077333"
     ![Selecione o estado de acessibilidade](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > Você também pode usar o PowerShell para criar cotas, planos e ofertas padrão. Para obter mais informações, consulte [módulo do Azure Stack PowerShell 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+   > Você também pode usar o PowerShell para criar cotas, planos e ofertas padrão. Para obter mais informações, consulte [módulo do Azure Stack PowerShell 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## <a name="next-steps"></a>Próximas etapas
 

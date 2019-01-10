@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944571"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160056"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações sobre a rede do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Rede do Azure Stack tem muitos dos recursos fornecidos pelo sistema de rede do Azure. No entanto, há algumas diferenças importantes que você deve compreender antes de implantar uma rede do Azure Stack.
 
 Este artigo fornece uma visão geral das considerações exclusivas para a rede do Azure Stack e seus recursos. Para saber mais sobre as diferenças de alto nível entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
 
-## <a name="cheat-sheet-networking-differences"></a>Folha de dados: diferenças de rede
+## <a name="cheat-sheet-networking-differences"></a>Folha de dados: Diferenças de rede
 
 | Serviço | Recurso | (Global) do Azure | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,6 @@ Este artigo fornece uma visão geral das considerações exclusivas para a rede 
 |  | Site de Gateway padrão | O Azure suporta a configuração de um site padrão para o túnel forçado. | Ainda não tem suporte. |
 |  | Redimensionamento do gateway | O Azure suporta o redimensionamento do gateway após a implantação. | Redimensionamento não suportado. |
 |  | Configuração ativo/ativo | Com suporte | Ainda não tem suporte. |
-|  | Políticas de IPSec/IKE | Do Azure dá suporte a IPSec política configurações personalizadas. | Ainda não tem suporte. |
 |  | UsePolicyBasedTrafficSelectors | O Azure suporta usando seletores de tráfego baseado em políticas com conexões de gateway de baseado em rota. | Ainda não tem suporte. |
 | Balanceador de carga | SKU | Básica e balanceadores de carga padrão têm suporte | Há suporte para apenas o Load Balancer básico.  Não há suporte para a propriedade SKU. |
 |  | Zonas | Há suporte para zonas de disponibilidade. | Ainda não tem suporte |
@@ -65,11 +64,9 @@ Este artigo fornece uma visão geral das considerações exclusivas para a rede 
 |  | Obter as ACLs em vigor | Com suporte | Ainda não tem suporte. |
 |  | Habilitar Rede acelerada | Com suporte | Ainda não tem suporte. |
 |  | encaminhamento IP | Desabilitado por padrão.  Pode ser habilitado. | Ativar/desativar essa configuração não é suportado.  Em por padrão. |
-|  | Várias configurações de IP por interface | Com suporte | Ainda não tem suporte. |
 |  | Grupos de segurança do aplicativo | Com suporte | Ainda não tem suporte. |
 |  | Rótulo de nome DNS interno | Com suporte | Ainda não tem suporte. |
 |  | Versão do endereço IP privado | Há suporte para IPv6 e IPv4. | Há suporte apenas para IPv4. |
-|  | Configuração de IP primário | Com suporte. Identifica a configuração de IP primário na interface. | Ainda não tem suporte. |
 | Observador de Rede | Recursos de monitoramento de rede de locatário de observador de rede | Com suporte | Ainda não tem suporte. |
 | CDN | Perfis de rede de distribuição de conteúdo | Com suporte | Ainda não tem suporte. |
 | Gateway de Aplicativo | Balanceamento de carga de camada 7 | Com suporte | Ainda não tem suporte. |

@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6399e1838b00fc533ab42a76e4f1f1667e3a434a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077555"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159512"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Criar um plano no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Os [planos](azure-stack-key-features.md) são agrupamentos de um ou mais serviços. Como um provedor, você pode criar planos para oferecer a seus usuários. Por sua vez, os seus usuários assinam suas ofertas para usar os planos e serviços incluídos nelas. Este exemplo mostra como criar um plano que inclui computação, rede e provedores de recursos de armazenamento. Esse plano oferece a capacidade de provisionar máquinas virtuais de assinantes.
 
-1. Entrar no portal do administrador do Azure Stack (https://adminportal.local.azurestack.external).
+1. Entrar para o [portal do administrador do Azure Stack](https://adminportal.local.azurestack.external).
 
-2. Para criar um plano e oferta que os usuários podem assinar, selecione **+ criar um recurso** > **oferece + planos** > **plano**.
+2. Para criar um plano e oferta que os usuários podem assinar, selecione **+ criar um recurso**, em seguida, **oferece + planos**, em seguida, **plano**.
   
    ![Selecione um plano](media/azure-stack-create-plan/select-plan.png)
 
@@ -44,7 +44,7 @@ Os [planos](azure-stack-key-features.md) são agrupamentos de um ou mais serviç
 
 5. Selecione **Services** e, em seguida, selecione a caixa de seleção **Microsoft. Compute**, **Microsoft. Network**, e **Microsoft. Storage**. Em seguida, escolha **selecionar** para salvar a configuração. Caixas de seleção aparecem quando o mouse passa sobre cada opção.
   
-   ![Selecionar serviços](media/azure-stack-create-plan/services.png)
+   ![Selecionar Serviços](media/azure-stack-create-plan/services.png)
 
 6. Selecione **cotas**, **Microsoft. Storage (local)** e, em seguida, escolha a cota padrão ou selecione **criar nova cota** para criar uma cota personalizada.
   
@@ -72,4 +72,4 @@ Os [planos](azure-stack-key-features.md) são agrupamentos de um ou mais serviç
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar uma oferta](azure-stack-create-offer.md)
+* [Criar uma oferta](azure-stack-create-offer.md)
