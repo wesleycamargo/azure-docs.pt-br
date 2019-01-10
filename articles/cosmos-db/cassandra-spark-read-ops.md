@@ -3,19 +3,19 @@ title: Leia os dados da tabela de API do Apache Cassandra usando Apache Spark
 titleSufix: Azure Cosmos DB
 description: Este artigo descreve como ler dados de tabelas de API do Cassandra no Azure Cosmos DB.
 author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: govindk
 ms.custom: seodec18
-ms.openlocfilehash: 2fc5ac1af503eff2f9186266d977c4ee972fcc94
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133427"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033410"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Ler dados das tabelas de API do Cassandra do Azure Cosmos DB usando Spark
 

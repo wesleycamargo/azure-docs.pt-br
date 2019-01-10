@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 72a42e273029bd42d77531953ff5cbfc0fe5c295
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810892"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118584"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerenciar atribuições de função nos Gêmeos Digitais do Azure
 
@@ -276,9 +276,9 @@ Os exemplos a seguir demonstram como configurar o corpo JSON em vários cenário
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para examinar o controle de acesso baseado em função dos Gêmeos Digitais do Azure, leia [Controle de acesso baseado em função](./security-authenticating-apis.md).
+- Para examinar o controle de acesso baseado em função dos Gêmeos Digitais do Azure, leia [Controle de acesso baseado em função](./security-authenticating-apis.md).
 
-Para saber mais sobre a autenticação da API dos Gêmeos Digitais do Azure, leia [Autenticação de API](./security-authenticating-apis.md).
+- Para saber mais sobre a autenticação da API dos Gêmeos Digitais do Azure, leia [Autenticação de API](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/security-roles/roleassignments.png

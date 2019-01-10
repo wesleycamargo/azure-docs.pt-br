@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c9a2d569641ab0f8f6aa1d7234da1d3cbb0ab147
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e14e76be50fc71738779e0196b2034ca4f8e0097
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744982"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103869"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exemplos do Cache Redis do Azure
 Este tópico fornece uma lista de exemplos do Cache do Azure para Redis que abrangem cenários como conexão a um cache, leitura e gravação de dados para e de um cache e uso dos provedores do Cache do Azure para Redis do ASP.NET. Alguns dos exemplos são projetos para download, e outros fornecem orientação passo a passo e incluem snippets de código, mas não se vinculam a um projeto baixável.
@@ -47,7 +47,7 @@ Para obter mais informações, consulte a documentação do [StackExchange.Redis
 [Trabalhar com objetos .NET no cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) mostra uma maneira de serializar objetos .NET para que você possa gravá-los para e lê-los de uma instância do Cache do Azure para Redis. 
 
 ## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>Usar o Cache do Azure para Redis como um backplane de expansão para o ASP.NET SignalR
-O exemplo [Usar o Cache do Azure para Redis como um Backplane de expansão para o ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) demonstra como você pode usar o Cache do Azure para Redis como um backplane SignalR. Para obter mais informações sobre o backplane, consulte [SignalR Scaleout com Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
+O exemplo [Usar o Cache do Azure para Redis como um Backplane de expansão para o ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) demonstra como você pode usar o Cache do Azure para Redis como um backplane SignalR. Para obter mais informações sobre o backplane, consulte [SignalR Scaleout com Redis](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Exemplo de consulta do cliente do Cache do Azure para Redis
 Esse exemplo demonstra a comparação de desempenho entre o acesso a dados de um cache e o acesso a dados do armazenamento de persistência. Esse exemplo tem dois projetos.

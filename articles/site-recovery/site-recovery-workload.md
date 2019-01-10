@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 10e73cf7fde019b4b4fe54d23f02c5afc0c582c9
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976844"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155160"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais cargas de trabalho posso proteger com o Azure Site Recovery?
 
@@ -48,7 +48,7 @@ O Site Recovery pode replicar qualquer aplicativo em execução em um computador
 | Active Directory, DNS |S |S |S |S |S|
 | Aplicativos Web (IIS, SQL) |S |S |S |S |S|
 | System Center Operations Manager |S |S |S |S |S|
-| Sharepoint |S |S |S |S |S|
+| SharePoint |S |S |S |S |S|
 | SAP<br/><br/>Replicar site SAP para Azure para não cluster |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft)|
 | Exchange (não DAG) |S |S |S |S |S|
 | Área de Trabalho Remota/VDI |S |S |S |S |S|

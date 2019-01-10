@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190624"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157166"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
@@ -101,7 +101,7 @@ A coluna *spam* foi lida como um número inteiro, mas é realmente uma variável
 
     data$spam <- as.factor(data$spam)
 
-Para fazer algumas análises exploratórias, use o pacote [ggplot2](http://ggplot2.org/), uma biblioteca de gráficos popular para R já está instalada na VM. Observe, dos dados de resumo exibidos anteriormente, temos as estatísticas de resumo sobre a frequência do caractere de ponto de exclamação. Iremos criar gráficos com as frequências aqui com os seguintes comandos:
+Para fazer algumas análises exploratórias, use o pacote [ggplot2](https://ggplot2.tidyverse.org/), uma biblioteca de gráficos popular para R já está instalada na VM. Observe, dos dados de resumo exibidos anteriormente, temos as estatísticas de resumo sobre a frequência do caractere de ponto de exclamação. Iremos criar gráficos com as frequências aqui com os seguintes comandos:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)

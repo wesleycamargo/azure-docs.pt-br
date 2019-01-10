@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8b2d409ceb6f659a078f48ba71f0f4c72663f6f0
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002086"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119740"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
 
@@ -87,7 +87,7 @@ Os pontos de dados brutos (ou seja, os itens que você pode consultar na Anális
 
 Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Gerenciador de Métricas) são mantidos em um detalhamento de um minuto por 90 dias.
 
-[Instantâneos de depuração](../../application-insights/app-insights-snapshot-debugger.md) são armazenados por sete dias. Essa política de retenção é definida por aplicativo. Se for necessário aumentar esse valor, você poderá solicitar o aumento abrindo um caso de suporte no portal do Azure.
+[Instantâneos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenados por sete dias. Essa política de retenção é definida por aplicativo. Se for necessário aumentar esse valor, você poderá solicitar o aumento abrindo um caso de suporte no portal do Azure.
 
 ## <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 Os dados são visíveis para você e, se você tiver uma conta de organização, para os membros de sua equipe. 
@@ -202,7 +202,7 @@ Não é recomendável definir explicitamente seu aplicativo para usar somente o 
 |.NET | Configuração com suporte varia de acordo com a versão. | Para obter informações de configuração detalhadas para .NET 4.7 e versões anteriores, consulte [estas instruções](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Monitor de status | Configuração com suporte exigida | Monitor de status depende [configuração do sistema operacional](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuração do .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) para dar suporte ao TLS 1.2.
 |Node.js |  Configuração com suporte no v10.5.0 pode ser necessária. | Use o [documentação oficial do Node. js TLS/SSL](https://nodejs.org/api/tls.html) para qualquer configuração específica do aplicativo. |
-|Java | Com suporte, foi adicionado suporte do JDK para o TLS 1.2 no [atualização do JDK 6 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 por padrão](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Java | Com suporte, foi adicionado suporte do JDK para o TLS 1.2 no [atualização do JDK 6 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 por padrão](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Distribuições do Linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte a TLS 1.2.  | Verifique as [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL é suportada.|
 | Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
@@ -297,5 +297,5 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [https:
 [platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

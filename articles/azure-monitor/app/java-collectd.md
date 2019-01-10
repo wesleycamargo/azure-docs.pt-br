@@ -12,24 +12,24 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: a57422b4bbac4b929a67495bfffeec7bf0476e9c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000216"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116527"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Métricas de desempenho do Linux no Application Insights
 
 
-Para explorar as métricas de desempenho do sistema Linux no [Application Insights](../../application-insights/app-insights-overview.md), instale [collectd](https://collectd.org/) com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
+Para explorar as métricas de desempenho do sistema Linux no [Application Insights](../../azure-monitor/app/app-insights-overview.md), instale [collectd](https://collectd.org/) com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
 
 Normalmente, você usará o collectd se já tiver [instrumentado seu serviço Web Java com o Application Insights][java]. Isso oferece a você mais dados para ajudá-lo a aprimorar o desempenho do aplicativo ou para diagnosticar problemas. 
 
 ![Exemplo de gráficos](./media/java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>Obter a chave de instrumentação
-No [Portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Application Insights](../../application-insights/app-insights-overview.md) onde você quer que os dados sejam exibidos. (Ou [crie um novo recurso](../../application-insights/app-insights-create-new-resource.md).)
+No [Portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Application Insights](../../azure-monitor/app/app-insights-overview.md) onde você quer que os dados sejam exibidos. (Ou [crie um novo recurso](../../azure-monitor/app/create-new-resource.md ).)
 
 Faça uma cópia da chave de instrumentação que identifica o recurso.
 

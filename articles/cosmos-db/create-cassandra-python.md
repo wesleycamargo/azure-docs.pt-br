@@ -1,21 +1,19 @@
 ---
 title: 'Início Rápido: API do Cassandra com Python – Azure Cosmos DB'
 description: Este guia de início rápido mostra como usar a API do Apache Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com Python.
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: c9a0d6ce868fd7fcf14f4b4c1690c99b7f964f8a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ea6b117b6b44df6345f985a639894435944c74b8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253503"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042760"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Início Rápido: Compilar um aplicativo Cassandra com o Python e o Azure Cosmos DB
 

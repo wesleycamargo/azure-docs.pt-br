@@ -9,48 +9,47 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: adfb30b73bbc9929bbfe3b07bd830d3f278bcc27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723681"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054275"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
-A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade. 
+A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade.
 
 ## <a name="syntax"></a>Sintaxe
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -93,10 +92,10 @@ A tabela a seguir mostra os requisitos para o conteúdo JSON:
 Se a autenticação não for necessária, não inclua a propriedade "authentication".
 
 ### <a name="basic"></a>Basic
-Especifique o nome de usuário e senha a serem usados com a autenticação básica. 
+Especifique o nome de usuário e senha a serem usados com a autenticação básica.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -104,12 +103,12 @@ Especifique o nome de usuário e senha a serem usados com a autenticação bási
 ```
 
 ### <a name="client-certificate"></a>Certificado do cliente
-Especifique o conteúdo codificado em base64 de um arquivo PFX e a senha. 
+Especifique o conteúdo codificado em base64 de um arquivo PFX e a senha.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -126,7 +125,7 @@ Especifique o URI do recurso para o qual o token de acesso será solicitado usan
 ```
 
 ## <a name="request-payload-schema"></a>Solicitar esquema de carga
-Quando você usa o método PUT/POST, a propriedade body representa a carga que é enviada para o ponto de extremidade. Você pode passar serviços vinculados e conjuntos de dados como parte da carga. Aqui está o esquema para a carga: 
+Quando você usa o método PUT/POST, a propriedade body representa a carga que é enviada para o ponto de extremidade. Você pode passar serviços vinculados e conjuntos de dados como parte da carga. Aqui está o esquema para a carga:
 
 ```json
 {
@@ -145,11 +144,11 @@ Quando você usa o método PUT/POST, a propriedade body representa a carga que �
             }
         }]
     }
-} 
+}
 ```
 
 ## <a name="example"></a>Exemplo
-Neste exemplo, a atividade da Web no pipeline chama um ponto de extremidade REST. Ele passa um serviço vinculado do SQL do Azure e um conjunto de dados SQL do Azure para o ponto de extremidade. O ponto de extremidade REST usa a cadeia de conexão do SQL do Azure para se conectar ao SQL Server do Azure e retorna o nome da instância do SQL Server. 
+Neste exemplo, a atividade da Web no pipeline chama um ponto de extremidade REST. Ele passa um serviço vinculado do SQL do Azure e um conjunto de dados SQL do Azure para o ponto de extremidade. O ponto de extremidade REST usa a cadeia de conexão do SQL do Azure para se conectar ao SQL Server do Azure e retorna o nome da instância do SQL Server.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
 
@@ -243,7 +242,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
+Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)

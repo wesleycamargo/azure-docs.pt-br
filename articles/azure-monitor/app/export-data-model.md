@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/21/2016
+ms.date: 01/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2ce302f78de2cd344c82300a808b125c3443179f
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000029"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119265"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
-Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](../../application-insights/app-insights-overview.md) para o portal.
+Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](../../azure-monitor/app/app-insights-overview.md) para o portal.
 Você verá essas propriedades na saída de dados de [Exportação Contínua](export-telemetry.md).
 Elas também aparecerão nos filtros da propriedade no [Explorador de Métrica](../../azure-monitor/app/metrics-explorer.md) e na [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md).
 
@@ -130,9 +130,11 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | context.device.locale |string |en-GB, de-DE, ... |
 | context.device.network |string | |
 | context.device.oemName |string | |
+| context.device.os |string | |
 | context.device.osVersion |string |SO host |
 | context.device.roleInstance |string |ID do host do servidor |
 | context.device.roleName |string | |
+| context.device.screenResolution |string | |
 | context.device.type |string |PC, navegador,... |
 | context.location |objeto |Derivado de clientip. |
 | context.location.city |string |Derivado de clientip, se conhecido |
@@ -146,10 +148,13 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | context.session.id |string |ID de um grupo de operações da mesma fonte. Um período de 30 minutos sem uma operação sinaliza o término de uma sessão. |
 | context.session.isFirst |booleano | |
 | context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
 | context.user.authAcquisitionDate |string |[Usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
 | context.user.isAuthenticated |booleano | |
+| context.user.storeRegion |string | |
 | internal.data.documentVersion |string | |
 | internal.data.id |string | ID exclusiva atribuída quando um item é ingerido no Application Insights |
 
@@ -158,7 +163,7 @@ Eventos personalizados gerados por [TrackEvent()](../../azure-monitor/app/api-cu
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
-| event [0] count |inteiro |100/(taxa de[amostragem](../../application-insights/app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| event [0] count |inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | event [0] name |string |Nome do evento.  Comprimento máximo 250. |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
@@ -170,7 +175,7 @@ Eventos personalizados gerados por [TrackEvent()](../../azure-monitor/app/api-cu
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |inteiro |100/(taxa de[amostragem](../../application-insights/app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| basicException [0] count |inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -211,7 +216,7 @@ Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamad
 | remoteDependency [0] async |booleano | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |Por exemplo, "home/index" |
-| remoteDependency [0] count |inteiro |100/(taxa de[amostragem](../../application-insights/app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| remoteDependency [0] count |inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |número |Tempo desde a chamada até a conclusão da resposta por dependência |
 | remoteDependency [0] id |string | |
@@ -229,7 +234,7 @@ Enviado por [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
-| request [0] count |inteiro |100/(taxa de[amostragem](../../application-insights/app-insights-sampling.md) ). Por exemplo:  4 =&gt; 25%. |
+| request [0] count |inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo:  4 =&gt; 25%. |
 | request [0] durationMetric.value |número |Tempo de chegada da solicitação até a resposta. 1e7 == 1s |
 | request [0] id |string |ID da operação |
 | request [0] name |string |GET/POST + url base.  Comprimento máximo 250 |
@@ -264,7 +269,7 @@ Enviado por trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custo
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
-| view [0] count |inteiro |100/(taxa de[amostragem](../../application-insights/app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| view [0] count |inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | view [0] durationMetric.value |inteiro |Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
 | view [0] name |string |Título da página.  Comprimento máximo 250 |
 | view [0] url |string | |
@@ -279,7 +284,7 @@ Relata os [testes de disponibilidade na Web](../../azure-monitor/app/monitor-web
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |Disponibilidade |
 | availability [0] availabilityMetric.value |número |1.0 ou 0.0 |
-| availability [0] count |inteiro |100/(taxa de[amostragem](../../application-insights/app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| availability [0] count |inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |inteiro | |
 | availability [0] durationMetric.name |string | |
@@ -341,12 +346,12 @@ A finalidade dos outros campos é permitir que as métricas sejam agregadas ao S
 
 Nas tabelas acima, omitimos os campos min, max, stdDev e sampledValue, que são usados raramente.
 
-Em vez de agregar previamente as métricas, você pode usar a [amostragem](../../application-insights/app-insights-sampling.md) se precisar reduzir o volume de telemetria.
+Em vez de agregar previamente as métricas, você pode usar a [amostragem](../../azure-monitor/app/sampling.md) se precisar reduzir o volume de telemetria.
 
 ### <a name="durations"></a>Durações
 Exceto quando indicado o contrário, as durações são representadas em décimos de microssegundo, de modo que 10000000.0 significa 1 segundo.
 
 ## <a name="see-also"></a>Consulte também
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Exportação Contínua](export-telemetry.md)
 * [Exemplos de código](export-telemetry.md#code-samples)

@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
 ms.custom: seodec18
-ms.openlocfilehash: 176d0f00774106bbf9ae8dade0fe3fd4062530bb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 385f829002d65335c8039e478c148b6140148ad8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277158"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117241"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Monitore seus modelos do Azure Machine Learning com o Application Insights
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá como configurar o Insight do Aplicativo do Azure 
 * Taxas de dependência, tempos de resposta e taxas de falha.
 * Exceções.
 
-[Saiba mais sobre o Application Insights](../../application-insights/app-insights-overview.md). 
+[Saiba mais sobre o Application Insights](../../azure-monitor/app/app-insights-overview.md). 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -126,7 +126,7 @@ Para exibi-lo:
 
    [![Rastreamentos personalizados](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
-Para saber mais sobre como usar o Application Insights, consulte [o que é o Application Insights?](../../application-insights/app-insights-overview.md).
+Para saber mais sobre como usar o Application Insights, consulte [o que é o Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     
 
 ## <a name="example-notebook"></a>Caderno de exemplo

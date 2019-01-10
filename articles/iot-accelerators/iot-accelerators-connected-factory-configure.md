@@ -1,5 +1,5 @@
 ---
-title: Configurar a topologia Connected Factory | Microsoft Docs
+title: Configurar a topologia Connected Factory - Azure | Microsoft Docs
 description: Como configurar a topologia de um acelerador de solução Connected Factory.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746972"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602266"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução Connected Factory
 
@@ -65,7 +65,7 @@ Para configurar as propriedades listadas na seção anterior, a solução Connec
 
 Você pode encontrar esse arquivo no código-fonte da solução na pasta `WebApp/Contoso/Topology`.
 
-O trecho de código a seguir mostra a estrutura do arquivo de configuração de `ContosoTopologyDescription.json`:
+O snippet de código a seguir mostra a estrutura do arquivo de configuração de `ContosoTopologyDescription.json`:
 
 ```json
 {
@@ -85,7 +85,7 @@ O trecho de código a seguir mostra a estrutura do arquivo de configuração de 
 }
 ```
 
-As propriedades comuns de `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` e `<station_configuration>` são:
+As propriedades comuns de  `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` e `<station_configuration>` são:
 
 * **Name** (tipo cadeia de caracteres)
 
@@ -282,7 +282,7 @@ Os números de OEE/KPI para a simulação Connected Factory são parametrizados 
 * Os valores de nó do OPC UA a serem incluídos no cálculo.
 * Como o número é computado por meio dos valores de telemetria.
 
-A Connected Factory usa as fórmulas OEE, conforme publicadas pelo http://www.oeefoundation.org.
+A Connected Factory usa as fórmulas OEE, conforme publicadas pelo https://www.oeefoundation.org.
 
 Os objetos de nó do OPC UA nas estações permitem a marcação para uso no cálculo de OEE/KPI. A propriedade **Relevance** indica para qual número de OEE/KPI o valor do nó do OPC UA deve ser usado. A propriedade **OpCode** define como o valor é incluído na computação.
 
@@ -309,13 +309,13 @@ Para determinadas operações, como visualizar o último valor ou criar consulta
 
 Verifique [esta](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria são ingeridos na Connected Factory usando o Editor de OPC.
 
-## <a name="example-how-kpi1-is-calculated"></a>Exemplo: como o KPI1 é calculado
+## <a name="example-how-kpi1-is-calculated"></a>Exemplo: Como o KPI1 é calculado
 
 A configuração no arquivo `ContosoTopologyDescription.json` controla como os valores de KPI/OEE são calculados. O exemplo a seguir mostra como propriedades deste arquivo controlam o cálculo do KPI1.
 
 Na Connected Factory, o KPI1 é usado para medir o número de produtos fabricados com êxito na última hora. Cada estação (servidor OPC UA) na simulação Connected Factory fornece um nó de OPC UA (`NodeId: "ns=2;i=385"`), que fornece a telemetria para calcular esse KPI.
 
-A configuração desse nó do OPC UA se parece com o trecho de código a seguir:
+A configuração desse nó do OPC UA se parece com o snippet de código a seguir:
 
 ```json
 {
