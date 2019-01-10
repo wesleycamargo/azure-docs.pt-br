@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a4a75885b1303b7bc6666ea65993ac875b98f0d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001712"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116973"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções em seus aplicativos Web com o Application Insights
-Exceções em seu aplicativo Web ao vivo são relatadas pelo [Application Insights](../../application-insights/app-insights-overview.md). Você pode correlacionar solicitações com falha com exceções e outros eventos no cliente e no servidor, para poder diagnosticar as causas rapidamente.
+Exceções em seu aplicativo Web ao vivo são relatadas pelo [Application Insights](../../azure-monitor/app/app-insights-overview.md). Você pode correlacionar solicitações com falha com exceções e outros eventos no cliente e no servidor, para poder diagnosticar as causas rapidamente.
 
 ## <a name="set-up-exception-reporting"></a>Configurar os relatórios de exceção
 * Para que as exceções sejam relatadas em seu aplicativo de servidor:
@@ -90,7 +90,7 @@ Para ver esses eventos, abra [Pesquisar](../../azure-monitor/app/diagnostic-sear
 ![Drill-through](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](../../application-insights/app-insights-sampling.md)
+> Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
 >
 >
 

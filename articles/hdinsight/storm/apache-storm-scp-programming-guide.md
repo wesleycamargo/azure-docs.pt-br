@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496859"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631814"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
-O SCP é uma plataforma para a criação de aplicativos de processamento de dados em tempo real, confiáveis, consistentes e de alto desempenho. Ele é baseado no [Apache Storm](http://storm.incubator.apache.org/) , um sistema de processamento de fluxo projetado pelas comunidades de OSS. O Storm foi projetado por Nathan Marz e tornou-se um software livre por meio do Twitter. Ele aproveita o [Apache ZooKeeper](http://zookeeper.apache.org/), outro projeto da Apache, para habilitar uma coordenação distribuída e gerenciamento de estado altamente confiáveis. 
+O SCP é uma plataforma para a criação de aplicativos de processamento de dados em tempo real, confiáveis, consistentes e de alto desempenho. Ele é baseado no [Apache Storm](https://storm.incubator.apache.org/) , um sistema de processamento de fluxo projetado pelas comunidades de OSS. O Storm foi projetado por Nathan Marz e tornou-se um software livre por meio do Twitter. Ele aproveita o [Apache ZooKeeper](https://zookeeper.apache.org/), outro projeto da Apache, para habilitar uma coordenação distribuída e gerenciamento de estado altamente confiáveis. 
 
 O projeto SCP não apenas compatibilizou o Storm no Windows como também incluiu extensões e personalização para o ecossistema do Windows. As extensões incluem a experiência dos desenvolvedores e as bibliotecas do .NET; a personalização inclui a implantação baseada em Windows. 
 
@@ -309,7 +309,7 @@ Para ISCPBatchBolt, podemos obter `StormTxAttempt` de `parms` e usá-lo para jul
 
 Em termos gerais, os plugins do SCP podem ser executados em dois modos aqui:
 
-1. Modo de Teste Local: nesse modo, os plug-ins do SCP (o código de usuário C\#) é executado dentro do Visual Studio durante a fase de desenvolvimento. `LocalContext` pode ser usado nesse modo, oferecendo um método para serializar as tuplas emitidas para os arquivos locais e lê-los de volta na memória.
+1. Modo de Teste local: Nesse modo, os plug-ins do SCP (o código de usuário C\#) é executado dentro do Visual Studio durante a fase de desenvolvimento. `LocalContext` pode ser usado nesse modo, oferecendo um método para serializar as tuplas emitidas para os arquivos locais e lê-los de volta na memória.
    
         public interface ILocalContext
         {
@@ -317,7 +317,7 @@ Em termos gerais, os plugins do SCP podem ser executados em dois modos aqui:
             void WriteMsgQueueToFile(string filepath, bool append = false);  
             void ReadFromFileToMsgQueue(string filepath);                    
         }
-2. Modo Regular: nesse modo, os plug-ins do SCP são lançados pelo processo de Java do Storm.
+2. Modo Regular: Nesse modo, os plug-ins do SCP são lançados pelo processo de Java do Storm.
    
     Aqui está um exemplo da inicialização do plugin do SCP:
    
@@ -346,7 +346,7 @@ Em termos gerais, os plugins do SCP podem ser executados em dois modos aqui:
         }
 
 ## <a name="topology-specification-language"></a>Linguagem de Especificação da Topologia
-A Especificação da Topologia do SCP é uma linguagem específica de domínio para descrever e configurar topologias do SCP. Ele se baseia no Clojure DSL do Storm (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) e é estendido por SCP.
+A Especificação da Topologia do SCP é uma linguagem específica de domínio para descrever e configurar topologias do SCP. Ele se baseia no Clojure DSL do Storm (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) e é estendido por SCP.
 
 As especificações de topologia podem ser enviadas diretamente ao cluster do Storm para execução por meio do comando ***runspec***.
 

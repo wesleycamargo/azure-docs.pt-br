@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/29/2018
-ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/18/2018
+ms.openlocfilehash: 2be5c8ddf6928d5529c2eb08a6d64bd64b8445de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864937"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631967"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlando e concedendo acesso de banco de dados a Banco de Dados SQL e SQL Data Warehouse
 
@@ -31,9 +31,9 @@ Após as regras de firewall terem sido configuradas, as pessoas poderão se cone
 > Para obter um tutorial, consulte [Proteger o Banco de Dados SQL do Azure](sql-database-security-tutorial.md). Este tutorial não se aplica à **Instância Gerenciada do Banco de Dados SQL do Azure**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Contas administrativas irrestritas
-Há duas contas administrativas (**Administrador do servidor** e **Administrador do Active Directory**) que agem como administradores. Para identificar essas contas de administrador do servidor SQL, abra o portal do Azure e navegue até as propriedades do servidor SQL.
+Há duas contas administrativas (**Administrador do servidor** e **Administrador do Active Directory**) que agem como administradores. Para identificar essas contas de administrador do servidor SQL, abra o portal do Azure e navegue até as propriedades do servidor SQL ou o banco de dados SQL.
 
-![Administradores do SQL Server](./media/sql-database-manage-logins/sql-admins.png)
+![Administradores do SQL Server](media/sql-database-manage-logins/sql-admins.png)
 
 - **Administrador do servidor**   
 Quando você cria um servidor SQL no Azure, você deve designar um **Logon de administrador do servidor**. O servidor SQL cria essa conta como um logon no banco de dados mestre. Essa conta é conectada usando a autenticação do SQL Server (nome de usuário e senha). Só pode existir uma dessas contas.   

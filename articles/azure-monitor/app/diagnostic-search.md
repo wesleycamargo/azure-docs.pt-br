@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a9c9ac9ada6dfab051deda14cddb4ba6c07f48df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998890"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119163"
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
-A Pesquisa é um recurso do [Application Insights](../../application-insights/app-insights-overview.md) que você usa para localizar e explorar itens individuais de telemetria, como exibições de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
+A Pesquisa é um recurso do [Application Insights](../../azure-monitor/app/app-insights-overview.md) que você usa para localizar e explorar itens individuais de telemetria, como exibições de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
 
 (Para consultas mais complexas sobre os dados, use o [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
 
@@ -129,7 +129,7 @@ Estas são algumas expressões de pesquisa que você pode usar:
 ## <a name="sampling"></a>amostragem
 Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. 
 
-[Saiba mais sobre amostragem](../../application-insights/app-insights-sampling.md).
+[Saiba mais sobre amostragem](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Criar um item de trabalho
 Você pode criar um bug no GitHub ou Azure DevOps com os detalhes de qualquer item de telemetria. 
@@ -166,4 +166,4 @@ Nós não registramos os dados de POST automaticamente, mas você pode usar [cha
 * [Escrever consultas complexas no Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Enviar logs e telemetria personalizada para o Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Solução de problemas](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Solução de problemas](../../azure-monitor/app/troubleshoot-faq.md)

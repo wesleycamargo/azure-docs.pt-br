@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: danlep
-ms.openlocfilehash: e03a35b31c9089abe973c7e4388b508f668a3970
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619836"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993274"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -47,6 +47,7 @@ Regiões **com suporte**:
 * Norte da Europa (northeurope)
 * Europa Ocidental (westeurope)
 * Oeste dos EUA (westus)
+* Leste dos EUA (eastus)
 
 Recursos de rede **sem suporte**:
 
@@ -183,11 +184,11 @@ A saída de log deve mostrar que `wget` conseguiu se conectar e baixar o arquivo
 
 Também é possível implantar um grupo de contêineres em uma rede virtual existente usando um arquivo YAML. Para implantar em uma sub-rede em uma rede virtual, você pode especificar várias propriedades adicionais no YAML:
 
-* `ipAddress`: as configurações de endereço IP para o grupo de contêineres.
-  * `ports`: as portas a serem abertas, se houver.
-  * `protocol`: o protocolo (TCP ou UDP) para a porta aberta.
-* `networkProfile`: especifica as configurações de rede, como a rede virtual e a sub-rede para um recurso do Azure.
-  * `id`: a ID de recurso completa do Resource Manager do `networkProfile`.
+* `ipAddress`: As configurações de endereço IP para o grupo de contêineres.
+  * `ports`: As portas a serem abertas, se houver.
+  * `protocol`: O protocolo (TCP ou UDP) para a porta aberta.
+* `networkProfile`: Especifica as configurações de rede, como a rede virtual e a sub-rede para um recurso do Azure.
+  * `id`: A ID de recurso completa do Resource Manager do `networkProfile`.
 
 Para implantar um grupo de contêineres em uma rede virtual com um arquivo YAML, primeiramente você precisa obter a ID do perfil de rede. Execute o comando [az network profile list][az-network-profile-list], especificando o nome do grupo de recursos que contém sua rede virtual e a sub-rede delegada.
 

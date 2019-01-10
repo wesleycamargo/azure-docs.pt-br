@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 19830ade92e5d2a046abc8a2ad00c086a5bf62ec
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972780"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054836"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -62,7 +62,7 @@ Para testar essa funcionalidade:
    ![Captura de tela da Pesquisa do Application Insights do Visual Studio](./media/asp-net-core/006-search.png)
 
 > [!NOTE]
-> Para saber mais sobre como os recursos de iluminação do Microsoft Visual Studio [Application Insights Search](../../application-insights/app-insights-visual-studio.md) e [CodeLens](../../application-insights/app-insights-visual-studio-codelens.md) localmente para o seu projeto ASP.NET Core, consulte [Application Insights Search continuação](#application-insights-search-continued).
+> Para saber mais sobre como os recursos de iluminação do Microsoft Visual Studio [Application Insights Search](../../azure-monitor/app/visual-studio.md) e [CodeLens](../../azure-monitor/app/visual-studio-codelens.md) localmente para o seu projeto ASP.NET Core, consulte [Application Insights Search continuação](#application-insights-search-continued).
 
 ## <a name="add-application-insights-telemetry"></a>Adicionar Application Insights Telemetry
 
@@ -404,7 +404,7 @@ O problema com o uso de qualquer um desses métodos é que eles não desabilitam
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Explorar os Fluxos dos Usuários](../../application-insights/app-insights-usage-flows.md) para entender como os usuários navegam por meio de seu aplicativo.
+* [Explorar os Fluxos dos Usuários](../../azure-monitor/app/usage-flows.md) para entender como os usuários navegam por meio de seu aplicativo.
 * [Configure a Coleção de Instantâneos](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) para ver o estado do código-fonte e as variáveis no momento em que uma exceção é lançada.
 * [Use a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar seus próprios eventos e métricas para uma exibição mais detalhada do desempenho e do uso do aplicativo.
 * Use os [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) para verificar seu aplicativo constante em todo o mundo.

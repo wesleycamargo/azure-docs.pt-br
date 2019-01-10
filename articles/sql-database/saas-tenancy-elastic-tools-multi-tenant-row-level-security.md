@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a9f168a0abc28b1decc6f327a62f5eaa4163e6f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242901"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601518"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
 
@@ -41,7 +41,7 @@ O objetivo é usar as APIs do [roteamento dependente de dados](sql-database-elas
 
 - Usar o Visual Studio (2012 ou superior)
 - Criar três bancos de dados SQL do Azure
-- Baixar o projeto de exemplo: [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Fragmentos Multilocatários](https://go.microsoft.com/?linkid=9888163)
+- Faça o download do projeto de exemplo: [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Fragmentos Multilocatários](https://go.microsoft.com/?linkid=9888163)
   - Preencha as informações dos seus bancos de dados no início do **Program.cs** 
 
 Esse projeto expande o descrito em [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Integração com o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) adicionando suporte para bancos de dados de fragmentos multilocatários. O projeto cria um aplicativo de console simples para a criação de blogs e postagens. O projeto inclui quatro locatários, além de dois bancos de dados de fragmento de multilocatário. Essa configuração é ilustrada no diagrama anterior. 
@@ -54,10 +54,10 @@ Compile e execute o aplicativo. Essa execução inicializa o gerenciador de mapa
 
 Observe que, como a RLS ainda não foi habilitada nos bancos de dados de fragmentos, cada um desses testes revela um problema: locatários podem ver blogs que não pertencem a eles e o aplicativo não é impedido de inserir um blog para o locatário errado. O restante deste artigo descreve como resolver esses problemas impondo o isolamento de locatários com RLS. Há duas etapas: 
 
-1. **Camada de aplicativo**: modifique o código do aplicativo para sempre definir TenantId atual em SESSION\_CONTEXT depois de abrir uma conexão. O projeto de exemplo já define o TenantId dessa maneira. 
-2. **Camada de dados**: crie uma política de segurança RLS em cada banco de dados de fragmentos para filtrar as linhas com base na TenantId armazenada em SESSION\_CONTEXT. Crie uma política para cada um dos seus bancos de dados de fragmentos, caso contrário, linhas em fragmentos multilocatários não serão filtradas. 
+1. **Camada de aplicativo**: Modifique o código do aplicativo para sempre definir TenantId atual em SESSION\_CONTEXT depois de abrir uma conexão. O projeto de exemplo já define o TenantId dessa maneira. 
+2. **Camada de dados**: Crie uma política de segurança RLS em cada banco de dados de fragmentos para filtrar as linhas com base na TenantId armazenada em SESSION\_CONTEXT. Crie uma política para cada um dos seus bancos de dados de fragmentos, caso contrário, linhas em fragmentos multilocatários não serão filtradas. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Camada de aplicativo: defina TenantId em SESSION\_CONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Camada de aplicativo: Defina TenantId em SESSION\_CONTEXT
 
 Primeiro, você se conecta a um banco de dados do fragmento usando as APIs de roteamentos dependentes de dados da biblioteca de cliente do banco de dados elástico. O aplicativo ainda deve informar ao banco de dados qual TenantId está usando a conexão. O TenantId informa à política de segurança de RLS quais linhas devem ser filtradas como pertencentes a outros locatários. Armazene o TenantId atual no [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) da conexão.
 
@@ -213,7 +213,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Camada de dados: crie a política de segurança no nível da linha
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Camada de dados: Crie a política de segurança no nível da linha
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Criar uma política de segurança para filtrar as linhas que cada locatário pode acessar
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Manutenção 
 
-- **Adicionando novos fragmentos**: execute o script T-SQL para habilitar RLS em qualquer novo fragmento; do contrário, as consultas nesses fragmentos não serão filtradas.
-- **Adicionando novas tabelas**: adicione um predicado de FILTER e BLOCK à política de segurança em todos os fragmentos sempre que uma nova tabela for criada. Caso contrário, consultas na nova tabela não serão filtrados. Essa adição pode ser automatizada usando um gatilho DDL, conforme é descrito em [Aplicar Segurança em Nível de Linha automaticamente a tabelas recém-criadas (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Adicionando novo fragmentos**: Execute o script T-SQL para habilitar RLS em qualquer novo fragmento; do contrário, as consultas nesses fragmentos não serão filtradas.
+- **Adicionando novas tabelas**: Adicione um predicado de FILTER e BLOCK à política de segurança em todos os fragmentos sempre que uma nova tabela for criada. Caso contrário, consultas na nova tabela não serão filtrados. Essa adição pode ser automatizada usando um gatilho DDL, conforme é descrito em [Aplicar Segurança em Nível de Linha automaticamente a tabelas recém-criadas (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Resumo
 

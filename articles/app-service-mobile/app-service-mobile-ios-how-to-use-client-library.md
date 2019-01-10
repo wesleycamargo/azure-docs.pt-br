@@ -13,12 +13,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b284b599c569fe1c492b28d09fbc62a9130e939e
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409302"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121763"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Como usar a Biblioteca de Cliente iOS para os Aplicativos Móveis do Azure
 
@@ -81,7 +81,7 @@ Para criar uma consulta de banco de dados, consulte o objeto `MSTable` . A consu
 
 ```objc
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
-        if(error) { // error is nil if no error occured
+        if(error) { // error is nil if no error occurred
                 NSLog(@"ERROR %@", error);
         } else {
                 for(NSDictionary *item in result.items) { // items is NSArray of records that match query
@@ -712,10 +712,10 @@ Você pode usar o SDK do Facebook para iOS para conectar os usuários ao seu apl
 
 ## <a name="twitter-fabric"></a>Como: Autentique usuários com o Twitter Fabric para iOS
 
-Você pode usar o Fabric para iOS para desconectar os usuários em seu aplicativo usando o Twitter. Normalmente, é melhor usar a autenticação de fluxo de cliente do que usar o método `loginWithProvider:completion:` , pois ele fornece uma aparência mais nativa do UX e permite uma maior personalização.
+Você pode usar a Fabric para iOS para desconectar os usuários em seu aplicativo usando o Twitter. Normalmente, é melhor usar a autenticação de fluxo de cliente do que usar o método `loginWithProvider:completion:` , pois ele fornece uma aparência mais nativa do UX e permite uma maior personalização.
 
 1. Configurar o seu back-end de aplicativos móveis para entrar no Twitter, seguindo o tutorial [Como configurar o Serviço de Aplicativo para fazer logon no Twitter](../app-service/configure-authentication-provider-twitter.md) .
-2. Adicione o Fabric ao seu projeto seguindo a documentação [Fabric para iOS - Introdução] e a configuração TwitterKit.
+2. Adicione a Fabric ao seu projeto seguindo a documentação [Fabric para iOS - Introdução] e a configuração TwitterKit.
 
    > [!NOTE]
    > Por padrão, o Fabric cria um aplicativo do Twitter para você. Você pode evitar a criação de um aplicativo registrando a Chave do Consumidor e o Segredo do Consumidor criados anteriormente usando os snippets de código a seguir.    Como alternativa, você pode substituir os valores de chave do consumidor e segredo do consumidor que fornece ao Serviço de Aplicativo com os valores que vê no [Painel do Fabric]. Se você escolher essa opção, certifique-se de definir a URL de retorno de chamada para um valor de espaço reservado, como `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
@@ -794,7 +794,7 @@ Você pode usar o Fabric para iOS para desconectar os usuários em seu aplicativ
 
 ## <a name="google-sdk"></a>Como: Autenticar usuários com o SDK de Entrada do Google para iOS
 
-Você pode usar o SDK de Entrada do Google para iOS para conectar os usuários ao seu aplicativo usando uma conta do Google.  O Google anunciou alterações em suas políticas de segurança OAuth recentemente.  Essas alterações de política exigirão o uso do SDK do Google.
+Você pode usar o SDK do Login do Google para iOS para conectar os usuários ao seu aplicativo usando uma conta do Google.  O Google anunciou alterações em suas políticas de segurança OAuth recentemente.  Essas alterações de política exigirão o uso do SDK do Google.
 
 1. Configurar o seu back-end de aplicativos móveis para entrar no Google, seguindo o tutorial [How to configure App Service for Google login (Como configurar o Serviço de Aplicativo para fazer login no Google)](../app-service/configure-authentication-provider-google.md) .
 2. Instale o SDK do Google para iOS seguindo a documentação [Google Sign-In for iOS - Start integrating (Login do Google para iOS - iniciar a integração)](https://developers.google.com/identity/sign-in/ios/start-integrating) . Você pode ignorar a seção "Autenticar com um servidor de back-end".

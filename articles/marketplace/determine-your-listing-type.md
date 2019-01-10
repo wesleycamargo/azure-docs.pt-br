@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081533"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074463"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 A opção de publicação que você escolher para a oferta estará relacionada diretamente aos requisitos de qualificação e benefícios de GTM do Marketplace. Mais importante, a seleção de opção de publicação e o tipo de oferta no Portal do Cloud Partner definem como será a interação dos usuários com sua oferta do Marketplace.
@@ -62,7 +62,7 @@ A vitrine em que a oferta será apresentada, o Azure Marketplace e/ou o AppSourc
 
 ## <a name="choose-a-publishing-option"></a>Selecione uma opção de publicação
 
-As opções de publicação disponíveis oferecem envolvimento do cliente diferenciado, dando-lhe acesso ao compartilhamento de leads e [benefícios do Go-To-Market](https://partner.microsoft.com/en-US/reach-customers/gtm). Selecione entre três opções possíveis de publicação antes de usar o Portal do Cloud Partner para criar uma oferta do Marketplace. Observe as chamadas de ação que correspondem à opção de publicação:
+As opções de publicação disponíveis oferecem envolvimento do cliente diferenciado, dando-lhe acesso ao compartilhamento de leads e [benefícios do Go-To-Market](https://partner.microsoft.com/reach-customers/gtm). Selecione entre três opções possíveis de publicação antes de usar o Portal do Cloud Partner para criar uma oferta do Marketplace. Observe as chamadas de ação que correspondem à opção de publicação:
 
 | **Opção de publicação**    | **Descrição**  |
 | :------------------- | :-------------------|

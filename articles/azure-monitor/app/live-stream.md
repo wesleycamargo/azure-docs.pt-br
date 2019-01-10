@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d261fe78bc6902558e2714d9fe4e66d991a7bd09
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004178"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119201"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitorar e diagnosticar com latência de um segundo
 
-Teste a pulsação do aplicativo Web ao vivo em produção usando o Live Metrics Stream do [Application Insights](../../application-insights/app-insights-overview.md). Selecione e filtre os contadores de desempenho e as métricas para observar em tempo real, sem qualquer perturbação para o serviço. Inspecione os rastreamentos de pilha de exceções e solicitações de amostra com falha. Juntamente com [Criador de perfil](../../application-insights/app-insights-profiler.md), [Depurador de instantâneo](../../application-insights/app-insights-snapshot-debugger.md) e [testes de desempenho](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), o Live Metrics Stream fornece uma ferramenta de diagnóstico poderosa e não invasiva para seu site ao vivo.
+Teste a pulsação do aplicativo Web ao vivo em produção usando o Live Metrics Stream do [Application Insights](../../azure-monitor/app/app-insights-overview.md). Selecione e filtre os contadores de desempenho e as métricas para observar em tempo real, sem qualquer perturbação para o serviço. Inspecione os rastreamentos de pilha de exceções e solicitações de amostra com falha. Juntamente com [Criador de perfil](../../azure-monitor/app/profiler.md), [Depurador de instantâneo](../../azure-monitor/app/snapshot-debugger.md) e [testes de desempenho](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), o Live Metrics Stream fornece uma ferramenta de diagnóstico poderosa e não invasiva para seu site ao vivo.
 
 Com o Live Metrics Stream, você pode:
 
@@ -38,7 +38,7 @@ Com o Live Metrics Stream, você pode:
 
 ## <a name="get-started"></a>Introdução
 
-1. Se você ainda não [instalou o Application Insights](../../azure-monitor/app/asp-net.md) no aplicativo Web ASP.NET ou [aplicativo do Windows Server](../../application-insights/app-insights-windows-services.md), faça isso agora. 
+1. Se você ainda não [instalou o Application Insights](../../azure-monitor/app/asp-net.md) no aplicativo Web ASP.NET ou [aplicativo do Windows Server](../../azure-monitor/app/windows-services.md), faça isso agora. 
 2. **Atualização para a última versão** do pacote do Application Insights. No Visual Studio, clique com o botão direito do mouse em seu projeto e escolha **Gerenciar pacotes Nuget**. Abra a guia **Atualizações**, marque **Incluir pré-lançamento** e selecione todos os pacotes Microsoft.ApplicationInsights.*.
 
     Reimplante o aplicativo.
@@ -202,7 +202,7 @@ Não há dados? Se seu aplicativo estiver em uma rede protegida: O Live Metrics 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Monitorando o uso com o Application Insights](../../application-insights/app-insights-usage-overview.md)
+* [Monitorando o uso com o Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Usando a Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
-* [Criador de perfil](../../application-insights/app-insights-profiler.md)
-* [Depurador instantâneo](../../application-insights/app-insights-snapshot-debugger.md)
+* [Criador de perfil](../../azure-monitor/app/profiler.md)
+* [Depurador instantâneo](../../azure-monitor/app/snapshot-debugger.md)

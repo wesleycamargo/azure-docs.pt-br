@@ -1,5 +1,5 @@
 ---
-title: Gravação do Apache Storm para Armazenamento/Data Lake Store – HDInsight do Azure
+title: Gravação do Apache Storm para Armazenamento/Data Lake Storage – HDInsight do Azure
 description: Saiba como usar o Apache Storm para gravar no armazenamento compatível com o HDFS para HDInsight.
 services: hdinsight
 ms.service: hdinsight
@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 524195372abde91b302ee03c13152f234ef56406
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: b11e1f35578eef07acb823081f0bbfdbaf467f9c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498252"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632460"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Escreva para o Apache Hadoop HDFS do Apache Storm no HDInsight
 
-Aprenda a usar o [Apache Storm](http://storm.apache.org/) para gravar dados no armazenamento compatível com HDFS usado pelo Apache Storm no HDInsight. O HDInsight pode usar o Armazenamento do Azure e o Azure Data Lake Store como armazenamento compatível com HDFS. O Storm fornece um componente [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) que grava dados no HDFS. Esse documento fornece informações sobre como gravar em qualquer um dos tipos de armazenamento do HdfsBolt. 
+Aprenda a usar o [Apache Storm](https://storm.apache.org/) para gravar dados no armazenamento compatível com HDFS usado pelo Apache Storm no HDInsight. O HDInsight pode usar o Armazenamento do Microsoft Azure e o Azure Data Lake Storage como armazenamento compatível com HDFS. O Storm fornece um componente [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) que grava dados no HDFS. Esse documento fornece informações sobre como gravar em qualquer um dos tipos de armazenamento do HdfsBolt. 
 
-> [!IMPORTANT]
-> A topologia de exemplo usada neste documento depende de componentes que estão incluídos com o Storm no HDInsight. Pode exigir modificações para funcionar com o Azure Data Lake Store quando usado com outros clusters do Apache Storm.
+> [!IMPORTANT]  
+> A topologia de exemplo usada neste documento depende de componentes que estão incluídos com o Storm no HDInsight. Pode exigir modificações para funcionar com o Azure Data Lake Storage quando usado com outros clusters do Apache Storm.
 
 ## <a name="get-the-code"></a>Obter o código
 
@@ -44,24 +44,24 @@ As seguintes variáveis de ambiente podem ser definidas quando você instala o J
 
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>Como usar o HdfsBolt com HDInsight
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Antes de usar o HdfsBolt com Storm no HDInsight, primeiro você deve usar uma ação de script para copiar arquivos jar necessários para o `extpath` para o Storm. Para obter mais informações, consulte a seção [Configurar o cluster](#configure).
 
 O HdfsBolt usa o esquema de arquivo que você fornece para compreender como gravar no HDFS. Com o HDInsight, use um dos seguintes esquemas:
 
-* `wasb://`: usado com uma conta de Armazenamento do Azure.
-* `adl://`: usado com o Azure Data Lake Store.
+* `wasb://`: Usado com uma conta de Armazenamento do Microsoft Azure.
+* `adl://`: Usado com o Azure Data Lake Storage.
 
 A tabela a seguir fornece exemplos de como usar o esquema de arquivos para cenários diferentes:
 
 | Esquema | Observações |
 | ----- | ----- |
 | `wasb:///` | A conta de armazenamento padrão é um contêiner de blob em uma conta de armazenamento do Azure |
-| `adl:///` | A conta de armazenamento padrão é um diretório no Azure Data Lake Store. Durante a criação do cluster, você pode especificar o diretório no Data Lake Store que é a raiz do HDFS do cluster. Por exemplo, o diretório `/clusters/myclustername/`. |
+| `adl:///` | A conta de armazenamento padrão é um diretório no Azure Data Lake Storage. Durante a criação do cluster, você pode especificar o diretório no Data Lake Storage que é a raiz do HDFS do cluster. Por exemplo, o diretório `/clusters/myclustername/`. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Uma conta de armazenamento do Azure não padrão (adicional) associada ao cluster. |
-| `adl://STORENAME/` | A raiz do Data Lake Store usada pelo cluster. Esse esquema permite que você acesse dados localizados fora do diretório que contém o sistema de arquivos do cluster. |
+| `adl://STORENAME/` | A raiz do Data Lake Storage usada pelo cluster. Esse esquema permite que você acesse dados localizados fora do diretório que contém o sistema de arquivos do cluster. |
 
-Para obter mais informações, consulte a referência [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) em Apache.org.
+Para obter mais informações, consulte a referência [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) em Apache.org.
 
 ### <a name="example-configuration"></a>Exemplo de configuração
 
@@ -123,21 +123,21 @@ bolts:
 
 Esse YAML define os seguintes itens:
 
-* `syncPolicy`: define quando arquivos são sincronizados/liberados para o sistema de arquivos. Neste exemplo, a cada 1.000 tuplas.
-* `fileNameFormat`: define o padrão de nome de arquivo e caminho a ser usado ao gravar os arquivos. Neste exemplo, o caminho é fornecido no tempo de execução usando um filtro e a extensão de arquivo é `.txt`.
-* `recordFormat`: define o formato interno dos arquivos gravados. Neste exemplo, os campos são delimitados pelo caractere `|`.
-* `rotationPolicy`: define quando girar arquivos. Neste exemplo, nenhuma rotação é executada.
-* `hdfs-bolt`: usa os componentes anteriores como parâmetros de configuração para a classe `HdfsBolt`.
+* `syncPolicy`: Define quando arquivos são sincronizados/liberados para o sistema de arquivos. Neste exemplo, a cada 1.000 tuplas.
+* `fileNameFormat`: Define o padrão de nome de arquivo e caminho a ser usado ao gravar os arquivos. Neste exemplo, o caminho é fornecido no tempo de execução usando um filtro e a extensão de arquivo é `.txt`.
+* `recordFormat`: Define o formato interno dos arquivos gravados. Neste exemplo, os campos são delimitados pelo caractere `|`.
+* `rotationPolicy`: Define quando girar arquivos. Neste exemplo, nenhuma rotação é executada.
+* `hdfs-bolt`: Usa os componentes anteriores como parâmetros de configuração para a classe `HdfsBolt`.
 
 Para obter mais informações sobre a estrutura do Flux, consulte [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
 ## <a name="configure-the-cluster"></a>Configurar o cluster
 
-Por padrão, o Storm no HDInsight não inclui os componentes que o HdfsBolt usa para se comunicar com o Armazenamento do Azure ou o Data Lake Store no classpath do Storm. Use a ação de script a seguir para adicionar esses componentes ao diretório `extlib` para Storm no seu cluster:
+Por padrão, o Storm no HDInsight não inclui os componentes que o HdfsBolt usa para se comunicar com o Armazenamento do Microsoft Azure ou o Data Lake Storage no classpath do Storm. Use a ação de script a seguir para adicionar esses componentes ao diretório `extlib` para Storm no seu cluster:
 
 * URI do script:`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Nós para aplicar a: Nimbus, Supervisor
-* Parâmetros: nenhum
+* Parâmetros: Nenhum
 
 Para obter informações sobre como usar esse script com o cluster, consulte o documento [Personalizar clusters do HDInsight usando ações de script](./../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -159,7 +159,7 @@ Para obter informações sobre como usar esse script com o cluster, consulte o d
    
     Quando solicitado, digite a senha usada ao criar o usuário SSH para o cluster. Se você usou uma chave pública em vez de uma senha, talvez precise usar o parâmetro `-i` para especificar o caminho para a chave privada correspondente.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Para saber mais sobre como usar o `scp` com HDInsight, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Quando o carregamento for concluído, use o seguinte para se conectar ao cluster HDInsight usando o SSH. Substitua**USER** pelo nome de usuário SSH usado ao criar o cluster. Substitua o **CLUSTERNAME** pelo nome do cluster.
@@ -179,10 +179,10 @@ Para obter informações sobre como usar esse script com o cluster, consulte o d
         hdfs.write.dir: /stormdata/
         hdfs.url: wasb:///
 
-    > [!IMPORTANT]
-    > Esse exemplo presume que o cluster usa uma conta de Armazenamento do Azure como armazenamento padrão. Se o cluster usar o Azure Data Lake Store, use `hdfs.url: adl:///`.
+    > [!IMPORTANT]  
+    > Esse exemplo presume que o cluster usa uma conta de Armazenamento do Azure como armazenamento padrão. Se o cluster usar o Azure Data Lake Storage, use `hdfs.url: adl:///`.
     
-    Para salvar o arquivo, use __Ctrl + X__, em seguida, __Y__ e, por fim, __Enter__. Os valores desse arquivo definem a URL do Data Lake Store e o nome do diretório no qual os dados são gravados.
+    Para salvar o arquivo, use __Ctrl + X__, em seguida, __Y__ e, por fim, __Enter__. Os valores desse arquivo definem a URL do Data Lake Storage e o nome do diretório no qual os dados são gravados.
 
 3. Use o seguinte comando para iniciar a topologia:
    
@@ -219,5 +219,5 @@ As topologias do Storm são executadas até serem interrompidas ou o cluster ser
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a usar o Apache Storm para gravar no Armazenamento do Microsoft Azure e no Azure Data Lake Store, descubra outros [exemplos do Apache Storm para o HDInsight](apache-storm-example-topology.md).
+Agora que você aprendeu a usar o Apache Storm para gravar no Armazenamento do Microsoft Azure e no Azure Data Lake Storage, descubra outros [exemplos do Apache Storm para o HDInsight](apache-storm-example-topology.md).
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 4663cb467d7d1d864425f4899c829b6618b9547c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584455"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051689"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usar instâncias de GPU ou RDMA em pools do Lote
 
@@ -100,7 +100,7 @@ Para configurar um tamanho de VM especializado para o pool do Lote, há várias 
 
 Para executar aplicativos CUDA em um pool de nós da NC do Windows, é necessário instalar os drivers GPU NVDIA. As etapas de exemplo a seguir usam um pacote de aplicativos para instalar os drivers GPU NVIDIA. Será possível escolher essa opção, se a carga de trabalho depender de uma versão específica do driver GPU.
 
-1. Baixe um pacote de instalação dos drivers GPU no Windows Server 2016 pelo [Site da NVIDIA](http://us.download.nvidia.com/Windows/) - por exemplo, [versão 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Salve o arquivo localmente usando um nome curto como *GPUDriverSetup.exe*.
+1. Baixe um pacote de instalação dos drivers GPU no Windows Server 2016 pelo [Site da NVIDIA](https://www.nvidia.com/Download/index.aspx) - por exemplo, [versão 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Salve o arquivo localmente usando um nome curto como *GPUDriverSetup.exe*.
 2. Crie um arquivo zip do pacote.
 3. Carregue o pacote na sua conta do Lote. Para obter as etapas, consulte as diretrizes sobre [pacotes de aplicativos](batch-application-packages.md). Especifique uma ID de aplicativo como *GPUDriver* e uma versão como *411.82*.
 1. Usando as APIs do Lote ou o portal do Azure, crie um pool na configuração da máquina virtual com o número desejado de nós e escala. A tabela a seguir mostra as configurações de exemplo para instalar os drivers GPU NVIDIA silenciosamente usando uma tarefa inicial:

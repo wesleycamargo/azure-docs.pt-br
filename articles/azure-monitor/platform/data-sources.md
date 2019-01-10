@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 0349e3f482923a236ea29332abfc3a9206828ba7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976878"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020125"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Fontes de monitoramento no Azure Monitor
 Este artigo descreve as fontes de dados coletadas pelo Azure Monitor para monitorar a integridade e o desempenho de seus recursos e dos aplicativos executados nelas. Esses recursos podem ser no Azure, em outra nuvem ou localmente.  Veja os [Dados coletados pelo Azure Monitor](data-collection.md) para obter detalhes sobre como esses dados são armazenados e como você pode exibi-los.
@@ -96,7 +96,7 @@ Quando você habilita o Application Insights para um aplicativo por meio da inst
 Você também pode usar o Application Insights para [criar uma métrica personalizada](../../azure-monitor/app/api-custom-events-metrics.md).  Isso permite que você defina sua própria lógica para calcular um valor numérico e, em seguida, armazenar esse valor com outras métricas que podem ser acessadas a partir do Metrics Explorer e usadas para [autoescala](../../azure-monitor/platform/autoscale-custom-metric.md) e alertas de métrica.
 
 ### <a name="dependencies"></a>Dependências
-Para monitorar as diferentes operações lógicas de um aplicativo, você precisa [coletar a telemetria em vários componentes](../../application-insights/app-insights-transaction-diagnostics.md). O Application Insights dá suporte à [correlação de telemetria distribuída](../../azure-monitor/app/correlation.md), que identifica as dependências entre componentes, permitindo que você os analise conjuntamente.
+Para monitorar as diferentes operações lógicas de um aplicativo, você precisa [coletar a telemetria em vários componentes](../../azure-monitor/app/transaction-diagnostics.md). O Application Insights dá suporte à [correlação de telemetria distribuída](../../azure-monitor/app/correlation.md), que identifica as dependências entre componentes, permitindo que você os analise conjuntamente.
 
 ### <a name="availability-tests"></a>Testes de disponibilidade
 Os [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) no Application Insights permitem que você teste a disponibilidade e a capacidade de resposta de seu aplicativo de diferentes locais na Internet pública. Você pode fazer um teste de ping simples para verificar se o aplicativo está ativo ou usar o Visual Studio para criar um teste da Web que simula um cenário de usuário.  Testes de disponibilidade não exigem nenhuma instrumentação no aplicativo.

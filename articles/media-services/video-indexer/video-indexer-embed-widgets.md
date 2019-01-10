@@ -7,18 +7,22 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/25/2018
 ms.author: juliako
-ms.openlocfilehash: a051f40cb5586cae58d8e4939f4fcee35438bf69
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291683"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791802"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserir widgets do Video Indexer em seus aplicativos
 
-Este artigo mostra como inserir widgets do Video Indexer em seus aplicativos. O Video Indexer é compatível com a inserção de dois tipos de widgets em seu aplicativo: **Insights cognitivos** e **Player**. 
+Este artigo mostra como inserir widgets do Video Indexer em seus aplicativos. O Video Indexer é compatível com a inserção de dois tipos de widgets em seu aplicativo: **Insights Cognitivos** e **Player**. 
+
+> [!NOTE]
+> Começando com 1 de fevereiro de 2018, a versão 1 do widget de **Insight cognitivo** será preterido. A versão de URL de inserção usará como padrão `version=2`.
+
 ## <a name="widget-types"></a>Tipos de widget
 
 ### <a name="cognitive-insights-widget"></a>Widget de Insights Cognitivos
@@ -27,7 +31,7 @@ Um widget **Insights cognitivos** inclui todos os insights visuais que foram ext
 
 |NOME|Definição|DESCRIÇÃO|
 |---|---|---|
-|widgets|Cadeias de caracteres separadas por vírgula|Permite controlar os insight que você deseja renderizar. <br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderizará apenas insights de interface do usuário de pessoas e marcas<br/>Opções disponíveis: people, keywords, annotations, brands, sentiments, transcript e search.<br/>não tem suporte por meio de URL na versão = 2<br/><br/>**Observação:** o parâmetro de URL **widgets** não tem suporte quando a **versão = 2** é usada. |
+|widgets|Cadeias de caracteres separadas por vírgula|Permite controlar os insight que você deseja renderizar. <br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderizará apenas insights de interface do usuário de pessoas e marcas<br/>Opções disponíveis: people, keywords, annotations, brands, sentiments, transcript e search.<br/>não tem suporte por meio de URL na versão = 2<br/><br/>**Observação:** O parâmetro de URL **widgets** não tem suporte quando a **versão = 2** é usada. |
 |version|Versões do widget de **Insights Cognitivos**|Para obter as mais recentes atualizações do widget de insights, adicione o parâmetro de consulta `?version=2` à URL de inserção. Por exemplo, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Para obter a versão mais antiga, basta remover `version=2` da URL.
 
 ### <a name="player-widget"></a>Widget do player
@@ -39,7 +43,7 @@ Um widget **Player** permite transmitir o vídeo usando a taxa de bits adaptáve
 |t|Segundos a partir do início|Faz o player começar a reproduzir do ponto de tempo determinado.<br/>Exemplo: t=60|
 |captions|Código de idioma|Busca a legenda no idioma determinado durante o carregamento do widget a estar disponível no menu de legendas.<br/>Exemplo: captions=en-US|
 |showCaptions|Um valor booliano|Faz o player ser carregado com as legendas já habilitadas.<br/>Exemplo: showCaptions=true|
-|Tipo||Ativa uma capa de player de áudio (parte do vídeo é removida).<br/>Exemplo: type=audio|
+|Tipo||Ativa uma capa de player de áudio (parte do vídeo é removida).<br/>Exemplo: type=audio|"
 |autoplay|Um valor booliano|Indica se o player deve começar a reproduzir o vídeo quando carregado (o padrão é true).<br/>Exemplo: autoplay=false|
 |Linguagem|Código de idioma|Controla o idioma do player (o padrão é en-US)<br/>Exemplo: language=de-DE|
 

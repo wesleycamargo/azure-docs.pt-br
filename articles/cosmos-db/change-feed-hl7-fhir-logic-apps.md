@@ -1,19 +1,18 @@
 ---
 title: Feed de alterações para recursos do FHIR de HL7- Azure Cosmos DB
-description: Saiba como configurar notificações de alteração em registros de serviços de saúde de pacientes HL7 FHIR usando o Aplicativo Lógico do Azure, o Azure Cosmos DB e o Barramento de Serviço.
-keywords: hl7 fhir
-services: cosmos-db
+description: Saiba como configurar notificações de alteração em registros de serviços de saúde de pacientes HL7 FHIR usando os Aplicativos Lógicos do Azure, o Azure Cosmos DB e o Barramento de Serviço.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0ff92ad58cc8b7206b7061c88f8aadbb701870f0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089217"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044511"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notificando pacientes de alterações em registros de serviços de saúde HL7 FHIR usando os Aplicativos Lógicos e o Azure Cosmos DB
 

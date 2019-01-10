@@ -3,17 +3,17 @@ title: Use InSpec para a automação de conformidade de sua infraestrutura do Az
 description: Saiba como usar o InSpec para detectar problemas em implantações do Microsoft Azure
 keywords: azure, chef, devops, máquinas virtuais, visão geral, automatizar, inspce
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 4193b7fdb3932cbffa2b56b5d7eee6f3b573bd99
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9256a4daf6564761553b495e559805a46e4eae32
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259460"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050720"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Use InSpec para a automação de conformidade de sua infraestrutura do Azure
 [Inspe](https://www.chef.io/inspec/) é uma estrutura gratuita e de código aberto para teste e seus aplicativos e infraestrutura de auditoria. O Inspe funciona comparando o estado real do seu sistema com o estado desejado que você expressa no código fácil de ler e fácil de gravar do InSpec. InSpec detecta violações e exibe os resultados na forma de um relatório, mas coloca você no controle de correção. Você pode usar InSpec para validar o estado das máquinas virtuais em execução no Azure. Você também pode usar InSpec para verificar e validar o estado de recursos e grupos de recursos dentro de uma assinatura.

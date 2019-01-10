@@ -1,25 +1,71 @@
 ---
 title: Saída e pontos de extremidade em gêmeos digitais do Azure | Microsoft Docs
-description: Diretrizes sobre como criar pontos de extremidade de Gêmeos Digitais do Azure
+description: Diretrizes sobre como criar pontos de extremidade de Gêmeos Digitais do Azure.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636298"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994803"
 ---
 # <a name="egress-and-endpoints"></a>Pontos de extremidade e de saída
 
-O Gêmeo Digital do Azure suporta o conceito de **endpoints**. Cada ponto de extremidade representa uma mensagem ou um intermediário de evento na assinatura do Azure do usuário. Eventos e mensagens podem ser enviados para os tópicos Hubs de Eventos do Azure, Grade de Eventos do Azure e Barramento de Serviço do Azure.
+Os *pontos de extremidade* dos Gêmeos Digitais do Azure representam um agente de mensagens ou eventos na assinatura de um usuário do Azure. Eventos e mensagens podem ser enviados para os tópicos Hubs de Eventos do Azure, Grade de Eventos do Azure e Barramento de Serviço do Azure.
 
-Os eventos são enviados para os terminais de acordo com as preferências de roteamento predefinidas. O usuário pode especificar qual ponto de extremidade deve receber qualquer um dos seguintes eventos: 
+Eventos são roteados para pontos de extremidade de acordo com as preferências de roteamentos predefinidos. Os usuários especificam quais *tipos de evento* cada ponto de extremidade pode receber.
+
+Para saber mais sobre eventos, roteamento e tipos de eventos, consulte [Roteamento de eventos e as mensagens nos Gêmeos Digitais do Azure](./concepts-events-routing.md).
+
+## <a name="events"></a>Eventos
+
+Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) para processamento por agentes de mensagens e eventos do Azure. Eventos são definidos pela seguinte [Referência de esquema de evento da Grade de Eventos do Azure](../event-grid/event-schema.md).
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| Atributo | Tipo | DESCRIÇÃO |
+| --- | --- | --- |
+| ID | string | Identificador exclusivo do evento. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| data | objeto | Dados do evento específicos ao provedor de recursos. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+
+Para obter mais informações sobre o esquema de evento da Grade de Eventos:
+
+- Examine a [Referência de esquema de evento de Grade de Eventos do Azure](../event-grid/event-schema.md).
+- Leia a [Referência do Azure EventGrid Node.js SDK EventGridEvent](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+
+## <a name="event-types"></a>Tipos de evento
+
+Os tipos de eventos classificam a natureza do evento e são definidos no campo **eventType**. Tipos de evento disponíveis são fornecidos pela lista a seguir:
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Os eventos são enviados para os terminais de acordo com as preferências de rot
 - SpaceChange
 - DeviceMessage
 
-Para um entendimento básico de roteamento de eventos e tipos de eventos, consulte [Roteamento de eventos e mensagens](concepts-events-routing.md).
-
-## <a name="event-types-description"></a>Descrição de tipos de evento
-
-Os formatos de eventos para cada um dos tipos de eventos são descritos nas seções a seguir.
+Formatos de eventos para cada um dos tipos de eventos são descritos nas seções a seguir.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** aplica-se a alterações no gráfico. O **assunto** propriedade especifica o tipo de objeto afetado. Os seguintes tipos de objetos podem acionar este evento: 
+**TopologyOperation** aplica-se a alterações no gráfico. O **assunto** propriedade especifica o tipo de objeto afetado. Os seguintes tipos de objetos podem acionar este evento:
 
 - Dispositivo
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ Os formatos de eventos para cada um dos tipos de eventos são descritos nas seç
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** é um evento enviado por uma função definida pelo usuário (UDF). 
+**UdfCustom** é um evento enviado por uma função definida pelo usuário (UDF).
   
 > [!IMPORTANT]  
 > Este evento deve ser explicitamente enviado do próprio UDF.
@@ -195,10 +237,19 @@ Ao usar **DeviceMessage**, você pode especificar uma conexão **EventHub** para
 
 ## <a name="configure-endpoints"></a>Configurar pontos de extremidade
 
-O gerenciamento de terminal é exercido por meio da API do Endpoints. Os exemplos a seguir demonstram como configurar os diferentes pontos de extremidade suportados. Preste atenção especial para a matriz de tipos de evento, pois determina o roteamento para o ponto de extremidade:
+O gerenciamento de terminal é exercido por meio da API do Endpoints.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+Os exemplos a seguir demonstram como configurar os pontos de extremidade suportados.
+
+>[!IMPORTANT]
+> Preste muita atenção ao atributo **eventTypes**. Ele define quais tipos de evento são manipulados pelo ponto de extremidade e assim, determinam seu roteamento.
+
+Uma solicitação HTTP POST autenticada mediante
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Rotear para os tipos de evento do Barramento de Serviço do Microsoft Azure **SensorChange**, **SpaceChange** e **TopologyOperation**:

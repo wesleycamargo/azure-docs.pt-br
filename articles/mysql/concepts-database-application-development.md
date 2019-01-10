@@ -1,20 +1,17 @@
 ---
 title: Visão geral do desenvolvimento de aplicativo de banco de dados para o Banco de Dados do Azure para MySQL
 description: Apresenta considerações de design que um desenvolvedor deve seguir ao escrever o código de um aplicativo para se conectar ao Banco de Dados do Azure para MySQL
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: b733468d41afacb616c95f0628e7bad6b0c837f0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264156"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544456"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Visão geral de desenvolvimento de aplicativo para o Banco de Dados do Azure para MySQL 
 Este artigo discute considerações de design que um desenvolvedor deve seguir ao escrever o código de um aplicativo para se conectar ao Banco de Dados do Azure para MySQL. 
@@ -23,7 +20,7 @@ Este artigo discute considerações de design que um desenvolvedor deve seguir a
 > Para ver um tutorial que mostra como criar um servidor, criar um firewall baseado em servidor, exibir propriedades do servidor, criar um banco de dados, conectar e consultar usando o Workbench e mysql.exe, consulte [Criar seu primeiro Banco de Dados do Azure para MySQL](tutorial-design-database-using-portal.md)
 
 ## <a name="language-and-platform"></a>Linguagem e plataforma
-Há exemplos de código disponíveis para uma variedade de plataformas e linguagens de programação. Encontre links para exemplos de código em: [Bibliotecas de conectividade usadas para se conectar ao Banco de Dados do Azure para MySQL](concepts-connection-libraries.md)
+Há exemplos de código disponíveis para uma variedade de plataformas e linguagens de programação. Você pode encontrar links de exemplos de código em: [Bibliotecas de conectividade usadas para se conectar ao Banco de Dados do Azure para MySQL](concepts-connection-libraries.md)
 
 ## <a name="tools"></a>Ferramentas
 O Banco de Dados do Azure para MySQL usa a versão de comunidade do MySQL, que é compatível com ferramentas de gerenciamento comuns do MySQL, como o Workbench, ou utilitários do MySQL, como o mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql) e outros. Você também pode usar o Portal do Azure, a CLI do Azure e APIs REST para interagir com o serviço de banco de dados.
@@ -42,7 +39,7 @@ O Banco de Dados do Azure para MySQL dá suporte à autenticação de usuários 
 ## <a name="resiliency"></a>Resiliência
 Quando ocorre um erro transitório ao se conectar ao banco de dados MySQL, seu código deverá repetir a chamada. Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o banco de dados SQL com vários clientes realizando novas tentativas ao mesmo tempo.
 
-- Exemplos de código: para obter exemplos de código que ilustram a lógica de repetição, confira os exemplos para o idioma de sua preferência em: [Bibliotecas de conexão usadas para se conectar ao Banco de Dados do Azure para MySQL](concepts-connection-libraries.md)
+- Exemplos de código: Para obter exemplos de código que ilustram a lógica de repetição, consulte os exemplos para a linguagem de sua preferência em: [Bibliotecas de conectividade usadas para se conectar ao Banco de Dados do Azure para MySQL](concepts-connection-libraries.md)
 
 ## <a name="managing-connections"></a>Gerenciando conexões
 Conexões de banco de dados são um recurso limitado, portanto, recomendamos o uso adequado de conexões ao acessar o banco de dados MySQL para melhorar o desempenho.

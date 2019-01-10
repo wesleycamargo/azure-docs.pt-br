@@ -8,18 +8,18 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432216"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606462"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicativo
 O Serviço de Aplicativo do Azure permite criar e hospedar aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infra-estrutura nem tempo de execução de estrutura da Web ou linguagem. Ele oferece dimensionamento automático e alta disponibilidade, compatível com Windows e Linux, e permite implantações automatizadas do GitHub, Azure DevOps Services ou qualquer repositório Git. Saiba como usar o Serviço de Aplicativo do Azure com nossos inícios rápidos, tutoriais e exemplos.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux e Docker
-[Aplicativos Web](/app-service/app-service-web-overview) é o Serviço de Aplicativo principal de oferta para a criação e hospedagem de aplicativos da Web usando os ambientes do Windows. Os desenvolvedores que preferem ambientes Linux podem escolher o [Serviço de Aplicativo para Linux](/app-service/containers/app-service-linux-intro). Os desenvolvedores também podem implantar imagens do Docker diretamente no Serviço de Aplicativo para Linux para implantar os tempos de execução/estruturas personalizados.
+[Aplicativos Web](/app-service/overview) é o Serviço de Aplicativo principal de oferta para a criação e hospedagem de aplicativos da Web usando os ambientes do Windows. Os desenvolvedores que preferem ambientes Linux podem escolher o [Serviço de Aplicativo para Linux](/app-service/containers/app-service-linux-intro). Os desenvolvedores também podem implantar imagens do Docker diretamente no Serviço de Aplicativo para Linux para implantar os tempos de execução/estruturas personalizados.
 
 ## <a name="5-minute-quickstarts"></a>Guia de início rápido de 5 minutos
 
@@ -54,7 +54,7 @@ Saiba como implantar, gerenciar e monitorar aplicativos Web seguros no Azure.
 Encontre scripts para gerenciar tarefas comuns.
 
 - [CLI do Azure](/azure/app-service/app-service-cli-sample)
-- [Powershell do Azure](/azure/app-service/app-service-powershell-samples)
+- [Powershell do Azure](/azure/app-service/samples-powershell)
 
 ## <a name="more"></a>Mais
 

@@ -10,30 +10,30 @@ ms.service: azure-functions; cosmos-db
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 19a6ebaeb0c643c82277656ebade576c79ed0211
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136198"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001950"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
-> [!div class="op_single_selector" title1="Selecione a versão do tempo de execução Azure Functions que você está usando: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
 Este artigo explica como trabalhar com associações do [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) no Azure Functions. O Azure Functions dá suporte a associações de gatilho, entrada e saída para o Azure Cosmos DB.
 
 > [!NOTE]
-> Este artigo serve para o Azure Functions 1.x.  Para obter informações sobre como usar essas associações em Functions 2.x, veja [Associações do Azure Cosmos DB para Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
+> Este artigo serve para o Azure Functions 1.x. Para obter informações sobre como usar essas associações em Functions 2.x, veja [Associações do Azure Cosmos DB para Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
 >
 >Essa associação era originalmente denominada DocumentDB. No Functions versão 1.x, apenas o gatilho foi renomeado Cosmos DB; a associação de entrada, a associação de saída e o pacote NuGet mantêm o nome DocumentDB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> As associações do Azure Cosmos DB têm suporte apenas para usar com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados de sua função usando o cliente estático para sua API, incluindo a [API do MongoDB](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), a [API do Cassandra](../cosmos-db/cassandra-introduction.md), a [API do Gremlin](../cosmos-db/graph-introduction.md) e a [API de Tabela](../cosmos-db/table-introduction.md).
+> As associações do Azure Cosmos DB têm suporte apenas para usar com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados de sua função usando o cliente estático para sua API, incluindo a [Azure Cosmos DB para API do MongoDB](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), a [API do Cassandra](../cosmos-db/cassandra-introduction.md), a [API do Gremlin](../cosmos-db/graph-introduction.md) e a [API de Tabela](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
@@ -75,7 +75,7 @@ namespace CosmosDBSamplesV1
             collectionName: "Items",
             ConnectionStringSetting = "CosmosDBConnection",
             LeaseCollectionName = "leases",
-            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents, 
+            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents,
             TraceWriter log)
         {
             if (documents != null && documents.Count > 0)
@@ -110,8 +110,8 @@ Aqui estão os dados de associação no arquivo *function.json*:
 ```
 
 Aqui está o código de script do C#:
- 
-```cs 
+
+```cs
     #r "Microsoft.Azure.Documents.Client"
     
     using System;
@@ -121,8 +121,8 @@ Aqui está o código de script do C#:
 
     public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
     {
-      log.Info("Documents modified " + documents.Count);
-      log.Info("First document Id " + documents[0].Id);
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
     }
 ```
 
@@ -151,9 +151,9 @@ Aqui está o código JavaScript:
 
 ```javascript
     module.exports = function (context, documents) {
-      context.log('First document Id modified : ', documents[0].id);
+        context.log('First document Id modified : ', documents[0].id);
 
-      context.done();
+        context.done();
     }
 ```
 
@@ -184,7 +184,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |---------|---------|----------------------|
 |**tipo** || Deve ser definido como `cosmosDBTrigger`. |
 |**direction** || Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** || O nome da variável usado no código de função que representa a lista de documentos com alterações. | 
+|**name** || O nome da variável usado no código de função que representa a lista de documentos com alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
 |**databaseName**|**DatabaseName**  | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
 |**collectionName** |**CollectionName** | O nome da coleção que está sendo monitorada. |
@@ -198,8 +198,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| (Opcional) Quando definido, ele define, em milissegundos, o intervalo para disparar uma tarefa para computar se as partições são distribuídas uniformemente entre as instâncias de host conhecidas. O padrão é 13000 (13 segundos).
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (Opcional), Quando definido, ele define, em milissegundos, o intervalo para o qual a concessão é tomada em uma concessão que representa uma partição. Se a concessão não for renovada dentro deste intervalo, ela será expirada e a propriedade da partição será movida para outra instância. O padrão é 60000 (60 segundos).
 |**leaseRenewInterval**| **LeaseRenewInterval**| (Opcional) Quando definido, ele define, em milissegundos, o intervalo de renovação para todas as concessões para partições atualmente mantidas por uma instância. O padrão é 17000 (17 segundos).
-|**checkpointFrequency**| **CheckpointFrequency**| (Opcional) Quando definido, ele define, em milissegundos, o intervalo entre os pontos de verificação de concessão. O padrão é sempre após uma chamada de Função com êxito.
+|**checkpointFrequency**| **CheckpointFrequency**| (Opcional) Quando definido, ele define, em milissegundos, o intervalo entre os pontos de verificação de concessão. O padrão é sempre após cada chamada de Função.
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Opcional) Quando definido, ele personaliza a quantidade máxima de itens recebidos por chamada de Função.
+|**startFromBeginning**| **startFromBeginning**| Quando definido, ele informa o gatilho para iniciar a leitura de alterações desde o início do histórico de coleção em vez da hora atual. Isso funciona apenas na primeira vez em que gatilho inicia, como em execuções subsequentes, os pontos de verificação já estão armazenados. Definir isso como `true` quando houver concessões já criadas não tem nenhum efeito.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -281,7 +282,7 @@ namespace CosmosDBSamplesV1
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 Id = "{ToDoItemId}")]ToDoItem toDoItem,
             TraceWriter log)
         {
@@ -323,7 +324,7 @@ namespace CosmosDBSamplesV1
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 Id = "{Query.id}")] ToDoItem toDoItem,
             TraceWriter log)
         {
@@ -362,12 +363,12 @@ namespace CosmosDBSamplesV1
         [FunctionName("DocByIdFromRouteData")]
         public static HttpResponseMessage Run(
             [HttpTrigger(
-                AuthorizationLevel.Anonymous, "get", "post", 
+                AuthorizationLevel.Anonymous, "get", "post",
                 Route = "todoitems/{id}")]HttpRequestMessage req,
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 Id = "{id}")] ToDoItem toDoItem,
             TraceWriter log)
         {
@@ -407,12 +408,12 @@ namespace CosmosDBSamplesV1
     {
         [FunctionName("DocByIdFromRouteDataUsingSqlQuery")]
         public static HttpResponseMessage Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", 
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",
                 Route = "todoitems2/{id}")]HttpRequestMessage req,
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 SqlQuery = "select * from ToDoItems r where r.id = {id}")] IEnumerable<ToDoItem> toDoItems,
             TraceWriter log)
         {
@@ -452,7 +453,7 @@ namespace CosmosDBSamplesV1
             [DocumentDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
-                ConnectionStringSetting = "CosmosDBConnection", 
+                ConnectionStringSetting = "CosmosDBConnection",
                 SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")]
                 IEnumerable<ToDoItem> toDoItems,
             TraceWriter log)
@@ -571,7 +572,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "collectionName": "MyCollection",
     "id" : "{queueTrigger}",
     "partitionKey": "{partition key value}",
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "in"
 }
 ```
@@ -582,10 +583,10 @@ Aqui está o código de script do C#:
 ```cs
     using System;
 
-    // Change input document contents using Azure Cosmos DB input binding 
+    // Change input document contents using Azure Cosmos DB input binding
     public static void Run(string myQueueItem, dynamic inputDocument)
-    {   
-      inputDocument.text = "This has changed.";
+    {
+        inputDocument.text = "This has changed.";
     }
 ```
 
@@ -595,7 +596,7 @@ Aqui está o código de script do C#:
 
 O exemplo a seguir mostra uma associação de dados de entrada do Cosmos DB em um arquivo *function.json* e uma [função script C#](functions-reference-csharp.md) que usa a associação de dados. A função recupera vários documentos especificados por uma consulta SQL usando um gatilho de fila para personalizar os parâmetros de consulta.
 
-O gatilho de consulta fornece um parâmetro `departmentId`. Uma mensagem de consulta de `{ "departmentId" : "Finance" }` retornará todos os registros ao departamento financeiro. 
+O gatilho de consulta fornece um parâmetro `departmentId`. Uma mensagem de consulta de `{ "departmentId" : "Finance" }` retornará todos os registros ao departamento financeiro.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -617,11 +618,11 @@ Aqui está o código de script do C#:
 
 ```csharp
     public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
-    {   
+    {
         foreach (var doc in documents)
         {
             // operate on each document
-        }    
+        }
     }
 
     public class QueuePayload
@@ -681,7 +682,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+        log.Info($"ToDo item not found");
     }
     else
     {
@@ -743,7 +744,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+        log.Info($"ToDo item not found");
     }
     else
     {
@@ -915,7 +916,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "collectionName": "MyCollection",
     "id" : "{queueTrigger_payload_property}",
     "partitionKey": "{queueTrigger_payload_property}",
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "in"
 },
 {
@@ -935,7 +936,7 @@ Aqui está o código JavaScript:
 
 ```javascript
     // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
-    module.exports = function (context) {   
+    module.exports = function (context) {
     context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
     context.bindings.inputDocumentOut.text = "This was updated!";
     context.done();
@@ -1067,7 +1068,7 @@ module.exports = function (context, req, toDoItem) {
 
 O exemplo a seguir mostra uma associação de dados de entrada do Cosmos DB em um arquivo *function.json* e uma [função script C#](functions-reference-node.md) que usa a associação de dados. A função recupera vários documentos especificados por uma consulta SQL usando um gatilho de fila para personalizar os parâmetros de consulta.
 
-O gatilho de consulta fornece um parâmetro `departmentId`. Uma mensagem de consulta de `{ "departmentId" : "Finance" }` retornará todos os registros ao departamento financeiro. 
+O gatilho de consulta fornece um parâmetro `departmentId`. Uma mensagem de consulta de `{ "departmentId" : "Finance" }` retornará todos os registros ao departamento financeiro.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -1088,12 +1089,12 @@ A seção [configuração](#input---configuration) explica essas propriedades.
 Aqui está o código JavaScript:
 
 ```javascript
-    module.exports = function (context, input) {    
+    module.exports = function (context, input) {
         var documents = context.bindings.documents;
         for (var i = 0; i < documents.length; i++) {
             var document = documents[i];
             // operate on each document
-        }       
+        }
         context.done();
     };
 ```
@@ -1115,7 +1116,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "id" : "{queueTrigger}",
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "in"
 }
 ```
@@ -1152,7 +1153,7 @@ Para adicionar um arquivo do `project.json`, veja [Gerenciamento de pacotes do F
 
 Em [bibliotecas de classes de C#](functions-dotnet-class-library.md), utilize o atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs).
 
-O construtor do atributo toma o nome do banco de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [a seção de configuração a seguir](#input---configuration). 
+O construtor do atributo toma o nome do banco de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [a seção de configuração a seguir](#input---configuration).
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
@@ -1174,13 +1175,13 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="input---usage"></a>Entrada - uso
 
-Em funções C# e F#, todas as alterações feitas no documento de entrada por parâmetros de entrada nomeados são persistidas automaticamente. 
+Em funções C# e F#, todas as alterações feitas no documento de entrada por parâmetros de entrada nomeados são persistidas automaticamente.
 
 Funções de JavaScript, as atualizações não são feitas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para fazer atualizações. Consulte o [exemplo JavaScript](#input---javascript-examples).
 
 ## <a name="output"></a>Saída
 
-Com a associação de saída do Azure Cosmos DB, você pode gravar um novo documento para um banco de dados do Azure Cosmos DB usando a API de SQL. 
+Com a associação de saída do Azure Cosmos DB, você pode gravar um novo documento para um banco de dados do Azure Cosmos DB usando a API de SQL.
 
 ## <a name="output---examples"></a>Saída – exemplos
 
@@ -1328,7 +1329,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -1345,16 +1346,16 @@ Aqui está o código de script do C#:
 
     public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
     {
-      log.Info($"C# Queue trigger function processed: {myQueueItem}");
+        log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-      dynamic employee = JObject.Parse(myQueueItem);
+        dynamic employee = JObject.Parse(myQueueItem);
 
-      employeeDocument = new {
-        id = employee.name + "-" + employee.employeeId,
-        name = employee.name,
-        employeeId = employee.employeeId,
-        address = employee.address
-      };
+        employeeDocument = new {
+            id = employee.name + "-" + employee.employeeId,
+            name = employee.name,
+            employeeId = employee.employeeId,
+            address = employee.address
+        };
     }
 ```
 
@@ -1451,7 +1452,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -1463,7 +1464,7 @@ Aqui está o código JavaScript:
 ```javascript
     module.exports = function (context) {
 
-      context.bindings.employeeDocument = JSON.stringify({ 
+      context.bindings.employeeDocument = JSON.stringify({
         id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
         name: context.bindings.myQueueItem.name,
         employeeId: context.bindings.myQueueItem.employeeId,
@@ -1508,7 +1509,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "databaseName": "MyDatabase",
     "collectionName": "MyCollection",
     "createIfNotExists": true,
-    "connection": "MyAccount_COSMOSDB",     
+    "connection": "MyAccount_COSMOSDB",
     "direction": "out"
 }
 ```
@@ -1561,7 +1562,7 @@ Em [bibliotecas de classes de C#](functions-dotnet-class-library.md), utilize o 
 O construtor do atributo toma o nome do banco de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [Saída – configurações](#output---configuration). Aqui está um exemplo de atributo `DocumentDB` em uma assinatura de método:
 
 ```csharp
-    [FunctionName("QueueToDocDB")]        
+    [FunctionName("QueueToDocDB")]
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
         [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
@@ -1592,10 +1593,10 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="output---usage"></a>Saída - uso
 
-Por padrão, quando você grava no parâmetro de saída em sua função, um documento é criado no banco de dados. Este documento contém um GUID gerado automaticamente como a ID do documento. Você pode especificar a ID do documento de saída especificando a propriedade `id` no objeto JSON enviado ao parâmetro de saída. 
+Por padrão, quando você grava no parâmetro de saída em sua função, um documento é criado no banco de dados. Este documento contém um GUID gerado automaticamente como a ID do documento. Você pode especificar a ID do documento de saída especificando a propriedade `id` no objeto JSON enviado ao parâmetro de saída.
 
-> [!Note]  
-> Ao especificar a ID de um documento existente, ela é substituída pelo novo documento de saída. 
+> [!Note]
+> Ao especificar a ID de um documento existente, ela é substituída pelo novo documento de saída.
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 

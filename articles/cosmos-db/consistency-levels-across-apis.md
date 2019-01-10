@@ -1,19 +1,18 @@
 ---
 title: Níveis de consistência e APIs do Azure Cosmos DB
 description: Noções básicas dos níveis de coerência entre as APIs no Azure Cosmos DB.
-keywords: coerência, azure cosmos db, azure, modelos, mongodb, cassandra, grafo, tabela, Microsoft azure
-services: cosmos-db
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 277a064d93e2ebcea82f3909b3fd16328a775105
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 76ebbc8cc8dbea4b7f8f8226cf1d8570a421e8cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832455"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034328"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 

@@ -1,21 +1,18 @@
 ---
-title: 'Início rápido: criar um Banco de Dados do Azure para servidor MySQL – portal do Azure'
+title: 'Início Rápido: Criar um Banco de Dados do Azure para o servidor MySQL – portal do Azure'
 description: Este artigo o orienta a usar o portal do Azure para criar rapidamente um servidor de Banco de Dados do Azure para MySQL de exemplo em aproximadamente cinco minutos.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2018
-ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: aede3f432614023739d6967c6e76ff3aaf892cca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959215"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537793"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -48,7 +45,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor MySQL:
     Grupo de recursos | *myresourcegroup* | Forneça um novo nome de um grupo de recursos ou um existente.    Grupo de recursos|*myresourcegroup*| Um novo nome do grupo de recursos ou um existente de sua assinatura.
     Selecionar a origem | *Em branco* | Selecione *Em branco* para criar um novo servidor do zero. (Selecione *Backup* se você estiver criando um servidor de um backup de replicação geográfica de um Banco de Dados do Azure para servidor MySQL existente).
     Logon de administrador do servidor | myadmin | Uma conta de logon a ser usada ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superusuário**, **admin**, **administrador**, **raiz**, **convidado** ou **público**.
-    Senha | *Sua escolha* | Forneça uma nova senha para a conta do administrador do servidor. Ela deve conter de 8 a 128 caracteres. A senha deve conter caracteres de três das seguintes categorias: letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
+    Senha | *Sua escolha* | Forneça uma nova senha para a conta do administrador do servidor. Ela deve conter de 8 a 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar senha | *Sua escolha*| Confirme a senha da conta do administrador.
     Local padrão | *A região mais próxima de seus usuários*| Escolha o local mais próximo para os usuários ou para outros aplicativos do Azure.
     Versão | *A última versão principal*| A última versão principal (a menos que você tenha requisitos específicos que exijam uma outra versão).
@@ -140,7 +137,7 @@ Conectar-se ao seu servidor usando a ferramenta de linha de comando **mysql.exe*
     > [!TIP]
     > Se o firewall não está configurado para permitir o endereço IP do seu cliente, ocorre o seguinte erro:
     >
-    > ERRO 2003 (28000): o cliente com o endereço IP 123.456.789.0 não tem permissão para acessar o servidor.
+    > ERRO 2003 (28000): O cliente com o endereço IP 123.456.789.0 não tem permissão para acessar o servidor.
     >
     > Para resolver o erro, verifique se a configuração do servidor corresponde às etapas na seção “Configurar uma regra de firewall de nível de servidor” do artigo.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0d6a370884e6648aaf131892759ee45b29ed3693
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8b5b56e39e1b9830d5b998ace2a384d6878cd510
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001641"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041808"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup on-line e restauração de dados sob demanda no Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Com o Azure Cosmos DB, não apenas seus dados, mas também os backups de seus da
 
 Os backups são feitos sem afetar o desempenho ou a disponibilidade de seu aplicativo. O Azure Cosmos DB executa backup de dados em segundo plano sem consumir nenhuma taxa de transferência provisionada (RUs) adicional ou afetar o desempenho e a disponibilidade de seu banco de dados.
 
-O Azure Cosmos DB armazena backups automáticos no Armazenamento de Blobs do Azure, enquanto os dados reais residem localmente no Azure Cosmos DB. Para garantir a baixa latência, o instantâneo do backup é armazenado no armazenamento do Azure Blob na mesma região da região de gravação atual (ou em uma das regiões de gravação, se você tiver uma configuração de vários mestres) da conta de banco de dados do Cosmos DB. Para resiliência contra desastres regionais, cada captura instantânea dos dados de backup no armazenamento do Azure Blob é novamente replicada para outra região por meio de armazenamento geo-redundante (GRS). A região na qual o backup é replicado é baseada em sua região de origem e no par regional associado à região de origem. Para saber mais, confira a [lista de artigos de pares geo-redundantes de regiões do Azure](../best-practices-availability-paired-regions.md). Você não pode acessar esse backup diretamente. O Azure Cosmos DB usará esse backup somente se uma restauração de backup for iniciada.
+O Azure Cosmos DB armazena backups automáticos no Armazenamento de Blobs do Azure, enquanto os dados reais residem localmente no Azure Cosmos DB. Para garantir a baixa latência, o instantâneo do backup é armazenado no armazenamento do Azure Blob na mesma região da região de gravação atual (ou em uma das regiões de gravação, se você tiver uma configuração de vários mestres) da conta de banco de dados do Cosmos DB. Para resiliência contra desastres regionais, cada captura instantânea dos dados de backup no armazenamento do Azure Blob é novamente replicada para outra região por meio de armazenamento geo-redundante (GRS). A região na qual o backup é replicado é baseada em sua região de origem e no par regional associado à região de origem. Para saber mais, consulte a [lista de artigos de pares geo-redundantes de regiões do Azure](../best-practices-availability-paired-regions.md). Você não pode acessar esse backup diretamente. O Azure Cosmos DB usará esse backup somente se uma restauração de backup for iniciada.
 A imagem a seguir mostra como é feito o backup de um contêiner do Azure Cosmos com todas as três partições físicas primárias no oeste dos EUA em uma conta remota do Armazenamento de Blobs do Azure no oeste dos EUA e, em seguida, replicada para o leste dos EUA:
 
 ![Backups completos periódicos de todas as entidades do Cosmos DB no Armazenamento do Azure GRS](./media/online-backup-and-restore/automatic-backup.png)

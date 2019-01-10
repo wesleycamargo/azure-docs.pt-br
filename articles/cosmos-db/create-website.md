@@ -1,19 +1,17 @@
 ---
 title: Implantar um aplicativo Web com um modelo – Azure Cosmos DB
 description: Saiba como implantar uma conta do Azure Cosmos DB, Aplicativos Web do Serviço de Aplicativo do Azure e um aplicativo Web de exemplo usando um modelo do Azure Resource Manager.
-services: cosmos-db, app-service\web
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1a63de4642850e425cc785e0d89197178ceec1a6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076711"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041009"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implantar o Azure Cosmos DB e Aplicativos Web do Serviço de Aplicativo do Azure usando um modelo do Azure Resource Manager
 Este tutorial mostra como usar um modelo do Azure Resource Manager para implantar e integrar o [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), um aplicativo Web do [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e um aplicativo Web de exemplo.

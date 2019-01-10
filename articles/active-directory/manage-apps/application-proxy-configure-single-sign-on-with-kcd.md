@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 26b0bd3c6bec2427cd95deb05cc19c4dd3b22aa3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136232"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159529"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
 
@@ -66,13 +66,15 @@ A configuração do Active Directory varia, dependendo de se o conector do Proxy
 1. Para obter uma lista de pré-requisitos para trabalhar com o KCD entre domínios, consulte [Delegação restrita de Kerberos nos domínios](https://technet.microsoft.com/library/hh831477.aspx).
 2. Use a propriedade `principalsallowedtodelegateto` no servidor do conector para habilitar o Proxy do Aplicativo a delegar para o servidor do conector. O servidor de aplicativos é o `sharepointserviceaccount` e o servidor de delegação é o `connectormachineaccount`. Para o Windows 2012 R2, use esse código como um exemplo:
 
-        $connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
+```powershell
+$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
 
-        Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-        Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+```
 
-Sharepointserviceaccount pode ser a conta do computador do SPS ou uma conta de serviço sob a qual o pool de aplicativos do SPS está sendo executado.
+`sharepointserviceaccount` pode ser a conta do computador do SPS ou uma conta de serviço sob a qual o pool de aplicativos do SPS está sendo executado.
 
 ## <a name="configure-single-sign-on"></a>Configurar o logon único 
 1. Publique seu aplicativo seguindo as instruções descritas em [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-add-on-premises-application.md). Certifique-se de selecionar **Azure Active Directory** como o **Método de Pré-autenticação**.

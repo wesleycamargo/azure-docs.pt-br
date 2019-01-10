@@ -1,19 +1,18 @@
 ---
 title: Recurso TTL de cada documento do MongoDB no Azure Cosmos DB
 description: Saiba como definir o valor de vida útil de documentos usando a API do Azure Cosmos DB para MongoDB para limpá-los automaticamente do sistema após um período de tempo.
-services: cosmos-db
-author: rimman
-ms.author: rimman
+author: sivethe
+ms.author: sivethe
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: d7c811dba3ad9b894fd5dae47e898f51ec4d05e5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 1bfe79c502361e6cf9616c3ba61e781fb7ce92ac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790088"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54032849"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Expirar os dados com a API do Azure Cosmos DB para MongoDB
 

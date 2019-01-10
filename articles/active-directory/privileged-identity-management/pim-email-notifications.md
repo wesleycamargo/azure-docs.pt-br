@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/30/2018
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4bc963d09b9d01efdfad65b78ce9ce336798d375
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846888"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065334"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por email no PIM
 
@@ -43,16 +43,15 @@ O PIM envia emails quando os seguintes eventos ocorrem nas funções do Azure AD
 
 - Quando uma ativação de função com privilégios está com aprovação pendente
 - Quando uma solicitação de ativação de função com privilégios é concluída
-- Quando uma função com privilégios é atribuída como qualificada
 - Quando o Azure AD PIM é habilitado
 
 Quem recebe esses emails para as funções do Azure AD depende da função, do evento e da configuração de notificações:
 
-| Usuário | Ativação de função está pendente de aprovação | A solicitação de ativação de função está concluída | A função é atribuída como qualificada | O PIM está habilitado |
-| --- | --- | --- | --- | --- |
-| Administrador de função com privilégios</br>(Ativado/Qualificado) | SIM</br>(somente se nenhum aprovador explícito for especificado) | Sim* | SIM | SIM |
-| Administrador de segurança</br>(Ativado/Qualificado) | Não  | Sim* | SIM | SIM |
-| Administrador global</br>(Ativado/Qualificado) | Não  | Sim* | SIM | SIM |
+| Usuário | Ativação de função está pendente de aprovação | A solicitação de ativação de função está concluída | O PIM está habilitado |
+| --- | --- | --- | --- |
+| Administrador de função com privilégios</br>(Ativado/Qualificado) | SIM</br>(somente se nenhum aprovador explícito for especificado) | Sim* | SIM |
+| Administrador de segurança</br>(Ativado/Qualificado) | Não  | Sim* | SIM |
+| Administrador global</br>(Ativado/Qualificado) | Não  | Sim* | SIM |
 
 \*Se as [**configurações de** Notificações](pim-how-to-change-default-settings.md#notifications) estiver definida como **Habilitar**.
 

@@ -1,19 +1,17 @@
 ---
 title: Conectar ao Azure Cosmos DB usando ferramentas de análise de BI
 description: Saiba como usar o driver ODBC do Azure Cosmos DB para criar tabelas e exibições, de forma que os dados normalizados possam ser exibidos no software de BI e análise de dados.
-keywords: odbc, driver odbc
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: d1ea0a51d9637c1ca1dba214e969e6835dfb241c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136322"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034465"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conectar ao Azure Cosmos DB usando ferramentas de análise de BI com o driver ODBC
 

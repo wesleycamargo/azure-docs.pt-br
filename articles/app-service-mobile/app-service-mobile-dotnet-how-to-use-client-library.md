@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 30eb458b9d0584b467479163d8312d7bd5456be1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409727"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157321"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como usar o cliente gerenciado para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -520,7 +520,7 @@ Tabelas offline usam um armazenamento local do SQLite para armazenamento de dado
 1. No Visual Studio, clique com o botão direito do mouse na solução > **Gerenciar Pacotes NuGet para a Solução...**, procure e instale o pacote NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** para todos os projetos na solução.
 2. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de tempo de execução do SQLite:
 
-   * **Windows 8.1 Runtime:** Instalar [SQLite para Windows 8.1][3].
+   * **Tempo de Execução do Windows 8.1:** Instalar [SQLite para Windows 8.1][3].
    * **Windows Phone 8.1:** Instalar [SQLite para Windows Phone 8.1][4].
    * **Plataforma Universal do Windows**: instale o [SQLite para a Plataforma Universal do Windows][5].
 3. (Opcional). Para dispositivos Windows, clique com botão direito do mouse em **Referências** > **Adicionar Referência…**, expanda a pasta **Windows** > **Extensões**, habilite o SDK do **SQLite para Windows** apropriado junto com o SDK do **Tempo de Execução do Visual C++ 2013 para Windows**.
@@ -651,7 +651,7 @@ Veja exemplos para os seguintes padrões de autenticação de fluxo de cliente:
 Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para iniciar a autenticação do usuário a partir do cliente usando a autenticação do Azure Active Directory.
 
 1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de aplicativo para o logon do Active Directory] . Complete a etapa opcional de registrar um aplicativo cliente nativo.
-2. No Visual Studio ou Xamarin Studio, abra o projeto e adicione uma referência ao pacote NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory` . Ao pesquisar, inclua versões de pré-lançamento.
+2. No Visual Studio ou Xamarin Studio, abra o projeto e adicione uma referência ao pacote NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` . Ao pesquisar, inclua versões de pré-lançamento.
 3. Adicione o código a seguir ao seu aplicativo, de acordo com a plataforma que você está usando. Em cada um, faça as seguintes substituições:
 
    * Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário no qual o aplicativo foi provisionado. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Esse valor pode ser copiado da guia Domínio no seu Azure Active Directory no [portal do Azure].

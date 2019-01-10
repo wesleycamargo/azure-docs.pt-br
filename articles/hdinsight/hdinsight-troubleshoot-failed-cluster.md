@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410271"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994361"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Solucionar problemas de um cluster HDInsight lento ou falhando
 
@@ -88,7 +88,7 @@ Para abrir uma lista de modos de exibição do serviço, selecione **Modos de ex
 
 #### <a name="check-for-azure-service-outages"></a>Verificar interrupções de serviço do Azure
 
-O HDInsight depende de vários serviços do Azure. Ele executa servidores virtuais no Azure HDInsight, armazena dados e scripts no Armazenamento de Blobs do Azure ou no Azure DataLake Store, e indexa arquivos de log no Armazenamento de Tabelas do Azure. Interrupções nesses serviços, embora raros, podem causar problemas no HDInsight. Se você encontrar lentidão inesperada ou falhas no cluster, verifique o [Painel de Status do Azure](https://azure.microsoft.com/status/). O status de cada serviço é listado por região. Verifique a região do seu cluster e também regiões para todos os serviços relacionados.
+O HDInsight depende de vários serviços do Azure. Ele executa servidores virtuais no Azure HDInsight, armazena dados e scripts no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage, e indexa arquivos de log no Armazenamento de Tabelas do Azure. Interrupções nesses serviços, embora raros, podem causar problemas no HDInsight. Se você encontrar lentidão inesperada ou falhas no cluster, verifique o [Painel de Status do Azure](https://azure.microsoft.com/status/). O status de cada serviço é listado por região. Verifique a região do seu cluster e também regiões para todos os serviços relacionados.
 
 #### <a name="check-azure-service-usage-limits"></a>Verifique os limites de uso do serviço do Azure
 

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 72a24175b93057bf774810517f4d6c5e4b6c41eb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f2f50144e188a297468ac8ea8fc8891d2e4ec145
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183311"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106463"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Solução de problemas da extensão de VM de Log Analytics
 Este artigo fornece ajuda para solucionar erros que você pode encontrar com a extensão de VM do Log Analytics para máquinas virtuais Windows e Linux em execução no Microsoft Azure e sugere soluções possíveis para resolvê-los.
 
 Para verificar o status da extensão, execute as seguintes etapas no portal do Azure.
 
-1. Faça logon no [Portal do Azure](http://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **máquinas virtuais**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Máquinas virtuais**.
 3. Na lista de máquinas virtuais, localize e selecione-a.
 3. Na máquina virtual, clique em **Extensões**.

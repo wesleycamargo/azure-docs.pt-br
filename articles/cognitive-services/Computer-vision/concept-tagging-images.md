@@ -1,7 +1,7 @@
 ---
-title: Marcando imagens - Visão por Computador
+title: Aplicando as marcas de conteúdo para imagens – Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados à marcação de imagens usando a API do Computer Vision.
+description: Aprenda mais sobre conceitos relacionados ao recurso de marcação de imagem da API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960900"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582925"
 ---
-# <a name="tagging-images"></a>Marcar imagens
+# <a name="applying-content-tags-to-images"></a>Aplicando as marcas de conteúdo para imagens
 
 A Pesquisa Visual Computacional retorna marcas com base em milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando as marcações são ambíguas ou pertencem a um conhecimento não comum, a resposta da API fornece 'dicas' para esclarecer o significado da marcação no contexto de um cenário conhecido. As marcas não são organizadas como uma taxonomia e não existe nenhuma hierarquia de herança. Uma coleção de marcas de conteúdo constitui a base para uma 'description' de imagem exibida como uma linguagem legível por humanos formatada em frases completas. Observe que, no momento, para a descrição da imagem, o inglês é o único idioma compatível.
 
@@ -27,7 +28,7 @@ Depois de carregar uma imagem ou especificar um URL de imagem, os algoritmos de 
 
 A resposta JSON a seguir ilustra o que o Computer Vision retorna ao marcar recursos visuais detectados na imagem de exemplo.
 
-![House_Yard](./Images/house_yard.png).
+![Uma casa azul e o jardim da frente](./Images/house_yard.png).
 
 ```json
 {

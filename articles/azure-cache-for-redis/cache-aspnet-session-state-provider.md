@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: c9b843bfd448c05cb2b11165e54d19db0a7ad60e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a7f3e23cd74baa2e1fdef178be8c5b213a3905ef
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020984"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105280"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provedor de Estado de Sessão ASP.NET para o Cache do Azure para Redis
 O Cache do Azure para Redis fornece um provedor de estado de sessão que você pode usar para armazenar o estado de sessão na memória com o Cache do Azure para Redis em vez de um banco de dados do SQL Server. Para usar o provedor de estado de sessão de cache, primeiro configure o cache e, em seguida, configure o aplicativo ASP.NET para o cache usando o pacote NuGet de Estado de Sessão do Cache do Azure para Redis.
@@ -83,7 +83,7 @@ O pacote do NuGet baixa e adiciona as referências de assembly necessárias e ad
 
 A seção comentada fornece um exemplo dos atributos e as configurações de exemplos de cada atributo.
 
-Configure os atributos usando os valores da sua folha de cache no Portal do Microsoft Azure e defina os demais valores conforme sua preferência. Para obter instruções sobre como acessar as propriedades do cache, consulte [Definir configurações do Cache do Azure para Redis](cache-configure.md#configure-azure-cache-for-redis-settings).
+Configure os atributos usando os valores da sua folha de cache no Portal do Microsoft Azure e defina os demais valores conforme sua preferência. Para obter instruções sobre como acessar as propriedades do cache, consulte [Definir configurações do Cache Redis do Azure](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **host** – especifique o ponto de extremidade do seu cache.
 * **porta** – use sua porta SSL ou não SSL, dependendo das configurações de SSL.
@@ -127,7 +127,7 @@ Após a execução dessas etapas, o aplicativo será configurado para usar o Pro
 * Provedor de estado de sessão do SQL Server - Esse provedor armazena o Estado da sessão no SQL Server. Use esse provedor se quiser armazenar o estado da Sessão em um armazenamento persistente. Você pode dimensionar seu Aplicativo Web, mas o uso do Sql Server para sessão afeta o desempenho de seu Aplicativo Web. Você também pode usar este provedor com uma [Configuração de OLTP na memória](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) para ajudar a melhorar o desempenho.
 * Provedor de Estado de Sessão Distribuído na Memória, como o Provedor de Estado de Sessão do Cache do Azure para Redis - Esse provedor oferece o melhor dos dois mundos. Seu Aplicativo Web pode ter um Provedor de estado de sessão simples, rápido e escalonável. Como esse provedor armazena o Estado da sessão em um Cache, seu aplicativo precisa levar em consideração todas as características associadas ao conversar com um Cache distribuído na memória, por exemplo, falhas de rede temporárias. Para conhecer as práticas recomendadas sobre o uso do Cache, consulte [Orientação sobre cache](../best-practices-caching.md) da Microsoft Patterns & Practices [Orientação sobre design e implementação de aplicativo na nuvem do Azure](https://github.com/mspnp/azure-guidance).
 
-Para saber mais sobre o estado da sessão e outras práticas recomendadas, consulte [Práticas recomendadas para o desenvolvimento na Web (Criando aplicativos de nuvem reais com o Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+Para saber mais sobre o estado da sessão e outras práticas recomendadas, consulte [Práticas recomendadas para o desenvolvimento na Web (Criando aplicativos de nuvem reais com o Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira o [Provedor de Cache de Saída do ASP.NET para o Cache do Azure para Redis](cache-aspnet-output-cache-provider.md).

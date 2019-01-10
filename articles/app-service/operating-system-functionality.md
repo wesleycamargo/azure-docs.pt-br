@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb17748968d0875cae132730a02f490eab966690
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388125"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653502"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
 Este artigo descreve a funcionalidade do sistema operacional de linha de base comum disponível a todos os aplicativos Windows em execução no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Essa funcionalidade inclui acesso a arquivos, redes e registros, além de logs de diagnóstico e eventos. 
@@ -131,11 +131,5 @@ O acesso de gravação ao Registro está bloqueado, inclusive o acesso a chave d
 
 ## <a name="more-information"></a>Mais informações
 
-[Área restrita do Aplicativo Web do Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - As informações mais atualizadas sobre o ambiente de execução do Serviço de Aplicativo. Esta página é mantida diretamente pela equipe de desenvolvimento do Serviço de Aplicativo.
-
-> [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-> 
-> 
-
+[Área restrita do Serviço de Aplicativo do Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - As informações mais atualizadas sobre o ambiente de execução do Serviço de Aplicativo. Esta página é mantida diretamente pela equipe de desenvolvimento do Serviço de Aplicativo.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 33f8547721f499ed7b9a81088681fc2ade2d030c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 47abb191383bd1ec1000c9fd1e0803a7d900c9bf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723528"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117632"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
@@ -95,7 +95,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-log-analytics-data-is-organized"></a>Como os dados do Log Analytics são organizados
 Ao criar uma consulta, você começa determinando quais tabelas possuem os dados procurados. Diferentes tipos de dados são separados em tabelas dedicadas em cada [workspace do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).  A documentação das diferentes fontes de dados inclui o nome do tipo de dados que ela cria e uma descrição de cada uma de suas propriedades.  Muitas consultas somente requerem dados de uma única tabela, mas outras pessoas podem usar uma variedade de opções para incluir dados de várias tabelas.
 
-Embora o [Application Insights](../../application-insights/app-insights-overview.md) armazene dados de aplicativo, como solicitações, exceções, rastreamentos e uso no Log Analytics, esses dados são armazenados em uma partição diferente dos outros dados de log. Você usar a mesma linguagem de consulta para acessar esses dados, mas deve usar o [console do Application Insights](../../azure-monitor/app/analytics.md) ou [API REST do Application Insights](https://dev.applicationinsights.io/) para acessá-lo. Você pode usar [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md) para combinar dados do Application Insights com outros dados no Log Analytics.
+Embora o [Application Insights](../../azure-monitor/app/app-insights-overview.md) armazene dados de aplicativo, como solicitações, exceções, rastreamentos e uso no Log Analytics, esses dados são armazenados em uma partição diferente dos outros dados de log. Você usar a mesma linguagem de consulta para acessar esses dados, mas deve usar o [console do Application Insights](../../azure-monitor/app/analytics.md) ou [API REST do Application Insights](https://dev.applicationinsights.io/) para acessá-lo. Você pode usar [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md) para combinar dados do Application Insights com outros dados no Log Analytics.
 
 
 ![Tabelas](media/log-query-overview/queries-tables.png)

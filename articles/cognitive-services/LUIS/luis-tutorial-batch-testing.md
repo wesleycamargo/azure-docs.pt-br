@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c8d4486b235534db2bb7d06206d5767c1496fbd
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106032"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754383"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Tutorial 2: testar conjuntos de dados em lote
+# <a name="tutorial-batch-test-data-sets"></a>Tutorial: testar conjuntos de dados em lote
 
 Este tutorial demonstra como usar o teste em lotes para localizar problemas de previsão de enunciado em seu aplicativo e corrigi-los.  
 
@@ -36,7 +36,7 @@ Ao usar um aplicativo diferente deste tutorial, *não* use os enunciados de exem
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usar o aplicativo do tutorial existente
+> * Aplicativo de exemplo de importação
 > * Criar um arquivo de teste de lote 
 > * Executar um teste de lote
 > * Examinar resultados de teste
@@ -45,13 +45,13 @@ Ao usar um aplicativo diferente deste tutorial, *não* use os enunciados de exem
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usar o aplicativo existente
+## <a name="import-example-app"></a>Aplicativo de exemplo de importação
 
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
+Use as seguintes etapas:
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 
 2. Importe o JSON em um novo aplicativo.
 
@@ -61,7 +61,7 @@ Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seg
 
 ## <a name="batch-file"></a>Arquivo em lotes
 
-1. Crie `HumanResources-jobs-batch.json` em um editor de texto ou [baixe-o](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
+1. Crie `HumanResources-jobs-batch.json` em um editor de texto ou [baixe-o](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
 
 2. No arquivo em lotes em formato JSON, adicione enunciados com a **Intenção** que você quer que seja prevista no teste. 
 
@@ -177,7 +177,7 @@ Ao gravar e testar arquivos em lotes pela primeira vez, é melhor começar com a
 
 O valor de uma entidade **Trabalho**, fornecido nos enunciados de teste, geralmente é uma ou duas palavras, com alguns exemplos sendo mais palavras. Se o _próprio_ aplicativo de recursos humanos normalmente tiver nomes de trabalho com muitas palavras, os enunciados de exemplo rotulados com a entidade **Trabalho** nesse aplicativo não funcionarão bem.
 
-1. Crie `HumanResources-entities-batch.json` em um editor de texto, como o [VSCode](https://code.visualstudio.com/), ou [baixe-o](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
+1. Crie `HumanResources-entities-batch.json` em um editor de texto, como o [VSCode](https://code.visualstudio.com/), ou [baixe-o](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
 
 
 2. No arquivo em lotes em formato JSON, adicione uma matriz de objetos que inclua enunciados com a **Intenção** que você quer prever no teste, bem como os locais de quaisquer entidades no enunciado. Como uma entidade é baseada em token, certifique-se de iniciar e parar cada entidade em um caractere. Não inicie nem termine o enunciado em um espaço. Isso causa um erro durante a importação do arquivo em lotes.  

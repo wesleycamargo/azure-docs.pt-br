@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: fcb49f532d5dfcd340baf017bd55c69d4e81e0e6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945494"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630675"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Visão geral do SSL de ponta a ponta com um Gateway de Aplicativo
 
@@ -31,7 +31,7 @@ Neste exemplo, as solicitações que usam o TLS1.2 são roteadas para os servido
 O gateway de aplicativo se comunica somente com as instâncias de back-end conhecidas que têm o certificado na lista de exceções do gateway. Para habilitar a lista de exceções dos certificados, você precisa carregar a chave pública dos certificados do servidor de back-end no gateway de aplicativo (não no certificado-raiz). Somente as conexões com os back-ends conhecidos e na lista de exceções são permitidas. O back-ends restantes resultam em um erro de gateway. Os certificados autoassinados servem somente para teste e não são recomendados para cargas de trabalho de produção. Esses certificados devem estar na lista de exceções do gateway de aplicativo, conforme descrito nas etapas acima, antes de poder ser usados.
 
 > [!NOTE]
-> A configuração do certificado de autenticação não é necessária para serviços do Azure confiáveis, como aplicativos Web do Azure.
+> A configuração do certificado de autenticação não é necessária para serviços do Azure confiáveis, como aplicativos Serviço de Aplicativo do Azure.
 
 ## <a name="end-to-end-ssl-with-the-v2-sku"></a>SSL de ponta a ponta com a v2 do SKU
 
@@ -39,7 +39,7 @@ Os Certificados de Autenticação foram reprovados e substituídos por Certifica
 
 - Os certificados assinados por autoridades de certificação conhecidas cujo CN corresponde ao nome do host nas configurações de back-end de HTTP não exigem etapas adicionais para que o SSL de ponta a ponta funcione. 
 
-   Por exemplo, se os certificados de back-end forem emitidos por uma autoridade de certificação bem conhecida e tiverem um CN da contoso.com, e o campo de host da configuração http de back-end também estiver definido como contoso.com, nenhuma etapa adicional será necessária. Você pode definir o protocolo de configuração http de back-end como HTTPS e, tanto a investigação de integridade quanto o caminho de dados, serão habilitados para SSL. Se você estiver usando aplicativos Web do Azure ou outros serviços Web do Azure como seu back-end, eles também serão implicitamente confiáveis e nenhuma etapa adicional será necessária para o SSL de ponta a ponta.
+   Por exemplo, se os certificados de back-end forem emitidos por uma autoridade de certificação bem conhecida e tiverem um CN da contoso.com, e o campo de host da configuração http de back-end também estiver definido como contoso.com, nenhuma etapa adicional será necessária. Você pode definir o protocolo de configuração http de back-end como HTTPS e, tanto a investigação de integridade quanto o caminho de dados, serão habilitados para SSL. Se você estiver usando o Serviço de Aplicativo do Azure ou outros serviços Web do Azure como seu back-end, eles também serão implicitamente confiáveis e nenhuma etapa adicional será necessária para o SSL de ponta a ponta.
 - Se o certificado for autoassinado ou assinado por intermediários desconhecidos, para ativar o SSL de ponta a ponta na SKU v2, um certificado raiz confiável deverá ser definido. O Gateway de Aplicativo só se comunicará com back-ends cujo certificado raiz do certificado do servidor corresponda a um da lista de certificados raiz confiáveis na configuração http de back-end associada ao pool.
 - Além da correspondência do certificado raiz, o Gateway de Aplicativo também validará se a configuração do Host especificada na configuração http de back-end corresponde à configuração do nome comum (CN) apresentado pelo certificado SSL do servidor de back-end. Ao tentar estabelecer uma conexão SSL com o back-end, o Gateway de Aplicativo definirá a extensão de Indicação de Nome de Servidor (SNI) para o Host especificado na configuração http de back-end.
 - Se **escolher o nome do host do endereço de back-end** for escolhido em vez do campo Host na configuração http de back-end, o cabeçalho SNI será sempre definido como o FQDN do pool de back-end e o CN no certificado SSL do servidor de back-end deverá corresponder ao FQDN. Os membros do pool de back-end com IPs não têm suporte neste cenário.

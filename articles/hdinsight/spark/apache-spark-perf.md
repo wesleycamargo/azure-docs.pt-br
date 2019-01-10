@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499137"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653723"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Otimizar trabalhos do Apache Spark
 
@@ -27,41 +27,41 @@ As seções a seguir descrevem as recomendações e otimizações de trabalho do
 Spark 1.x usa RDDs para abstrair dados e, em seguida, o Spark 2.x introduziu DataFrames e Conjuntos de Dados. Considere os seguintes méritos relativos:
 
 * **DataFrames**
-    * Melhor escolha na maioria das situações
-    * Fornece otimização de consulta através do Catalyst
-    * Geração de código em estágio inteiro
-    * Acesso direto à memória
-    * Baixa sobrecarga de coleta de lixo (GC)
-    * Não é tão amigável para desenvolvedores como os Conjuntos de Dados, pois não há verificações de tempo de compilação ou programação de objeto de domínio
+    * Melhor escolha na maioria das situações.
+    * Fornece otimização de consulta através do Catalyst.
+    * Geração de código em estágio inteiro.
+    * Acesso direto à memória.
+    * Baixa sobrecarga de coleta de lixo (GC).
+    * Não é tão amigável para desenvolvedores como os Conjuntos de Dados, pois não há verificações de tempo de compilação ou programação de objeto de domínio.
 * **Conjuntos de Dados**
-    * Bom em pipelines ETL complexos, onde o impacto no desempenho é aceitável
-    * Não é bom em agregações onde o impacto no desempenho pode ser considerável
-    * Fornece otimização de consulta através do Catalyst
-    * Amigável para o desenvolvedor ao fornecer programação de objeto de domínio e verificações de tempo de compilação
-    * Adicionar sobrecarga de serialização/desserialização
-    * Alta sobrecarga de GC
-    * Interrompe a geração de código em estágio inteiro
+    * Bom em pipelines ETL complexos, onde o impacto no desempenho é aceitável.
+    * Não é bom em agregações onde o impacto no desempenho pode ser considerável.
+    * Fornece otimização de consulta através do Catalyst.
+    * Amigável para o desenvolvedor ao fornecer programação de objeto de domínio e verificações de tempo de compilação.
+    * Adicionar sobrecarga de serialização/desserialização.
+    * Alta sobrecarga de GC.
+    * Interrompe a geração de código em estágio inteiro.
 * **RDDs**
-    * No Spark 2.x, não é necessário usar RDDs, a menos que você precise criar um novo RDD personalizado
-    * Nenhuma otimização de consulta através do Catalyst
-    * Nenhuma geração de código em estágio inteiro
-    * Alta sobrecarga de GC
-    * Deve usar as API herdadas do Spark 1.x
+    * No Spark 2.x, não é necessário usar RDDs, a menos que você precise criar um novo RDD personalizado.
+    * Nenhuma otimização de consulta através do Catalyst.
+    * Nenhuma geração de código em estágio inteiro.
+    * Alta sobrecarga de GC.
+    * Deve usar as API herdadas do Spark 1.x.
 
 ## <a name="use-optimal-data-format"></a>Usar o formato de dados ideal
 
-O Spark fornece suporte a muitos formatos, como csv, json, xml, parquet, orc e avro. O Spark pode ser estendido para fornecer suporte a muitos outros formatos com fontes de dados externos - para obter mais informações, consulte [Pacotes do Spark](https://spark-packages.org).
+O Spark fornece suporte a muitos formatos, como csv, json, xml, parquet, orc e avro. O Spark pode ser estendido para fornecer suporte a muitos outros formatos com fontes de dados externos - para obter mais informações, consulte [Pacotes do Apache Spark](https://spark-packages.org).
 
 O melhor formato para desempenho é parquet com *compactação snappy*, que é o padrão no Spark 2.x. O parquet armazena dados em formato colunar e é altamente otimizado no Spark.
 
 ## <a name="select-default-storage"></a>Selecionar o armazenamento padrão
 
-Ao criar um novo cluster Spark, você terá a opção de selecionar Armazenamento de Blobs do Azure ou Azure Data Lake Store como o armazenamento padrão do seu cluster. Ambas as opções oferecem o benefício do armazenamento em longo prazo para clusters transitórios para que seus dados não sejam excluídos automaticamente quando você excluir o cluster. É possível recriar um cluster transitório e ainda acessar seus dados.
+Ao criar um novo cluster Spark, você terá a opção de selecionar Armazenamento de Blobs do Azure ou Azure Data Lake Storage como o armazenamento padrão do seu cluster. Ambas as opções oferecem o benefício do armazenamento em longo prazo para clusters transitórios para que seus dados não sejam excluídos automaticamente quando você excluir o cluster. É possível recriar um cluster transitório e ainda acessar seus dados.
 
 | Tipo de Armazenamento | Sistema de Arquivos | Velocidade | Transitório | Casos de uso |
 | --- | --- | --- | --- | --- |
 | Armazenamento do Blobs do Azure | **wasb:**//url/ | **Standard** | SIM | Cluster transitório |
-| Repositório Azure Data Lake | **adl:**//url/ | **Mais rápido** | SIM | Cluster transitório |
+| Armazenamento do Azure Data Lake | **adl:**//url/ | **Mais rápido** | SIM | Cluster transitório |
 | HDFS local | **hdfs:**//url/ | **Mais rápida** | Não  | Cluster interativo 24/7 |
 
 ## <a name="use-the-cache"></a>Usar o cache
@@ -73,7 +73,7 @@ O Spark fornece os próprios mecanismos de cache nativo que podem ser utilizados
     * Não funciona com particionamento, o que pode mudar em futuras versões do Spark.
 
 * Cache de nível de armazenamento (recomendado)
-    * Pode ser implementado usando [Alluxio](http://www.alluxio.org/).
+    * Pode ser implementado usando [Alluxio](https://www.alluxio.org/).
     * Usa cache SSD e em memória.
 
 * HDFS local (recomendado)
@@ -119,9 +119,9 @@ O bucketing é semelhante ao particionamento de dados, mas cada bucket pode cont
 
 Alguns recursos de bucket avançados são:
 
-* Otimização de consulta baseada em informações meta de bucket
-* Agregações otimizadas
-* Junções otimizadas
+* Otimização de consulta baseada em informações meta de bucket.
+* Agregações otimizadas.
+* Junções otimizadas.
 
 É possível utilizar particionamento e bucket ao mesmo tempo.
 
@@ -175,8 +175,8 @@ Ao decidir a configuração de executor, considere a sobrecarga de coleta de lix
     1. Reduzir a sobrecarga de comunicação entre os executores.
     2. Reduzir o número de conexões abertas entre executores (N2) em clusters maiores (> 100 executores).
     3. Aumentar o tamanho do heap para acomodar tarefas intensivas de memória.
-    4. Opcional: reduzir a sobrecarga da memória por executor.
-    5. Opcional: aumentar a utilização e a simultaneidade ao sobrecarregar a CPU.
+    4. Opcional: Reduzir a sobrecarga da memória por executor.
+    5. Opcional: Aumentar a utilização e a simultaneidade ao sobrecarregar a CPU.
 
 Como regra geral, ao selecionar o tamanho do executor:
     
@@ -202,7 +202,7 @@ Monitore o desempenho da consulta para verificar exceções ou outros problemas 
 Monitore regularmente os trabalhos em execução verificar se há problemas de desempenho. Se precisar de mais informações sobre certos problemas, considere uma das seguintes ferramentas de criação de perfil de desempenho:
 
 * [Ferramenta Intel PAL](https://github.com/intel-hadoop/PAT) monitora a CPU, o armazenamento e a utilização da largura de banda da rede.
-* Perfis de [Controle de Missão Oracle Java 8](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) do Spark e código de executor.
+* Perfis de [Controle de Missão Oracle Java 8](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) do Spark e código de executor.
 
 A chave para desempenho de consultas do Spark 2.x é o mecanismo Tungsten, que depende da geração de código de estágio inteiro. Em alguns casos, a geração de código de estágio inteiro pode ser desabilitada. Por exemplo, se você utilizar um tipo não mutável (`string`) na expressão de agregação, `SortAggregate` aparecerá em vez de `HashAggregate`. Por exemplo, para um melhor desempenho, tente o seguinte e, em seguida, habilite novamente a geração de código:
 

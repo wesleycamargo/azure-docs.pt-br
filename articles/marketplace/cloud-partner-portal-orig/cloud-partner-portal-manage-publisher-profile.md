@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c73c846db4b22d8c19ccdaa2ec99a3fe7fdadf78
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832676"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076698"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gerenciar perfil do editor 'Azure Marketplace' e 'AppSource'
 
@@ -51,6 +51,6 @@ Primeiro faça logon no portal com o mesmo endereço de email usado para registr
 >[!NOTE]
 >O registro da Conta do Centro de Desenvolvimento é obrigatório para a publicação de SKUs de mercado pago.
 
-Se você não tiver uma [Conta da Central do desenvolvedor](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md), poderá criar uma conta. Em seguida, adicione o endereço de e-mail registrado como proprietário no Portal do Microsoft Cloud Partner para sua oferta. Um proprietário só pode adicionar o endereço de email registrado ao seu perfil de publicação na seção **Usuário**. Em seguida, entre no portal usando o mesmo endereço de email e vincular sua conta do Centro de desenvolvimento.
+Se você não tiver uma [Conta da Central do desenvolvedor](./cloud-partner-portal-dev-center-accounts-registration.md), poderá criar uma conta. Em seguida, adicione o endereço de e-mail registrado como proprietário no Portal do Microsoft Cloud Partner para sua oferta. Um proprietário só pode adicionar o endereço de email registrado ao seu perfil de publicação na seção **Usuário**. Em seguida, entre no portal usando o mesmo endereço de email e vincular sua conta do Centro de desenvolvimento.
 
 ![Detalhes do perfil do Editor - descrição do perfil de publicador](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)

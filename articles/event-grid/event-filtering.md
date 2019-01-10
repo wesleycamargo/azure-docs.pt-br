@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 973b5d3f40968790dc6153ae91d1638cb83202ee
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 77225c4d659755ec6de1a14bf67bd0a62659fb6a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384370"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753856"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
 
@@ -141,6 +141,7 @@ No entanto, o MakeCert tem as seguintes limitações:
 * 512 caracteres por valor de cadeia de caracteres
 * Cinco valores para **em** e **não está nos** operadores
 * A chave só pode ter um nível de aninhamento (como data.key1)
+* Esquemas de evento personalizados podem ser filtrados somente em campos de nível superior
 
 A mesma chave pode ser usada em mais de um filtro.
 

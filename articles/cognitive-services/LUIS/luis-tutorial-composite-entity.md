@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18a32f5e07470f71ba276fbe3a2633150b1bf188
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079204"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754657"
 ---
-# <a name="tutorial-6-group-and-extract-related-data"></a>Tutorial 6: Agrupar e extrair dados relacionados
+# <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupar e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contida. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
 
 A finalidade da entidade composta é agrupar entidades relacionadas em uma entidade de categoria pai. As informações existem como entidades separadas antes da criação de uma composição. É semelhante à entidade hierárquica, mas pode conter diferentes tipos de entidades. 
@@ -33,7 +33,8 @@ A entidade composta é uma boa opção para esse tipo de dados, porque os dados:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usar o aplicativo do tutorial existente
+> * Importar o aplicativo de exemplo
+> * Criar a intenção
 > * Adicionar entidade composta 
 > * Treinar
 > * Publicar
@@ -41,286 +42,139 @@ A entidade composta é uma boa opção para esse tipo de dados, porque os dados:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usar o aplicativo existente
-Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
+## <a name="import-example-app"></a>Importar o aplicativo de exemplo
 
-Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
-
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  Faça o download e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) da lista de entidades do tutorial.
 
 2. Importe o JSON em um novo aplicativo.
 
 3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `composite`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
-
 ## <a name="composite-entity"></a>Entidade composta
-Crie uma entidade composta, quando as entidades separadas puderem ser logicamente agrupadas e esse agrupamento lógico for útil para o aplicativo cliente. 
 
-Neste aplicativo, o nome do funcionário é definido na entidade de lista **Funcionário** e inclui sinônimos de nome, endereço de email, ramal de telefone da empresa, número de celular e EUA. ID de imposto federal. 
+Neste aplicativo, o nome do departamento é definido na lista de entidades **Departamento** e inclui sinônimos. 
 
-A intenção **MoveEmployee** tem exemplos de enunciados para solicitar que um funcionário seja transferido de um prédio e escritório para outro. A criação de nomes é alfabética: "A", "B", etc. Escritórios são numéricos: "1234", "13245". 
+A intenção **TransferEmployeeToDepartment** tem declarações de enunciados para solicitar um funcionário ser movido para outro departamento. 
 
-Exemplo de enunciados na intenção de **MoveEmployee** incluem:
+As declarações de enunciados para essa intenção incluem:
 
 |Exemplo de enunciados|
 |--|
-|Transferir João W . Silva para a-2345|
-|desloca x12345 para h-1234 amanhã|
+|mover John W. Smith para o departamento de contabilidade|
+|transferir Jill Jones para R&D|
  
-A solicitação de transferência deve incluir o funcionário (usando qualquer sinônimo) e a localização final do prédio e do escritório. A solicitação também pode incluir o escritório de origem, bem como uma data em que a transferência deverá acontecer. 
+A solicitação de movimentação deve incluir o nome do departamento e o nome do funcionário. 
 
-Os dados extraídos do ponto de extremidade devem conter essas informações e retorná-las em uma entidade composta `RequestEmployeeMove`:
+## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Adicionar as entidades predefinidas PersonName para ajudar com a extração de tipo de dados comuns
 
-```json
-"compositeEntities": [
-  {
-    "parentType": "RequestEmployeeMove",
-    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-    "children": [
-      {
-        "type": "builtin.datetimeV2.datetime",
-        "value": "march 3 2 p.m"
-      },
-      {
-        "type": "Locations::Destination",
-        "value": "z - 2345"
-      },
-      {
-        "type": "Employee",
-        "value": "jill jones"
-      },
-      {
-        "type": "Locations::Origin",
-        "value": "a - 1234"
-      }
-    ]
-  }
-]
-```
+O LUIS fornece várias entidades predefinidas para extração de dados comuns. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Selecione **Construir** no painel de navegação superior e, em seguida, selecione **Entidades** na barra de navegação esquerda.
 
-2. Na página **Intenções**, selecione **MoveEmployee**. 
+1. Selecione o botão **Gerenciar entidade pré-criada**.
 
-3. Selecione o ícone de lupa na barra de ferramentas para filtrar a lista de enunciados. 
+1. Selecione **[PersonName](luis-reference-prebuilt-person.md)** na lista de entidades predefinidas, e selecione **Concluído**.
 
-    [![Captura de tela do LUIS na intenção 'MoveEmployee' com o botão de lupa realçado](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Captura de tela do LUIS na intenção 'MoveEmployee' com o botão de lupa realçado")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    ![Captura de tela do número selecionado no diálogo de entidades predefinidas](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
-4. Insira `tomorrow` na caixa de texto do filtro para localizar o enunciado `shift x12345 to h-1234 tomorrow`.
+    Essa entidade ajuda a adicionar o reconhecimento de nome para o aplicativo do seu cliente.
 
-    [![Captura de tela do LUIS na intenção 'MoveEmployee' com o filtro 'tomorrow' realçado](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Captura de tela do LUIS na intenção 'MoveEmployee' com o filtro 'tomorrow' realçado")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+## <a name="create-composite-entity-from-example-utterances"></a>Criar entidades compostas por exemplos de enunciados
 
-    Outro método é filtrar a entidade por datetimeV2, selecionando **Filtros de entidades** e, em seguida, selecionando **datetimeV2** na lista. 
+1. Selecione **Intenções** no painel de navegação esquerdo.
 
-5. Selecione a primeira entidade, `Employee` e, em seguida, selecione **Encapsular em entidade composta** na lista do menu pop-up. 
+1. Selecione **TransferEmployeeToDepartment** da lista de intenções.
 
-    [![Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+1. No primeiro enunciado, selecione a entidade personName `John Jackson`e, em seguida, selecione **Iniciar a quebra automática de entidade composta** na lista de menu pop-up para o enunciado a seguir:
 
+    `place John Jackson in engineering`
 
-6. Em seguida, selecione imediatamente a última entidade, `datetimeV2` no enunciado. Uma barra verde é desenhada sob as palavras selecionadas, indicando uma entidade composta. No menu pop-up, insira o nome composto `RequestEmployeeMove` e, em seguida, selecione enter. 
+1. Em seguida, selecione imediatamente a última entidade, `engineering` no enunciado. Uma barra verde é desenhada sob as palavras selecionadas, indicando uma entidade composta. No menu pop-up, insira o nome composto `TransferEmployeeInfo` e, em seguida, selecione enter. 
 
-    [![Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição e criando a entidade realçada](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição e criando a entidade realçada")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+1. Em **Que tipo de entidade você quer criar?**, quase todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Concluído**. 
 
-7. Em **Que tipo de entidade você quer criar?**, quase todos os campos necessários estão na lista. Apenas o local de origem está ausente. Selecione **Adicionar uma entidade filho**, selecione **Locations::Origin** na lista de entidades existentes, em seguida, selecione **Concluído**. 
-
-    Observe que a entidade predefinida, número, foi adicionada à entidade composta. Se você pudesse fazer uma entidade predefinida ser exibida entre os tokens de início e fim de uma entidade composta, ela deveria conter essas entidades predefinidas. Se as entidades predefinidas não forem incluídas, a entidade composta não será prevista corretamente, mas, sim, cada elemento individual.
-
-    ![Captura de tela do LUIS na intenção 'MoveEmployee' adicionando outra entidade na janela pop-up](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
-
-8. Selecione a lupa na barra de ferramentas para remover o filtro. 
-
-9. Remova a palavra `tomorrow` do filtro para poder ver todos os enunciados de exemplo novamente. 
+    Observe que a entidade predefinida, personName, foi adicionada à entidade composta. Se você pudesse fazer uma entidade predefinida ser exibida entre os tokens de início e fim de uma entidade composta, ela deveria conter essas entidades predefinidas. Se as entidades predefinidas não forem incluídas, a entidade composta não será prevista corretamente, mas, sim, cada elemento individual.
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Declarações de exemplo de rótulo com entidade composta
 
 
 1. Em cada enunciado de exemplo, selecione a entidade mais à esquerda que deveria estar na composição. Em seguida, selecione **Encapsular em entidade composta**.
 
-    [![Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+1. Selecione a última palavra na entidade composta e, em seguida, selecione **TransferEmployeeInfo** no menu pop-up. 
 
-2. Selecione a última palavra na entidade composta e, em seguida, selecione **RequestEmployeeMove** no menu pop-up. 
+1. Verifique se todos os enunciados na intenção estão rotulados com a entidade composta. 
 
-    [![Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição realçada](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
-
-3. Verifique se todos os enunciados na intenção estão rotulados com a entidade composta. 
-
-    [![Captura de tela do LUIS em 'MoveEmployee' com todas as declarações rotuladas](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Captura de tela do LUIS em 'MoveEmployee' com todas as declarações rotuladas")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
-
-## <a name="train"></a>Treinar
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Faça o treinamento do aplicativo para que as alterações na intenção possam ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publicar
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar o aplicativo para que o modelo em que foi feito o treinamento possa ser consultado por meio do ponto de extremidade
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e as entidades do ponto de extremidade 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter a previsão de intenção e de entidade do ponto de extremidade 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vá até o final da URL no endereço e insira `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. O último parâmetro querystring é `q`, a consulta da declaração. 
+2. Vá até o final da URL no endereço e insira `Move Jill Jones to DevOps`. O último parâmetro querystring é `q`, a consulta da declaração. 
 
     Esse teste é para verificar se a composição é extraída corretamente, e um teste poderá incluir um enunciado de exemplo existente ou um novo enunciado. Um bom teste é incluir todas as entidades filho na entidade composta.
 
     ```json
     {
-      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "query": "Move Jill Jones to DevOps",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9959525
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9882747
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9959525
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.009858314
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00728598563
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.0058053555
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.005371796
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00266987388
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9882747
         },
         {
           "intent": "None",
-          "score": 0.00123299169
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00116407464
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00102653319
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0006628214
+          "score": 0.00925369747
         }
       ],
       "entities": [
         {
-          "entity": "march 3 2 p.m",
-          "type": "builtin.datetimeV2.datetime",
-          "startIndex": 41,
-          "endIndex": 54,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2018-03-03 14:00:00"
-              },
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2019-03-03 14:00:00"
-              }
-            ]
-          }
-        },
-        {
           "entity": "jill jones",
-          "type": "Employee",
+          "type": "builtin.personName",
           "startIndex": 5,
-          "endIndex": 14,
+          "endIndex": 14
+        },
+        {
+          "entity": "devops",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 24,
           "resolution": {
             "values": [
-              "Employee-45612"
+              "Development Operations"
             ]
           }
         },
         {
-          "entity": "z - 2345",
-          "type": "Locations::Destination",
-          "startIndex": 31,
-          "endIndex": 36,
-          "score": 0.9690751
-        },
-        {
-          "entity": "a - 1234",
-          "type": "Locations::Origin",
-          "startIndex": 21,
-          "endIndex": 26,
-          "score": 0.9713137
-        },
-        {
-          "entity": "-1234",
-          "type": "builtin.number",
-          "startIndex": 22,
-          "endIndex": 26,
-          "resolution": {
-            "value": "-1234"
-          }
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 32,
-          "endIndex": 36,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 47,
-          "endIndex": 47,
-          "resolution": {
-            "value": "3"
-          }
-        },
-        {
-          "entity": "2",
-          "type": "builtin.number",
-          "startIndex": 50,
-          "endIndex": 50,
-          "resolution": {
-            "value": "2"
-          }
-        },
-        {
-          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "RequestEmployeeMove",
+          "entity": "jill jones to devops",
+          "type": "TransferEmployeeInfo",
           "startIndex": 5,
-          "endIndex": 54,
-          "score": 0.4027723
+          "endIndex": 24,
+          "score": 0.9607566
         }
       ],
       "compositeEntities": [
         {
-          "parentType": "RequestEmployeeMove",
-          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "parentType": "TransferEmployeeInfo",
+          "value": "jill jones to devops",
           "children": [
             {
-              "type": "builtin.datetimeV2.datetime",
-              "value": "march 3 2 p.m"
-            },
-            {
-              "type": "Locations::Destination",
-              "value": "z - 2345"
-            },
-            {
-              "type": "Employee",
+              "type": "builtin.personName",
               "value": "jill jones"
             },
             {
-              "type": "Locations::Origin",
-              "value": "a - 1234"
+              "type": "Department",
+              "value": "devops"
             }
           ]
         }
@@ -333,6 +187,15 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>Informações relacionadas
+
+* [Tutorial de entidade de lista](luis-quickstart-intents-only.md)
+* Informações conceituais de [entidade de composição](luis-concept-entity-types.md)
+* [Como treinar](luis-how-to-train.md)
+* [Como publicar](luis-how-to-publish-app.md)
+* [Como testar no portal do LUIS](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 47c6ee9c30e183b9991d1b670e96e937ade19d5f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ff9d51a96335af110aa0377c7db57ae665c44893
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838507"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970518"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico SAML em uma política personalizada do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure AD (Azure Active Directory) B2C dá suporte para o provedor de identidade do SAML 2.0. Este artigo descreve as especificações de um perfil técnico para interagir com um provedor de declarações compatível com esse protocolo padronizado. Com o perfil técnico de SAML, você pode federar com um provedor de identidade baseado em SAML, como [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) e [Salesforce](active-directory-b2c-setup-sf-app-custom.md), permitindo que seus usuários façam login com suas identidades sociais ou corporativas existentes.
+O Azure AD (Azure Active Directory) B2C dá suporte para o provedor de identidade do SAML 2.0. Este artigo descreve as especificações de um perfil técnico para interagir com um provedor de declarações compatível com esse protocolo padronizado. Com um perfil de técnico SAML, pode-se federar com um provedor de identidade baseado em SAML,como o [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) e o [Salesforce](active-directory-b2c-setup-sf-app-custom.md). Essa federação permite que usuários entrem com suas redes sociais existentes ou identidades corporativas.
 
 ## <a name="metadata-exchange"></a>Troca de metadados
 
@@ -50,7 +50,7 @@ Para criar uma relação de confiança entre o Azure AD B2C e o seu provedor de 
 O certificado é usado dos seguintes modos:
 
 - O Azure AD B2C gera e assina uma solicitação SAML, usando a chave privada do Azure AD B2C do certificado. A solicitação SAML é enviada ao provedor de identidade, que valida a solicitação usando a chave pública do Azure AD B2C do certificado. O certificado público do Azure AD B2C é acessível por meio de metadados do perfil técnico. Como alternativa, você pode fazer upload manualmente do arquivo .cer para seu provedor de identidade SAML.
-- O provedor de identidade assina os dados enviados para o Azure AD B2C usando a chave privada do provedor de identidade do certificado. O Azure AD B2C valida os dados usando o certificado público do provedor de identidade. Cada provedor de identidade tem diferentes etapas para a configuração. Confira a documentação dos seus provedores de identidade para obter orientação sobre como fazer isso. No Azure AD B2C, sua política precisa acessar a chave pública do certificado usando metadados do provedor de identidade.
+- O provedor de identidade assina os dados enviados para o Azure AD B2C usando a chave privada do provedor de identidade do certificado. O Azure AD B2C valida os dados usando o certificado público do provedor de identidade. Cada provedor de identidade tem diferentes etapas para a configuração. Confira a documentação dos seu provedor de identidade para obter orientação sobre como fazer isso. No Azure AD B2C, sua política precisa acessar a chave pública do certificado usando metadados do provedor de identidade.
 
 Um certificado autoassinado é aceitável para a maioria dos cenários. Para ambientes de produção, é recomendável usar um certificado X509 emitido por uma autoridade de certificação. Além disso, conforme descrito posteriormente neste documento, para um ambiente de não produção é possível desabilitar a assinatura do SAML em ambos os lados.
 
@@ -101,17 +101,55 @@ Considere os seguintes requisitos de política ao criar um fluxo iniciado pelo p
 
 O atributo **Name** do elemento Protocol precisa ser definido como `SAML2`. 
 
+## <a name="output-claims"></a>Declarações de saída
+ 
+O elemento **OutputClaims** contém uma lista de declarações retornadas pelo provedor de identidade SAML na seção `AttributeStatement`. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no provedor de identidade. Você também pode incluir declarações que não são retornadas pelo provedor de identidade, desde que você defina o atributo `DefaultValue`.
+ 
+Para ler a declaração SAML **NamedId** no **Assunto** como uma declaração normalizada, defina a declaração **PartnerClaimType** em `assertionSubjectName`. Verifique se o **NameId** é o primeiro valor na declaração XML. Quando definir mais de uma asserção, o Azure AD B2C escolherá o valor do assunto da última declaração.
+ 
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
+ 
+O exemplo a seguir mostra as declarações retornadas pelo provedor de identidade do Facebook:
+
+- A declaração **socialIdpUserId** é mapeada para a declaração **assertionSubjectName**.
+- A declaração **first_name** é mapeada para a declaração **givenName**.
+- A declaração **last_name** é mapeada para a declaração **surname**.
+- A declaração **displayName** sem mapeamento de nome.
+- A declaração **email** sem mapeamento de nome.
+ 
+O perfil técnico também retorna declarações que não são retornadas pelo provedor de identidade: 
+ 
+- A declaração **identityProvider** que contém o nome do provedor de identidade.
+- A declaração **authenticationSource** com um valor padrão de **socialIdpAuthentication**.
+ 
+```xml
+<OutputClaims>
+  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="assertionSubjectName" />
+  <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
+  <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
+  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+  <OutputClaim ClaimTypeReferenceId="email"  />
+  <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="contoso.com" />
+  <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+</OutputClaims>
+```
+
 ## <a name="metadata"></a>Metadados
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | PartnerEntity | SIM | URL dos metadados do provedor de identidade SAML. Copie os metadados do provedor de identidade e adicione-o dentro do elemento CDATA `<![CDATA[Your IDP metadata]]>` |
-| WantsSignedRequests | Não  | Indica se o perfil técnico requer que todas as solicitações de autenticação de saída sejam assinadas. Valores possíveis: `true` ou `false`. O valor padrão é `true`. Quando o valor é definido como `true`, a chave de criptografia **SamlMessageSigning** deve ser especificada e todas as solicitações de autenticação de saída devem estar assinadas. Se o valor for definido como `false`, os parâmetros **SigAlg** e **Signature** (cadeia de caracteres de consulta ou parâmetro de postagem) serão omitidos da solicitação. Esses metadados também controlam o atributo **AuthnRequestsSigned** dos metadados, que é a saída nos metadados do perfil técnico do Azure AD B2C que é compartilhado com o provedor de identidade. |
+| WantsSignedRequests | Não  | Indica se o perfil técnico requer que todas as solicitações de autenticação de saída sejam assinadas. Valores possíveis: `true` ou `false`. O valor padrão é `true`. Quando o valor é definido como `true`, a chave de criptografia **SamlMessageSigning** deve ser especificada e todas as solicitações de autenticação de saída devem estar assinadas. Se o valor for definido como `false`, os parâmetros **SigAlg** e **Signature** (cadeia de caracteres de consulta ou parâmetro de postagem) serão omitidos da solicitação. Esses metadados também controlam o atributo **AuthnRequestsSigned** dos metadados, que é a saída nos metadados do perfil técnico do Azure AD B2C que é compartilhado com o provedor de identidade. O Azure AD B2C não assina a solicitação se **WantsSignedRequests** no perfil técnico de metadados é definido como `false` e os metadados do provedor de identidade **WantAuthnRequestsSigned** é definido como `false` ou não especificado. |
 | XmlSignatureAlgorithm | Não  | O método que o Azure AD B2C usa para assinar a solicitação SAML. Esse metadado controla o valor do parâmetro **SigAlg** (cadeia de caracteres de consulta ou parâmetro de postagem) na solicitação SAML. Valores possíveis: `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo com suporte do seu certificado. | 
 | WantsSignedAssertions | Não  | Indica se o perfil técnico exige que todas as declarações de entrada estejam assinadas. Valores possíveis: `true` ou `false`. O valor padrão é `true`. Se o valor for definido como `true`, todas as declarações da seção `saml:Assertion` enviadas pelo provedor de identidade para o Azure AD B2C deverão estar assinadas. Se o valor for definido como `false`, o provedor de identidade não deverá assinar as declarações, mas, mesmo se isso acontecer, o Azure AD B2C não validará a assinatura. Esses metadados também controlam o **WantsAssertionsSigned** do sinalizador de metadados, que é a saída nos metadados do perfil técnico do Azure AD B2C que é compartilhado com o provedor de identidade. Se você desabilitar a validação de declarações, também deverá desabilitar a validação de assinatura de resposta (para obter mais informações, confira **ResponsesSigned**). |
 | ResponsesSigned | Não  | Valores possíveis: `true` ou `false`. O valor padrão é `true`. Se o valor for definido como `false`, o provedor de identidade não deverá assinar a resposta SAML, mas, mesmo se isso acontecer, o Azure AD B2C não validará a assinatura. Se o valor for definido como `true`, a resposta SAML enviada pelo provedor de identidade para o Azure AD B2C será assinada e deverá ser validada. Se você desabilitar a validação da resposta SAML, também deverá desabilitar a validação de assinatura da declaração (para obter mais informações, confira **WantsSignedAssertions**). |
 | WantsEncryptedAssertions | Não  | Indica se o perfil técnico exige que todas as declarações de entrada estejam criptografadas. Valores possíveis: `true` ou `false`. O valor padrão é `false`. Se o valor for definido como `true`, as declarações enviadas pelo provedor de identidade para o Azure AD B2C deverão ser assinadas e a chave de criptografia **SamlAssertionDecryption** deverá ser especificada. Se o valor for definido como `true`, os metadados do perfil técnico do Azure AD B2C incluirão a seção de **criptografia**. O provedor de identidade lê os metadados e criptografa a declaração de resposta SAML com a chave pública que é fornecida nos metadados do perfil técnico do Azure AD B2C. Se você habilitar a criptografia de declarações, também precisará desabilitar a validação de assinatura de resposta (para obter mais informações, confira **ResponsesSigned**). | 
-| IdpInitiatedProfileEnabled | Não  |Indica se um perfil de sessão de logon único que foi iniciado por um perfil de provedor de identidade SAML está habilitado. Valores possíveis: `true` ou `false`. O padrão é `false`. No fluxo iniciado pelo provedor de identidade, o usuário é autenticado externamente e uma resposta não solicitada é enviada para o Azure AD B2C, que, em seguida, consome o token, executa as etapas de orquestração e envia uma resposta para o aplicativo de terceira parte confiável. |
+| IdpInitiatedProfileEnabled | Não  | Indica se um perfil de sessão de logon único que foi iniciado por um perfil de provedor de identidade SAML está habilitado. Valores possíveis: `true` ou `false`. O padrão é `false`. No fluxo iniciado pelo provedor de identidade, o usuário é autenticado externamente e uma resposta não solicitada é enviada para o Azure AD B2C, que, em seguida, consome o token, executa as etapas de orquestração e envia uma resposta para o aplicativo de terceira parte confiável. |
+| NameIdPolicyFormat | Não  | Especifica as restrições d o identificador de nome a ser usado para representar o assunto solicitado. Se omitido, qualquer tipo de identificador com suporte pelo provedor de identidade para o assunto solicitado pode ser usado. Por exemplo,  `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** pode ser usado com **NameIdPolicyAllowCreate**. Examine a documentação do provedor de identidade para obter orientação sobre qual nome há suporte para políticas de ID. |
+| NameIdPolicyAllowCreate | Não  | Ao usar **NameIdPolicyFormat**, também se pode especificar a `AllowCreate` propriedade do **NameIDPolicy**. O valor de metadados é `true` ou `false` para indicar se o provedor de identidade tem permissão para criar uma nova conta durante o fluxo de entrada. Confira a documentação do provedor de identidade para obter orientação sobre como fazer isso. |
+| AuthenticationRequestExtensions | Não  | Elementos de extensão de mensagem do protocolo opcional são acordados entre o Azure AD BC e o provedor de identidade. A extensão é apresentada no formato XML. Adicione os dados XML dentro do elemento CDATA `<![CDATA[Your IDP metadata]]>`. Verifique a documentação do provedor de identidade para ver se o elemento de extensões é suportado. |
+| IncludeAuthnContextClassReferences | Não  | Especifique uma ou mais referências de URI que identifica as classes de contexto de autenticação. Por exemplo, para permitir que um usuário entre com o nome de usuário e senha apenas, defina o valor `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Para permitir a entrada com o nome de usuário e senha ao longo de uma sessão protegida (SSL/TLS), especifique `PasswordProtectedTransport`. Examine a documentação do provedor de identidade para obter orientação sobre os URIs **AuthnContextClassRef** suportados. |
+| IncludeKeyInfo | Não  | Indica se a solicitação de autenticação SAML contém a chave pública do certificado quando a associação é definida como `HTTP-POST`. Valores possíveis: `true` ou `false`. |
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 

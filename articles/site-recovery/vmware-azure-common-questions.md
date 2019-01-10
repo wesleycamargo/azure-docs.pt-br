@@ -4,15 +4,16 @@ description: Este artigo resume as perguntas comuns ao configurar a recuperaçã
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 12/11/2018
+services: site-recovery
+ms.date: 12/31/2018
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: rayne
+ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256495"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974685"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -74,7 +75,7 @@ Os dados replicam para o armazenamento do Azure. Ao executar um failover, o Site
 O Site Recovery replica dados do local para o armazenamento do Azure em um ponto de extremidade público ou utilizando o emparelhamento público do ExpressRoute. A replicação de uma rede VPN site a site não tem suportada.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>É possível replicar para o Azure com o ExpressRoute?
-Sim, o ExpressRoute pode ser utilizado para replicar VMs para o Azure. O Site Recovery replica dados para uma Conta de Armazenamento do Microsoft Azure em um ponto de extremidade público e é necessário configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) para replicação do Site Recovery. Após fazer failover das VMs para uma rede virtual do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Sim, o ExpressRoute pode ser utilizado para replicar VMs para o Azure. O Site Recovery replica dados para uma Conta de Armazenamento do Microsoft Azure em um ponto de extremidade público. Você precisa configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) ou [emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) para usar o ExpressRoute para replicação de Site Recovery. Emparelhamento da Microsoft é o domínio de roteamento recomendado para replicação. Assegure que os [Requisitos de Rede](vmware-azure-configuration-server-requirements.md#network-requirements) também sejam atendidos para replicação. Após fazer failover das VMs para uma rede virtual do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar em VPN?

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ced0ae62bcccadafd090964daae4e7828c05ce2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004154"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119791"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Como monitorar seus serviços do Node.js e aplicativos com o Application Insights
 
-O [Application Insights do Azure](../../application-insights/app-insights-overview.md) monitora seus componentes e serviços de back-end depois da implantação para ajudá-lo a [detectar e diagnosticar rapidamente problemas de desempenho, entre outros](../../azure-monitor/app/detect-triage-diagnose.md). Você pode usar o Application Insights para serviços Node.js hospedados em seu data center, em aplicativos Web e VMs do Azure e até mesmo em outras nuvens públicas.
+O [Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md) monitora seus componentes e serviços de back-end depois da implantação para ajudá-lo a [detectar e diagnosticar rapidamente problemas de desempenho, entre outros](../../azure-monitor/app/detect-triage-diagnose.md). Você pode usar o Application Insights para serviços Node.js hospedados em seu data center, em aplicativos Web e VMs do Azure e até mesmo em outras nuvens públicas.
 
 Para receber, armazenar e explorar os dados de monitoramento, incluir o SDK em seu código e, em seguida, configurar um recurso do Application Insights correspondente no Azure. O SDK envia dados a esse recurso para análise e exploração.
 
@@ -216,5 +216,5 @@ server.on("listening", () => {
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../application-insights/app-insights-troubleshoot-faq.md
+[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
 

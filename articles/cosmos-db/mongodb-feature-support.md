@@ -1,19 +1,18 @@
 ---
 title: Use a API do Azure Cosmos DB para dar suporte ao recurso do MongoDB
 description: Saiba mais sobre o suporte de recurso que a API do Azure Cosmos DB para MongoDB fornece ao MongoDB 3.4.
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: bb25cf6ed60317dd5d7266e2f4750c2bb9f4859d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790276"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039156"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>Use o suporte da API do Azure Cosmos DB para MongoDB para sintaxe e recursos do MongoDB
 

@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: cff742688c307becf4bf87cced15036b25fa10c8
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f47b1d35ada061601233506222903742393c6830
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554615"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101744"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>Início Rápido: Como usar o Cache do Azure para Redis com Node.js
 
@@ -42,7 +42,7 @@ Instale o [node_redis](https://github.com/mranney/node_redis):
 
     npm install redis
 
-Este tutorial usa o [node_redis](https://github.com/mranney/node_redis). Para exemplos de uso de outros clientes do Node.js, veja a documentação individual para os clientes do Node.js listado em [clientes do Redis Node.js](http://redis.io/clients#nodejs).
+Este tutorial usa o [node_redis](https://github.com/mranney/node_redis). Para exemplos de uso de outros clientes do Node.js, veja a documentação individual para os clientes do Node.js listado em [clientes do Redis Node.js](https://redis.io/clients#nodejs).
 
 
 ## <a name="create-a-cache"></a>Criar um cache
@@ -77,7 +77,7 @@ Não crie novas conexões para cada operação no seu código. Em vez disso, reu
 
 Criar um novo arquivo de script chamado *redistest.js*.
 
-Adicione o exemplo JavaScript a seguir ao arquivo. Este código mostra como se conectar a uma instância do Cache do Azure para Redis usando o nome de host de cache e as principais variáveis de ambiente. O código também armazena e recupera um valor de cadeia de caracteres no cache. Os comandos `PING` e `CLIENT LIST` também são executados. Para obter mais exemplos de como usar Redis com o cliente [node_redis](https://github.com/mranney/node_redis), veja [http://redis.js.org/](http://redis.js.org/).
+Adicione o exemplo JavaScript a seguir ao arquivo. Este código mostra como se conectar a uma instância do Cache do Azure para Redis usando o nome de host de cache e as principais variáveis de ambiente. O código também armazena e recupera um valor de cadeia de caracteres no cache. Os comandos `PING` e `CLIENT LIST` também são executados. Para obter mais exemplos de como usar Redis com o cliente [node_redis](https://github.com/mranney/node_redis), veja [https://redis.js.org/](https://redis.js.org/).
 
 ```js
 var redis = require("redis");

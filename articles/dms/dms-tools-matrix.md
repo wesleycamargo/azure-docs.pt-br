@@ -4,19 +4,19 @@ description: Conheça os serviços e ferramentas disponíveis para migrar bancos
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 12/13/2018
-ms.openlocfilehash: 2eb263c6776453c4cae217168af969221485bfa3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9887860470632c37a586cb3029e2ef7d455a3a9c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386784"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713267"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Serviços e ferramentas disponíveis para cenários de migração de dados
 
@@ -35,7 +35,7 @@ As tabelas a seguir identificam o serviço e as ferramentas que você pode usar 
 | SQL Server | MI do BD SQL do Azure | [MAP Toolkit](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | SQL Server | VM de SQL do Azure | [MAP Toolkit](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | SQL Server | Data warehouse SQL |  |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
-| RDS SQL | SQL DB, MI, VM do Azure |  | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
+| RDS SQL | SQL do Azure para BD, MI, VM |  | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | Oracle | SQL DB, MI, VM do Azure | [MAP Toolkit](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/) | [MigVisor*](https://www.migvisor.com/) |  |
 | Oracle | Data warehouse SQL | [MAP Toolkit](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/) |  |  |
 | Oracle | Banco de dados do Azure para PostgreSQL |  |  |  |
@@ -46,8 +46,8 @@ As tabelas a seguir identificam o serviço e as ferramentas que você pode usar 
 | RDS MySQL | Banco de dados do Azure para MySQL |  |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | PostgreSQL | Banco de dados do Azure para PostgreSQL | [Migrações para Azure](https://azure.microsoft.com/services/azure-migrate/) |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | RDS PostgreSQL | Banco de dados do Azure para PostgreSQL |  |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
-| DB2 | SQL DB, MI, VM do Azure |  |  |  |
-| Access | SQL DB, MI, VM do Azure |  |  |  |
+| DB2 | SQL do Azure para BD, MI, VM |  |  |  |
+| Access | SQL do Azure para BD, MI, VM |  |  |  |
 | Sybase | SQL DB, MI, VM do Azure |  |  |  |
 | | | | | |
 
@@ -67,9 +67,9 @@ As tabelas a seguir identificam o serviço e as ferramentas que você pode usar 
 | Cassandra | Cosmos DB |  |  |  |
 | MySQL | SQL do Azure para BD, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/) |  |
 | MySQL | Banco de dados do Azure para MySQL |  |  |  |
-| RDS MySQL | Banco de dados do Azure para MySQL |  |  |  |
+| MySQL para RDS | Banco de dados do Azure para MySQL |  |  |  |
 | PostgreSQL | Banco de dados do Azure para PostgreSQL |  |  |  |
-| RDS PostgreSQL | Banco de dados do Azure para PostgreSQL |  |  |  |
+| PostgreSQL para RDS | Banco de dados do Azure para PostgreSQL |  |  |  |
 | DB2 | SQL do Azure para BD, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Access | SQL do Azure para BD, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase | SQL do Azure para BD, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
@@ -125,4 +125,4 @@ As tabelas a seguir identificam o serviço e as ferramentas que você pode usar 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma visão geral do Serviço de Migração de Banco de Dados do Azure, consulte [O que é a versão prévia do Serviço de Migração de Banco de Dados do Azure](dms-overview.md).
+Para obter uma visão geral do Serviço de Migração de Banco de Dados do Azure, consulte o artigo [O que é o Serviço de Migração de Banco de Dados do Azure](dms-overview.md).

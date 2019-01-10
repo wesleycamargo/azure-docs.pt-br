@@ -1,23 +1,20 @@
 ---
 title: Guia de início rápido – Criar um Banco de Dados do Azure para servidor PostgreSQL usando o portal do Azure
 description: Guia de início rápido para criação e gerenciamento de um Banco de Dados do Azure para o servidor PostgreSQL usando a interface do usuário do portal do Azure.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2018
-ms.openlocfilehash: 5cb51a412738c2361bbe30ecd1415f81c3f85c9c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 9aa4bdf438637572c7e78a2d4a39f6bcebd7b254
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959028"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540480"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Guia de início rápido: criar um Banco de Dados do Azure para servidor PostgreSQL no portal do Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Início Rápido: Criar um Banco de Dados do Azure para o servidor PostgreSQL no portal do Azure
 
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado usado para executar, gerenciar e dimensionar bancos de dados altamente disponíveis do PostgreSQL na nuvem. Este Guia de início rápido mostra como criar um Banco de Dados do Azure para o servidor PostgreSQL usando o portal do Azure em aproximadamente cinco minutos.
 
@@ -48,7 +45,7 @@ Para criar um Banco de Dados do Azure para o servidor PostgreSQL, execute as seg
     Grupo de recursos|*myresourcegroup*| Um novo nome do grupo de recursos ou um existente de sua assinatura.
     Selecionar a origem | *Em branco* | Selecione *Em branco* para criar um novo servidor do zero. (Você selecionaria *Backup* se estivesse criando um servidor de um backup de replicação geográfica de um Banco de Dados do Azure para servidor PostgreSQL existente).
     Logon de administrador do servidor |*myadmin*| Sua própria conta de logon para uso ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest** ou **public**. Ele não pode começar com **pg_**.
-    Senha |Sua senha| Uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha deve conter caracteres das três seguintes categorias: letras maiúsculas, letras minúsculas, números (0 a 9) e caracteres não alfanuméricos (!, $, #, %, etc.).
+    Senha |Sua senha| Uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0 a 9) e caracteres não alfanuméricos (!, $, #, % etc.).
     Local padrão|A região mais próxima dos usuários| A localização mais próxima dos usuários.
     Versão|A última versão principal| A última versão principal do PostgreSQL, a menos que você tenha requisitos específicos.
     Tipo de preço | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
@@ -143,7 +140,7 @@ Há vários aplicativos que você pode usar para conectar o servidor Banco de Da
     > [!TIP]
     > Se o firewall não está configurado para permitir o endereço IP do seu cliente, ocorre o seguinte erro:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required. Especifique as opções de SSL e tente novamente.
+    > "psql: FATAL: nenhuma entrada pg_hba.conf para o host "<IP address>", usuário "myadmin", banco de dados "postgres", SSL em FATAL: Uma conexão SSL é necessária. Especifique as opções de SSL e tente novamente.
     > 
     > Para resolver o erro, verifique se a configuração do servidor corresponde às etapas da seção “Configurar uma regra de firewall no nível do servidor” deste artigo.
 

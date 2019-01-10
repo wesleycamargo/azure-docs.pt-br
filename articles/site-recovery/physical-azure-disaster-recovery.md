@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 3b06335019cf15cc296c1814ee1fcf5ce50c3949
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7cd06bda16200f45d2b6aa9e20a536e62ad2c2d6
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971829"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105470"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastre de servidores físicos locais para o Azure
 
@@ -27,8 +27,6 @@ Este tutorial mostra como configurar a recuperação de desastre de servidores W
 > * Configurar os ambientes de replicação de origem e destino
 > * Criar uma política de replicação
 > * Habilitar a replicação para um servidor
-
-[revisar a arquitetura](concepts-hyper-v-to-azure-architecture.md) para esse cenário de recuperação de desastre.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

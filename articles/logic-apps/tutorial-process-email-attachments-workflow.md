@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140499"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121712"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar o manuseio de emails e anexos com os Aplicativos Lógicos do Azure
 
@@ -145,7 +145,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
    | **Plano de hospedagem** | Plano de consumo | Essa configuração determina como alocar e dimensionar recursos, como capacidade de computação, para executar seu aplicativo de funções. Confira [Comparação entre planos de hospedagem](../azure-functions/functions-scale.md). | 
    | **Localidade** | Oeste dos EUA | A mesma região que você usou anteriormente | 
    | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para seu aplicativo de funções. Use apenas letras minúsculas e números. <p>**Observação:** a conta de armazenamento contém seus aplicativos de funções e é diferente da conta de armazenamento criada anteriormente para anexos de email. | 
-   | **Application Insights** | Desativar | Ativa o monitoramento de aplicativos com o [Application Insights](../application-insights/app-insights-overview.md), mas, para este tutorial, escolha a configuração **Desativado**. | 
+   | **Application Insights** | Desativar | Ativa o monitoramento de aplicativos com o [Application Insights](../azure-monitor/app/app-insights-overview.md), mas, para este tutorial, escolha a configuração **Desativado**. | 
    |||| 
 
    Se o seu aplicativo de funções não abrir automaticamente após a implantação, localize o aplicativo no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>. No menu principal do Azure, selecione **Aplicativo de Funções** e selecione seu aplicativo de funções. 

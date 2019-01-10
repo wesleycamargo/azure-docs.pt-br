@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas do agente do Linux para o Azure Log Analytics | Microsoft Docs
-description: Descreva os sintomas, as causas e a resolução dos problemas mais comuns com o agente do Log Analytics para Linux.
+description: Descreva os sintomas, as causas e a solução dos problemas mais comuns com o agente do Log Analytics para Linux.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 1f772e1a3e5b3e121b968d358166e9018c80d573
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b95a9b2243dda83be7de67802a8b6678419e335f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192678"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102577"
 ---
-# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como solucionar problemas com o agente Log Analytics para Linux 
+# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como solucionar problemas com o agente do Log Analytics para Linux 
 
 Este artigo fornece ajuda para a solução de erros que podem ocorrer com o agente Log Analytics para Linux e sugere possíveis soluções para resolvê-los.
 
@@ -28,18 +28,18 @@ Se nenhuma dessas etapas funcionar para você, os seguintes canais de suporte ta
 
 * Os clientes com benefícios de suporte Premier podem abrir uma solicitação de suporte com [Premier](https://premier.microsoft.com/).
 * Os clientes com contratos de suporte do Azure podem abrir uma solicitação de suporte [no portal do Azure](https://manage.windowsazure.com/?getsupport=true).
-* Diagnostique os problemas do OMI com o [guia de solução de problemas da OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
-* Arquivo de um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visite a página de Comentários do Log Analytics para revisar ideias e bugs enviados [http://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou arquivar um novo.  
+* Diagnostique os problemas do OMI com o [Guia para a solução de problemas da OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
+* Relate um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
+* Visite a página de Comentários do Log Analytics para examinar as ideias e bugs enviados [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou para relatar um novo.  
 
-## <a name="important-log-locations-and-log-collector-tool"></a>Ferramenta de coletor de Log e locais de log importantes
+## <a name="important-log-locations-and-log-collector-tool"></a>Ferramenta do coletor de Log e locais de logs importantes
 
  Arquivo | Caminho
  ---- | -----
- Agente do log Analytics para o arquivo de log do Linux | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log `
+ Arquivo de log do agente do Log Analytics para Linux | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log `
  Arquivo de Log de Configuração do Agente Log Analytics | `/var/opt/microsoft/omsconfig/omsconfig.log`
 
- Recomendamos que você use nossa ferramenta coletor de registros para recuperar registros importantes para solução de problemas ou antes de enviar um problema do GitHub. Você pode ler mais sobre a ferramenta e como executá-la [aqui](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md).
+ Recomendamos que você use a nossa ferramenta coletor de logs para recuperar registros importantes para a solução de problemas ou antes de enviar um problema do GitHub. Você pode ler mais sobre a ferramenta e como executá-la [aqui](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md).
 
 ## <a name="important-configuration-files"></a>Arquivos de configuração importantes
 
@@ -50,19 +50,19 @@ Se nenhuma dessas etapas funcionar para você, os seguintes canais de suporte ta
  Configurações adicionais | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >A edição de arquivos de configuração para contadores de desempenho e Syslog será sobrescrita se a coleção for configurada no [menu de dados Configurações Avançadas do Log Analytics](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) no portal do Azure para sua área de trabalho. Para desativar a configuração para todos os agentes, desative a coleta em **Configurações avançadas** do Log Analytics ou, para um único agente, execute o seguinte:  
+ >A edição de arquivos de configuração para contadores de desempenho e Syslog será sobrescrita se a coleta for configurada no [menu de dados Configurações Avançadas do Log Analytics](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) no portal do Azure para sua área de trabalho. Para desativar a configuração para todos os agentes, desative a coleta em **Configurações Avançadas** do Log Analytics ou, para um único agente, execute o seguinte:  
 > `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
 
 ## <a name="installation-error-codes"></a>Códigos de erro de instalação
 
 | Código do Erro | Significado |
 | --- | --- |
-| NOT_DEFINED | Como as dependências necessárias não estão instaladas, o plug-in auditoms do auoms não será instalado | A instalação dos auoms falhou, instale o pacote auditd. |
+| NOT_DEFINED | Como as dependências necessárias não estão instaladas, o plug-in auditd do auoms não será instalado | A instalação do auoms falhou, instale o pacote auditd. |
 | 2 | Opção inválida fornecida para o pacote de shell. Executar `sudo sh ./omsagent-*.universal*.sh --help` para uso |
 | 3 | Nenhuma opção fornecida para o pacote de shell. Executar `sudo sh ./omsagent-*.universal*.sh --help` para uso. |
 | 4 | Tipo de pacote inválido OU configurações de proxy inválidas; Pacotes omsagent- *rpm* .sh só podem ser instalados em sistemas baseados em RPM, e pacotes omsagent- *deb* .sh só podem ser instalados em sistemas baseados em Debian. É recomendado que você use o instalador universal da [última versão](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Também [examine](#issue:-unable-to-connect-through-proxy-to-log-analytics) para verificar as configurações de proxy. |
 | 5 | O pacote do shell deve ser executado como raiz OU houve erro 403 retornado durante a integração. Execute o comando usando `sudo`. |
-| 6 | Arquitectura de pacotes inválida OU houve erro de erro 200 retornado durante a integração; Os pacotes x64.sh do omsagent- *só podem ser instalados em sistemas de 64 bits, e os pacotes x64.sh do omsagent-* só podem ser instalados em sistemas de 32 bits. Faça o download do pacote correto para sua arquitetura da [última versão](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Arquitetura de pacotes inválida OU ocorreu um erro. Erro 200 retornado durante a integração; os pacotes x64.sh do omsagent- *só podem ser instalados em sistemas de 64 bits, e os pacotes x64.sh do omsagent-* só podem ser instalados em sistemas de 32 bits. Faça o download do pacote correto para sua arquitetura da [última versão](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | A instalação do pacote do OMS falhou. Examine a saída do comando para a falha raiz. |
 | 19 | A instalação do pacote OMI falhou. Examine a saída do comando para a falha raiz. |
 | 20 | A instalação do pacote SCX falhou. Examine a saída do comando para a falha raiz. |
@@ -72,8 +72,8 @@ Se nenhuma dessas etapas funcionar para você, os seguintes canais de suporte ta
 | 30 | Erro interno do pacote. Arquive um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) com detalhes da saída. |
 | 55 | Versão openssl não suportada OU Não é possível conectar-se ao serviço do Log Analytics OU o dpkg está bloqueado OU faltando o programa de curl. |
 | 61 | Biblioteca de ctypes do Python ausente. Instale a biblioteca ou pacote ctypes do Python (python-ctypes). |
-| 62 | Programa tar ausente, tar de instalação. |
-| 63 | Programa sed ausente, o sed de instalação. |
+| 62 | O programa tar está ausente, instale-o. |
+| 63 | O programa sed está ausente, instale-o. |
 | 64 | Programa de curl ausente, instale curl. |
 | 65 | Programa gpg ausente, gpg de instalação. |
 
@@ -88,14 +88,14 @@ Se nenhuma dessas etapas funcionar para você, os seguintes canais de suporte ta
 | 6 | Erro HTTP não-200 recebido do serviço Log Analytics. Ver a saída completa do script omsadmin para obter detalhes. |
 | 7 | Não é possível se conectar ao serviço Log Analytics. Ver a saída completa do script omsadmin para obter detalhes. |
 | 8 | Erro ao integrar o espaço de trabalho do Log Analytics. Ver a saída completa do script omsadmin para obter detalhes. |
-| 30 | Erro interno do script. Arquive um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) com detalhes da saída. |
-| 31 | Erro ao gerar o ID do agente. Arquive um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) com detalhes da saída. |
+| 30 | Erro interno do script. Relate um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) com os detalhes do resultado. |
+| 31 | Erro ao gerar o ID do agente. Relate um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) com os detalhes do resultado. |
 | 32 | Erro ao gerar certificados. Ver a saída completa do script omsadmin para obter detalhes. |
-| 33 | Erro ao gerar meta-configuração para o omsconfig. Arquive um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) com detalhes da saída. |
+| 33 | Erro ao gerar meta-configuração para o omsconfig. Relate um [problema do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) com os detalhes do resultado. |
 | 34 | Script de geração de meta-configuração não presente. Tente novamente o onboarding com `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key>`. |
 
 ## <a name="enable-debug-logging"></a>Habilitar o log de depuração
-### <a name="oms-output-plugin-debug"></a>OMS depuração do plugin de saída
+### <a name="oms-output-plugin-debug"></a>Depuração do plugin de saída do OMS
  O FluentD permite níveis de registro específicos do plugin, permitindo que você especifique diferentes níveis de registro para entradas e saídas. Para especificar um nível de log diferente para a saída do OMS, edite a configuração geral do agente em `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.  
 
  No plug-in de saída do OMS, antes do final do arquivo de configuração, altere a propriedade `log_level` de `info` para `debug`:
@@ -371,9 +371,9 @@ Esse erro indica que a extensão de diagnóstico do Linux (LAD) é instalada lad
 * Problema conhecido com a condição de corrida corrigida no agente do Log Analytics para Linux versão 1.1.0-217
 
 ### <a name="resolution"></a>Resolução
-1. Verifique se o onboarding do Log Analytics foi bem-sucedido, verificando se o seguinte arquivo existe: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Se não, qualquer um:  
+1. Verifique se o onboarding do Log Analytics foi bem-sucedido, verificando se o seguinte arquivo existe: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Caso não esteja, tente:  
 
-  1. Reintegração usando a linha de comando omsadmin.sh [instruções](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
+  1. Reintegrar usando as [instruções](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) da linha de comando omsadmin.sh
   2. Em **Configurações avançadas** no portal do Azure, verifique se a configuração **Aplicar a seguinte configuração aos meus servidores Linux** está habilitada.  
 
 2. Verifique se o agente `omsconfig` pode se comunicar com o serviço Log Analytics executando o seguinte comando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Esse comando retorna a configuração que o agente recebe do serviço, incluindo configurações de Syslog, contadores de desempenho do Linux e logs personalizados. Se este comando falhar, execute o seguinte comando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Esse comando força o agente omsconfig a conversar com o serviço Log Analytics e recuperar a configuração mais recente.
@@ -381,7 +381,7 @@ Esse erro indica que a extensão de diagnóstico do Linux (LAD) é instalada lad
 **Em Segundo Plano:** Em vez de o agente do Log Analytics para Linux ser executado como um usuário privilegiado – `root`, o agente é executado como o usuário `omsagent`. Na maioria dos casos, a permissão explícita deve ser concedida a esse usuário para que determinados arquivos sejam lidos. Para conceder permissão para o usuário `omsagent`, execute os seguintes comandos:
 
 1. Adicione o usuário `omsagent` ao grupo específico `sudo usermod -a -G <GROUPNAME> <USERNAME>`
-2. Conceder acesso de leitura universal para o arquivo necessário `sudo chmod -R ugo+rx <FILE DIRECTORY>`
+2. Conceda acesso de leitura universal para o arquivo necessário `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
 Há um problema conhecido com uma condição de corrida com o agente do Log Analytics para a versão do Linux anterior a 1.1.0-217. Após atualizar para o agente mais recente, execute o seguinte comando para obter a versão mais recente do plug-in de saída `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
@@ -403,7 +403,7 @@ Você pode continuar reonboard depois de usar a opção `--purge`
 
 ### <a name="probable-causes"></a>Causas prováveis
 * O agente do Log Analytics foi removido do sistema operacional
-* O agente do Log Analytics foi removido do sistema operacional
+* O agente do Log Analytics está desabilitado, desativado ou não foi configurado
 
 ### <a name="resolution"></a>Resolução 
 Execute os seguintes passos para corrigir o problema.

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879342"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053186"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Suporte da plataforma de SDKs do IoT do Azure
 
@@ -20,9 +20,9 @@ Os [Azure IoT SDKs](iot-hub-devguide-sdks.md) são um conjunto de bibliotecas pa
 
 A Microsoft dá suporte a vários sistemas operacionais/plataformas/frameworks e pode ser estendida usando o SDK C do Azure IoT. Alguns têm suporte oficialmente pela equipe, agrupados em camadas que representam o nível de suporte que os usuários podem esperar. *Plataformas com suporte total* significa que a Microsoft:
 
-    * Compila e executa testes de ponta a ponta continuamente no mestre e nas versões com suporte LTS.  Para fornecer cobertura de teste entre diferentes versões, geralmente podemos testar em relação a versão mais recente do LTS e a versão mais popular.  Outras versões da mesma plataforma podem ter suporte por meio de compatibilidade de versão da plataforma.
-    * Fornece diretrizes de instalação ou pacotes, se aplicável.
-    * Com suporte total para plataformas no GitHub.
+- Compila e executa testes de ponta a ponta continuamente no mestre e nas versões com suporte LTS.  Para fornecer cobertura de teste entre diferentes versões, geralmente podemos testar em relação a versão mais recente do LTS e a versão mais popular.  Outras versões da mesma plataforma podem ter suporte por meio de compatibilidade de versão da plataforma.
+- Fornece diretrizes de instalação ou pacotes, se aplicável.
+- Com suporte total para plataformas no GitHub.
 
 Além disso, uma lista de parceiros transportou nosso SDK C para mais plataformas e estão mantendo a PAL (Camada de Abstração de Plataforma). O [Catálogo de dispositivo do Microsoft Azure Certified para IoT](https://catalog.azureiotsolutions.com/) também apresenta uma lista de plataformas de SO em que os vários SDKs foram testados. Os SDKs também criam regularmente nessas plataformas, com testes e suporte limitados:
 

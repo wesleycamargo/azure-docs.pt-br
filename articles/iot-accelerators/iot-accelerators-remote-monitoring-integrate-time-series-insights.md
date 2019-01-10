@@ -1,5 +1,5 @@
 ---
-title: Integrar Insights do Azure Time Series com o Monitoramento Remoto | Microsoft Docs
+title: Integrar Insights do Time Series com o Monitoramento Remoto - Azure | Microsoft Docs
 description: Neste tutorial, você aprenderá a configurar o recurso Time Series Insights para uma solução existente de monitoramento remoto que ainda não inclui Insights de Séries Temporais.
 author: aditidugar
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: e6dcbf9d185b45c18261e47e9d575adf40812611
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253809"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633724"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com o Monitoramento Remoto
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Em seguida, implante os Insights do Time Series como um recurso adicional em sua solução de monitoramento remoto e conecte-o ao hub da IoT.
 
-1. Entre no [Portal do Azure](http://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Criar um recurso** > **Internet das Coisas** > **Time Series Insights**.
 
@@ -164,12 +164,13 @@ A próxima etapa é configurar o microsserviço do Azure Stream Analytics Manage
 
 .NET: 
 
-```
+```cmd/sh
 docker pull azureiotpcs/asa-manager-dotnet:1.0.2
 ```
 
 Java:
-```
+
+```cmd/sh
 docker pull azureiotpcs/asa-manager-java:1.0.2
 ```
 
@@ -178,13 +179,14 @@ docker pull azureiotpcs/asa-manager-java:1.0.2
 Puxe o microsserviço de Telemetria mais recente digitando o seguinte comando no prompt de comando:
 
 .NET:
-```
+
+```cmd/sh
 docker pull azureiotpcs/telemetry-dotnet:1.0.2
 ```
 
 Java:
 
-```
+```cmd/sh
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
@@ -192,7 +194,7 @@ docker pull azureiotpcs/telemetry-java:1.0.2
 
 Para visualizar facilmente seus dados no explorador de Insights do Time Series, recomendamos personalizar a interface do usuário para vincular-se facilmente ao ambiente. Para fazer isso, puxe as alterações mais recentes para a UI da Web usando o seguinte comando:
 
-```
+```cmd/sh
 docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 ```
 
@@ -220,7 +222,7 @@ Configure o ambiente da implementação de `basic` para os microsserviços atual
 
 1. Inclua as seguintes variáveis de ambiente em cada microsserviço no arquivo yaml de composição do docker e no script `env-setup` na VM:
 
-    ```
+    ```sh
     PCS_TELEMETRY_STORAGE_TYPE=tsi
     PCS_TSI_FQDN={TSI Data Access FQDN}
     PCS_AAD_TENANT={AAD Tenant Id}
@@ -244,7 +246,7 @@ Configurar o ambiente de `standard` implantação para os serviços de micro atu
 
 1. Encontre o mapa de configuração para incluir as novas variáveis de ambiente a seguir para o TSI:
 
-    ```
+    ```yaml
     telemetry.storage.type: "tsi"
     telemetry.tsi.fqdn: "{TSI Data Access FQDN}"
     security.auth.serviceprincipal.secret: "{AAD application service principal secret}"
@@ -252,7 +254,7 @@ Configurar o ambiente de `standard` implantação para os serviços de micro atu
 
 4. Edite o arquivo yaml do modelo para o pod de serviço de telemetria:
 
-    ```
+    ```yaml
     - name: PCS_AAD_TENANT
         valueFrom:
         configMapKeyRef:
@@ -282,7 +284,7 @@ Configurar o ambiente de `standard` implantação para os serviços de micro atu
 
 5. Edite o arquivo yaml de modelo para o pod de serviço do gerenciador ASA:
 
-    ```
+    ```yaml
     - name: PCS_TELEMETRY_STORAGE_TYPE
         valueFrom:
         configMapKeyRef:

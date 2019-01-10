@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: d74f552395a80509c76adf70aef0581260126b49
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020964"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105825"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados de um Cache Redis do Azure Premium
 O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos da camada Premium como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar a persistência em uma instância Premium do Cache Redis do Azure.
@@ -130,7 +130,7 @@ Para a persistência de RDB e AOF:
 
 * Se você tiver dimensionado para um tamanho maior, não haverá nenhum impacto.
 * Se você tiver dimensionado para um tamanho menor e tem uma configuração personalizada dos [bancos de dados](cache-configure.md#databases) maior que o [limite dos bancos de dados](cache-configure.md#databases) para o novo tamanho, os dados nesses bancos de dados não serão restaurados. Para obter mais informações, consulte [A configuração dos meus bancos de dados personalizados é afetada durante o dimensionamento?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* Se você tiver dimensionado para um tamanho menor e não houver espaço suficiente no menor tamanho para conter todos os dados do último backup, as chaves serão removidas durante o processo de restauração, normalmente usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache) .
+* Se você tiver dimensionado para um tamanho menor e não houver espaço suficiente no menor tamanho para conter todos os dados do último backup, as chaves serão removidas durante o processo de restauração, normalmente usando a política de remoção [allkeys-lru](https://redis.io/topics/lru-cache) .
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Posso alterar a frequência de backup de RDB depois de criar o cache?
 Sim, você pode alterar a frequência de backup para persistência de RDB na folha **Persistência de dados do Redis**. Para obter instruções, consulte [Configurar persistência do Redis](#configure-redis-persistence).

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307467"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605000"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conecte-se ao Apache Kafka no HDInsight por meio de uma rede virtual do Azure
 
@@ -49,7 +49,7 @@ O HDInsight não permite a conexão direta ao Kafka pela Internet pública. Em v
 
     Para obter mais informações, consulte a seção [Conectar-se ao Apache Kafka com um cliente VPN](#vpnclient).
 
-    > [!WARNING]
+    > [!WARNING]  
     > Essa configuração é recomendada apenas para fins de desenvolvimento devido às seguintes limitações:
     >
     > * Cada cliente deve se conectar usando um cliente de software VPN.
@@ -61,7 +61,7 @@ Para obter mais informações sobre como usar o HDInsight em uma rede virtual, c
 
 Para criar um cluster Kafka que se comunique com a rede local, siga as etapas no documento [Conectar o HDInsight à rede local](./../connect-on-premises-network.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ao criar o cluster HDInsight, selecione o tipo de cluster __Kafka__.
 
 Essas etapas criam a configuração a seguir:
@@ -186,7 +186,7 @@ Use as etapas nesta seção para criar a seguinte configuração:
         -VpnClientRootCertificates $p2sRootCert
     ```
 
-    > [!WARNING]
+    > [!WARNING]  
     > Esse processo pode demorar para ser concluído.
 
 5. Use o seguinte código para criar a Conta de Armazenamento do Azure e o contêiner de blob:
@@ -232,7 +232,7 @@ Use as etapas nesta seção para criar a seguinte configuração:
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]
+  > [!WARNING]  
   > Esse processo leva cerca de 15 minutos para ser concluído.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Configurar Kafka para anúncio de IP
@@ -317,7 +317,7 @@ Para validar a conectividade com o Kafka, use as etapas a seguir para criar e ex
 
     Salve as informações retornadas para uso nas próximas etapas.
 
-2. Use o seguinte para instalar o cliente [kafka-python](http://kafka-python.readthedocs.io/):
+2. Use o seguinte para instalar o cliente [kafka-python](https://kafka-python.readthedocs.io/):
 
         pip install kafka-python
 

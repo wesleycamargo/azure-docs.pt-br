@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: 97fb5c2558d55b3f80f2e771971faa109a930c5f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c27cee4842c0e65e1737f100a215cff82a0fd439
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626416"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033087"
 ---
 # <a name="manage-indexing-in-azure-cosmos-db"></a>Gerenciar indexação no Azure Cosmos DB
 
@@ -25,11 +25,11 @@ A taxa de transferência de gravação e unidades de solicitação são proporci
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-2. Crie uma nova conta do Azure Cosmos ou selecione uma conta existente.
+2. Crie uma nova conta do Cosmos ou selecione uma conta existente.
 
 3. Abra o painel **Data Explorer**.
 
-4. Selecione um contêiner existente, expanda-o e modifique os valores a seguir:
+4. Selecione um contêiner existente, expanda-o e modifique os valores abaixo:
 
    * Abra a janela **Escala e Configurações**.
    * Altere **indexingMode** de *consistent* para *none*, ou inclua/exclua determinados caminhos da indexação.

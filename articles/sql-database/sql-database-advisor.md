@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5480e5e071d541d12e96ddd549e496c7f974f81
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271038"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603422"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho do Banco de Dados SQL
 
 O Banco de Dados SQL do Azure aprende e se adapta ao seu aplicativo. Ele fornece recomendações personalizadas que permitem que você maximize o desempenho de seus bancos de dados SQL. O Banco de Dados SQL avalia e analisa continuamente o histórico de uso de bancos de dados SQL. As recomendações fornecidas são baseadas em padrões de carga de trabalho exclusiva do banco de dados e ajudam a melhorar o desempenho.
 
 > [!TIP]
-> [Ajuste automático](sql-database-automatic-tuning.md) é o método recomendado de ajustar o desempenho. [Insights inteligentes](sql-database-intelligent-insights.md) é o método recomendada de monitoramento de desempenho. 
+> [O ajuste automático](sql-database-automatic-tuning.md) é o método recomendado para ajustar automaticamente alguns dos problemas mais comuns de desempenho do banco de dados. [Análise de desempenho de consulta](sql-database-query-performance.md) é o método recomendado para necessidades de monitoramento de desempenho de Banco de Dados SQL do Microsoft Azure. [Análise de SQL do Azure](../azure-monitor/insights/azure-sql.md) é o método recomendado para monitoramento de desempenho do banco de dados avançado em grande escala, com inteligência interna para solução de problemas de desempenho automatizado.
 >
 
 ## <a name="create-index-recommendations"></a>Criar recomendações de índice

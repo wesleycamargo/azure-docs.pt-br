@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187347"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187698"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de Múltiplos Valores no Gerenciador de Tráfego
 
@@ -47,9 +47,9 @@ Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário e
     | Assinatura            | Selecione sua assinatura.                          |
     | Grupo de recursos          | Selecione *myResourceGroupTM1*. |
     | Local padrão                | Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
-    
+   |        |           | 
   
-    ![Criar um perfil do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![Criar um perfil do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
 
@@ -69,7 +69,7 @@ Adicione dois endereços IP como pontos de extremidade externos ao perfil do Ger
 4. Repita as etapas 2 e 3 para adicionar outro ponto de extremidade nomeado *myEndpoint2*, para **FQDN (nome de domínio totalmente qualificado) ou IP**, insira o endereço IP público do segundo ponto de extremidade.
 5.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
-    ![Adicionar um ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![Adicionar um ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## <a name="next-steps"></a>Próximas etapas
 

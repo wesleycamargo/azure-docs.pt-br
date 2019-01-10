@@ -1,20 +1,19 @@
 ---
 title: Upsert dados na API do Azure Cosmos DB Cassandra da Spark
 description: Este artigo detalha como se transformar em tabelas na API do Azure Cosmos DB Cassandra da Spark
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 5bb4d066d6003dde38b02a3f4ac6c66463dd5ebe
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7770e7fbe846defc865b3fcc702fcb00bae1b73c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221446"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033682"
 ---
 # <a name="upsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Upsert dados na API do Azure Cosmos DB Cassandra da Spark
 

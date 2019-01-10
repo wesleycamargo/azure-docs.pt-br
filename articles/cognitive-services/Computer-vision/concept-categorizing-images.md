@@ -1,7 +1,7 @@
 ---
 title: Categorizando imagens - Visão por Computador
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados à categorização de imagens usando a API do Computer Vision.
+description: Aprenda mais sobre conceitos relacionados ao recurso de categorização de imagem da API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 40873b13407066920caec5c04751b65c01d7e209
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333472"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579491"
 ---
-# <a name="categorizing-images"></a>Categorizar imagens
+# <a name="image-categorization-with-computer-vision"></a>Categorização de imagem com Visual Computacional
 
 Além de marcação e descrições, o Computer Vision retorna as categorias baseadas em taxonomia definidas nas versões anteriores. Essas categorias são organizadas como uma taxonomia com hierarquias hereditárias de pai/filho. Todas as categorias estão disponíveis em inglês. Eles podem ser usados sozinhos ou com nossos novos modelos de marcação.
 
@@ -25,13 +26,13 @@ Além de marcação e descrições, o Computer Vision retorna as categorias base
 
 Com base em uma lista de 86 conceitos vistos no diagrama a seguir, uma imagem pode ser categorizada de ampla a específica. Para obter a taxonomia completa em formato de texto, confira [Taxonomia de categoria](category-taxonomy.md).
 
-![listas agrupadas de todas as categorias na categoria taxonomia](./Images/analyze_categories-v2.png)
+![Listas agrupadas de todas as categorias na categoria taxonomia](./Images/analyze_categories-v2.png)
 
 ## <a name="image-categorization-examples"></a>Exemplos de categorização de imagens
 
 A resposta JSON a seguir ilustra o que a Computer Vision retorna ao categorizar a imagem de exemplo com base em seus recursos visuais.
 
-![Mulher no teto](./Images/woman_roof.png)
+![Uma mulher no telhado de um edifício residencial](./Images/woman_roof.png)
 
 ```json
 {
@@ -54,10 +55,10 @@ A tabela a seguir ilustra um conjunto de imagens típico e a categoria retornada
 
 | Imagem | Categoria |
 |-------|----------|
-| ![Foto de família](./Images/family_photo.png) | people_group |
-| ![Cachorro bonito](./Images/cute_dog.png) | animal_dog |
-| ![Montanha ao ar livre](./Images/mountain_vista.png) | outdoor_mountain |
-| ![Alimentos pão com análise da pesquisa visual](./Images/bread.png) | food_bread |
+| ![Quatro pessoas posando juntas como uma família](./Images/family_photo.png) | people_group |
+| ![Um filhote de cão sentado em um gramado](./Images/cute_dog.png) | animal_dog |
+| ![Uma pessoa em uma rocha na montanha ao pôr do sol](./Images/mountain_vista.png) | outdoor_mountain |
+| ![Uma montanha de pães em uma mesa](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>Próximas etapas
 

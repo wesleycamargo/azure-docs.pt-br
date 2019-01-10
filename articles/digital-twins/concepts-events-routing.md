@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438006"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035688"
 ---
 # <a name="routing-events-and-messages"></a>Roteamento de eventos e mensagens
 
@@ -65,6 +65,7 @@ O recurso de Gêmeos Digitais do Azure atualmente tem suporte para os seguintes 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre os limites de visualização do Gêmeos Digitais do Azure, consulte [Limites do serviço de visualização pública](concepts-service-limits.md).
+
 - Para testar um exemplo de Gêmeos Digitais do Azure, consulte a [início rápido para encontrar salas disponíveis](quickstart-view-occupancy-dotnet.md).
 
 <!-- Images -->

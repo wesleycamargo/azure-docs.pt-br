@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 50eb70799506ecd5203ff4fd0c2649726658b3e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 08ad8964fee2d94677832fa664ed2e18cb9f772c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550652"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104974"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Coletar e consumir dados de log dos recursos do Azure
 
@@ -83,7 +83,7 @@ A coleta de logs de diagnóstico pode ser ativada [como parte da criação de um
 
 Você poderá habilitar a coleta de logs de diagnóstico de recursos no portal do Azure depois que um recurso tiver sido criado, acessando um recurso específico ou navegando até o Azure Monitor. Para habilitar isso por meio do Azure Monitor:
 
-1. No [portal do Azure](http://portal.azure.com), navegue até o Azure Monitor e clique em **Configurações de Diagnóstico**
+1. No [portal do Azure](https://portal.azure.com), navegue até o Azure Monitor e clique em **Configurações de Diagnóstico**
 
     ![Seção de monitoramento do Azure Monitor](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

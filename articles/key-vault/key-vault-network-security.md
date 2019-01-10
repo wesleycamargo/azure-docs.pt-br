@@ -1,6 +1,6 @@
 ---
 ms.assetid: ''
-title: Configurar redes virtuais e firewalls do Azure Key Vault
+title: Configurar redes virtuais e firewalls do Azure Key Vault - Azure Key Vault
 description: Instruções passo a passo para configurar redes virtuais e firewalls do Key Vault
 services: key-vault
 author: amitbapat
@@ -8,21 +8,21 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/31/2018
+ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 7dd768d3f0059f4b26f09298992483553f1508d2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 09a19b92a496650f94be208d4f463f1fb3fa4256
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681239"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001848"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
 Este guia fornece instruções passo a passo para configurar redes virtuais e firewalls do Azure Key Vault para restringir acesso ao cofre de chaves. Os [pontos de extremidade de serviço da rede virtual para Key Vault](key-vault-overview-vnet-service-endpoints.md) permitem restringir o acesso a uma rede virtual especificada e um conjunto de intervalos de endereços IPv4 (protocolo de internet versão 4).
 
 > [!IMPORTANT]
-> Depois que as regras de firewall estiverem ativas, os usuários podem realizar apenas operações de [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) do Key Vault quando as solicitações deles originarem-se de redes virtuais ou intervalos de endereços IPv4 permitidos. Isso também aplica-se ao acessar o Key Vault a partir do portal do Azure. Embora os usuários possam navegar em um cofre de chaves do portal do Azure, eles talvez não consigam listar chaves, segredos ou certificados se o computador cliente deles não estiver na lista permitida. Isso também afeta o Seletor do Cofre de Chaves de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.
+> Depois que as regras de firewall estiverem ativas, os usuários podem realizar apenas operações de [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) do Key Vault quando as solicitações deles originarem-se de redes virtuais ou intervalos de endereços IPv4 permitidos. Isso também aplica-se ao acessar o Key Vault a partir do portal do Azure. Embora os usuários possam navegar em um cofre de chaves a partir do portal do Azure, eles talvez não consigam listar chaves, segredos ou certificados se o computador cliente deles não estiver na lista permitida. Isso também afeta o Seletor do Cofre de Chaves de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 

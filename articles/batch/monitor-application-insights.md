@@ -11,16 +11,16 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: a92d2cb5f6abc73dc768567d239ec38554e493b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001576"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119900"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do Lote do Azure com o Application Insights
 
-O [Application Insights](../application-insights/app-insights-overview.md) fornece uma maneira elegante e avançada para os desenvolvedores monitorarem e depurarem aplicativos implantados nos serviços do Azure. Use o Application Insights para monitorar exceções e contadores de desempenho, bem como instrumentar o código com rastreamento e métricas personalizadas. A integração do Application Insights com o aplicativo Lote do Azure permite que você obtenha insights aprofundados sobre os comportamentos e investigue os problemas quase em tempo real.
+O [Application Insights](../azure-monitor/app/app-insights-overview.md) fornece uma maneira elegante e avançada para os desenvolvedores monitorarem e depurarem aplicativos implantados nos serviços do Azure. Use o Application Insights para monitorar exceções e contadores de desempenho, bem como instrumentar o código com rastreamento e métricas personalizadas. A integração do Application Insights com o aplicativo Lote do Azure permite que você obtenha insights aprofundados sobre os comportamentos e investigue os problemas quase em tempo real.
 
 Este artigo mostra como adicionar e configurar a biblioteca do Application Insights na solução .NET do Lote do Azure e instrumentar o código do aplicativo. Adicionalmente, mostra maneiras de monitorar o aplicativo por meio do Portal do Azure e criar painéis personalizados. Para suporte do Application Insights em outros idiomas, consulte a [documentação de integrações, plataformas e idiomas](../azure-monitor/app/platforms.md).
 
@@ -35,11 +35,11 @@ Uma solução C# de exemplo com código para acompanhar este artigo está dispon
 
 * [Conta do Lote e conta de armazenamento vinculada](batch-account-create-portal.md)
 
-* [Recurso do Application Insights](../application-insights/app-insights-create-new-resource.md)
+* [Recurso do Application Insights](../azure-monitor/app/create-new-resource.md )
   
    * Use o Portal do Azure para criar um *recurso* do Application Insights. Selecione a opção *Geral* **Tipo de Aplicativo**.
 
-   * Copie a [chave de instrumentação](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) do portal. Essa chave será necessária mais adiante neste artigo.
+   * Copie a [chave de instrumentação](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) do portal. Essa chave será necessária mais adiante neste artigo.
   
   > [!NOTE]
   > Você pode ser [cobrado](https://azure.microsoft.com/pricing/details/application-insights/) pelos dados armazenados no Application Insights. Isso inclui os dados de diagnóstico e monitoramento discutidos neste artigo.
@@ -338,11 +338,11 @@ pool.StartTask = new StartTask()
 
 ## <a name="throttle-and-sample-data"></a>Limitação e dados de exemplo 
 
-Devido à natureza em grande escala dos aplicativos do Lote do Azure executando em produção, convém limitar a quantidade de dados coletados pelo Application Insights para gerenciar os custos. Consulte [Amostragem em Application Insights](../application-insights/app-insights-sampling.md) e obtenha alguns mecanismos para fazer isso.
+Devido à natureza em grande escala dos aplicativos do Lote do Azure executando em produção, convém limitar a quantidade de dados coletados pelo Application Insights para gerenciar os custos. Consulte [Amostragem em Application Insights](../azure-monitor/app/sampling.md) e obtenha alguns mecanismos para fazer isso.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o [Application Insights](../application-insights/app-insights-overview.md).
+* Saiba mais sobre o [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Para suporte do Application Insights em outros idiomas, consulte a [documentação de integrações, plataformas e idiomas](../azure-monitor/app/platforms.md).
 

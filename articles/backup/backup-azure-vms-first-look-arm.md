@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1bd92b9c4611465b680f195e4881a447f4bb701
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631576"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044392"
 ---
 # <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Fazer backup de VMs do Azure com o serviço de Backup do Azure
 
@@ -290,7 +290,7 @@ Para executar o trabalho de backup inicial:
   As notificações de implantação informam que o trabalho de backup foi disparado, e que você pode monitorar o andamento do trabalho na página de Trabalhos de backup. Dependendo do tamanho da VM, a criação do backup inicial pode demorar um pouco.
 
   > [!NOTE]
-  > Todos os dados dos quais está sendo feito backup pelo Backup do Azure são criptografados em repouso por meio da [SSE (Criptografia do Serviço de Armazenamento)](../storage/common/storage-service-encryption.md).
+  > - Todos os dados dos quais está sendo feito backup pelo Backup do Azure são criptografados em repouso por meio da [SSE (Criptografia do Serviço de Armazenamento)](../storage/common/storage-service-encryption.md).
   >
   >
 
@@ -339,4 +339,3 @@ O custo do backup de VMs do Azure tem base no número de instâncias protegidas.
 ## <a name="next-steps"></a>Próximas etapas
 
 [Gerenciar](backup-azure-manage-vms.md) seus backups.
-

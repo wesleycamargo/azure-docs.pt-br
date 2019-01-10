@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: a7fe2cf151b79b02f4f8996ad938d8fc262a5f77
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400417"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594288"
 ---
 # <a name="enable-write-accelerator"></a>Habilitar acelerador de gravação
 
@@ -41,7 +41,7 @@ Habilitar o Acelerador e Gravação para discos do sistema operacional não deve
 Ao utilizar o Acelerador de Gravação para um VHD/disco do Azure, estas restrições são aplicáveis:
 
 - O armazenamento em cache do disco Premium deve ser definido como 'Nenhum' ou ‘Somente leitura’. Todos os outros modos de armazenamento em cache não têm suporte.
-- O instantâneo no disco habilitado do Accelerator de Gravação ainda não tem suporte. Essa restrição bloqueia a capacidade do Serviço de Backup do Azure de executar um instantâneo consistente de todos os discos da máquina virtual.
+- Instantâneo não têm suporte atualmente para discos do Acelerador de Gravação habilitados. Durante o backup, o serviço de Backup do Microsoft Azure exclui automaticamente os discos habilitados do Acelerador de Gravação anexados à VM.
 - Somente E/S menores (<=32 KiB) estão tomando o caminho mais rápido. Em situações de carga de trabalho em que os dados estão sendo carregados em massa ou quando buffers de log de transação dos diferentes DBMS são preenchidos a um maior grau antes de serem retidos no armazenamento, é provável que a E/S gravada em disco não esteja fazendo o caminho mais rápido.
 
 Há limites de VHDs de Armazenamento Premium do Azure por VM que podem ter suporte pelo Acelerador de Gravação. Os limites atuais são:

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994633"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033801"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -175,7 +175,7 @@ Se o aplicativo usar a Instância Gerenciada como a camada de dados, siga estas 
 
   Quando uma nova instância é criada, uma ID exclusiva é automaticamente gerada como a zona DNS e incluída no nome DNS da instância. Um certificado SAN (de vários domínios) para essa instância é provisionado com o campo SAN em forma de `zone_id.database.windows.net`. Esse certificado pode ser usado para autenticar as conexões do cliente a uma instância na mesma zona DNS. Para garantir conectividade ininterrupta à instância primária após o failover, ambas as instâncias primária e secundária precisam estar na mesma zona DNS. Quando seu aplicativo está pronto para implantação em produção, crie uma instância do secundário em uma região diferente e assegure que ela compartilhe a zona DNS com a instância do primário. Isso é feito especificando um parâmetro opcional `DNS Zone Partner` usando o portal do Azure, o PowerShell ou a API REST.
 
-  Para obter mais informações sobre como criar a instância do secundário na mesma zona DNS como a instância primária, confira [Gerenciamento de grupos de failover com Instâncias Gerenciadas (versão prévia)](#managing-failover-groups-with-managed-instances-preview).
+  Para obter mais informações sobre como criar a instância do secundário na mesma zona DNS como a instância primária, confira [Gerenciamento de grupos de failover com Instâncias Gerenciadas (versão prévia)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Permitir o tráfego de replicação entre duas instâncias**
 
@@ -349,7 +349,7 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 | API | DESCRIÇÃO |
 | --- | --- |
 | [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Criar ou atualizar grupo de failover |
-| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | Remove o grupo de failover do servidor |
+| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Remove o grupo de failover do servidor |
 | [Failover (planejado)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Failover do servidor principal atual para este servidor. |
 | [O Failover forçado permite a perda de dados](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |Failover do servidor principal atual para este servidor. Esta operação pode resultar em perda de dados. |
 | [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Obtém um grupo de failover. |

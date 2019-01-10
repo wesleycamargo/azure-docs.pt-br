@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1ddadcf17a5733767e24505b970b2ac21c8d7fa8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325195"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103937"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -118,7 +118,7 @@ A configuração de Diagnóstico contém instruções para um determinado tipo d
 #### <a name="is-the-host-generating-data"></a>O host está gerando dados?
 - **Contadores de desempenho**: abra o perfmon e verifique o contador.
 
-- **Logs de rastreamento**:  acesso remoto à VM e adiciona um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Veja http://msdn.microsoft.com/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
+- **Logs de rastreamento**:  acesso remoto à VM e adiciona um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Veja https://msdn.microsoft.com/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
 Se você não visualizar os logs de rastreamento sendo gerados, consulte [Mais informações sobre logs de rastreamento ausentes](#more-about-trace-logs-missing).
 
 - **Rastreamento de ETW**: acesso remoto à VM e instala o PerfView.  Em PerfView, execute **Arquivo** > **Comando do Usuário** > **Escutar etwprovder1** > **etwprovider2**, e assim por diante. O comando **Escutar** diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW. Se o comando falhar na execução, você poderá selecionar o botão **Log**na parte inferior direita da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, uma nova janela aparece. Em alguns segundos, você começará a ver o rastreamento de ETW.
@@ -217,9 +217,9 @@ Como alternativa, acesse a área de trabalho remota na máquina e examine o arqu
 
 Em ambos os casos, pesquise por **Microsoft.Azure.Diagnostics** e, em seguida, pelo campo **xmlCfg** ou **WadCfg**.
 
-Se estiver pesquisando em uma máquina virtual e o campo **WadCfg** estiver presente, isso significa que a configuração está no formato JSON. Se o campo **xmlCfg** estiver presente, significa que a configuração está em XML e codificada em Base64. Você precisa [decodificá-la](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.
+Se estiver pesquisando em uma máquina virtual e o campo **WadCfg** estiver presente, isso significa que a configuração está no formato JSON. Se o campo **xmlCfg** estiver presente, significa que a configuração está em XML e codificada em Base64. Você precisa [decodificá-la](https://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.
 
-Para a função de serviço de nuvem, se você escolher a configuração a partir do disco, os dados são codificados em Base64, então, será necessário [descodificá-los](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.
+Para a função de serviço de nuvem, se você escolher a configuração a partir do disco, os dados são codificados em Base64, então, será necessário [descodificá-los](https://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída do plug-in do Diagnóstico do Microsoft Azure
 O plug-in retorna os seguintes códigos de saída:

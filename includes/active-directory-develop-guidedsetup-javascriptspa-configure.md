@@ -14,28 +14,14 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 135ee9f6b833165cd393b9c5ca582e0ee9499e0f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330695"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057349"
 ---
 ## <a name="register-your-application"></a>Registre seu aplicativo
-
-Existem várias maneiras de registrar um aplicativo. Selecione a opção que melhor atenda às suas necessidades:
-* [Modo expresso - Use o início rápido do SPA para configurar o aplicativo](#option-1-register-your-application-express-mode)
-* [Modo avançado - configure manualmente as configurações do aplicativo](#option-2-register-your-application-advanced-mode)
-
-### <a name="option-1-register-your-application-express-mode"></a>Opção 1: Registrar seu aplicativo (modo Expresso)
-
-1. Faça login no [registro do aplicativo do portal do Azure (visualização)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) para registrar um aplicativo.
-1. Na página **Registrar um aplicativo**, insira um nome para o seu aplicativo.
-1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
-1. Quando terminar, selecione **Registro**.
-1. Siga as instruções de início rápido para baixar e configurar automaticamente seu novo aplicativo para você em um clique.
-
-### <a name="option-2-register-your-application-advanced-mode"></a>Opção 2: Registrar seu aplicativo (modo Avançado)
 
 1. Faça login no [Portal do Azure](https://portal.azure.com/) para registrar um aplicativo.
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.

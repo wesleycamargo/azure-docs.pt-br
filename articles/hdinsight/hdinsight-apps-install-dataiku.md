@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5d2f803414db3bd118f57d317cfc32c8f22fcd5a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499133"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653248"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Instalar aplicativo publicado – Dataiku DDS
 
@@ -28,15 +28,15 @@ Você pode usar o DSS para implementar uma solução de análise completa, come�
 
 Você pode instalar p DSS no HDInsight usando clusters [Apache Hadoop](https://hadoop.apache.org/) ou [Apache Spark](https://spark.apache.org/). Você pode instalar o DSS em clusters em execução existentes ou ao criar novos clusters. O DSS também oferece suporte ao uso de armazenamento de Blobs do Azure como um conector para leitura de dados.
 
-Você pode usar o DSS para compilar projetos, que então podem gerar trabalhos do [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  ou Spark. Esses trabalhos são executados como trabalhos normais do MapReduce ou Spark no HDInsight, para que você possa dimensionar o cluster sob demanda.
+Você pode usar o DSS para compilar projetos, que então podem gerar trabalhos do [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) ou Spark. Esses trabalhos são executados como trabalhos normais do MapReduce ou Spark no HDInsight, para que você possa dimensionar o cluster sob demanda.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para instalar este aplicativo em um novo cluster do HDInsight ou em um cluster existente, você deve ter a seguinte configuração:
 
-* Camada(s) do cluster: Standard, Premium
+* Camada(s) de cluster: Standard, Premium
 * Tipo(s) de cluster: Hadoop, Spark
-* Versão do cluster: 3.4, 3.5
+* Versões do cluster: 3.4, 3.5
 
 ## <a name="install-the-dataiku-dss-published-application"></a>Instalar o aplicativo publicado DSS do Dataiku
 
@@ -113,8 +113,8 @@ Para obter tutoriais detalhados, leia [Conheça o DSS do Dataiku](https://www.da
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Documentação do DSS do Dataiku](https://doc.dataiku.com/dss/latest/).
-* [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md): Saiba como implantar um aplicativo do HDInsight não publicado no HDInsight.
-* [Publicar aplicativos do HDInsight](hdinsight-apps-publish-applications.md): saiba como publicar seus aplicativos personalizados do HDInsight no Azure Marketplace.
-* [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): saiba como definir aplicativos do HDInsight.
-* [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
-* [Usar nós de borda vazios no HDInsight](hdinsight-apps-use-edge-node.md): saiba como usar um nó de borda vazio para acessar clusters HDInsight, e testar e hospedar aplicativos HDInsight.
+* [Instalar aplicativos HDInsight personalizados](hdinsight-apps-install-custom-applications.md): Saiba como implantar um aplicativo não publicado do HDInsight no HDInsight.
+* [Publicar aplicativos HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar seus aplicativos personalizados do HDInsight no Azure Marketplace.
+* [MSDN: Instalar um aplicativo HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Saiba como definir aplicativos do HDInsight.
+* [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): Saiba como usar a ação de script para instalar aplicativos adicionais.
+* [Usar nós de borda vazios no HDInsight](hdinsight-apps-use-edge-node.md): Saiba como usar um nó de borda vazio para acessar clusters HDInsight, além de testar e hospedar aplicativos do HDInsight.

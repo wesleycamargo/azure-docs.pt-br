@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 0978e906467fd5b16f25bd2e053980dda4510127
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 906ab6c433df7cf452d1f5ab4660abce8d4674fc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020987"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107496"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introdução à camada Premium do Cache do Azure para Redis
 O Cache do Azure para Redis é um cache distribuído e gerenciado que ajuda você a criar aplicativos altamente escalonáveis e responsivos, fornecendo acesso extremamente rápido aos seus dados. 
@@ -34,7 +34,7 @@ A nova camada Premium é uma camada pronta para Empresas, que inclui todos os re
 Para obter mais informações sobre tamanho, taxa de transferência e largura de banda com caches premium, consulte [Perguntas frequentes sobre o Cache do Azure para Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 ## <a name="redis-data-persistence"></a>Persistência de dados do Redis
-A camada Premium permite persistir os dados de cache em uma conta do Armazenamento do Azure. Em um cache Básico/Standard, todos os dados são armazenados apenas na memória. Em caso de problemas de infraestrutura subjacente, pode haver uma possível perda de dados. Recomendamos usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra a perda de dados. O Cache do Azure para Redis oferece opções de RDB e AOF (em breve) na [Persistência do Redis](http://redis.io/topics/persistence). 
+A camada Premium permite persistir os dados de cache em uma conta do Armazenamento do Azure. Em um cache Básico/Standard, todos os dados são armazenados apenas na memória. Em caso de problemas de infraestrutura subjacente, pode haver uma possível perda de dados. Recomendamos usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra a perda de dados. O Cache do Azure para Redis oferece opções de RDB e AOF (em breve) na [Persistência do Redis](https://redis.io/topics/persistence). 
 
 Para obter instruções sobre como configurar a persistência, consulte [Como configurar a persistência para um Cache do Azure Premium para Redis](cache-how-to-premium-persistence.md).
 
@@ -55,7 +55,7 @@ A Importação/Exportação é uma operação de gerenciamento de dados do Cache
 
 A importação pode ser usada para trazer arquivos RDB compatíveis com o Redis de qualquer servidor Redis em execução em qualquer nuvem ou ambiente, incluindo o Redis em execução no Linux, Windows ou qualquer provedor de nuvem como Amazon Web Services e similares. Importar os dados é uma maneira fácil de criar um cache com dados previamente populados. Durante o processo de importação, o Cache do Azure para Redis carrega os arquivos RDB do armazenamento do Azure na memória e insere as chaves no cache.
 
-A exportação permite exportar os dados armazenados no Cache do Azure para Redis para arquivos RDB compatíveis com Redis. É possível usar esse recurso para mover dados de uma instância do Cache do Azure para Redis para outra ou para outro servidor de Redis. Durante o processo de exportação, um arquivo temporário é criado na VM que hospeda a instância do servidor do Cache do Azure para Redis e o arquivo é carregado na conta de armazenamento designada. Após a operação de exportação ser concluída com um status de êxito ou de falha, o arquivo temporário é excluído.
+A exportação permite exportar os dados armazenados no Cache do Azure para Redis para arquivos RDB compatíveis com Redis. É possível usar esse recurso para mover dados de uma instância do Cache do Azure para Redis para outra ou para outro servidor de Redis. Durante o processo de exportação, um arquivo temporário é criado na VM que hospeda a instância do servidor do Cache do Azure para Redis, e o arquivo é carregado na conta de armazenamento designada. Após a operação de exportação ser concluída com um status de êxito ou de falha, o arquivo temporário é excluído.
 
 Para obter mais informações, consulte [Como importar dados e exportar dados do Cache do Azure para Redis](cache-how-to-import-export-data.md).
 

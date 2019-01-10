@@ -4,14 +4,14 @@ description: Mostra quais tipos de recursos do Azure suportam tags. Fornece deta
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/20/2018
+ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 50ea7a2446b5560bd208b2da128fa877068ce452
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409659"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000284"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-group-using-tags.md).
@@ -24,15 +24,20 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 ## <a name="ad-hybrid-health-service"></a>Serviço de Integridade Híbrida do AD
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| services | Não  | 
-| addsservices | Não  | 
-| configuração | Não  | 
-| agentes | Não  | 
+| addsservices | Não  |
 | aadsupportcases | Não  | 
-| relatórios | Não  | 
-| servicehealthmetrics | Não  | 
-| logs | Não  | 
+| agentes | Não  | 
 | anonymousapiusers | Não  | 
+| configuração | Não  | 
+| logs | Não  | 
+| relatórios | Não  | 
+| services | Não  | 
+| servicehealthmetrics | Não  | 
+
+## <a name="aks"></a>AKS
+| Tipo de recurso | Suporte de Tags |
+| ------------- | ----------- |
+| managedClusters | SIM | 
 
 ## <a name="analysis-services"></a>Serviços de análise
 | Tipo de recurso | Suporte de Tags |
@@ -43,11 +48,11 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | apiManagementAccounts | Não  | 
-| apiManagementAccounts/connectionProviders | Não  | 
-| apiManagementAccounts/connections | Não  | 
-| apiManagementAccounts/connectionAcls | Não  | 
-| apiManagementAccounts/connectionProviderAcls | Não  | 
 | apiManagementAccounts/apis | Não  | 
+| apiManagementAccounts/connectionAcls | Não  | 
+| apiManagementAccounts/connectionProviders | Não  | 
+| apiManagementAccounts/connectionProviderAcls | Não  | 
+| apiManagementAccounts/connections | Não  | 
 
 ## <a name="api-management"></a>Gerenciamento de API
 | Tipo de recurso | Suporte de Tags |
@@ -58,11 +63,48 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | automationaccounts | SIM | 
-| automationAccounts/runbooks | SIM | 
 | automationAccounts/configurations | SIM | 
 | automationAccounts/runbooks | Não  | 
+| automationAccounts/runbooks | SIM | 
 | automationAccounts/configurations | Não  | 
 | automationAccounts/runbooks | Não  | 
+
+## <a name="azure-database-for-mariadb"></a>Banco de Dados do Azure para MariaDB
+| Tipo de recurso | Suporte de Tags |
+| ------------- | ----------- |
+| servers | SIM | 
+| servers/configurations | Não  |
+| servers/databases | Não  |
+| servers/firewallRules | Não  |
+| servers/recoverableServers | Não  | 
+| servers/securityAlertPolicies | Não  |
+| servers/virtualNetworkRules | Não  | 
+
+## <a name="azure-database-for-mysql"></a>Banco de Dados do Azure para MySQL
+| Tipo de recurso | Suporte de Tags |
+| ------------- | ----------- |
+| servers | SIM | 
+| servers/configurations | Não  |
+| servers/databases | Não  |
+| servers/firewallRules | Não  |
+| servers/recoverableServers | Não  | 
+| servers/securityAlertPolicies | Não  |
+| servers/virtualNetworkRules | Não  | 
+
+## <a name="azure-database-for-postgresql"></a>Banco de Dados do Azure para PostgreSQL
+| Tipo de recurso | Suporte de Tags |
+| ------------- | ----------- |
+| servers | SIM | 
+| servers/advisors | Não  | 
+| servers/configurations | Não  |
+| servers/databases | Não  |
+| servers/firewallRules | Não  |
+| servers/queryTexts | Não  | 
+| servers/recoverableServers | Não  | 
+| servers/securityAlertPolicies | Não  |
+| servers/topQueryStatistics | Não  | 
+| servers/virtualNetworkRules | Não  | 
+| servers/waitStatistics | Não  | 
 
 ## <a name="batch"></a>Lote
 | Tipo de recurso | Suporte de Tags |
@@ -87,12 +129,12 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 ## <a name="cdn"></a>CDN
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
+| edgenodes | Não  | 
 | perfis | SIM | 
 | profiles/endpoints | SIM | 
 | profiles/endpoints/origins | Não  | 
 | profiles/endpoints/origins | Não  | 
 | validateProbe | Não  | 
-| edgenodes | Não  | 
 
 ## <a name="classic-compute"></a>Compute Clássico
 | Tipo de recurso | Suporte de Tags |
@@ -127,23 +169,23 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | availabilitySets | SIM | 
-| virtualMachines | SIM | 
-| virtualMachines/extensions | SIM | 
-| virtualMachineScaleSets | SIM | 
-| virtualMachines/extensions | Não  | 
-| virtualMachineScaleSets/virtualMachines | Não  | 
-| virtualMachineScaleSets/networkInterfaces | Não  | 
-| virtualMachineScaleSets/networkInterfaces | Não  | 
-| virtualMachineScaleSets/publicIPAddresses | Não  | 
+| disks | SIM | 
+| images | SIM | 
 | restorePointCollections | SIM | 
 | restorePointCollections/restorePoints | Não  | 
-| virtualMachines/diagnosticSettings | Não  | 
-| virtualMachines/metricDefinitions | Não  | 
 | sharedVMImages | SIM | 
 | sharedVMImages/versions | SIM | 
-| disks | SIM | 
 | snapshots | SIM | 
-| images | SIM | 
+| virtualMachines | SIM | 
+| virtualMachines/diagnosticSettings | Não  | 
+| virtualMachines/extensions | SIM | 
+| virtualMachines/metricDefinitions | Não  | 
+| virtualMachineScaleSets | SIM | 
+| virtualMachines/extensions | Não  | 
+| virtualMachineScaleSets/networkInterfaces | Não  | 
+| virtualMachineScaleSets/publicIPAddresses | Não  | 
+| virtualMachineScaleSets/virtualMachines | Não  | 
+| virtualMachineScaleSets/networkInterfaces | Não  | 
 
 ## <a name="container"></a>Contêiner
 | Tipo de recurso | Suporte de Tags |
@@ -155,6 +197,14 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | ------------- | ----------- |
 | containerGroups | SIM | 
 | serviceAssociationLinks | Não  | 
+
+## <a name="container-registry"></a>Registro de Contêiner
+| Tipo de recurso | Suporte de Tags |
+| ------------- | ----------- |
+| registries | SIM | 
+| registries/replications | SIM |
+| registries/tasks | SIM |
+| registries/webhooks | SIM |
 
 ## <a name="container-service"></a>Serviço de Contêiner
 | Tipo de recurso | Suporte de Tags |
@@ -177,6 +227,11 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | ------------- | ----------- |
 | Conectores | SIM | 
 
+## <a name="data-box"></a>Data Box
+| Tipo de recurso | Suporte de Tags |
+| ------------- | ----------- |
+| jobs | SIM | 
+
 ## <a name="data-box-edge"></a>Data Box Edge
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
@@ -196,11 +251,11 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | dataFactories | SIM | 
-| factories | SIM | 
-| factories/integrationRuntimes | Não  | 
 | dataFactories/diagnosticSettings | Não  | 
 | dataFactories/metricDefinitions | Não  | 
 | dataFactorySchema | Não  | 
+| factories | SIM | 
+| factories/integrationRuntimes | Não  | 
 
 ## <a name="devices"></a>Dispositivos
 | Tipo de recurso | Suporte de Tags |
@@ -218,9 +273,24 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | labs | SIM | 
-| schedules | SIM | 
-| labs/virtualMachines | SIM | 
+| labs/artifactsources | SIM |
+| labs/costs | SIM |
+| labs/customimages | SIM |
+| labs/formulas | SIM |
+| labs/notificationchannels | SIM |
+| labs/policysets/policies | SIM |
+| labs/schedules | SIM |
 | labs/serviceRunners | SIM | 
+| labs/users | SIM |
+| labs/users/disks | SIM |
+| labs/users/environments | SIM |
+| labs/users/secrets | SIM |
+| labs/users/servicefabrics | SIM |
+| labs/users/servicefabrics/schedules | SIM |
+| labs/virtualMachines | SIM | 
+| labs/virtualmachines/schedules | SIM |
+| labs/virtualnetworks | SIM |
+| schedules | SIM | 
 
 ## <a name="dynamics-lcs"></a>Dynamics LCS
 | Tipo de recurso | Suporte de Tags |
@@ -232,18 +302,23 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 ## <a name="event-grid"></a>Grade de Eventos
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| eventSubscriptions | Não  | 
-| topics | SIM | 
 | domains | SIM | 
 | domains/topics | Não  | 
-| topicTypes | Não  | 
+| eventSubscriptions | Não  | 
 | extensionTopics | Não  | 
+| topics | SIM | 
+| topicTypes | Não  | 
 
 ## <a name="event-hub"></a>Hub de evento
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| namespaces | SIM | 
 | clusters | SIM | 
+| namespaces | SIM | 
+| namespaces/AuthorizationRules | Não  |
+| namespaces/disasterRecoveryConfigs | Não  |
+| namespaces/eventhubs | Não  |
+| namespaces/eventhubs/authorizationRules | Não  |
+| namespaces/eventhubs/consumergroups | Não  |
 
 ## <a name="hana-on-azure"></a>Hana no Azure
 | Tipo de recurso | Suporte de Tags |
@@ -264,28 +339,32 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 ## <a name="insights"></a>Insights
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| components | SIM | 
-| components/query | Não  | 
-| components/metrics | Não  | 
-| components/metrics | Não  | 
-| webtests | SIM | 
-| consultas | Não  | 
-| scheduledqueryrules | SIM | 
-| components/pricingPlans | Não  | 
-| migrateToNewPricingModel | Não  | 
-| rollbackToLegacyPricingModel | Não  | 
+| actionGroups | SIM |
+| activityLogAlerts | SIM |
+| alertrules | SIM |
 | automatedExportSettings | Não  | 
-| workbooks | SIM | 
-| myWorkbooks | Não  | 
+| components | SIM | 
+| components/metrics | Não  | 
+| components/metrics | Não  | 
+| components/pricingPlans | Não  | 
+| components/query | Não  | 
 | logs | Não  | 
+| metricAlerts | SIM |
+| migrateToNewPricingModel | Não  | 
+| myWorkbooks | Não  | 
+| consultas | Não  | 
+| rollbackToLegacyPricingModel | Não  | 
+| scheduledqueryrules | SIM | 
+| webtests | SIM | 
+| workbooks | SIM | 
 
 ## <a name="key-vault"></a>Key Vault
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| vaults | SIM | 
-| vaults/secrets | Não  | 
-| vaults/accessPolicies | Não  | 
 | deletedVaults | Não  | 
+| vaults | SIM | 
+| vaults/accessPolicies | Não  | 
+| vaults/secrets | Não  | 
 
 ## <a name="log-analytics"></a>Log Analytics
 | Tipo de recurso | Suporte de Tags |
@@ -295,8 +374,8 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 ## <a name="logic"></a>Lógica
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| workflows | SIM | 
 | integrationAccounts | SIM | 
+| workflows | SIM | 
 
 ## <a name="machine-learning-services"></a>Serviços de Machine Learning
 | Tipo de recurso | Suporte de Tags |
@@ -309,13 +388,6 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | ------------- | ----------- |
 | Identidades | Não  | 
 | userAssignedIdentities | SIM | 
-
-## <a name="mariadb"></a>MariaDB
-| Tipo de recurso | Suporte de Tags |
-| ------------- | ----------- |
-| servers | SIM | 
-| servers/recoverableServers | Não  | 
-| servers/virtualNetworkRules | Não  | 
 
 ## <a name="marketplace-apps"></a>Apps do Marketplace
 | Tipo de recurso | Suporte de Tags |
@@ -332,64 +404,57 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | mediaservices | SIM | 
+| mediaservices/accountFilters | Não  | 
 | mediaservices/assets | Não  | 
+| mediaservices/assets/assetFilters | Não  | 
 | mediaservices/contentKeyPolicies | Não  | 
-| mediaservices/streamingLocators | Não  | 
-| mediaservices/streamingLocators | Não  | 
 | mediaservices/eventGridFilters | Não  | 
-| mediaservices/transforms | Não  | 
-| mediaservices/transforms | Não  | 
-| mediaservices/streamingEndpoints | SIM | 
+| mediaservices/liveEvents | Não  | 
 | mediaservices/liveEvents | SIM | 
 | mediaservices/liveEvents/liveOutputs | Não  | 
+| mediaservices/liveEvents | Não  | 
+| mediaservices/streamingEndpoints | SIM | 
 | mediaservices/streamingEndpoints | Não  | 
-| mediaservices/liveEvents | Não  | 
-| mediaservices/liveEvents | Não  | 
-| mediaservices/assets/assetFilters | Não  | 
-| mediaservices/accountFilters | Não  | 
-
-## <a name="mysql"></a>MySQL
-| Tipo de recurso | Suporte de Tags |
-| ------------- | ----------- |
-| servers | SIM | 
-| servers/recoverableServers | Não  | 
-| servers/virtualNetworkRules | Não  | 
+| mediaservices/streamingLocators | Não  | 
+| mediaservices/streamingLocators | Não  | 
+| mediaservices/transforms | Não  | 
+| mediaservices/transforms | Não  | 
 
 ## <a name="network"></a>Rede
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| virtualNetworks | SIM | 
-| publicIPAddresses | SIM | 
-| networkInterfaces | SIM | 
+| applicationGateways | SIM | 
+| applicationSecurityGroups | SIM | 
+| azureFirewalls | SIM | 
+| connections | SIM | 
+| ddosProtectionPlans | SIM | 
+| expressRouteCircuits | SIM | 
+| frontdoors | SIM | 
+| frontdoorWebApplicationFirewallPolicies | SIM | 
 | interfaceEndpoints | SIM | 
 | loadBalancers | SIM | 
-| networkSecurityGroups | SIM | 
-| applicationSecurityGroups | SIM | 
-| serviceEndpointPolicies | SIM | 
+| virtualNetworkGateways | SIM | 
 | networkIntentPolicies | SIM | 
-| routeTables | SIM | 
-| publicIPPrefixes | SIM | 
+| networkInterfaces | SIM | 
+| networkProfiles | SIM | 
+| networkSecurityGroups | SIM | 
 | networkWatchers | SIM | 
 | networkWatchers/connectionMonitors | SIM | 
 | networkWatchers/lenses | SIM | 
 | networkWatchers/lenses | SIM | 
-| virtualNetworkGateways | SIM | 
-| virtualNetworkGateways | SIM | 
-| connections | SIM | 
-| applicationGateways | SIM | 
-| expressRouteCircuits | SIM | 
+| privateLinkServices | SIM | 
+| publicIPAddresses | SIM | 
+| publicIPPrefixes | SIM | 
 | routeFilters | SIM | 
+| routeTables | SIM | 
+| serviceEndpointPolicies | SIM | 
 | virtualWans | SIM | 
-| vpnSites | SIM | 
+| virtualNetworks | SIM | 
+| virtualNetworkGateways | SIM | 
+| virtualNetworkTaps | SIM | 
 | virtualWans | SIM | 
 | vpnGateways | SIM | 
-| azureFirewalls | SIM | 
-| virtualNetworkTaps | SIM | 
-| privateLinkServices | SIM | 
-| ddosProtectionPlans | SIM | 
-| networkProfiles | SIM | 
-| frontdoors | SIM | 
-| frontdoorWebApplicationFirewallPolicies | SIM | 
+| vpnSites | SIM | 
 | frontdoorWebApplicationFirewallPolicies | SIM | 
 
 ## <a name="notification-hubs"></a>Hubs de Notificação
@@ -397,6 +462,20 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | ------------- | ----------- |
 | namespaces | SIM | 
 | namespaces/notificationHubs | SIM | 
+
+## <a name="operational-insights"></a>Insights Operacionais
+| Tipo de recurso | Suporte de Tags |
+| ------------- | ----------- |
+| workspaces | SIM |
+| workspaces/dataSources | SIM |
+| workspaces/linkedServices | SIM |
+| workspaces/savedSearches | Não  |
+| workspaces/storageInsightConfigs | SIM |
+
+## <a name="operations-management"></a>Gerenciamento de Operações
+| Tipo de recurso | Suporte de Tags |
+| ------------- | ----------- |
+| solutions | Não  |
 
 ## <a name="portal"></a>Portal
 | Tipo de recurso | Suporte de Tags |
@@ -408,17 +487,6 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | ------------- | ----------- |
 | rootResources | SIM | 
 
-## <a name="postgresql"></a>PostgreSQL
-| Tipo de recurso | Suporte de Tags |
-| ------------- | ----------- |
-| servers | SIM | 
-| servers/recoverableServers | Não  | 
-| servers/virtualNetworkRules | Não  | 
-| servers/topQueryStatistics | Não  | 
-| servers/queryTexts | Não  | 
-| servers/waitStatistics | Não  | 
-| servers/advisors | Não  | 
-
 ## <a name="power-bi"></a>Power BI
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
@@ -427,8 +495,8 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 ## <a name="recovery-services"></a>Serviços de Recuperação
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| vaults | SIM | 
 | backupProtectedItems | Não  | 
+| vaults | SIM | 
 
 ## <a name="relay"></a>Retransmissão
 | Tipo de recurso | Suporte de Tags |
@@ -450,8 +518,8 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 ## <a name="search"></a>Search
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| searchServices | SIM | 
 | resourceHealthMetadata | Não  | 
+| searchServices | SIM | 
 
 ## <a name="security"></a>Segurança
 | Tipo de recurso | Suporte de Tags |
@@ -494,6 +562,64 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | applicationDefinitions | SIM | 
 | jitRequests | SIM | 
 
+## <a name="sql"></a>SQL
+| Tipo de recurso | Suporte de Tags |
+| ------------- | ----------- |
+| locations/instanceFailoverGroups | Não  |
+| managedInstances | SIM |
+| managedInstances/databases | SIM |
+| managedInstances/databases/backupShortTermRetentionPolicies | Não  |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | Não  |
+| managedInstances/databases/vulnerabilityAssessments | Não  |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | Não  |
+| managedInstances/encryptionProtector | Não  |
+| managedInstances/keys | Não  |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Não  |
+| managedInstances/vulnerabilityAssessments | Não  |
+| servers | SIM |
+| servers/administrators | Não  |
+| servers/advisors | Não  |
+| servers/auditingSettings | Não  |
+| servers/backupLongTermRetentionVaults | Não  |
+| servers/communicationLinks | Não  |
+| servers/connectionPolicies | Não  |
+| servers/databases | SIM |
+| servers/databases/advisors | Não  |
+| servers/databases/auditingSettings | Não  |
+| servers/databases/backupLongTermRetentionPolicies | Não  |
+| servers/databases/backupShortTermRetentionPolicies | Não  |
+| servers/databases/connectionPolicies | Não  |
+| servers/databases/dataMaskingPolicies | Não  |
+| servers/databases/dataMaskingPolicies/rules | Não  |
+| servers/databases/extendedAuditingSettings | Não  |
+| servers/databases/extensions | Não  |
+| servers/databases/geoBackupPolicies | Não  |
+| servers/databases/schemas/tables/columns/sensitivityLabels | Não  |
+| servers/databases/securityAlertPolicies | Não  |
+| servers/databases/syncGroups | Não  |
+| servers/databases/syncGroups/syncMembers | Não  |
+| servers/databases/transparentDataEncryption | Não  |
+| servers/databases/vulnerabilityAssessments | Não  |
+| servers/databases/vulnerabilityAssessments/rules/baselines | Não  |
+| servers/disasterRecoveryConfiguration | Não  |
+| servers/dnsAliases | Não  |
+| servers/elasticPools | SIM |
+| servers/encryptionProtector | Não  |
+| servers/extendedAuditingSettings | Não  |
+| servers/failoverGroups | SIM |
+| servers/firewallRules | Não  |
+| servers/jobAgents | SIM |
+| servers/jobAgents/credentials | Não  |
+| servers/jobAgents/jobs | Não  |
+| servers/jobAgents/jobs/executions | Não  |
+| servers/jobAgents/jobs/steps | Não  |
+| servers/jobAgents/targetGroups | Não  |
+| servers/keys | Não  |
+| servers/securityAlertPolicies | Não  |
+| servers/syncAgents | Não  |
+| servers/virtualNetworkRules | Não  |
+| servers/vulnerabilityAssessments | Não  |
+
 ## <a name="sql-virtual-machine"></a>Máquina virtual SQL
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
@@ -506,18 +632,18 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | storageAccounts/blobServices | Não  | 
 | storageAccounts/blobServices | Não  | 
 | storageAccounts/blobServices | Não  | 
-| storageAccounts/blobServices | Não  | 
 | storageAccounts/services | Não  | 
 | storageAccounts/services/metricDefinitions | Não  | 
+| storageAccounts/blobServices | Não  | 
 
 ## <a name="storage-sync"></a>Armazenamento Síncrono
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | storageSyncServices | SIM | 
+| storageSyncServices/registeredServers | Não  | 
 | storageSyncServices/syncGroups | Não  | 
 | storageSyncServices/syncGroups/cloudEndpoints | Não  | 
 | storageSyncServices/syncGroups/cloudEndpoints | Não  | 
-| storageSyncServices/registeredServers | Não  | 
 | storageSyncServices/workflows | Não  | 
 
 ## <a name="storsimple"></a>Storsimple
@@ -547,53 +673,50 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | conta | SIM | 
-| account/project | SIM | 
 | account/extension | SIM | 
-| conta | SIM | 
 | account/project | SIM | 
-| account/extension | SIM | 
 
 ## <a name="web"></a>Web
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
-| sites/instances | Não  | 
-| sites/instances | Não  | 
-| sites/instances/extensions | Não  | 
-| sites/instances/extensions | Não  | 
-| publishingUsers | Não  | 
-| validade | Não  | 
-| sourceControls | Não  | 
-| sites/hostNameBindings | Não  | 
-| sites/domainOwnershipIdentifiers | Não  | 
-| sites/hostNameBindings | Não  | 
+| apiManagementAccounts | Não  | 
+| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
+| apiManagementAccounts/apis | Não  | 
+| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
+| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
+| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
+| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
+| apiManagementAccounts/apis/localizedDefinitions | Não  | 
+| apiManagementAccounts/connectionAcls | Não  | 
+| apiManagementAccounts/connections | Não  | 
+| billingMeters | Não  | 
 | certificates | SIM | 
-| serverFarms | SIM | 
-| serverFarms/workers | Não  | 
-| sites | SIM | 
-| sites/slots | SIM | 
-| sites/metrics | Não  | 
-| sites/slots/metrics | Não  | 
-| sites/premieraddons | SIM | 
+| connectionGateways | SIM | 
+| connections | SIM | 
+| customApis | SIM | 
+| deletedSites | Não  | 
+| funções | Não  | 
 | hostingEnvironments | SIM | 
 | hostingEnvironments/multiRolePools | Não  | 
 | hostingEnvironments/multiRolePools | Não  | 
 | hostingEnvironments/multiRolePools | Não  | 
-| funções | Não  | 
-| deletedSites | Não  | 
-| apiManagementAccounts | Não  | 
-| apiManagementAccounts/connections | Não  | 
-| apiManagementAccounts/connectionAcls | Não  | 
-| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
-| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
-| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
-| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
-| apiManagementAccounts/apis | Não  | 
-| apiManagementAccounts/apis/localizedDefinitions | Não  | 
-| apiManagementAccounts/apis/connections/connectionAcls | Não  | 
-| connections | SIM | 
-| customApis | SIM | 
-| connectionGateways | SIM | 
-| billingMeters | Não  | 
+| publishingUsers | Não  | 
+| serverFarms | SIM | 
+| serverFarms/workers | Não  | 
+| sites | SIM | 
+| sites/domainOwnershipIdentifiers | Não  | 
+| sites/hostNameBindings | Não  | 
+| sites/instances | Não  | 
+| sites/instances/extensions | Não  | 
+| sites/metrics | Não  | 
+| sites/premieraddons | SIM | 
+| sites/slots | SIM | 
+| sites/hostNameBindings | Não  | 
+| sites/instances | Não  | 
+| sites/instances/extensions | Não  | 
+| sites/slots/metrics | Não  | 
+| sourceControls | Não  | 
+| validade | Não  | 
 | verifyHostingEnvironmentVnet | Não  | 
 
 ## <a name="xrm"></a>XRM

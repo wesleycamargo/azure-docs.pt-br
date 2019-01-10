@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 57cde41bf65c370f86ebc57a39e917b95721ca81
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a9decacc3b22676d94726e3cf979198b3486d270
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892756"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104634"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de bloco a um mapa
 
@@ -24,7 +24,7 @@ Uma carga de camada lado a lado em blocos de um servidor. Essas imagens podem se
 
 * X, Y, notação de Zoom - com base no nível de zoom, x é a coluna e y é a posição da linha do bloco na grade lado a lado.
 * Notação Quadkey - combinação x, y, informações de zoom em um valor de cadeia de caracteres única que é um identificador exclusivo para um bloco.
-* Caixa delimitadora - as coordenadas da caixa de delimitação podem ser usadas para especificar uma imagem no formato `{west},{south},{east},{north}` que é normalmente usada por [serviços de mapeamento de Web (WMS)](http://www.opengeospatial.org/standards/wms).
+* Caixa delimitadora - as coordenadas da caixa de delimitação podem ser usadas para especificar uma imagem no formato `{west},{south},{east},{north}` que é normalmente usada por [serviços de mapeamento de Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > Um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) é uma ótima maneira para visualizar grandes conjuntos de dados no mapa. Não apenas uma camada de bloco pode ser gerada de uma imagem, mas os dados de vetor podem também ser renderizados como uma camada de peça. Por meio do processamento de dados de vetor, como uma camada lado a lado, o controle de mapa só precisa carregar os blocos que podem ser muito menores em tamanho de arquivo do que os dados vetoriais que representam. Essa técnica é usada por muitos que precisam processar milhões de linhas de dados no mapa.
@@ -40,7 +40,7 @@ A URL do bloco passada para uma camada de peça deve ser uma URL http/https para
 
 ## <a name="add-a-tile-layer"></a>Adicionar uma camada de bloco
 
- Este exemplo mostra como criar uma camada lado a lado que aponta para um conjunto de blocos que usam o sistema lado a lado do zoom, x,y. A origem dessa camada lado a lado é uma sobreposição de radar clima da [Iowa Environmental Mesonet of Iowa State University](http://mesonet.agron.iastate.edu/ogc/).
+ Este exemplo mostra como criar uma camada lado a lado que aponta para um conjunto de blocos que usam o sistema lado a lado do zoom, x,y. A origem dessa camada lado a lado é uma sobreposição de radar clima da [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
 
 <br/>
 

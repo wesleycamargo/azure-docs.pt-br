@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315631"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584489"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Limites de recursos da Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -48,16 +48,20 @@ A Instância Gerenciada tem dois níveis de serviço - Uso Geral e Comercialment
 | **Recurso** | **Uso geral** | **Comercialmente Crítico** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memória | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*Proporcional ao número de vCores | Gen4: 56GB-156GB <br/> Gen5: 44GB-440GB<br/>\*Proporcional ao número de vCores |
+| Memória | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*Proporcional ao número de vCores | Gen4: 56GB-156GB <br/> Gen5: 41GB-408GB<br/>\*Proporcional ao número de vCores |
 | Tamanho máximo de armazenamento | 8 TB | Gen 4: 1 TB <br/> Geração 5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB para 24 vCores<br/>- 4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por banco de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máximo de bancos de dados por instância | 100 | 100 |
 | Arquivos de banco de dados máximo por instância | Até 280 | 32.767 arquivos por banco de dados |
-| IOPS (aproximado) | 500-7500 por arquivo<br/>\*[Depende do tamanho do arquivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 por vCore) |
+| Dados/Log IOPS (aproximado) | 500-7500 por arquivo<br/>\*[Depende do tamanho do arquivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 por vCore) |
+| Instância de log de taxa de transferência | 22MB/s por instância | 3MB/s por vCore<br/>Máximo de 48MB/s |
+| Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[Depende do tamanho do arquivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48MB/s por vCore |
 | Latência de E/S (aproximada) | 5-10 ms | 1-2 ms |
-| Tamanho máximo de TempDB | 192-1920 GB (24 GB por vCore) | Determinado pelo tamanho de armazenamento máximo por instância |
+| Tamanho máximo de TempDB | 192-1920 GB (24 GB por vCore) | Não há restrições - limitadas pelo tamanho de armazenamento de instância máxima |
 
-- Bancos de dados de sistema e de usuário são incluídos no tamanho de armazenamento de instância que é comparado ao limite de tamanho de armazenamento máximo. Usar a exibição do sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> para determinar o total o espaço usado pelos bancos de dados. Logs de erros não são persistentes e não são incluídos no tamanho. Backups não são incluídos no tamanho de armazenamento.
+**Observações**:
+- O tamanho do arquivo de log e de dados nos bancos de dados de sistema e de usuário são incluídos no tamanho de armazenamento de instância que é comparado ao limite de tamanho de armazenamento máximo. Usar a exibição do sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> para determinar o total o espaço usado pelos bancos de dados. Logs de erros não são persistentes e não são incluídos no tamanho. Backups não são incluídos no tamanho de armazenamento.
+- O IOPS e a taxa de transferência também dependem do tamanho de página que não é explicitamente limitado pela Instância Gerenciada.
 
 ## <a name="supported-regions"></a>Regiões com suporte
 

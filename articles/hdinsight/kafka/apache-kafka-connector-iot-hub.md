@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315420"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608623"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre a estrutura a API de Conexão, consulte [htt
 
 2. Para carregar o arquivo. jar para o nó de borda de seu Kafka no cluster HDInsight, use o seguinte comando:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Substitua `sshuser` pela conta de usuário SSH para o cluster HDInsight. Substitua `new-edgenode` pelo nome do nó de borda. Substitua `clustername` pelo nome do cluster. Para obter mais informações sobre o ponto de extremidade SSH para o nó de borda, consulte o [Nós de borda usados com o documento do HDInsight](../hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
     ```bash
@@ -69,10 +69,10 @@ Para obter mais informações sobre a estrutura a API de Conexão, consulte [htt
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
 
-> [!TIP]
+> [!TIP]  
 > Se você tiver problemas com o restante das etapas neste documento ao usar um arquivo. jar predefinidos, tente criar o pacote de origem.
 >
-> Para criar o conector, você deve ter um ambiente de desenvolvimento Scala com [a ferramenta de compilação Scala](http://www.scala-sbt.org/).
+> Para criar o conector, você deve ter um ambiente de desenvolvimento Scala com [a ferramenta de compilação Scala](https://www.scala-sbt.org/).
 >
 > 1. Faça download do projeto de exemplo em [https://github.com/Azure/toketi-kafka-connect-iothub/ ](https://github.com/Azure/toketi-kafka-connect-iothub/) para seu ambiente de desenvolvimento.
 >
@@ -132,7 +132,7 @@ De uma conexão SSH para o nó de borda, use as etapas a seguir para configurar 
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Essa alteração permite que você teste usando o produtor do console incluído com Kafka. Talvez seja necessário conversores diferentes para outros produtores e consumidores. Para obter informações sobre como usar outros valores de conversor, consulte [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
     * Adicione uma linha no final do arquivo que contém o seguinte texto:
@@ -141,7 +141,7 @@ De uma conexão SSH para o nó de borda, use as etapas a seguir para configurar 
         consumer.max.poll.records=10
         ```
 
-        > [!TIP]
+        > [!TIP]  
         > Essa alteração é evitar os tempos limite no conector do coletor limitando a 10 registros por vez. Para obter mais informações, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 6. Para salvar o arquivo, use __Ctrl + X__, __Y__ e, em seguida, __Enter__.
@@ -178,7 +178,7 @@ Para recuperar informações de Hub IoT usadas pelo conector, use as seguintes e
             * __Ponto de extremidade compatível com o hub de eventos__
             * __Partições__
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > O valor de ponto de extremidade do portal pode conter texto extra que não é necessário neste exemplo. Extrair o texto que corresponde a esse padrão `sb://<randomnamespace>.servicebus.windows.net/`.
 
     * __Na [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ digite o seguinte comando:
@@ -240,9 +240,9 @@ Para configurar a fonte para trabalhar com o Hub IoT, execute as seguintes açõ
     No editor, localize e altere as seguintes entradas:
 
     * `Kafka.Topic=PLACEHOLDER`: Substitua `PLACEHOLDER` por `iotin`. Mensagens recebidas do Hub IoT são colocadas no `iotin` tópico.
-    * `IotHub.EventHubCompatibleName=PLACEHOLDER`Substitua `PLACEHOLDER` pelo Hub de Eventos - nome compatível.
-    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`Substitua `PLACEHOLDER` pelo Hub de Eventos - ponto de extremidade compatível.
-    * `IotHub.Partitions=PLACEHOLDER`Substitua `PLACEHOLDER` pelo número de partições nas etapas anteriores.
+    * `IotHub.EventHubCompatibleName=PLACEHOLDER`: Substitua `PLACEHOLDER` pelo Hub de Eventos - nome compatível.
+    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: Substitua `PLACEHOLDER` pelo Hub de Eventos - ponto de extremidade compatível.
+    * `IotHub.Partitions=PLACEHOLDER`: Substitua `PLACEHOLDER` pelo número de partições nas etapas anteriores.
     * `IotHub.AccessKeyName=PLACEHOLDER`: Substitua `PLACEHOLDER` por `service`.
     * `IotHub.AccessKeyValue=PLACEHOLDER`: Substitua `PLACEHOLDER` pela chave primária da `service` política.
     * `IotHub.StartType=PLACEHOLDER`: Substitua `PLACEHOLDER` por uma data UTC. Esta data é quando o conector inicia a verificação de mensagens. O formato de data é `yyyy-mm-ddThh:mm:ssZ`.
@@ -298,7 +298,7 @@ nnect.IotHubSourceTask:39)
 org.apache.kafka.connect.runtime.WorkerSourceTask:356)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Você pode ver avisos que o conector for iniciado. Esses avisos não causam problemas para receber mensagens de hub IoT.
 
 Para interromper o conector, use __Ctrl + C__.
@@ -320,7 +320,7 @@ IotHubSinkTask:47)
 t.runtime.WorkerSinkTask:262)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Você pode ver vários avisos que o conector foi iniciado. Você pode ignorá-los com segurança.
 
 Para enviar mensagens por meio do conector, use as seguintes etapas:
@@ -332,7 +332,7 @@ Para enviar mensagens por meio do conector, use as seguintes etapas:
     ```
 2. Para enviar mensagens ao tópico `iotout`, use o comando a seguir:
 
-    > [!WARNING]
+    > [!WARNING]  
     > Como esta é uma nova conexão SSH, o `$KAFKABROKERS` variável não contém todas as informações. Para defini-lo, use um dos seguintes métodos:
     >
     > * Use as três primeiras etapas na seção [configurar o Apache Kafka](#configure-apache-kafka).
@@ -346,7 +346,7 @@ Para enviar mensagens por meio do conector, use as seguintes etapas:
 
 3. Para enviar uma mensagem para o seu dispositivo, colar um documento JSON para a sessão SSH para a `kafka-console-producer`.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Você deve definir o valor de `"deviceId"` entrada para a ID do dispositivo. O exemplo a seguir, o dispositivo é denominado `fakepi`:
 
     ```text

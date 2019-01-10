@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238872"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189789"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
@@ -63,6 +63,7 @@ Ao criar um projeto de modelo tabular, você cria funções e adiciona usuários
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Para adicionar ou gerenciar funções e usuários no SSMS
+
 Para adicionar funções e usuários a um modelo de banco de dados implantado, você deve estar conectado ao servidor como Administrador do servidor ou já estar em uma função de banco de dados com permissões de administrador.
 
 1. No Pesquisador de Objetos, clique com o botão direito do mouse em **Funções** > **Nova Função**.
@@ -83,6 +84,7 @@ Para adicionar funções e usuários a um modelo de banco de dados implantado, v
 5. Se a função que você está criando tem a permissão Ler, é possível adicionar filtros de linha usando uma fórmula DAX. Clique em **Filtros de Linha**, selecione uma tabela e, em seguida, digite uma fórmula DAX no campo **Filtro DAX**. 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Para adicionar funções e usuários usando um script TMSL
+
 Você pode executar um script TMSL na janela XMLA no SSMS ou usando o PowerShell. Use o comando [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) e o objeto [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl).
 
 **Exemplo de script TMSL**
@@ -116,6 +118,7 @@ Neste exemplo, um usuário externo B2B e um grupo são adicionados à função A
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Para adicionar funções e usuários usando o PowerShell
+
 O módulo [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) fornece cmdlets de gerenciamento de banco de dados de tarefas específicas e o cmdlet Invoke-ASCmd de uso geral, que aceita um script ou consulta de TMSL (Linguagem de Script de Modelo Tabular). Os cmdlets a seguir são usados para gerenciar usuários e funções de banco de dados.
   
 |Cmdlet|DESCRIÇÃO|
@@ -125,6 +128,7 @@ O módulo [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) fornece 
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Executar um script TMSL.|
 
 ## <a name="row-filters"></a>Filtros de linha  
+
 Os filtros de linha definem quais linhas em uma tabela podem ser consultadas por membros de uma função específica. Os filtros de linha são definidos para cada tabela em um modelo usando fórmulas DAX.  
   
 Os filtros de linha podem ser definidos somente para funções com as permissões Ler e Ler e Processar. Por padrão, se um filtro de linha não está definido para uma tabela específica, os membros podem consultar todas as linhas na tabela, a menos que a filtragem cruzada se aplique de outra tabela.
@@ -144,6 +148,7 @@ Os filtros de linha são aplicados às linhas especificadas e às linhas relacio
  Você pode usar o filtro, *=FALSE()*, para negar o acesso a todas as linhas de uma tabela inteira.
 
 ## <a name="next-steps"></a>Próximas etapas
+
   [Gerenciar administradores de servidor](analysis-services-server-admins.md)   
   [Gerenciar o Azure Analysis Services com PowerShell](analysis-services-powershell.md)  
   [Referência de TMSL (Linguagem de Scripts do Modelo Tabular)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

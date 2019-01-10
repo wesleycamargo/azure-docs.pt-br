@@ -1,24 +1,24 @@
 ---
-title: Configurar contêineres
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Definições de configuração para contêineres no API da Pesquisa Visual Computacional.
+title: Configure os contêineres - Pesquisa Visual Computacional
+titlesuffix: Azure Cognitive Services
+description: Defina várias configurações para contêineres de Reconhecimento de Texto na Pesquisa Visual Computacional.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077011"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579780"
 ---
-# <a name="configure-containers"></a>Configurar contêineres
+# <a name="configure-recognize-text-containers"></a>Configure os contêineres de Reconhecimento de Texto
 
 O API da Pesquisa Visual Computacional fornece o contêiner Recognize Text com uma estrutura de configuração comum, para que você possa configurar e gerenciar facilmente as configurações de armazenamento, registro e telemetria e segurança de seus contêineres.
 
@@ -41,7 +41,7 @@ Os valores de variáveis de ambiente substituem os valores do argumento da linha
 
 ### <a name="configuration-settings-as-environment-variables"></a>Definições de configuração como variáveis de ambiente
 
-Você pode usar a [sintaxe da variável de ambiente do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) para especificar as configurações.
+Você pode usar a [sintaxe da variável de ambiente do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) para especificar as configurações.
 
 O contêiner lê variáveis de ambiente do usuário quando o contêiner é instanciado. Se existir uma variável de ambiente, o valor da variável de ambiente substituirá o valor padrão da configuração especificada. O benefício de usar variáveis de ambiente é que várias configurações podem ser definidas antes de instanciar contêineres e vários contêineres podem usar automaticamente o mesmo conjunto de configurações.
 
@@ -99,7 +99,7 @@ A configuração `Eula` indica que você aceitou a licença do contêiner. Você
 > [!IMPORTANT]
 > As configurações de [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-configuration-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
 
-Os contêineres de Serviços Cognitivos estão licenciados sob [seu contrato](https://go.microsoft.com/fwlink/?linkid=2018657) que rege o uso do Azure. Se você não tem um contrato existente que rege o uso do Azure, você concorda que o seu contrato que rege o uso do Azure é o [Contrato de Assinatura do Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755), que incorpora os [Termos de Serviços Online](https://go.microsoft.com/fwlink/?linkid=2018760). Para versões prévias, você também concorda com os [Termos de Uso Adicionais para Versões Prévias do Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Ao usar o contêiner, você concorda com estes termos.
+Os contêineres de Serviços Cognitivos estão licenciados sob [seu contrato](https://go.microsoft.com/fwlink/?linkid=2018657) que rege o uso do Azure. Se você não tiver um contrato existente que rege o uso do Azure, você concorda que o seu contrato que rege o uso do Azure é o [Contrato de Assinatura do Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755), que incorpora os [Termos de Serviços Online ](https://go.microsoft.com/fwlink/?linkid=2018760). Para versões prévias, você também concorda com os [Termos de Uso Adicionais para Versões Prévias do Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Ao usar o contêiner, você concorda com estes termos.
 
 ## <a name="fluentd-configuration-settings"></a>Configurações do Fluentd
 
@@ -130,10 +130,10 @@ As definições de configuração `Logging` gerenciam o suporte ao log do ASP.NE
 
   | NOME | Tipo de dados | DESCRIÇÃO |
   |------|-----------|-------------|
-  | `Format` | Cadeia de caracteres | O formato de saída para arquivos de log.<br/> **Observação:** esse valor deve ser definido como `json` para habilitar o provedor de logs. Se esse valor for especificado sem especificar também uma montagem de saída durante a instanciação de um contêiner, ocorrerá um erro. |
+  | `Format` | Cadeia de caracteres | O formato de saída para arquivos de log.<br/> **Observação:** Esse valor deve ser definido como `json` para habilitar o provedor de logs. Se esse valor for especificado sem especificar também uma montagem de saída durante a instanciação de um contêiner, ocorrerá um erro. |
   | `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um arquivo de log. Quando o tamanho do arquivo de log atual atende ou excede esse valor, um novo arquivo de log é iniciado pelo provedor de log. Se -1 for especificado, o tamanho do arquivo de log será limitado apenas pelo tamanho máximo do arquivo, se houver, para a montagem de saída. O valor padrão é 1. |
 
-Para obter mais informações sobre como configurar o suporte ao registro em log do ASP.NET Core, consulte [Configuração do arquivo de configurações](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Para obter mais informações sobre como configurar o suporte ao registro em log do ASP.NET Core, consulte [Fazendo logon no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## <a name="mounts-configuration-settings"></a>Monta definições de configuração
 

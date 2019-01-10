@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001964"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190804"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -38,7 +38,7 @@ Essas etapas usam o Painel de Controle do Avere. Leia [Acessar o cluster do vFXT
 
 ## <a name="create-a-core-filer"></a>Criar um arquivista central
 
-"Arquivista central" é um termo do vFXT para um sistema de armazenamento de back-end. O armazenamento pode ser um dispositivo de hardware, como NetApp ou Isilon, ou pode ser um armazenamento de objetos de nuvem. Mais informações sobre arquivistas centrais podem ser encontradas [no guia de configurações do cluster do Avere](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+"Arquivista central" é um termo do vFXT para um sistema de armazenamento de back-end. O armazenamento pode ser um dispositivo de hardware, como NetApp ou Isilon, ou pode ser um armazenamento de objetos de nuvem. Mais informações sobre arquivistas centrais podem ser encontradas [no guia de configurações do cluster do Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Para adicionar um arquivista central, escolha um dos dois tipos principais de arquivistas centrais:
 
@@ -70,7 +70,7 @@ As etapas a seguir adicionam um arquivista central do NAS:
   
    * Clique em **Avançar** e escolha uma política de cache. 
    * Clique em **Adicionar Arquivista**.
-   * Para obter mais informações, veja [Como adicionar um novo arquivista central NAS](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) no guia de configurações de cluster do Avere.
+   * Para obter mais informações, veja [Como adicionar um novo arquivista central NAS](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) no guia de configurações de cluster do Avere.
 
 Em seguida, vá para [Criar uma junção](#create-a-junction).  
 
@@ -156,7 +156,7 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
    * Opcionalmente, defina **Tipo de Criptografia** como **Nenhum**.  O Armazenamento do Azure é criptografado por padrão.
    * Clique em **Adicionar Arquivista**.
 
-  Para obter informações mais detalhadas, leia [Como adicionar um novo arquivista central de nuvem](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) no guia de configuração de cluster do Avere. 
+  Para obter informações mais detalhadas, leia [Como adicionar um novo arquivista central de nuvem](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) no guia de configuração de cluster do Avere. 
 
 A página será atualizada ou você poderá atualizar a página para exibir seu novo arquivista central.
 
@@ -168,7 +168,7 @@ Uma junção é um caminho que você cria para os clientes. Os clientes montam o
 
 Por exemplo, você pode criar `/avere/files` para mapear sua exportação `/vol0/data` do arquivista central NetApp e o subdiretório `/project/resources`.
 
-Mais informações sobre junções podem ser encontradas na [seção de namespace do guia de configuração de cluster do Avere](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+Mais informações sobre junções podem ser encontradas na [seção de namespace do guia de configuração de cluster do Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Siga estas etapas na interface de configurações do painel de controle do Avere:
 

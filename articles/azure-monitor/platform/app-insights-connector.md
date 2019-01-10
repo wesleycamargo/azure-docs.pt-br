@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6b725d7912fa4b0d6b46acb35eda80ae66e4a38c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726206"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121406"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gerenciamento Conector do Application Insights (versão prévia)
 
@@ -27,7 +27,7 @@ ms.locfileid: "53726206"
 >[!NOTE]
 > Com o suporte da [consultas de recursos cruzados](../../azure-monitor/log-query/cross-workspace-query.md), a solução de gerenciamento de conector do Application Insights não é mais necessária e será preterida. A partir de julho, você não poderá vincular os novos recursos do Application Insights a workspaces do Log Analytics. Os painéis e os links existentes continuarão a funcionar até novembro de 2018. Para obter mais informações, consulte [portal do OMS mudar para o Azure](../../azure-monitor/platform/oms-portal-transition.md).
 
-A solução Conector do Application Insights ajuda você a diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o [Application Insights](../../application-insights/app-insights-overview.md). Exibições da mesma telemetria de aplicativo que os desenvolvedores visualizam no Application Insights estão disponíveis no Log Analytics. No entanto, ao integrar os aplicativos do Application Insights com o Log Analytics, a visibilidade dos aplicativos aumenta, pois os dados do aplicativo e da operação ficam em um único lugar. Ter as mesmas exibições ajuda na colaboração com os desenvolvedores de aplicativos. As exibições comuns podem ajudar a reduzir o tempo para detectar e resolver problemas do aplicativo e da plataforma.
+A solução Conector do Application Insights ajuda você a diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o [Application Insights](../../azure-monitor/app/app-insights-overview.md). Exibições da mesma telemetria de aplicativo que os desenvolvedores visualizam no Application Insights estão disponíveis no Log Analytics. No entanto, ao integrar os aplicativos do Application Insights com o Log Analytics, a visibilidade dos aplicativos aumenta, pois os dados do aplicativo e da operação ficam em um único lugar. Ter as mesmas exibições ajuda na colaboração com os desenvolvedores de aplicativos. As exibições comuns podem ajudar a reduzir o tempo para detectar e resolver problemas do aplicativo e da plataforma.
 
 Ao usar a solução, você pode:
 
@@ -142,7 +142,7 @@ Para dinamizar, clique nas reticências (**...**) exibidas ao final de cada linh
 
 ### <a name="sample-corrected-data"></a>Dados corrigido por amostra
 
-O Application Insights fornece a *[correção de amostragem](../../application-insights/app-insights-sampling.md)* para ajudar a reduzir o tráfego de telemetria. Ao habilitar a amostragem no aplicativo do Application Insights, você obtém um número reduzido de entradas armazenadas no Application Insights e no Log Analytics. Embora a consistência dos dados seja preservada na página e nas perspectivas do **Conector do Application Insights**, você deverá corrigir manualmente os dados amostrados das consultas personalizadas.
+O Application Insights fornece a *[correção de amostragem](../../azure-monitor/app/sampling.md)* para ajudar a reduzir o tráfego de telemetria. Ao habilitar a amostragem no aplicativo do Application Insights, você obtém um número reduzido de entradas armazenadas no Application Insights e no Log Analytics. Embora a consistência dos dados seja preservada na página e nas perspectivas do **Conector do Application Insights**, você deverá corrigir manualmente os dados amostrados das consultas personalizadas.
 
 Este é um exemplo de correção de amostragem em uma consulta da pesquisa de logs:
 

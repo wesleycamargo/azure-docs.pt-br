@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728339"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54049955"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de log e métrica armazenados no Azure Monitor.
@@ -71,7 +71,7 @@ As [exibições no Azure Monitor](../log-analytics/log-analytics-view-designer.m
 
 
 ## <a name="application-insights-workbooks"></a>Pastas de trabalho do Insights de aplicativos
-[As pastas de trabalho](../application-insights/app-insights-usage-workbooks.md) são documentos interativos que fornecem informações detalhadas sobre seus dados, investigação e colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são guias de solução de problemas e postmortem de incidentes.
+[As pastas de trabalho](../azure-monitor/app/usage-workbooks.md) são documentos interativos que fornecem informações detalhadas sobre seus dados, investigação e colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são guias de solução de problemas e postmortem de incidentes.
 
 ![Pasta de trabalho](media/visualizations/workbook.png)
 
@@ -140,7 +140,7 @@ Você pode acessar os dados nos dados de log e métrica do Azure Monitor por mei
 - Aprenda sobre os [dados coletados pelo Azure Monitor](platform/data-collection.md).
 - Saiba mais sobre os [painéis do Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).
-- Saiba mais sobre [pastas de trabalho no Application Insights](../application-insights/app-insights-usage-workbooks.md).
+- Saiba mais sobre [pastas de trabalho no Application Insights](../azure-monitor/app/usage-workbooks.md).
 - Saiba mais sobre [importar dados de log no Power BI](../azure-monitor/platform/powerbi.md).
 - Saiba mais sobre o [plug-in de fonte de dados do Azure Monitor do Grafana](../azure-monitor/platform/grafana-plugin.md).
 

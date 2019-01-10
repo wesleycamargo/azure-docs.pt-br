@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9bf168a0f06d662526d172687e54327b55d50bd8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165957"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104260"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Mapas?
 
@@ -62,7 +62,7 @@ O Serviço de pesquisa também fornece recursos avançados, como pesquisar ao lo
 
 ### <a name="time-zone-service"></a>Serviço de fuso horário
 
-O Serviço de fuso horário permite consultar informações de fuso horário atuais, históricos e informações futuras de fuso horário usando qualquer um dos pares de latitude-longitude ou uma [ID IANA](http://www.iana.org/). O Serviço de Fuso Horário também permite converter IDs de fuso horário do Microsoft Windows em fusos horários IANA, buscar uma diferença de fuso horário em relação ao UTC e obter a hora atual em um fuso horário respectivo. Uma resposta JSON normal para uma consulta para o Serviço de Fuso Horário é semelhante ao exemplo a seguir:
+O Serviço de fuso horário permite consultar informações de fuso horário atuais, históricos e informações futuras de fuso horário usando qualquer um dos pares de latitude-longitude ou uma [ID IANA](https://www.iana.org/). O Serviço de Fuso Horário também permite converter IDs de fuso horário do Microsoft Windows em fusos horários IANA, buscar uma diferença de fuso horário em relação ao UTC e obter a hora atual em um fuso horário respectivo. Uma resposta JSON normal para uma consulta para o Serviço de Fuso Horário é semelhante ao exemplo a seguir:
 
 ```JSON
 {
@@ -109,7 +109,7 @@ Além disso, os Mapas do Azure oferecem um [controle de mapa de JavaScript](http
 
 ## <a name="usage"></a>Uso
 
-Para acessar os serviços dos Mapas, basta navegar até o [portal do Azure](http://portal.azure.com) e criar uma conta dos Mapas do Azure.
+Para acessar os serviços dos Mapas, basta navegar até o [portal do Azure](https://portal.azure.com) e criar uma conta dos Mapas do Azure.
 
 Os Mapas do Azure usam um esquema de autenticação baseado em chave. Sua conta é fornecida com duas chaves geradas previamente para você. Comece integrando esses recursos de localização em seus aplicativos usando qualquer uma de suas chaves e fazendo uma solicitação para o serviço do Azure Mapas.
 

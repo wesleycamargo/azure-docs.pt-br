@@ -5,20 +5,21 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1c37b764b47856d3a369228d3f224f2a464029bb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846004"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790649"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solução de problemas de replicação para VMs VMware e servidores físicos
 
 Você pode receber uma mensagem de erro específica ao proteger suas máquinas virtuais VMware ou servidores físicos usando o Azure Site Recovery. Este artigo descreve alguns problemas comuns que você pode encontrar ao replicar VMs VMware e servidores físicos no Azure, utilizando [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="initial-replication-issues"></a>Problemas de replicação inicial.
+
+## <a name="initial-replication-issues"></a>Problemas de replicação inicial
 
 Em muitos casos, as falhas de replicação inicial que encontramos no suporte são devido a problemas de conectividade entre o servidor de origem e o servidor de processo ou entre o servidor de processo e o Azure. Na maioria dos casos, você pode solucionar esses problemas por conta própria, seguindo as etapas listadas abaixo.
 
@@ -33,7 +34,7 @@ Se não conseguir se conectar, dê permissão para a porta de entrada 9443 no Se
 
 * Verifique o status do serviço `InMage Scout VX Agent – Sentinel/OutpostStart` e se ele não está em execução e verifique se o problema ainda existe.   
 
-## <a name="verify-the-process-server"></a>Verificar o servidor de processo
+### <a name="verify-the-process-server"></a>Verificar o servidor de processo
 
 * **Verifique se o servidor de processo está ativamente enviando dados por push para o Azure**
 
@@ -87,6 +88,19 @@ Abra-o e clique em Ação > Alterar as Propriedades. Na guia de Configuração d
 
 
 * **Verificar se a largura de banda de limitação não está restrita no servidor de Processo**:  Aumente a largura de banda e verifique se o problema ainda existe.
+
+## <a name="source-machine-to-be-protected-through-site-recovery-is-not-listed-on-azure-portal"></a>Máquina de origem a ser protegido por meio do Site Recovery não estiver listada no portal do Azure
+
+Ao tentar escolher máquina de origem para habilitar a replicação por meio do Azure Site Recovery, a máquina pode não está disponível para você continuar pelos seguintes motivos
+
+* Se houver duas máquinas virtuais no vCenter com o mesmo UUID de instância, a primeira máquina virtual descoberta pelo servidor de configuração será mostrada no portal. Para resolver, certifique-se de que não haja duas máquinas virtuais com o mesmo UUID de instância.
+* Certifique-se de ter adicionado as credenciais corretas do vCenter durante a configuração através do modelo OVF ou da configuração unificada. Para verificar as credenciais adicionadas, consulte [aqui](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery) as diretrizes compartilhadas.
+* Se as permissões oferecidas para acessar o vCenter não tiverem privilégios suficientes, isso poderá levar à falha na descoberta de máquinas virtuais. Verifique se as permissões fornecidas [aqui](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) foram adicionadas à conta de usuário do vCenter.
+* Se a máquina virtual já estiver protegida por meio do Site Recovery, ela não estará disponível para proteção. Certifique-se de que a máquina virtual que está procurando no portal não está mais protegida por nenhum outro usuário ou sob outras assinaturas.
+
+## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>As máquinas virtuais protegidas estão em cinza no portal
+
+As máquinas virtuais que são replicadas em Recuperação do site estão em cinza se houver entradas duplicadas no sistema. Consulte as diretrizes [ aqui](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) para excluir as entradas obsoletas e resolver o problema.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se precisar de mais ajuda, poste sua consulta no [fórum do Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Temos uma comunidade ativa e um dos nossos engenheiros poderá ajudá-lo.

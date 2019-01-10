@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 790aab75b311b116e6ca03af016e181c11019e27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726639"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052148"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo lento no Serviço de Aplicativo do Azure
 Este artigo ajuda você a solucionar problemas de desempenho de aplicativo lento no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -92,7 +92,7 @@ Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de
 - Editores de código-fonte, como [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Ferramentas de gerenciamento para recursos conectados, tais como um banco de dados MySQL conectado a um aplicativo.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../azure-monitor/app/web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -114,7 +114,7 @@ Você pode habilitar o Application Insights Profiler para iniciar a captura de r
 
 O Application Insights Profiler fornece estatísticas em tempo de resposta para cada chamada Web e os rastreamentos que indicam qual linha de código causou as respostas lentas. Às vezes, o aplicativo de Serviço de Aplicativo está lento porque determinados códigos não são gravados de uma maneira mais eficaz. Exemplos incluem um código sequencial que pode ser executado em contenções de bloqueio do banco de dados paralelas e indesejadas. Remover esses gargalos no código aumenta o desempenho do aplicativo, mas eles são difíceis de detectar sem configurar logs e rastreamentos elaborados. Os rastreamentos coletados pelo Application Insights Profiler ajudam a identificar as linhas de código que deixam o aplicativo lento e a superar esse desafio para os aplicativos do Serviço de Aplicativo.
 
- Para obter mais informações, consulte [Criação de perfil de live apps no Serviço de Aplicativo do Azure com o Application Insights](../application-insights/app-insights-profiler.md).
+ Para obter mais informações, consulte [Criação de perfil de live apps no Serviço de Aplicativo do Azure com o Application Insights](../azure-monitor/app/profiler.md).
 
 ##### <a name="use-remote-profiling"></a>Usar a criação de perfil remota
 No Serviço de Aplicativo do Azure, aplicativos Web, aplicativos de API e WebJobs podem ter perfis criados remotamente. Escolha essa opção se você tem acesso ao recurso de aplicativo e sabe como reproduzir o problema ou se você sabe o intervalo de tempo exato em que o problema de desempenho ocorre.

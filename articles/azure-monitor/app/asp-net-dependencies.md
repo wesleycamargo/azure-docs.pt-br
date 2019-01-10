@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7cde9fa0849729ba9db9b604dd0ad26cf362a484
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969855"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119978"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: acompanhamento de dependência
-Um *dependência* é um componente externo que é chamado por seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. O [Application Insights](../../application-insights/app-insights-overview.md) mede por quanto tempo o aplicativo aguarda dependências e com que frequência uma chamada de dependência falha. Você pode investigar chamadas específicas e relacioná-las a solicitações e exceções.
+Um *dependência* é um componente externo que é chamado por seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. O [Application Insights](../../azure-monitor/app/app-insights-overview.md) mede por quanto tempo o aplicativo aguarda dependências e com que frequência uma chamada de dependência falha. Você pode investigar chamadas específicas e relacioná-las a solicitações e exceções.
 
 O monitor de dependência pronto para uso atualmente relata chamadas para esses tipos de dependências:
 
@@ -121,7 +121,7 @@ Parece haver uma grande lacuna após a primeira chamada de dependência e, porta
 
 ### <a name="profile-your-live-site"></a>Perfil de seu site ativo
 
-Não sabe para onde o tempo vai? O [Application Insights Profiler](../../application-insights/app-insights-profiler.md) rastreia chamadas HTTP para seu site ativo e mostra quais são as funções mais demoradas em seu código.
+Não sabe para onde o tempo vai? O [Application Insights Profiler](../../azure-monitor/app/profiler.md) rastreia chamadas HTTP para seu site ativo e mostra quais são as funções mais demoradas em seu código.
 
 ## <a name="failed-requests"></a>Solicitações falhas
 As solicitações com falha também podem ser associadas a chamadas com falha para as dependências. Novamente, podemos fazer um clickthrough para rastrear o problema.

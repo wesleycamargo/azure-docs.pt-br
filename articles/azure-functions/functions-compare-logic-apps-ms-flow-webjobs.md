@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ec2c7a25c5108ee3c6f861defd8403ff40113075
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4227db0f2767f559bb51afab6cb75f3ac34707c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722210"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117581"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparar Flow, Aplicativos Lógicos, Functions e WebJobs
 
@@ -53,7 +53,7 @@ A tabela a seguir ajuda a determinar o que é melhor para determinada integraç�
 
 O Functions e os Aplicativos Lógicos são os serviços do Azure que permitem as cargas de trabalho sem servidor. O Azure Functions é um serviço de computação sem servidor, enquanto os Aplicativos Lógicos do Azure fornecem fluxos de trabalho sem servidor. *Orquestrações* complexas podem ser criadas para ambos. Uma orquestração é uma coleção de funções ou etapas, chamadas *ações* nos Aplicativos Lógicos, que são executadas para realizar uma tarefa complexa. Por exemplo, para processar um lote de pedidos você pode executar várias instâncias de uma função em paralelo, aguardar a conclusão de todas as instâncias e, em seguida, executar uma função que calcula um resultado na agregação.
 
-Para o Azure Functions, você desenvolve orquestrações escrevendo o código e usando a [extensão Durable Functions](durable/durable-functions-overview.md). Para os Aplicativos Lógicos, você pode criar orquestrações usando uma GUI ou editando arquivos de configuração.
+Para o Azure Functions, você desenvolve orquestrações escrevendo o código e usando a [extensão Durable Functions](durable/durable-functions-concepts.md). Para os Aplicativos Lógicos, você pode criar orquestrações usando uma GUI ou editando arquivos de configuração.
 
 Você pode misturar e fazer a correspondência de serviços quando você compila uma orquestração, chamando funções de aplicativos lógicos e chamando aplicativos lógicos de funções. Escolha como criar cada orquestração com base em recursos dos serviços ou de sua preferência pessoal. A tabela a seguir lista algumas das principais diferenças entre esses serviços:
  
@@ -62,7 +62,7 @@ Você pode misturar e fazer a correspondência de serviços quando você compila
 | Desenvolvimento | Primeiro o código (obrigatória) | Primeiro o designer (declarativa) |
 | Conectividade | [Vários tipos de associação integradas](functions-triggers-bindings.md#supported-bindings), escrever código para associações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para cenários de B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [criar conectores personalizados](../logic-apps/custom-connector-overview.md) |
 | Ações | Cada atividade é uma função do Azure. Escrever código para funções de atividade |[Grande coleção de ações predefinidas](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Monitoramento | [Azure Application Insights](../application-insights/app-insights-overview.md) | [portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| Monitoramento | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | Gerenciamento | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Contexto de execução | Pode executar [localmente](functions-runtime-overview.md) ou na nuvem. | É executado somente na nuvem.|
 

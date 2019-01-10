@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: kgremban
-ms.openlocfilehash: ccd38dd7570dc451a1a5b87163bfdd7aea51dad5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dbe9f18f5a38284e2b263d636656c88b1743d7ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567427"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555635"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalar o tempo de execução do Azure IoT Edge no Linux (ARM32v7 / armhf)
 
@@ -175,6 +175,39 @@ Em dispositivos com restrição de recursos, é altamente recomendável que a va
 
 Se a rede tem um servidor proxy, siga as etapas em [Configurar o dispositivo do IoT Edge para comunicar-se por meio de um servidor proxy](how-to-configure-proxy-support.md).
 
+## <a name="uninstall-iot-edge"></a>Desinstalar o IoT Edge
+
+Para remover a instalação do IoT Edge do dispositivo Linux, use o seguinte comando em uma linha de comando. 
+
+Remova o tempo de execução do IoT Edge. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Quando o tempo de execução do IoT Edge for removido, o contêiner criado por ele será interrompido, mas ainda existará no seu dispositivo. Exiba todos os contêineres para ver quais deles permanecem. 
+
+```bash
+sudo docker ps -a
+```
+
+Exclua os contêineres do seu dispositivo, incluindo dois contêineres de tempo de execução. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Por fim, remova o tempo de execução do contêiner do seu dispositivo. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
+Agora que você tem um dispositivo IoT Edge provisionado com o tempo de execução instalado, é possível [implantar os módulos do IoT Edge](how-to-deploy-modules-portal.md).
+
 Se tiver problemas para instalar corretamente o tempo de execução do Edge, veja a página de [solução de problemas](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+
+Para atualizar uma instalação existente para a versão mais recente do IoT Edge, consulte [Atualizar o IoT Edge de segurança e o tempo de execução do IoT Edge](how-to-update-iot-edge.md).

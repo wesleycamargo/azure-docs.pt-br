@@ -1,21 +1,20 @@
 ---
 title: Script do Azure PowerShell – Criar uma conta da API de Tabela do Azure Cosmos DB
 description: Exemplo de script do Azure PowerShell – Criar uma conta de API de Tabela do Azure Cosmos DB
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: mvc
+ms.subservice: cosmosdb-table
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 08/08/2018
-ms.openlocfilehash: dacad55370be742dcfc3aa69f9254154568b6a58
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: bc8a9c5d19bcb94e476dca704351baa43d2800e0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954945"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040703"
 ---
 # <a name="azure-cosmos-db-create-a-table-api-account-using-powershell"></a>O Azure Cosmos DB: Criar uma conta da API de Tabela usando o PowerShell
 

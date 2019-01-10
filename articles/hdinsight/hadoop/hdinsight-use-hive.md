@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 73c68e6946b3715bfa67561141e6c18e32e20c18
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011752"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633956"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -27,11 +27,11 @@ O HDInsight fornece vários tipos de cluster, que são ajustados para cargas de 
 
 * __Consulta Interativa__: Um cluster Hadoop que fornece funcionalidade [LLAP (Processamento Analítico de Baixa Latência)](https://cwiki.apache.org/confluence/display/Hive/LLAP) para melhorar os tempos de resposta de consultas interativas. Para obter mais informações, confira o documento [Introdução à Consulta Interativa no HDInsight](../interactive-query/apache-interactive-query-get-started.md).
 
-* __Hadoop__: Um cluster Hadoop que está ajustado para cargas de trabalho de processamento em lotes. Para obter mais informações, confira o documento [Introdução ao Hadoop no HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* __Hadoop__: Um cluster Hadoop que está ajustado para cargas de trabalho de processamento em lotes. Para obter mais informações, confira o documento [Introdução ao Apache Hadoop no HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* __Spark__: O Apache Spark tem funcionalidade interna para trabalhar com o Hive. Para obter mais informações, confira o documento [Introdução ao Spark no HDInsight](../spark/apache-spark-jupyter-spark-sql.md).
+* __Spark__: O Apache Spark tem funcionalidade interna para trabalhar com o Hive. Para obter mais informações, confira o documento [Introdução ao Apache Spark no HDInsight](../spark/apache-spark-jupyter-spark-sql.md).
 
-* __HBase__: O HiveQL pode ser usado para consultar dados armazenados no HBase. Para obter mais informações, confira o documento [Introdução ao HBase no HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md).
+* __HBase__: O HiveQL pode ser usado para consultar dados armazenados no Apache HBase. Para obter mais informações, confira o documento [Introdução ao Apache HBase no HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="how-to-use-hive"></a>Como usar o Hive
 
@@ -100,15 +100,15 @@ Para obter mais informações, confira a publicação do blog [Introdução às 
 
 O Hive também pode ser estendido por meio de **UDF (funções definidas pelo usuário)**. As UDF permitem que você implemente funcionalidade ou lógica que não é facilmente modelada em HiveQL. Para obter um exemplo de uso de UDFs com o Hive, confira os seguinte documentos:
 
-* [Como usar uma função definida pelo usuário do Java com o Hive](../hadoop/apache-hadoop-hive-java-udf.md)
+* [Usar uma função definida pelo usuário do Java com o Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
-* [Como usar uma função definida pelo usuário do Python com Hive](../hadoop/python-udf-hdinsight.md)
+* [Usar uma função definida pelo usuário do Python com o Apache Hive](../hadoop/python-udf-hdinsight.md)
 
-* [Como usar uma função definida pelo usuário do C# com Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Usar uma função definida C# pelo usuário do Java com o Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Como adicionar uma função definida pelo usuário personalizado de Hive no HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Como adicionar uma função definida pelo usuário personalizado de Apache Hive no HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-* [Um exemplo de função definida pelo usuário do Hive para converter formatos de data/hora para carimbo de data/hora do Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
+* [Um exemplo de função definida pelo usuário do Apache Hive para converter formatos de data/hora para carimbo de data/hora do Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## <a id="data"></a>Dados de exemplo
 
@@ -138,9 +138,9 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 
-* `set hive.execution.engine=tez;`: Define o mecanismo de execução para usar o Tez. Usar o Tez pode fornecer um aumento no desempenho da consulta. Para saber mais sobre o Tez, consulte a seção [Usar o Apache Tez para desempenho aprimorado](#usetez) .
+* `set hive.execution.engine=tez;`: Define o mecanismo de execução para usar o Apache Tez. Usar o Tez pode fornecer um aumento no desempenho da consulta. Para saber mais sobre o Tez, consulte a seção [Usar o Apache Tez para desempenho aprimorado](#usetez) .
 
-    > [!NOTE]
+    > [!NOTE]  
     > Essa instrução só é necessária ao usar um cluster HDInsight baseado em Windows. O Tez é o mecanismo padrão de execução para HDInsight baseados em Linux.
 
 * `DROP TABLE`: Se a tabela já existir, exclua-a.
@@ -155,7 +155,7 @@ No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 
 * `INPUT__FILE__NAME LIKE '%.log'`- O Hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que devemos retornar apenas dados de arquivos que terminam em .log.
 
-> [!NOTE]
+> [!NOTE]  
 > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de upload de dados automatizado ou uma operação MapReduce.
 >
 > Descartar uma tabela externa **não** exclui os dados, apenas a definição da tabela.
@@ -186,7 +186,7 @@ Essas instruções executam as seguintes ações:
 
 * `INSERT OVERWRITE ... SELECT`: Seleciona as linhas na tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela **errorLogs**.
 
-> [!NOTE]
+> [!NOTE]  
 > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
 ## <a name="improve-hive-query-performance"></a>Como melhorar o desempenho de consulta de Hive
@@ -195,20 +195,20 @@ Essas instruções executam as seguintes ações:
 
 [Apache Tez](https://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. O Tez está habilitado por padrão para clusters HDInsight baseados em Linux.
 
-> [!NOTE]
+> [!NOTE]  
 > Atualmente o Tez está desativado por padrão para clusters baseados no Windows HDInsight e deve ser habilitado. Para aproveitar o Tez, o seguinte valor deve ser definido para uma consulta Hive:
 >
 > `set hive.execution.engine=tez;`
 >
 > O Tez é o mecanismo padrão para clusters HDInsight baseados em Linux.
 
-Os [documentos de design do Hive no Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contêm vários detalhes das escolhas de implantação e configurações de ajuste.
+Os [documentos de design do Apache Hive no Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contêm vários detalhes das escolhas de implantação e configurações de ajuste.
 
 Para ajudar na depuração de trabalhos executados usando Tez, o HDInsight fornece as seguintes interfaces de usuário na Web que permitem a exibição de detalhes de trabalhos do Tez:
 
-* [Usar a exibição de Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md)
+* [Usar a exibição de Apache Ambari Tez no HDInsight baseado no Linux](../hdinsight-debug-ambari-tez-view.md)
 
-* [Usar a interface de usuário do Tez no HDInsight baseado em Windows](../hdinsight-debug-tez-ui.md)
+* [Usar a interface do usuário do Apache Tez no HDInsight baseado no Windows](../hdinsight-debug-tez-ui.md)
 
 ### <a name="low-latency-analytical-processing-llap"></a>Processamento analítico de baixa latência (LLAP)
 
@@ -236,14 +236,14 @@ Para obter mais informações, consulte a documentação [Pacote de Recursos do 
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
-O Apache Oozie é um sistema de fluxo de trabalho e coordenação que gerencia trabalhos do Hadoop. Para obter mais informações sobre como usar Oozie com o Hive, consulte o documento [Usar o Oozie para definir e executar um fluxo de trabalho](../hdinsight-use-oozie-linux-mac.md).
+O Apache Oozie é um sistema de fluxo de trabalho e coordenação que gerencia trabalhos do Hadoop. Para obter mais informações sobre como usar Oozie com o Hive, consulte o documento [Usar o Apache Oozie para definir e executar um fluxo de trabalho](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a id="nextsteps"></a>Próximas etapas
 
 Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o HDInsight, use os links abaixo para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
 * [Carregar dados no HDInsight][hdinsight-upload-data]
-* [Usar o Pig com o HDInsight][hdinsight-use-pig]
+* [Usar Apache Pig com o HDInsight][hdinsight-use-pig]
 * [Usar trabalhos do MapReduce com o HDInsight][hdinsight-use-mapreduce]
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/

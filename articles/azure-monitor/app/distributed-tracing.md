@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002205"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102968"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é o Rastreamento distribuído?
 
-O advento de arquiteturas modernas de nuvem e [microsserviços](http://azure.com/microservices) deu origem a serviços simples e implantáveis de forma independente que podem ajudar a reduzir custos, aumentando a disponibilidade e a taxa de transferência. Mas, embora esses movimentos tenham facilitado a compreensão dos serviços individuais como um todo, eles tornaram os sistemas em geral mais difíceis de justificar e depurar.
+O advento de arquiteturas modernas de nuvem e [microsserviços](https://azure.com/microservices) deu origem a serviços simples e implantáveis de forma independente que podem ajudar a reduzir custos, aumentando a disponibilidade e a taxa de transferência. Mas, embora esses movimentos tenham facilitado a compreensão dos serviços individuais como um todo, eles tornaram os sistemas em geral mais difíceis de justificar e depurar.
 
 Em arquiteturas monolíticas, nos acostumamos à depuração com as pilhas de chamadas. Pilhas de chamadas são ferramentas incríveis que mostram o fluxo de execução (Método A que chama o Método B que chama o Método C), junto com detalhes e parâmetros sobre cada uma dessas chamadas. Isso é ótimo para monolitos ou serviços em execução em um único processo, mas como depuramos quando a chamada estiver em um limite de processo, não uma simples referência na pilha local? 
 
@@ -59,4 +59,4 @@ O site do OpenCensus mantém a documentação de referência da API para [Python
 
 * [Guia de uso do OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
 * [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
-* [Monitoramento de desempenho de ponta a ponta](./../../application-insights/app-insights-tutorial-performance.md)
+* [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

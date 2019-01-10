@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a39d497c90f49f8699b9d27be175e501973804c5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811504"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118380"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa
 
@@ -26,7 +26,7 @@ O Azure Monitor fornece um único pipeline para obter acesso a todos os dados de
 Em seu ambiente do Azure há várias 'camadas' de dados de monitoramento e o método de acesso a dados de cada camada varia um pouco. Normalmente, essas camadas podem ser descritas como:
 
 - **Dados de monitoramento de aplicativo:** dados sobre o desempenho e a funcionalidade do código que você escreveu e está executando no Azure. Rastreamentos de desempenho, logs de aplicativos e telemetria do usuário são exemplos de dados de monitoramento de aplicativos. Dados de monitoramento de aplicativo normalmente são coletados de uma das seguintes maneiras:
-  - Instrumentando seu código com um SDK como o [SDK do Application Insights](../../application-insights/app-insights-overview.md).
+  - Instrumentando seu código com um SDK como o [SDK do Application Insights](../../azure-monitor/app/app-insights-overview.md).
   - Executando um agente de monitoramento que escuta em busca de novos logs do aplicativo no computador executando o seu aplicativo, assim como o [Agente de Diagnóstico do Azure do Windows](./../../azure-monitor/platform/diagnostics-extension-overview.md) ou o [Agente de Diagnóstico do Azure do Linux](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Dados de monitoramento do SO convidado:** dados sobre o sistema operacional no qual seu aplicativo está em execução. Exemplos de dados de monitoramento de SO convidado seriam syslog do Linux ou eventos de sistema do Windows. Para coletar esse tipo de dados, você precisa instalar um agente como o [Agente de Diagnóstico do Azure do Windows](./../../azure-monitor/platform/diagnostics-extension-overview.md) ou o [Agente de Diagnóstico do Azure do Linux](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Dados de monitoramento de recursos do Azure:** dados sobre a operação de um recurso do Azure. Para alguns tipos de recursos do Azure, como máquinas virtuais, há um SO convidado e aplicativos a serem monitorados dentro desse serviço do Azure. Para outros recursos do Azure, como Grupos de Segurança de Rede, o recurso de monitoramento de dados é a camada de dados mais alta disponível (já que não há nenhum SO convidado nem aplicativo em execução nesses recursos). Esses dados podem ser coletados usando as [configurações de diagnóstico do recurso](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
@@ -98,7 +98,7 @@ O [agente de Diagnóstico do Azure do Windows](./../../azure-monitor/platform/di
 
 ## <a name="application-monitoring-data"></a>Dados de monitoramento de aplicativo
 
-Dados de monitoramento de aplicativo requerem que seu código seja instrumentado com um SDK, portanto, não existe uma solução de finalidade geral para roteamento de dados de monitoramento de aplicativo para um hub de eventos no Azure. No entanto, o [Azure Application Insights](../../application-insights/app-insights-overview.md) é um serviço que pode ser usado para coletar dados de nível de aplicativo do Azure. Se você estiver usando o Application Insights, você poderá transmitir dados de monitoramento para um hub de eventos fazendo o seguinte:
+Dados de monitoramento de aplicativo requerem que seu código seja instrumentado com um SDK, portanto, não existe uma solução de finalidade geral para roteamento de dados de monitoramento de aplicativo para um hub de eventos no Azure. No entanto, o [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) é um serviço que pode ser usado para coletar dados de nível de aplicativo do Azure. Se você estiver usando o Application Insights, você poderá transmitir dados de monitoramento para um hub de eventos fazendo o seguinte:
 
 1. [Configure a exportação contínua](../../azure-monitor/app/export-telemetry.md) dos dados do Application Insights para uma conta de armazenamento.
 
@@ -108,7 +108,7 @@ Dados de monitoramento de aplicativo requerem que seu código seja instrumentado
 
 Rotear dados de monitoramento para um hub de eventos com o Azure Monitor permite fácil integração com as ferramentas de monitoramento e o SIEM de parceiro. A maioria das ferramentas exigem que a cadeia de conexão de hub de eventos e determinadas permissões para sua assinatura do Azure leiam dados do hub de eventos. Aqui está uma lista parcial das ferramentas com integração ao Azure Monitor:
 
-* **IBM QRadar** – o Microsoft Azure DSM e protocolo de Hub de Eventos do Microsoft Azure estão disponíveis para download do [site de suporte da IBM](http://www.ibm.com/support). Você pode [saber mais sobre a integração com o Azure aqui](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **IBM QRadar** – o Microsoft Azure DSM e protocolo de Hub de Eventos do Microsoft Azure estão disponíveis para download do [site de suporte da IBM](https://www.ibm.com/support). Você pode [saber mais sobre a integração com o Azure aqui](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** -dependendo da configuração de Splunk, há duas abordagens:
     1. [O Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) está disponível no Splunkbase e em um projeto de software livre. [A documentação está aqui](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Se você não puder instalar um complemento na instância do Splunk (por exemplo, Se usar um proxy ou estiver executando na Splunk Cloud), você poderá encaminhar esses eventos para o Splunk HTTP Event Collector usando [essa função disparada por novas mensagens no hub de eventos](https://github.com/Microsoft/AzureFunctionforSplunkVS).

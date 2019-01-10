@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78882742549632e7f1f6362f9e3ad0ae0034ffda
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634669"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039326"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Melhore o desempenho e a confiabilidade do Azure Functions
 
@@ -37,7 +37,7 @@ Sempre que possível, refatore funções grandes em conjuntos menores de funçõ
 
 ### <a name="cross-function-communication"></a>Comunicação entre funções
 
-As [Funções Duráveis](durable/durable-functions-overview.md) e o [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) são projetados para gerenciar transições de estado e comunicação entre diversas funções.
+As [Durable Functions](durable/durable-functions-concepts.md) e os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) são projetados para gerenciar transições de estado e comunicação entre diversas funções.
 
 Quando as Funções Duráveis ou os Aplicativos Lógicos não são usados para integrar com várias funções, geralmente é uma melhor prática usar filas de armazenamento para comunicação entre funções.  O principal motivo é que as filas de armazenamento são mais baratas e mais fáceis de provisionar. 
 

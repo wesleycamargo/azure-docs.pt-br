@@ -1,20 +1,19 @@
 ---
 title: Conectar um aplicativo do MongoDB ao Azure Cosmos DB
 description: Saiba como conectar seu aplicativo MongoDB ao Azure Cosmos DB.
-keywords: cadeia de conexão do mongodb
-services: cosmos-db
 author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: 9a6cbc551704541f3e4ead40567f272205b71325
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.reviewer: sngun
+ms.openlocfilehash: 737e179c2c16937d00bc9b6601f12ebe392c1906
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791380"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040312"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar um aplicativo do MongoDB ao Azure Cosmos DB
 Saiba como conectar seu aplicativo do MongoDB a um Azure Cosmos DB usando uma cadeia de conexão do MongoDB. Você pode usar um banco de dados do Azure Cosmos DB como o armazenamento de dados para seu aplicativo MongoDB. 
@@ -71,6 +70,6 @@ Por exemplo, considere a conta mostrada na folha **Cadeia de conexão**. Uma cad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [usar o Studio 3T](mongodb-mongochef.md) com uma conta de API do Azure Cosmos DB para o MongoDB.
-- Saiba como [usar o Robo 3T](mongodb-robomongo.md) com uma API do Azure Cosmos DB para o MongoDB.
+- Saiba como [usar o Studio 3T](mongodb-mongochef.md) com a API do Azure Cosmos DB para MongoDB.
+- Saiba como [usar o Robo 3T](mongodb-robomongo.md) com a API do Azure Cosmos DB para MongoDB.
 - Explore [exemplos](mongodb-samples.md) do MongoDB com a API do Azure Cosmos DB para MongoDB.
