@@ -1,19 +1,17 @@
 ---
 title: Níveis de desempenho do Azure Cosmos DB desativados
 description: Saiba mais sobre os níveis de desempenho S1, S2 e S3 disponíveis anteriormente no Azure Cosmos DB.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27e9e8c2cb3201ea4d4522662cd49609a2163997
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865549"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034379"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
 

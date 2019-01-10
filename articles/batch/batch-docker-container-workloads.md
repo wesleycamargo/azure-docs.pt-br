@@ -1,5 +1,5 @@
 ---
-title: Cargas de trabalho de contêiner no Lote do Azure | Microsoft Docs
+title: Cargas de trabalho de contêiner - Lote do Azure | Microsoft Docs
 description: Saiba como executar aplicativos de imagens de contêiner no Lote do Azure.
 services: batch
 author: dlepow
@@ -10,12 +10,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec18
+ms.openlocfilehash: 4d4dc5d01959406e71859fcbde6de1e36b5871aa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262424"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540989"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
@@ -29,16 +30,16 @@ O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote s
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Versões do SDK**: os SDKs do Lote começam a dar suporte a imagens de contêiner nas seguintes versões:
+* **Versão do SDK**: Os SDKs do Lote começam a dar suporte a imagens de contêiner nas seguintes versões:
     * API REST do Lote versão 2017-09-01.6.0
     * SDK do .NET para o Lote versão 8.0.0
     * SDK do Python para o Lote versão 4.0
     * SDK Java para o Lote versão 3.0
     * SDK Node. js para o Lote versão 3.0
 
-* **Contas**: em sua assinatura do Azure, você precisa criar uma conta do Lote e, opcionalmente, uma conta do Armazenamento do Azure.
+* **Contas**: Em sua assinatura do Azure, você precisa criar uma conta do Lote e, opcionalmente, uma conta do Armazenamento do Microsoft Azure.
 
-* **Uma imagem de VM compatível**: há suporte para contêineres apenas nos pools criados com a Configuração de Máquina Virtual com base nas imagens detalhadas na seção a seguir, "Imagens de máquina virtual compatíveis". Se você fornecer uma imagem personalizada, consulte as considerações na seção a seguir e os requisitos em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md). 
+* **Uma imagem de máquina virtual com suporte**: Os contêineres só têm suporte em pools criados com a configuração de maquina virtual a partir de imagens detalhadas na seção a seguir, "Imagens de máquina virtual com suporte". Se você fornecer uma imagem personalizada, consulte as considerações na seção a seguir e os requisitos em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Limitações
 

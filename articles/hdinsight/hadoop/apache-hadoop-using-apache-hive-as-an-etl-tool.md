@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632536"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630250"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usar o Apache Hive como uma ferramenta de extração, transformação e carregamento (ETL)
 
-Você normalmente precisa limpar e transformar os dados de entrada antes de carregá-los em um destino adequado para análise. Operações de extração, transformação e carregamento (ETL) são usadas para preparar os dados e carregá-los em um destino de dados.  O Apache Hive no HDInsight pode ler dados não estruturados, processar os dados conforme necessário e, em seguida, carregá-los em um data warehouse relacional para sistemas de suporte à decisão. Nessa abordagem, os dados são extraídos da origem e armazenados no armazenamento escalonável, como blobs de Armazenamento do Microsoft Azure ou Azure Data Lake Store. Os dados são, então, transformados usando uma sequência de consultas de Hive e, finalmente, organizados no Hive em preparação para o carregamento em massa no armazenamento de dados de destino.
+Você normalmente precisa limpar e transformar os dados de entrada antes de carregá-los em um destino adequado para análise. Operações de extração, transformação e carregamento (ETL) são usadas para preparar os dados e carregá-los em um destino de dados.  O Apache Hive no HDInsight pode ler dados não estruturados, processar os dados conforme necessário e, em seguida, carregá-los em um data warehouse relacional para sistemas de suporte à decisão. Nessa abordagem, os dados são extraídos da origem e armazenados no armazenamento escalonável, como blobs de Armazenamento do Microsoft Azure ou Azure Data Lake Storage. Os dados são, então, transformados usando uma sequência de consultas de Hive e, finalmente, organizados no Hive em preparação para o carregamento em massa no armazenamento de dados de destino.
 
 ## <a name="use-case-and-model-overview"></a>Visão geral de caso de uso e modelo
 
@@ -30,7 +30,7 @@ O Hadoop normalmente é usado em processos de ETL que importam um grande número
 
 As etapas típicas para usar o Hive para executar ETL são as seguintes:
 
-1. Descarregue dados no Azure Data Lake Store ou no Armazenamento de Blobs do Azure.
+1. Descarregue dados no Azure Data Lake Storage ou no Armazenamento de Blobs do Azure.
 2. Crie um banco de dados do armazenamento de metadados (usando o Banco de Dados SQL do Azure) para o Hive usar no armazenamento de seus esquemas.
 3. Crie um cluster HDInsight e conecte o armazenamento de dados.
 4. Defina o esquema para aplicar em tempo de leitura em dados no armazenamento de dados:
@@ -51,7 +51,7 @@ As etapas típicas para usar o Hive para executar ETL são as seguintes:
 
 5. Transforme os dados e carregue-os no destino.  Há várias maneiras de usar o Hive durante a transformação e o carregamento:
 
-    * Consulte e prepare dados usando o Hive e salve-os como um CSV no Azure Data Lake Store ou no armazenamento de blobs do Azure.  Em seguida, use uma ferramenta como o SQL Server Integration Services (SSIS) para adquirir esses CSVs e carregue os dados em um banco de dados relacional de destino como o SQL Server.
+    * Consulte e prepare dados usando o Hive e salve-os como um CSV no Azure Data Lake Storage ou no armazenamento de blobs do Azure.  Em seguida, use uma ferramenta como o SQL Server Integration Services (SSIS) para adquirir esses CSVs e carregue os dados em um banco de dados relacional de destino como o SQL Server.
     * Consulte os dados diretamente do Excel ou C# usando o driver ODBC do Hive.
     * Use [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) para ler os arquivos CSV simples preparados e carregue-os no banco de dados relacional de destino.
 

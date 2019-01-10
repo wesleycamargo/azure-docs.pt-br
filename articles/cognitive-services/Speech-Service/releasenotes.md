@@ -8,19 +8,60 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088289"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599409"
 ---
 # <a name="release-notes"></a>Notas de versão
 
-## <a name="speech-service-sdk-110"></a>Serviço de fala SDK 1.1.0
+## <a name="speech-sdk-120-2018-december-release"></a>SDK dE Fala 1.2.0: Versão de dezembro de 2018
+
+**Novos recursos**
+
+* Python
+  * A versão Beta do suporte do Python (3.5 e posterior) está disponível com esta versão. Para obter mais detalhes, [consulte aqui](quickstart-python.md).
+* JavaScript
+  * O SDK de Fala para o JavaScript tem sido livre. O código-fonte está disponível no [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * Agora damos suporte a node. js, mais informações podem ser encontradas [aqui](quickstart-js-node.md).
+  * A restrição de comprimento para sessões de áudio foi removida, a reconexão ocorrerá automaticamente sob a tampa.
+* Objeto de Conexão
+  * É possível acessar um objeto de Conexão do Reconhecedor. Esse objeto permite iniciar a conexão de serviço e inscrever-se para se conectar e desconectar de eventos explicitamente.
+    (Isso ainda não está disponível do JavaScript e Python.)
+* Suporte para Ubuntu 18.04.
+* Android
+  * Suporte do ProGuard habilitado durante a geração de APK.
+
+**Melhorias**
+
+* Melhorias no uso de thread interno, reduzindo o número de threads, bloqueios e exclusões mútuas.
+* Relatório/informações de erros aprimorados. Em muitos casos as mensagens de erro não são propagadas completamente para fora.
+* As dependências de desenvolvimento atualizadas do JavaScript para usar módulos atualizados.
+
+**Correções de bug**
+
+* Vazamentos de memória fixa devido a um tipo de incompatibilidade no RecognizeAsync.
+* Em alguns casos, as exceções foram sendo vazadas.
+* Corrigindo o vazamento de memória em argumentos de evento de tradução.
+* Corrigido um problema de bloqueio na reconexão longa de sessões em execução.
+* Corrigido um problema que poderia levar ao resultado final para traduções com falha.
+* C#: Se uma operação assíncrona não foi colocada em espera no thread principal, era possível que o reconhecedor pudesse ser descartado antes que a tarefa assíncrona fosse concluída.
+* Java: Corrigido um problema que resultou em uma falha da máquina virtual Java.
+* Objective-C: Mapeamento enum fixo; RecognizedIntent foi retornado em vez de RecognizingIntent.
+* JavaScript: Formato de saída padrão definido em 'simples' no SpeechConfig.
+* JavaScript: Removendo a inconsistência entre as propriedades no objeto de configuração em JavaScript e outras linguagens.
+
+**Exemplos**
+
+* Vários exemplos atualizados e corrigidos (por exemplo: vozes de saída para a conversão, etc).
+* Adicionados exemplos do Node. js no [repositório de exemplo](https://aka.ms/csspeech/samples).
+
+## <a name="speech-sdk-110"></a>SDK de Fala 1.1.0
 
 **Novos recursos**
 
@@ -51,7 +92,7 @@ ms.locfileid: "53088289"
 
 * Adicionado o C++ e C# samplea para uso de fluxo de pull e push na [repositório de exemplo](https://aka.ms/csspeech/samples).
 
-## <a name="speech-service-sdk-101"></a>SDK 1.0.1 do Serviço de Fala
+## <a name="speech-sdk-101"></a>SDK de Fala 1.0.1
 
 Melhorias na confiabilidade e correções de bugs:
 

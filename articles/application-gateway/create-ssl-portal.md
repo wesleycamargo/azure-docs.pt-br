@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 814c3ebec326ab1c17f4fea7f11b2bacaa6b42d9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997622"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159410"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurar um gateway de aplicativo com terminação SSL usando o portal do Azure
 
@@ -148,7 +148,7 @@ Neste exemplo, você cria duas máquinas virtuais para serem usadas como servido
 ### <a name="add-backend-servers"></a>Adicionar servidores de back-end
 
 3. Clique em **Todos os recursos** e clique em **myAppGateway**.
-4. Clique em **Pools de back-end**. Um pool padrão foi criado automaticamente com o gateway de aplicativo. Clique em **appGateayBackendPool**.
+4. Clique em **Pools de back-end**. Um pool padrão foi criado automaticamente com o gateway de aplicativo. Clique em **appGatewayBackendPool**.
 5. Clique em **Adicionar destino** para adicionar cada máquina virtual que você criou para o pool de back-end.
 
     ![Adicionar servidores de back-end](./media/create-ssl-portal/application-gateway-backend.png)

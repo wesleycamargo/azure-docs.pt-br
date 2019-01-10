@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 1df23a35e16d4ba3562ebbc9d89a7a8003afc784
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: ab80dd86e544127fc3f40f5459ef9a587c7cd511
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498946"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581487"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configurar o armazenamento e a escalabilidade para o Apache Kafka no HDInsight
 
@@ -26,18 +26,18 @@ O diagrama a seguir fornece uma comparação entre o Kafka no HDInsight antes do
 
 ![Diagrama mostrando o Kafka no HDInsight usando um único vhd por vm versus vários discos gerenciados por vm](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## <a name="configure-managed-disks-azure-portal"></a>Configurar discos gerenciados: portal do Azure
+## <a name="configure-managed-disks-azure-portal"></a>Configurar discos gerenciados: Portal do Azure
 
 1. Siga as etapas de [Criar um cluster HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md) para compreender as etapas comuns para criar um cluster usando o portal. Não conclua o processo de criação do portal.
 
 2. Na seção __Tamanho do cluster__, use o campo __Discos por nó de trabalho__ para configurar o número de discos.
 
-    > [!NOTE]
+    > [!NOTE]  
     > O tipo de disco gerenciado pode ser __Standard__ (HDD) ou __Premium__ (SSD). Os discos Premium são usados com as VMs das séries DS e GS. Todos os outros tipos VM usam o padrão.
 
     ![Imagem da seção de tamanho de cluster com os discos por nó de trabalho realçados](./media/apache-kafka-scalability/set-managed-disks-portal.png)
 
-## <a name="configure-managed-disks-resource-manager-template"></a>Configurar discos gerenciados: modelo do Gerenciador de Recursos
+## <a name="configure-managed-disks-resource-manager-template"></a>Configurar discos gerenciados: Modelo do Resource Manager
 
 Para controlar o número de discos usados por nós de trabalho em um cluster do Kafka, use a seção a seguir do modelo:
 

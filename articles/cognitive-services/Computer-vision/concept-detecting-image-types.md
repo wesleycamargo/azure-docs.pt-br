@@ -1,7 +1,7 @@
 ---
 title: Detectar tipos de imagem - Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados à detecção de tipos de imagem usando a API da Pesquisa Visual Computacional.
+description: Conceitos relacionados adetecção do tipo de imagem da API da Pesquisa Visual Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341985"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583095"
 ---
-# <a name="detecting-image-types"></a>Identificar tipos de imagens
+# <a name="detecting-image-types-with-computer-vision"></a>Detectar tipos de imagem com a Pesquisa Visual Computacional
 
 A Pesquisa Visual Computacional pode analisar o tipo de conteúdo das imagens, indicando se uma imagem é clip-art, classificando a probabilidade em uma escala ou um desenho de linha.
 
@@ -36,7 +37,7 @@ A Pesquisa Visual Computacional analisa uma imagem e classifica a probabilidade 
 
 As respostas JSON a seguir ilustram o que a Pesquisa Visual Computacional retorna ao avaliar a probabilidade das imagens de exemplo serem clip-art.
 
-![Clip-art de queijo com análise da pesquisa visual](./Images/cheese_clipart.png)
+![Imagem clip-art de uma fatia de queijo](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ As respostas JSON a seguir ilustram o que a Pesquisa Visual Computacional retorn
 }
 ```
 
-![Quintal da casa com análise da pesquisa visual](./Images/house_yard.png)
+![Uma casa azul e o jardim da frente](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ A Pesquisa Visual Computacional analisa uma imagem e retorna um valor booleano i
 
 As respostas JSON a seguir ilustram o que a Pesquisa Visual Computacional retorna ao indicar se as imagens de exemplo são desenhos de linha.
 
-![Desenho de leão com análise da pesquisa visual](./Images/lion_drawing.png)
+![Um desenho em linhas de um leão](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ As respostas JSON a seguir ilustram o que a Pesquisa Visual Computacional retorn
 }
 ```
 
-![Flor com análise da pesquisa visual](./Images/flower.png)
+![Uma flor branca com um fundo verde](./Images/flower.png)
 
 ```json
 {

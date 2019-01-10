@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: rajanaki
-ms.openlocfilehash: e965848b0c3c009444762dafdf42acc080b6915e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834938"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791862"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Proteja novamente e execute o failback de computadores em um site local após o failover no Azure
 
@@ -61,8 +61,8 @@ Para implantar um servidor de processo no Azure:
 
 O servidor de destino mestre recebe dados de failback. Por padrão, o servidor de destino mestre é executado no servidor de configuração local. No entanto, dependendo do volume do tráfego de failback, talvez seja necessário criar um servidor de destino mestre separado para o failback. Veja como criar um:
 
-* [Crie um servidor de destino mestre Linux](vmware-azure-install-linux-master-target.md) para failback de VMs do Linux. Isso é necessário.
-* Opcionalmente, crie um servidor de destino mestre separado para failback de VM do Windows. Para fazer isso, execute a instalação do Unified novamente e selecione para criar um servidor de destino mestre. [Saiba mais](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
+* [Crie um servidor de destino mestre Linux](vmware-azure-install-linux-master-target.md) para failback de VMs do Linux. Isso é necessário. Não há suporte para o servidor de destino mestre no LVM.
+* Opcionalmente, crie um servidor de destino mestre separado para failback de VM do Windows. Para fazer isso, execute a instalação do Unified novamente e selecione para criar um servidor de destino mestre. [Saiba mais](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
 
 Depois de criar um servidor de destino mestre, faça o seguinte:
 

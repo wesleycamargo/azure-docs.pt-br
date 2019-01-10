@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 24a9b014028bf99673881904e17ec0911d0b5063
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94a072d3c8bde9e4fb16342db1e0705bfc22cf77
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952045"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539578"
 ---
 # <a name="application-types-for-v20"></a>Tipos de aplicativos para a v2.0
 
@@ -75,7 +75,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Mais detalhes sobre os diferentes tipos de token usados no ponto de extremidade v2.0 estão disponíveis na referência do [token de acesso](access-tokens.md) e na [`id_token` referência](id-tokens.md)
+Mais detalhes sobre os diferentes tipos de tokens usados no endpoint v2.0 estão disponíveis na referência [do token de acesso](access-tokens.md) e na [`id_token` referência](id-tokens.md)
 
 Em aplicativos de servidor Web, o fluxo de autenticação de entrada usa estas etapas de alto nível:
 
@@ -99,7 +99,7 @@ Accept: application/json
 ...
 ```
 
-A API Web usa o token de acesso para verificar a identidade do chamador da API e para extrair informações sobre o chamador a partir de declarações que são codificadas no token de acesso. Mais detalhes sobre os diferentes tipos de token usados no ponto de extremidade v2.0 estão disponíveis na referência do [token de acesso](access-tokens.md) e na [`id_token` referência](id-tokens.md)
+A API Web usa o token de acesso para verificar a identidade do chamador da API e para extrair informações sobre o chamador a partir de declarações que são codificadas no token de acesso. Mais detalhes sobre os diferentes tipos de tokens usados no endpoint v2.0 estão disponíveis na referência [do token de acesso](access-tokens.md) e na [`id_token` referência](id-tokens.md)
 
 Uma API Web pode oferecer aos usuários o poder de aceitar/recusar uma funcionalidade ou dados específicos ao expor permissões, também conhecidas como [escopos](v2-permissions-and-consent.md). Para um aplicativo de chamada obter permissão para um escopo, o usuário deve concordar com o escopo durante um fluxo. O ponto de extremidade v2.0 solicita a permissão do usuário e registra as permissões em todos os tokens de acesso recebidos pela API Web. A API Web valida os tokens de acesso que recebe em cada chamada e executa verificações de autorização.
 
@@ -121,7 +121,7 @@ Nesse fluxo, o aplicativo recebe um código de autorização do ponto de extremi
 
 ## <a name="daemons-and-server-side-apps"></a>Daemons e aplicativos do lado do servidor
 
-Os aplicativos com processos de longa duração ou que operem sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) com o fluxo de credenciais do cliente OAuth 2.0.
+Os aplicativos com processos de longa duração ou que operem sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) com o fluxo de credenciais do cliente OAuth 2.0. Você pode provar a identidade do aplicativo usando um certificado ou o segredo do cliente. Para obter mais informações, consulte [autenticando no Microsoft Azure Active Directory em aplicativos daemon com certificados](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
 Nesse fluxo, o aplicativo interage diretamente com o ponto de extremidade do `/token` para obter pontos de extremidade:
 

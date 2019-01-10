@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434759"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582551"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Reconheça os resultados da verificação de agente do Windows no Gerenciamento de Atualizações
 
 Pode haver vários motivos pelos quais o computador não mostra o status **Pronto** no Gerenciamento de Atualizações. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente de Hybrid Worker para determinar o problema subjacente. Este artigo descreve como executar a solução de problemas em computadores do Azure no portal do Azure e em computadores não Azure no [cenário offline](#troubleshoot-offline).
+
+A lista a seguir é composta pelos três estados de preparação em que um computador pode estar:
+
+* **Pronto** - O agente de atualização foi implantado e visto pela última vez há menos de uma hora.
+* **Desconectado** -  O agente de atualização foi implantado e visto pela última vez há mais de uma hora.
+* **Não configurado** -  O agente de atualização não foi localizado ou não concluiu a integração.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
 

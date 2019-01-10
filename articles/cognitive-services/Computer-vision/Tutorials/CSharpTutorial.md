@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Construa um aplicativo de processamento de imagem - C#'
+title: 'Tutorial: Criar um aplicativo de processamento de imagens - C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explore um aplicativo Windows básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos da Microsoft. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342646"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584438"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Criar uma imagem, processamento de aplicativo - C&#35;
+# <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Criar um aplicativo de processamento de imagens - C&#35;
 
 Explore um aplicativo básico do Windows que usa o Computer Vision para executar o reconhecimento ótico de caracteres (OCR), criar miniaturas com recorte inteligente, além de detectar, categorizar, marcar e descrever recursos visuais, incluindo rostos, em uma imagem. O exemplo abaixo permite que você envie uma URL de imagem ou um arquivo armazenado localmente. Você pode usar este exemplo de software livre como modelo para criar seu próprio aplicativo para Windows usando a API do Computer Vision e o Windows Presentation Foundation (WPF), uma parte do .NET Framework.
 
@@ -101,7 +102,7 @@ Você pode executar o aplicativo de amostra para ver como ele interage com você
    > A Microsoft recebe as imagens carregadas e pode usá-las para melhorar a API de Pesquisa Visual Computacional e os serviços relacionados. Ao enviar uma imagem, você confirma que seguiu nosso [Código de Conduta do Desenvolvedor](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    A captura de tela a seguir ilustra a página fornecida para o cenário Analyze Image, após analisar uma imagem de amostra.
-   ![Analisar a página do cenário de imagem](../Images/Analyze_Image_Example.PNG)
+   ![Captura de tela da página de imagem Analisar](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>Explorar o aplicativo de exemplo
 

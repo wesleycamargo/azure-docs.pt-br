@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999053"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189602"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gerenciar cluster do Avere vFXT
 
@@ -63,11 +63,11 @@ Para desligar, reinicializar ou remover um nó, localize o nó na lista na pági
 > [!NOTE] 
 > Endereços IP podem se mover entre nós de cluster quando o número de nós ativos muda.
 
-Leia [Cluster > Nós FXT](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>) no guia de configurações do cluster do Avere para obter mais informações.
+Leia [Cluster > Nós FXT](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) no guia de configurações do cluster do Avere para obter mais informações.
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Parar ou reiniciar o cluster com o Painel de Controle do Avere
 
-A página de configurações **Manutenção do Sistema** tem comandos para reiniciar os serviços de cluster, reinicializar o cluster ou desligar o cluster com segurança. Leia [Administração > Manutenção do Sistema](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>) (no guia de configurações de cluster do Avere) para obter detalhes.
+A página de configurações **Manutenção do Sistema** tem comandos para reiniciar os serviços de cluster, reinicializar o cluster ou desligar o cluster com segurança. Leia [Administração > Manutenção do Sistema](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (no guia de configurações de cluster do Avere) para obter detalhes.
 
 Quando um cluster está sendo desligado, ele envia mensagens de estado para a guia **Painel** primeiro. Após alguns instantes, a sessão do Painel de Controle do Avere parará de responder, o que significa que o cluster foi desligado.
 

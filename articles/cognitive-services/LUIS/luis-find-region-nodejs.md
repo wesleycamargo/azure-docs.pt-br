@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 6bcea43fb21cae6f000f3522b498dfc6c0f6d9a7
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4d14569219c8db503fc91f52a6867de85373aa05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166210"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724378"
 ---
-# <a name="find-endpoint-region-with-nodejs"></a>Encontrar a região do ponto de extremidade com o Node.js
+# <a name="programmatically-find-endpoint-region-with-nodejs"></a>Encontre programaticamente a região do ponto de extremidade com o Node.js no LUIS
 Se você tiver a ID do aplicativo LUIS e a ID da assinatura do LUIS, poderá encontrar a região que será usada para consultas de ponto de extremidade.
 
 > [!NOTE] 
-> A solução Node.js completa está disponível nos [**exemplos de LUIS** no repositório do GitHub](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
+> A solução Node.js completa está disponível no [repositório GitHub **Azure-Samples**](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>Estratégia de consulta de ponto de extremidade do LUIS
 Cada consulta de ponto de extremidade do LUIS exige:

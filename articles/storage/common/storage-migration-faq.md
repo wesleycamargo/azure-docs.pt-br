@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416385"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632307"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
 
@@ -37,7 +37,7 @@ O script de automação destina-se à implantação do Azure Resource Manager, n
 
 **Há algum encargo para cópia de dados entre dois compartilhamentos de arquivo na mesma conta de armazenamento dentro da mesma região?**
 
-Não. Não há encargos para esse processo.
+ Não. Não há encargos para esse processo.
 
 **Como fazer backup de toda minha conta de armazenamento para outra conta de armazenamento?**
 
@@ -54,10 +54,10 @@ Não há opção para fazer backup direto de uma conta de armazenamento inteira.
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: fornece o URI para a conta de armazenamento de origem (até o contêiner).  
-    - `/Dest`: fornece o URI para a conta de armazenamento de destino (até o contêiner).  
-    - `/SourceKey`: fornece a chave primária para a conta de armazenamento de origem. Você pode copiar essa chave do portal do Azure selecionando a conta de armazenamento.  
-    - `/DestKey`: fornece a chave primária para a conta de armazenamento de destino. Você pode copiar essa chave do portal selecionando a conta de armazenamento.
+    - `/Source`: Fornece o URI para a conta de armazenamento de origem (até o contêiner).  
+    - `/Dest`: Fornece o URI para a conta de armazenamento de destino (até o contêiner).  
+    - `/SourceKey`: Fornece a chave primária para a conta de armazenamento de origem. Você pode copiar essa chave do portal do Azure selecionando a conta de armazenamento.  
+    - `/DestKey`: Fornece a chave primária para a conta de armazenamento de destino. Você pode copiar essa chave do portal selecionando a conta de armazenamento.
 
 Após a execução desse comando, os arquivos do contêiner vão para a conta de armazenamento de destino.
 
@@ -118,6 +118,8 @@ Para saber mais, confira [Transferir dados com o AzCopy no Windows](storage-use-
 
 **Como mover discos gerenciados para outra conta de armazenamento?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Siga estas etapas:
 
 1.  Pare a máquina virtual à qual o disco gerenciado está conectado.
@@ -125,15 +127,15 @@ Siga estas etapas:
 2.  Copie o VHD do disco gerenciado de uma área para outra executando o seguinte script do Azure PowerShell:
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  Crie um disco gerenciado usando o arquivo VHD em outra região na qual você copiou o VHD. Para fazer isso, execute este script do Azure PowerShell:  
@@ -151,9 +153,9 @@ Siga estas etapas:
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 Para saber mais sobre como implantar uma máquina virtual de um disco gerenciado, veja [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
@@ -164,7 +166,7 @@ Use o AzCopy para baixar os dados. Para saber mais, confira [Transferir dados co
 
 **Como alterar o local secundário de uma conta de armazenamento para a região da Europa?**
 
-Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A seleção da região secundária se baseia na região primária e não pode ser alterada. Para obter mais informações, consulte [GRS (armazenamento com redundância geográfica): replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy.md).
+Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A seleção da região secundária se baseia na região primária e não pode ser alterada. Para obter mais informações sobre o GRS, consulte [Armazenamento com redundância geográfica (GRS): Replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy.md).
 
 **Onde posso saber mais sobre o SSE (Criptografia do Serviço de Armazenamento) do Azure?**  
   
@@ -191,7 +193,7 @@ Use o [Gerenciador de Armazenamento](https://azure.microsoft.com/features/storag
 
 **Existem pré-requisitos para alterar a replicação de uma conta de armazenamento, de armazenamento com redundância geográfica para armazenamento com redundância local?**
 
-Não. 
+ Não. 
 
 **Como acessar o armazenamento com redundância dos Arquivos do Azure?**
 
@@ -274,11 +276,11 @@ Para dar a outras pessoas acesso aos meus recursos de armazenamento:
 
 -   Se você estiver usando armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer hora. Use um dos seguintes métodos:  
       
-    - **AzCopy**: acrescente **-secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:   
+    - **AzCopy**: Acrescente **-secundário** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:   
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **Token SAS**: use um Token SAS para acessar dados do ponto de extremidade. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md).
+    - **Token SAS**: Use um Token SAS para acessar dados do ponto de extremidade. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md).
 
 **Como usar um domínio personalizado de HTTPS com minha conta de armazenamento? Por exemplo, como fazer "https://mystorageaccountname.blob.core.windows.net/images/image.gif" aparecer como "https://www.contoso.com/images/image.gif"?**
 

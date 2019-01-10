@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011987"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789222"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Grade de Eventos do Azure para eventos dos Serviços de Mídia
 
@@ -134,7 +134,7 @@ Para cada alteração de estado do Trabalho não final (como JobScheduled, JobPr
     "previousState": "Scheduled",
     "state": "Processing",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -168,7 +168,7 @@ Para cada alteração de estado do Trabalho final (como JobFinished, JobCanceled
     "previousState": "Processing",
     "state": "Finished",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -205,7 +205,7 @@ O exemplo a seguir mostra o esquema do evento **JobOutputStateChange**:
       "state": "Finished"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -236,7 +236,7 @@ Para cada alteração de estado de JobOutput, o esquema de exemplo é semelhante
       "state": "Processing"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -258,13 +258,14 @@ O exemplo a seguir mostra o esquema do evento **LiveEventConnectionRejected**:
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "b303db59-d5c1-47eb-927a-3650875fded1",
     "data": { 
-      "StreamId":"Mystream1",
-      "IngestUrl": "http://abc.ingest.isml",
-      "EncoderIp": "118.238.251.xxx",
-      "EncoderPort": 52859,
-      "ResultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
+      "streamId":"Mystream1",
+      "ingestUrl": "http://abc.ingest.isml",
+      "encoderIp": "118.238.251.xxx",
+      "encoderPort": 52859,
+      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -273,11 +274,11 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| StreamId | string | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por adicionar essa ID na URL de ingestão. |  
+| streamId | string | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por adicionar essa ID na URL de ingestão. |  
 | IngestUrl | string | URL de ingestão fornecida pelo evento ao vivo. |  
-| EncoderIp | string | IP do codificador. |
-| EncoderPort | string | Porta do codificador de onde vem esse fluxo. |
-| ResultCode | string | O motivo pelo qual a conexão foi rejeitada. Os códigos de resultado estão listadas na tabela a seguir. |
+| encoderIp | string | IP do codificador. |
+| encoderPort | string | Porta do codificador de onde vem esse fluxo. |
+| resultCode | string | O motivo pelo qual a conexão foi rejeitada. Os códigos de resultado estão listadas na tabela a seguir. |
 
 Os códigos de resultado são:
 
@@ -320,10 +321,10 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| StreamId | string | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por fornecer essa ID na URL de ingestão. |
+| streamId | string | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por fornecer essa ID na URL de ingestão. |
 | IngestUrl | string | URL de ingestão fornecida pelo evento ao vivo. |
-| EncoderIp | string | IP do codificador. |
-| EncoderPort | string | Porta do codificador de onde vem esse fluxo. |
+| encoderIp | string | IP do codificador. |
+| encoderPort | string | Porta do codificador de onde vem esse fluxo. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -354,11 +355,11 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| StreamId | string | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por adicionar essa ID na URL de ingestão. |  
+| streamId | string | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por adicionar essa ID na URL de ingestão. |  
 | IngestUrl | string | URL de ingestão fornecida pelo evento ao vivo. |  
-| EncoderIp | string | IP do codificador. |
-| EncoderPort | string | Porta do codificador de onde vem esse fluxo. |
-| ResultCode | string | O motivo para a desconexão do codificador. Isso se deve à desconexão normal ou a um erro. Os códigos de resultado estão listadas na tabela a seguir. |
+| encoderIp | string | IP do codificador. |
+| encoderPort | string | Porta do codificador de onde vem esse fluxo. |
+| resultCode | string | O motivo para a desconexão do codificador. Isso se deve à desconexão normal ou a um erro. Os códigos de resultado estão listadas na tabela a seguir. |
 
 Os códigos de resultado de erro são:
 
@@ -394,14 +395,15 @@ O exemplo a seguir mostra o esquema do evento **LiveEventIncomingDataChunkDroppe
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
     "data": { 
-      "TrackType": "Video",
-      "TrackName": "Video",
-      "Bitrate": 300000,
-      "Timestamp": 36656620000,
-      "Timescale": 10000000,
-      "ResultCode": "FragmentDrop_OverlapTimestamp"
+      "trackType": "Video",
+      "trackName": "Video",
+      "bitrate": 300000,
+      "timestamp": 36656620000,
+      "timescale": 10000000,
+      "resultCode": "FragmentDrop_OverlapTimestamp"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -410,12 +412,12 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| TrackType | string | Tipo de faixa (Áudio/Vídeo). |
-| TrackName | string | Nome da faixa. |
-| Bitrate | inteiro | Taxa de bits da faixa. |
-| Timestamp | string | O carimbo de data/hora da parte de dados é descartado. |
-| Escala de tempo | string | Escala de tempo do carimbo de data/hora. |
-| ResultCode | string | Motivo do descarte da parte de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
+| trackType | string | Tipo de faixa (Áudio/Vídeo). |
+| trackName | string | Nome da faixa. |
+| taxa de bits | inteiro | Taxa de bits da faixa. |
+|  timestamp | string | O carimbo de data/hora da parte de dados é descartado. |
+| escala de tempo | string | Escala de tempo do carimbo de data/hora. |
+| resultCode | string | Motivo do descarte da parte de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -450,14 +452,14 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| TrackType | string | Tipo de faixa (Áudio/Vídeo). |
-| TrackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
-| Bitrate | inteiro | Taxa de bits da faixa. |
+| trackType | string | Tipo de faixa (Áudio/Vídeo). |
+| trackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
+| taxa de bits | inteiro | Taxa de bits da faixa. |
 | IngestUrl | string | URL de ingestão fornecida pelo evento ao vivo. |
-| EncoderIp | string  | IP do codificador. |
-| EncoderPort | string | Porta do codificador de onde vem esse fluxo. |
-| Timestamp | string | O primeiro carimbo de data/hora da parte de dados recebida. |
-| Escala de tempo | string | Escala de tempo em que o carimbo de data/hora é representado. |
+| encoderIp | string  | IP do codificador. |
+| encoderPort | string | Porta do codificador de onde vem esse fluxo. |
+|  timestamp | string | O primeiro carimbo de data/hora da parte de dados recebida. |
+| escala de tempo | string | Escala de tempo em que o carimbo de data/hora é representado. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -489,12 +491,12 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| MinLastTimestamp | string | Mínimo dos últimos carimbos de data/hora entre todas as faixas (áudio ou vídeo). |
-| TypeOfTrackWithMinLastTimestamp | string | Tipo de faixa (áudio ou vídeo) com o último carimbo de data/hora mínimo. |
-| MaxLastTimestamp | string | Máximo de todos os carimbos de data/hora entre todas as faixas (áudio ou vídeo). |
-| TypeOfTrackWithMaxLastTimestamp | string | Tipo de faixa (áudio ou vídeo) com o último carimbo de data/hora máximo. |
-| TimescaleOfMinLastTimestamp| string | Obtém a escala de tempo em que o “MinLastTimestamp” é representado.|
-| TimescaleOfMaxLastTimestamp| string | Obtém a escala de tempo em que o “MaxLastTimestamp” é representado.|
+| minLastTimestamp | string | Mínimo dos últimos carimbos de data/hora entre todas as faixas (áudio ou vídeo). |
+| typeOfTrackWithMinLastTimestamp | string | Tipo de faixa (áudio ou vídeo) com o último carimbo de data/hora mínimo. |
+| maxLastTimestamp | string | Máximo de todos os carimbos de data/hora entre todas as faixas (áudio ou vídeo). |
+| typeOfTrackWithMaxLastTimestamp | string | Tipo de faixa (áudio ou vídeo) com o último carimbo de data/hora máximo. |
+| timescaleOfMinLastTimestamp| string | Obtém a escala de tempo em que o “MinLastTimestamp” é representado.|
+| timescaleOfMinLastTimestamp| string | Obtém a escala de tempo em que o “MaxLastTimestamp” é representado.|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -509,13 +511,14 @@ O exemplo a seguir mostra o esquema do evento **LiveEventIncomingVideoStreamsOut
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "6dd4d862-d442-40a0-b9f3-fc14bcf6d750",
     "data": {
-      "FirstTimestamp": "2162058216",
-      "FirstDuration": "2000",
-      "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000",
+      "firstTimestamp": "2162058216",
+      "firstDuration": "2000",
+      "secondTimestamp": "2162057216",
+      "secondDuration": "2000",
       "timescale": "10000000"      
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -524,11 +527,11 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| FirstTimestamp | string | O carimbo de data/hora recebido para uma das faixas/níveis de qualidade do vídeo de tipo. |
-| FirstDuration | string | Duração da parte de dados com primeiro carimbo de data/hora. |
-| SecondTimestamp | string  | O carimbo de data/hora recebido para algum outro nível de qualidade/faixa do vídeo de tipo. |
-| SecondDuration | string | Duração da parte de dados com segundo carimbo de data/hora. |
-| Escala de tempo | string | Escala de tempo de carimbos de data/hora e duração.|
+| firstTimestamp | string | O carimbo de data/hora recebido para uma das faixas/níveis de qualidade do vídeo de tipo. |
+| firstDuration | string | Duração da parte de dados com primeiro carimbo de data/hora. |
+| secondTimestamp | string  | O carimbo de data/hora recebido para algum outro nível de qualidade/faixa do vídeo de tipo. |
+| secondDuration | string | Duração da parte de dados com segundo carimbo de data/hora. |
+| escala de tempo | string | Escala de tempo de carimbos de data/hora e duração.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -566,17 +569,17 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| TrackType | string | Tipo de faixa (Áudio/Vídeo). |
-| TrackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
-| Bitrate | inteiro | Taxa de bits da faixa. |
-| IncomingBitrate | inteiro | Taxa de bits calculada com base nas partes de dados provenientes do codificador. |
-| LastTimestamp | string | Carimbo de data/hora mais recente recebido para uma faixa nos últimos 20 segundos. |
-| Escala de tempo | string | Escala de tempo na qual os carimbos de data/hora são expressos. |
-| OverlapCount | inteiro | O número de partes de dados que sobrepôs os carimbos de data/hora nos últimos 20 segundos. |
-| DiscontinuityCount | inteiro | Número do descontinuidades observadas nos últimos 20 segundos. |
-| NonIncreasingCount | inteiro | Número de partes de dados com os carimbos de data/hora no passado recebidas nos últimos 20 segundos. |
-| UnexpectedBitrate | bool | Se as taxas de bits esperadas e reais apresentarem diferença superior ao limite permitido nos últimos 20 segundos. É true se e somente se, IncomingBitrate >= 2* taxa de bits OR IncomingBitrate <= taxa de bits/2 OR IncomingBitrate = 0. |
-| Estado | string | Estado do evento ao vivo. |
+| trackType | string | Tipo de faixa (Áudio/Vídeo). |
+| trackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
+| taxa de bits | inteiro | Taxa de bits da faixa. |
+| incomingBitrate | inteiro | Taxa de bits calculada com base nas partes de dados provenientes do codificador. |
+| lastTimestamp | string | Carimbo de data/hora mais recente recebido para uma faixa nos últimos 20 segundos. |
+| escala de tempo | string | Escala de tempo na qual os carimbos de data/hora são expressos. |
+| overlapCount | inteiro | O número de partes de dados que sobrepôs os carimbos de data/hora nos últimos 20 segundos. |
+| discontinuityCount | inteiro | Número do descontinuidades observadas nos últimos 20 segundos. |
+| nonIncreasingCount | inteiro | Número de partes de dados com os carimbos de data/hora no passado recebidas nos últimos 20 segundos. |
+| unexpectedBitrate | bool | Se as taxas de bits esperadas e reais apresentarem diferença superior ao limite permitido nos últimos 20 segundos. É true se e somente se, IncomingBitrate >= 2* taxa de bits OU IncomingBitrate <= taxa de bits/2 OU IncomingBitrate = 0. |
+| state | string | Estado do evento ao vivo. |
 | Healthy | bool | Indica se a ingestão está íntegra com base nas contagens e nos sinalizadores. Healthy será true se OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
@@ -610,13 +613,13 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| TrackType | string | Tipo de faixa (Áudio/Vídeo). |
-| TrackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
-| Bitrate | inteiro | Taxa de bits da faixa. |
+| trackType | string | Tipo de faixa (Áudio/Vídeo). |
+| trackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
+| taxa de bits | inteiro | Taxa de bits da faixa. |
 | PreviousTimestamp | string | Carimbo de data/hora do fragmento anterior. |
 | NewTimestamp | string | Carimbo de data/hora do fragmento atual. |
-| DiscontinuityGap | string | Lacuna entre os dois carimbos de data/hora acima. |
-| Escala de tempo | string | Escala de tempo na qual o carimbo de data/hora e a lacuna de descontinuidade são representados. |
+| discontinuityGap | string | Lacuna entre os dois carimbos de data/hora acima. |
+| escala de tempo | string | Escala de tempo na qual o carimbo de data/hora e a lacuna de descontinuidade são representados. |
 
 ### <a name="common-event-properties"></a>Propriedades comuns de evento
 

@@ -4,19 +4,19 @@ description: Saiba mais sobre as limitações de migração e os problemas conhe
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884503"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721641"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Limitações de migração e problemas conhecidos das migrações online para o BD do Azure para MySQL
 
@@ -60,27 +60,27 @@ Os problemas conhecidos e as limitações associados às migrações online do M
     ```
 
 ## <a name="datatype-limitations"></a>Limitações de tipo de dados
-- **Limitação**: se houver um tipo de dados JSON no banco de dados MySQL de origem, a migração falhará durante a sincronização contínua.
+- **Limitação**: Se houver um tipo de dados JSON no banco de dados MySQL de origem, a migração falhará durante a sincronização contínua.
 
-    **Solução alternativa**: modifique o tipo de dados JSON para texto médio ou longtext no banco de dados MySQL de origem.
+    **Solução alternativa**: Modifique o tipo de dados JSON para texto médio ou longtext no banco de dados MySQL de origem.
 
-- **Limitação**: se não houver nenhuma chave primária nas tabelas, a sincronização contínua falhará.
+- **Limitação**: Se não houver nenhuma chave primária nas tabelas, a sincronização contínua falhará.
  
-    **Solução alternativa**: defina temporariamente uma chave primária na tabela para que a migração continue. Você poderá remover a chave primária após a conclusão da migração de dados.
+    **Solução alternativa**: Defina temporariamente uma chave primária para a tabela para migração continuar. Você poderá remover a chave primária após a conclusão da migração de dados.
 
 ## <a name="lob-limitations"></a>Limitações de LOB
 As colunas de LOB (Objeto Grande) são aquelas cujo tamanho pode aumentar muito. Para MySQL, texto médio, Longtext, Blob, Mediumblob, Longblob, etc. são alguns dos tipos de dados de LOB.
 
-- **Limitação**: se tipos de dados de LOB forem usados como chaves primárias, a migração falhará.
+- **Limitação**: Se tipos de dados LOB forem usados como chaves primárias, a migração falhará.
 
-    **Solução alternativa**: substitua chave primária por outros tipos de dados ou colunas que não sejam de LOB.
+    **Solução alternativa**: Substitua a chave primária por outros tipos de dados ou colunas que não sejam LOB.
 
-- **Limitação**: se o tamanho da coluna de LOB (Objeto Grande) for maior que 32 KB, os dados poderão ser truncados no destino. Você pode verificar o tamanho da coluna de LOB usando esta consulta:
+- **Limitação**: Se o tamanho da coluna LOB (Objeto Grande) for maior que 32 KB, os dados poderão ser truncados no destino. Você pode verificar o tamanho da coluna de LOB usando esta consulta:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solução alternativa**: se houver um objeto LOB com mais de 32 KB, contate a equipe de engenharia em [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). 
+    **Solução alternativa**: Se houver um objeto LOB com mais de 32 KB, contate a equipe de engenharia em [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). 
 
 ## <a name="other-limitations"></a>Outras limitações
 - Não há suporte para cadeia de caracteres de senha com colchetes {} de abertura e fechamento em seu início e final. Essa limitação aplica-se tanto à conexão com o MySQL de origem quanto com o Banco de Dados do Azure para MySQL de destino.

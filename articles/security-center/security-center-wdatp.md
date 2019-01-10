@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b73bf3e542801e58fbda6232eb063305785ce643
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337590"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536263"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção Avançada contra Ameaças do Windows Defender com a Central de Segurança do Azure
 
@@ -57,7 +57,21 @@ Esse recurso dá suporte à detecção no Windows Server 2012 R2 e no Windows Se
 
 Apenas os servidores em assinaturas para a camada de serviço Standard são compatíveis.
 
-## <a name="onboarding-instructions"></a>Instruções de integração
+## <a name="onboarding-servers-to-security-center"></a>Integração de servidores à Central de Segurança 
+
+Para a integração de servidores à Central de segurança, clique em **Ir para a Central de Segurança do Azure para a integração de servidores** do servidor de integração do Windows Defender ATP.
+
+1. Na folha **Integração**, selecione ou crie um workspace no qual armazenar os dados. <br>
+2. Se você não conseguir ver todos os seus workspaces, pode ser devido à falta de permissões, verifique se que seu workspace está definido na camada Standard de Segurança do Azure. Para saber mais, confira [Atualizar para a camada Standard da Central de Segurança para segurança aprimorada](security-center-pricing.md).
+    
+3.  Selecione **Adicionar servidores** para exibir instruções sobre como instalar o Microsoft Monitoring Agent. 
+
+4.  Após a integração, monitore as máquinas **Computação e aplicativos**.
+
+  ![Integrar computadores](media/security-center-wdatp/onboard-computers.png)
+
+
+## <a name="enable-windows-defender-atp-integration"></a>Integração habilitada com o Windows Defender ATP
 
 Para exibir se a integração ao Windows Defender ATP está habilitada, selecione **Central de Segurança** > **política de segurança** > **Assinatura** > **Editar configurações**.
 
@@ -105,6 +119,6 @@ Para gerar um alerta de teste benigno do Windows Defender ATP:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 - [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger seus recursos do Azure.
 - [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): Saiba como monitorar a integridade dos recursos do Azure.
