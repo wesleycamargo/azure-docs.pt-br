@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: dea93fefc69664e4830efdab2052d2e1ca0fd2fa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 1e081eb98b1d9c076fd85c0b542d0bf4ae309935
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102475"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190401"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>O que é validação como um serviço para o Azure Stack?
 
@@ -62,7 +62,7 @@ Para saber mais, confira [Início Rápido: Usar a validação como um portal de 
 | Fluxo de trabalho de validação | Testes necessários |
 |----|------------|
 | [Nova validação de solução](azure-stack-vaas-validate-solution-new.md) | Mecanismo de simulação de nuvem<br>Suite operacional do SDK de computação<br>Teste de identificação de disco<br>Suite operacional do SDK de extensão do Cofre de chaves<br>Suite operacionais do SDK do KeyVault<br>Rede SDK operacional Suite<br>Conta de armazenamento SDK Suite operacional<br> |
-| [Nova validação de solução](azure-stack-vaas-validate-oem-package.md) | Verificação do pacote de extensão de OEM<br>Mecanismo de simulação de nuvem |
+| [Validação do pacote de OEM](azure-stack-vaas-validate-oem-package.md) | Verificação do pacote de extensão de OEM<br>Mecanismo de simulação de nuvem |
 | [Validação de atualização mensal](azure-stack-vaas-validate-microsoft-updates.md) | Verificação de atualização de AzureStack mensal<br>Mecanismo de simulação de nuvem<br> |
 
 ## <a name="next-steps"></a>Próximas etapas

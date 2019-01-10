@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118295"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188889"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
 Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
@@ -278,7 +278,7 @@ Se você decidir executar manualmente os comandos, siga estas etapas:
    > [!IMPORTANT]  
    > Você deve usar o snap-in do MMC do AD FS para configurar as regras de autorização de emissão, ao usar o Windows Server 2012 ou 2012 R2 AD FS.
 
-4. Quando você usa o Internet Explorer ou o navegador Microsoft Edge para acessar a pilha do Azure, você deve ignorar associações de token. Caso contrário, as tentativas de logon falham. Em sua instância do AD FS ou um membro do farm, execute o seguinte comando:
+4. Quando você usa o Internet Explorer ou o navegador Microsoft Edge para acessar o Azure Stack, você deve ignorar as associações de token. Caso contrário, as tentativas de logon falham. Em sua instância do AD FS ou um membro do farm, execute o seguinte comando:
 
    > [!note]  
    > Essa etapa não é aplicável ao usar o Windows Server 2012 ou 2012 R2 AD FS. É seguro ignorar esse comando e continue com a integração.

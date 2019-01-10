@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
-ms.openlocfilehash: db33deaa9bb0bf9a4c3f766fbae883df4075c431
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 554fd9c32c9831d45a40c62a871e3a8d5f8d7cb9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323364"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191744"
 ---
-# <a name="azure-stack-customer-journey"></a>Jornada do cliente de pilha do Azure
+# <a name="azure-stack-datacenter-integration"></a>Integração de datacenter do Azure Stack
 
 Este artigo descreve a experiência do cliente do Azure Stack de ponta a ponta da aquisição de uma solução integrada por meio de uma implantação bem-sucedida no local por um provedor de soluções. Use essas informações para facilitar a sua jornada de e para ajudar a definir as expectativas sobre o que você, como cliente do Azure Stack, deve esperar ao integrar o Azure Stack no seu datacenter.
 
