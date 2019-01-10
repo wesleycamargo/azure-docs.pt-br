@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101408"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608946"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
@@ -27,45 +27,50 @@ Este artigo contém as notas sobre a versão do Gerenciador de Armazenamento do 
 
 O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
-## <a name="version-150"></a>Versão 1.5.0
-29/10/2018
+## <a name="version-161"></a>Versão 1.6.1
+18/12/2018
 
-### <a name="download-azure-storage-explorer-150"></a>Baixar o Gerenciador de armazenamento do Azure 1.5.0
-- [Azure Storage Explorer 1.5.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [1.5.0 do Gerenciador de armazenamento do Azure para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de armazenamento do Azure 1.5.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-161"></a>Fazer o download do Gerenciador de Armazenamento do Azure 1.6.1
+- [Gerenciador de Armazenamento do Azure 1.6.1 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Azure 1.6.1 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Azure 1.6.1 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
+### <a name="hotfixes"></a>Hotfixes
+* Devido a limitações de API, todas as validações de ObjectIds na caixa de diálogo Gerenciar o acesso foram desabilitadas. A validação agora ocorrerá somente para usuário UPNs. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* Na caixa de diálogo Gerenciar o acesso ao ADLS Gen2, não foi possível modificar as permissões para um grupo. Esse problema foi corrigido. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* Adicionado o arrastar e soltar para carregar suporte para o editor do ADLS Gen2. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* Na propriedade de URL na caixa de diálogo de propriedades para arquivos e pastas Gen2 ADLS faltava, às vezes, um '/'. Esse problema foi corrigido. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* Se ao obter as permissões atuais para um contêiner do ADLS Gen2, o arquivo ou a pasta falha, então o erro agora é exibido no log de atividades corretamente. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* O caminho temporário criado para abrir arquivos foi encurtado para reduzir a chance de criação de um caminho que é maior que MAX_PATH no Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* A caixa de diálogo Conectar agora aparece corretamente quando nenhum usuário está conectado e os recursos não foram anexados. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* No 1.6.0, salvar as propriedades para arquivos e Blobs de HNS seria codificar o valor de cada propriedade. Isso resultou na codificação desnecessária de valores que continham somente caracteres ASCII. Agora, os valores só serão codificados se eles contiverem caracteres não ASCII. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Fazer o download de uma pasta em um contêiner de Blob não HNS falhará se uma SAS foi usada e ela não tiver permissões de leitura. Esse problema foi corrigido. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* Cancelar uma transferência de AzCopy que não funcionou. Esse problema foi corrigido. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* O AzCopy falhará ao tentar fazer o download de uma pasta de um contêiner de Blob do ADLS Gen2, se a pasta tinha espaços em seu nome. Esse problema foi corrigido. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* O editor do CosmosDB foi interrompido no 1.6.0. Agora isso foi corrigido. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
 ### <a name="new"></a>Novo
 
-* Agora você pode usar o [AzCopy v10 (Preview)](https://github.com/Azure/azure-storage-azcopy) para fazer o upload e o download de Blobs. Para ativar esse recurso, vá ao menu "Experimental" e clique em "Usar AzCopy para Melhorar Upload e Download do Blob". Quando ativado, o AzCopy será usado nos seguintes cenários:
-   * Upload de pastas e arquivos para contêineres de blob, seja pela barra de ferramentas ou arrastando e soltando.
-   * Download de pastas e arquivos, através da barra de ferramentas ou menu de contexto.
-
-* Além disso, ao usar o AzCopy:
-   * Você pode copiar o comando AzCopy usado para executar a transferência para sua área de transferência. Basta clicar em "Copiar AzCopy comando à área de transferência" no log de atividades.
-   * Você precisará atualizar o editor de blob manualmente após o upload.
-   * O upload de arquivos para anexar blobs não é suportado, .vhds serão enviados como blobs de páginas e todos os outros arquivos serão carregados como blobs de bloco.
-   * Erros e conflitos que ocorrem durante o upload ou download não serão revelados até que um upload ou download seja concluído.
-
-Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será disponibilizado no futuro.
-* O Gerenciador de armazenamento agora está usando elétrons versão 2.0.11.
-* Quebrar concessões agora só pode ser executado em um blob de cada vez. Além disso, você tem que digitar o nome do blob cujo aluguel você está quebrando. Essa alteração foi feita para reduzir a probabilidade de quebra acidental de uma concessão, especialmente no caso de .vhds para VMs. #394
-* Se você encontrar problemas de login, poderá tentar redefinir a autenticação. Vá para o menu "Ajuda" e clique em "Redefinir" para acessar essa funcionalidade. #419
-
-### <a name="fix"></a>Correção
-
-* Após um forte feedback do usuário, o nó do emulador padrão foi reativado. Você ainda pode adicionar mais conexões de emulador por meio da caixa de diálogo Conectar, mas se o emulador estiver configurado para usar as portas padrão, você também poderá usar o nó "Emulator * Default Ports" em "Contas locais e anexadas / armazenamento". #669
-* O Storage Explorer não permitirá mais que você defina valores de metadados de blob com espaço em branco à esquerda ou à direita. #760
-* O botão "Entrar" sempre foi ativado nas mesmas páginas da caixa de diálogo Conectar. Agora ela é desabilitada quando apropriado. #761
-* O Acesso Rápido não gerará mais um erro no console quando nenhum item de Acesso Rápido for adicionado.
+* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
+* O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
+    * Criar e excluir contêiner
+    * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
+    * Exibir e navegar em dados dentro de contêineres
+    * Criar novas pastas
+    * Carregar, fazer o download, renomear e excluir arquivos e pastas
+    * Gerencie propriedades de arquivo, pasta e permissões (lado direito).
+    
+    Outros recursos típicos de Blob, como a exclusão reversível e instantâneos, não estão disponíveis no momento. Gerenciando permissões também só está disponível quando conectado. Além disso, ao trabalhar em uma conta de armazenamento do ADLS Gen2, o Gerenciador de Armazenamento usará o AzCopy para todos os carregamentos, downloads e padrões usando o nome e as credenciais de chave para todas as operações, se disponível.
+* Depois de comentários do usuário de alta segurança, interromper a concessão mais uma vez pode ser usado para interromper as concessões em vários blobs ao mesmo tempo.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
-* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, por favor, comente sobre este assunto.
+* Ao fazer o download de uma conta de armazenamento do ADLS Gen2 se um dos arquivos que estão sendo transferidos já existir, o AzCopy irá falhar algumas vezes. Isso será corrigido em um hotfix futuro.
+* Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
 * Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
-* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron. Para solucionar esse problema ao carregar ou baixar de um contêiner de blob, você pode usar o recurso experimental do AzCopy.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron. Para solucionar esse problema ao carregar ou fazer o download de um contêiner de blob, você pode usar o recurso experimental do AzCopy.
 * Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
 * Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
 * Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
@@ -98,6 +103,8 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 ## <a name="previous-releases"></a>Versões anteriores
 
+* [Versão 1.6.0](#version-160)
+* [Versão 1.5.0](#version-150)
 * [Version 1.4.4](#version-144)
 * [Versão 1.4.3](#version-143)
 * [Versão 1.4.2](#version-142)
@@ -128,6 +135,126 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * [Versão 0.7.20160129.1](#version-07201601291)
 * [Versão 0.7.20160105.0](#version-07201601050)
 * [Versão 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-160"></a>Versão 1.6.0
+12/5/2018
+
+### <a name="new"></a>Novo
+
+* Use agora o Gerenciador de Armazenamento para acessar seus dados de Blob por meio de [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se estiver conectado e o Gerenciador de Armazenamento não pôde recuperar as chaves para sua conta de armazenamento, em seguida, um token OAuth será usado para autenticar ao interagir com seus dados.
+* O Gerenciador de Armazenamento agora dá suporte a contas de armazenamento do ADLS Gen2. Quando o Gerenciador de Armazenamento detecta que esse namespace hierárquico está habilitado para uma conta de armazenamento, "(ADLS Gen2 Preview )" irá aparecer ao lado do nome da sua conta de armazenamento. O Gerenciador de Armazenamento é capaz de detectar se o namespace hierárquico está habilitado quando você está ou não conectado, ou se tiver conectado a sua conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS Gen2, pode-se usar o Gerenciador de Armazenamento:
+    * Criar e excluir contêiner
+    * Gerenciar propriedades do contêiner e permissões (lado esquerdo)
+    * Exibir e navegar em dados dentro de contêineres
+    * Criar novas pastas
+    * Carregar, fazer o download, renomear e excluir arquivos e pastas
+    * Gerencie propriedades de arquivo, pasta e permissões (lado direito).
+    
+    Outros recursos típicos de Blob, como a exclusão reversível e instantâneos, não estão disponíveis no momento. Gerenciando permissões também só está disponível quando conectado. Além disso, ao trabalhar em uma conta de armazenamento do ADLS Gen2, o Gerenciador de Armazenamento usará o AzCopy para todos os carregamentos, downloads e padrões usando o nome e as credenciais de chave para todas as operações, se disponível.
+* Depois de comentários do usuário de alta segurança, interromper a concessão mais uma vez pode ser usado para interromper as concessões em vários blobs ao mesmo tempo.
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+* Ao fazer o download de uma conta de armazenamento do ADLS Gen2 se um dos arquivos que estão sendo transferidos já existir, o AzCopy irá falhar algumas vezes. Isso será corrigido em um hotfix futuro.
+* Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
+* O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron. Para solucionar esse problema ao carregar ou fazer o download de um contêiner de blob, você pode usar o recurso experimental do AzCopy.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
+   * Compartilhamentos de arquivos
+   * Níveis de acesso
+   * Exclusão reversível
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-150"></a>Versão 1.5.0
+29/10/2018
+
+### <a name="new"></a>Novo
+
+* Agora você pode usar o [AzCopy v10 (Preview)](https://github.com/Azure/azure-storage-azcopy) para fazer o upload e o download de Blobs. Para ativar esse recurso, vá ao menu "Experimental" e clique em "Usar AzCopy para Melhorar Upload e Download do Blob". Quando ativado, o AzCopy será usado nos seguintes cenários:
+   * Upload de pastas e arquivos para contêineres de blob, seja pela barra de ferramentas ou arrastando e soltando.
+   * Download de pastas e arquivos, através da barra de ferramentas ou menu de contexto.
+
+* Além disso, ao usar o AzCopy:
+   * Você pode copiar o comando AzCopy usado para executar a transferência para sua área de transferência. Basta clicar em "Copiar AzCopy comando à área de transferência" no log de atividades.
+   * Você precisará atualizar o editor de blob manualmente após o upload.
+   * O upload de arquivos para anexar blobs não é suportado, os arquivos vhd serão enviados como blobs de páginas e todos os outros arquivos serão carregados como blobs de bloco.
+   * Erros e conflitos que ocorrem durante o upload ou download não serão revelados até que um upload ou download seja concluído.
+
+Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será disponibilizado no futuro.
+* O Gerenciador de armazenamento agora está usando elétrons versão 2.0.11.
+* Quebrar concessões agora só pode ser executado em um blob de cada vez. Além disso, você tem que digitar o nome do blob cujo aluguel você está quebrando. Essa alteração foi feita para reduzir a probabilidade de quebra acidental de uma concessão, especialmente para VMs. #394
+* Se você encontrar problemas de login, poderá tentar redefinir a autenticação. Vá para o menu "Ajuda" e clique em "Redefinir" para acessar essa funcionalidade. #419
+
+### <a name="fix"></a>Correção
+
+* Após um forte feedback do usuário, o nó do emulador padrão foi reativado. Você ainda pode adicionar mais conexões de emulador por meio da caixa de diálogo Conectar, mas se o emulador estiver configurado para usar as portas padrão, você também poderá usar o nó "Emulator * Default Ports" em "Contas locais e anexadas / armazenamento". #669
+* O Storage Explorer não permitirá mais que você defina valores de metadados de blob com espaço em branco à esquerda ou à direita. #760
+* O botão "Entrar" sempre foi ativado nas mesmas páginas da caixa de diálogo Conectar. Agora ela é desabilitada quando apropriado. #761
+* O Acesso Rápido não gerará mais um erro no console quando nenhum item de Acesso Rápido for adicionado.
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+* Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
+* O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron. Para solucionar esse problema ao carregar ou fazer o download de um contêiner de blob, você pode usar o recurso experimental do AzCopy.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
+   * Compartilhamentos de arquivos
+   * Níveis de acesso
+   * Exclusão reversível
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Para usuários do Linux, você precisará instalar o [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 
 ## <a name="version-144"></a>Versão 1.4.4
 15/10/2018
@@ -921,7 +1048,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 * Corrigido: o carregamento do arquivo tinha uma chance alta de causar um erro de falta de memória
 * Corrigido: agora você pode entrar com PIN/Cartão inteligente
-* Corrigido: a opção Abrir no Portal agora funciona com o Azure China, Azure Alemanha, Azure US Government e Azure Stack
+* Corrigido: A opção Abrir no Portal agora funciona com o Azure China 21Vianet, Azure Alemanha, Azure US Government e Azure Stack
 * Corrigido: às vezes, durante o carregamento de uma pasta em um contêiner de blob, ocorria um erro "Operação ilegal"
 * Corrigido: selecionar tudo foi desabilitado durante o gerenciamento de instantâneos
 * Corrigido: os metadados do blob de base podem ser substituídos após a exibição das propriedades de seus instantâneos
@@ -1000,7 +1127,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * O Gerenciador de Armazenamento 0.8.9 baixará automaticamente a versão mais recente das atualizações.
 * Hotfix: usar um URI SAS gerado pelo portal para anexar uma conta de armazenamento resultaria em um erro.
 * Agora você pode criar, gerenciar e promover os instantâneos de blob.
-* Agora você pode entrar em contas do Azure China, Azure Alemanha e o Azure US Government.
+* Agora você pode entrar em contas do Azure China 21Vianet, Azure Alemanha e o Azure US Government.
 * Agora você pode alterar o nível de zoom. Use as opções no menu Exibir para Ampliar, Reduzir e Redefinir o Zoom.
 * Agora há suporte para caracteres Unicode nos metadados do usuário para blobs e arquivos.
 * Aprimoramentos de acessibilidade.
@@ -1266,7 +1393,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 * Suporte a Linux (recursos de paridade para OSX)
 * Adicionar contêineres de blob com chave SAS (Assinaturas de Acesso Compartilhado)
-* Adicionar Contas de Armazenamento para o Azure China
+* Adicionar Contas de Armazenamento para o Azure China 21Vianet
 * Adicionar Contas de Armazenamento com pontos de extremidade personalizados
 * Abrir e exibir os blobs de texto e imagem de conteúdo
 * Exibir e editar propriedades e metadados de blob

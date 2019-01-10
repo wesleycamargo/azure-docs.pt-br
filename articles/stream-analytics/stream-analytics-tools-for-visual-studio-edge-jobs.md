@@ -4,17 +4,17 @@ description: Este artigo descreve como criar, depurar e criar trabalhos de Borda
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/13/2018
-ms.openlocfilehash: 5dc90a1334b525c02be3eae2985900ab07cf2e05
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 886cae572ee651efd217e9a87b935918eebe8b13
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696241"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558814"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio
 
@@ -24,7 +24,7 @@ Neste tutorial, você aprenderá a utilizar as ferramentas do Stream Analytics p
 
 Você precisará dos seguintes pré-requisitos para concluir este tutorial:
 
-* Instale o [Visual Studio 2017](https://www.visualstudio.com/downloads/), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) ou [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326). As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte. Não há suporte para a Edição Express.  
+* Instale o [Visual Studio 2017](https://www.visualstudio.com/downloads/), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) ou [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326). As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte. Não há suporte para a edição Express.  
 
 * Siga as [instruções de instalação](stream-analytics-tools-for-visual-studio-edge-jobs.md) para instalar as ferramentas do Stream Analytics para o Visual Studio.
  
@@ -32,25 +32,25 @@ Você precisará dos seguintes pré-requisitos para concluir este tutorial:
 
 No Visual Studio, selecione **Aquivo** > **Novo** > **Projeto**. Navegue até a lista de **Modelos** à esquerda > expanda **Azure Stream Analytics** > **Borda do Stream Analytics** > **Aplicativo de Borda do Azure Stream Analytics**. Forneça um Nome, Local e nome da Solução para o projeto e selecione **OK**.
 
-![Novo projeto de Borda](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-edge-project.png)
+![Novo projeto Edge no Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
 Depois que o projeto for criado, navegue para o **Gerenciador de Soluções** para exibir a hierarquia de pastas.
 
-![Exibição do gerenciador de soluções](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
+![Modo de exibição de Gerenciador de soluções do trabalho do Edge do Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
 
  
 ## <a name="choose-the-correct-subscription"></a>Escolha a assinatura correta
 
 1. No menu **Exibir** do Visual Studio, selecione **Gerenciador de Servidores**.  
 
-2. Clique com o botão direito do mouse em **Azure** > Selecione **Conectar-se à assinatura do Microsoft Azure** > e, em seguida, faça logon com a conta do Azure.
+2. Clique com o botão direito do mouse em **Azure** > selecione **Conectar-se à assinatura do Microsoft Azure** e, em seguida, entre com a conta do Azure.
 
 ## <a name="define-inputs"></a>Definir entradas
 
 1. No **Gerenciador de Soluções**, expanda o nó de **Entradas** e você deverá ver uma entrada nomeada **EdgeInput.json**. Clique duas vezes para exibir as configurações.  
 
-2. Certifique-se de que o Tipo de Origem esteja definido como **Fluxo de Dados** > Origem definida como **Hub de Borda** > Formato de Serialização de Evento definido como **Json** > e a Codificação definida como **UTF8**. Opcionalmente, é possível renomear o **Alias de Entrada**, mas para este exemplo manteremos como está. Se for renomear o alias de entrada, utilize o nome especificado durante a definição da consulta. Clique em **Salvar** para salvar as configurações.  
-   ![Configuração de entrada](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
+2. Definir o Tipo de Origem para **Transmissão de Dados**. Em seguida, defina a origem de **Hub Edge**, o formato de serialização de evento para **Json**e a codificação para **UTF8**. Opcionalmente, é possível renomear o **Alias de Entrada**, mas para este exemplo manteremos como está. Se for renomear o alias de entrada, utilize o nome especificado durante a definição da consulta. Clique em **Salvar** para salvar as configurações.  
+   ![Configuração de entrada de trabalho do Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
  
 
 
@@ -59,7 +59,7 @@ Depois que o projeto for criado, navegue para o **Gerenciador de Soluções** pa
 1. No **Gerenciador de Soluções**, expanda o nó de **Saídas** e você deverá ver uma saída nomeada **EdgeOutput.json**. Clique duas vezes para exibir as configurações.  
 
 2. Certifique-se de que o Coletor esteja definido para selecionar **Hub de Borda** > Formato de Serialização de Evento definido como **Json** > Codificação definida como **UTF8** > e Formato definido como **Matriz**. Opcionalmente, é possível renomear o **Alias de Saída**, mas para este exemplo manteremos como está. Se for renomear o alias de saída, utilize o nome especificado durante a definição da consulta. Clique em **Salvar** para salvar as configurações. 
-   ![Configuração de saída](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
+   ![Configuração de saída de trabalho do Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
  
 ## <a name="define-the-transformation-query"></a>Definir a consulta de transformação
 
@@ -84,20 +84,20 @@ FROM EdgeInput
 
 Para testar a consulta localmente, será necessário carregar os dados de exemplo. É possível obter dados de exemplo, baixando dados do Registro do [Repositório GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) e salve-o no computador local. 
 
-1. Para fazer carregar os dados de exemplo, > clique com o botão direito do mouse no arquivo **EdgeInput.json** > escolha **Adicionar Entrada Local**  
+1. Para fazer carregar os dados de exemplo, > clique com o botão direito do mouse no arquivo **EdgeInput.json** e escolha **Adicionar Entrada Local**  
 
 2. Na janela pop-up > **Procure** os dados de exemplo do caminho local > Selecione **Salvar**.
-   ![Configuração de entrada local](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
+   ![Configuração de entrada local no Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
  
 3. Um arquivo nomeado **local_EdgeInput.json** é adicionado automaticamente à pasta de entradas.  
 4. é possível executá-lo localmente ou enviar para o Azure. Para testar a consulta > Selecione **Executar localmente**.  
-   ![Opções de execução](./media/stream-analytics-tools-for-visual-studio-edge-jobs/run-options.png)
+   ![Opções de execução no Visual Studio de trabalho do Azure Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-visual-stuidio-run-options.png)
  
 5. A janela do prompt de comando mostra o status do trabalho. Quando o trabalho executa com êxito, ele cria uma pasta semelhante a "2018-02-23-11-31-42" no caminho da pasta do projeto "Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42". Navegue até o caminho da pasta para exibir os resultados na pasta local:
 
    Também é possível entrar no Portal do Azure e verificar se o trabalho foi criado. 
 
-   ![Pasta de resultados](./media/stream-analytics-tools-for-visual-studio-edge-jobs/result-folder.png)
+   ![Pasta de resultados de trabalho do Azure Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-job-result-folder.png)
 
 ## <a name="submit-the-job-to-azure"></a>Enviar o trabalho para o Azure
 
@@ -107,22 +107,22 @@ Para testar a consulta localmente, será necessário carregar os dados de exempl
 
 3. Uma janela pop-up é aberta, onde é possível escolher atualizar um trabalho de Borda existente ou criar um novo. Ao atualizar um trabalho existente, ele substituirá toda a configuração do trabalho; nesse cenário, será publicado um novo trabalho. Selecione **Criar um novo trabalho do Azure Stream Analytics** > insira um nome para o trabalho, semelhante a **MyASAEdgeJob** > escolha a **Assinatura** exigida, **Grupo de Recursos** e o **Local** > Selecione **Enviar**.
 
-   ![Enviar para o Azure](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-to-azure.png)
+   ![Enviar trabalho do Stream Analytics para o Azure do Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
  
    Agora que o trabalho de Borda do Azure Stream Analytics foi criado, é possível consultar o [tutorial Executar trabalhos no IoT Edge](stream-analytics-edge.md) para saber como implantá-lo nos dispositivos. 
 
 ## <a name="manage-the-job"></a>Gerenciar o trabalho 
 
-É possível exibir o status do trabalho e o diagrama do trabalho no Gerenciador de Servidores. No **Gerenciador de Servidores** > **Stream Analytics** > expanda a assinatura e o grupo de recursos onde você implantou o trabalho de Borda > é possível visualizar MyASAEdgejob com o status **Criado**. Expanda o nó de trabalho e clique duas vezes nele para abrir a exibição de trabalho.
+É possível exibir o status do trabalho e o diagrama do trabalho no Gerenciador de Servidores. A partir do **Azure Stream Analytics** no **Gerenciador de Servidores**, expanda a assinatura e o grupo de recursos onde você implantou o trabalho do Edge. Você pode visualizar o MyASAEdgejob com o status **Criado**. Expanda o nó de trabalho e clique duas vezes nele para abrir a exibição de trabalho.
 
-![Opções do gerenciador de servidores](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
+![Opções de gerenciamento de trabalho do gerenciador de servidores](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
  
-A janela de exibição de trabalhos fornece operações como atualizar o trabalho, excluir o trabalho, abrir o trabalho no Portal do Azure e etc.
+A janela de exibição de trabalhos fornece operações como atualizar o trabalho, excluir o trabalho, abrir o trabalho no portal do Azure.
 
-![Diagrama do trabalho e outras opções](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
+![Diagrama do trabalho e outras opções no Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Mais informações sobre o Azure Iot Edge](../iot-edge/about-iot-edge.md)
+* [Mais informações sobre o Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [ASA no tutorial de IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Enviar comentários para a equipe usando esta pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
