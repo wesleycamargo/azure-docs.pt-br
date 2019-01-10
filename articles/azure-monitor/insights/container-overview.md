@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 310a528dc41632b3864033305177d074231cef4f
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 825c6a7dd0c0163a1fd298ca7510f2483a5df2ad
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998363"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076511"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Visão geral do monitoramento dos contêineres no Azure
 Com o Azure, você pode, efetivamente, monitorar e gerenciar suas cargas de trabalho implantadas em contêineres do Azure executando Kubernetes ou Docker. É importante entender como os contêineres com vários aplicativos de microsserviço são executados para prestar um serviço confiável em grande escala e para suporte do seu plano de monitoramento. Este artigo fornece uma visão geral dos recursos de gerenciamento e monitoramento no Azure para ajudar a entender cada um deles e quais são apropriados dependendo dos seus requisitos.
@@ -27,6 +27,6 @@ Usando o [Azure Monitor para contêineres](container-insights-overview.md), é p
 
 Para contêineres em execução fora do serviço hospedado do Azure Kubernetes, a [solução de contêiner do Docker e do Windows](../../azure-monitor/insights/containers.md) do Log Analytics ajuda você a exibir e gerenciar seus hosts de contêiner do Windows e do Docker. No workspace do Log Analytics, você pode exibir detalhes do inventário, o desempenho e eventos de nós e contêineres no ambiente. Você pode exibir informações detalhadas de auditoria, mostrando os comandos usados com contêineres e você pode solucionar problemas de contêineres exibindo e pesquisando logs centralizados sem a necessidade de acessar remotamente os hosts do Docker ou do Windows.
 
-Para conseguir um monitoramento holístico ou de ponta a ponta do aplicativo, qualquer dependência, seja um recurso local ou no Azure, deve ser monitorada com o Azure Monitor ou Log Analytics.  A camada de aplicativo deve ser incluída para adicionar uma camada adicional de reconhecimento de integridade, tanto no nível de plataforma como no nível de aplicativos usando o Application Insights. No nível da plataforma, há SDKs do Application Insights para [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/) e [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Para aplicativos de microsserviço, há suporte para [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../application-insights/app-insights-nodejs-quick-start.md), [.Net](../../azure-monitor/app/asp-net.md), [.Net Core](../../azure-monitor/app/asp-net-core.md), bem como vários outros [idiomas/estruturas](../../azure-monitor/app/platforms.md). 
+Para conseguir um monitoramento holístico ou de ponta a ponta do aplicativo, qualquer dependência, seja um recurso local ou no Azure, deve ser monitorada com o Azure Monitor ou Log Analytics.  A camada de aplicativo deve ser incluída para adicionar uma camada adicional de reconhecimento de integridade, tanto no nível de plataforma como no nível de aplicativos usando o Application Insights. No nível da plataforma, há SDKs do Application Insights para [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/) e [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Para aplicativos de microsserviço, há suporte para [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/learn/nodejs-quick-start.md), [.Net](../../azure-monitor/app/asp-net.md), [.Net Core](../../azure-monitor/app/asp-net-core.md), bem como vários outros [idiomas/estruturas](../../azure-monitor/app/platforms.md). 
 
 Caso contrário, os problemas que podem afetar a disponibilidade do aplicativo não serão identificados e as metas de nível de serviço não serão atendidas.  

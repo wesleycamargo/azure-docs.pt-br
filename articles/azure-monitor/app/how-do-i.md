@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999674"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074199"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como ... no Application Insights?
 ## <a name="get-an-email-when-"></a>Receber um email quando...
@@ -83,18 +83,18 @@ Considere o seguinte:
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetria separada de versões diferentes
 
 * Várias funções em um aplicativo: Use um único recurso do Application Insights e filtre [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* A separação de desenvolvimento, teste e versões de lançamento: Use os diferentes recursos do Application Insights. Pegue as chaves de instrumentação do web.config. [Saiba mais](../../application-insights/app-insights-separate-resources.md)
-* Relatório de versões de compilação: Adicionar uma propriedade usando um inicializador de telemetria. [Saiba mais](../../application-insights/app-insights-separate-resources.md)
+* A separação de desenvolvimento, teste e versões de lançamento: Use os diferentes recursos do Application Insights. Pegue as chaves de instrumentação do web.config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
+* Relatório de versões de compilação: Adicionar uma propriedade usando um inicializador de telemetria. [Saiba mais](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorar servidores de back-end e aplicativos de desktop
-[Use o módulo do SDK do Windows Server](../../application-insights/app-insights-windows-desktop.md).
+[Use o módulo do SDK do Windows Server](../../azure-monitor/app/windows-desktop.md).
 
 ## <a name="visualize-data"></a>Visualizar dados
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Painel com métricas de vários aplicativos
 * No [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), personalize o gráfico e salve-o como um favorito. Fixe-o no painel do Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Painel com dados de outras fontes e Application Insights
-* [Exportar telemetria para o Power BI](../../application-insights/app-insights-export-power-bi.md).
+* [Exportar telemetria para o Power BI](../../azure-monitor/app/export-power-bi.md ).
 
 Ou
 

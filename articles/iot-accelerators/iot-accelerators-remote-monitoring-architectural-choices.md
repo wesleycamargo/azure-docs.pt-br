@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9140739e1c9610cb4cbefb611546fe9588512d06
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679589"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050584"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Opções de arquitetura de Monitoramento Remoto
 
@@ -51,7 +51,7 @@ O Hub IoT do Azure é usado como o gateway de nuvem de solução de monitorament
 
 Para conectividade do dispositivo IoT, você pode usar:
 
-- Os [SDKs do dispositivo Hub IoT](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) para implementar um aplicativo cliente nativo para o seu dispositivo. Os SDKs oferecem wrappers em torno da API REST do Hub IoT e lidam com cenários como a repetição.
+- Os [SDKs do dispositivo Hub IoT](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) para implementar um aplicativo cliente nativo para o seu dispositivo. Os SDKs oferecem wrappers em torno da API REST do Hub IoT e lidam com cenários como a repetição.
 - Integração com o Azure IoT Edge para implantar e gerenciar os módulos personalizados em execução em contêineres em seus dispositivos.
 - Integração com gerenciamento automático de dispositivos no Hub IoT para gerenciar dispositivos conectados em massa.
 
@@ -70,7 +70,7 @@ O Azure Cosmos DB é a solução de armazenamento warm de uso geral recomendado 
 
 ### <a name="business-integration"></a>Integração de negócios
 
-A integração de negócios no Monitoramento Remoto é limitada à geração de alarmes, que são colocados no armazenamento warm. Conecte a solução com o Aplicativo Lógico do Azure para implementar cenários de integração mais profundos de negócios.
+A integração de negócios no Monitoramento Remoto é limitada à geração de alarmes, que são colocados no armazenamento warm. Conecte a solução com os Aplicativos Lógicos do Azure para implementar cenários de integração mais profundos de negócios.
 
 ### <a name="user-interface"></a>Interface do usuário
 

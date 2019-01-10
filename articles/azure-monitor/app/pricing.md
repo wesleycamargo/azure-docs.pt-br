@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: f15a0670932a9017c079ff0cf1e7cb4ad598a9c4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 326f0e21582c1aee03c8a44adcd709f3ddf59b0b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004201"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119621"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -53,10 +53,10 @@ O Application Insights facilita a compreensão de quais são seus custos com bas
 
 ![Escolher preços](./media/pricing/pricing-001.png)
 
-a. Examine o volume de dados do mês. Isso inclui todos os dados recebidos e mantidos (após qualquer [amostragem](../../application-insights/app-insights-sampling.md)) de seu servidor e aplicativos cliente e dos testes de disponibilidade.  
+a. Examine o volume de dados do mês. Isso inclui todos os dados recebidos e mantidos (após qualquer [amostragem](../../azure-monitor/app/sampling.md)) de seu servidor e aplicativos cliente e dos testes de disponibilidade.  
 B. Uma cobrança separada é feita pelos [testes na Web de várias etapas](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (Isso não inclui testes de disponibilidade simples, que são incluídos na cobrança de volume de dados).  
 C. Visualize as tendências do volume de dados do último mês.  
-D. Habilite a [amostragem](../../application-insights/app-insights-sampling.md) de ingestão de dados.   
+D. Habilite a [amostragem](../../azure-monitor/app/sampling.md) de ingestão de dados.   
 E. Configure o limite de volume de dados diários.  
 
 Para investigar mais profundamente o uso do Application Insights, abra a página **Métricas**, adicione a métrica nomeada "Volume do ponto de dados" e selecione a opção *Aplicar divisão* para dividir os dados por "Tipo de item de telemetria". 
@@ -68,7 +68,7 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 ## <a name="data-rate"></a>Taxa de dados
 O volume de dados enviados é limitado de três formas:
 
-* **Amostragem**: Você pode usar a amostragem para reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas. Amostragem é a ferramenta principal que você pode usar para ajustar a quantidade de dados enviados. Saiba mais sobre [recursos de amostragem](../../application-insights/app-insights-sampling.md). 
+* **Amostragem**: Você pode usar a amostragem para reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas. Amostragem é a ferramenta principal que você pode usar para ajustar a quantidade de dados enviados. Saiba mais sobre [recursos de amostragem](../../azure-monitor/app/sampling.md). 
 * **Limite diário**: Quando você cria um recurso do Application Insights no portal do Microsoft Azure, o limite diário é definido como 100 GB/dia. Quando você cria um recurso do Application Insights no Visual Studio, o padrão é pequeno (somente 32,3 MB/dia). O padrão de limite diário é definido para facilitar o teste. O propósito dele é que o usuário irá gerar o limite diário antes de colocar o aplicativo em produção. 
 
     O limite máximo é 1.000 GB/dia, a menos que você solicite um máximo maior para um aplicativo de alto tráfego. 
@@ -91,7 +91,7 @@ Você pode usar uma das opções a seguir para ver a quantidade de dados sendo e
 ## <a name="reduce-your-data-rate"></a>Reduza sua taxa de dados
 Veja abaixo o que é possível fazer para reduzir o volume de dados:
 
-* Use a [Amostragem](../../application-insights/app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer sua métrica. Você não perderá a capacidade de navegar entre os itens relacionados em Pesquisar. Em aplicativos de servidor, a amostragem funciona automaticamente.
+* Use a [Amostragem](../../azure-monitor/app/sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer sua métrica. Você não perderá a capacidade de navegar entre os itens relacionados em Pesquisar. Em aplicativos de servidor, a amostragem funciona automaticamente.
 * [Limite o número de chamadas do Ajax que podem ser informadas](../../azure-monitor/app/javascript.md#detailed-configuration) em cada modo de exibição de página ou desative o relatório de Ajax.
 * [Edite Applicationinsights](../../azure-monitor/app/configuration-with-applicationinsights-config.md) para desativar os módulos de coleção desnecessários. Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
 * Divida a telemetria em chaves de instrumentação separadas. 
@@ -101,20 +101,20 @@ Veja abaixo o que é possível fazer para reduzir o volume de dados:
 
 Você pode usar o limite de volume diário para limitar os dados coletados. No entanto, se o limite for atingido, ocorrerá uma perda de toda a telemetria enviada do seu aplicativo no restante do dia. *Não é aconselhável* deixar o aplicativo atingir o limite diário. Não será possível rastrear a integridade e o desempenho do seu aplicativo após ele atingir o limite diário.
 
-Em vez de usar o limite de volume diário, use a [amostragem](../../application-insights/app-insights-sampling.md) para ajustar o volume de dados para o nível desejado. Em seguida, use o limite diário apenas como um "último recurso", no caso de seu aplicativo inesperadamente começar a enviar volumes muito mais altos de telemetria.
+Em vez de usar o limite de volume diário, use a [amostragem](../../azure-monitor/app/sampling.md) para ajustar o volume de dados para o nível desejado. Em seguida, use o limite diário apenas como um "último recurso", no caso de seu aplicativo inesperadamente começar a enviar volumes muito mais altos de telemetria.
 
 Para alterar o limite diário, na seção **Configurar** do recurso Application Insights, no painel **Uso e custos estimados**, selecione **Limite Diário**.
 
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-003.png)
 
 ## <a name="sampling"></a>amostragem
-[Amostragem](../../application-insights/app-insights-sampling.md) é um método de redução da taxa em que a telemetria é enviada para o seu aplicativo, enquanto mantém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico. Você também mantém contagens de eventos corretas.
+[Amostragem](../../azure-monitor/app/sampling.md) é um método de redução da taxa em que a telemetria é enviada para o seu aplicativo, enquanto mantém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico. Você também mantém contagens de eventos corretas.
 
 A amostragem é uma maneira eficiente de reduzir encargos e permanecer dentro de sua cota mensal. O algoritmo de amostragem mantém itens de telemetria relacionados, para que, por exemplo, quando Pesquisar for utilizado, você possa encontrar a solicitação relacionada a uma exceção específica. O algoritmo também mantém contagens corretas, para que você veja os valores corretos no Metrics Explorer referentes a taxas de solicitação, taxas de exceção e outras contagens.
 
 Há várias formas de amostragem.
 
-* [Amostragem adaptável](../../application-insights/app-insights-sampling.md) é o padrão para o SDK do ASP.NET. A amostragem adaptável se ajusta automaticamente ao volume de telemetria enviado por seu aplicativo. Ela opera automaticamente no SDK em seu aplicativo Web, para que o tráfego de telemetria na rede seja reduzido. 
+* [Amostragem adaptável](../../azure-monitor/app/sampling.md) é o padrão para o SDK do ASP.NET. A amostragem adaptável se ajusta automaticamente ao volume de telemetria enviado por seu aplicativo. Ela opera automaticamente no SDK em seu aplicativo Web, para que o tráfego de telemetria na rede seja reduzido. 
 * *amostragem de ingestão* é uma alternativa que opera no ponto em que a telemetria de seu aplicativo entra no serviço do Application Insights. A amostragem de ingestão não afeta o volume de telemetria enviado do seu aplicativo, mas reduz o volume retido pelo serviço. Você pode usar a amostragem de ingestão para reduzir a cota usada pela telemetria de navegadores e de outros SDKs.
 
 Para definir a amostragem de ingestão, vá para o painel **Preços**:
@@ -196,9 +196,9 @@ Como esse plano é aplicável somente para clientes com uma assinatura do Operat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Amostragem](../../application-insights/app-insights-sampling.md)
+* [Amostragem](../../azure-monitor/app/sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../application-insights/app-insights-overview.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
