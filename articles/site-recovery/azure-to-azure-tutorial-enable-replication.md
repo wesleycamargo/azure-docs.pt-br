@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0aa7b7f3558bab7f3553527e03c44d71dd5a87ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833135"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794423"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
@@ -138,24 +138,24 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
 
 3. Personalize as configurações de destino da seguinte maneira:
 
-    - **Assinatura de destino**: a assinatura de destino usada para recuperação de desastres. Por padrão, a assinatura de destino será o mesma que a assinatura de origem. Clique em "Personalizar" para selecionar uma assinatura de destino diferente no mesmo locatário do Active Directory do Azure.
-    - **Localização de destino**: a região de destino usada para recuperação de desastre. É recomendável que a localização de destino corresponda à localização do cofre do Site Recovery.
-    - **Grupo de recursos de destino**: o grupo de recursos na região de destino que contém as VMs do Azure após o failover. Por padrão, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". local do grupo de recurso do grupo de recurso de destino pode ser de qualquer região exceto a região onde as suas máquinas virtuais de origem estão hospedadas.
-    - **Rede virtual de destino**: a rede na região de destino na qual as VMs estarão localizadas após o failover.
+    - **Assinatura de destino**: A assinatura de destino usada na recuperação de desastres. Por padrão, a assinatura de destino será o mesma que a assinatura de origem. Clique em "Personalizar" para selecionar uma assinatura de destino diferente no mesmo locatário do Active Directory do Azure.
+    - **Localização de destino**: A região de destino usada para recuperação de desastre. É recomendável que a localização de destino corresponda à localização do cofre do Site Recovery.
+    - **Grupo de recursos de destino**: O grupo de recursos na região de destino que contém as VMs do Azure após o failover. Por padrão, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". local do grupo de recurso do grupo de recurso de destino pode ser de qualquer região exceto a região onde as suas máquinas virtuais de origem estão hospedadas.
+    - **Rede virtual de destino**: A rede na região de destino na qual as VMs estarão localizadas após o failover.
       Por padrão, o Site Recovery cria uma nova rede virtual (e sub-redes) na região de destino com um sufixo "asr".
-    - **Contas de armazenamento de cache**: o Site Recovery utiliza uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para essa conta, antes da replicação para a localização de destino.
+    - **Contas de armazenamento em cache**: O Site Recovery utiliza uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para essa conta, antes da replicação para a localização de destino.
       >[!NOTE]
       >Caso esteja usando a conta de armazenamento de cache com firewall habilitado, assegure-se de “Permitir serviços confiáveis da Microsoft”. [Saiba mais.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Contas de armazenamento de destino (se a VM de fonte não usar discos gerenciados)**: por padrão, o Site Recovery cria uma nova conta de armazenamento na região de destino, para espelhar a conta de armazenamento da VM de origem.
+    - **Contas de armazenamento de destino (a VM de origem não usa discos gerenciados)**: Por padrão, o Site Recovery cria uma nova conta de armazenamento na região de destino, para espelhar a conta de armazenamento da VM de origem.
       >[!NOTE]
       >Caso esteja usando a conta de armazenamento de origem ou destino com firewall habilitado, assegure-se de “Permitir serviços confiáveis da Microsoft”. [Saiba mais.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Discos gerenciados de réplica (se a VM de origem usar discos gerenciados)**: por padrão, o Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) do disco gerenciado da VM de origem.
-    - **Conjuntos de disponibilidade de destino**: por padrão, o Azure Site Recovery cria um novo conjunto de disponibilidade na região de destino com um nome com um sufixo “asr” para o bloco de VMs de um conjunto de disponibilidade na região de destino. Caso o conjunto de disponibilidade criado pelo Azure Site Recovery já exista, ele é reutilizado.
-    - **Zonas de disponibilidade de destino**: por padrão, o Site Recovery atribui o mesmo número da zona que a região de origem na região de destino se a região de destino oferecer suporte a zonas de disponibilidade. 
+    - **Discos gerenciados de réplica (se a VM de origem usar discos gerenciados)**: Por padrão, o Site Recovery cria discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) do disco gerenciado da VM de origem.
+    - **Conjuntos de disponibilidade de destino**: Por padrão, o Azure Site Recovery cria um novo conjunto de disponibilidade na região de destino com um nome com um sufixo “asr” para o bloco de VMs de um conjunto de disponibilidade na região de destino. Caso o conjunto de disponibilidade criado pelo Azure Site Recovery já exista, ele é reutilizado.
+    - **Zonas de disponibilidade de destino**: Por padrão, o Site Recovery atribui o mesmo número da zona que a região de origem na região de destino se a região de destino oferecer suporte a zonas de disponibilidade. 
 
     Se a região de destino não oferecer suporte a zonas de disponibilidade, as VMs de destino são configuradas como instâncias isoladas por padrão. Se necessário, você pode configurar essas VMs como parte dos conjuntos de disponibilidade na região de destino, clicando em “Personalizar”.
 
@@ -165,10 +165,10 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
 
 4. Para personalizar as configurações de política de replicação, clique em **Personalizar** ao lado da **Política de replicação** e modifique as configurações a seguir conforme o necessário:
 
-    - **Nome da política de replicação**: nome da política.
-    - **Retenção de ponto de recuperação**: por padrão, o Site Recovery mantém os pontos de recuperação por 24 horas. É possível configurar um valor entre 1 e 72 horas.
-    - **Frequência de instantâneo consistente com o aplicativo**: por padrão, o Site Recovery obtém um instantâneo consistente com o aplicativo a cada 4 horas. É possível configurar qualquer valor entre 1 e 12 horas. Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no tempo dos dados do aplicativo dentro da VM. O VSS (Serviço de Cópias de Sombra de Volume) garante que o aplicativo na VM esteja em um estado consistente quando o instantâneo for criado.
-    - **Grupo de replicação**: se seu aplicativo precisa de consistência de VMs múltiplas entre VMs, você pode criar um grupo de replicação para essas VMs. Por padrão, as VMs selecionadas não fazem parte de nenhum grupo de replicação.
+    - **Nome da política de replicação**: Nome da política.
+    - **Retenção do ponto de recuperação**: Por padrão, o Site Recovery mantém os pontos de recuperação por 24 horas. É possível configurar um valor entre 1 e 72 horas.
+    - **Frequência de instantâneos consistentes com o aplicativo**: Por padrão, o Site Recovery obtém um instantâneo consistente com o aplicativo a cada 4 horas. É possível configurar qualquer valor entre 1 e 12 horas. Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no tempo dos dados do aplicativo dentro da VM. O VSS (Serviço de Cópias de Sombra de Volume) garante que o aplicativo na VM esteja em um estado consistente quando o instantâneo for criado.
+    - **Grupo de replicação**: Se o aplicativo precisa de consistência de VMs múltiplas entre VMs, você pode criar um grupo de replicação para essas VMs. Por padrão, as VMs selecionadas não fazem parte de nenhum grupo de replicação.
 
 5. Em **Personalizar**, selecione **Sim** para a consistência de várias VMs caso queira adicionar VMs a um grupo de replicação novo ou existente. para tornar as VMs parte de um grupo de replicação. Em seguida, clique em **OK**.
 
@@ -180,7 +180,7 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
 Se a máquina virtual de origem tiver o ADE (Azure Disk Encryption) habilitado, as configurações de criptografia serão exibidas:
 
 1. Analise as configurações de criptografia.
-    - **Cofres de chaves de criptografia de disco**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", com base nas chaves de criptografia de disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado.
+    - **Cofres de chaves de criptografia de disco**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", baseado nas chaves de criptografia de disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado.
     - **Cofres de chaves de criptografia de chave**: por padrão, o Azure Site Recovery cria um novo cofre de chaves na região de destino com nome com sufixo "asr", com base nas chaves de criptografia de chave da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, ele é reutilizado.
 
 2. Clique em **Personalizar** para selecionar cofres de chaves personalizados.

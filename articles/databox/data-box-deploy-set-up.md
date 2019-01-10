@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427515"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791312"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: cabear e conectar-se ao Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cabear e conectar-se ao Azure Data Box
 
 Este tutorial descreve como cabear, conectar e ligar seu Azure Data Box.
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [Tutorial: solicitar o Azure Data Box](data-box-deploy-ordered.md).
+1. Você concluiu o [Tutorial: Solicitar o Azure Data Box](data-box-deploy-ordered.md).
 2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**. 
     - Há uma etiqueta de remessa na bolsa transparente afixada ao dispositivo sob o rótulo atual. Mantenha essa etiqueta segura, pois você a usará para remessa de devolução.
     - Algumas regiões da Europa podem receber o dispositivo empacotado em uma caixa. Retire o dispositivo do pacote e guarde a caixa para devolução da remessa.
@@ -69,7 +69,7 @@ Execute as etapas a seguir para cabear seu dispositivo.
 Execute as etapas a seguir para configurar seu dispositivo usando a interface do usuário da Web local e o portal da interface do usuário.
 
 1. Configure o adaptador Ethernet no laptop que você está usando para se conectar ao dispositivo com o endereço IP estático de 192.168.100.5 e a sub-rede 255.255.255.0. 
-2. Conecte-se à porta MGMT de seu dispositivo e acesse sua interface do usuário Web local em https://192.168.100.10. Isso pode levar até 5 minutos após a ativação do dispositivo.
+2. Conecte-se à porta MGMT do dispositivo e acesse sua interface do usuário da Web local em https\://192.168.100.10. Isso pode levar até 5 minutos após a ativação do dispositivo.
 3. Clique em **Detalhes**, depois em **Ir para a página da Web**.
 
    ![Conectar-se à interface do usuário da Web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

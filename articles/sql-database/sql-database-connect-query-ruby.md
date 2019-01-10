@@ -11,76 +11,79 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 751e7d6b401417ee3efd4ffc30263d2507ff2627
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/20/2018
+ms.openlocfilehash: 66819cbd65f6f044d0dac68326eb5890476964b6
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913646"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993902"
 ---
-# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Início Rápido: Usar Ruby para consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Início Rápido: Como usar o Ruby para consultar um banco de dados SQL do Azure
 
-Este início rápido demonstra como usar o [Ruby](https://www.ruby-lang.org) para criar um programa que permite se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
+Este início rápido demonstra como usar o [Ruby](https://www.ruby-lang.org) para se conectar a um Banco de Dados SQL do Azure e consultar dados com instruções Transact-SQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, você precisa atender aos seguinte pré-requisitos:
+Para concluir este início rápido, você precisará dos seguintes pré-requisitos:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
+  
 - Uma [regra de firewall no nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que usou para este início rápido.
+  
+- O Ruby e o software relacionado para seu sistema operacional:
+  
+  - **MacOS**: Instale o Homebrew, o rbenv e o ruby-build, o Ruby, o FreeTDS e o TinyTDS. Confira as Etapas 1.2, 1.3, 1.4, 1.5 e 2.1 em [Criar aplicativos Ruby usando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
+  
+  - **Ubuntu**: Instale os pré-requisitos do Ruby, do rbenv e do ruby-build, do Ruby, do FreeTDS e do TinyTDS. Confira as Etapas 1.2, 1.3, 1.4, 1.5 e 2.1 em [Criar aplicativos Ruby usando o SQL Server no Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
+  
+  - **Windows**: Instale o Ruby, o Ruby Devkit e o TinyTDS. Confira [Configurar um ambiente de desenvolvimento para desenvolvimento com o Ruby](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development).
 
-- O Ruby e o software relacionado para seu sistema operacional instalados:
-    - **MacOS**: instale o Homebrew, instale o rbenv e ruby-build, instale o Ruby e, em seguida, instale o FreeTDS. Confira a [Etapa 1.2, 1.3, 1.4 e 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
-    - **Ubuntu**: instale os pré-requisitos do Ruby, instale o rbenv e ruby-build, instale o Ruby e, em seguida, instale o FreeTDS. Confira a [Etapa 1.2, 1.3, 1.4 e 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
-
-## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
+## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-> [!IMPORTANT]
-> Você deve ter uma regra de firewall em vigor para o endereço IP público do computador em que você executa este tutorial. Se você estiver em um computador diferente ou se tiver um endereço IP público diferente, crie uma [regra de firewall no nível de servidor usando o portal do Azure](sql-database-get-started-portal-firewall.md). 
+## <a name="create-code-to-query-your-sql-database"></a>Criar código para consultar seu Banco de Dados SQL
 
-## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar o banco de dados SQL
-
-1. Em seu editor de texto favorito, crie um novo arquivo, **sqltest.rb**
-
-2. Substitua o conteúdo pelo código a seguir e adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
-
-```ruby
-require 'tiny_tds'
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-client = TinyTds::Client.new username: username, password: password, 
-    host: server, port: 1433, database: database, azure: true
-
-puts "Reading data from table"
-tsql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-        FROM [SalesLT].[ProductCategory] pc
-        JOIN [SalesLT].[Product] p
-        ON pc.productcategoryid = p.productcategoryid"
-result = client.execute(tsql)
-result.each do |row|
-    puts row
-end
-```
+1. Em um editor de texto ou de códigos, crie um arquivo chamado *sqltest.rb*.
+   
+1. Adicione os códigos a seguir. Substitua os valores do Banco de Dados SQL do Azure de `<server>`, `<database>`, `<username>` e `<password>`.
+   
+   >[!IMPORTANT]
+   >O código neste exemplo usa os dados de exemplo AdventureWorksLT, que você pode escolher como fonte durante a criação de seu banco de dados. Se o banco de dados tiver dados diferentes, use tabelas de seu próprio banco de dados na consulta SELECT. 
+   
+   ```ruby
+   require 'tiny_tds'
+   server = '<server>.database.windows.net'
+   database = '<database>'
+   username = '<username>'
+   password = '<password>'
+   client = TinyTds::Client.new username: username, password: password, 
+       host: server, port: 1433, database: database, azure: true
+   
+   puts "Reading data from table"
+   tsql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+           FROM [SalesLT].[ProductCategory] pc
+           JOIN [SalesLT].[Product] p
+           ON pc.productcategoryid = p.productcategoryid"
+   result = client.execute(tsql)
+   result.each do |row|
+       puts row
+   end
+   ```
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. No prompt de comando, execute estes comandos:
+1. No prompt de comando, execute o comando a seguir:
 
    ```bash
    ruby sqltest.rb
    ```
-
-2. Verifique se as 20 linhas superiores são retornadas e, em seguida, feche a janela do aplicativo.
-
+   
+1. Verifique se as 20 primeiras linhas de Categoria/Produto do banco de dados são retornadas. 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
-- [Repositório GitHub do TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
-- [Relatar problemas ou fazer perguntas sobre o TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues)
-- [Drivers Ruby para SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
+- [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-design-first-database.md).
+- [Repositório GitHub do TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
+- [Relatar problemas ou fazer perguntas sobre o TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues).
+- [Ruby Driver para SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).

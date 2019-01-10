@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar dispositivos em uma solução de monitoramento remoto baseada no Azure | Microsoft Docs'
+title: 'Tutorial: Configurar dispositivos em uma solução de monitoramento remoto – Azure | Microsoft Docs'
 description: Este tutorial mostra como configurar os dispositivos conectados ao acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679147"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599494"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar dispositivos conectados à sua solução de monitoramento
 

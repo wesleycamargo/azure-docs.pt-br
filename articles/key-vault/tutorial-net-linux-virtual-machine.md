@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Como usar o Azure Key Vault com a máquina virtual do Azure com Linux no .NET | Microsoft Docs
+title: Tutorial – Como usar o Azure Key Vault com uma Máquina Virtual do Linux do Azure no .NET – Azure Key Vault | Microsoft Docs
 description: 'Tutorial: Configurar um aplicativo ASP.NET Core para ler um segredo do Key Vault'
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 928339a245525933ae142a5d73137ce699cf1f7c
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 68a788205917e87469b432de435e296dcabc350c
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712323"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001678"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Tutorial: Como usar o Azure Key Vault com a máquina virtual do Azure com Linux no .NET
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Tutorial: Como usar o Azure Key Vault com uma Máquina Virtual do Linux do Azure no .NET
 
 O Azure Key Vault ajuda a proteger segredos, como chaves de API, cadeias de conexão de banco de dados necessárias para acessar seus aplicativos, serviços e recursos de TI.
 
-Neste tutorial, execute as etapas necessárias para fazer um aplicativo de console ler informações do Azure Key Vault usando identidades gerenciadas de recursos do Azure. Este tutorial se baseia em [aplicativos Web do Azure](../app-service/app-service-web-overview.md). A seguir, você aprenderá a:
+Neste tutorial, você seguirá as etapas necessárias para que um aplicativo de Console leia informações do Azure Key Vault usando identidades gerenciadas de recursos do Azure. A seguir, você aprenderá a:
 
 > [!div class="checklist"]
 > * Crie um cofre da chave.
@@ -45,6 +45,7 @@ Antes de continuarmos, leia os [conceitos básicos](key-vault-whatis.md#basic-co
 Este tutorial faz uso da Identidade de Serviço Gerenciada
 
 ## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>O que é a Identidade de Serviço Gerenciada e como ela funciona?
+
 Antes de continuarmos, vamos entender o que é a MSI. O Azure Key Vault pode armazenar credenciais com segurança para que elas não precisem estar em seu código, mas, para recuperá-las, você precisa fazer a autenticação no Azure Key Vault. Para fazer a autenticação no Key Vault, você precisa de uma credencial! Um problema clássico de inicialização. Com a mágica do Azure e do Azure AD, a MSI fornece uma "identidade de inicialização" que simplifica tudo.
 
 Veja como ela funciona! Quando você habilita a MSI para um serviço do Azure, como Máquinas Virtuais, Serviço de Aplicativo ou Functions, o Azure cria uma [Entidade de Serviço](key-vault-whatis.md#basic-concepts) para a instância do serviço no Azure Active Directory e injeta as credenciais para a Entidade de Serviço na instância do serviço. 
@@ -54,9 +55,9 @@ Veja como ela funciona! Quando você habilita a MSI para um serviço do Azure, c
 Em seguida, seu código chama um serviço de metadados local disponível no recurso do Azure para obter um token de acesso.
 Seu código usa o token de acesso obtido do MSI_ENDPOINT local para fazer a autenticação em um serviço Azure Key Vault. 
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Para fazer logon no Azure usando a CLI do Azure, digite:
+Para entrar no Azure usando a CLI do Azure, digite:
 
 ```azurecli
 az login
@@ -80,9 +81,9 @@ O grupo de recursos que você acabou de criar é usado ao longo deste artigo.
 
 Em seguida, você cria um cofre de chaves no grupo de recursos criado na etapa anterior. Forneça as seguintes informações:
 
-* Nome do cofre de chaves: o nome deve ser uma cadeia com 3 a 24 caracteres e deve conter apenas (0 a 9, a a z, A a Z e -).
+* Nome do cofre de chaves: O nome precisa ser uma cadeia de 3 a 24 caracteres e conter apenas (0 – 9, a – z, A – Z e -).
 * Nome do grupo de recursos.
-* Local: **Oeste dos EUA**.
+* Localização: **Oeste dos EUA**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -132,13 +133,14 @@ A criação da VM e dos recursos de suporte demora alguns minutos. O seguinte ex
 Observe a sua própria `publicIpAddress` na saída da sua VM. Este endereço é usado para acessar a VM na próxima etapa.
 
 ## <a name="assign-identity-to-virtual-machine"></a>Atribuir uma identidade à Máquina Virtual
-Nesta etapa, criaremos uma identidade atribuída pelo sistema à máquina virtual executando o seguinte comando
+
+Nesta etapa, criaremos uma identidade atribuída pelo sistema para a máquina virtual executando o seguinte comando
 
 ```
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Observe o systemAssignedIdentity mostrado abaixo. A saída do comando acima seria 
+Observe a systemAssignedIdentity mostrada abaixo. A saída do comando acima seria 
 
 ```
 {
@@ -148,21 +150,23 @@ Observe o systemAssignedIdentity mostrado abaixo. A saída do comando acima seri
 ```
 
 ## <a name="give-vm-identity-permission-to-key-vault"></a>Conceder permissão de Identidade de VM ao Key Vault
+
 Agora, podemos dar à permissão criada acima a permissão de identidade para o Key Vault executando o seguinte comando
 
 ```
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>Fazer logon na Máquina Virtual
+## <a name="sign-in-to-the-virtual-machine"></a>Entrar na Máquina Virtual
 
-Agora, faça logon na Máquina Virtual usando um terminal
+Agora entre na Máquina Virtual usando um terminal
 
 ```
 ssh azureuser@<PublicIpAddress>
 ```
 
 ## <a name="install-dot-net-core-on-linux"></a>Instalar o Dot Net Core no Linux
+
 ### <a name="register-the-microsoft-product-key-as-trusted-run-the-following-two-commands"></a>Registre a chave do produto da Microsoft como confiável. Execute os dois comandos a seguir
 
 ```
@@ -171,6 +175,7 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 ```
 
 ### <a name="set-up-desired-version-host-package-feed-based-on-operating-system"></a>Configurar o feed de pacote do host da versão desejada com base no sistema operacional
+
 ```
 # Ubuntu 17.10
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -200,7 +205,7 @@ dotnet --version
 
 ## <a name="create-and-run-sample-dot-net-app"></a>Criar e executar o aplicativo de exemplo em Dot Net
 
-Após executar os comandos abaixo, você deverá ver "Olá, Mundo" impresso no console
+Depois de executar os comandos abaixo, você deverá ver "Olá, Mundo" impresso no console
 
 ```
 dotnet new console -o helloworldapp
@@ -209,6 +214,7 @@ dotnet run
 ```
 
 ## <a name="edit-console-app"></a>Editar aplicativo de console
+
 Abra o arquivo Program.cs e adicione esses pacotes
 ```
 using System;
@@ -218,8 +224,10 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-Depois, altere o arquivo de classe para conter o código abaixo. É um processo de duas etapas. 
-1. Buscar um token no ponto de extremidade do MSI local na VM que, por sua vez, busca um token no Azure Active Directory
+
+Depois, altere o arquivo de classe para conter o código abaixo. É um processo de duas etapas.
+
+1. Efetue fetch de um token no ponto de extremidade do MSI local na VM que, por sua vez, efetua fetch de um token no Azure Active Directory
 2. Passe o token para o Key Vault e busque o seu segredo 
 
 ```
@@ -268,7 +276,6 @@ Depois, altere o arquivo de classe para conter o código abaixo. É um processo 
 ```
 
 O código acima mostra como realizar operações com o Azure Key Vault em uma Máquina Virtual do Azure com Linux. 
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

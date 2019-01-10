@@ -1,22 +1,19 @@
 ---
-title: 'Início rápido: criar um Banco de Dados do Azure para servidor MySQL – CLI do Azure'
+title: 'Início Rápido: Criar um Banco de Dados do Azure para o servidor MySQL – CLI do Azure'
 description: Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e6a22d450aa9b51aa16ebf5e712d65e924b7869
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4c425e4da99774be5da8c060a8243bc34ec08f5a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958382"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547773"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure
 Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure em aproximadamente cinco minutos. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
@@ -50,13 +47,13 @@ Nome | mydemoserver | Escolha um nome exclusivo que identifica o Banco de Dados 
 resource-group | myresourcegroup | Forneça o nome do grupo de recursos do Azure.
 sku-name | GP_Gen4_2 | O nome da SKU. Segue a convenção {tipo de preço}_{geração de computação}_{vCores} em formato abreviado. Embaixo desta tabela há mais informações sobre o parâmetro sku-name.
 backup-retention | 7 | Quanto tempo um backup deve ser retido. A unidade é dias. O intervalo é de 7 a 35. 
-geo-redundant-backup | Desabilitado | Indica se os backups com redundância geográfica devem ser habilitados para este servidor ou não. Valores permitidos: habilitado, desabilitado.
+geo-redundant-backup | Desabilitado | Indica se os backups com redundância geográfica devem ser habilitados para este servidor ou não. Valores permitidos: Habilitado, Desabilitado.
 location | westus | O local do Azure para o servidor.
-ssl-enforcement | habilitado | Se o ssl deve ser habilitado ou não para este servidor. Valores permitidos: habilitado, desabilitado.
+ssl-enforcement | habilitado | Se o ssl deve ser habilitado ou não para este servidor. Valores permitidos: Habilitado, Desabilitado.
 storage-size | 51200 | A capacidade de armazenamento do servidor (a unidade é megabytes). O tamanho de armazenamento válido é no mínimo 5.120 MB e aumenta em incrementos de 1.024 MB. Confira o documento [tipos de preço](./concepts-pricing-tiers.md) para obter mais informações sobre limites de tamanho de armazenamento. 
 version | 5.7 | A versão principal do MySQL.
 admin-user | myadmin | O nome de usuário para o logon de administrador. Não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** nem **public**.
-admin-password | *senha de segurança* | A senha do usuário administrador. Ele deve conter entre 8 e 128 caracteres. A senha deve conter caracteres de três das categorias a seguir: letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos.
+admin-password | *senha de segurança* | A senha do usuário administrador. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos.
 
 
 O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geração de cálculo}\_{vCores} como nestes exemplos:

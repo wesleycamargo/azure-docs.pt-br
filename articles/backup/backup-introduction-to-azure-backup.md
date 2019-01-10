@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878276"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631142"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -78,17 +78,17 @@ A tabela a seguir fornece uma matriz de dados e cargas de trabalho que podem ser
 | VMs IaaS do Azure (Linux) |em execução no Azure |[Backup do Azure (extensão VM)](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Suporte para Linux
-A tabela a seguir mostra os componentes do Backup do Azure com suporte para Linux.  
+A tabela a seguir mostra os componentes do Backup do Azure compatíveis com Linux.  
 
-| Componente | Suporte para Linux (endossado pelo Azure) |
-| --- | --- |
-| Agente de Backup do Azure (MARS) |Não (somente agente baseado no Windows) |
-| System Center DPM |<li> Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/> <li> Restauração da VM do Hyper-V e VMs Convidadas Linux do VMWare </br> </br>  *Backup consistente com o arquivo indisponível para a VM do Azure* <br/> |
-| Servidor de Backup do Azure |<li>Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/> <li> Restauração da VM do Hyper-V e VMs Convidadas Linux do VMWare </br></br> *Backup consistente com o arquivo indisponível para a VM do Azure*  |
-| Backup de VM IaaS do Azure |Backup consistente de aplicativos usando uma [estrutura pré e pós-script](backup-azure-linux-app-consistent.md)<br/> [Recuperação granular de arquivos](backup-azure-restore-files-from-vm.md)<br/> [Restaurar todos os discos da VM](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauração da VM](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**Componente** | **Linux (endossado pelo Azure)**
+--- | --- 
+Agente de Backup do Azure (MARS) | Não (somente agente baseado no Windows) 
+System Center DPM | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração da VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com o arquivo não disponível para VMs do Azure
+Servidor de Backup do Azure | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/><br/> Restauração de VM do Hyper-V e VMs Convidadas Linux do VMWare</br></br> Backup consistente com o arquivo não disponível para VMs do Azure 
+Backup de VM IaaS do Azure | Backup consistente de aplicativos usando a [estrutura pré e pós-script](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperação em nível de arquivo](backup-azure-restore-files-from-vm.md)<br/><br/> [Criar uma VM com base em um disco restaurado](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Criar uma VM com base em um ponto de recuperação](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Usando máquinas virtuais de Armazenamento Premium com o Backup do Azure
-O Backup do Azure protege VMs de Armazenamento Premium. O Armazenamento Premium do Azure é um armazenamento baseado em SSD (unidade de estado sólido) desenvolvida para dar suporte a cargas de trabalho com E/S intenso. O Armazenamento Premium é uma opção interessante para cargas de trabalho de máquina virtual (VM). Para saber mais sobre o Armazenamento Premium, confira o artigo [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../virtual-machines/windows/premium-storage.md).
+O Backup do Azure protege VMs de Armazenamento Premium. O Armazenamento Premium do Azure é um armazenamento baseado em SSD (unidade de estado sólido) desenvolvida para dar suporte a cargas de trabalho com E/S intenso. O Armazenamento Premium é uma opção interessante para cargas de trabalho de máquina virtual (VM). Para obter mais informações sobre o Armazenamento Premium, confira o artigo [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Backup de VMs de Armazenamento Premium
 Durante o backup de VMs do Armazenamento Premium, o serviço de Backup cria um local de preparo temporário, chamado "AzureBackup-", na conta do Armazenamento Premium. O tamanho do local de preparo é igual ao tamanho do instantâneo de ponto de recuperação. Verifique se a conta de armazenamento Premium tem espaço livre suficiente para acomodar o local de preparo temporário. Para obter mais informações, confira o artigo [Limitações do Armazenamento Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Quando o trabalho de backup for concluído, o local de preparo será excluído. O preço do armazenamento usada para o local de preparo é consistente com todos os [preços de armazenamento Premium](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
@@ -209,7 +209,7 @@ Uma instância protegida é uma referência genérica para um computador Windows
 Alguns exemplos comuns de instâncias protegidas são máquinas virtuais, servidores de aplicativos, bancos de dados e computadores pessoais com o sistema operacional Windows. Por exemplo: 
 
 * Uma máquina virtual executando a malha de hipervisor Hyper-V ou Azure IaaS. Os sistemas operacionais de convidados para a máquina virtual podem ser Windows Server ou Linux.
-* Um servidor de aplicativos: o servidor de aplicativos pode ser uma máquina física ou virtual executando o Windows Server e cargas de trabalho com dados em que é preciso ser feito backup. Cargas de trabalho comuns são: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server e a função de Servidor de Arquivos do Windows Server. Para fazer o backup dessas cargas de trabalho você precisa do System Center Data Protection Manager (DPM) ou do servidor de Backup do Azure.
+* Um servidor de aplicativos: O servidor de aplicativos pode ser um computador físico ou uma máquina virtual executando o Windows Server e cargas de trabalho com os dados que precisam de backup. Cargas de trabalho comuns são: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server e a função de Servidor de Arquivos do Windows Server. Para fazer o backup dessas cargas de trabalho você precisa do System Center Data Protection Manager (DPM) ou do servidor de Backup do Azure.
 * Um computador, uma estação de trabalho ou um laptop executando o sistema operacional Windows.
 
 

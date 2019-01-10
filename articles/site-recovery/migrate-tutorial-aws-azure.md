@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851121"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793063"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
@@ -136,9 +136,9 @@ Na página **Preparar fonte**, selecione **+ Servidor de Configuração**.
     11. O **Progresso da Instalação** mostra informações sobre o processo de instalação. Quando terminar, selecione **Concluir**. Uma janela exibe uma mensagem sobre uma reinicialização. Selecione **OK**. Em seguida, uma janela exibe uma mensagem sobre a frase secreta de conexão do servidor de configuração. Copie a frase secreta para a área de transferência e salve-a em algum local seguro.
 6. Na VM, execute spsconfigtool.exe para criar uma ou mais contas de gerenciamento no servidor de configuração. Certifique-se de que as contas de gerenciamento tenham permissões de administrador nas instâncias de EC2 que você quer migrar.
 
-Quando terminar de configurar o servidor de configuração, volte para o portal e selecione o servidor que você criou para **Servidor de Configuração**. Selecione **OK** e vá para 3: Preparar destino.
+Quando terminar de configurar o servidor de configuração, volte para o portal e selecione o servidor que você criou para **Servidor de Configuração**. Selecione **OK** para ir para 3: Preparar destino.
 
-### <a name="3-prepare-target"></a>3: Preparar destino
+### <a name="3-prepare-target"></a>3: Preparar o destino
 
 Nesta seção, você vai inserir informações sobre os recursos que criou em [Preparar recursos do Azure](#prepare-azure-resources) anteriormente neste tutorial.
 
@@ -222,9 +222,9 @@ No portal, execute o failover de teste:
 
 1. Na página do seu cofre, acesse **Itens Protegidos** > **Itens Replicados**. Selecione a VM e, em seguida, selecione **Failover de Teste**.
 2. Selecione um ponto de recuperação para usar no failover:
-    - **Último processado**: faz failover na VM para o último ponto de recuperação que foi processado pelo Site Recovery. A carimbo de data/hora é mostrado. Com essa opção, nenhum tempo é gasto no processamento de dados, portanto, ele fornece um RTO (Objetivo do Tempo de Recuperação) baixo.
-    - **Consistente com o aplicativo mais recente**: essa opção falha em todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente. A carimbo de data/hora é mostrado.
-    - **Personalizar**: selecione qualquer ponto de recuperação.
+    - **Mais recente processado**: Faz failover na VM para o último ponto de recuperação que foi processado pelo Site Recovery. A carimbo de data/hora é mostrado. Com essa opção, nenhum tempo é gasto no processamento de dados, portanto, ele fornece um RTO (Objetivo do Tempo de Recuperação) baixo.
+    - **Consistente com o aplicativo mais recente**: Essa opção falha em todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente. A carimbo de data/hora é mostrado.
+    - **Personalizado**: Selecione qualquer ponto de recuperação.
 
 3. Em **Failover de Teste**, selecione a rede de destino do Azure à qual as VMs do Azure serão conectadas após o failover. Essa deve ser a rede criada em [Preparar recursos do Azure](#prepare-azure-resources).
 4. Selecione **OK** para iniciar o failover. Para acompanhar o progresso, selecione a VM para exibir as propriedades. Ou você pode selecionar o trabalho **Failover de Teste** na página do cofre. Para fazer isso, selecione **Monitoramento e relatórios** > **Trabalhos** >  **Trabalhos do Site Recovery**.

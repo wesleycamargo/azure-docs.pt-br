@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 12/17/2018
+ms.openlocfilehash: aea95c245b86905b7bef0a35ffaa6c5e00567111
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409761"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558627"
 ---
 # <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>Tutorial: Proteger um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -136,6 +136,9 @@ Provisionar um administrador do Azure Active Directory para seu Azure SQL Server
     ![choose-ad](./media/sql-database-aad-authentication/8choose-ad.png)
 
 2. Na página **SQL Server**, selecione **administrador do Active Directory** e, na página **administrador do Active Directory**, selecione **Definir administrador**. ![Selecionar Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+
+   > [!IMPORTANT]
+   > Você precisa ser um "Administrador da Empresa" ou um "Administrador Global" para executar essa tarefa.
 
 3. Na página **Adicionar administrador**, pesquise um usuário, selecione o usuário ou grupo que será um administrador e, em seguida, selecione **Selecionar**. A página de administração do Active Directory mostra todos os membros e grupos do Active Directory. Usuários ou grupos que estão esmaecidos não podem ser selecionados porque eles não têm suporte como administradores do AD do Azure. (Consulte a lista de administradores com suporte na seção **Limitações e recursos do Azure AD** de [Usar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse](sql-database-aad-authentication.md).) O RBAC (controle de acesso baseado em função) aplica-se somente ao portal e não é propagado para o SQL Server.
     ![selecionar administrador](./media/sql-database-aad-authentication/select-admin.png)  

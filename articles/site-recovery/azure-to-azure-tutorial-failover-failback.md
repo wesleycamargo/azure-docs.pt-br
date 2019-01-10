@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 93928d7eb84ce986c8a9322188183e4c3dd76d99
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847857"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787829"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Fazer failover e failback de VMs do Azure entre regiões do Azure
 
@@ -44,9 +44,9 @@ Este tutorial descreve como fazer failover de uma única VM do Azure para uma re
 
 2. Em **Failover**, selecione um **Ponto de Recuperação** para o qual fazer o failover. Você pode usar uma das seguintes opções:
 
-   * **Último** (padrão): essa opção processa todos os dados no serviço Site Recovery e fornece o RPO (Objetivo de Ponto de Recuperação) mais baixo.
-   * **Último processado**: essa opção reverte a máquina virtual para o último ponto de recuperação que já foi processado pelo serviço Site Recovery.
-   * **Personalizado**: use essa opção para fazer failover para um ponto de recuperação específico. Essa opção é útil para fazer um failover de teste.
+   * **Mais recente** (padrão): essa opção processa todos os dados no serviço de Site Recovery e fornece o menor RPO (objetivo de ponto de recuperação).
+   * **Mais recente processado**: essa opção reverte a máquina virtual para o ponto de recuperação mais recente que foi processado pelo serviço Site Recovery.
+   * **Personalizado**: use essa opção para fazer failover para um determinado ponto de recuperação. Essa opção é útil para fazer um failover de teste.
 
 3. Selecione **Desligue o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar.
 

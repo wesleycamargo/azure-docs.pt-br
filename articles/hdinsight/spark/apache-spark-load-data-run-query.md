@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight '
+title: 'Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight '
 description: Aprenda a carregar dados e executar consultas interativas em clusters do Spark no Azure HDInsight.
 services: azure-hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495770"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652325"
 ---
-# <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight
+# <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight
 
 Neste tutorial, você aprenderá a criar um dataframe de um arquivo csv e a executar consultas de SQL Spark interativas em um cluster do [Apache Spark](https://spark.apache.org/) no Azure HDInsight. No Spark, um dataframe é uma coleção distribuída de dados organizados em colunas nomeadas. O dataframe é conceitualmente equivalente a uma tabela em um banco de dados relacional ou uma estrutura de dados em R/Python.
  
@@ -58,7 +58,7 @@ Os aplicativos podem criar dataframes diretamente de arquivos ou pastas no armaz
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Usando o kernel PySpark para criar um notebook, a sessão `spark` é criada automaticamente quando você executar a primeira célula de código. Você não precisa criar a sessão explicitamente.
 
 
@@ -87,7 +87,7 @@ Depois que a tabela for criada, você poderá executar uma consulta interativa n
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Com o HDInsight, seus dados e os notebooks do Jupyter são armazenados no Armazenamento do Azure ou no Azure Data Lake Store, assim você poderá excluir um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no próximo tutorial imediatamente, convém manter o cluster.
+Com o HDInsight, seus dados e seus Jupyter notebooks são armazenados no Armazenamento do Azure ou no Azure Data Lake Storage, de modo que você possa excluir com segurança um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no próximo tutorial imediatamente, convém manter o cluster.
 
 Abra o cluster no portal do Azure e selecione **Excluir**.
 

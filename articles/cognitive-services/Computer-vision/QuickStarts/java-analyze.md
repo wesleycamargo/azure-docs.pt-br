@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: analisar uma imagem remota – REST, Java – Pesquisa Visual Computacional'
+title: 'Início Rápido: Analisar uma imagem remota – REST, Java'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisará uma imagem usando a API da Pesquisa Visual Computacional com Java.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 2503d8cda05787885935ffab1be6b1efd85ad0cd
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 5eb5e76eca70c713e33a146319b101ceda9d6ddf
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852105"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581718"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-java-in-computer-vision"></a>Início Rápido: analisar uma imagem remota usando a API REST e Java na Pesquisa Visual Computacional
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-java-in-computer-vision"></a>Início Rápido: Analisar uma imagem remota usando a API REST e o Java na Pesquisa Visual Computacional
 
 Neste início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST de Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
 

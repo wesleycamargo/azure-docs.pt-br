@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57c207af3a48eb03b9d526197aed85d7755ad370
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963927"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975943"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>Início Rápido: Configurar um ambiente de desenvolvimento
+# <a name="quickstart-set-up-a-dev-environment"></a>Início Rápido: Configurar um ambiente
 
-A plataforma de identidade da Microsoft permite que os desenvolvedores criem aplicativos direcionados para uma ampla variedade de ambientes e identidades personalizados do Microsoft 365. Para começar a usar a plataforma de identidade da Microsoft, você acessará a um ambiente, também chamado de locatário do Azure AD, que pode registrar e gerenciar aplicativos, acessar os dados do Microsoft 365 e implantar restrições personalizadas de acesso condicional e de locatário. 
+A plataforma de identidade da Microsoft permite que os desenvolvedores criem aplicativos direcionados para uma ampla variedade de ambientes e identidades personalizados do Microsoft 365. Para começar a usar a plataforma de identidade da Microsoft, você precisará ter acesso a um ambiente, também chamado de locatário do Azure AD, que pode registrar e gerenciar aplicativos, ter acesso a dados do Microsoft 365 e implantar restrições personalizadas de Acesso Condicional e de locatário.
 
-Um locatário é a representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou um desenvolvedor de aplicativos recebe ao criar uma relação com Microsoft, como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365. 
+Um locatário é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou um desenvolvedor de aplicativos recebe ao criar uma relação com Microsoft, como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365.
 
-Cada locatário do Azure AD é distinto, separado de outros locatários do Azure AD e tem sua própria representação de identidades corporativas e de estudante, de identidades de consumidor (caso seja um locatário do Azure AD B2C) e de registros de aplicativo. Um registro de aplicativo dentro de seu locatário pode permitir autenticações de contas somente dentro do seu locatário ou de todos os locatários. 
+Cada locatário do Azure AD é distinto, separado de outros locatários do Azure AD e tem sua própria representação de identidades corporativas e de estudante, de identidades de consumidor (caso seja um locatário do Azure AD B2C) e de registros de aplicativo. Um registro de aplicativo dentro de seu locatário pode permitir autenticações de contas somente dentro do seu locatário ou de todos os locatários.
 
 ## <a name="determining-environment-type"></a>Determinando o tipo de ambiente
 
@@ -69,7 +69,7 @@ Se você ainda não tem um locatário do Azure AD ou deseja criar um para desenv
 
 ## <a name="social-and-local-accounts"></a>Contas locais e sociais
 
-Para começar a criar aplicativos que entram em contas sociais e locais, você precisará criar um locatário do Azure AD B2C. Para começar, siga [criando um locatário do Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md). 
+Para começar a criar aplicativos que entram em contas sociais e locais, você precisará criar um locatário do Azure AD B2C. Para começar, siga [criando um locatário do Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

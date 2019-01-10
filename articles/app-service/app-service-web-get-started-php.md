@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 48df416002a2c89e0172e82278f6154c6a6da836
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261544"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630012"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar um aplicativo Web do PHP no Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "53261544"
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar o Serviço de Aplicativo em _Linux_, consulte [Criar um aplicativo Web PHP no Serviço de Aplicativo em Linux](./containers/quickstart-php.md).
 >
 
-Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.  Este tutorial de início rápido mostra como implantar um aplicativo PHP em Aplicativos Web do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e use o Git para implantar o código PHP de exemplo para o aplicativo Web.
+O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches.  Este tutorial de início rápido mostra como implantar um aplicativo PHP no Serviço de Aplicativo do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e use o Git para implantar o código PHP de exemplo para o aplicativo Web.
 
 ![Aplicativo de exemplo em execução no Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -181,13 +181,13 @@ Depois que a implantação for concluída, retorne para a janela do navegador qu
 
 ![Aplicativo de exemplo atualizado em execução no Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gerenciar seu novo aplicativo Web do Azure
+## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
 Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou.
 
-No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda, clique em **Serviços de Aplicativos** e, em seguida, clique no nome do aplicativo do Azure.
 
-![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
 A página Visão Geral do seu aplicativo Web será exibida. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
 

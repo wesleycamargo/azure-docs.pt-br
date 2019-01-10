@@ -3,20 +3,18 @@ title: Conectar-se ao Banco de Dados do Azure para MariaDB do MySQL Workbench
 description: Este início rápido fornece as etapas para usar o MySQL Workbench para se conectar e consultar dados do Banco de Dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 45c1207ab6ab2a7a649efcd355bcab06ea79e149
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 121766a312db1970981b7ffb1c718f27c9f5d3d1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49317595"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538731"
 ---
-# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MariaDB: use o MySQL Workbench para conectar e consultar dados
+# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MariaDB: Usar o MySQL Workbench para se conectar e consultar dados
 
 Este início rápido demonstra como se conectar a um Banco de Dados do Azure para MariaDB usando o MySQL Workbench. 
 
@@ -57,7 +55,7 @@ Para conectar-se ao servidor do Banco de Dados do Azure para MariaDB usando o My
     |---|---|---|
     |   Nome da Conexão | **Conexão de demonstração** | Especifique um rótulo para essa conexão. |
     | Método de Conexão | **Padrão (TCP/IP)** | Padrão (TCP/IP) é suficiente. |
-    | Nome do host | *nome do servidor* | Especifique o valor do nome do servidor usado para criar a instância de Banco de Dados do Azure para MariaDB. Nosso servidor de exemplo é **mydemoserver.mariadb.database.azure.com**. Use o nome de domínio totalmente qualificado (\*.mariadb.database.azure.com) conforme mostrado no exemplo. Caso não se lembre do nome do servidor, complete as etapas da seção anterior para obter as informações de conexão.  |
+    | Nome do host | *nome do servidor* | Especifique o valor do nome do servidor usado para criar a instância de Banco de Dados do Azure para MariaDB. Nosso servidor de exemplo é **mydemoserver.mariadb.database.azure.com**. Use o nome de domínio totalmente qualificado (\*.mariadb.database.azure.com) conforme mostrado no exemplo. Caso não se lembre do nome do servidor, conclua as etapas da seção anterior para ter acesso às informações de conexão.  |
     | Porta | **3306** | Sempre use a porta 3306 ao conectar-se ao Banco de Dados do Azure para MariaDB. |
     | Nome de Usuário |  *nome de logon do administrador do servidor* | Insira o nome de usuário do logon do administrador do servidor usado para criar a instância de Banco de Dados do Azure para MariaDB. Nosso nome de usuário de exemplo é **myadmin@mydemoserver**. Caso não se lembre do nome de logon do administrador do servidor, complete as etapas da seção anterior para obter as informações de conexão. O formato é *username@servername*.
     | Senha | *sua senha* | Para salvar a senha, selecione **Armazenar no cofre**. |

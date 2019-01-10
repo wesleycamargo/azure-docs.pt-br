@@ -1,20 +1,17 @@
 ---
 title: Ferramenta de migração de banco de dados do Azure Cosmos DB
 description: Saiba como usar as ferramentas de migração de dados de software livre do Azure Cosmos DB para importar dados para o Azure Cosmos DB de várias fontes, incluindo MongoDB, SQL Server, Armazenamento de tabelas, Amazon DynamoDB, CSV e arquivos JSON. Conversão de CSV para JSON.
-keywords: csv em json, ferramentas de migração de banco de dados, converter csv em json
-services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
-ms.custom: mvc
-ms.openlocfilehash: 57c70716ac0e3156440d4a602704cb0ac2e30130
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 82c34f3dcc606ccf7103b557518cd7a54a153183
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091145"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034113"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Usar a ferramenta de migração de dados para migrar seus dados para o Azure Cosmos DB
 
@@ -24,7 +21,7 @@ Qual API você vai usar com o Azure Cosmos DB?
 
 * **[API do SQL](documentdb-introduction.md)** – você pode usar qualquer uma das opções de fonte fornecidas na ferramenta de Migração de dados para importar dados.
 * **[API de tabela](table-introduction.md)** – você pode usar a ferramenta de Migração de dados ou AzCopy para importar dados. Para obter mais informações, consulte [Importar dados para uso com a API de tabela do Azure Cosmos DB](table-import.md).
-* **[API do MongoDB](mongodb-introduction.md)**: atualmente, a ferramenta de Migração de Dados não oferece suporte à API MongoDB do Azure Cosmos DB como fonte ou como destino. Se desejar migrar os dados dentro ou fora de coleções da API do MongoDB no Azure Cosmos DB, veja [Azure Cosmos DB: Como migrar dados para a API do MongoDB](mongodb-migrate.md) para obter instruções. Você ainda pode usar a ferramenta de migração de dados para exportar dados do MongoDB para coleções de API do SQL do Azure Cosmos DB para uso com a API do SQL.
+* **[API para MongoDB do Azure Cosmos DB](mongodb-introduction.md)** – atualmente, a ferramenta de Migração de Dados não dá suporte à API do MongoDB do Azure Cosmos DB, seja como origem ou como destino. Se você desejar migrar os dados de ou para coleções no Azure Cosmos DB, veja [Como migrar dados do MongoDB para um banco de dados do Cosmos com uma API do MongoDB do Azure Cosmos DB](mongodb-migrate.md) para obter instruções. Você ainda pode usar a ferramenta de migração de dados para exportar dados do MongoDB para coleções de API do SQL do Azure Cosmos DB para uso com a API do SQL.
 * **[API do Gremlin](graph-introduction.md)**: a ferramenta de Migração de dados não é uma ferramenta de importação com suporte para contas de API do Gremlin atualmente.
 
 Este tutorial cobre as seguintes tarefas:
@@ -111,7 +108,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a id="MongoDB"></a>Importar do MongoDB
 
 > [!IMPORTANT]
-> Caso esteja importando para uma conta do Azure Cosmos DB com suporte para o MongoDB, siga estas [instruções](mongodb-migrate.md).
+> Caso esteja importando para uma conta do Cosmos configurada com a API do MongoDB do Azure Cosmos DB, siga estas [instruções](mongodb-migrate.md).
 
 Com a opção de importador de origem do MongoDB, é possível importar de uma coleção do MongoDB individual e, como opção, filtrar documentos usando uma consulta e modificar a estrutura do documento usando uma projeção.  
 

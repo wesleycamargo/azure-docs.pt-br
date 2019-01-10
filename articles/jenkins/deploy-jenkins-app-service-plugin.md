@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319346"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537572"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implantar no Serviço de Aplicativo do Azure usando o plugin Jenkins 
 
@@ -55,7 +55,7 @@ Para implantar Aplicativos Web para Contêineres, instale o Docker no Jenkins me
 É necessária uma entidade de serviço do Azure para implantar no Azure. 
 
 
-1. Use a [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou o [Portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal) para criar uma entidade de serviço do Azure.
+1. Para criar uma entidade de serviço do Azure, use a [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou o [portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 2. No painel do Jenkins, selecione **Credenciais** > **Sistema**. Em seguida, selecione **Credenciais globais (irrestrito)**.
 3. Para adicionar uma entidade de serviço do Microsoft Azure, selecione **Adicionar credenciais**. Forneça valores para os campos **ID de assinatura**, **ID do cliente**, **Segredo do cliente** e **Ponto de extremidade de token do OAuth 2.0**. Defina o campo **ID** como **mySp**. Usaremos essa ID em etapas subsequentes nesse artigo.
 
@@ -64,9 +64,9 @@ Para implantar Aplicativos Web para Contêineres, instale o Docker no Jenkins me
 
 Para implantar seu projeto em Aplicativos Web, você pode carregar seus artefatos de build pelo upload de arquivo. O Serviço de Aplicativo do Azure oferece suporte a várias opções de implantação. O plug-in Jenkins do Serviço de Aplicativo do Azure torna simples para você e deriva a opção de implantação com base no tipo de arquivo. 
 
-* Para os aplicativos do Java EE, a [Implantação WAR](/azure/app-service/app-service-deploy-zip#deploy-war-file) é usada.
-* Para os aplicativos do Java SE, a [Implantação ZIP](/azure/app-service/app-service-deploy-zip#deploy-zip-file) é usada.
-* Para outros idiomas, [implantação do Git](/azure/app-service/app-service-deploy-local-git) é usado.
+* Para os aplicativos do Java EE, a [Implantação WAR](/azure/app-service/deploy-zip#deploy-war-file) é usada.
+* Para os aplicativos do Java SE, a [Implantação ZIP](/azure/app-service/deploy-zip#deploy-zip-file) é usada.
+* Para outros idiomas, [implantação do Git](/azure/app-service/deploy-local-git) é usado.
 
 Antes de configurar o trabalho em Jenkins, você precisa de um plano do Serviço de Aplicativo do Azure e de um aplicativo Web para executar o aplicativo Java.
 
@@ -100,7 +100,7 @@ Antes de configurar o trabalho em Jenkins, você precisa de um plano do Serviço
 4. Adicione uma ação pós-build selecionando **Publicar um Aplicativo Web do Azure**.
 5. Forneça **mySp** como a entidade de serviço do Azure. Essa entidade foi armazenada como as [Credenciais do Azure](#service-principal) em uma etapa anterior.
 6. Na seção **Configuração do Aplicativo**, escolha o aplicativo Web e o grupo de recursos em sua assinatura. O plugin Jenkins detecta automaticamente se o aplicativo Web é do Windows ou do Linux. Para um aplicativo Web do Windows, a opção **Publicar arquivos** é apresentada.
-7. Preencha os arquivos que deseja implantar. Por exemplo, especifique o pacote WAR se estiver usando Java. Use os parâmetros opcionais **Diretório de Origem** e **Diretório de Destino** para especificar as pastas de origem e de destino a serem usadas para o upload do arquivo. O aplicativo Web Java no Azure é executado em um servidor Tomcat. Portanto, para Java, você carrega seu pacote WAR na pasta webapps. Neste exemplo, defina o valor de **Diretório de Origem** como **destino** e valor de **Diretório de Destino** como **webapps**.
+7. Preencha os arquivos que deseja implantar. Por exemplo, especifique o pacote WAR se estiver usando Java. Use os parâmetros opcionais **Diretório de Origem** e **Diretório de Destino** para especificar as pastas de origem e de destino a serem usadas para o upload do arquivo. O aplicativo Web Java no Azure é executado em um servidor Tomcat. Portanto, para o Java, carregue o pacote WAR na pasta webapps. Neste exemplo, defina o valor de **Diretório de Origem** como **destino** e valor de **Diretório de Destino** como **webapps**.
 8. Se desejar implantar em um slot que não seja de produção, você também poderá definir o nome do **Slot**.
 9. Salve o projeto e compile-o. Seu aplicativo Web é implantado no Azure quando o build estiver concluído.
 
@@ -131,7 +131,7 @@ O plugin do Jenkins do Serviço de Aplicativo do Azure vem pronto para pipeline.
 
 ## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Configurar o Jenkins para implantar Aplicativos Web para Contêineres
 
-Aplicativos Web no Linux oferecem suporte à implantação usando o Docker. Para implantar seu aplicativo Web usando o Docker, você precisa fornecer um Dockerfile que empacote seu aplicativo Web com tempo de execução de um serviço em uma imagem do Docker. O plugin do Jenkins então compila a imagem, envia-a por push a um registro de Docker e a implanta em seu aplicativo Web.
+Aplicativos Web no Linux oferecem suporte à implantação usando o Docker. Para implantar seu aplicativo Web usando o Docker, você precisa fornecer um Dockerfile que empacote o aplicativo Web com um tempo de execução de serviço em uma imagem do Docker. O plugin do Jenkins então compila a imagem, envia-a por push a um registro de Docker e a implanta em seu aplicativo Web.
 
 Os aplicativos Web no Linux também dão suporte a métodos de implantação tradicionais, como Git e upload de arquivo, mas somente para linguagens internas (.NET Core, Node.js, PHP e Ruby). Para outras linguagens, você precisa empacotar o código do aplicativo e tempo de execução do serviço juntos em uma imagem do Docker e usar o Docker para implantar.
 
@@ -161,7 +161,7 @@ Para o valor de **URL de registro de Docker**, forneça a URL usando o formato h
     az acr credential show -n <yourRegistry>
     ```
 
-10. O nome da imagem do Docker e o valor da marca na guia **Avançado** são opcionais. Por padrão, o valor para o nome da imagem é obtido do nome da imagem que você configurou no Portal do Azure na configuração do **Contêiner do Docker**. A marca é gerada de $BUILD_NUMBER.
+10. O nome da imagem do Docker e o valor da marca na guia **Avançado** são opcionais. Por padrão, o valor para o nome da imagem é obtido do nome da imagem que você configurou no Portal do Azure na configuração do **Contêiner do Docker**. A marca é gerada com base em $BUILD_NUMBER.
     > [!NOTE]
     > Certifique-se de especificar o nome da imagem no portal do Azure ou forneça um valor para **Imagem do Docker** na guia **Avançado**. Neste exemplo, defina o valor de **Imagem do Docker** como &lt;your_Registry>.azurecr.io/calculator e deixe o valor de **Marca de imagem do Docker** em branco.
 
@@ -206,7 +206,7 @@ Para o valor de **URL de registro de Docker**, forneça a URL usando o formato h
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Vá para http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Substitua &lt;x> e &lt;y> por qualquer número para obter a soma de x + y. A calculadora mostra a soma: ![Calculadora: adicionar](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Vá para http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Substitua &lt;x> e &lt;y> por qualquer número para obter a soma de x + y. A calculadora mostra a soma: ![Calculadora: somar](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>Para Serviço de Aplicativo do Azure no Linux
 

@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f355604e2bff1c3f03c8237f30cbe41ce7e5810
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b50609449d6144d2bb013d82e2eb29e94b5b01be
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616140"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754111"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager
 
 Saiba como iterar em seu modelo do Azure Resource Manager para criar várias instâncias de um recurso do Azure. Neste tutorial, você modificará um modelo para criar três instâncias de conta de armazenamento.
+
+Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Abrir um modelo de Início Rápido
@@ -120,14 +122,14 @@ Consulte a seção [Implantar o modelo](./resource-manager-quickstart-create-tem
 
 Para listar todas as três contas de armazenamento, omita o parâmetro --name:
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -149,7 +151,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a criar várias instâncias da conta de armazenamento. Até agora, você criou uma conta de armazenamento ou várias instâncias de conta de armazenamento. No próximo tutorial, você desenvolverá um modelo com vários recursos e vários tipos de recursos. Alguns dos recursos têm recursos dependentes.
+Neste tutorial, você aprendeu a criar várias instâncias da conta de armazenamento. No próximo tutorial, você aprenderá como mover um recurso de um grupo de recursos para outro grupo de recursos.
 
 > [!div class="nextstepaction"]
-> [Criar recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Mover recursos](./resource-manager-tutorial-move-resources.md)

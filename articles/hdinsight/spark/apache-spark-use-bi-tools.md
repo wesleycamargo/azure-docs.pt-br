@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c058cfa3bc9fa976726731cedeb80eb76a1f0810
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583271"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999264"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark usando o Power BI no HDInsight 
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Concluir o artigo [Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Concluir o artigo [Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) e [assinatura de avaliação do Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (opcional).
 
 
@@ -69,7 +69,7 @@ Nesta seção, use o Power BI para criar painéis, relatórios e visualizações
 ### <a name="create-a-report-in-power-bi-desktop"></a>Criar um relatório no Power BI Desktop
 As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power BI Desktop, carregar dados do cluster e criar uma visualização básica com base nesses dados.
 
-> [!NOTE]
+> [!NOTE]  
 > O conector demonstrado neste artigo está atualmente em visualização. Forneça qualquer comentário que você tenha por meio do site da [Comunidade do Power BI](https://community.powerbi.com/) ou [Ideias do Power BI](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Abra o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
@@ -103,7 +103,7 @@ As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power 
 
         O diagrama se parecerá com isso:
 
-        ![Criar visualizações de dados Spark usando o Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Criar visualizações de dados Spark usando o Apache Spark BI")
+        ![Criar visualizações de dados Spark usando o Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Criar visualizações de dados Spark usando o Apache Spark BI")
 
         Por padrão, a visualização mostra a soma de **ActualTemp** e **TargetTemp**. Clique na seta para baixo ao lado de **ActualTemp** e **TragetTemp** no painel de visualizações, você pode ver que **Sum** está selecionado.
 
@@ -113,7 +113,7 @@ As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power 
 
         A sua visualização de dados deve ser semelhante àquela que aparece na captura de tela. Mova o cursor sobre a visualização para obter dicas de ferramenta com dados relevantes.
 
-        ![Criar visualizações de dados Spark usando o Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Criar visualizações de dados Spark usando o Apache Spark BI")
+        ![Criar visualizações de dados Spark usando o Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Criar visualizações de dados Spark usando o Apache Spark BI")
 
 7. Clique em **Arquivo**, depois em **Salvar** e digite o nome `BuildingTemperature.pbix` para o arquivo. 
 
@@ -174,7 +174,7 @@ O visual é fixado no painel – você pode adicionar outros elementos visuais n
 >
 >
 
-1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
+1. Install [Tableau Desktop](https://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
 2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 

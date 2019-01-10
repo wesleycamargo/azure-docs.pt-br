@@ -1,5 +1,5 @@
 ---
-title: 'Guia de início rápido: ingerir dados do Hub de eventos para o Explorer de dados do Azure'
+title: 'Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer'
 description: Neste início rápido, você aprende a inserir (carregar) dados no Azure Data Explorer do Event Hub.
 services: data-explorer
 author: orspod
@@ -8,22 +8,20 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3350c222cced036af6319cee166c53da0b14f2a9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 563b171177b491037e34dce891b565ea0943feda
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210441"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654097"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Guia de início rápido: ingerir dados do Hub de eventos para o Explorer de dados do Azure
+# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece a ingestão (carregamento de dados) dos Hubs de Eventos, uma plataforma de big data streaming e um serviço de ingestão de eventos. Os Hubs de Eventos podem processar milhões de eventos por segundo quase em tempo real. Neste início rápido, você cria um hub de eventos, conecta-se ao Azure Data Explorer e vê o fluxo de dados pelo sistema.
 
-Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Além de uma assinatura do Azure, você precisa do seguinte para concluir este início rápido:
+* Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
 * [Um cluster de teste e um banco de dados](create-cluster-database-portal.md)
 
@@ -61,7 +59,7 @@ Neste início rápido, você gera dados de amostra e os envia para um hub de eve
     |---|---|---|
     | Assinatura | Sua assinatura | Selecione a assinatura do Azure que você deseja usar para o seu hub de eventos.|
     | Grupo de recursos | *teste-hub-rg* | Crie um novo grupo de recursos. |
-    | Local padrão | *Oeste dos EUA* | Selecione *Oeste dos EUA* para este início rápido. Para um sistema de produção, selecione a região que melhor atenda às suas necessidades.
+    | Local padrão | *Oeste dos EUA* | Selecione *Oeste dos EUA* para este início rápido. Para um sistema de produção, selecione a região que melhor atenda às suas necessidades. Crie o namespace do hub de eventos na mesma Localização do cluster Kusto para melhor desempenho (mais importante para namespaces do hub de eventos com alta taxa de transferência).
     | Nome do Namespace | Um nome de namespace exclusivo | Escolha um nome exclusivo que identifique seu namespace. Por exemplo, *mytestnamespace*. O nome do domínio *servicebus.windows.net* é anexado ao nome que você fornece. O campo pode conter apenas letras, números e hifens. O nome deve começar com uma letra e terminar com uma letra ou um número. O valor deve ter entre 6 e 50 caracteres.
     | Nome do Hub de Eventos | *test-hub* | O hub de eventos fica sob o namespace, que fornece um contêiner de determinação de escopo exclusivo. O nome do hub de eventos deve ser exclusivo dentro do namespace. |
     | Nome do grupo de consumidor | *grupo de teste* | Grupos de consumidores permitem que vários aplicativos de consumo tenham uma visão separada do fluxo de eventos. |
@@ -200,4 +198,4 @@ Se você não planeja usar seu hub de eventos novamente, limpe **test-hub-rg** p
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Guia de início rápido: Consultar dados no Data Explorer do Azure](web-query-data.md)
+> [Início Rápido: Consultar dados no Azure Data Explorer](web-query-data.md)

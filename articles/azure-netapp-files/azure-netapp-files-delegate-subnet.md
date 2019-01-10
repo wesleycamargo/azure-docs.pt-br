@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: fc8ec5c3bbe0157f5737e2eb757478357aa6e867
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 8ec41c6db8c8e5c62d15dc0638762f2649c637b8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414297"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631644"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede ao Azure NetApp Files 
 
@@ -28,7 +28,7 @@ ms.locfileid: "53414297"
 ## <a name="about-this-task"></a>Sobre esta tarefa
 * O assistente para criar uma nova sub-rede usa como padrão uma máscara de rede /24, que possibilita 251 endereços IP disponíveis. Usar uma máscara de rede /28, que possibilita 16 endereços IP utilizáveis, é suficiente para o serviço.
 * Não é possível designar um grupo de segurança de rede nem um ponto de extremidade de serviço na sub-rede delegada. Fazer isso causa a falha da delegação da sub-rede.
-* Em cada VNet (Rede virtual do Azure), apenas uma sub-rede pode ser delegada para o Azure NetApp Files.
+* Em cada Vnet (Rede virtual) do Azure, apenas uma sub-rede pode ser delegada para o Azure NetApp Files.
 * No momento, não há suporte para o acesso a um volume de uma rede virtual emparelhada.
 
 ## <a name="steps"></a>Etapas 

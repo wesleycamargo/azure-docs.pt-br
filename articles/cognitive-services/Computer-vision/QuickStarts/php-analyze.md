@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: analisar uma imagem remota – REST, PHP – Pesquisa Visual Computacional'
+title: 'Início Rápido: Analisar uma imagem remota – REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisa uma imagem usando a API da Pesquisa Visual Computacional com PHP.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: d9e65b5fa42cc9026f8b1e3f18901f988c38cc46
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8af75c05d3c30fd8a3f2808cf81de840b7df2d6c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340997"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584285"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>Início Rápido: analisar uma imagem remota usando a API REST e PHP em Pesquisa Visual Computacional
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>Início Rápido: Analisar uma imagem remota usando a API REST e o PHP na Pesquisa Visual Computacional
 
 Neste início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST de Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
 
@@ -33,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para criar e executar o exemplo, siga estas etapas:
 
-1. Instale o pacote [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) PHP5.
+1. Instale o pacote [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) PHP5.
    1. Abra uma janela de prompt de comando como administrador.
    1. Execute o comando a seguir:
 

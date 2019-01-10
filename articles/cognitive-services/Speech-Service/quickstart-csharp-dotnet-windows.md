@@ -8,29 +8,27 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 171d6c6a972d6fa3eb2e96ceacb75dd2fce1eb92
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f5b33f0710070ff71ab52a1798773fe97965ef34
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074888"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719057"
 ---
-# <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Início Rápido: Reconhecimento e transcrição de fala usando o SDK de Fala e o .NET Framework (Windows)
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Início Rápido: Reconhecimento de fala com o SDK de Fala para .NET Framework (Windows)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Use este guia para criar um aplicativo de console de conversão de fala em texto usando o .NET Framework para Windows e o SDK de Fala. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
-
-Este início rápido requer o Serviço de Fala da Microsoft da [conta de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) habilitado. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) para obter uma chave de assinatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este projeto, você precisará de:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Uma chave de assinatura para o Serviço de Fala
+* Uma chave de assinatura para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
 * Acesso ao microfone do seu computador
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
@@ -63,16 +61,12 @@ Para concluir este projeto, você precisará de:
 
     ![Captura de tela da saída do console após o reconhecimento bem-sucedido](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Saída do console após o reconhecimento bem-sucedido")
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-O código está disponível na pasta `quickstart/csharp-dotnet-windows`.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Reconhecer as intenções da fala usando o SDK de Fala para C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Explorar amostras de C# no GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Traduzir discurso](how-to-translate-speech-csharp.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de linguagem](how-to-customize-language-model.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: extrair texto manuscrito – REST, JavaScript – Pesquisa Visual Computacional'
+title: 'Início Rápido: Extrair texto manuscrito – JavaScript'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrai texto manuscrito de uma imagem usando a API da Pesquisa Visual Computacional com o JavaScript.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 21ff210ad46b4add2d3f639d8e68bf2784f5acd8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: a917d7c778d74e7381d7e2897c644173703e7864
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852428"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579457"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Início Rápido: extrair textos manuscritos usando a API REST e o JavaScript na Pesquisa Visual Computacional
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Início Rápido: Extrair textos manuscritos usando a API REST e o JavaScript na Pesquisa Visual Computacional
 
 Neste início rápido, você extrairá um texto manuscrito de uma imagem usando a API REST da Pesquisa Visual Computacional. Com os métodos [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) e [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), é possível detectar texto manuscrito em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 

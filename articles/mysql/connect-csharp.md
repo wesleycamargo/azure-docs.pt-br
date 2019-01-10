@@ -1,27 +1,24 @@
 ---
 title: Conectar-se ao Banco de Dados do Azure para MySQL no C#
 description: Este guia de início rápido fornece um exemplo de código em C# (.NET) que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
-services: MySQL
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: c92d28bd7515372c17af34d90a4ac73317a13630
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e0536440ea38f127a34639ffb40e5015154ec550
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265013"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547449"
 ---
-# <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar .NET (C#) para se conectar e consultar dados
+# <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar o .NET (C#) para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um Banco de Dados do Azure para MySQL usando um aplicativo C#. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando C# e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)

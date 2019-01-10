@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261000"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721845"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure
+# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Criar um aplicativo .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure
 
 > [!NOTE]
-> Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, consulte [Compilar um aplicativo Web .NET Core e com Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
+> Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, confira [Criar um aplicativo .NET Core e com Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
 >
 
-O [Serviço de Aplicativo](app-service-web-overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches no Azure. Este tutorial mostra como criar um aplicativo Web .NET Core e conectá-lo a um Banco de Dados SQL. Quando terminar, você terá um aplicativo MVC .NET Core em execução no Serviço de Aplicativo.
+O [Serviço de Aplicativo](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches no Azure. Este tutorial mostra como criar um aplicativo .NET Core e conectá-lo a um Banco de Dados SQL. Quando terminar, você terá um aplicativo MVC .NET Core em execução no Serviço de Aplicativo.
 
 ![aplicativo em execução no Serviço de Aplicativo](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -135,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 ```
 
 > [!TIP] 
-> Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](app-service-ip-addresses.md#find-outbound-ips).
+> Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
 ### <a name="create-a-database"></a>Criar um banco de dados
@@ -182,7 +182,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Em seguida, defina a configuração de aplicativo `ASPNETCORE_ENVIRONMENT` como _Produção_. Essa configuração permite saber se o aplicativo está em execução no Azure, porque você usa o SQLite para o ambiente de desenvolvimento local e o Banco de Dados SQL para o ambiente do Azure.
 
-O exemplo a seguir permite definir uma configuração de aplicativo `ASPNETCORE_ENVIRONMENT` no seu aplicativo Web do Azure. Substitua o espaço reservado *\<app_name>*.
+O exemplo a seguir define uma configuração de aplicativo `ASPNETCORE_ENVIRONMENT` no aplicativo do Azure. Substitua o espaço reservado *\<app_name>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -257,9 +257,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Navegar até o aplicativo Web do Azure
+### <a name="browse-to-the-azure-app"></a>Navegar até o aplicativo do Azure
 
-Navegue até o aplicativo Web implantado usando o navegador da Web.
+Navegue até o aplicativo implantado usando o navegador da Web.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -361,21 +361,21 @@ git commit -m "added done field"
 git push azure master
 ```
 
-Quando `git push` estiver completo, navegue até seu aplicativo Web do Azure e tente a nova funcionalidade.
+Quando `git push` estiver completo, navegue até seu aplicativo de Serviço de Aplicativo e tente a nova funcionalidade.
 
-![Aplicativo Web do Azure após Migração do Code First Migration](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
+![Aplicativo do Azure após Migração do Code First](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 Observe que todos os itens de tarefas existentes ainda são exibidos. Quando você republicar o aplicativo .NET Core, os dados existentes no Banco de Dados SQL não serão perdidos. Além disso, as Migrações do Entity Framework Core apenas alteram o esquema de dados e deixam os dados existentes intactos.
 
-## <a name="manage-your-azure-web-app"></a>Gerenciar seu aplicativo Web do Azure
+## <a name="manage-your-azure-app"></a>Gerenciar o aplicativo do Azure
 
-Vá para o [portal do Azure](https://portal.azure.com) para ver o aplicativo Web que você criou.
+Acesse o [portal do Azure](https://portal.azure.com) para ver o aplicativo que você criou.
 
-No menu à esquerda, clique em **Serviço de Aplicativos** e, em seguida, clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda, clique em **Serviços de Aplicativos** e, em seguida, clique no nome do seu aplicativo do Azure.
 
-![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
+![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-Por padrão, o portal mostra a página **Visão geral** do seu aplicativo Web . Esta página fornece uma visão de como está seu aplicativo. Aqui, você também pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. As guias no lado esquerdo da página mostram as páginas de configuração diferentes que você pode abrir.
+Por padrão, o portal mostra a página **Visão Geral** do aplicativo. Esta página fornece uma visão de como está seu aplicativo. Aqui, você também pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. As guias no lado esquerdo da página mostram as páginas de configuração diferentes que você pode abrir.
 
 ![Página Serviço de Aplicativo no portal do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 
@@ -394,7 +394,7 @@ O que você aprendeu:
 > * Transmitir logs do Azure para seu terminal
 > * Gerenciar o aplicativo no portal do Azure
 
-Vá para o próximo tutorial para saber como mapear um nome DNS personalizado para o seu aplicativo Web.
+Prossiga para o próximo tutorial para saber como mapear um nome DNS personalizado para o seu aplicativo.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md)

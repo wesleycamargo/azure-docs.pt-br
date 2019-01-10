@@ -4,7 +4,7 @@ description: Saiba como se conectar a um Banco de Dados SQL no Azure usando o Vi
 keywords: conectar-se ao banco de dados sql
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 786b4fab42fb49cd44c1985bfa04ce33e77cadf0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 994f7d300b1e9a76e109e73467a2e7f0d4c1584d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098977"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652108"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Início Rápido: Use o Visual Studio Code para conectar e consultar um Banco de Dados SQL do Azure
 
-O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows. Ele dá suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o SQL Data Warehouse. Este início rápido demonstra como usar o Visual Studio Code para conectar um Banco de Dados SQL do Azure e depois execute as instruções Transact-SQL para consultar, inserir, atualizar e excluir os dados.
+O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para Linux, macOS e Windows. Ele dá suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o SQL Data Warehouse. Neste início rápido, você usará o Visual Studio Code para se conectar a um Banco de Dados SQL do Azure e, em seguida, executar instruções Transact-SQL para consultar, inserir, atualizar e excluir dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ No Visual Studio Code, defina o modo de linguagem como **SQL** para permitir com
 
 1. Abra uma nova janela do Visual Studio Code. 
 
-2. Pressione **CTRL**+**N**. Um novo arquivo de texto sem formatação é aberto. 
+2. Pressione **Ctrl**+**N**. Um novo arquivo de texto sem formatação é aberto. 
 
 3. Selecione **Texto sem Formatação** no canto inferior direito da barra de status.
 
@@ -77,16 +77,16 @@ No Visual Studio Code, defina o modo de linguagem como **SQL** para permitir com
 Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco de Dados SQL do Azure.
 
 > [!IMPORTANT]
-> Antes de continuar, verifique se você tem seu servidor e informações de logon prontos. Depois de começar a inserir as informações de perfil da conexão, se você mudar o foco do Visual Studio Code, terá que reiniciar a criação do perfil.
+> Antes de continuar, verifique se o servidor e as informações de entrada estão prontos. Depois de começar a inserir as informações de perfil da conexão, se você mudar o foco do Visual Studio Code, terá que reiniciar a criação do perfil.
 >
 
 1. No Visual Studio Code, pressione **CTRL+Shift+P** (ou **F1**) para abrir a Paleta de Comandos.
 
-2. Selecione **MS SQL:Connect** e pressione **Enter**.
+2. Selecione **MS SQL:Connect** e escolha **Enter**.
 
 3. Selecione **Criar perfil de conexão**.
 
-4. Siga os prompts para especificar as propriedades de conexão do novo perfil. Depois de especificar cada valor, pressione **Enter** para continuar. 
+4. Siga os prompts para especificar as propriedades de conexão do novo perfil. Depois de especificar cada valor, escolha **Enter** para continuar. 
 
    | Propriedade       | Valor sugerido | DESCRIÇÃO |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -102,7 +102,7 @@ Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco
 
 ## <a name="query-data"></a>Consultar dados
 
-Use a seguinte instrução Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) para consultar os 20 principais produtos por categoria.
+Execute a instrução Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) a seguir para consultar os 20 principais produtos por categoria.
 
 1. Na janela do editor, cole a seguinte consulta SQL.
 
@@ -119,7 +119,7 @@ Use a seguinte instrução Transact-SQL [SELECT](https://msdn.microsoft.com/libr
 
 ## <a name="insert-data"></a>Inserir dados
 
-Use a seguinte instrução Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) para adicionar um novo produto na tabela `SalesLT.Product`.
+Execute a instrução Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) a seguir para adicionar um novo produto à tabela `SalesLT.Product`.
 
 1. Substitua a consulta anterior por esta.
 
@@ -147,7 +147,7 @@ Use a seguinte instrução Transact-SQL [INSERT](https://msdn.microsoft.com/libr
 
 ## <a name="update-data"></a>Atualizar dados
 
-Use a seguinte instrução Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) para atualizar o produto adicionado.
+Execute a instrução Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) a seguir para atualizar o produto adicionado.
 
 1. Substitua a consulta anterior por esta:
 
@@ -161,7 +161,7 @@ Use a seguinte instrução Transact-SQL [UPDATE](https://msdn.microsoft.com/libr
 
 ## <a name="delete-data"></a>Excluir dados
 
-Use a seguinte instrução Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) para remover o novo produto.
+Execute a instrução Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) a seguir para remover o novo produto.
 
 1. Substitua a consulta anterior por esta:
 

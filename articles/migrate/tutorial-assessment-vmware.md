@@ -4,15 +4,15 @@ description: Descreve como descobrir e avaliar as VMs do VMware locais para a mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8971bba1e25a8e87ed57463dcc9b013fea56a0ff
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257804"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976827"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -58,8 +58,9 @@ Entre no [Portal do Azure](https://portal.azure.com).
 
 **Geografia** | **Localização de armazenamento**
 --- | ---
-Estados Unidos | Centro-oeste dos EUA ou Leste dos EUA
 Azure Government | Gov. dos EUA – Virgínia
+Europa | Europa Setentrional ou Europa Ocidental
+Estados Unidos | Leste dos EUA ou Centro-oeste dos EUA
 
 ![Migrações para Azure](./media/tutorial-assessment-vmware/project-1.png)
 
@@ -80,9 +81,9 @@ O Migrações para Azure cria uma VM local conhecida como o dispositivo coletor.
 
     O dispositivo coleta apenas dados de desempenho continuamente e não detecta nenhuma alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, adição de disco, etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
 
-    - Adição de itens (VMs, discos, núcleos, etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-la novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+    - Adição de itens (VMs, discos, núcleos, etc.): Para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-la novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
 
-    - Exclusão de VMs: devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
+    - Exclusão de VMs: Devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
 
 
 3. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto. Você precisará delas quando configurar o coletor.
@@ -253,7 +254,7 @@ Os custos mensais estimados de computação e armazenamento são agregados para 
 
 #### <a name="confidence-rating"></a>Classificação de confiança
 
-Cada avaliação baseada em desempenho das Migrações para Azure está associada a uma classificação de confiança que varia de 1 a 5 estrelas (1 estrela sendo a mais baixa e 5 estrelas sendo a mais alta). A classificação de confiança é atribuída a uma avaliação com base na disponibilidade de pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a estimar a confiabilidade das recomendações de tamanho fornecidas pelas Migrações para Azure. A classificação de confiança não é aplicável a avaliações locais.
+Cada avaliação baseada em desempenho das Migrações para Azure está associada a uma classificação de confiança que varia de 1 a 5 estrelas (1 estrela sendo a mais baixa e 5 estrelas sendo a mais alta). A classificação de confiança é atribuída a uma avaliação com base na disponibilidade de pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a estimar a confiabilidade das recomendações de tamanho fornecidas pelas Migrações para Azure. A classificação de confiança não é aplicável a avaliações locais "no estado em que se encontram".
 
 Para o dimensionamento com base no desempenho, as Migrações para Azure precisam de dados de utilização da CPU e memória da VM. Além disso, para cada disco anexado à VM, é necessário ter os dados da taxa de transferência e a IOPS do disco. Da mesma forma, para cada adaptador de rede conectado à VM, as Migrações para Azure precisam da entrada/saída da rede para fazer o dimensionamento com base no desempenho. Se qualquer um dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelas Migrações para Azure pode não ser confiável. Dependendo da porcentagem de pontos de dados disponível, o nível de confiança para as avaliações é fornecido conforme abaixo:
 

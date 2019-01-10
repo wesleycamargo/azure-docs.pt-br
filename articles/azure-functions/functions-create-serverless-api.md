@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989899"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001457"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor usando o Azure Functions
 
@@ -46,7 +46,7 @@ Por padrão, sua função disparada por HTTP é configurada para aceitar qualque
     | Métodos HTTP selecionados | Métodos selecionados | Determina quais métodos HTTP podem ser usados para chamar essa função |
     | Métodos HTTP selecionados | GET | Permite que apenas os métodos HTTP selecionados possam ser usados para chamar essa função |
     | Modelo de rota | /hello | Determina qual rota pode ser usada para chamar essa função |
-    | Nível de autorização | Anônima | Opcional: torna sua função acessível sem uma chave de API |
+    | Nível de autorização | Anônima | Opcional: Torna sua função acessível sem uma chave de API |
 
     > [!NOTE] 
     > Observe que você não incluiu o prefixo de caminho base `/api` no modelo de rota, pois isso é tratado por uma configuração global.
@@ -71,7 +71,7 @@ Na próxima seção, você mostrará sua API através de um proxy. Os Proxies do
 
 Um proxy pode apontar para qualquer recurso HTTP, como:
 - Funções do Azure 
-- Aplicativos de API no [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+- Aplicativos de API no [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/overview)
 - Contêineres de docker no [Serviço de Aplicativo no Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Qualquer outra API hospedada
 
@@ -104,7 +104,7 @@ Repita as etapas para [Criar um aplicativo de função](https://docs.microsoft.c
     | Campo | Valor de exemplo | DESCRIÇÃO |
     |---|---|---|
     | NOME | HelloProxy | Um nome amigável usado apenas para gerenciamento |
-    | Modelo de rota | /api/hello | Determina qual rota pode ser usada para chamar esse proxy |
+    | Modelo de rota | /api/remotehello | Determina qual rota pode ser usada para chamar esse proxy |
     | URL do back-end | https://%HELLO_HOST%/api/hello | Especifica o ponto de extremidade ao qual a solicitação deve ser transmitida por proxy |
     
 1. Observe que os Proxies não fornecem o prefixo de caminho base `/api`, e ele deve ser incluído no modelo de rota.
@@ -112,9 +112,9 @@ Repita as etapas para [Criar um aplicativo de função](https://docs.microsoft.c
 1. Clique em **Criar**.
 1. Você pode testar seu novo proxy copiando a URL do Proxy e o testando no navegador ou com seu cliente HTTP favorito.
     1. Para uma função anônima, use:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. Para uma função com autorização, use:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>Criar uma API de simulação
 
@@ -132,7 +132,7 @@ Se você acompanhou até agora, o proxies.json deve ser semelhante ao seguinte:
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -148,7 +148,7 @@ Em seguida, você adicionará sua API de simulação. Substitua o arquivo proxie
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },

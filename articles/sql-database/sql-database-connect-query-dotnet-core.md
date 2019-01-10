@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5f2c8c2a9a2b21a15aa997ff0cc98860ceec76cc
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341772"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744829"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início Rápido: Usar o .NET Core (C#) para consultar um banco de dados SQL do Azure
 
-Neste início rápido demonstra como usar [.NET Core](https://www.microsoft.com/net/) e código C# para se conectar a um Banco de Dados SQL do Azure e executar uma instrução Transact-SQL para consultar dados.
+Neste início rápido, você usará o [.NET Core](https://www.microsoft.com/net/) e o código C# para conectar-se a um Banco de Dados SQL do Azure. Em seguida, você executará uma instrução Transact-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,14 +53,14 @@ Para este tutorial, é necessário:
   
 ## <a name="create-a-new-net-core-project"></a>Criar um novo projeto do .NET Core
 
-1. Abra um prompt de comando e crie uma pasta chamada **sqltest**. Navegue até essa pasta e execute o comando a seguir.
+1. Abra um prompt de comando e crie uma pasta chamada **sqltest**. Navegue até essa pasta e execute este comando.
 
     ```cmd
     dotnet new console
     ```
-    Isso cria o novo aplicativo de arquivos de projeto, incluindo um arquivo de código C# inicial (**Program.cs**), um arquivo de configuração XML (**sqltest. csproj**) e binários necessários.
+    Esse comando cria os arquivos de projeto do aplicativo, incluindo um arquivo de código C# inicial (**Program.cs**), um arquivo de configuração XML (**sqltest.csproj**) e os binários necessários.
 
-2. Em um editor de texto, abra **sqltest.csproj** e cole o seguinte XML entre as marcas `<Project>`. Isso adiciona `System.Data.SqlClient` como uma dependência.
+2. Em um editor de texto, abra **sqltest.csproj** e cole o seguinte XML entre as marcas `<Project>`. Esse XML adiciona `System.Data.SqlClient` como uma dependência.
 
     ```xml
     <ItemGroup>

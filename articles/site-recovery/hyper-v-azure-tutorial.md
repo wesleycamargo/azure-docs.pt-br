@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44b5702aa765b0e821850f6a390432563126482d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839901"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810688"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V para o Azure
 
@@ -81,8 +81,24 @@ Execute o arquivo de instalação do Provedor (AzureSiteRecoveryProvider.exe) em
 5. Em **Configurações de Proxy**, selecione **Conectar diretamente ao Azure Site Recovery sem um proxy**.
 6. Em **Registro**, depois que o servidor foi registrado no cofre, clique em **Concluir**.
 
-Os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido em **Infraestrutura do Site Recovery** > **Hosts Hyper-V**. Esse processo pode levar até 30 minutos.
+Os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido em **Infraestrutura do Site Recovery** > **Hosts Hyper-V**. Esse processo pode levar até 30 minutos.        
 
+Caso você esteja usando um servidor de núcleo Hyper-V, siga as etapas abaixo depois de baixar as credenciais de provedor e de cofre, conforme mencionado [aqui](#set-up-the-source-environment)
+
+1. Extraia os arquivos de AzureSiteRecoveryProvider.exe executando
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    Isso extrairá os arquivos para o diretório local.
+ 
+2.  Execute o ``.\setupdr.exe /i ``
+
+    Os resultados serão registrados em %Programdata%\ASRLogs\DRASetupWizard.log
+
+3.  Registre o servidor usando o comando:
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de origem
 

@@ -4,15 +4,15 @@ description: Este artigo descreve como migrar máquinas locais para o Azure, usa
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1df09a885d6c636ff6bd4bcbec03d27ff7b44ff9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836977"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789239"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas locais para o Azure
 
@@ -64,7 +64,7 @@ Selecione o que você deseja replicar e para onde deseja replicar.
 2. No Menu Recursos, clique em **Site Recovery** > **Preparar Infraestrutura** > **Meta de proteção**.
 3. Em **Objetivo de proteção**, selecione o que você deseja migrar.
     - **VMware**: selecione **Para o Azure** > **Sim, com o VMWare vSphere Hypervisor**.
-    - **Computador físico**: selecione **Para o Azure** > **Não virtualizados/outros**.
+    - **Computador físico**: selecione **Para o Azure** > **Não virtualizado/outro**.
     - **Hyper-V**: selecione **Para o Azure** > **Sim, com o Hyper-V**. Se as VMs do Hyper-V são gerenciadas pelo VMM, selecione **Sim**.
 
 
@@ -119,7 +119,7 @@ Execute um failover para as máquinas que você deseja migrar.
 
 
 > [!WARNING]
-> **Não cancelar um failover em andamento**: a replicação da VM é interrompida antes do início do failover. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.
+> **Não cancele um failover em andamento**: a replicação da VM é interrompida antes do início do failover. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.
 
 Em alguns cenários, o failover requer um processamento adicional que leva cerca de oito a dez minutos para ser concluído. É possível observar um tempo de failover de teste mais longo para servidores físicos, máquinas VMware Linux, VMs VMware que não têm o serviço DHCP habilitado e VMs VMware que não têm os seguintes drivers de inicialização: storvsc, vmbus, storflt, intelide, atapi.
 

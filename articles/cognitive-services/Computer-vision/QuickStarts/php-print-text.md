@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: extrair texto impresso (OCR) – REST, PHP – Pesquisa Visual Computacional'
+title: 'Início Rápido: Extrair texto impresso – REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrairá o texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com PHP.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 10be09c4d18cc7bc395937e1a175a5bfcd1e5d7e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 2707134c3fb451f4386748f691086eeb617d3ebe
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340232"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581366"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Início rápido: extrair texto impresso (OCR) usando a API REST e o PHP na Pesquisa Visual Computacional
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Início Rápido: Extrair texto impresso (OCR) usando a API REST e o PHP na Pesquisa Visual Computacional
 
 Neste início rápido, você extrairá texto impresso, com OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 
@@ -33,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para criar e executar o exemplo, siga estas etapas:
 
-1. Instale o pacote [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) PHP5.
+1. Instale o pacote [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) PHP5.
    1. Abra uma janela de prompt de comando como administrador.
    1. Execute o comando a seguir:
 

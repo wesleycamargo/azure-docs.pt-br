@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093316"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602810"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar o CDN do Azure para um aplicativo web do Serviço de Aplicativo do Azure
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar o CDN do Azure para um aplicativo Web do Serviço de Aplicativo do Azure
 
-Este tutorial mostra como adicionar a [Rede de Distribuição de Conteúdo (CDN)](cdn-overview.md) do Azure para um [aplicativo Web no Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md). Aplicativos Web é um serviço de hospedagem de aplicativos Web, APIs REST e back-ends móveis. 
+Este tutorial mostra como adicionar a [Rede de Distribuição de Conteúdo (CDN)](cdn-overview.md) do Azure para um [aplicativo Web no Serviço de Aplicativo do Azure](../app-service/overview.md). Aplicativos Web é um serviço de hospedagem de aplicativos Web, APIs REST e back-ends móveis. 
 
 Segue a home page do site de exemplo estático em HTML que você usará para trabalhar:
 

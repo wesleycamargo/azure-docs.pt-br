@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: b75d84fefa9c45711003731666ecb21336057cc2
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6b2ab1ba89fbc2b271ede177a906a1919c14023d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018513"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557658"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Início Rápido: Usar o Cache do Azure para Redis com um aplicativo .NET
 
@@ -160,7 +160,7 @@ Adicione o seguinte código para o procedimento `Main` com a classe `Program` pa
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
             Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET console app!").ToString());
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             cacheCommand = "GET Message";
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
             Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
@@ -174,7 +174,7 @@ Adicione o seguinte código para o procedimento `Main` com a classe `Program` pa
         }
 ```
 
-O Cache do Azure para Redis têm um número configurável de bancos de dados (padrão de 16) que podem ser usados para separar logicamente os dados dentro de um Cache do Azure para Redis. O código se conecta ao banco de dados padrão, DB 0. Para saber mais, veja [O que são os bancos de dados do Redis?](cache-faq.md#what-are-redis-databases) e [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).
+O Cache Redis do Azure tem um número configurável de bancos de dados (padrão de 16) que podem ser usados para separar logicamente os dados em um Cache Redis do Azure. O código se conecta ao banco de dados padrão, DB 0. Para saber mais, veja [O que são os bancos de dados do Redis?](cache-faq.md#what-are-redis-databases) e [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).
 
 Os itens de cache podem ser armazenados e recuperados usando os métodos `StringSet` e `StringGet`.
 
@@ -201,7 +201,7 @@ Install-Package Newtonsoft.Json
 
 Adicione a seguinte instrução `using` à parte superior do *Program.cs*:
 
-```charp
+```csharp
 using Newtonsoft.Json;
 ```
 

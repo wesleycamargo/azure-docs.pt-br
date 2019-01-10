@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Java da API da Pesquisa Visual Computacional'
+title: 'Tutorial: Executar operações de imagem – Java'
 titlesuffix: Azure Cognitive Services
 description: Explore um aplicativo Java Swing básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos do Azure. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
@@ -9,15 +9,16 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ef1180a8e8c833648e3b61705abf354cb4dfaed3
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340249"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117479"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Tutorial: Java da API da Pesquisa Visual Computacional
+# <a name="tutorial-computer-vision-api-java"></a>Tutorial: API da Pesquisa Visual Computacional Java
 
 Este tutorial mostra os recursos da API REST da Pesquisa Visual Computacional dos Serviços Cognitivos do Azure.
 
@@ -777,7 +778,7 @@ Copie e cole o seguinte método **HandwritingImage** logo embaixo do método **h
             
             // Check for success.
             if (textResponse.getStatusLine().getStatusCode() != 202) {
-                // An error occured. Return the JSON error message.
+                // An error occurred. Return the JSON error message.
                 HttpEntity entity = textResponse.getEntity();
                 String jsonString = EntityUtils.toString(entity);
                 return new JSONObject(jsonString);

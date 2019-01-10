@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164425"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608640"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Criar uma base de dados de conhecimento e responder perguntas usando o portal do QnA Maker
 
@@ -83,9 +83,9 @@ Este tutorial requer um [serviço QnA Maker](../How-To/set-up-qnamaker-service-a
 
 1. Selecione a última página de perguntas e respostas na parte inferior da tabela. A página mostra as perguntas e respostas da Personalidade do bate-papo. 
 
-1. Na barra de ferramentas acima da lista de perguntas e respostas, selecione a engrenagem. Isso mostra os filtros para cada pergunta e resposta. As perguntas de bate-papo têm o filtro **editorial: bate-papo** já definido. Esse filtro é retornado para o aplicativo cliente com a resposta selecionada. O aplicativo cliente, como um chatbot, pode usar esse filtro para determinar outros processamentos ou interações com o usuário.
+1. Na barra de ferramentas acima da lista de perguntas e respostas, selecione o ícone de metadados. Isso mostra as marcas de metadados para cada pergunta e resposta. As perguntas de bate-papo têm os metadados **editorial: bate-papo** já definidos. Esses metadados são retornados para o aplicativo cliente com a resposta selecionada. O aplicativo cliente, como um chatbot, pode usar esses metadados filtrados para determinar outros processamentos ou interações com o usuário.
 
-    ![Exibir filtros](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![Exibir marcas de Metadados](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Selecione **Salvar e treinar** na barra de menus superior.
 
@@ -171,7 +171,7 @@ Depois que a base de dados de conhecimento é publicada, o ponto de extremidade 
    
     ```
 
-    Como a pergunta `Thank you` correspondeu exatamente a uma pergunta do bate-papo, o QnA Maker está completamente seguro com a pontuação de 100. O QnA Maker também retornou todas as perguntas relacionadas e a propriedade de metadados que contém as informações de filtro de bate-papo.  
+    Como a pergunta `Thank you` correspondeu exatamente a uma pergunta do bate-papo, o QnA Maker está completamente seguro com a pontuação de 100. O QnA Maker também retornou todas as perguntas relacionadas e a propriedade de metadados que contém as informações de marca de metadados de Bate-papo.  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>Usar cURL para consultar a resposta padrão
 

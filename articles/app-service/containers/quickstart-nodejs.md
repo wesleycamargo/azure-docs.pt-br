@@ -1,10 +1,10 @@
 ---
-title: Criar um aplicativo Web Node.js no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
+title: Criar um aplicativo Node.js no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Implante seu primeiro Olá, Mundo em Node.js no Serviço de Aplicativo do Azure no Linux em minutos.
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/07/2017
+ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b3c57a9a8912f44dbe7e9261549d034e99356547
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253555"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190571"
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Web Node.js no Serviço de Aplicativo do Azure no Linux
+# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Node.js no Serviço de Aplicativo do Azure no Linux
 
 > [!NOTE]
-> Este artigo implanta um aplicativo no Serviço de Aplicativo no Linux. Para implantar o Serviço de aplicativo no _Windows_, consulte [Criar um aplicativo Web Node.js no Azure](../app-service-web-get-started-nodejs.md).
+> Este artigo implanta um aplicativo no Serviço de Aplicativo no Linux. Para implantar o Serviço de Aplicativo no _Windows_, confira [Criar um aplicativo Node.js no Azure](../app-service-web-get-started-nodejs.md).
 >
 
 O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este início rápido mostra como implantar um aplicativo Node.js no Serviço de Aplicativo no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
@@ -37,22 +37,6 @@ Você concluirá este início rápido no Cloud Shell, mas você também pode exe
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-web-app-extension-for-cloud-shell"></a>Instalar a extensão do aplicativo Web para o Cloud Shell
-
-Para concluir este início rápido, você precisará adicionar a [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). Se a extensão já estiver instalada, você deve atualizá-la para a versão mais recente. Para atualizar a extensão do aplicativo Web, digite `az extension update -n webapp`.
-
-Para instalar a extensão webapp, execute o seguinte comando:
-
-```bash
-az extension add -n webapp
-```
-
-Quando a extensão tiver sido instalada, o Cloud Shell mostra as informações para o exemplo a seguir:
-
-```bash
-The installed extension 'webapp' is in preview.
-```
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
@@ -136,17 +120,17 @@ O comando `az webapp up` realiza as seguintes ações:
 
 - Criar um aplicativo com o nome especificado.
 
-- Arquivos [de implantação zip](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) do diretório de trabalho atual para o aplicativo Web.
+- Faz a [implantação de Zip](https://docs.microsoft.com/azure/app-service/deploy-zip) dos arquivos do diretório de trabalho atual para o aplicativo.
 
 ## <a name="browse-to-the-app"></a>Navegar até o aplicativo
 
-Navegue até o aplicativo implantado usando o navegador da Web. Substitua <app_name> pelo nome exclusivo do seu aplicativo Web.
+Navegue até o aplicativo implantado usando o navegador da Web. Substitui <app_name> pelo nome do seu aplicativo.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-O código de exemplo do Node.js está em execução em um aplicativo Web com imagem interna.
+O código de exemplo do Node.js está em execução no Serviço de Aplicativo no Linux com uma imagem interna.
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -166,7 +150,7 @@ response.end("Hello Azure!");
 
 Salve suas alterações e saia do nano. Use o comando `^O` para salvar e `^X` para sair.
 
-Agora você vai reimplantar o aplicativo. Substitua `<app_name>` pelo seu aplicativo Web.
+Agora você vai reimplantar o aplicativo. Substitua `<app_name>` pelo seu aplicativo.
 
 ```bash
 az webapp up -n <app_name>
@@ -176,15 +160,15 @@ Depois que a implantação for concluída, troque para a janela do navegador abe
 
 ![Aplicativo de exemplo atualizado em execução no Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gerenciar seu novo aplicativo Web do Azure
+## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
-Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou.
+Acesse o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo que você criou.
 
-No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda, clique em **Serviços de Aplicativos** e, em seguida, clique no nome do aplicativo do Azure.
 
-![Navegação do portal para o aplicativo Web do Azure](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+![Navegação no Portal para o aplicativo do Azure](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode concluir tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
+Você verá a página Visão geral do aplicativo. Aqui você pode concluir tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
 
 ![Página Serviço de Aplicativo no portal do Azure](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 

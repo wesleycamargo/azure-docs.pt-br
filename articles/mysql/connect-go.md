@@ -1,27 +1,24 @@
 ---
 title: Conectar-se ao Banco de Dados do Azure para MySQL usando Go
 description: Este guia de início rápido fornece vários exemplos de código Go que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 8f11453cd7ccdd878e20d80469f12263e72166b7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b61aefcee36584b6ecfd1d701cb548c06f731d05
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264850"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536637"
 ---
-# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar a linguagem Go para se conectar e consultar dados
+# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar a linguagem Go para se conectar e consultar dados
 Este guia de início rápido mostra como se conectar a um Banco de Dados do Azure para MySQL usando código escrito na linguagem [Go](https://golang.org/) em plataformas Windows, Ubuntu Linux e Apple macOS. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Go e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -29,7 +26,7 @@ Este guia de início rápido usa os recursos criados em um destes guias como pon
 ## <a name="install-go-and-mysql-connector"></a>Instalar o conector MySQL e Go
 Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](https://github.com/go-sql-driver/mysql#installation) em seu próprio computador. Dependendo da sua plataforma, siga as etapas na seção apropriada:
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. [Baixe](https://golang.org/dl/) e instale o Go para Microsoft Windows de acordo com as [instruções de instalação](https://golang.org/doc/install).
 2. Inicie o prompt de comando no menu Iniciar.
 3. Crie uma pasta para o seu projeto, como. `mkdir  %USERPROFILE%\go\src\mysqlgo`.

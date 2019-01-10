@@ -1,96 +1,108 @@
 ---
 title: Introdução ao Azure Cosmos DB
 description: Saiba mais sobre o Azure Cosmos DB. Este banco de dados multimodelo distribuído globalmente foi criado para alta disponibilidade, escalabilidade elástica e baixa latência e oferece suporte nativo para dados do NoSQL.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 04/08/2018
+ms.date: 12/18/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b384bc51ac371ef75f5128c92f7e4b8d7f45ecc6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091571"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034940"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
-O BD Cosmos do Azure é o multimodelo de banco de dados distribuído globalmente da Microsoft. Com o clique de um botão, o BD Cosmos do Azure permite que você dimensione a taxa de transferência e o armazenamento de maneira elástica e independente em qualquer número de regiões geográficas do Azure. Ele oferece garantias de taxa de transferência, disponibilidade, latência e consistência com [SLAs](https://aka.ms/acdbsla) (contratos de nível de serviço) abrangentes, algo que nenhum outro serviço de banco de dados pode oferecer. Você pode [Experimentar o Azure Cosmos DB Gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e sem compromisso.
+As aplicações de hoje precisam ser altamente responsivas e sempre on-line. Para obter baixa latência e alta disponibilidade, instâncias desses aplicativos precisam ser implantadas em datacenters próximos aos seus usuários. Aplicativos precisam responder em tempo real a grandes alterações no uso no horário de pico, armazenar volumes de dados crescentes e disponibilizar esses dados aos usuários em milissegundos.
+
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Com o clique de um botão, o BD Cosmos do Azure permite que você dimensione a taxa de transferência e o armazenamento de maneira elástica e independente em qualquer número de regiões geográficas do Azure. Você pode dimensionar elasticamente a taxa de transferência e armazenamento, além de se beneficiar do acesso a dados rápido, em um valor de milissegundos de dígito único, usando a API de favoritos entre o SQL, o MongoDB, o Cassandra, as Tabelas ou o Gremlin. O Cosmos DB fornece SLAs [contratos de nível de serviço](https://aka.ms/acdbsla) abrangentes para taxa de transferência, latência, disponibilidade e consistência, algo que nenhum outro serviço de banco de dados pode oferecer.
+
+Você pode [Experimentar o Azure Cosmos DB Gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e sem compromisso.
 
 > [!div class="nextstepaction"]
 > [Experimente o Azure Cosmos DB Gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
 
 ![O Azure Cosmos DB é serviço de banco de dados distribuído globalmente da Microsoft com escala horizontal elástica, baixa latência garantida, cinco modelos de consistência e SLAs de garantia abrangente](./media/introduction/azure-cosmos-db.png)
 
-## <a name="key-capabilities"></a>Principais recursos
-Como um serviço de banco de dados multimodelo globalmente distribuído, o Azure Cosmos DB facilita a compilação de aplicativos escaláveis e altamente responsivos em escala global:
+## <a name="key-benefits"></a>Principais benefícios
 
-* **Distribuição global turnkey**
-    * Você pode [distribuir seus dados](distribute-data-globally.md) para qualquer número de [regiões do Azure](https://azure.microsoft.com/regions/), com o [clique de um botão](tutorial-global-distribution-sql-api.md). Isso permite que você coloque seus dados onde os usuários estão, garantindo a menor latência possível aos seus clientes. 
-    * Usando as APIs de hospedagem múltipla (multihoming) do Azure Cosmos DB, o aplicativo sempre sabe qual é a região mais próxima e envia solicitações ao data center mais próximo. Tudo isso é possível sem alterações de configuração. Você define sua região de gravação e todas as regiões de leitura que desejar e o resto é feito para você.
-    * À medida que você adiciona e remove regiões ao banco de dados do Azure Cosmos DB, seu aplicativo não precisa ser reimplantado e continua altamente disponível, graças à capacidade da API de várias home pages.
+### <a name="turnkey-global-distribution"></a>Distribuição global turnkey
 
-* **Vários modelos de dados e APIs populares para acessar e consultar dados**
-    * O modelo de dados baseado em ARS (Sequência de Registros Atom) em que o Azure Cosmos DB é criado é compatível nativamente com vários modelos de dados, incluindo, mas não se limitando a modelos de documentos, gráficos, valores-chave, tabela e família de colunas.
-    * APIs para os seguintes modelos de dados são compatíveis com SDKs disponíveis em vários idiomas:
-        * [API de SQL](sql-api-introduction.md): um mecanismo de banco de dados JSON sem esquemas, com ricos recursos de consulta SQL.
-        * [API MongoDB](mongodb-introduction.md): um *MongoDB como serviço* altamente escalável, da plataforma Azure Cosmos DB. Compatível com bibliotecas, drivers, ferramentas e aplicativos MongoDB existentes.
-        * [API do Cassandra](cassandra-introduction.md): um Cassandra como serviço distribuído globalmente, da plataforma Azure Cosmos DB. Compatível com bibliotecas, drivers, ferramentas e aplicativos [Apache Cassandra](https://cassandra.apache.org/) existentes.
-        * [API do Gremlin](graph-introduction.md): um serviço de banco de dados de grafo totalmente gerenciado e escalável, que facilita a criação e execução de aplicativos que funcionam com conjuntos de dados altamente conectados, compatíveis com APIs do Open Gremlin (baseadas nas especificações do [Apache TinkerPop](https://tinkerpop.apache.org/), Apache Gremlin).
-        * [API de Tabela](table-introduction.md): um serviço de banco de dados de chave-valor criado para fornecer recursos premium (por exemplo, indexação automática, garantia de baixa latência, distribuição global) para aplicativos de armazenamento de tabela do Azure existentes sem fazer alterações no aplicativo.
-        * Modelos de dados e APIs adicionais em breve!
+O Cosmos DB permite que você crie aplicativos altamente responsivos e altamente disponíveis em todo o mundo. O Cosmos DB replica seus dados de forma transparente onde quer que seus usuários estejam, de modo que os usuários podem interagir com uma réplica dos dados mais próximos deles.
 
-* **Dimensionar elasticamente a taxa de transferência e o armazenamento sob demanda, em todo o mundo**
-    * Dimensione facilmente a taxa de transferência do banco de dados em uma granularidade [por segundo](request-units.md) e altere-a sempre que desejar. 
-    * Dimensione o tamanho do armazenamento [de forma transparente e automática](partition-data.md) para cobrir a seus requisitos de tamanho agora e para sempre.
+O Cosmos DB permite que você adicione ou remova qualquer uma das regiões do Azure à sua conta do Cosmos a qualquer momento, com um clique de um botão. O Cosmos DB replicará perfeitamente os dados para todas as regiões associadas à sua conta do Cosmos, enquanto seu aplicativo continuará a ser altamente disponível graças às funcionalidades de hospedagem múltipla do serviço.
 
-* **Criar aplicativos altamente responsivos e críticos**
-    * O Azure Cosmos DB garante aos seus clientes uma baixa latência de ponta a ponta no 99º percentil. 
-    * Para um item típico de 1 KB, o Cosmos BD garante a latência ponta a ponta de leituras em até 10 ms e gravações indexadas até 10 ms no 99º percentil, na mesma região do Azure. As latências medianas são significativamente menores (abaixo de 5 ms).
+Para obter mais informações, confira o artigo [distribuição global](distribute-data-globally.md).
 
-* **Garantir disponibilidade "sempre ativa"**
-    * SLA de disponibilidade de 99,99% para todas as contas de banco de dados de uma única região e disponibilidade de leitura de 99,999% em todas as contas de banco de dados de várias regiões.
-    * Implante em qualquer número de [regiões do Azure](https://azure.microsoft.com/regions) para maior disponibilidade e melhor desempenho.
-    * Defina, dinamicamente, prioridades para regiões e [simule uma falha](high-availability.md) de uma ou mais regiões com garantia de zero de perda de dados para testar a disponibilidade ponta a ponta do aplicativo (além de apenas o banco de dados). 
+### <a name="always-on"></a>Always "On"
 
-* **Escrever aplicativos distribuídos globalmente, da maneira correta**
-    * Cinco [modelos de consistência](consistency-levels.md) bem definidos, práticos e intuitivos fornecem um espectro de consistência forte semelhante a SQL até a consistência final do tipo NoSQL, e todas as ações relacionadas. 
-  
-* **Garantia do dinheiro de volta**
-    * Os principais [contratos de nível de serviço](https://aka.ms/acdbsla) (SLAs), abrangentes e com suporte financeiro, para disponibilidade, latência, taxa de transferência e consistência para seus dados essenciais. 
+Em virtude da profunda integração à infraestrutura do Azure e a [replicação de vários mestres transparente](global-dist-under-the-hood.md), o Cosmos DB fornece 99,999% [de alta disponibilidade](high-availability.md) para leituras e gravações. O Cosmos DB também fornece a capacidade de invocar programaticamente (ou por meio do portal) o failover regional de sua conta do Cosmos. Essa funcionalidade ajuda você a assegurar que, embora um banco de dados do Cosmos possa fazer failover automaticamente, o restante do seu aplicativo também é projetado para failover se há um desastre regional.
 
-* **Sem gerenciamento de esquema/índice de banco de dados**
-    * Itere rapidamente o esquema do seu aplicativo sem se preocupar com o esquema do banco de dados e/ou com o gerenciamento de índice.
-    * O mecanismo de banco de dados do Azure Cosmos DB é completamente independente de esquema: ele indexa automaticamente todos os dados que ingere sem a necessidade de qualquer esquema ou índice e proporciona consultas incrivelmente rápidas. 
+### <a name="elastic-scalability-of-throughput-and-storage-worldwide"></a>A escalabilidade de taxa de transferência e armazenamento em todo o mundo
 
-* **Baixo custo de propriedade**
-    * Cinco a dez vezes mais econômico do que uma solução não gerenciada ou uma solução NoSQL no local.
-    * Três vezes mais barato do que AWS DynamoDB ou Spanner do Google.
+Projetado com o particionamento horizontal transparente e a replicação de vários mestres, o Cosmos DB oferece escalabilidade elástica sem precedentes para suas gravações e leituras, no mundo todo. Elasticamente, você pode expandir de milhares a centenas de milhões de solicitações/s em todo o mundo, com uma única chamada à API, pagando apenas pela taxa de transferência (e armazenamento) necessários. Essa funcionalidade ajuda você a lidar com picos inesperados em suas cargas de trabalho sem a necessidade de sobreprovisionar para o horário de pico. Confira [particionamento no Cosmos DB](partitioning-overview.md), [taxa de transferência provisionada em contêineres e bancos de dados](set-throughput.md) e [dimensionar a taxa de transferência provisionada globalmente](scaling-throughput.md).
 
-## <a name="capability-comparison"></a>Comparação de funcionalidade
+### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Baixa latência garantida no 99º percentil, no mundo todo
 
-O Azure Cosmos DB fornece as melhores funcionalidades de bancos de dados relacionais tradicionais e não relacionais.
+Usando o Cosmos DB, você pode criar aplicativos de escala mundial altamente dinâmicos. Com seu novo protocolo de replicação de vários mestres e o [mecanismo de banco de dados otimizado para gravação](index-policy.md) e sem trava, o Cosmos DB garante latências inferiores a 10 ms para gravações e leituras (indexadas) no 99º percentil, no mundo todo. Essa funcionalidade permite a ingestão prolongada de dados e consultas extremamente rápidas para aplicativos altamente responsivos.
 
-| Funcionalidades | Bancos de dados relacionais   | Bancos de dados não relacionais (NoSQL) |    Azure Cosmos DB |
-| --- | --- | --- | --- |
-| Distribuição global | Não  | Não  | Sim, a distribuição turnkey em 30 + regiões, com as APIs de hospedagem múltipla|
-| Escala horizontal | Não  | SIM | Sim, você pode dimensionar de maneira independente o armazenamento e a taxa de transferência | 
-| Garantias de latência | Não  | SIM | Sim, 99% de leituras em < 10 ms e gravações em < 10 ms | 
-| Alta disponibilidade | Não  | SIM | Sim, o Azure Cosmos DB está sempre ativo, tem compensações PACELC bem definidas e fornece opções de failover automático e manual|
-| Modelo de dados + API | Relacional + SQL | Multimodelo + API OSS | Multimodelo + SQL + API OSS |
-| SLAs | SIM | Não  | Sim, SLAs abrangentes de latência, taxa de transferência, consistência e disponibilidade |
+### <a name="precisely-defined-multiple-consistency-choices"></a>Precisamente definidas, várias opções de consistência
+
+Você não precisa mais fazer [compensações extremas entre consistência, disponibilidade, latência e programabilidade](consistency-levels-tradeoffs.md). O protocolo de replicação de vários mestres do Cosmos DB foi cuidadosamente projetado para oferecer [cinco opções de consistência bem definidas](consistency-levels.md) – forte, desatualização limitada, prefixo consistente, sessão e eventual – para um modelo de programação intuitivo com baixa latência e alta disponibilidade para seu aplicativo globalmente distribuído.
+
+### <a name="no-schema-or-index-management"></a>Sem gerenciamento de esquema ou de índice
+
+Manter o esquema de banco de dados e índices em sincronia com o esquema de um aplicativo é especialmente difícil para aplicativos distribuídos globalmente. No entanto, com o Cosmos DB, você não precisa lidar com esquemas ou índices. O mecanismo de banco de dados é completamente independente de esquemas.  Já que nenhum gerenciamento de esquema e de índice é necessário, você também não precisa se preocupar com tempo de inatividade do aplicativo ao migrar esquemas. O Cosmos DB [indexa automaticamente todos os dados](index-policy.md) – sem esquema, sem necessidade de nenhum índice – e serve consultas rapidamente.
+
+### <a name="battle-tested-database-service"></a>Serviço de banco de dados testado na prática
+
+O Cosmos DB é um serviço básico no Azure. Por quase uma década, o Cosmos DB foi usado por muitos dos produtos da Microsoft para aplicativos críticos em escala global, incluindo Skype, Xbox, Office 365, Azure e muitos outros. Atualmente, o Cosmos DB é um dos serviços de crescimento mais rápido no Azure que é usado por muitos aplicativos e clientes externos que exigem escala elástica e/ou replicação de vários mestres, várias regiões ou vários datacenters, buscando baixa latência e alta disponibilidade em leituras e gravações.
+
+### <a name="ubiquitous-regional-presence"></a>Presença regional em todos os lugares
+
+O Cosmos DB está disponível em todas as regiões do Azure em todo o mundo, incluindo 54+ regiões na nuvem pública, Azure China 21Vianet, Azure Alemanha, Azure Governamental e Azure Governamental para o DoD (Departamento de Defesa). Confira [Presença regional do Cosmos DB](regional-presence.md).
+
+### <a name="secure-by-default-and-enterprise-ready"></a>Seguro por padrão e pronto para empresas
+
+O Cosmos DB é certificado para uma [vasta gama de padrões de conformidade](compliance.md). Além disso, todos os dados no Cosmos DB são criptografados em repouso e em movimento. O Cosmos DB fornece autorização de nível de linha e obedece a padrões de segurança rígidos.
+
+### <a name="significant-tco-savings"></a>Economias de TCO significativas
+
+Já que o Cosmos DB é um serviço totalmente gerenciado, você não precisa gerenciar e operar implantações complexas em vários datacenters e atualizações do software de banco de dados, nem pagar por suporte, licenciamento ou operações. Confira [Otimizar o custo com o Cosmos DB](total-cost-ownership.md).
+
+### <a name="industry-leading-comprehensive-slas"></a>SLAs abrangentes líderes do setor
+
+O Cosmos DB é o primeiro e único serviço a oferecer [SLAs abrangentes líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/), incluindo alta disponibilidade de 99,999%, latência de leitura e de gravação no 99º percentil, taxa de transferência garantida e consistência.
+
+### <a name="apache-spark--cosmos-db--operational-analytics-at-global-scale"></a>Apache Spark + Cosmos DB = análise operacional em escala global
+
+Você pode executar o [Spark](spark-connector.md) em dados armazenados no Cosmos DB. Essa funcionalidade permite que você realize a análise operacional de baixa latência em escala global sem afetar a cargas de trabalho transacionais, operando diretamente com o Cosmos DB.
+
+### <a name="develop-applications-for-cosmos-db-using-popular-nosql-apis"></a>Desenvolver aplicativos para o Cosmos DB usando APIs populares do NoSQL
+
+O Cosmos DB oferece uma variedade de APIs para atualizar e consultar os dados armazenados em seu banco de dados do Cosmos. Por padrão, [você pode usar o SQL](how-to-sql-query.md) para atualizar e consultar seus dados no seu banco de dados do Cosmos.
+
+O Cosmos DB também implementa protocolos de transmissão do [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) e [Armazenamento de Tabelas do Azure](table-introduction.md) diretamente no serviço. Isso permite que você aponte os drivers de cliente (e ferramentas) para as APIs de NoSQL comumente usadas diretamente para seu banco de dados do Cosmos. Oferecendo suporte aos protocolos de transmissão de APIs de NoSQL comumente usadas, o Cosmos DB permite que você:
+
+* Migre facilmente seu aplicativo para o Cosmos DB, preservando as partes significativas da lógica do aplicativo.
+* Mantenha seu aplicativo portátil e independente de fornecedores de nuvem.
+* Obtenha SLAs líderes do setor, com suporte financeiro, para as APIs comuns do NoSQL. 
+* Dimensione elasticamente a taxa de transferência provisionada e o armazenamento para seus bancos de dados com base na sua necessidade e pague somente pela taxa de transferência e o armazenamento que você precisa. Isso resulta em economia de custo significativa.
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluções que se beneficiam do Azure Cosmos DB
 
 Qualquer aplicativo [Web, móvel, de jogos ou IoT](use-cases.md) que precisa lidar com grandes quantidades de dados, lê e escreve em uma escala [global](distribute-data-globally.md) com tempos de resposta quase reais para uma variedade de dados, se beneficiarão da alta disponibilidade, alta taxa de transferência, baixa latência e consistência ajustável [garantidas](https://azure.microsoft.com/support/legal/sla/cosmos-db/) do Azure Cosmos DB. Saiba como o Azure Cosmos DB pode ser aplicado a [IoT e telemática](use-cases.md#iot-and-telematics), [varejo e marketing](use-cases.md#retail-and-marketing), [jogos](use-cases.md#gaming), [Web e aplicativos móveis](use-cases.md#web-and-mobile-applications).
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Leia mais sobre as funcionalidades de [distribuição global](distribute-data-globally.md) e [particionamento](partitioning-overview.md) do Cosmos DB.
+
 Comece no Azure Cosmos DB com um dos nossos guias de início rápido:
 
 * [Introdução à API de SQL do Azure Cosmos DB](create-sql-api-dotnet.md)
-* [Introdução à API MongoDB do Azure Cosmos DB](create-mongodb-nodejs.md)
+* [Introdução à API do MongoDB do Azure Cosmos DB](create-mongodb-nodejs.md)
 * [Introdução à API Cassandra do Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Introdução à API do Gremlin do Azure Cosmos DB](create-graph-dotnet.md)
 * [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)

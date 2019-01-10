@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 03d7c63d09ddaf64a552a4534612f0f7e9fd249b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 66c6b6908a225301f0bce9f70b43e96047bcd6d1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312360"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791138"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Apache Kafka no cluster HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Apache Kafka no cluster do HDInsight
 
 O [Apache Kafka](https://kafka.apache.org/) é uma plataforma de streaming distribuída de software livre. Ela é geralmente usada como um agente de mensagens, pois fornece funcionalidade semelhante a uma fila de mensagens para publicação e assinatura. 
 
@@ -23,7 +23,7 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > A API do Kafka só pode ser acessada por recursos dentro da mesma rede virtual. Neste início rápido, você acessará o cluster diretamente no SSH. Para conectar a outros serviços, redes ou máquinas virtuais ao Kafka, primeiro crie uma rede virtual e, depois, crie os recursos na rede.
 >
 > Para saber mais, confira o documento [Conectar-se ao Apache Kafka usando uma rede virtual](apache-kafka-connect-vpn-gateway.md).
@@ -40,7 +40,7 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
 
     * [Instale o Subsistema do Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10). As distribuições do Linux disponíveis por meio da Microsoft Store fornecem o comando `ssh`.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > As etapas neste documento pressupõem que você esteja usando um dos clientes SSH mencionados acima. Se você estiver usando um cliente SSH diferente e encontrar problemas, consulte a documentação de seu cliente SSH.
     >
     > Para saber mais, consulte o documento [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -68,7 +68,7 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
 
 3. Selecione **Concordo com os termos e condições declarados acima**, selecione **Fixar no painel**e, em seguida, clique em **Comprar**.
 
-> [!NOTE]
+> [!NOTE]  
 > Pode levar até 20 minutos para criar o cluster.
 
 ## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
@@ -94,7 +94,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.
@@ -135,7 +135,7 @@ Nesta seção, você obtém as informações do host da API REST Ambari no clust
 
     Ao receber a solicitação, insira a senha para a conta de logon do cluster (não da conta de SSH).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Esse comando recupera todos os hosts de Zookeeper, depois retorna apenas as duas primeiras entradas. Isso ocorre porque você deseja certa redundância no caso de um host ficar inacessível.
 
 4. Para verificar se a variável de ambiente é definida corretamente, use o seguinte comando:
@@ -182,14 +182,14 @@ O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `k
 
     * Cada partição é replicada em três nós de trabalho no cluster.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Se você tiver criado o cluster em uma região do Azure que fornece três domínios de falha, use um fator de replicação de 3. Caso contrário, use um fator de replicação de 4.
         
         Em regiões com três domínios de falha, um fator de replicação de 3 permite a distribuição das réplicas entre os domínios de falha. Em regiões com dois domínios de falha, um fator de replicação de quatro permite a distribuição uniforme das réplicas entre os domínios.
         
         Para obter informações sobre o número de domínios de falha em uma região, consulte o documento [Disponibilidade de máquinas virtuais do Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-        > [!IMPORTANT] 
+        > [!IMPORTANT]   
         > O Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas da partição para tópicos, ele não poderá distribuir réplicas corretamente para alta disponibilidade.
 
         Para garantir a alta disponibilidade, use a [Ferramenta de redistribuição de partição do Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Essa ferramenta deve ser executada em uma sessão SSH para o nó principal do seu cluster Kafka.
@@ -216,7 +216,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `k
 
     Esse comando exclui o tópico chamado `topicname`.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Se você excluir o tópico `test` criado anteriormente, deverá recriá-lo. Isso é usado em etapas posteriores neste documento.
 
 Para saber mais sobre os comandos disponíveis com o utilitário `kafka-topics.sh`, use o seguinte comando:
@@ -249,16 +249,16 @@ Para armazenar registros no tópico teste criado anteriormente e lê-los usando 
    
     Esse comando recupera os registros do tópico e os exibe. O uso de `--from-beginning` instrui o consumidor a começar do início do fluxo, para que todos os registros sejam recuperados.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Se estiver usando uma versão mais antiga do Kafka, substitua `--bootstrap-server $KAFKABROKERS` por `--zookeeper $KAFKAZKHOSTS`.
 
 4. Use __Ctrl + C__ para interromper o consumidor.
 
-Você também pode criar programaticamente produtores e consumidores. Para obter um exemplo de como usar essa API, consulte o documento [API do Produtor e Consumidor do Apache Kafka com HDInsight](apache-kafka-producer-consumer-api.md).
+Você também pode criar programaticamente produtores e consumidores. Para obter um exemplo de como usar essa API, confira o documento [API do Produtor e Consumidor do Apache Kafka com HDInsight](apache-kafka-producer-consumer-api.md).
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](../hdinsight-administer-use-portal-linux.md#create-clusters).
+Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -270,7 +270,7 @@ Para remover o grupo de recursos usando o portal do Azure:
 2. Localize o grupo de recursos a ser excluído e clique com o botão direito do mouse no botão __Mais__ (...) do lado direito da lista.
 3. Selecione __Excluir grupo de recursos__ e confirme.
 
-> [!WARNING]
+> [!WARNING]  
 > A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado.
 > 
 > Excluir um Kafka no cluster HDInsight exclui todos os dados armazenados no Kafka.

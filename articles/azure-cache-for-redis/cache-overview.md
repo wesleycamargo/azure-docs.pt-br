@@ -14,16 +14,16 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 1f41172a493f3e5e1b98cbba32b0180cee16c072
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eab4365b6b86a82f29dbd1a79d4fda6dc9b30e0e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018558"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971317"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>O que é o Cache do Azure para Redis
 
-O Cache do Azure para Redis baseia-se no popular [Cache do Azure para Redis](https://redis.io/) de software livre. Normalmente, ele é usado como um cache para melhorar o desempenho e a escalabilidade de sistemas que dependem fortemente de armazenamentos de dados de back-end. O desempenho é aprimorado com a cópia temporária dos dados acessados com frequência para um armazenamento rápido localizado próximo ao aplicativo. Com o [Cache do Azure para Redis](https://redis.io/), esse armazenamento rápido está localizado na memória com o Cache do Azure para Redis, em vez de ser carregado do disco por um banco de dados.
+O Cache Redis do Azure é baseado no popular software [Redis](https://redis.io/). Normalmente, ele é usado como um cache para melhorar o desempenho e a escalabilidade de sistemas que dependem fortemente de armazenamentos de dados de back-end. O desempenho é aprimorado com a cópia temporária dos dados acessados com frequência para um armazenamento rápido localizado próximo ao aplicativo. Com o [Cache do Azure para Redis](https://redis.io/), esse armazenamento rápido está localizado na memória com o Cache do Azure para Redis, em vez de ser carregado do disco por um banco de dados.
 
 O Cache do Azure para Redis também pode ser usado como um repositório de estrutura de dados na memória, um banco de dados não relacional distribuído e um agente de mensagens. O desempenho do aplicativo é aprimorado com o uso da baixa latência, do desempenho de alta taxa de transferência do mecanismo Redis.
 

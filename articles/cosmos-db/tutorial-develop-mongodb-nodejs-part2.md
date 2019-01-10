@@ -1,25 +1,26 @@
 ---
-title: Aplicativo do Node.js e do Angular usando a API do MongoB (parte 2)
+title: Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – criar um aplicativo Node.js Express
 titleSuffix: Azure Cosmos DB
 description: Parte 2 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 842a321f63bce11207e6144705e9c4f68df21760
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.reviewer: sngun
+ms.openlocfilehash: bcc0d69024954b0b8cbf58fb3eac938ff3e1b0e6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133951"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039853"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app"></a>Criar um aplicativo do MongoDB com o Angular e o Azure Cosmos DB – Parte 2: Criar um aplicativo Express Node.js
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – criar um aplicativo Node.js Express
 
-Este tutorial com várias partes demonstra como criar uma novo aplicativo [API do MongoDB](mongodb-introduction.md) escrito em Node.js com Express, Angular e seu banco de dados do Azure Cosmos DB.
+Este tutorial com várias partes demonstra como criar um aplicativo escrito em Node.js com o Express e o Angular e conectá-lo à sua [conta do Cosmos configurada com a API do Cosmos DB para MongoDB](mongodb-introduction.md).
 
 A Parte 2 do tutorial se baseia na [introdução](tutorial-develop-mongodb-nodejs.md) e inclui as seguintes tarefas:
 

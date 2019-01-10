@@ -1,19 +1,20 @@
 ---
-title: APIs e ferramentas do Lote do Azure para desenvolvedores | Microsoft Docs
+title: APIs e ferramentas para desenvolvedores – Lote do Azure | Microsoft Docs
 description: Saiba mais sobre as APIs e ferramentas disponíveis para o desenvolvimento de soluções com o serviço de Lote do Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 06/18/2018
-ms.author: danlep
-ms.openlocfilehash: c6715242ab1a2fd60f876ee97558715ed54c5e18
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 7335a5c61b46fab2da4054fdc0b8c9bbe05a148a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239603"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537470"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Visão geral das ferramentas e APIs de Lote
 
@@ -59,16 +60,16 @@ As APIs do Azure Resource Manager para o Lote fornecem acesso programático a co
 
 Essas ferramentas de linha de comando fornecem a mesma funcionalidade que o serviço do Lote e as APIs de gerenciamento do Lote: 
 
-* [Cmdlets do PowerShell do Lote][batch_ps]: os cmdlets do Lote do Azure no módulo do [Azure PowerShell](/powershell/azure/overview) permitem que você gerencie recursos do Lote com o PowerShell.
-* [CLI do Azure](/cli/azure): a CLI do Azure é um conjunto de ferramentas de plataforma cruzada que fornece comandos do shell para interação com muitos serviços do Azure, incluindo o serviço de Lote e o serviço de Gerenciamento de lotes. Consulte [Gerenciar recursos do Lote de com a CLI do Azure](batch-cli-get-started.md) para obter mais informações sobre como usar a CLI do Azure com o Lote.
+* [Cmdlets do PowerShell do Lote][batch_ps]: Os cmdlets do Lote do Azure no módulo do [Azure PowerShell](/powershell/azure/overview) permitem que você gerencie recursos do Lote com o PowerShell.
+* [CLI do Azure](/cli/azure): A CLI do Azure é um conjunto de ferramentas multiplataforma que fornece comandos do shell para interação com muitos serviços do Azure, incluindo o serviço de Lote e o serviço de Gerenciamento de Lote. Consulte [Gerenciar recursos do Lote de com a CLI do Azure](batch-cli-get-started.md) para obter mais informações sobre como usar a CLI do Azure com o Lote.
 
 ## <a name="other-tools-for-application-development"></a>Outras ferramentas para desenvolvimento de aplicativos
 
 Aqui estão algumas ferramentas adicionais que podem ser úteis para compilar e depurar seus aplicativos e serviços do Lote:
 
-* [Portal do azure][portal]: você pode criar, monitorar e excluir pools, trabalhos e tarefas do Lote no portal do Azure. Você pode exibir as informações de status para esses e outros recursos ao executar seus trabalhos e até mesmo baixar arquivos de nós de computação em seus pools. Por exemplo, você pode baixar uma `stderr.txt` de uma tarefa com falha durante a solução de problemas. Você também pode baixar arquivos da área de trabalho remota (RDP) que pode usar para fazer logon em nós de computação.
-* [Azure Batch Explorer][batch_labs]: O Batch Explorer (anteriormente chamado de BatchLabs) é uma ferramenta de cliente autônoma, gratuita e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do Lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows.
-* [Gerenciador de Armazenamento do Microsoft Azure][storage_explorer]: embora não seja estritamente uma ferramenta do Lote do Azure, o Gerenciador de Armazenamento é outra ferramenta valiosa a ser usada durante o desenvolvimento e a depuração de suas soluções do Lote.
+* [Portal do Azure][portal]: Crie, monitore e exclua pools, trabalhos e tarefas do Lote no portal do Azure. Você pode exibir as informações de status para esses e outros recursos ao executar seus trabalhos e até mesmo baixar arquivos de nós de computação em seus pools. Por exemplo, você pode baixar uma `stderr.txt` de uma tarefa com falha durante a solução de problemas. Você também pode baixar arquivos da área de trabalho remota (RDP) que pode usar para fazer logon em nós de computação.
+* [Azure Batch Explorer][batch_labs]: O Batch Explorer (anteriormente chamado de BatchLabs) é uma ferramenta de cliente gratuita, autônoma e repleta de recursos para ajudar a criar, depurar e monitorar aplicativos do Lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows.
+* [Gerenciador de Armazenamento do Microsoft Azure][storage_explorer]: Embora não seja estritamente uma ferramenta do Lote do Azure, o Gerenciador de Armazenamento é outra ferramenta útil a ser usada durante o desenvolvimento e a depuração das soluções do Lote.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -85,8 +86,8 @@ Aqui estão algumas ferramentas adicionais que podem ser úteis para compilar e 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch
 [api_java_mgmt]: /java/api/overview/azure/batch/managementapi
-[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
-[api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
+[api_java_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
+[api_java_mgmt_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: /dotnet/api/overview/azure/batch/
 [api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [api_rest_mgmt]: /rest/api/batchmanagement/
@@ -109,5 +110,5 @@ Aqui estão algumas ferramentas adicionais que podem ser úteis para compilar e 
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [batch_labs]: https://azure.github.io/BatchExplorer/
-[storage_explorer]: http://storageexplorer.com/
+[storage_explorer]: https://storageexplorer.com/
 [portal]: https://portal.azure.com

@@ -1,21 +1,19 @@
 ---
 title: Script da CLI do Azure – Restaurar um servidor de Banco de Dados do Azure para MariaDB
 description: Esse script de exemplo de CLI do Azure mostra como restaurar um servidor do Banco de Dados do Azure para MariaDB e seus bancos de dados a um ponto anterior.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: 5c7e3f96488ef5142c19920b7f14282fe3c89b9a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2d294f5b43ba3fb7587ca1d03903e39d75291754
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585124"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544372"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Restaurar um servidor do Banco de Dados do Azure para MariaDB usando a CLI do Azure
 Esse script de exemplo do CLI restaura um servidor do Banco de Dados do Azure para MariaDB individual a um ponto anterior.
@@ -43,5 +41,5 @@ Esse script usa os comandos descritos na tabela abaixo:
 | [az group delete](/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para ler mais sobre a CLI do Azure: [documentação da CLI do Azure](/cli/azure).
-- Experimente scripts adicionais: [exemplos da CLI do Azure para o Banco de Dados do Azure para MariaDB](../sample-scripts-azure-cli.md)
+- Leia mais sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
+- Experimente scripts adicionais: [Amostras da CLI do Azure para o Banco de Dados do Azure para MariaDB](../sample-scripts-azure-cli.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Usar o Azure Key Vault com um aplicativo Web do Azure no .NET | Microsoft Docs
+title: Tutorial – Usar o Azure Key Vault com um aplicativo Web do Azure no .NET – Azure Key Vault | Microsoft Docs
 description: Tutorial - Configurar um aplicativo ASP.NET Core para ler um segredo no Key Vault
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b6dbae0f721983920c2073927fff74100528678e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322134"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998788"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Usar o Azure Key Vault com um aplicativo Web do Azure no .NET
 
 O Azure Key Vault ajuda a proteger segredos, como chaves de API e cadeias de conexão de banco de dados. Ele fornece acesso aos seus aplicativos, serviços e recursos de TI.
 
-Neste tutorial, você aprenderá a criar um aplicativo Web do Azure que possa ler informações do Azure Key Vault. O processo usa identidades gerenciadas para recursos do Azure. Para obter mais informações sobre aplicativos Web do Azure, confira [Aplicativos Web do Azure](../app-service/app-service-web-overview.md).
+Neste tutorial, você aprenderá a criar um aplicativo Web do Azure que possa ler informações do Azure Key Vault. O processo usa identidades gerenciadas para recursos do Azure. Para obter mais informações sobre aplicativos Web do Azure, confira [Serviço de Aplicativo do Azure](../app-service/overview.md).
 
 O artigo mostra como:
 
@@ -256,4 +256,4 @@ Você acabou de criar com êxito um aplicativo Web no .NET, o qual armazena e ag
 ## <a name="next-steps"></a>Próximas etapas
 
 >[!div class="nextstepaction"]
->[Guia do Desenvolvedor do Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Guia do Desenvolvedor do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

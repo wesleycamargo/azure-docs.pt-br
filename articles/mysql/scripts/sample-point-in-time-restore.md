@@ -1,22 +1,19 @@
 ---
 title: Script da CLI do Azure – Restaurar um servidor de Banco de Dados do Azure para MySQL
 description: Esse script de exemplo de CLI do Azure mostra como restaurar um servidor de Banco de Dados do Azure para MySQL e seus bancos de dados a um ponto anterior.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 9017732eb880ff88b041073ca9cb7aca97f9b693
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7bc4b1533da272bed9b7b7b8a0abe9b509e02386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581027"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545103"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Restaurar um servidor Banco de Dados do Azure para MySQL usando a CLI do Azure
 Esse script de exemplo do CLI restaura um servidor de Banco de Dados individual do Azure para MySQL a um ponto anterior.
@@ -44,5 +41,5 @@ Esse script usa os comandos descritos na tabela abaixo:
 | [az group delete](/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para ler mais sobre a CLI do Azure: [documentação da CLI do Azure](/cli/azure).
-- Experimente scripts adicionais: [exemplos da CLI do Azure para o Banco de Dados do Azure para MySQL](../sample-scripts-azure-cli.md)
+- Leia mais sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
+- Experimente scripts adicionais: [Exemplos da CLI do Azure para o Banco de Dados do Azure para MySQL](../sample-scripts-azure-cli.md)

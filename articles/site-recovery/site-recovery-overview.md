@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5942f27313cf8bb6a9ed8bf0a5cc4fb556693065
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2cd9e89c92b2bed75c52654d779f4f7d8c17596e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832217"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975314"
 ---
 # <a name="about-site-recovery"></a>Sobre o Azure Site Recovery
 
@@ -23,8 +23,8 @@ Como uma organização, você precisa adotar uma estratégia de BCDR (continuida
 
 Os Serviços de Recuperação do Azure contribuem para sua estratégia BCDR:
 
-- **Serviço do Site Recovery**: o Site Recovery ajuda a garantir a continuidade dos negócios por manter os aplicativos de negócios e cargas de trabalho funcionado durante interrupções. O Site Recovery replica as cargas de trabalho em execução em máquinas físicas e virtuais (VMs) de um site primário para um local secundário. Quando uma interrupção ocorre no seu site primário, você faz failover para o local secundário e acessa os aplicativos a partir daí. Depois que a localização primária estiver novamente em execução, você poderá fazer failback a ela.  
-- **Serviço de Backup**: o serviço [Backup do Azure](https://docs.microsoft.com/azure/backup/) mantém seus dados seguros e recuperáveis fazendo o backup para o Azure.
+- **Serviço do Site Recovery**: O Site Recovery ajuda a garantir a continuidade dos negócios mantendo os aplicativos de negócios e as cargas de trabalho em execução durante interrupções. O Site Recovery replica as cargas de trabalho em execução em máquinas físicas e virtuais (VMs) de um site primário para um local secundário. Quando uma interrupção ocorre no seu site primário, você faz failover para o local secundário e acessa os aplicativos a partir daí. Depois que a localização primária estiver novamente em execução, você poderá fazer failback a ela.  
+- **Serviço de Backup**: O serviço [Backup do Azure](https://docs.microsoft.com/azure/backup/) mantém seus dados seguros e recuperáveis fazendo backup deles no Azure.
 
 O Site Recovery pode gerenciar a replicação para:
 

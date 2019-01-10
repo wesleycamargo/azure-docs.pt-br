@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091383"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651940"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início Rápido: Use o editor de consultas SQL do portal do Azure para se conectar e consultar dados
 
-O editor de consultas SQL é uma ferramenta de navegador do portal do Azure que fornece uma maneira fácil de executar consultas SQL em seu Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure. Este guia rápido demonstra o uso do editor de consultas para se conectar a um Banco de Dados SQL e executar instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados.
+O editor de consultas SQL é uma ferramenta de navegador do portal do Azure que fornece uma maneira fácil de executar consultas SQL em seu Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure. Neste guia rápido, você usará o editor de consultas para se conectar a um Banco de Dados SQL e executar instruções Transact-SQL para consultar, inserir, atualizar e excluir dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,7 +70,7 @@ Configurar um administrador do AD (Active Directory) permite que você use uma �
 
 4. Na barra de ferramentas da página de administrador do AD, selecione **Salvar**.
 
-5. Navegue até o banco de dados **mySampleDatabase** e, no menu esquerdo, selecione **Editor de consultas (versão prévia)**. A página **Logon** é exibida. Se você for um administrador do AD, no lado direito, em **Logon único do Active Directory**, será exibida uma mensagem informando que foi feito seu logon. 
+5. Navegue até o banco de dados **mySampleDatabase** e, no menu esquerdo, selecione **Editor de consultas (versão prévia)**. A página **Logon** é exibida. Se você for um administrador do AD, no lado direito, em **Logon único do Active Directory**, será exibida uma mensagem informando que você está conectado. 
    
 6. Selecione **OK**.
 
@@ -92,7 +92,7 @@ Configurar um administrador do AD (Active Directory) permite que você use uma �
 
 ## <a name="insert-data"></a>Inserir dados
 
-Use a seguinte instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) do Transact-SQL para adicionar um novo produto à tabela `SalesLT.Product`.
+Execute a instrução Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) a seguir para adicionar um novo produto à tabela `SalesLT.Product`.
 
 1. Substitua a consulta anterior por esta.
 
@@ -117,12 +117,12 @@ Use a seguinte instrução [INSERT](https://msdn.microsoft.com/library/ms174335.
    ```
 
 
-2. Selecione **Executar** para inserir uma nova linha na tabela Product. O painel **Mensagens** exibe **Êxito na consulta: Linhas afetadas: 1**.
+2. Selecione **Executar** para inserir uma nova linha na tabela `Product`. O painel **Mensagens** exibe **Êxito na consulta: Linhas afetadas: 1**.
 
 
 ## <a name="update-data"></a>Atualizar dados
 
-Use a seguinte instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) do Transact-SQL para modificar seu novo produto.
+Execute a instrução Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) a seguir para modificar o novo produto.
 
 1. Substitua a consulta anterior por esta.
 
@@ -132,11 +132,11 @@ Use a seguinte instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **Executar** para atualizar a linha especificada na tabela Product. O painel **Mensagens** exibe **Êxito na consulta: Linhas afetadas: 1**.
+2. Selecione **Executar** para atualizar a linha especificada na tabela `Product`. O painel **Mensagens** exibe **Êxito na consulta: Linhas afetadas: 1**.
 
 ## <a name="delete-data"></a>Excluir dados
 
-Use a seguinte instrução Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) para remover seu novo produto.
+Execute a instrução Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) a seguir para remover o novo produto.
 
 1. Substitua a consulta anterior por esta:
 
@@ -145,7 +145,7 @@ Use a seguinte instrução Transact-SQL [DELETE](https://msdn.microsoft.com/libr
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **Executar** para excluir a linha especificada na tabela Product. O painel **Mensagens** exibe **Êxito na consulta: Linhas afetadas: 1**.
+2. Selecione **Executar** para excluir a linha especificada da tabela `Product`. O painel **Mensagens** exibe **Êxito na consulta: Linhas afetadas: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Considerações sobre o editor de consultas
@@ -156,7 +156,7 @@ Há algumas coisas que se deve saber ao trabalhar com o editor de consultas.
 
 * Pressionar F5 atualiza a página do editor de consultas e qualquer consulta em que se esteja trabalhando é perdida.
 
-* O editor de consultas não dá suporte a se conectar ao banco de dados mestre.
+* O editor de consultas não dá suporte à conexão com o banco de dados `master`.
 
 * Há um tempo limite de 5 minutos para a execução da consulta.
 

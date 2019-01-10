@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162624"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714570"
 ---
-# <a name="integrate-speech-service"></a>Integrar Serviço de Fala
+# <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integrar o Serviço de Fala ao seu aplicativo de Reconhecimento vocal
 O [Serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite que você use uma única solicitação para receber áudio e retornar objetos JSON de previsão LUIS. Neste artigo, você pode baixar e usar um projeto C# no Visual Studio para falar uma expressão em um microfone e receber informações de previsão LUIS. O projeto usa o pacote [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Fala, já está incluído como referência. 
 
 Para este artigo, você precisa de uma conta de website gratuita de [LUIS][LUIS] para importar aplicativo.
@@ -27,7 +27,7 @@ Para este artigo, você precisa de uma conta de website gratuita de [LUIS][LUIS]
 No portal do Azure, [crie](luis-how-to-azure-subscription.md#create-luis-endpoint-key) uma chave de **Serviço Inteligente de Reconhecimento Vocal** (LUÍS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importar aplicativo LUIS de Recursos Humanos
-As intenções e expressões deste artigo são do aplicativo LUIS de Recursos Humanos disponível no repositório do GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Baixe o arquivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), salve-o com a extensão `.json` e [importe](luis-how-to-start-new-app.md#import-new-app)-o no LUIS. 
+As intenções e os enunciados deste artigo foram retirados do aplicativo LUIS de Recursos Humanos disponível no repositório GitHub [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Baixe o arquivo [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), salve-o com a extensão `.json` e [importe](luis-how-to-start-new-app.md#import-new-app)-o no LUIS. 
 
 Este aplicativo tem intenções, entidades e expressões relacionadas com o domínio Recursos Humanos. Expressões de exemplo incluem:
 
@@ -62,7 +62,7 @@ Depois de importar o aplicativo, selecione **Entidades**, em seguida, **Adiciona
 Este artigo usa o dispositivo de áudio no seu computador. Isso pode ser um fone de ouvido com microfone ou um dispositivo de áudio interno. Verifique os níveis de entrada de áudio para ver se você deve falar mais alto do que faria normalmente para que sua fala seja detectada pelo dispositivo de áudio. 
 
 ## <a name="download-the-luis-sample-project"></a>Baixar o projeto de exemplo LUIS
- Clone ou baixe o repositório [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Abra o [projeto Conversão de fala em intenção](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) com o Visual Studio e restaure os pacotes do NuGet. O arquivo de solução VS é .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
+ Clone ou baixe o repositório [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Abra o [projeto Conversão de fala em intenção](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-speech-intent-recognition) com o Visual Studio e restaure os pacotes do NuGet. O arquivo de solução do VS é documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
 O SDK de Fala já está incluído como uma referência. 
 
@@ -93,7 +93,7 @@ O SDK de Fala retorna a resposta LUIS inteira.
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando não for mais necessário, exclua o aplicativo Recursos Humanos de LUIS. Para fazer isso, selecione o aplicativo e, em seguida, na barra de ferramentas contextual acima da lista, selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
-Lembre-se de excluir o diretório de exemplos LUIS quando você terminar de usar o código de exemplo.
+Lembre-se de excluir o diretório quando terminar de usar o código de exemplo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

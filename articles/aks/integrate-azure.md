@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: d0b6fc1ebd08b29b9acc28cfb0107b815c7d7bad
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 74240298b0c8bec46ab2beab6fcdfbb59fd7b12a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068223"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579967"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 
@@ -77,7 +77,7 @@ v1beta1.storage.k8s.io               10
 
 A próxima etapa é instalar o [Service Broker Aberto para Azure][open-service-broker-azure], que inclui o catálogo para os serviços gerenciados do Azure. Exemplos de serviços do Azure disponíveis são o Banco de Dados do Azure para PostgreSQL, o Banco de Dados do Azure para MySQL, o Banco de Dados SQL do Azure.
 
-Comece adicionando o Service Broker Aberto para o repositório do Helm do Azure:
+Comece adicionando o Service Broker Aberto ao repositório do Helm do Azure:
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
@@ -171,7 +171,7 @@ Por fim, liste todos os planos de serviço disponíveis. Planos de serviço são
 Nesta etapa, você usa o Helm para instalar um gráfico Helm para Wordpress atualizado. O gráfico provisiona uma instância externa do Banco de Dados do Azure para MySQL que o Wordpress pode usar. Esse processo pode levar alguns minutos.
 
 ```azurecli-interactive
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 Para verificar que a instalação tenha configurado os recursos corretos, liste as instâncias de serviço e associações instaladas:

@@ -1,22 +1,20 @@
 ---
-title: 'Tutorial: Projetar um Banco de Dados do Azure para MariaDB usando o portal do Azure'
+title: 'Tutorial: Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure'
 description: Este tutorial explica como criar e gerenciar um servidor do Banco de Dados do Azure para MariaDB usando o portal do Azure.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 20714bed5c36cd93d11cb4ade6640798775f5055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322049"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538099"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Projetar um Banco de Dados do Azure para MariaDB usando o portal do Azure
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure
 
 O Banco de Dados do Azure para MariaDB é um serviço gerenciado usado para executar, gerenciar e dimensionar bancos de dados do MySQL altamente disponíveis na nuvem. Usando o portal do Azure, você pode gerenciar facilmente seu servidor e projetar um banco de dados.
 
@@ -52,15 +50,15 @@ Crie um servidor do Banco de Dados do Azure para MariaDB com um conjunto definid
     Configuração | Valor sugerido | Descrição do campo 
     ---|---|---
     Nome do servidor | *um nome de servidor exclusivo* | Escolha um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. Por exemplo, **mydemoserver**. O nome de domínio *.mariadb.database.azure.com* é acrescentado ao nome do servidor que você inseriu. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter entre 3 e 63 caracteres.
-    Assinatura | *sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha aquela na qual você recebe a cobrança do recurso.
-    Grupo de recursos | **myresourcegroup** | Insira o nome de um novo grupo de recursos ou selecione um grupo de recursos existente.
+    Assinatura | *sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura na qual você recebe a cobrança do recurso.
+    Grupo de recursos | **myresourcegroup** | Insira o nome de um novo grupo de recursos ou escolha um grupo de recursos existente.
     Selecionar a origem | **Em branco** | Selecione **Em branco** para criar um novo servidor. (Selecione **Backup** caso esteja criando um servidor a partir de um backup de área geográfica de um servidor de Banco de Dados do Azure para MariaDB existente.)
     Logon de administrador do servidor | **myadmin** | A conta de entrada para usar ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Senha | *sua escolha* | Insira uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha deve conter caracteres de três das seguintes categorias: letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
+    Senha | *sua escolha* | Insira uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar senha | *sua escolha*| Confirme a senha da conta do administrador.
     Local padrão | *a região mais próxima de seus usuários*| Selecione o local mais próximo de seus usuários ou de outros aplicativos do Azure.
     Versão | *a versão mais recente*| A versão mais recente (a menos que você tenha requisitos específicos para usar uma versão diferente).
-    Tipo de preço | Confira a descrição. | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço** > **Uso Geral**. Mantenha os valores padrão para as seguintes configurações:<br><ul><li>**Geração de Computação** (Gen 5)</li><li>**vCore** (2 vCores)</li><li>**Armazenamento** (5 GB)</li><li>**Período de Retenção de Backup** (7 dias)</li></ul><br>Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** nas **Opções de Redundância de Backup**. <br><br>Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
+    Tipo de preço | Confira a descrição. | As configurações de computação, armazenamento e backup para o novo servidor. Escolha **Tipo de preço** > **Uso Geral**. Mantenha os valores padrão para as seguintes configurações:<br><ul><li>**Geração de Computação** (Gen 5)</li><li>**vCore** (2 vCores)</li><li>**Armazenamento** (5 GB)</li><li>**Período de Retenção de Backup** (7 dias)</li></ul><br>Para habilitar os backups do servidor em armazenamento com redundância geográfica, escolha **Redundância Geográfica** nas **Opções de Redundância de Backup**. <br><br>Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
     
    ![Tipo de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
@@ -171,10 +169,10 @@ Imagine que você excluiu acidentalmente uma tabela de banco de dados importante
    
    ![Formulário de restauração](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Ponto de restauração**: selecione um ponto no tempo que você deseja restaurar, dentro do período listado. Lembre-se de converter o fuso horário local para UTC.
-   - **Restaurar em novo servidor**: insira um novo nome do servidor para onde será feita a restauração.
-   - **Localização**: a região é a mesma do servidor de origem e não pode ser alterada.
-   - **Tipo de preço**: o tipo de preço é o mesmo do servidor de origem e não pode ser alterado.
+   - **Ponto de restauração**: Selecione um ponto no tempo para o qual deseja fazer a restauração, no período listado. Lembre-se de converter o fuso horário local para UTC.
+   - **Restaurar em um novo servidor**: Insira um novo nome do servidor para o qual será feita a restauração.
+   - **Localização**: A região é a mesma do servidor de origem e não pode ser alterada.
+   - **Tipo de preço**: O tipo de preço é o mesmo do servidor de origem e não pode ser alterado.
    
 3. Clique em **OK** para [restaurar o servidor para um ponto no tempo](./howto-restore-server-portal.md) anterior à exclusão da tabela. A restauração de um servidor cria uma nova cópia do servidor no ponto no tempo selecionado. 
 

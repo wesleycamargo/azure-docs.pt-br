@@ -8,20 +8,20 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
-ms.openlocfilehash: e26190b46a79d581e5996e51bfd104f1d4beb6f6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d741550fc64ef7544e33304f8608ad6e6ee3426e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094025"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723631"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no Linux usando o SDK de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, você criará um aplicativo de console C++ para o Ubuntu Linux 16.04. Você usará o [SDK de Fala](speech-sdk.md) dos Serviços Cognitivos para transcrever a conversão de fala em texto em tempo real do microfone do seu computador. O aplicativo é compilado com o [SDK de Fala para Linux](https://aka.ms/csspeech/linuxbinary) e o compilador C++ da distribuição do Linux (por exemplo, `g++`).
+Neste artigo, você criará um aplicativo de console C++ para o Ubuntu Linux 16.04 ou 18.04. Você usará o [SDK de Fala](speech-sdk.md) dos Serviços Cognitivos para transcrever a conversão de fala em texto em tempo real do microfone do seu computador. O aplicativo é compilado com o [SDK de Fala para Linux](https://aka.ms/csspeech/linuxbinary) e o compilador C++ da distribuição do Linux (por exemplo, `g++`).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,9 +31,9 @@ Você precisa de uma chave de assinatura do serviço de Fala para concluir este 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.1.0`.
+A versão atual do SDK de Fala dos Serviços Cognitivos é `1.2.0`.
 
-O SDK de Fala para Linux pode ser usado para criar aplicativos de 64 bits e 32 bits. As bibliotecas necessárias e os arquivos de cabeçalho podem ser baixados como um tarfile de https://aka.ms/csspeech/linuxbinary.
+O SDK de Fala para Linux pode ser usado para criar aplicativos de 64 bits e 32 bits. As bibliotecas necessárias e os arquivos de cabeçalho podem ser baixados como um arquivo tar de https://aka.ms/csspeech/linuxbinary.
 
 Baixe e instale o SDK conforme a seguir:
 
@@ -129,16 +129,12 @@ Baixe e instale o SDK conforme a seguir:
    We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure esse exemplo na pasta `quickstart/cpp-linux`.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Reconhecer intenções da fala usando o SDK de Fala para C++](how-to-recognize-intents-from-speech-cpp.md)
+> [Explorar amostras de C++ no GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Traduzir discurso](how-to-translate-speech-csharp.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de linguagem](how-to-customize-language-model.md)

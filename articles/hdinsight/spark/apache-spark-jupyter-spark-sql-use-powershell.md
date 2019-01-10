@@ -9,19 +9,19 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: fcc25449d4e65dc36be0eb2f13cb35bf23ae6f00
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d05d8c39ae393d62969967c2ce09a97ec6a6710f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498052"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791703"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Início Rápido: Criar um cluster do Apache Spark no HDInsight usando o PowerShell
 Saiba como criar um cluster do [Apache Spark](https://spark.apache.org/) no Azure HDInsight e como executar consultas Spark SQL nas tabelas do [Apache Hive](https://hive.apache.org/). O Apache Spark permite análises rápidas de dados e computação de cluster usando processamento na memória. Para obter informações sobre o Spark no HDInsight, confira [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md).
 
-Neste início rápido, você usa o Azure PowerShell para criar um cluster Spark do HDInsight. O cluster usa Azure Storage Blobs como o armazenamento de cluster. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Neste início rápido, você usa o Azure PowerShell para criar um cluster Spark do HDInsight. O cluster usa Azure Storage Blobs como o armazenamento de cluster. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de Início Rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > A cobrança dos clusters do HDInsight será proporcional por minuto, independentemente de eles estarem sendo usados ou não. Exclua seu cluster depois de terminar de usá-lo. Para saber mais, confira a seção [Recursos de limpeza](#clean-up-resources) deste artigo.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 A criação de um cluster HDInsight inclui a criação dos seguintes objetos e recursos do Azure:
 
 - Um grupo de recursos do Azure. Um grupo de recursos do Azure é um contêiner para os recursos do Azure. 
-- Uma conta de armazenamento do Azure ou um repositório do Azure Data Lake Store.  Cada cluster HDInsight exige um armazenamento de dados dependente. Neste início rápido, você criará uma conta de armazenamento.
+- Uma conta de armazenamento do Azure ou um Azure Data Lake Storage.  Cada cluster HDInsight exige um armazenamento de dados dependente. Neste início rápido, você criará uma conta de armazenamento.
 - Um cluster HDInsight de tipos de cluster diferentes.  Neste início rápido, você criará um cluster Spark 2.3.
 
 Você pode usar um script do PowerShell para criar os recursos.  Ao executar o script, você precisará inserir os seguintes valores:
@@ -116,7 +116,7 @@ Você pode usar um script do PowerShell para criar os recursos.  Ao executar o s
     ```
 Demora cerca de 20 minutos para criar o cluster. O cluster deve ser criado antes de prosseguir para a próxima sessão.
 
-Se você tiver um problema com a criação de clusters HDInsight, é possível que você não tenha as permissões corretas para fazer isso. Para saber mais, confira [Requisitos do controle de acesso](../hdinsight-administer-use-portal-linux.md#create-clusters).
+Se você tiver um problema com a criação de clusters HDInsight, é possível que você não tenha as permissões corretas para fazer isso. Para saber mais, confira [Requisitos do controle de acesso](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Criar um notebook Jupyter
 
@@ -173,7 +173,7 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
 2. No menu **Arquivo** do notebook, selecione **Fechar e Interromper**. O desligamento do bloco de anotações libera os recursos do cluster.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-O HDInsight salva seus dados no Armazenamento do Azure ou no Azure Data Lake Store, assim você poderá excluir um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no tutorial listado em [Próximas etapas](#next-steps) imediatamente, convém manter o cluster.
+O HDInsight salva seus dados no Armazenamento do Azure ou no Azure Data Lake Storage, assim você poderá excluir um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Se você planeja trabalhar no tutorial listado em [Próximas etapas](#next-steps) imediatamente, convém manter o cluster.
 
 Retorne ao Portal do Azure e selecione **Excluir**.
 

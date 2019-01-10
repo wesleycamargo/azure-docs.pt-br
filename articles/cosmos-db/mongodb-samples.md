@@ -1,23 +1,21 @@
 ---
-title: Usar APIs do MongoDB para criar um aplicativo do Azure Cosmos DB
-description: Um tutorial que cria um banco de dados online usando as APIs do Azure Cosmos DB para MongoDB.
-keywords: exemplos do mongodb
-services: cosmos-db
-author: SnehaGunda
+title: Usar a API do Azure Cosmos DB para MongoDB para criar um aplicativo Node.js
+description: Um tutorial que cria um banco de dados online usando a API do Azure Cosmos DB para MongoDB.
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 03/23/2018
-ms.author: sngun
-ms.openlocfilehash: e24c64f0042d65cc499e02dff7b53f3ca812f356
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: 1fb7ad7638f3235b915e758460bf6c483572a30d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864070"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54031846"
 ---
-# <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Criar um aplicativo do Azure Cosmos DB: API para MongoDB usando o Node.js
+# <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Criar um aplicativo usando o Node.js e a API do Azure Cosmos DB para MongoDB 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -26,12 +24,12 @@ ms.locfileid: "52864070"
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
-Este exemplo mostra como criar um aplicativo de console do Azure Cosmos DB: API para MongoDB usando o Node.js.
+Este exemplo mostra como criar um aplicativo de console usando o Node.js e a API do Azure Cosmos DB para MongoDB.
 
 Para usar este exemplo, você deve:
 
-* [Criar](create-mongodb-dotnet.md#create-account) uma conta do Azure Cosmos DB: API para MongoDB.
-* Recuperar suas informações de [cadeia de conexão](connect-mongodb-account.md) do MongoDB.
+* [Criar](create-mongodb-dotnet.md#create-account) uma conta do Cosmos configurada para usar a API do Azure Cosmos DB para MongoDB.
+* Recuperar as informações de [cadeia de conexão](connect-mongodb-account.md).
 
 ## <a name="create-the-app"></a>Crie o aplicativo
 
@@ -117,7 +115,7 @@ Para usar este exemplo, você deve:
     });
     ```
     
-    **Opcional**: se você estiver usando o driver **MongoDB Node. js 2.2** , substitua o snippet de código a seguir:
+    **Opcional**: Se você estiver usando o **driver do MongoDB Node.js 2.2**, substitua o snippet de código a seguir:
 
     Original:
 
@@ -159,7 +157,7 @@ Para usar este exemplo, você deve:
     > [!IMPORTANT]
     > O **driver 3.0 do MongoDB Node. js** requer codificação de caracteres especiais na senha do Cosmos DB. Certifique-se de codificar caracteres '=' como % 3D
     >
-    > Exemplo: A senha *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* codifica a *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
+    > Exemplo: A senha *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* é codificada para *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
     >
     > O **driver 2.2 do MongoDB Node. js** requer codificação de caracteres especiais na senha do Cosmos DB.
     >
@@ -172,4 +170,7 @@ Para usar este exemplo, você deve:
 3. Abra seu terminal favorito, execute **npm install mongodb --save** e, em seguida, o aplicativo com **node app.js**
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [usar o MongoChef](mongodb-mongochef.md) com sua conta do Azure Cosmos DB: API para MongoDB.
+
+- Saiba como [usar o Studio 3T](mongodb-mongochef.md) com a API do Azure Cosmos DB para MongoDB.
+- Saiba como [usar o Robo 3T](mongodb-robomongo.md) com a API do Azure Cosmos DB para MongoDB.
+- Explore [exemplos](mongodb-samples.md) do MongoDB com a API do Azure Cosmos DB para MongoDB.

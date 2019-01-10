@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6af6eb0dd6473b9fe947f7cc4939da4e0cbc77cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259062"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718463"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: proteger a conexão do Banco de Dados SQL do Azure no Serviço de Aplicativo usando uma identidade gerenciada
 
-O [Serviço de Aplicativo](app-service-web-overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches no Azure. Ele também fornece uma [identidade gerenciada](app-service-managed-service-identity.md) para seu aplicativo, que é uma solução perfeita para proteger o acesso ao [Banco de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades gerenciadas no Serviço de Aplicativo tornam seu aplicativo mais seguro, eliminando os segredos do aplicativo, como as credenciais nas cadeias de conexão. Neste tutorial, você adicionará a identidade gerenciada ao aplicativo Web ASP.NET de exemplo criado no [Tutorial: criar um aplicativo ASP.NET no Azure com Banco de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Quando você terminar, seu aplicativo de exemplo se conectará ao Banco de Dados SQL com segurança sem a necessidade de nomes de usuário e senhas.
+O [Serviço de Aplicativo](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches no Azure. Ele também fornece uma [identidade gerenciada](overview-managed-identity.md) para seu aplicativo, que é uma solução perfeita para proteger o acesso ao [Banco de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades gerenciadas no Serviço de Aplicativo tornam seu aplicativo mais seguro, eliminando os segredos do aplicativo, como as credenciais nas cadeias de conexão. Neste tutorial, você adicionará a identidade gerenciada ao aplicativo Web ASP.NET de exemplo criado no [Tutorial: criar um aplicativo ASP.NET no Azure com Banco de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Quando você terminar, seu aplicativo de exemplo se conectará ao Banco de Dados SQL com segurança sem a necessidade de nomes de usuário e senhas.
 
 > [!NOTE]
 > Esse cenário tem suporte atualmente do .NET Framework 4.6 e acima, mas não pelo [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). O [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) suporta o cenário, mas ainda não está incluído nas imagens padrão no Serviço de Aplicativo. 
@@ -123,7 +123,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-Este construtor configura um objeto SqlConnection personalizado para usar um token de acesso para o Banco de Dados SQL do Azure a partir do Serviço de Aplicativo. Com o token de acesso, o aplicativo do Serviço de Aplicativo é autenticado com o Banco de Dados SQL do Azure com sua identidade gerenciada. Para saber mais, confira [Obtendo tokens para recursos do Azure](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). A instrução `if` permite que você continue a testar seu aplicativo localmente com LocalDB.
+Este construtor configura um objeto SqlConnection personalizado para usar um token de acesso para o Banco de Dados SQL do Azure a partir do Serviço de Aplicativo. Com o token de acesso, o aplicativo do Serviço de Aplicativo é autenticado com o Banco de Dados SQL do Azure com sua identidade gerenciada. Para saber mais, confira [Obtendo tokens para recursos do Azure](overview-managed-identity.md#obtaining-tokens-for-azure-resources). A instrução `if` permite que você continue a testar seu aplicativo localmente com LocalDB.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` tem suporte atualmente apenas no .NET Framework 4.6 e versões posteriores, assim como no [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2), mas não no [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows).
@@ -147,7 +147,7 @@ No **Gerenciador de Soluções**, clique com botão direito no projeto **DotNetA
 
 Na página de publicação, clique em **Publicar**. Quando a nova página da Web mostra a lista de tarefas pendentes, seu aplicativo se conecta ao banco de dados usando a identidade gerenciada.
 
-![Aplicativo Web do Azure após Migração do Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Aplicativo do Azure após Migração do Code First](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Agora, você pode editar a lista de tarefas pendentes como fazia antes.
 
@@ -211,4 +211,4 @@ O que você aprendeu:
 Vá para o próximo tutorial para saber como mapear um nome DNS personalizado para o seu aplicativo Web.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md)

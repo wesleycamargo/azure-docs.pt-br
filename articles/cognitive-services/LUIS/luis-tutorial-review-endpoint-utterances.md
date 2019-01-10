@@ -1,7 +1,7 @@
 ---
 title: Examinando declarações de ponto de extremidade
 titleSuffix: Azure Cognitive Services
-description: Melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem ser verificados quanto à intenção e outros quanto à entidade. Você deve analisar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS.
+description: Melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem ser verificados quanto à intenção e outros quanto à entidade.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: bc641732d74dac4f566420ada6338362932df4d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080445"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755114"
 ---
-# <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: Corrigir previsões incertas
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões incertas examinando os enunciados de ponto de extremidade
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem precisar ser verificados quanto à intenção e outros quanto à entidade. Você deve analisar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS. 
 
 Esse processo de revisão é outra maneira do LUIS aprender sobre o domínio do seu aplicativo. O LUIS selecionou os enunciados que aparecem na lista de análise. Esta lista é:
@@ -33,7 +33,7 @@ Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a in
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usar o aplicativo do tutorial existente
+> * Importar o aplicativo de exemplo
 > * Examinar declarações de ponto de extremidade
 > * Atualizar lista de frases
 > * Treinar o aplicativo
@@ -42,19 +42,19 @@ Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a in
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usar o aplicativo existente
+## <a name="import-example-app"></a>Importar o aplicativo de exemplo
 
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
+Use as seguintes etapas:
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
 2. Importe o JSON em um novo aplicativo.
 
 3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `review`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
-    Se você usar este tutorial como um aplicativo novo e importado, você também precisa treinar, publicar e, em seguida, adicionar os enunciados para o ponto de extremidade com um [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto de extremidade em um navegador. Os enunciados a serem adicionados são:
+    Se você usar este tutorial como um aplicativo novo e importado, você também precisa treinar, publicar e, em seguida, adicionar os enunciados para o ponto de extremidade com um [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto de extremidade em um navegador. Os enunciados a serem adicionados são:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 

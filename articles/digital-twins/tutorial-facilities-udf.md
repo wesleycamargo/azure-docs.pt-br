@@ -1,20 +1,21 @@
 ---
-title: Monitorar um espaço com os Gêmeos Digitais do Azure | Microsoft Docs
+title: 'Tutorial: Monitorar um espaço com os Gêmeos Digitais do Azure | Microsoft Docs'
 description: Saiba como provisionar os recursos espaciais e monitorar as condições de trabalho com os Gêmeos Digitais do Azure usando as etapas deste tutorial.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584189"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556094"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Provisionar o prédio e monitorar as condições de trabalho com os Gêmeos Digitais do Azure
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Provisionar seu edifício e monitorar as condições de trabalho com os Gêmeos Digitais do Azure
 
 Este tutorial demonstra como usar os Gêmeos Digitais do Azure para monitorar as condições de temperatura e o nível de conforto desejados em seus espaços. Depois de [configurar o prédio de exemplo](tutorial-facilities-setup.md), provisione o prédio e execute funções personalizadas em seus dados de sensor usando as etapas deste tutorial.
 
@@ -203,9 +204,9 @@ Nesta seção, você usará o projeto chamado *device-connectivity* no exemplo. 
 
 1. Abra o arquivo **appSettings.json** em seu editor e edite os valores abaixo:
 
-    a. **DeviceConnectionString**: atribua o valor de `ConnectionString` na janela de saída da seção anterior. Copie essa cadeia de caracteres na totalidade, entre aspas, para que o simulador possa se conectar corretamente ao hub IoT.
+    a. **DeviceConnectionString**: Atribua o valor de `ConnectionString` na Janela de Saída da seção anterior. Copie essa cadeia de caracteres na totalidade, entre aspas, para que o simulador possa se conectar corretamente ao hub IoT.
 
-   b. **HardwareId** dentro da matriz **Sensors**: já que você está simulando eventos de sensores provisionados para sua instância dos Gêmeos Digitais do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao nó `sensors` do arquivo provisionSample.yaml.
+   b. **HardwareId** na matriz **Sensores**: Como você está simulando eventos dos sensores provisionados em sua instância dos Gêmeos Digitais do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao nó `sensors` do arquivo provisionSample.yaml.
 
       Adicione uma nova entrada para o sensor de temperatura. O nó **Sensors** no appSettings.json deve ser semelhante ao seguinte:
 
@@ -264,7 +265,7 @@ Se você quiser parar de explorar os Gêmeos Digitais do Azure neste momento, fi
 Agora que você provisionou os espaços e criou uma estrutura para disparar notificações personalizadas, vá para um dos tutoriais abaixo:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Receber notificações de espaços dos Gêmeos Digitais do Azure usando o Aplicativo Lógico](tutorial-facilities-events.md)
+> [Tutorial: Receber notificações de espaços dos Gêmeos Digitais do Azure usando Aplicativos Lógicos](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Visualizar e analisar eventos de espaços dos Gêmeos Digitais do Azure usando o Time Series Insights](tutorial-facilities-analyze.md)

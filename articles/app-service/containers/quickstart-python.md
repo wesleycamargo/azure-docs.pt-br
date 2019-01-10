@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web Python no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
+title: Criar um aplicativo Python no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Implante seu primeiro aplicativo Python Olá, Mundo no Serviço de Aplicativo do Azure no Linux em minutos.
 services: app-service\web
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d9d6f3549ec5db914536400fac53de60f2ad4a94
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3af8f57cab6e420a7c7515bdf32b7ef382441cf9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261843"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633140"
 ---
-# <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Criar um aplicativo Web Python no Serviço de Aplicativo do Azure no Linux (versão prévia)
+# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux (Versão Prévia)
 
 O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este início rápido mostra como implantar um aplicativo Python com base na imagem Python interna (versão prévia) no Serviço de Aplicativo no Linux usando a [CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -85,17 +85,17 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-Navegue até o site para ver seu aplicativo Web recém-criado com imagem interna. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo web.
+Navegue até o site para ver o aplicativo recém-criado com imagem interna. Substitua _&lt;nome do aplicativo>_ pelo nome de seu aplicativo.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Seu novo aplicativo Web deve ficar assim:
+Seu novo aplicativo deve ficar assim:
 
-![Página de aplicativo Web vazia](media/quickstart-php/app-service-web-service-created.png)
+![Página de aplicativo vazia](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -129,7 +129,7 @@ Navegue até o aplicativo implantado usando o navegador da Web.
 http://<app_name>.azurewebsites.net
 ```
 
-O código Python de exemplo está em execução em um aplicativo Web com a imagem interna.
+O código de exemplo Python está em execução no Serviço de Aplicativo no Linux com uma imagem interna.
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -154,15 +154,15 @@ Depois que a implantação for concluída, troque para a janela do navegador abe
 
 ![Aplicativo de exemplo atualizado em execução no Azure](media/quickstart-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gerenciar seu novo aplicativo Web do Azure
+## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
-Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou.
+Acesse o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo que você criou.
 
-No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda, clique em **Serviços de Aplicativos** e, em seguida, clique no nome do aplicativo do Azure.
 
-![Navegação do portal para o aplicativo Web do Azure](./media/quickstart-python/app-service-list.png)
+![Navegação no Portal para o aplicativo do Azure](./media/quickstart-python/app-service-list.png)
 
-A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
+Você verá a página Visão geral do aplicativo. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
 
 ![Página Serviço de Aplicativo no portal do Azure](media/quickstart-python/app-service-detail.png)
 

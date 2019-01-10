@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: JavaScript da API de Pesquisa Visual Computacional'
+title: 'Tutorial: Executar operações de imagem – JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Explore um aplicativo JavaScript básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos do Azure. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 46d992fc44a0c3b2d355861d5753aa6f8c22215e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341303"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581351"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: JavaScript da API de Pesquisa Visual Computacional
 
@@ -494,7 +495,7 @@ O recurso OCR (Reconhecimento Óptico de Caracteres) da Pesquisa Visual Computac
 
 Para concluir o recurso OCR do aplicativo de tutorial, execute as etapas a seguir:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>Etapa 1 do recurso OCR: adicionar o código do manipulador de eventos do botão do formulário
+### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>Etapa 1 do OCR: Adicionar o código do manipulador de eventos do botão do formulário
 
 Abra o arquivo **ocr.html** em um editor de texto e localize a função **ocrButtonClick** na parte inferior do arquivo.
 

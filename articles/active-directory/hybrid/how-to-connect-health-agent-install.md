@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: cb3ecff394aa8f2f80c61499e848d7d63806b37d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a7c1941bbb44d4d165b70e032f39129a642d0c65
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279724"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605936"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 Este documento explica como instalar e configurar os Agentes do Azure AD Connect Health. Você pode baixar os agentes [daqui](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -29,26 +29,26 @@ A tabela a seguir é uma lista de requisitos para o uso do Azure AD Connect Heal
 
 | Requisito | DESCRIÇÃO |
 | --- | --- |
-| AD Premium do Azure |O Azure AD Connect Health é um recurso do Azure AD Premium e requer o Azure AD Premium. </br></br>Para saber mais, consulte [Introdução ao AD Premium do Azure](../fundamentals/active-directory-get-started-premium.md) </br>Para iniciar uma avaliação gratuita de 30 dias, confira [Iniciar uma avaliação.](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| Você deve ser um administrador global do Azure AD para começar a usar o Azure AD Connect Health |Por padrão, somente os administradores globais podem instalar e configurar os agentes de integridade para começar, acessar o portal e realizar operações no Azure AD Connect Health. Para saber mais, consulte [Administrar seu diretório do Azure AD](../fundamentals/active-directory-administer.md). <br><br> Usando o Controle de Acesso com Base em Funções, você pode permitir acesso ao Azure AD Connect Health para outros usuários em sua organização. Para saber mais, confira [Controle de Acesso com Base em Função para o Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Importante:** a conta usada ao instalar os agentes deve ser uma conta corporativa ou de estudante. Não pode ser uma conta da Microsoft. Para saber mais, confira [Inscrever-se no Azure como uma organização](../fundamentals/sign-up-organization.md) |
-| O Agente do Azure AD Connect Health é instalado em cada servidor de destino | O Azure AD Connect Health requer que os agentes de integridade sejam instalados e configurados nos servidores de destino para receber os dados e fornecer os recursos de Monitoramento e Análise. </br></br>Por exemplo, para obter dados da sua infraestrutura do AD FS, o agente deverá ser instalado nos servidores do AD FS e do Proxy de Aplicativo Web. Da mesma forma, para obter dados da infraestrutura do AD DS local, o agente deve ser instalado nos controladores de domínio. </br></br> |
-| Conectividade de saída para os pontos de extremidade de serviço do Azure | Durante a instalação e o tempo de execução, o agente requer conectividade com os pontos de extremidade de serviço do Azure AD Connect Health. Se a conectividade de saída estiver bloqueada por meio de Firewalls, verifique se os pontos de extremidade a seguir foram adicionados à lista de permissões. Veja [Controle de conectividade de saída](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) | 
+| AD Premium do Azure |O Azure AD Connect Health é um recurso do Azure AD Premium e requer o Azure AD Premium. <br /><br />Para saber mais, consulte [Introdução ao AD Premium do Azure](../fundamentals/active-directory-get-started-premium.md) <br />Para iniciar uma avaliação gratuita de 30 dias, confira [Iniciar uma avaliação.](https://azure.microsoft.com/trial/get-started-active-directory/) |
+| Você deve ser um administrador global do Azure AD para começar a usar o Azure AD Connect Health |Por padrão, somente os administradores globais podem instalar e configurar os agentes de integridade para começar, acessar o portal e realizar operações no Azure AD Connect Health. Para saber mais, consulte [Administrar seu diretório do Azure AD](../fundamentals/active-directory-administer.md). <br /><br />  Usando o Controle de Acesso com Base em Funções, você pode permitir acesso ao Azure AD Connect Health para outros usuários em sua organização. Para saber mais, confira [Controle de Acesso com Base em Função para o Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Importante:** A conta usada ao instalar os agentes deve ser uma conta corporativa ou de estudante. Não pode ser uma conta da Microsoft. Para saber mais, confira [Inscrever-se no Azure como uma organização](../fundamentals/sign-up-organization.md) |
+| O Agente do Azure AD Connect Health é instalado em cada servidor de destino | O Azure AD Connect Health requer que os agentes de integridade sejam instalados e configurados nos servidores de destino para receber os dados e fornecer os recursos de Monitoramento e Análise. <br /><br />Por exemplo, para obter dados da sua infraestrutura do AD FS, o agente deverá ser instalado nos servidores do AD FS e do Proxy de Aplicativo Web. Da mesma forma, para obter dados da infraestrutura do AD DS local, o agente deve ser instalado nos controladores de domínio. <br /><br /> |
+| Conectividade de saída para os pontos de extremidade de serviço do Azure | Durante a instalação e o tempo de execução, o agente requer conectividade com os pontos de extremidade de serviço do Azure AD Connect Health. Se a conectividade de saída estiver bloqueada por meio de Firewalls, verifique se os pontos de extremidade a seguir foram adicionados à lista de permissões. Veja [Controle de conectividade de saída](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Conectividade de saída com base em endereços IP | Para a filtragem baseada em endereço IP em firewalls, veja [Intervalos IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
 | A inspeção de SSL para tráfego de saída está filtrada ou desabilitada | A etapa de registro do agente ou as operações de carregamento de dados podem falhar se houver inspeção de SSL o terminação para tráfego de saída na camada de rede. Leia mais sobre [como configurar a inspeção SSL](https://technet.microsoft.com/library/ee796230.aspx) |
-| Portas de firewall no servidor que executa o agente |O agente requer que as seguintes portas de firewall estejam abertas para que o agente se comunique com os pontos de extremidade de serviço do Azure AD Health.</br></br><li>Porta TCP 443</li><li>Porta TCP 5671</li> </br>Leia mais sobre [habilitar portas do firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
-| Permita os sites a seguir se a segurança reforçada do IE estiver habilitada |Se a Segurança Aprimorada do IE estiver habilitada, os sites a seguir precisarão receber permissão no servidor no qual o agente será instalado.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>O servidor de federação da sua organização confiável pelo Azure Active Directory. Por exemplo: https:\//sts.contoso.com</li> Leia mais sobre [como configurar o Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-| Certifique-se de que o PowerShell v4.0 ou mais recente esteja instalado | <li>O Windows Server 2008 R2 é fornecido com o PowerShell v 2.0, que não é suficiente para o agente.  Atualize o PowerShell como explicado abaixo em [Instalação do agente em servidores do Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>O Windows Server 2012 é fornecido com o PowerShell v 3.0, que não é suficiente para o agente.  [Atualize](https://www.microsoft.com/download/details.aspx?id=40855) o Windows Management Framework.</li><li>O Windows Server 2012 R2 e posterior é fornecido com uma versão suficientemente recente do PowerShell.</li>|
+| Portas de firewall no servidor que executa o agente |O agente requer que as seguintes portas de firewall estejam abertas para que o agente se comunique com os pontos de extremidade de serviço do Azure AD Health.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Leia mais sobre [habilitar portas do firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| Permita os sites a seguir se a segurança reforçada do IE estiver habilitada |Se a Segurança Aprimorada do IE estiver habilitada, os sites a seguir precisarão receber permissão no servidor no qual o agente será instalado.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>O servidor de federação da sua organização confiável pelo Azure Active Directory. Por exemplo: https:\//sts.contoso.com</li> Leia mais sobre [como configurar o Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
+| Certifique-se de que o PowerShell v4.0 ou mais recente esteja instalado | <li>O Windows Server 2008 R2 é fornecido com o PowerShell v 2.0, que não é suficiente para o agente. Atualize o PowerShell como explicado abaixo em [Instalação do agente em servidores do Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>O Windows Server 2012 é fornecido com o PowerShell v 3.0, que não é suficiente para o agente.  [Atualize](https://www.microsoft.com/download/details.aspx?id=40855) o Windows Management Framework.</li><li>O Windows Server 2012 R2 e posterior é fornecido com uma versão suficientemente recente do PowerShell.</li>|
 |Desabilitar FIPS|Não há suporte para FIPS nos agentes do Azure AD Connect Health.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Conectividade de saída para os pontos de extremidade de serviço do Azure
- Durante a instalação e o tempo de execução, o agente requer conectividade com os pontos de extremidade de serviço do Azure AD Connect Health. Se a conectividade de saída estiver bloqueada por meio de Firewalls, verifique se os pontos de extremidade a seguir foram adicionados à lista de permissões. Leia mais sobre [verificar a conectividade de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)  
- 
+ Durante a instalação e o tempo de execução, o agente requer conectividade com os pontos de extremidade de serviço do Azure AD Connect Health. Se a conectividade de saída estiver bloqueada por meio de Firewalls, verifique se os pontos de extremidade a seguir foram adicionados à lista de permissões. Leia mais sobre [verificar a conectividade de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+
 | Ambiente de Domínio | Pontos de extremidade de serviço do Azure exigidos |
 | --- | --- |
-| Público geral | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.queue.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.table.core.windows.net </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *esse ponto de extremidade é usado somente para fins de descoberta durante o registro.</li> | 
+| Público geral | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.queue.core.windows.net </li><li>&#42;.servicebus.windows.net – Porta: 5671 </li><li>&#42;.table.core.windows.net </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *esse ponto de extremidade é usado somente para fins de descoberta durante o registro.</li> |
 | Azure Alemanha | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.queue.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li><li>&#42;.table.core.cloudapi.de </li><li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *esse ponto de extremidade é usado somente para fins de descoberta durante o registro.</li> |
-| Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li><li>&#42;.queue.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.table.core.usgovcloudapi.net </li><li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *esse ponto de extremidade é usado somente para fins de descoberta durante o registro.</li> |  
- 
+| Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li><li>&#42;.queue.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.table.core.usgovcloudapi.net </li><li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *esse ponto de extremidade é usado somente para fins de descoberta durante o registro.</li> |
+
 
 ## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Baixar e instalar o Agente do Azure AD Connect Health
 * Verifique se você [atende aos requisitos](how-to-connect-health-agent-install.md#requirements) para o Azure AD Connect Health.
@@ -65,8 +65,8 @@ A tabela a seguir é uma lista de requisitos para o uso do Azure AD Connect Heal
 > [!NOTE]
 > O servidor do AD FS deve ser diferente do seu servidor de sincronização. Não instale o agente do AD FS em seu servidor de sincronização.
 >
-  
-Antes da instalação, verifique se o nome de host do servidor do AD FS é exclusivo e não está presente no serviço do AD FS.   
+
+Antes da instalação, verifique se o nome de host do servidor do AD FS é exclusivo e não está presente no serviço do AD FS.
 Para iniciar a instalação do agente, dê um clique duplo no arquivo .exe que você baixou. Na primeira tela, clique em instalar.
 
 ![Verifique o Azure AD Connect Health](./media/how-to-connect-health-agent-install/install1.png)
@@ -120,7 +120,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 3. Na guia **Configuração de Segurança Local** , verifique se a conta de serviço do AD FS 2.0 está listada. Se ela não estiver presente, clique em **Adicionar Usuário ou Grupo** e adicione-a à lista e clique em **OK**.
 4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. Feche a **Política de Segurança Local**.
-<br>   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- </br>
+<br />   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- <br />
 6. Abra o snap-in **Gerenciamento do AD FS**. Para abrir o snap-in Gerenciamento do AD FS, clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em **Gerenciamento do AD FS 2.0**.
 7. No painel **Ações**, clique em **Editar Propriedades do Serviço de Federação**.
 8. Na caixa de diálogo **Propriedades do Serviço de Federação**, clique na guia **Eventos**.
@@ -133,7 +133,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 3. Na guia **Configuração de Segurança Local** , verifique se a conta de serviço do AD FS está listada. Se ela não estiver presente, clique em **Adicionar Usuário ou Grupo** e adicione-a à lista e clique em **OK**.
 4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
 5. Feche a **Política de Segurança Local**.
-<br>   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- </br>
+<br />   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- <br />
 6. Abra o snap-in **Gerenciamento do AD FS** (no Gerenciador do Servidor, clique em Ferramentas e selecione Gerenciamento do AD FS).
 7. No painel **Ações**, clique em **Editar Propriedades do Serviço de Federação**.
 8. Na caixa de diálogo **Propriedades do Serviço de Federação**, clique na guia **Eventos**.
@@ -145,7 +145,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 3. Na guia **Configuração de Segurança Local** , verifique se a conta de serviço do AD FS está listada. Se ela não estiver presente, clique em **Adicionar Usuário ou Grupo** e adicione a conta de serviço do AD FS à lista e clique em **OK**.
 4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
 5. Feche a **Política de Segurança Local**.
-<br>   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- </br>
+<br />   -- **As seguintes etapas são exigidas apenas para servidores de AD FS primários.** -- <br />
 6. Abra o snap-in **Gerenciamento do AD FS** (no Gerenciador do Servidor, clique em Ferramentas e selecione Gerenciamento do AD FS).
 7. No painel **Ações**, clique em **Editar Propriedades do Serviço de Federação**.
 8. Na caixa de diálogo **Propriedades do Serviço de Federação**, clique na guia **Eventos**.
@@ -274,8 +274,8 @@ Você pode configurar agentes do Azure AD Connect Health para trabalhar com um H
 Você tem as seguintes opções para configurar o agente do Azure AD Connect Health para usar um HTTP Proxy.
 
 > [!NOTE]
-> Todos os serviços do agente do Azure AD Connect Health devem ser reiniciados para que as configurações de proxy sejam atualizadas. Execute o comando a seguir:<br>
-> Restart-Service AdHealth*
+> Todos os serviços do agente do Azure AD Connect Health devem ser reiniciados para que as configurações de proxy sejam atualizadas. Execute o comando a seguir:<br />
+>  Restart-Service AdHealth*
 >
 >
 
@@ -295,7 +295,7 @@ Você pode executar manualmente um servidor proxy em cada um dos servidores que 
 
     Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
-Exemplo: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver:443*
+Exemplo: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
 
 * "address" pode ser um nome do servidor DNS que pode ser resolvido ou um endereço IPv4
 * "port" pode ser omitida. Se omitida, 443 é escolhida como a porta padrão.

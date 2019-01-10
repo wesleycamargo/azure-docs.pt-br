@@ -5,18 +5,18 @@ services: dms
 author: HJToland3
 ms.author: scphang
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: a820287c79dcd8d904c9029de3f58d930118e840
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: 52346e25c0b0e1b1b0c0befb6b5285f66b9a95d7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959505"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724565"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migração online do MySQL para o Banco de Dados do Azure para MySQL usando DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do MySQL local para o [Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) com o mínimo de tempo de inatividade. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você deve migrar o banco de dados de exemplo **Employees** de uma instância local do MySQL 5.7 para o Banco de Dados do Azure para MySQL usando uma atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Monitorar a migração.
 
 > [!NOTE]
-> O uso do Serviço de Migração de Banco de Dados do Azure para executar uma migração online requer a criação de uma instância com base no tipo de preço Premium (versão prévia).
+> O uso do Serviço de Migração de Banco de Dados do Azure para executar uma migração online exige a criação de uma instância com base no tipo de preço Premium.
 
 > [!IMPORTANT]
 > Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.

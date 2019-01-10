@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003445"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722270"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure
 
@@ -60,7 +60,7 @@ Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do A
 
     O cmdlet cria os seguintes arquivos:
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** e **ServiceDefinition.csdef**: são arquivos específicos do Azure necessários para publicar seu aplicativo. Para saber mais, consulte [Visão geral da criação de um serviço hospedado para o Azure].
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** e **ServiceDefinition.csdef**: Arquivos específicos do Azure necessários para publicar seu aplicativo. Para saber mais, consulte [Visão geral da criação de um serviço hospedado para o Azure].
    * **deploymentSettings.json**: armazena configurações locais que são usadas pelos cmdlets de implantação do Azure PowerShell.
 4. Digite o seguinte comando para adicionar uma nova função da Web:
 
@@ -164,7 +164,7 @@ Para saber mais, confira o [Centro de desenvolvedores do Node. js].
 
 <!-- URL List -->
 
-[Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: ../app-service/choose-web-site-cloud-service-vm.md
+[Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: ../app-service/overview-compare.md
 [usar um aplicativo Web leve]: ../app-service/app-service-web-get-started-nodejs.md
 [Powershell do Azure]: /powershell/azureps-cmdlets-docs
 [SDK do Azure para .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178

@@ -1,5 +1,5 @@
 ---
-title: Experimentar uma solução no Azure para gerenciar meus dispositivos IoT industriais | Microsoft Docs
+title: Experimentar uma solução para gerenciar meus dispositivos IoT industriais – Azure | Microsoft Docs
 description: Neste início rápido, você implanta o acelerador de solução do Azure IoT de Fábrica Conectada e faz logon para usar o painel da solução.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138985"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602640"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início rápido: experimentar uma solução baseada em nuvem para gerenciar meus dispositivos IoT industriais
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início Rápido: Experimentar uma solução baseada em nuvem para gerenciar meus dispositivos IoT industriais
 
 Este início rápido mostra como implantar o acelerador de solução Azure IoT de Fábrica Conectada para executar uma simulação baseada em nuvem de monitoramento e gerenciamento para dispositivos IoT industriais. Ao implantar o acelerador de solução da Fábrica Conectada, ele será pré-preenchido com recursos simulados que permitem que você percorra um cenário IoT industrial comum. Várias fábricas simuladas estão conectadas à solução; elas relatam os valores de dados necessários para calcular a OEE (eficiência geral de equipamentos) e KPIs (indicadores chave de desempenho). Este início rápido mostra como usar o painel da solução para:
 
@@ -76,7 +76,7 @@ O painel de **Eficiência geral de equipamento** mostra os valores da OEE de tod
 
 [![Eficiência geral do equipamento](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
-A OEE classifica a eficiência do processo de fabricação usando parâmetros operacionais relacionados à produção. OEE é um padrão de medida do setor calculado multiplicando-se a taxa de disponibilidade, a taxa de desempenho e a taxa de qualidade: OEE = disponibilidade x qualidade x desempenho.
+A OEE classifica a eficiência do processo de fabricação usando parâmetros operacionais relacionados à produção. OEE é uma medida padrão do setor calculada multiplicando a taxa de disponibilidade, a taxa de desempenho e a taxa de qualidade: OEE = disponibilidade x desempenho x qualidade.
 
 É possível fazer uma analisar profunda da OEE de qualquer nível dos dados da hierarquia. Clique na OEE, na disponibilidade, no desempenho ou na discagem de porcentagem de qualidade. É exibido um painel de contexto com visualizações que mostram dados em escalas de tempo diferentes:
 

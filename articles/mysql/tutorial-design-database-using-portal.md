@@ -1,23 +1,20 @@
 ---
-title: 'Tutorial: Criar um Banco de Dados do Azure para MySQL usando o Portal do Azure'
+title: 'Tutorial: Criar um Banco de Dados do Azure para MySQL usando o portal do Azure'
 description: Este tutorial explica como criar e gerenciar o Banco de Dados do Azure para o servidor e banco de dados MySQL usando o Portal do Azure.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 395ebbe3879660ce31abd570e936a010536db4de
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bf46b047af69dcd1a751661a701b1eb9b7f75563
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266526"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537710"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para banco de dados MySQL usando o Portal do Azure
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para o banco de dados MySQL usando o portal do Azure
 O Banco de Dados do Azure para MySQL é um serviço gerenciado que permite executar, gerenciar e dimensionar bancos de dados altamente disponíveis do MySQL na nuvem. Usando o Portal do Azure, você pode gerenciar facilmente seu servidor e projetar um banco de dados.
 
 Neste tutorial, você usará o Portal do Azure para aprender a:
@@ -31,7 +28,7 @@ Neste tutorial, você usará o Portal do Azure para aprender a:
 > * Atualizar dados
 > * Restaurar dados
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 Abra seu navegador da Web favorito e visite o [portal do Microsoft Azure](https://portal.azure.com/). Insira suas credenciais para entrar no portal. A exibição padrão é o painel de serviço.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar um Banco de Dados do Azure para o servidor MySQL
@@ -52,13 +49,13 @@ Um Banco de Dados do Azure para o servidor MySQL é criado com um conjunto defin
     Grupo de recursos | *myresourcegroup* | Forneça um novo nome de um grupo de recursos ou um existente.    Grupo de recursos|*myresourcegroup*| Um novo nome do grupo de recursos ou um existente de sua assinatura.
     Selecionar a origem | *Em branco* | Selecione *Em branco* para criar um novo servidor do zero. (Selecione *Backup* se você estiver criando um servidor de um backup de replicação geográfica de um Banco de Dados do Azure para servidor MySQL existente).
     Logon de administrador do servidor | myadmin | Uma conta de logon a ser usada ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superusuário**, **admin**, **administrador**, **raiz**, **convidado** ou **público**.
-    Senha | *Sua escolha* | Forneça uma nova senha para a conta do administrador do servidor. Ela deve conter de 8 a 128 caracteres. A senha deve conter caracteres de três das seguintes categorias: letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
+    Senha | *Sua escolha* | Forneça uma nova senha para a conta do administrador do servidor. Ela deve conter de 8 a 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar senha | *Sua escolha*| Confirme a senha da conta do administrador.
     Local padrão | *A região mais próxima de seus usuários*| Escolha o local mais próximo para os usuários ou para outros aplicativos do Azure.
     Versão | *A versão mais recente*| A versão mais recente (a menos que você tenha requisitos específicos que exijam uma outra versão).
-    Tipo de preço  | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
+    Tipo de preço | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
     
-   ![Tipo de preço ](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+   ![Tipo de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
 3. Clique em **Criar**. Em um ou dois minutos, um novo Banco de Dados para servidor MySQL estará em execução na nuvem. Na barra de ferramentas, clique no botão **Notificações** para monitorar o processo de implantação.
 
@@ -151,10 +148,10 @@ Imagine que você excluiu acidentalmente uma tabela de banco de dados importante
    
    ![10-2 formulário de restauração](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Ponto de restauração**: selecione um ponto no tempo no qual você deseja restaurar, dentro do período listado. Lembre-se de converter o fuso horário local para UTC.
-   - **Restaurar em novo servidor**: forneça um novo nome do servidor no qual você deseja restaurar.
-   - **Localização**: a região é o mesma do servidor de origem e não pode ser alterada.
-   - **Tipo de preço**: o tipo de preço é o mesmo do servidor de origem e não pode ser alterado.
+   - **Ponto de restauração**: Selecione um ponto no tempo para o qual deseja fazer a restauração, dentro do período listado. Lembre-se de converter o fuso horário local para UTC.
+   - **Restaurar em um novo servidor**: Forneça um novo nome do servidor para o qual deseja fazer a restauração.
+   - **Localização**: A região é a mesma do servidor de origem e não pode ser alterada.
+   - **Tipo de preço**: O tipo de preço é o mesmo do servidor de origem e não pode ser alterado.
    
 3. Clique em **OK** para restaurar o servidor [em um ponto no tempo](./howto-restore-server-portal.md) anterior à exclusão da tabela. A restauração de um servidor cria uma nova cópia do servidor, a partir do ponto no tempo especificado. 
 

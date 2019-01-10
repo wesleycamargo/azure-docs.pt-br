@@ -1,18 +1,17 @@
 ---
 title: Provisionar taxa de transferência de contêiner no Azure Cosmos DB
 description: Saiba como provisionar a taxa de transferência no nível do contêiner no Azure Cosmos DB
-services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: dd47976bca75569142f1912eee06c66061e92fa6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: eb34385087118614f8d7057c2229bc3c9e8d1ae4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097658"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039479"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Provisionar taxa de transferência de um contêiner do Azure Cosmos DB
 
@@ -47,7 +46,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-Se você estiver provisionando a taxa de transferência para a conta da API do MongoDB, use '/myShardKey' como o caminho da chave de partição e, ao provisionar a taxa de transferência para a conta da API do Cassandra, use '/myPrimaryKey' como o caminho da chave de partição.
+Se você estiver provisionando a taxa de transferência para uma conta do cosmos configurada com a API para MongoDB do Azure Cosmos DB, use '/myShardKey' como o caminho da chave de partição e, ao provisionar a taxa de transferência para uma conta do Cosmos configurada para a API do Cassandra, use '/myPrimaryKey' como o caminho da chave de partição.
 
 ## <a name="provision-throughput-using-net-sdk"></a>Provisionar a taxa de transferência usando o SDK .NET
 

@@ -1,20 +1,20 @@
 ---
-title: 'Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do Node | Microsoft Docs'
+title: 'Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do Node – Azure Key Vault | Microsoft Docs'
 description: 'Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686663"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002596"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET
 
@@ -77,9 +77,9 @@ O grupo de recursos que você acabou de criar é usado ao longo deste artigo.
 
 Em seguida, você cria um cofre de chaves no grupo de recursos criado na etapa anterior. Forneça as seguintes informações:
 
-* Nome do cofre de chaves: o nome deve ser uma cadeia com 3 a 24 caracteres e deve conter apenas (0 a 9, a a z, A a Z e -).
+* Nome do cofre de chaves: O nome precisa ser uma cadeia de 3 a 24 caracteres e conter apenas (0 – 9, a – z, A – Z e -).
 * Nome do grupo de recursos.
-* Local: **Leste dos EUA**.
+* Localização: **Leste dos EUA**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "East US"

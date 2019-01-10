@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 12e6b3a3fe790183a35c71fbb87243890ad22236
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: f295245cc14000e48cb3db55dc291edf02bb660e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944831"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634381"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início Rápido: criar e gerenciar compartilhamentos de arquivos do Azure com o portal do Azure 
+# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início Rápido: Criar e gerenciar compartilhamentos de arquivos do Azure com o portal do Azure 
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados no Windows, no Linux e no macOS. Este guia percorre os fundamentos de trabalhar com compartilhamentos de arquivos do Azure usando o [Portal do Azure](https://portal.azure.com/).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -36,16 +36,16 @@ Para criar um compartilhamento de arquivos do Azure:
 
 Os nomes de compartilhamento precisam ter somente letras em minúsculas, números e hifens, mas não podem começar com um hífen. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, confira [Nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-## <a name="use-your-azure-file-share"></a>Use o compartilhamento de arquivos do Azure
+## <a name="use-your-azure-file-share"></a>Usar o compartilhamento de arquivos do Azure
 Os Arquivos do Azure fornecem dois métodos para trabalhar com arquivos e pastas dentro do seu compartilhamento de arquivos do Azure: o padrão do setor [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) e o [protocolo REST de arquivo](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
-Para montar um compartilhamento de arquivos com SMB, consulte o documento a seguir com base em seu sistema operacional:
+Para montar um compartilhamento de arquivos com SMB, consulte o documento abaixo com base em seu sistema operacional:
 - [Windows](storage-how-to-use-files-windows.md)
 - [Linux](storage-how-to-use-files-linux.md)
 - [macOS](storage-how-to-use-files-mac.md)
 
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>Usando um compartilhamento de arquivo do Azure no portal do Azure
-Todas as solicitações feitas por meio do Portal do Azure são feitas com a API REST do arquivo, permitindo a você criar, modificar e excluir arquivos e diretórios nos clientes sem acesso ao SMB. É possível trabalhar diretamente com o protocolo REST de arquivo (ou seja, modelar manualmente as chamadas REST HTTP por conta própria), mas a maneira mais comum (além de usar o portal do Azure) para usar o protocolo REST de arquivo é usar o [módulo AzureRM PowerShell](storage-how-to-use-files-powershell.md), a [CLI do Azure](storage-how-to-use-files-cli.md) ou um SDK de armazenamento do Azure, que fornecem um bom wrapper do protocolo REST de arquivo na linguagem de script/programação de sua escolha. 
+Todas as solicitações feitas por meio do Portal do Azure são feitas com a API REST do arquivo, permitindo a você criar, modificar e excluir arquivos e diretórios nos clientes sem acesso ao SMB. É possível trabalhar diretamente com o protocolo REST de Arquivo (ou seja, criar manualmente chamadas REST HTTP por conta própria), mas a maneira mais comum (além de usar o portal do Azure) para usar o protocolo REST de Arquivo é usar o [módulo do Azure PowerShell](storage-how-to-use-files-powershell.md), a [CLI do Azure](storage-how-to-use-files-cli.md) ou um SDK do Armazenamento do Azure, que fornecem um bom wrapper do protocolo REST de Arquivo na linguagem de scripts/programação de sua escolha. 
 
 Acreditamos que a maioria dos usos dos arquivos do Azure será com o compartilhamento em vez do protocolo SMB, pois isso permite usar os aplicativos e as ferramentas existentes que se espera poder usar, mas há vários motivos que mostram como é vantajoso usar a API REST de arquivo em vez de SMB, a saber:
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679164"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714739"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicativo do Azure?
 
@@ -105,6 +105,14 @@ O recurso de afinidade de sessão baseada em cookies é útil quando você desej
 O Gateway de Aplicativo fornece suporte nativo para os protocolos WebSocket e HTTP/2. Não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket. O suporte a HTTP/2 pode ser habilitado por meio do Azure PowerShell.
 
 Os protocolos WebSocket e HTTP/2 permitem uma comunicação full duplex entre um servidor e um cliente em uma conexão TCP de execução longa. Isso permite uma comunicação mais interativa entre o servidor Web e o cliente, que pode ser bidirecional, sem a necessidade de sondagem, necessária nas implementações baseadas em HTTP. Esses protocolos têm baixa sobrecarga, ao contrário do HTTP, e podem reutilizar a mesma conexão TCP para várias solicitações/respostas, resultando em uma utilização mais eficiente de recursos. Esses protocolos foram projetados para funcionar em portas HTTP tradicionais de 80 e 443.
+
+## <a name="rewrite-http-headers-public-preview"></a>Reescrever cabeçalhos HTTP (versão prévia pública)
+
+Os cabeçalhos HTTP permitem que o cliente e o servidor passem informações adicionais com a solicitação ou a resposta. A reescrita desses cabeçalhos HTTP ajuda você a realizar vários cenários importantes, como a adição de campos de cabeçalho relacionados à Segurança, como HSTS/X-XSS-Protection, ou a remoção de campos de cabeçalho que podem revelar informações confidenciais, como o nome do servidor back-end. 
+
+O Gateway de Aplicativo agora dá suporte à capacidade de rescrever cabeçalhos das solicitações HTTP de entrada, bem como das respostas HTTP de saída. Você poderá adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação/resposta são transferidos entre os pools de back-end e do cliente. Você pode reescrever campos de cabeçalho padrão (definidos no [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)), bem como não padrão.  
+
+Para obter mais informações sobre essa versão prévia pública do recurso, confira [Reescrever cabeçalhos HTTP](rewrite-http-headers.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

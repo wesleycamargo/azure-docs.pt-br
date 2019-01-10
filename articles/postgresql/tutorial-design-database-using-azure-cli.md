@@ -1,22 +1,19 @@
 ---
 title: 'Tutorial: Criar um Banco de Dados do Azure para PostgreSQL usando a CLI do Azure'
 description: Este tutorial mostra como criar, configurar e consultar seu primeiro servidor de Banco de Dados do Azure para PostgreSQL usando a CLI do Azure.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: c04eede63df50359af55f3956041df10fa2d075e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 03c9d647c98122b63b81baa453e0cccdf951901a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982334"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547313"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL usando a CLI do Azure 
 Neste tutorial, você usará a CLI (interface de linha de comando) do Azure e outros utilitários para aprender a:
@@ -195,9 +192,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 O comando `az postgres server restore` precisa dos seguintes parâmetros:
-| Configuração | Valor sugerido | DESCRIÇÃO  |
+| Configuração | Valor sugerido | DESCRIÇÃO  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  O grupo de recursos no qual o servidor de origem existe.  |
+| resource-group |  myresourcegroup |  O grupo de recursos no qual o servidor de origem existe.  |
 | Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | Restauração-point-in-time | 2017-04-13T13:59:00Z | Selecione um point-in-time para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como `2017-04-13T05:59:00-08:00`, ou usar o formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID para restaurar a partir do servidor de origem. |
@@ -218,4 +215,4 @@ Neste tutorial, você aprendeu como usar a CLI (interface de linha de comando) d
 > * Atualizar dados
 > * Restaurar dados
 
-Em seguida, aprenda como usar o portal do Azure para executar tarefas semelhantes, consulte este tutorial: [Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure](tutorial-design-database-using-azure-portal.md)
+Em seguida, para saber como usar o portal do Azure para executar tarefas semelhantes, examine este tutorial: [Criar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure](tutorial-design-database-using-azure-portal.md)

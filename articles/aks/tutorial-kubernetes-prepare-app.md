@@ -3,20 +3,19 @@ title: Tutorial do Kubernetes no Azure - Preparar um aplicativo
 description: Neste tutorial do AKS (Serviço de Kubernetes do Azure), você aprenderá como preparar e criar um aplicativo de vários contêineres com o Docker Compose que poderá ser implantado no AKS.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297053"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724157"
 ---
-# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: preparar um aplicativo para o AKS (Serviço de Kubernetes do Azure)
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar um aplicativo para o AKS (Serviço de Kubernetes do Azure)
 
 Neste tutorial, parte um de sete, um aplicativo de vários contêineres é preparado para uso em Kubernetes. As ferramentas de desenvolvimento existentes, como o Docker Compose, são usadas para compilar e testar aplicativos localmente. Você aprenderá como:
 
@@ -29,7 +28,7 @@ Uma vez concluído, o seguinte aplicativo será executado em seu ambiente de des
 
 ![Imagem do cluster Kubernetes no Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-Nos tutoriais subsequentes, a imagem de contêiner será carregada para um Registro de Contêiner do Azure e, em seguida, implantada em um cluster AKS.
+Em tutoriais adicionais, a imagem de contêiner será carregada para um Registro de Contêiner do Azure e, em seguida, implantada em um cluster AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -49,7 +48,7 @@ Use o [git][] para clonar o aplicativo de exemplo para seu ambiente de desenvolv
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Altere os diretórios pois você está trabalhando no diretório clonado.
+Altere para o diretório clonado.
 
 ```console
 cd azure-voting-app-redis

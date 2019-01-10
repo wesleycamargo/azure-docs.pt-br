@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: extrair texto impresso (OCR) – REST, Java – Pesquisa Visual Computacional'
+title: 'Início Rápido: Extrair texto impresso – REST, Java'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrairá texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com Java.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: f14d999fd4fb5cf1afd3a0aa47894365cac1d97a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 25b1a4528b168fb6252270d1f85750a9109ddfc0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853873"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579695"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>Início Rápido: extrair texto impresso (OCR) usando a API REST e o Java na Pesquisa Visual Computacional
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>Início Rápido: Extrair texto impresso (OCR) usando a API REST e o Java na Pesquisa Visual Computacional
 
 Neste início rápido, você extrairá texto impresso, com OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7a93ae00a33ceba920630eed14fb0a3e308739e6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55e61158b2c0f21809be7d172f208fa5fea44713
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836042"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792553"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Realizar uma simulação de recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
@@ -41,9 +41,9 @@ Este tutorial mostra a você como realizar uma simulação de recuperação de d
 
 2. Em **Failover de Teste**, selecione um ponto de recuperação para usar no failover:
 
-   - **Processado mais recente**: falha na VM para o ponto de recuperação único que foi processado pelo serviço do Site Recovery. A carimbo de data/hora é mostrado. Com essa opção, nenhum tempo é gasto em processamento de dados, portanto, ela fornece um RTO (Objetivo do Tempo de Recuperação) baixo
-   - **Consistente com o aplicativo mais recente**: essa opção falha em todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente. A carimbo de data/hora é mostrado.
-   - **Personalizar**: selecione qualquer ponto de recuperação.
+   - **Mais recente processado**: Faz failover da VM para o ponto de recuperação único que foi processado pelo serviço do Site Recovery. A carimbo de data/hora é mostrado. Com essa opção, nenhum tempo é gasto em processamento de dados, portanto, ela fornece um RTO (Objetivo do Tempo de Recuperação) baixo
+   - **Consistente com o aplicativo mais recente**: Essa opção falha em todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente. A carimbo de data/hora é mostrado.
+   - **Personalizado**: Selecione qualquer ponto de recuperação.
 
 3. Selecione a rede virtual de destino do Azure para qual as VMs do Azure na região secundária serão conectadas, após o failover ocorrer.
 

@@ -1,183 +1,192 @@
 ---
-title: Usar mongoimport e mongorestore com a API para MongoDB do Azure Cosmos DB
-description: Saiba como usar mongoimport e mongorestore para importar dados para uma conta da API para MongoDB
-keywords: mongoimport, mongorestore
-services: cosmos-db
-author: SnehaGunda
+title: Migrar os dados do MongoDB para o Azure Cosmos DB usando o mongoimport e o mongorestore
+description: Você aprenderá como usar o mongoimport e o mongorestore para importar dados para o Cosmos DB.
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 05/07/2018
-ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 50bb34d86780dec003c63b5ff0a3884049dd47c1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
+Customer intent: As a developer, I want to migrate the data from my existing MongoDB to Cosmos DB.
+ms.openlocfilehash: 9226a49af67659ebd7bebd9beca397830ee808bb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870996"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039037"
 ---
-# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Tutorial: Migrar seus dados para a conta de API de MongoDB do Azure Cosmos DB
+# <a name="migrate-your-mongodb-data-to-azure-cosmos-db"></a>Migrar os dados do MongoDB para o Azure Cosmos DB
 
-Este tutorial fornece instruções sobre como migrar os dados armazenados no MongoDB para a conta de API do MongoDB do Azure Cosmos DB. Se você estiver importando dados do MongoDB e se pretende usá-los com o API do SQL do Azure Cosmos DB, deverá usar a [Ferramenta de Migração de Dados](import-data.md) para importar os dados.
+ Este tutorial fornece instruções sobre como migrar os dados armazenados no MongoDB para o Azure Cosmos DB configurado para usar a API para MongoDB do Azure Cosmos DB. Se você importar dados do MongoDB e se pretende usá-los com a API SQL do Azure Cosmos DB, deverá usar a [Ferramenta de Migração de Dados](import-data.md) para importar os dados.
 
-Este tutorial cobre as seguintes tarefas:
+Neste tutorial, você irá:
 
 > [!div class="checklist"]
-> * Planejar a migração
-> * Pré-requisitos para migração
-> * Migrar dados usando o mongoimport
-> * Migrar dados usando o mongorestore
+> * Preparar um plano de migração.
+> * Migrar dados usando o mongoimport.
+> * Migrar dados usando o mongorestore.
 
-Antes de migrar dados para a conta de API do MongoDB, verifique se você tem algum exemplo de dados do MongoDB. Se não tiver um banco de dados do MongoDB de exemplo, você poderá baixar e instalar o [servidor de comunidade do MongoDB](https://www.mongodb.com/download-center), criar um banco de dados de exemplo e usar mongoimport.exe ou mongorestore.exe para carregar dados de exemplo. 
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="plan-for-migration"></a>Planejar a migração
+## <a name="prerequisites"></a>Pré-requisitos
 
-1. Crie previamente e dimensione suas coleções:
-        
-   * Por padrão, o Azure Cosmos DB prevê uma nova coleção MongoDB com 1.000 unidades de solicitação por segundo (RU/s). Antes de iniciar a migração utilizando mongoimport ou mongorestore, crie previamente todas as coleções a partir do [portal do Azure](https://portal.azure.com) ou de ferramentas e drivers do MongoDB. Se o tamanho dos dados for superior a 10 GB, certifique-se de criar uma [coleção particionada](partition-data.md) com uma chave de fragmentos apropriada. O MongoDB recomenda o armazenamento de dados de entidade em coleções. Você pode colocalizar entidades com tamanho e taxa de transferência de provisionamento comparáveis no nível do banco de dados Cosmos do Azure.
+Analise e conclua os pré-requisitos a seguir antes de iniciar a migração.
 
-   * No [portal do Azure](https://portal.azure.com), aumente a taxa de transferência das coleções de 1000 RUs/s para uma coleção de partição única, e 2.500 RUs/s para uma coleção fragmentada, apenas durante a migração. Com a taxa de transferência mais elevada, você pode evitar a limitação de taxa e migrar em menos tempo. Para economizar custos, é possível reduzir a taxa de transferência imediatamente após a migração.
+### <a name="plan-for-the-migration"></a>Planejar a migração
 
-   * Além do provisionamento RUs/s no nível da coleção, você também pode provisionar RU/s para um conjunto de coleções no nível do banco de dados pai. Isso exige criar previamente o banco de dados e as coleções, além da definição de uma chave de fragmentação para cada coleção.
+Esta seção descreve como planejar a migração de dados. Estimaremos os encargos de RU, determinaremos a latência do seu computador para o serviço de nuvem e calcularemos o tamanho do lote e o número de trabalhadores de inserção.
 
-   * Você pode criar coleções fragmentadas por meio de sua ferramenta, driver ou SDK favorito. Neste exemplo, usamos o Shell do Mongo para criar uma coleção fragmentada:
 
-        ```bash
-        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
-        ```
+#### <a name="pre-create-and-scale-your-collections"></a>Criar previamente e dimensionar suas coleções
+
+Antes de migrar com o mongoimport ou o mongorestore, crie previamente todas as coleções por meio do [portal do Azure](https://portal.azure.com) ou de ferramentas e drivers do MongoDB. 
+
+Do [portal do Azure](https://portal.azure.com), aumente a taxa de transferência de coleções para a migração. Com uma taxa de transferência mais elevada, você pode evitar sofrer limitação de taxa e migrar em menos tempo. Para economizar custos, é possível reduzir a taxa de transferência imediatamente após a migração.
+
+Além de taxa de transferência de provisionamento em um nível de coleção, você também pode provisionar a taxa de transferência no nível de banco de dados para um conjunto de coleções para compartilhar a taxa de transferência provisionada. Você precisa criar previamente o banco de dados e as coleções e definir uma chave de fragmentação para cada coleção no banco de dados de taxa de transferência compartilhada.
+
+Você pode criar coleções fragmentadas por meio de sua ferramenta, driver ou SDK favorito. Neste exemplo, usamos o Shell do Mongo para criar uma coleção fragmentada:
+
+```bash
+db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+```
     
-        Resultados:
+O comando retorna os seguintes resultados:
 
-        ```JSON
-        {
-            "_t" : "ShardCollectionResponse",
-            "ok" : 1,
-            "collectionsharded" : "admin.people"
-        }
-        ```
+```JSON
+{
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "admin.people"
+}
+```
 
-1. Calcule a taxa de RU aproximada para gravação de um documento único:
+#### <a name="calculate-the-approximate-ru-charge-for-a-single-document-write"></a>Calcular a taxa de RU aproximada para gravação de um documento único
 
-   a. Conecte-se à sua conta da API do MongoDB do Azure Cosmos DB a partir do MongoDB Shell. É possível localizar as instruções em [Conectar um aplicativo do MongoDB ao Azure Cosmos DB](connect-mongodb-account.md).
-    
-   b. Execute um comando de inserção de exemplo utilizando um dos documentos de exemplo do MongoDB Shell:
+Do MongoDB Shell, conecte-se à sua conta do Cosmos configurada para usar a API para MongoDB do Azure Cosmos DB. É possível localizar as instruções em [Conectar um aplicativo do MongoDB ao Cosmos DB](connect-mongodb-account.md).
+
+Em seguida, execute um comando de inserção de exemplo utilizando um dos documentos de exemplo:
    
-      ```bash
-      db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })
-      ```
+```bash
+db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })
+```
         
-   c. Execute ```db.runCommand({getLastRequestStatistics: 1})``` e uma resposta semelhante à seguinte será exibida:
+Execute o comando `db.runCommand({getLastRequestStatistics: 1})`.
+
+Uma resposta semelhante à seguinte saída será exibida:
      
-      ```bash
-        globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
-        {
-            "_t": "GetRequestStatisticsResponse",
-            "ok": 1,
-            "CommandName": "insert",
-            "RequestCharge": 10,
-            "RequestDurationInMilliSeconds": NumberLong(50)
-        }
-      ```
+```bash
+globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "insert",
+    "RequestCharge": 10,
+    "RequestDurationInMilliSeconds": NumberLong(50)
+}
+```
         
-    d. Tome nota da cobrança da solicitação.
+Tome nota da cobrança da solicitação.
     
-1. Determine a latência d computador para o serviço de nuvem do Azure Cosmos DB:
+#### <a name="determine-the-latency-from-your-machine-to-cosmos-db"></a>Determinar a latência do computador para o Cosmos DB
     
-    a. Habilite o log detalhado do MongoDB Shell utilizando esse comando: ```setVerboseShell(true)```
+Habilite o log detalhado do MongoDB Shell com o comando `setVerboseShell(true)`.
     
-    b. Execute uma consulta simples no banco de dados: ```db.coll.find().limit(1)```. Uma resposta semelhante à seguinte será exibida:
+Execute uma consulta básica no banco de dados com o comando `db.coll.find().limit(1)`.
 
-       ```bash
-       Fetched 1 record(s) in 100(ms)
-       ```
+Uma resposta semelhante à seguinte saída será exibida:
+
+```bash
+Fetched 1 record(s) in 100(ms)
+```
         
-1. Remova o documento inserido antes da migração para garantir que não haja documentos duplicados. É possível remover documentos utilizando esse comando: ```db.coll.remove({})```
+Antes de executar a migração, remova o documento inserido para garantir que não haja documentos duplicados. É possível remover documentos com o comando `db.coll.remove({})`.
 
-1. Calcule os valores aproximados de *batchSize* e *numInsertionWorkers*:
+#### <a name="calculate-the-approximate-values-for-the-batchsize-and-numinsertionworkers-properties"></a>Calcular os valores aproximados das propriedades batchSize e numInsertionWorkers
 
-    * Para *batchSize*, divida as RUs provisionadas totais pelas RUs consumidas a partir do seu documento único, gravado na etapa 3.
+Para a propriedade **batchSize**, divida a taxa de transferência provisionada total (RUs/s) pelas RUs consumidas para uma única gravação de documento, conforme concluído na seção "Determinar a latência do seu computador para o Cosmos DB". Se o valor calculado for menor ou igual a 24, use esse número como o valor da propriedade. Se o valor calculado for maior que 24, defina o valor da propriedade para 24.
     
-    * Se o *batchSize* calculado for <= 24, utilize esse número como seu valor de *batchSize*.
-    
-    * Se o *batchSize* calculado for > 24, defina o valor de *batchSize* para 24.
-    
-    * Para *numInsertionWorkers*, use esta equação: *numInsertionWorkers =  (taxa de transferência provisionada * latência em segundos) / (tamanho do lote * RUs consumidas para uma gravação única)*.
-        
-    |Propriedade|Valor|
-    |--------|-----|
-    |batchSize| 24 |
-    |RUs provisionadas | 10000 |
-    |Latency | 0,100 s |
-    |RU cobrada por 1 doc gravado | 10 RUs |
-    |numInsertionWorkers | ? |
-    
-    *numInsertionWorkers = (10000 RUs x 0,1 s) / (24 x 10 RUs) = 4.1666*
+Para obter o valor da propriedade **numInsertionWorkers**, use esta equação:
 
-1. Execute o comando de migração. As opções para migrar os dados são descritas nas próximas seções.
+`numInsertionWorkers = (Provisioned RUs throughput * Latency in seconds) / (batchSize * Consumed RUs for a single write)`
 
-   ```bash
-   mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
-   ```
-   Ou com mongorestore (verifique se todas as coleções tem a taxa de transferência definida de forma igual ou superior ao número de RUs usados em cálculos anteriores):
+Podemos usar os seguintes valores para calcular um valor para a propriedade **numInsertionWorkers**:
+
+| Propriedade | Valor |
+|--------|-----|
+| **batchSize** | 24 |
+| RUs provisionadas | 10.000 |
+| Latency | 0,100 s |
+| RUs consumidas | 10 RUs |
+| **numInsertionWorkers** | (10.000 RUs x 0,100 s) / (24 x 10 RUs) = **4,1666** |
+
+Execute o comando de migração **monogoimport**. Os parâmetros de comando são descritos posteriormente neste artigo.
+
+```bash
+mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+```
+
+Você também pode usar o comando **monogorestore**. Verifique se todas as coleções têm a taxa de transferência definida com valor igual ou superior ao número de RUs usados em cálculos anteriores.
    
-   ```bash
-   mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
-   ```
+```bash
+mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
+```
 
-## <a name="prerequisites-for-migration"></a>Pré-requisitos para migração
+### <a name="complete-the-prerequisites"></a>Complete os pré-requisitos
 
-* **Aumentar a taxa de transferência:** a duração da sua migração de dados depende da taxa de transferência que você configurar para uma coleção individual ou um conjunto de coleções. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no [portal do Azure](https://portal.azure.com), consulte [Níveis de desempenho e tipos de preço no Azure Cosmos DB](performance-levels.md).
+Depois de planejar a migração, conclua as etapas a seguir: 
 
-* **Ativar SSL:** o Azure Cosmos DB tem requisitos e padrões de segurança rígidos. Certifique-se de habilitar o SSL ao interagir com sua conta. Os procedimentos no restante do artigo incluem como habilitar o SSL para mongoimport e mongorestore.
+* **Obter dados de exemplo**: Verifique se que você tem alguns dados de exemplo antes de iniciar a migração. 
 
-* **Criar recursos do Azure Cosmos DB:** antes de iniciar a migração de dados, crie previamente todas as suas coleções do portal do Azure. Se você estiver migrando para uma conta do Azure Cosmos DB com produtividade de nível de banco de dados, não deixe de fornecer uma chave de partição ao criar os coleções do Azure Cosmos DB.
+* **Aumentar a taxa de transferência**: A duração da sua migração de dados depende da taxa de transferência que você provisione para uma coleção individual ou um banco de dados. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. 
 
-## <a name="get-your-connection-string"></a>Obter sua cadeia de conexão 
+* **Habilitar SSL**:  O Cosmos DB tem padrões e requisitos de segurança rígidos. Não deixe de habilitar o SSL ao interagir com sua conta do Cosmos. Os procedimentos neste artigo incluem como habilitar o SSL para os comandos do mongoimport e do mongorestore.
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, clique na entrada **Azure Cosmos DB**.
-1. No painel **Assinaturas**, selecione o nome da sua conta.
-1. No folha **Cadeia de Conexão**, clique em **Cadeia de Conexão**.
+* **Criar recursos do Cosmos DB**: Antes de começar a migração, crie previamente todas as suas coleções no portal do Azure. Se você migrar para uma conta do Cosmos que tenha produtividade provisionada de nível de banco de dados, não deixe de fornecer uma chave de partição ao criar as coleções.
 
-   O painel direito contém todas as informações necessárias para conectar-se à sua conta com êxito.
+* **Obter sua cadeia de conexão**: No [portal do Azure](https://portal.azure.com), selecione a entrada **Azure Cosmos DB** na esquerda. Em **Assinaturas**, selecione o nome da conta. Em **Cadeia de Conexão**, selecione **Cadeia de Conexão**. O lado direito do portal mostra as informações de que você precisa para conectar-se à conta:
 
-   ![Folha Cadeia de conexão](./media/mongodb-migrate/ConnectionStringBlade.png)
+    ![Informações da Cadeia de Conexão](./media/mongodb-migrate/ConnectionStringBlade.png)
 
-## <a name="migrate-data-by-using-mongoimport"></a>Migrar dados usando o mongoimport
+## <a name="use-mongoimport"></a>Usar o mongoimport
 
-Para importar dados para sua conta Azure Cosmos DB, utilize o seguinte modelo. Preencha *host*, *nome de usuário* e *senha* com os valores que são específicos para a sua conta.  
-
-Modelo:
+Para importar dados para sua conta do Cosmos, use o modelo a seguir.
 
 ```bash
 mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
 ```
 
-Exemplo:  
+Substitua os parâmetros \<nome_do_seu_host>, \<seu_nome_de usuário> e \<sua_senha> pelos valores específicos para a conta. No exemplo a seguir, usamos **sampleDB** como o valor para \<seu_banco_de_dados> e **sampleColl** como o valor para \<sua_coleção>:
 
 ```bash
 mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file "C:\Users\admin\Desktop\*.json"
 ```
 
-## <a name="migrate-data-by-using-mongorestore"></a>Migrar dados usando o mongorestore
+## <a name="use-mongorestore"></a>Usar o mongorestore
 
-Para restaurar dados para sua conta da API para MongoDB, use o modelo a seguir para executar a importação. Preencha *host*, *nome de usuário* e *senha* com os valores que são específicos para a sua conta.
-
-Modelo:
+Para restaurar dados para sua conta do Cosmos configurada com a API para MongoDB do Cosmos DB, use o modelo a seguir para executar a importação.
 
 ```bash
 mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
 ```
 
-Exemplo:
+Substitua os parâmetros \<nome_do_seu_host>, \<seu_nome_de usuário> e \<sua_senha> pelos valores específicos para a conta. No exemplo a seguir, usamos **./dumps/dump-2016-12-07** como o valor para \<caminho_para_o_backup>:
 
 ```bash
-mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --db mydatabase --collection mycollection --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 ```
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando esses recursos já não forem necessários, você poderá excluir o grupo de recursos, a conta do Cosmos e todos os recursos relacionados. Use as etapas a seguir para excluir o grupo de recursos:
+
+1. Vá para o grupo de recursos em que você criou a conta do Cosmos.
+1. Selecione **Excluir grupo de recursos**.
+1. Confirme o nome do grupo de recursos a excluir e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora, você pode seguir para o próximo tutorial e saber como consultar dados do MongoDB usando o Azure Cosmos DB. 
+Siga para o próximo tutorial e aprenda a consultar dados usando a API para MongoDB do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[Como consultar dados do MongoDB?](../cosmos-db/tutorial-query-mongodb.md)
+> [Como consultar dados do MongoDB](../cosmos-db/tutorial-query-mongodb.md)

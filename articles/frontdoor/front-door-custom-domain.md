@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 8106c68397dea8d52c6d2daa2d09dfbc72c2a4c8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 58829bcd1b3c38b70929167beae5d8866483d616
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995050"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716490"
 ---
-# <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: adicionar um domínio personalizado ao seu Front Door
+# <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Adicionar um domínio personalizado ao seu Front Door
 Este tutorial mostra como adicionar um domínio personalizado ao seu Front Door. Quando você usa o Azure Front Door Service para distribuir aplicativo, um domínio personalizado será necessário se você quiser que seu próprio nome de domínio fique visível na solicitação do usuário final. Ter um nome de domínio visível pode ser conveniente para os clientes e útil para fins de identidade visual.
 
 Após criar um Front Door, o host de front-end padrão, que é um subdomínio de `azurefd.net`, é incluído na URL para distribuir conteúdo do Front Door do seu back-end por padrão (por exemplo, https:\//contoso.azurefd.net/activeusers.htm). Para sua conveniência, o Azure Front Door oferece a opção de associar um domínio personalizado ao host padrão. Com essa opção, você distribui seu conteúdo com um domínio personalizado na URL, em vez de um nome de domínio de propriedade do Front Door (por exemplo, https:\//www.contoso.com/photo.png). 
@@ -34,9 +34,9 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder concluir as etapas neste tutorial, é necessário criar primeiro um Front Door. Para obter mais informações, confira [Quickstart: Create a Front Door](quickstart-create-front-door.md) (Início Rápido: Criar um Front Door).
+Antes de poder concluir as etapas neste tutorial, é necessário criar primeiro um Front Door. Para saber mais, consulte [Início Rápido: Criar um Front Door](quickstart-create-front-door.md).
 
-Se você ainda não tiver um domínio personalizado, deverá primeiro adquirir um com um provedor de domínio. Por exemplo, confira [Comprar um nome de domínio personalizado](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).
+Se você ainda não tiver um domínio personalizado, deverá primeiro adquirir um com um provedor de domínio. Por exemplo, confira [Comprar um nome de domínio personalizado](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
 Se você estiver usando o Azure para hospedar seus [domínios DNS](https://docs.microsoft.com/azure/dns/dns-overview), delegue o DNS (Sistema de Nomes de Domínio) do provedor de domínio a um DNS do Azure. Confira [Delegar um domínio ao DNS do Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)para saber mais. Caso contrário, se você estiver usando um provedor de domínio para lidar com seu domínio do DNS, vá para [Criar um registro DNS CNAME](#create-a-cname-dns-record).
 
@@ -66,11 +66,11 @@ Para criar um registro CNAME com o subdomínio afdverify:
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso.azurefd.net |
 
-    - Origem: insira o nome de domínio personalizado, incluindo o subdomínio afdverify, no seguinte formato: afdverify._&lt;nome de domínio personalizado&gt;_. Por exemplo, afdverify.www.contoso.com.
+    - Origem: Insira o nome de domínio personalizado, incluindo o subdomínio afdverify, no seguinte formato: afdverify._&lt;nome de domínio personalizado&gt;_. Por exemplo, afdverify.www.contoso.com.
 
-    - Tipo: insira *CNAME*.
+    - Digite: Insira *CNAME*.
 
-    - Destino: insira seu host de front-end do Front Door padrão, incluindo o subdomínio afdverify, no seguinte formato: afdverify._&lt;nome do ponto de extremidade&gt;_.azurefd.net. Por exemplo, afdverify.contoso.azurefd.net.
+    - Destino: Insira o host padrão de front-end do Front Door, incluindo o subdomínio afdverify, no seguinte formato: afdverify._&lt;nome do ponto de extremidade&gt;_.azurefd.net. Por exemplo, afdverify.contoso.azurefd.net.
 
 4. Salve suas alterações.
 
@@ -86,13 +86,13 @@ Por exemplo, o procedimento para o registrador de domínio GoDaddy é o seguinte
 
 5. Preencha os campos abaixo da entrada CNAME:
 
-    - Tipo: selecione *CNAME*.
+    - Digite: Deixe *CNAME* selecionado.
 
-    - Host: insira o subdomínio do domínio personalizado a ser usado, incluindo o nome de subdomínio afdverify. Por exemplo, afdverify.www.
+    - Host: Insira o subdomínio do domínio personalizado a ser usado, incluindo o nome do subdomínio afdverify. Por exemplo, afdverify.www.
 
-    - Aponta para: insira o nome do host do seu host de front-end do Front Door padrão, incluindo o nome do subdomínio afdverify. Por exemplo, afdverify.contoso.azurefd.net. 
+    - Aponta para: Insira o nome do host padrão de front-end do Front Door, incluindo o nome do subdomínio afdverify. Por exemplo, afdverify.contoso.azurefd.net. 
 
-    - TTL: selecione *1 Hora*.
+    - TTL: Deixe *1 Hora* selecionado.
 
 6. Clique em **Salvar**.
  
@@ -143,11 +143,11 @@ Para criar um registro CNAME para seu domínio personalizado:
     |-----------------|-------|-----------------------|
     | www.contoso.com | CNAME | contoso.azurefd.net |
 
-    - Origem: insira seu nome de domínio personalizado (por exemplo, www.contoso.com).
+    - Origem: Insira o nome de domínio personalizado (por exemplo, www.contoso.com).
 
-    - Tipo: insira *CNAME*.
+    - Digite: Insira *CNAME*.
 
-    - Destino: insira seu host de front-end do Front Door padrão. Ele deve estar no seguinte formato:_&lt;nomedohost&gt;_.azurefd.net. Por exemplo, contoso.azurefd.net.
+    - Destino: Insira o host padrão de front-end do Front Door. Ele deve estar no seguinte formato:_&lt;nomedohost&gt;_.azurefd.net. Por exemplo, contoso.azurefd.net.
 
 4. Salve suas alterações.
 
@@ -167,13 +167,13 @@ Por exemplo, o procedimento para o registrador de domínio GoDaddy é o seguinte
 
 5. Preencha os campos da entrada CNAME:
 
-    - Tipo: selecione *CNAME*.
+    - Digite: Deixe *CNAME* selecionado.
 
-    - Host: insira o subdomínio do seu domínio personalizado a ser usado. Por exemplo, www ou perfil.
+    - Host: Insira o subdomínio do domínio personalizado a ser usado. Por exemplo, www ou perfil.
 
-    - Aponta para: insira o nome do host padrão do seu Front Door. Por exemplo, contoso.azurefd.net. 
+    - Aponta para: Insira o nome do host padrão do Front Door. Por exemplo, contoso.azurefd.net. 
 
-    - TTL: selecione *1 Hora*.
+    - TTL: Deixe *1 Hora* selecionado.
 
 6. Clique em **Salvar**.
  

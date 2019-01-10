@@ -5,20 +5,20 @@ services: database-migration
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
-ms.service: database-migration
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/09/2018
-ms.openlocfilehash: 7df19efc52f0771a10535c10625dd959a6edc90a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2b3ec4a09fb2baee7d532f348fc18cb3d428d092
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958008"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711815"
 ---
-# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Início Rápido: Criar uma instância do Serviço de Migração de Banco de Dados do Azure usando o Portal do Azure
+# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Início Rápido: Crie uma instância do Serviço de Migração de Banco de Dados do Azure usando o Portal do Azure
 Nesse Início Rápido, use o Portal do Azure para criar uma instância do Serviço de Migração de Banco de Dados do Azure.  Depois de criar o serviço, pode usá-lo para migrar dados do SQL Server no local para um banco de dados SQL do Azure.
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -56,7 +56,7 @@ Registre o provedor de recursos Microsoft.DataMigration antes de criar sua prime
 
         Para saber mais sobre como criar uma VNET no portal do Azure, consulte o artigo [Criar uma rede virtual usando o portal do Azure](https://aka.ms/vnet).
 
-    - Selecione Básico: 1 vCore como **Tipo de preço**.
+    - Selecione Básico: 1 vCore para o **Tipo de preço**.
 
         ![Criar serviço de migração](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
 

@@ -1,24 +1,21 @@
 ---
 title: Conectar-se ao Banco de Dados do Azure para MySQL no Python | Microsoft Docs
 description: Este guia de início rápido fornece vários exemplos de código Python que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 54b25aa141da15224d5d8034ba54783d3633f5be
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 3adfe85be46c338bcdb0eb429d7e81b8787cf12e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914729"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539629"
 ---
-# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar Python para se conectar e consultar dados
+# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar o Python para se conectar e consultar dados
 Este guia de início rápido demonstra como usar [Python](https://python.org) para se conectar a um Banco de Dados do Azure para MySQL. Ele usa instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados de plataformas do Windows, Ubuntu Linux e Mac OS. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Python e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,7 +30,7 @@ Instalar [Python](https://www.python.org/downloads/) e o [conector MySQL do Pyth
 > Este início rápido usa uma abordagem de consulta SQL bruta para se conectar ao MySQL para executar consultas. Se você estiver usando uma estrutura da Web, use o conector recomendado para essas estruturas. Por exemplo, [mysqlclient](https://pypi.org/project/mysqlclient/) é sugerido para uso com o Django.
 >
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. Baixe e instale o Python 2.7 em [python.org](https://www.python.org/downloads/windows/). 
 2. Verifique a instalação do Python abrindo o prompt de comando. Execute o comando `C:\python27\python.exe -V` usando a alternância V maiúscula para ver o número de versão.
 3. Instalar o conector Python para MySQL em [mysql.com](https://dev.mysql.com/downloads/connector/python/) correspondente à sua versão do Python.

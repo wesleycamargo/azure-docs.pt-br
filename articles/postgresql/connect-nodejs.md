@@ -1,27 +1,24 @@
 ---
 title: Conectar-se ao Banco de Dados do Azure para PostgreSQL no Node.js
 description: Este guia de início rápido fornece um exemplo de código Node.js que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: ddccefd4d39de49809e5648454c8d9f50b34a7c5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4c7f2f71ff302cbaa0aab66f97b93cb1c5b9e5e4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29691936"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541108"
 ---
-# <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: usar Node.js para se conectar e consultar dados
+# <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Banco de Dados do Azure para PostgreSQL: Usar o Node.js para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a Banco de Dados do Azure para PostgreSQL usando um aplicativo [Node.js](https://nodejs.org/). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas neste artigo pressupõem que você está familiarizado com o desenvolvimento usando Node.js e que começou recentemente a trabalhar com o Banco de Dados do Azure para PostgreSQL.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar Banco de dados - Portal](quickstart-create-server-database-portal.md)
 - [Criar Banco de dados - CLI](quickstart-create-server-database-azure-cli.md)

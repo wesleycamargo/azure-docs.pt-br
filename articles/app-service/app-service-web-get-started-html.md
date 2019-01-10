@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c7d01d4c079eacfd2af1ebad4ac41d70f792a0bb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ae37befe2ae2220feaf17ae4354b6fc780147f7e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253554"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634228"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar um aplicativo Web HTML estático no Azure
 
-Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este guia de início rápido mostra como implantar um site HTML+CSS básico para Aplicativos Web do Azure. Você concluirá este início rápido no [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), mas também pode executar esses comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli).
+O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Este início rápido mostra como implantar um site HTML+CSS básico no Serviço de Aplicativo do Azure. Você concluirá este início rápido no [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), mas também pode executar esses comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli).
 
 ![Home page do aplicativo de exemplo](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -84,7 +84,7 @@ O comando `az webapp up` realiza as seguintes ações:
 
 - Criar um aplicativo com o nome especificado.
 
-- Arquivos [de implantação zip](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) do diretório de trabalho atual para o aplicativo Web.
+- Arquivos [de implantação zip](https://docs.microsoft.com/azure/app-service/deploy-zip) do diretório de trabalho atual para o aplicativo Web.
 
 Esse comando pode demorar um pouco para ser executado. Na execução, ele exibe informações semelhantes ao seguinte exemplo:
 
@@ -106,7 +106,7 @@ Anote o valor `resourceGroup`. Você precisa dele para a seção [limpar recurso
 
 ## <a name="browse-to-the-app"></a>Navegar até o aplicativo
 
-Em um navegador, acesse a URL do aplicativo Web do Azure: `http://<app_name>.azurewebsites.net`.
+Em um navegador, acesse a URL do aplicativo: `http://<app_name>.azurewebsites.net`.
 
 A página está sendo executada como um aplicativo Web do Serviço de Aplicativo do Azure.
 
@@ -132,13 +132,13 @@ Depois que a implantação for concluída, troque para a janela do navegador abe
 
 ![Home page do aplicativo de exemplo atualizada](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gerenciar seu novo aplicativo Web do Azure
+## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
 Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou.
 
-No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda, clique em **Serviços de Aplicativos** e, em seguida, clique no nome do aplicativo do Azure.
 
-![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-html/portal1.png)
+![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-get-started-html/portal1.png)
 
 A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
 

@@ -1,22 +1,19 @@
 ---
 title: Script da CLI do Azure – Alterar as configurações do servidor
 description: Este script de exemplo da CLI lista todas as configurações do servidor disponíveis e atualiza o valor de uma das opções.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 1a2ce1b8f8bdd5c06a4bbd42568166bf0ac73a71
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c570982fed746b01f5a8c15edb94bdeac679b248
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580398"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545596"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Listar e atualizar as configurações de um servidor do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 Este script de exemplo da CLI lista todos os parâmetros de configuração disponíveis, bem como seus valores permitidos para o servidor do Banco de Dados do Azure para PostgreSQL e define o *log_retention_days* como um valor diferente do padrão.
@@ -46,6 +43,6 @@ Esse script usa os comandos descritos na tabela abaixo:
 | [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para ler mais sobre a CLI do Azure: [documentação da CLI do Azure](/cli/azure).
+- Leia mais sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
 - Experimente scripts adicionais: [Exemplos da CLI do Azure para o Banco de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)
 - Para saber mais sobre parâmetros do servidor, veja [Como configurar parâmetros do servidor no portal do Azure](../howto-configure-server-parameters-using-portal.md).

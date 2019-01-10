@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: usar um modelo de domínio – REST, Python – Pesquisa Visual Computacional'
+title: 'Início Rápido: Conteúdo de imagem específico do domínio – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você pode usar modelos de domínio para identificar celebridades e pontos de referência em uma imagem usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 4594d84c411994b4157b2fa51ed5d6d24088380d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 9a511cb26f5bc4ba44e4d999cb7b3c3ba98bca4c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852326"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582217"
 ---
-# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: usar um modelo de domínio usando a API REST e o Python na Pesquisa Visual Computacional
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Usar um modelo de domínio usando a API REST e o Python na Pesquisa Visual Computacional
 
 Neste início rápido, você usa um modelo de domínio para identificar pontos de referência ou, opcionalmente, celebridades em uma imagem armazenada remotamente usando a API REST da Pesquisa Visual Computacional. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), você pode aplicar um modelo específico do domínio para reconhecer o conteúdo dentro de uma imagem.
 

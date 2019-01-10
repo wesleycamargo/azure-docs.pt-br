@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: analisar uma imagem remota – REST, Node.js – Pesquisa Visual Computacional'
+title: 'Início Rápido: Analisar uma imagem remota – REST, Node.js'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisará uma imagem usando a API da Pesquisa Visual Computacional com Node.js.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 22497d07133a9ab717d319524c3e2825c832ddaa
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 58f25d4ac37498c56728b5526ead3ae97b9843d8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342579"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583323"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Início rápido: analisar uma imagem remota usando a API REST com Node.js na Pesquisa Visual Computacional
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Início Rápido: Analisar uma imagem remota usando a API REST com Node.js na Pesquisa Visual Computacional
 
 Neste início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST de Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
 

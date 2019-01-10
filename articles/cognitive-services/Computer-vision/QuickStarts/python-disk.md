@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: analisar uma imagem local – REST, Python – Pesquisa Visual Computacional'
+title: 'Início Rápido: Analisar uma imagem local – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisará uma imagem local usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: ef95d68f37de7637abd546a1a7fdffff547bda6b
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 3e62e5af00e69cea4656c38d9cde57fae11b67fa
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854128"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582687"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: analisar uma imagem local usando a API REST e Python na Pesquisa Visual Computacional
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Analisar uma imagem local usando a API REST e o Python na Pesquisa Visual Computacional
 
 Neste início rápido, você analisará uma imagem armazenada localmente para extrair recursos visuais usando a API REST da Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
 

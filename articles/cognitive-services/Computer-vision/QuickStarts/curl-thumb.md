@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Gerar uma miniatura – REST, cURL – Pesquisa Visual Computacional'
+title: 'Início Rápido: Gerar uma miniatura – REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você gerará uma miniatura de uma imagem usando a API da Pesquisa Visual Computacional com cURL.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 9d748afa67b2925445fdc59f684daa94c5bc8c7d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 9931737cde1b6c13f3edb9772d0080cd4431aa39
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962361"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579746"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>Início Rápido: Gerar uma miniatura usando a API REST e cURL na Pesquisa Visual Computacional
 
@@ -29,7 +30,7 @@ Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinat
 
 ## <a name="get-thumbnail-request"></a>Solicitação Obter Miniatura
 
-Com o [método Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), você pode gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a área de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
+Com o [método Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), você pode gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a área de interesse de modo inteligente e gerar as coordenadas de corte com base nessa região.
 
 Para executar a amostra, siga estas etapas:
 

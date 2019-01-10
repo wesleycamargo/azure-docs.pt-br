@@ -9,22 +9,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a85e7c46aa41309bc031f59ed841dc8149d878b3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667229"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723953"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Usar o Terraform para provisionar a infraestrutura com slots de implantação do Azure
 
-É possível usar os [slots de implantação do Azure](/azure/app-service/web-sites-staged-publishing) para alternar entre diferentes versões do aplicativo. Essa capacidade ajuda a minimizar o impacto de implantações interrompidas. 
+É possível usar os [slots de implantação do Azure](/azure/app-service/deploy-staging-slots) para alternar entre diferentes versões do aplicativo. Essa capacidade ajuda a minimizar o impacto de implantações interrompidas. 
 
 Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela implantação de dois aplicativos por meio de GitHub e Azure. Um aplicativo está hospedado em um slot de produção. O segundo aplicativo está hospedado em um slot de teste. (Os nomes "produção" e "preparação" são arbitrários e podem ser qualquer coisa desejada que represente seu cenário.) Após configurar os slots de implantação, você poderá usar o Terraform para alternar entre os dois slots, conforme necessário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 - **Conta do GitHub**: é necessário ter uma conta do [GitHub](http://www.github.com) para criar fork e usar o repositório GitHub de teste.
 

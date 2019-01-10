@@ -9,32 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 91a9646e88adbfaf6d3c3fc0b06b341c647e773f
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104400"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753686"
 ---
-# <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: Extrair dados relacionados contextualmente
-Neste tutorial, localize partes relacionadas de dados com base no contexto. Por exemplo, os locais de origem e de destino de uma mudança física de um edifício e escritório para outro estão relacionados. Para gerar uma ordem de trabalho, ambas as partes de dados podem ser necessárias e elas estão relacionadas umas às outras.  
+# <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados relacionados ao contexto de um enunciado
 
-Esse aplicativo determina para onde o funcionário deve ser movido, do local de origem (prédio e sala) para o local de destino (prédio e sala). Ele usa a entidade hierárquica para determinar os locais dentro do enunciado. A finalidade da entidade **hierárquica** é encontrar dados relacionados dentro do enunciado com base no contexto. 
-
-A entidade hierárquica é uma boa opção para esse tipo de dado porque as duas partes dos dados:
-
-* São entidades simples.
-* Estão relacionadas entre si no contexto do enunciado.
-* Usam escolhas de palavras específicas para indicar cada local. Exemplos dessas palavras: de/para, deixando/indo, saindo/entrando.
-* Os locais estão frequentemente no mesmo enunciado. 
-* Precisam ser agrupados e processados pelo aplicativo cliente como uma unidade de informações.
+Neste tutorial, localize partes relacionadas de dados com base no contexto. Por exemplo, os locais de origem e destino para uma transferência de uma cidade para outra. As duas partes de dados podem ser necessárias e estão relacionadas entre si.  
 
 **Neste tutorial, você aprenderá a:**
 
 > [!div class="checklist"]
-> * Usar o aplicativo do tutorial existente
+> * Criar novo aplicativo
 > * Adicionar intenção 
 > * Adicionar entidade hierárquica local com os filhos de origem e destino
 > * Treinar
@@ -43,47 +34,47 @@ A entidade hierárquica é uma boa opção para esse tipo de dado porque as duas
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usar o aplicativo existente
-Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
+## <a name="hierarchical-data"></a>Dados hierárquicos
 
-Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
+Este aplicativo determina para onde um funcionário deve ser movido, da cidade de origem para a cidade de destino. Ele usa a entidade hierárquica para determinar os locais dentro do enunciado. 
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json).
+A entidade hierárquica é uma boa opção para esse tipo de dados porque as duas partes de dados, locais filho:
 
-2. Importe o JSON em um novo aplicativo.
+* São entidades simples.
+* Estão relacionadas entre si no contexto do enunciado.
+* usam uma escolha de palavras específica para indicar cada entidade. Exemplos dessas palavras: de/para, deixando/indo, saindo/entrando.
+* ambos os filhos estão frequentemente no mesmo enunciado. 
+* Precisam ser agrupados e processados pelo aplicativo cliente como uma unidade de informações.
 
-3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `hier`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL. 
+## <a name="create-a-new-app"></a>Criar um novo aplicativo
 
-## <a name="remove-prebuilt-number-entity-from-app"></a>Remover entidade número predefinida do aplicativo
-Para ver a declaração inteira e marcar os filhos hierárquicos, [remova temporariamente a entidade de número predefinida](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
+## <a name="create-an-intent-to-move-employees-between-cities"></a>Criar uma intenção para mover os funcionários entre as cidades
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selecione **Entidades** no menu à esquerda.
+1. Selecione **Criar nova intenção**. 
 
-3. Marque a caixa de seleção à esquerda da entidade de número na lista. Selecione **Excluir**. 
+1. Insira `MoveEmployeeToCity` na caixa de diálogo pop-up, depois selecione **Concluído**. 
 
-## <a name="add-utterances-to-moveemployee-intent"></a>Adicionar enunciados à intenção MoveEmployee
+    ![Captura de tela do diálogo Criar nova intenção com](./media/luis-quickstart-intent-and-hier-entity/create-new-intent-move-employee-to-city.png)
 
-1. Selecione **Intents** no menu esquerdo.
-
-2. Selecione **MoveEmployee** na lista de intenções.
-
-3. Adicione os seguintes enunciados de exemplo:
+1. Adicione enunciados de exemplo para a intenção.
 
     |Exemplo de enunciados|
     |--|
-    |Mover John W. Smith **para** a-2345|
-    |Direcionar Jones Jill **para** b-3499|
-    |Organizar a movimentação de x23456 **de** hh-2345 **para** e-0234|
-    |Começar a documentação para definir x12345 **deixando** a-3459 **em direção a** f-34567|
-    |Deslocar 425-555-0000 **de** g-2323 **para** hh-2345|
+    |mover Guilherme Sarmento saindo de Seattle indo para Dallas|
+    |transferir Samuel Ferreira de Seattle para Cairo|
+    |Remover Jorge Andrade de Tampa, trazendo-o para Atlanta |
+    |mover Brenda Fernandes para Tulsa de Dallas|
+    |mover Samuel Ferreira saindo de Cairo indo para Tampa|
+    |Mudar Marina Azevedo para Oakland de Redmond|
+    |Nicolau Mendes de São Francisco para Redmond|
+    |Transferir Valério Pereira de São Diego para Bellevue |
+    |remover Fabio Pena de Kansas City e movê-lo para Chicago|
 
     [ ![Captura de tela do LUIS com novos enunciados na intenção MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
-
-    No tutorial de [entidade de lista](luis-quickstart-intent-and-list-entity.md), um funcionário é designado por nome, endereço de email, ramal do telefone, número de telefone celular ou número do seguro social. Esses números de funcionário são usados nos enunciados. Os enunciados do exemplo anterior incluem formas de anotar os locais de origem e destino, marcados em negrito. Alguns enunciados têm somente destinos propositalmente. Isso ajuda o LUIS a compreender como esses locais são colocados no enunciado quando a origem não é especificada.     
-
-    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Criar uma entidade de local
 LUIS precisa entender o que é um local rotulando a origem e o destino nos enunciados. Se você precisar ver a expressão no modo de exibição de token (bruto), selecione a alternância na barra acima dos enunciados rotulada **Modo de Exibição de Entidades**. Depois de alternar a opção, o controle é rotulado **exibição Tokens**.
@@ -91,170 +82,104 @@ LUIS precisa entender o que é um local rotulando a origem e o destino nos enunc
 Considere o enunciado a seguir:
 
 ```json
-mv Jill Jones from a-2349 to b-1298
+move John W. Smith leaving Seattle headed to Dallas
 ```
 
-O enunciado tem dois locais especificados, `a-2349` e `b-1298`. Suponha que a letra corresponda a um nome de prédio e o número indique a sala dentro desse prédio. Faz sentido que são ambos sejam agrupados como filhos de uma entidade hierárquica, `Locations`, pois ambas as partes de dados precisam ser extraídas do enunciado para concluir a solicitação no aplicativo cliente e elas estão relacionadas umas às outras. 
+O enunciado tem dois locais especificados, `Seattle` e `Dallas`. Ambos são agrupados como filhos de uma entidade hierárquica, `Location`, pois ambas as partes de dados precisam ser extraídas do enunciado para concluir a solicitação no aplicativo cliente e elas estão relacionadas entre si. 
  
 Se apenas um filho (origem ou destino) de uma entidade hierárquica estiver presente, ele ainda assim é extraído. Não é necessário que se tenha todos filhos para que seja extraído um ou alguns. 
 
-1. No enunciado, `Displace 425-555-0000 away from g-2323 toward hh-2345`, selecione a palavra `g-2323`. Um menu suspenso é exibido com uma caixa de texto na parte superior. Insira o nome da entidade `Locations` na caixa de texto, selecione **Criar nova entidade** no menu suspenso. 
+1. No enunciado, `move John W. Smith leaving Seattle headed to Dallas`, selecione a palavra `Seattle`. Um menu suspenso é exibido com uma caixa de texto na parte superior. Insira o nome da entidade `Location` na caixa de texto, selecione **Criar nova entidade** no menu suspenso. 
 
-    [![Captura de tela da criação da nova entidade na página de intenção](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Captura de tela da criação da nova entidade na página de intenção")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Captura de tela da criação da nova entidade na página de intenção](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "Captura de tela da criação da nova entidade na página de intenção")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
 
-2. Na janela pop-up, selecione o tipo de entidade **Hierárquica** com `Origin` e `Destination` como as entidades filho. Selecione **Concluído**.
+1. Na janela pop-up, selecione o tipo de entidade **Hierárquica** com `Origin` e `Destination` como as entidades filho. Selecione **Concluído**.
 
     ![Captura de tela da caixa de diálogo pop-up de criação de entidade para a nova entidade Location](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Captura de tela da caixa de diálogo pop-up de criação de entidade para a nova entidade Location")
 
-3. O rótulo de `g-2323` está marcado como `Locations` porque o LUIS não sabe se o termo foi a origem, o destino ou nenhum deles. Selecione `g-2323`; em seguida, selecione **Locais**, siga o menu à direita e selecione `Origin`.
+1. O rótulo de `Seattle` está marcado como `Location` porque o LUIS não sabe se o termo foi a origem, o destino ou nenhum deles. Selecione `Seattle`, escolha **Localização**, em seguida, siga o menu à direita e selecione `Origin`.
 
-    [![Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
 
-5. Rotule os outros locais em todos os outros enunciados selecionando o prédio e a sala no enunciado, selecionando Locais e seguindo o menu à direita para selecionar `Origin` ou `Destination`. Quando todos os locais estiverem rotulados, os enunciados no **Modo de Exibição de Tokens** começará a mostrar um padrão. 
+1. Rotule os outros locais em todos os outros enunciados. Quando todos os locais estiverem marcados, os enunciados começarão a ficar como um padrão. 
 
-    [![Captura de tela da entidade Locais rotulada em declarações](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Captura de tela da entidade Locais rotulada em declarações")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Captura de tela da entidade Locais rotulada em declarações](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png "Captura de tela da entidade Locais rotulada em declarações")](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png#lightbox)
 
-## <a name="add-prebuilt-number-entity-to-app"></a>Adicionar entidade de número predefinida ao aplicativo
-Adicione a entidade numérica predefinida novamente ao aplicativo.
+    O sublinhado vermelho indica que o LUIS não tem certeza quanto à entidade. O treinamento resolve isso. 
 
-1. Selecione **Entidades** no menu de navegação à esquerda.
+## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar enunciados de exemplo à intenção None 
 
-2. Selecione o botão **Adicionar entidade predefinida**.
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-3. Selecione **número** na lista de entidades predefinidas, e selecione **Concluído**.
-
-    ![Captura de tela do número selecionado no diálogo de entidades predefinidas](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
-
-## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações à intenção possam ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar o aplicativo para que o modelo treinado possa ser consultado por meio do ponto de extremidade
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto de extremidade com um enunciado diferente
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter a previsão de entidade e de intenção do ponto de extremidade
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-2. Vá até o final da URL na barra de endereços e insira `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `MoveEmployee` com a entidade hierárquica extraída.
+1. Vá até o final da URL na barra de endereços e insira `Please move Carl Chamerlin from Tampa to Portland`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `MoveEmployee` com a entidade hierárquica extraída.
 
     ```json
     {
-      "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
+      "query": "Please move Carl Chamerlin from Tampa to Portland",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9966052
+        "intent": "MoveEmployeeToCity",
+        "score": 0.979823351
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9966052
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0325253047
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.006137873
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.00462633232
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00415637763
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00382325822
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00249120337
+          "intent": "MoveEmployeeToCity",
+          "score": 0.979823351
         },
         {
           "intent": "None",
-          "score": 0.00130756292
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00119622645
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 1.26910036E-05
+          "score": 0.0156363435
         }
       ],
       "entities": [
         {
-          "entity": "jill - jones @ mycompany . com",
-          "type": "Employee",
-          "startIndex": 18,
-          "endIndex": 41,
-          "resolution": {
-            "values": [
-              "Employee-45612"
-            ]
-          }
+          "entity": "portland",
+          "type": "Location::Destination",
+          "startIndex": 41,
+          "endIndex": 48,
+          "score": 0.6044041
         },
         {
-          "entity": "x - 2345",
-          "type": "Locations::Origin",
-          "startIndex": 48,
-          "endIndex": 53,
-          "score": 0.8520272
-        },
-        {
-          "entity": "g - 23456",
-          "type": "Locations::Destination",
-          "startIndex": 58,
-          "endIndex": 64,
-          "score": 0.974032
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 49,
-          "endIndex": 53,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "-23456",
-          "type": "builtin.number",
-          "startIndex": 59,
-          "endIndex": 64,
-          "resolution": {
-            "value": "-23456"
-          }
+          "entity": "tampa",
+          "type": "Location::Origin",
+          "startIndex": 32,
+          "endIndex": 36,
+          "score": 0.739491045
         }
       ]
     }
     ```
     
-    A intenção correta é prevista e a matriz de entidades tem os valores de origem e de destino na propriedade **entity** correspondente.
+    A intenção correta é prevista e a matriz de entidades tem valores de origem e de destino em propriedades de **entidades** correspondentes.
     
-
-## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Uma expressão regular poderia ser usada para cada local?
-Sim, crie a entidade de expressão regular com funções de origem e destino e use-a em um padrão.
-
-Os locais neste exemplo, como `a-1234`, seguem um formato específico de uma ou duas letras com um traço e, em seguida, uma série de 4 ou 5 números. Esses dados podem ser descritos como uma entidade de expressão regular com uma função para cada local. As funções estão disponíveis apenas para padrões. Você pode criar padrões com base nesses enunciados, criar uma expressão regular para o formato de local e adicioná-la aos padrões. 
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="hierarchical-entities-versus-roles"></a>Funções versus entidades hierárquicas
+## <a name="related-information"></a>Informações relacionadas
 
-Para mais informações, consulte [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
+* Informações conceituais de [entidade hierárquica](luis-concept-entity-types.md)
+* [Como treinar](luis-how-to-train.md)
+* [Como publicar](luis-how-to-publish-app.md)
+* [Como testar no portal do LUIS](luis-interactive-test.md)
+* [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities)
+* [Melhorar previsões com padrões](luis-concept-patterns.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Este tutorial criou uma nova intenção e adicionou enunciados de exemplo para os dados aprendidos contextualmente dos locais de origem e de destino. Depois que o aplicativo estiver treinado e publicado, o aplicativo cliente poderá usar essas informações para criar um tíquete de mudança com as informações relevantes.
+
+Este tutorial criou uma intenção e adicionou enunciados de exemplo para os dados obtidos de acordo com o contexto de locais de origem e destino. Depois que o aplicativo estiver treinado e publicado, o aplicativo cliente poderá usar essas informações para criar um tíquete de mudança com as informações relevantes.
 
 > [!div class="nextstepaction"] 
 > [Saiba como adicionar uma entidade de composição](luis-tutorial-composite-entity.md) 

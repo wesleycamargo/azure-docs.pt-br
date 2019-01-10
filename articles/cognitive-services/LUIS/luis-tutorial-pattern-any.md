@@ -9,18 +9,32 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 4551968cc446bb949d0b18cb77211808169cb907
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58a62a5a882c6883c6fed31a7b95d949247e1bf1
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103465"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752598"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Tutorial 5: Extrair dados de forma livre
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extrair dados de forma livre com a entidade Pattern.any
 
 Neste tutorial, use a entidade pattern.any para extrair dados de enunciados quando o enunciado está bem formatado e quando o fim dos dados pode ser facilmente confundido com as palavras restantes do enunciado. 
+
+**Neste tutorial, você aprenderá a:**
+
+> [!div class="checklist"]
+> * Importar o aplicativo de exemplo
+> * Adicionar enunciados de exemplo à entidade existente
+> * Criar uma entidade pattern.any
+> * Criar padrão
+> * Treinar
+> * Testar novo padrão
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-patternany-entity"></a>Usando a entidade Pattern.any
 
 A entidade pattern.any permite localizar dados de formulário livre em que as palavras da entidade dificultam determinar o fim da entidade no resto do enunciado. 
 
@@ -50,24 +64,12 @@ O comprimento variável inclui palavras que podem confundir o LUIS sobre onde a 
 |Quem criou {FormName}[?]|
 |{FormName} foi publicado em francês[?]|
 
-**Neste tutorial, você aprenderá a:**
-
-> [!div class="checklist"]
-> * Usar o aplicativo de tutorial existente
-> * Adicionar enunciados de exemplo à entidade existente
-> * Criar uma entidade pattern.any
-> * Criar padrão
-> * Treinar
-> * Testar novo padrão
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Usar o aplicativo existente
+## <a name="import-example-app"></a>Importar o aplicativo de exemplo
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
+Use as seguintes etapas:
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
 2. Importe o JSON em um novo aplicativo.
 

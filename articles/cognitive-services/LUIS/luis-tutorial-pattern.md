@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075515"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754400"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Adicionar formatos comuns de enunciados
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Adicionar formatos comuns de enunciado de modelo padrão
 
 Neste tutorial, use padrões para aumentar a previsão de intenção e entidade enquanto fornece menos enunciados de exemplo. O padrão é fornecido por meio de um exemplo de enunciado de modelo, que inclui sintaxe para identificar entidades e texto ignorável. Um padrão é uma combinação da correspondência entre expressões e o aprendizado de máquina.  O exemplo de enunciado de modelo, junto com os enunciados de intenções, fornecem ao LUIS uma melhor compreensão de quais enunciados se encaixam na intenção. 
 
 **Neste tutorial, você aprenderá a:**
 
 > [!div class="checklist"]
-> * Usar o aplicativo do tutorial existente 
+> * Importar o aplicativo de exemplo 
 > * Criar a intenção
 > * Treinar
 > * Publicar
@@ -37,13 +37,13 @@ Neste tutorial, use padrões para aumentar a previsão de intenção e entidade 
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usar o aplicativo existente
+## <a name="import-example-app"></a>Importar o aplicativo de exemplo
 
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
+Use as seguintes etapas:
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
 2. Importe o JSON em um novo aplicativo.
 

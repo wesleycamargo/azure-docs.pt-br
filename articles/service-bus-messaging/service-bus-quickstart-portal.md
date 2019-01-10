@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: be08be43269dfb332dca1d5f62ce661940d311cc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259370"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002664"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Início rápido: Enviar e receber mensagens usando o portal do Azure e .NET
+# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Início Rápido: Enviar e receber mensagens usando o portal do Azure e o .NET
 
 O Barramento de Serviço do Microsoft Azure é um agente de mensagem de integração empresarial que fornece mensagens seguras e confiabilidade absoluta. Um cenário típico de Barramento de Serviço geralmente envolve o desacoplamento de dois ou mais aplicativos, serviços ou processos e a transferência de alterações de dados ou estado. Esses cenários podem envolver agendamento de vários trabalhos em lotes em outro aplicativo ou serviços, ou cumprimento da ordem de disparo. Por exemplo, uma empresa de varejo pode enviar os dados do ponto de vendas a um back office ou centro de distribuição regional para atualizações de estoque e reabastecimento. Nesse cenário, o aplicativo cliente envia e recebe mensagens de uma fila do Barramento de Serviço.  
 
@@ -59,7 +59,7 @@ A criação de um novo namespace gera automaticamente uma regra de SAS (assinatu
 1.  Clique em **Todos os recursos** e depois clique no nome do namespace recém-criado.
 2. Na janela namespace, clique em **Políticas de acesso compartilhado**.
 3. Na tela **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
-4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** próximo à **Cadeia de Conexão Primária**, para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário. 
+4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** próximo à **Cadeia de Conexão Primária** para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário. 
 
     ![connection-string][connection-string]
 5. Repita a etapa anterior, copiando e colando o valor de **chave primária** para um local temporário para uso posterior.
@@ -77,7 +77,7 @@ Para criar uma fila do Barramento de Serviço, especifique o namespace sob o qua
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
-Depois que o namespace e a fila forem provisionados e você tiver as credenciais necessárias, estará pronto para enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-jms).
+Depois que o namespace e a fila forem provisionados e você tiver as credenciais necessárias, estará pronto para enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 Para executar o código, faça o seguinte:
 

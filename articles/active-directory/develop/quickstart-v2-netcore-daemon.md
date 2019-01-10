@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/28/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7c920782810cc8b7b302799a5bab53a737b11c0a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3e5e364e9c3327e9d666a9a3096573267d0e1983
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853173"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727601"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo de console usando a identidade do aplicativo
 
@@ -38,22 +38,22 @@ Este início rápido exige o [.NET Core 2.1](https://www.microsoft.com/net/downl
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="docs" class="sxs-lookup"]
+>
 > Você tem duas opções para iniciar o aplicativo de início rápido:
-> * [Expresso] [Opção 1: registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Opção 2: registrar e configurar manualmente o aplicativo e o exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [Express] [Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Opção 2: Registrar e configurar manualmente o aplicativo e o exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Vá para o [portal do Azure – Registro de Aplicativo (Versão Prévia)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Vá para o [portal do Azure – Registro de Aplicativo (Versão Prévia)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registrar e configurar manualmente o aplicativo e o exemplo de código
->
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente o aplicativo e o exemplo de código
 
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>Etapa 1: Registrar seu aplicativo
+> #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
 > 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
@@ -67,6 +67,8 @@ Este início rápido exige o [.NET Core 2.1](https://www.microsoft.com/net/downl
 > 1. No nó **Usuário**, selecione **User.Read.All** e selecione **Adicionar permissões**
 
 > [!div class="sxs-lookup" renderon="portal"]
+> ### <a name="download-and-configure-your-quickstart-app"></a>Baixar e configurar seu aplicativo de início rápido
+> 
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
 > Para o exemplo de código deste início rápido funcionar, você precisará criar um segredo do cliente e adicionar a permissão de aplicativo **User.Read.All** da API do Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -75,7 +77,7 @@ Este início rápido exige o [.NET Core 2.1](https://www.microsoft.com/net/downl
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-windows-desktop/green-check.png) Seu aplicativo já está configurado com esses atributos.
 
-#### <a name="step-2-download-your-visual-studio-project"></a>Etapa 2: Baixar o projeto do Visual Studio
+#### <a name="step-2-download-your-visual-studio-project"></a>Etapa 2: Baixar seu projeto do Visual Studio
 
 [Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
@@ -99,6 +101,7 @@ Este início rápido exige o [.NET Core 2.1](https://www.microsoft.com/net/downl
     >> * `Enter_the_Tenant_Id_Here` – substitua esse valor pela **ID do locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` – substitua esse valor pelo segredo do cliente criado na etapa 1.
 
+    > [!div renderon="docs"]
     > > [!TIP]
     > > Para encontrar os valores de **ID do aplicativo (cliente)**, **ID de diretório (locatário)**, acesse a página **Visão Geral** do aplicativo no portal do Azure. Para gerar uma nova chave, acesse a página **Certificados e segredos**.
     
@@ -130,7 +133,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 >> * `Enter_the_Application_Id_Here` - é a **ID do aplicativo (cliente)** que você registrou.
 
 > [!NOTE]
-> Você poderá ver o erro *'AADSTS50011: nenhum endereço de resposta está registrado para o aplicativo'* após dar o consentimento ao aplicativo usando a URL anterior. Isso ocorre porque esse aplicativo e a URL não têm um URI de redirecionamento; ignore o erro.
+> Você pode ver o erro *'AADSTS50011: nenhum endereço de resposta está registrado para o aplicativo'* após dar o consentimento ao aplicativo usando a URL anterior. Isso ocorre porque esse aplicativo e a URL não têm um URI de redirecionamento; ignore o erro.
 
 #### <a name="step-5-run-the-application"></a>Etapa 5: Executar o aplicativo
 

@@ -1,22 +1,19 @@
 ---
 title: Script da CLI do Azure – Baixar logs de servidor no Banco de Dados do Azure para MySQL
 description: Esse exemplo de script de CLI do Azure mostra como habilitar e fazer o download dos logs do servidor de um Banco de Dados do Azure para servidor MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: a48685269c0a8a9effde0ecebfab54c1228509cd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7cb28d22dbd1fb7fcefbc16d01f55f4785a5932d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581010"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544490"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Habilitar e fazer o download dos logs de consulta lenta de um Banco de Dados do Azure para servidor MySQL usando a CLI do Azure
 Esse exemplo de script de CLI mostra como habilitar e fazer o download dos logs de consulta lenta de um único Banco de Dados do Azure para servidor MySQL.
@@ -47,5 +44,5 @@ Esse script usa os comandos descritos na tabela abaixo:
 | [az group delete](/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para ler mais sobre a CLI do Azure: [documentação da CLI do Azure](/cli/azure).
-- Experimente scripts adicionais: [exemplos da CLI do Azure para o Banco de Dados do Azure para MySQL](../sample-scripts-azure-cli.md)
+- Leia mais sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
+- Experimente scripts adicionais: [Exemplos da CLI do Azure para o Banco de Dados do Azure para MySQL](../sample-scripts-azure-cli.md)

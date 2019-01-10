@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972110"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793573"
 ---
 # <a name="back-up-azure-file-shares"></a>Backup de compartilhamentos de arquivos do Azure
 Este artigo explica como usar o Portal do Azure para fazer backup e restaurar [compartilhamentos de arquivos do Azure](../storage/files/storage-files-introduction.md) no Azure.
@@ -34,7 +34,7 @@ Antes de fazer backup de um compartilhamento de arquivos do Azure, verifique se 
 O backup para compartilhamentos de Arquivos do Azure está em versão prévia. Há suporte para Compartilhamentos de Arquivos do Azure em contas de armazenamento de uso geral v2 e de uso geral v1. Não há suporte para os cenários de backup a seguir para compartilhamentos de arquivos do Azure:
 - Não é possível proteger compartilhamentos de arquivos do Azure em Contas de Armazenamento com replicação* de [armazenamento com redundância geográfica com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Não é possível proteger compartilhamentos de arquivos no Azure em contas de armazenamento que têm redes virtuais ou firewall habilitados.
-- Não há nenhum PowerShell ou CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
+- Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
 - A quantidade máxima de backups agendados por dia é de um.
 - A quantidade máxima de backups sob demanda por dia é de quatro.
 - Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para impedir a exclusão acidental de backups em seu cofre dos Serviços de Recuperação.

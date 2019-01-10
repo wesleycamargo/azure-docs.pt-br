@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4b4f208524f18b98d44dc3d34e05359445fb2f17
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644778"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598303"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Criar, treinar e publicar sua base de dados de conhecimento do QnA Maker
 
@@ -57,9 +57,7 @@ ms.locfileid: "49644778"
 
 11. Na parte superior direito, selecione **Salvar e treinar** para salvar suas edições e treinar o modelo do QnA Maker. As edições não serão mantidas se não forem salvas.
 
-   ![Salvar e treinar](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
-
-12. Na parte superior direita, selecione **Testar** para verificar se as alterações entraram em vigor. Insira **Olá** na caixa e pressione Enter. A resposta que você criou será exibida.
+12. Na parte superior direita, selecione **Testar** para verificar se as alterações entraram em vigor. Insira `hi there` na caixa e pressione Enter. A resposta que você criou será exibida.
 
 13. Selecione **Inspecionar** para examinar a resposta mais detalhadamente. A janela de teste é usada para testar as alterações na KB antes que elas sejam publicadas.
 

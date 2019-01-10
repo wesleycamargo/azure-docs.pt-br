@@ -2,8 +2,7 @@
 title: 'Tutorial: Executar Azure Functions com trabalhos do Azure Stream Analytics | Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar o Azure Functions como um coletor de saída para trabalhos do Stream Analytics.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -11,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164153"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993001"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar o Azure Functions a partir dos trabalhos do Azure Stream Analytics 
 
@@ -152,7 +151,7 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
 
 1. Abra seu trabalho do Stream Analytics no portal do Azure.  
 
-2. Navegue até a função e selecione **Visão Geral** > **Saídas** > **Adicionar**. Para adicionar uma nova saída, selecione **Azure Functions** como a opção de coletor. O novo adaptador de saída do Azure Functions está disponível com as seguintes propriedades:  
+2. Navegue até a função e selecione **Visão Geral** > **Saídas** > **Adicionar**. Para adicionar uma nova saída, selecione **Azure Functions** como a opção de coletor. O adaptador de saída do Functions tem as seguintes propriedades:  
 
    |**Nome da propriedade**|**Descrição**|
    |---|---|
@@ -160,7 +159,7 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
    |Importar opção| Você poderá usar a função da assinatura atual ou fornecer as configurações manualmente se a função estiver localizada em outra assinatura. |
    |Aplicativo de Funções| Nome de seu aplicativo de funções. |
    |Função| Nome da função em seu aplicativo de funções (nome da função run.csx).|
-   |Tamanho Máximo do Lote|Define o tamanho máximo de cada lote de saída, que é enviado para a função. Por padrão, esse valor é definido como 256 KB.|
+   |Tamanho Máximo do Lote|Define o tamanho máximo de cada lote de saída que é enviado para a função em bytes. Por padrão, esse valor é definido como 262.144 bytes (256 KB).|
    |Contagem Máxima do Lote|Especifica o número máximo de eventos em cada lote enviado para a função. O valor padrão é 100. Essa propriedade é opcional.|
    |Chave|Permite que você use uma função de outra assinatura. Forneça o valor da chave para acessar sua função. Essa propriedade é opcional.|
 

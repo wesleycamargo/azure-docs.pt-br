@@ -3,22 +3,21 @@ title: Tutorial de Kubernetes no Azure - Criar um registro de contêiner
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você cria uma instância de Registro de Contêiner do Azure e carrega uma imagem de contêiner do aplicativo de exemplo.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4f240d346457717c66a6ed189cfd8610c7a764da
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 51cfc62adaf9d9c780888477aa6eab2a812fe98c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919476"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718026"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: implantar e usar o Registro de Contêiner do Azure
+# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implantar e usar o Registro de Contêiner do Azure
 
-O Registro de Contêiner do Azure (ACR) é um registro privado baseado no Azure, para imagens de contêiner do Docker. Um registro de contêiner privado permite criar e implantar seus aplicativos e o código personalizado com segurança. Neste tutorial, parte dois de sete, você pode implantar uma instância do ACR e enviar por push uma imagem de contêiner a ele. Você aprenderá como:
+O ACR (Registro de Contêiner do Azure) é um registro particular de imagens de contêiner. Um registro de contêiner privado permite criar e implantar seus aplicativos e o código personalizado com segurança. Neste tutorial, parte dois de sete, você pode implantar uma instância do ACR e enviar por push uma imagem de contêiner a ele. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar uma instância do Registro de Contêiner do Azure (ACR)
@@ -26,13 +25,13 @@ O Registro de Contêiner do Azure (ACR) é um registro privado baseado no Azure,
 > * Carregar a imagem para ACR
 > * Exibir imagens no seu registro
 
-Nos próximos tutoriais, essa instância do ACR será integrada a um cluster Kubernetes no AKS, e um aplicativo é implantado na imagem.
+Em tutoriais adicionais, essa instância do ACR será integrada a um cluster do Kubernetes no AKS e um aplicativo será implantado com base na imagem.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 No [tutorial anterior][aks-tutorial-prepare-app], uma imagem de contêiner foi criada para um aplicativo de Votação do Azure simples. Se você não tiver criado a imagem do aplicativo de Votação do Azure, retorne ao [Tutorial 1 – Criar imagens de contêiner][aks-tutorial-prepare-app].
 
-Este tutorial exige que você esteja executando a CLI do Azure versão 2.0.44 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+Este tutorial exige a execução da CLI do Azure versão 2.0.53 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-an-azure-container-registry"></a>Criar um Registro de Contêiner do Azure
 
@@ -44,7 +43,7 @@ Crie um grupo de recursos com o comando [az group create][az-group-create]. No e
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma instância de Registro de Contêiner do Azure com o comando [az acr create][az-acr-create] e forneça seu próprio nome de registro. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. No restante deste tutorial, `<acrName>` é usado como um espaço reservado para o nome do registro de contêiner. A SKU *Basic* é um ponto de entrada de otimização de custo para fins de desenvolvimento que fornece um equilíbrio entre o armazenamento e taxa de transferência.
+Crie uma instância de Registro de Contêiner do Azure com o comando [az acr create][az-acr-create] e forneça seu próprio nome de registro. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. No restante deste tutorial, `<acrName>` é usado como um espaço reservado para o nome do registro de contêiner. Forneça seu próprio nome de registro exclusivo. A SKU *Basic* é um ponto de entrada de otimização de custo para fins de desenvolvimento que fornece um equilíbrio entre o armazenamento e taxa de transferência.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -101,7 +100,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 
 ## <a name="push-images-to-registry"></a>Efetuar push de imagens para registro
 
-Agora você pode enviar a imagem *azure-vote-front* para sua instância do ACR. Use [docker push][docker-push] e forneça seu próprio endereço *acrLoginServer* para o nome da imagem da seguinte maneira:
+Com a imagem criada e marcada, envie por push a imagem *azure-vote-front* para a instância do ACR. Use [docker push][docker-push] e forneça seu próprio endereço *acrLoginServer* para o nome da imagem da seguinte maneira:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1

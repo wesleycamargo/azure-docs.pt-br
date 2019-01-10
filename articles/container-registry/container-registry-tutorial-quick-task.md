@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256682"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754366"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: criar e implantar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure
 
@@ -201,12 +201,12 @@ az keyvault secret set \
   --value $(az ad sp create-for-rbac \
                 --name $ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-O argumento `--role` no comando anterior configura a entidade de serviço com a função *leitor*, que concede a acesso somente pull ao registro. Para conceder acesso push e pull, altere o argumento `--role` para *colaborador*.
+O argumento `--role` no comando anterior configura a entidade de serviço com a função *acrpull*, que permite a ela acesso somente de pull ao Registro. Para permitir acesso de push e pull, altere o argumento `--role` para *acrpush*.
 
 Em seguida, armazene o *appId* da entidade de serviço no cofre, que é o **nome de usuário** que você passa para o Registro de Contêiner do Azure para autenticação:
 

@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: cdd73c46d87ec09439188024945bd60299bb1d57
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256988"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629740"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Associar um certificado SSL personalizado existente a aplicativos Web do Azure
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Tutorial: Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure
 
-Os Aplicativos Web do Azure fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patch. Este tutorial mostra como associar um certificado SSL personalizado que você adquiriu de uma autoridade de certificação confiável para [aplicativos Web do Azure](app-service-web-overview.md). Quando você terminar, você poderá acessar seu aplicativo Web no ponto de extremidade HTTPS do seu domínio DNS personalizado.
+O Serviço de Aplicativo do Azure fornece um serviço de hospedagem Web altamente escalonável e com aplicação automática de patch. Este tutorial mostra como associar um certificado SSL personalizado que você adquiriu de uma autoridade de certificação confiável ao [Serviço de Aplicativo do Azure](overview.md). Ao terminar, você poderá acessar o aplicativo no ponto de extremidade HTTPS do seu domínio DNS personalizado.
 
 ![Aplicativo Web com certificado SSL personalizado](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -39,14 +39,14 @@ Neste tutorial, você aprenderá como:
 > * Automatizar o gerenciamento de TLS com scripts
 
 > [!NOTE]
-> Se você precisar obter um certificado SSL personalizado, você poderá obtê-lo diretamente no Portal do Azure e associá-lo ao seu aplicativo Web. Siga o [tutorial de Certificados do Serviço de Aplicativo](web-sites-purchase-ssl-web-site.md).
+> Se precisar obter um certificado SSL personalizado, você poderá obtê-lo diretamente no portal do Azure e associá-lo ao seu aplicativo. Siga o [tutorial de Certificados do Serviço de Aplicativo](web-sites-purchase-ssl-web-site.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
 - [Crie um aplicativo do Serviço de Aplicativo](/azure/app-service/)
-- [Mapear um nome DNS personalizado para o aplicativo Web](app-service-web-tutorial-custom-domain.md)
+- [Mapear um nome DNS personalizado para o aplicativo do Serviço de Aplicativo](app-service-web-tutorial-custom-domain.md)
 - Adquirir um certificado SSL de uma autoridade de certificado confiável
 - Esteja com a chave privada que foi usada para assinar a solicitação de certificado SSL
 
@@ -70,7 +70,7 @@ Para usar o certificado no Serviço de Aplicativo, o certificado deve atender a 
 
 ## <a name="bind-your-ssl-certificate"></a>Associar o certificado SSL
 
-Você está pronto para carregar seu certificado SSL para o aplicativo Web.
+Você está pronto para carregar o certificado SSL para o aplicativo.
 
 ### <a name="merge-intermediate-certificates"></a>Mesclar certificados intermediários
 
@@ -114,7 +114,7 @@ Se você usou o IIS ou o _Certreq.exe_ para gerar a solicitação de certificado
 
 ### <a name="upload-your-ssl-certificate"></a>Carregar o certificado SSL
 
-Para carregar o certificado SSL, clique em **Configurações de SSL** no painel de navegação esquerdo de seu aplicativo Web.
+Para carregar o certificado SSL, clique em **Configurações de SSL** no painel de navegação esquerdo de seu aplicativo.
 
 Clique em **Carregar Certificado**. 
 
@@ -154,24 +154,24 @@ Quando o Serviço de Aplicativo terminar de carregar o certificado, ele aparecer
 
 ## <a name="remap-a-record-for-ip-ssl"></a>Remapear um registro para IP SSL
 
-Se você não usar SSL com base em IP em seu aplicativo Web, pule para [Testar o HTTPS para seu domínio personalizado](#test).
+Caso não use SSL com base em IP no aplicativo, pule para [Testar o HTTPS para o domínio personalizado](#test).
 
-Por padrão, o seu aplicativo Web usa um endereço IP público compartilhado. Quando você associa um certificado ao SSL baseado em IP, o Serviço de Aplicativo cria um novo endereço IP dedicado para o aplicativo Web.
+Por padrão, o aplicativo usa um endereço IP público compartilhado. Quando você associa um certificado com SSL baseado em IP, o Serviço de Aplicativo cria um novo endereço IP dedicado para o aplicativo.
 
-Se você tiver mapeado um registro A para seu aplicativo Web, atualize o Registro do domínio com esse novo endereço IP dedicado.
+Se você mapeou um registro A para o aplicativo, atualize o registro do domínio com esse novo endereço IP dedicado.
 
-A página **domínio personalizado** de seu aplicativo Web é atualizada com o novo endereço IP dedicado. [Copie esse endereço IP](app-service-web-tutorial-custom-domain.md#info) e, em seguida, [remapeie o registro](app-service-web-tutorial-custom-domain.md#map-an-a-record) para esse novo endereço IP.
+A página **Domínio personalizado** de seu aplicativo é atualizada com o novo endereço IP dedicado. [Copie esse endereço IP](app-service-web-tutorial-custom-domain.md#info) e, em seguida, [remapeie o registro](app-service-web-tutorial-custom-domain.md#map-an-a-record) para esse novo endereço IP.
 
 <a name="test"></a>
 
 ## <a name="test-https"></a>Testar HTTPS
 
-Agora, tudo o que resta fazer é certificar-se de que o HTTPS funcione com seu domínio personalizado. Em vários navegadores, navegue até `https://<your.custom.domain>` para ver se ele leva até seu aplicativo Web.
+Agora, tudo o que resta fazer é certificar-se de que o HTTPS funcione com seu domínio personalizado. Em vários navegadores, navegue até `https://<your.custom.domain>` para ver se ele leva até seu aplicativo.
 
 ![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
-> Se o seu aplicativo Web retorna erros de validação de certificado, você provavelmente está usando um certificado autoassinado.
+> Caso seu aplicativo retorne erros de validação de certificado, você provavelmente está usando um certificado autoassinado.
 >
 > Se não for o caso, talvez você tenha deixado de fora certificados intermediários quando exportou o certificado para o arquivo PFX.
 
@@ -187,9 +187,9 @@ Seu endereço IP de entrada pode ser alterado ao excluir uma associação, mesmo
 
 ## <a name="enforce-https"></a>Impor HTTPS
 
-Por padrão, todos ainda podem acessar seu aplicativo Web usando HTTP. Você pode redirecionar todas as solicitações HTTP para a porta HTTPS.
+Por padrão, qualquer pessoa ainda pode acessar seu aplicativo usando HTTP. Você pode redirecionar todas as solicitações HTTP para a porta HTTPS.
 
-Em sua página do aplicativo Web, na navegação esquerda, selecione **Configurações SSL**. Depois, em **HTTPS somente**, selecione **Ligado**.
+Na página do seu aplicativo, na navegação esquerda, selecione **Configurações SSL**. Depois, em **HTTPS somente**, selecione **Ligado**.
 
 ![Impor HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -203,7 +203,7 @@ Quando a operação estiver concluída, navegue até qualquer uma das URLs HTTP 
 
 Seu aplicativo permite o [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 por padrão, que é o nível TLS recomendado segundo os padrões do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Para impor versões diferentes do TLS, execute estas etapas:
 
-Em sua página do aplicativo Web, na navegação esquerda, selecione **Configurações SSL**. Depois, em **Versão do TLS**, selecione a versão mínima desejada do TLS. Essa configuração controla somente as chamadas de entrada. 
+Na página do seu aplicativo, na navegação esquerda, selecione **Configurações SSL**. Depois, em **Versão do TLS**, selecione a versão mínima desejada do TLS. Essa configuração controla somente as chamadas de entrada. 
 
 ![Impor o TLS 1.1 ou 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
@@ -211,7 +211,7 @@ Após a conclusão da operação, seu aplicativo rejeitará todas as conexões c
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
-Você pode automatizar associações SSL para seu aplicativo Web com scripts, usando a [CLI do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).
+Você pode automatizar associações SSL para seu aplicativo com scripts, usando a [CLI do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -260,9 +260,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Certificados públicos (opcional)
-Se seu aplicativo precisar acessar recursos remotos como um cliente e se o recurso remoto exigir autenticação de certificado, você poderá carregar [Certificados públicos](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) ao seu aplicativo Web. Os certificados públicos não são necessários para associações SSL de seu aplicativo.
+Se o aplicativo precisar acessar recursos remotos como um cliente e se o recurso remoto exigir autenticação de certificado, você poderá carregar [certificados públicos](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) ao seu aplicativo. Os certificados públicos não são necessários para associações SSL de seu aplicativo.
 
-Para obter mais detalhes sobre como carregar e usar um certificado público em seu aplicativo, confira [Usar um certificado SSL no seu código do aplicativo no Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load). Você também pode usar certificados públicos com aplicativos em Ambientes do Serviço de Aplicativo. Se você precisar armazenar o certificado no repositório de certificados LocalMachine, é preciso usar um aplicativo Web no Ambiente de Serviço de Aplicativo. Para obter mais informações, consulte [Como configurar certificados públicos para seu Aplicativo Web](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+Para obter mais detalhes sobre como carregar e usar um certificado público em seu aplicativo, confira [Usar um certificado SSL no seu código do aplicativo no Serviço de Aplicativo do Azure](app-service-web-ssl-cert-load.md). Você também pode usar certificados públicos com aplicativos em Ambientes do Serviço de Aplicativo. Se você precisar armazenar o certificado no repositório de certificados LocalMachine, será preciso usar um aplicativo no Ambiente do Serviço de Aplicativo. Para obter mais informações, confira [Como configurar certificados públicos para seu aplicativo do Serviço de Aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Carregar um certificado público](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

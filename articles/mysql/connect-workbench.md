@@ -1,26 +1,23 @@
 ---
 title: Conectar-se ao Banco de Dados do Azure para MySQL do MySQL Workbench
 description: Este guia de início rápido fornece as etapas para usar o MySQL Workbench para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: seanli1988
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: def984a6a31cdfe9b9dfbba93ccfb5016b5e315d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f93c581b916a7f9c4f454833cb37f603cc177856
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265157"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540442"
 ---
-# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar o MySQL Workbench para se conectar e consultar dados
+# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar o MySQL Workbench para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um Banco de Dados do Azure para MySQL usando o aplicativo MySQL Workbench. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)

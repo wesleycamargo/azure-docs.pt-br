@@ -1,29 +1,28 @@
 ---
-title: 'Azure Cosmos DB: como consultar usando a API do MongoDB?'
-description: Aprenda a consultar com a API do MongoDB para o Azure Cosmos DB
-services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+title: Consultar dados com a API para MongoDB do Azure Cosmos DB
+description: Saiba como consultar dados com a API para MongoDB do Azure Cosmos DB.
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/29/2018
-ms.openlocfilehash: 8c865ab7fa997b169e481612ce791d960688da56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/26/2018
+ms.reviewer: sngun
+ms.openlocfilehash: 8bdd88652019ceb48cfd9f05d1009271f5b7a8c7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841499"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042981"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API do MongoDB
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Consultar dados usando a API para MongoDB do Azure Cosmos DB
 
-A [API para MongoDB](mongodb-introduction.md) do Azure Cosmos DB oferece suporte a [consultas do shell do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+A [API para MongoDB do Azure Cosmos DB](mongodb-introduction.md) dá suporte a [consultas do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 Este artigo aborda as seguintes tarefas: 
 
 > [!div class="checklist"]
-> * Consultar dados com o MongoDB
+> * Consultando dados armazenados no banco de dados do Cosmos usando o shell do MongoDB
 
 Você pode começar usando os exemplos neste documento e assistindo ao vídeo [Consultar o Azure Cosmos DB com o shell do MongoDB](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/).
 
@@ -303,7 +302,7 @@ Nenhum resultado é retornado, pois não há famílias com mais de dois filhos. 
 Neste tutorial, você fez o seguinte:
 
 > [!div class="checklist"]
-> * Aprendeu a consultar usando o MongoDB 
+> * Aprendeu a consultar usando a API para MongoDB do Cosmos DB
 
 Agora você pode prosseguir para o próximo tutorial e aprender a distribuir seus dados globalmente.
 

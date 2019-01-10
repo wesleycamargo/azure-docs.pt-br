@@ -1,20 +1,18 @@
 ---
-title: 'Início Rápido: Criar um servidor de Banco de Dados do Azure para MariaDB - portal do Azure'
+title: 'Início Rápido: Criar um servidor de Banco de Dados do Azure para MariaDB – portal do Azure'
 description: Este artigo mostra como usar o portal do Azure para criar rapidamente um servidor de Banco de Dados do Azure para MariaDB de exemplo em aproximadamente cinco minutos.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 721cd87dcf58a2b5a7a8fd32fdfa8b2d65453b24
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: fb02cfd2419d1c98a92d1eae8b59256499d017a8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321930"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541380"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MariaDB usando o portal do Azure
 
@@ -44,12 +42,12 @@ Para criar um servidor de Banco de Dados do Azure para MariaDB:
 
     Configuração | Valor sugerido | DESCRIÇÃO
     ---|---|---
-    Nome do servidor | *um nome de servidor exclusivo* | Escolha um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. Por exemplo, **mydemoserver**. O nome de domínio *.mariadb.database.azure.com* é acrescentado ao nome do servidor inserido. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter entre 3 e 63 caracteres.
+    Nome do servidor | *um nome de servidor exclusivo* | Escolha um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. Por exemplo, **mydemoserver**. O nome de domínio *.mariadb.database.azure.com* é acrescentado ao nome do servidor que você inseriu. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter entre 3 e 63 caracteres.
     Assinatura | *sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura na qual você recebe a cobrança do recurso.
     Grupo de recursos | **myresourcegroup** | Insira o nome de um novo grupo de recursos ou escolha um grupo de recursos existente. 
     Selecionar a origem | **Em branco** | Selecione **Em branco** para criar um novo servidor do zero. (Escolha **Backup** se você estiver criando um servidor a partir de um backup de área geográfica de um servidor de Banco de Dados do Azure para MariaDB existente.)
     Logon de administrador do servidor | **myadmin** | Uma conta de logon a ser usada ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superusuário**, **admin**, **administrador**, **raiz**, **convidado** ou **público**.
-    Senha | *sua escolha* | Insira uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha deve conter caracteres de três das seguintes categorias: letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
+    Senha | *sua escolha* | Insira uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar senha | *sua escolha*| Confirme a senha da conta do administrador.
     Local padrão | *a região mais próxima de seus usuários*| Escolha o local mais próximo de seus usuários ou de outros aplicativos do Azure.
     Versão | *a versão mais recente*| A versão mais recente (a menos que você tenha requisitos específicos que exijam outra versão).
@@ -154,7 +152,7 @@ Primeiro, vamos usar a ferramenta de linha de comando [mysql](https://dev.mysql.
     > [!TIP]
     > Se o firewall não estiver configurado para permitir o endereço IP do Azure Cloud Shell, o seguinte erro ocorrerá:
     >
-    >   ERRO 2003 (28000): o cliente com o endereço IP 123.456.789.0 não tem permissão para acessar o servidor.
+    >   ERRO 2003 (28000): O cliente com o endereço IP 123.456.789.0 não tem permissão para acessar o servidor.
     >
     > Para resolver o erro, verifique se a configuração do servidor corresponde às etapas que estão descritas em [Configurar uma regra de firewall no nível do servidor](#configure-firewall-rule).
 

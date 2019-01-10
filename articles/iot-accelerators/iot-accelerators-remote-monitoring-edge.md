@@ -1,5 +1,5 @@
 ---
-title: Detectar anomalias na borda em um tutorial de solução do Azure | Microsoft Docs
+title: 'Tutorial: Detectar anomalias na borda em uma solução – Azure | Microsoft Docs'
 description: Neste tutorial, você aprenderá a monitorar seus dispositivos do IoT Edge usando o acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843301"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606241"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detectar anomalias na borda com o acelerador de solução de Monitoramento Remoto
 

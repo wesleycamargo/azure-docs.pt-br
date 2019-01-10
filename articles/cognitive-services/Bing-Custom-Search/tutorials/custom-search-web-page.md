@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar uma página da Web de pesquisa personalizada – Pesquisa Personalizada do Bing'
+title: 'Tutorial: Criar uma página da Web de pesquisa personalizada – Pesquisa Personalizada do Bing'
 titlesuffix: Azure Cognitive Services
 description: Descreve como configurar uma instância de pesquisa personalizada e integrá-la a uma página da Web.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0c98f75417bbcba13e179502eb1c8b4488b17d78
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427323"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558015"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: criar uma página da Web de Pesquisa Personalizada
+# <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Compilar uma página da Web de pesquisa personalizada
 
 A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você. Por exemplo, se você possuir um site de artes marciais que fornece uma experiência de pesquisa, será possível especificar os domínios, sites e as páginas da Web que o Bing pesquisará. Os usuários veem os resultados da pesquisa personalizados ao conteúdo importante para eles, em vez de terem que acessar os resultados gerais da pesquisa que podem conter conteúdo irrelevante. 
 
@@ -79,7 +79,7 @@ Para excluir resultados de websites ou URLs específicos, adicione-os à guia **
 
 ## <a name="add-pinned-entries"></a>Adicionar entradas fixadas
 
-Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **Fixado**. A guia **Fixado** contém uma lista de pares de termos de páginas da Web e consultas que especificam a página da Web que aparece como o resultado principal de uma consulta específica. A página da web só é fixada se a cadeia de caracteres de consulta do usuário corresponder à cadeia de caracteres de consulta do pin com base na condição de correspondência do pin. Somente páginas da Web indexadas serão exibidas nas pesquisas. Confira [Definir o modo de exibição personalizado](../define-your-custom-view.md#pin-to-top) para obter mais informações.
+Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **Fixado**. A guia **Fixado** contém uma lista de pares de termos de páginas da Web e consultas que especificam a página da Web que aparece como o resultado principal de uma consulta específica. A página da web só é fixada se a cadeia de caracteres de consulta do usuário corresponder à cadeia de caracteres de consulta do pin com base na condição de correspondência do pin. Somente páginas da Web indexadas serão exibidas nas pesquisas. Confira [Definir o modo de exibição personalizado](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
 
 1. Na página **Configuração**, clique na guia **Fixado** e insira a página da web e o termo de consulta da página da Web que você deseja que sejam retornados como o resultado principal.  
   
@@ -127,10 +127,10 @@ A Pesquisa personalizada fornece uma interface do usuário hospedada para render
 
 Há duas maneiras de consumir a interface do usuário hospedada.  
 
-- Opção 1: integre o snippet de código do JavaScript fornecido ao aplicativo.
-- Opção 2: use o ponto de extremidade de HTML fornecido.
+- Opção 1: Integre o snippet JavaScript fornecido no aplicativo.
+- Opção 2: Use o Ponto de Extremidade de HTML fornecido.
 
-O restante deste tutorial ilustra a **Opção 1: snippet de código do Javascript**.  
+O restante deste tutorial ilustra a **Opção 1: Snippet de JavaScript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configure sua solução do Visual Studio
 

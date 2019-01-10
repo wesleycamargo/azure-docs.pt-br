@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: b-juche
-ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 937ff9cf4c099f229df28070be07ba76339704e0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413228"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583986"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Criar um volume para Azure NetApp Files
 
@@ -41,7 +41,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
     * **Nome**      
         Especifique o nome para o volume que você está criando.   
 
-        O nome precisa ser exclusivo em um grupo de recursos. Deve ter pelo menos três caracteres de comprimento.  Deve usar qualquer caractere alfanumérico.
+        O nome precisa ser exclusivo em um grupo de recursos. Ele precisa ter, pelo menos, três caracteres.  Deve usar qualquer caractere alfanumérico.
 
     * **Caminho do arquivo**  
         Especifique o caminho do arquivo que será usado para criar o caminho de exportação para o novo volume. O caminho de exportação é usado para montar e acessar o volume.   
@@ -56,13 +56,13 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
     * **Rede virtual**  
         Especifique a rede virtual (VNet) do Azure da qual você deseja acessar o volume.  
 
-        A Vnet especificada deve ter uma sub-rede delegada ao Azure NetApp Files. O serviço Azure NetApp Files pode ser acessado apenas da mesma Vnet ou de uma Vnet que esteja na mesma região que o volume por meio do Emparelhamento VNET. Também é possível acessar o volume da sua rede local por meio do ExpressRoute.   
+        A VNET especificada precisa ter uma sub-rede delegada ao Azure NetApp Files. O serviço Azure NetApp Files pode ser acessado somente na mesma VNET ou em uma VNET que esteja na mesma região do volume por meio do emparelhamento VNET. Também é possível acessar o volume na rede local por meio do ExpressRoute.   
 
     * **Sub-rede**  
         Especifique a sub-rede que você deseja usar para o volume.  
         A sub-rede especificada deve ser delegada ao Azure NetApp Files. 
         
-        Se você não tiver delegado uma sub-rede, poderá clicar em **Criar novo** na página Criar um volume. Em seguida, na página Criar sub-rede, especifique as informações da sub-rede e selecione **Microsoft.NetApp/volumes** para delegar a sub-rede para o Azure NetApp Files.    
+        Se você não tiver delegado uma sub-rede, poderá clicar em **Criar novo** na página Criar um volume. Em seguida, na página Criar sub-rede, especifique as informações da sub-rede e selecione **Microsoft.NetApp/volumes** para delegar a sub-rede para o Azure NetApp Files. Observe que, em cada rede virtual, apenas uma sub-rede pode ser delegada ao Azure NetApp Files.   
  
         ![Novo volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

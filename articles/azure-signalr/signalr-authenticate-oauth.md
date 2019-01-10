@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: beaedf754df2b1c4739c5dfb2abcdc40c163dc81
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bd872e7aa9ada8c46b0af897b4d7ad137b767514
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254115"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103784"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: autenticação do Serviço do Azure SignalR
 
@@ -378,7 +378,7 @@ Nesta seção, você ativará autenticação real, adicionando o `Authorize` atr
 
 ## <a name="deploy-the-app-to-azure"></a>Implantar o aplicativo no Azure
 
-Nesta seção, você usará a interface de linha de comando (CLI) do Azure Cloud Shell para criar um novo [aplicativo Web do Azure](https://docs.microsoft.com/azure/app-service/) para hospedar seu aplicativo ASP.NET no Azure. O aplicativo web será configurado para usar a implantação local do Git. O aplicativo web também será configurado com a cadeia de caracteres de conexão do SignalR, segredos do aplicativo GitHub OAuth e um usuário de implantação.
+Nesta seção, você usará a interface de linha de comando (CLI) do Azure Cloud Shell para criar um novo Web no [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/) para hospedar seu aplicativo ASP.NET no Azure. O aplicativo web será configurado para usar a implantação local do Git. O aplicativo web também será configurado com a cadeia de caracteres de conexão do SignalR, segredos do aplicativo GitHub OAuth e um usuário de implantação.
 
 As etapas nesta seção usam a extensão *signalr* para a CLI do Azure. Execute o comando a seguir para instalar a extensão *signalr* para a CLI do Azure:
 
@@ -547,7 +547,7 @@ Para implantar seu código, execute os seguintes comandos em um shell do Git.
 
 A última coisa que você precisa fazer é atualizar a **URL da home page** e a **URL de retorno de chamada de autorização** do aplicativo GitHub OAuth para apontar para o ponto do novo aplicativo hospedado.
 
-1. Abra [ http://github.com ](http://github.com) em um navegador e navegue até as **configurações da Conta** > **Configurações do desenvolvedor** > **Aplicativos Oauth**.
+1. Abra [ https://github.com ](https://github.com) em um navegador e navegue até as **configurações da Conta** > **Configurações do desenvolvedor** > **Aplicativos Oauth**.
 
 2. Clique no aplicativo de autenticação e atualize a **URL da home page** e a **URL de retorno de chamada de autorização** conforme mostrado abaixo:
 

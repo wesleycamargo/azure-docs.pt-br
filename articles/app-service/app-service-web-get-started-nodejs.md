@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 4646456acb44f3054ef948a17d3db330e4e1e727
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5223a60663e05747b58aa04e7a102f1d350badd4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257958"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632290"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar um aplicativo Web do Node.js no Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "53257958"
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar o Serviço de Aplicativo em _Linux_, consulte [Criar um aplicativo Web Node.js no Serviço de Aplicativo do Azure em Linux](./containers/quickstart-nodejs.md).
 >
 
-Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.  Este guia de início rápido mostra como implantar um aplicativo Node.js em Aplicativos Web do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o ZipDeploy para implantar o código Node.js de exemplo para o aplicativo Web.
+O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches.  Este início rápido mostra como implantar um aplicativo Node.js no Serviço de Aplicativo do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o ZipDeploy para implantar o código Node.js de exemplo para o aplicativo Web.
 
 ![Aplicativo de exemplo em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -169,13 +169,13 @@ Mude para a janela do navegador aberta na etapa **Navegar até o aplicativo** e 
 
 ![Aplicativo de exemplo atualizado em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gerenciar seu novo aplicativo Web do Azure
+## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
 Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo Web que você criou.
 
-No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda, clique em **Serviços de Aplicativos** e, em seguida, clique no nome do aplicativo do Azure.
 
-![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
 A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. 
 

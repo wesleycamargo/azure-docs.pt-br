@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602948"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969175"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar um aplicativo lógico como uma API
 
@@ -31,10 +31,10 @@ Neste artigo, você aprenderá a:
 > * Testar a API no Portal do Azure
 > * Testar a API no Portal do desenvolvedor
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-+ Conclua o seguinte guia de início rápido: [Criar uma nova instância do serviço de Gerenciamento de API do Azure](get-started-create-service-instance.md)
-+ Verifique se há um aplicativo lógico em sua assinatura. Para obter mais informações, [Criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
+* Verifique se há um aplicativo lógico em sua assinatura, que expõe um ponto de extremidade HTTP. Para obter mais informações, confira [Disparar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -44,7 +44,7 @@ Neste artigo, você aprenderá a:
 2. Selecione **Aplicativo Lógico** na lista **Adicionar uma nova API**.
 
     ![Aplicativo lógico](./media/import-logic-app-as-api/logic-app-api.png)
-3. Pressione **Procurar** para ver a lista de aplicativos lógicos em sua assinatura.
+3. Pressione **Procurar** para ver a lista de Aplicativos Lógicos que podem ser chamados em sua assinatura.
 4. Selecione o aplicativo. O APIM localiza o swagger associado ao aplicativo selecionado, busca-o e importa-o. 
 5. Adicione um sufixo da URL da API. O sufixo é um nome que identifica essa API específica nesta instância do APIM. Ele deve ser exclusivo nesta instância de APIM.
 6. Publica a API associando-a a um produto. Nesse caso, o produto "*Ilimitado*" é usado.  Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.

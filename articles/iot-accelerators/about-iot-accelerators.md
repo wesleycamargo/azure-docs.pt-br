@@ -1,5 +1,5 @@
 ---
-title: Introdução aos aceleradores de solução do Azure IoT | Microsoft Docs
+title: Introdução aos aceleradores de solução de IoT – Azure | Microsoft Docs
 description: Saiba mais sobre os aceleradores de solução de IoT do Azure. Os aceleradores de solução de IoT são soluções de IoT completas, de ponta a ponta e prontas para implantação.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824533"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607193"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>O que são aceleradores de solução do Azure IoT?
 
@@ -34,7 +34,7 @@ Atualmente, há quatro aceleradores de soluções disponíveis para implantaçã
 
 ### <a name="remote-monitoring"></a>Monitoramento remoto
 
-Use este acelerador de solução para coletar a telemetria de dispositivos remotos e controlá-los. Os exemplos de dispositivo incluem sistemas de arrefecimento instalados no local dos seus clientes ou válvulas instaladas em estações de bombeamento remotas.
+Use o [acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md) para coletar telemetria de dispositivos remotos e controlá-los. Os exemplos de dispositivo incluem sistemas de arrefecimento instalados no local dos seus clientes ou válvulas instaladas em estações de bombeamento remotas.
 
 É possível usar o painel de monitoramento remoto para exibir a telemetria dos seus dispositivos conectados, provisionar novos dispositivos ou atualizar o firmware em seus dispositivos conectados:
 
@@ -42,7 +42,7 @@ Use este acelerador de solução para coletar a telemetria de dispositivos remot
 
 ### <a name="connected-factory"></a>Fábrica conectada
 
-Use este acelerador de solução para coletar a telemetria de ativos industriais com uma interface de [Arquitetura Unificada OPC](https://opcfoundation.org/about/opc-technologies/opc-ua/) e para controlá-los. Os ativos industriais podem incluir montagem e teste de estações em uma linha de produção de fábrica.
+Use o [acelerador de solução Alocador Conectado](iot-accelerators-connected-factory-sample-walkthrough.md) para coletar a telemetria de ativos industriais com uma interface de [Arquitetura Unificada OPC](https://opcfoundation.org/about/opc-technologies/opc-ua/) e para controlá-los. Os ativos industriais podem incluir montagem e teste de estações em uma linha de produção de fábrica.
 
 É possível usar o painel da fábrica conectada para monitorar e gerenciar seus dispositivos industriais:
 
@@ -50,7 +50,7 @@ Use este acelerador de solução para coletar a telemetria de ativos industriais
 
 ### <a name="predictive-maintenance"></a>Manutenção preditiva
 
-Use este acelerador de solução para prever quando um dispositivo remoto deve falhar, para que você possa realizar manutenção antes que o dispositivo falhe. Este acelerador de solução usa algoritmos de aprendizado de máquina para prever falhas de telemetria do dispositivo. Os exemplos de dispositivo incluem motores de avião ou elevadores.
+Use este [acelerador de solução de Manutenção Preditiva](iot-accelerators-predictive-walkthrough.md) para prever quando um dispositivo remoto deve falhar, para que você possa realizar manutenção antes que o dispositivo falhe. Este acelerador de solução usa algoritmos de aprendizado de máquina para prever falhas de telemetria do dispositivo. Os exemplos de dispositivo incluem motores de avião ou elevadores.
 
 É possível usar o painel de manutenção preditiva para exibir a análise de manutenção preditiva:
 
@@ -58,7 +58,7 @@ Use este acelerador de solução para prever quando um dispositivo remoto deve f
 
 ### <a name="device-simulation"></a>Simulação de dispositivo
 
-Use este acelerador de solução para executar dispositivos simulados que geram telemetria realista. Você pode usar este acelerador de solução para testar o comportamento de outros aceleradores de solução ou testar suas próprias soluções personalizadas de IoT.
+Use este [acelerador de solução de Simulação de Dispositivo](iot-accelerators-device-simulation-overview.md) para executar dispositivos simulados que geram telemetria realista. Você pode usar este acelerador de solução para testar o comportamento de outros aceleradores de solução ou testar suas próprias soluções personalizadas de IoT.
 
 Você pode usar o aplicativo Web de simulação de dispositivo para configurar e executar simulações:
 
@@ -85,7 +85,7 @@ Os aceleradores de solução originais foram escritos usando o .NET usando uma a
 | Fábrica conectada      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Simulação de dispositivo      | Microsserviços | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Para saber mais sobre as arquiteturas de microsserviço, confira [Arquitetura do Aplicativo .NET](https://www.microsoft.com/net/learn/architecture) e [Microsserviços: uma revolução de aplicativo fornecida pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+Para saber mais sobre a arquitetura de microsserviços, confira [Introdução à arquitetura de referência do Azure IoT](iot-accelerators-architecture-overview.md).
 
 ## <a name="deployment-options"></a>Opções de implantação
 
@@ -93,9 +93,9 @@ Você pode implantar os aceleradores de solução do site [Aceleradores de solu�
 
 Você pode implantar o acelerador de solução de monitoramento remoto nas seguintes configurações:
 
-* **Standard**: Implantação de infraestrutura expandida para o desenvolvimento de uma implantação de produção. O Serviço de Contêiner do Azure implanta os microsserviços em máquinas virtuais do Azure. O Kubernetes orquestra os contêineres do Docker que hospedam os microsserviços individuais.
-* **Básica**: Versão de custo reduzido para obter uma demonstração ou testar uma implantação. Todos os microsserviços implantam em uma única máquina virtual do Azure.
-* **Local:** Implantação da máquina local para teste e desenvolvimento. Essa abordagem implanta os microsserviços em um contêiner do Docker local e conecta-se ao Hub IoT, Azure Cosmos DB e serviços de armazenamento do Azure na nuvem.
+* **Standard:** implantação de infraestrutura expandida para o desenvolvimento de uma implantação de produção. O Serviço de Contêiner do Azure implanta os microsserviços em máquinas virtuais do Azure. O Kubernetes orquestra os contêineres do Docker que hospedam os microsserviços individuais.
+* **Básica:** versão de custo reduzido para obter uma demonstração ou testar uma implantação. Todos os microsserviços implantam em uma única máquina virtual do Azure.
+* **Local:** implantação do computador local para teste e desenvolvimento. Essa abordagem implanta os microsserviços em um contêiner do Docker local e conecta-se ao Hub IoT, Azure Cosmos DB e serviços de armazenamento do Azure na nuvem.
 
 O custo para executar um acelerador de solução é o [custo combinado da execução dos serviços subjacentes do Azure](https://azure.microsoft.com/pricing). Você verá os detalhes dos serviços do Azure usados quando você escolher as opções de implantação.
 

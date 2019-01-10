@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Criar uma consulta de pesquisa visual, Python – Pesquisa Visual do Bing'
+title: 'Início Rápido: Obtenha insights de imagem usando a API REST da Pesquisa Visual do Bing e o Python'
 titleSuffix: Azure Cognitive Services
-description: Mostra como fazer upload de uma imagem para a API de Pesquisa Visual do Bing e obter insights sobre a imagem.
+description: Saiba como carregar uma imagem para a API da Pesquisa Visual do Bing e obter insights sobre ela.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 3a0d92e42eed097e244118a60ec0a4223c9cedf5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3930de4d8d1f50c0ba6908ea642fc152c29b7371
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52440934"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744795"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Início Rápido: Sua primeira consulta da Pesquisa Visual do Bing em Python
+# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Início Rápido: Sua primeira consulta de Pesquisa Visual do Bing em Python
 
-A API de Pesquisa Visual do Bing retorna informações sobre uma imagem que você fornece. Você pode fornecer a imagem usando a URL da imagem, um token de insights ou fazendo upload de uma imagem. Para obter informações sobre essas opções, consulte [O que é a API de Pesquisa Visual do Bing?](../overview.md) Este artigo demonstra como fazer upload de uma imagem. Fazer upload de uma imagem pode ser útil em cenários móveis em que você tira uma foto de um ponto de referência conhecido e obtém informações sobre ele. Por exemplo, os insights podem incluir fatos secundários sobre o ponto de referência. 
+Use este início rápido para fazer sua primeira chamada à API da Pesquisa Visual do Bing e exibir os resultados da pesquisa. Este aplicativo JavaScript simples carrega uma imagem para a API e exibe as informações retornadas sobre ela. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-Se você fizer upload de uma imagem local, inclua no corpo do POST os dados de formulário mostrados a seguir. Os dados de formulário precisam incluir o cabeçalho Content-Disposition. Seu parâmetro `name` precisa ser definido como "image" e o parâmetro `filename` pode ser definido como qualquer cadeia de caracteres. O conteúdo do formulário é o binário da imagem. O tamanho máximo de imagem que você pode fazer upload é 1 MB. 
+Ao carregar uma imagem local, os dados de formulário de POST precisam incluir o cabeçalho Content-Disposition. Seu parâmetro `name` precisa ser definido como "image" e o parâmetro `filename` pode ser definido como qualquer cadeia de caracteres. O conteúdo do formulário é o binário da imagem. O tamanho máximo de imagem que você pode fazer upload é 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -32,85 +32,67 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Este artigo inclui um aplicativo de console simples que envia uma solicitação de API de Pesquisa Visual do Bing e exibe os resultados da pesquisa JSON. Embora este aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que possa fazer solicitações HTTP e analisar JSON. 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa do [Python 3](https://www.python.org/) para executar esse código.
-
-Para este início rápido, você precisará iniciar uma assinatura na faixa de preço S9, conforme mostra [Preços dos Serviços Cognitivos – API de Pesquisa do Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
-
-Para iniciar uma assinatura no portal do Azure:
-1. Insira "BingSearchV7" na caixa de texto na parte superior do portal do Azure que mostra `Search resources, services, and docs`.  
-2. Em Marketplace, na lista suspensa, selecione `Bing Search v7`.
-3. Insira `Name` para o novo recurso.
-4. Selecionar assinatura `Pay-As-You-Go`.
-5. Selecione o tipo de preço `S9`.
-6. Clique em `Enable` para iniciar a assinatura.
-
-## <a name="running-the-walkthrough"></a>Executando o passo a passo
-
-Para executar este aplicativo, siga estas etapas:
-
-1. Crie um novo projeto Python no seu IDE ou editor favorito.
-2. Crie um arquivo nomeado visualsearch.py e adicione o código mostrado neste guia de início rápido.
-3. Substitua o valor `SUBSCRIPTION_KEY` pela sua chave de assinatura.
-3. Substitua o valor `imagePath` pelo caminho da imagem da qual o upload será feito.
-4. Execute o programa.
+* [Python 3.x](https://www.python.org/)
 
 
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-A seguir, é mostrado como enviar a mensagem usando dados de formulário de várias partes em Python.
+## <a name="initialize-the-application"></a>Inicializar o aplicativo
 
-```python
-"""Bing Visual Search upload image example"""
+1. Crie um arquivo Python em seu IDE ou editor favorito e adicione a seguinte instrução de importação.
 
-# Download and install Python at https://www.python.org/
-# Run the following in a command console window
-# pip3 install requests
+    ```python
+    import requests, json
+    ```
 
-import requests, json
+2. Crie variáveis para a chave de assinatura, o ponto de extremidade e o caminho para a imagem que você está carregando.
 
+    ```python
 
-BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
+    BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
+    SUBSCRIPTION_KEY = 'your-subscription-key'
+    imagePath = 'your-image-path'
+    ```
 
-SUBSCRIPTION_KEY = '<yoursubscriptionkeygoeshere>'
+3. Crie um objeto de dicionário para armazenar as informações de cabeçalho das solicitações. Associe a chave de assinatura à cadeia de caracteres `Ocp-Apim-Subscription-Key`, conforme mostrado abaixo.
 
-HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
+    ```python
+    HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
+    ```
 
-imagePath = '<pathtoyourimagetouploadgoeshere>'
+4. Crie outro dicionário para conter a imagem, que será aberta e carregada quando você enviar a solicitação. 
 
-file = {'image' : ('myfile', open(imagePath, 'rb'))}
+    ```python
+    file = {'image' : ('myfile', open(imagePath, 'rb'))}
+    ```
 
-def main():
-    
+## <a name="parse-the-json-response"></a>Analisar a resposta JSON
+
+1. Crie um método chamado `print_json()` para obter a resposta da API e imprimir o JSON.
+
+    ```python
+    def print_json(obj):
+        """Print the object as json"""
+        print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
+    ```
+
+## <a name="send-the-request"></a>Enviar a solicitação
+
+1. Use `requests.post()` para enviar uma solicitação para a API da Pesquisa Visual do Bing. Inclua a cadeia de caracteres para o ponto de extremidade, o cabeçalho e as informações do arquivo. Imprimir `response.json()` com `print_json()`
+
+    ```python
     try:
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
         print_json(response.json())
-
+    
     except Exception as ex:
         raise ex
-
-
-def print_json(obj):
-    """Print the object as json"""
-    print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-
-
-
-# Main execution
-if __name__ == '__main__':
-    main()
-```
-
+    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Obter insights sobre uma imagem usando um token de insights](../use-insights-token.md)  
-[Tutorial de upload de imagem da Pesquisa Visual do Bing](../tutorial-visual-search-image-upload.md)
-[Tutorial de aplicativo de página única da Pesquisa Visual do Bing](../tutorial-bing-visual-search-single-page-app.md)  
-[Visão geral da Pesquisa Visual do Bing](../overview.md)  
-[Experimente](https://aka.ms/bingvisualsearchtryforfree)  
-[Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Referência de API de Pesquisa Visual do Bing](https://aka.ms/bingvisualsearchreferencedoc)
+> [!div class="nextstepaction"]
+> [Criar um aplicativo Web de Pesquisa Personalizada](../tutorial-bing-visual-search-single-page-app.md)

@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d26f51d05ef97e15c47183e87f44aecec247723c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251667"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722321"
 ---
-# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Compilar um aplicativo Web PHP e MySQL no Azure
+# <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutorial: Criar um aplicativo Web PHP e MySQL no Azure
 
 > [!NOTE]
-> Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, consulte [Criar um aplicativo Web PHP e MySQL no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-php-mysql-app.md).
+> Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, confira [Criar um aplicativo PHP e MySQL no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-php-mysql-app.md).
 >
 
-Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este tutorial mostra como criar um aplicativo Web PHP no Azure e conectá-lo a um banco de dados MySQL. Quando terminar, você terá um aplicativo [Laravel](https://laravel.com/) em execução nos Aplicativos Web do Serviço de Aplicativo do Azure.
+O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Este tutorial mostra como criar um aplicativo PHP no Azure e conectá-lo a um banco de dados MySQL. Quando terminar, você terá um aplicativo [Laravel](https://laravel.com/) em execução no Serviço de Aplicativo do Azure.
 
 ![Aplicativo PHP em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -206,7 +206,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](app-service-ip-addresses.md#find-outbound-ips).
+> Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
 No Cloud Shell, execute o comando novamente para permitir acesso do seu computador local, substituindo  *\<you_ip_address>* por [seu endereço IP IPv4 local](http://www.whatsmyip.org/).
@@ -384,17 +384,17 @@ Na janela do terminal local, use `php artisan` para gerar uma nova chave de apli
 php artisan key:generate --show
 ```
 
-No Cloud Shell, defina a chave de aplicativo no aplicativo Web do Serviço de Aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Substitua os espaços reservados _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+No Cloud Shell, defina a chave de aplicativo no aplicativo do Serviço de Aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Substitua os espaços reservados _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"` instrui o Laravel a retornar informações de depuração quando o aplicativo Web implantado encontra erros. Ao executar um aplicativo de produção, defina-o como `false`, que é mais seguro.
+`APP_DEBUG="true"` instrui o Laravel a retornar informações de depuração quando o aplicativo implantado encontra erros. Ao executar um aplicativo de produção, defina-o como `false`, que é mais seguro.
 
 ### <a name="set-the-virtual-application-path"></a>Definir o caminho do aplicativo virtual
 
-Defina o caminho do aplicativo virtual do aplicativo Web. Esta etapa é necessária porque o [ciclo de vida do aplicativo do Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _public_, em vez de no diretório raiz do aplicativo. Outras estruturas PHP cujo ciclo de vida começa no diretório raiz podem funcionar sem a configuração manual do caminho do aplicativo virtual.
+Defina o caminho do aplicativo virtual do aplicativo. Esta etapa é necessária porque o [ciclo de vida do aplicativo do Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _public_, em vez de no diretório raiz do aplicativo. Outras estruturas PHP cujo ciclo de vida começa no diretório raiz podem funcionar sem a configuração manual do caminho do aplicativo virtual.
 
 No Cloud Shell, defina o caminho do aplicativo virtual usando o comando [`az resource update`](/cli/azure/resource#az-resource-update). Substitua o espaço reservado _&lt;appname>_.
 
@@ -433,7 +433,7 @@ remote: Running deployment command...
 > É possível usar essa abordagem para adicionar qualquer etapa à implantação base em Git no Serviço de Aplicativo. Para obter mais informações, consulte [Script de implantação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Navegar até o aplicativo Web do Azure
+### <a name="browse-to-the-azure-app"></a>Navegar até o aplicativo do Azure
 
 Navegue até `http://<app_name>.azurewebsites.net` e adicione algumas tarefas à lista.
 
@@ -577,7 +577,7 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Quando `git push` for concluído, navegue para o aplicativo Web do Azure e teste a nova funcionalidade.
+Quando `git push` for concluído, navegue até o aplicativo do Azure e teste a nova funcionalidade.
 
 ![Alterações de banco de dados e modelos publicadas no Azure](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -593,7 +593,7 @@ Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-Depois que o streaming de log for iniciado, atualize o aplicativo Web do Azure no navegador para obter parte do tráfego da Web. Agora é possível ver os logs do console redirecionados para o terminal. Se você não vir os logs do console imediatamente, verifique novamente após 30 segundos.
+Depois que o streaming de log for iniciado, atualize o aplicativo do Azure no navegador para obter parte do tráfego da Web. Agora é possível ver os logs do console redirecionados para o terminal. Se você não vir os logs do console imediatamente, verifique novamente após 30 segundos.
 
 Para interromper o streaming de log a qualquer momento, digite `Ctrl`+`C`.
 
@@ -604,15 +604,15 @@ Para interromper o streaming de log a qualquer momento, digite `Ctrl`+`C`.
 >
 >
 
-## <a name="manage-the-azure-web-app"></a>Gestão do aplicativo web do Azure
+## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 
-Vá para o [portal do Azure](https://portal.azure.com) para gerenciar o aplicativo Web que você criou.
+Acesse o [portal do Azure](https://portal.azure.com) para gerenciar o aplicativo que você criou.
 
-No menu à esquerda, clique em **Serviços de Aplicativos** e então clique no nome do seu aplicativo Web do Azure.
+No menu à esquerda, clique em **Serviços de Aplicativos** e, em seguida, clique no nome do aplicativo do Azure.
 
-![Navegação do portal para o aplicativo Web do Azure](./media/app-service-web-tutorial-php-mysql/access-portal.png)
+![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
-A página Visão Geral do seu aplicativo Web é exibida. Aqui, você pode executar tarefas básicas de gerenciamento, como parar, iniciar, reiniciar, procurar e excluir.
+Você verá a página Visão geral do aplicativo. Aqui, você pode executar tarefas básicas de gerenciamento, como parar, iniciar, reiniciar, procurar e excluir.
 
 O menu à esquerda fornece páginas para configurar o aplicativo.
 
@@ -634,7 +634,7 @@ Neste tutorial, você aprendeu como:
 > * Transmitir logs de diagnóstico do Azure
 > * Gerenciar o aplicativo no portal do Azure
 
-Vá para o próximo tutorial para saber como mapear um nome DNS personalizado para um aplicativo Web.
+Vá para o próximo tutorial para aprender a mapear um nome DNS personalizado para o aplicativo.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md)

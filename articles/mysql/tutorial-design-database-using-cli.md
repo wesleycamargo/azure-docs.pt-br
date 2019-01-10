@@ -1,22 +1,19 @@
 ---
 title: 'Tutorial: Criar um Banco de Dados do Azure para MySQL usando a CLI do Azure'
 description: Este tutorial explica como criar e gerenciar o Banco de Dados do Azure para o servidor e banco de dados MySQL usando a CLI do Azure na linha de comando.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966972"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545783"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Criar um Banco de Dados do Azure para MySQL usando a CLI do Azure
 
@@ -175,19 +172,19 @@ Imagine que você excluiu acidentalmente essa tabela. Isso é algo que você nã
 
 Para a restauração, você precisa das seguintes informações:
 
-- Ponto de restauração: selecione um ponto no tempo anterior à alteração do servidor. Deve ser maior ou igual ao valor de backup mais antigo do banco de dados de origem.
-- Servidor de destino: forneça um novo nome de servidor no qual você deseja restaurar
-- Servidor de origem: forneça o nome do servidor do qual você quer fazer a restauração
-- Local: não é possível selecionar a região; por padrão, ela é igual ao servidor de origem
+- Ponto de restauração: Selecione um ponto no tempo anterior à alteração do servidor. Deve ser maior ou igual ao valor de backup mais antigo do banco de dados de origem.
+- Servidor de destino: Forneça o novo nome do servidor para o qual deseja fazer a restauração
+- Servidor de origem: Forneça o nome do servidor do qual deseja fazer a restauração
+- Localização: Não é possível selecionar a região; por padrão, ela é a mesma do servidor de origem
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
 ```
 
 O comando `az mysql server restore` precisa dos seguintes parâmetros:
-| Configuração | Valor sugerido | DESCRIÇÃO  |
+| Configuração | Valor sugerido | DESCRIÇÃO  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  O grupo de recursos no qual o servidor de origem existe.  |
+| resource-group |  myresourcegroup |  O grupo de recursos no qual o servidor de origem existe.  |
 | Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | Restauração-point-in-time | 2017-04-13T13:59:00Z | Selecione um point-in-time para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como `2017-04-13T05:59:00-08:00`, ou usar o formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID para restaurar a partir do servidor de origem. |

@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 1d2be579dda9f90f06897f11d62ccd08076f892e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fbfb6a030d4979f9bd6a27f4c5b6908e62ffd9ab
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413563"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001746"
 ---
-# <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: atualizar o estoque usando a CLI e tópicos/assinaturas
+# <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Atualizar o estoque usando a CLI e tópicos/assinaturas
 
 O Barramento de Serviço do Microsoft Azure é um serviço de mensagens na nuvem multilocatário que envia informações entre aplicativos e serviços. Operações assíncronas oferecem um sistema de mensagens agenciado e flexível, juntamente com recursos de mensagens PEPS (primeiro a entrar, primeiro a sair) e de publicação/assinatura. Este tutorial mostra como usar tópicos e assinaturas do Barramento de Serviço em um cenário de estoque de varejo com canais de publicação/assinatura usando a CLI do Azure e Java.
 
@@ -126,7 +126,7 @@ Depois que o último comando executar, copie e cole a cadeia de conexão e o nom
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Criar regras de filtro em assinaturas
 
-Depois que o namespace e tópicos/assinaturas forem provisionados e você tiver as credenciais necessárias, você está pronto para criar regras de filtro nas assinaturas e depois enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/tutorial-topics-subscriptions-filters-java/src/main/java/com/microsoft/azure/).
+Depois que o namespace e tópicos/assinaturas forem provisionados e você tiver as credenciais necessárias, você está pronto para criar regras de filtro nas assinaturas e depois enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 

@@ -1,20 +1,19 @@
 ---
 title: Como consultar dados de tabela no Azure Cosmos DB?
 description: Saiba como consultar dados de tabela no Azure Cosmos DB
-services: cosmos-db
-author: kanshiG
-ms.author: govindk
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: 3d50e51a0d4ccbbd9b21cda87dc457ea1cbe02fd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.reviewer: sngun
+ms.openlocfilehash: 9a47333c8cd8968c007a2d328e81d8ea8585971c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879189"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037983"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API de Tabela
 
@@ -86,7 +85,7 @@ Você também pode consultar utilizando o LINQ, o que resulta em expressões de 
 
 ```csharp
 CloudTableClient tableClient = account.CreateCloudTableClient();
-CloudTable table = tableClient.GetTableReference("people");
+CloudTable table = tableClient.GetTableReference("People");
 
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
     .Where(

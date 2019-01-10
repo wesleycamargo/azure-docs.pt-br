@@ -4,22 +4,20 @@ description: Aprenda a criar seu primeiro banco de dados SQL do Azure e conectá
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 11/01/2018
-ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/10/2018
+ms.openlocfilehash: cf180f6e2970ac4435602f1cceeb98a4dd9e8724
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912332"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727158"
 ---
-# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Tutorial: Criar um banco de dados SQL do Azure e conectar-se com C&#x23; e o ADO.NET
+# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Tutorial: Criar um banco de dados SQL do Azure e conectar-se com C&#x23 e o ADO.NET
 
 O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Microsoft Cloud (Azure). Neste tutorial, você aprenderá a usar o portal do Azure e o ADO.NET com o Visual Studio para:
 
@@ -35,7 +33,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma instalação do [Visual Studio Community 2017, Visual Studio Professional 2017 ou Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
+Uma instalação do [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -51,16 +49,16 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu as tarefas básicas de banco de dados, como criar um banco de dados e tabelas, carregar e consultar dados e restaurar o banco de dados para um ponto anterior no tempo. Você aprendeu como:
+Neste tutorial, você aprendeu tarefas básicas de banco de dados, como criar um banco de dados e tabelas, conectar-se ao banco de dados, carregar os dados e executar consultas. Você aprendeu como:
+
 > [!div class="checklist"]
 > * Criar um banco de dados
 > * Configurar uma regra de firewall
 > * Conectar-se ao banco de dados com o [Visual Studio e C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Criar tabelas
-> * Inserir, atualizar e excluir dados
-> * Consultar dados
+> * Inserir, atualizar, excluir e consultar dados
 
-Avance para o próximo tutorial para saber mais sobre como migrar seus dados.
+Avança para o próximo tutorial para saber mais sobre migração de dados.
 
 > [!div class="nextstepaction"]
-> [Migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure](sql-database-migrate-your-sql-server-database.md)
+> [Migrar SQL Server para Banco de Dados SQL do Azure offline usando DMS](../dms/tutorial-sql-server-to-azure-sql.md)

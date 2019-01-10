@@ -1,7 +1,7 @@
 ---
 title: Análise de sentimento
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, crie um aplicativo que demonstra como extrair sentimentos positivos, negativos e neutros dos enunciados. O sentimento é determinado pelo enunciado inteiro.
+description: Neste tutorial, crie um aplicativo que demonstra como obter o sentimento positivo, negativo e neutro de enunciados. O sentimento é determinado pelo enunciado inteiro.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,56 +9,64 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ee50907d7965a66d09dc57113e87edecb1932083
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098909"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754281"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutorial 9:  Extrair o sentimento da declaração geral
-Neste tutorial, crie um aplicativo que demonstra como extrair sentimentos positivos, negativos e neutros dos enunciados. O sentimento é determinado pelo enunciado inteiro.
+# <a name="tutorial--get-sentiment-of-utterance"></a>Tutorial:  Obter o sentimento do enunciado
 
-A análise de sentimento é a capacidade de determinar se o enunciado de um usuário é positivo, negativo ou neutro. 
+Neste tutorial, crie um aplicativo que demonstre como determinar o sentimento positivo, negativo e neutro dos enunciados. O sentimento é determinado pelo enunciado inteiro.
+
+**Neste tutorial, você aprenderá a:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Criar um novo aplicativo
+> * Adicionar a análise de sentimento como uma configuração de publicação
+> * Treinar o aplicativo
+> * Publicar aplicativo
+> * Obter o sentimento do enunciado do ponto de extremidade
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="sentiment-analysis-is-a-publish-setting"></a>A análise de sentimento é uma configuração de publicação
 
 Os enunciados a seguir mostram exemplos de sentimentos:
 
 |Sentimento|Pontuação|Enunciado|
 |:--|:--|:--|
 |positivo|0.91 |John W. Smith fez um ótimo trabalho na apresentação em Paris.|
-|positivo|0.84 |jill-jones@mycompany.com fez um fabuloso trabalho na apresentação de vendas de Parker.|
+|positivo|0.84 |Os engenheiros de Seattle fizeram um trabalho incrível na apresentação de vendas da Parker.|
 
-A análise de sentimento é uma configuração de publicação que se aplica a cada enunciado. Não é necessário localizar as palavras que indicam o sentimento no enunciado e rotulá-las, já que a análise de sentimento é aplicada no enunciado como um todo. 
+A análise de sentimento é uma configuração de publicação que se aplica a cada enunciado. Não é necessário localizar as palavras que indicam o sentimento no enunciado e marcá-las. 
 
 Como se trata de uma configuração de publicação, ela não aparece nas páginas de intenções ou de entidades. Ela aparece no painel [teste interativo](luis-interactive-test.md#view-sentiment-results) ou ao testar a URL de ponto de extremidade. 
 
-**Neste tutorial, você aprenderá a:**
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Usar o aplicativo do tutorial existente 
-> * Adicionar a análise de sentimento como uma configuração de publicação
-> * Treinar
-> * Publicar
-> * Obter o sentimento do enunciado do ponto de extremidade
+## <a name="create-a-new-app"></a>Criar um novo aplicativo
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-## <a name="use-existing-app"></a>Usar o aplicativo existente
+## <a name="add-personname-prebuilt-entity"></a>Adicionar a entidade predefinida PersonName 
 
-Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
+1. Selecione **Entidades** no menu de navegação à esquerda.
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json).
+1. Selecione o botão **Adicionar entidade predefinida**.
 
-2. Importe o JSON em um novo aplicativo.
+1. Escolha a entidade a seguir na lista de entidades predefinidas e selecione **Pronto**:
 
-3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `sentiment`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
 
-## <a name="employeefeedback-intent"></a>Intenção de EmployeeFeedback 
+    ![Captura de tela do número selecionado no diálogo de entidades predefinidas](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+
+## <a name="create-an-intent-to-determine-employee-feedback"></a>Criar uma intenção para determinar os comentários do funcionário
+
 Adicione uma nova intenção para capturar comentários do funcionário entre os membros da empresa. 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
@@ -71,122 +79,66 @@ Adicione uma nova intenção para capturar comentários do funcionário entre os
 
 4. Adicione vários enunciados que indicam que um funcionário está fazendo algo bem ou uma área que precise de melhorias:
 
-    Lembre-se que neste aplicativo de recursos humanos, os funcionários são definidos na entidade de lista, `Employee`, pelo nome, email, ramal telefônico, número de telefone celular e seus números do seguro social dos EUA. 
-
     |Declarações|
     |--|
-    |425-555-1212 fez um ótimo trabalho de boas-vindas para uma colega de trabalho que estava de licença-maternidade|
-    |234-56-7891 fez um ótimo trabalho consolando um colega de trabalho que estava de luto.|
-    |jill-jones@mycompany.com não tem todas as faturas necessárias para a documentação.|
-    |john.w.smith@mycompany.com entregou os formulários necessários um mês atrasado sem nenhuma assinatura|
-    |x23456 não compareceu à reunião importante de marketing externa.|
-    |x12345 faltou a reunião para as análises do mês de junho.|
-    |Jill Jones deu um show na apresentação de vendas em Harvard|
-    |John W. Smith fez um ótimo trabalho na apresentação em Stanford|
+    |Guilherme Sarmento fez um ótimo trabalho de boas-vindas para uma colega de trabalho que estava de licença-maternidade|
+    |Samuel Ferreira fez um ótimo trabalho confortando um colega de trabalho que estava de luto.|
+    |Bob Barnes não tinha todas as faturas necessárias para a documentação.|
+    |Tiago Ribeiro entregou os formulários necessários com um mês de atraso, sem nenhuma assinatura|
+    |Clara Barbosa não compareceu à importante reunião externa de marketing.|
+    |Mila Moraes perdeu as reuniões de revisão de junho.|
+    |Julio Pinto arrasou na apresentação de vendas em Harvard|
+    |Valerio Pereira fez um bom trabalho na apresentação em Stanford|
 
     [ ![Captura de tela do aplicativo LUIS com exemplos de enunciados na intenção EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## <a name="train"></a>Treinar
+## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar enunciados de exemplo à intenção None 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações à intenção possam ser testadas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Configurar aplicativo para incluir a análise de sentimento
+
 1. Selecione **Gerenciar** na navegação superior à direita, em seguida, selecione **Configurações de publicação** no menu à esquerda.
 
-2. Habilite a **Análise de Sentimento** para habilitar essa configuração. 
+1. Selecione **Análise de Sentimento** para habilitar essa configuração. 
 
     ![Ativar Análise de Sentimento como configuração de publicação](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
-## <a name="publish"></a>Publicar
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicar o aplicativo para que o modelo treinado possa ser consultado por meio do ponto de extremidade
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-sentiment-of-utterance-from-endpoint"></a>Obter o sentimento do enunciado do ponto de extremidade
+## <a name="get-the-sentiment-of-an-utterance-from-the-endpoint"></a>Obter o sentimento de um enunciado do ponto de extremidade
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vá até o final da URL no endereço e insira `Jill Jones work with the media team on the public portal was amazing`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `EmployeeFeedback` com a extração da análise de sentimento.
+1. Vá até o final da URL no endereço e insira `Jill Jones work with the media team on the public portal was amazing`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `EmployeeFeedback` com a extração da análise de sentimento.
     
     ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {
         "intent": "EmployeeFeedback",
-        "score": 0.4983256
+        "score": 0.9616192
       },
       "intents": [
         {
           "intent": "EmployeeFeedback",
-          "score": 0.4983256
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.06617523
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.04631853
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0103248553
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.007531875
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00344597152
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00337914471
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.0026357458
+          "score": 0.9616192
         },
         {
           "intent": "None",
-          "score": 0.00214573368
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00157622492
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 7.379545E-05
+          "score": 0.09347677
         }
       ],
       "entities": [
         {
           "entity": "jill jones",
-          "type": "Employee",
-          "startIndex": 0,
-          "endIndex": 9,
-          "resolution": {
-            "values": [
-              "Employee-45612"
-            ]
-          }
-        },
-        {
-          "entity": "media team",
-          "type": "builtin.keyPhrase",
-          "startIndex": 25,
-          "endIndex": 34
-        },
-        {
-          "entity": "public portal",
-          "type": "builtin.keyPhrase",
-          "startIndex": 43,
-          "endIndex": 55
-        },
-        {
-          "entity": "jill jones",
-          "type": "builtin.keyPhrase",
+          "type": "builtin.personName",
           "startIndex": 0,
           "endIndex": 9
         }
@@ -198,11 +150,19 @@ Adicione uma nova intenção para capturar comentários do funcionário entre os
     }
     ```
 
-    O sentimentAnalysis é positivo com uma pontuação de 0.86. 
+    O sentimentAnalysis é positivo com uma pontuação de 86%. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>Informações relacionadas
+
+* A Análise de Sentimento é fornecida pelo serviço cognitivo [Análise de Texto](../Text-Analytics/index.yml). O recurso é restrito aos [idiomas com suporte](luis-language-support.md##languages-supported) da Análise de Texto.
+* [Como treinar](luis-how-to-train.md)
+* [Como publicar](luis-how-to-publish-app.md)
+* [Como testar no portal do LUIS](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Este tutorial adiciona a análise de sentimento como uma configuração de publicação para extrair valores de sentimento do enunciado como um todo.

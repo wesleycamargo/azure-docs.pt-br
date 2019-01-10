@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: usar um modelo de domínio – REST, PHP – Pesquisa Visual Computacional'
+title: 'Início Rápido: Conteúdo de imagem específico do domínio – REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você usa um modelo de domínio para identificar pontos de referência em uma imagem usando a API de Pesquisa Visual Computacional com PHP.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 176e11615fe2f2c1b58b7608dfd5cbd349f9e547
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 19aa1874a93c4a52f6fc5ff75848c1ca6815db1e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340062"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581327"
 ---
-# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-php-in-computer-vision"></a>Início Rápido: usar um modelo de domínio usando a API REST e o PHP na Pesquisa Visual Computacional
+# <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Início Rápido: Reconhecer conteúdo específico do domínio usando a API REST e o PHP com Pesquisa Visual Computacional
 
 Neste início rápido, você usa um modelo de domínio para identificar pontos de referência ou, opcionalmente, celebridades em uma imagem armazenada remotamente usando a API REST da Pesquisa Visual Computacional. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), você pode aplicar um modelo específico do domínio para reconhecer o conteúdo dentro de uma imagem.
 
@@ -33,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para criar e executar o exemplo, siga estas etapas:
 
-1. Instale o pacote [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) PHP5.
+1. Instale o pacote [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) PHP5.
    1. Abra uma janela de prompt de comando como administrador.
    1. Execute o comando a seguir:
 

@@ -1,5 +1,6 @@
 ---
-title: Compare as opções do produto de aprendizado de máquina na Microsoft
+title: Compare as opções do produto de aprendizado de máquina
+titleSuffix: Microsoft
 description: Compare a variedade de produtos da Microsoft para compilar, implantar e gerenciar seus modelos de machine learning. Decida quais produtos escolher para sua solução.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274098"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557879"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Quais são os produtos de aprendizado de máquina na Microsoft?
 
@@ -37,7 +38,7 @@ A Microsoft fornece uma variedade de opções de produto para compilar, implanta
 
 ## <a name="azure-machine-learning-service"></a>Serviço do Azure Machine Learning
 
-O [serviço do Azure Machine Learning](overview-what-is-azure-ml.md) é um serviço de nuvem totalmente gerenciado usado para treinar, implantar e gerenciar modelos de ML em escala. Ele dá suporte total a tecnologias de software livre, portanto, você pode usar dezenas de milhares de pacotes do Python de software livre, como TensorFlow, PyTorch e scikit-learn. Ferramentas avançadas também estão disponíveis, como [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) ou a extensão do [Azure Machine Learning para Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) para facilitar a exploração e a transformação de dados e, posteriormente, o treinamento e a implantação de modelos. Os serviços do Azure Machine Learning incluem recursos que automatizam a geração e o ajuste de modelo com facilidade, eficiência e precisão.
+O [serviço do Azure Machine Learning](overview-what-is-azure-ml.md) é um serviço de nuvem totalmente gerenciado usado para treinar, implantar e gerenciar modelos de ML em escala. Ele dá suporte total a tecnologias de software livre, portanto, você pode usar dezenas de milhares de pacotes do Python de software livre, como TensorFlow, PyTorch e scikit-learn. Ferramentas avançadas também estão disponíveis, como [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) ou a extensão do [Azure Machine Learning para Visual Studio Code](https://aka.ms/vscodetoolsforai) para facilitar a exploração e a transformação de dados e, posteriormente, o treinamento e a implantação de modelos. Os serviços do Azure Machine Learning incluem recursos que automatizam a geração e o ajuste de modelo com facilidade, eficiência e precisão.
 
 Use os serviços do Azure Machine Learning para treinar, implantar e gerenciar modelos de ML usando Python e CLI em escala de nuvem.
 

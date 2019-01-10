@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 11347203b4d21bc046b97c1fb1ddc8348f5046af
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4d343520ebfb7820cf1de769233e262f89862f14
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684903"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754230"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Usar o PowerShell para sincronização entre vários bancos de dados SQL
  
@@ -29,6 +29,9 @@ Este exemplo do PowerShell configura a Sincronização de Dados para sincroniza�
 Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](../sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> No momento, a Sincronização de Dados SQL do Azure **não** dá suporte à Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -130,6 +133,7 @@ $Credential = $Host.ui.PromptForCredential("Need credential",
               "")
 
 # Add a new sync member
+# You can add members from other subscriptions, you don't need to specify Subscription Id for the member
 Write-Host "Adding member"$SyncMemberName" to the sync group"
 New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -ServerName $ServerName `
@@ -363,18 +367,18 @@ Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser e
 
 Para saber mais sobre a Sincronização de Dados SQL, veja:
 
--   Visão geral - [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](../sql-database-sync-data.md)
--   Configurar a sincronização de dados
-    - No portal - [Tutorial: Configuração da Sincronização de Dados SQL para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](../sql-database-get-started-sql-data-sync.md)
+-   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](../sql-database-sync-data.md)
+-   Configurar sincronização de dados
+    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL e SQL Server local](../sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](sql-database-sync-data-between-azure-onprem.md)
--   Agente de Sincronização de Dados - [Agente de Sincronização de Dados para a Sincronização de Dados SQL do Azure](../sql-database-data-sync-agent.md)
+-   Agente de Sincronização de Dados - [Agente de Sincronização de Dados para Sincronização de Dados SQL do Azure](../sql-database-data-sync-agent.md)
 -   Práticas recomendadas - [Práticas recomendadas para a Sincronização de Dados SQL do Azure](../sql-database-best-practices-data-sync.md)
--   Monitorar - [Monitorar Sincronização de Dados SQL com o Log Analytics](../sql-database-sync-monitor-oms.md)
--   Solucionar problemas - [Solucionar problemas com a Sincronização de Dados SQL do Azure](../sql-database-troubleshoot-data-sync.md)
+-   Monitor - [Monitore a sincronização de dados SQL com o Log Analytics](../sql-database-sync-monitor-oms.md)
+-   Solucionar problemas - [Solucionar problemas com o SQL Data Sync do Azure](../sql-database-troubleshoot-data-sync.md)
 -   Atualizar o esquema de sincronização
-    -   Com o Transact-SQL - [Automatizar a replicação das alterações de esquema na Sincronização de Dados SQL do Azure](../sql-database-update-sync-schema.md)
-    -   Com o PowerShell - [Usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente](sql-database-sync-update-schema.md)
+    -   Com Transact-SQL - [Automatize a replicação de alterações de esquema no Azure SQL Data Sync](../sql-database-update-sync-schema.md)
+    -   Com o PowerShell - [usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente](sql-database-sync-update-schema.md)
 
 Para saber mais sobre o Banco de Dados SQL, veja:
 

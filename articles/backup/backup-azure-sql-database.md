@@ -2,25 +2,18 @@
 title: Fazer backup de bancos de dados SQL Server para o Azure | Microsoft Docs
 description: Este tutorial explica como fazer backup do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/02/2018
-ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: raynew
+ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410356"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790142"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer backup de bancos de dados do SQL Server para o Azure
 
@@ -44,9 +37,9 @@ Os itens a seguir são as limitações conhecidas da Visualização Pública:
 - A VM (máquina virtual) SQL exige conectividade com a Internet para acessar os endereços IP públicos do Azure. Para obter detalhes, veja [Estabelecer conectividade de rede](backup-azure-sql-database.md#establish-network-connectivity).
 - Proteja até 2 mil bancos de dados SQL em um cofre dos Serviços de Recuperação. Os bancos de dados SQL adicionais devem ser armazenados em um cofre de Serviços de Recuperação separado.
 - [Backups de grupos de disponibilidade distribuídos](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) têm limitações.
-- Não há suporte para FCI (Instâncias do Cluster de Failover) Always On do SQL Server.
+- Não há suporte para FCIs (Instâncias do Cluster de Failover) Always On do SQL Server.
 - Use o Portal do Azure para configurar o Backup do Azure para proteger bancos de dados do SQL Server. No momento, não há suporte para o Azure PowerShell, a CLI do Azure e as APIs REST.
-- Operações de backup/restauração para bancos de dados espelho, instantâneos de banco de dados e bancos de dados sob FCI não são compatíveis.
+- Não há suporte para operações de backup/restauração para bancos de dados de espelho FCI, instantâneos de banco de dados e bancos de dados.
 - Banco de dados com um grande número de arquivos não podem ser protegidos. O número máximo de arquivos compatível não é um número muito determinístico, porque ele não depende apenas do número de arquivos, mas também do comprimento do caminho dos arquivos. No entanto, esses casos são menos predominantes. Estamos criando uma solução para lidar com isso.
 
 Consulte a [Seção de Perguntas Frequentes](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) para obter mais detalhes sobre o suporte/cenários sem suporte.
@@ -182,7 +175,7 @@ Durante o processo de instalação, caso receba o erro `UserErrorSQLNoSysadminMe
 
     ![Na caixa de diálogo Logon – Novo, selecione Pesquisar](./media/backup-azure-sql-database/new-login-search.png)
 
-3. A conta de serviço virtual do Windows **Service\AzureWLBackupPluginSvc NT** foi criada durante a fase de descoberta do SQL e do registro da máquina virtual. Insira o nome da conta conforme mostrado na caixa **Inserir o nome do objeto a selecionar**. Selecione **Verificar Nomes** para resolver o nome.
+3. A conta de serviço virtual do Windows **NT SERVICE\AzureWLBackupPluginSvc** foi criada durante a fase de descoberta do SQL e do registro da máquina virtual. Insira o nome da conta conforme mostrado na caixa **Inserir o nome do objeto a selecionar**. Selecione **Verificar Nomes** para resolver o nome.
 
     ![Selecione Verificar Nomes para resolver o nome de serviço desconhecido](./media/backup-azure-sql-database/check-name.png)
 

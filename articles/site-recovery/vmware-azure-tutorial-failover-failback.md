@@ -4,16 +4,17 @@ description: Saiba como executar failover de VMs VMware e de servidores físicos
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 517355a32fc7a549370aed2c7a8408c3a0887e13
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e17ddb45143e03023c30b69ed314270ed97dc039
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838014"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973156"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure
 
@@ -42,10 +43,10 @@ Este é o quinto tutorial de uma série. Este tutorial presume que você já ten
 
 O failover e o failback têm quatro fases:
 
-1. **Failover para o Azure**: faz failover de computadores do site local para o Azure.
-2. **Proteger novamente as VMs do Azure**: proteja as VMs do Azure novamente, para que elas comecem a replicação para as VMs VMware locais. A VM local é desativada durante o processo de nova proteção. Isso ajuda a garantir a consistência de dados durante a replicação.
-3. **Executar failover para o local**: execute um failover, para executar failback do Azure.
-4. **Proteger novamente as VMs locais**: após o failback do dados, proteja as VMs locais para as quais o failback foi executado, para que elas iniciem a replicação para o Azure.
+1. **Fazer failover para o Azure**: Faz failover de computadores do site local para o Azure.
+2. **Proteger novamente as VMs do Azure**: Proteja as VMs do Azure novamente, para que elas comecem a replicação para as VMs VMware locais. A VM local é desativada durante o processo de nova proteção. Isso ajuda a garantir a consistência de dados durante a replicação.
+3. **Executar failover para o local**: Execute um failover, para executar failback do Azure.
+4. **Proteger novamente as VMs locais**: Após realizar o failback dos dados, você protege novamente as VMs locais para as quais realizou o failback, para que comecem a ser replicadas no Azure.
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
@@ -66,17 +67,17 @@ Confira as propriedades da VM e verifique se a VM está em conformidade com os [
 1. Em **Configurações** > **Itens replicados** clique em VM > **Failover**.
 
 2. Em **Failover**, selecione um **Ponto de Recuperação** para o qual fazer o failover. Você pode usar uma das seguintes opções:
-   - **Mais recente**: essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
-   - **Últimos processados**: essa opção executa failover da VM para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
-   - **Consistente com o aplicativo mais recente**: essa opção executa failover de todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery.
-   - **Personalizado**: especifica um ponto de recuperação.
+   - **Mais recente**: Essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
+   - **Mais recente processado**: Essa opção executa failover da VM para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
+   - **Consistente com o aplicativo mais recente**: Essa opção executa failover da VM para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery.
+   - **Personalizado**: Especifica um ponto de recuperação.
 
 3. Selecione **Desligar o computador antes de iniciar o failover** para tentar fazer um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 
 Em alguns cenários, o failover requer um processamento adicional que leva cerca de oito a dez minutos para ser concluído. Você pode notar **tempos de failover de teste maiores** para máquinas virtuais VMware usando o serviço de mobilidade com uma versão mais antiga que 9.8, servidores físicos, máquinas virtuais VMware Linux, máquinas Hyper-V protegidas como servidores físicos, VMs VMware que não têm o serviço DHCP habilitado e VMs do VMware que não têm os seguintes drivers de inicialização: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
-> **Não cancelar um failover em andamento**: antes de iniciar o failover, a replicação da VM é interrompida.
+> **Não cancele um failover em andamento**: Antes de iniciar o failover, a replicação de VM será interrompida.
 > Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Conectar-se a uma máquina virtual após o failover no Azure

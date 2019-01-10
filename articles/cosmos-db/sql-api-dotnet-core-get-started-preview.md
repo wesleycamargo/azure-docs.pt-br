@@ -8,38 +8,38 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 92dcd62fa0079b22ba6a2721959a200c2556a4c1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 917cf6ddf23fb9240aa6f2cef8add14c66d0cb06
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852451"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973155"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Criar um aplicativo de console do .NET Core para gerenciar dados na conta da API do SQL do Azure Cosmos DB (SDK versão 3 Versão Prévia)
 
 > [!div class="op_single_selector"]
-> * [.NET Core (Versão Prévia)](sql-api-dotnet-core-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET (Versão Prévia)](sql-api-dotnet-get-started-preview.md)
-> * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Async Java](sql-api-async-java-get-started.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
-> 
+>
+> - [.NET Core (Versão Prévia)](sql-api-dotnet-core-get-started-preview.md)
+> - [.NET Core](sql-api-dotnetcore-get-started.md)
+> - [.NET (Versão Prévia)](sql-api-dotnet-get-started-preview.md)
+> - [.NET](sql-api-get-started.md)
+> - [Java](sql-api-java-get-started.md)
+> - [Async Java](sql-api-async-java-get-started.md)
+> - [Node.js](sql-api-nodejs-get-started.md)
 
 Bem-vindo à introdução à API do SQL do Azure Cosmos DB com o tutorial do .NET Core! Após seguir este tutorial, você terá um aplicativo de console .NET Core que cria e consulta recursos do Azure Cosmos DB. Este tutorial usa a [Versão 3.0 ou superior](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do SDK do .NET do Azure Cosmos DB , que se destina ao [.NET Standard 2.0.](https://docs.microsoft.com/dotnet/standard/net-standard)
 
 Este tutorial abrange:
 
 > [!div class="checklist"]
-> * Criar e conectar-se a uma conta do Azure Cosmos
-> * Como configurar o projeto no Visual Studio
-> * Criar um banco de dados e um contêiner
-> * Adicionando itens ao contêiner
-> * Consultar um contêiner
-> * Operações CRUD no item
-> * Excluir o banco de dados
-
+>
+> - Criar e conectar-se a uma conta do Azure Cosmos
+> - Como configurar o projeto no Visual Studio
+> - Criar um banco de dados e um contêiner
+> - Adicionando itens ao contêiner
+> - Consultar um contêiner
+> - Operações CRUD no item
+> - Excluir o banco de dados
 
 Você não tem tempo para criar o aplicativo? Não se preocupe! A solução completa está disponível em [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-getting-started). Vá para a [seção Obter a solução completa](#GetSolution) a fim de ver as instruções rápidas.
 
@@ -47,303 +47,310 @@ Deseja criar um aplicativo Xamarin iOS, Android ou Forms usando o SDK do .NET Co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/). 
+- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* Se ainda não tiver o Visual Studio 2017 instalado, é possível baixar e usar o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gratuito. Se você estiver desenvolvendo um aplicativo de UWP (Plataforma Universal do Windows), utilize o  **Visual Studio 2017 com a versão 15.4** ou superior. Verifique se você habilitou a carga de trabalho de **desenvolvimento do Azure** durante a instalação do Visual Studio.
+- Se ainda não tiver o Visual Studio 2017 instalado, é possível baixar e usar o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gratuito. Se você estiver desenvolvendo um aplicativo de UWP (Plataforma Universal do Windows), utilize o  **Visual Studio 2017 com a versão 15.4** ou superior. Verifique se você habilitou a carga de trabalho de **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
-    * Se estiver trabalhando no MacOS ou Linux, você poderá desenvolver aplicativos .NET Core na linha de comando instalando o [SDK .NET Core](https://www.microsoft.com/net/core#macos) para a plataforma de sua escolha. 
+  - Se estiver trabalhando no MacOS ou Linux, você poderá desenvolver aplicativos .NET Core na linha de comando instalando o [SDK .NET Core](https://www.microsoft.com/net/core#macos) para a plataforma de sua escolha.
 
-    * Se estiver trabalhando no Windows, você poderá desenvolver aplicativos .NET Core na linha de comando instalando o [SDK .NET Core](https://www.microsoft.com/net/core#windows). 
+  - Se estiver trabalhando no Windows, você poderá desenvolver aplicativos .NET Core na linha de comando instalando o [SDK .NET Core](https://www.microsoft.com/net/core#windows).
 
-    * Você pode usar seu próprio editor ou fazer o download do [Visual Studio Code](https://code.visualstudio.com/), que é gratuito e funciona no Windows, Linux e MacOS. 
+  - Você pode usar seu próprio editor ou fazer o download do [Visual Studio Code](https://code.visualstudio.com/), que é gratuito e funciona no Windows, Linux e MacOS.
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Etapa 1: Criar uma conta de banco de dados do Azure Cosmos DB
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Etapa 1: Criar uma conta do Azure Cosmos DB
 
-Vamos criar uma conta do Azure Cosmos DB. Se você já tem uma conta que deseja usar, você pode pular para [Configurar sua solução do Visual Studio](#SetupVS). Se estiver usando o Emulador do Azure Cosmos DB, execute as etapas em [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e prossiga para [Configurar sua solução do Visual Studio](#SetupVS).
-
-[!INCLUDE [cosmos-db-create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
-
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Etapa 1: Criar uma conta de banco de dados do Azure Cosmos DB
 Vamos criar uma conta do Azure Cosmos DB. Se você já tem uma conta que deseja usar, você pode pular para [Configurar sua solução do Visual Studio](#SetupVS). Se estiver usando o Emulador do Azure Cosmos DB, execute as etapas no [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e pule para [Configurar seu projeto do Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Etapa 2: configurar seu projeto do Visual Studio
+## <a id="SetupVS"></a>Etapa 2: Configurar seu projeto do Visual Studio
+
 1. Abra o **Visual Studio 2017** em seu computador.
 1. No menu **Arquivo**, selecione **Novo** e depois **Projeto**.
 1. Na caixa de diálogo **Novo Projeto**, escolha **Aplicativo de Console (.NET Core)** / **do Visual C#**, nomeie o projeto e clique em **OK**.
-    ![Captura de tela da janela Novo Projeto](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-new-project.png)
+   ![Captura de tela da janela Novo Projeto](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-new-project.png)
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu novo aplicativo de console, que está em sua solução do Visual Studio e clique em **gerenciar pacotes NuGet...**
-    
-    ![Captura de tela do menu exibido pelo clique com o botão direito do mouse para o projeto](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-manage-nuget.png)
+
+   ![Captura de tela do menu exibido pelo clique com o botão direito do mouse para o projeto](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-manage-nuget.png)
+
 1. Na guia **NuGet**, clique em **Procurar** e digite **Microsoft.Azure.Cosmos** na caixa de pesquisa.
 1. Nos resultados, encontre **Microsoft.Azure.Cosmos** e clique em **Instalar**.
    A ID do pacote para a Biblioteca de Clientes do API do SQL do Azure Cosmos DB é [Biblioteca de Clientes do Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
    ![Captura de tela do menu NuGet para localizar documentos do SDK do cliente do Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
-    Se receber uma mensagem sobre a análise das alterações para a solução, clique em **OK**. Se receber uma mensagem sobre a aceitação da licença, clique em **Aceito**.
+   Se receber uma mensagem sobre a análise das alterações para a solução, clique em **OK**. Se receber uma mensagem sobre a aceitação da licença, clique em **Aceito**.
 
 Ótimo! Agora que a instalação está concluída, vamos começar a escrever algum código. Você pode encontrar um projeto de código completo deste tutorial no [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-getting-started/).
 
 ## <a id="Connect"></a>Etapa 3: Conectar-se a uma conta do Azure Cosmos DB
-1. Primeiro, substitua as referências no início de seu aplicativo C#, no arquivo **Program.cs**, por essas referências:
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.Cosmos;
-    using System.Collections.Generic;
-    using System.Net;
-    ```
-    
-1. Agora, adicione essas constantes e variáveis à classe pública ``Program``.
-    ```csharp
-    public class Program
-    {
-        // ADD THIS PART TO YOUR CODE
 
-        // The Azure Cosmos DB endpoint for running this sample.
-        private static readonly string EndpointUri = "<your endpoint here>";
-        // The primary key for the Azure Cosmos account.
-        private static readonly string PrimaryKey = "<your primary key>";
+1. Primeiro, substitua as referências no início de seu aplicativo C#, no arquivo **Program.cs**, por estas referências:
 
-        // The Cosmos client instance
-        private CosmosClient cosmosClient;
+   ```csharp
+   using System;
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Cosmos;
+   using System.Collections.Generic;
+   using System.Net;
+   ```
 
-        // The database we will create
-        private CosmosDatabase database;
+1. Agora, adicione essas constantes e variáveis à classe pública `Program`.
 
-        // The container we will create.
-        private CosmosContainer container;
+   ```csharp
+   public class Program
+   {
+       // ADD THIS PART TO YOUR CODE
 
-        // The name of the database and container we will create
-        private string databaseId = "FamilyDatabase";
-        private string containerId = "FamilyContainer";
-    }
-    ```
-    Observe que se você estiver familiarizado com a versão anterior do SDK do .NET, poderá estar acostumado a ver os termos "coleção" e "documento". Como o Azure Cosmos DB é compatível com vários modelos de API, a versão 3.0 ou superior do SDK do .NET usa os termos genéricos “contêiner” e “item”. Um contêiner pode ser uma coleção, um gráfico ou uma tabela. Um item pode ser um documento, borda/vértice ou linha e descreve o conteúdo do contêiner. [Saiba mais sobre bancos de dados, contêineres e itens.](databases-containers-items.md)
+       // The Azure Cosmos DB endpoint for running this sample.
+       private static readonly string EndpointUri = "<your endpoint here>";
+       // The primary key for the Azure Cosmos account.
+       private static readonly string PrimaryKey = "<your primary key>";
+
+       // The Cosmos client instance
+       private CosmosClient cosmosClient;
+
+       // The database we will create
+       private CosmosDatabase database;
+
+       // The container we will create.
+       private CosmosContainer container;
+
+       // The name of the database and container we will create
+       private string databaseId = "FamilyDatabase";
+       private string containerId = "FamilyContainer";
+   }
+   ```
+
+   Observe que se você estiver familiarizado com a versão anterior do SDK do .NET, poderá estar acostumado a ver os termos “coleção” e “documento”. Como o Azure Cosmos DB é compatível com vários modelos de API, a versão 3.0 ou superior do SDK do .NET usa os termos genéricos “contêiner” e “item”. Um contêiner pode ser uma coleção, um gráfico ou uma tabela. Um item pode ser um documento, borda/vértice ou linha e descreve o conteúdo do contêiner. [Saiba mais sobre bancos de dados, contêineres e itens.](databases-containers-items.md)
 
 1. Recupere a URL do ponto de extremidade e a chave primária no [portal do Azure](https://portal.azure.com).
 
-    No Portal do Azure, navegue até sua conta do Azure Cosmos DB e clique em **Chaves**.
+   No Portal do Azure, navegue até sua conta do Azure Cosmos DB e clique em **Chaves**.
 
-    Copie o URI do portal e cole-o em `<your endpoint URL>` no arquivo ```Program.cs```. Copie a CHAVE PRIMÁRIA do portal e cole-a em `<your primary key>`.
+   Copie o URI do portal e cole-o em `<your endpoint URL>` no arquivo `Program.cs`. Copie a CHAVE PRIMÁRIA do portal e cole-a em `<your primary key>`.
 
    ![Captura de tela para obter chaves do Azure Cosmos DB do portal do Azure](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
-1. Em seguida, vamos criar uma nova instância do ```CosmosClient``` e configurar uma estrutura para nosso programa.
+1. Em seguida, vamos criar uma nova instância do `CosmosClient` e configurar uma estrutura para nosso programa.
 
-    Abaixo do método **Main**, adicione esta nova tarefa assíncrona denominada **GetStartedDemoAsync**, que criará uma instância do novo ```CosmosClient```. Usaremos **GetStartedDemoAsync** como ponto de entrada que chama os métodos que operam em recursos do Azure Cosmos DB.
+   Abaixo do método **Main**, adicione esta nova tarefa assíncrona denominada **GetStartedDemoAsync**, que criará uma instância do novo `CosmosClient`. Usaremos **GetStartedDemoAsync** como ponto de entrada que chama os métodos que operam em recursos do Azure Cosmos DB.
 
-    ```csharp
-    public static async Task Main(string[] args)
-    {
-    }
+   ```csharp
+   public static async Task Main(string[] args)
+   {
+   }
 
-    // ADD THIS PART TO YOUR CODE
-    /*
-        Entry point to call methods that operate on Azure Cosmos DB resources in this sample
-    */   
-    public async Task GetStartedDemoAsync()
-    {
-        // Create a new instance of the Cosmos Client
-        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
-    }
-    ```
+   // ADD THIS PART TO YOUR CODE
+   /*
+       Entry point to call methods that operate on Azure Cosmos DB resources in this sample
+   */
+   public async Task GetStartedDemoAsync()
+   {
+       // Create a new instance of the Cosmos Client
+       this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+   }
+   ```
 
 1. Adicione o código a seguir para executar a tarefa assíncrona **GetStartedDemoAsync** a partir do método **Main**. O método **Main** capturará as exceções e as gravará no console.
-    ```csharp
-    public static async Task Main(string[] args)
-    {
-        // ADD THIS PART TO YOUR CODE
-        try
-        {
-            Console.WriteLine("Beginning operations...\n");
-            Program p = new Program();
-            await p.GetStartedDemoAsync();
-        }
-        catch (CosmosException de)
-        {
-            Exception baseException = de.GetBaseException();
-            Console.WriteLine("{0} error occurred: {1}\n", de.StatusCode, de);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Error: {0}\n", e);
-        }
-        finally
-        {
-            Console.WriteLine("End of demo, press any key to exit.");
-            Console.ReadKey();
-        }
-    }
-    ```
 
-1. Escolha **F5** para executar seu aplicativo. A saída da janela do console exibe a mensagem `End of demo, press any key to exit.`, confirmando que a conexão com o Azure Cosmos DB foi feita. Em seguida, você pode fechar a janela do console. 
+   ```csharp
+   public static async Task Main(string[] args)
+   {
+       // ADD THIS PART TO YOUR CODE
+       try
+       {
+           Console.WriteLine("Beginning operations...\n");
+           Program p = new Program();
+           await p.GetStartedDemoAsync();
+       }
+       catch (CosmosException de)
+       {
+           Exception baseException = de.GetBaseException();
+           Console.WriteLine("{0} error occurred: {1}\n", de.StatusCode, de);
+       }
+       catch (Exception e)
+       {
+           Console.WriteLine("Error: {0}\n", e);
+       }
+       finally
+       {
+           Console.WriteLine("End of demo, press any key to exit.");
+           Console.ReadKey();
+       }
+   }
+   ```
 
-Parabéns! Você se conectou a uma conta do Azure Cosmos DB. 
+1. Selecione **F5** para executar seu aplicativo. A saída da janela do console exibe a mensagem `End of demo, press any key to exit.`, confirmando que a conexão com o Azure Cosmos DB foi feita. Em seguida, você pode fechar a janela do console.
 
-## <a name="step-4-create-a-database"></a>Etapa 4: criar um banco de dados
-Um banco de dados pode ser criado usando a função [**CreateDatabaseIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) ou [**CreateDatabaseAsync**](https://aka.ms/CosmosDotnetAPIDocs) da classe ``Databases``. Um banco de dados é o contêiner lógico de itens particionados em contêineres.
-    
-1. Copie e cole o método **CreateDatabase** abaixo do método **GetStartedDemoAsync**. **CreateDatabase** criará um novo banco de dados com a ID ``FamilyDatabase``, caso ela ainda não exista, com a ID especificada do campo ``databaseId``. 
+Parabéns! Você se conectou com sucesso a uma conta do Azure Cosmos DB.
 
-    ```csharp
-    /*
-        Create the database if it does not exist
-    */    
-    private async Task CreateDatabase()
-    {
-        // Create a new database
-        this.database = await this.cosmosClient.Databases.CreateDatabaseIfNotExistsAsync(databaseId);
-        Console.WriteLine("Created Database: {0}\n", this.database.Id);
-    }
-    ```
+## <a name="step-4-create-a-database"></a>Etapa 4: Criar um banco de dados
+
+Um banco de dados pode ser criado usando a função [**CreateDatabaseIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) ou [**CreateDatabaseAsync**](https://aka.ms/CosmosDotnetAPIDocs) da classe **CosmosDatabases**. Um banco de dados é o contêiner lógico de itens particionados em contêineres.
+
+1. Copie e cole o método **CreateDatabase** abaixo do método **GetStartedDemoAsync**. **CreateDatabase** criará um novo banco de dados com a ID `FamilyDatabase`, caso ela ainda não exista, com a ID especificada do campo `databaseId`.
+
+   ```csharp
+   /*
+       Create the database if it does not exist
+   */
+   private async Task CreateDatabase()
+   {
+       // Create a new database
+       this.database = await this.cosmosClient.Databases.CreateDatabaseIfNotExistsAsync(databaseId);
+       Console.WriteLine("Created Database: {0}\n", this.database.Id);
+   }
+   ```
 
 1. Copie e cole o código a seguir, no qual você criou uma instância do CosmosClient para chamar o método **CreateDatabase** que você acabou de adicionar.
 
-    ```csharp
-    public async Task GetStartedDemoAsync()
-    {
-        // Create a new instance of the Cosmos Client
-        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+   ```csharp
+   public async Task GetStartedDemoAsync()
+   {
+       // Create a new instance of the Cosmos Client
+       this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
 
-        //ADD THIS PART TO YOUR CODE
-        await this.CreateDatabase(); 
-    }
-    ```
+       //ADD THIS PART TO YOUR CODE
+       await this.CreateDatabase();
+   }
+   ```
 
-    Neste ponto, seu código deve se parecer com a imagem a seguir, com seu ponto de extremidade e a chave primária preenchidos. Observe que o namespace será diferente dependendo do nome de seu projeto.
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.Cosmos;
-    using System.Collections.Generic;
-    using System.Net;
+   Neste ponto, seu código deve se parecer com a imagem a seguir, com seu ponto de extremidade e a chave primária preenchidos. Observe que o namespace será diferente dependendo do nome de seu projeto.
 
-    namespace CosmosGettingStartedDotnetCoreTutorial
-    {
-        class Program
-        {
-            // The Azure Cosmos DB endpoint for running this sample.
-            private static readonly string EndpointUri = "<your endpoint here>";
-            // The primary key for the Azure Cosmos account.
-            private static readonly string PrimaryKey = "<your primary key>";
+   ```csharp
+   using System;
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Cosmos;
+   using System.Collections.Generic;
+   using System.Net;
 
-            // The Cosmos client instance
-            private CosmosClient cosmosClient;
-        
-            // The database we will create
-            private CosmosDatabase database;
+   namespace CosmosGettingStartedDotnetCoreTutorial
+   {
+       class Program
+       {
+           // The Azure Cosmos DB endpoint for running this sample.
+           private static readonly string EndpointUri = "<your endpoint here>";
+           // The primary key for the Azure Cosmos account.
+           private static readonly string PrimaryKey = "<your primary key>";
 
-            // The container we will create.
-            private CosmosContainer container;
+           // The Cosmos client instance
+           private CosmosClient cosmosClient;
 
-            // The name of the database and container we will create
-            private string databaseId = "FamilyDatabase";
-            private string containerId = "FamilyContainer";
+           // The database we will create
+           private CosmosDatabase database;
 
-            public static async Task Main(string[] args)
-            {
-                try
-                {
-                    Console.WriteLine("Beginning operations...");
-                    Program p = new Program();
-                    await p.GetStartedDemoAsync();
-                }
-                catch (CosmosException de)
-                {
-                    Exception baseException = de.GetBaseException();
-                    Console.WriteLine("{0} error occurred: {1}\n", de.StatusCode, de);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Error: {0}\n", e);
-                }
-                finally
-                {
-                    Console.WriteLine("End of demo, press any key to exit.");
-                    Console.ReadKey();
-                }
-            }
+           // The container we will create.
+           private CosmosContainer container;
 
-            /*
-                Entry point to call methods that operate on Azure Cosmos DB resources in this sample
-            */
-            public async Task GetStartedDemoAsync()
-            {
-                // Create a new instance of the Cosmos Client
-                this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
-                await this.CreateDatabase();
-            }
+           // The name of the database and container we will create
+           private string databaseId = "FamilyDatabase";
+           private string containerId = "FamilyContainer";
 
-            /*
-                Create the database if it does not exist
-            */    
-            private async Task CreateDatabase()
-            {
-                // Create a new database
-                this.database = await this.cosmosClient.Databases.CreateDatabaseIfNotExistsAsync(databaseId);
-                Console.WriteLine("Created Database: {0}\n", this.database.Id);
-            }
-        }
-    }
-    ```
+           public static async Task Main(string[] args)
+           {
+               try
+               {
+                   Console.WriteLine("Beginning operations...");
+                   Program p = new Program();
+                   await p.GetStartedDemoAsync();
+               }
+               catch (CosmosException de)
+               {
+                   Exception baseException = de.GetBaseException();
+                   Console.WriteLine("{0} error occurred: {1}\n", de.StatusCode, de);
+               }
+               catch (Exception e)
+               {
+                   Console.WriteLine("Error: {0}\n", e);
+               }
+               finally
+               {
+                   Console.WriteLine("End of demo, press any key to exit.");
+                   Console.ReadKey();
+               }
+           }
 
-Escolha **F5** para executar seu aplicativo.
+           /*
+               Entry point to call methods that operate on Azure Cosmos DB resources in this sample
+           */
+           public async Task GetStartedDemoAsync()
+           {
+               // Create a new instance of the Cosmos Client
+               this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+               await this.CreateDatabase();
+           }
 
-Parabéns! Você criou um banco de dados do Azure Cosmos DB com êxito.  
+           /*
+               Create the database if it does not exist
+           */
+           private async Task CreateDatabase()
+           {
+               // Create a new database
+               this.database = await this.cosmosClient.Databases.CreateDatabaseIfNotExistsAsync(databaseId);
+               Console.WriteLine("Created Database: {0}\n", this.database.Id);
+           }
+       }
+   }
+   ```
+
+Selecione **F5** para executar seu aplicativo.
+
+Parabéns! Você criou um banco de dados do Azure Cosmos DB com êxito.
 
 ## <a id="CreateColl"></a>Etapa 5: Criar um contêiner
+
 > [!WARNING]
 > Chamar o método **CreateContainerIfNotExistsAsync** criará um novo contêiner e isso implicará custos. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
-> 
-> 
 
-Um contêiner pode ser criado usando a função [**CreateContainerIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) ou [**CreateContainerAsync**](https://aka.ms/CosmosDotnetAPIDocs) da classe **Containers**. Um contêiner é formado por itens (que, no caso da API de SQL, são documentos JSON) e lógica de aplicativo JavaScript associada, por exemplo, procedimentos armazenados, funções definidas pelo usuário e gatilhos.
+Um contêiner pode ser criado usando a função [**CreateContainerIfNotExistsAsync**](https://aka.ms/CosmosDotnetAPIDocs) ou [**CreateContainerAsync**](https://aka.ms/CosmosDotnetAPIDocs) da classe **CosmosContainers**. Um contêiner é formado por itens (que, no caso da API de SQL, são documentos JSON) e lógica de aplicativo JavaScript associada, por exemplo, procedimentos armazenados, funções definidas pelo usuário e gatilhos.
 
-1. Copie e cole o método **CreateContainer** abaixo do método **CreateDatabase**. **CreateContainer** criará um novo contêiner com a ID ``FamilyContainer``, caso ela ainda não exista, com a ID especificada do campo ``containerId``. 
+1. Copie e cole o método **CreateContainer** abaixo do método **CreateDatabase**. **CreateContainer** criará um novo contêiner com a ID `FamilyContainer`, caso ela ainda não exista, com a ID especificada do campo `containerId`.
 
-    ```csharp
-    /*
-        Create the container if it does not exist. 
-        Specifiy "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
-    */
-    private async Task CreateContainer()
-    {
-        // Create a new container
-        this.container = await this.database.Containers.CreateContainerIfNotExistsAsync(containerId, "/LastName");
-        Console.WriteLine("Created Container: {0}\n", this.container.Id);
-    }
-    ```
+   ```csharp
+   /*
+       Create the container if it does not exist.
+       Specifiy "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
+   */
+   private async Task CreateContainer()
+   {
+       // Create a new container
+       this.container = await this.database.Containers.CreateContainerIfNotExistsAsync(containerId, "/LastName");
+       Console.WriteLine("Created Container: {0}\n", this.container.Id);
+   }
+   ```
 
 1. Copie e cole o código a seguir, no qual você criou uma instância do CosmosClient para chamar o método **CreateContainer** que você acabou de adicionar.
 
-    ```csharp
-    public async Task GetStartedDemoAsync()
-    {
-        // Create a new instance of the Cosmos Client
-        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
-        await this.CreateDatabase(); 
+   ```csharp
+   public async Task GetStartedDemoAsync()
+   {
+       // Create a new instance of the Cosmos Client
+       this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+       await this.CreateDatabase();
 
-        //ADD THIS PART TO YOUR CODE
-        await this.CreateContainer();
-    }
+       //ADD THIS PART TO YOUR CODE
+       await this.CreateContainer();
+   }
+   ```
 
-Select  **F5** to run your application.
+Selecione **F5** para executar seu aplicativo.
 
-Congratulations! You have successfully created an Azure Cosmos DB container.  
+Parabéns! Você criou um contêiner do Azure Cosmos DB com êxito.
 
-## <a id="CreateDoc"></a>Step 6: Add items to the container
-An item can be created by using the [**CreateItemAsync**](https://aka.ms/CosmosDotnetAPIDocs) function of the **Items** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+## <a id="CreateDoc"></a>Etapa 6: Adicionar itens ao contêiner
 
-First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. 
-1. Select  **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
+Um item pode ser criado usando a função [**CreateItemAsync**](https://aka.ms/CosmosDotnetAPIDocs) da classe **CosmosItems**. Ao usar a API do SQL, os itens são projetados como documentos, ou seja, o conteúdo JSON definido pelo usuário (arbitrário). Agora você pode inserir um item no contêiner do Azure Cosmos DB.
 
-    ![Screen shot of adding a new Family.cs class into the project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+Primeiro, precisamos criar uma classe **Family** que representará os objetos armazenados no Azure Cosmos DB neste exemplo. Também criaremos as subclasses **Parent**, **Child**, **Pet** e **Address** que são usadas em **Family**. Observe que os documentos devem ter uma propriedade **Id** serializada como **id** em JSON.
 
-1. Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** class into **Family.cs**. Note your namespace will differ based on the name of your project.
+1.  Selecione **Ctrl + Shift + A** para abrir a caixa de diálogo **Adicionar Novo Item**. Adicione uma nova classe **Family.cs** ao seu projeto.
+
+    ![Captura de tela da adição de uma nova classe Family.cs no projeto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+
+1.  Copie e cole a classe **Family**, **Parent**, **Child**, **Pet** e **Address** em **Family.cs**. Observe que o namespace será diferente dependendo do nome de seu projeto.
+
     ```csharp
     using Newtonsoft.Json;
 
@@ -392,120 +399,124 @@ First, we need to create a **Family** class that will represent objects stored w
         }
     }
     ```
-1. Navegue de volta ao **Program.cs** e adicione o método **AddItemsToContainer** ao seu método **CreateContainer**. Antes da criação, o código verifica para garantir que não haja um item com a mesma ID. Vamos inserir dois itens, um para a Família Martins e um para a Família Barros.
+
+1.  Navegue de volta ao **Program.cs** e adicione o método **AddItemsToContainer** ao seu método **CreateContainer**.
+    Antes da criação, o código verifica para garantir que não haja um item com a mesma ID. Vamos inserir dois itens, um para a Família Martins e um para a Família Barros.
 
     ```csharp
-    /*
-        Add Family items to the container
-    */
-    private async Task AddItemsToContainer()
-    {
-        // Create a family object for the Andersen family
-        Family andersenFamily = new Family
-        {
-            Id = "Andersen.1",
-            LastName = "Andersen",
-            Parents = new Parent[]
-            {
-                new Parent { FirstName = "Thomas" },
-                new Parent { FirstName = "Mary Kay" }
-            },
-            Children = new Child[]
-            {
-                new Child
-                {
-                    FirstName = "Henriette Thaulow",
-                    Gender = "female",
-                    Grade = 5,
-                    Pets = new Pet[]
-                    {
-                        new Pet { GivenName = "Fluffy" }
-                    }
-                }
-            },
-            Address = new Address { State = "WA", County = "King", City = "Seattle" },
-            IsRegistered = true
-        };
+     /*
+         Add Family items to the container
+     */
+     private async Task AddItemsToContainer()
+     {
+         // Create a family object for the Andersen family
+         Family andersenFamily = new Family
+         {
+             Id = "Andersen.1",
+             LastName = "Andersen",
+             Parents = new Parent[]
+             {
+                 new Parent { FirstName = "Thomas" },
+                 new Parent { FirstName = "Mary Kay" }
+             },
+             Children = new Child[]
+             {
+                 new Child
+                 {
+                     FirstName = "Henriette Thaulow",
+                     Gender = "female",
+                     Grade = 5,
+                     Pets = new Pet[]
+                     {
+                         new Pet { GivenName = "Fluffy" }
+                     }
+                 }
+             },
+             Address = new Address { State = "WA", County = "King", City = "Seattle" },
+             IsRegistered = true
+         };
 
-        // Read the item to see if it exists. Note ReadItemAsync will not throw an exception if an item does not exist. Instead, we check the StatusCode property off the response object. 
-        CosmosItemResponse<Family> andersenFamilyResponse = await this.container.Items.ReadItemAsync<Family>(andersenFamily.LastName, andersenFamily.Id);
+         // Read the item to see if it exists. Note ReadItemAsync will not throw an exception if an item does not exist. Instead, we check the StatusCode property off the response object.
+         CosmosItemResponse<Family> andersenFamilyResponse = await this.container.Items.ReadItemAsync<Family>(andersenFamily.LastName, andersenFamily.Id);
 
-        if (andersenFamilyResponse.StatusCode == HttpStatusCode.NotFound)
-        {
-            // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
-            andersenFamilyResponse = await this.container.Items.CreateItemAsync<Family>(andersenFamily.LastName, andersenFamily);
+         if (andersenFamilyResponse.StatusCode == HttpStatusCode.NotFound)
+         {
+             // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
+             andersenFamilyResponse = await this.container.Items.CreateItemAsync<Family>(andersenFamily.LastName, andersenFamily);
 
-            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse. 
-            //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
-            Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
-        }
-        else
-        {
-            Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
-        }
+             // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse.
+             //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+             Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+         }
+         else
+         {
+             Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
+         }
 
-        // Create a family object for the Wakefield family
-        Family wakefieldFamily = new Family
-        {
-            Id = "Wakefield.7",
-            LastName = "Wakefield",
-            Parents = new Parent[]
-            {
-                new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
-                new Parent { FamilyName = "Miller", FirstName = "Ben" }
-            },
-            Children = new Child[]
-            {
-                new Child
-                {
-                    FamilyName = "Merriam",
-                    FirstName = "Jesse",
-                    Gender = "female",
-                    Grade = 8,
-                    Pets = new Pet[]
-                    {
-                        new Pet { GivenName = "Goofy" },
-                        new Pet { GivenName = "Shadow" }
-                    }
-                },
-                new Child
-                {
-                    FamilyName = "Miller",
-                    FirstName = "Lisa",
-                    Gender = "female",
-                    Grade = 1
-                }
-            },
-            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-            IsRegistered = false
-        };
+         // Create a family object for the Wakefield family
+         Family wakefieldFamily = new Family
+         {
+             Id = "Wakefield.7",
+             LastName = "Wakefield",
+             Parents = new Parent[]
+             {
+                 new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
+                 new Parent { FamilyName = "Miller", FirstName = "Ben" }
+             },
+             Children = new Child[]
+             {
+                 new Child
+                 {
+                     FamilyName = "Merriam",
+                     FirstName = "Jesse",
+                     Gender = "female",
+                     Grade = 8,
+                     Pets = new Pet[]
+                     {
+                         new Pet { GivenName = "Goofy" },
+                         new Pet { GivenName = "Shadow" }
+                     }
+                 },
+                 new Child
+                 {
+                     FamilyName = "Miller",
+                     FirstName = "Lisa",
+                     Gender = "female",
+                     Grade = 1
+                 }
+             },
+             Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+             IsRegistered = false
+         };
 
-        // Read the item to see if it exists
-        CosmosItemResponse<Family> wakefieldFamilyResponse = await this.container.Items.ReadItemAsync<Family>(wakefieldFamily.LastName, wakefieldFamily.Id);
+         // Read the item to see if it exists
+         CosmosItemResponse<Family> wakefieldFamilyResponse = await this.container.Items.ReadItemAsync<Family>(wakefieldFamily.LastName, wakefieldFamily.Id);
 
-        if (wakefieldFamilyResponse.StatusCode == HttpStatusCode.NotFound)
-        {
-            // Create an item in the container representing the Wakefield family. Note we provide the value of the partition key for this item, which is "Wakefield"
-            wakefieldFamilyResponse = await this.container.Items.CreateItemAsync<Family>(wakefieldFamily.LastName, wakefieldFamily);
+         if (wakefieldFamilyResponse.StatusCode == HttpStatusCode.NotFound)
+         {
+             // Create an item in the container representing the Wakefield family. Note we provide the value of the partition key for this item, which is "Wakefield"
+             wakefieldFamilyResponse = await this.container.Items.CreateItemAsync<Family>(wakefieldFamily.LastName, wakefieldFamily);
 
-            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse. 
-            //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
-            Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", wakefieldFamilyResponse.Resource.Id, wakefieldFamilyResponse.RequestCharge);
-        }
-        else
-        {
-            Console.WriteLine("Item in database with id: {0} already exists\n", wakefieldFamilyResponse.Resource.Id);
-        }
-    }
+             // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse.
+             //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+             Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", wakefieldFamilyResponse.Resource.Id, wakefieldFamilyResponse.RequestCharge);
+         }
+         else
+         {
+             Console.WriteLine("Item in database with id: {0} already exists\n", wakefieldFamilyResponse.Resource.Id);
+         }
+     }
+    
     ```
-1. Adicione uma chamada para ``AddItemsToContainer`` no método ``GetStartedDemoAsync``.
+
+1.  Adicione uma chamada para `AddItemsToContainer` no método `GetStartedDemoAsync`.
 
     ```csharp
     public async Task GetStartedDemoAsync()
     {
         // Create a new instance of the Cosmos Client
         this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
-        await this.CreateDatabase(); 
+        await this.CreateDatabase();
         await this.CreateContainer();
 
         //ADD THIS PART TO YOUR CODE
@@ -513,188 +524,201 @@ First, we need to create a **Family** class that will represent objects stored w
     }
     ```
 
-Escolha **F5** para executar seu aplicativo.
+Selecione **F5** para executar seu aplicativo.
 
-Parabéns! Você criou dois itens do Azure Cosmos DB com êxito.  
+Parabéns! Você criou dois itens do Azure Cosmos DB com êxito.
 
 ## <a id="Query"></a>Etapa 7: Consultar recursos do Azure Cosmos DB
+
 O Azure Cosmos DB tem suporte para [consultas](sql-api-sql-query.md) avançadas de documentos JSON armazenados em cada coleção. O código de exemplo a seguir mostra como executar uma consulta em relação aos itens que inserimos na etapa anterior.
 
 1. Copie e cole o método **RunQuery** abaixo do método **AddItemsToContainer**.
 
-    ```csharp
-    /*
-        Run a query (using Azure Cosmos DB SQL syntax) against the container
-    */
-    private async Task RunQuery()
-    {
-        var sqlQueryText = "SELECT * FROM c WHERE c.LastName = 'Andersen'";
-        var partitionKeyValue = "Andersen";
+   ```csharp
+   /*
+       Run a query (using Azure Cosmos DB SQL syntax) against the container
+   */
+   private async Task RunQuery()
+   {
+       var sqlQueryText = "SELECT * FROM c WHERE c.LastName = 'Andersen'";
+       var partitionKeyValue = "Andersen";
 
-        Console.WriteLine("Running query: {0}\n", sqlQueryText);
+       Console.WriteLine("Running query: {0}\n", sqlQueryText);
 
-        CosmosSqlQueryDefinition queryDefinition = new CosmosSqlQueryDefinition(sqlQueryText);
-        CosmosResultSetIterator<Family> queryResultSetIterator = this.container.Items.CreateItemQuery<Family>(queryDefinition, partitionKeyValue);
+       CosmosSqlQueryDefinition queryDefinition = new CosmosSqlQueryDefinition(sqlQueryText);
+       CosmosResultSetIterator<Family> queryResultSetIterator = this.container.Items.CreateItemQuery<Family>(queryDefinition, partitionKeyValue);
 
-        List<Family> families = new List<Family>();
+       List<Family> families = new List<Family>();
 
-        while (queryResultSetIterator.HasMoreResults)
-        {
-            CosmosQueryResponse<Family> currentResultSet = await queryResultSetIterator.FetchNextSetAsync();
-            foreach (Family family in currentResultSet)
-            {
-                families.Add(family);
-                Console.WriteLine("\tRead {0}\n", family);
-            }
-        }
-    }
-    ```
-1. Adicione uma chamada para ``RunQuery`` no método ``GetStartedDemoAsync``.
+       while (queryResultSetIterator.HasMoreResults)
+       {
+           CosmosQueryResponse<Family> currentResultSet = await queryResultSetIterator.FetchNextSetAsync();
+           foreach (Family family in currentResultSet)
+           {
+               families.Add(family);
+               Console.WriteLine("\tRead {0}\n", family);
+           }
+       }
+   }
+   ```
 
-    ```csharp
-    public async Task GetStartedDemoAsync()
-    {
-        // Create a new instance of the Cosmos Client
-        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
-        await this.CreateDatabase(); 
-        await this.CreateContainer();
-        await this.AddItemsToContainer();
+1. Adicione uma chamada para `RunQuery` no método `GetStartedDemoAsync`.
 
-        //ADD THIS PART TO YOUR CODE
-        await this.RunQuery();
-    }
-    ```
+   ```csharp
+   public async Task GetStartedDemoAsync()
+   {
+       // Create a new instance of the Cosmos Client
+       this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+       await this.CreateDatabase();
+       await this.CreateContainer();
+       await this.AddItemsToContainer();
 
-Escolha **F5** para executar seu aplicativo.
+       //ADD THIS PART TO YOUR CODE
+       await this.RunQuery();
+   }
+   ```
 
-Parabéns! Você consultou uma contêiner do Azure Cosmos DB com êxito.
+Selecione **F5** para executar seu aplicativo.
 
-## <a id="ReplaceItem"></a>Etapa 8: substituir um item JSON
+Parabéns! Você consultou um contêiner do Azure Cosmos DB com êxito.
+
+## <a id="ReplaceItem"></a>Etapa 8: Substituir um item JSON
+
 Agora, vamos atualizar um item no Azure Cosmos DB.
 
-1. Copie e cole o método **ReplaceFamilyItem** abaixo do método **RunQuery**. Observe que estamos alterando a propriedade ``IsRegistered`` da família e a ``Grade`` de um dos filhos.
-    ```csharp
-    /*
-    Update an item in the container
-    */
-    private async Task ReplaceFamilyItem()
-    {
-        CosmosItemResponse<Family> wakefieldFamilyResponse = await this.container.Items.ReadItemAsync<Family>("Wakefield", "Wakefield.7");
-        var itemBody = wakefieldFamilyResponse.Resource;
-        
-        // update registration status from false to true
-        itemBody.IsRegistered = true;
-        // update grade of child
-        itemBody.Children[0].Grade = 6;
+1. Copie e cole o método **ReplaceFamilyItem** abaixo do método **RunQuery**. Observe que estamos alterando a propriedade `IsRegistered` da família e a `Grade` de um dos filhos.
 
-        // replace the item with the updated content
-        wakefieldFamilyResponse = await this.container.Items.ReplaceItemAsync<Family>(itemBody.LastName, itemBody.Id, itemBody);
-        Console.WriteLine("Updated Family [{0},{1}]\n. Body is now: {2}\n", itemBody.LastName, itemBody.Id, wakefieldFamilyResponse.Resource);
-    }
-    ```
-1. Adicione uma chamada para ``ReplaceFamilyItem`` no método ``GetStartedDemo``.
+   ```csharp
+   /*
+   Update an item in the container
+   */
+   private async Task ReplaceFamilyItem()
+   {
+       CosmosItemResponse<Family> wakefieldFamilyResponse = await this.container.Items.ReadItemAsync<Family>("Wakefield", "Wakefield.7");
+       var itemBody = wakefieldFamilyResponse.Resource;
 
-    ```csharp
-    public async Task GetStartedDemoAsync()
-    {
-        // Create a new instance of the Cosmos Client
-        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
-        await this.CreateDatabase(); 
-        await this.CreateContainer();
-        await this.AddItemsToContainer();
-        await this.RunQuery();
+       // update registration status from false to true
+       itemBody.IsRegistered = true;
+       // update grade of child
+       itemBody.Children[0].Grade = 6;
 
-        //ADD THIS PART TO YOUR CODE
-        await this.ReplaceFamilyItem();
-    }
+       // replace the item with the updated content
+       wakefieldFamilyResponse = await this.container.Items.ReplaceItemAsync<Family>(itemBody.LastName, itemBody.Id, itemBody);
+       Console.WriteLine("Updated Family [{0},{1}]\n. Body is now: {2}\n", itemBody.LastName, itemBody.Id, wakefieldFamilyResponse.Resource);
+   }
+   ```
 
-Select  **F5** to run your application.
+1. Adicione uma chamada para `ReplaceFamilyItem` no método `GetStartedDemo`.
 
-Congratulations! You have successfully replaced an Azure Cosmos DB item.
+   ```csharp
+   public async Task GetStartedDemoAsync()
+   {
+       // Create a new instance of the Cosmos Client
+       this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+       await this.CreateDatabase();
+       await this.CreateContainer();
+       await this.AddItemsToContainer();
+       await this.RunQuery();
 
-## <a id="DeleteDocument"></a>Step 9: Delete item
-Now, we will delete an item in Azure Cosmos DB.
+       //ADD THIS PART TO YOUR CODE
+       await this.ReplaceFamilyItem();
+   }
+   ```
 
-1. Copy and paste the **DeleteFamilyItem** method below your **ReplaceFamilyItem** method.
-    ```csharp
-    /*
-    Delete an item in the container
-    */
-    private async Task DeleteFamilyItem()
-    {
-        var partitionKeyValue = "Wakefield";
-        var familyId = "Wakefield.7";
+Selecione **F5** para executar seu aplicativo.
 
-        // Delete an item. Note we must provide the partition key value and id of the item to delete
-        CosmosItemResponse<Family> wakefieldFamilyResponse = await this.container.Items.DeleteItemAsync<Family>(partitionKeyValue, familyId);
-        Console.WriteLine("Deleted Family [{0},{1}]\n", partitionKeyValue, familyId);
-    }
-    ```
-1. Adicione uma chamada para ``DeleteFamilyItem`` no método ``GetStartedDemo``.
+Parabéns! Você substituiu um item do Azure Cosmos DB com êxito.
 
-    ```csharp
-    public async Task GetStartedDemoAsync()
-    {
-        // Create a new instance of the Cosmos Client
-        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
-        await this.CreateDatabase(); 
-        await this.CreateContainer();
-        await this.AddItemsToContainer();
-        await this.RunQuery();
-        await this.ReplaceFamilyItem();
+## <a id="DeleteDocument"></a>Etapa 9: Excluir item
 
-        //ADD THIS PART TO YOUR CODE
-        await this.DeleteFamilyItem();
-    }
-    ```
+Agora, excluiremos um item no Azure Cosmos DB.
 
-Escolha **F5** para executar seu aplicativo.
+1. Copie e cole o método **DeleteFamilyItem** abaixo do método **ReplaceFamilyItem**.
+
+   ```csharp
+   /*
+   Delete an item in the container
+   */
+   private async Task DeleteFamilyItem()
+   {
+       var partitionKeyValue = "Wakefield";
+       var familyId = "Wakefield.7";
+
+       // Delete an item. Note we must provide the partition key value and id of the item to delete
+       CosmosItemResponse<Family> wakefieldFamilyResponse = await this.container.Items.DeleteItemAsync<Family>(partitionKeyValue, familyId);
+       Console.WriteLine("Deleted Family [{0},{1}]\n", partitionKeyValue, familyId);
+   }
+   ```
+
+1. Adicione uma chamada para `DeleteFamilyItem` no método `GetStartedDemo`.
+
+   ```csharp
+   public async Task GetStartedDemoAsync()
+   {
+       // Create a new instance of the Cosmos Client
+       this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+       await this.CreateDatabase();
+       await this.CreateContainer();
+       await this.AddItemsToContainer();
+       await this.RunQuery();
+       await this.ReplaceFamilyItem();
+
+       //ADD THIS PART TO YOUR CODE
+       await this.DeleteFamilyItem();
+   }
+   ```
+
+Selecione **F5** para executar seu aplicativo.
 
 Parabéns! Você excluiu um item do Azure Cosmos DB com êxito.
 
-## <a id="DeleteDatabase"></a>Etapa 10: excluir o banco de dados
+## <a id="DeleteDatabase"></a>Etapa 10: Excluir o banco de dados
+
 Agora, vamos excluir nosso banco de dados. Excluir o banco de dados criado removerá o banco de dados e todos os recursos filho (contêineres, itens e procedimentos armazenados, funções definidas pelo usuário e gatilhos). Também vamos descartar a instância do **CosmosClient**.
 
 1. Copie e cole o método **DeleteDatabaseAndCleanup** abaixo do método **DeleteFamilyItem**.
-    ```csharp
-    /*
-    Delete the database and dispose of the Cosmos Client instance
-    */
-    private async Task DeleteDatabaseAndCleanup()
-    {
-        CosmosDatabaseResponse databaseResourceResponse = await this.database.DeleteAsync();
-        // Also valid: await this.cosmosClient.Databases["FamilyDatabase"].DeleteAsync();
 
-        Console.WriteLine("Deleted Database: {0}\n", this.databaseId);
+   ```csharp
+   /*
+   Delete the database and dispose of the Cosmos Client instance
+   */
+   private async Task DeleteDatabaseAndCleanup()
+   {
+       CosmosDatabaseResponse databaseResourceResponse = await this.database.DeleteAsync();
+       // Also valid: await this.cosmosClient.Databases["FamilyDatabase"].DeleteAsync();
 
-        //Dispose of CosmosClient
-        this.cosmosClient.Dispose();
-    }
-    ```
-1. Adicione uma chamada para ``DeleteDatabaseAndCleanup`` no método ``GetStartedDemo``.
-    
-    ```csharp
-    public async Task GetStartedDemoAsync()
-    {
-        // Create a new instance of the Cosmos Client
-        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
-        await this.CreateDatabase(); 
-        await this.CreateContainer();
-        await this.AddItemsToContainer();
-        await this.RunQuery();
-        await this.ReplaceFamilyItem();
-        await this.DeleteFamilyItem();
+       Console.WriteLine("Deleted Database: {0}\n", this.databaseId);
 
-        //ADD THIS PART TO YOUR CODE        
-        await this.DeleteDatabaseAndCleanup();
-    }
-    ```
+       //Dispose of CosmosClient
+       this.cosmosClient.Dispose();
+   }
+   ```
 
-Escolha **F5** para executar seu aplicativo.
+1. Adicione uma chamada para `DeleteDatabaseAndCleanup` no método `GetStartedDemo`.
+
+   ```csharp
+   public async Task GetStartedDemoAsync()
+   {
+       // Create a new instance of the Cosmos Client
+       this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+       await this.CreateDatabase();
+       await this.CreateContainer();
+       await this.AddItemsToContainer();
+       await this.RunQuery();
+       await this.ReplaceFamilyItem();
+       await this.DeleteFamilyItem();
+
+       //ADD THIS PART TO YOUR CODE
+       await this.DeleteDatabaseAndCleanup();
+   }
+   ```
+
+Selecione **F5** para executar seu aplicativo.
 
 Parabéns! Você excluiu um banco de dados do Azure Cosmos DB com êxito.
 
-## <a id="Run"></a>Etapa 11: executar o aplicativo de console C# inteiro!
+## <a id="Run"></a>Etapa 11: Executar o aplicativo de console C# inteiro!
+
 Escolha **F5** no Visual Studio para compilar o aplicativo no modo de depuração.
 
 Você deverá ver a saída de todo o aplicativo iniciado em uma janela do console. A saída mostrará os resultados das consultas que adicionamos e deverá coincidir com o texto de exemplo abaixo.
@@ -730,18 +754,17 @@ Parabéns! Você concluiu este tutorial e tem um aplicativo de console em C# fun
 
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
-* Uma [conta do Azure Cosmos DB][cosmos-db-create-account].
-* A solução [GetStarted](https://github.com/Azure-Samples/cosmos-dotnet-core-getting-started) disponível no GitHub.
+- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
+- Uma [conta do Azure Cosmos DB][cosmos-db-create-account].
+- A solução [GetStarted](https://github.com/Azure-Samples/cosmos-dotnet-core-getting-started) disponível no GitHub.
 
-Para restaurar as referências da API de SQL para o SDK do .NET Core do Azure Cosmos DB no Visual Studio, clique com o botão direito do mouse na solução **GetStarted** no Gerenciador de Soluções e escolha **Restaurar Pacote do NuGet**. Em seguida, no arquivo **Program.cs**, atualize os valores ``EndpointUri`` e ``PrimaryKey`` conforme descrito em [Conectar-se a uma conta do Azure Cosmos DB](#Connect).
+Para restaurar as referências da API de SQL para o SDK do .NET Core do Azure Cosmos DB no Visual Studio, clique com o botão direito do mouse na solução **GetStarted** no Gerenciador de Soluções e escolha **Restaurar Pacote do NuGet**. Em seguida, no arquivo **Program.cs**, atualize os valores `EndpointUri` e `PrimaryKey` conforme descrito em [Conectar-se a uma conta do Azure Cosmos DB](#Connect).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a compilar um aplicativo .Net Core para gerenciar dados da API de SQL do Azure Cosmos DB. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
+Neste tutorial, você aprendeu a compilar um aplicativo .Net Core para gerenciar dados da API de SQL do Azure Cosmos DB. Agora, é possível importar outros dados para sua conta do Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Importar dados no Azure Cosmos DB](import-data.md)
 
 [cosmos-db-create-account]: create-sql-api-dotnet-preview.md#create-account
-

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 236a4e4f79e6da89154e1e52bb9f45daf3a54d59
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158968"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632036"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: Criar e gerenciar compartilhamentos de arquivos do Azure usando a CLI do Azure
 Este guia percorre os fundamentos de trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) usando a CLI do Azure. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos de Arquivos do Azure oferecem suporte ao protocolo SMB padrão do setor e habilitar o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
@@ -87,15 +87,15 @@ Para montar um compartilhamento de arquivos com SMB, consulte o documento abaixo
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Usar um compartilhamento de arquivos do Azure com o protocolo REST de arquivo 
-É possível trabalhar diretamente com o protocolo REST de arquivo (ou seja, modelar manualmente as chamadas REST HTTP por conta própria), mas a maneira mais comum de usar o protocolo REST de arquivo é usar a CLI do Azure, o [módulo AzureRM do PowerShell](storage-how-to-use-files-powershell.md) ou um SDK do Armazenamento do Azure, que fornecem um bom wrapper do protocolo REST de arquivo na linguagem de script/programação de sua escolha.  
+É possível trabalhar diretamente com o protocolo REST de Arquivo (ou seja, criar manualmente chamadas REST HTTP por conta própria), mas a maneira mais comum para usar o protocolo REST de Arquivo é usar a CLI do Azure, o [módulo do Azure PowerShell](storage-how-to-use-files-powershell.md) ou um SDK do Armazenamento do Azure, que fornecem um bom wrapper do protocolo REST de Arquivo na linguagem de scripts/programação de sua escolha.  
 
-Acreditamos que a maioria dos usos dos arquivos do Azure será com o compartilhamento em vez do protocolo SMB, pois isso permite usar os aplicativos e as ferramentas existentes que se espera poder usar, mas há várias vantagens em usar a API REST de arquivo em vez de SMB, por exemplo:
+Acreditamos que a maioria dos usos dos arquivos do Azure será com o compartilhamento em vez do protocolo SMB, pois isso permite usar os aplicativos e as ferramentas existentes que se espera poder usar, mas há vários motivos que mostram como é vantajoso usar a API REST de arquivo em vez de SMB, a saber:
 
 - Você está buscando seu compartilhamento de arquivo no Azure Bash Cloud Shell (que não pode montar os compartilhamentos de arquivos via SMB).
 - Você precisa executar um script ou aplicativo de um cliente que não consegue montar compartilhamentos de SMB, por exemplo, clientes locais que não têm a porta 445 desbloqueada.
 - Você está aproveitando as vantagens dos recursos sem servidor, como o [Azure Functions](../../azure-functions/functions-overview.md). 
 
-Os exemplos a seguir mostram como usar o módulo AzureRM do PowerShell para manipular o compartilhamento de arquivos do Azure com o protocolo REST de arquivo. 
+Os exemplos a seguir mostram como usar a CLI do Azure para manipular o compartilhamento de arquivos do Azure com o protocolo REST de Arquivo. 
 
 ### <a name="create-a-directory"></a>Criar um diretório
 Para criar um novo diretório chamado *myDirectory* na raiz do seu compartilhamento de arquivos do Azure, use o comando [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create):

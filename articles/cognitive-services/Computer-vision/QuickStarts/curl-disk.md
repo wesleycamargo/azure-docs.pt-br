@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: analisar uma imagem local – REST, cURL – Pesquisa Visual Computacional'
+title: 'Início Rápido: Analisar uma imagem local – REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisa uma imagem local usando a API da Pesquisa Visual Computacional com cURL.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: c7c3cf2bae66e1739c4a62e1ce823542d0dfce36
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: c5e3de438593a6fb960edaffd14fa18ebe03f548
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339909"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579377"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Início Rápido: analisar uma imagem local usando API REST e cURL em Pesquisa Visual Computacional
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Início Rápido: Analisar uma imagem local usando a API REST e o cURL na Pesquisa Visual Computacional
 
 Neste início rápido, você analisará uma imagem armazenada localmente para extrair recursos visuais usando a API REST da Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
 

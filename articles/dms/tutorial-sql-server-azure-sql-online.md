@@ -5,18 +5,18 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: aea6b9628ffff4ba5075338c48340b88c95b6174
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: 63cc71ff784a25984672090bc6dbba662d9a52c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956850"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728135"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para o Banco de Dados SQL do Azure online usando DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server local para o [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/) com o mínimo de tempo de inatividade. Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2016 (ou posterior) para um Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Baixe um relatório de migração.
 
 > [!NOTE]
-> O uso do Serviço de Migração de Banco de Dados do Azure para executar uma migração online requer a criação de uma instância com base no tipo de preço Premium (versão prévia).
+> O uso do Serviço de Migração de Banco de Dados do Azure para executar uma migração online exige a criação de uma instância com base no tipo de preço Premium.
 
 > [!IMPORTANT]
 > Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.

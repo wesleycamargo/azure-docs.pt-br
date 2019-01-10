@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242119"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716099"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -35,8 +35,8 @@ O aplicativo é um painel de anúncios eletrônico. Os usuários criam um anúnc
 
 O aplicativo usa o [padrão centrado em fila](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descarregar o trabalho intensivo de CPU de criação de miniaturas para um processo de back-end.
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>Arquitetura alternativa: aplicativos Web e trabalhos Web
-Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em [Aplicativos Web do Azure](/azure/app-service/) e usar o recurso [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem e Máquinas Virtuais do Azure](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: Serviço de Aplicativo e WebJobs
+Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end no [Serviço de Aplicativo do Azure](/azure/app-service/) e usar o recurso [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, confira [Comparação entre o Serviço de Aplicativo do Azure, Serviços de Nuvem e máquinas virtuais](../app-service/overview-compare.md).
 
 ## <a name="what-youll-learn"></a>O que você aprenderá
 * Como habilitar seu computador para desenvolvimento do Azure ao instalar o SDK do Azure.
@@ -232,7 +232,7 @@ As cadeias de conexão da conta de armazenamento do Azure do projeto de função
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **ContosoAdsWeb** em **Funções** no projeto **ContosoAdsCloudService**; depois, clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Clique na guia **Configurações** . Na caixa suspensa Configuração de Serviço selecione **Nuvem**.
+2. Clique na guia **Configurações** . Na caixa suspensa **Configuração de Serviço** selecione **Nuvem**.
 
     ![Configuração de nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Selecione a entrada **StorageConnectionString** e você verá um botão de reticências (**...**) na extremidade direita da linha. Clique no botão para abrir a caixa de diálogo **Criar cadeia de conexão da conta de armazenamento** .
@@ -391,8 +391,8 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
 8. Ainda na janela de propriedades de **ContosoAdsWorker [Role]** , adicione outra cadeia de conexão:
 
    * Nome: ContosoAdsDbConnectionString
-   * Tipo: String
-   * Valor: cole a mesma cadeia de conexão usada para o projeto de função Web. (O exemplo a seguir é para o Visual Studio 2013. Não se esqueça de alterar a fonte de dados se for copiar este exemplo e se estiver usando o Visual Studio 2015 ou superior.)
+   * Digite: Cadeia de caracteres
+   * Valor: Cole a mesma cadeia de conexão usada para o projeto de função Web. (O exemplo a seguir é para o Visual Studio 2013. Não se esqueça de alterar a fonte de dados se for copiar este exemplo e se estiver usando o Visual Studio 2015 ou superior.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -775,7 +775,7 @@ Para assistir a um vídeo de introdução às melhores práticas e padrões de a
 
 Para saber mais, consulte os recursos a seguir:
 
-* [Serviços de nuvem do Azure Parte 1: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Serviços de Nuvem do Azure – Parte 1: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)
 * [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um provedor de serviço de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

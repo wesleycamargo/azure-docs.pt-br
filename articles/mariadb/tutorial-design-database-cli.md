@@ -1,24 +1,21 @@
 ---
-title: 'Tutorial: Projetar um Banco de Dados do Azure para MariaDB usando a CLI do Azure'
+title: 'Tutorial: Criar um Banco de Dados do Azure para MariaDB usando a CLI do Azure'
 description: Este tutorial explica como criar e gerenciar o servidor e banco de dados do Banco de Dados do Azure para MariaDB usando a CLI do Azure na linha de comando.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2d715f89b56af822c2c1174cca0f2a9c1b847fc0
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516323"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541184"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Projetar um Banco de Dados do Azure para MariaDB usando a CLI do Azure
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Criar um Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
 O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft com base no mecanismo de banco de dados edição da comunidade MariaDB. Neste tutorial, você usará a CLI (interface de linha de comando) do Azure e outros utilitários para aprender a:
 
@@ -175,10 +172,10 @@ Imagine que você excluiu acidentalmente essa tabela. Isso é algo que você nã
 
 Para a restauração, você precisa das seguintes informações:
 
-- Ponto de restauração: selecione um ponto no tempo anterior à alteração do servidor. Deve ser maior ou igual ao valor de backup mais antigo do banco de dados de origem.
-- Servidor de destino: forneça um novo nome de servidor no qual você deseja restaurar
-- Servidor de origem: forneça o nome do servidor do qual você quer fazer a restauração
-- Local: não é possível selecionar a região; por padrão, ela é igual ao servidor de origem
+- Ponto de restauração: Selecione um ponto no tempo anterior à alteração do servidor. Deve ser maior ou igual ao valor de backup mais antigo do banco de dados de origem.
+- Servidor de destino: Forneça o novo nome do servidor para o qual deseja fazer a restauração
+- Servidor de origem: Forneça o nome do servidor do qual deseja fazer a restauração
+- Localização: Não é possível selecionar a região; por padrão, ela é a mesma do servidor de origem
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver

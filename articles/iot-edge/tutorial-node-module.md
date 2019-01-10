@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 76bc59b41bf35f6427b1dcb273f3f50c5e70b748
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f69babb4520b4829a8cf59e2dac7763471a2db65
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344050"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557081"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Node.js em seu dispositivo simulado
 
@@ -36,6 +36,7 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 Um dispositivo do Azure IoT Edge:
 
 * Você pode usar seu computador de desenvolvimento ou uma máquina virtual como um dispositivo do Edge seguindo as etapas no início rápido para os [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md).
+* Se você está executando o IoT Edge no Windows, o IoT Edge versão 1.0.5 não é compatível com módulos Node.js. Para obter mais informações, confira as [notas sobre a versão 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para conhecer as etapas para instalar uma versão específica, confira [Atualizar o tempo de execução e o daemon de segurança do IoT Edge](how-to-update-iot-edge.md).
 
 Recursos de nuvem:
 

@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 9535ad73300406408a94a6f38f001e45ba7409a2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: df890eb0e07c13d0757c706a3cabbbad67b6eac2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093088"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716269"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
-O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece a resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e cobrança que seus outros serviços do Azure.
+O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece a resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e faturamento que os outros serviços do Azure.
 
-Você não pode usar o DNS do Azure para comprar um nome de domínio. Por um valor anual, você pode comprar um nome de domínio usando [Aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) ou um registrador de nome de domínio de terceiros. Seus domínios podem, então, ser hospedados no DNS do Azure para gerenciamento de registros. Confira [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md)para saber mais.
+Você não pode usar o DNS do Azure para comprar um nome de domínio. Por um valor anual, você pode comprar um nome de domínio usando [domínios do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) ou um registrador de nomes de domínio de terceiros. Seus domínios podem, então, ser hospedados no DNS do Azure para gerenciamento de registros. Confira [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md)para saber mais.
 
 Os recursos abaixo estão incluídos no DNS do Azure.
 

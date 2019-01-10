@@ -1,23 +1,21 @@
 ---
-title: 'O Azure Cosmos DB: Criar um aplicativo Web com o .NET e API do MongoDB'
-description: Apresenta um exemplo de código .NET que pode ser usado para se conectar à API do MongoDB do BD Cosmos do Azure e consultá-la
-services: cosmos-db
-author: slyons
+title: Criar um aplicativo Web usando a API do Azure Cosmos DB para MongoDB e o SDK do .NET
+description: Apresenta um exemplo de código .NET que você pode usar para conectar-se e consultar usando a API do Azure Cosmos DB para MongoDB.
+author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/22/2018
-ms.author: sclyon
-ms.openlocfilehash: 170f3132084da07ccf98a0dfed651bbfd7220615
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: c68d95f7eddfa98713f1af0786f82c1d633fbfff
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081023"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044477"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>O Azure Cosmos DB: Criar um aplicativo Web da API do MongoDB com .NET e o portal do Azure
+# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-net-sdk"></a>Criar um aplicativo Web usando a API do Azure Cosmos DB para MongoDB e o SDK do .NET
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,13 +26,13 @@ ms.locfileid: "53081023"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente bancos de dados de documentos, de chave/valor e de grafo, que se beneficiem das funcionalidades de escala horizontal e de distribuição global no núcleo do Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta de [API do MongoDB](mongodb-introduction.md) do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Você compilará e implantará um aplicativo Web de lista de tarefas compilado no [driver .NET do MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+Este início rápido demonstra como criar uma conta do Cosmos com a [API do Azure Cosmos DB para MongoDB](mongodb-introduction.md). Em seguida, você criará e implantará um aplicativo Web de lista de tarefas criado usando o [driver .NET do MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Pré-requisitos para executar o aplicativo de exemplo
 
-Para executar o exemplo, você precisará do [Visual Studio](https://www.visualstudio.com/downloads/) e uma conta válida do Azure CosmosDB.
+Para executar o exemplo, você precisará do [Visual Studio](https://www.visualstudio.com/downloads/) e de uma conta válida do Azure Cosmos DB.
 
 Caso ainda não tenha o Visual Studio, baixe o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento Web e ASP.NET** inserida na instalação.
 
@@ -49,7 +47,7 @@ O exemplo descrito neste artigo é compatível com MongoDB.Driver versão 2.6.1.
 
 ## <a name="clone-the-sample-app"></a>Clonar o aplicativo de exemplo
 
-Primeiro, baixe o aplicativo de API de exemplo do MongoDB do GitHub. Ele implementa uma lista de tarefas com o modelo de armazenamento de documentos do MongoDB.
+Primeiro, baixe o aplicativo de exemplo do GitHub. 
 
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 
@@ -77,7 +75,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
 
 Todos os snippets de código a seguir são retirados do arquivo Dal.cs no diretório DAL.
 
-* Inicialize o cliente Mongo.
+* Inicialize o cliente.
 
     ```cs
         MongoClientSettings settings = new MongoClientSettings();
@@ -110,7 +108,7 @@ Todos os snippets de código a seguir são retirados do arquivo Dal.cs no diret�
     collection.Find(new BsonDocument()).ToList();
     ```
 
-* Cria uma tarefa e a insere à coleção do MongoDB
+Criar uma tarefa e inseri-la na coleção
 
    ```csharp
     public void CreateTask(MyTask task)
@@ -130,9 +128,9 @@ Todos os snippets de código a seguir são retirados do arquivo Dal.cs no diret�
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
+Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [Portal do Azure](https://portal.azure.com/), na sua conta do BD Cosmos do Azure, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o Nome de usuário, Senha e Host para o arquivo Dal.cs na próxima etapa.
+1. No [portal do Azure](https://portal.azure.com/), na sua conta do Cosmos, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o Nome de usuário, Senha e Host para o arquivo Dal.cs na próxima etapa.
 
 2. Abra o arquivo **Dal.cs** no diretório **DAL**. 
 
@@ -142,7 +140,7 @@ Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conex
 
 5. Em seguida, copie sua **senha** do portal e transforme-o no valor da **senha** no arquivo **Dal.cs**. 
 
-Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
+Agora, você atualizou o aplicativo com todas as informações necessárias para comunicar-se com o Cosmos DB. 
     
 ## <a name="run-the-web-app"></a>Executar o aplicativo Web
 
@@ -166,8 +164,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure e executar um aplicativo Web usando a API para MongoDB. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
+Neste início rápido, você aprendeu como criar uma conta do Cosmos, criar uma coleção e executar um aplicativo de console. Agora você pode importar dados adicionais para o banco de dados Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importar dados no Azure Cosmos DB para a API do MongoDB](mongodb-migrate.md)
-
+> [Importar dados do MongoDB no Azure Cosmos DB](mongodb-migrate.md)

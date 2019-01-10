@@ -4,35 +4,34 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/30/2018
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bcea7848c7331ecd326f0ccb6ab9f543ce972205
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4f7546efca0bd69fd71418116142acacb927604
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834682"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
 Neste tutorial, você aprenderá a integrar o G Suite ao Microsoft Azure AD (Azure Active Directory).
-
 A integração do G Suite ao Microsoft Azure AD oferece os seguintes benefícios:
 
-- No Microsoft Azure AD, você pode controlar quem tem acesso ao G Suite.
-- Você pode habilitar seus usuários a fazerem logon automaticamente no G Suite (logon único) com suas contas do Microsoft Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* No Microsoft Azure AD, você pode controlar quem tem acesso ao G Suite.
+* Você pode permitir que seus usuários entrem automaticamente no G Suite (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é acesso de aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md)
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,9 +71,9 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
     R: Há duas opções para este cenário. Primeiro, os usuários podem entrar em dispositivos com Windows 10 por meio do [Ingresso no Active Directory do Azure](../device-management-introduction.md). Como alternativa, os usuários podem entrar em dispositivos com Windows que ingressaram em um domínio para um Active Directory local com logon único habilitado no AD do Azure por meio de uma implantação dos [Serviços de Federação do Active Directory (AD FS)](../hybrid/plan-connect-user-signin.md) . Ambas as opções exigem que você execute as etapas do tutorial a seguir para ativar o logon único entre o Microsoft Azure AD e o G Suite.
 
-6. **Erro: Email Inválido**
+6. **P: O que devo fazer quando recebo uma mensagem de erro de "email inválido"?**
 
-    Para essa configuração, o atributo de email é necessário para os usuários entrarem. Esse atributo não pode ser definido manualmente.
+    R: Para essa configuração, o atributo de email é necessário para os usuários entrarem. Esse atributo não pode ser definido manualmente.
 
     O atributo de email é populado automaticamente para qualquer usuário com uma licença válida do Exchange. Se o usuário não estiver habilitado para email, esse erro será recebido, o aplicativo precisa obter esse atributo para fornecer acesso.
 
@@ -84,10 +83,10 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-1. Adicionar o G Suite da galeria
-2. configurar e testar o logon único do AD do Azure
+* O G Suite dá suporte ao SSO iniciado por **SP**
+* O G Suite dá suporte a **[provisionamento automático de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)**
 
 ## <a name="adding-g-suite-from-the-gallery"></a>Adicionar o G Suite da galeria
 
@@ -95,112 +94,126 @@ Para configurar a integração do G Suite ao Microsoft Azure AD, é necessário 
 
 **Para adicionar o G Suite da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![O botão Novo aplicativo][3]
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, digite **G Suite**, selecione **G Suite** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![G Suite na lista de resultados](./media/google-apps-tutorial/tutorial_gsuite_addfromgallery.png)
+     ![G Suite na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Microsoft Azure AD com o G Suite, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Microsoft Azure AD precisa saber qual usuário do G Suite é equivalente a um usuário do Microsoft Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Microsoft Azure AD e o usuário relacionado no G Suite.
+Nesta seção, você configurará e testará o logon único do Microsoft Azure AD com o G Suite, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do G Suite.
 
 Para configurar e testar o logon único do Microsoft Azure AD com o G Suite, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criar de um usuário de teste do G Suite](#creating-a-g-suite-test-user)** – para ter um equivalente de Brenda Fernandes no G Suite vinculado à representação do usuário no Microsoft Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar o logon único do G Suite](#configure-g-suite-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do G Suite](#create-g-suite-test-user)** – para ter um equivalente de Brenda Fernandes no G Suite vinculado à representação do usuário no Microsoft Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do Azure e configura o logon único no aplicativo G Suite.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as seguintes etapas:**
+Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as seguintes etapas:
 
-1. No Portal do Azure, na página de integração do aplicativo **G Suite**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), no **G Suite** página de integração de aplicativos, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, clique em **Selecionar** do modo **SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-    ![Configurar o logon único](common/tutorial_general_301.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
 3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
-    ![Configurar o logon único](common/editconfigure.png)
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    ![Informações de logon único de Domínio e URLs do G Suite](./media/google-apps-tutorial/tutorial_gsuite_url.png)
+    ![Informações de logon único de Domínio e URLs do G Suite](common/sp-identifier.png)
 
      a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do G Suite](https://www.google.com/contact/) para obter esses valores.
 
-5. Aplicativo do G Suite espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
+5. Seu aplicativo G Suite espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. O valor padrão do **Identificador Exclusivo de Usuário** é **user.userprincipalname**, mas o G Suite espera que isso seja mapeado com o endereço de email do usuário. Para que você possa usar o atributo **user. mail** na lista ou usar o valor do atributo apropriado com base na configuração da sua organização.
 
-    ![image](./media/google-apps-tutorial/i3-attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
+6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas:
 
-     a. Clique em **Editar** para abrir a caixa de diálogo **Gerenciar declarações de usuário**.
+    | NOME | Atributo de Origem |
+    | ---------------| --------------- |
+    | Identificador Exclusivo de Usuário | User.mail |
 
-    ![image](./media/google-apps-tutorial/i2-attribute.png)
+     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](./media/google-apps-tutorial/i4-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    b. Da Lista **Atributo de origem**, selecione o valor do atributo.
+    ![image](common/new-attribute-details.png)
 
-    c. Clique em **Salvar**.
+    b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
-5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para baixar o **Certificado (Base64)** e salve o arquivo do certificado no computador.
+    c. Deixe o **Namespace** em branco.
 
-    ![O link de download do Certificado](./media/google-apps-tutorial/tutorial_gsuite_certificate.png) 
+    d. Escolha Origem como **Atributo**.
 
-6. Na seção **Configurar o G Suite**, copie a URL apropriada, de acordo com suas necessidades.
+    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
+
+    f. Clique em **Ok**
+
+    g. Clique em **Salvar**.
+
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+
+    ![O link de download do Certificado](common/certificatebase64.png)
+
+8. Na seção **Configurar o G Suite**, copie as URLs apropriadas, de acordo com suas necessidades.
+
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
      a. URL de logon
 
-    b. Identificador do Azure AD
+    b. Identificador do Azure Ad
 
     c. URL de logoff
 
-    ![Configurar o G Suite](common/configuresection.png)
+### <a name="configure-g-suite-single-sign-on"></a>Configurar o logon único do G Suite
 
-9. Abra uma nova guia no navegador e entre no [Console de Admin do G Suite](https://admin.google.com/) usando sua conta de administrador.
+1. Abra uma nova guia no navegador e entre no [Console de Admin do G Suite](http://admin.google.com/) usando sua conta de administrador.
 
-10. Clique em **Segurança**. Se você não enxergar o link, ele pode estar oculto sob o menu **Mais Controles** , na parte inferior da tela.
+2. Clique em **Segurança**. Se você não enxergar o link, ele pode estar oculto sob o menu **Mais Controles** , na parte inferior da tela.
 
     ![Clique em Segurança.][10]
 
-11. Na página **Segurança**, clique em **Configurar logon único (SSO).**
+3. Na página **Segurança**, clique em **Configurar logon único (SSO).**
 
     ![Clique em SSO.][11]
 
-12. Realize as seguintes alterações de configuração:
+4. Realize as seguintes alterações de configuração:
 
     ![Configure o SSO][12]
 
@@ -218,32 +231,58 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     g. Clique em **Salvar Alterações**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-    ![Criar um usuário do AD do Azure][100]
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
 2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_01.png) 
+    ![Botão Novo usuário](common/new-user.png)
 
 3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
 
-### <a name="creating-a-g-suite-test-user"></a>Criar um usuário de teste do G Suite
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao G Suite.
+
+1. No portal do Azure, escolha **Aplicativos Empresariais**, escolha **Todos os aplicativos** e, em seguida, escolha **G Suite**.
+
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicativos, digite e selecione **G Suite**.
+
+    ![O link do G Suite na lista de Aplicativos](common/all-applications.png)
+
+3. No menu à esquerda, selecione **Usuários e grupos**.
+
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
+
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
+
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+### <a name="create-g-suite-test-user"></a>Criar um usuário de teste do G Suite
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no G Suite Software. O G Suite dá suporte ao provisionamento automático, que é habilitado por padrão. Não há nenhuma ação para você nesta seção. Se um usuário ainda não existir no G Suite Software, um novo será criado quando você tentar acessar o G Suite Software.
 
@@ -253,54 +292,21 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no G Suit
 > [!NOTE]
 > Se você precisar criar um usuário manualmente, contate a [equipe de suporte do Google](https://www.google.com/contact/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao G Suite.
-
-1. No Portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**.
-
-    ![Atribuir usuário][201]
-
-2. Na lista de aplicativos, selecione **G Suite**.
-
-    ![Configurar o logon único](./media/google-apps-tutorial/tutorial_gsuite_app.png)
-
-3. No menu à esquerda, clique em **usuários e grupos**.
-
-    ![Atribuir usuário][202]
-
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir usuário][203]
-
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
-
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do G Suite no Painel de Acesso, deverá fazer logon automaticamente no aplicativo do G Suite.
-Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Ao clicar no bloco do G Suite no Painel de Acesso, você deverá ser conectado automaticamente ao G Suite no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Configurar Provisionamento de Usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png

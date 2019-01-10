@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: 82f0820faadfdcb067abad340c6fbed1a62e94d4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 366c6043a851a88447116ca07bd90cc84d30cb7b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230753"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629453"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Crie uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável
 
@@ -30,26 +30,28 @@ Na primeira parte da série, você aprenderá a:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
+Se você decidir instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão Az 0.7 ou posterior. Execute ` Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Crie um grupo de recursos do Azure com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
  
-O exemplo carrega 50 arquivos grandes em um contêiner de blob em uma conta de Armazenamento do Azure. Uma conta de armazenamento fornece um namespace exclusivo para armazenar e acessar os objetos de dados do Armazenamento do Azure. Crie uma conta de armazenamento no grupo de recursos que você criou usando o comando [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount).
+O exemplo carrega 50 arquivos grandes em um contêiner de blob em uma conta de Armazenamento do Azure. Uma conta de armazenamento fornece um namespace exclusivo para armazenar e acessar os objetos de dados do Armazenamento do Azure. Crie uma conta de armazenamento no grupo de recursos que você criou usando o comando [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount).
 
 No comando a seguir, substitua seu próprio nome global exclusivo da conta de armazenamento de blobs quando o espaço reservado `<blob_storage_account>` for exibido.
 
 ```powershell-interactive
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
   -Name "<blob_storage_account>" `
   -Location EastUS `
   -SkuName Standard_LRS `
@@ -60,7 +62,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
 
 Crie uma configuração de máquina virtual. Essa configuração inclui as configurações que são usadas ao implantar a máquina virtual como uma imagem, tamanho e configuração de autenticação de máquina virtual. Ao executar esta etapa, credenciais serão solicitadas de você. Os valores que você insere são configurados como o nome de usuário e senha para a máquina virtual.
 
-Crie a máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Crie a máquina virtual com [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 # Variables for common values
@@ -72,28 +74,28 @@ $vmName = "myVM"
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
   -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
 # Create a virtual network card and associate with public IP address
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS14_v2 | `
-    Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-    Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
-    -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
+$vmConfig = New-AzVMConfig -VMName myVM -VMSize Standard_DS14_v2 | `
+    Set-AzVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
+    Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
+    -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 
 # Create a virtual machine
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 Write-host "Your public IP address is $($pip.IpAddress)"
 ```
@@ -114,7 +116,7 @@ Execute o seguinte cmdlet para finalizar a configuração da máquina virtual. E
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
-Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location EastUS `
     -FileUri https://raw.githubusercontent.com/azure-samples/storage-dotnet-perf-scale-app/master/setup_env.ps1 `

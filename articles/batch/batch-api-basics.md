@@ -1,9 +1,9 @@
 ---
-title: Visão geral do Lote do Azure para desenvolvedores | Microsoft Docs
+title: Visão geral para desenvolvedores – Lote do Azure | Microsoft Docs
 description: Conheça os recursos do serviço de Lote e suas APIs do ponto de vista de um desenvolvedor.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 08/22/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735572"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754060"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -264,7 +264,7 @@ Ao criar uma tarefa, você pode especificar:
 * Uma referência de **imagem de contêiner** no Hub do Docker ou um registro particular e configurações adicionais para criar um contêiner do Docker no qual a tarefa é executada no nó. Só será possível especificar essas informações se o pool for definido com uma configuração de contêiner.
 
 > [!NOTE]
-> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de sete dias. As tarefas concluídas persistem indefinidamente; os dados das tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
+> O tempo de vida máximo de uma tarefa, desde quando ela é adicionada ao trabalho até sua conclusão, é de 180 dias. As tarefas concluídas persistem por 7 dias. Os dados das tarefas não concluídas dentro do tempo de vida máximo não podem ser acessados.
 
 Além das tarefas que você pode definir para realizar computação em um nó, as tarefas especiais a seguir também são fornecidas pelo serviço Lote:
 
@@ -314,8 +314,8 @@ Uma tarefa do gerenciador de trabalho é iniciada antes de todas as outras taref
 ### <a name="job-preparation-and-release-tasks"></a>Tarefas de preparação e liberação do trabalho
 O Lote fornece tarefas de preparação do trabalho para a instalação de execução pré-trabalho. As tarefas de liberação do trabalho são para a manutenção ou a limpeza pós-trabalho.
 
-* **Tarefa de preparação do trabalho**– a tarefa de preparação do trabalho é executada em todos os nós de computação agendados para executar as tarefas, antes de qualquer outra tarefa do trabalho ser executada. É possível usar a tarefa de preparação do trabalho para copiar os dados compartilhados por todas as tarefas, mas é exclusiva para o trabalho, por exemplo.
-* **Tarefa de liberação do trabalho**– quando o trabalho for concluído, a tarefa de liberação do trabalho será executada em cada nó no pool que executou pelo menos uma tarefa. É possível usar a tarefa de liberação do trabalho para excluir os dados copiados pela tarefa de preparação do trabalho ou compactar e carregar os dados do log de diagnóstico, por exemplo.
+* **Tarefa de preparação de trabalho**: a tarefa de preparação do trabalho é executada em todos os nós de computação agendados para executar tarefas, antes que qualquer outra tarefa do trabalho seja executada. É possível usar a tarefa de preparação do trabalho para copiar os dados compartilhados por todas as tarefas, mas é exclusiva para o trabalho, por exemplo.
+* **Tarefa de liberação de trabalho**: quando um trabalho é concluído, a tarefa de liberação do trabalho é executada em cada nó no pool que executou pelo menos uma tarefa. É possível usar a tarefa de liberação do trabalho para excluir os dados copiados pela tarefa de preparação do trabalho ou compactar e carregar os dados do log de diagnóstico, por exemplo.
 
 As tarefas de preparação e liberação do trabalho permitem especificar uma linha de comando a ser executada quando a tarefa é chamada. Elas oferecem recursos, como download de arquivo, execução elevada, variáveis de ambiente personalizadas, duração máxima da execução, contagem de repetição e tempo de retenção do arquivo.
 
@@ -355,13 +355,13 @@ O diretório raiz contém a seguinte estrutura de diretório:
 
 ![Estrutura de diretórios do nó de computação][1]
 
-* **compartilhado**– esse diretório fornece acesso de leitura/gravação a *todas* as tarefas executadas em um nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` .
-* **inicialização**– esse diretório é usado por uma tarefa inicial como seu diretório de trabalho. Todos os arquivos que são baixados para o nó pela tarefa de inicialização são armazenados aqui. A tarefa inicial pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` .
-* **Tarefas**- um diretório é criado para cada tarefa executada no nó. É acessado referenciando a variável de ambiente `AZ_BATCH_TASK_DIR` .
+* **compartilhado**: esse diretório fornece acesso de leitura/gravação a *todas* as tarefas executadas em um nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` .
+* **inicialização**: esse diretório é usado por uma tarefa inicial como seu diretório de trabalho. Todos os arquivos que são baixados para o nó pela tarefa de inicialização são armazenados aqui. A tarefa inicial pode criar, ler, atualizar e excluir arquivos nesse diretório. As tarefas podem acessar esse diretório referenciando a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` .
+* **Tarefas**: um diretório é criado para cada tarefa executada no nó. É acessado referenciando a variável de ambiente `AZ_BATCH_TASK_DIR` .
 
     Em cada diretório de tarefas, o serviço Lote cria um diretório de trabalho (`wd`) cujo caminho exclusivo é especificado pela variável de ambiente `AZ_BATCH_TASK_WORKING_DIR`. Esse diretório oferece acesso de leitura/gravação à tarefa. A tarefa pode criar, ler, atualizar e excluir arquivos contidos nesse diretório. Esse diretório é mantido com base na restrição *RetentionTime* especificada para a tarefa.
 
-    `stdout.txt` e `stderr.txt` – esses arquivos são gravados na pasta de tarefas durante a execução da tarefa.
+    `stdout.txt` e `stderr.txt`: esses arquivos são gravados na pasta de tarefas durante a execução da tarefa.
 
 > [!IMPORTANT]
 > Quando um nó é removido do pool, *todos* os arquivos armazenados no nó são removidos.
@@ -508,7 +508,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 * Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
 * Obtenha as noções básicas sobre o desenvolvimento de um aplicativo habilitado para o Lote usando a [biblioteca de cliente .NET do Lote](quick-run-dotnet.md) ou do [Python](quick-run-python.md). O artigo de início rápido orienta você por meio de um aplicativo de exemplo que usa o serviço em Lotes para executar uma carga de trabalho em vários nós de computação e que inclui o uso do Armazenamento do Azure para preparação e recuperação de um arquivo de carga de trabalho.
 * Baixe e instale o [Batch Explorer][batch_labs] para usá-lo durante a instalação das suas soluções de lote. Use o Batch Explorer para ajudar a criar, depurar e monitorar os aplicativos do Lote do Azure. 
-* Consulte os recursos da comunidade incluindo o [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade de Lote](https://github.com/Azure/Batch), e o [fórum do Lote do Azure][batch_forum] no MSDN. 
+* Consulte os recursos da comunidade incluindo o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade de Lote](https://github.com/Azure/Batch), e o [fórum do Lote do Azure][batch_forum] no MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

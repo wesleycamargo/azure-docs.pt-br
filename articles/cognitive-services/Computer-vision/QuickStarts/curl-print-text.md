@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: extrair texto impresso (OCR) – REST, cURL – Pesquisa Visual Computacional'
+title: 'Início Rápido: Extrair texto impresso – REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrairá texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com cURL.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 6917e6f4ba0c2f8045d3f7da9a2e23acd949cf48
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0eb276aa3af3cefb19a0659ec3188062deeddd0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341235"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583622"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>Início rápido: extrair texto impresso (OCR) usando a API REST e o cURL na Pesquisa Visual Computacional
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>Início Rápido: Extrair texto impresso (OCR) usando a API REST e o cURL na Pesquisa Visual Computacional
 
 Neste início rápido, você extrairá texto impresso, com OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 

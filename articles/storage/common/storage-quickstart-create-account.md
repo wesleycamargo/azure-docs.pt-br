@@ -9,28 +9,30 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: a695e333f48ed0bbf1ad5656c20964232feff4d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5086c0758e7c535b65c877917dc790dafa46f763
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990120"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994702"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Neste início rápido, você aprende a criar uma conta de armazenamento usando o [portal do Azure](https://portal.azure.com/), o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).  
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Nenhuma.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão atual. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este início rápido exige o módulo Az do Azure PowerShell versão 0.7 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão atual. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -57,16 +59,16 @@ Você também pode instalar e usar a CLI do Azure localmente. Este guia de iníc
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Faça logon no [Portal do Azure](https://portal.azure.com).
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela para fazer a autenticação.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela para fazer a autenticação.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -89,32 +91,32 @@ Cada conta de armazenamento deve pertencer a um grupo de recursos do Azure. Um g
 
 Uma conta de armazenamento de **uso geral v2** fornece acesso a todos os serviços de Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. O guia de início rápido cria uma conta de armazenamento de uso geral v2, mas as etapas para criar qualquer tipo de conta de armazenamento são semelhantes.   
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Primeiro, crie um novo grupo de recursos com o PowerShell usando o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
+Primeiro, crie um grupo de recursos com o PowerShell usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup): 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-Se não tiver certeza de qual região especificar para o parâmetro `-Location`, é possível recuperar uma lista de regiões com suporte para sua assinatura com o comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation):
+Caso não tenha certeza de qual região especificar para o parâmetro `-Location`, recupere uma lista de regiões com suporte para sua assinatura com o comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation):
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "westus"
 ```
 
-Em seguida, crie uma conta de armazenamento v2 de uso geral com LRS (armazenamento localmente redundante). Use o comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
+Em seguida, crie uma conta de armazenamento v2 de uso geral com LRS (armazenamento localmente redundante). Use o comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount): 
 
 ```powershell
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
@@ -176,7 +178,7 @@ Para saber mais sobre as opções de replicação disponíveis , veja [Opções 
 
 Caso queira limpar os recursos criados por este guia de início rápido, você pode simplesmente excluir o grupo de recursos. A exclusão do grupo de recursos também exclui a conta de armazenamento associada e todos os outros recursos associados ao grupo de recursos.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Para remover um grupo de recursos usando o portal do Azure:
 
@@ -184,12 +186,12 @@ Para remover um grupo de recursos usando o portal do Azure:
 2. Localize o grupo de recursos a ser excluído e clique com o botão direito do mouse no botão **Mais** (**...**) do lado direito da lista.
 3. Selecione **Excluir grupo de recursos** e confirme.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup): 
+Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup): 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -197,21 +199,21 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name storage-quickstart-resource-group
 ```
 
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você criou uma conta de armazenamento padrão de uso geral. Para saber como carregar e baixar blobs para e da sua conta de armazenamento, prossiga para o guia de início rápido do Armazenamento de blobs.
+Neste início rápido, você criou uma conta de armazenamento Standard de uso geral v2. Para saber como carregar e baixar blobs para e da sua conta de armazenamento, prossiga para o guia de início rápido do Armazenamento de blobs.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Trabalhar com blobs usando o portal do Azure](../blobs/storage-quickstart-blobs-portal.md)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!div class="nextstepaction"]
 > [Trabalhar com blobs usando o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
@@ -219,6 +221,6 @@ Neste guia de início rápido, você criou uma conta de armazenamento padrão de
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Trabalhar com o armazenamento de blobs usando a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
+> [Trabalhar com blobs usando a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

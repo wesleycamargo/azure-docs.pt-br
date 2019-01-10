@@ -1,5 +1,5 @@
 ---
-title: Usar o tutorial do Azure Key Vault a partir de um aplicativo Web | Microsoft Docs
+title: 'Tutorial: Usar o Azure Key Vault em um aplicativo Web – Azure Key Vault | Microsoft Docs'
 description: Use este tutorial para ajudá-lo a saber como usar o Azure Key Vault por meio de um aplicativo Web.
 services: key-vault
 author: barclayn
@@ -9,14 +9,14 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 79bccbcbcf78de18504c5cb0235e29930d90ede8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079456"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999298"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutorial: Usar o Azure Key Vault em um aplicativo Web
 
@@ -40,9 +40,9 @@ Para concluir este tutorial, você precisará dos seguintes itens:
 * Uma ID do Cliente e um Segredo do Cliente para um aplicativo Web registrado no Azure Active Directory que tenha acesso ao seu Key Vault
 * Um aplicativo Web. Este tutorial mostra as etapas para um aplicativo ASP.NET MVC implantado no Azure como um aplicativo Web.
 
-Conclua as etapas em [Introdução ao Azure Key Vault](key-vault-get-started.md) para obter o URI para um segredo, ID de cliente, segredo do cliente e registrar o aplicativo. O aplicativo Web acessará o cofre e precisará ser registrado no Azure Active Directory. Ele também precisa ter direitos de acesso ao Key Vault. Caso contrário, volte a Registrar um Aplicativo no tutorial de Introdução e repita as etapas listadas. Para obter mais informações sobre a criação de aplicativos Web do Azure, consulte [Visão geral de aplicativos Web](../app-service/app-service-web-overview.md).
+Conclua as etapas em [Introdução ao Azure Key Vault](key-vault-get-started.md) para obter o URI para um segredo, ID de cliente, segredo do cliente e registrar o aplicativo. O aplicativo Web acessará o cofre e precisará ser registrado no Azure Active Directory. Ele também precisa ter direitos de acesso ao Key Vault. Caso contrário, volte a Registrar um Aplicativo no tutorial de Introdução e repita as etapas listadas. Para obter mais informações sobre a criação de aplicativos Web do Azure, consulte [Visão geral de aplicativos Web](../app-service/overview.md).
 
-Este exemplo depende de provisionamento manual das identidades do Azure Active Directory. Mas você deve usar em vez disso as [Identidades gerenciadas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md), que provisionam automaticamente as identidades do Azure AD. Para obter mais informações, confira o exemplo na [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e o [Tutorial do Serviço de Aplicativo e Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) relacionado. Você também pode examinar o [Tutorial para configurar um aplicativo Web do Azure para ler um segredo do Key Vault](tutorial-web-application-keyvault.md) específico do Key Vault.
+Este exemplo depende de provisionamento manual das identidades do Azure Active Directory. Mas você deve usar em vez disso as [Identidades gerenciadas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md), que provisionam automaticamente as identidades do Azure AD. Para obter mais informações, confira o exemplo na [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e o [Tutorial do Serviço de Aplicativo e Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity) relacionado. Você também pode examinar o [Tutorial para configurar um aplicativo Web do Azure para ler um segredo do Key Vault](tutorial-web-application-keyvault.md) específico do Key Vault.
 
 ## <a id="packages"></a>Adicionar pacotes NuGet
 
@@ -71,8 +71,6 @@ Há três configurações de aplicativo que precisam ser adicionadas ao arquivo 
     <add key="SecretUri" value="secreturi" />
     <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
-
-
 
 ## <a id="gettoken"></a>Adicionar método para obter um token de acesso
 
@@ -159,7 +157,7 @@ Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw
 Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
-Anote a data de término e a senha para o .pfx (neste exemplo: 15 de maio de 2019 e MinhaSenha). Você precisará delas para o script a seguir. 
+Anote a data de término e a senha do .pfx (neste exemplo: 15 de maio de 2019 e MyPassword). Você precisará delas para o script a seguir. 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associe o certificado a um aplicativo do Azure AD
 
 Agora que você tem um certificado, você precisará associá-lo a um aplicativo do Azure AD. A associação pode ser concluída por meio do PowerShell. Execute os seguintes comandos para associar o certificado ao aplicativo do Azure AD:
@@ -188,11 +186,11 @@ Depois de executar esses comandos, você verá o aplicativo no Azure AD. Ao pesq
 
 Agora, adicionaremos o código ao seu Aplicativo Web para acessar o certificado e usá-lo para autenticação. 
 
-Primeiro, há um código para acessar o certificado. Observe que StoreLocation é CurrentUser em vez de LocalMachine. E estamos fornecendo “false” para o método Find porque estamos usando um certificado de teste.
+Primeiro, há um código para acessar o certificado. A localização do repositório é CurrentUser em vez de LocalMachine. E estamos fornecendo “false” para o método Find porque estamos usando um certificado de teste.
 
 ```cs
 //Add this using statement
-using System.Security.Cryptography.X509Certificates;  
+using System.Security.Cryptography.X509Certificates;  
 
 public static class CertificateHelper
 {

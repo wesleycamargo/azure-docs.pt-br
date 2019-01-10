@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5558409c3a3b0aef3757ebb73b2046a7018e4150
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 66fdb1313177b6f6a285f7d1b1b02dadac9472cc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088180"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810433"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Criar um contêiner no Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner (coleção, ta
 
 ## <a name="create-a-container-using-azure-portal"></a>Criar um contêiner usando o portal do Azure
 
-### <a id="portal-sql"></a>API de SQL (Core)
+### <a id="portal-sql"></a>API do SQL
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
@@ -36,7 +36,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner (coleção, ta
 
 ![A API de SQL cria uma coleção](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>API do MongoDB
+### <a id="portal-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
@@ -51,7 +51,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner (coleção, ta
    * Insira uma taxa de transferência, por exemplo, 1000 RUs.
    * Selecione **OK**.
 
-![A API do MongoDB cria uma coleção](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![A API do Azure Cosmos DB para MongoDB cria uma coleção](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>API do Cassandra
 
@@ -109,7 +109,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner (coleção, ta
 
 ## <a name="create-a-container-using-azure-cli"></a>Criar um contêiner usando a CLI do Azure
 
-### <a id="cli-sql"></a>API de SQL (Core)
+### <a id="cli-sql"></a>API do SQL
 
 ```azurecli-interactive
 # Create a container with a partition key and provision 1000 RU/s throughput.
@@ -123,7 +123,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>API do MongoDB
+### <a id="cli-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -191,7 +191,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>API do MongoDB
+### <a id="dotnet-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -199,7 +199,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> O MongoDB não têm o conceito de unidades de solicitação. Para criar uma nova coleção com taxa de transferência, use o Portal do Azure ou a API de SQL, conforme mostrado nos exemplos anteriores.
+O protocolo de transmissão do MongoDB não têm um conceito de unidades de solicitação. Para criar uma nova coleção com taxa de transferência, use o Portal do Azure ou a API de SQL, conforme mostrado nos exemplos anteriores.
 
 ### <a id="dotnet-cassandra"></a>API do Cassandra
 

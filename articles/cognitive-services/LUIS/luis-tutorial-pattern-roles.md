@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094399"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753108"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: Extrair padrões relacionados contextualmente
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair padrões relacionados contextualmente usando funções
 
 Neste tutorial, use um padrão para extrair dados de um enunciado de modelo bem formatado. O enunciado de modelo usa uma entidade simples e funções para extrair dados relacionados, como o local de origem e o local de destino.  Ao usar padrões, menos declarações de exemplo são necessárias para a intenção.
+
+
+**Neste tutorial, você aprenderá a:**
+
+> [!div class="checklist"]
+> * Importar o aplicativo de exemplo
+> * Criar novas entidades
+> * Criar nova tentativa
+> * Treinar
+> * Publicar
+> * Obter intenções e entidades do ponto de extremidade
+> * Criar padrão com funções
+> * Criar lista de expressões de cidades
+> * Obter intenções e entidades do ponto de extremidade
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>Usando funções em padrões
 
 O propósito das funções é extrair entidades relacionadas ao contexto em um enunciado. No enunciado, `Move new employee Robert Williams from Sacramento and San Francisco`, a cidade de origem e os valores da cidade de destino estão relacionados entre si e usam uma linguagem comum para denotar cada local. 
 
@@ -37,27 +55,12 @@ Porque a expressão de exemplo `Move new employee Robert Williams from Sacrament
 
 Se você tiver dificuldades com a detecção de entidade simples, porque é um nome como uma cidade, considere adicionar uma lista de frases de valores semelhantes. Isso ajuda na detecção do nome da cidade, dando LUIS um sinal adicional sobre esse tipo de palavra ou frase. As listas de frases só ajudam o padrão ajudando na detecção de entidade, que é necessária para que o padrão corresponda. 
 
-**Neste tutorial, você aprenderá a:**
-
-> [!div class="checklist"]
-> * Usar o aplicativo do tutorial existente
-> * Criar novas entidades
-> * Criar nova tentativa
-> * Treinar
-> * Publicar
-> * Obter intenções e entidades do ponto de extremidade
-> * Criar padrão com funções
-> * Criar lista de expressões de cidades
-> * Obter intenções e entidades do ponto de extremidade
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Usar o aplicativo existente
+## <a name="import-example-app"></a>Importar o aplicativo de exemplo
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
+Use as seguintes etapas:
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
 2. Importe o JSON em um novo aplicativo.
 

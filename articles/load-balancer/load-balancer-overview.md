@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185606"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120828"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Azure Load Balancer?
 
@@ -139,7 +139,7 @@ Por padrão, o Azure Load Balancer distribui o tráfego de rede igualmente entre
 
 ### <a name = "internalloadbalancer"></a>Azure Load Balancer Interno
 
-Um Load Balancer interno direciona o tráfego apenas para recursos que estão dentro de uma rede virtual ou que usam uma VPN para acessar a infraestrutura do Azure. Nesse sentido, um Load Balancer interno é diferente de um Load Balancer público. A infraestrutura do Azure restringe o acesso aos endereços IP de front-end de carga balanceada de uma rede virtual. Os endereços de front-end e as redes virtuais nunca são expostos diretamente a um ponto de extremidade de Internet. Os aplicativos de linha de negócios interno são executados no Azure e acessados de dentro do Azure ou de recursos locais.
+Um Load Balancer interno direciona o tráfego apenas para recursos que estão dentro de uma rede virtual ou que usam uma VPN para acessar a infraestrutura do Azure. Nesse sentido, um Load Balancer interno é diferente de um Load Balancer público. A infraestrutura do Azure restringe o acesso aos endereços IP de front-end de carga balanceada de uma rede virtual. Os endereços de front-ed e as redes virtuais nunca são expostos diretamente a um ponto de extremidade de Internet. Os aplicativos de linha de negócios interno são executados no Azure e acessados de dentro do Azure ou de recursos locais.
 
 Um Load Balancer interno habilita os seguintes tipos de balanceamento de carga:
 

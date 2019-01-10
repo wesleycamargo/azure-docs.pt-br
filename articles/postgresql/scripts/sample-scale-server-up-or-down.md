@@ -1,22 +1,19 @@
 ---
 title: Script da CLI do Azure - Dimensionar o Banco de Dados do Azure para PostgreSQL
 description: Exemplo de script da CLI do Azure – dimensionar o Banco de Dados do Azure para o servidor PostgreSQL para um nível de desempenho diferente após consultar a métrica.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: 2602165a6fb5aea85383d4e435479f0bf0f7e48c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 37b7364d48508ad557e6118487c0cb88f9df8e4f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582098"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548741"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitore e dimensione um único servidor PostgreSQL usando a CLI do Azure
 Este exemplo de script da CLI dimensiona um único Banco de Dados do Azure para o servidor PostgreSQL para um nível de desempenho diferente após consultar a métrica. 
@@ -46,4 +43,4 @@ Esse script usa os comandos descritos na tabela abaixo:
 ## <a name="next-steps"></a>Próximas etapas
 - Leia mais sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure)
 - Experimente scripts adicionais: [Exemplos da CLI do Azure para o Banco de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)
-- Leia mais informações sobre dimensionamento: [Camadas de serviço](../concepts-service-tiers.md) e [Unidades de computação e unidades de armazenamento](../concepts-compute-unit-and-storage.md)
+- Leia mais sobre escala: [Camadas de Serviço](../concepts-service-tiers.md) e [Unidades de Computação e Unidades de Armazenamento](../concepts-compute-unit-and-storage.md)

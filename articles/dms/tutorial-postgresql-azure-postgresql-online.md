@@ -5,18 +5,18 @@ services: dms
 author: HJToland3
 ms.author: scphang
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: 8780e145845d820ef0c6ff2c43891287c1902e2c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/19/2018
+ms.openlocfilehash: 102d89564d41bb8985f95790e7e4811ce30a590f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000906"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723103"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para o Banco de Dados do Azure para PostgreSQL online usando o DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do PostgreSQL local para o [Banco de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com um tempo de inatividade mínimo. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você deve migrar o banco de dados de exemplo **DVD Rental** de uma instância local do PostgreSQL 9.6 para o Banco de Dados do Azure para PostgreSQL usando uma atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Monitorar a migração.
 
 > [!NOTE]
-> O uso do Serviço de Migração de Banco de Dados do Azure para executar uma migração online requer a criação de uma instância com base no tipo de preço Premium (versão prévia).
+> O uso do Serviço de Migração de Banco de Dados do Azure para executar uma migração online exige a criação de uma instância com base no tipo de preço Premium.
 
 > [!IMPORTANT]
 > Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.

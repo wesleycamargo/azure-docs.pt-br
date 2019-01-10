@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 629189b9dbe2327763d364abc95f49539a312c53
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 18ca854f1e04127a900c1b753245ed6e2a331d68
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25983891"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628161"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Excluir contêineres com base no prefixo de nome de contêiner
 
@@ -34,23 +34,23 @@ Este script exclui os contêineres no Armazenamento de Blobs do Azure com base e
 
 [!code-powershell[main](../../../powershell_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.ps1 "Delete containers by prefix")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, os contêineres restantes e todos os recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name containerdeletetestrg
+Remove-AzResourceGroup -Name containerdeletetestrg
 ```
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
 Esse script usa os comandos a seguir para excluir contêineres com base no prefixo do nome do contêiner. Cada item em que a tabela contém links para a documentação específica do comando.
 
-| Command | Observações |
+| Comando | Observações |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Obtém uma conta de armazenamento especificada ou todas as contas de armazenamento em um grupo de recursos ou na assinatura. |
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/get-azurestoragecontainer) | Lista os contêineres de armazenamento associados com uma conta de armazenamento. |
-| [Remove-AzureStorageContainer](/powershell/module/azure.storage/remove-azurestoragecontainer) | Remove o contêiner de armazenamento específico. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtém uma conta de armazenamento especificada ou todas as contas de armazenamento em um grupo de recursos ou na assinatura. |
+| [Get-AzStorageContainer](/powershell/module/azure.storage/get-AzStoragecontainer) | Lista os contêineres de armazenamento associados com uma conta de armazenamento. |
+| [Remove-AzStorageContainer](/powershell/module/azure.storage/remove-AzStoragecontainer) | Remove o contêiner de armazenamento específico. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

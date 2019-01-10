@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala, Javascript (navegador) – Serviços da API de Fala'
+title: 'Início Rápido: Reconhecimento de fala, JavaScript (navegador) – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b6add6ac94e45789033cfe9913ec64e69f394f45
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087908"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715130"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em JavaScript em um navegador usando o SDK do Serviço de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, você aprenderá como criar um site usando a associação JavaScript do SDK de Fala de Serviços Cognitivos para transcrever conversão de fala em texto.
-O aplicativo é baseado no SDK de Fala dos Serviços Cognitivos da Microsoft ([Versão 1.1.0 para download](https://aka.ms/csspeech/jsbrowserpackage)).
+O aplicativo baseia-se no SDK de Fala dos Serviços Cognitivos da Microsoft ([Baixar a versão 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,8 +40,8 @@ Crie uma nova pasta vazia. Caso deseje hospedar o exemplo em um servidor Web, ce
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Baixe o SDK de Fala como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o na pasta recém-criada. Isso deve resultar na descompactação de dois arquivos, por exemplo, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-O último arquivo é opcional e usado para ajudar na depuração no código do SDK se necessário.
+Baixe o SDK de Fala como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o na pasta recém-criada. Isso resulta no desempacotamento de dois arquivos, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+O último arquivo é opcional e é útil para depuração no código do SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Criar uma página index.html
 
@@ -74,7 +74,7 @@ Crie um novo arquivo na pasta, chamada `index.html`, e abra este arquivo com um 
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Conecte manipuladores para o botão de reconhecimento, resultado de reconhecimento e campos relacionados à assinatura definidos pelo código da interface do usuário:
+1. Conecte manipuladores para o botão de reconhecimento, o resultado de reconhecimento e os campos relacionados à assinatura definidos pelo código da interface do usuário:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
@@ -103,10 +103,7 @@ Para iniciar o aplicativo, clique duas vezes no arquivo index.html ou abra index
 
 Para iniciar seu aplicativo, abra seu navegador da Web favorito e aponte-o para a URL pública na qual a pasta está hospedada, insira sua [região](regions.md) e dispare um reconhecimento usando o microfone. Se configurado, ele adquirirá um token da origem do token.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure esse exemplo na pasta `quickstart/js-browser`.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Obtenha nossas amostras](speech-sdk.md#get-the-samples)
+> [Explorar amostras de JavaScript no GitHub](https://aka.ms/csspeech/samples)

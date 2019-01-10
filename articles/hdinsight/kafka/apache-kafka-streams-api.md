@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495137"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584149"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: API de streams do Apache Kafka
 
@@ -22,7 +22,7 @@ Saiba como criar um aplicativo que usa a API de Streams do Apache Kafka e execut
 
 O aplicativo usado neste tutorial é uma contagem de palavras de streaming. Ele lê dados de texto de um tópico Kafka, extrai palavras individuais e, em seguida, armazena a palavra e a contagem em outro tópico Kafka.
 
-> [!NOTE]
+> [!NOTE]  
 > O processamento de fluxo do Kafka normalmente é feito usando o Apache Spark ou Apache Storm. A versão Kafka 0.10.0 (no HDInsight 3.5 e 3.6) introduziu a API de Streams do Kafka. Essa API permite transformar fluxos de dados entre tópicos de entrada e saída. Em alguns casos, isso pode ser uma alternativa para criar uma solução de streaming Spark ou Storm. 
 >
 > Para obter mais informações sobre Streams do Kafka, consulte a documentação[Introdução a Streams](https://kafka.apache.org/10/documentation/streams/) em Apache.org.
@@ -48,7 +48,7 @@ Você deve ter os seguintes componentes instalados no ambiente de desenvolviment
 
 * [Java JDK 8](https://aka.ms/azure-jdks) ou equivalente, como OpenJDK.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * Um cliente SSH e o comando `scp`. Para saber mais, consulte o documento [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -56,8 +56,8 @@ Você deve ter os seguintes componentes instalados no ambiente de desenvolviment
 
 O aplicativo de exemplo está localizado em [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), além do subdiretório `Streaming`. O aplicativo consiste de dois arquivos:
 
-* `pom.xml`: Esse arquivo define as dependências do projeto, versão do Java e os métodos de empacotamento.
-* `Stream.java`: Esse arquivo implementa a lógica de streaming.
+* `pom.xml`: este arquivo define as dependências do projeto, versão do Java e os métodos de empacotamento.
+* `Stream.java`: Este arquivo implementa a lógica de streaming.
 
 ### <a name="pomxml"></a>Pom.xml
 
@@ -74,13 +74,13 @@ As coisas importantes para entender no arquivo `pom.xml` são:
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > A entrada `${kafka.version}` é declarada na seção `<properties>..</properties>` de `pom.xml`, e está configurada para a versão Kafka do cluster HDInsight.
 
-* Plug-ins: os plug-ins do Maven fornecem vários recursos. Neste projeto, são usados os seguintes plug-ins:
+* Plug-ins: os plug-ins do Maven oferecem várias funcionalidades. Neste projeto, são usados os seguintes plug-ins:
 
-    * `maven-compiler-plugin`: Usado para definir a versão do Java usada pelo projeto para 8. Java 8 é exigido pelo HDInsight 3.6.
-    * `maven-shade-plugin`: Usado para gerar um jar grande que contém esse aplicativo, bem como todas as dependências. Ele também é usado para definir o ponto de entrada do aplicativo, para que você possa executar diretamente o arquivo Jar sem a necessidade de especificar a classe principal.
+    * `maven-compiler-plugin`: usado para definir a versão do Java usada pelo projeto como 8. Java 8 é exigido pelo HDInsight 3.6.
+    * `maven-shade-plugin`: usado para gerar um uber jar que contém esse aplicativo, bem como todas as dependências. Ele também é usado para definir o ponto de entrada do aplicativo, para que você possa executar diretamente o arquivo Jar sem a necessidade de especificar a classe principal.
 
 ### <a name="streamjava"></a>Stream.java
 
@@ -184,7 +184,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
 
 4. Para criar os tópicos usados pela operação de streaming, use os seguintes comandos:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Você pode receber um erro que o tópico `test` já existe. Não há problema nisso, pois ele pode ter sido criado no tutorial de API de produtor e consumidor.
 
     ```bash
@@ -199,12 +199,12 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
 
     Os tópicos são usados para as seguintes finalidades:
 
-    * `test`: Este tópico é onde os registros são recebidos. O aplicativo de streaming faz a leitura daqui.
-    * `wordcounts`: Este tópico é onde o aplicativo de transmissão armazena sua saída.
-    * `RekeyedIntermediateTopic`: Este tópico é usado para reparticionar dados como a contagem é atualizada pelo operador `countByKey`.
+    * `test`: É neste tópico que os registros são recebidos. O aplicativo de streaming faz a leitura daqui.
+    * `wordcounts`: É neste tópico que o aplicativo de transmissão armazena sua saída.
+    * `RekeyedIntermediateTopic`: Este tópico é usado para reparticionar dados conforme a contagem é atualizada pelo operador `countByKey`.
     * `wordcount-example-Counts-changelog`: Este tópico é um armazenamento de estado usado pela operação `countByKey`
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > O Kafka no HDInsight também pode ser configurado para criar tópicos automaticamente. Para obter mais informações, consulte o documento [Configurar a criação automática de tópicos](apache-kafka-auto-create-topics.md).
 
 ## <a name="run-the-code"></a>Executar o código
@@ -215,8 +215,8 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]
-    > Você pode receber um aviso sobre log4j. Você pode ignorar esse aviso.
+    > [!NOTE]  
+    > Você pode receber um aviso sobre o Apache log4j. Você pode ignorar esse aviso.
 
 2. Para enviar registros para o tópico `test`, use o seguinte comando para iniciar o aplicativo produtor:
 
@@ -230,7 +230,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Os parâmetros `--property` informam ao consumidor do console para imprimir a chave (palavra) juntamente com a contagem (valor). Esses parâmetros também configuram o desserializador a ser usado ao fazer a leitura desses valores do Kafka.
 
     A saída é semelhante ao texto a seguir:
@@ -248,7 +248,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
         jumped  13640
         jumped  13641
    
-    > [!NOTE]
+    > [!NOTE]  
     > O parâmetro `--from-beginning` configura o consumidor para começar do início dos registros armazenados no tópico. A contagem aumenta sempre que uma palavra é encontrada, logo o tópico contém várias entradas para cada palavra, com uma contagem crescente.
 
 7. Use __Ctrl + C__ para sair do produtor. Continue usando __Ctrl + C__ para sair do aplicativo e do consumidor.

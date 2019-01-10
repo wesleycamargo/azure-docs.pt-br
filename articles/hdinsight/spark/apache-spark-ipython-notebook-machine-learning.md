@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar aplicativo de aprendizado de máquina no Azure HDInsight'
+title: 'Tutorial: Criar aplicativo de aprendizado de máquina Spark no Azure HDInsight'
 description: Instruções passo a passo sobre como criar aplicativos de aprendizado de máquina do Apache Spark em clusters do HDInsight Spark usando o bloco de anotações do Jupyter.
 services: hdinsight
 ms.service: hdinsight
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580548"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608504"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Compilar um aplicativo de aprendizado de máquina do Apache Spark no HDInsight 
 
@@ -97,7 +97,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    Para obter mais informações sobre o pipeline e como ele funciona, confira <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline de aprendizado de máquina Spark</a>.
+    Para obter mais informações sobre o pipeline e como ele funciona, confira <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline de aprendizado de máquina Apache Spark</a>.
 
 5. Ajuste o pipeline para o documento de treinamento.
    
@@ -184,7 +184,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
 10. Feche o bloco de anotações para liberar os recursos. Para fazer isso, no menu **Arquivo** do notebook, selecione **Fechar e Interromper**. Essa ação desliga e fecha o bloco de anotações.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Use a biblioteca Anaconda scikit-learn para aprendizado de máquina do Spark
-Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Também inclui a biblioteca **scikit-learn** para aprendizado de máquina. A biblioteca também inclui vários conjuntos de dados que você pode usar para criar aplicativos de exemplo diretamente de um bloco de anotações do Jupyter. Para obter exemplos sobre como usar a biblioteca scikit-learn, consulte [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Também inclui a biblioteca **scikit-learn** para aprendizado de máquina. A biblioteca também inclui vários conjuntos de dados que você pode usar para criar aplicativos de exemplo diretamente de um bloco de anotações do Jupyter. Para obter exemplos sobre como usar a biblioteca scikit-learn, consulte [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 

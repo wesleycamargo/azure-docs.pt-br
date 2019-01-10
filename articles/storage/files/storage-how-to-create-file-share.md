@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 83829264f16fb295a1f5fa4f2efc74d8b35ec6eb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 318ecf03853e151040622ef0863f4c6986a96bd2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309184"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628503"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Criar um compartilhamento de arquivos nos Arquivos do Azure
 Você pode criar compartilhamentos de Arquivos do Azure usando o  [portal do Azure](https://portal.azure.com/), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Neste tutorial, você irá aprender:
@@ -34,14 +34,17 @@ Para criar um compartilhamento de arquivos do Azure, você pode usar uma Conta d
 3. **Forneça o Nome e a Cota. O valor máximo da cota atual é de 5 TiB**:    
     ![Forneça um nome e uma cota desejada para o novo compartilhamento de arquivos](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
-4. **Exiba o novo compartilhamento de arquivos**: ![Exiba o novo compartilhamento de arquivos](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
+4. **Exibir o novo compartilhamento de arquivo**:  ![Exibir o novo compartilhamento de arquivo](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **Carregue um arquivo**: ![Carregue um arquivo](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **Carregar um arquivo**:  ![Carregar um arquivo](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
-6. **Navegue o compartilhamento de arquivos e gerencie seus diretórios e arquivos**: ![Navegue o compartilhamento de arquivos](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
+6. **Navegue até o compartilhamento de arquivos e gerencie seus diretórios e arquivos**:  ![Procurar compartilhamento de arquivos](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a name="create-file-share-through-powershell"></a>Criar um compartilhamento de arquivos com o PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShell do Azure. Confira  [Como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)  para obter o ponto e as instruções de instalação.
 
 > [!Note]  
@@ -50,13 +53,13 @@ Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShel
 1. **Crie um contexto para a conta de armazenamento e a chave** O contexto encapsula o nome da conta de armazenamento e a chave da conta. Para obter instruções sobre como copiar a chave de conta do  [portal do Azure](https://portal.azure.com/), confira  [Chaves de acesso da conta de armazenamento](../common/storage-account-manage.md#access-keys).
 
     ```powershell
-    $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
+    $storageContext = New-AzStorageContext <storage-account-name> <storage-account-key>
     ```
     
 2. **Criar um novo compartilhamento de arquivos**:    
     
     ```powershell
-    $share = New-AzureStorageShare logs -Context $storageContext
+    $share = New-AzStorageShare logs -Context $storageContext
     ```
 
 > [!Note]  

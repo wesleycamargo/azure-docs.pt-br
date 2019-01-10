@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: 926e9feaa5061c84ce8de6d828da820e133700ce
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1ffe75b088b3e6db5717746ab2fc00ef4b350e8b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278853"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971862"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK do .NET para Visão Personalizada
 
@@ -31,7 +31,7 @@ Para escrever um aplicativo .NET que usa a Visão Personalizada, você precisar�
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Clone ou baixe o projeto [Exemplos de .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples). Navegue até a pasta **CustomVision/ObjectDetection** e abra ObjectDetection.csproj_ no Visual Studio.
+Clone ou baixe o projeto [Exemplos de .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples). Navegue até a pasta **CustomVision/ObjectDetection** e abra _ObjectDetection.csproj_ no Visual Studio.
 
 Este projeto do Visual Studio cria um novo projeto de Visão Personalizada denominado __Meu Novo Projeto__, que pode ser acessado pelo [site da Visão Personalizada](https://customvision.ai/). Ele carrega as imagens para treinar e testar um modelo de detecção de objeto. Neste projeto, o modelo é treinado para detectar garfos e tesouras nas imagens.
 

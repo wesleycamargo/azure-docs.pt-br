@@ -2,27 +2,21 @@
 title: Distribuição global do Azure Cosmos DB
 description: Saiba como replicar dados globalmente com o Azure Cosmos DB no Portal do Azure
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/26/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38747506"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53796106"
 ---
-Você pode saber mais sobre a distribuição global do Azure Cosmos DB no vídeo a seguir, no qual o Gerente de programa do Azure Cosmos DB, Andrew Liu, mostra a funcionalidade de distribuição global.
-
->[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
-
-Para obter mais informações sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
-
 ## <a id="addregion"></a>Adicionar regiões de banco de dados globais usando o Portal do Azure
-O BD Cosmos do Azure está disponível em todas as [regiões do Azure][azureregions] pelo mundo. Após a seleção do nível de consistência padrão para sua conta de banco de dados, você pode associar uma ou mais regiões (dependendo da sua escolha do nível de consistência padrão e das necessidades de distribuição global).
+O Azure Cosmos DB está disponível em todas as [regiões do Azure][azureregions] pelo mundo. Após a seleção do nível de consistência padrão para sua conta de banco de dados, você pode associar uma ou mais regiões (dependendo da sua escolha do nível de consistência padrão e das necessidades de distribuição global).
 
 1. No [Portal do Azure](https://portal.azure.com/), na barra esquerda, clique em **BD Cosmos do Azure**.
 2. Na página do **Azure Cosmos DB**, selecione a conta do banco de dados a ser modificada.
@@ -41,7 +35,7 @@ Há dois cenários comuns para configurar duas ou mais regiões:
 
 Para oferecer baixa latência para os usuários finais, é recomendável implantar o aplicativo e o Azure Cosmos DB nas regiões que correspondem aos locais em que os usuários do aplicativo estão localizados.
 
-Para o BCDR, é recomendável adicionar regiões com base nos pares de regiões descritos no artigo [Continuidade dos negócios e recuperação de desastre (BCDR): Regiões Emparelhadas do Azure][bcdr].
+Para o BCDR, é recomendável adicionar regiões com base nos pares de regiões descritos no artigo [BCDR (continuidade dos negócios e recuperação de desastres): Regiões combinadas do Azure][bcdr].
 
 <!--
 

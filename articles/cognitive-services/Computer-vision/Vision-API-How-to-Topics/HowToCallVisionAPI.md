@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: chamar a API da Pesquisa Visual Computacional'
+title: 'Exemplo: Chamar a API Analisar imagem – Pesquisa Visual Computacional'
 titlesuffix: Azure Cognitive Services
 description: Saiba como chamar a API da Pesquisa Visual Computacional usando o REST nos Serviços Cognitivos do Azure.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: e8297fbe59ebe2dea9caf112ebea4517447cf9e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981738"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581701"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: como chamar a API da Pesquisa Visual Computacional
+# <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: Como chamar a API da Pesquisa Visual Computacional
 
 Este guia demonstra como chamar a API da Pesquisa Visual Computacional usando o REST. Os exemplos são escritos em C# usando a biblioteca de clientes da API da Pesquisa Visual Computacional e como chamadas HTTP POST/GET. Nosso foco será:
 
@@ -26,10 +27,10 @@ Este guia demonstra como chamar a API da Pesquisa Visual Computacional usando o 
 
 ### <a name="Prerequisites">Pré-requisitos</a> 
 URL da imagem ou do caminho para a imagem armazenada localmente.
-  * Métodos de entrada compatíveis: binário da imagem bruta na forma de um aplicativo/fluxo de octeto ou uma URL da imagem
-  * Formatos de imagem compatíveis: JPEG, PNG, GIF, BMP
-  * Tamanho do arquivo de imagem: inferior a 4 MB
-  * Dimensão da imagem: superior a 50 x 50 pixels
+  * Suporte para métodos de entrada: Binário da imagem bruta na forma de um aplicativo/fluxo de octeto ou uma URL da imagem
+  * Formatos de imagem com suporte: JPEG, PNG, GIF, BMP
+  * Tamanho do arquivo de imagem: Menos de 4 MB
+  * Dimensões da imagem: Mais de 50 x 50 pixels
   
 Nos exemplos abaixo, os seguintes recursos são demonstrados:
 
@@ -38,10 +39,10 @@ Nos exemplos abaixo, os seguintes recursos são demonstrados:
 
 Os recursos são divididos em:
 
-  * **Opção um:** análise com escopo – analisar apenas um modelo dado
-  * **Opção dois:** análise avançada – analisar para fornecer mais detalhes com a [taxonomia de 86 categorias](../Category-Taxonomy.md)
+  * **Opção um:** Análise de Escopo – analisar apenas um dado modelo
+  * **Opção dois:** Análise Avançada – analisar para fornecer mais detalhes com a [taxonomia de 86 categorias](../Category-Taxonomy.md)
   
-### <a name="Step1">Etapa 1: autorizar a chamada à API</a> 
+### <a name="Step1">Etapa 1: Autorizar a chamada à API</a> 
 Toda chamada à API da Pesquisa Visual Computacional requer uma chave de assinatura. Essa chave precisa ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação. 
 
 Para obter uma chave de assinatura, consulte [Como obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md
@@ -59,12 +60,12 @@ Para obter uma chave de assinatura, consulte [Como obter chaves de assinatura](.
 
 ```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
 
-### <a name="Step2">Etapa 2: Carregar uma imagem para o serviço API da Pesquisa Visual Computacional e retornar as tags, descrições e celebridades</a>
+### <a name="Step2">Etapa 2: Carregar uma imagem para o serviço API da Pesquisa Visual Computacional e retornar as marcas, descrições e celebridades</a>
 A maneira básica de realizar a chamada à API da Pesquisa Visual Computacional é carregar uma imagem diretamente. Isso é feito enviando uma solicitação "POST" com o tipo de conteúdo application/octet-stream junto com os dados lidos da imagem. Para "Tags" e "Descrição", este método de upload será o mesmo para todas as chamadas à API da Pesquisa Visual Computacional. A única diferença será os parâmetros de consulta especificados pelo usuário. 
 
 Veja como obter "Tags" e "Descrição" para uma determinada imagem:
 
-**Opção um:** obter a lista das "Tags" e uma "Descrição"
+**Opção um:** Obter a lista de "Marcas" e uma "Descrição"
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
@@ -99,7 +100,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ```
 ### <a name="here-is-how-to-get-domain-specific-analysis-in-our-case-for-celebrities"></a>Veja como obter a análise específica a um domínio (em seu caso, para celebridades).
 
-**Opção um:** análise com escopo – analisar apenas um modelo dado
+**Opção um:** Análise de Escopo – analisar apenas um dado modelo
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -109,7 +110,7 @@ Para essa opção, todos os outros parâmetros de consulta {visualFeatures, deta
 GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**Opção dois:** análise avançada – analisar para fornecer mais detalhes com a [taxonomia de 86 categorias](../Category-Taxonomy.md)
+**Opção dois:** Análise Avançada – analisar para fornecer mais detalhes com a [taxonomia de 86 categorias](../Category-Taxonomy.md)
 
 Para aplicativos nos quais você deseja obter análise de imagem genérica, além de detalhes de um ou mais modelos específicos a um domínio, expandimos a API v1 com o parâmetro de consulta de modelos.
 ```
@@ -119,7 +120,7 @@ Quando esse método é invocado, chamaremos o classificador de 86 categorias pri
 
 Todos os parâmetros de consulta v1 se comportarão da mesma maneira nesse caso.  Se visualFeatures=categories não for especificado, será habilitado implicitamente.
 
-### <a name="Step3">Etapa 3: Recuperando e compreendendo a saída JSON para analyze&visualFeatures=Tags, Description</a>
+### <a name="Step3"> Etapa 3: Recuperando e entendendo a saída JSON para analyze&visualFeatures=Tags, descrição</a>
 
 Aqui está um exemplo:
 ```
@@ -161,7 +162,7 @@ description.captions[].confidence   | número    | Confiança da frase.
 
 ### <a name="Step4">Etapa 4: Recuperando e compreendendo a saída JSON de modelos específicos a um domínio</a>
 
-**Opção um:** análise com escopo – analisar apenas um modelo dado
+**Opção um:** Análise de Escopo – analisar apenas um dado modelo
 
 A saída será uma matriz de tags, como este exemplo:
 ```
@@ -179,7 +180,7 @@ A saída será uma matriz de tags, como este exemplo:
   }
 ```
 
-**Opção dois:** análise avançada – analisar para fornecer mais detalhes com a taxonomia de 86 categorias
+**Opção dois:** Análise Avançada – analisar para fornecer mais detalhes com a taxonomia de 86 categorias
 
 Para modelos específicos a um domínio que usam a Opção dois (análise avançada), o tipo de retorno das categorias é ampliado. Há um exemplo a seguir:
 ```

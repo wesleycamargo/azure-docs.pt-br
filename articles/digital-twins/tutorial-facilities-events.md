@@ -1,20 +1,21 @@
 ---
-title: Capturar eventos de um espaço dos Gêmeos Digitais do Azure | Microsoft Docs
+title: 'Tutorial: Capturar eventos de um espaço dos Gêmeos Digitais do Azure | Microsoft Docs'
 description: Saiba como receber notificações de seus espaços integrando os Gêmeos Digitais do Azure ao Aplicativo Lógico do Azure usando as etapas deste tutorial.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583254"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556009"
 ---
-# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações de espaços dos Gêmeos Digitais do Azure usando o Aplicativo Lógico
+# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações de espaços dos Gêmeos Digitais do Azure usando Aplicativos Lógicos
 
 Depois de implantar sua instância dos Gêmeos Digitais do Azure, provisionar seus espaços e implementar funções personalizadas para monitorar condições específicas, você poderá notificar o administrador do escritório por email quando as condições monitoradas ocorrerem. 
 
@@ -174,7 +175,7 @@ Você pode usar o serviço [Aplicativos Lógicos do Azure](../logic-apps/logic-a
 
    c. Na caixa **Para**, insira a ID do email para receber notificações. Em **Assunto**, digite o texto **Notificação dos Gêmeos Digitais sobre a má qualidade do ar no espaço**. Em seguida, selecione **TopologyObjectId** na lista **Conteúdo dinâmico** de **Parse JSON**.
 
-   d. Em **Corpo**, na mesma janela, insira um texto semelhante a este: **Qualidade do ar ruim detectada em uma sala; a temperatura precisa ser ajustada**. Você pode elaborar mais usando elementos da lista **Conteúdo dinâmico**.
+   d. Em **Corpo** na mesma janela, insira um texto semelhante a este: **Má qualidade do ar detectada em uma sala; a temperatura precisa ser ajustada**. Você pode elaborar mais usando elementos da lista **Conteúdo dinâmico**.
 
    ![Seleções de "Enviar um email" do Aplicativo Lógico](./media/tutorial-facilities-events/logic-app-send-email.png)
 

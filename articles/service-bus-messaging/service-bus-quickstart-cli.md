@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 8beabfb8c77d4d62b9b15dca8ae3146c34c3b20a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634805"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998669"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Início rápido: Enviar e receber mensagens usando CLI do Azure e Java
+# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Início Rápido: Enviar e receber mensagens usando a CLI do Azure e o Java
 
 O Barramento de Serviço do Microsoft Azure é um agente de mensagem de integração empresarial que fornece mensagens seguras e confiabilidade. Um cenário típico de Barramento de Serviço geralmente envolve o desacoplamento de dois ou mais aplicativos, serviços ou processos (aplicativos não precisam estar online ao mesmo tempo), transferindo alterações de dados ou estado e enviando mensagens entre os aplicativos. 
 
@@ -66,7 +66,7 @@ Depois que o último comando executar, copie e cole a cadeia de conexão e o nom
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
-Depois de criar o namespace e a fila, e você tiver as credenciais necessárias, estará pronto para enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
+Depois de criar o namespace e a fila, e você tiver as credenciais necessárias, estará pronto para enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 1. Verifique se o Cloud Shell está aberto e exibindo o prompt de Bash.
 
@@ -108,7 +108,7 @@ az group delete --resource-group myResourceGroup
 
 ## <a name="understand-the-sample-code"></a>Entender o código de exemplo
 
-Esta seção contém mais detalhes sobre as principais seções do código de exemplo. É possível navegar pelo código localizado no repositório GitHub [aqui](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
+Esta seção contém mais detalhes sobre as principais seções do código de exemplo. É possível navegar pelo código localizado no repositório GitHub [aqui](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ### <a name="get-connection-string-and-queue"></a>Obter cadeia de conexão e fila
 

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: C# da Pesquisa Visual Computacional'
+title: Serviço Conectado do Visual Studio – Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Conecte-se à API da Pesquisa Visual Computacional de um aplicativo Web do ASP.NET Core.
+description: Conectar-se à API da Pesquisa Visual Computacional de um aplicativo Web ASP.NET Core usando o recurso de Serviço Conectado do Visual Studio.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: ebfcabdea1e83a83af5eea8025ba5a411c3f9880
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.custom: seodec18
+ms.openlocfilehash: e9207fe19272dac23db165e160ce9f7a7e802c14
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077943"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579729"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Usar serviços conectados no Visual Studio para se conectar à API da Pesquisa Visual Computacional
 
@@ -37,15 +38,15 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
 1. No **Gerenciador de Soluções**, selecione **Adicionar** > **Serviço Conectado**.
    A página do Serviço Conectado aparece com os serviços que você pode adicionar ao seu projeto.
 
-   ![Item de menu Adicionar Serviço Conectado](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Captura de tela de um menu aberto clicando com o botão direito do mouse em um projeto do Visual Studio: Adicionar > Serviço Conectado](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. No menu de serviços disponíveis, escolha **API da Pesquisa Visual Computacional dos Serviços Cognitivos**.
 
-   ![Escolher o serviço para conectar](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![o menu Serviços Conectados, realçando Analisar Imagens com a Pesquisa Visual Computacional](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Se você tiver entrado no Visual Studio e tiver uma assinatura do Azure associada à sua conta, será exibida uma página com uma lista suspensa com suas assinaturas.
 
-   ![Selecione sua assinatura](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Uma janela "API da Pesquisa Visual Computacional" do Visual Studio com o menu suspenso Assinatura realçado](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Selecione a assinatura que você quer usar e, em seguida, escolha um nome para a API da Pesquisa Visual Computacional ou escolha o link Editar para modificar o nome gerado automaticamente, escolha o grupo de recursos e Tipo de Preço.
 
@@ -93,11 +94,11 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
 
 1. Na pasta wwwroot do projeto, adicione uma pasta de imagens e adicione um arquivo de imagem à pasta wwwroot. Por exemplo, é possível usar uma das imagens nesta [página de API da Pesquisa Visual Computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta de imagens e escolha **Adicionar** > **Item existente** para adicionar ao projeto. O projeto deve ser semelhante a este no Gerenciador de Soluções: 
   
-   ![pasta de imagens com arquivo de imagem](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+   ![Captura de tela da exibição do gerenciador de soluções com um arquivo de imagem selecionado](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
 1. Clique com o botão direito do mouse no arquivo de imagem, escolha Propriedades e, em seguida, escolha **Copiar se mais recente**. 
 
-   ![Copiar se mais recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![Uma janela Propriedades da imagem; a opção Copiar para Diretório de Saída está definida como Copiar se Mais Recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Substitua o método Configurar pelo seguinte código para acessar a API da Pesquisa Visual Computacional testar uma imagem.
 

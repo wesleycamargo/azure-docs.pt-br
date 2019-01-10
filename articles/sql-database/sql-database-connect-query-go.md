@@ -12,16 +12,16 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092359"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744693"
 ---
-# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Início Rápido: Usar Go para consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Início Rápido: Usar o Golang para consultar um Banco de Dados SQL do Azure
 
-Este início rápido demonstra como usar a linguagem de programação [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) para se conectar a um Banco de Dados SQL do Azure e executar instruções Transact-SQL para consultar e modificar dado. [Go](https://golang.org/) é uma linguagem de programação de software livre que torna fácil criar software simples, confiável e eficiente.  
+Neste início rápido, você usará a linguagem de programação [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para conectar-se a um Banco de Dados SQL do Azure. Em seguida, você executará instruções Transact-SQL para consultar e modificar dados. O [Golang](https://golang.org/) é uma linguagem de programação de software livre que facilita a criação de softwares simples, confiáveis e eficientes.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,17 +31,17 @@ Para concluir este tutorial, você precisará:
 
 - Uma [regra de firewall no nível de servidor](sql-database-get-started-portal-firewall.md) configurada para o endereço IP público do seu computador.
 
-- Go e software relacionado para seu sistema operacional instalado:
+- O Golang e o software relacionado para seu sistema operacional instalado:
 
-    - **MacOS**: instale o Homebrew e o GoLang. Veja a [Etapa 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu**:  Instalar GoLang. Veja a [Etapa 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-    - **Windows**: Instalar GoLang. Veja a [Etapa 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
+    - **MacOS**: Instale o Homebrew e o Golang. Veja a [Etapa 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+    - **Ubuntu**:  Instale o Golang. Veja a [Etapa 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+    - **Windows**: Instale o Golang. Veja a [Etapa 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
 
 ## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## <a name="create-go-project-and-dependencies"></a>Criar projetos e dependências do Go
+## <a name="create-golang-project-and-dependencies"></a>Criar o projeto Golang e as dependências
 
 1. Do terminal, crie uma nova pasta de projeto chamada **SqlServerSample**. 
 
@@ -49,7 +49,7 @@ Para concluir este tutorial, você precisará:
    mkdir SqlServerSample
    ```
 
-2. Altere o diretório para **SqlServerSample** e instale o driver do SQL Server para o Go.
+2. Navegue até **SqlServerSample** e instale o driver do SQL Server para Go.
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ Para concluir este tutorial, você precisará:
 
 ## <a name="create-sample-data"></a>Criar dados de exemplo
 
-1. No seu editor de texto favorito, crie um arquivo chamado **CreateTestData.sql** na pasta **SqlServerSample**. No arquivo, copie e cole o código T-SQL a seguir, que cria um esquema, uma tabela e insere algumas linhas.
+1. Em um editor de texto, crie um arquivo chamado **CreateTestData.sql** na pasta **SqlServerSample**. No arquivo, cole esse código T-SQL, que cria um esquema e uma tabela e insere algumas linhas.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -82,17 +82,17 @@ Para concluir este tutorial, você precisará:
    GO
    ```
 
-2. Use `sqlcmd` para se conectar ao banco de dados e executar o script SQL recém-criado. Substitua os valores apropriados para o seu servidor, banco de dados, nome de usuário e senha.
+2. Use `sqlcmd` para conectar-se ao banco de dados e executar o script SQL recém-criado. Substitua os valores apropriados para o seu servidor, banco de dados, nome de usuário e senha.
 
    ```bash
-   sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
+   sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
    ```
 
 ## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar o banco de dados SQL
 
 1. Crie um arquivo chamado **sample.go** na pasta **SqlServerSample**.
 
-2. Abra o arquivo e cole o seguinte código. Adicione os valores apropriados para o seu servidor, banco de dados, nome de usuário e senha. Este exemplo usa os métodos do GoLang Context para garantir que haja uma conexão ativa com o servidor de banco de dados.
+2. No arquivo, cole este código. Adicione os valores para o servidor, o banco de dados, o nome de usuário e a senha. Este exemplo usa os [métodos de contexto](https://golang.org/pkg/context/) do Golang para verificar se há uma conexão de servidor de banco de dados ativa.
 
    ```go
    package main
@@ -108,11 +108,11 @@ Para concluir este tutorial, você precisará:
 
    var db *sql.DB
 
-   var server = "your_server.database.windows.net"
+   var server = "<your_server.database.windows.net>"
    var port = 1433
-   var user = "your_username"
-   var password = "your_password"
-   var database = "your_database"
+   var user = "<your_username>"
+   var password = "<your_password>"
+   var database = "<your_database>"
 
    func main() {
        // Build connection string
@@ -311,6 +311,6 @@ Para concluir este tutorial, você precisará:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
-- [Driver do Go para Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
+- [Driver do Golang para o Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Relatar problemas ou fazer perguntas](https://github.com/denisenkom/go-mssqldb/issues)
 

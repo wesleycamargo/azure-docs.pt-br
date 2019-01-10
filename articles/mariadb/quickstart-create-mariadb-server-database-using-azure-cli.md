@@ -1,21 +1,19 @@
 ---
-title: 'Início Rápido: Criar um servidor do Banco de Dados do Azure para MariaDB – CLI do Azure'
+title: 'Início Rápido: Criar um servidor de Banco de Dados do Azure para MariaDB – CLI do Azure'
 description: Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de Dados do Azure para MariaDB no grupo de recursos do Azure.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 19c1952a25e6a6db9b81b74f79bdcd2970cb2c78
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566441"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538730"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
@@ -59,7 +57,7 @@ ssl-enforcement | **Habilitado** | Se o SSL deve ser habilitado para este servid
 storage-size | **51200** | A capacidade de armazenamento do servidor (a unidade é megabytes). Os tamanhos de armazenamento válidos são 5.120 MB (mínimo) com aumentos em incrementos de 1.024 MB. Para obter mais informações sobre tamanhos de armazenamento, consulte o documento [tipos de preço](./concepts-pricing-tiers.md). 
 version | **10.2** | A versão do mecanismo principal do MariaDB.
 admin-user | **myadmin** | O nome de usuário para o logon de administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-admin-password | *sua senha* | A senha do usuário administrador. Sua senha deve conter entre 8 e 128 caracteres. Ela deve conter caracteres de três das categorias a seguir: letras maiúsculas do inglês, letras minúsculas do inglês, números e caracteres não alfanuméricos.
+admin-password | *sua senha* | A senha do usuário administrador. Sua senha deve conter entre 8 e 128 caracteres. Ela precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos.
 
 O valor do parâmetro **sku-name** segue a convenção *tipo de preço*\_*geração de computação*\_*vCores*, conforme mostrado nestes exemplos:
 + `--sku-name B_Gen5_4` mapeia para o tipo de preço Básico, a geração de computação Gen 5 e 4 vCores.

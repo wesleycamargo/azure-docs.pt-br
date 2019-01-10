@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 60897e1fac607ebd5bfe7e7c35a43c249f7c71e2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075180"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722118"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no Windows usando o SDK de Fala
 
@@ -29,44 +29,7 @@ Você precisa de uma chave de assinatura do serviço de Fala para concluir este 
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-1. Inicie o Visual Studio 2017.
-
-1. Verifique se a carga de trabalho **Desenvolvimento para Desktop com C++** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Recursos** na barra de menus do Visual Studio para abrir o Instalador do Visual Studio. Se essa carga de trabalho já estiver habilitada, passe para a próxima etapa.
-
-    ![Captura de tela da guia Cargas de Trabalho do Visual Studio](media/sdk/vs-enable-cpp-workload.png)
-
-    Caso contrário, marque a caixa de seleção ao lado de **Desenvolvimento para Desktop com C++**.
-
-1. Verifique se o componente **Gerenciador de pacotes NuGet** está disponível. Mude para a guia **Componentes individuais** da caixa de diálogo do Instalador do Visual Studio e selecione **Gerenciador de pacotes NuGet** se ainda não estiver habilitado.
-
-      ![Captura de tela da guia Componentes individuais do Visual Studio](media/sdk/vs-enable-nuget-package-manager.png)
-
-1. Se for necessário habilitar a carga de trabalho do C++ ou do NuGet, selecione **Modificar** (no canto inferior direito da caixa de diálogo). A instalação dos novos recursos leva alguns instantes. Se os dois recursos já foram habilitados, feche a caixa de diálogo.
-
-1. Crie um Aplicativo de Console do Windows do Visual C++ para Windows Desktop. Primeiro, escolha **Arquivo** > **Novo** > **Projeto** no menu. Na caixa de diálogo **Novo Projeto**, expanda **Instalado** > **Visual C++** > **Windows Desktop** no painel esquerdo. Em seguida, selecione **Aplicativo de Console do Windows**. Para o nome do projeto, insira *helloworld*.
-
-    ![A captura de tela da caixa de diálogo Novo Projeto](media/sdk/qs-cpp-windows-01-new-console-app.png)
-
-1. Se você estiver executando o Windows de 64 bits, será possível alternar sua plataforma de build para `x64` usando o menu suspenso na barra de ferramentas do Visual Studio. (As versões de 64 bits do Windows podem executar aplicativos de 32 bits, portanto, esse não é um requisito.)
-
-    ![Captura de tela da barra de ferramentas do Visual Studio, com a opção x64 realçada](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
-
-1. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e escolha **Gerenciar Pacotes NuGet para Solução**.
-
-    ![Captura de tela do Gerenciador de Soluções, com a opção Gerenciar Pacotes NuGet para a Solução realçada](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
-
-1. No canto superior direito, no campo **Package Source**, selecione **nuget.org**. Procure o pacote `Microsoft.CognitiveServices.Speech` e instale-o no projeto **helloworld**.
-
-    ![Captura de tela da caixa de diálogo Gerenciar Pacotes para Solução](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
-
-    > [!NOTE]
-    > A versão atual do SDK de Fala dos Serviços Cognitivos é `1.1.0`.
-
-1. Aceite a licença exibida para iniciar a instalação do pacote NuGet.
-
-    ![Captura de tela da caixa de diálogo Aceitação da Licença](media/sdk/qs-cpp-windows-05-nuget-license.png)
-
-Depois que o pacote for instalado, uma confirmação será exibida no console do gerenciador de pacotes.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -94,16 +57,14 @@ Depois que o pacote for instalado, uma confirmação será exibida no console do
 
    ![Captura de tela da saída do console após o reconhecimento com êxito](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Procure esse exemplo na pasta `quickstart/cpp-windows`.
-
 ## <a name="next-steps"></a>Próximas etapas
 
+Amostras adicionais, por exemplo, como ler a fala de um arquivo de áudio, estão disponíveis no GitHub.
+
 > [!div class="nextstepaction"]
-> [Reconhecer intenções da fala usando o SDK de Fala para C++](how-to-recognize-intents-from-speech-cpp.md)
+> [Explorar amostras de C++ no GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Traduzir discurso](how-to-translate-speech-csharp.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de linguagem](how-to-customize-language-model.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986110"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630692"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Estender servidores de arquivos do Windows com a Sincronização de Arquivos do Azure
 Neste tutorial, vamos mostrar as etapas básicas para estender a capacidade de armazenamento de um Windows Server usando a Sincronização de Arquivos do Azure. Embora estejamos usando uma VM do Azure do Windows Server para este tutorial, você normalmente faria este processo para seus servidores locais. Se você estiver pronto para implantar a Sincronização de Arquivos do Azure em seu próprio ambiente, use o artigo [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) em vez deste.
@@ -163,14 +163,14 @@ Na VM **Windows Server 2016 Datacenter**, o **Gerenciador do Servidor** será ab
 
 1. Feche o **Explorer** e o **Gerenciador do Servidor**.
 
-### <a name="download-the-azurerm-powershell-module"></a>Baixar o módulo AzureRM do PowerShell
-Em seguida, na VM do **Windows Server 2016 Datacenter**, instale o **módulo AzureRM do PowerShell** no servidor.
+### <a name="download-the-azure-powershell-module"></a>Baixar o módulo do Azure PowerShell
+Em seguida, na VM do **Windows Server 2016 Datacenter**, instale o **módulo do Azure PowerShell** no servidor.
 
 1. Na VM, abra uma janela do PowerShell com privilégios elevados
 1. Execute o comando a seguir:
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,7 +189,7 @@ Em seguida, na VM do **Windows Server 2016 Datacenter**, instale o **módulo Azu
 
 1. Responda `Yes` ou `Yes to All` para continuar a instalação.
 
-O módulo `AzureRM` é um módulo de rollup para os cmdlets do Azure PowerShell. A instalação dele baixa todos os módulos disponíveis do Azure Resource Manager e disponibiliza seus cmdlets para uso.
+O módulo `Az` é um módulo de rollup para os cmdlets do Azure PowerShell. A instalação dele baixa todos os módulos disponíveis do Azure Resource Manager e disponibiliza seus cmdlets para uso.
 
 Nesta altura, você já terminou de configurar seu ambiente para o tutorial e está pronto para começar a implantar o **Serviço de Sincronização de Armazenamento**.
 
@@ -237,7 +237,7 @@ Você implantou o Serviço de Sincronização do Azure e instalou o agente na VM
 ## <a name="register-windows-server"></a>Registrar o Windows Server
 Registrar o Windows Server com um Serviço de Sincronização de Armazenamento estabelece uma relação de confiança entre o servidor (ou cluster) e o Serviço de Sincronização de Armazenamento. Um servidor somente pode ser registrado em um Serviço de Sincronização de Armazenamento e sincronizar com outros servidores e compartilhamentos de arquivos do Azure associados ao mesmo Serviço de Sincronização de Armazenamento.
 
-A interface do usuário do Registro do Servidor deve abrir automaticamente após a instalação do **agente de Sincronização de Arquivos do Azure**. Se não estiver, você pode abri-lo manualmente de seu local de arquivo: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+A interface do usuário do Registro do Servidor deve abrir automaticamente após a instalação do **agente de Sincronização de Arquivos do Azure**. Caso contrário, abra-a manualmente na localização do arquivo: C:\Arquivos de Programas\Azure\StorageSyncAgent\ServerRegistration.exe.
 
 1. Quando a interface do usuário do registro de servidor é aberta na VM, clique em **OK**.
 1. Clique em **Entrar** para começar.

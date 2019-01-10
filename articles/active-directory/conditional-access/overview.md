@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 06866b1a0b986190ab6770e5484fb7d950d10b26
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408269"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753907"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>O que é o acesso condicional no Azure Active Directory?
 
 Segurança é uma grande preocupação para organizações que usam a nuvem. Um aspecto importante da segurança em nuvem é a identidade e o acesso quando o assunto é gerenciar os recursos em nuvem. Em um mundo primeiro o dispositivo móvel e a nuvem, os usuários podem acessar os recursos da organização usando uma grande variedade de dispositivos e aplicativos de qualquer lugar. Por causa disso, concentrar-se apenas em quem pode acessar um recurso não é mais suficiente. Para dominar o equilíbrio entre segurança e produtividade, você também precisa considerar como um recurso é acessado em uma decisão de controle de acesso. Com acesso condicional do Azure AD (Azure Active Directory), você pode atender a esse requisito. O acesso condicional é um recurso do Azure Active Directory. Com o acesso condicional, você pode implementar decisões de controle de acesso automatizado para o acesso a aplicativos de nuvem com base em condições. 
 
-Políticas de acesso condicional são impostas quando a autenticação de primeiro fator foi concluída. Em outras palavras, acesso condicional não se destina a ser um mecanismo para, por exemplo, combater ataques DoS (negação de serviço).  
+As políticas de acesso condicional são impostas após a conclusão da autenticação multifator. Portanto, o acesso condicional não funciona como uma primeira linha de defesa para cenários como ataques de DoS (ataque de negação de serviço), mas pode utilizar os sinais desses eventos (por exemplo, o nível de risco de entrada, a localização da solicitação e assim por diante) para determinar o acesso.  
 
 ![Controle](./media/overview/81.png)
 

@@ -1,23 +1,23 @@
 ---
 title: Recurso TTL de cada documento do MongoDB no Azure Cosmos DB
-description: Saiba como definir o valor de vida útil para os documentos do Cosmos DB criados por meio da API do MongoDB para limpá-los automaticamente do sistema após um período de tempo.
+description: Saiba como definir o valor de vida útil de documentos usando a API do Azure Cosmos DB para MongoDB para limpá-los automaticamente do sistema após um período de tempo.
 services: cosmos-db
-author: orestis-ms
-ms.author: orkostak
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 08/10/2018
-ms.openlocfilehash: 547ee489581b7e7e9203151fbfcdaad45dca8ea1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.openlocfilehash: d7c811dba3ad9b894fd5dae47e898f51ec4d05e5
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868745"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790088"
 ---
-# <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>Dados de validade na API do MongoDB do Azure Cosmos DB
+# <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Expirar os dados com a API do Azure Cosmos DB para MongoDB
 
-A funcionalidade de vida útil (TTL) permite que o banco de dados expire automaticamente os dados. A API do MongoDB utiliza recursos de TTL do Azure Cosmos DB. Há suporte para dois modos: definindo um valor de TTL padrão em toda a coleção e definindo valores TTL individuais para cada documento. A lógica que rege os índices de TTL e os valores de TTL por documento na API do MongoDB é a [mesma do Azure Cosmos DB](../cosmos-db/mongodb-indexing.md).
+A funcionalidade de vida útil (TTL) permite que o banco de dados expire automaticamente os dados. A API do Azure Cosmos DB para MongoDB usa as funcionalidades de TTL principais do Cosmos DB. Há suporte para dois modos: definindo um valor de TTL padrão em toda a coleção e definindo valores TTL individuais para cada documento. A lógica que rege os índices de TTL e os valores de TTL por documento na API do Cosmos DB para MongoDB é a [mesma que no Cosmos DB](../cosmos-db/mongodb-indexing.md).
 
 ## <a name="ttl-indexes"></a>Índices TTL
 Para habilitar a vida útil universalmente em uma coleção, um ["Índice TTL" (índice de vida útil)](../cosmos-db/mongodb-indexing.md) precisa ser criado. O TTL é um índice no campo _ts com um valor de "expireAfterSeconds".
@@ -72,10 +72,11 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 ``` 
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>Como ativar o recurso de vida útil por documento
-O recurso de vida útil por documento pode ser ativado por meio da guia de "Recursos de versão prévia" da conta de API do MongoDB no Portal do Azure.
+
+O recurso de TTL por documento pode ser ativado com a API do Azure Cosmos DB para MongoDB.
 
 ![Captura de tela da ativação do recurso de TTL por documento no Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Expirar os dados em coleções do Azure Cosmos DB automaticamente com a vida útil](../cosmos-db/time-to-live.md)
-* [Indexação na API do MongoDB do Azure Cosmos DB](../cosmos-db/mongodb-indexing.md)
+* [Expirar os dados no Azure Cosmos DB automaticamente com a vida útil](../cosmos-db/time-to-live.md)
+* [Indexando o banco de dados Cosmos configurado com a API do Azure Cosmos DB para MongoDB](../cosmos-db/mongodb-indexing.md)

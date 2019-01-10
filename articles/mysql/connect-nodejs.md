@@ -1,24 +1,21 @@
 ---
 title: Conectar-se ao Banco de Dados do Azure para MySQL no Node.js
 description: Este guia de início rápido fornece vários exemplos de código Node.js que podem ser usados para conectar e consultar dados do banco de dados do Azure para MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/21/2018
-ms.openlocfilehash: f0e76dff32038ba53dbdf7f869f5a04e75316e12
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f5738c3eba3461c6f75884033eb60c54faec8473
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290698"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535466"
 ---
-# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Banco de dados do Azure para MySQL: como usar Node.js para conectar e consultar dados
+# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar o Node.js para se conectar e consultar dados
 Este guia de início rápido mostra como se conectar a um banco de dados do Azure para MySQL usando [Node.js](https://nodejs.org/) de plataformas Mac, Ubuntu Linux e Windows. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Node.js e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

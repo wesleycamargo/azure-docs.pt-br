@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621421"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653281"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início Rápido: baixar um relatório de entrada usando o portal do Azure
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início Rápido: Baixar um relatório de entrada usando o portal do Azure
 
 Neste início rápido, você aprenderá a baixar os dados de entrada para seu locatário nas últimas 24 horas.
 
@@ -31,10 +31,10 @@ Neste início rápido, você aprenderá a baixar os dados de entrada para seu lo
 
 Você precisa de:
 
-* Um locatário do Azure Active Directory, com uma licença Premium para exibir o relatório de atividade de entrada. 
+* Um locatário do Azure Active Directory, com uma licença Premium para exibir o relatório de atividade de entrada. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory.
 * Um usuário, que está na função de **Administrador de Segurança**, **Leitor de Segurança**, **Leitor de Relatório** ou **Administrador Global** para o locatário. Além disso, qualquer usuário no locatário pode acessar suas próprias entradas.
 
-## <a name="quickstart-download-a-sign-in-report"></a>Início Rápido: baixar um relatório de entrada
+## <a name="quickstart-download-a-sign-in-report"></a>Início Rápido: Baixar um relatório de entrada
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** do painel de navegação à esquerda e use o botão **Mudar diretório** para selecionar seu Active Directory.

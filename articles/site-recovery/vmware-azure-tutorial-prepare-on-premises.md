@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: da5643f707a2f891fcf6663ec88f5a5dff40ac86
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846633"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970807"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware locais para recuperação de desastre para o Azure
 
@@ -67,8 +67,8 @@ Prepare a conta da seguinte maneira:
 
 Prepare um domínio ou uma conta local com permissões para instalar na VM.
 
-- **VMs do Windows**: Para instalar em VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o controle de Acesso de Usuários Remoto no computador local. Para fazer isso, no registro > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy** com um valor de 1.
-- **VMs do Linux**: Para instalar em VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
+- **VMs do Windows**: Para instalar em VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o Controle de Acesso de Usuários Remoto no computador local. Para fazer isso, no registro > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy** com um valor de 1.
+- **VMs Linux**: Para instalar em VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
 
 
 ## <a name="check-vmware-requirements"></a>Verificar requisitos de VMware
@@ -80,6 +80,7 @@ Certifique-se de que os servidores e VMs de VMware estejam em conformidade com o
 3. Verifique o suporte a [rede](vmware-physical-azure-support-matrix.md#network) local e [armazenamento](vmware-physical-azure-support-matrix.md#storage). 
 4. Verifique o que há de suporte para [rede do Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [armazenamento](vmware-physical-azure-support-matrix.md#azure-storage) e [computação](vmware-physical-azure-support-matrix.md#azure-compute) após o failover.
 5. Suas VMs locais replicadas no Azure devem atender aos [requisitos de VM do Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+6. Em Máquinas Virtuais do Linux, o nome do dispositivo ou o nome do ponto de montagem deve ser exclusivo. Assegure que não existam dois pontos de montagem/dispositivos com nomes quase iguais, que se diferenciam apenas por maiúsculas e minúsculas. Por exemplo, nomear dois dispositivos da mesma máquina virtual como *dispositivo1* e *Dispositivo1* não é permitido.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar para conectar VMs do Azure após o failover
