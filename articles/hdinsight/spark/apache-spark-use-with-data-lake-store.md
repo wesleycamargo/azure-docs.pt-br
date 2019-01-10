@@ -1,6 +1,6 @@
 ---
-title: Usar o Apache Spark para analisar os dados no Azure Data Lake Store
-description: Usar o Power BI para analisar os dados armazenados no Azure Data Lake Store
+title: Usar o Apache Spark para analisar os dados no Azure Data Lake Storage
+description: Executar o trabalhos do Spark para analisar os dados armazenados no Azure Data Lake Storage
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,68 +9,63 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 876a564c3cf5ee4b19d7f2530ecff1ed12bebe63
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 51d3c1c63c07c3e2a36d5e963ec00c9f23831579
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581809"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634211"
 ---
-# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Usar o cluster Spark HDInsight para analisar dados no Data Lake Store
+# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Usar o cluster HDInsight Spark para analisar dados no Data Lake Storage
 
-Neste tutorial, você usa o [Jupyter Notebook](https://jupyter.org/) disponível com clusters do HDInsight Spark para executar uma tarefa que lê dados de uma conta do Data Lake Store.
+Neste tutorial, você usa o [Jupyter Notebook](https://jupyter.org/) disponível com clusters do HDInsight Spark para executar uma tarefa que lê dados de uma conta do Data Lake Storage.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conta do Azure Data Lake Store. Siga as instruções em [Introdução ao Azure Data Lake Store usando o portal do Azure](../../data-lake-store/data-lake-store-get-started-portal.md).
+* Conta do Azure Data Lake Storage. Siga as instruções em [Introdução ao Azure Data Lake Storage usando o portal do Azure](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Cluster Spark HDInsight do Azure com o Data Lake Store como armazenamento. Siga as instruções em [guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Cluster do Azure HDInsight Spark com o Data Lake Storage como armazenamento. Siga as instruções em [Início Rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     
 ## <a name="prepare-the-data"></a>Preparar os dados
 
-> [!NOTE]
-> Não é necessário realizar essa etapa se você criou o cluster HDInsight com o Data Lake Store como armazenamento padrão. Os processos de criação de cluster adicionam alguns dados de exemplo à conta do Data Lake Store especificada durante a criação do cluster. Vá para a seção [Usar o cluster HDInsight Spark com o Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
->
->
+> [!NOTE]  
+> Não é necessário realizar essa etapa se você criou o cluster HDInsight com o Data Lake Storage como armazenamento padrão. Os processos de criação de cluster adicionam alguns dados de exemplo à conta do Data Lake Storage especificada durante a criação do cluster. Vá para a seção [Usar o cluster HDInsight Spark com o Data Lake Storage](#use-an-hdinsight-spark-cluster-with-data-lake-store).
 
-Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adicional e o Azure Storage Blob como armazenamento padrão, copie primeiro alguns dados de exemplo para a conta do Data Lake Store. Use os dados de exemplo do Blob de Armazenamento do Azure associado ao cluster HDInsight. Você pode usar a [ferramenta ADLCopy](https://aka.ms/downloadadlcopy) para fazer isso. Baixe e instale a ferramenta a partir do link.
+Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adicional e o Azure Storage Blob como armazenamento padrão, copie primeiro alguns dados de exemplo para a conta do Data Lake Storage. Use os dados de exemplo do Blob de Armazenamento do Azure associado ao cluster HDInsight. Você pode usar a [ferramenta ADLCopy](https://aka.ms/downloadadlcopy) para fazer isso. Baixe e instale a ferramenta a partir do link.
 
 1. Abra um prompt de comando e navegue até o diretório onde AdlCopy está instalado, normalmente `%HOMEPATH%\Documents\adlcopy`.
 
-2. Execute o seguinte comando para copiar um blob específico do contêiner de origem para um Repositório Data Lake:
+2. Execute o seguinte comando para copiar um blob específico do contêiner de origem para um Repositório Data Lake Storage:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    Copie o arquivo de exemplo de dados **HVAC.csv** em **/HdiSamples/HdiSamples/SensorSampleData/hvac/** para a conta do Azure Data Lake Store. O snippet de código deve parecer com:
+    Copie o arquivo de exemplo de dados **HVAC.csv** em **/HdiSamples/HdiSamples/SensorSampleData/hvac/** para a conta do Azure Data Lake Storage. O snippet de código deve parecer com:
 
         AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-   > [!WARNING]
+   > [!WARNING]  
    > Verifique se os nomes de arquivo e caminho estão com a capitalização apropriada.
-   >
-   >
-3. Você deverá inserir as credenciais da assinatura do Azure vinculadas à sua conta do Data Lake Store. Você verá um resultado semelhante ao seguinte snippet:
+
+3. Você deverá inserir as credenciais da assinatura do Azure vinculadas à sua conta do Data Lake Storage. Você verá um resultado semelhante ao seguinte snippet:
 
         Initializing Copy.
         Copy Started.
         100% data copied.
         Copy Completed. 1 file copied.
 
-    O arquivo de dados (**HVAC.csv**) será copiado em uma pasta **/hvac** na conta do Data Lake Store.
+    O arquivo de dados (**HVAC.csv**) será copiado em uma pasta **/hvac** na conta do Data Lake Storage.
 
-## <a name="use-an-hdinsight-spark-cluster-with-data-lake-store"></a>Usar um cluster Spark HDInsight com o Data Lake Store
+## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage"></a>Usar um cluster Spark HDInsight com o Data Lake Storage
 
 1. No [Portal do Azure](https://portal.azure.com/), na lista de controle, clique na peça do seu cluster do Apache Spark (se você fixou na tabela inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha **Painel do Cluster**, clique em **Notebook do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
 
 3. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
@@ -84,9 +79,9 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
      ![Status de um trabalho de bloco de anotações Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status de um trabalho de bloco de anotações Jupyter")
 
-5. Carregue os dados de exemplo em uma tabela temporária usando o arquivo **HVAC.csv** copiado para a conta do Data Lake Store. Você pode acessar os dados na conta do Repositório Data Lake usando o seguinte padrão de URL.
+5. Carregue os dados de exemplo em uma tabela temporária usando o arquivo **HVAC.csv** copiado para a conta do Data Lake Storage. Você pode acessar os dados na conta do Repositório Data Lake Storage usando o seguinte padrão de URL.
 
-    * Se o Data Lake Store for seu armazenamento padrão, HVAC.csv estará em um caminho semelhante à URL a seguir:
+    * Se o Data Lake Storage for seu armazenamento padrão, HVAC.csv estará em um caminho semelhante à URL a seguir:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
@@ -94,13 +89,13 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
             adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
-    * Se o Data Lake Store for seu armazenamento adicional, HVAC.csv estará no local onde você o copiou, por exemplo:
+    * Se o Data Lake Storage for seu armazenamento adicional, HVAC.csv estará no local onde você o copiou, por exemplo:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
 
-     Em uma célula vazia, cole o seguinte exemplo de código, substitua **MYDATALAKESTORE** pelo nome de sua conta do Data Lake Store e pressione **Shift+Enter**. Esse exemplo de código registra os dados em uma tabela temporária chamada **hvac**.
+     Em uma célula vazia, cole o seguinte exemplo de código, substitua **MYDATALAKESTORE** pelo nome de sua conta do Data Lake Storage e pressione **Shift+Enter**. Esse exemplo de código registra os dados em uma tabela temporária chamada **hvac**.
 
-            # Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
+            # Load the data. The path below assumes Data Lake Storage is default storage for the Spark cluster
             hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
             # Create the schema

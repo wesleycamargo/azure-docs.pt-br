@@ -4,18 +4,18 @@ description: Visão geral do Serviço de Migração de Banco de Dados do Azure, 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
+manager: craigg
 ms.reviewer: douglasl
-ms.service: database-migration
+ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/12/2018
-ms.openlocfilehash: b3509917f0473795ec204c6672a630b2857ff37c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 12/19/2018
+ms.openlocfilehash: 68fb6497141d79dc721af7dfa5a8f69102c7e239
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343914"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722193"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>O que é o Serviço de Migração de Banco de Dados do Azure?
 O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações contínuas de várias fontes de banco de dados para plataformas de dados do Azure com tempo de inatividade mínimo (migrações on-line).
@@ -24,7 +24,7 @@ O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente ge
 O Serviço de Migração de Banco de Dados do Azure integra algumas funcionalidades dos nossos serviço e ferramentas existentes. Ele fornece aos clientes uma solução abrangente e altamente disponível. O serviço usa o [Data Migration Assistant](https://aka.ms/dma) para gerar relatórios de avaliação que fornecem recomendações para orientar você durante as alterações necessárias antes de executar uma migração. Cabe a você executar qualquer correção necessária. Quando você estiver pronto para iniciar o processo de migração, o Serviço de Migração de Banco de Dados do Azure executará todas as etapas necessárias. Você pode acioná-lo e ficar tranquilo quanto aos seus projetos de migração, com a certeza de que o processo aproveita as melhores práticas determinadas pela Microsoft.
 
 > [!NOTE]
-> O uso do Serviço de Migração de Banco de Dados do Azure para executar uma migração online requer a criação de uma instância com base no tipo de preço Premium (versão prévia).
+> Usar o Serviço de Migração de Banco de Dados do Azure para executar uma migração online exige a criação de uma instância com base no tipo de preço Premium.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 Para obter informações atualizadas sobre a disponibilidade regional do Serviço de Migração de Banco de Dados do Azure, consulte [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).

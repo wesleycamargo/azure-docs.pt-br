@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 790d327be27dae0c963c37e6e55f1721bf571c80
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7c3c4eea80eb0ceddc48d30fd51cf23524df5640
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222107"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540751"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -64,7 +64,7 @@ Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na ca
 1. Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção.
 2. Selecione na lista a tabela de rotas cujos detalhes você deseja exibir. Em **CONFIGURAÇÕES**, você pode exibir as **Rotas** na tabela de rotas e as **Sub-redes** às quais a tabela de rotas está associada.
 3. Para saber mais sobre configurações comuns do Azure, veja as seguintes informações:
-    *   [Log de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    *   [Log de atividade](../azure-monitor/platform/activity-logs-overview.md)
     *   [Controle de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Marcas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

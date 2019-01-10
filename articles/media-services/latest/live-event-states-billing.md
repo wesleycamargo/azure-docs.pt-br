@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: 1a49f62d7b5e21fe9d6483f71b729a9100aff1a3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 588aeede123848900fac6fab663dd1f6c6c169b6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585365"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719414"
 ---
 # <a name="liveevent-states-and-billing"></a>Estados de LiveEvent e cobrança
 
 Nos Serviços de Mídia do Azure, um LiveEvent começa o faturamento assim que seu estado faz a transição para **Running**. Para interromper o evento ao vivo do faturamento, você precisa interromper o evento ao vivo.
 
-Quando **LiveEventEncodingType** no [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) estiver definido como Standard (Básico), o Serviços de Mídia do Azure desligará automaticamente qualquer LiveEvent que ainda esteja no estado **Em Execução** 12 horas após a entrada o feed é perdido e não há **LiveOutput** em execução. No entanto, você ainda será cobrado pela LiveEvent estava em vez do estado **executando**.
+Quando **LiveEventEncodingType** no [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) estiver definido como Standard, o Serviços de Mídia do Azure desligará automaticamente qualquer LiveEvent que ainda esteja no estado **Em Execução** 12 horas após a entrada o feed é perdido e não há **LiveOutput** em execução. No entanto, você ainda será cobrado pela LiveEvent estava em vez do estado **executando**.
 
 ## <a name="states"></a>Estados
 

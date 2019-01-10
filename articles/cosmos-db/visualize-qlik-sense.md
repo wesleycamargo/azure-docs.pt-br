@@ -1,33 +1,33 @@
 ---
 title: Conectar o Qlik Sense ao Azure Cosmos DB e visualizar seus dados
 description: Este artigo descreve as etapas necessárias para conectar o Azure Cosmos DB ao Qlik Sense e visualizar seus dados.
-services: cosmos-db
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 57832b59d8b43f5aa157b278e67c50b25084c86c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: 4b37b6cd35526d6a76625dd03d1325f1688e698e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962828"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044460"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conectar o Qlik Sense ao Azure Cosmos DB e visualizar seus dados
 
 Qlik Sense é uma ferramenta de visualização de dados que combina dados de fontes diferentes em uma única exibição. O Qlik Sense indexa cada relação possível em seus dados para que você possa obter insights imediatos sobre os dados. Visualize dados do Azure Cosmos DB usando o Qlik Sense. Este artigo descreve as etapas necessárias para conectar o Azure Cosmos DB ao Qlik Sense e visualizar seus dados. 
 
 > [!NOTE]
-> No momento, há suporte para conectar o Qlik Sense ao Azure Cosmos DB apenas para contas da MongoDB e da API SQL do Azure Cosmos DB.
+> Atualmente, há suporte para conectar o Qlik Sense ao Azure Cosmos DB apenas para API de SQL e API do Azure Cosmos DB para contas do MongoDB.
 
 Você pode conectar o Qlik Sense ao Azure Cosmos DB com:
 
 * API de SQL do Cosmos DB usando o conector ODBC.
 
-* API do MongoDB do Cosmos DB usando o conector do MongoDB do Qlik Sense (atualmente em versão prévia).
+* API do Azure Cosmos DB para MongoDB, usando o conector MongoDB do Qlik Sense (atualmente em versão prévia).
 
-* API do MongoDB e a API de SQL do Cosmos DB usando o conector API REST no Qlik Sense.
+* API do Azure Cosmos DB para MongoDB e API de SQL, usando o conector de API REST no Qlik Sense.
 
 * API do Mongo DB do Cosmos DB usando o conector gRPC para Qlik Core.
 Este artigo descreve os detalhes da conexão com a API de SQL do Cosmos DB usando o conector ODBC.

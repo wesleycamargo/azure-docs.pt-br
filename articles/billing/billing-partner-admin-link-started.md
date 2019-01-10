@@ -1,6 +1,6 @@
 ---
-title: Vincular conta do Azure para ID de parceiro | Microsoft Docs
-description: Acompanhar os contratos com clientes do Azure por meio da vinculação de ID de parceiro à conta de usuário que você usa para gerenciar recursos do cliente.
+title: Vincular uma conta do Azure à ID de parceiro | Microsoft Docs
+description: Acompanhar os contratos com clientes do Azure por meio da vinculação de ID de parceiro à conta de usuário que você usa para gerenciar funcionalidades do cliente.
 services: billing
 author: dhirajgandhi
 manager: dhgandhi
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: eeb88627cbcc1736586defd403b19c19c9cdf56c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968041"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579236"
 ---
-# <a name="link-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
+# <a name="link-a-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
 
-Como parceiro, você pode controlar o impacto em seus contratos de clientes por meio da vinculação de sua ID de parceiro às contas usadas para gerenciar recursos do cliente.
+Como parceiro, você pode controlar o impacto em seus compromissos com o cliente. Você pode vincular sua ID de parceiro para as contas que são usadas para gerenciar as funcionalidades de um cliente.
 
 Esse recurso está disponível em uma visualização pública.
 
@@ -28,42 +28,42 @@ Esse recurso está disponível em uma visualização pública.
 
 Antes de vincular sua ID de parceiro, o cliente deve oferecer acesso a seus recursos do Azure, usando uma das seguintes opções:
 
-- **Usuário convidado:** Seu cliente pode adicionar você como usuário convidado e atribuir funções RBAC. Para obter mais informações, consulte [Adicionar usuários convidados de outro diretório](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Usuário convidado**: Seu cliente pode adicioná-lo como um usuário convidado e atribuir funções de controle de acesso baseado em função (RBAC). Para obter mais informações, consulte [Adicionar usuários convidados de outro diretório](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Conta de diretório:**  Seu cliente pode criar uma conta de usuário para você no próprio diretório dele e atribuir qualquer função RBAC.
+- **Conta de diretório**: Seu cliente pode criar uma conta de usuário para você no próprio diretório dele e atribuir qualquer função RBAC.
 
-- **Entidade de serviço:**  Seu cliente pode adicionar um aplicativo ou script da sua organização no diretório dele e atribuir qualquer função RBAC. A identidade do aplicativo ou script é conhecida como entidade de serviço.
+- **Entidade de serviço**: Seu cliente pode adicionar um aplicativo ou script da sua organização no diretório dele e atribuir qualquer função RBAC. A identidade do aplicativo ou script é conhecida como entidade de serviço.
 
-## <a name="link-partner-id"></a>Vincular ID do parceiro
+## <a name="link-to-a-partner-id"></a>Vincular à uma ID de parceiro
 
-Quando você tem acesso aos recursos do cliente, use o portal do Azure, o PowerShell ou a CLI para vincular sua ID da Microsoft Partner Network (ID da MPN) à sua ID de usuário ou entidade de serviço. Você tem de vincular a ID de parceiro em cada locatário do cliente.
+Quando você tem acesso aos recursos do cliente, use o portal do Azure, o PowerShell ou a CLI do Azure para vincular sua ID da Microsoft Partner Network (ID da MPN) à sua ID de usuário ou entidade de serviço. Vincule a ID de parceiro em cada locatário do cliente.
 
-### <a name="use-azure-portal-to-link-new-partner-id"></a>Use o portal do Azure para vincular a nova ID de parceiro
+### <a name="use-the-azure-portal-to-link-to-a-new-partner-id"></a>Use o portal do Azure para vincular a uma nova ID de parceiro
 
-1. Vá para [vincular a uma ID de parceiro](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) no portal do Azure.
+1. Vá para [Vincular a uma ID de parceiro](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) no portal do Azure.
 
 2. Entre no Portal do Azure.
 
-3. Insira a ID de parceiro da Microsoft. A ID do parceiro é a ID do [Microsoft Partner Network (MPN)](https://partner.microsoft.com/) da sua organização.
+3. Insira a ID de parceiro da Microsoft. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
 
-  ![Captura de tela que mostra a ID de parceiro de link](./media/billing-link-partner-id/link-partner-ID.PNG)
+   ![Captura de tela que mostra o vínculo a uma ID de parceiro](./media/billing-link-partner-id/link-partner-ID.PNG)
 
-4. Para vincular a ID de parceiro para outro cliente, use o seletor de diretório. No diretório Switch, escolha seu diretório.
+4. Para vincular a ID de parceiro a outro cliente, alterne o diretório. Em **Mudar diretório**, selecione o seu diretório.
 
-  ![Captura de tela que mostra a ID de parceiro de link](./media/billing-link-partner-id/directory-switcher.png)
+   ![Captura de tela que mostra Mudar diretório](./media/billing-link-partner-id/directory-switcher.png)
 
-### <a name="use-powershell-to-link-new-partner-id"></a>Use o PowerShell para vincular a nova ID de parceiro
+### <a name="use-powershell-to-link-to-a-new-partner-id"></a>Use o PowerShell para vincular a uma nova ID de parceiro
 
 1. Instalar o módulo [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) do PowerShell.
 
-2. Faça logon no locatário do cliente com a conta de usuário ou entidade de serviço. Para obter mais informações, consulte [Logon com o Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Entre no locatário do cliente com a conta de usuário ou a entidade de serviço. Para obter mais informações, veja [Entrar com o PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
 
 
-3. Vincular a nova ID de parceiro. A ID do parceiro é a ID do [Microsoft Partner Network (MPN)](https://partner.microsoft.com/) da sua organização.
+3. Vincular a nova ID de parceiro. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
 
     ```azurepowershell-interactive
     C:\> new-AzureRmManagementPartner -PartnerId 12345 
@@ -83,20 +83,20 @@ C:\> Update-AzureRmManagementPartner -PartnerId 12345
 C:\> remove-AzureRmManagementPartner -PartnerId 12345 
 ```
 
-### <a name="use-cli-to-link-new-partner-id"></a>Usar a CLI para vincular a nova ID de parceiro
-1.  Instalar a Extensão de CLI.
+### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>Use a CLI do Azure para vincular a uma nova ID de parceiro
+1. Instale a extensão de CLI do Azure.
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
     ``` 
 
-2.  Faça logon no locatário do cliente com a conta de usuário ou a entidade de serviço. Para obter mais informações, confira [Entrar com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2. Entre no locatário do cliente com a conta de usuário ou a entidade de serviço. Para obter mais informações, veja [Entrar com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
     ``` 
 
-3.  Vincular a nova ID de parceiro. A ID do parceiro é a ID do [Microsoft Partner Network (MPN)](https://partner.microsoft.com/) da sua organização.
+3. Vincular a nova ID de parceiro. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
 
      ```azurecli-interactive
      C:\ az managementpartner create --partner-id 12345
@@ -125,16 +125,16 @@ Participe da discussão da [Comunidade de Parceiros da Microsoft](https://aka.ms
 
 **Quem pode vincular a ID de parceiro?**
 
-Qualquer usuário da organização do parceiro que esteja gerenciando o recurso do cliente pode vincular a ID de parceiro à conta.
+Qualquer usuário da organização do parceiro que gerencia os recursos do cliente pode vincular a ID de parceiro à conta.
 
-**Depois que uma ID de parceiro é vinculada, ela pode ser alterada?**
+**Uma ID de parceiro pode ser alterada depois que estiver vinculada?**
 
-Sim, a ID de parceiro vinculada pode ser alterada, adicionada ou removida.
+Sim. Uma ID de parceiro vinculada pode ser alterada, adicionada ou removida.
 
 **E se um usuário tiver uma conta em vários locatários do cliente?**
 
-A vinculação entre a ID de parceiro e a conta é feita para cada locatário do cliente.  Você tem de vincular a ID de parceiro em cada locatário do cliente.
+A vinculação entre a ID de parceiro e a conta é feita para cada locatário do cliente. Vincule a ID de parceiro em cada locatário do cliente.
 
-**Outro parceiro ou cliente pode editar ou remover a vinculação à ID de parceiro?**
+**Outros parceiros ou clientes podem editar ou remover a vinculação à ID de parceiro?**
 
-A vinculação está associada no nível da conta de usuário. Só você pode editar ou remover a vinculação à ID de parceiro. O cliente e o outros parceiros não podem alterar a vinculação à ID de parceiro. 
+A vinculação está associada no nível da conta de usuário. Só você pode editar ou remover a vinculação à ID de parceiro. O cliente e outros parceiros não podem alterar a vinculação à ID de parceiro. 

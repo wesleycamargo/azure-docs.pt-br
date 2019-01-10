@@ -15,12 +15,12 @@ ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: b2d834c5f9f46f2ebe3c997c75dc50f30ed4bda7
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386954"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558916"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 O [controle de acesso baseado em função (RBAC)](overview.md) tem várias definições de função interna que você pode atribuir a usuários, grupos e entidades de serviço. Atribuições de função são a maneira de controlar o acesso aos recursos no Azure. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas](custom-roles.md).
@@ -98,7 +98,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador de rede](#network-contributor) | Permite gerenciar redes, mas não acessá-las. |
 | [Colaborador de Conta APM do New Relic](#new-relic-apm-account-contributor) | Permite que você gerencie contas e aplicativos do Gerenciamento de desempenho de aplicativos da New Relic, mas não tem acesso a eles. |
 | [Acesso a Dados e Leitor](#reader-and-data-access) | Permite que você exiba tudo, mas não permitirá que exclua ou crie uma conta de armazenamento ou um recurso contido. Ele também permitirá o acesso de leitura/gravação a todos os dados contidos em uma conta de armazenamento por meio de acesso às chaves de conta de armazenamento. |
-| [Cache do Azure para Colaborador do Redis](#redis-cache-contributor) | Permite que você gerencie o Cache do Azure para Rediss, mas não o acesse. |
+| [Cache do Azure para Colaborador do Redis](#redis-cache-contributor) | Permite gerenciar o Cache do Azure para Redis, mas não acessá-lo. |
 | [Colaborador da Política de Recursos (Versão prévia)](#resource-policy-contributor-preview) | (Versão prévia) Os usuários com aterramento da EA, com direitos para criar/modificar a política de recursos, criam um tíquete de suporte e recursos/hierarquia de leitura. |
 | [Colaborador de Coleções de Trabalho do Agendador](#scheduler-job-collections-contributor) | Permite gerenciar as coleções de trabalhos do Agendador, mas não acessá-las. |
 | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite gerenciar serviços de pesquisa, mas não acessá-las. |
@@ -1289,11 +1289,11 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite que você gerencie o Cache do Azure para Rediss, mas não o acesse. |
+> | **Descrição** | Permite gerenciar o Cache do Azure para Redis, mas não acessá-lo. |
 > | **Id** | e0f68234-74aa-48ED-b826-c38b57376e17 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-> | Microsoft.Cache/redis/* | Criar e gerenciar o Cache do Azure para Rediss |
+> | Microsoft.Cache/redis/* | Criar e gerenciar o Cache do Azure para Redis |
 > | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |

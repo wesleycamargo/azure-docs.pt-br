@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342081"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632611"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte ao idioma e à região para a API do Serviço de Fala
 
@@ -176,22 +176,7 @@ A personalização de voz está disponível para inglês dos EUA (en-US), chinê
 
 ## <a name="speech-translation"></a>Tradução de fala
 
-A API de **Tradução de Fala** é compatível com diferentes idiomas para conversão de fala em fala e de fala em texto. O idioma de origem precisa sempre ser da seguinte tabela de idiomas de fala. Os idiomas de destino disponíveis dependem de se o destino de tradução é fala ou texto. Você pode traduzir a entrada de fala em mais de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto desses idiomas está disponível para [síntese de fala](language-support.md#text-languages).
-
-### <a name="speech-languages"></a>Idiomas de fala
-
-| Idioma de fala   | Código de idioma |
-|:----------- |-|
-| Árabe (padrão moderno)      | `ar` |
-| Chinês (mandarim)      | `zh` |
-| Inglês      | `en` |
-| Francês      | `fr` |
-| Alemão      | `de` |
-| Italiano      | `it` |
-| Japonês      | `jp` |
-| Português (Brazil)     | `pt` |
-| Russo      | `ru` |
-| Espanhol      |  `es` |
+A API de **Tradução de Fala** é compatível com diferentes idiomas para conversão de fala em fala e de fala em texto. O idioma de origem sempre deve ser da tabela de idioma conversão de fala em texto. Os idiomas de destino disponíveis dependem de se o destino de tradução é fala ou texto. Você pode traduzir a entrada de fala em mais de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto desses idiomas está disponível para [síntese de fala](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Idiomas de texto
 

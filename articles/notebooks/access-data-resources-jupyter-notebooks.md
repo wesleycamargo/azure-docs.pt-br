@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 425c1019a9c67ac726d03955d60d1389bef7cae2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a034e41f5b12ffb8f043f14d90284617316f18d2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084933"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723035"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Acessar dados de nuvem em um notebook
 
@@ -69,7 +69,7 @@ O notebook de exemplo demonstra o trabalho com tabelas e blobs, incluindo como u
 O Azure Cosmos DB fornece um repositório NoSQL totalmente indexado para documentos JSON). Os artigos a seguir fornecem uma série de maneiras diferentes de trabalhar com o Cosmos DB do Python:
 
 - [Criar um aplicativo da API SQL com o Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Compilar um aplicativo Flask com a API do MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Criar um aplicativo Flask com Microsoft Azure Cosmos DB para API MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Criar um banco de dados de grafo usando o Python e o Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Compilar um aplicativo Cassandra com o Python e o Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Compilar um aplicativo de API de Tabela com Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)

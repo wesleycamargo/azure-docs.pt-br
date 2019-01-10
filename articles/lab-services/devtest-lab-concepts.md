@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: ce0c51a3b97c57095a336128919c5e27f860905b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e35513d5a5a799b1f5e45cf9a5aa97c083e2087
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676463"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725194"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos dos Laboratórios de Desenvolvimento/Teste
 ## <a name="overview"></a>Visão geral
@@ -29,7 +29,7 @@ A lista a seguir contém as principais definições e conceitos dos Laboratório
 Um laboratório é a infraestrutura que abrange um grupo de recursos, como VMs (máquinas virtuais), que permite melhor gerenciar esses recursos especificando limites e cotas.
 
 ## <a name="virtual-machine"></a>Máquina virtual
-Uma VM do Azure é um dos vários tipos de [recursos de computação sob demanda escalonáveis](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm) oferecidos pelo Azure. As VMs do Azure lhe oferecem a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que a executa, embora você ainda precise manter a VM executando determinadas tarefas como configurar, corrigir e instalar o software que será executado nela.
+Uma VM do Azure é um dos vários tipos de [recursos de computação sob demanda escalonáveis](https://docs.microsoft.com/azure/app-service/overview-compare) oferecidos pelo Azure. As VMs do Azure lhe oferecem a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que a executa, embora você ainda precise manter a VM executando determinadas tarefas como configurar, corrigir e instalar o software que será executado nela.
 
 [Visão geral das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) fornece informações sobre o que você deve considerar antes de criar uma VM, como criá-la e como gerenciá-la.
 
@@ -82,7 +82,7 @@ Para ver como criar funções personalizadas no DevTest Labs, e você pode apren
 
 Como os escopos são hierárquicos, quando um usuário tem permissões em um determinado escopo, ele recebe essas permissões automaticamente em cada escopo de nível inferior que está englobado. Por exemplo, se um usuário recebe a função de proprietário da assinatura, ele tem acesso a todos os recursos em uma assinatura, o que inclui todas as máquinas virtuais, todas as redes virtuais e todos os laboratórios. Portanto, um proprietário de assinatura herda automaticamente a função de proprietário de laboratório. No entanto, o oposto não é verdadeiro. O proprietário de um laboratório tem acesso a um laboratório, que é um escopo menor que o nível de assinatura. Portanto, um proprietário de laboratório não pode ver máquinas virtuais, redes virtuais ou recursos que estão fora do laboratório.
 
-## <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
+## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 Todos os conceitos discutidos neste artigo podem ser configurados usando modelos do Azure Resource Manager, que lhe permitem definir a infraestrutura/configuração de sua solução do Azure e implantá-la repetidamente em um estado consistente.
 
 [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descreve a estrutura de um modelo do Azure Resource Manager e as propriedades que estão disponíveis nas diferentes seções de um modelo.

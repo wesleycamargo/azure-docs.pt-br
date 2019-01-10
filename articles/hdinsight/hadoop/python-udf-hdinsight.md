@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 021ec3919e061010265ff3a2f30fde0ffb59e7b0
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 92221e5aaebbaebb2af17ea211e38a3665a2b04f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632604"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652466"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usar funções definidas pelo usuário (UDF) do Python com o Apache Hive e o Apache Pig no HDInsight
 
@@ -26,7 +26,7 @@ O Python 2.7 é instalado por padrão no HDInsight 3.0 e posteriores. O Apache H
 
 O HDInsight também inclui o Jython, que é uma implementação do Python gravada em Java. Jython é executado diretamente na Máquina Virtual Java e não usa streaming. Jython é o interpretador do Python recomendado ao usar Python com Pig.
 
-> [!WARNING]
+> [!WARNING]  
 > As etapas neste documento fazem as seguintes suposições: 
 >
 > * Você cria scripts Python em seu ambiente de desenvolvimento local.
@@ -38,7 +38,7 @@ O HDInsight também inclui o Jython, que é uma implementação do Python gravad
 > * Usar `scp` para carregar os arquivos do Cloud Shell para o HDInsight.
 > * Usar `ssh` do Cloud Shell para conectar-se ao HDInsight e executar os exemplos.
 
-## <a name="hivepython"></a>UDF do Hive
+## <a name="hivepython"></a>UDF do Apache Hive
 
 O Python pode ser utilizado como um UDF do Hive por meio da instrução HiveQL `TRANSFORM`. Por exemplo, o seguinte HiveQL invoca o arquivo `hiveudf.py` armazenado na conta de Armazenamento do Azure padrão para o cluster.
 
@@ -66,7 +66,7 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Em clusters de HDInsight baseados no Windows, a cláusula `USING` deve especificar o caminho completo para python.exe.
 
 Aqui está o que este exemplo faz:
@@ -111,7 +111,7 @@ A saída do script é uma concatenação dos valores de entrada para `devicemake
 
 Consulte [Executando os exemplos](#running) para saber como executar este exemplo em seu cluster HDInsight.
 
-## <a name="pigpython"></a>UDF do Pig
+## <a name="pigpython"></a>UDF do Apache Pig
 
 Um script Python pode ser utilizado como um UDF do Pig por meio da instrução `GENERATE`. Você pode executar o script usando o Jython ou o Python C.
 
@@ -123,7 +123,7 @@ Para especificar o interpretador do Python, use `register` ao referenciar o scri
 * **Para usar o Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
 * **Para usar o Python C**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ao usar o Jython, o caminho para o arquivo pig_jython pode ser um caminho local ou um caminho WASB://. No entanto, ao usar o Python C, você deve fazer referência a um arquivo no sistema de arquivos local do nó que está usando para enviar o trabalho de Pig.
 
 Depois do registro, o Pig Latin para o exemplo é o mesmo para ambos:
@@ -182,7 +182,7 @@ Quando os dados são devolvidos ao Pig, eles têm um esquema consistente conform
 
 ## <a name="running"></a>Carregar e executar os exemplos
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > As etapas de **SSH** funcionam apenas com um cluster do HDInsight baseado em Linux. As etapas do **PowerShell** funcionam com um cluster do HDInsight baseado em Windows ou Linux, mas requer um cliente Windows.
 
 ### <a name="ssh"></a>SSH
@@ -299,11 +299,11 @@ Após carregar os arquivos, use as etapas a seguir para executar os trabalhos de
 
     Quando o trabalho for concluído, você verá a mesma saída de quando executou o script usando Jython.
 
-### <a name="powershell-upload-the-files"></a>PowerShell: carregar os arquivos
+### <a name="powershell-upload-the-files"></a>PowerShell: Carregar os arquivos
 
 Você pode usar o PowerShell para carregar os arquivos para o servidor do HDInsight. Use o script a seguir para carregar os arquivos do Python:
 
-> [!IMPORTANT] 
+> [!IMPORTANT]   
 > As etapas nesta seção usam o Azure PowerShell. Para obter mais informações sobre como usar o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
@@ -313,14 +313,14 @@ Você pode usar o PowerShell para carregar os arquivos para o servidor do HDInsi
 
 Este script obtém informações a partir de seu cluster HDInsight, então, extrai a conta e a chave para a conta de armazenamento padrão, além de carregar os arquivos para a raiz do contêiner.
 
-> [!NOTE]
-> Para obter mais informações sobre como carregar arquivos, consulte o documento [Carregar dados para trabalhos do Hadoop no HDInsight](../hdinsight-upload-data.md).
+> [!NOTE]  
+> Para obter mais informações sobre como carregar arquivos, consulte o documento [Carregar dados para trabalhos do Apache Hadoop no HDInsight](../hdinsight-upload-data.md).
 
-#### <a name="powershell-use-the-hive-udf"></a>PowerShell: usar UDF do Hive
+#### <a name="powershell-use-the-hive-udf"></a>PowerShell: Usar UDF do Hive
 
 O PowerShell também pode ser usado para executar remotamente consultas do Hive. Use o seguinte script do PowerShell para executar uma consulta do Hive que use o script **hiveudf.py**:
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Antes da execução, o script o solicita a fornecer as informações de HTTPs/conta do administrador do seu cluster do HDInsight.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
@@ -337,7 +337,7 @@ A saída para o trabalho do **Hive** deve ser semelhante ao exemplo a seguir:
 
 O PowerShell também pode ser usado para executar trabalhos do Pig Latin. Para executar um trabalho do Pig Latin que use o script **pigudf.py**, utilize o seguinte script do PowerShell:
 
-> [!NOTE]
+> [!NOTE]  
 > Ao enviar um trabalho remotamente usando o PowerShell, não é possível usar o Python C como interpretador.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
@@ -383,6 +383,6 @@ Se você precisar carregar módulos do Python que não são fornecidos por padr�
 
 Para obter outras formas de usar o Pig e o Hive e para saber como usar o MapReduce, consulte os documentos a seguir:
 
-* [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
-* [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
+* [Usar o Apache Hive com o HDInsight](hdinsight-use-hive.md)
+* [Usar o Apache Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)

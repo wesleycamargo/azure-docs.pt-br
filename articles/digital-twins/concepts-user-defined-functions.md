@@ -1,19 +1,19 @@
 ---
 title: Processamento de dados e funções definidas pelo usuário com Gêmeos Digitais do Azure | Microsoft Docs
-description: Visão geral do processamento de dados, dos correspondentes e das funções definidas pelo usuário com os Gêmeos Digitais do Azure
+description: Visão geral do processamento de dados, dos correspondentes e das funções definidas pelo usuário com os Gêmeos Digitais do Azure.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 2703778cd2eab582a9e7311aaf2024f100261889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624515"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999185"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo usuário
 
@@ -21,29 +21,31 @@ O recurso Gêmeos Digitais do Azure oferece funcionalidades de computação avan
 
 ## <a name="data-processing-flow"></a>Fluxo de processamento de dados
 
-Depois que os dispositivos enviam dados de telemetria para o Azure Digital Twins, os desenvolvedores podem processar dados em quatro fases: validar, corresponder, computar e despachar.
+Depois que os dispositivos enviam dados de telemetria para o Azure Digital Twins, os desenvolvedores podem processar dados em quatro fases: *validar*, *corresponder*, *computar*, e *despachar*.
 
 ![Fluxo de processamento de dados gêmeos Digital do Azure][1]
 
-1. A fase de validação transforma a mensagem de telemetria recebida em um formato de objeto de transferência de dados [comumente entendido](https://en.wikipedia.org/wiki/Data_transfer_object). Essa fase também executa validação de dispositivo e sensor.
-1. A fase de correspondência encontra as funções definidas pelo usuário (UDFs) apropriadas para serem executadas. Correspondentes predefinidos localizam as UDFs com base nas informações de dispositivo, sensor e espaço da mensagem de telemetria recebida.
-1. A fase de computação executa as UDFs correspondidas na fase anterior. Essas funções podem ler e atualizar valores calculados em nós de gráfico espacial e podem emitir notificações personalizadas.
+1. A fase de validação transforma a mensagem de telemetria recebida em um formato de objeto de transferência de dados [comumente entendido](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5). Essa fase também executa validação de dispositivo e sensor.
+1. A fase corresponder localiza as funções definidas pelo usuário a serem executadas. Os correspondentes predefinidos descobrirão as funções definidas pelo usuário com base em informações de dispositivo, sensor e espaço da mensagem de telemetria de entrada.
+1. O computador executa as funções definidas pelo usuário correspondente na fase anterior. Essas funções podem ler e atualizar valores calculados em nós de gráfico espacial e podem emitir notificações personalizadas.
 1. A fase de expedição encaminha quaisquer notificações personalizadas da fase de cálculo para os pontos finais definidos no gráfico.
 
 ## <a name="data-processing-objects"></a>Objetos de processamento de dados
 
-O processamento de dados no Gêmeos Digitais do Azure consiste na definição de três objetos: correspondentes, funções definidas pelo usuário e atribuições de funções.
+O processamento de dados no Gêmeos Digitais do Azure consiste na definição de três objetos: *correspondentes*, *funções definidas pelo usuário* e *atribuições de funções*.
 
 ![Objetos de processamento de dados dos Gêmeos Digitais do Azure][2]
+
+<div id="matcher"></div>
 
 ### <a name="matchers"></a>Correspondências
 
 Correspondentes definem um conjunto de condições que avaliam quais ações ocorrem com base na telemetria do sensor de entrada. As condições para determinar a correspondência podem incluir propriedades do sensor, do dispositivo pai do sensor e do espaço pai do sensor. As condições são expressas como comparações em relação a um [caminho JSON](http://jsonpath.com/), conforme descrito neste exemplo:
 
-- Todos os sensores do tipo de dados **temperatura**
+- Todos os sensores de Datatype **Temperatura** representados pelo valor de cadeia de caracteres de escape `\"Temperature\"`
 - Tendo `01` em sua porta
-- Que pertencem a dispositivos com a chave de propriedade estendida **Fabricante** definido para o valor`"GoodCorp"`
-- Que pertencem aos espaços de tipo `"Venue"`
+- Que pertencem a dispositivos com a chave de propriedade estendida **Fabricante** definido para o valor da cadeia de caracteres de escape`\"GoodCorp\"`
+- Que pertencem aos espaços do tipo especificado pela cadeia de caracteres com escape `\"Venue\"`
 - Quais são descendentes do pai **SpaceId**`DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
@@ -90,28 +92,30 @@ Correspondentes definem um conjunto de condições que avaliam quais ações oco
 
 ### <a name="user-defined-functions"></a>Funções definidas pelo usuário
 
-Uma função definida pelo usuário é uma função personalizada executada em um ambiente isolado nos Gêmeos Digitais do Azure. As UDFs têm acesso à mensagem de telemetria do sensor bruto à medida que foi recebida. As UDFs também têm acesso ao serviço de gráfico espacial e despachante. Depois que a UDF é registrada no gráfico, um correspondente (detalhado acima) deve ser criado para especificar quando executar a UDF. Quando o Azure Digital Twins recebe nova telemetria de um determinado sensor, a UDF correspondente pode calcular uma média móvel das últimas poucas leituras do sensor, por exemplo.
+Uma função definida pelo usuário é uma função personalizada executada em um ambiente isolado nos Gêmeos Digitais do Azure. As funções definidas pelo usuário têm acesso à mensagem de telemetria do sensor bruto à medida que foi recebida. As funções definidas pelo usuário também têm acesso ao serviço de gráfico espacial e despachante. Depois que a função definida pelo usuário é registrada no gráfico, um correspondente (detalhado [acima](#matcher)) deve ser criado para especificar quando executar a função. Por exemplo, quando os Gêmeos Digitais do Azure recebem nova telemetria de um determinado sensor, a função definida pelo usuário correspondente pode calcular uma média móvel das últimas poucas leituras do sensor.
 
-UDFs podem ser escritos em JavaScript. Os desenvolvedores podem executar snippets personalizados de código contra mensagens de telemetria do sensor. Os métodos auxiliares interagem com o gráfico no ambiente de execução definido pelo usuário. Com uma UDF, os desenvolvedores podem:
+As funções definidas pelo usuário podem ser gravadas no JavaScript. Os métodos auxiliares interagem com o gráfico no ambiente de execução definido pelo usuário. Os desenvolvedores podem executar snippets personalizados de código contra mensagens de telemetria do sensor. Os exemplos incluem:
 
 - Defina a leitura do sensor diretamente para o objeto do sensor no grafo.
 - Execute uma ação com base em diferentes leituras de sensor dentro de um espaço no grafo.
 - Crie uma notificação quando determinadas condições forem atendidas para uma leitura de sensor de entrada.
 - Anexe metadados de grafo à leitura do sensor antes de enviar uma notificação do sensor.
 
-Para obter mais informações, consulte [Como usar funções definidas pelo usuário](how-to-user-defined-functions.md).
+Para obter mais informações, consulte [Como usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
 
 ### <a name="role-assignment"></a>Atribuição de função
 
-Ações de um UDF estão sujeitas a controle de acesso baseado em função de Gêmeos Digitais para proteger os dados dentro do serviço. As atribuições de função garantem que uma determinada UDF tenha as permissões adequadas para interagir com o gráfico espacial. Por exemplo, um UDF pode tentar criar, ler, atualizar ou excluir dados do grafo em um determinado espaço. O nível de acesso de um UDF é verificado quando o UDF solicita dados ao grafo ou tenta realizar uma ação. Para obter mais informações, consulte [Controle de acesso baseado em função](security-create-manage-role-assignments.md).
+As ações de uma função definida pelo usuário estão sujeitas a controle de [acesso baseado em função](./security-role-based-access-control.md) de Gêmeos Digitais para proteger os dados dentro do serviço. As atribuições de função definem quais funções definidas pelo usuário têm as permissões adequadas para interagir com o gráfico espacial e suas entidades. Por exemplo, uma função definida pelo usuário pode ter a capacidade e a permissão para *CIAR*, *LER*, *ATUALIZAR*, ou *EXCLUIR* dados de gráfico em um determinado espaço. Um nível da função definido pelo usuário de acesso é verificado quando a função definida pelo usuário solicita o gráfico de dados ou tenta efetuar uma ação. Para obter mais informações, consulte [Controle de acesso baseado em função](./security-create-manage-role-assignments.md).
 
-É possível uma correspondência disparar um UDF que não tenha atribuições de função. Nesse caso, a UDF não consegue ler nenhum dado do gráfico.
+É possível uma correspondência disparar uma função definida pelo usuário que não tenha atribuições de função. Nesse caso, a função definida pelo usuário não consegue ler nenhum dado do gráfico.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como rotear eventos e mensagens de telemetria para outros serviços do Azure, leia [Rotear eventos e mensagens](concepts-events-routing.md).
+- Para saber mais sobre como rotear eventos e mensagens de telemetria para outros serviços do Azure, leia [Rotear eventos e mensagens](./concepts-events-routing.md).
 
-* Para saber mais sobre como criar correspondentes, funções definidas pelo usuário e atribuições de função, leia o [Guia para usar funções definidas pelo usuário](how-to-user-defined-functions.md).
+- Para saber mais sobre como criar correspondentes, funções definidas pelo usuário e atribuições de função, leia o [Guia para usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
+
+- Revise a documentação de [referência da biblioteca de clientes de função definida pelo usuário](./reference-user-defined-functions-client-library.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-data-processing-flow.png

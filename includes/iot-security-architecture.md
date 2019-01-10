@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51293212"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995640"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança da Internet das Coisas (IoT)
 
@@ -169,15 +169,15 @@ Esta seção explora a arquitetura descrita anteriormente do ponto de vista de m
 
 Em cada uma das categorias descritas na arquitetura de IoT do Azure, este exemplo tenta atenuar diversas ameaças nos diferentes estágios em que há dados/informações: processo, comunicação e armazenamento. Veja a seguir uma visão geral das ameaças mais comuns para a categoria "processo", assim como práticas recomendadas de mitigação:
 
-**S (Falsificação)**: um invasor pode extrair o material de chave de criptografia de um dispositivo, no nível de software ou hardware e, posteriormente, acessar o sistema com outro dispositivo físico ou virtual sob a identidade do dispositivo do qual o material da chave foi obtido. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
+**Falsificação (S)**: Um invasor pode extrair o material da chave de criptografia de um dispositivo, no nível de software ou hardware, e posteriormente acessar o sistema com outro dispositivo físico ou virtual sob a identidade do dispositivo do qual o material da chave foi obtido. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
 
-**D (Negação de Serviço)**: um dispositivo pode ficar incapaz de funcionar ou se comunicar interferindo com frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relata dados, de maneira alguma.
+**Negação de Serviço (D)**: Um dispositivo pode ficar incapaz de funcionar ou de se comunicar interferindo em frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relata dados, de maneira alguma.
 
-**T (Violação)**: um invasor pode substituir parcial ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia que mantêm os materiais de chave estavam disponíveis para o programa ilícito. Por exemplo, um invasor pode aproveitar o material da chave extraído para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-los por dados falsos que são autenticados com o material da chave roubado.
+**Violação (T)**: Um invasor pode substituir parcial ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia mantendo os materiais de chave estavam disponíveis para o programa ilícito. Por exemplo, um invasor pode aproveitar o material da chave extraído para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-los por dados falsos que são autenticados com o material da chave roubado.
 
-**I (Divulgação não autorizada de informação)**: se o dispositivo estivesse executando software manipulado, tal software manipulado poderia potencialmente vazar dados para partes não autorizadas. Por exemplo, um invasor pode aproveitar o material da chave extraído para se injetar no caminho de comunicação entre o dispositivo e um controlador ou gateway de campo ou um gateway de nuvem para desviar as informações.
+**Divulgação de informações confidenciais (I)**: Se o dispositivo estivesse executando software manipulado, tal software manipulado poderia potencialmente vazar dados para partes não autorizadas. Por exemplo, um invasor pode aproveitar o material da chave extraído para se injetar no caminho de comunicação entre o dispositivo e um controlador ou gateway de campo ou um gateway de nuvem para desviar as informações.
 
-**E (Elevação de Privilégio)**: um dispositivo que realiza uma função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
+**Elevação de privilégio (E)**: Um dispositivo que realiza uma função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
 
 | **Componente** | **Ameaça** | **Mitigação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
@@ -190,33 +190,33 @@ Em cada uma das categorias descritas na arquitetura de IoT do Azure, este exempl
 
 Aqui estão alguns exemplos de ameaças nesta categoria:
 
-**Falsificação**: um invasor pode extrair o material da chave de criptografia de um dispositivo, no nível de software ou hardware, e posteriormente acessar o sistema com outro dispositivo físico ou virtual sob a identidade do dispositivo do qual o material da chave foi obtido.
+**Falsificação**: Um invasor pode extrair o material da chave de criptografia de um dispositivo, no nível de software ou hardware, e posteriormente acessar o sistema com outro dispositivo físico ou virtual sob a identidade do dispositivo do qual o material da chave foi obtido.
 
-**Negação de Serviço**: um dispositivo pode ficar incapaz de funcionar ou de se comunicar interferindo em frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relata dados, de maneira alguma.
+**Negação de Serviço**: Um dispositivo pode ficar incapaz de funcionar ou de se comunicar interferindo em frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relata dados, de maneira alguma.
 
-**Violação**: um invasor pode substituir parcial ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia mantendo os materiais de chave estavam disponíveis para o programa ilícito.
+**Violação**: Um invasor pode substituir parcial ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia mantendo os materiais de chave estavam disponíveis para o programa ilícito.
 
-**Violação**: uma câmera de vigilância que está mostrando uma imagem de espectro visível de um corredor vazio pode ser direcionada a uma fotografia de tal um corredor. Um sensor de fumaça ou incêndio pode relatar alguém segurando um isqueiro sob ele. Em ambos os casos, o dispositivo pode ser tecnicamente totalmente confiável para o sistema, mas ele relata informações manipuladas.
+**Violação**: Uma câmera de vigilância que está mostrando uma imagem de espectro visível de um corredor vazio pode ser direcionada a uma fotografia de tal um corredor. Um sensor de fumaça ou incêndio pode relatar alguém segurando um isqueiro sob ele. Em ambos os casos, o dispositivo pode ser tecnicamente totalmente confiável para o sistema, mas ele relata informações manipuladas.
 
-**Violação**: um invasor pode aproveitar o material da chave extraído para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-los com dados falsos que são autenticados com o material da chave roubado.
+**Violação**: Um invasor pode aproveitar o material da chave extraído para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-los com dados falsos que são autenticados com o material da chave roubado.
 
-**Violação**: um invasor pode substituir parcial ou completamente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia mantendo os materiais de chave estavam disponíveis para o programa ilícito.
+**Violação**: Um invasor pode substituir parcial ou completamente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia mantendo os materiais de chave estavam disponíveis para o programa ilícito.
 
-**Divulgação não autorizada de informação**: se o dispositivo estivesse executando software manipulado, tal software manipulado poderia potencialmente vazar dados para partes não autorizadas.
+**Divulgação de informações confidenciais**: Se o dispositivo estivesse executando software manipulado, tal software manipulado poderia potencialmente vazar dados para partes não autorizadas.
 
-**Divulgação não autorizada de informação**: um invasor pode aproveitar o material da chave extraído para se injetar no caminho de comunicação entre o dispositivo e um controlador ou gateway de campo ou um gateway de nuvem para desviar as informações.
+**Divulgação de informações confidenciais**: Um invasor pode aproveitar o material da chave extraído para se injetar no caminho de comunicação entre o dispositivo e um controlador ou gateway de campo ou um gateway de nuvem para desviar as informações.
 
-**Negação de serviço**: o dispositivo pode ser desativado ou alterado para um modo em que a comunicação não é possível (o que é intencional em muitas máquinas industriais).
+**Negação de Serviço**: O dispositivo pode ser desativado ou alterado para um modo em que a comunicação não é possível (o que é intencional em muitas máquinas industriais).
 
-**Violação**: o dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora de parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente
+**Violação**: O dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora de parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente
 
-**Elevação de Privilégio**: um dispositivo que realiza uma função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
+**Elevação de privilégio**: Um dispositivo que realiza uma função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
 
-**Negação de serviço**: o dispositivo pode ser alterado para um estado em que a comunicação não é possível.
+**Negação de Serviço**: O dispositivo pode ser alterado para um estado em que a comunicação não é possível.
 
-**Violação**: o dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora de parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente.
+**Violação**: O dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora de parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente.
 
-**Violação/falsificação/repúdio**: se não protegido (que raramente é o caso com controles remotos do consumidor), um invasor poderá manipular o estado de um dispositivo anonimamente. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
+**Violação/falsificação/repúdio**: Se não protegido (que raramente é o caso com controles remotos do consumidor), um invasor poderá manipular o estado de um dispositivo anonimamente. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
 
 #### <a name="communication"></a>Comunicação
 
@@ -232,9 +232,9 @@ Ameaças em torno do caminho de comunicação entre dispositivos, dispositivos e
 
 Aqui estão alguns exemplos de ameaças nesta categoria:
 
-**Negação de serviço**: os dispositivos restritos geralmente estão sob ameaça DoS quando escutam ativamente as conexões de entrada ou datagramas não solicitadas em uma rede, porque um invasor pode abrir várias conexões em paralelo e não atendê-las ou atendê-las lentamente ou o dispositivo pode ser inundado com o tráfego não solicitado. Em ambos os casos, o dispositivo efetivamente pode ficar inoperante na rede.
+**Negação de Serviço**: Os dispositivos restritos geralmente estão sob ameaça DoS quando escutam ativamente as conexões de entrada ou datagramas não solicitadas em uma rede, porque um invasor pode abrir várias conexões em paralelo e não atendê-las ou atendê-las lentamente ou o dispositivo pode ser inundado com o tráfego não solicitado. Em ambos os casos, o dispositivo efetivamente pode ficar inoperante na rede.
 
-**Falsificação, Divulgação não autorizada de informação**: os dispositivos restritos e de finalidade especial geralmente têm recursos de segurança de um-para-todos como proteção de PIN ou senha ou dependem inteiramente da rede, o que significa que eles concedem acesso às informações quando um dispositivo estiver na mesma rede e essa rede geralmente estará protegida apenas por uma chave compartilhada. Isso significa que quando o segredo compartilhado para o dispositivo ou rede é divulgado, é possível controlar o dispositivo ou observar os dados emitidos do dispositivo.  
+**Falsificação, Divulgação não autorizada de informação**: Os dispositivos restritos e de finalidade especial geralmente têm recursos de segurança de um-para-todos como proteção de PIN ou senha ou dependem inteiramente da rede, o que significa que eles concedem acesso às informações quando um dispositivo estiver na mesma rede e essa rede geralmente estará protegida apenas por uma chave compartilhada. Isso significa que quando o segredo compartilhado para o dispositivo ou rede é divulgado, é possível controlar o dispositivo ou observar os dados emitidos do dispositivo.  
 
 **Falsificação**: um invasor pode interceptar ou parcialmente substituir a difusão e falsificar o originador (intermediário)
 
@@ -263,7 +263,7 @@ O gateway de nuvem é principalmente uma peça de software personalizada em exec
 
 Um sistema de controle (ou controlador) é uma solução de software que faz a interface com um dispositivo, um gateway de campo ou um gateway de nuvem a fim de controlar um ou vários dispositivos e/ou coletar, e/ou armazenar e/ou analisar os dados do dispositivo para fins de apresentação ou controle subsequente. Os sistemas de controle são as únicas entidades no escopo desta discussão que podem facilitar a interação com as pessoas imediatamente. A exceção são as superfícies de controle físico intermediário nos dispositivos, como uma chave que permite que uma pessoa desligue o dispositivo ou altere outras propriedades, e para as quais não há nenhum equivalente funcional que possa ser acessado digitalmente.
 
-As superfícies de controle físico intermediário são aquelas em que a lógica de controle restringe a função da superfície de controle físico, de modo que uma função equivalente possa ser iniciada remotamente ou os conflitos de entrada com a entrada remota possam ser evitado. Tais superfícies de controle intermediadas são conceitualmente anexadas a um sistema de controle local que utiliza a mesma funcionalidade subjacente que qualquer outro sistema de controle remoto que ao qual o dispositivo pode estar anexado em paralelo. As principais ameaças para a computação em nuvem podem ser lidas na página da [CSA (Cloud Security Alliance)](https://cloudsecurityalliance.org/research/top-threats/).
+As superfícies de controle físico intermediário são aquelas em que a lógica de controle restringe a função da superfície de controle físico, de modo que uma função equivalente possa ser iniciada remotamente ou os conflitos de entrada com a entrada remota possam ser evitado. Tais superfícies de controle intermediadas são conceitualmente anexadas a um sistema de controle local que utiliza a mesma funcionalidade subjacente que qualquer outro sistema de controle remoto que ao qual o dispositivo pode estar anexado em paralelo. As principais ameaças para a computação em nuvem podem ser lidas na página da [CSA (Cloud Security Alliance)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

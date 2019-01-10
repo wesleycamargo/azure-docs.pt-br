@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: da227151dd056dd5e852ae8790b6f20ac3c0c790
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308202"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653298"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Práticas recomendadas de desempenho do Apache Phoenix
 
-O aspecto mais importante do desempenho do [Apache Phoenix](https://phoenix.apache.org/) é otimizar o [Apache HBase](http://hbase.apache.org/) subjacente. O Phoenix cria um modelo de dados relacional sobre o HBase, que converte consultas SQL em operações de HBase, como exames. O design de seu esquema de tabela, a seleção e ordenação dos campos na sua chave primária e o uso de todos os índices afetam o desempenho do Phoenix.
+O aspecto mais importante do desempenho do [Apache Phoenix](https://phoenix.apache.org/) é otimizar o [Apache HBase](https://hbase.apache.org/) subjacente. O Phoenix cria um modelo de dados relacional sobre o HBase, que converte consultas SQL em operações de HBase, como exames. O design de seu esquema de tabela, a seleção e ordenação dos campos na sua chave primária e o uso de todos os índices afetam o desempenho do Phoenix.
 
 ## <a name="table-schema-design"></a>Design do esquema de tabela
 
@@ -225,9 +225,9 @@ Se seu cenário favorece a velocidade de gravação na integridade dos dados, co
 
     CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
 
-Para obter detalhes sobre esta e outras opções, consulte [Gramática do Phoenix](http://phoenix.apache.org/language/index.html#options).
+Para obter mais detalhes sobre esta e outras opções, consulte [Gramática do Apache Phoenix](https://phoenix.apache.org/language/index.html#options).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Guia de ajuste do Apache Phoenix](https://phoenix.apache.org/tuning_guide.html)
-* [Índices Secundários](http://phoenix.apache.org/secondary_indexing.html)
+* [Índices Secundários](https://phoenix.apache.org/secondary_indexing.html)

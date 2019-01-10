@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 5d0cb6ca751c844846288e8fe26f6ae542e89831
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339485"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579355"
 ---
-# <a name="detecting-color-schemes"></a>Detectar esquemas de cores
+# <a name="detect-color-schemes-in-images"></a>Detectar esquemas de cores em imagens
 
 A Visão por Computador extrai cores de uma imagem. As cores são então analisadas em três contextos diferentes: a cor dominante no primeiro plano, a cor dominante no plano de fundo e as cores dominantes na imagem como um todo. Eles são agrupados em 12 cores de destaque dominantes. Essas cores de destaque são preto, azul, marrom, cinza, verde, laranja, rosa, roxo, vermelho, azul-petróleo, branco e amarelo. O Computer Vision analisa as cores extraídas de uma imagem para retornar uma cor de destaque que representa a cor mais vibrante da imagem para os espectadores, por meio de uma combinação de cores dominantes e saturação. Dependendo das cores de uma imagem, as cores preto e branco simples ou cores de destaque podem ser retornadas em códigos de cores hexadecimais. O Computer Vision também retorna um valor booleano que indica se uma imagem é em preto e branco.
 
@@ -51,8 +52,8 @@ A tabela a seguir descreve as cores predominantes de primeiro plano, plano de fu
 
 | Imagem | Cores predominantes |
 |-------|-----------------|
-|![Flor com análise da pesquisa visual](./Images/flower.png)| Em primeiro plano: preto<br/>Em segundo plano: em branco<br/>Cores: Preto, branco, verde|
-![Estação ferroviária com análise da pesquisa visual](./Images/train_station.png) | Em primeiro plano: preto<br/>Em segundo plano: preto<br/>Cores: preto |
+|![Uma flor branca com um fundo verde](./Images/flower.png)| Primeiro plano: Preto<br/>Plano de fundo: Branco<br/>Cores: Preto, Branco, Verde|
+![Um treinamento em execução por meio de uma estação](./Images/train_station.png) | Primeiro plano: Preto<br/>Plano de fundo: Preto<br/>Cores: Preto |
 
 ### <a name="accent-color-examples"></a>Exemplos de cor de ênfase
 
@@ -60,9 +61,9 @@ A tabela a seguir descreve as cores predominantes de primeiro plano, plano de fu
 
 | Imagem | Cor de destaque |
 |-------|--------------|
-|![Montanha ao ar livre](./Images/mountain_vista.png) | #BB6D10 |
-|![Flor com análise da pesquisa visual](./Images/flower.png) | #C6A205 |
-|![Estação ferroviária com análise da pesquisa visual](./Images/train_station.png) | #474A84 |
+|![Uma pessoa que está em uma montanha ao pôr do sol](./Images/mountain_vista.png) | #BB6D10 |
+|![Uma flor branca com um fundo verde](./Images/flower.png) | #C6A205 |
+|![Um treinamento em execução por meio de uma estação](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>Exemplos de detecção de preto e branco
 
@@ -70,8 +71,8 @@ A tabela a seguir indica se cada imagem de exemplo é em preto e branco, conform
 
 | Imagem | Preto e branco? |
 |-------|----------------|
-|![Edifício com análise da pesquisa visual](./Images/bw_buildings.png) | verdadeiro |
-|![Quintal da casa com análise da pesquisa visual](./Images/house_yard.png) | falso |
+|![Uma imagem em preto e branco dos edifícios em Manhattan](./Images/bw_buildings.png) | verdadeiro |
+|![Uma casa azul e o jardim da frente](./Images/house_yard.png) | falso |
 
 ## <a name="next-steps"></a>Próximas etapas
 

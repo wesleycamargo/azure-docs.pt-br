@@ -1,20 +1,17 @@
 ---
 title: Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL
 description: Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: a0ff57037d6639f5778e27d6cf697b90038ab3b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717056"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559035"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL
 
@@ -49,7 +46,7 @@ Uma opção é aguardar até que o servidor retorne online quando a interrupçã
 A outra opção é usar a restauração geográfica do Banco de Dados do Azure para PostgreSQL que restaura o servidor usando backups com redundância geográfica. Esses backups serão acessíveis mesmo quando a região em que seu servidor está hospedado estiver offline. É possível restaurar a partir desses backups para qualquer outra região e retornar o servidor para online.
 
 > [!IMPORTANT]
-> A restauração geográfica somente será possível se o servidor foi provisionado com armazenamento de backup com redundância geográfica. Se você deseja alternar entre backups redundantes localmente e redundantes para um servidor existente, você deve fazer um dump usando o mysqldump do seu servidor existente e restaurá-lo para um novo criado configurado com backups geo-redundantes.
+> A restauração geográfica somente será possível se o servidor foi provisionado com armazenamento de backup com redundância geográfica. Se você deseja alternar entre backups redundantes localmente e redundantes para um servidor existente, você deve fazer um dump usando o pg_dump do seu servidor existente e restaurá-lo para um novo criado configurado com backups geo-redundantes.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre backups automáticos, consulte [Backups no Banco de Dados do Azure para PostgreSQL](concepts-backup.md). 

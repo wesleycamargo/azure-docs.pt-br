@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c727cddf41c269c214b541134cd9f688017ee687
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850356"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789714"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Azure Active Directory ao Tableau Server
 
@@ -86,13 +86,14 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do Tabl
 
 Para configurar e testar o logon único do Azure AD com o Tableau Server, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Tableau Server](#creating-a-tableau-server-test-user)** – para ter um equivalente de Brenda Fernandes no Tableau Server que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar Logon Único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar Logon Único do Tableau Server](#configure-tableau-server-single-sign-on)** - para definir as configurações de Logon Único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Criar usuário de teste do Tableau Server](#create-tableau-server-test-user)** - para ter um equivalente de Brenda Fernandes no Cisco Umbrella vinculado à representação de usuário do Azure AD.
+5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Tableau Server.
 
@@ -112,9 +113,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 4. Na seção **Reivindicações do usuário** da caixa de diálogo **Atributos e reivindicações do usuário**, configure o atributo do token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
     
-    | Nome do atributo | Valor do atributo |
-    | ---------------| --------------- |    
-    | Nome de Usuário | user.userprincipalname |
+    | Nome do atributo | Valor do atributo | Namespace |
+    | ---------------| --------------- | ----------- |   
+    | Nome de Usuário | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
@@ -151,33 +152,41 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 7. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique em **Fazer o download** para fazer download do **XML de metadados de federação** e salvar o arquivo de certificado no seu computador.
 
-    ![O link de download do Certificado](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png) 
+    ![O link de download do Certificado](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png)
 
-8. Para configurar o SSO para o aplicativo, você precisa entrar no locatário Tableau Server como administrador.
+### <a name="configure-tableau-server-single-sign-on"></a>Configurar Logon Único do Tableau Server 
 
-9. Na página do **Tableau Server Configuration** , execute as seguintes etapas:
-   
-    ![Configurar o logon único](./media/tableauserver-tutorial/tutorial-tableauserver-001.png)
+1. Para configurar o SSO para o aplicativo, você precisa entrar no locatário Tableau Server como administrador.
 
-    a. Na configuração do Tableau Server, clique na guia **SAML** . 
-  
-    b. Marque a caixa de seleção **Usar SAML para logon único**.
-   
+2. Na guia **CONFIGURAÇÃO**, selecione **Identidade e acesso do usuário** e, em seguida, selecione a guia Método de **Autenticação**.
+
+    ![Configurar o logon único](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+
+3. Na página **CONFIGURAÇÃO**, realize as seguintes etapas:
+
+    ![Configurar o logon único](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+
+     a. Para **Método de Autenticação**, selecione SAML.
+    
+    b. Selecione a caixa de seleção **Habilitar a autenticação SAML para o servidor**.
+
     c. URL de retorno do Tableau Server — a URL que os usuários do Tableau Server acessarão, por exemplo http://tableau_server. Usar http://localhost não é recomendado. Usar uma URL com uma barra à direita (por exemplo, http://tableau_server/) não é aceito. Copie a **URL de retorno do Tableau Server** e cole-a na caixa de texto **URL de Logon** do Azure AD, na seção **URLs e Domínio do Tableau Server**.
-   
+
     d. ID de entidade SAML - a ID de entidade identifica com exclusividade sua instalação do Tableau Server para o IdP. Você pode digitar a URL do Tableau Server novamente aqui, se desejar, mas ela não precisa ser sua URL do Tableau Server. Copie a **ID de Entidade do SAML** e cole-a na caixa de texto **Identificador** do Azure AD, na seção **URLs e Domínio do Tableau Server**.
-     
-    e. Clique em **Exportar Arquivo de Metadados** e abra-o no aplicativo de editor de texto. Localize a URL do Serviço de Declaração do Consumidor com Http Post e Índice 0 e copie a URL. Agora a cole na caixa de texto **URL de Resposta** do Azure AD, na seção **URLs e Domínio do Tableau Server**.
-   
+
+    e. Clique em **Baixar Arquivo de Metadados XML** e abra-o no aplicativo de editor de texto. Localize a URL do Serviço de Declaração do Consumidor com Http Post e Índice 0 e copie a URL. Agora a cole na caixa de texto **URL de Resposta** do Azure AD, na seção **URLs e Domínio do Tableau Server**.
+
     f. Localize o arquivo de Metadados de Federação baixado do portal do Azure e carregue-o no **arquivo de metadados do IDP do SAML**.
-   
-    g. Clique no botão **OK** na página Configuração do Tableau Server.
-   
+
+    g. Insira os nomes dos atributos que o IdP usa para manter os nomes de usuário, nomes de exibição e endereços de email.
+
+    h. Clique em **Salvar**
+
     >[!NOTE] 
     >O cliente precisa carregar um certificado na configuração de SSO do SAML do Tableau Server e ele será ignorado no fluxo de SSO.
-    >Se precisar de ajuda para configurar o SAML no Tableau Server, consulte o artigo [Configurar SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Se precisar de ajuda para configurar o SAML no Tableau Server, consulte o artigo [Configurar SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
@@ -202,7 +211,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Selecione **Criar**.
   
-### <a name="creating-a-tableau-server-test-user"></a>Criação de um usuário de teste do Tableau Server
+### <a name="create-tableau-server-test-user"></a>Criar um usuário de teste do Tableau Server
 
 O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no Tableau Server. Será necessário provisionar todos os usuários no Tableau Server. 
 
@@ -211,7 +220,7 @@ O nome de usuário deve corresponder ao valor que você configurou no atributo p
 >[!NOTE]
 >Se precisar criar um usuário manualmente, entre em contato com o administrador do Tableau Server em sua organização.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Tableau Server.
 
@@ -235,7 +244,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 6. Na caixa de diálogo **Adicionar Atribuição** selecione o botão **Atribuir**.
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 

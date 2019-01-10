@@ -1,5 +1,5 @@
 ---
-title: Colaborar com outras pessoas
+title: Segurança quando colaboram
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: O acesso de criação está disponível para proprietários e colaboradores. Para um aplicativo privado, o acesso de ponto de extremidade está disponível para proprietários e colaboradores.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 533854b723dc5fc9e2406b492a60692f25c33257
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3de58f244012ee0460812fba1ceb5ab12f60aa51
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132578"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602572"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acesso de criação e do usuário de ponto de extremidade
 O acesso de criação está disponível para proprietários e colaboradores. Para um aplicativo privado, o acesso de ponto de extremidade está disponível para proprietários e colaboradores. Para um aplicativo público, o acesso de ponto de extremidade está disponível a todos que têm sua conta LUIS e que tem a ID do aplicativo público. 
@@ -39,6 +39,7 @@ O proprietário e todos os colaboradores têm acesso para criar o aplicativo.
 |Treinar|
 
 ## <a name="access-to-endpoint"></a>Acesso ao ponto de extremidade
+
 O acesso para consultar o ponto de extremidade é controlado por uma configuração na página **Informações do aplicativo** na seção **Gerenciar**. 
 
 ![Definir aplicativo para público](./media/luis-concept-security/set-application-as-public.png)
@@ -48,6 +49,7 @@ O acesso para consultar o ponto de extremidade é controlado por uma configuraç
 |Disponível para proprietário e colaboradores|Disponível para proprietário, colaboradores e para as pessoas que sabem a ID do aplicativo|
 
 ### <a name="private-app-endpoint-security"></a>Segurança de ponto de extremidade de aplicativo privado
+
 O ponto de extremidade de um aplicativo privado está disponível para o seguinte:
 
 |Chave e usuário|Explicação|
@@ -57,11 +59,13 @@ O ponto de extremidade de um aplicativo privado está disponível para o seguint
 |Qualquer chave atribuída ao LUIS por um autor ou colaborador|Com base na camada de uso da chave|
 
 #### <a name="microsoft-user-accounts"></a>Contas de usuário Microsoft
+
 Autores e colaboradores podem atribuir chaves a um aplicativo de LUIS privado. A conta de usuário Microsoft que cria a chave de LUIS no portal do Azure precisa ser o proprietário do aplicativo ou um colaborador do aplicativo. Você não pode atribuir uma chave a um aplicativo privado de outra conta do Azure.
 
 Consulte [Usuário do locatário do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber mais sobre as contas de usuário do Active Directory. 
 
 ### <a name="public-app-endpoint-access"></a>Acesso de ponto de extremidade do aplicativo público
+
 Depois que um aplicativo for configurado como público, _qualquer_ chave de criação LUIS válida ou chave do ponto de extremidade LUIS poderá consultar seu aplicativo, desde que a chave não tenha usado toda a cota de ponto de extremidade.
 
 Um usuário que não é proprietário ou colaborador só poderá acessar um aplicativo público se tiver recebido a ID do aplicativo. O LUIS não tem um _mercado_ público ou outra maneira de pesquisar um aplicativo público.  
@@ -69,19 +73,13 @@ Um usuário que não é proprietário ou colaborador só poderá acessar um apli
 Um aplicativo público é publicado em todas as regiões para que um usuário com uma chave de recurso do LUIS baseada em região possa acessar o aplicativo em qualquer região associada com a chave de recurso.
 
 ## <a name="microsoft-user-accounts"></a>Contas de usuário Microsoft
+
 Autores e colaboradores podem adicionar chaves ao LUIS na página de publicação. A conta de usuário Microsoft que cria a chave de LUIS no portal do Azure precisa ser o proprietário do aplicativo ou um colaborador do aplicativo. 
 
 Consulte [Usuário do locatário do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber mais sobre as contas de usuário do Active Directory. 
 
-<!--
-### Individual consent
-If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then you can provide individual consent as part of the login process. 
-
-### Administrator consent
-If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then the administrator can give individual consent via the method discussed in this [blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/). 
--->
-
 ## <a name="securing-the-endpoint"></a>Protegendo o ponto de extremidade 
+
 É possível controlar quem pode ver sua chave do ponto de extremidade LUIS chamando-a em um ambiente servidor a servidor. Se você estiver usando o LUIS de um bot, a conexão entre o bot e o LUIS já estará segura. Se você estiver chamando o ponto de extremidade LUIS diretamente, deverá criar a API do servidor (como uma [função](https://azure.microsoft.com/services/functions/) do Azure) com acesso controlado (como [AAD](https://azure.microsoft.com/services/active-directory/)). Quando a API do servidor for chamada e a autenticação e a autorização forem verificadas, passe a chamada para o LUIS. Embora essa estratégia não impeça ataques "man-in-the-middle", ela oculta seu ponto de extremidade dos usuários, permite que você controle o acesso e que você adicione um log de resposta de ponto de extremidade (como o [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
 
 ## <a name="security-compliance"></a>Conformidade de segurança

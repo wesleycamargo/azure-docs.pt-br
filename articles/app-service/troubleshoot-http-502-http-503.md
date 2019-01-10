@@ -1,6 +1,6 @@
 ---
 title: Consertar erros 502 gateway inválido, 503 serviço não disponível – Serviço de Aplicativo do Azure | Microsoft Docs
-description: Solucionar problemas dos erros "502 Gateway Incorreto" e "503 Serviço Indisponível" no seu aplicativo Web hospedado no Serviço de Aplicativo do Azure.
+description: Solucionar problemas dos erros "502 Gateway Incorreto" e "503 Serviço Indisponível" no seu aplicativo hospedado no Serviço de Aplicativo do Azure.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -17,20 +17,20 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 71842f9dbc8d0454da1847c956dea3b063208836
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5a4b8b2fd3e232d7b42b2f510075c3964ca50531
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388113"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652567"
 ---
-# <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Solucionar problemas de erros HTTP de "502 Gateway Incorreto" e "503 Serviço Indisponível" em seus Aplicativos Web do Azure
-"502 Gateway Incorreto" e "503 Serviço Indisponível" são os erros comuns em seu aplicativo Web hospedado no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda você a solucionar esses erros.
+# <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Solucionar problemas de erros HTTP de "502 Gateway Incorreto" e "503 Serviço Indisponível" em seu Serviço de Aplicativo do Azure
+"502 Gateway Incorreto" e "503 Serviço Indisponível" são os erros comuns em seu aplicativo hospedado no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda você a solucionar esses erros.
 
 Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 ## <a name="symptom"></a>Sintoma
-Quando você navega até o aplicativo Web, ele retorna um erro de HTTP “502 Gateway Incorreto” ou um “503 Serviço Indisponível”.
+Quando você navega até o aplicativo, ele retorna um erro de HTTP “502 Gateway Incorreto” ou um “503 Serviço Indisponível”.
 
 ## <a name="cause"></a>Causa
 Esse problema geralmente é causado por questões no nível de aplicativo, como:
@@ -46,7 +46,7 @@ A solução de problemas pode ser dividida em três tarefas distintas, em ordem 
 2. [Coletar dados](#collect)
 3. [Atenuar o problema](#mitigate)
 
-[Os Aplicativos Web do Serviço de Aplicativo](app-service-web-overview.md) oferecem várias opções em cada etapa.
+O [Serviço de Aplicativo](overview.md) oferece diversas opções em cada etapa.
 
 <a name="observe" />
 
@@ -54,10 +54,10 @@ A solução de problemas pode ser dividida em três tarefas distintas, em ordem 
 #### <a name="track-service-health"></a>Controlar a integridade do serviço
 O Microsoft Azure publica sempre que há uma degradação no desempenho ou interrupção do serviço. Você pode controlar a integridade do serviço no [Portal do Azure](https://portal.azure.com/). Para obter mais informações, confira [Controlar a integridade do serviço](../monitoring-and-diagnostics/insights-service-health.md).
 
-#### <a name="monitor-your-web-app"></a>Monitorar seu aplicativo Web
-Essa opção permite que você descubra se seu aplicativo está com problemas. Na folha de seu aplicativo Web, clique no bloco **Solicitações e erros** . A folha **Métrica** mostrará todas as métricas que você pode adicionar.
+#### <a name="monitor-your-app"></a>Monitorar o aplicativo
+Essa opção permite que você descubra se seu aplicativo está com problemas. Na folha do seu aplicativo, clique no bloco **Solicitações e erros**. A folha **Métrica** mostrará todas as métricas que você pode adicionar.
 
-Algumas das métricas que deseja monitorar para seu aplicativo Web são
+Algumas das métricas que você talvez queira monitorar para o aplicativo são
 
 * Conjunto de trabalho de memória média
 * Tempo médio de resposta
@@ -65,23 +65,23 @@ Algumas das métricas que deseja monitorar para seu aplicativo Web são
 * Conjunto de trabalho de memória
 * Requests
 
-![monitorar aplicativo Web para solucionar problemas de erros HTTP de 502 Gateway Incorreto e 503 Serviço Indisponível](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![monitorar aplicativo para solucionar problemas de erros HTTP de 502 Gateway Incorreto e 503 Serviço Indisponível](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
 Para obter mais informações, consulte:
 
-* [Monitorar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-monitor.md)
+* [Monitorar aplicativos no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 * [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Coletar dados
 #### <a name="use-the-diagnostics-tool"></a>Use a ferramenta de diagnóstico
-O Serviço de Aplicativo fornece uma experiência inteligente e interativa para ajudar você a solucionar problemas do seu aplicativo da Web sem a necessidade de configuração. Quando você tiver problemas com seu aplicativo da web, a ferramenta de diagnóstico indicará o que está errado para guiá-lo até as informações certas para solucionar o problema com mais facilidade e rapidez.
+O Serviço de Aplicativo fornece uma experiência inteligente e interativa para ajudar você a solucionar problemas do seu aplicativo, sem a necessidade de configuração. Quando tiver problemas com o aplicativo, a ferramenta de diagnóstico indicará o que está errado para direcioná-lo às informações certas para solucionar o problema com mais facilidade e rapidez.
 
 Para acessar o diagnóstico do Serviço de Aplicativo, navegue até seu aplicativo Serviço de Aplicativo ou Ambiente do Serviço de Aplicativo no [Portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **Diagnosticar e resolver problemas**.
 
 #### <a name="use-the-kudu-debug-console"></a>Usar o Console de Depuração Kudu
-Aplicativos Web vêm com um console de depuração que você pode usar para depuração, exploração, carregamento de arquivos, bem como para pontos de extremidade JSON para obter informações sobre seu ambiente. Chama-se *Console Kudu* ou *Painel SCM* de seu aplicativo Web.
+O Serviço de Aplicativo vem com um console de depuração que você pode usar para depurar, explorar e carregar arquivos, incluindo pontos de extremidade JSON para obter informações sobre o ambiente. Chama-se *Console Kudu* ou *Painel SCM* de seu aplicativo.
 
 Você pode acessar este painel acessando o link **https://&lt;Nome do aplicativo>.scm.azurewebsites.net/**.
 
@@ -92,31 +92,31 @@ Estas são algumas das coisas que o Kudu fornece:
 * despejos de diagnóstico
 * console de depuração no qual você pode executar os cmdlets do Powershell e os comandos básicos de DOS.
 
-Outro recurso útil do Kudu é que, caso seu aplicativo esteja lançando exceções de primeira chance, você pode usar o Kudu e o despejo de processo da ferramenta SysInternals para criar despejos de memória. Esses despejos de memória são instantâneos do processo e podem frequentemente ajudá-lo a solucionar problemas mais complexos com seu aplicativo Web.
+Outro recurso útil do Kudu é que, caso seu aplicativo esteja lançando exceções de primeira chance, você pode usar o Kudu e o despejo de processo da ferramenta SysInternals para criar despejos de memória. Esses despejos de memória são instantâneos do processo e podem frequentemente ajudá-lo a solucionar problemas mais complexos com seu aplicativo.
 
 Para saber mais sobre recursos disponíveis no Kudu, consulte [Ferramentas online de Sites do Azure que você deve conhecer](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
 ### <a name="3-mitigate-the-issue"></a>3. Atenuar o problema
-#### <a name="scale-the-web-app"></a>Escalar o aplicativo Web
-No Serviço de Aplicativo do Azure, para um melhor desempenho e taxa de transferência, você pode ajustar a escala na qual você está executando seu aplicativo. Escalar verticalmente aplicativos Web envolve duas ações relacionadas: alterar seu plano do Serviço de Aplicativo para um tipo de preço mais alto e configurar determinadas configurações depois de ter mudado para o tipo de preço mais alto.
+#### <a name="scale-the-app"></a>Escalar o aplicativo
+No Serviço de Aplicativo do Azure, para um melhor desempenho e taxa de transferência, você pode ajustar a escala na qual você está executando seu aplicativo. Escalar verticalmente aplicativos envolve duas ações relacionadas: alterar seu plano do Serviço de Aplicativo para um tipo de preço mais alto e definir certas configurações depois de ter mudado para o tipo de preço mais alto.
 
-Para saber mais sobre como escalar, consulte [Escalar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md).
+Para saber mais sobre como dimensionar, consulte [Escalar um aplicativo no Serviço de Aplicativo do Azure](web-sites-scale.md).
 
 Além disso, você pode optar por executar o aplicativo em mais de uma instância. Isso não apenas fornece mais capacidade de processamento, como também oferece alguma quantidade de tolerância a falhas. Se o processo falhar em uma instância, a outra instância ainda continuará atendendo a solicitações.
 
 Você pode definir a escala para ser Manual ou Automática.
 
 #### <a name="use-autoheal"></a>Usar AutoHeal
-O AutoHeal recicla o processo de trabalho para seu aplicativo com base nas configurações que você escolher (como alterações de configuração, solicitações, limites baseados na memória ou o tempo necessário para executar uma solicitação). Na maioria das vezes, reciclar o processo é a maneira mais rápida de resolver um problema. Embora você possa sempre reiniciar o aplicativo Web diretamente no Portal do Azure, o AutoHeal fará isso automaticamente. Tudo que você precisa fazer é adicionar alguns gatilhos na raiz web.config de seu aplicativo Web. Observe que essas configurações devem funcionar da mesma forma ainda que seu aplicativo não seja um .Net.
+O AutoHeal recicla o processo de trabalho para seu aplicativo com base nas configurações que você escolher (como alterações de configuração, solicitações, limites baseados na memória ou o tempo necessário para executar uma solicitação). Na maioria das vezes, reciclar o processo é a maneira mais rápida de resolver um problema. Embora você possa sempre reiniciar o aplicativo diretamente no Portal do Azure, o AutoHeal fará isso automaticamente. Tudo que você precisa fazer é adicionar alguns gatilhos na raiz web.config do seu aplicativo. Observe que essas configurações devem funcionar da mesma forma ainda que seu aplicativo não seja um .Net.
 
 Para saber mais, consulte [AutoHeal em sites do Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
-#### <a name="restart-the-web-app"></a>Reiniciar o aplicativo Web
-Esta é geralmente a maneira mais simples de se recuperar de problemas de uso únicos. No [Portal do Azure](https://portal.azure.com/), na folha de seu aplicativo Web, existem as opções para parar ou reiniciar o aplicativo.
+#### <a name="restart-the-app"></a>Reiniciar o aplicativo
+Esta é geralmente a maneira mais simples de se recuperar de problemas de uso únicos. No [portal do Azure](https://portal.azure.com/), na folha do aplicativo, há opções para parar ou reiniciar o aplicativo.
 
  ![reiniciar o aplicativo para solucionar os erros HTTP de 502 Gateway Incorreto e 503 Serviço Indisponível](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Também é possível gerenciar o aplicativo usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](../powershell-azure-resource-manager.md).
 

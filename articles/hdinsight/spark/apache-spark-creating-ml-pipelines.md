@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499394"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597470"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Criar um pipeline de machine learning do Apache Spark
 
-A biblioteca de Machine Learning escalonável do Apache Spark (MLlib) oferece recursos de modelagem para um ambiente distribuído. O pacote Spark [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível construído em DataFrames. Essas APIs ajudam a criar e ajustar pipelines práticos de Machine Learning.  *Machine Learning do Spark* refere-se a essa API baseada em DataFrame MLlib, e não à API de pipeline baseada em RDD mais antiga.
+A biblioteca de Machine Learning escalonável do Apache Spark (MLlib) oferece recursos de modelagem para um ambiente distribuído. O pacote Spark [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível construído em DataFrames. Essas APIs ajudam a criar e ajustar pipelines práticos de Machine Learning.  *Machine Learning do Spark* refere-se a essa API baseada em DataFrame MLlib, e não à API de pipeline baseada em RDD mais antiga.
 
 Um pipeline de Machine Learning (ML) é um fluxo de trabalho completo que combina vários algoritmos de Machine Learning em conjunto. Pode haver muitas etapas necessárias para processar e aprender com dados, exigindo uma sequência de algoritmos. Os pipelines definem os estágios e a ordenação de um processo de Machine Learning. No MLlib, os estágios de um pipeline são representados por uma sequência específica de PipelineStages, onde um Transformador e um Estimador executam cada uma das tarefas.
 
@@ -30,7 +30,7 @@ Cada instância sem estado de um Transformador ou um Estimador tem seu próprio 
 
 ## <a name="pipeline-example"></a>Exemplo de pipeline
 
-Para demonstrar um uso prático de um pipeline de ML, esse exemplo usa o arquivo de dados `HVAC.csv` de exemplo que está pré-carregado no armazenamento padrão para seus Cluster HDInsight, tanto de Armazenamento do Microsoft Azure como  Data Lake Store. Para exibir o conteúdo do arquivo, navegue até o diretório `/HdiSamples/HdiSamples/SensorSampleData/hvac`. `HVAC.csv` contém um conjunto de vezes com as temperaturas real e de destino para os sistemas HVAC (*aquecimento, ventilação e ar condicionado*) em várias construções. A meta é treinar o modelo nos dados e produzir uma temperatura de previsão para uma determinada construção.
+Para demonstrar um uso prático de um pipeline de ML, este exemplo usa o arquivo de dados de exemplo `HVAC.csv` que é fornecido pré-carregado no armazenamento padrão do cluster do HDInsight, do Armazenamento do Azure ou Data Lake Storage. Para exibir o conteúdo do arquivo, navegue até o diretório `/HdiSamples/HdiSamples/SensorSampleData/hvac`. `HVAC.csv` contém um conjunto de vezes com as temperaturas real e de destino para os sistemas HVAC (*aquecimento, ventilação e ar condicionado*) em várias construções. A meta é treinar o modelo nos dados e produzir uma temperatura de previsão para uma determinada construção.
 
 O seguinte código:
 

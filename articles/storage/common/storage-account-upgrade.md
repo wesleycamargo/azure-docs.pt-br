@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 10dc25740eca43c7cbd39b8ec783084e048d2af2
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637594"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631423"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 
@@ -34,12 +34,14 @@ A atualização para uma conta de armazenamento de uso geral v2 das suas contas 
 
 ## <a name="upgrade-with-powershell"></a>Atualização com o PowerShell
 
-Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando o PowerShell, primeiro atualize o PowerShell para usar a versão mais recente do módulo **AzureRm.Storage**. Acesse [Como instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) para obter informações sobre como instalar o PowerShell. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando PowerShell, primeiro atualize o PowerShell para usar a última versão do módulo **Az.Storage**. Acesse [Como instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) para obter informações sobre como instalar o PowerShell. 
 
 Em seguida, chame o comando a seguir para atualizar a conta, substituindo o nome do seu grupo de recursos e a conta de armazenamento:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
 
 ## <a name="upgrade-with-azure-cli"></a>Atualização com a CLI do Azure
@@ -56,7 +58,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 Contas de uso geral v2 dão suporte a todos os objetos de dados e serviços de Armazenamento do Azure, mas as camadas de acesso estão disponíveis apenas para blobs de blocos no armazenamento de blobs. Quando você atualiza para uma conta de armazenamento de uso geral v2, pode especificar uma camada de acesso para seus dados de blob. 
 
-As camadas de acesso permitem que você escolha o armazenamento mais econômico com base nos seus padrões de uso previstos. Blobs de blocos podem ser armazenados em uma camada frequente, esporádica ou de arquivos. Para obter mais informações sobre camadas de acesso, veja [Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivos](../blobs/storage-blob-storage-tiers.md).
+As camadas de acesso permitem que você escolha o armazenamento mais econômico com base nos seus padrões de uso previstos. Blobs de blocos podem ser armazenados em uma camada frequente, esporádica ou de arquivos. Para obter mais informações sobre camadas de acesso, consulte [Armazenamento de Blobs do Azure: Camadas de armazenamento de Arquivos, Frequente, Esporádico](../blobs/storage-blob-storage-tiers.md).
 
 Por padrão, uma nova conta de armazenamento é criada na camada de acesso frequente e uma conta de armazenamento de uso geral v1 é atualizada para a camada de acesso frequente. Se você está explorando qual camada de acesso usar para seus dados após a atualização, considere seu cenário. Há dois cenários de usuário comuns para a migração para uma conta de uso geral v2:
 
@@ -73,13 +75,13 @@ Todas as contas de armazenamento usam um modelo de preços para o armazenamento 
 
 * **Custos de acesso a dados**: os encargos de acesso a dados aumentam conforme a camada fica mais esporádica. Para dados na camada de armazenamento esporádico e de arquivos, será cobrado um encargo de acesso a dados por gigabyte para leituras.
 
-* **Custos de transações**: há um encargo por transação para todas as camadas que aumenta à medida que a camada fica mais esporádica.
+* **Custos de transação**: há um encargo por transação para todas as camadas que aumenta à medida que a camada fica mais esporádica.
 
-* **Custos de transferência de dados de replicação geográfica**: isso só se aplica a contas com replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de replicação geográfica acarreta um encargo por gigabyte.
+* **Custos de transferência de dados com replicação geográfica**: isso só se aplica a contas com replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de replicação geográfica acarreta um encargo por gigabyte.
 
 * **Custos de transferência de dados de saída**: transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) acarretam a cobrança por uso de largura de banda por gigabyte, de forma consistente com as contas de armazenamento de finalidade geral.
 
-* **Alteração da camada de armazenamento**: A alteração da camada de armazenamento da conta de esporádico para frequente acarretará um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, alterar a camada de armazenamento de conta de frequente para esporádico incorre em um custo igual à gravação de todos os dados na camada esporádica (apenas contas de GPv2).
+* **Alteração da camada de armazenamento**: Alterar a camada de armazenamento da conta de esporádico para frequente incorre em um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, alterar a camada de armazenamento de conta de frequente para esporádico incorre em um custo igual à gravação de todos os dados na camada esporádica (apenas contas de GPv2).
 
 > [!NOTE]
 > Para saber mais informações sobre o modelo de preços para contas de armazenamento, confira a página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para saber mais informações sobre os encargos de transferência de dados de saída, confira a página [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/).

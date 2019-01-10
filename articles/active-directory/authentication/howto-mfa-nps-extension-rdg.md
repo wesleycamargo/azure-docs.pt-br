@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: db7591c98147a5728486843efb0c807b6094557a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277974"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601467"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
@@ -26,7 +26,7 @@ A extensão do NPS (Servidor de Políticas de Rede) para o Azure permite que os 
 Este artigo fornece instruções passo a passo para integrar a infraestrutura do NPS com a Autenticação Multifator do Azure usando a extensão do NPS do Azure. Isso permite a verificação dos usuários que tentarem entrar em um Gateway de Área de Trabalho Remota.
 
 > [!NOTE]
-> Esse artigo não deve ser usado com implantações do Servidor MFA apenas no Azure MFA (baseado em nuvem).
+> Esse artigo não deve ser usado com implantações do Servidor MFA e só deve ser usado com as implantações do Azure MFA (baseado em nuvem).
 
 A Política de Rede e Serviços de Acesso (NPS) permite que as organizações façam o seguinte:
 
@@ -162,7 +162,7 @@ Para usar o script, forneça a extensão com suas credenciais de administrador d
 
 1. Abra um prompt do Windows PowerShell administrativo.
 1. No prompt do PowerShell, digite `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’` e clique em **ENTER**.
-1. Digite`.\AzureMfsNpsExtnConfigSetup.ps1`, e aperte **ENTER**. O script verifica se o módulo do Azure Active Directory PowerShell está instalado. Se não estiver instalado, o script instala o módulo para você.
+1. Digite`.\AzureMfaNpsExtnConfigSetup.ps1`, e aperte **ENTER**. O script verifica se o módulo do Azure Active Directory PowerShell está instalado. Se não estiver instalado, o script instala o módulo para você.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

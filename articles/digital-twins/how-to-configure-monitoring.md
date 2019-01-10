@@ -1,19 +1,20 @@
 ---
 title: Como configurar o monitoramento nos Gêmeos Digitais do Azure | Microsoft Docs
-description: Como configurar o monitoramento nos Gêmeos Digitais do Azure
+description: Como configurar o monitoramento nos Gêmeos Digitais do Azure.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/26/2018
 ms.author: adgera
-ms.openlocfilehash: 1c8f1931a29ae9769f7d8ad57a184e3240105a1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.custom: seodec18
+ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945801"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807577"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar o monitoramento nos Gêmeos Digitais do Azure
 
@@ -23,7 +24,7 @@ Este artigo resume as opções de registro em log e monitoramento e como combin�
 
 ## <a name="review-activity-logs"></a>Revisar logs de atividade
 
-Os [logs de atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) do Azure fornecem insights rápidos em históricos de operações e eventos de nível de assinatura para cada instância de serviço do Azure.
+Os [logs de atividade](../azure-monitor/platform/activity-logs-overview.md) do Azure fornecem insights rápidos em históricos de operações e eventos de nível de assinatura para cada instância de serviço do Azure.
 
 Os eventos de nível de assinatura incluem:
 
@@ -54,7 +55,7 @@ Para o registro de log de atividades avançadas:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Habilite logs de diagnóstico do cliente
 
-As [Configurações de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) do Azure podem ser definidas para cada instância do Azure para complementar o log de atividades. Enquanto os logs de atividade pertencem aos eventos de nível de assinatura, o registro de log de diagnóstico fornece insights sobre o histórico operacional dos próprios recursos.
+As [Configurações de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) do Azure podem ser definidas para cada instância do Azure para complementar o log de atividades. Enquanto os logs de atividade pertencem aos eventos de nível de assinatura, o registro de log de diagnóstico fornece insights sobre o histórico operacional dos próprios recursos.
 
 Exemplos de registro de log de diagnóstico incluem:
 
@@ -74,7 +75,7 @@ Para habilitar logs de diagnóstico, siga estas etapas:
 
     ![Configurações de Diagnóstico dois][5]
 
-    Os logs de diagnóstico geralmente são salvos usando [Armazenamento de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide) e são compartilhados com [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal). Ambas as opções podem ser selecionadas.
+    Os logs de diagnóstico geralmente são salvos usando [Armazenamento de Arquivos do Azure](../storage/files/storage-files-deployment-guide.md) e são compartilhados com [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Ambas as opções podem ser selecionadas.
 
 >[!TIP]
 >Use **logs de diagnóstico** para obter insights sobre operações de recursos.
@@ -91,7 +92,7 @@ Os exemplos de uso incluem:
 * Visualizar os logs para várias funções definidas pelo usuário
 * Exibir os logs para dois ou mais serviços dentro de um período de tempo específico
 
-A consulta completa de log é fornecida por meio do [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Para configurar esses recursos avançados:
+A consulta completa de log é fornecida por meio do [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). Para configurar esses recursos avançados:
 
 1. No portal do Microsoft Azure, pesquise **Log Analytics**.
 1. Você verá suas instâncias disponíveis de **Log Analytics**. Para consultar, escolha um e selecione **Logs**:
@@ -106,7 +107,7 @@ Depois que sua instância do **Log Analytics** for provisionada, você poderá u
 
    ![Gerenciamento de Log][8]
 
-Para obter mais informações sobre as operações de consulta avançada, confira [Introdução às consultas](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Para obter mais informações sobre as operações de consulta avançada, confira [Introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Pode haver um atraso de 5 minutos ao enviar eventos para o **Log Analytics** pela primeira vez.
@@ -120,15 +121,15 @@ O Azure Log Analytics também fornece os poderosos serviços de notificação de
 
 ## <a name="other-options"></a>Outras opções
 
-Os Gêmeos Digitais do Azure também dão suporte a registro em log específico de aplicativo e auditoria de segurança. Para obter uma visão completa de todas as opções de registro em log do Azure disponíveis para sua instância de Gêmeos Digitais do Azure, consulte o artigo [Auditoria de log do Azure](https://docs.microsoft.com/azure/security/azure-log-audit).
+Os Gêmeos Digitais do Azure também dão suporte a registro em log específico de aplicativo e auditoria de segurança. Para obter uma visão completa de todas as opções de registro em log do Azure disponíveis para sua instância de Gêmeos Digitais do Azure, consulte o artigo [Auditoria de log do Azure](../security/azure-log-audit.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o [Log de Atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) do Azure.
+- Saiba mais sobre o [Log de Atividades](../azure-monitor/platform/activity-logs-overview.md) do Azure.
 
-Aprofunde-se nas configurações de diagnóstico do Azure lendo uma [Visão geral dos logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Aprofunde-se nas configurações de diagnóstico do Azure lendo uma [Visão geral dos logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Saiba mais sobre [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal).
+- Saiba mais sobre [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

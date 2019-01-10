@@ -4,17 +4,17 @@ description: Saiba quais sistemas operacionais podem executar o tempo de execuç
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6443260de0a8bd8531edb303fa581d281034fef3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100168"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555601"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatíveis com o Azure IoT Edge
 
@@ -41,12 +41,14 @@ Disponível para o público geral
 | Ubuntu Server 16.04 | SIM | Não  |
 | Ubuntu Server 18.04 | SIM | Não  |
 
-Visualização pública
+Versão prévia pública
 | Sistema operacional | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core (atualização de abril de 2018) | SIM | Não  |
-| Windows 10 IoT Enterprise (atualização de abril de 2018) | SIM | Não  |
-| Windows 10 Server 1803 | SIM | Não  |
+| Windows 10 IoT Core build 17763 | SIM | Não  |
+| Windows 10 build 17763 para contêineres do Windows<br><br>Windows 10 build 14393 ou mais recente para contêineres do Linux\* | SIM | Não  |
+| Windows Server 2019 para contêineres do Windows<br><br>Windows Server 2016 ou mais recente para contêineres do Linux\* | SIM | Não  |
+
+\* A Microsoft fornece pacotes de instalação para contêineres do Linux em dispositivos Windows somente para desenvolvimento e teste. Isso não é uma configuração com suporte para uso em produção. 
 
 ### <a name="tier-2"></a>Camada 2
 Os sistemas da Camada 2 podem ser considerados compatíveis com o Azure IoT Edge e podem ser utilizados com relativa facilidade. Isso significa que:

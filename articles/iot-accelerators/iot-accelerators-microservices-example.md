@@ -1,5 +1,5 @@
 ---
-title: Alterar e reimplantar um microsserviço | Microsoft Docs
+title: Alterar e reimplantar um microsserviço - Azure | Microsoft Docs
 description: Este tutorial mostra como alterar e reimplantar um microsserviço no Monitoramento Remoto
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315750"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631883"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplantar um microsserviço
 
-Este tutorial mostra como editar um dos [microsserviços](http://azure.com/microservices) na solução de Monitoramento Remoto, criar uma imagem do microsserviço, implantar a imagem no hub do Docker e, em seguida, usá-la na solução de Monitoramento Remoto. Para apresentar este conceito, o tutorial usa um cenário básico em que você pode chamar uma API de microsserviço e alterar o status da mensagem de "Alive and Well" para "New Edits Made Here!"
+Este tutorial mostra como editar um dos [microsserviços](https://azure.com/microservices) na solução de Monitoramento Remoto, criar uma imagem do microsserviço, implantar a imagem no hub do Docker e, em seguida, usá-la na solução de Monitoramento Remoto. Para apresentar este conceito, o tutorial usa um cenário básico em que você pode chamar uma API de microsserviço e alterar o status da mensagem de "Alive and Well" para "New Edits Made Here!"
 
 A solução de Monitoramento Remoto usa microsserviços que são criados usando imagens do docker que são extraídas de um hub do docker. 
 
@@ -77,7 +77,7 @@ Agora, altere a mensagem de status de microsserviço do Gerenciador do Hub IoT p
     
     ou, no Windows:
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

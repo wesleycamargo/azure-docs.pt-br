@@ -4,15 +4,15 @@ description: Encontre respostas para perguntas frequentes sobre o Arquivos do Az
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 10/04/2018
+ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972075"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001525"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -182,7 +182,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 * <a id="ad-support-regions"></a>
 **É a visualização do AD do Azure no SMB para arquivos do Azure disponível em todas as regiões do Azure?**
 
-    A versão prévia está disponível em todas as regiões públicas, exceto para: Europa Setentrional.
+    A versão prévia está disponível em todas as regiões públicas.
 
 * <a id="ad-support-on-premises"></a>
 **Autenticação do AD do Azure no SMB para arquivos do Azure (versão prévia) dá suporte a autenticação usando o AD do Azure de máquinas locais?**

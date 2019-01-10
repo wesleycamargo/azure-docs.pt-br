@@ -11,20 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/27/2018
-ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/02/2019
+ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437054"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001593"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>camadas de serviço de vCore, Benefício Híbrido do Azure e migração
 
 O modelo de compra baseado em vCore permite que você dimensione recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço. Também permite escolher a geração de hardware:
 
 - Ger 4 - Até 24 CPUs lógicas baseadas nos processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (núcleo físico), 7 GB por núcleo, SSD anexado
-- Ger 5 - Até 80 CPUs lógicas baseadas nos processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. GB por núcleo, SSD eNVM rápido
+- Ger 5 - Até 80 CPUs lógicas baseadas nos processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1. GB por núcleo, SSD eNVM rápido
 
 o modelo vCore também permite que você use [o Benefício Híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) Obtenha economia de custo.
 
@@ -33,16 +33,16 @@ o modelo vCore também permite que você use [o Benefício Híbrido do Azure par
 
 ## <a name="service-tier-characteristics"></a>Características de camada de serviço
 
-O modelo vCore fornece duas camadas de serviço, Uso Geral e Comercialmente Crítico. As camadas de serviço são diferenciadas por um intervalo de tamanhos de computação, design de alta disponibilidade, isolamento de falhas, tipos de armazenamento e intervalo de E/S. O cliente deve configurar separadamente o período necessário de armazenamento e retenção para backups. Configure separadamente o período necessário de armazenamento e retenção para backups. No portal do Azure, vá para o servidor (não o banco de dados) > Backups gerenciados > Configurar política > Ponto no tempo de restauração da configuração > 7 a 35 dias.
+O modelo vCore fornece três camadas de serviço, Uso Geral, Hiperescala e Comercialmente Crítico. As camadas de serviço são diferenciadas por uma variedade de tamanhos de computação, design de alta disponibilidade, isolamento de falhas, tipos e tamanho de armazenamento e intervalo de E/S. Configure separadamente o período necessário de armazenamento e retenção para backups. No portal do Azure, vá para o servidor (não o banco de dados) > Backups gerenciados > Configurar política > Ponto no tempo de restauração da configuração > 7 a 35 dias.
 
-A tabela a seguir ajuda-o a reconhecer as diferenças entre essas duas camadas:
+A tabela a seguir ajuda a reconhecer as diferenças entre as três camadas:
 
 ||**Uso geral**|**Comercialmente Crítico**|**Hiperescala (versão prévia)**|
 |---|---|---|---|
 |Mais adequado para|A maioria das cargas de trabalho comerciais. Oferece opções de armazenamento e computação escalonáveis e equilibradas orientadas a orçamento.|Aplicativos de negócios com altos requisitos de E/S. Oferece maior resiliência a falhas usando várias réplicas isoladas.|Maioria das cargas de trabalho empresariais com requisitos de escala de leitura e armazenamento altamente escalonáveis|
 |Computação|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|
 |Memória|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo|
-|Armazenamento|Use o [armazenamento remoto premium](../virtual-machines/windows/premium-storage.md):<br/>Banco de dados individual: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 8 TB |Use o armazenamento SSD local:<br/>Banco de dados individual: 5 GB – 1 TB<br/>Instância Gerenciada: 32 GB - 4 TB |Aumento automático flexível, de armazenamento conforme necessário. Compatível com até 100 TB de armazenamento e muito mais. Armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
+|Armazenamento|Use o [armazenamento remoto premium](../virtual-machines/windows/premium-storage.md):<br/>Banco de dados individual: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 8 TB |Use o armazenamento SSD local:<br/>Banco de dados individual: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 4 TB |Aumento automático flexível, de armazenamento conforme necessário. Compatível com até 100 TB de armazenamento e muito mais. Armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
 |Taxa de transferência de E/S (aproximada)|Banco de dados individual: 500 IOPS por vCore com máximo de 7.000 IOPS</br>Instância Gerenciada: Depende do [tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com máximo de 200.000 IOPS|TBD|
 |Disponibilidade|1 réplica, sem escala de leitura|3 réplicas, 1 [réplica em escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|?|
 |Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|backup baseado em instantâneo no armazenamento remoto do Azure e as restaurações usam esses instantâneos para a recuperação rápida. Os backups são instantâneos e não afetam o desempenho de E/S da computação. As restaurações são muito rápidas e não têm um tamanho de operação de dados (levando minutos em vez de horas ou dias).|
@@ -63,7 +63,7 @@ Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) pa
 
 ## <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-No modelo de compra baseado em vCore, é possível trocar suas licenças existentes por tarifas com desconto no Banco de Dados SQL usando o [Benefício Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Esse benefício do Azure permite que você use as licenças locais do SQL Server para economizar até 30% no Banco de Dados SQL do Azure usando as licenças do SQL Server local com Software Assurance.
+No modelo de compra baseado em vCore, é possível trocar suas licenças existentes por tarifas com desconto no Banco de Dados SQL usando o [Benefício Híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esse benefício do Azure permite que você use as licenças locais do SQL Server para economizar até 30% no Banco de Dados SQL do Azure usando as licenças do SQL Server local com Software Assurance.
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
 

@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582202"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653621"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Visão geral do streaming estruturado do Apache Spark
 
 O [Apache Spark](https://spark.apache.org/) Structured Streaming permite que você implemente aplicativos dimensionáveis, tolerantes a falhas e de alto rendimento para o processamento de fluxos de dados. O Structured Streaming baseia-se no mecanismo do Spark SQL e aprimora as construções de quadros de dados e conjuntos de dados do Spark SQL, para que você possa gravar consultas de streaming da mesma forma que gravaria consultas de lote.  
 
-Aplicativos de Fluxo Estruturado são executados em clusters do HDInsight Spark e se conectam a dados de fluxo contínuo do [Apache Kafka](https://kafka.apache.org/), um soquete TCP (para fins de depuração), Armazenamento do Microsoft Azure ou Armazenamento do Azure Data Lake. As duas últimas opções, que contam com serviços de armazenamento externos, permitem detectar novos arquivos adicionados no armazenamento e processar seu conteúdo, como se fossem transmitidos. 
+Aplicativos de Fluxo Estruturado são executados em clusters do HDInsight Spark e se conectam a dados de fluxo contínuo do [Apache Kafka](https://kafka.apache.org/), um soquete TCP (para fins de depuração), Armazenamento do Microsoft Azure ou Armazenamento do Azure Data Lake Storage. As duas últimas opções, que contam com serviços de armazenamento externos, permitem detectar novos arquivos adicionados no armazenamento e processar seu conteúdo, como se fossem transmitidos. 
 
-O Structured Streaming cria uma consulta de longa execução durante a qual você aplica operações aos dados de entrada, como seleção, projeção, agregação, janelas e união de DataFrame de streaming com referência de DataFrames. Em seguida, você gera os resultados para o armazenamento de arquivo (Azure Storage Blobs ou Data Lake Store) ou para qualquer repositório de dados usando código personalizado (como banco de dados SQL ou Power BI). Structured Streaming também fornece a saída para o console para depuração local e para uma tabela na memória para que você possa ver os dados gerados para depuração no HDInsight. 
+O Structured Streaming cria uma consulta de longa execução durante a qual você aplica operações aos dados de entrada, como seleção, projeção, agregação, janelas e união de DataFrame de streaming com referência de DataFrames. Em seguida, você gera os resultados para o armazenamento de arquivo (Azure Storage Blobs ou Data Lake Storage) ou para qualquer repositório de dados usando código personalizado (como banco de dados SQL ou Power BI). Structured Streaming também fornece a saída para o console para depuração local e para uma tabela na memória para que você possa ver os dados gerados para depuração no HDInsight. 
 
 ![Processamento de Stream com o HDInsight e o Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]
+> [!NOTE]  
 > O Spark Structured Streaming substitui o Spark Streaming (DStreams). No futuro, Structured Streaming receberá aprimoramentos e manutenção, enquanto DStreams estará apenas no modo de manutenção. O Structured Streaming não tem no momento todos os recursos do DStreams para as fontes e coletores compatíveis instantaneamente, então avalie os requisitos para escolher a opção adequada de processamento de transmissão do Spark. 
 
 ## <a name="streams-as-tables"></a>Fluxos como tabelas
@@ -124,11 +124,11 @@ Esta consulta gera resultados semelhantes a:
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-Para obter detalhes sobre a API do Spark Structured Stream, junto com as fontes de dados de entrada, operações e coletores de saída que ele suporta, consulte [Guia de programação de streaming estruturado do Apache Spark](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Para obter detalhes sobre a API do Spark Structured Stream, junto com as fontes de dados de entrada, operações e coletores de saída que ele suporta, consulte [Guia de programação de streaming estruturado do Apache Spark](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Pontos de verificação e logs write-ahead
 
-Para fornecer resiliência e tolerância a falhas, o Structured Streaming conta com um *ponto de verificação* para garantir que o processamento do fluxo continue sem interrupções, mesmo com falhas nos nós. No HDInsight, o Spark cria pontos de verificação para que o armazenamento seja durável, Armazenamento do Microsoft Azure ou Data Lake Store. Esses pontos de verificação armazenam as informações de progresso sobre a consulta de streaming. Além disso, o Structured Streaming utiliza um *log write-ahead* (WAL). O WAL captura dados ingeridos que foram recebidos, mas ainda não processados por uma consulta. Se ocorrer uma falha e o processamento for reiniciado pelo WAL, quaisquer eventos recebidos da fonte não são perdidos.
+Para fornecer resiliência e tolerância a falhas, o Structured Streaming conta com um *ponto de verificação* para garantir que o processamento do fluxo continue sem interrupções, mesmo com falhas nos nós. No HDInsight, o Spark cria pontos de verificação para que o armazenamento seja durável, Armazenamento do Microsoft Azure ou Data Lake Storage. Esses pontos de verificação armazenam as informações de progresso sobre a consulta de streaming. Além disso, o Structured Streaming utiliza um *log write-ahead* (WAL). O WAL captura dados ingeridos que foram recebidos, mas ainda não processados por uma consulta. Se ocorrer uma falha e o processamento for reiniciado pelo WAL, quaisquer eventos recebidos da fonte não são perdidos.
 
 ## <a name="deploying-spark-streaming-applications"></a>Implantar aplicativos Spark Streaming
 
@@ -136,10 +136,10 @@ Normalmente, você cria um aplicativo Spark Streaming localmente em um arquivo J
 
 ![Implantando um aplicativo Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-O status de todos os aplicativos também pode ser verificado com uma solicitação GET em um ponto de extremidade LIVY. Por fim, encerre um aplicativo em execução emitindo uma solicitação DELETE no ponto de extremidade do LIVY. Para detalhes sobre a API LIVY, veja [Trabalhos remotos com o Apache LIVY](apache-spark-livy-rest-interface.md)
+O status de todos os aplicativos também pode ser verificado com uma solicitação GET em um ponto de extremidade LIVY. Por fim, encerre um aplicativo em execução emitindo uma solicitação DELETE no ponto de extremidade do LIVY. Para detalhes sobre a API LIVY, veja [ Trabalhos remotos com o Apache LIVY ](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um cluster Apache Spark no HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Guia de programação de streaming estruturado do Apache Spark](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Guia de programação de streaming estruturado do Apache Spark](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
 * [Iniciar trabalhos do Apache Spark remotamente com LIVY Apache](apache-spark-livy-rest-interface.md)

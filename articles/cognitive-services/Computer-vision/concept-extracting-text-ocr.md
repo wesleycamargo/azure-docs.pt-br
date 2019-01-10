@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 52b6265722d5cfbf8baf54e1785ace627aa0892f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 07d3f5d365fa5c552ccb61c97532a9931b7e282e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341660"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583673"
 ---
-# <a name="extracting-text-with-ocr"></a>Extrair texto com OCR
+# <a name="extracting-text-with-optical-character-recognition"></a>Extrair texto com Reconhecimento Óptico de Caracteres
 
 A tecnologia OCR (reconhecimento óptico de caracteres) na Pesquisa Visual Computacional detecta conteúdo de texto em uma imagem e extrai o texto identificado em um fluxo de caracteres legível por computador. Você pode usar o resultado para pesquisa e várias outras finalidades, como registros médicos, segurança e serviços bancários. Ele detecta o idioma automaticamente. O OCR economiza tempo e fornece conveniência aos usuários, permitindo que eles tirem fotos do texto em vez de transcrevê-lo.
 
@@ -25,7 +26,7 @@ O OCR dá suporte a 25 idiomas. Esses idiomas são: árabe, chinês simplificado
 
 Se necessário, o OCR corrige a rotação do texto reconhecido, em graus, ao redor do eixo horizontal da imagem. O OCR fornece as coordenadas de quadro de cada palavra, como mostrado na ilustração a seguir.
 
-![Visão geral de OCR](./Images/vision-overview-ocr.png)
+![Um diagrama representando uma imagem sendo rotacionada e o texto sendo lido e delineado](./Images/vision-overview-ocr.png)
 
 ## <a name="ocr-requirements"></a>Requisitos de OCR
 

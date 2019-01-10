@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 75a3dcb5aeb3e30da570eb57d0d1495710624e54
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145457"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628333"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
 
@@ -23,6 +23,8 @@ A maioria das pessoas usa a nuvem pública do Azure em suas implantações globa
 * [Nuvem do Azure na China operada pela 21Vianet na China](http://www.windowsazure.cn/)
 * [Nuvem alemã do Azure](../../germany/germany-welcome.md)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="using-an-independent-cloud"></a>Utilização de uma nuvem independente 
 
 Para utilizar o Armazenamento do Azure em uma das nuvens independentes, você deve se conectar àquela nuvem em vez de se conectar à nuvem pública do Azure. Para usar uma das nuvens independentes em vez da nuvem pública do Azure:
@@ -31,28 +33,28 @@ Para utilizar o Armazenamento do Azure em uma das nuvens independentes, você de
 * Determine e use as regiões disponíveis.
 * Use o sufixo do ponto de extremidade correto, que é diferente do da nuvem pública do Azure.
 
-Estes exemplos exigem a versão 4.4.0 ou posterior do módulo do Azure PowerShell. Em uma janela do PowerShell, execute `Get-Module -ListAvailable AzureRM` para localizar a versão. Se nada for listado ou você precisar atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Estes exemplos exigem a versão 0.7 ou posterior do módulo do Azure PowerShell. Em uma janela do PowerShell, execute `Get-Module -ListAvailable Az` para localizar a versão. Se nada for listado ou você precisar atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Execute o [Get-AzureRmEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-azurermenvironment) cmdlet para ver os ambientes do Azure disponíveis:
+Execute o cmdlet [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) para ver os ambientes do Azure disponíveis:
    
 ```powershell
-Get-AzureRmEnvironment
+Get-AzEnvironment
 ```
 
 Entre em sua conta que tem acesso à nuvem com a qual você deseja se conectar e defina o ambiente. Este exemplo mostra como entrar em uma conta que usa a Nuvem do Azure Governamental.   
 
 ```powershell
-Connect-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzAccount –Environment AzureUSGovernment
 ```
 
 Para acessar a Nuvem da China, use o ambiente **AzureChinaCloud**. Para acessar a Nuvem alemã, use **AzureGermanCloud**.
 
-Neste ponto, se precisar da lista de locais para criar uma conta de armazenamento ou outro recurso, você poderá consultar os locais disponíveis para a nuvem selecionada usando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+Neste ponto, se precisar da lista de locais para criar uma conta de armazenamento ou outro recurso, você poderá consultar os locais disponíveis para a nuvem selecionada usando [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
 ```powershell
-Get-AzureRmLocation | select Location, DisplayName
+Get-AzLocation | select Location, DisplayName
 ```
 
 A tabela a seguir mostra os locais retornados para a Nuvem alemã.
@@ -67,14 +69,14 @@ A tabela a seguir mostra os locais retornados para a Nuvem alemã.
 
 O sufixo de ponto de extremidade para cada um desses ambientes é diferente do ponto de extremidade da nuvem pública do Azure. Por exemplo, o sufixo de ponto de extremidade do blob da nuvem pública do Azure é **blob.core.windows.net**. Para a nuvem do governo, o sufixo de ponto de extremidade do blob é **blob.core.usgovcloudapi.net**. 
 
-### <a name="get-endpoint-using-get-azurermenvironment"></a>Obter o ponto de extremidade usando Get-AzureRMEnvironment 
+### <a name="get-endpoint-using-get-azenvironment"></a>Obter o ponto de extremidade usando Get-AzEnvironment 
 
-Recupere o sufixo de ponto de extremidade usando [Get-AzureRMEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment). O ponto de extremidade é a propriedade *StorageEndpointSuffix* do ambiente. Os trechos de código a seguir mostram como fazer isso. Todos esses comandos retornam algo como “core.cloudapp.net” ou “core.cloudapi.de”, etc. Acrescente-o ao serviço de armazenamento para acessar esse serviço. Por exemplo, “queue.core.cloudapi.de” acessará o serviço Fila na nuvem alemã.
+Recupere o sufixo de ponto de extremidade usando [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). O ponto de extremidade é a propriedade *StorageEndpointSuffix* do ambiente. Os snippets de código a seguir mostram como fazer isso. Todos esses comandos retornam algo como “core.cloudapp.net” ou “core.cloudapi.de”, etc. Acrescente-o ao serviço de armazenamento para acessar esse serviço. Por exemplo, “queue.core.cloudapi.de” acessará o serviço Fila na nuvem alemã.
 
-Este trecho de código recupera todos os ambientes e o sufixo do ponto de extremidade para cada um.
+Este snippet de código recupera todos os ambientes e o sufixo do ponto de extremidade para cada um.
 
 ```powershell
-Get-AzureRmEnvironment | select Name, StorageEndpointSuffix 
+Get-AzEnvironment | select Name, StorageEndpointSuffix 
 ```
 
 Esse comando retorna os seguintes resultados.
@@ -86,10 +88,10 @@ Esse comando retorna os seguintes resultados.
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-Para recuperar todas as propriedades para o ambiente especificado, chame **Get-AzureRmEnvironment** e especifique o nome da nuvem. Este trecho de código retorna uma lista de propriedades. Procure por **StorageEndpointSuffix** na lista. O exemplo a seguir é para a nuvem alemã.
+Para recuperar todas as propriedades para o ambiente especificado, chame **Get-AzEnvironment** e especifique o nome da nuvem. Este snippet de código retorna uma lista de propriedades. Procure por **StorageEndpointSuffix** na lista. O exemplo a seguir é para a nuvem alemã.
 
 ```powershell
-Get-AzureRmEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud 
 ```
 
 Os resultados são semelhantes ao seguinte:
@@ -111,7 +113,7 @@ Os resultados são semelhantes ao seguinte:
 Para recuperar apenas a propriedade de sufixo de ponto de extremidade do armazenamento, recupere a nuvem específica e solicite somente aquela propriedade.
 
 ```powershell
-$environment = Get-AzureRmEnvironment -Name AzureGermanCloud
+$environment = Get-AzEnvironment -Name AzureGermanCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
 ```
 
@@ -129,7 +131,7 @@ Você também pode examinar as propriedades de uma conta de armazenamento para r
 # Get a reference to the storage account.
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
-$storageAccount = Get-AzureRmStorageAccount `
+$storageAccount = Get-AzStorageAccount `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
   # Output the endpoints.
@@ -157,7 +159,7 @@ Daqui em diante, você poderá usar o mesmo PowerShell utilizado para gerenciar 
 Se tiver criado um novo grupo de recursos e uma conta de armazenamento para este exercício, você poderá remover todos os ativos ao remover o grupo de recursos. Isso também exclui todos os recursos contidos no grupo. Nesse caso, ele remove a conta de armazenamento criada e o próprio grupo de recursos.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

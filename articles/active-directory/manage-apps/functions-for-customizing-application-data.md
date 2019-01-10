@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105148"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973716"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -27,13 +27,13 @@ Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de 
 A sintaxe de expressões para mapeamentos de atributos é semelhante à das funções de VBA (Visual Basic for Applications).
 
 * A expressão inteira deve ser definida em termos de funções, que consistem em um nome seguido pelos argumentos entre parênteses:  <br>
-  *FunctionName(<<argument 1>>,<<argument N>>)*
-* Você pode aninhar funções dentro umas das outras. Por exemplo:  <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+* Você pode aninhar funções dentro umas das outras. Por exemplo:  <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * Você pode passar três tipos diferentes de argumentos em funções:
   
   1. Atributos, que devem ser colocados entre colchetes. Por exemplo: [attributeName]
   2. Constantes de cadeia de caracteres, que devem ser colocadas entre aspas duplas. Por exemplo:  "Estados Unidos"
-  3. Outras funções. Por exemplo:  FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+  3. Outras funções. Por exemplo:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo:  "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções

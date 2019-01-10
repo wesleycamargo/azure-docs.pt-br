@@ -10,20 +10,20 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 40b9685c56dd494e82c05bff9ed75f425a3006ff
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886620"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741735"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exemplos de uso de insights do Bing
 
-Esta seção contém exemplos de como o Bing pode exibir informações no Bing.com.
+Este artigo contém exemplos de como o Bing pode usar e exibir informações de imagens no Bing.com.
 
 ## <a name="pagesincluding-insight-example"></a>Exemplo de insights do PagesIncluding
 
-O exemplo a seguir mostra como o Bing pode exibir páginas da Web que incluem a imagem. O exemplo exibe um link para a primeira página da Web e permite que o usuário expanda e recolha a lista das outras páginas da Web que incluem a imagem.
+O seguinte exibe um link para a primeira página da Web e permite que o usuário expanda e recolha a lista das outras páginas da Web que incluem a imagem.
 
 ![Páginas expandidas, incluindo](./media/pages-including.PNG)
 
@@ -83,9 +83,7 @@ Marcas não padrão incluem a caixa delimitadora que identifica a área de inter
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para conferir o JSON por trás desses exemplos, consulte [Insights padrão](default-insights-tag.md) e [Resposta JSON](overview.md#the-response).
-
-Para se familiarizar rapidamente com sua primeira solicitação, confira os inícios rápidos: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+Para uma introdução rápida à primeira solicitação, consulte os guias de início rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

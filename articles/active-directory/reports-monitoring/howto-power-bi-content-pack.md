@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622952"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651445"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como usar o pacote de conteúdo do Power BI do Azure Active Directory
 
@@ -32,7 +32,7 @@ O pacote de conteúdo do Power BI para Azure AD (Azure Active Directory) contém
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessária uma licença premium (P1/P2) do Azure AD para usar o pacote de conteúdo. 
+É necessária uma licença premium (P1/P2) do Azure AD para usar o pacote de conteúdo. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory.
 
 ## <a name="install-the-content-pack"></a>Instalar o pacote de conteúdo
 
@@ -42,9 +42,9 @@ Confira o [início rápido](quickstart-install-power-bi-content-pack.md) para in
 
 Os relatórios a seguir estão incluídos no pacote de conteúdo do Power BI do Azure AD. Os relatórios contêm dados dos **últimos 30 dias**.
 
-**Relatório de tendências e uso do aplicativo**: esse relatório fornece informações sobre os aplicativos usados na organização. É possível obter uma lista dos aplicativos mais populares ou reconhecer como um aplicativo implantado recentemente na organização está sendo usado. Isso permite acompanhar e melhorar o uso ao longo do tempo.
+**Relatório de tendências e uso do aplicativo**:  Esse relatório fornece informações sobre os aplicativos usados na organização. É possível obter uma lista dos aplicativos mais populares ou reconhecer como um aplicativo implantado recentemente na organização está sendo usado. Isso permite acompanhar e melhorar o uso ao longo do tempo.
 
-**Entradas por localização e usuários**: esse relatório fornece dados sobre todas as entradas realizadas usando o Azure Identity. Com esse relatório, é possível fazer busca detalhada para entradas individuais e responder a perguntas como:
+**Entradas por localização e usuários**: Esse relatório fornece dados sobre todas as entradas realizadas usando o Azure Identity. Com esse relatório, é possível fazer busca detalhada para entradas individuais e responder a perguntas como:
 
 - A partir de onde esse usuário entrou?
 - Qual usuário tem a maioria dos logons e de onde? 
@@ -52,34 +52,34 @@ Os relatórios a seguir estão incluídos no pacote de conteúdo do Power BI do 
  
 Também é possível filtrar os resultados, selecionando uma data ou local específico.
 
-**Usuários exclusivos por aplicativo**: esse relatório fornece uma exibição de todos os usuários exclusivos que usam um determinado aplicativo. Inclui somente os usuários que tenham entrado "*com êxito*" em um aplicativo.
+**Usuários exclusivos por aplicativo**:  Esse relatório fornece uma exibição de todos os usuários exclusivos que usam um determinado aplicativo. Inclui somente os usuários que tenham entrado "*com êxito*" em um aplicativo.
 
-**Entradas de dispositivos**: esse relatório ajuda a reconhecer os vários perfis de dispositivos usados na organização e a determinar políticas de dispositivos com base no uso. Ele fornece dados sobre o tipo de sistema operacional e navegadores usados para entrar nos aplicativos, além de informações detalhadas sobre os usuários, incluindo:
+**Entradas de dispositivo**: Esse relatório ajuda a reconhecer os vários perfis de dispositivos usados na organização e a determinar políticas de dispositivos com base no uso. Ele fornece dados sobre o tipo de sistema operacional e navegadores usados para entrar nos aplicativos, além de informações detalhadas sobre os usuários, incluindo:
 
 - Nome do Usuário
 - Endereço IP
 - Local padrão 
 - Status de entrada 
 
-**Funil SSPR**: esse relatório ajuda a reconhecer como a ferramenta SSPR é usada na organização. É possível exibir quantas redefinições de senha foram tentadas através da ferramenta SSPR e quantas delas foram realizadas com êxito. Também é possível obter detalhes nas falhas de redefinição de senha e reconhecer por que algumas falhas ocorreram. 
+**Funil SSPR**: Esse relatório ajuda a reconhecer como a ferramenta SSPR é usada na organização. É possível exibir quantas redefinições de senha foram tentadas através da ferramenta SSPR e quantas delas foram realizadas com êxito. Também é possível obter detalhes nas falhas de redefinição de senha e reconhecer por que algumas falhas ocorreram. 
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>Personalizar o pacote de conteúdo da Atividade do Azure AD
 
-**Alterar a visualização**: você pode alterar uma visualização de relatório clicando em **Editar Relatório** e selecionando a visualização desejada.
+**Alterar visualização**:  Você pode alterar uma visualização de relatório clicando em **Editar Relatório** e selecionando a visualização desejada.
  
 ![Pacote de Conteúdo do Power BI do Azure Active Directory](./media/howto-power-bi-content-pack/09.png) 
  
 ![Pacote de Conteúdo do Power BI do Azure Active Directory](./media/howto-power-bi-content-pack/10.png) 
 
-**Incluir campos adicionais**: você pode adicionar um campo ao relatório ou removê-lo selecionando o visual no qual deseja adicionar ou remover o campo. Por exemplo, é possível adicionar o campo "status de entrada" à exibição de tabela, conforme mostrado abaixo. 
+**Incluir campos adicionais**:  Você pode adicionar um campo ao relatório ou removê-lo selecionando o visual no qual deseja adicionar ou remover o campo. Por exemplo, é possível adicionar o campo "status de entrada" à exibição de tabela, conforme mostrado abaixo. 
  
 ![Pacote de Conteúdo do Power BI do Azure Active Directory](./media/howto-power-bi-content-pack/11.png) 
 
-**Fixar visualizações no painel**: é possível personalizar o painel, incluindo suas próprias visualizações no relatório e fixando-a no painel. 
+**Fixar visualizações interessantes no painel**:  É possível personalizar o painel, incluindo suas próprias visualizações no relatório e fixando-a no painel. 
 
 ![Pacote de Conteúdo do Power BI do Azure Active Directory](./media/howto-power-bi-content-pack/13.png) 
  
-**Compartilhar o painel**: você também pode compartilhar o painel com os usuários da organização. Após compartilhar o relatório, os usuários poderão ver os campos que você selecionou no relatório.
+**Excluindo o painel**: Você também pode compartilhar o painel com os usuários da organização. Após compartilhar o relatório, os usuários poderão ver os campos que você selecionou no relatório.
  
 ![Pacote de Conteúdo do Power BI do Azure Active Directory](./media/howto-power-bi-content-pack/14.png) 
 

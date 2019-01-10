@@ -1,18 +1,18 @@
 ---
 title: Autenticação do Registro de Contêiner do Azure com entidades de serviço
-description: Saiba como fornecer acesso a imagens em seu registro de contêiner particular usando uma entidade de serviço do Azure Active Directory.
+description: Fornecer acesso a imagens em seu registro de contêiner particular usando uma entidade de serviço do Azure Active Directory.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 30f0eb04b4b7d07785854e3079bc6656889edec6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854468"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754196"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registro de Contêiner do Azure com entidades de serviço
 
@@ -22,7 +22,7 @@ Use uma entidade de serviço do Azure AD (Azure Active Directory) para fornecer 
 
 As *entidades de serviço* do Azure AD fornecem acesso aos recursos do Azure em sua assinatura. Você pode considerar uma entidade de serviço como uma identidade do usuário de um serviço, em que o “serviço” é qualquer aplicativo, serviço ou plataforma que precisa de acesso aos recursos. Você pode configurar uma entidade de serviço com direitos de acesso com escopo apenas nos recursos especificados. Em seguida, configure seu aplicativo ou serviço para usar as credenciais da entidade de serviço para acessar esses recursos.
 
-No contexto do Registro de Contêiner do Azure, você pode criar uma entidade de serviço do Azure AD com permissões de pull, push e pull ou proprietário em seu Registro particular do Docker no Azure.
+No contexto do Registro de Contêiner do Azure, você pode criar uma entidade de serviço do Microsoft Azure Active Directory com permissões de pull, push e pull ou proprietário em seu Registro particular no Azure. Para obter uma lista completa de funções, confira [Funções e permissões do Registro de Contêiner do Azure](container-registry-roles.md).
 
 ## <a name="why-use-a-service-principal"></a>Por que usar uma entidade de serviço?
 

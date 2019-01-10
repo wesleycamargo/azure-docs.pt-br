@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: 1b6a77e78d3385c9dfd4e43e0e4242c870eb8c57
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012548"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635690"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Use o Apache Sqoop para importar e exportar dados entre o Apache Hadoop no HDInsight e o banco de dados SQL
 
@@ -23,10 +23,10 @@ ms.locfileid: "53012548"
 
 Aprenda a usar o Apache Sqoop para importar e exportar entre um cluster do Apache Hadoop no HDInsight do Azure e no banco de dados SQL do Azure ou do Microsoft SQL Server. As etapas deste documentam usam o comando `sqoop` diretamente do nó principal do cluster Hadoop. Use o SSH para se conectar ao nó principal e executar os comandos neste documento.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > As etapas neste documento funcionam somente com clusters HDInsight que usam Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-> [!WARNING]
+> [!WARNING]  
 > As etapas neste documento pressupõem que você já criou um Banco de Dados SQL do Azure denominado `sqooptest`.
 >
 > Este documento fornece instruções T-SQL que são usadas para criar e consultar uma tabela no Banco de Dados SQL. Há muitos clientes com os quais você pode usar essas instruções com o Banco de Dados SQL. Recomendamos os seguintes clientes:
@@ -37,7 +37,7 @@ Aprenda a usar o Apache Sqoop para importar e exportar entre um cluster do Apach
 
 ## <a name="create-the-table-in-sql-database"></a>Crie a tabela no banco de dados SQL
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Se você estiver usando o cluster HDInsight e o Banco de Dados SQL criado em [Criar o cluster e o Banco de Dados SQL](hdinsight-use-sqoop.md), ignore as etapas nesta seção. O banco de dados e a tabela foram criados como parte das etapas no documento [Criar o cluster e o Banco de Dados SQL](hdinsight-use-sqoop.md).
 
 Use um cliente SQL para conexão ao banco de dados `sqooptest` no seu Banco de Dados SQL. Em seguida, use o T-SQL a seguir para criar uma tabela denominada `mobiledata`:
@@ -104,7 +104,7 @@ GO
 
     Os campos nos dados que são separados por um caractere de tabulação, e as linhas serão encerradas por um caractere de nova linha.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > O caminho `wasb:///` funciona com clusters que usam o Armazenamento do Azure como o armazenamento de cluster padrão. Para clusters que usam o Azure Data Lake Store, use `adl:///` em vez disso.
 
 2. Quando a importação for concluída, use o seguinte comando para listar os dados no novo diretório:
@@ -160,8 +160,8 @@ Você também pode usar o Sqoop para importar e exportar dados do SQL Server. As
 
 Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
-* [Usar Oozie com HDInsight](../hdinsight-use-oozie.md): Use a ação Sqoop em um fluxo de trabalho do Oozie.
-* [Analisar dados de atraso de voo usando HDInsight](../hdinsight-analyze-flight-delay-data.md): Use o Hive para analisar dados de atraso de voo e, em seguida, use o Sqoop para exportar dados para um banco de dados SQL do Azure.
+* [Usar o Apache Oozie com o HDInsight](../hdinsight-use-oozie.md): Use a ação Sqoop em um fluxo de trabalho do Oozie.
+* [Analisar dados de atraso de voo usando HDInsight](../hdinsight-analyze-flight-delay-data.md): Use o Apache Hive para analisar dados de atraso de voo e, em seguida, use o Sqoop para exportar dados para um banco de dados SQL do Azure.
 * [Carregar dados para HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para fazer upload de dados para HDInsight/Azure Storage Blob.
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md

@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409744"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722644"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure
 
-Este artigo mostra como personalizar a [autenticação e a autorização integradas no Serviço de Aplicativo](app-service-authentication-overview.md) e gerenciar a identidade do seu aplicativo. 
+Este artigo mostra como personalizar a [autenticação e a autorização integradas no Serviço de Aplicativo](overview-authentication-authorization.md) e gerenciar a identidade do seu aplicativo. 
 
 Para começar rapidamente, veja um dos seguintes tutoriais:
 
@@ -37,13 +37,13 @@ Para começar rapidamente, veja um dos seguintes tutoriais:
 
 ## <a name="use-multiple-sign-in-providers"></a>Usar vários provedores de entrada
 
-A configuração do portal não oferece uma maneira prática turnkey para apresentar vários provedores de entrada aos usuários (como o Facebook e o Twitter). No entanto, não é difícil adicionar a funcionalidade ao seu aplicativo Web. As etapas são destacadas como a seguir:
+A configuração do portal não oferece uma maneira prática turnkey para apresentar vários provedores de entrada aos usuários (como o Facebook e o Twitter). No entanto, não é difícil adicionar a funcionalidade ao aplicativo. As etapas são destacadas como a seguir:
 
 Primeiro, na página **Autenticação/Autorização** no Portal do Azure, configure cada provedor de identidade que você deseja habilitar.
 
 Em **Ação a tomar quando a solicitação não está autenticada**, selecione **Permitir solicitações anônimas (nenhuma ação)**.
 
-Na página de entrada, ou na barra de navegação ou em qualquer outro local de seu aplicativo Web, adicione um link de entrada para cada um dos provedores habilitados por você (`/.auth/login/<provider>`). Por exemplo: 
+Na página de entrada, na barra de navegação, ou em qualquer outro local do aplicativo, adicione um link de entrada a cada um dos provedores que você habilitou (`/.auth/login/<provider>`). Por exemplo: 
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -63,7 +63,7 @@ Para redirecionar o usuário pós-entada para uma URL personalizada, use o parâ
 
 ## <a name="validate-tokens-from-providers"></a>Validar os tokens de provedores
 
-Em um login direcionado ao cliente, o aplicativo faz login manual do usuário no provedor e, em seguida, envia o token de autenticação para o Serviço de Aplicativo para validação (consulte [Fluxo de Autenticação](app-service-authentication-overview.md#authentication-flow)). Essa validação em si não concede a você acesso aos recursos desejados do aplicativo, mas uma validação bem-sucedida fornecerá um token de sessão que você pode usar para acessar os recursos do aplicativo. 
+Em um login direcionado ao cliente, o aplicativo faz login manual do usuário no provedor e, em seguida, envia o token de autenticação para o Serviço de Aplicativo para validação (consulte [Fluxo de Autenticação](overview-authentication-authorization.md#authentication-flow)). Essa validação em si não concede a você acesso aos recursos desejados do aplicativo, mas uma validação bem-sucedida fornecerá um token de sessão que você pode usar para acessar os recursos do aplicativo. 
 
 Para validar o token do provedor, o aplicativo Serviço de Aplicativo deve ser configurado primeiro com o provedor desejado. Em tempo de execução, depois de recuperar o token de autenticação do seu provedor, poste o token em `/.auth/login/<provider>` para validação. Por exemplo:  
 
@@ -186,15 +186,15 @@ Quando o token de acesso do provedor expira, você precisa autenticar novamente 
 - **Conta Microsoft**: Ao [definir configurações de autenticação de conta Microsoft](configure-authentication-provider-microsoft.md), selecione o escopo `wl.offline_access`.
 - **Azure Active Directory**: No [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
     1. Na parte superior da página, selecione **Ler/Gravar**.
-    1. No navegador à esquerda, navegue até **assinaturas** > **_\<assinatura\_nome_** > **resourceGroups** > _**\<recurso\_grupo\_nome >**_ > **provedores** > **Microsoft.web** > **sites** > _**\<aplicativo \_nome >**_ > **config** > **authsettings**. 
-    1. Clique em **Editar**.
-    1. Modifique a propriedade a seguir. Substitua _\<aplicativo\_id>_ pela ID do aplicativo do Azure Active Directory do serviço que você deseja acessar.
+    2. No navegador à esquerda, navegue até **assinaturas** > **_\<assinatura\_nome_** > **resourceGroups** > _**\<recurso\_grupo\_nome >**_ > **provedores** > **Microsoft.web** > **sites** > _**\<aplicativo \_nome >**_ > **config** > **authsettings**. 
+    3. Clique em **Editar**.
+    4. Modifique a propriedade a seguir. Substitua _\<aplicativo\_id>_ pela ID do aplicativo do Azure Active Directory do serviço que você deseja acessar.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    1. Clique em **Put**. 
+    5. Clique em **Put**. 
 
 Depois que seu provedor estiver configurado, você poderá [ encontrar o token de atualização e o tempo de expiração do token de acesso ](#retrieve-tokens-in-app-code) na loja do token. 
 

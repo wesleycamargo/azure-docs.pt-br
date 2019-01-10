@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a6343d9bd2009ee2c16f0cca3118e5653faa4c07
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f9f0c52c187b36416dbc77f280a8f6148cf1cbbc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138680"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971045"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Conceitos sobre intenções em seu aplicativo LUIS
 
@@ -58,7 +58,7 @@ A intenção representa a ação que o chatbot deve executar para o usuário e b
 [Domínios predefinidos](luis-how-to-use-prebuilt-domains.md) têm intenções com declarações.  
 
 ## <a name="none-intent-is-fallback-for-app"></a>A intenção Nenhum é fallback do aplicativo
-A intenção **Nenhum** é uma intenção de fallback ou que captura tudo. Ela é usada para ensinar ao LUIS declarações que não são importantes no domínio de aplicativo (área de assunto). A intenção **Nenhum** deve ter entre 10 e 20 por cento das declarações totais no aplicativo. Não deixe em branco. 
+A intenção **Nenhum** é uma intenção de fallback ou que captura tudo. Ela é usada para ensinar ao LUIS declarações que não são importantes no domínio de aplicativo (área de assunto). A intenção **Nenhum** deve ter entre 10 e 20 por cento das declarações totais no aplicativo. Não deixe Nenhum vazio. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>A intenção Nenhum ajuda a direção da conversa
 Quando uma declaração é prevista como a intenção None e retornada para o chatbot com essa previsão, o bot pode fazer mais perguntas ou fornecer um menu para orientar o usuário em escolhas válidas no chatbot. 

@@ -1,5 +1,5 @@
 ---
-title: Descrevendo conteúdo adulto e atrevido - Visão Computacional
+title: Descrever conteúdo adulto e atrevido - Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados à detecção de conteúdo adulto e atrevido em imagens usando o APi Computer Vision.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 71866149e3d2dca4b39585ce8da73aae658a4d59
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: e0cca054acb7d3d649105ecd45748a60a2aa9bbb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344907"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582160"
 ---
 # <a name="detecting-adult-and-racy-content"></a>Detectar conteúdo para adulto e obsceno
 
