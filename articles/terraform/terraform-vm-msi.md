@@ -4,17 +4,17 @@ description: Utilizar imagem do Marketplace para criar máquina virtual do Terra
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, máquina virtual, estado remoto, azure
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6c9bef108c2f272c678879124ae2cd4f9ae093ba
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971157"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076206"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual do Terraform do Linux com identidades gerenciadas para recursos do Azure
 

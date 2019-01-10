@@ -3,17 +3,17 @@ title: Tutorial - Implantar do GitHub para o Serviço de Aplicativo do Azure com
 description: Configurar o Jenkins para CI (integração contínua) do GitHub e CD (implantação contínua) para o Serviço de Aplicativo do Azure no caso de aplicativos Web Java
 services: jenkins
 ms.service: jenkins
-author: tomarcher
+author: tomarchermsft
 ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 786fc427e4cb631c4aedd0f795daebebd9fb15bc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438465"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077429"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar do GitHub para o Serviço de Aplicativo do Azure com implantação e integração contínua do Jenkins
 
