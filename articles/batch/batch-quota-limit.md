@@ -1,9 +1,9 @@
 ---
-title: Cotas do serviço e limites do Lote do Azure | Microsoft Docs
+title: Cotas do serviço e limites - Lote do Azure | Microsoft Docs
 description: Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263583"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753192"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -65,9 +65,9 @@ Se você tiver criado uma conta de Lote com modo de alocação de pool definido 
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação | 4 vezes o número de núcleos de nó |
 | [Aplicativos](batch-application-packages.md) por conta do Lote | 20 |
 | Pacotes de aplicativos por aplicativo | 40 |
-| Tempo de vida máximo da tarefa | 7 dias<sup>1</sup> |
+| Tempo de vida máximo da tarefa | 180 dias<sup>1</sup> |
 
-<sup>1</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 7 dias. As tarefas concluídas persistem indefinidamente; os dados das tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
+<sup>1</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 180 dias. As tarefas concluídas persistem por 7 dias. Os dados das tarefas não concluídas dentro do tempo de vida máximo não podem ser acessados.
 
 ## <a name="view-batch-quotas"></a>Exibir cotas do Lote
 

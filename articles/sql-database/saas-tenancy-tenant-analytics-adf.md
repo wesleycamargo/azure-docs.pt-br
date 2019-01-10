@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: MightyPen
+ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b2c9f17bc9c6e9bbc280116d074bd0f1e3d3e38
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056583"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606037"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explore a análise de SaaS com o Banco de Dados SQL do Azure, o SQL Data Warehouse, o Data Factory e o Power BI
 
@@ -146,7 +146,7 @@ Os três pipelines aninhados são: SQLDBToDW, DBCopy e TableCopy.
 
 O **Pipeline 1 – SQLDBToDW** pesquisa os nomes dos bancos de dados de locatário armazenados no banco de dados de Catálogo (nome da tabela: [__ShardManagement].[ShardsGlobal]) e, para cada banco de dados de locatário, executa o pipeline **DBCopy**. Após a conclusão, o esquema do procedimento armazenado **sp_TransformExtractedData** fornecido será executado. Esse procedimento armazenado transforma os dados carregados nas tabelas de preparo e preenche as tabelas de esquema em estrela.
 
-O **Pipeline 2 – DBCopy** pesquisa os nomes das tabelas e colunas de origem de um arquivo de configuração armazenado no Armazenamento de Blobs.  Em seguida, o pipeline **TableCopy** é executado para cada uma das quatro tabelas: TicketFacts, CustomerFacts, EventFacts e VenueFacts. A atividade **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** é executada em paralelo para os 20 bancos de dados. O ADF permite que um máximo de 20 iterações de loop sejam executadas em paralelo. Considere criar vários pipelines para mais bancos de dados.    
+O **Pipeline 2 – DBCopy** pesquisa os nomes das tabelas e colunas de origem de um arquivo de configuração armazenado no Armazenamento de Blobs.  O pipeline de **TableCopy** é executado para cada um dos quatro tabelas: TicketFacts, CustomerFacts, EventFacts e VenueFacts. A atividade **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** é executada em paralelo para os 20 bancos de dados. O ADF permite que um máximo de 20 iterações de loop sejam executadas em paralelo. Considere criar vários pipelines para mais bancos de dados.    
 
 O **Pipeline 3 – TableCopy** usa números de versão de linha no Banco de Dados SQL (_rowversion_) para identificar linhas que foram alteradas ou atualizadas. Essa atividade pesquisa as versões de linha inicial e final para extrair linhas das tabelas de origem. A tabela **CopyTracker** armazenada em cada banco de dados de locatário rastreia a última linha extraída de cada tabela de origem em cada execução. Linhas novas ou alteradas são copiadas para as tabelas de preparo correspondentes no data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues** e **raw_Events**. Por fim, a última versão de linha é salva na tabela **CopyTracker** para ser usada como a versão de linha inicial para a próxima extração. 
 
@@ -189,7 +189,7 @@ Os dados no esquema em estrela fornecem todos os dados de vendas de ingressos ne
 Use as seguintes etapas para se conectar ao Power BI e importar os modos de exibição que você criou anteriormente:
 
 1. Inicie o Power BI desktop.
-2. Na faixa de opções Página Inicial, selecione **Obter Dados** e **Mais...** no menu.
+2. Na faixa de opções Página Inicial, selecione **Obter Dados** e **Mais...**  no menu.
 3. Na janela **Obter Dados**, selecione **Banco de Dados SQL do Azure**.
 4. Na janela de logon do banco de dados, digite o nome do servidor (**catalog-dpt-&lt;Usuário&gt;.database.windows.net**). Selecione **Importar** para **Modo de Conectividade de Dados** e, em seguida, clique em **OK**. 
 

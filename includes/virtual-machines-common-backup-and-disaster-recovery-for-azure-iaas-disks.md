@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39485602"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638869"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastre de discos de IaaS do Azure
 
@@ -63,15 +63,15 @@ Para ajudar a proteger as cargas de trabalho de IaaS contra interrupções, voc�
 
 Suas considerações sobre DR podem incluir os seguintes aspectos:
 
-- Alta disponibilidade: a capacidade do aplicativo de continuar em execução em um estado íntegro, sem tempo de inatividade significativo. Por *estado íntegro*, esse estado significa que o aplicativo está respondendo e que os usuários podem se conectar ao aplicativo e interagir com ele. Alguns aplicativos e bancos de dados críticos podem precisar estar sempre disponíveis, mesmo quando há falhas na plataforma. Para essas cargas de trabalho, talvez você precise planejar a redundância para o aplicativo, bem como para os dados.
+- Alta disponibilidade: A capacidade do aplicativo de continuar em execução em um estado íntegro, sem tempo de inatividade significativo. Por *estado íntegro*, esse estado significa que o aplicativo está respondendo e que os usuários podem se conectar ao aplicativo e interagir com ele. Alguns aplicativos e bancos de dados críticos podem precisar estar sempre disponíveis, mesmo quando há falhas na plataforma. Para essas cargas de trabalho, talvez você precise planejar a redundância para o aplicativo, bem como para os dados.
 
-- Durabilidade dos dados: em alguns casos, a principal consideração é garantir que os dados são preservados no caso de um desastre. Portanto, talvez seja necessário fazer um backup dos dados em outro site. Para essas cargas de trabalho, talvez não seja necessário ter a redundância total para o aplicativo, mas apenas um backup regular dos discos.
+- Durabilidade dos dados: Em alguns casos, a principal consideração é garantir que os dados são preservados no caso de um desastre. Portanto, talvez seja necessário fazer um backup dos dados em outro site. Para essas cargas de trabalho, talvez não seja necessário ter a redundância total para o aplicativo, mas apenas um backup regular dos discos.
 
 ## <a name="backup-and-dr-scenarios"></a>Cenários de backup e DR
 
 Vamos examinar alguns exemplos típicos de cenários de carga de trabalho do aplicativo e as considerações sobre o planejamento da recuperação de desastre.
 
-### <a name="scenario-1-major-database-solutions"></a>Cenário 1: principais soluções de banco de dados
+### <a name="scenario-1-major-database-solutions"></a>Cenário 1: Principais soluções de banco de dados
 
 Considere um servidor de banco de dados de produção, como o SQL Server ou o Oracle, que pode dar suporte à alta disponibilidade. Usuários e aplicativos de produção críticos dependem desse banco de dados. O plano de recuperação de desastre para esse sistema pode precisar dar suporte aos seguintes requisitos:
 
@@ -82,21 +82,21 @@ O plano de recuperação de desastre pode exigir a manutenção de uma réplica 
 
 Bancos de dados NoSQL, como o MongoDB, também dão suporte a [réplicas](https://docs.mongodb.com/manual/replication/) para redundância. As réplicas para alta disponibilidade são usadas.
 
-### <a name="scenario-2-a-cluster-of-redundant-vms"></a>Cenário 2: um cluster de VMs redundantes
+### <a name="scenario-2-a-cluster-of-redundant-vms"></a>Cenário 2: Um cluster de VMs redundantes
 
 Considere uma carga de trabalho manipulada por um cluster de VMs que fornece redundância e balanceamento de carga. Um exemplo é um cluster do Cassandra implantado em uma região. Esse tipo de arquitetura já fornece um alto nível de redundância nessa região. No entanto, para proteger a carga de trabalho contra uma falha de nível regional, você deve considerar a distribuição do cluster em duas regiões ou a realização de backups periódicos em outra região.
 
-### <a name="scenario-3-iaas-application-workload"></a>Cenário 3: carga de trabalho de aplicativos IaaS
+### <a name="scenario-3-iaas-application-workload"></a>Cenário 3: Carga de trabalho de aplicativos IaaS
 
 Vamos examinar a carga de trabalho de aplicativos IaaS. Por exemplo, isso pode ser uma carga de trabalho de produção típica em execução em uma VM do Azure. Isso pode ser um servidor Web ou servidor de arquivos que mantém o conteúdo e outros recursos de um site. Também pode ser um aplicativo de negócios personalizado em execução em uma VM que armazenou seus dados, recursos e o estado do aplicativo nos discos da VM. Nesse caso, é importante fazer backups regularmente. A frequência de backup deve se basear na natureza da carga de trabalho da VM. Por exemplo, se o aplicativo é executado diariamente e modifica dados, o backup deve ser feito a cada hora.
 
 Outro exemplo é um servidor de relatórios que efetua pull de dados de outras fontes e gera relatórios agregados. A perda dessa VM ou desses discos poderá levar à perda dos relatórios. No entanto, talvez seja possível executar o processo de relatórios novamente e regenerar o resultado. Nesse caso, você realmente não tem uma perda de dados, mesmo se o servidor de relatório é atingido por um desastre. Como resultado, talvez você tenha um nível mais alto de tolerância da perda de parte dos dados no servidor de relatório. Nesse caso, backups menos frequentes são uma opção para reduzir os custos.
 
-### <a name="scenario-4-iaas-application-data-issues"></a>Cenário 4: problemas de dados de aplicativos IaaS
+### <a name="scenario-4-iaas-application-data-issues"></a>Cenário 4: Problemas de dados de aplicativos IaaS
 
 Problemas de dados de aplicativos IaaS são outra possibilidade. Considere um aplicativo que calcula, mantém e fornece dados comerciais críticos, como informações sobre preços. Uma nova versão do aplicativo tinha um bug de software que calculava os preços incorretamente e corrompeu os dados comerciais existentes fornecidos pela plataforma. Aqui, a melhor decisão é reverter para a versão anterior do aplicativo e dos dados. Para possibilitar isso, faça backups periódicos do sistema.
 
-## <a name="disaster-recovery-solution-azure-backup"></a>Solução de recuperação de desastre: Backup do Azure 
+## <a name="disaster-recovery-solution-azure-backup"></a>Solução de recuperação de desastre: Serviço de Backup do Azure 
 
 O [Backup do Azure](https://azure.microsoft.com/services/backup/) é usado para backups e DR e funciona com [discos gerenciados](../articles/virtual-machines/windows/managed-disks-overview.md), bem como com [discos não gerenciados](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). Crie um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. 
 
@@ -144,7 +144,7 @@ Use as etapas a seguir para habilitar backups das VMs usando o [portal do Azure]
 
 1.  Crie um cofre dos serviços de recuperação para uma VM:
 
-    a. No [portal do Azure](https://portal.azure.com/), procure **Todos os recursos** e localize **Cofres dos Serviços de Recuperação**.
+     a. No [portal do Azure](https://portal.azure.com/), procure **Todos os recursos** e localize **Cofres dos Serviços de Recuperação**.
 
     b. No menu **Cofres dos Serviços de Recuperação**, clique em **Adicionar** e siga as etapas para criar um novo cofre na mesma região da VM. Por exemplo, se a VM estiver na região Oeste dos EUA, escolha Oeste dos EUA para o cofre.
 
@@ -152,7 +152,7 @@ Use as etapas a seguir para habilitar backups das VMs usando o [portal do Azure]
 
 1.  Configure a política de backup e selecione a VM na mesma interface do usuário.
 
-1.  Verifique se o Agente de Backup está instalado na VM. Se a VM for criada usando uma imagem da galeria do Azure, o Agente de Backup já estará instalado. Caso contrário (ou seja, se você estiver usando uma imagem personalizada), use as instruções para [instalar o agente de VM em uma máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Verifique se o Agente de Backup está instalado na VM. Se a VM for criada usando uma imagem da galeria do Azure, o Agente de Backup já estará instalado. Caso contrário (ou seja, se você estiver usando uma imagem personalizada), use as instruções para [instalar o agente de VM em uma máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  Verifique se a VM permite a conectividade de rede para que o serviço de backup funcione. Siga as instruções para a [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
@@ -172,7 +172,7 @@ Para obter mais informações, consulte as instruções sobre como [usar o porta
 
 Use também o PowerShell para [restaurar uma VM](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) ou [criar uma nova VM com base em discos restaurados](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Solução alternativa: instantâneos consistentes
+## <a name="alternative-solution-consistent-snapshots"></a>Solução alternativa: Instantâneos consistentes
 
 Se não for possível usar o Backup do Azure, implemente seu próprio mecanismo de backup usando instantâneos. É complicado criar instantâneos consistentes para todos os discos usados por uma VM e, em seguida, replicar esses instantâneos em outra região. Por esse motivo, o Azure considera o uso do serviço de Backup uma opção melhor do que a criação de uma solução personalizada. 
 

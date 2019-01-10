@@ -11,27 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 77819c5592fe8b61ed4e3fcb5f874fc0bf5ca602
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1efe64d2057a4dccc0d82a8a99bfbf3eaa719521
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077977"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159104"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegar ofertas no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Como o operador do Azure Stack, você geralmente deseja colocar a outras pessoas responsável por se inscrever usuários e criar assinaturas. Por exemplo, se você for um provedor de serviços, convém revendedores Inscrever clientes e gerenciá-los em seu nome. Ou, se você fizer parte de um grupo central de TI em uma empresa, você talvez queira delegar a entrada do usuário até outra equipe de TI.
+Como o operador do Azure Stack, você geralmente deseja colocar a outras pessoas responsável por se inscrever usuários e criar assinaturas. Por exemplo, se você for um provedor de serviços, convém revendedores Inscrever clientes e gerenciá-los em seu nome. Ou, se você fizer parte de um grupo central de TI em uma empresa, você talvez queira delegar a inscrição do usuário para outra equipe de TI.
 
-Delegação torna mais fácil acessar e gerenciar mais usuários que você pode fazer por conta própria, conforme mostrado na ilustração a seguir. 
+Delegação torna mais fácil acessar e gerenciar mais usuários que você pode fazer por conta própria, conforme mostrado na figura a seguir:
 
 ![Níveis de delegação](media/azure-stack-delegated-provider/image1.png)
 
-Com a delegação, o provedor delegado gerencia uma oferta (oferta delegada) e clientes finais obter assinaturas sob essa oferta sem o envolvimento do administrador do sistema. 
+Com a delegação, o provedor delegado gerencia uma oferta (oferta delegada) e clientes finais obter assinaturas sob essa oferta sem o envolvimento do administrador do sistema.
 
 ## <a name="understand-delegation-roles-and-steps"></a>Entender as etapas e as funções de delegação
 
@@ -49,17 +49,17 @@ As seguintes funções são parte da delegação:
 
 Há duas etapas básicas para configurar a delegação:
 
-1. *Criar uma assinatura de provedor delegada* inscrevendo-se um usuário a uma oferta que contém apenas o serviço de assinaturas. Os usuários que assinem essa oferta, em seguida, podem estender as ofertas delegadas a outros usuários assinando-os para as ofertas.
+1. **Criar uma assinatura de provedor delegada**: Inscrever-se um usuário a uma oferta que contém apenas o serviço de assinaturas. Os usuários que assinem essa oferta, em seguida, podem estender as ofertas delegadas a outros usuários assinando-os para as ofertas.
 
-2. *Delegar uma oferta para o provedor delegado*. Essa oferta permite que o provedor delegado para criar assinaturas ou estender a oferta para seus usuários. O provedor de delegado pode levar a oferta e oferecê-lo a outros usuários.
+2. **Delegar uma oferta para o provedor delegado**: Essa oferta permite que o provedor delegado para criar assinaturas ou estender a oferta para seus usuários. O provedor de delegado pode levar a oferta e oferecê-lo a outros usuários.
 
-Elemento gráfico a seguir mostra as etapas para configurar a delegação.
+A figura a seguir mostra as etapas para configurar a delegação:
 
 ![Criar o provedor delegado e habilitá-los inscrever usuários](media/azure-stack-delegated-provider/image2.png)
 
-**Requisitos de provedor delegada**
+#### <a name="delegated-provider-requirements"></a>Requisitos de provedor delegada
 
-Para atuar como um provedor de delegados, um usuário precisa para estabelecer uma relação com o provedor de principal com a criação de uma assinatura. Esta assinatura identifica o provedor delegado como tendo o direito de apresentar as ofertas delegadas em nome do provedor principal.
+Para atuar como um provedor de delegados, um usuário estabelece uma relação com o provedor de principal com a criação de uma assinatura. Esta assinatura identifica o provedor delegado como tendo o direito de apresentar as ofertas delegadas em nome do provedor principal.
 
 Depois que essa relação é estabelecida, o operador do Azure Stack pode delegar uma oferta para o provedor de delegado. O provedor de delegado pode levar a oferta, renomeá-lo (mas não alterar seu conteúdo) e oferecê-lo aos seus clientes.
 
@@ -69,7 +69,7 @@ As seções a seguir fornecem instruções práticas para configurar um provedor
 
 ### <a name="set-up-roles"></a>Configurar funções
 
-Para usar este passo a passo, você precisa de duas contas do AD do Azure, além de sua conta do operador do Azure Stack. Se você não tiver essas duas contas, você precisa criá-los. As contas podem pertencer a qualquer usuário do Azure AD e são chamadas de provedor delegado e o usuário.
+Para usar este passo a passo, você precisa de duas contas do AD do Azure, além de sua conta do operador do Azure Stack. Se você não tiver essas duas contas, você deve criá-los. As contas podem pertencer a qualquer usuário do Azure AD e são chamadas de provedor delegado e o usuário.
 
 | **Função** | **Direitos organizacionais** |
 | --- | --- |
@@ -82,12 +82,12 @@ Para usar este passo a passo, você precisa de duas contas do AD do Azure, além
 
 1. Para criar uma oferta que permite que um usuário para se tornar um provedor de delegado:
 
-   a.  [Criar um plano de](azure-stack-create-plan.md).
-       Esse plano deve incluir somente o serviço de assinaturas. Este artigo usa um plano chamado **PlanForDelegation** como exemplo.
+    a.  [Criar um plano de](azure-stack-create-plan.md).
+       Esse plano deve incluir somente o serviço de subscrição. Este artigo usa um plano chamado **PlanForDelegation** como exemplo.
 
    b.  [Criar uma oferta](azure-stack-create-offer.md) com base nesse plano. Este artigo usa uma oferta denominada **OfferToDP** como exemplo.
 
-   c.  Adicionar o provedor delegado como um assinante para esta oferta selecionando **inscrições** > **Add** > **nova assinatura de locatário**.
+   c.  Adicionar o provedor delegado como um assinante para esta oferta selecionando **assinaturas**, em seguida, **adicionar**, em seguida, **nova assinatura de locatário**.
 
    ![Adicione o provedor delegado como um assinante](media/azure-stack-delegated-provider/image3.png)
 
@@ -96,16 +96,16 @@ Para usar este passo a passo, você precisa de duas contas do AD do Azure, além
 
 ### <a name="azure-stack-operator-creates-the-delegated-offer"></a>Operador de pilha do Azure cria a oferta delegada
 
-A próxima etapa é criar o plano e oferta que você vai delegar e que seus usuários usarão. É uma boa ideia definir esta oferta, exatamente como você deseja que os usuários para vê-lo porque o provedor de delegado não é possível alterar os planos e cotas que ele inclui.
+A próxima etapa é criar o plano e oferta que você vai delegar e que seus usuários usarão. É uma boa ideia definir esta oferta, exatamente como você deseja que os usuários vejam, porque o provedor de delegado não é possível alterar os planos e cotas que ele inclui.
 
 1. Como um operador do Azure Stack, [criar um plano](azure-stack-create-plan.md) e [uma oferta](azure-stack-create-offer.md) com base no plano. Este artigo usa uma oferta denominada **DelegatedOffer** como exemplo.
 
    > [!NOTE]
-   > Esta oferta não precisa ser público, mas você pode torná-lo público se desejar. No entanto, na maioria dos casos você apenas deseja provedores delegados para ter acesso à oferta. Depois que você delega uma oferta em particular, conforme descrito nas etapas a seguir, o provedor de delegado tem acesso a ele.
+   > Esta oferta não precisa ser público, mas você pode torná-lo público. No entanto, na maioria dos casos você apenas deseja provedores delegados para ter acesso à oferta. Depois que você delega uma oferta em particular, conforme descrito nas etapas a seguir, o provedor de delegado tem acesso a ele.
 
-1. Delegar a oferta. Vá para **DelegatedOffer**. Sob **as configurações**, selecione **provedores delegados** > **Add**.
+2. Delegar a oferta. Vá para **DelegatedOffer**. Sob **as configurações**, selecione **provedores delegados**, em seguida, selecione **adicionar**.
 
-1. Selecione a assinatura para o provedor de delegados na lista suspensa e, em seguida, selecione **delegado**.
+3. Selecione a assinatura para o provedor de delegados na lista suspensa e, em seguida, selecione **delegado**.
 
    ![Adicionar um provedor delegado](media/azure-stack-delegated-provider/image4.png)
 
@@ -113,28 +113,28 @@ A próxima etapa é criar o plano e oferta que você vai delegar e que seus usu�
 
 Entrar no portal do usuário, como o provedor de delegado e, em seguida, crie uma nova oferta usando a oferta delegada como um modelo.
 
-1. Selecione **+ criar um recurso** > **planos + locatário oferece** > **oferecem**.
+1. Selecione **+ criar um recurso**, em seguida, **planos + locatário oferece**, em seguida, selecione **oferecem**.
 
-    ![Criar uma nova oferta](media/azure-stack-delegated-provider/image5.png)
+    ![Criar uma oferta](media/azure-stack-delegated-provider/image5.png)
 
-1. Atribua um nome para a oferta. Este artigo usa **ResellerOffer** como exemplo. Selecione a oferta delegada no qual baseá-la e, em seguida, selecione **criar**.
+2. Atribua um nome para a oferta. Este exemplo usa **ResellerOffer**. Selecione a oferta delegada no qual baseá-la e, em seguida, selecione **criar**.
 
    ![Atribua um nome](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >É importante entender que os provedores delegados só podem escolher ofertas são delegadas a eles. Eles não podem fazer alterações para as ofertas. Apenas um operador do Azure Stack pode alterar essas ofertas, por exemplo, alterando seus planos e cotas. Um provedor de delegado não construa uma oferta de planos de base e planos de complemento. 
+   >É importante entender que os provedores delegados só podem escolher ofertas são delegadas a eles. Eles não podem fazer alterações para as ofertas. Apenas um operador do Azure Stack pode alterar essas ofertas, por exemplo, alterando seus planos e cotas. Um provedor de delegado não constrói uma oferta de planos de base e planos de complemento.
 
 3. O provedor de delegado pode tornar essas ofertas pública por meio do portal sua próprias URL. Para tornar a oferta público, selecione **navegue**e então **oferece**. Selecione a oferta e, em seguida, selecione **alterar estado**.
 
 4. As ofertas delegadas públicas agora estão visíveis apenas por meio do portal do delegado. Para localizar e alterar essa URL:
 
-    a.  Selecione **procurar** > **todos os serviços**e, em seguida, sob o **geral** categoria, selecione **assinaturas**. Selecione a assinatura de provedor delegada. Por exemplo, **DPSubscription** > **propriedades**.
+     a.  Selecione **procurar**, em seguida, **todos os serviços**e, na **geral** categoria, selecione **assinaturas**. Selecione a assinatura de provedor delegada; Por exemplo, **DPSubscription**, em seguida, **propriedades**.
 
     b.  Copie o portal de URL para um local separado, como o bloco de notas.
 
     ![Selecione a assinatura de provedor delegada](media/azure-stack-delegated-provider/dpportaluri.png)  
 
-   Você terminou a criação de uma oferta delegada como um provedor de delegado. Saia como o provedor delegado e feche a janela do navegador que você está usando.
+   Você terminou a criação de uma oferta delegada como um provedor de delegado. Saia como o provedor delegado e feche a janela do navegador.
 
 ### <a name="sign-up-for-the-offer"></a>Inscreva-se a oferta
 
@@ -147,17 +147,17 @@ Entrar no portal do usuário, como o provedor de delegado e, em seguida, crie um
 
    ![Exibir e selecionar ofertas](media/azure-stack-delegated-provider/image8.png)
 
-O processo de delegar uma oferta é concluído. Agora um usuário pode se inscrever para esta oferta obtendo uma assinatura para ela.
+O processo de delegar uma oferta é concluído. Agora um usuário pode se inscrever para esta oferta obtendo uma assinatura a ele.
 
 ## <a name="move-subscriptions-between-delegated-providers"></a>Mover assinaturas entre provedores delegados
 
-Se necessário, uma assinatura pode ser movida entre as assinaturas de provedor delegada novos ou existentes que pertencem ao mesmo locatário do diretório. Isso é usando o cmdlet do PowerShell [movimentação AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
+Se necessário, uma assinatura pode ser movida entre as assinaturas de provedor delegada novos ou existentes que pertencem ao mesmo locatário do diretório. Isso é feito usando o cmdlet do PowerShell [movimentação AzsSubscription](/powershell/module/azs.subscriptions.admin).
 
 Isso é útil quando:
-- Integrar um novo membro da equipe que levarão a função de provedor delegada e você deseja atribuir a esse membro usuário-assinaturas de equipe que foram criados anteriormente na assinatura do provedor padrão.
-- Você tiver várias assinaturas de provedores delegados no mesmo diretório-locatário (Azure Active Directory) e precisa mover assinaturas de usuário entre eles. Isso pode ser o caso em que um membro da equipe se movem entre equipes e sua assinatura deve ser alocado para a nova equipe.
 
+* Integrar um novo membro da equipe que levarão a função de provedor delegada e você deseja atribuir a esse assinaturas de usuário membro de equipe que foram criados anteriormente na assinatura padrão do provedor.
+* Você tiver várias assinaturas de provedores delegados no mesmo locatário do diretório (Azure Active Directory) e precisa migrar assinaturas de usuário entre eles. Esse cenário pode ser um caso em que um membro da equipe se movem entre equipes e sua assinatura deve ser alocado para a nova equipe.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Provisionar uma máquina virtual](azure-stack-provision-vm.md)
+* [Provisionar uma máquina virtual](azure-stack-provision-vm.md)

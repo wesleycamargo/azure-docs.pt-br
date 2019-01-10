@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077113"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718717"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar espaço de trabalho e projetos do Hub para o Tradutor Personalizado
 
@@ -130,7 +130,7 @@ Se quiser um relatório de migração mais detalhado sobre os projetos, treiname
 * Só é possível migrar uma vez por projeto.  Se você precisar repetir uma migração em um projeto, entre em contato conosco.
 * Atualmente, o Tradutor Personalizado dá suporte a 36 idiomas que traduzem do inglês e vertem para o inglês, e estamos trabalhando duro para adicionar mais idiomas.  O Hub não exige que os modelos de linha de base e, portanto, dá suporte a várias linguagens de milhar.  Você pode migrar um par linguístico sem suporte; no entanto, faremos apenas a migração de documentos e as definições do projeto.  Não poderemos treinar o novo modelo.  Além disso, esses documentos e projetos serão exibidos como inativos para indicar que não podem ser usados no momento. Caso o suporte a esses projetos e/ou documentos seja adicionado, eles ficarão ativos e poderão ser treinados.
 * Atualmente, o Tradutor Personalizado não dá suporte a dados de treinamento monolíngues.  Assim como em pares linguísticos sem suporte, você poderá migrar documentos monolíngues, mas eles aparecerão como inativos até que passem a receber suporte.  
-* O Tradutor Personalizado requer 10 mil sentenças paralelas para treinamento.  O Hub da Microsoft pode treinar com um conjunto menor de dados.  Se um treinamento for migrado e não atender a esse requisito, ele será treinado.
+* O Tradutor Personalizado requer 10 mil sentenças paralelas para treinamento.  O Hub da Microsoft pode treinar com um conjunto menor de dados. Se um treinamento for migrado e não atender a esse requisito, ele não será treinado.
 
 
 ## <a name="custom-translator-versus-hub"></a>Tradutor Personalizado versus Hub
