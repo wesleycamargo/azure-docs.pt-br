@@ -5,14 +5,14 @@ author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: dharmas-cosmos
+ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f1f05987bee2931f6863298fc0ef7191fd5dbb87
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f623411c3e8b13aeacc08a6c47053931742a2e82
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166649"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034175"
 ---
 # <a name="azure-cosmos-db-compliance"></a>Conformidade com o Microsoft Azure Cosmos DB
 
@@ -20,11 +20,11 @@ O Microsoft Azure Cosmos DB está disponível em todas as regiões do Azure por 
 
 * Nuvem **Pública do Azure**, que está disponível globalmente.
 
-* **Azure China** agora está disponível por meio de uma parceria exclusiva entre a Microsoft e a 21Vianet, um dos maiores provedores de Internet do país.
+* **Azure China** está disponível por meio de uma parceria exclusiva entre a Microsoft e a 21Vianet, um dos maiores provedores de internet do país.
 
-* **Azure Alemanha** fornece serviços em um modelo de confiança de dados, o que garante que os dados do cliente permanecem na Alemanha sob o controle da T-Systems International GmbH, uma subsidiária da Deutsche Telekom, que atua como a administradora de dados alemã.
+* **Azure Alemão** fornece serviços sob um modelo de truste de dados, que garante que os dados de clientes permaneçam na Alemanha sob o controle da T-Systems International GmbH, uma subsidiária da Deutsche Telecom, atuando como depositária de dados alemã.
 
-* **Azure Governamental** está disponível em quatro regiões dos Estados Unidos para agências governamentais dos EUA e seus parceiros. 
+* **Azure Governamental** está disponível em quatro regiões nos Estados Unidos para agências do governo dos EUA e seus parceiros. 
 
 * **Azure Governamental para o Departamento de Defesa (DoD)** está disponível em duas regiões dos Estados Unidos para o Departamento de Defesa dos EUA.
 

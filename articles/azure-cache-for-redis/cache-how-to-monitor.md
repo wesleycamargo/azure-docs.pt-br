@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582704"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105110"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Como monitorar o Cache Redis do Azure
 O Cache Redis do Azure usa o [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para fornecer várias opções para monitorar suas instâncias de cache. Você pode exibir métricas, fixar gráficos de métricas ao quadro inicial, personalizar o intervalo de data e hora de gráficos de monitoramento, adicionar/remover as métricas de gráficos e definir alertas quando determinadas condições forem atendidas. Essas ferramentas permitem monitorar a integridade de suas instâncias do Cache Redis do Azure e ajudá-lo a gerenciar seus aplicativos de cache.
 
-As métricas para instâncias do Cache Redis do Azure são coletadas usando o comando [INFO](http://redis.io/commands/info) do Redis aproximadamente duas vezes por minuto e são armazenadas automaticamente por 30 dias (confira [Exportar métricas de cache](#export-cache-metrics) para configurar uma política de retenção diferente) para que possam ser exibidas nos gráficos de métricas e avaliadas por regras de alerta. Para saber mais sobre os diferentes valores INFO usados para cada métrica de cache, confira [Métricas disponíveis e intervalos de relatórios](#available-metrics-and-reporting-intervals).
+As métricas para instâncias do Cache Redis do Azure são coletadas usando o comando [INFO](https://redis.io/commands/info) do Redis aproximadamente duas vezes por minuto e são armazenadas automaticamente por 30 dias (confira [Exportar métricas de cache](#export-cache-metrics) para configurar uma política de retenção diferente) para que possam ser exibidas nos gráficos de métricas e avaliadas por regras de alerta. Para saber mais sobre os diferentes valores INFO usados para cada métrica de cache, confira [Métricas disponíveis e intervalos de relatórios](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
@@ -98,7 +98,7 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cac
 
 | Métrica | DESCRIÇÃO |
 | --- | --- |
-| Acertos do Cache |O número de pesquisas de chave com êxito durante o intervalo de relatório especificado. Esse número é mapeado para `keyspace_hits` do comando [INFO](http://redis.io/commands/info) do Redis. |
+| Acertos do Cache |O número de pesquisas de chave com êxito durante o intervalo de relatório especificado. Esse número é mapeado para `keyspace_hits` do comando [INFO](https://redis.io/commands/info) do Redis. |
 | Latência do cache (versão prévia) | A latência do cache calculada com base na latência de entre nós do cache. Essa métrica é medida em microssegundos e tem três dimensões: "Méd", "Mín" e "Máx", que representam a latência média, mínima e máxima do cache, respectivamente, durante o intervalo de relatório especificado. |
 | Erros de Cache |O número de pesquisas de chave com falha durante o intervalo de relatório especificado. Esse número é mapeado para `keyspace_misses` do comando INFO do Redis. Erros de cache não significam necessariamente que há um problema com o cache. Por exemplo, ao se usar o padrão de programação cache-aside, um aplicativo procura um item no cache primeiro. Se o item não estiver lá (erro de cache), o item será recuperado do banco de dados e adicionado ao cache na próxima vez. Erros de cache são o comportamento normal para o padrão de programação cache-aside. Se o número de erros de cache for maior do que o esperado, examine a lógica do aplicativo que popula e lê do cache. Se os itens estiverem sendo removidos do cache devido à pressão de memória, poderá haver alguns erros de cache, mas uma métrica melhor para monitorar a pressão de memória seria `Used Memory` ou `Evicted Keys`. |
 | Cache Lido |A quantidade de dados lidos do cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de adaptador de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. **Esse valor corresponde à largura de banda da rede usada por esse cache. Se você quer configurar alertas para os limites de largura de banda de rede do lado do servidor, crie-os usando este contador `Cache Read`. Confira [esta tabela](cache-faq.md#cache-performance) para ver os limites de largura de banda observados para vários tamanhos e tipos de preço de cache.** |

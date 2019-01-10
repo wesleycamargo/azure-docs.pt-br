@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078220"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064705"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Lista de verificação do recurso de licenciamento do Azure Active Directory Premium P2
 
@@ -84,7 +84,7 @@ Este guia pressupõe que você tenha licenças do Azure AD Premium P2, Enterpris
 - Gerenciar o ciclo de vida do usuário de forma holística
    - O Azure AD tem uma abordagem para gerenciar o ciclo de vida da identidade
    - Remova etapas manuais do ciclo de vida da sua conta de funcionário para impedir o acesso não autorizado:
-      - Sincronize identidades da sua fonte de verdade (HR System) para o Azure AD. link para suporte a sistemas de RH)
+      - Sincronize identidades da sua fonte de verdade (HR System) para o Azure AD.
       - [Use os grupos dinâmicos para atribuir automaticamente os usuários aos grupos com base em seus atributos do RH (ou sua fonte de verdade), como departamento, título, região e outros atributos.](../users-groups-roles/groups-dynamic-membership.md)
       - [Use o provisionamento de gerenciamento de acesso baseado em grupo para provisionar automaticamente os usuários para aplicativos SaaS.](../manage-apps/what-is-access-management.md)
 

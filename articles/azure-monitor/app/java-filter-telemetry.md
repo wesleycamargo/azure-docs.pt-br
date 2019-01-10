@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981427"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015515"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar a telemetria no aplicativo Web Java
 
@@ -31,7 +31,7 @@ Os filtros prontos para uso incluem:
 
 > [!NOTE]
 > Os filtros distorcem as métricas do aplicativo. Por exemplo, você pode decidir que, para diagnosticar respostas lentas, vai definir um filtro para descartar tempos rápidos de resposta. Mas você deve estar ciente de que a média dos tempos de resposta relatada pelo Application Insights será mais lenta que a velocidade verdadeira e a contagem de solicitações será menor que a contagem real.
-> Se isso for um problema, use [Amostragem](../../application-insights/app-insights-sampling.md).
+> Se isso for um problema, use [Amostragem](../../azure-monitor/app/sampling.md).
 
 ## <a name="setting-filters"></a>Definindo filtros
 
@@ -262,4 +262,4 @@ Em ApplicationInsights.xml:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Amostragem](../../application-insights/app-insights-sampling.md) — considere a amostragem como uma alternativa que não distorce suas métricas.
+* [Amostragem](../../azure-monitor/app/sampling.md) — considere a amostragem como uma alternativa que não distorce suas métricas.

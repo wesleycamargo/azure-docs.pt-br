@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 9d7266e75d863ab5c024217e137566c109e79f70
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997888"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120658"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados do Application Insights Telemetry
 
-O [Azure Application Insights](../../application-insights/app-insights-overview.md) envia a telemetria de seu aplicativo Web ao portal do Azure, para que você possa analisar o desempenho e o uso de seu aplicativo. O modelo de telemetria é padronizado para que seja possível criar a plataforma e o monitoramento independente de linguagem. 
+O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envia a telemetria de seu aplicativo Web ao portal do Azure, para que você possa analisar o desempenho e o uso de seu aplicativo. O modelo de telemetria é padronizado para que seja possível criar a plataforma e o monitoramento independente de linguagem. 
 
 Os dados coletados pelo Application Insights modelam esse padrão de execução típico do aplicativo:
 
@@ -55,5 +55,5 @@ Para relatar problemas de esquema ou modelo de dados e sugestões, use o reposit
 
 - [Escrever telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md)
 - Saiba como [estender e filtrar a telemetria](../../azure-monitor/app/api-filtering-sampling.md).
-- Use [amostragem](../../application-insights/app-insights-sampling.md) para minimizar a quantidade de telemetria com base no modelo de dados.
+- Use [amostragem](../../azure-monitor/app/sampling.md) para minimizar a quantidade de telemetria com base no modelo de dados.
 - Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.
