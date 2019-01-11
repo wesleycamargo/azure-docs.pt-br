@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: fcda4fba376fbe1f527d60aa5a27f7e7f0713e3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977699"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157098"
 ---
 <h1>Azure Data Box</h1>
 <p>A família Azure Data Box oferece produtos com diferentes capacidades de armazenamento para ajudar a enviar terabytes (TB) de dados para o Azure de forma rápida, barata e confiável. A Microsoft acelera a transferência de dados segura enviando a você dispositivos de armazenamento proprietários que permitem a transferência de dados offline ou pela rede.</p>
@@ -35,7 +35,7 @@ ms.locfileid: "46977699"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Disco do Data Box <SUP>Versão prévia</SUP> </b> para tamanhos de dados menores que 40 TB. A Microsoft envia para você de 1 a 5 SSDs (unidades de estado sólido) criptografadas para copiar dados e enviar de volta.</p>
+                            <p><b>Data Box Disk</b> para dados menores que 40 TB. A Microsoft envia para você de 1 a 5 SSDs (unidades de estado sólido) criptografadas para copiar dados e enviar de volta.</p>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ ms.locfileid: "46977699"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Gateway do Data Box <SUP>Versão prévia</SUP></b> dispositivo virtual com armazenamento. Use este dispositivo para enviar seus dados pela rede para o Azure.</p>
+                            <p><b>Data Box Gateway <SUP>Versão prévia</SUP></b> dispositivo virtual com armazenamento. Use este dispositivo para enviar seus dados pela rede para o Azure.</p>
                         </div>
                     </div>
                 </div>
