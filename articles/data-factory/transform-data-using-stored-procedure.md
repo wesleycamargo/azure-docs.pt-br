@@ -20,7 +20,7 @@ ms.lasthandoff: 11/28/2018
 ms.locfileid: "52444021"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de procedimento armazenado do SQL Server no Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-stored-proc-activity.md)
 > * [Versão atual](transform-data-using-stored-procedure.md)
 
