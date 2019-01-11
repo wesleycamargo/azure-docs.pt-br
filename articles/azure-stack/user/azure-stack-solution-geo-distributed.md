@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 917f9a5ff2f6f9f6101b19dccee05fe5ab25c5a9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714841"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214769"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicativo distribuído geograficamente com o Azure e o Azure Stack
 
@@ -106,7 +106,7 @@ Atualize os aplicativos de web foCreate do arquivo de zona DNS e publishr o dom�
 Configure híbrido CI/CD para implantar aplicativo Web no Azure e o Azure Stack e automático de alterações por push para ambas as nuvens.
 
 > [!Note]  
-> O Azure Stack com imagens adequados seja distribuído para execução (Windows Server e SQL) e a implantação do serviço de aplicativo são necessárias. Leia a documentação do serviço de aplicativo "[antes de começar com o serviço de aplicativo no Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" seção para o operador de pilha do Azure.
+> O Azure Stack com imagens adequados seja distribuído para execução (Windows Server e SQL) e a implantação do serviço de aplicativo são necessárias. Leia a documentação do serviço de aplicativo [antes de começar com o serviço de aplicativo no Azure Stack](../azure-stack-app-service-before-you-get-started.md) seção para o operador de pilha do Azure.
 
 #### <a name="add-code-to-azure-repos"></a>Adicione código para repositórios do Azure
 
