@@ -10,21 +10,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ad38bdf30d04f309bedaf9a7cc8b3d5b1aad6df7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722081"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215058"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tamanhos de máquina virtual com suporte no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Este artigo lista os tamanhos de máquina virtual (VM) que estão disponíveis no Azure Stack.
+
+Disco de IOPS (entrada/saída operações por segundo) no Azure Stack é uma função do tamanho da VM em vez do tipo de disco. Isso significa que para uma série de Standard_Fs VM, independentemente de escolher SSD ou HDD para o tipo de disco, o limite IOPS para um disco de dados adicionais único 2300 IOPS. Os limites de IOPS impostos é um limite (máximo possível) para evitar vizinhos barulhentos. Não é uma garantia de IOPS que você obterá um tamanho de VM específico.
 
 ## <a name="general-purpose"></a>Propósito geral
 
@@ -35,7 +37,7 @@ Tamanhos de VM de uso geral fornecem uma taxa de CPU para memória equilibrada. 
 > [!NOTE]
 > *Um básico* tamanhos de máquina virtual estão desativados para [criando conjuntos de dimensionamento de máquina virtual](../azure-stack-compute-add-scalesets.md) (VMSS) por meio do portal. Para criar um VMSS com esse tamanho, use o PowerShell ou um modelo.
 
-|Tamanho – tamanho\nome |vCPU     |Memória | Tamanho máximo do disco temporário | Taxa de transferência de disco de SO máxima: (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Taxa de transferência do disco de dados máxima (IOPS) | Máximo de NICs |    
+|Tamanho – tamanho\nome |vCPU     |Memória | Tamanho máximo do disco temporário | Taxa de transferência de disco do SO máxima: (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Taxa de transferência do disco de dados máxima (IOPS) | Máximo de NICs |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1 x 300  |1   |
 |**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2 / 2 x 300  |1   |

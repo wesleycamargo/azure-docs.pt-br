@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 15f358f76504436dd6a3cf6a39b10531a9e1b376
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055159"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214582"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização da pilha 1811 do Azure
 
@@ -82,9 +82,9 @@ O Azure Stack libera hotfixes regularmente. Certifique-se de instalar o [hotfix 
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    Depois que você importou os certificados de host de extensão obrigatória corretamente, você pode retomar a atualização 1811 do portal do administrador. Embora a Microsoft recomenda que os operadores do Azure Stack para colocar a unidade de escala em modo de manutenção durante o processo de atualização, uma falha devido aos certificados de host de extensão ausente não deve afetar as cargas de trabalho ou os serviços existentes.  
+    Depois que você importou os certificados de host de extensão obrigatória corretamente, você pode retomar a atualização 1811 do portal do administrador. Embora a Microsoft recomenda que os operadores do Azure Stack para agendar uma janela de manutenção durante o processo de atualização, uma falha devido aos certificados de host de extensão ausente não deve afetar as cargas de trabalho ou os serviços existentes.  
 
-    Durante a instalação dessa atualização, o portal do usuário do Azure Stack está disponível enquanto o host de extensão está sendo configurado. A configuração do host de extensão pode levar até 5 horas. Durante esse tempo, você pode verificar o status de uma atualização ou retomar uma instalação de atualização com falha usando [administrador de pilha do Azure PowerShell ou o ponto de extremidade com privilégios](azure-stack-monitor-update.md).
+    Durante a instalação dessa atualização, o portal do usuário do Azure Stack está disponível enquanto o host de extensão está sendo configurado. A configuração do host de extensão pode levar até 5 horas. Durante esse tempo, você pode verificar o status de uma atualização ou retomar uma instalação de atualização com falha usando o [PowerShell do Administrador do Azure Stack ou o ponto de extremidade com privilégios](azure-stack-monitor-update.md).
 
 ## <a name="new-features"></a>Novos recursos
 
@@ -195,7 +195,7 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links aci
 
 - Ao executar [teste AzureStack](azure-stack-diagnostic-test.md), se o **AzsInfraRoleSummary** ou o **AzsPortalApiSummary** teste falhar, você será solicitado a executar  **Teste AzureStack** com o `-Repair` sinalizador.  Se você executar esse comando, ele falhará com a seguinte mensagem de erro:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  Esse problema será corrigido em uma versão futura.
 
-- Durante a instalação da atualização 1811, não o usar o portal do Azure Stack está disponível enquanto o host de extensão está sendo configurado. A configuração do host de extensão pode levar até 5 horas. Durante esse tempo, você pode verificar o status de uma atualização ou retomar uma instalação de atualização com falha usando [administrador de pilha do Azure PowerShell ou o ponto de extremidade com privilégios](azure-stack-monitor-update.md). 
+- Durante a instalação da atualização 1811, não o usar o portal do Azure Stack está disponível enquanto o host de extensão está sendo configurado. A configuração do host de extensão pode levar até 5 horas. Durante esse tempo, você pode verificar o status de uma atualização ou retomar uma instalação de atualização com falha usando o [PowerShell do Administrador do Azure Stack ou o ponto de extremidade com privilégios](azure-stack-monitor-update.md). 
 
 - Durante a instalação da atualização 1811, painel do portal do usuário pode não estar disponível e personalizações podem ser perdidas. Você pode restaurar o painel para a configuração padrão após a conclusão da atualização abrindo as configurações do portal e selecionando **restaurar as configurações padrão**.
 
@@ -254,6 +254,12 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 ### <a name="compute"></a>Computação
 
 - Ao criar um novo Windows VM (Máquina Virtual), o **configurações** folha requer que você selecione uma porta de entrada pública para continuar. 1811, essa configuração é necessária, mas não tem nenhum efeito. Isso ocorre porque o recurso depende de Firewall do Azure, que não está implementado no Azure Stack. Você pode selecionar **portas de entrada públicas não**, ou qualquer uma das outras opções para prosseguir com a criação da VM. A configuração não terá efeito.
+
+- Ao criar um novo Windows VM (Máquina Virtual), o seguinte erro pode ser exibido:
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   O erro ocorre se você habilitar o diagnóstico de inicialização em uma VM, mas excluir sua conta de armazenamento de diagnóstico de inicialização. Para contornar esse problema, recrie a conta de armazenamento com o mesmo nome que você usou anteriormente.
 
 <!-- 3235634 – IS, ASDK -->
 - Implantar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, especifique o sufixo como **Standard_A2_v2** (v minúsculo). Não use **Standard_A2_V2** (V maiusculo). Isso funciona no Azure global e uma inconsistência no Azure Stack.
