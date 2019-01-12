@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49410048"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245201"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Implantar uma solução de nuvem híbrida com o Azure e o Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Este tutorial mostra como implantar uma solução de nuvem híbrida que usa a nuvem pública do Azure e a nuvem privada do Azure Stack.
 
@@ -79,11 +79,11 @@ Antes de iniciar este tutorial, certifique-se de que você pode atender aos segu
 
     ![Auzure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
-3. Na **Marketplace**, selecione **de computação**e, em seguida, escolha **mais**. Sob **mais**, selecione o **licença gratuita do SQL Server: desenvolvedor do SQL Server 2017 no Windows Server** imagem.
+3. Na **Marketplace**, selecione **de computação**e, em seguida, escolha **mais**. Sob **mais**, selecione o **licença gratuita do SQL Server: O desenvolvedor do SQL Server 2017 no Windows Server** imagem.
 
     ![Selecione uma imagem de máquina virtual](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. Na **licença gratuita do SQL Server: desenvolvedor do SQL Server 2017 no Windows Server** selecionar **criar**.
+4. Em **livre de licença do SQL Server: O desenvolvedor do SQL Server 2017 no Windows Server** selecionar **criar**.
 
 5. Na **Noções básicas > definir as configurações básicas**, forneça um **nome** para a máquina virtual (VM), uma **nome de usuário** para o SA do SQL Server e um **senha** para SA.  Dos **assinatura** lista suspensa, selecione a assinatura que você está implantando. Para **grupo de recursos**, use **escolher existente** e colocar a VM no mesmo grupo de recursos do aplicativo web do Azure Stack.
 
@@ -176,7 +176,7 @@ O gateway de rede virtual no lado do Azure da rede híbrida deve permitir conex�
 
 1. Para conectar o aplicativo para a rede virtual do Azure, siga as instruções em [habilitando a integração de rede virtual](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#enabling-vnet-integration).
 
-2. Navegue até **configurações** para o plano de serviço de aplicativo que hospeda o aplicativo web. Na **as configurações**, selecione **Networking**.
+2. Navegue até **configurações** para o plano de serviço de aplicativo que hospeda o aplicativo web. Em **Configurações**, selecione **Rede**.
 
     ![Configurar Rede](media/azure-stack-solution-hybrid-cloud/image11.png)
 
@@ -194,7 +194,7 @@ Para saber mais sobre como o serviço de aplicativo se integra com redes virtuai
 
 O gateway de rede local na rede virtual do Azure Stack precisa ser configurado para rotear o tráfego do intervalo de endereços de ponto para site de serviço de aplicativo.
 
-1. No Azure Stack, navegue até **gateway de rede Local**. Sob **as configurações**, selecione **configuração**.
+1. No Azure Stack, navegue até **gateway de rede Local**. Em **Configurações**, escolha **Configuração**.
 
     ![Opção de configuração de gateway](media/azure-stack-solution-hybrid-cloud/image14.png)
 
@@ -308,7 +308,7 @@ Quando você cria seu aplicativo web em um ambiente de serviço de aplicativo é
 
     ![Habilitar dimensionamento automático](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. Insira um nome para **nome da configuração de dimensionamento automático**. Para o **padrão** regra de dimensionamento automático, selecione **dimensionar com base em uma métrica**. Defina as **limites de instância** à **mínimo: 1**, **máximo: 10**, e **padrão: 1**.
+3. Insira um nome para **nome da configuração de dimensionamento automático**. Para o **padrão** regra de dimensionamento automático, selecione **dimensionar com base em uma métrica**. Defina as **limites de instância** para **mínimo: 1**, **máximo: 10**, e **padrão: 1**.
 
     ![Configure o dimensionamento automático](media/azure-stack-solution-hybrid-cloud/image18.png)
 
@@ -502,7 +502,7 @@ Quando seu site da Web atinge os limites que você configure, você receberá um
 
     ![Pontos de extremidade do Gerenciador de Tráfego](media/azure-stack-solution-hybrid-cloud/image20.png)
 
-2. Selecione **pontos de extremidade**.
+2. Selecione **Pontos de extremidade**.
 3. Selecione o **ponto de extremidade do Azure**.
 4. Sob **Status** , selecione **Enabled**e, em seguida, selecione **salvar**.
 

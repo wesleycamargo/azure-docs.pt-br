@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 0516ee7a8319b85765280b4c84f5febec8343ada
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: thoroet
+ms.openlocfilehash: 2d760286e8f1d65f9f454980429ecc5872c4e48a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965608"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245847"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gerenciar a capacidade de memória física para o Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Para aumentar a capacidade de memória total disponível para o Azure Stack, você pode adicionar mais memória. No Azure Stack seu servidor físico também é conhecido como um *nó de unidade de escala*. Todos os nós de unidade de escala que são membros de uma única unidade de escala devem ter a mesma quantidade de memória.
 

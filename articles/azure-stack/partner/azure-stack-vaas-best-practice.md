@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
-ms.reviewer: John.Haskin
-ms.openlocfilehash: d83eb501bbe685890decb3acbb8116164f4199db
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.reviewer: johnhas
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8b7d2b6d2aef4567197fe18607cb50d1e9a4206b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422653"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247225"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Práticas recomendadas para a validação como um serviço
 
@@ -26,7 +27,7 @@ ms.locfileid: "52422653"
 
 Este artigo aborda as práticas recomendadas para gerenciamento de recursos de validação como um serviço (VaaS). Para uma visão geral dos recursos de VaaS, consulte [validação como um conceitos principais do serviço](azure-stack-vaas-key-concepts.md).
 
-## <a name="solution-management"></a>Gerenciamento de solução
+## <a name="solution-management"></a>Gerenciamento de soluções
 
 ### <a name="naming-convention-for-vaas-solutions"></a>Convenção de nomenclatura para soluções de VaaS
 

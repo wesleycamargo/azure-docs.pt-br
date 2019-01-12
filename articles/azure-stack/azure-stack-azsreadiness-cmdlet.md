@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957411"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247564"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referência de cmdlet Start-AzsReadinessChecker
 
@@ -277,7 +277,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 Neste exemplo, a senha do PFX é solicitada com segurança. O arquivo ssl.pfx será importado no repositório de certificados do computador local e re-exportado com a mesma senha e salva como ssl_new.pfx.  Esse procedimento é para uso quando sinalizado de validação de certificado que uma chave privada não tem o conjunto de atributos de computador Local, a cadeia de certificados é interrompida, irrelevantes certificados estão presentes no PFX ou a cadeia de certificados está na ordem errada.
 
-### <a name="example-view-validation-report-deployment-support"></a>Exemplo: Exibir o relatório de validação (suporte à implantação)
+### <a name="example-view-validation-report-deployment-support"></a>Exemplo: Exibir relatório de validação (suporte à implantação)
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
@@ -285,7 +285,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 
 Neste exemplo, a equipe de suporte ou implantação recebe o relatório de prontidão do cliente (Contoso) e usa AzsReadinessChecker inicial para exibir o status das execuções de validação executada da Contoso.
 
-### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Exemplo: Exibir o relatório de validação de resumo para o certificado validação somente (implantação e suporte)
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Exemplo: Exibir relatório de validação de resumo para o certificado validação somente (implantação e suporte)
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary

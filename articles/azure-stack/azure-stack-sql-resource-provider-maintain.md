@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364075"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244980"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operações de manutenção de provedor de recursos do SQL
 
@@ -32,16 +32,6 @@ O provedor de recursos do SQL não é atendido como parte do Azure Stack, porque
 ### <a name="provider-virtual-machine"></a>Máquina virtual de provedor
 
 Como o provedor de recursos é executada em um *usuário* máquina virtual, você precisa aplicar as atualizações e patches necessários quando elas forem lançadas. Você pode usar os pacotes de atualização do Windows que são fornecidos como parte do ciclo de patch e atualização para aplicar as atualizações para a máquina virtual.
-
-## <a name="backuprestoredisaster-recovery"></a>Backup/restauração/recuperação de desastre
-
- Porque ele é um componente complementar, o provedor de recursos do SQL não é feito como parte de um processo de recuperação de desastres do Azure Stack Business continuidade (BCDR). Scripts serão fornecidos para as seguintes operações:
-
-- Fazendo backup de informações de estado (armazenadas em uma conta de armazenamento do Azure Stack).
-- Restaurando o provedor de recursos se uma recuperação de pilha completa é necessária.
-
->[!NOTE]
->Se você precisar fazer uma recuperação, servidores de banco de dados devem ser recuperados antes que o provedor de recursos é restaurado.
 
 ## <a name="updating-sql-credentials"></a>Atualizando as credenciais do SQL
 
@@ -122,7 +112,7 @@ Ao usar os provedores de recursos do SQL e MySQL com o Azure Stack, sistemas int
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-**Problema**: logs de rotação de segredos.<br>
+**Problema**: Logs de rotação de segredos.<br>
 Os logs para a rotação de segredos não são coletados automaticamente se o script personalizado da rotação do segredo falha quando ele é executado.
 
 **Solução alternativa**:<br>

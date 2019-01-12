@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754536"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244963"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -254,6 +254,8 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - Um operador do Azure Stack, se você receber um alerta de memória insuficiente e máquinas virtuais de locatário não conseguir implantar com um **erro de criação de VM do Fabric**, é possível que o carimbo de data / Azure Stack está fora de memória disponível. Use o [Planejador de capacidade do Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para entender melhor a capacidade disponível para suas cargas de trabalho.
 
 ### <a name="compute"></a>Computação
+
+- Ao criar uma [VM da série Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 VMs permitem criar 4, 8, 16 e 32 discos de dados, respectivamente. No entanto, o painel VM de criar mostra 8, 16, 32 e 64 discos de dados.
 
 <!-- 3164607 – IS, ASDK -->
 - Tornar a anexar um disco desanexado a mesma máquina virtual (VM) com o mesmo nome e o LUN falhará com um erro como **não é possível anexar o disco de dados 'datadisk' à VM 'vm1'**. O erro ocorre porque o disco está sendo desanexado atualmente ou a última Falha na operação de desanexação. Aguarde até que o disco está completamente desanexado e tente novamente ou exclua/Desanexe o disco explicitamente novamente. A solução alternativa é anexá-lo novamente com um nome diferente ou em um LUN diferente. 

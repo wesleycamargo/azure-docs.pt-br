@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/09/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: unknown
+ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902834"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245677"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Visão geral da identidade para o Azure Stack
 
@@ -33,8 +33,8 @@ A escolha do Azure AD ou AD FS pode ser determinada pelo modo em que você impla
 
 Para obter mais informações sobre suas opções, que dependem de seu ambiente do Azure Stack, consulte os seguintes artigos:
 
-- O kit de implantação do Azure Stack: [considerações sobre identidade](azure-stack-datacenter-integration.md#identity-considerations).
-- Sistemas integrados do Azure Stack: [sistemas integrados de decisões para o Azure Stack de planejamento de implantação](azure-stack-deployment-decisions.md).
+- Kit de implantação de pilha do Azure: [Considerações sobre identidade](azure-stack-datacenter-integration.md#identity-considerations).
+- Sistemas integrados do Azure Stack: [Sistemas integrados de decisões para o Azure Stack de planejamento de implantação](azure-stack-deployment-decisions.md).
 
 ## <a name="common-concepts-for-identity"></a>Conceitos comuns de identidade
 
@@ -80,17 +80,17 @@ Você pode registrar aplicativos para o Azure AD ou AD FS e, em seguida, oferece
 
 Os aplicativos incluem:
 
-- **Aplicativo Web**: os exemplos incluem o portal do Azure e o Azure Resource Manager. Eles oferecem suporte a chamadas de API da Web.
-- **Cliente nativo**: os exemplos incluem o Azure PowerShell, o Visual Studio e a CLI do Azure.
+- **Aplicativo Web**: Exemplos incluem o portal do Azure e o Azure Resource Manager. Eles oferecem suporte a chamadas de API da Web.
+- **Cliente nativo**: Exemplos incluem o Azure PowerShell, o Visual Studio e a CLI do Azure.
 
 Aplicativos podem oferecer suporte a dois tipos de locação:
 
-- **Locatário único**: dá suporte a usuários e serviços somente do mesmo diretório em que o aplicativo está registrado.
+- **Locatário único**: Dá suporte a usuários e serviços somente do mesmo diretório em que o aplicativo está registrado.
 
   > [!NOTE]
   > Como o AD FS oferece suporte a apenas um único diretório, aplicativos que você criou em uma topologia do AD FS são, por design, aplicativos de locatário único.
 
-- **Multilocatário**: oferece suporte ao uso por usuários e serviços de diretório em que o aplicativo está registrado e diretórios adicionais de locatário. Com aplicativos de multilocatário, os usuários de outro pode de diretório (outro locatário do Azure AD) do locatário entrar no seu aplicativo. 
+- **Multilocatário**: Oferecer suporte ao uso por usuários e serviços de diretório em que o aplicativo está registrado e diretórios adicionais de locatário. Com aplicativos de multilocatário, os usuários de outro pode de diretório (outro locatário do Azure AD) do locatário entrar no seu aplicativo. 
 
   Para obter mais informações sobre multilocação, consulte [habilitar multilocação](azure-stack-enable-multitenancy.md).
 
@@ -100,7 +100,7 @@ Quando você registra um aplicativo, você pode criar dois objetos:
 
 - **Objeto de aplicativo**: A representação global do aplicativo em todos os locatários. Essa relação é-para-um com o aplicativo de software e existe somente no diretório onde o aplicativo pela primeira vez é registrado.
 
-- **Objeto de entidade de serviço**: uma credencial que é criada para um aplicativo no diretório onde o aplicativo pela primeira vez é registrado. Uma entidade de serviço também é criada no diretório de cada locatário adicional em que esse aplicativo é usado. Essa relação pode ser um-para-muitos com o aplicativo de software.
+- **Objeto de entidade de serviço**: Uma credencial que é criada para um aplicativo no diretório onde o aplicativo pela primeira vez é registrado. Uma entidade de serviço também é criada no diretório de cada locatário adicional em que esse aplicativo é usado. Essa relação pode ser um-para-muitos com o aplicativo de software.
 
 Para saber mais sobre o aplicativo e objetos de entidade de serviço, consulte [aplicativo e objetos de entidade de serviço no Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -156,7 +156,7 @@ Para usuários e aplicativos, a arquitetura do Azure Stack é descrita por quatr
 Para autenticar com o provedor de identidade e receber um Token Web JSON, você deve ter as seguintes informações:
 
 1. **URL para o sistema de identidade (autoridade de certificação)**: A URL na qual o seu provedor de identidade pode ser acessado. Por exemplo, *https://login.windows.net*.
-2. **URI da ID do aplicativo do Azure Resource Manager**: O identificador exclusivo para o Azure Resource Manager que está registrado com seu provedor de identidade. Também é exclusiva para cada instalação do Azure Stack.
+2. **URI da ID do aplicativo para o Azure Resource Manager**: O identificador exclusivo para o Azure Resource Manager que está registrado com seu provedor de identidade. Também é exclusiva para cada instalação do Azure Stack.
 3. **Credenciais**: A credencial que você pode usar para autenticar com o provedor de identidade.
 4. **URL para o Azure Resource Manager**: A URL é o local do serviço do Azure Resource Manager. Por exemplo, *https://management.azure.com* ou *https://management.local.azurestack.external*.
 

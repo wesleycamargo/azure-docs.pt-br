@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: hector.linares
-ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.reviewer: hectorl
+ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191522"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243621"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteger máquinas virtuais implantadas no Azure Stack
 
@@ -53,7 +53,7 @@ Cada nuvem do Azure Stack é implantado em um datacenter. Um ambiente separado �
 
 Planeje sua estratégia de recuperação de backup e recuperação de desastre para cada aplicativo determinar o destino para cada aplicativo. Um plano de recuperação ajudarão sua organização corretamente dimensionar o armazenamento capacidade necessária no local e consumo na nuvem pública do projeto.
 
-|  | Azure global | O Azure Stack implantados no datacenter do CSP e operados pelo CSP | O Azure Stack implantados no datacenter do cliente e operados por cliente |
+|  | Azure Global | O Azure Stack implantados no datacenter do CSP e operados pelo CSP | O Azure Stack implantados no datacenter do cliente e operados por cliente |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **O Azure Stack implantados no datacenter do CSP e operados pelo CSP** | VMs do usuário são implantadas à pilha do Azure CSP operado.<br><br>VMs do usuário são restauradas a partir do backup ou failover diretamente no Azure. | CSP opera instâncias primárias e secundárias do Azure Stack em seus próprios datacenters.<br><br>VMs do usuário são restauradas ou failover entre as duas instâncias do Azure Stack. | CSP opera o Azure Stack no site primário.<br><br>Datacenter do cliente é o destino de restauração ou failover. |
 | **O Azure Stack implantados no datacenter do cliente e operados por cliente** | VMs do usuário são implantadas para o cliente operado Azure Stack.<br><br>VMs do usuário são restauradas a partir do backup ou failover diretamente no Azure. | Cliente opera o Azure Stack no site primário.<br><br>Datacenter do CSP é o destino de restauração ou failover. | Cliente opera instâncias primárias e secundárias do Azure Stack em seus próprios datacenters.<br><br>VMs do usuário são restauradas ou failover entre as duas instâncias do Azure Stack. |
