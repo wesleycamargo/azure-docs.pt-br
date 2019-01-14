@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jeffgilb
-ms.reviewer: ''
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: d106d9f79498678f08142f952e09c5125c6e5d6c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7c4f8fd3d7a4885893a126c63776a5e241dc0f91
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721510"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246527"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Tutorial: tornar as máquinas virtuais disponíveis para seus usuários do Azure Stack
 
@@ -108,7 +108,7 @@ Agora que você criou uma oferta, você pode testá-lo. Você deve entrar como u
 
 1. **Assinar uma oferta**
 
-   a. Entre no portal do usuário com uma conta de usuário e selecione o **obter uma assinatura** lado a lado.
+    a. Entre no portal do usuário com uma conta de usuário e selecione o **obter uma assinatura** lado a lado.
    - Para um sistema integrado, a URL varia com base na região de seu operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se você estiver usando o Kit de desenvolvimento do Azure Stack, o endereço do portal é https://portal.local.azurestack.external.
 
@@ -127,7 +127,7 @@ Agora que você criou uma oferta, você pode testá-lo. Você deve entrar como u
 
    A partir do portal do usuário, você pode provisionar uma máquina virtual usando a nova assinatura.
 
-   a. Entrar no portal do usuário com uma conta de usuário.
+    a. Entrar no portal do usuário com uma conta de usuário.
       - Para um sistema integrado, a URL varia com base na região de seu operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se você estiver usando o Kit de desenvolvimento do Azure Stack, o endereço do portal é https://portal.local.azurestack.external.
 

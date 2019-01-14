@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: 88c72994ec0c6cfc6222ccb31cabae7e354412eb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969525"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245524"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de análise de dados preparados com o Azure e o Azure Stack 
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Saiba como usar fontes locais e ambientes de nuvem pública para atender às demandas das instalações de várias empresas. O Azure Stack oferece uma solução rápida, segura e flexível para coletar, processar, armazenar e distribuir dados locais e remotos, especialmente quando a segurança, confidencialidade, políticas corporativas e requisitos normativos podem diferir entre os locais de e usuários.
 
@@ -49,7 +49,7 @@ Neste tutorial, crie um ambiente de exemplo para:
 
 Algumas preparações é necessário para criar essa solução:
 
--   Uma pilha do Azure instalado e funcionando (mais informações podem ser encontradas aqui: [visão geral do Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
+-   Uma pilha do Azure instalado e funcionando (mais informações podem ser encontradas aqui: [Visão geral do Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
 
 -   Uma assinatura do Azure. (Criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
@@ -81,25 +81,25 @@ O contêiner de blob e a conta de armazenamento manterá todos os dados originai
 
 3.  Use as seguintes informações para a conta:
 
-     a.  Nome: **sua escolha**
+     a.  Nome: **Sua escolha**
 
-    b.  Modelo de implantação: **do Resource Manager**
+    b.  Modelo de implantação: **Resource Manager**
 
-    c.  Tipo de conta: **armazenamento (uso geral V1)**
+    c.  Tipo de conta: **Armazenamento (uso geral V1)**
 
-    d.  Local: **Oeste dos EUA**
+    d.  Localização: **Oeste dos EUA**
 
-    e.  Replicação: **armazenamento localmente redundante (LRS)**
+    e.  Replicação: **Armazenamento com redundância local (LRS)**
 
-    f.  Desempenho: **padrão**
+    f.  Desempenho: **Standard**
 
-    g.  Transferência segura necessária: **desabilitado**
+    g.  Transferência segura necessária: **Desabilitado**
 
-    h.  Assinatura: Escolha uma
+    h.  Assinatura: Escolher uma
 
     i.  Grupo de recursos: Especifique um novo grupo de recursos ou selecione um grupo de recursos
 
-    j.  Configurar redes virtuais: **desabilitado**
+    j.  Configure redes virtuais: **Desabilitado**
 
 4.  Selecione **criar para criar a conta de armazenamento**.
 
@@ -113,9 +113,9 @@ O contêiner de blob e a conta de armazenamento manterá todos os dados originai
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
-8.  Nome: **sua escolha**
+8.  Nome: **Sua escolha**
 
-9.  Nível de acesso público: **contêiner** (acesso de leitura anônimo para contêineres e blobs)
+9.  Nível de acesso público: **Contêiner** (acesso de leitura anônimo para contêineres e blobs)
 
 10.  Selecione **OK**.
 
@@ -168,7 +168,7 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  Selecione **C\#**  como o idioma e o nome da função: `upload-to-azure` definir o agendamento `0 0 * * * *`, que em CRON notação é de uma vez de uma hora.
+3.  Selecione **C\#**  como o idioma e o nome de função: `upload-to-azure`  Defina o agendamento `0 0 * * * *`, que em CRON notação é de uma vez de uma hora.
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image5.png)
 
