@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344271"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188600"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
@@ -78,7 +78,7 @@ Para criar um ASE ILB:
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   Há um recurso chamado nomes de domínio personalizado que permite que você mapeie um nome DNS existente para seu aplicativo Web. Você pode ler mais sobre esse recurso no documento [Mapear um nome DNS existente para seu aplicativo Web][customdomain]. O nome de domínio personalizado usado para aplicativos e o nome de domínio usado pelo seu ASE não podem ser os mesmos. Em um ASE ILB com o nome de domínio _contoso.com_, não é possível usar nomes de domínio personalizados para seus aplicativos, como:
+   Você pode [mapear um nome DNS existente para seu aplicativo][customdomain]. O nome de domínio personalizado usado para aplicativos e o nome de domínio usado pelo seu ASE não podem ser os mesmos. Em um ASE ILB com o nome de domínio _contoso.com_, não é possível usar nomes de domínio personalizados para seus aplicativos, como:
 
     * www.contoso.com
 
@@ -88,7 +88,7 @@ Para criar um ASE ILB:
 
    Se você souber os nomes de domínio personalizados dos seus aplicativos, escolha um domínio para o ASE ILB que não seja conflitante com os nomes de domínio personalizados. Neste exemplo, você pode usar algo como *contoso-internal.com* para o domínio do seu ASE porque isso não entra em conflito com os nomes de domínio personalizados que terminam em *.contoso.com*.
 
-1. Selecione **OK** e, então, selecione **Criar**.
+8. Selecione **OK** e, então, selecione **Criar**.
 
     ![Criação do ASE][1]
 
@@ -160,23 +160,23 @@ Para carregar seus próprios certificados e testar o acesso:
 
 1. Obtenha o endereço do ILB para seu ASE. Selecione **ASE** > **Propriedades** > **Endereço IP Virtual**.
 
-1. Depois de criar o ASE, crie um aplicativo Web nele.
+2. Depois de criar o ASE, crie um aplicativo nele.
 
-1. Se não tiver uma VM naquela VNet, crie uma.
+3. Se não tiver uma VM naquela VNet, crie uma.
 
     > [!NOTE] 
     > Não tente criar essa VM na mesma sub-rede que o ASE porque irá falhar ou causar problemas.
     >
 
-1. Defina o DNS para o domínio do ASE. Você pode usar um caractere curinga com o seu domínio no DNS. Para fazer alguns testes simples, edite o arquivo de hosts na sua VM para definir o nome do aplicativo Web para o endereço IP VIP:
+4. Defina o DNS para o domínio do ASE. Você pode usar um caractere curinga com o seu domínio no DNS. Para fazer alguns testes simples, edite o arquivo de hosts na sua VM para definir o nome do aplicativo para o endereço IP VIP:
 
-     a. Se o ASE tiver o nome de domínio _.ilbase.com_ e você criar o aplicativo Web chamado _mytestapp_, ele será endereçado em _mytestapp.ilbase.com_. Em seguida, você definirá _mytestapp.ilbase.com_ para resolver o endereço do ILB. (No Windows, o arquivo dos hosts está em _C:\Windows\System32\drivers\etc\_.)
+     a. Se o ASE tiver o nome de domínio _.ilbase.com_ e você criar o aplicativo chamado _mytestapp_, ele será endereçado em _mytestapp.ilbase.com_. Em seguida, você definirá _mytestapp.ilbase.com_ para resolver o endereço do ILB. (No Windows, o arquivo dos hosts está em _C:\Windows\System32\drivers\etc\_.)
 
     b. Para testar a publicação de implantação da Web ou o acesso ao console avançado, crie um registro para _mytestapp.scm.ilbase.com_.
 
-1. Use um navegador naquela VM e acesse https://mytestapp.ilbase.com. (Ou acesse o nome do aplicativo Web, independente do nome que você escolheu, com o seu domínio.)
+5. Use um navegador naquela VM e acesse https://mytestapp.ilbase.com. (Ou acesse o nome do aplicativo, independente do nome que você escolheu, com o seu domínio.)
 
-1. Use um navegador naquela VM e acesse https://mytestapp.ilbase.com. Se você usar um certificado auto-assinado, aceite a falta de segurança.
+6. Use um navegador naquela VM e acesse https://mytestapp.ilbase.com. Se você usar um certificado auto-assinado, aceite a falta de segurança.
 
     O endereço IP do ILB está listado em **Endereços IP**. Essa lista também contém os endereços IP usados pelo VIP externo e para o tráfego de gerenciamento de entrada.
 
@@ -237,7 +237,7 @@ Para saber mais sobre como configurar o ASE ILB com um dispositivo WAF, confira 
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../app-service-web-overview.md
+[webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/

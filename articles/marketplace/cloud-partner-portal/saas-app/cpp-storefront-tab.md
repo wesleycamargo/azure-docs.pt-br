@@ -37,7 +37,7 @@ A tabela a seguir descreve os Detalhes da vitrine eletrônica onde é possível 
 |  **Campos da oferta**   |  **Descrição**  |
 |  ---------------   |  ---------------  |
 |      Resumo da oferta              |        Resumo da proposta de valor da sua oferta. Ele será exibido na página de pesquisa da sua oferta. Ele deve ter um máximo de 100 caracteres.           |
-|      Descrição da oferta              |      A descrição a ser exibida na página de detalhes do seu aplicativo. O máximo permitido é de 1.300 caracteres. Você pode usar marcas HTML básicas para formatar o conteúdo. Por exemplo, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; e &lt;li&gt;. Para ver como ficará a descrição formatada, use uma ferramenta HTML online em tempo real, como http://htmledit.squarefree.com             |
+|      Descrição da oferta              |      A descrição a ser exibida na página de detalhes do seu aplicativo. O máximo permitido é de 1.300 caracteres. Você pode usar marcas HTML básicas para formatar o conteúdo. Por exemplo, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; e &lt;li&gt;. Para ver como ficará a descrição formatada, use uma ferramenta HTML online em tempo real, como [http://htmledit.squarefree.com](http://htmledit.squarefree.com)             |
 |          Indústrias          |        Selecione os setores aos quais sua oferta está mais alinhada. Se o aplicativo estiver relacionado a vários setores, você poderá selecionar um máximo de dois.           |
 |          Categorias sugeridas (máximo 3)         |        Selecione as categorias às quais sua oferta está mais alinhada. Você pode selecionar um máximo de três categorias.           |
 |           Versão do aplicativo         |        Insira o número de versão do seu aplicativo.           |
