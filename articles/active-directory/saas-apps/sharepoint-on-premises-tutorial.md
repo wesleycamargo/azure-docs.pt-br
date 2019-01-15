@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 2fc81cc06063c0fee0a4f875b4b0f8bd1343cf85
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 789f58699f39f4b7eac453f4cf79ea55a5bfc8d3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810450"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Azure Active Directory com o SharePoint no local
 
@@ -118,7 +118,7 @@ Para configurar o logon único do Azure AD com o SharePoint local, execute as se
     ![O link de download do Certificado](common/certificatebase64.png)
 
     > [!Note]
-    > Anote o caminho do arquivo em que você baixou o arquivo de certificado, pois será necessário utilizá-lo posteriormente no script do PowerShell para configuração.
+    > Observe o caminho do arquivo no qual você baixou o arquivo de certificado. Você precisa do arquivo posteriormente no script do PowerShell para a configuração.
 
 6. Na seção **Configurar o SharePoint local**, copie as URLs apropriadas de acordo com suas necessidades. Para a **URL do Serviço de Logon Único**, use um valor do seguinte padrão: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
@@ -134,7 +134,7 @@ Para configurar o logon único do Azure AD com o SharePoint local, execute as se
     c. URL de logoff
 
     > [!NOTE]
-    > O aplicativo SharePoint local usa SAML 1.1 token, portanto o Azure AD espera a solicitação WS Fed de servidor do SharePoint e após a autenticação, ele emite SAML 1.1. token.
+    > O aplicativo SharePoint local usa o token do SAML 1.1, portanto o Azure AD espera a solicitação WS Fed de servidor do SharePoint e, após a autenticação, emite SAML 1.1. token.
 
 ### <a name="configure-sharepoint-on-premises-single-sign-on"></a>Configurar o logon único no SharePoint local
 
@@ -175,7 +175,7 @@ Para configurar o logon único do Azure AD com o SharePoint local, execute as se
     ![Como configurar seu provedor de autenticação](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
     > [!NOTE]
-    > Alguns usuários externos não poderão usar essa integração de logon único, já que o UPN terá um valor danificado como `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Em breve, permitiremos que os clientes configurem o aplicativo sobre como tratar o UPN, dependendo do tipo de usuário. Depois disso, todos os usuários convidados deverão ser capazes de usar o SSO diretamente como os funcionários da organização.
+    > Alguns usuários externos não poderão usar essa integração de logon único, já que o UPN terá um valor danificado como `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Em breve, permitiremos a configuração personalizada do aplicativo para tratar o UPN, dependendo do tipo de usuário. Depois disso, todos os usuários convidados deverão ser capazes de usar o SSO diretamente como os funcionários da organização.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

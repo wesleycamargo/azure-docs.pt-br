@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544678"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189472"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -134,7 +134,7 @@ O custo total depende de vários fatores, por exemplo, a região escolhida, cama
 
 O Azure Analysis Services é compatível com os mesmos recursos incríveis já presentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services dá suporte a modelos tabulares nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 e superior. Modelos tabulares são constructos de modelagem relacional (modelo, tabelas, colunas), articulados nas definições do objeto de metadados tabulares no código TOM (Modelo de Objeto Tabular) e TMSL (Linguagem de Scripts de Modelo de Tabela). Partições, perspectivas, segurança em nível de linha, relacionamentos bidirecionais e traduções todos têm suporte*. Modelos multidimensionais e PowerPivot para SharePoint *não* têm suporte no Azure Analysis Services.
 
-Há suporte para ambos os modos DirectQuery e in-memory. No modo in-memory (padrão), os modelos tabulares dão suporte a várias fontes de dados. Como os dados do modelo são altamente compactados e armazenados em cache in-memory, esse modo fornece a resposta de consulta mais rápida em grandes quantidades de dados. Ele também fornece a maior flexibilidade para consultas e conjuntos de dados complexos. O particionamento habilita cargas incrementais, aumenta a paralelização e reduz o consumo de memória. Outros recursos avançados de modelagem de dados, como tabelas calculadas e todas as funções do DAX têm suporte. Os modelos in-memory devem ser atualizados (processados) para atualizar os dados armazenados em cache das fontes de dados. Com o suporte ao princípio de serviço do Azure, as operações de atualização autônoma usando PowerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os dados do modelo estejam sempre atualizados. 
+Há suporte para ambos os modos DirectQuery e in-memory. No modo in-memory (padrão), os modelos tabulares dão suporte a várias fontes de dados. Como os dados do modelo são altamente compactados e armazenados em cache in-memory, esse modo fornece a resposta de consulta mais rápida em grandes quantidades de dados. Ele também fornece a maior flexibilidade para consultas e conjuntos de dados complexos. O particionamento habilita cargas incrementais, aumenta a paralelização e reduz o consumo de memória. Outros recursos avançados de modelagem de dados, como tabelas calculadas e todas as funções do DAX têm suporte. Os modelos in-memory devem ser atualizados (processados) para atualizar os dados armazenados em cache das fontes de dados. Com o suporte à entidade de serviço do Azure, as operações de atualização autônoma usando PowerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os dados do modelo estejam sempre atualizados. 
 
 O modo DirectQuery* aproveita o banco de dados relacional back-end para armazenamento e execução de consultas. Há suporte para conjuntos de dados extremamente grandes em um único SQL Server, SQL Server Data Warehouse, Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Oracle e fontes de dados Teradata. Os conjuntos de dados de back-end podem exceder a memória de recursos do servidor disponível. Cenários de atualização de modelo de dados complexos não são necessários. Há também algumas restrições, como tipos limitados de fonte de dados, limitações de fórmula do DAX e alguns recursos avançados de modelagem de dados não têm suporte. Antes de determinar o melhor modo para as suas necessidades, consulte o [Modo de Consulta Direta](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
@@ -176,7 +176,7 @@ Modelos tabulares em todos os níveis de compatibilidade dão suporte a seguran�
 
 Os modelos tabulares no nível de compatibilidade 1400 dão suporte para segurança em nível de objeto, que inclui segurança em nível de tabela e segurança em nível de coluna. A segurança em nível de objeto é definida nos metadados com base em JSON no arquivo Model.bim usando TMSL ou TOM. Para saber mais, consulte [Segurança em nível de objeto](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security).
 
-### <a name="automation-through-service-principles"></a>Automação através de entidades de serviço
+### <a name="automation-through-service-principals"></a>Automação através de entidades de serviço
 
 As entidades de serviço são um recurso de aplicativo do Azure Active Directory que você cria em seu locatário para executar operações de nível de serviço e recursos autônomos. As entidades de serviço são usadas com Automação do Azure, modo autônomo do PowerShell, aplicativos cliente personalizados e aplicativos Web para automatizar tarefas comuns como atualizar dados, escalar verticalmente/reduzir verticalmente e pausar/retomar. As permissões são atribuídas a entidades de serviço por meio da associação de função. Para saber mais, consulte [Automação com entidades de serviço](analysis-services-service-principal.md).
 

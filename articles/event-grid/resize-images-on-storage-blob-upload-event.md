@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 4d35ab9df17055b798207aafd0e0bdf3b17426fb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753941"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188463"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -170,8 +170,8 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
     | **Tipo de assinante** |  gerado automaticamente |  Pré-definidas como Web Hook. |
     | **Ponto de extremidade do assinante** | gerado automaticamente | Use a URL de ponto de extremidade gerada para você. | 
     | **Nome** | imageresizersub | Nome que identifica a nova assinatura de evento. | 
-
-4. Clique em **Criar** para adicionar a assinatura de evento. Isso cria uma assinatura de evento que dispara `imageresizerfunc` quando um blob é adicionado ao contêiner de *imagens*. A função redimensiona as imagens e adiciona-as ao contêiner de *miniaturas*.
+4. *Opcional:* Caso você precise criar contêineres adicionais no mesmo armazenamento de blobs para outras finalidades no futuro, pode usar os recursos **Filtragem de assunto** da guia **Filtros** para direcionamento mais granular de eventos de blob para garantir que seu aplicativo de função seja chamado somente quando blobs são adicionados ao contêiner **imagens** especificamente. 
+5. Clique em **Criar** para adicionar a assinatura de evento. Isso cria uma assinatura de evento que dispara `imageresizerfunc` quando um blob é adicionado ao contêiner de *imagens*. A função redimensiona as imagens e adiciona-as ao contêiner de *miniaturas*.
 
 Agora que os serviços de back-end estão configurados, teste a funcionalidade de redimensionamento da imagem no aplicativo Web de exemplo. 
 

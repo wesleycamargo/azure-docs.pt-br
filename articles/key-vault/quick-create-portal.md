@@ -9,19 +9,18 @@ ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 864c80fe0ab8b061439b5a80a111edbd1b2004b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027020"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078381"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
 O Azure Key Vault é um serviço de nuvem que funciona como um repositório seguro de segredos. Você pode armazenar chaves, senhas, certificados e outros segredos com segurança. Os cofres de chaves do Azure podem ser criados e gerenciados por meio do portal do Azure. Neste início rápido, você cria um cofre de chaves e o utiliza para armazenar um segredo. Para saber mais sobre o Key Vault, analise a [Visão geral](key-vault-overview.md).
 
@@ -40,18 +39,18 @@ Entre no Portal do Azure em http://portal.azure.com.
 3. Na lista de resultados, escolha **Key Vault**.
 4. Na seção Key Vault, escolha **Criar**.
 5. A seção **Criar cofre de chaves** fornece as seguintes informações:
-    - **Nome**: é necessário um nome exclusivo. Neste início rápido, usamos **Contoso-vault2**. 
-    - **Assinatura**: escolha uma assinatura.
+    - **Nome**: um nome exclusivo é necessário. Neste início rápido, usamos **Contoso-vault2**. 
+    - **Assinatura**: Escolha uma assinatura.
     - Em **Grupo de Recursos**, escolha **Criar novo** e digite um nome para o grupo de recursos.
     - No menu suspenso **Local**, escolha um local.
     - Marque a caixa de seleção **Fixar no painel**.
     - Deixe as outras opções em seus padrões.
 6. Depois de fornecer as informações acima, selecione **Criar**.
 
-Observe as duas propriedades listadas abaixo:
+Anote as duas propriedades listadas abaixo:
 
-* **Nome do Cofre**: no exemplo, é **Contoso-Vault2**. Você usará esse nome nas outras etapas.
-* **URI do cofre**: no exemplo, isso é https://contoso-vault2.vault.azure.net/. Aplicativos que usam seu cofre via API REST devem usar esse URI.
+* **Nome do cofre**: no exemplo, é **Contoso-Vault2**. Você usará esse nome nas outras etapas.
+* **URI do cofre**: no exemplo, é https://contoso-vault2.vault.azure.net/. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
 Nesse ponto, sua conta do Azure é a única autorizada a executar operações nesse novo cofre.
 
@@ -64,7 +63,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 1. Na página de propriedades do Key Vault, selecione **Segredos**.
 2. Clique em **Gerar/Importar**.
 3. Na tela **Criar um segredo**, escolha os seguintes valores:
-    - **Opções de carregamento**: manual.
+    - **Opções de upload**: Manual.
     - **Nome**: ExamplePassword.
     - **Valor**: Pa$$w0rd.
     - Deixe os outros valores com seus padrões. Clique em **Criar**.

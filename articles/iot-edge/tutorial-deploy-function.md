@@ -4,17 +4,17 @@ description: Neste tutorial, você desenvolve uma função do Azure como um mód
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d8912b67656cb9862f31b03eb9a899dfc650f377
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081873"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053358"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implantar funções do Azure como módulos do IoT Edge
 
@@ -51,13 +51,13 @@ Recursos de desenvolvimento:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-* [Extensão do Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Ferramentas de IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools). 
 * [O SDK 2.1 do .NET Core](https://www.microsoft.com/net/download).
 * [CE do Docker](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-Neste tutorial, você usa a extensão do Azure IoT Edge do Visual Studio Code para compilar um módulo e criar uma **imagem de contêiner** dos arquivos. Em seguida, você efetua push dessa imagem para um **registro** que armazena e gerencia suas imagens. Finalmente, você implanta a imagem do seu registro para executar no dispositivo IoT Edge.  
+Neste tutorial, você usará as Ferramentas IoT do Azure para Visual Studio Code para criar um módulo e uma **imagem de contêiner** com base nos arquivos. Em seguida, você efetua push dessa imagem para um **registro** que armazena e gerencia suas imagens. Finalmente, você implanta a imagem do seu registro para executar no dispositivo IoT Edge.  
 
 Você pode usar qualquer registro compatível com o Docker para manter as imagens de contêiner. Dois serviços de registro populares do Docker são o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) e o [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Este tutorial utiliza o Registro de Contêiner do Azure. 
 
@@ -84,7 +84,7 @@ Você pode usar qualquer registro compatível com o Docker para manter as imagen
 
 ## <a name="create-a-function-project"></a>Criar um projeto de função
 
-A extensão do Azure IoT Edge para Visual Studio Code instalada nos pré-requisitos fornece recursos de gerenciamento, bem como alguns modelos de código. Nesta seção, você pode usar o Visual Studio Code para criar uma solução de IoT Edge que contém uma função do Azure. 
+As Ferramentas de IoT do Azure para Visual Studio Code instaladas nos pré-requisitos fornecem funcionalidades de gerenciamento, bem como alguns modelos de código. Nesta seção, você pode usar o Visual Studio Code para criar uma solução de IoT Edge que contém uma função do Azure. 
 
 1. Abra o Visual Studio Code no seu computador de desenvolvimento.
 
@@ -221,7 +221,7 @@ O Visual Studio Code gera uma mensagem de êxito quando sua imagem de contêiner
 
 ## <a name="deploy-and-run-the-solution"></a>Implantar e executar a solução
 
-Você pode usar o portal do Azure para implantar o módulo da função em um dispositivo IoT Edge como foi feito no guia de início rápido. Você também pode implantar e monitorar os módulos no Visual Studio Code. As seções a seguir usam a extensão do Azure IoT Edge para VS Code que estava listada nos pré-requisitos. Instale a extensão agora, caso ainda não tenha feito isso. 
+Você pode usar o portal do Azure para implantar o módulo da função em um dispositivo IoT Edge como foi feito no guia de início rápido. Você também pode implantar e monitorar os módulos no Visual Studio Code. As seções a seguir usam as Ferramentas de IoT do Azure para VS Code que estavam listadas nos pré-requisitos. Instale a extensão agora, caso ainda não tenha feito isso. 
 
 1. Abra a paleta de comandos do VS Code selecionando **Exibir** > **Paleta de comandos**.
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ed14dc45af3f47032e54c946486c4de70aeae11a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c0300d0f2b2f619477477eb1a83e28f94d432723
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214946"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054446"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um Integration Runtime do Azure-SSIS no Azure Data Factory
 Este tutorial fornece etapas para o provisionamento para o portal do Azure de um tempo de execução de integração (IR) do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SSDT (Ferramentas de dados do SQL Server) ou o SSMS (SQL Server Management Studio) para implantar e executar os pacotes do SSIS (SQL Server Integration Services) neste tempo de execução no Azure. Para obter informações conceituais sobre IRs do SSIS do Azure, consulte [visão geral do Integration Runtime do Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -33,13 +33,13 @@ Neste tutorial, você completa as seguintes etapas:
 - **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 - **Servidor de banco de dados SQL do Azure**. Se você ainda não tiver um servidor de banco de dados, crie um no Portal do Azure antes de começar. O Azure Data Factory cria o Catálogo do SSIS (banco de dados SSISDB) neste servidor de banco de dados. É recomendável que você crie o servidor de banco de dados na mesma região do Azure que a do Integration Runtime. Essa configuração permite que o Integration Runtime grave logs de execução no banco de dados SSISDB sem cruzar regiões do Azure. 
 - Com base no servidor de banco de dados selecionado, o SSISDB pode ser criado em seu nome como um banco de dados individual, parte de um pool elástico ou em uma Instância Gerenciada e acessível na rede pública ou ingressando em uma rede virtual. Se você usar o Banco de Dados SQL do Azure com pontos de extremidade de serviços de rede virtual/Instância Gerenciada para hospedar o SSISDB ou exigir acesso a dados locais, será necessário associar o seu Azure-SSIS IR a uma rede virtual, consulte [Criar Azure-SSIS IR em uma rede virtual](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
-- Confirme se a configuração **Permitir acesso aos serviços do Azure** está habilitada para o servidor de banco de dados. Isso não se aplica quando você usa o Banco de Dados SQL do Azure com pontos de extremidade de serviços de rede virtual / Instância Gerenciada para hospedar o SSISDB. Para saber mais, confira [Proteger seu banco de dados SQL do Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Para habilitar essa configuração usando o PowerShell, veja [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
+- Confirme se a configuração **Permitir acesso aos serviços do Azure** está habilitada para o servidor de banco de dados. Isso não se aplica quando você usa o Banco de Dados SQL do Azure com pontos de extremidade de serviços de rede virtual / Instância Gerenciada para hospedar o SSISDB. Para saber mais, confira [Proteger seu banco de dados SQL do Azure](../sql-database/sql-database-security-tutorial.md#create-firewall-rules). Para habilitar essa configuração usando o PowerShell, veja [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
 - Adicione o endereço IP do computador cliente ou um intervalo de endereços IP que inclua o endereço IP do computador cliente à lista de endereços IP do cliente nas configurações do firewall para o servidor de banco de dados. Para saber mais, confira [Regras de firewall no nível do servidor e no nível do banco de dados do Banco de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md). 
-- Você pode se conectar ao servidor de banco de dados usando a autenticação do SQL com suas credenciais de administrador de servidor ou autenticação do AAD (Azure Active Directory) com a identidade gerenciada para seu ADF (Azure Data Factory).  Para o último, você precisa adicionar o ADF MSI a um grupo do AAD com permissões de acesso para o servidor de banco de dados. Confira [Criar Azure-SSIS IR com a autenticação do AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
+- Você pode se conectar ao servidor de banco de dados usando a autenticação do SQL com suas credenciais de administrador de servidor ou autenticação do AAD (Azure Active Directory) com a identidade gerenciada para seu ADF (Azure Data Factory).  Para o último, você precisa adicionar o ADF a um grupo do AAD com permissões de acesso para o servidor de banco de dados. Confira [Criar Azure-SSIS IR com a autenticação do AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
 - Confirme que o servidor de Banco de Dados SQL não tem um Catálogo SSIS (Banco de dados SSISDB). O provisionamento de um IR do Azure-SSIS não oferece suporte ao uso de um Catálogo do SSIS existente. 
 
 > [!NOTE]
-> - Para obter uma lista de regiões do Azure no qual o Data Factory e o Azure-SSIS Integration Runtime estão disponíveis no momento, veja [Disponibilidade por região do ADF + SSIS IR](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
+> - Para obter uma lista de regiões do Azure nas quais o Data Factory e o Azure-SSIS Integration Runtime estão disponíveis, confira [Disponibilidade do ADF + SSIS IR por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
@@ -98,7 +98,7 @@ Neste tutorial, você completa as seguintes etapas:
 
    e. Para **Número do Nó**, selecione o número de nós em seu cluster de tempo de execução de integração. Somente os números de nós com suporte são exibidos. Selecione um grande cluster com muitos nós (scale out), se você deseja executar muitos pacotes em paralelo. 
 
-   f. Para **Edition / License**, selecione a edição / licença do SQL Server para seu tempo de execução de integração: Standard ou Enterprise. Selecione Enterprise se você quiser usar os recursos avançados/premium em seu tempo de execução de integração. 
+   f. Para **Edition/License**, selecione a edição/licença do SQL Server para seu tempo de execução de integração: Standard ou Enterprise. Selecione Enterprise se você quiser usar os recursos avançados/premium em seu tempo de execução de integração. 
 
    g. Para **Economizar**, selecione a opção do Benefício Híbrido do Azure (AHB) para o tempo de execução de integração: Sim ou Não. Selecione Sim se você quiser colocar sua própria licença do SQL Server com o Software Assurance para aproveitar a redução de custos com o uso híbrido. 
 
@@ -114,13 +114,13 @@ Neste tutorial, você completa as seguintes etapas:
 
    c. Para **Ponto de extremidade de servidor de banco de dados de catálogo**, selecione o ponto de extremidade do seu servidor de banco de dados para hospedar o SSISDB. Com base no servidor de banco de dados selecionado, o SSISDB pode ser criado em seu nome como um banco de dados independente, parte de um pool elástico ou em uma Instância Gerenciada e acessível na rede pública ou ingressando em uma rede virtual. Para obter orientações sobre como escolher o tipo de servidor de banco de dados para hospedar o SSISDB, consulte [Comparar servidor lógico do Banco de Dados SQL e Instância Gerenciada](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Se você selecionar o Banco de Dados SQL do Azure com pontos de extremidade de serviço de rede virtual / Instância Gerenciada para hospedar o SSISDB ou exigir acesso a dados locais, será necessário associar o seu IR do Azure-SSIS a uma rede virtual. Veja [Criar Azure-SSIS IR em uma rede virtual](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
 
-   d. Na caixa de seleção **Usar autenticação do AAD...**, selecione o método de autenticação para o servidor de banco de dados para hospedar o SSISDB: SQL ou AAD (Azure Active Directory) com sua identidade gerenciada para seu ADF (Azure Data Factory). Se marcá-la, você precisará adicionar o ADF MSI a um grupo do AAD com permissões de acesso para o servidor de banco de dados. Confira [Criar Azure-SSIS IR com a autenticação do AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
+   d. Na caixa de seleção **Usar autenticação do AAD...**, selecione o método de autenticação para o servidor de banco de dados para hospedar o SSISDB: SQL ou AAD (Azure Active Directory) com a identidade gerenciada do ADF (Azure Data Factory). Se marcá-la, você precisará adicionar o ADF MSI a um grupo do AAD com permissões de acesso para o servidor de banco de dados. Confira [Criar Azure-SSIS IR com a autenticação do AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
 
    e. Para **Nome de usuário do administrador**, insira o nome de usuário de autenticação do SQL para o servidor de banco de dados para hospedar o SSISDB. 
 
    f. Para **Nome de usuário do administrador**, insira a senha de autenticação do SQL para o servidor de banco de dados para hospedar o SSISDB. 
 
-   g. Para o **Nível de Serviço do Banco de Dados do Catálogo**, selecione a camada de serviço do seu servidor de banco de dados para hospedar o SSISDB: Basic / Standard / Premium ou nome do pool elástico. 
+   g. Para **Nível do Serviço de Banco de Dados de Catálogo**, selecione o tipo de serviço para o seu servidor de banco de dados hospedar SSISDB: Tipo Basic/Standard/Premium ou o nome do pool elástico. 
 
    h. Clique em **Conexão de teste** e, se tiver êxito, clique em **Próximo**. 
 

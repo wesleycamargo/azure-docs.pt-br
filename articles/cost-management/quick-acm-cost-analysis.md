@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277736"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077650"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com análise de custo
 
@@ -49,7 +49,7 @@ A análise de custo está disponível para todos os clientes do [EA (Contrato En
 
 Para examinar os custos com análise de custo, no portal do Azure, navegue até **Gerenciamento de Custos + Cobrança** &gt; **Gerenciamento de Custos** &gt; **Alterar escopo**, escolha um escopo e, em seguida, clique em **Selecionar**.
 
-O escopo que você seleciona é usado em todo o Gerenciamento de Custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Ao usar escopos, você não faz multisseleção. Você seleciona um escopo mais amplo com o acúmulo de outros e, em seguida, filtra o que deseja. Isso é importante para entender porque algumas pessoas não devem ter acesso a um escopo pai acumulado por escopos filho.
+O escopo que você seleciona é usado em todo o Gerenciamento de Custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Ao usar escopos, você não faz multisseleção. Você seleciona um escopo mais amplo com o acúmulo de outros e, em seguida, filtra o que deseja. É importante entender isso porque algumas pessoas não devem ter acesso a um escopo pai com escopos filho acumulados.
 
 Clique em **Abrir análise de custo**.
 
@@ -86,7 +86,11 @@ Em geral, você pode esperar ver dados ou notificações para os recursos consum
 
 ![Exibição diária mostrando custos diários de exemplo para o mês atual](./media/quick-acm-cost-analysis/daily-view.png)
 
-Você pode **Agrupar por** para selecionar uma categoria de grupo para alterar os dados exibidos no gráfico da área total superior. Agrupamentos permitem que você veja rapidamente como seus gastos estão categorizados por propriedades comuns de uso e recursos, como grupo de recursos ou marcas de recurso. Para agrupar por marcas, selecione a chave da marca que será a base do agrupamento e você verá os custos divididos por cada valor dessa marca, com um segmento extra para recursos que não contam com essa marca aplicada. Observe que o Gerenciamento de Custos só dá suporte a marcas de recurso a partir da data em que as marcas são aplicadas diretamente ao recurso. Atualmente, não há suporte para marcas do grupo de recursos. Aqui está uma exibição dos custos de serviço do Azure para uma exibição do último mês.
+Você pode **Agrupar por** para selecionar uma categoria de grupo para alterar os dados exibidos no gráfico da área total superior. Agrupamentos permitem que você veja rapidamente como seus gastos estão categorizados por propriedades comuns de uso e recursos, como grupo de recursos ou marcas de recurso. Para agrupar por marcas, selecione a chave de marca pela qual deseja agrupar. Você verá os custos divididos por cada valor dessa marca, com um segmento extra para recursos sem essa marca aplicada.
+
+A maioria dos [recursos do Azure permitem marcas](../azure-resource-manager/tag-support.md), no entanto, algumas marcas não estão disponíveis no Gerenciamento de Custos e Cobrança. Além disso, não há suporte para marcas do grupo de recursos. O Gerenciamento de Custos é compatível apenas com marcas de recurso a partir da data em que as marcas são aplicadas diretamente ao recurso.
+
+Aqui está uma exibição dos custos de serviço do Azure para uma exibição do último mês.
 
 ![Exibição acumulada diária agrupada, mostrando exemplos de custos de serviço do Azure do último mês](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
@@ -96,9 +100,9 @@ Gráficos dinâmicos sob os gráficos principais exibem diferentes agrupamentos 
 
 A imagem anterior mostra nomes de grupos de recursos. Embora você possa agrupar por marca para exibir os custos totais por marca, a exibição de todas as marcas por recurso ou grupo de recursos não está disponível nenhum dos modos de exibição de análise de custo.
 
-Ao agrupar os custos segundo um atributo específico, os dez principais colaboradores de custo são mostrados, do mais alto para o mais baixo. Se houver mais de dez grupos, os nove principais colaboradores de custo serão mostrados, bem como um grupo **Outros**, que abrange todos os grupos restantes juntos. Ao agrupar por marcas, você também poderá ver um grupo **Sem marca** para os custos que não têm a chave de marca aplicada. Os custos **Sem marca** aparecem sempre por último, mesmo que haja mais custos sem marca que com marca. Se houver 10 ou mais valores de marca, os custos sem marca farão parte da categoria **Outros**.
+Ao agrupar os custos segundo um atributo específico, os dez principais colaboradores de custo são mostrados, do mais alto para o mais baixo. Se houver mais de dez grupos, os nove principais colaboradores serão mostrados. Também será mostrado um grupo **Outros**, que abrange todos os grupos restantes em conjunto. Ao agrupar por marcas, você também poderá ver um grupo **Sem marca** para custos sem a chave de marca aplicada. Os custos **Sem marca** aparecem sempre por último, mesmo que haja mais custos sem marca que com marca. Se houver dez ou mais valores de marca, os custos sem marca farão parte da categoria **Outros**.
 
-Máquinas virtuais *clássicas* (Gerenciamento de Serviços do Azure ou ASM), redes e recursos de armazenamento não compartilham dados detalhados de cobrança. Eles são mesclados como **Serviços clássicos** ao agrupar os custos.
+As máquinas virtuais *Clássicas* (Gerenciamento de Serviços do Azure ou ASM), as redes e os recursos de armazenamento não compartilham dados detalhados de cobrança. Eles são mesclados como **Serviços clássicos** quando os custos são agrupados.
 
 
 ## <a name="download-cost-analysis-data"></a>Baixar dados de análise de custo

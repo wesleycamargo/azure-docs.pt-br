@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f69babb4520b4829a8cf59e2dac7763471a2db65
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 62ea3e3ee13ee52462e1c93ac34e98ae179d251c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557081"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053918"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Node.js em seu dispositivo simulado
 
@@ -45,13 +45,13 @@ Recursos de nuvem:
 Recursos de desenvolvimento:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Extensão do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
+* [Ferramentas de IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
 * [CE do Docker](https://docs.docker.com/engine/installation/). 
 * [Node.js e npm](https://nodejs.org). O pacote do npm é distribuído com Node.js, o que significa que quando você baixa Node.js, o npm é automaticamente instalado em seu computador.
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-Neste tutorial, você usa a extensão do Azure IoT Edge do Visual Studio Code para compilar um módulo e criar uma **imagem de contêiner** dos arquivos. Em seguida, você efetua push dessa imagem para um **registro** que armazena e gerencia suas imagens. Finalmente, você implanta a imagem do seu registro para executar no dispositivo IoT Edge.  
+Neste tutorial, você usará as Ferramentas IoT do Azure para Visual Studio Code para criar um módulo e uma **imagem de contêiner** com base nos arquivos. Em seguida, você efetua push dessa imagem para um **registro** que armazena e gerencia suas imagens. Finalmente, você implanta a imagem do seu registro para executar no dispositivo IoT Edge.  
 
 Você pode usar qualquer registro compatível com o Docker para manter as imagens de contêiner. Dois serviços de registro populares do Docker são o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) e o [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Este tutorial utiliza o Registro de Contêiner do Azure. 
 
@@ -77,7 +77,7 @@ Caso ainda não tenha um registro de contêiner, siga estas etapas para criar um
 7. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha**. É possível usar esses valores posteriormente no tutorial para fornecer acesso ao registro de contêiner. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto de módulo do IoT Edge
-As etapas a seguir mostram como criar um módulo Node.js do IoT Edge usando o Visual Studio Code e a extensão do Azure IoT Edge.
+As etapas a seguir mostram como criar um módulo Node.js do IoT Edge usando o Visual Studio Code e as Ferramentas de IoT do Azure.
 
 ### <a name="create-a-new-solution"></a>Criar uma nova solução
 
@@ -180,15 +180,21 @@ Cada modelo é fornecido com código de exemplo incluído, que usa dados de sens
     });
     ```
 
-9. Salve o arquivo.
+9. Salve o arquivo app.js.
 
-10. No gerenciador do VS Code, abra o arquivo **deployment.template.json** no workspace da solução IoT Edge. 
+10. No gerenciador do VS Code, abra o arquivo **deployment.template.json** no workspace da solução IoT Edge. Esse arquivo informa ao agente do IoT Edge quais módulos implantar, nesse caso, **tempSensor** e **NodeModule**, e informa ao hub do IoT Edge como rotear mensagens entre eles. A extensão do Visual Studio Code preenche automaticamente a maioria das informações necessárias no modelo de implantação. Mesmo assim, verifique se tudo está preciso para sua solução: 
 
-   Este arquivo manda o `$edgeAgent` implantar dois módulos: **tempSensor**, que simula a dados do dispositivo, e **NodeModule**. A plataforma padrão do seu IoT Edge é definida como **amd64** na barra de status do VS Code, o que significa que seu **NodeModule** está definido para a versão amd64 do Linux da imagem. Altere a plataforma padrão na barra de status de **amd64** para **arm32v7** ou **windows-amd64** se essa for a arquitetura do seu dispositivo IoT Edge. Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md). 
+   1. A plataforma padrão do seu IoT Edge é definida como **amd64** na barra de status do VS Code, o que significa que seu **NodeModule** está definido para a versão amd64 do Linux da imagem. Altere a plataforma padrão na barra de status de **amd64** para **arm32v7** ou **windows-amd64** se essa for a arquitetura do seu dispositivo IoT Edge. 
 
-   Esse arquivo também contém suas credenciais de registro. No arquivo de modelo, o nome de usuário e a senha são preenchidos com espaços reservados. Quando você gera o manifesto de implantação, os campos são atualizados com os valores adicionados ao **.env**. 
+      ![Atualizar a plataforma da imagem do módulo](./media/tutorial-node-module/image-platform.png)
 
-12. Adicione o módulo gêmeo NodeModule no manifesto de implantação. Insira o seguinte conteúdo JSON na parte inferior da seção `moduleContent`, após o módulo gêmeo do `$edgeHub`: 
+   2. Verifique se o modelo tem o nome do módulo correto, não o nome padrão **SampleModule** alterado quando você criou a solução de IoT Edge.
+
+   3. A seção **registryCredentials** armazena suas credenciais de registro do Docker, de modo que o agente do IoT Edge possa efetuar pull da imagem do módulo. Os pares de nome de usuário e senha reais são armazenados no arquivo .env que é ignorado pelo git. Adicione suas credenciais ao arquivo .env caso ainda não tenha feito isso.  
+
+   4. Caso deseje saber mais sobre manifestos de implantação, confira [Saiba como implantar módulos e estabelecer rotas no IoT Edge](module-composition.md).
+
+11. Adicione o módulo gêmeo NodeModule no manifesto de implantação. Insira o seguinte conteúdo JSON na parte inferior da seção `moduleContent`, após o módulo gêmeo do `$edgeHub`: 
 
    ```json
        "NodeModule": {
@@ -200,7 +206,7 @@ Cada modelo é fornecido com código de exemplo incluído, que usa dados de sens
 
    ![Adicionar gêmeo de módulo ao modelo de implantação](./media/tutorial-node-module/module-twin.png)
 
-13. Salve o arquivo.
+12. Salve o arquivo deployment.template.json.
 
 
 ## <a name="build-your-iot-edge-solution"></a>Criar solução IoT Edge

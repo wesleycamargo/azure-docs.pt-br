@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 32b8337121c2552a29f9af35e50f540972a1add7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847636"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039938"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores que executam o Windows Server 2008 para o Azure
 
@@ -89,7 +89,7 @@ Execute as tarefas a seguir para preparar o ambiente de VMware/físico local e d
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 1. Entre no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-2. Clique em **Criar um recurso** > **Monitoramento e Gerenciamento** > **Backup e Site Recovery**.
+2. Clique em **Criar um recurso** > **Ferramentas de Gerenciamento** > **Backup e Site Recovery**.
 3. Em **Nome**, especifique o nome amigável **W2K8-migration**. Se você tiver mais de uma assinatura, selecione uma delas.
 4. Crie um grupo de recursos **w2k8migrate**.
 5. Especifique uma região do Azure. Para verificar as regiões com suporte, confira a disponibilidade geográfica nos [Detalhes dos Preços de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -163,4 +163,4 @@ Execute um failover para as máquinas que você deseja migrar.
 
 
 > [!WARNING]
-> **Não cancelar um failover em andamento**: a replicação da VM é interrompida antes do início do failover. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.
+> **Não cancele um failover em andamento**: a replicação da VM é interrompida antes do início do failover. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.

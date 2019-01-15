@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: eba1561e69da879efa9e61ff0a2040df5267d391
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f93ae2a4aaab2ae25a212b2f97c1f97e6b0e095e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962159"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160022"
 ---
-# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Tutorial: Gerencie o tráfego da web com um gateway de aplicativo usando a CLI do Azure
+# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Tutorial: Gerenciar o tráfego da Web com um gateway de aplicativo usando a CLI do Azure
 
 Gateway de aplicativo é usado para gerenciar e proteger o tráfego da web em servidores que você mantém. Você pode usar a CLI do Azure para criar um [gateway de aplicativo](overview.md) que usa um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores de back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo.
 

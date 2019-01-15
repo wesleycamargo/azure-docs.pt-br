@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3c2212ba0216949d3ca7dbcedb5e086bc3e43b97
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: af7f3b42aad41f103be6c86da84db2ff230ff226
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406629"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065202"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Guia de início rápido: crie uma máquina virtual do Linux com a CLI do Azure
+# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Início rápido: Criar uma máquina virtual Linux com a CLI do Azure
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como usar a CLI do Azure para implantar uma VM (máquina virtual) Linux no Azure. Neste tutorial, vamos instalar Ubuntu o 16.04 LTS. Para mostrar a VM em ação, você se conectará a ela usando SSH e instalará o servidor Web NGINX.
 
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 Crie uma VM com o comando [az vm create](/cli/azure/vm#az_vm_create).
 
-O exemplo a seguir cria uma VM chamada *myVM* e adiciona uma conta de usuário chamada *azureuser*. O parâmetro `--generate-ssh-keys` é usado para gerar uma chave SSH automaticamente e colocá-la no local de chave padrão (*~/.ssh*). Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.
+O exemplo a seguir cria uma VM chamada *myVM* e adiciona uma conta de usuário chamada *azureuser*. O parâmetro `--generate-ssh-keys` é usado para gerar automaticamente uma chave SSH e colocá-la no local de chave padrão (*~/.ssh*). Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \

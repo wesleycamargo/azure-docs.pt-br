@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 07/10/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569442f5dfdf96f03a95f7210bfe1ed7dc3af8de
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091480"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159682"
 ---
-# <a name="azure-data-box-disk-security-and-data-protection-preview"></a>Segurança e proteção de dados do Azure Data Box Disk (Versão prévia)
+# <a name="azure-data-box-disk-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box Disk
 
 Este artigo descreve os recursos de segurança do Azure Data Box Disk que ajudam a proteger cada um dos componentes da solução do Data Box e os dados armazenados neles. 
-
-> [!IMPORTANT]
-> O Data Box Disk está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução.
 
 ## <a name="data-flow-through-components"></a>Fluxo de dados por meio de componentes
 
@@ -28,7 +25,7 @@ A solução Microsoft Azure Data Box consiste em quatro componentes principais q
 
 - **Serviço do Azure Data Box hospedado no Azure** - o serviço de gerenciamento que você usa para criar o pedido do disco, configurar os discos e, em seguida, controlar o pedido até a conclusão.
 - **Data Box Disks** - os discos físicos que são enviados para você para importar seus dados locais para o Azure. 
-- **Clientes/hosts conectados aos discos** - os clientes em sua infraestrutura que se conectam ao disco do Data Box por USB e contêm dados que precisam ser protegidos.
+- **Clientes/hosts conectados aos discos** - os clientes em sua infraestrutura que se conectam ao Data Box Disk por USB e contêm dados que precisam ser protegidos.
 - **Armazenamento em nuvem** – O local na nuvem do Azure onde os dados são armazenados. Isso geralmente é a conta de armazenamento vinculada ao recurso do Azure Data Box que você criou.
 
 O diagrama a seguir indica o fluxo de dados através da solução do Azure Data Box Disk do local para o Azure.

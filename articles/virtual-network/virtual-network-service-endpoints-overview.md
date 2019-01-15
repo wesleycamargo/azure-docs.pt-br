@@ -1,12 +1,10 @@
 ---
-title: Pontos de extremidade de serviço de rede virtual do Azure | Microsoft Docs
+title: Pontos de extremidade de serviço de rede virtual do Azure
+titlesuffix: Azure Virtual Network
 description: Saiba como habilitar o acesso direto aos recursos do Azure de uma rede virtual usando pontos de extremidade de serviço.
 services: virtual-network
 documentationcenter: na
 author: sumeetmittal
-manager: narayan
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: acb5897825a2a7762869d3ad961dfcdcb87071b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 77d21a9db54a34d3f9981929bb90dfd3b54e23dd
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540547"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190588"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -60,7 +58,7 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
 - O recurso está disponível apenas para redes virtuais implantadas usando o modelo de implantação do Azure Resource Manager.
 - Os pontos de extremidade são habilitados nas sub-redes configuradas em redes virtuais do Azure. Os pontos de extremidade não podem ser usados para tráfego do seu local para os serviços do Azure. Para obter mais informações, consulte ["Garantindo o acesso local ao serviço do Azure"](#securing-azure-services-to-virtual-networks)
-- Para o SQL do Azure, um ponto de extremidade de serviço aplica-se somente ao tráfego de serviço do Azure dentro de uma região da rede virtual. Para o Armazenamento do Microsoft Azure, para dar suporte a tráfego GRS e RA-GRS, pontos de extremidade também incluem as regiões emparelhadas em que a rede virtual é implantada. Saiba mais sobre as [regiões emparelhadas do Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Para o SQL do Azure, um ponto de extremidade de serviço aplica-se somente ao tráfego de serviço do Azure dentro de uma região da rede virtual. Para o Armazenamento do Microsoft Azure e o ADLS Gen 1, para dar suporte a tráfego GRS e RA-GRS, pontos de extremidade também incluem as regiões emparelhadas em que a rede virtual é implantada. Saiba mais sobre as [regiões emparelhadas do Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Proteção dos serviços do Azure em redes virtuais
 

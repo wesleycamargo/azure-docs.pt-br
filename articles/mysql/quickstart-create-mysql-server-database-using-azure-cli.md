@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 4c425e4da99774be5da8c060a8243bc34ec08f5a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7544da2357e5b30ef54260d56cd8c969901f893e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547773"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189160"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure
 Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure em aproximadamente cinco minutos. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
@@ -57,19 +57,21 @@ admin-password | *senha de segurança* | A senha do usuário administrador. Ele 
 
 
 O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geração de cálculo}\_{vCores} como nestes exemplos:
-+ `--sku-name B_Gen4_4` mapeia para Básico, Gen 4 e 4 vCores.
++ `--sku-name B_Gen4_1` mapeia para Básico, Gen 4 e 1 vCore.
 + `--sku-name GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizado para Memória, Gen 5 e 2 vCores.
 
 Veja a documentação das [camadas de preços](./concepts-pricing-tiers.md) para entender os valores válidos por região e por camada.
 
 O exemplo a seguir cria um servidor MySQL 5.7 no Oeste dos EUA chamado `mydemoserver` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `myadmin`. Esse é um servidor **Gen 4** de **Finalidade Geral** com **2 vCores**. Substitua o `<server_admin_password>` com seu próprio valor.
+
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 
-
-
+> [!NOTE]
+> Considere usar o tipo de preço Básico se computação leve e E/S forem adequadas para sua carga de trabalho. Observe que servidores criados no tipo de preço Básico não podem ser dimensionados mais tarde para Uso Geral ou Otimizado para Memória. Veja a [página de preço](https://azure.microsoft.com/pricing/details/mysql/) para obter mais informações.
+> 
 
 ## <a name="configure-firewall-rule"></a>Configurar regra de firewall
 Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para MySQL com o comando **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)**. Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando **mysql.exe** ou o MySQL Workbench, conecte-se ao servidor por meio do firewall do serviço Azure MySQL. 

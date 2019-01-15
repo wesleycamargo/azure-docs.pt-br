@@ -1,6 +1,6 @@
 ---
-title: Criar e automatizar seu primeiro fluxo de trabalho - Aplicativos Lógicos do Azure | Microsoft Docs
-description: Início rápido de como criar seu primeiro aplicativo lógico que automatiza tarefas, processos e fluxos de trabalho com os Aplicativos Lógicos do Azure. Crie aplicativos lógicos para integração do sistema e soluções de EAI (integração de aplicativos empresariais) para seus sistemas e serviços de nuvem
+title: Início Rápido – Criar e automatizar seu primeiro fluxo de trabalho – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Crie seu primeiro aplicativo lógico que automatiza tarefas, processos e fluxos de trabalho com os Aplicativos Lógicos do Azure. Crie aplicativos lógicos para integração do sistema e soluções de EAI (integração de aplicativos empresariais) para seus sistemas e serviços de nuvem
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233677"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065181"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início rápido: Crie seu primeiro fluxo de trabalho automatizado com os Aplicativos Lógicos do Azure - Portal do Azure
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início Rápido: Crie seu primeiro fluxo de trabalho automatizado com os Aplicativos Lógicos do Azure – Portal do Azure
 
 Este início rápido apresenta como criar seu primeiro fluxo de trabalho automatizado com o [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md). Neste artigo, você cria um aplicativo lógico que verifica regularmente o RSS feed para novos itens. Se existirem novos itens, o aplicativo lógico envia um email para cada item. Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalho em alto nível:
 
@@ -38,7 +38,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
 
    ![Criar aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. Em **Criar aplicativo lógico**, forneça os detalhes sobre seu aplicativo lógico, conforme mostrado aqui. Quando tiver concluído, escolha **Fixar no painel** > **Criar**.
+3. Em **Criar aplicativo lógico**, forneça os detalhes sobre seu aplicativo lógico, conforme mostrado aqui. Quando terminar, escolha **Criar**.
 
    ![Defina os detalhes do aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -61,9 +61,9 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Verifique o RSS feed com um gatilho
 
-1. No designer, digite "rss" na caixa de pesquisa. Selecione este gatilho: **RSS - Quando um item do feed é publicado**
+1. No designer, digite "rss" na caixa de pesquisa. Selecione este gatilho: **RSS – Quando um item do feed é publicado**
 
-   ![Selecione o gatilho: "RSS - Quando um item do feed é publicado"](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![Selecione o gatilho: "RSS – Quando um item do feed é publicado"](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
 2. Forneça essas informações para o gatilho como mostrado e descrito: 
 
@@ -91,13 +91,13 @@ Seu aplicativo lógico agora está ativo, mas ele não faz nada além de verific
 
 Agora adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) que envia email quando um novo item é exibido no RSS feed. 
 
-1. No gatilho **Quando um item do feed é publicado**, escolha **+ Nova etapa** > **Adicionar uma ação**.
+1. No gatilho **Quando um item do feed é publicado**, escolha **Nova etapa**.
 
    ![Adicionar uma ação](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. Em **Escolher uma ação**, insira "enviar um email" como filtro. Na lista de ações, selecione a ação "enviar um email" para o provedor de email que você deseja. 
+2. Em **Escolher uma ação**, insira "enviar um email" na caixa de pesquisa. Na caixa de pesquisa, escolha **Todos**. Na lista de ações, selecione a ação "enviar um email" para o provedor de email que você deseja. 
 
-   ![Selecione esta ação: "Outlook do Office 365 - Enviar um email"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![Selecione esta ação: "Office 365 Outlook – enviar um email"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    Para filtrar a lista de ações para um aplicativo específico ou um serviço, você pode selecionar esse aplicativo ou serviço primeiro:
 

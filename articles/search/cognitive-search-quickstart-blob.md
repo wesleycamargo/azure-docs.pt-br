@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff862dcee77fb874511ea1b9bcc907a5e4b60dcc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998975"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015265"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: Criar um pipeline de Pesquisa Cognitiva usando habilidades e dados de exemplo
 
@@ -26,9 +26,9 @@ Neste início rápido, crie seu primeiro pipeline de enriquecimento no [portal d
 
 > [!div class="checklist"]
 > * Comece com dados de exemplo no armazenamento de blob do Azure
-> * Configurar o [assistente para Importação de dados](search-import-data-portal.md) para indexação e enriquecimento cognitivos 
+> * Configurar o assistente para [**Importação de dados**](search-import-data-portal.md) para indexação e enriquecimento cognitivos 
 > * Execute o Assistente (uma habilidade de entidade detecta pessoas, local e organizações)
-> * Usar o [Search Explorer](search-explorer.md) para consultar os dados enriquecidos
+> * Usar o [**Gerenciador de pesquisa**](search-explorer.md) para consultar os dados enriquecidos
 
 ## <a name="supported-regions"></a> Regiões com suporte
 
@@ -98,15 +98,15 @@ O pipeline de enriquecimento recebe de fontes de dados do Azure com suporte [ind
 
 1. [Fazer o download de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste em um conjunto de pequenos arquivos de tipos diferentes. 
 
-1. Inscreva-se para o armazenamento de Blobs do Azure, crie uma conta de armazenamento, entre no Gerenciador de Armazenamento e crie um contêiner. Defina o nível de acesso público como **Contêiner**. Para obter mais informações, confira a [seção "Criar um contêiner"](../storage/blobs/storage-unstructured-search.md#create-a-container) no tutorial Pesquisar dados não estruturados.
+1. Inscreva-se no Armazenamento de Blobs do Azure, crie uma conta de armazenamento, abra as páginas de serviços Blob e crie um contêiner. No contêiner, defina o nível de acesso público como **Contêiner**. Para obter mais informações, confira a [seção "Criar um contêiner"](../storage/blobs/storage-unstructured-search.md#create-a-container) no tutorial *Pesquisar dados não estruturados*.
 
-1. No contêiner criado, clique em **Carregar** para carregar os arquivos de exemplo.
+1. No contêiner criado, clique em **Carregar** para carregar os arquivos de exemplo baixados em uma etapa anterior.
 
   ![Arquivos de origem no armazenamento de blobs do Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## <a name="create-the-enrichment-pipeline"></a>Criar o pipeline de enriquecimento
 
-Volte para a página do painel do serviço Azure Search e clique em **Importar dados** na barra de comandos para configurar o enriquecimento cognitivo em quatro etapas.
+Retorne à página do painel do serviço Azure Search e clique em **Importar dados** na barra de comandos para configurar o enriquecimento cognitivo em quatro etapas.
 
   ![Comando Importar de dados](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 

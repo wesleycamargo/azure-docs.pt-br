@@ -1,18 +1,18 @@
 ---
-title: 'Início Rápido: Criar um servidor de Banco de Dados do Azure para MariaDB – portal do Azure'
+title: 'Início rápido: Criar um servidor de Banco de Dados do Azure para MariaDB – portal do Azure'
 description: Este artigo mostra como usar o portal do Azure para criar rapidamente um servidor de Banco de Dados do Azure para MariaDB de exemplo em aproximadamente cinco minutos.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: fb02cfd2419d1c98a92d1eae8b59256499d017a8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/09/2019
+ms.openlocfilehash: 076a29de227447c75644bd3b59bda1053794d739
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541380"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191880"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MariaDB usando o portal do Azure
 
@@ -53,9 +53,9 @@ Para criar um servidor de Banco de Dados do Azure para MariaDB:
     Versão | *a versão mais recente*| A versão mais recente (a menos que você tenha requisitos específicos que exijam outra versão).
     Tipo de preço | Confira a descrição. | As configurações de computação, armazenamento e backup para o novo servidor. Escolha **Tipo de preço** > **Uso Geral**. Mantenha os valores padrão para as seguintes configurações:<br><ul><li>**Geração de Computação** (Gen 5)</li><li>**vCore** (2 vCores)</li><li>**Armazenamento** (5 GB)</li><li>**Período de Retenção de Backup** (7 dias)</li></ul><br>Para habilitar os backups do servidor em armazenamento com redundância geográfica, escolha **Redundância Geográfica** nas **Opções de Redundância de Backup**. <br><br>Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
   
-    > [!IMPORTANT]
-    > O logon de administrador do servidor e a senha especificada aqui são necessários para posteriormente fazer logon no servidor e em seus bancos de dados neste Início rápido. Lembre-se ou registre essas informações para o uso posterior.
-    > 
+   > [!NOTE]
+   > Considere usar o tipo de preço Básico se computação leve e E/S forem adequadas para sua carga de trabalho. Observe que servidores criados no tipo de preço Básico não podem ser dimensionados mais tarde para Uso Geral ou Otimizado para Memória. Veja a [página de preço](https://azure.microsoft.com/pricing/details/mariadb/) para obter mais informações.
+   > 
 
    ![Criar servidor - janela Tipo de preço](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
 

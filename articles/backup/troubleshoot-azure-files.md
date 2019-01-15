@@ -8,12 +8,12 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787436"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064110"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solucionar problemas do backup de Compartilhamentos de Arquivos do Azure
 É possível solucionar os problemas e os erros encontrados durante a utilização do backup de Compartilhamentos de Arquivos do Azure com as informações listadas nas tabelas a seguir.
@@ -36,7 +36,7 @@ O backup para Compartilhamentos de Arquivos do Azure nas contas de armazenamento
 ## <a name="configuring-backup"></a>Configurando o backup
 A tabela abaixo serve para configurar o backup:
 
-| Configurando o backup | Dicas de solução alternativa ou resolução |
+| Mensagens de erro | Dicas de solução alternativa ou resolução |
 | ------------------ | ----------------------------- |
 | Não foi possível encontrar a minha Conta de Armazenamento para configurar o backup para o compartilhamento de arquivo do Azure | <ul><li>Aguarde até a descoberta ser concluída. <li>Verifique se algum compartilhamento de arquivos da conta de armazenamento já está protegido com outro cofre dos Serviços de Recuperação. **Observação**: Todos os compartilhamentos de arquivos em uma conta de armazenamento podem ser protegidos somente em um cofre dos Serviços de Recuperação. <li>Verifique se o compartilhamento de arquivos não está presente em nenhuma das Contas de Armazenamento sem suporte.|
 | O erro no portal indica que a descoberta de contas de armazenamento falhou. | Se sua assinatura for de parceiro (habilitado para CSP), ignore o erro. Se sua assinatura não estiver habilitada para CSP e suas contas de armazenamento não puderem ser descobertas, entre em contato com o suporte.|
@@ -64,6 +64,14 @@ A tabela abaixo serve para configurar o backup:
 | A operação de restauração falhou porque o compartilhamento de arquivos de destino está cheio. | Aumente a cota de tamanho do compartilhamento de arquivo de destino para acomodar os dados de restauração e repita a operação. |
 | A operação de restauração falhou porque ocorreu um erro ao executar operações de pré-restauração em recursos do Serviço de Sincronização de Arquivos associados ao compartilhamento de arquivos de destino. | Tente novamente dentro de instantes. Se o problema persistir, entre em contato com o suporte da Microsoft. |
 | Um ou mais arquivos não puderam ser recuperados. Para obter mais informações, verifique a lista de arquivos com falha no caminho fornecido acima. | <ul> <li> Os motivos para falha na recuperação estão listados no arquivo (caminho fornecido nos detalhes do trabalho). Aborde os motivos e repita a operação de restauração apenas para os arquivos com falha. <li> Alguns motivos comuns para falhas na restauração de arquivo incluem: <br/> – verifique se os arquivos com falha não estão em uso no momento. <br/> – existe um diretório com o mesmo nome que o arquivo com falha no diretório pai. |
+
+
+## <a name="modify-policy"></a>Modificar a política
+| Mensagens de erro | Dicas de solução alternativa ou resolução |
+| ------------------ | ----------------------------- |
+| Outra operação de configuração de proteção está em andamento para esse item. | Aguarde a conclusão da operação anterior de modificação da política e tente novamente após alguns instantes.|
+| Outra operação está em andamento no item selecionado. | Aguarde a conclusão da outra operação em andamento e tente novamente após alguns instantes |
+
 
 ## <a name="see-also"></a>Veja também
 Para saber mais sobre o backup de compartilhamentos de arquivos do Azure, confira:

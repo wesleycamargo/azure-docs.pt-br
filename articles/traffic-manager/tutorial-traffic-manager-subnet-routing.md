@@ -1,10 +1,9 @@
 ---
-title: Configurar o método de roteamento de tráfego da sub-rede usando o Gerenciador de Tráfego do Azure | Microsoft Docs
+title: Configurar o método de roteamento de tráfego da sub-rede usando o Gerenciador de Tráfego do Azure
 description: Este artigo explica como configurar o Gerenciador de Tráfego para rotear o tráfego de sub-redes de usuário para pontos de extremidade específicos.
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 20c34b820eb326a18be1c4298b0850a58599be64
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8243130fc9752a47661b4c80826000d573da35c8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956227"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053067"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Direcionar o tráfego para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 
@@ -41,10 +40,10 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para ver o Gerenciador de Tráfego em ação, este tutorial exige que você implante o seguinte:
-- dois sites básicos em execução em diferentes regiões do Azure – **Leste dos EUA** (funciona como o site interno) e **Europa Ocidental** (funciona como o site de produção).
+- dois sites básicos em execução em diferentes regiões do Azure - **Leste dos EUA** (serve como site interno) e **Europa Ocidental** (serve como site de produção).
 - duas VMs de teste para testar o Gerenciador de Tráfego do Microsoft Azure - uma VM no **Leste dos EUA** e a segunda VM na **Europa Ocidental**. 
 
-As VMs de teste são usadas para ilustrar como o Gerenciador de Tráfego encaminha o tráfego de usuário para o site interno ou para o site de produção com base na sub-rede da qual a consulta do usuário se origina.
+As VMs de teste são usadas para ilustrar como o Traffic Manager roteia o tráfego de usuários para o site interno ou para o site de produção com base na sub-rede de onde a consulta do usuário se origina.
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure 
 
@@ -155,7 +154,7 @@ Nesta seção, você criará uma VM (*UserVMUS* e *UserVMEurope*) em cada regiã
 5. Selecione os seguintes valores para **Configurações** e selecione **OK**:
     |Configuração|Valor|
     |---|---|
-    |Rede virtual| Selecione **Rede virtual**. Em **Criar rede virtual**, para **Nome**, insira *myVNet3* e para sub-rede, insira *mySubnet3*.|
+    |Rede virtual| Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet3*, para sub-rede, insira *mySubnet3*.|
     |Grupo de Segurança de Rede|Selecione **Básico**, e na lista **Selecionar as portas de entrada públicas**, selecione **HTTP** e **RDP** |
     |Diagnóstico de inicialização|Selecione **Desabilitado**.|
     |||
@@ -168,7 +167,7 @@ Nesta seção, você criará uma VM (*UserVMUS* e *UserVMEurope*) em cada regiã
     |---|---|
     |Nome da VM | *UserVMEurope*|
     |Grupo de recursos | Selecione **Existente** e em seguida, digite *myResourceGroupTM2*|
-    |Rede virtual | Selecione **Rede virtual**. Em **Criar rede virtual**, para **Nome**, insira *myVNet4* e para sub-rede, insira *mySubnet4*.|
+    |Rede virtual | Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet4*, para sub-rede, insira *mySubnet4*.|
     |||
 
 8. As VMs podem levar alguns minutos para serem criadas. Não continue com as etapas restantes até que ambas as VMs sejam criadas.
@@ -183,7 +182,7 @@ Crie um perfil de Gerenciador de Tráfego que permite que você retorne pontos d
     | NOME                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
     | Método de roteamento          | Selecione o método de roteamento **Sub-rede**.                                       |
     | Assinatura            | Selecione sua assinatura.                          |
-    | Grupo de recursos          | Selecione **Existente** e insira *myResourceGroupTM1*. |
+    | Grupo de recursos          | Selecione **Existing** e insira *myResourceGroupTM1*. |
     | |                              |
     |
   
@@ -203,7 +202,7 @@ Adicione as duas VMs executando os servidores IIS, *InternalWebsite*  & *ProdWeb
     | NOME           | myInternalWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP público                          |
     | Recurso de destino          | **Escolha um endereço IP Público** para mostrar a lista de recursos com endereços IP públicos na mesma assinatura. Em **Recursos**, selecione o endereço IP público denominado *InternalWebsite-ip*. Isso é o endereço IP público do servidor IIS VM no Leste dos EUA.|
-    |  Configurações de roteamento de sub-rede    |   Adicione o endereço IP da VM de teste *UserVMUS*. Toda consulta de usuário originada dessa VM será direcionada para o *InternalWebSiteEndpoint*.    |
+    |  Configurações de roteamento da sub-rede    |   Adicione o endereço IP da VM de teste *UserVMUS*. Toda consulta de usuário originada dessa VM será direcionada para o *InternalWebSiteEndpoint*.    |
 
 4. Repita as etapas 2 e 3 para adicionar outro ponto de extremidade chamado *ProdWebsiteEndpoint* para o endereço IP público *ProdWebsite-ip* que está associado à VM do servidor do IIS denominado *ProdWebsite*. Para **Configurações de roteamento de sub-rede**, adicione o endereço IP da VM de teste *UserVMEurope*. Toda consulta de usuário dessa VM de teste será encaminhada para o ponto de extremidade *myProdWebsiteEndpoint*.
 5.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.

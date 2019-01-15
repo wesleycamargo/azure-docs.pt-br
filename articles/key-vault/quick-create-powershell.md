@@ -9,19 +9,19 @@ ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: powershell
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/28/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: ae09442c1ebec878e15b5149d0634f8dc3568f7a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: d43cd53c462527ce5458e7ae8c4bcbe961ed7553
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362411"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076256"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando o PowerShell
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o PowerShell
 
 O Azure Key Vault é um serviço de nuvem que funciona como um repositório de segredos seguro. Você pode armazenar chaves, senhas, certificados e outros segredos com segurança. Para saber mais sobre o Key Vault, reveja a [Visão geral](key-vault-overview.md). Neste início rápido, você usará o PowerShell para criar um cofre de chaves. Em seguida, você armazenará o segredo no cofre recém-criado.
 
@@ -57,9 +57,9 @@ Embora usemos "Contoso KeyVault2" como o nome do nosso Key Vault em todo este in
 New-AzureRmKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 
-A saída desse cmdlet mostra as propriedades do cofre de chaves criado recentemente. Observe as duas propriedades listadas abaixo:
+A saída desse cmdlet mostra as propriedades do cofre de chaves criado recentemente. Anote as duas propriedades listadas abaixo:
 
-* **Nome do Cofre**: neste exemplo, é **Contoso-Vault2**. Você usará esse nome para outros cmdlets do Cofre da Chave.
+* **Nome do cofre**: no exemplo, é **Contoso-Vault2**. Você usará esse nome para outros cmdlets do Cofre da Chave.
 * **URI do cofre**: neste exemplo, é https://contosokeyvault.vault.azure.net/. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
 Após a criação do cofre, sua conta do Azure é a única conta que pode fazer algo nesse novo cofre.

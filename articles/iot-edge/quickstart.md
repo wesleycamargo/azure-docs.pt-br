@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2295ed6d3d1b22d70f95d0c9ac4542b59c7ddc09
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e0ad51bd2370cd8b7569d76e5d91b606928eea6d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972083"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189347"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início Rápido: Implantar seu primeiro módulo IoT Edge do portal do Azure para um dispositivo Windows – versão prévia
 
@@ -63,7 +63,7 @@ Dispositivo IoT Edge:
   * Windows Server 2019
 * Habilitar a virtualização para que seu dispositivo possa hospedar contêineres
    * Se for um computador Windows, habilite o recurso de contêineres. Na barra de início, navegue até **Ativar ou desativar recursos do Windows** e marque a caixa ao lado de **Contêineres**.
-   * Caso seja uma máquina virtual, habilite a [virtualização aninhada](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) e aloque pelo menos 2 GB de memória.
+   * Se for uma máquina virtual, habilite [ virtualização aninhada](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) e aloque pelo menos 2 GB de memória.
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -113,7 +113,7 @@ Como os dispositivos IoT Edge se comportam e podem ser gerenciados diferentement
 Instale o tempo de execução do Azure IoT Edge no dispositivo IoT Edge e configure-o com uma cadeia de conexão do dispositivo.
 ![Diagrama – Iniciar o tempo de execução no dispositivo](./media/quickstart/start-runtime.png)
 
-O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT.
+O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo IoT Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** gerencia a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub do IoT Edge** controla a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT.
 
 O script de instalação também inclui um mecanismo de contêiner chamado Moby que gerencia as imagens de contêiner no seu dispositivo IoT Edge. 
 
@@ -175,14 +175,16 @@ Seu dispositivo IoT Edge agora está configurado. Ele está pronto para executar
 
 ## <a name="deploy-a-module"></a>Implantar um módulo
 
-Gerencie o dispositivo Azure IoT Edge na nuvem para implantar um módulo que enviará dados telemétricos ao Hub IoT.
+Gerencie o dispositivo Azure IoT Edge na nuvem para implantar um módulo que envia dados telemétricos ao Hub IoT.
 ![Diagrama – Implantar o módulo da nuvem para dispositivo](./media/quickstart/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## <a name="view-generated-data"></a>Exibir os dados gerados
 
-Neste guia de início rápido, você criou um novo dispositivo IoT Edge e instalou o tempo de execução de IoT Edge nele. Em seguida, você usou o Portal do Azure para enviar por push um módulo do IoT Edge para ser executado no dispositivo sem precisar fazer alterações no próprio dispositivo. Nesse caso, o módulo enviado por push cria dados de ambiente que podem ser usados para os tutoriais.
+Neste guia de início rápido, você registrou um dispositivo IoT Edge e instalou o tempo de execução do IoT Edge nele. Em seguida, você usou o portal do Azure para implantar um módulo do IoT Edge para ser executado no dispositivo sem precisar fazer alterações no próprio dispositivo. 
+
+Nesse caso, o módulo enviado por push cria dados de exemplo que podem ser usados para teste. O módulo de sensor de temperatura simulado gera dados de ambiente que você pode usar para testar posteriormente. O sensor simulado está monitorando um computador e o ambiente em torno do computador. Por exemplo, esse sensor pode estar em uma sala de servidor, em um chão de fábrica ou em uma turbina eólica. A mensagem inclui a temperatura ambiente e umidade, temperatura do computador, pressão e um carimbo de data/hora. Os tutoriais do IoT Edge usam os dados criados por esse módulo de dados de teste para análise.
 
 Confirme se o módulo implantado da nuvem está em execução no seu dispositivo IoT Edge.
 
@@ -204,6 +206,7 @@ iotedge logs SimulatedTemperatureSensor -f
    ![Exibir os dados do seu módulo](./media/quickstart/iotedge-logs.png)
 
 Você também pode inspecionar as mensagens chegam ao hub IoT usando a [Extensão do Kit de Ferramentas do Hub IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente conhecida como extensão do Kit de Ferramentas do Azure IoT). 
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -230,26 +233,9 @@ Remova o tempo de execução do IoT Edge. Se você planeja reinstalar o IoT Edge
    Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
-Quando o tempo de execução do IoT Edge for removido, os contêineres criados por ele são interrompidos, mas ainda existem no seu dispositivo. Visualizar todos os contêineres.
-
-   ```powershell
-   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
-   ```
-
-   >[!TIP]
-   >O sinalizador **-H** (host) nos comandos do Docker apontam para o mecanismo de Moby que foi instalado junto com o tempo de execução do IoT Edge. Se você usar o Docker e o Moby no mesmo computador, o sinalizador de host permitirá que você especifique qual mecanismo você está usando para um determinado comando. Se quiser usar o Moby, você poderá definir a variável de ambiente **DOCKER_HOST** para apontar para npipe:////./pipe/iotedge_moby_engine.
-
-Exclua os contêineres que foram criados no seu dispositivo pelo tempo de execução do IoT Edge. 
-
-   ```powershell
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
-   ```
-   
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um novo dispositivo IoT Edge e usou a interface de nuvem do Azure IoT Edge para implantar código no dispositivo. Agora, você tem um dispositivo de teste que gera dados brutos sobre seu ambiente.
+Neste início rápido, você criou um dispositivo IoT Edge e usou a interface de nuvem do Azure IoT Edge para implantar código no dispositivo. Agora, você tem um dispositivo de teste que gera dados brutos sobre seu ambiente.
 
 Você está pronto para prosseguir para um dos outros tutoriais para saber como o Azure IoT Edge pode ajudá-lo a transformar esses dados em informações de negócios na borda.
 

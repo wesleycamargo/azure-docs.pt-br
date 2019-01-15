@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: f6f804ea9121d1728e31f1e694280e841f4b7f4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9683eb8cbfcabb946f8b364ac9cc8aeeb167d023
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946537"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120284"
 ---
-# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Início Rápido: Proteger uma API Web com o Azure Active Directory
+# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Início Rápido: proteger uma API Web com o Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -108,7 +108,7 @@ Para obter mais informações sobre as configurações individuais, examine a do
 
 O módulo [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) apresenta duas estratégias de autenticação: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) e de [Portador](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy). O servidor implementado neste artigo usa a estratégia de Portador para proteger o ponto de extremidade de API.
 
-### <a name="step-1-import-dependencies"></a>Etapa 1: importar dependências
+### <a name="step-1-import-dependencies"></a>Etapa 1: Importar dependências
 
 Crie um novo arquivo chamado `app.js` e cole o texto a seguir:
 
@@ -132,7 +132,7 @@ Nesta seção de código:
 - Uma matriz é criada para `authenticatedUserTokens` para armazenar os tokens de usuário conforme eles são passados para pontos de extremidade protegidos.
 - O `serverPort` é definido do arquivo de configuração ou da porta do ambiente de processo.
 
-### <a name="step-2-instantiate-an-authentication-strategy"></a>Etapa 2: instanciar uma estratégia de autenticação
+### <a name="step-2-instantiate-an-authentication-strategy"></a>Etapa 2: Criar uma instância de uma estratégia de autenticação
 
 Ao proteger um ponto de extremidade, você deve fornecer uma estratégia responsável por determinar se a solicitação atual se origina ou não de um usuário autenticado. Aqui a variável `authenticatonStrategy` é uma instância da classe `BearerStrategy` de `passport-azure-ad`. Adicione o código a seguir após as instruções `require`.
 
@@ -161,19 +161,19 @@ Depois de criar uma nova instância da estratégia, você deve passá-la para o 
 passport.use(authenticationStrategy);
 ```
 
-### <a name="step-3-server-configuration"></a>Etapa 3: configuração do servidor
+### <a name="step-3-server-configuration"></a>Etapa 3: Configuração de Servidor
 
 Com a estratégia de autenticação definida, você pode configurar o servidor Restify com algumas configurações básicas e definido para usar o Passport para segurança.
 
 ```JavaScript
-const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
+const server = restify.createServer({ name: 'Azure Active Directory with Node.js Demo' });
 server.use(restifyPlugins.authorizationParser());
 server.use(passport.initialize());
 server.use(passport.session());
 ```
 Este servidor será inicializado e configurado para analisar os cabeçalhos de autorização e, em seguida, será definido para usar o Passport.
 
-### <a name="step-4-define-routes"></a>Etapa 4: definir rotas
+### <a name="step-4-define-routes"></a>Etapa 4: Definir rotas
 
 Agora você pode definir rotas e decidir qual delas proteger com o Azure AD. Esse projeto inclui duas rotas em que o nível raiz é aberto e a rota `/api` é definida para exigir autenticação.
 
@@ -221,7 +221,7 @@ Se você tiver configurado seu servidor corretamente, a resposta deverá ser sem
 
 ```shell
 HTTP/1.1 200 OK
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 Content-Type: application/json
 Content-Length: 49
 Date: Tue, 10 Oct 2017 18:35:13 GMT
@@ -240,7 +240,7 @@ Se você tiver configurado o servidor corretamente, o servidor deverá responder
 
 ```shell
 HTTP/1.1 401 Unauthorized
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 WWW-Authenticate: token is not found
 Date: Tue, 10 Oct 2017 16:22:03 GMT
 Connection: keep-alive

@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f099d280615607382bd424063d39bb26cdeea793
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 1b2692df51afb50822ec542fbda423f598bcb8e4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557845"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054734"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Java em seu dispositivo simulado
 
@@ -47,7 +47,7 @@ Recursos de desenvolvimento:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Pacote de extensão Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) para Visual Studio Code.
-* [Extensão do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
+* [Ferramentas de IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks), e [defina a variável de ambiente `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para apontar para a sua instalação do JDK.
 * [Maven](https://maven.apache.org/)
 * [CE do Docker](https://docs.docker.com/install/)
@@ -56,7 +56,7 @@ Recursos de desenvolvimento:
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-Neste tutorial, você usa a extensão do Azure IoT Edge do Visual Studio Code para compilar um módulo e criar uma **imagem de contêiner** dos arquivos. Em seguida, você efetua push dessa imagem para um **registro** que armazena e gerencia suas imagens. Finalmente, você implanta a imagem do seu registro para executar no dispositivo IoT Edge.  
+Neste tutorial, você usará as Ferramentas IoT do Azure para Visual Studio Code para criar um módulo e uma **imagem de contêiner** com base nos arquivos. Em seguida, você efetua push dessa imagem para um **registro** que armazena e gerencia suas imagens. Finalmente, você implanta a imagem do seu registro para executar no dispositivo IoT Edge.  
 
 Você pode usar qualquer registro compatível com o Docker para manter as imagens de contêiner. Dois serviços de registro populares do Docker são o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) e o [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Este tutorial utiliza o Registro de Contêiner do Azure. 
 
@@ -82,7 +82,7 @@ Caso ainda não tenha um registro de contêiner, siga estas etapas para criar um
 7. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha**. É possível usar esses valores posteriormente no tutorial para fornecer acesso ao registro de contêiner. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto de módulo do IoT Edge
-As seguintes etapas criam um projeto de módulo do IoT Edge que se baseia no pacote de modelo do maven do Azure IoT Edge e no SDK do dispositivo Java do Azure IoT. Você cria o projeto usando o Visual Studio Code e a extensão do Azure IoT Edge.
+As seguintes etapas criam um projeto de módulo do IoT Edge que se baseia no pacote de modelo do maven do Azure IoT Edge e no SDK do dispositivo Java do Azure IoT. Você criará o projeto usando o Visual Studio Code e as Ferramentas de IoT do Azure.
 
 ### <a name="create-a-new-solution"></a>Criar uma nova solução
 
@@ -216,13 +216,19 @@ O arquivo do ambiente armazena as credenciais para o registro de contêiner e as
     client.getTwin();
     ```
 
-11. Salve o arquivo.
+11. Salve o arquivo App.java.
 
-12. No explorador do VS Code, abra o arquivo deployment.template.json no workspace da solução IoT Edge. Esse arquivo manda o **$edgeAgent** implantar dois módulos: **tempSensor** e **JavaModule**. A plataforma padrão do seu IoT Edge é definida como **amd64** na barra de status do VS Code, o que significa que seu **JavaModule** está definido para a versão amd64 do Linux da imagem. Altere a plataforma padrão na barra de status de **amd64** para **arm32v7** ou **windows-amd64** se essa for a arquitetura do seu dispositivo IoT Edge. 
+12. No gerenciador do VS Code, abra o arquivo **deployment.template.json** no workspace da solução IoT Edge. Esse arquivo informa ao agente do IoT Edge quais módulos implantar, nesse caso, **tempSensor** e **JavaModule**, e informa ao hub do IoT Edge como rotear mensagens entre eles. A extensão do Visual Studio Code preenche automaticamente a maioria das informações necessárias no modelo de implantação. Mesmo assim, verifique se tudo está preciso para sua solução: 
 
-   Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
+   1. A plataforma padrão do seu IoT Edge é definida como **amd64** na barra de status do VS Code, o que significa que seu **JavaModule** está definido para a versão amd64 do Linux da imagem. Altere a plataforma padrão na barra de status de **amd64** para **arm32v7** ou **windows-amd64** se essa for a arquitetura do seu dispositivo IoT Edge. 
 
-   No arquivo deployment.template.json, a seção **registryCredentials** armazena suas credenciais de registro do Docker. Os pares de nome de usuário e senha reais são armazenados no arquivo .env que é ignorado pelo git.  
+      ![Atualizar a plataforma da imagem do módulo](./media/tutorial-java-module/image-platform.png)
+
+   2. Verifique se o modelo tem o nome do módulo correto, não o nome padrão **SampleModule** alterado quando você criou a solução de IoT Edge.
+
+   3. A seção **registryCredentials** armazena suas credenciais de registro do Docker, de modo que o agente do IoT Edge possa efetuar pull da imagem do módulo. Os pares de nome de usuário e senha reais são armazenados no arquivo .env que é ignorado pelo git. Adicione suas credenciais ao arquivo .env caso ainda não tenha feito isso.  
+
+   4. Caso deseje saber mais sobre manifestos de implantação, confira [Saiba como implantar módulos e estabelecer rotas no IoT Edge](module-composition.md).
 
 13. Adicione o módulo duplo **JavaModule** ao manifesto de implantação. Insira o seguinte conteúdo JSON na parte inferior da seção **moduleContent**, após o módulo gêmeo do **$edgeHub**: 
 
@@ -236,7 +242,7 @@ O arquivo do ambiente armazena as credenciais para o registro de contêiner e as
 
    ![Adicionar gêmeo de módulo ao modelo de implantação](./media/tutorial-java-module/module-twin.png)
 
-14. Salve o arquivo.
+14. Salve o arquivo deployment.template.json.
 
 ## <a name="build-your-iot-edge-solution"></a>Criar solução IoT Edge
 

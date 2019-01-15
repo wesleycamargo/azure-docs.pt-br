@@ -1,13 +1,10 @@
 ---
-title: Tipos de endereços IP no Azure | Microsoft Docs
+title: Tipos de endereço IP no Azure
+titlesuffix: Azure Virtual Network
 description: Saiba mais sobre endereços IP públicos e privados no Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: 6b8bf4a0bc6b5e5e9b9ad7f91ba409aaf922e8e9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f4af899be489dab2fc73bb33943882d4dc81576f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822221"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054751"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereço IP e métodos de alocação no Azure
 
 Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure:
 
-* **Endereços IP públicos**: usados para comunicação com a Internet, incluindo serviços do Azure voltados para o público.
-* **Endereços IP privados**: usados para comunicação em uma VNet (rede virtual) do Azure e na sua rede local quando você usa um gateway de VPN ou circuito de ExpressRoute para estender sua rede para o Azure.
+* **Endereços IP públicos**: Usados para comunicação com a Internet, incluindo serviços do Azure voltados ao público.
+* **Endereços IP privados**: Usados para comunicação em uma VNET (rede virtual) do Azure e na rede local quando você usa um gateway de VPN ou um circuito do ExpressRoute para estender sua rede para o Azure.
 
 Você também pode criar um intervalo contíguo de endereços IP públicos estáticos por meio de um prefixo IP público. [Saiba mais sobre um prefixo IP público.](public-ip-address-prefix.md)
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do [modelo de implantação clássico](virtual-network-ip-addresses-overview-classic.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do [modelo de implantação clássico](virtual-network-ip-addresses-overview-classic.md).
 > 
 
 Se estiver familiarizado com o modelo de implantação clássico, verifique as [diferenças de endereçamento IP entre o clássico e o Gerenciador de Recursos](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
@@ -154,8 +151,8 @@ Um endereço IP privado é alocado no intervalo de endereços de sub-rede da red
 
 Há dois métodos para alocar um endereço IP privado:
 
-- **Dinâmico**: o Azure atribui o próximo endereço IP disponível não atribuído ou não reservado no intervalo de endereços da sub-rede. Por exemplo, o Azure atribui o 10.0.0.10 para um novo recurso se endereços 10.0.0.4-10.0.0.9 já estiverem atribuídos a outros recursos. Dinâmico é o método de alocação padrão. Uma vez atribuído, os endereços IP dinâmicos só são liberados se um adaptador de rede é excluído, atribuído a uma sub-rede diferente na mesma rede virtual ou se o método de alocação é alterado para estático e um endereço IP diferente é especificado. Por padrão, o Azure atribui o endereço anterior atribuído dinamicamente como o endereço estático quando você altera o método de alocação de dinâmico para estático.
-- **Estático**: você seleciona e atribui qualquer endereço IP disponível não atribuído ou não reservado no intervalo de endereços da sub-rede. Por exemplo, se um intervalo de endereços da sub-rede for 10.0.0.0/16 e os endereços 10.0.0.4-10.0.0.9 já estiverem atribuídos a outros recursos, você pode atribuir qualquer endereço entre 10.0.0.10 - 10.0.255.254. Os endereços estáticos só são liberados se um adaptador de rede é excluído. Se você alterar o método de alocação para dinâmico, o Azure atribui dinamicamente o endereço IP estático atribuído anteriormente como o endereço dinâmico, mesmo que o endereço não seja o próximo endereço disponível no intervalo de endereços da sub-rede. O endereço também será alterado se o adaptador de rede for atribuído a uma sub-rede diferente na mesma rede virtual. No entanto, para atribuir o adaptador de rede a outra sub-rede, primeiro você deve alterar o método de alocação de estático para dinâmico. Depois de atribuir o adaptador de rede a uma sub-rede diferente, você poderá alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
+- **Dinâmico**: O Azure atribui o próximo endereço IP disponível não atribuído ou não reservado no intervalo de endereços da sub-rede. Por exemplo, o Azure atribui o 10.0.0.10 para um novo recurso se endereços 10.0.0.4-10.0.0.9 já estiverem atribuídos a outros recursos. Dinâmico é o método de alocação padrão. Uma vez atribuído, os endereços IP dinâmicos só são liberados se um adaptador de rede é excluído, atribuído a uma sub-rede diferente na mesma rede virtual ou se o método de alocação é alterado para estático e um endereço IP diferente é especificado. Por padrão, o Azure atribui o endereço anterior atribuído dinamicamente como o endereço estático quando você altera o método de alocação de dinâmico para estático.
+- **Estático**: Selecione e atribua qualquer endereço IP disponível não atribuído ou não reservado no intervalo de endereços da sub-rede. Por exemplo, se um intervalo de endereços da sub-rede for 10.0.0.0/16 e os endereços 10.0.0.4-10.0.0.9 já estiverem atribuídos a outros recursos, você pode atribuir qualquer endereço entre 10.0.0.10 - 10.0.255.254. Os endereços estáticos só são liberados se um adaptador de rede é excluído. Se você alterar o método de alocação para dinâmico, o Azure atribui dinamicamente o endereço IP estático atribuído anteriormente como o endereço dinâmico, mesmo que o endereço não seja o próximo endereço disponível no intervalo de endereços da sub-rede. O endereço também será alterado se o adaptador de rede for atribuído a uma sub-rede diferente na mesma rede virtual. No entanto, para atribuir o adaptador de rede a outra sub-rede, primeiro você deve alterar o método de alocação de estático para dinâmico. Depois de atribuir o adaptador de rede a uma sub-rede diferente, você poderá alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8f76c53964d062db76ea7d40cdb0ced2d015fc79
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715999"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120726"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -25,10 +25,10 @@ O Azure AD (Active Directory) tem um serviço de Proxy de Aplicativo que permite
 Este tutorial:
 
 > [!div class="checklist"]
-> * Abre as portas para tráfego de saída e permite o acesso a URLs específicas
-> * Instala o conector em seu servidor Windows e o registra com o Proxy de Aplicativo
-> * Verifica se o conector está instalado e registrado corretamente
-> * Adiciona um aplicativo local ao locatário do Azure AD
+> * abre as portas para o tráfego de saída e permite o acesso a URLs específicas.
+> * instala o conector em seu servidor Windows e registra-o no Proxy de Aplicativo.
+> * verifica se o conector foi instalado e registrado corretamente.
+> * adiciona um aplicativo local ao locatário do Azure AD.
 > * Verifica se um usuário de teste pode fazer logon no aplicativo usando uma conta do Azure AD.
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -93,7 +93,7 @@ Permita o acesso às seguintes URLs:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure usa essas URLs para verificar os certificados |
 | login.windows.net<br>login.microsoftonline.com | O conector usa essas URLs durante o processo de registro. |
 
-Se o firewall ou o proxy permitir uma lista de permissões de DNS, você poderá adicionar as conexões com \*.msappproxy.net e \*.servicebus.windows.net à lista de permissões. Caso contrário, você precisará permitir o acesso aos [intervalos IP do DataCenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
+Se o firewall ou o proxy permitir uma lista de permissões de DNS, você poderá adicionar as conexões com \*.msappproxy.net e \*.servicebus.windows.net à lista de permissões. Caso contrário, você precisará permitir o acesso aos [intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
 
 ## <a name="install-and-register-a-connector"></a>Instalar e registrar um conector
 Para usar o Proxy de Aplicativo, você precisará instalar um conector em cada servidor Windows que você optar por usar com o serviço de Proxy de Aplicativo. O conector é um agente que gerencia a conexão de saída de servidores de aplicativos locais para o Proxy de Aplicativo no Azure AD. Você pode instalar um conector em servidores que também tenham outros agentes de autenticação instalados, como o Azure AD Connect.

@@ -1,20 +1,20 @@
 ---
 title: Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com Ruby
 description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: ruby
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: 7ddf9c3ef848537cb68dce043bb22680439e9cd5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+author: wmengmsft
+ms.author: wmeng
+ms.reviewer: sngun
+ms.openlocfilehash: 3603455674485a505a7dbc969554a881947940ae
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877888"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036249"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -94,10 +94,10 @@ azure_table_service.insert_entity("testtable", entity)
 ## <a name="update-an-entity"></a>Atualizar uma entidade
 Há vários métodos disponíveis para atualizar uma entidade existente:
 
-* **update_entity():** atualiza uma entidade existente substituindo-a.
-* **merge_entity():** atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente.
-* **insert_or_merge_entity():** atualiza uma entidade existente substituindo-a. Se não existir nenhuma entidade, uma nova será inserida:
-* **insert_or_replace_entity():** atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente. Se nenhuma entidade existir, uma nova será inserida.
+* **update_entity():** Atualiza uma entidade existente substituindo-a.
+* **merge_entity():** Atualiza uma entidade existente mesclando novos valores de propriedade com a entidade existente.
+* **insert_or_merge_entity():** Atualiza uma entidade existente substituindo-a. Se não existir nenhuma entidade, uma nova será inserida:
+* **insert_or_replace_entity():** Atualiza uma entidade existente mesclando novos valores de propriedade com a entidade existente. Se nenhuma entidade existir, uma nova será inserida.
 
 O exemplo a seguir demonstra a atualização de uma entidade usando **update_entity()**:
 

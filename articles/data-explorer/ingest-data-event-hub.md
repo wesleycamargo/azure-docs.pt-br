@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 563b171177b491037e34dce891b565ea0943feda
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654097"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064688"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Início Rápido: Ingerir dados do Hub de Eventos no Azure Data Explorer
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece a ingestão (carregamento de dados) dos Hubs de Eventos, uma plataforma de big data streaming e um serviço de ingestão de eventos. Os Hubs de Eventos podem processar milhões de eventos por segundo quase em tempo real. Neste início rápido, você cria um hub de eventos, conecta-se ao Azure Data Explorer e vê o fluxo de dados pelo sistema.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece a ingestão (carregamento de dados) dos Hubs de Eventos, uma plataforma de big data streaming e um serviço de ingestão de eventos. Os [Hubs de Eventos](/azure/event-hubs/event-hubs-about) podem processar milhões de eventos por segundo quase em tempo real. Neste início rápido, você cria um hub de eventos, conecta-se ao Azure Data Explorer e vê o fluxo de dados pelo sistema.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 * [Um cluster de teste e um banco de dados](create-cluster-database-portal.md)
 
-* [Um aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que gera dados e os envia para um hub de eventos
+* [Um aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que gera dados e os envia para um hub de eventos. Baixe o aplicativo de exemplo em seu sistema.
 
 * [Visual studio 2017 versão 15.3.2 ou superior](https://www.visualstudio.com/vs/) para executar o aplicativo de exemplo
 
@@ -37,7 +37,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
 Neste início rápido, você gera dados de amostra e os envia para um hub de eventos. O primeiro passo é criar um hub de eventos. Você faz isso usando um modelo do Azure Resource Manager no portal do Azure.
 
-1. Use o botão a seguir para iniciar a implantação. É recomendável que o link seja aberto em outra guia ou janela, para que você possa acompanhar o restante das etapas neste artigo.
+1. Para criar um hub de eventos, use o botão a seguir para iniciar a implantação. Clique com o botão direito do mouse e selecione o link **Abrir em nova janela** em outra guia ou janela, para que você possa acompanhar o restante das etapas neste artigo.
 
     [![Implantar no Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -79,7 +79,7 @@ Agora você cria uma tabela no Gerenciador de dados do Azure, para que os Hubs d
 
     ![Link do aplicativo de consulta](media/ingest-data-event-hub/query-explorer-link.png)
 
-1. Copie o seguinte comando na janela e selecione **Run**.
+1. Copie o seguinte comando na janela e selecione **Executar** para criar a tabela (TestTable) que receberá os dados ingeridos.
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
@@ -87,12 +87,11 @@ Agora você cria uma tabela no Gerenciador de dados do Azure, para que os Hubs d
 
     ![Execução criar consulta](media/ingest-data-event-hub/run-create-query.png)
 
-1. Copie o seguinte comando na janela e selecione **Run**.
+1. Copie o seguinte comando na janela e selecione **Executar** para mapear os dados JSON de entrada para os tipos de dados e nomes de coluna da tabela (TestTable).
 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    Esse comando mapeia dados JSON de entrada para os nomes de colunas e tipos de dados da tabela (TestTable).
 
 ## <a name="connect-to-the-event-hub"></a>Conectar-se ao hub de eventos
 
@@ -112,13 +111,23 @@ Agora você se conecta ao hub de eventos no Azure Data Explorer. Quando essa con
 
     ![Conexão do hub de eventos](media/ingest-data-event-hub/event-hub-connection.png)
 
+    Fonte de dados:
+
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Nome da conexão de dados | *teste de hub de conexão* | O nome da conexão que você deseja criar no Azure Data Explorer.|
     | Namespace do Hub de Eventos | Um nome de namespace exclusivo | O nome escolhido anteriormente que identifica seu namespace. |
     | Hub de Eventos | *test-hub* | O hub de eventos que você criou. |
     | Grupo de consumidores | *grupo de teste* | O grupo de consumidores definido no hub de eventos que você criou. |
-    | Tabela de destino | Não selecione **Meus dados incluem informações de roteamento**. | Há duas opções de roteamento: *estático* e *dinâmico*. Para este início rápido, você usará o roteamento estático (o padrão), no qual especificará o nome da tabela, o formato do arquivo e o mapeamento. Você também pode usar o roteamento dinâmico, no qual os dados incluem as informações de roteamentos necessárias. |
+    | | |
+
+    Tabela de destino:
+
+    Há duas opções de roteamento: *estático* e *dinâmico*. Para este início rápido, você usará o roteamento estático (o padrão), no qual especificará o nome da tabela, o formato do arquivo e o mapeamento. Portanto, não selecione **Meus dados incluem informações de roteamento**.
+    Você também pode usar o roteamento dinâmico, no qual os dados incluem as informações de roteamentos necessárias.
+
+     **Configuração** | **Valor sugerido** | **Descrição do campo**
+    |---|---|---|
     | Tabela | *TestTable* | A tabela criada na **TestDatabase**. |
     | Formato de dados | *JSON* | Há suporte para formatos JSON e CSV. |
     | Mapeamento de coluna | *TestMapping* | O mapeamento que você criou em **TestDatabase**, que mapeia os dados de entrada JSON para tipos de dados e nomes de coluna da **TestTable**.|
@@ -138,7 +147,7 @@ Quando você executa o [aplicativo de exemplo](https://github.com/Azure-Samples/
 
 ## <a name="generate-sample-data"></a>Gerar dados de exemplo
 
-Agora que o Azure Data Explorer e o hub de eventos estão conectados, use o [aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) baixado para gerar dados.
+Use o [aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) baixado para gerar dados.
 
 1. Abrir o aplicativo de exemplo no Visual Studio.
 
@@ -162,8 +171,6 @@ Agora que o aplicativo está gerando dados, você pode ver o fluxo de dados do h
 
     ![Gráfico de hub de eventos](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. Volte para o aplicativo de exemplo e pare após chegar à mensagem 99.
-
 1. Para verificar quantas mensagens chegaram ao banco de dados até o momento, execute a consulta a seguir em seu banco de dados de teste.
 
     ```Kusto
@@ -171,15 +178,18 @@ Agora que o aplicativo está gerando dados, você pode ver o fluxo de dados do h
     | count
     ```
 
-1. Para ver o conteúdo das mensagens, execute a consulta a seguir.
+1. Para ver o conteúdo das mensagens, execute a consulta a seguir:
 
     ```Kusto
     TestTable
     ```
 
-    O conjunto de resultados deve se parecer com o seguinte.
+    O conjunto de resultados deve ser parecido com o seguinte:
 
     ![Conjunto de resultados de mensagem](media/ingest-data-event-hub/message-result-set.png)
+
+    > [!NOTE]
+    > O ADX tem uma política de agregação (envio em lote) para a ingestão de dados, criada para otimizar o processo de inclusão. A política é configurada como 5 minutos, de modo que você pode ter alguma latência.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

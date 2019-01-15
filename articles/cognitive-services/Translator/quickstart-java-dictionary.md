@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Localizar traduções alternativas, Java - API de Tradução de Texto'
+title: 'Início Rápido: Procure palavras com o dicionário bilíngue, Java – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a localizar traduções alternativas para um termo e também exemplos de uso dessas traduções alternativas usando Java e a API de Tradução de Texto.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 2c5517b470e46423631f6a63a24ceccf5de0a919
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 001aa2a813816562cdc5e95a00b858d8958a6756
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888810"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157812"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-java"></a>Início Rápido: Usar a API de Tradução de Texto para localizar traduções alternativas usando Java
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Início rápido: Procure palavras com o dicionário bilíngue Java
 
 Neste início rápido, você aprenderá a localizar traduções alternativas para um termo e também exemplos de uso dessas traduções alternativas usando Java e a API de Tradução de Texto.
 
@@ -44,7 +44,7 @@ Em seguida, você vai inicializar um projeto do Gradle. Esse comando criará arq
 gradle init --type basic
 ```
 
-Quando solicitado a escolher uma **DSL**, selecione **Kotlin**.
+Quando solicitado a escolher uma **DSL**, escolha **Kotlin**.
 
 ## <a name="configure-the-build-file"></a>Configure o arquivo de compilação
 

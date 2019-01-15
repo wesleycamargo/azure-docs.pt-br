@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 01/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261801"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077395"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma conexão ponto a site usando a WAN Virtual do Azure (versão prévia)
 
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="register"></a>Registrar este recurso
 
-Clique em **TryIt** para registrar esse recurso com facilidade usando o Azure Cloud Shell.
+Clique em **TryIt** para registrar esse recurso com facilidade usando o Azure Cloud Shell. Se preferir executar o PowerShell localmente, verifique se você tem a versão mais recente e entre usando os comandos **Connect-AzureRmAccount** e **Select-AzureRmSubscription**.
 
 >[!NOTE]
 >Se você não registrar esse recurso, não poderá usá-lo nem o ver no portal.
@@ -149,7 +149,7 @@ Use o perfil baixado para configurar os clientes de acesso remoto. O procediment
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Faça o download e instale o cliente OpenVPN do site oficial.
-2.  Faça o download do perfil VPN para o gateway. Isso pode ser feito a partir da guia Configurações ponto a site no Portal do Azure ou New-AzureRmVpnClientConfiguration no PowerShell.
+2.  Faça o download do perfil VPN para o gateway. Isso pode ser feito pela guia Configurações ponto a site no Portal do Azure ou em New-AzureRmVpnClientConfiguration no PowerShell.
 3.  Descompacte o perfil. Abra o arquivo de configuração vpnconfig.ovpn na pasta OpenVPN no bloco de notas.
 4.  Preencha a seção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Em um certificado formatado em PEM, basta abrir o arquivo .cer e copiar a chave base64 entre os cabeçalhos de certificado. Veja aqui como exportar um certificado para obter a chave pública codificada.
 5.  Preencha a seção de chave privada com a chave privada do certificado de cliente P2S em base64. Veja aqui como extrair a chave privada.
@@ -168,7 +168,7 @@ Use o perfil baixado para configurar os clientes de acesso remoto. O procediment
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Faça o download e instale um cliente de OpenVPN, como TunnelBlik do https://tunnelblick.net/downloads.html 
-2.  Faça o download do perfil VPN para o gateway. Isso pode ser feito a partir da guia Configuração ponto a site no Portal do Azure ou New-AzureRmVpnClientConfiguration no PowerShell.
+2.  Faça o download do perfil VPN para o gateway. Isso pode ser feito pela guia Configuração ponto a site no Portal do Azure ou em New-AzureRmVpnClientConfiguration no PowerShell.
 3.  Descompacte o perfil. Abra o arquivo de configuração vpnconfig.ovpn na pasta OpenVPN no bloco de notas.
 4.  Preencha a seção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Em um certificado formatado em PEM, basta abrir o arquivo .cer e copiar a chave base64 entre os cabeçalhos de certificado. Veja aqui como exportar um certificado para obter a chave pública codificada.
 5.  Preencha a seção de chave privada com a chave privada do certificado de cliente P2S em base64. Veja aqui como extrair a chave privada.

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Obter traduções alternativas, Node.js - API de Tradução de Texto'
+title: 'Início Rápido: Procure palavras com o dicionário bilíngue, Node.js – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá como localizar traduções alternativas e exemplos de uso de um texto especificado usando o Node.js e a API REST de Tradução de Texto.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: f7f779ccd10eeffc9ddfcba5dbb9abde00e1f735
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035621"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160005"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para obter traduções alternativas com Node.js
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Início rápido: Procure palavras com o dicionário bilíngue Node.js
 
 Neste início rápido, você aprenderá como localizar traduções alternativas e exemplos de uso de um texto especificado usando o Node.js e a API REST de Tradução de Texto.
 

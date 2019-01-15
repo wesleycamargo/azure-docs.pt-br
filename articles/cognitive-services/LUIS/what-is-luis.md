@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 12/10/2018
+ms.date: 01/09/2018
 ms.author: diberry
-ms.openlocfilehash: ca92a6a2eb92e3b7fed9452d135c0a6bce55a57c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f587791dd1b864d0088408c377001c23546654c5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273231"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191268"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 
@@ -115,6 +115,10 @@ Outros Serviços Cognitivos usados com o LUIS:
 * [Serviço de Fala](../Speech-Service/overview.md) converte as solicitações de linguagem falada em texto. 
 * [Aprendiz de conversa](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) permite que você crie conversas de bot mais rapidamente com o LUIS.
 * [Bate-papo de personalidade do projeto](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) para lidar com conversa informais do bot.
+
+Exemplos usando o LUIS:
+* Repositório GitHub de [Inteligência Artificial de conversação](https://github.com/Microsoft/AI).
+* Exemplos do Azure de [Reconhecimento Vocal](https://github.com/Azure-Samples/cognitive-services-language-understanding)
 
 ## <a name="next-steps"></a>Próximas etapas
 

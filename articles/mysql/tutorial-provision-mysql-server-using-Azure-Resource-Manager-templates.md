@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Provisionar um servidor do Banco de Dados do Azure para MySQL usando modelos do Azure Resource Manager'
-description: Este tutorial explica como provisionar e automatizar as implantações de um servidor do Banco de Dados do Azure para MySQL usando modelos do Azure Resource Manager.
+description: Este tutorial explica como provisionar e automatizar as implantações de um servidor do Banco de Dados do Azure para MySQL usando um modelo do Azure Resource Manager.
 author: savjani
 ms.author: pariks
 ms.service: mysql
@@ -8,20 +8,20 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 45a4a43ae95b42174f368122f89831a356410f2b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3c89c5cc0b299852f85836dd416b5bb270757719
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004066"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061033"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-templates"></a>Tutorial: Provisionar um servidor do Banco de Dados do Azure para MySQL usando modelos do Azure Resource Manager
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Provisionar um servidor do Banco de Dados do Azure para MySQL usando modelos do Azure Resource Manager
 
 A [API REST do Banco de Dados do Azure para MySQL](https://docs.microsoft.com/en-us/rest/api/mysql/) permite que os engenheiros de DevOps automatizem e integrem o provisionamento, a configuração e as operações de servidores MySQL e bancos de dados gerenciados no Azure.  A API permite a criação, a enumeração, o gerenciamento e a exclusão de servidores MySQL e bancos de dados no serviço Banco de Dados do Azure para MySQL.
 
-Os modelos do Azure Resource Manager aproveitam a API REST subjacente para declarar e programar os recursos do Azure necessários para implantações em escala, alinhando-os com a infraestrutura como um conceito de código. O modelo parametriza a configuração de nome de recurso do Azure, de SKU, de rede e de firewall, bem como as configurações, permitindo que sejam criadas uma vez e usadas várias vezes.  Os modelos do Azure Resource Manager podem ser criados com facilidade usando o [portal do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) ou o [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Eles possibilitam o empacotamento de aplicativos, a padronização e a automação da implantação, que podem ser integrados no pipeline de CI/CD de DevOps.  Por exemplo, se pretender implantar rapidamente um Aplicativo Web com o back-end do Banco de Dados do Azure para MySQL, execute a implantação de ponta a ponta usando este [modelo de Início Rápido](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) da galeria do GitHub.
+O Azure Resource Manager aproveita a API REST básica para declarar e programar os recursos do Azure necessários para implantações em escala, alinhando-os com a infraestrutura como um conceito de código. O modelo parametriza a configuração de nome de recurso do Azure, de SKU, de rede e de firewall, bem como as configurações, permitindo que sejam criadas uma vez e usadas várias vezes.  Os modelos do Azure Resource Manager podem ser criados com facilidade usando o [portal do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) ou o [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Eles possibilitam o empacotamento de aplicativos, a padronização e a automação da implantação, que podem ser integrados no pipeline de CI/CD de DevOps.  Por exemplo, se pretender implantar rapidamente um Aplicativo Web com o back-end do Banco de Dados do Azure para MySQL, execute a implantação de ponta a ponta usando este [modelo de Início Rápido](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) da galeria do GitHub.
 
-Neste tutorial, você usará os modelos do Azure Resource Manager e outros utilitários para aprender a:
+Neste tutorial, você usará um modelo do Azure Resource Manager e outros utilitários para aprender a:
 
 > [!div class="checklist"]
 > * Criar um servidor do Banco de Dados do Azure para MySQL com o Ponto de Extremidade de Serviço de VNET usando o modelo do Azure Resource Manager
@@ -32,7 +32,7 @@ Neste tutorial, você usará os modelos do Azure Resource Manager e outros utili
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Criar um servidor do Banco de Dados do Azure para MySQL com o Ponto de Extremidade de Serviço de VNET usando o modelo do Azure Resource Manager
 
-Para obter a referência de modelo JSON para um servidor do Banco de Dados do Azure para MySQL, acesse a referência de modelo de servidores Microsoft.DBforMySQL (https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). Veja abaixo o modelo JSON de exemplo que pode ser usado para criar um servidor que executa o Banco de Dados do Azure para MySQL com o Ponto de Extremidade de Serviço de VNET.
+Para obter a referência de modelo JSON para um servidor do Banco de Dados do Azure para MySQL, acesse a referência de modelo de [servidores Microsoft.DBforMySQL](/azure/templates/microsoft.dbformysql/servers). Veja abaixo o modelo JSON de exemplo que pode ser usado para criar um servidor que executa o Banco de Dados do Azure para MySQL com o Ponto de Extremidade de Serviço de VNET.
 ```json
 {
   "apiVersion": "2017-12-01",

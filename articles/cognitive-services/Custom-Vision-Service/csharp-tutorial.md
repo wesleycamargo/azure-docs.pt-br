@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um projeto de classificação de imagem com o SDK da Visão Personalizada para C#'
+title: 'Início rápido: criar um projeto de classificação de imagem com o SDK de Visão Personalizada para C#'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcas, faça upload de imagens, treine seu projeto e faça uma previsão usando o SDK do .NET com C#.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: anroth
-ms.openlocfilehash: 6f92201e1c7222bed5d59066798d7eb6844ecd76
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: aaffd5e47c8465d44c2dbcdde3f40cf6e6995e55
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279414"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079078"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Início Rápido: Criar um projeto de classificação de imagem com o SDK de .NET para Visão Personalizada
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Início Rápido: criar um projeto de classificação de imagem com o SDK do .NET de Visão Personalizada
 
 Este artigo fornece informações e código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com C# para criar um modelo de classificação de imagem. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo .NET. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, confira as [diretrizes baseadas em navegador](getting-started-build-a-classifier.md).
 
@@ -42,6 +42,10 @@ Este projeto do Visual Studio cria um novo projeto de Visão Personalizada denom
 Abra o arquivo _Program.cs_ e inspecione o código. Insira suas chaves de assinatura nas definições pertinentes no método **Main**.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
+
+O parâmetro de ponto de extremidade deve apontar para a região em que o grupo de recursos do Azure que contém os recursos de Visão Personalizada foi criado. Para este exemplo, consideramos a região Centro-Sul dos EUA e usamos:
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
 As linhas de código a seguir executam a funcionalidade principal do projeto.
 

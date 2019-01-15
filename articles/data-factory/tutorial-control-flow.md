@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 9aab9df353ea5691b4132741e9b4a97b0afd9d17
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93f8a5e806bd10824a78dd62351fd3d9be0cf32c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262141"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025820"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 Neste tutorial, você deve criar um pipeline de Data Factory que apresente alguns dos recursos de fluxo de controle. Esse pipeline faz uma cópia simples de um contêiner no Armazenamento de Blobs do Azure para outro contêiner na mesma conta de armazenamento. Se a atividade de cópia for bem-sucedida, você desejará enviar detalhes da operação de cópia bem-sucedida (tais como a quantidade de dados gravados) em um email de êxito. Se a atividade de cópia falhar, você desejará enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) em um email de falha. Ao longo do tutorial, você verá como passar parâmetros.
@@ -95,7 +94,7 @@ Usando o Visual Studio 2015/2017, crie um aplicativo de console C# .NET.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Adicione essas variáveis estáticas à **classe Program**. Substitua os espaços reservados por seus próprios valores. Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+2. Adicione essas variáveis estáticas à **classe Program**. Substitua os espaços reservados por seus próprios valores. Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
     ```csharp
         // Set variables
@@ -204,7 +203,7 @@ Adicione o código a seguir, que cria um **Conjunto de Dados do Blob do Azure**,
 
 Você define um conjunto de dados que representa os dados de origem no Blob do Azure. Esse conjunto de dados de Blob refere-se ao serviço vinculado do Armazenamento do Azure que você criou na etapa anterior e ele descreve:
 
-- A localização do blob da qual copiar: **FolderPath** e **FileName**;
+- A localização do blob do qual copiar: **FolderPath** e **FileName**;
 - Observe o uso de parâmetros para FolderPath. "sourceBlobContainer" é o nome do parâmetro e a expressão é substituída pelos valores passados na execução de pipeline. A sintaxe para definir os parâmetros é `@pipeline().parameters.<parameterName>`
 
 Criar uma função "SourceBlobDatasetDefinition" no arquivo Program.cs
@@ -258,13 +257,13 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDataset
 client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, SinkBlobDatasetDefinition(client));
 ```
 
-## <a name="create-a-c-class-emailrequest"></a>Criar uma classe do C#: EmailRequest
+## <a name="create-a-c-class-emailrequest"></a>Crie uma classe C#: EmailRequest
 Em seu projeto do C#, crie uma classe denominada **EmailRequest**. Isso define quais propriedades o pipeline envia no corpo da solicitação ao enviar um email. Neste tutorial, o pipeline envia as quatro propriedades do pipeline para o email:
 
 - **Mensagem**: o corpo do email. Em caso de uma cópia bem-sucedida, esta propriedade conterá os detalhes da execução (número de dados gravados). Em caso de uma cópia com falha, esta propriedade conterá os detalhes do erro.
 - **Nome do data factory**: o nome do data factory
 - **Nome do pipeline**: o nome do pipeline
-- **Destinatário**: parâmetro que é passado. Essa propriedade especifica o destinatário do email.
+- **Receptor**: O parâmetro que é passado. Essa propriedade especifica o destinatário do email.
 
 ```csharp
     class EmailRequest

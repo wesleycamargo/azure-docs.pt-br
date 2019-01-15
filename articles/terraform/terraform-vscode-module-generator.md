@@ -4,17 +4,17 @@ description: Saiba como criar um modelo de base do Terraform no Azure usando o Y
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, máquina virtual, azure, yeoman
-author: v-mavick
+author: tomarchermsft
 manager: jeconnoc
-ms.author: v-mavick
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284328"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074497"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Criar um modelo de base do Terraform no Azure usando o Yeoman
 
@@ -28,11 +28,11 @@ Neste artigo, você aprenderá a usar o gerador de módulo do Yeoman para criar 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - **Visual Studio Code**: usaremos o [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) para examinar os arquivos criados pelo gerador do Yeoman. No entanto, você poderá usar qualquer editor de código que desejar.
 - **Terraform**: você precisará de uma instalação do [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) para executar o módulo criado pelo Yeoman.
 - **Docker**: usaremos o [Docker](https://www.docker.com/get-started) para executar o módulo criado pelo gerador do Yeoman. (Se preferir, você poderá usar o Ruby no lugar do Docker para executar o exemplo de módulo.)
-- **Linguagem de programação Go**: você precisará de uma instalação do [Go](https://golang.org/) porque os casos de teste gerados pelo Yeoman são escritos em linguagem Go.
+- **Linguagem de programação Go**: você precisará de uma instalação do [Go](https://golang.org/) porque os casos de teste gerados pelo Yeoman são escritos em Go.
 
 >[!NOTE]
 >A maioria dos procedimentos neste tutorial envolve entradas de linha de comando. As etapas descritas aqui se aplicam a todos os sistemas operacionais e as ferramentas de linha de comando. Em nossos exemplos, optamos por usar o PowerShell para o ambiente loca e Git Bash para o ambiente do cloud shell.
@@ -149,7 +149,7 @@ Define as etapas de compilação. As etapas incluem:
 - Os casos de teste são escritos em linguagem Go.
 - Todos os códigos de teste são testes de ponta a ponta.
 - Os testes de ponta a ponta tentam usar o Terraform para provisionar todos os itens definidos em **fixture** e comparam a saída no código **template_output.go** com os valores predefinidos esperados.
-- **Gopkg.Lock** e **Gopkg.toml**: definem as dependências. 
+- **Gopkg.lock** e **Gopkg.toml**: definem suas dependências. 
 
 ## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Testar o novo módulo do Terraform usando um arquivo do Docker
 
@@ -248,16 +248,16 @@ Todos esses itens estão pré-instalados no Cloud Shell.
 
 1. Neste ponto, o Cloud Shell já terá configurado o GOPATH em suas variáveis de ambiente. Para ver o caminho, insira `go env`.
 
-1. Crie a pasta $GOPATH, se ainda não existir uma: insira `mkdir ~/go`.
+1. Crie a pasta $GOPATH, se ela ainda não existir: Digite `mkdir ~/go`.
 
-1. Crie uma pasta dentro da pasta $GOPATH: insira `mkdir ~/go/src`. Essa pasta será usada para armazenar e organizar pastas de projetos diferentes que você pode criar, como a pasta <nome-do-seu-módulo> que criaremos na próxima etapa.
+1. Crie uma pasta dentro da pasta $GOPATH: Digite `mkdir ~/go/src`. Essa pasta será usada para armazenar e organizar pastas de projetos diferentes que você pode criar, como a pasta <nome-do-seu-módulo> que criaremos na próxima etapa.
 
-1. Criar uma pasta para armazenar seu módulo do Terraform: insira `mkdir ~/go/src/<your-module-name>`.
+1. Crie uma pasta para armazenar o módulo Terraform: Digite `mkdir ~/go/src/<your-module-name>`.
 
     >[!NOTE]
     >Neste exemplo, escolhemos `my-module-name` para o nome da pasta.
 
-1. Navegue até a pasta do seu módulo: insira `cd ~/go/src/<your-module-name>`
+1. Navegue até a pasta do módulo: Inserir `cd ~/go/src/<your-module-name>`
 
 ### <a name="create-and-test-your-terraform-module"></a>Criar e testar seu módulo do Terraform
 

@@ -3,17 +3,17 @@ title: Instalar o Ansible em máquinas virtuais do Azure
 description: Saber como instalar e configurar o Ansible para gerenciar recursos do Azure no Ubuntu, no CentOS e no SLES
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: b714470cd12bb7a0cd2d2a00b4f09467726f505d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 227f3baf67bd65a8c6eeb170ce219a3ddf79606a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987043"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078041"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Instalar o Ansible em máquinas virtuais do Azure
 
@@ -25,7 +25,7 @@ O Ansible permite que você automatize a implantação e a configuração de rec
 
 - **Acesso ao Linux ou a uma máquina virtual do Linux** - Se você não tiver acesso a um computador do Linux, crie uma [máquina virtual do Linux](https://docs.microsoft.com/azure/virtual-network/quick-create-cli).
 
-- **Principal do serviço do Azure**: siga as instruções na seção **Criar o principal do serviço** no artigo, [ Crie um objeto de serviço do Azure com o Azure CLI 2.0 ](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Anote os valores para o **appId**, **displayName**, **senha** e **locatário**.
+- **Entidade de serviço do Azure**: siga as instruções na seção **Criar a entidade de serviço** do artigo [Criar uma entidade de serviço do Azure com a CLI do Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Anote os valores para o **appId**, **displayName**, **senha** e **locatário**.
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Instalar o Ansible em uma máquina virtual do Linux do Azure
 

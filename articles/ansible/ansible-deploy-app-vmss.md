@@ -3,17 +3,17 @@ title: Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtu
 description: Saiba como usar o Ansible para configurar um conjunto de dimensionamento de máquinas virtuais e implantar aplicativos nesse conjunto, no Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, guia estratégico, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4f3712a45fdb2474eedeb8d4eac034060723010d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408367"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156537"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para implantar aplicativos no Azure. Este artigo mostra como implantar um aplicativo Java em um VMSS (conjunto de dimensionamento de máquinas virtuais) do Azure.  
@@ -150,7 +150,7 @@ A seção a seguir em um guia estratégico do Ansible instala o JRE (Java Runtim
 Você pode salvar o guia estratégico de exemplo anterior do Ansible como `vmss-setup-deploy.yml`, ou [baixar o guia estratégico de exemplo inteiro](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
 Para usar o tipo de conexão ssh com senhas, você precisa instalar o programa sshpass. 
-  - Para o Ubunto 16.04, execute o comando `apt-get install sshpass`.
+  - Para o Ubuntu 16.04, execute o comando `apt-get install sshpass`.
   - Para o CentOS 7.4, execute o comando `yum install sshpass`.
 
 Você pode ver um erro como **Não é possível usar uma senha SSH em vez de uma chave porque a verificação de Chave de Host está habilitada e a sshpass não é compatível com isso. Adicione a impressão digital desse host ao seu arquivo known_hosts para gerenciar esse host.** Se você vir esse erro, você poderá desabilitar a verificação de chave de host adicionando a um entre os arquivos `/etc/ansible/ansible.cfg` e `~/.ansible.cfg`:

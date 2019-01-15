@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913784"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155194"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o Azure Data Box Disk e verificar
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: copiar dados para o Azure Data Box Disk e verificar
 
 Este tutorial descreve como copiar dados do computador host e gerar somas de verificação para verificar a integridade dos dados.
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
-- Você concluiu o [Tutorial: Instalar e configurar o Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+- Você concluiu o [Tutorial: instalar e configurar o Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Os discos são desbloqueados e conectados a um computador cliente.
 - O computador cliente usado para copiar dados para os discos precisa executar um [Sistema operacional com suporte](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
 - Certifique-se de que o tipo de armazenamento pretendido para seus dados corresponde aos [tipos de armazenamento suportados](data-box-disk-system-requirements.md#supported-storage-types).
@@ -148,19 +148,32 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
     C:\Users>
     ```
  
+    Para otimizar o desempenho, use os seguintes parâmetros de robocopy ao copiar os dados.
+
+    |    Plataforma    |    Principalmente pequenos arquivos < 512 KB                           |    Principalmente arquivos médios 512 KB - 1 MB                      |    Principalmente grandes arquivos > 1 MB                             |   
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+    |    Data Box Disk        |    4 sessões do Robocopy* <br> 16 threads por sessões    |    2 sessões do Robocopy* <br> 16 threads por sessões    |    2 sessões do Robocopy* <br> 16 threads por sessões    |  |
     
-7. Abra a pasta de destino para exibir e verificar os arquivos copiados. Se você receber erros durante o processo de cópia, baixe os arquivos de log para solucionar problemas. Os arquivos de log estão localizados no local especificado no comando robobopy.
+    **Cada sessão do Robocopy pode ter no máximo 7 mil diretórios e 150 milhões de arquivos.*
+    
+    >[!NOTE]
+    > Os parâmetros sugeridos acima se baseiam no ambiente usado em testes internos.
+    
+    Para mais informações sobre o comando Robocopy, vá para [Robocopy e alguns exemplos](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
+
+6. Abra a pasta de destino para exibir e verificar os arquivos copiados. Se você receber erros durante o processo de cópia, baixe os arquivos de log para solucionar problemas. Os arquivos de log estão localizados no local especificado no comando robobopy.
  
-
-
 > [!IMPORTANT]
 > - Você é responsável por copiar os dados para pastas que correspondam ao formato de dados apropriado. Por exemplo, copie os dados de blob de bloco para a pasta de blobs de blocos. Se o formato de dados não corresponder à pasta apropriada (tipo de armazenamento), o carregamento de dados do Azure falhará em uma etapa posterior.
-> -  Durante a cópia de dados, verifique se o tamanho dos dados está em conformidade com os limites de tamanho descritos nos [limites do armazenamento do Azure e do Data Box Disk](data-box-disk-limits.md). 
+> -  Durante a cópia de dados, verifique se o tamanho dos dados está em conformidade com os limites de tamanho descritos nos [limites do armazenamento do Azure e do Data Box Disk](data-box-disk-limits.md).
 > - Se dados estiverem sendo carregados pelo Data Box Disk e por outro aplicativo fora do Data Box Disk ao mesmo tempo, isso poderá causar falha no trabalho de upload e corromper os dados.
 
 ### <a name="split-and-copy-data-to-disks"></a>Dividir e copiar dados para os discos
 
 Este procedimento opcional pode ser usado quando você usar vários discos e tiver um grande conjunto de dados que precisa ser dividido e copiado entre todos os discos. A Data Box Split Copy ajuda a dividir e copiar os dados em um computador Windows.
+
+>[!IMPORTANT]
+> A ferramenta Data Box Split Copy também valida seus dados. Se você usar a ferramenta Data Box Split Copy para copiar dados, ignore a [etapa de validação](#validate-data).
 
 1. No seu computador Windows, verifique se você tem uma ferramenta Data Box Split Copy baixada e extraída em uma pasta local. Essa ferramenta foi baixada quando você baixou o conjunto de ferramentas para o Data Box Disk para Windows.
 2. Abra o Explorador de Arquivos. Anote a unidade da fonte de dados e as letras das unidades atribuídas ao Data Box Disk. 
@@ -176,26 +189,26 @@ Este procedimento opcional pode ser usado quando você usar vários discos e tiv
 
          ![Dividir e copiar dados ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
-4. Vá para a pasta em que o software foi extraído. Localize o arquivo de SampleConfig.json nessa pasta. Esse é um arquivo somente leitura que você pode modificar e salvar.
+4. Vá para a pasta em que o software foi extraído. Localize o arquivo `SampleConfig.json` nessa pasta. Esse é um arquivo somente leitura que você pode modificar e salvar.
 
    ![Dividir e copiar dados ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
-5. Modifique o arquivo SampleConfig.json.
+5. Modifique o arquivo `SampleConfig.json`.
  
     - Forneça um nome de trabalho. Isso cria uma pasta no Data Box Disk e, eventualmente, torna-se o contêiner na conta de armazenamento do Azure associada a esses discos. O nome do trabalho precisa seguir as convenções de nomenclatura do contêiner do Azure. 
-    - Forneça um caminho de origem, anotando o formato do caminho no SampleConfigFile.json. 
+    - Forneça um caminho de origem anotando o formato do caminho no `SampleConfigFile.json`. 
     - Insira as letras das unidades correspondentes aos discos de destino. Os dados são tirados do caminho de origem e copiados para vários discos.
-    - Forneça um caminho para os arquivos de log. Por padrão, ele é enviado para o diretório atual em que o .exe se encontra.
+    - Forneça um caminho para os arquivos de log. Por padrão, ele é enviado ao diretório atual em que o `.exe` está localizado.
 
      ![Dividir e copiar dados ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. Para validar o formato de arquivo, vá para JSONlint. Salve o arquivo como ConfigFile.json. 
+6. Para validar o formato de arquivo, acesse `JSONlint`. Salve o arquivo como `ConfigFile.json`. 
 
      ![Dividir e copiar dados ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Abra uma janela de Prompt de Comando. 
 
-8. Execute o DataBoxDiskSplitCopy.exe. Tipo
+8. Execute o `DataBoxDiskSplitCopy.exe`. Tipo
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -214,7 +227,7 @@ Este procedimento opcional pode ser usado quando você usar vários discos e tiv
     ![Dividir e copiar dados ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
     ![Dividir e copiar dados ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
-    Se você examinar o conteúdo da unidade de n: em mais detalhes, você verá que as duas subpastas serão criadas correspondendo aos dados de formato do blob de blocos e do blob de páginas.
+    Se você examinar o conteúdo da unidade `n:` em mais detalhes, verá que as duas subpastas foram criadas correspondendo aos dados de formato do blob de blocos e do blob de páginas.
     
      ![Dividir e copiar dados ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
@@ -222,15 +235,14 @@ Este procedimento opcional pode ser usado quando você usar vários discos e tiv
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Depois que a cópia de dados for concluída, você poderá prosseguir para a validação dos dados. Se você usou a ferramenta Split Copy, ignore a validação (a ferramenta também executa a validação) e avance para o próximo tutorial.
 
-Depois que a cópia de dados for concluída, a próxima etapa é validar os dados. 
 
+## <a name="validate-data"></a>Validar dados
 
-## <a name="validate-data"></a>Validar dados 
+Se você não tiver usado a ferramenta Split Copy para copiar dados, será necessário validar seus dados. Para verificar os dados, execute as seguintes etapas.
 
-Para verificar os dados, execute as seguintes etapas.
-
-1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *DataBoxDiskImport* da unidade. 
+1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *DataBoxDiskImport* da unidade.
     
     ![Saída da ferramenta de validação do Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -240,13 +252,13 @@ Para verificar os dados, execute as seguintes etapas.
 
     > [!TIP]
     > - Redefina a ferramenta entre duas execuções.
-    > - Use a opção 1 para validar os arquivos lidando apenas com um grande conjunto de dados que contém arquivos pequenos (~ KBs). Nesses casos, a geração da soma de verificação pode levar muito tempo e o desempenho pode ficar muito lento.
+    > - Use a opção 1 se estiver lidando apenas com um grande conjunto de dados que contenha arquivos pequenos (~ KBs). Essa opção somente valida os arquivos, pois a geração de soma de verificação pode levar muito tempo e o desempenho pode ficar muito lento.
 
 3. Se estiver usando vários discos, execute o comando para cada disco.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Disk como:
+Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Disk, como:
 
 > [!div class="checklist"]
 > * Copiar dados para o Data Box Disk
@@ -256,4 +268,3 @@ Avance para o próximo tutorial a fim de saber como devolver o Data Box Disk e v
 
 > [!div class="nextstepaction"]
 > [Devolver o Azure Data Box para a Microsoft](./data-box-disk-deploy-picked-up.md)
-

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794423"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103484"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
@@ -43,7 +43,7 @@ Para concluir este tutorial:
 Crie o cofre em qualquer região, exceto a região de origem.
 
 1. Entre no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-2. Clique em **Criar um recurso** > **Monitoramento e Gerenciamento** > **Backup e Site Recovery**.
+2. Clique em **Criar um recurso** > **Ferramentas de Gerenciamento** > **Backup e Site Recovery**.
 3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione uma delas.
 4. Crie um grupo de recursos ou selecione um existente. Especifique uma região do Azure. Para verificar as regiões com suporte, confira a disponibilidade geográfica nos [Detalhes dos Preços de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Para acessar rapidamente o cofre no painel, clique em **Fixar no painel** e em **Criar**.
@@ -172,7 +172,8 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
 
 5. Em **Personalizar**, selecione **Sim** para a consistência de várias VMs caso queira adicionar VMs a um grupo de replicação novo ou existente. para tornar as VMs parte de um grupo de replicação. Em seguida, clique em **OK**.
 
-    - Todos os computadores de um grupo de replicação terão pontos de recuperação consistentes com o aplicativo e consistentes com falhas quando passarem por failover. Habilitar a consistência de VMs múltiplas pode afetar o desempenho da carga de trabalho e só deve ser usada se os computadores estão executando a mesma carga de trabalho e se você precisa de consistência entre vários computadores.
+    - Todos os computadores de um grupo de replicação terão pontos de recuperação consistentes com o aplicativo e consistentes com falhas quando passarem por failover. A habilitação da coerência de várias VMs pode afetar o desempenho da carga de trabalho (devido ao uso intensivo de CPU) e só deverá ser feita se as máquinas estiverem executando a mesma carga de trabalho e se você precisar de coerência entre as máquinas.
+    - É possível optar por ter, no máximo, 16 máquinas virtuais em um grupo de replicação.
     - Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Veja se não há nenhum dispositivo de firewall bloqueando a comunicação interna entre as VMs através da porta 20004. Se você quiser que VMs do Linux façam parte de um grupo de replicação, abra manualmente o tráfego de saída na porta 20004, de acordo com as diretrizes da versão específica do Linux.
 
 ### <a name="configure-encryption-settings"></a>Definir configurações de criptografia

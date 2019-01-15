@@ -3,24 +3,20 @@ title: Políticas de ponto de extremidade de serviço de rede virtual do Azure |
 description: Aprenda a filtrar o tráfego de Rede Virtual para recursos de serviço do Azure usando políticas de Ponto de Extremidade de Serviço
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
-editor: ''
-ms.assetid: ''
+author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.custom: ''
-ms.openlocfilehash: 425bbc9eac112a4b999bd08940abb8b875aca61c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: sumeet.mittal
+ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433286"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051304"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto de extremidade de serviço de rede virtual (versão prévia)
 
@@ -123,13 +119,13 @@ Políticas de ponto de extremidade de serviço de rede virtual fornecem os segui
      - Gateway de Aplicativo do Azure (Clássico)
      - Gateway de VPN do Azure (Clássico)
 
-- Armazenamento do Azure: contas de armazenamento clássicas não têm suporte em políticas de ponto de extremidade. As políticas negarão o acesso a todas as contas de armazenamento clássicas por padrão. Se seu aplicativo precisar acessar o Azure Resource Manager e contas de armazenamento clássico, políticas de ponto de extremidade não deverão ser usadas para esse tráfego. 
+- Armazenamento do Microsoft Azure: Não há suporte para contas de armazenamento clássicas em políticas de ponto de extremidade. As políticas negarão o acesso a todas as contas de armazenamento clássicas por padrão. Se seu aplicativo precisar acessar o Azure Resource Manager e contas de armazenamento clássico, políticas de ponto de extremidade não deverão ser usadas para esse tráfego. 
 
 ## <a name="nsgs-with-service-endpoint-policies"></a>NSGs com Políticas de Ponto de Extremidade de Serviço
 - Por padrão, NSGs permitem tráfego na Internet de saída, incluindo o tráfego de rede virtual para serviços do Azure.
 - Se você quiser negar todo o tráfego na Internet de saída e permitir somente o tráfego para recursos específicos de serviço do Azure: 
 
-  Etapa 1: Configurar NSGs para permitir tráfego de saída somente para serviços do Azure em regiões de ponto de extremidade usando *marcas de serviço do Azure*. Para saber mais, confira [marcas do serviço para NSGs](https://aka.ms/servicetags)
+  Etapa 1: Configurar NSGs para permitir o tráfego de saída somente para serviços do Azure em regiões de ponto de extremidade usando *marcas de serviço do Azure*. Para saber mais, confira [marcas do serviço para NSGs](https://aka.ms/servicetags)
       
   Por exemplo, regras de grupo de segurança de rede que restringem o acesso a apenas regiões ponto de extremidade se parecem com o exemplo a seguir:
 
@@ -139,18 +135,18 @@ Políticas de ponto de extremidade de serviço de rede virtual fornecem os segui
   Deny all
   ```
 
-  Etapa 2: Aplicar a política de ponto de extremidade de serviço com acesso a apenas os recursos de serviço do Azure específico.
+  Etapa 2: Aplicar a política de ponto de extremidade de serviço com acesso apenas a recursos específicos do serviço do Azure.
 
   > [!WARNING]  
   > Se o grupo de segurança de rede não estiver configurado para limitar o acesso de serviço do Azure da rede virtual a regiões de ponto de extremidade, você poderá acessar recursos do serviço em outras regiões, mesmo que a política de ponto de extremidade de serviço esteja aplicada.
 
 ## <a name="scenarios"></a>Cenários
 
-- **Redes virtuais emparelhadas, conectadas ou múltiplas**: para filtrar o tráfego em redes virtuais emparelhadas, as políticas de ponto de extremidade devem ser aplicadas individualmente a elas.
-- **Filtragem de tráfego da Internet com Dispositivos de Rede ou Firewall do Azure**: filtre o tráfego de serviço do Azure com políticas, por pontos de extremidade, e filtre o restante do tráfego da Internet ou do Azure por meio de dispositivos ou do Firewall do Azure. 
-- **Filtragem de tráfego em serviços do Azure implantados em redes virtuais**: durante a versão prévia, as políticas de ponto de extremidade de serviço não têm suporte para nenhum serviço gerenciado do Azure implantado em sua rede virtual. 
+- **Redes virtuais emparelhadas, conectadas ou múltiplas**: Para filtrar o tráfego em redes virtuais emparelhadas, as políticas de ponto de extremidade devem ser aplicadas individualmente a elas.
+- **Filtrando o tráfego da Internet com Dispositivos de Rede ou o Firewall do Azure**: Filtre o tráfego do serviço do Azure com políticas, em pontos de extremidade, e filtre o restante do tráfego da Internet ou do Azure por meio de dispositivos ou do Firewall do Azure. 
+- **Filtrando o tráfego nos serviços do Azure implantados em Redes Virtuais**: Durante a versão prévia, não há suporte para políticas de ponto de extremidade de serviço em nenhum serviço gerenciado do Azure implantado na rede virtual. 
  Para serviços específicos, veja as [limitações.](#Limitations)
-- **Filtragem de tráfego para serviços do Azure do local**: políticas de ponto de extremidade de serviço se aplicam somente ao tráfego de sub-redes associadas a políticas. Para permitir o acesso a recursos de Serviço do Azure específicos do local, o tráfego deve ser filtrado usando firewalls ou dispositivos virtuais de rede ou.
+- **Filtrando o tráfego para serviços do Azure do local**: As políticas de ponto de extremidade de serviço se aplicam somente ao tráfego de sub-redes associadas às políticas. Para permitir o acesso a recursos de Serviço do Azure específicos do local, o tráfego deve ser filtrado usando firewalls ou dispositivos virtuais de rede ou.
 
 ## <a name="logging-and-troubleshooting"></a>Registro em log e solução de problemas
 Nenhum registro em log centralizado está disponível para políticas de ponto de extremidade de serviço. Para logs de diagnóstico de serviço, veja [Registro em log de pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).

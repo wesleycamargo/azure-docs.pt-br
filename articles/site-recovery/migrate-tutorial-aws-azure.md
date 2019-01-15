@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793063"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042046"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
@@ -33,12 +33,14 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Assegure-se de que as VMs que você quer migrar estejam executando uma versão do sistema operacional com suporte. Versões com suporte incluem: 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - Versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior
-  - Red Hat Enterprise Linux 6.7 (somente instâncias virtualizadas de HVM), com um driver Citrix PV ou AWS PV. *Não* há suporte para executar os drivers RedHat PV.
- - O serviço de mobilidade deve ser instalado em cada VM que você quer replicar. 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - Versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior
+      - Red Hat Enterprise Linux 6.4 a 6.10, 7.1 a 7.6 (somente instâncias virtualizadas de HVM) *(não há suporte para instâncias que executam drivers RedHat PV.)*
+      - CentOS 6.4 a 6.10, 7.1 a 7.6 (somente instâncias virtualizadas de HVM)
+ 
+- O serviço de mobilidade deve ser instalado em cada VM que você quer replicar. 
 
     > [!IMPORTANT]
     > O Site Recovery instala esse serviço automaticamente quando você habilita a replicação para a VM. Para instalação automática, você deve preparar uma conta nas instâncias de EC2 que o Site Recovery usará para acessar a VM. Você pode usar uma conta local ou de domínio. 

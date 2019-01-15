@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Localizar traduções alternativas, Ruby – API de Tradução de Texto'
+title: 'Início Rápido: Procure palavras com o dicionário bilíngue, Ruby – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará traduções alternativas e exemplos de termos em contexto usando a API de Tradução de Texto com Ruby.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: c9e33fd4be80c8bb95248e8be34f9540d9cd69ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4574c07f3dfa98c0264d70c08a5ee4feff075bee
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649611"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157069"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-ruby"></a>Início Rápido: Localizar traduções alternativas com a API REST de Tradução de Texto (Ruby)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-ruby"></a>Início rápido: Procure palavras com o dicionário bilíngue Ruby
 
 Neste início rápido, você encontrar detalhes de traduções alternativas possíveis para um termo, e também exemplos de uso dessas traduções alternativas usando a API de Tradução de Texto.
 

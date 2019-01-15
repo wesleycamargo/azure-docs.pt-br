@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: 86c169c84e905362e8fdb069e8ceadcb5e19fe67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602385"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075491"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Cotas e disponibilidade de região para Instâncias de Contêiner do Azure
 
@@ -24,7 +24,7 @@ Todos os serviços do Azure incluem certos limites padrão e cotas de recursos. 
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-As Instâncias de Contêiner do Azure estão disponíveis nas seguintes regiões com os limites de memória e CPU especificados. Os valores estavam atualizados no momento da publicação. Para obter informações atualizadas, use a API de [Funcionalidades de Lista](/rest/api/container-instances/listcapabilities/listcapabilities).
+As Instâncias de Contêiner do Azure estão disponíveis nas seguintes regiões com os limites de memória e CPU especificados. Os valores estavam atualizados no momento da publicação. Para obter informações atualizadas, use a API de [Funcionalidades de Lista](/rest/api/container-instances/listcapabilities/listcapabilities). A disponibilidade e os limites de recursos podem ser diferentes ao usar instâncias de contêiner do Azure com uma [rede virtual](container-instances-vnet.md) (versão prévia) ou com [recursos de GPU](container-instances-gpu.md) (versão prévia).
 
 | Local padrão | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |

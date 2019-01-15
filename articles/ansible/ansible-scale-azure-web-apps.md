@@ -3,17 +3,17 @@ title: Dimensionar aplicativos Web do Serviço de Aplicativo do Azure usando o A
 description: Saiba como usar o Ansible para criar um aplicativo Web com tempo de execução de contêiner Java 8 e Tomcat no Serviço de Aplicativo no Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, guia estratégico, Serviço de Aplicativo do Azure, aplicativo Web, escala, Java
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 740ff6d6a636377f9d58a5231692c87f935ae6d2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4ef8320d3eba841ee64557e31e63b4e79ee3aa92
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601858"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159886"
 ---
 # <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Dimensionar aplicativos Web do Serviço de Aplicativo do Azure usando o Ansible
 [Aplicativos Web do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/overview) (ou apenas Aplicativos Web) hospedam aplicativos Web, APIs REST e back-end móvel. Você pode desenvolver usando sua linguagem favorita&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
@@ -39,7 +39,7 @@ Você pode expandir alterando o tipo de preço do plano do Serviço de Aplicativ
     location: eastus
 
   tasks:
-  - name: Get facts of existing App serivce plan
+  - name: Get facts of existing App service plan
     azure_rm_appserviceplan_facts:
       resource_group: "{{ resource_group }}"
       name: "{{ plan_name }}"
@@ -80,7 +80,7 @@ PLAY [localhost] **************************************************************
 TASK [Gathering Facts] ********************************************************
 ok: [localhost]
 
-TASK [Get facts of existing App serivce plan] **********************************************************
+TASK [Get facts of existing App service plan] **********************************************************
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]

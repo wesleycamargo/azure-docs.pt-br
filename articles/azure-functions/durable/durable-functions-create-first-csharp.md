@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341041"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038138"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a usar as ferramentas do Visual Studio 2017 para 
 
 Para concluir este tutorial:
 
-* Instale o [Visual Studio 2017](https://azure.microsoft.com/downloads/) e certifique-se de que a carga de trabalho **Desenvolvimento do Azure** também está instalada.
+* Instalar o [Visual Studio 2017](https://azure.microsoft.com/downloads/). Garanta que a carga de trabalho de **desenvolvimento do Azure** também seja instalada.
 
 * Verifique se você tem as [ferramentas mais recentes do Azure Functions](../functions-develop-vs.md#check-your-tools-version).
 
@@ -40,7 +40,7 @@ Para concluir este tutorial:
 
 ## <a name="create-a-function-app-project"></a>Crie um projeto de aplicativo de funções
 
-O modelo de projeto do Azure Functions no Visual Studio cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para o gerenciamento, implantação e compartilhamento de recursos.
+O modelo do Azure Functions cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para o gerenciamento, implantação e compartilhamento de recursos.
 
 1. No Visual Studio, selecione **Novo** > **Projeto** no menu **Arquivo**.
 
@@ -54,15 +54,15 @@ O modelo de projeto do Azure Functions no Visual Studio cria um projeto que pode
 
     | Configuração      | Valor sugerido  | DESCRIÇÃO                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Versão** | Azure Functions 2.x <br />(.NET Core) | Cria um projeto de função que usa o tempo de execução versão 2.x do Azure Functions, o qual dá suporte a .NET Core. O Azure Functions 1.x dá suporte ao .NET Framework. Para obter mais informações, consulte [Como direcionar para versões de tempo de execução do Azure Functions](../functions-versions.md).   |
-    | **Modelo** | Vazio | Isso cria um aplicativo de funções vazio. |
+    | **Versão** | Azure Functions 2.x <br />(.NET Core) | Cria um projeto de função que usa o tempo de execução versão 2.x do Azure Functions, que dá suporte ao .NET Core. O Azure Functions 1.x dá suporte ao .NET Framework. Para obter mais informações, consulte [Como direcionar para versões de tempo de execução do Azure Functions](../functions-versions.md).   |
+    | **Modelo** | Vazio | Cria um aplicativo de funções vazio. |
     | **Conta de armazenamento**  | Emulador de Armazenamento | Uma conta de armazenamento é necessária para o gerenciamento de estado de uma função durável. |
 
-4. Clique em **OK** para criar um projeto de função vazio.
+4. Clique em **OK** para criar um projeto de função vazio. Este projeto tem os arquivos de configuração básicos necessários para executar suas funções.
 
 ## <a name="add-functions-to-the-app"></a>Adicionar funções ao aplicativo
 
-O Visual Studio cria um projeto de aplicativo de funções vazio.  Ele contém os arquivos de configuração básica necessários para o aplicativo, mas ainda não contém todas as funções.  Será necessário adicionar um modelo de função durável ao projeto.
+As etapas a seguir usam um modelo para criar o código da durable function no projeto.
 
 1. Clique com o botão direito do mouse no Visual Studio e escolha **Adicionar** > **Novo Azure Function**.
 
@@ -74,11 +74,13 @@ O Visual Studio cria um projeto de aplicativo de funções vazio.  Ele contém o
 
     ![Escolher o modelo durável](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-Uma nova função durável será adicionada ao aplicativo.  Abra o novo arquivo para exibir o conteúdo.  Essa função durável é um exemplo simples de encadeamento de funções.  
+Uma nova durable function será adicionada ao aplicativo.  Abra o novo arquivo .cs para exibir o conteúdo. Essa durable function é um exemplo simples de encadeamento de funções com os seguintes métodos:  
 
-* O método `RunOrchestrator` está associado à função de orquestrador.  Essa função será iniciada, criará uma lista e adicionará o resultado de três chamadas de funções à lista.  Quando as três chamadas de função forem concluídas, ela retornará a lista.  A função que está sendo chamada é o método `SayHello` (padrão e ele será chamado `<NameOfFile>_Hello`).
-* A função `SayHello` retornará uma saudação.
-* O método `HttpStart` descreve a função que iniciará instâncias da orquestração.  Ele está associado a um [gatilho HTTP](../functions-bindings-http-webhook.md) que iniciará uma nova instância do orquestrador e retornará uma resposta de status de verificação.
+| Método | FunctionName | DESCRIÇÃO |
+| -----  | ------------ | ----------- |
+| **`RunOrchestrator`** | `<file-name>` | Gerencia a orquestração durável. Nesse caso, a orquestração é iniciada, cria uma lista e adiciona o resultado de três chamadas de função à lista.  Quando as três chamadas de função são concluídas, ela retorna a lista. |
+| **`SayHello`** | `<file-name>_Hello` | A função retorna uma saudação. Essa é a função que contém a lógica de negócios que está sendo orquestrada. |
+| **`HttpStart`** | `<file-name>_HttpStart` | Uma [função disparada por HTTP](../functions-bindings-http-webhook.md) que inicia uma instância da orquestração e retorna uma resposta de status de verificação. |
 
 Agora que você criou seu projeto de função e uma função durável, poderá testá-la em seu computador local.
 
@@ -143,4 +145,4 @@ Você deve ter um aplicativo de funções em sua assinatura do Azure antes de pu
 Você usou o Visual Studio Code para criar e publicar um aplicativo de funções C# durável.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre os padrões comuns de função durável.](durable-functions-overview.md)
+> [Saiba mais sobre os padrões comuns de função durável.](durable-functions-concepts.md)

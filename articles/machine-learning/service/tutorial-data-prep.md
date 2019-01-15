@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de modelo de regressão: Preparar dados'
 titleSuffix: Azure Machine Learning service
-description: Na primeira parte deste tutorial, você aprenderá a preparar os dados em Python para modelagem de regressão usando o SDK do Azure ML.
+description: Na primeira parte deste tutorial, você aprenderá como preparar dados em Python para a de modelagem de regressão usando o SDK do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,31 +11,33 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d20ff1fabfb73c899153cf42bb6f2d7a8f233e21
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314679"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079231"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para modelagem de regressão
 
-Neste tutorial, você aprenderá a preparar os dados para modelagem de regressão usando o SDK de Preparação de Dados do Azure Machine Learning. Execute várias transformações para filtrar e combinar dois diferentes conjuntos de dados de Táxis de Nova York. O objetivo final deste conjunto de tutoriais é prever o custo de uma corrida de táxi por meio do treinamento de um modelo em relação a recursos de dados, incluindo a hora do início da corrida, o dia da semana, o número de passageiros e as coordenadas. Este tutorial é a primeira parte de uma série com duas partes.
+Neste tutorial, você aprenderá como preparar dados para a modelagem de regressão usando o SDK de preparação de dados do Azure Machine Learning. Você executará várias transformações para filtrar e combinar dois conjuntos diferentes de dados de táxi em Nova York.  
+
+Este tutorial é a primeira parte de uma série com duas partes. Depois de concluir a série de tutoriais, você poderá prever o custo de uma corrida de táxi treinando um modelo em recursos de dados. Esses recursos incluem o dia e a hora da retirada, o número de passageiros e o local de retirada.
 
 Neste tutorial, você irá:
 
 > [!div class="checklist"]
-> * Configurar um ambiente de Python e importar pacotes
-> * Carregar dois conjuntos de dados com nomes de campos diferentes
-> * Limpar dados para remover anomalias
-> * Transformar dados usando transformações inteligentes para criar novos recursos
-> * Salvar o objeto de fluxo de dados para usar em um modelo de regressão
+> * Configurar um ambiente Python e importar pacotes.
+> * Carregar dois conjuntos de dados com nomes de campos diferentes.
+> * Limpar dados para remover anomalias.
+> * Transformar dados usando transformações inteligentes para criar recursos.
+> * Salvar o objeto de fluxo de dados a ser usado em um modelo de regressão.
 
 Você pode preparar seus dados em Python usando o [SDK de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk).
 
 ## <a name="get-the-notebook"></a>Obter o bloco de anotações
 
-Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Execute o Notebook `regression-part1-data-prep.ipynb` em Azure Notebooks ou em seu próprio servidor de Jupyter Notebook.
+Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Execute o notebook **regression-part1-data-prep.ipynb** no Azure Notebooks ou em seu próprio servidor do Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -50,7 +52,7 @@ import azureml.dataprep as dprep
 
 ## <a name="load-data"></a>Carregar dados
 
-Baixe os dois conjuntos diferentes de dados de Táxis de Nova York em objetos de fluxo de dados.  Esses conjuntos de dados contêm campos ligeiramente diferentes. O método `auto_read_file()` reconhece automaticamente o tipo de arquivo de entrada.
+Baixe dois conjuntos de dados diferentes de táxi em Nova York em objetos de fluxo de dados. Os conjuntos de dados têm campos um pouco diferentes. O método `auto_read_file()` reconhece automaticamente o tipo de arquivo de entrada.
 
 
 ```python
@@ -60,7 +62,7 @@ green_path = "/".join([dataset_root, "green-small/*"])
 yellow_path = "/".join([dataset_root, "yellow-small/*"])
 
 green_df = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
-# auto_read_file will automatically identify and parse the file type, and is useful if you don't know the file type
+# auto_read_file automatically identifies and parses the file type, which is useful when you don't know the file type.
 yellow_df = dprep.auto_read_file(path=yellow_path)
 
 display(green_df.head(5))
@@ -69,7 +71,7 @@ display(yellow_df.head(5))
 
 ## <a name="cleanse-data"></a>Limpar dados
 
-Agora, você pode preencher algumas variáveis com transformações de atalho que se aplicam a todos os fluxos de dados. A variável `drop_if_all_null` será usada para excluir registros nos quais todos os campos são nulos. A variável `useful_columns` contém uma matriz de descrições de coluna que são mantidas em cada fluxo de dados.
+Agora você pode preencher algumas variáveis com transformações de atalho a serem aplicadas a todos os fluxos de dados. A variável `drop_if_all_null` é usada para excluir registros nos quais todos os campos são nulos. A variável `useful_columns` contém uma matriz de descrições de coluna que são mantidas em cada fluxo de dados.
 
 ```python
 all_columns = dprep.ColumnSelector(term=".*", use_regex=True)
@@ -80,7 +82,7 @@ useful_columns = [
 ]
 ```
 
-Primeiro, você trabalha com os dados dos táxis verdes e os coloca em uma forma válida que possa ser combinada com os dados dos táxis amarelos. Crie um fluxo de dados temporário `tmp_df`. Chame as funções `replace_na()`, `drop_nulls()` e `keep_columns()` usando as variáveis de transformação de atalho criadas. Além disso, renomeie todas as colunas no dataframe para corresponder aos nomes em `useful_columns`.
+Primeiro, você trabalha com os dados dos táxis verdes e os coloca em uma forma válida que possa ser combinada com os dados dos táxis amarelos. Crie um fluxo de dados temporário chamado `tmp_df`. Chame as funções `replace_na()`, `drop_nulls()` e `keep_columns()` usando as variáveis de transformação de atalho criadas. Além disso, renomeie todas as colunas no quadro de dados para corresponder aos nomes na variável `useful_columns`.
 
 
 ```python
@@ -209,7 +211,7 @@ tmp_df.head(5)
 </table>
 </div>
 
-Substitua a variável `green_df` pelas transformações executadas em `tmp_df` na etapa anterior.
+Substitua a variável `green_df` pelas transformações executadas no fluxo de dados `tmp_df` na etapa anterior.
 
 ```python
 green_df = tmp_df
@@ -247,7 +249,7 @@ tmp_df = (yellow_df
 tmp_df.head(5)
 ```
 
-Novamente, substitua `yellow_df` por `tmp_df` e chame a função `append_rows()` nos dados de táxis verdes para acrescentar os dados de táxis amarelos, criando um novo dataframe combinado.
+Novamente, substitua o fluxo de dados `yellow_df` pelo fluxo de dados `tmp_df`. Em seguida, chame a função `append_rows()` nos dados dos táxis verdes para acrescentar os dados dos táxis amarelos. Um quadro de dados combinado é criado.
 
 
 ```python
@@ -257,7 +259,7 @@ combined_df = green_df.append_rows([yellow_df])
 
 ### <a name="convert-types-and-filter"></a>Converter tipos e filtrar 
 
-Examine as estatísticas de resumo das coordenadas de partida e chegada para ver como os dados estão distribuídos. Primeiro, defina um objeto `TypeConverter` para alterar os campos de lat/long para o tipo decimal. Em seguida, chame a função `keep_columns()` a fim de restringir a saída para somente os campos de lat/long e, em seguida, chame `get_profile()`.
+Examine as estatísticas de resumo das coordenadas de partida e chegada para ver como os dados estão distribuídos. Primeiro, defina um objeto `TypeConverter` para alterar os campos de latitude e longitude para tipo decimal. Em seguida, chame a função `keep_columns()` para restringir a saída para apenas os campos de latitude e longitude e, em seguida, chame a função `get_profile()`.
 
 
 ```python
@@ -401,7 +403,7 @@ combined_df.keep_columns(columns=[
 
 
 
-Na saída das estatísticas de resumo, você pode ver que há coordenadas que estão faltando e coordenadas que não são da Cidade de Nova York. Filtre para excluir as coordenadas fora da cidade encadeando comandos de filtro de coluna na função `filter()` e definindo limites mínimos e máximos para cada campo. Em seguida, chame `get_profile()` novamente para verificar a transformação.
+Na saída das estatísticas de resumo, você pode ver que há coordenadas que estão faltando e coordenadas que não são da cidade de Nova York. Filtre as coordenadas pelos locais que estão fora dos limites da cidade. Encadeie os comandos no filtro de coluna na função `filter()` e defina os limites mínimo e máximo de cada campo. Em seguida, chame a função `get_profile()` novamente para verificar a transformação.
 
 
 ```python
@@ -553,7 +555,7 @@ tmp_df.keep_columns(columns=[
 
 
 
-Substitua `combined_df` pelas transformações que você fez em `tmp_df`.
+Substitua o fluxo de dados `combined_df` pelas transformações feitas no `tmp_df`.
 
 
 ```python
@@ -627,14 +629,14 @@ combined_df.keep_columns(columns='store_forward').get_profile()
 
 
 
-Na saída do perfil de dados de `store_forward`, você verá que os dados estão inconsistentes e que há valores ausentes/nulo. Substitua esses valores usando as funções `replace()` e `fill_nulls()` e, em ambos os casos, altere para a cadeia de caracteres "N".
+Observe que a saída do perfil de dados na coluna `store_forward` mostra que os dados estão inconsistentes e há valores ausentes ou nulos. Use as funções `replace()` e `fill_nulls()` para substituir esses valores pela cadeia de caracteres "N":
 
 
 ```python
 combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-Execute outra função `replace`, desta vez no campo `distance`. Isso reformata os valores de distância rotulados incorretamente como `.00` e preenche eventuais valores nulos com zeros. Converta o campo `distance` em formato numérico.
+Execute a função `replace` no campo `distance`. A função reformata os valores de distância rotulados incorretamente como `.00` e preenche os nulos com zeros. Converta o campo `distance` em formato numérico.
 
 
 ```python
@@ -642,7 +644,7 @@ combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0
 combined_df = combined_df.to_number(["distance"])
 ```
 
-Divida as datas e horas de partida e chegada nas colunas respectivas de data e hora. Use `split_column_by_example()` para realizar a divisão. Nesse caso, o parâmetro opcional `example` de `split_column_by_example()` é omitido. Portanto, a função determinará automaticamente onde dividir com base nos dados.
+Divida os valores de data e hora de saída e chegada nas respectivas colunas de data e hora. Use a função `split_column_by_example()` para fazer a divisão. Nesse caso, o parâmetro opcional `example` da função `split_column_by_example()` é omitido. Portanto, a função determina automaticamente onde dividir com base nos dados.
 
 
 ```python
@@ -780,7 +782,7 @@ tmp_df.head(5)
 </div>
 
 
-Renomeie as colunas geradas por `split_column_by_example()` com nomes relevantes.
+Renomeie as colunas geradas pela função `split_column_by_example()` para usar nomes significativos.
 
 
 ```python
@@ -794,7 +796,7 @@ tmp_df_renamed = (tmp_df
 tmp_df_renamed.head(5)
 ```
 
-Substitua `combined_df` pelas transformações executadas e chame `get_profile()` para ver as estatísticas de resumo completo após todas as transformações.
+Substitua o fluxo de dados `combined_df` pelas transformações executadas. Em seguida, chame a função `get_profile()` para ver as estatísticas de resumo completas após todas as transformações.
 
 
 ```python
@@ -804,9 +806,9 @@ combined_df.get_profile()
 
 ## <a name="transform-data"></a>Transformar dados
 
-Divida ainda mais a data de partida e chegada em dia da semana, dia do mês e mês. Para obter o dia da semana, use a função `derive_column_by_example()`. Essa função usa como parâmetro uma matriz de objetos de exemplo que define os dados de entrada e saída desejada. Em seguida, a função determina automaticamente sua transformação desejada. Para colunas de hora de partida e chegada, divida em hora, minuto e segundo usando a função `split_column_by_example()` sem nenhum parâmetro de exemplo.
+Divida ainda mais a data de saída e chegada em valores de dia da semana, dia do mês e mês. Para obter o valor de dia da semana, use a função `derive_column_by_example()`. A função usa um parâmetro de matriz de objetos de exemplo que define os dados de entrada e a saída desejada. A função determina automaticamente sua transformação preferencial. Para as colunas de horário de saída e chegada, divida o horário em hora, minuto e segundo usando a função `split_column_by_example()` sem nenhum parâmetro de exemplo.
 
-Após gerar esses novos recursos, exclua os campos originais em favor dos recursos recém-gerados usando `drop_columns()`. Renomeie todos os campos restantes com descrições precisas.
+Depois de gerar os novos recursos, use a função `drop_columns()` para excluir os campos originais, pois os recursos recém-gerados são preferenciais. Renomeie o restante dos campos para usar descrições significativas.
 
 
 ```python
@@ -824,7 +826,7 @@ tmp_df = (combined_df
           
     .split_column_by_example(source_column="pickup_time")
     .split_column_by_example(source_column="dropoff_time")
-    # the following two split_column_by_example calls reference the generated column names from the above two calls
+    # The following two calls to split_column_by_example reference the column names generated from the previous two calls.
     .split_column_by_example(source_column="pickup_time_1")
     .split_column_by_example(source_column="dropoff_time_1")
     .drop_columns(columns=[
@@ -999,7 +1001,7 @@ tmp_df.head(5)
 </table>
 </div>
 
-Nos dados acima, você vê que os componentes de data e hora das partidas e das chegadas produzidos pelas transformações derivadas estão corretos. Descarte as colunas `pickup_datetime` e `dropoff_datetime` conforme elas deixam de ser necessárias.
+Observe que os dados mostram que os componentes de data e hora de saída e chegada produzidos pelas transformações derivadas estão corretos. Remova as colunas `pickup_datetime` e `dropoff_datetime`, pois elas não são mais necessárias.
 
 
 ```python
@@ -1034,7 +1036,7 @@ type_infer
     'dropoff_latitude': [FieldType.DECIMAL],
     'cost': [FieldType.DECIMAL]
 
-Os resultados de inferência parecem corretos com base nos dados. Agora, aplique as conversões de tipo ao fluxo de dados.
+Os resultados de inferência parecem estar corretos com base nos dados. Agora, aplique as conversões de tipo ao fluxo de dados.
 
 
 ```python
@@ -1042,14 +1044,14 @@ tmp_df = type_infer.to_dataflow()
 tmp_df.get_profile()
 ```
 
-Antes de empacotar o fluxo de dados, execute dois últimos filtros no conjunto de dados. Para eliminar pontos de dados incorretos, filtre o fluxo de dados nos registros em que tanto o `cost` quanto a `distance` são maiores que zero.
+Antes de compactar o fluxo de dados, execute os dois filtros finais no conjunto de dados. Para eliminar os pontos de dados incorretos, filtre o fluxo de dados pelos registros em que os valores das variáveis `cost` e `distance` são maiores que zero.
 
 ```python
 tmp_df = tmp_df.filter(dprep.col("distance") > 0)
 tmp_df = tmp_df.filter(dprep.col("cost") > 0)
 ```
 
-Até o momento, você tem um objeto de fluxo de dados totalmente transformado e preparado para uso em um modelo de machine learning. O SDK inclui a funcionalidade de serialização de objetos, que é usada desta forma.
+Agora você tem um objeto de fluxo de dados totalmente transformado e preparado para ser usado em um modelo de machine learning. O SDK inclui a funcionalidade de serialização de objeto, que é usada como mostrado no snippet a seguir.
 
 ```python
 import os
@@ -1062,19 +1064,21 @@ package.save(file_path)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Exclua o arquivo `dflows.dprep` (se você estiver executando localmente ou no Azure Notebooks) de seu diretório atual se não quiser continuar com a parte dois do tutorial. Se você prosseguir para a parte dois, precisará do arquivo `dflows.dprep` no diretório atual.
+Para continuar com a segunda parte do tutorial, você precisará do arquivo **dflows.dprep** no diretório atual.
+
+Se você não planeja continuar com a parte dois, exclua o arquivo **dflows.dprep** do diretório atual. Exclua este arquivo se você estiver executando a execução localmente ou nos Azure Notebooks.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Na primeira parte deste tutorial, você acabou de:
 
 > [!div class="checklist"]
-> * Configurar seu ambiente de desenvolvimento
-> * Carregar e limpar conjuntos de dados
-> * Usar transformações inteligentes para prever sua lógica com base em um exemplo
-> * Mesclar e empacotar conjuntos de dados para treinamento de aprendizado de máquina
+> * Configurar seu ambiente de desenvolvimento.
+> * Carregar e limpar conjuntos de dados.
+> * Usar transformações inteligentes para prever a lógica com base em um exemplo.
+> * Mesclou e empacotou conjuntos de dados para treinamento de aprendizado de máquina.
 
-Você está pronto para usar esses dados de treinamento na próxima parte da série de tutoriais:
+Você está pronto para usar os dados de treinamento na segunda parte do tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial 2: Treinar o modelo de regressão](tutorial-auto-train-models.md)
+> [Tutorial (parte dois): treinar o modelo de regressão](tutorial-auto-train-models.md)

@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/01/2018
-ms.openlocfilehash: aede3f432614023739d6967c6e76ff3aaf892cca
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/09/2019
+ms.openlocfilehash: ce4feefa1b83f81fa1160ddc93a53da56c24fd7e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537793"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189874"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -51,9 +51,9 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor MySQL:
     Versão | *A última versão principal*| A última versão principal (a menos que você tenha requisitos específicos que exijam uma outra versão).
     Tipo de preço | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
   
-    > [!IMPORTANT]
-    > O logon de administrador do servidor e a senha especificada aqui são necessários para fazer logon no servidor e em seus bancos de dados posteriormente neste Guia de início rápido. Lembre-se ou registre essas informações para o uso posterior.
-    > 
+   > [!NOTE]
+   > Considere usar o tipo de preço Básico se computação leve e E/S forem adequadas para sua carga de trabalho. Observe que servidores criados no tipo de preço Básico não podem ser dimensionados mais tarde para Uso Geral ou Otimizado para Memória. Veja a [página de preço](https://azure.microsoft.com/pricing/details/mysql/) para obter mais informações.
+   > 
 
    ![Criar servidor - janela do tipo de preço](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
@@ -71,7 +71,7 @@ O serviço do Banco de Dados do Azure para MySQL cria um firewall no nível do s
 
 2. Na página do servidor, selecione **Segurança da conexão**.
 
-3.  No cabeçalho **Regras de firewall**, selecione a caixa de texto em branco na coluna **Nome da Regra** para começar a criar a regra de firewall. Insira o intervalo preciso de IPs dos clientes que acessarão o servidor.
+3.  No cabeçalho **Regras de firewall**, selecione a caixa de texto em branco na coluna **Nome da Regra** para começar a criar a regra de firewall. Insira o intervalo preciso de IPs dos clientes que acessarão esse servidor.
    
    ![Segurança de conexão - Regras de Firewall](./media/quickstart-create-mysql-server-database-using-azure-portal/5-firewall-2.png)
 

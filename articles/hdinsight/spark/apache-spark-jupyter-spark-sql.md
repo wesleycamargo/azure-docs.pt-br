@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um cluster Spark no HDInsight usando um modelo'
+title: 'Início rápido: Criar um cluster Spark no HDInsight usando um modelo'
 description: Este início rápido mostra como usar o modelo do Resource Manager para criar um cluster Apache Spark no Azure HDInsight e executar uma consultas simples do Spark SQL.
 services: azure-hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: e816799ba2df0f97aca7618e7c181a1086bb84a9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2fc88f82222deeecb55dac8fa77e1d8702ffe011
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791907"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055023"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Início Rápido: Criar um cluster do Apache Spark no HDInsight usando um modelo
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Início rápido: Criar um cluster do Apache Spark no HDInsight usando um modelo
 
 Saiba como criar um cluster do [Apache Spark](https://spark.apache.org/) no Azure HDInsight e como executar consultas Spark SQL nas tabelas do [Apache Hive](https://hive.apache.org/). O Apache Spark permite análises rápidas de dados e computação de cluster usando processamento na memória. Para obter informações sobre o Spark no HDInsight, confira [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md).
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>Criar um cluster Spark no HDInsight
 
-Crie um cluster Spark do HDInsight usando um modelo do Azure Resource Manager. O modelo pode ser encontrado no [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/).
+Crie um cluster Spark do HDInsight usando um modelo do Azure Resource Manager. O modelo pode ser encontrado no [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Para obter a sintaxe JSON e as propriedades do cluster, confira [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters).
 
 1. Selecione o link a seguir para abrir o modelo no Portal do Azure em uma nova guia do navegador:
 

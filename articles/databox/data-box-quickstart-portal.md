@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 10/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385828"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188548"
 ---
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início Rápido: Implantar o Azure Data Box usando o portal do Azure
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início rápido: Implantar o Azure Data Box usando o portal do Azure
 
 Este início rápido descreve como implantar o Azure Data Box usando o portal do Azure. As etapas incluem como cabear, configurar e copiar dados para o Data Box, de modo que eles sejam carregados no Azure. O início rápido é executado no portal do Azure e na interface do usuário da Web local do dispositivo.
 
@@ -28,7 +28,6 @@ Antes de começar:
 - Verifique se a assinatura usada para o serviço Data Box é de um dos seguintes tipos:
     - Microsoft EA (Contrato Enterprise). Leia mais sobre [assinaturas de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - CSP (Provedor de Soluções na Nuvem). Saiba mais sobre o [programa do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Consumo – pago conforme o uso. Saiba mais sobre as [assinaturas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) do Azure.
     - Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Verifique se você tem acesso de proprietário ou colaborador na assinatura para criar um pedido do Data Box.

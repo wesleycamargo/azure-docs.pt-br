@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Ingerir dados do Kafka no Azure Data Explorer'
+title: 'Início Rápido: ingerir dados do Kafka no Azure Data Explorer'
 description: Neste início rápido, você aprenderá a ingerir (carregar) dados no Azure Data Explorer do Kafka.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 316d2b4ebf0a9b0799e2bdcdfda1d517713f413f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277067"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117360"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Início Rápido: Ingerir dados do Kafka no Azure Data Explorer
+# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Início rápido: ingerir dados do Kafka no Azure Data Explorer
  
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece ingestão (carregamento de dados) do Kafka. Kafka é uma plataforma de streaming distribuída que permite a criação de pipelines de dados de fluxo em tempo real, os quais movem os dados entre sistemas ou aplicativos de modo confiável. 
  
@@ -133,7 +133,7 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="query-and-review-the-data"></a>Consultar e analisar os dados 
 
-1. Para garantir que nenhum erro tenha ocorrido durante a ingestão:
+1. Para garantir que nenhum erro ocorra durante a ingestão:
 
     ```Kusto
     .show ingestion failures
@@ -159,4 +159,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
 ## <a name="next-steps"></a>Próximas etapas
  
 > [!div class="nextstepaction"]
-> [Guia de início rápido: Consultar dados no Data Explorer do Azure](web-query-data.md)
+> [Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 793aa52c0eb49d122f520ead3ee80a869e7b62d9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 88538aa9528059458f6e73485f4839693caa943b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251312"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054479"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: Executar um trabalho do Spark no Azure Databricks usando o modelo do Azure Resource Manager
 
@@ -178,7 +178,7 @@ Se você não encerrar o cluster manualmente, ele será interrompido automaticam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou um cluster Spark no Azure Databricks e executou um trabalho do Spark usando os dados no armazenamento do Azure. Você também pode examinar [Fontes de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) para saber como importar dados de outras fontes de dados para o Azure Databricks. Você também pode examinar o modelo do Resource Manager para [Criar um workspace do Azure Databricks com o endereço VNET personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address).
+Neste artigo, você criou um cluster Spark no Azure Databricks e executou um trabalho do Spark usando os dados no armazenamento do Azure. Você também pode examinar [Fontes de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) para saber como importar dados de outras fontes de dados para o Azure Databricks. Você também pode examinar o modelo do Resource Manager para [Criar um workspace do Azure Databricks com o endereço VNET personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, confira a referência de modelo [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
 
 Siga até o próximo artigo para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) usando o Azure Databricks.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: usar a API REST para criar um pipeline do Azure Data Factory | Microsoft Docs'
+title: 'Tutorial: Usar a API REST para criar um pipeline do Azure Data Factory | Microsoft Docs'
 description: Neste tutorial, você usa a API REST para criar um pipeline do Azure Data Factory com uma atividade de cópia a fim de copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -10,19 +10,18 @@ ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ce344292577dd286abcd7fbf9e067800da0e0b3
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 8b12df3e31b46fa29f5726946be1d7509018fcbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958974"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025837"
 ---
-# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: usar a API REST para criar um pipeline do Azure Data Factory a fim de copiar dados 
+# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Usar a API REST para criar um pipeline do Azure Data Factory para copiar dados 
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -40,14 +39,14 @@ ms.locfileid: "49958974"
 
 Neste artigo, você aprenderá a usar a API REST para criar um data factory com um pipeline que copia dados de um armazenamento de blobs do Azure para um Banco de Dados SQL do Azure. Se você ainda está se familiarizando com o Azure Data Factory, leia o artigo [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de fazer este tutorial.   
 
-Neste tutorial, você criará um pipeline com uma atividade: atividade de cópia. A atividade de cópia copia dados de um armazenamento de dados com suporte para um armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
+Neste tutorial, você criará um pipeline com uma atividade: Atividade de Cópia. A atividade de cópia copia dados de um armazenamento de dados com suporte para um armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
 Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Várias atividades em um pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 > [!NOTE]
 > Este artigo não cobre todas as APIs REST do Data Factory. Confira [Referência de API REST do Data Factory](/rest/api/datafactory/) para obter uma documentação abrangente sobre os cmdlets de Data Factory.
 >  
-> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, confira [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Percorra o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de **pré-requisito** .
@@ -285,7 +284,7 @@ Observe os seguintes pontos:
  
 Substitua o valor da propriedade **start** pelo dia atual e o valor de **end** pelo dia seguinte. Você pode especificar apenas a parte da data e ignorar a parte de hora do valor de data/hora. Por exemplo, "2017-02-03", que é equivalente a "2017-02-03T00:00:00Z"
  
-Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2016-10-14T16:32:41Z. A hora **final** é opcional, mas nós a usaremos neste tutorial. 
+Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo:  2016-10-14T16:32:41Z. A hora **final** é opcional, mas nós a usaremos neste tutorial. 
  
 Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**.
  
@@ -351,7 +350,7 @@ Nesta etapa, você criará um Azure Data Factory chamado **ADFCopyTutorialDF**. 
 
 Observe os seguintes pontos:
 
-* O nome do Azure Data Factory deve ser globalmente exclusivo. Se você vir o erro nos resultados: **O nome do data factory "ADFCopyTutorialDF" não está disponível**, execute as seguintes etapas:  
+* O nome do Azure Data Factory deve ser globalmente exclusivo. Se o erro **O nome de data factory “ADFCopyTutorialDF” não está disponível** for exibido nos resultados, execute as seguintes etapas:  
   
   1. Altere o nome (por exemplo, yournameADFCopyTutorialDF) no arquivo **datafactory.json** .
   2. No primeiro comando em que a variável **$cmd** é atribuída um valor, substitua ADFCopyTutorialDF pelo novo nome e execute o comando. 
@@ -360,7 +359,7 @@ Observe os seguintes pontos:
      Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
 * Para criar instâncias do Data Factory, você precisa ser um colaborador/administrador da assinatura do Azure
 * O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.
-* Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente: 
+* Se você receber o erro "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um dos seguintes procedimentos e tente a publicação novamente: 
   
   * No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory: 
 
@@ -377,7 +376,7 @@ Observe os seguintes pontos:
 Antes de criar um pipeline, primeiro você precisará criar algumas entidades do Data Factory. Primeiro, você cria serviços vinculados para vincular os repositórios de dados de origem e de destino a seu repositório de dados. Em seguida, defina conjuntos de dados de entrada e saída para representar dados em repositórios de dados vinculados. Finalmente, crie o pipeline com uma atividade que usa esses conjuntos de dados.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
-Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste tutorial, você não usa serviços de computação, como o Azure HDInsight ou o Azure Data Lake Analytics. Você usa dois armazenamentos de dados do tipo Armazenamento do Azure (origem) e o banco de dados SQL (destino). Portanto, você pode criar dois serviços vinculados, chamados AzureStorageLinkedService e AzureSqlLinkedService, dos tipos: AzureStorage e AzureSqlDatabase.  
+Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste tutorial, você não usa serviços de computação, como o Azure HDInsight ou o Azure Data Lake Analytics. Você usa dois armazenamentos de dados do tipo Armazenamento do Azure (origem) e o banco de dados SQL (destino). Portanto, você criará dois serviços vinculados chamados AzureStorageLinkedService e AzureSqlLinkedService dos tipos: AzureStorage e AzureSqlDatabase.  
 
 O AzureStorageLinkedService vincula sua conta do armazenamento do Azure ao data factory. Essa conta de armazenamento é aquela na qual você criou um contêiner e carregou os dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
@@ -487,7 +486,7 @@ Atualmente, o conjunto de dados de saída é o que conduz o agendamento. Neste t
     Write-Host $results
     ```
 
-**Parabéns!** Você criou com êxito um data factory do Azure, com um pipeline que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure.
+**Parabéns!**  Você criou com êxito um data factory do Azure, com um pipeline que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure.
 
 ## <a name="monitor-pipeline"></a>Monitorar o pipeline
 Nesta etapa, você pode usar a API REST do Data Factory para monitorar fatias produzidas pelo pipeline.

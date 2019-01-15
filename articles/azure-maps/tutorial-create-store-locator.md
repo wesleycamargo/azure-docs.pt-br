@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a9b8e25b8c64d39606ee5c2582098839e349630
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317901"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189755"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de lojas usando o Azure Mapas
 
@@ -109,7 +109,7 @@ Para criar o projeto, você pode usar o [Visual Studio](https://visualstudio.mic
 
 Para criar a interface do usuário, adicione código ao *index.html*:
 
-1. Adicione as seguintes marcas `meta` ao `head` de *index.html*. As marcas definem o conjunto de caracteres (UTF-8), mandam o Internet Explorer e o Edge usarem as versões mais recentes do navegador e especificam um visor que funciona bem com layouts dinâmicos.
+1. Adicione as seguintes marcas `meta` ao `head` de *index.html*. As marcas definem o conjunto de caracteres (UTF-8), mandam o Internet Explorer e o Microsoft Edge usarem as versões mais recentes do navegador e especificam um visor que funciona bem com layouts dinâmicos.
 
     ```HTML
     <meta charset="utf-8" /> 

@@ -1,7 +1,7 @@
 ---
 title: Tutorial – CI/CD do Jenkins para VMs do Azure com o Azure DevOps Services | Microsoft Docs
 description: Neste tutorial, você aprenderá a configurar a CI (integração contínua) e a CD (implantação contínua) de um aplicativo Node.js usando o Jenkins para VMs do Azure por meio do Release Management no Visual Studio Team Services ou Microsoft Team Foundation Server
-author: tomarcher
+author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388470"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074760"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Jenkins e o Azure DevOps Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Jenkins e o Azure DevOps Services
 
 A CI (integração contínua) e a CD (implantação contínua) forma um pipeline por meio do qual você pode compilar, liberar e implantar seu código. O Azure DevOps Services fornece um conjunto completo de ferramentas de automação de CI/CD para implantação no Azure. O Jenkins é uma ferramenta de terceiros popular baseada em servidor de CI/CD que também fornece a automação de CI/CD. Use o Azure DevOps Services e o Jenkins juntos para personalizar a maneira como você fornece seu aplicativo ou serviço de nuvem.
 
@@ -68,7 +68,7 @@ Crie uma bifurcação deste aplicativo e anote o local (URL) para usar em etapas
 
 ## <a name="configure-jenkins-plug-ins"></a>Configurar os plug-ins do Jenkins
 
-Primeiro, você deve configurar dois plug-ins do Jenkins: **NodeJS** e **Implantação Contínua do VS Team Services**.
+Primeiro, você precisa configurar dois plug-ins do Jenkins: **NodeJS** e **Implantação contínua do VS Team Services**.
 
 1. Abra sua conta do Jenkins e selecione **Gerenciar o Jenkins**.
 2. Na página **Gerenciar o Jenkins**, selecione **Gerenciar Plug-ins**.
@@ -164,7 +164,7 @@ Para criar um pipeline de lançamento no Azure Pipelines:
 
 1. Selecione **+ Versão** e **Criar Versão**.
 2. Selecione o build concluído na lista suspensa realçada e selecione **Fila**.
-3. Escolha o link de versão na mensagem pop-up. Por exemplo: "A versão **Release-1** foi criada".
+3. Escolha o link de versão na mensagem pop-up. Por exemplo:  "A versão **Versão-1** foi criada."
 4. Abra a guia **Logs** para observar a saída do console de versão.
 5. No navegador, abra a URL de um dos servidores adicionados ao grupo de implantação. Por exemplo, insira **http://{your-server-ip-address}**.
 6. Acesse o repositório do Git de origem e modifique o conteúdo do título **h1** no arquivo app/views/index.jade com um texto alterado.

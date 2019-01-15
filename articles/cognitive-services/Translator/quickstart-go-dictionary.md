@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Localizar traduções alternativas, Go – API de Tradução de Texto'
+title: 'Início Rápido: Procure palavras com o dicionário bilíngue, Go – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você encontrará traduções alternativas e exemplos de termos em contexto usando a API de Tradução de Texto com Go.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: bcda716d143bd675f9510b1ecf5974ab9c28a394
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c1a75a32e60e337d07bda9d6f6d39efa58c679e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000584"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158560"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-go"></a>Início Rápido: Usar a API de Tradução de Texto para obter as traduções alternativas usando o Go
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Início Rápido: Procure palavras com o dicionário bilíngue Go
 
 Neste início rápido, você aprenderá a localizar traduções alternativas e exemplos de uso de um texto especificado usando o Go e a API REST de Tradução de Texto.
 

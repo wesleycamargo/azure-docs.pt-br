@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: 1ffe75b088b3e6db5717746ab2fc00ef4b350e8b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14123c316b2881c2ded36a5e30ce62a961183991
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971862"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079146"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK do .NET para Visão Personalizada
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Início rápido: Criar um projeto de detecção de objeto com o SDK do .NET para Visão Personalizada
 
 Este artigo fornece informações e código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com C# para criar um modelo de detecção de objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo .NET. 
 
@@ -42,6 +42,10 @@ Este projeto do Visual Studio cria um novo projeto de Visão Personalizada denom
 Abra o arquivo _Program.cs_ e inspecione o código. Insira suas chaves de assinatura nas definições pertinentes no método **Main**.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
+
+O parâmetro de ponto de extremidade deve apontar para a região em que o grupo de recursos do Azure que contém os recursos de Visão Personalizada foi criado. Para este exemplo, consideramos a região Centro-Sul dos EUA e usamos:
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
 ### <a name="create-a-new-custom-vision-service-project"></a>Criar um novo projeto do Serviço de Visão Personalizada
 

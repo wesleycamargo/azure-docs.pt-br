@@ -5,99 +5,117 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 11/15/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7e11affece7e7eb133aa22e159ec07d4f15e96f7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 16e23f77509d2402f765981b39a30e08a2309f68
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999611"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156520"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – portal do Azure
 
-Com o Gateway de Aplicativo do Azure, você pode direcionar seu tráfego de web de aplicativo para recursos específicos designando ouvintes para portas, criando regras, e adicionando recursos a um pool de back-end.
-
-Este guia de início rápido mostra como usar o portal do Azure para criar rapidamente o gateway de aplicativo com duas máquinas virtuais em seu pool de back-end. Em seguida, teste-o para verificar se ele está funcionando corretamente.
+Este guia de início rápido mostra como usar o portal do Azure para criar rapidamente o gateway de aplicativo com duas máquinas virtuais em seu pool de back-end. Em seguida, teste-o para verificar se ele está funcionando corretamente. Com o Gateway de Aplicativo do Azure, você direciona seu tráfego de Web de aplicativo para recursos específicos designando ouvintes para portas, criando regras e adicionando recursos a um pool de back-end.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
+Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
 ## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
-Uma rede virtual é necessária para a comunicação entre os recursos que você criar. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicativo e a outra para os servidores de back-end. Você pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicativo.
+Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual. Crie duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end. Você pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicativo.
 
-1. Clique em **Criar um recurso** encontrado na parte superior esquerda do portal do Azure.
-2. Clique em **Networking** e, em seguida, clique em **Gateway de Aplicativo** na lista em destaque.
+1. Selecione **Criar um recurso** no menu esquerdo do portal do Azure. A janela **Novo** é exibida.
 
-### <a name="basics"></a>Noções básicas
+2. Selecione **Rede** e depois **Gateway de Aplicativo** na lista **em destaque**.
 
-1. Insira esses valores para o gateway de aplicativo:
+### <a name="basics-page"></a>Página de Noções Básicas
 
-    - *myAppGateway* - para o nome do gateway de aplicativo.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
+1. Na página **Noções Básicas**, insira esses valores para as seguintes configurações de gateway de aplicativo:
+
+    - **Nome**: Insira *myAppGateway* para o nome do gateway de aplicativo.
+    - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos. Se ele não existir, selecione **Criar novo** para criá-lo.
 
     ![Criar novo gateway de aplicativo](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
-2. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
+2. Aceite os valores padrão para as outras configurações e selecione **OK**.
 
-### <a name="settings"></a>Configurações
+### <a name="settings-page"></a>Página Configurações
 
-1. Clique em **Escolher uma rede virtual**, clique em **Criar novo** e insira esses valores para a rede virtual:
+1. Na página **Configurações**, em **Configuração de sub-rede**, selecione **Escolher uma rede virtual**.
 
-    - *myVNet* – para o nome da rede virtual.
-    - *10.0.0.0/16* – para o espaço de endereço da rede virtual.
-    - *myAGSubnet* – para o nome da sub-rede.
-    - *10.0.0.0/24* - para o intervalo de endereços de sub-rede.
+2. Na página **Escolher rede virtual**, selecione **Criar novo** e insira valores para as seguintes configurações de rede virtual:
+
+    - **Nome**: Insira *myVNet* para o nome da rede virtual.
+
+    - **Espaço de endereço**: Insira *10.0.0.0/16* para o espaço de endereço da rede virtual.
+
+    - **Nome da sub-rede**: Insira *myAGSubnet* para o nome da sub-rede.<br>A sub-rede de gateway de aplicativo pode conter apenas gateways de aplicativo. Nenhum outro recurso é permitido.
+
+    - **Intervalo de endereços da sub-rede**: Insira *10.0.0.0/24* para o intervalo de endereços de sub-rede.
 
     ![Criar rede virtual](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
-6. Clique em **OK** para voltar a página de configuração.
-7. Em **Configuração IP de frontend**, certifique-se de que o **tipo de endereço IP** esteja definido como **público** e **Endereço IP público**, assegure **Criar novo** está selecionado. Digite *myAGPublicIPAddress* para o nome do endereço IP público. Aceite os valores padrão para as outras configurações e, em seguida, clique em **OK**.
+3. Selecione **OK** para voltar à página **Configurações**.
 
-### <a name="summary"></a>Resumo
+4. Em **Configuração de IP de front-end**, verifique se **Tipo de endereço IP** está definido como **Público**. Em **Endereço IP público**, verifique se **Criar novo** está selecionado. 
 
-Examine as configurações na página de resumo e clique em **OK** para criar a rede virtual, o endereço IP público e o gateway de aplicativo. O gateway de aplicativo pode demorar vários minutos para ser criado. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
+5. Insira *myAGPublicIPAddress* para o nome do endereço IP público. 
+
+6. Aceite os valores padrão para as outras configurações e selecione **OK**.
+
+### <a name="summary-page"></a>Página Resumo
+
+Examine as configurações na página **Resumo** e selecione **OK** para criar a rede virtual, o endereço IP público e o gateway de aplicativo. Pode levar vários minutos para que o Azure crie o gateway de aplicativo. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
 
 ## <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
-1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myVNet** da lista de recursos.
-2. Clique em **subredes** e, em seguida, clique em **+ subrede**.
+Adicione uma sub-rede à rede virtual que você criou seguindo estas etapas:
+
+1. Selecione **Todos os recursos** no menu esquerdo do portal do Azure, insira *myVNet* na caixa de pesquisa e selecione **myVNet** nos resultados da pesquisa.
+
+2. Selecione **Sub-redes** no menu esquerdo e selecione **+ Sub-rede**. 
 
     ![Criar sub-rede](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
-3. Digite *myBackendSubnet* para o nome da sub-rede e depois clique em **OK**.
+3. Na página **Adicionar sub-rede**, insira *myBackendSubnet* para o **Nome** da sub-rede e selecione **OK**.
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
-Neste exemplo, você cria duas máquinas virtuais que são usadas como servidores de backend para o gateway de aplicativo. Você também pode instalar o IIS nas máquinas virtuais para verificar se o gateway de aplicativo foi criado com êxito.
+Neste exemplo, você cria duas máquinas virtuais que o Azure usa como servidores de back-end para o gateway de aplicativo. Você também pode instalar o IIS nas máquinas virtuais para verificar se o Azure criou o gateway de aplicativo com êxito.
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No portal do Azure, clique em **Criar um recurso**.
-2. Clique em **Computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista em destaque.
-3. Insira esses valores para a máquina virtual:
+1. No portal do Azure, selecione **Criar um recurso**. A janela **Novo** é exibida.
 
-    - *myResourceGroupAG* para o grupo de recursos.
-    - *myVM* – para o nome da máquina virtual.
-    - *azureuser* – para o nome de usuário do administrador.
-    - *Azure123456!* para a senha.
+2. Selecione **Computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista **em destaque**. A página **Criar uma máquina virtual** é exibida.
 
-   Aceite os outros padrões e clique em **Próximo: Discos**.
-4. Aceite os padrões de disco e clique em **Avançar: Rede**.
-5. Verifique se **myVNet** está selecionado para a rede virtual e se a sub-rede é **myBackendSubnet**.
-6. Aceite os outros padrões e clique em **Próximo: Gerenciamento**.
-7. Clique em **Desligar** para desabilitar o diagnóstico de inicialização. Aceite os outros padrões e clique em **Revisar + criar**.
-8. Revise as configurações na página de resumo e clique em **Criar**.
-9. Aguarde a criação da máquina virtual concluir antes de continuar.
+3. Insira esses valores na guia **Noções básicas** para as seguintes configurações de máquina virtual:
+
+    - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
+    - **Nome da máquina virtual**: Insira *myVM* para o nome da máquina virtual.
+    - **Nome de usuário**: Insira *azureuser* para o nome de usuário do administrador.
+    - **Senha**: Insira *Azure123456!* para a senha de administrador.
+
+4. Aceite os outros padrões e selecione **Próximo: Discos**.  
+
+5. Aceite os padrões na guia **Discos** e selecione **Próximo: Rede**.
+
+6. Na guia **Rede**, verifique se **myVNet** está selecionado para a **Rede virtual** e se a **Sub-rede** está definida como **myBackendSubnet**. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.
+
+8. Na guia **Gerenciamento**, defina **Diagnóstico de inicialização** como **Desligado**. Aceite os outros padrões e selecione **Revisar + criar**.
+
+9. Na guia **Revisar + criar**, examine as configurações, corrija os erros de validação e selecione **Criar**.
+
+10. Aguarde a criação da máquina virtual concluir antes de continuar.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
-1. Abra o shell interativo e verifique se ele está definido como **PowerShell**.
+1. Abra o [PowerShell do Azure](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Para fazer isso, selecione **Cloud Shell** na barra de navegação superior do portal do Azure e selecione **PowerShell** na lista suspensa. 
 
     ![Instalar a extensão personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -115,14 +133,19 @@ Neste exemplo, você cria duas máquinas virtuais que são usadas como servidore
       -Location EastUS
     ```
 
-3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você acabou de concluir. Insira *myVM2* para seu nome e para VMName em Set-AzureRmVMExtension.
+3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você concluiu anteriormente. Use *myVM2* para o nome da máquina virtual e a configuração **VMName** do cmdlet **Set-AzureRmVMExtension**.
 
 ### <a name="add-backend-servers"></a>Adicionar servidores de back-end
 
-1. Clique em **Todos os recursos** e clique em **myAppGateway**.
-4. Clique em **Pools de back-end**. Um pool padrão foi criado automaticamente com o gateway de aplicativo. Clique em **appGatewayBackendPool**.
-5. Em **Destinos**, clique em **Endereço IP ou FQDN**, selecione **Máquina virtual**.
-6. Sob **Máquina Virtual**, adicionar máquinas virtuais myVM e myVM2 e suas interfaces de rede associado.
+1. Selecione **Todos os recursos** e, em seguida, **myAppGateway**.
+
+2. Selecione **Pools de back-end** no menu esquerdo. O Azure criou automaticamente um pool padrão **appGatewayBackendPool** quando você criou o gateway de aplicativo. 
+
+3. Selecione **appGatewayBackendPool**.
+
+4. Em **Destinos**, selecione **Máquina virtual** na lista suspensa.
+
+5. Em **MÁQUINA VIRTUAL** e **INTERFACES DE REDE**, selecione as máquinas virtuais **myVM** e **myVM2** e suas interfaces de rede associadas nas listas suspensas.
 
     ![Adicionar servidores de back-end](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
@@ -130,9 +153,11 @@ Neste exemplo, você cria duas máquinas virtuais que são usadas como servidore
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-1. Localize o endereço IP público para o gateway do aplicativo na tela de Visão geral. Clique em **Todos os recursos** e clique em **myAGPublicIPAddress**.
+1. Localize o endereço IP público para o gateway de aplicativo na página **Visão geral**.
 
-    ![Registre o endereço IP público do gateway de aplicativo](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
+    ![Registrar o endereço IP público do gateway de aplicativo](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
+
+    Como alternativa, você pode selecionar **Todos os recursos**, inserir *myAGPublicIPAddress* na caixa de pesquisa e selecioná-la nos resultados da pesquisa. O Azure exibe o endereço IP público na página **Visão geral**.
 
 2. Copie o endereço IP público e cole-o na barra de endereços do seu navegador.
 
@@ -140,7 +165,13 @@ Neste exemplo, você cria duas máquinas virtuais que são usadas como servidore
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos na folha do gateway de aplicativo e clique em **Excluir**.
+Quando não precisar mais dos recursos que você criou com o gateway de aplicativo, remova o grupo de recursos. Ao remover o grupo de recursos, você também remove o gateway de aplicativo e todos os recursos relacionados. 
+
+Para remover o grupo de recursos:
+1. No menu esquerdo do portal do Azure, selecione **Grupos de recursos**.
+2. Na página **Grupos de recursos**, pesquise por **myResourceGroupAG** na lista e, em seguida, selecione.
+3. Na página **Grupo de recursos**, selecione **Excluir grupo de recursos**.
+4. Insira *myResourceGroupAG* para **DIGITAR O NOME DO GRUPO DE RECURSOS** e selecione **Excluir**
 
 ## <a name="next-steps"></a>Próximas etapas
 

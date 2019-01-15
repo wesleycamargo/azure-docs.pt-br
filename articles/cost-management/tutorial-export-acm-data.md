@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087926"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053527"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
@@ -61,6 +61,22 @@ Revise os detalhes da exportação e clique em **Criar**.
 Sua nova exportação aparece na lista de exportações. Por padrão, as novas exportações estão habilitadas. Se você quiser desabilitar ou excluir uma exportação agendada, clique em qualquer item na lista e, em seguida, clique em **Desabilitar** ou **Excluir**.
 
 Inicialmente, pode levar uma ou duas horas até que a exportação seja executada. No entanto, pode levar até quatro horas para que os dados sejam mostrados em arquivos exportados.
+
+### <a name="export-schedule"></a>Agendamento de exportação
+
+As exportações agendadas são afetadas pela hora e pelo dia da semana de quando a exportação foi inicialmente criada. Quando você cria uma exportação agendada, a exportação é executada na mesma hora do dia para cada ocorrência seguinte de exportação. Por exemplo, você cria uma exportação diária às 13h. A próxima exportação é executada às 13h do dia seguinte. A hora atual afeta todos os outros tipos de exportação da mesma maneira – eles sempre são executados na mesma hora do dia de quando a exportação foi inicialmente criada. Em outro exemplo, você cria uma exportação semanal às 16h na segunda-feira. O próximo relatório é executado às 16h na próxima segunda-feira. *Os dados exportados ficam disponíveis no prazo de quatro horas após a hora de execução.*
+
+Cada exportação cria um arquivo e, portanto, as exportações mais antigas não são substituídas.
+
+Há três tipos de opções de exportação:
+
+**Exportação diária dos custos do mês atual** – a exportação inicial é executada imediatamente. As exportações seguintes são executadas no dia seguinte, na mesma hora da exportação inicial. Os últimos dados são agregados das exportações diárias anteriores.
+
+**Custos semanais dos últimos sete dias** – a exportação inicial é executada imediatamente. As exportações seguintes são executadas no dia da semana e na mesma hora da exportação inicial. Os custos referem-se aos últimos sete dias.
+
+**Personalizado** – permite que você agende exportações semanal e mensalmente com opções de semana e mês atual. *A exportação inicial será executada imediatamente.*
+
+![Guia Nova exportação – Informações Básicas mostrando uma seleção semanal personalizada da semana atual](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>Verificar se os dados são coletados
 

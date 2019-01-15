@@ -1,19 +1,18 @@
 ---
 title: Configurar o pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB
 description: Tutorial sobre como configurar o fluxo de trabalho de build e versão no Azure DevOps usando a tarefa de build do emulador do Cosmos DB
-services: cosmos-db
-keywords: Emulador do Azure Cosmos DB
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.reviewer: sngun
+ms.openlocfilehash: 58b97dd2df29a829b843d20c14cdb15644357653
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810622"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053697"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB no Azure DevOps
 
@@ -66,7 +65,7 @@ Neste tutorial, você adicionará a tarefa ao início para fazer com que o emula
 
 Agora, vamos configurar nossos testes para usar o emulador. A tarefa de build do emulador exporta uma variável de ambiente – 'CosmosDbEmulator.Endpoint' – para a qual qualquer tarefa no pipeline de build pode emitir solicitações. 
 
-Neste tutorial, vamos usar a [tarefa de Teste do Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para executar testes de unidade configuradas por meio de um arquivo **.RunSettings**. Para saber mais sobre a configuração do teste de unidade, leia a [documentação](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
+Neste tutorial, vamos usar a [tarefa de Teste do Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para executar testes de unidade configuradas por meio de um arquivo **.RunSettings**. Para saber mais sobre a configuração do teste de unidade, leia a [documentação](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). O exemplo de código do aplicativo Todo completo usado neste documento está disponível no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
 Abaixo está um exemplo de um arquivo **.RunSettings** que define os parâmetros a serem passados para os testes de unidade do aplicativo. Observe que a variável `authKey` usada é a [chave bem conhecida](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) para o emulador. Esta `authKey` é a chave esperada pela tarefa de build do emulador e deve ser definida em seu arquivo **.RunSettings**.
 

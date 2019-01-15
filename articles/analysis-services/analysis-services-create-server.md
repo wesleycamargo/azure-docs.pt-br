@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ef4099130878813378fb277c45b5d352cbe822a7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000162"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186729"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor – Portal
 
@@ -31,7 +31,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
 
 ## <a name="create-a-server"></a>Criar um servidor
 
-1. Clique em **+ Criar um recurso** > **Dados + Análise** > **Analysis Services**.
+1. Clique em **+ Criar um recurso** > **Análise** > **Analysis Services**.
 
     ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
@@ -42,9 +42,9 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
    * **Grupo de recursos**: crie um novo grupo de recursos ou selecione um que você já tenha. Os grupo de recursos são projetados para ajudar você a gerenciar uma coleção de recursos do Azure. Para saber mais, veja [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
    * **Localização**: localização do datacenter do Azure que hospeda o servidor. Escolha um local mais próximo da sua maior base de usuários.
    * **Tipo de preço**: Selecione um tipo de preço. Se você estiver testando e pretende instalar o banco de dados do modelo de exemplo, selecione a camada gratuita **D1**. Para saber mais, veja [Preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
-    * **Administrador**: por padrão, essa será a conta com a qual você entrou. Você pode escolher uma conta diferente no Microsoft Azure Active Directory.
-    * **Configuração de Armazenamento de Backup**: Opcional. Se você já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), você pode especificá-la como o padrão para o backup do banco de dados de modelo. Você também pode especificar a configuração de [backup e restauração](analysis-services-backup.md) mais tarde.
-    * **Término da chave armazenamento**: Opcional. Especifique um período de expiração para a chave de armazenamento.
+   * **Administrador**: por padrão, essa será a conta com a qual você entrou. Você pode escolher uma conta diferente no Microsoft Azure Active Directory.
+   * **Configuração de Armazenamento de Backup**: Opcional. Se você já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), você pode especificá-la como o padrão para o backup do banco de dados de modelo. Você também pode especificar a configuração de [backup e restauração](analysis-services-backup.md) mais tarde.
+   * **Término da chave armazenamento**: Opcional. Especifique um período de expiração para a chave de armazenamento.
 
 A criação do servidor geralmente demora menos de um minuto. Se você tiver selecionado **Adicionar ao Portal**, navegue até o portal para ver o novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto.
 

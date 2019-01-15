@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: usar API REST do Serviço de Visão Personalizada'
+title: 'Tutorial: Usar a API REST do Serviço de Visão Personalizada'
 titlesuffix: Azure Cognitive Services
 description: Use a API REST para criar, treinar, testar e exportar um modelo de visão personalizada.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: afdc306a3d5a3130ecb44f88910e76f23f7c0c0e
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 5e5cf04bb631585c14d2ec7403bf0332f41dc626
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334713"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054202"
 ---
-# <a name="tutorial-use-the-custom-vision-rest-api"></a>Tutorial: Usar API REST de Visão Personalizada
+# <a name="tutorial-use-the-custom-vision-rest-api"></a>Tutorial: Usar a API REST de Visão Personalizada
 
 Aprenda a usar a API REST de Visão Personalizada para criar, treinar, testar e exportar um modelo.
 

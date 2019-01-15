@@ -13,18 +13,18 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 956924714ba265cb14515208be0ebab3c5a458c1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: dd86b05e3e8178166624cf6478af920f67caadba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214504"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052489"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Provisionar um Integration Runtime do Azure-SSIS no Azure Data Factory com PowerShell
 Este tutorial fornece etapas para o provisionamento de um Integration Runtime (IR) do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SSDT (Ferramentas de dados do SQL Server) ou o SSMS (SQL Server Management Studio) para implantar e executar os pacotes do SSIS (SQL Server Integration Services) neste tempo de execução no Azure. Neste tutorial, você executa as seguintes etapas:
 
 > [!NOTE]
-> Este artigo usa o Azure PowerShell para provisionar um IR do Azure SSIS. Para usar a interface do usuário (IU) do Data Factory para provisionar um IR do Azure SSIS, consulte [Tutorial: criar um tempo de execução de integração do Azure SSIS](tutorial-create-azure-ssis-runtime-portal.md). 
+> Este artigo usa o Azure PowerShell para provisionar um IR do Azure SSIS. Para usar a interface do usuário do Data Factory para provisionar um Azure-SSIS IR, confira [Tutorial: Criar um Azure-SSIS Integration Runtime](tutorial-create-azure-ssis-runtime-portal.md). 
 
 > [!div class="checklist"]
 > * Criar um data factory.
@@ -37,20 +37,20 @@ Este tutorial fornece etapas para o provisionamento de um Integration Runtime (I
 - **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar. Para obter informações conceituais sobre o IR do SSIS do Azure, consulte [visão geral do Integration Runtime do Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). 
 - **Servidor de banco de dados SQL do Azure**. Se você ainda não tiver um servidor de banco de dados, crie um no Portal do Azure antes de começar. Este servidor hospeda o SSISDB (banco de dados do Catálogo do SSIS). É recomendável que você crie o servidor de banco de dados na mesma região do Azure que a do Integration Runtime. Essa configuração permite que o Integration Runtime grave logs de execução SSISDB sem cruzar regiões do Azure. 
     - Com base no servidor de banco de dados selecionado, o SSISDB pode ser criado em seu nome como um banco de dados individual, parte de um pool elástico ou em uma Instância Gerenciada e acessível na rede pública ou ingressando em uma rede virtual. Para obter orientações sobre como escolher o tipo de servidor de banco de dados para hospedar o SSISDB, consulte [Comparar servidor lógico do Banco de Dados SQL e Instância Gerenciada](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Se você usar o Banco de Dados SQL do Azure com pontos de extremidade de serviços de rede virtual/Instância Gerenciada para hospedar o SSISDB ou exigir acesso a dados locais, será necessário associar o seu Azure-SSIS IR a uma rede virtual, consulte [Criar Azure-SSIS IR em uma rede virtual](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
-    - Confirme se a configuração “**Permitir acesso aos serviços do Azure**” está **ATIVADA** para o servidor do banco de dados. Essa configuração não é aplicável quando você usa o Banco de Dados SQL do Azure com pontos de extremidade do serviço de rede virtual/Instância Gerenciada para hospedar o SSISDB. Para saber mais, confira [Proteger seu banco de dados SQL do Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Para habilitar essa configuração usando o PowerShell, veja [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
+    - Confirme se a configuração “**Permitir acesso aos serviços do Azure**” está **ATIVADA** para o servidor do banco de dados. Essa configuração não é aplicável quando você usa o Banco de Dados SQL do Azure com pontos de extremidade do serviço de rede virtual/Instância Gerenciada para hospedar o SSISDB. Para saber mais, confira [Proteger seu banco de dados SQL do Azure](../sql-database/sql-database-security-tutorial.md#create-firewall-rules). Para habilitar essa configuração usando o PowerShell, veja [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
     - Adicione o endereço IP do computador cliente ou um intervalo de endereços IP que inclua o endereço IP do computador cliente à lista de endereços IP do cliente nas configurações do firewall para o servidor de banco de dados. Para saber mais, confira [Regras de firewall no nível do servidor e no nível do banco de dados do Banco de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md). 
     - Você pode se conectar ao servidor de banco de dados usando a autenticação do SQL com suas credenciais de administrador de servidor ou autenticação do AAD (Azure Active Directory) com a identidade gerenciada para seu Azure Data Factory.  Para o último, você precisa adicionar o ADF a um grupo do AAD com permissões de acesso para o servidor de banco de dados. Confira [Criar Azure-SSIS IR com a autenticação do AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
     - Confirme que o servidor de Banco de Dados SQL não tem um Catálogo SSIS (Banco de dados SSISDB). O provisionamento do IR do Azure-SSIS não oferece suporte ao uso de um Catálogo do SSIS existente. 
 - **PowerShell do Azure**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps). Você usa o PowerShell para executar um script para provisionar um Integration Runtime do Azure-SSIS que executa pacotes do SSIS na nuvem. 
 
 > [!NOTE]
-> - Para obter uma lista de regiões do Azure no qual o Data Factory e o Azure-SSIS Integration Runtime estão disponíveis no momento, veja [Disponibilidade por região do ADF + SSIS IR](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
+> - Para obter uma lista de regiões do Azure nas quais o Data Factory e o Azure-SSIS Integration Runtime estão disponíveis, confira [Disponibilidade do ADF + SSIS IR por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
 ## <a name="launch-windows-powershell-ise"></a>Inicialização do ISE do Windows PowerShell
 Inicie o **ISE do Windows PowerShell** com privilégios administrativos. 
 
 ## <a name="create-variables"></a>Criar variáveis
-Copie e cole o script a seguir: especificar valores para as variáveis. Para obter uma lista de **tipos de preços** com suporte para o Banco de Dados SQL do Azure, veja [Limites de recursos de Banco de Dados SQL](../sql-database/sql-database-resource-limits.md).
+Copie e cole o seguinte script: Especifique valores para as variáveis. Para obter uma lista de **tipos de preços** com suporte para o Banco de Dados SQL do Azure, veja [Limites de recursos de Banco de Dados SQL](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
 # Azure Data Factory information 
@@ -110,7 +110,7 @@ Catch [System.Data.SqlClient.SqlException]
 
 Para criar um banco de dados SQL do Azure como parte do script, veja o exemplo a seguir: 
 
-Defina valores para as variáveis que ainda não foram definidas. Por exemplo: SSISDBServerName, FirewallIPAddress. 
+Defina valores para as variáveis que ainda não foram definidas. Por exemplo:  SSISDBServerName, FirewallIPAddress. 
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName `
@@ -226,7 +226,7 @@ O script do PowerShell nesta seção configura uma instância de Integration Run
 
 Para obter uma lista de **tipos de preços** com suporte para o Banco de Dados SQL do Azure, veja [Limites de recursos de Banco de Dados SQL](../sql-database/sql-database-resource-limits.md). 
 
-Para obter uma lista de regiões do Azure no qual o Data Factory e o Azure-SSIS Integration Runtime estão disponíveis no momento, veja [Disponibilidade por região do ADF + SSIS IR](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
+Para obter uma lista de regiões do Azure nas quais o Data Factory e o Azure-SSIS Integration Runtime estão disponíveis, confira [Disponibilidade do ADF + SSIS IR por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
 ```powershell
 # Azure Data Factory information 

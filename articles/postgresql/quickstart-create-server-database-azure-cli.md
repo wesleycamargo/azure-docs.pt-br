@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: ddecd640c8b005588e8aa552957ee455cad7ad74
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 39e5042d5116cba96fb3d378fbf42813d33c69c6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547042"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191013"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como criar um Banco de Dados do Azure para o servidor PostgreSQL em um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando a CLI do Azure.
@@ -62,7 +62,7 @@ admin-password | *senha de segurança* | A senha do usuário administrador. Ele 
 
 
 O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geração de cálculo}\_{vCores} como nestes exemplos:
-+ `--sku-name B_Gen4_4` mapeia para Básico, Gen 4 e 4 vCores.
++ `--sku-name B_Gen4_1` mapeia para Básico, Gen 4 e 1 vCore.
 + `--sku-name GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizado para Memória, Gen 5 e 2 vCores.
 
@@ -73,10 +73,9 @@ O exemplo a seguir cria um servidor PostgreSQL 9.6 no Oeste dos EUA chamado `myd
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
-
-> [!IMPORTANT]
-> O logon de administrador do servidor e a senha que você especificar aqui são necessários para fazer logon no servidor mais tarde neste início rápido. Lembre-se ou registre essas informações para o uso posterior.
-
+> [!NOTE]
+> Considere usar o tipo de preço Básico se computação leve e E/S forem adequadas para sua carga de trabalho. Observe que servidores criados no tipo de preço Básico não podem ser dimensionados mais tarde para Uso Geral ou Otimizado para Memória. Veja a [página de preço](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações.
+> 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall no nível de servidor
 

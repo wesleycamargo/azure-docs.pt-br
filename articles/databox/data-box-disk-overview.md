@@ -6,27 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 874142df31d96de36b2b5be81a863c2f31317c52
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229604"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158033"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>O que é o Azure Data Box Disk? (Visualização)
+# <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
 A solução do Microsoft Azure Data Box Disk permite que você envie terabytes de dados locais para o Azure de forma rápida, barata e confiável. A transferência de dados segura é acelerada por meio do envio de uma a cinco SSDs (unidades de estado sólido). Esses discos de 8 TB criptografados são enviados ao seu datacenter por meio de uma operadora regional. 
 
 Você pode configurar, conectar e desbloquear rapidamente os discos por meio do serviço Data Box no Portal do Azure. Copie seus dados em discos e envie os discos de volta para o Azure. No datacenter do Azure, seus dados são carregados automaticamente das unidades para a nuvem usando um link de carregamento rápido de rede privada.
-
-
-> [!IMPORTANT]
-> - O Data Box Disk está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
-> - Você precisa se inscrever nesse serviço. Para se inscrever, vá até o [Portal de versão prévia](https://aka.ms/azuredataboxfromdiskdocs).
-> - Durante a versão prévia, o Data Box Disk pode ser entregue aos clientes nos EUA e na União Europeia. Para saber mais, acesse [Disponibilidade por região](#region-availability).
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -95,7 +89,7 @@ Para saber mais, acesse [Segurança e proteção de dados do Azure Data Box Disk
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-Durante a versão prévia, o Data Box Disk pode transferir dados para as seguintes regiões do Azure:
+Atualmente, o Data Box Disk pode transferir dados para as seguintes regiões do Azure:
 
 
 |Região do Azure  |Região do Azure  |
@@ -112,7 +106,7 @@ Durante a versão prévia, o Data Box Disk pode transferir dados para as seguint
 
 ## <a name="pricing"></a>Preços
 
-Para saber mais sobre preços, acesse a [página Preços de Versão Prévia](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+Para saber mais sobre preços, acesse a [página Preços](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

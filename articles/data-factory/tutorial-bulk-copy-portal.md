@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: e7c134881cbf8745a4e4ef9102a418f7d47a6f8c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 37aa248af30c4beae3f9d170174842c908933339
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43098021"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020006"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
@@ -93,10 +92,10 @@ Para o Banco de Dados SQL e o SQL Data Warehouse, permita que os serviços do Az
          
       Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
 1. Selecione **V2** para a **versão**.
-1. Selecione o **local** do data factory. Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+1. Selecione o **local** do data factory. Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 1. Selecione **Fixar no painel**.     
 1. Clique em **Criar**.
-1. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
+1. No painel, você deve ver o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
 1. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
@@ -208,7 +207,7 @@ Neste tutorial, as tabelas SQL de origem e de destino não são embutidas nas de
     ![Construtor do parâmetro dataset](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>Criar pipelines
-Neste tutorial, você criará dois pipelines: **IterateAndCopySQLTables** e **GetTableListAndTriggerCopyData**. 
+Neste tutorial, você cria dois pipelines: **IterateAndCopySQLTables** e **GetTableListAndTriggerCopyData**. 
 
 O pipeline **GetTableListAndTriggerCopyData** pipeline executa duas etapas:
 
@@ -400,7 +399,7 @@ Vá até o pipeline **GetTableListAndTriggerCopyData**, clique em **Disparar** e
         ]
     }
     ```    
-1. Para alternar novamente para a exibição de **Execuções de pipeline**, clique no link **Pipelines** na parte superior. Clique no link **Visualizar execuções de atividade** (primeiro link na coluna **Ações**) para o pipeline **IterateAndCopySQLTables**. Você deve ver a saída conforme mostrado na imagem a seguir: Observe que há uma execução de atividade de **Cópia** para cada tabela na saída da atividade de **Pesquisa**. 
+1. Para alternar novamente para a exibição de **Execuções de pipeline**, clique no link **Pipelines** na parte superior. Clique no link **Visualizar execuções de atividade** (primeiro link na coluna **Ações**) para o pipeline **IterateAndCopySQLTables**. Você deverá ver uma saída, conforme mostrado na seguinte imagem: Observe que há uma atividade de **Cópia** executada para cada tabela na saída da atividade **Pesquisa**. 
 
     ![Execuções de atividade](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
 1. Confirme que os dados foram copiados para o SQL Data Warehouse de destino usado neste tutorial. 

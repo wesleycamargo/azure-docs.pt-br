@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: f5b39b428b894fcf5dddc0a7435353d174d83b78
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231195"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065251"
 ---
 # <a name="what-is-azure-logic-apps"></a>O que são Aplicativos Lógicos do Azure?
 
-[Aplicativo Lógico do Azure](https://azure.microsoft.com/services/logic-apps) é um serviço de nuvem que ajuda você a automatizar e orquestrar tarefas, processos de negócios, e [fluxos de trabalho](#logic-app-concepts) quando você precisar integrar aplicativos, dados, sistemas e serviços entre empresas ou organizações. O Aplicativo Lógico simplifica como projetar e criar soluções escalonáveis para integração de aplicativos, integração de dados, integração de sistemas, EAI (integração de aplicativos empresariais) e comunicação B2B (entre empresas), quer seja na nuvem, localmente ou em ambos.
+Os [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps) são um serviço de nuvem que ajuda você a automatizar e orquestrar tarefas, processos de negócios, e [fluxos de trabalho](#logic-app-concepts) quando você precisar integrar aplicativos, dados, sistemas e serviços entre empresas ou organizações. Os Aplicativos Lógicos simplificam a forma como você projeta e cria soluções escalonáveis para [integração](https://azure.microsoft.com/product-categories/integration/) de aplicativos, integração de dados, integração de sistemas, EAI (Integração de Aplicativos Empresariais) e comunicação B2B (entre empresas), seja na nuvem, localmente ou em ambos.
 
 Por exemplo, eis algumas cargas de trabalho que você pode automatizar com aplicativos lógicos:
 
@@ -41,7 +41,7 @@ Cada vez que o disparador é acionado, o mecanismo de Aplicativo Lógico cria um
 
 ![Designer de Aplicativos Lógicos - exemplo de aplicativo lógico](./media/logic-apps-overview/overview.png)
 
-Você pode criar seus aplicativos lógicos visualmente com o Designer de Aplicativos Lógicos, disponível no portal do Azure através do navegador e no Visual Studio. Para mais aplicativos lógicos personalizados, você pode criar ou editar definições de aplicativo lógico em JavaScript Object Notation (JSON) trabalhando no editor de “exibição de código”. Você também pode usar comandos do Azure PowerShell e modelos do Azure Resource Manager para selecionar tarefas. Os aplicativos lógicos implantam e são executados na nuvem no Azure. Para obter uma introdução mais detalhada, assista a este vídeo: [Usar o Azure Enterprise Integration Services para executar aplicativos de nuvem em larga escala](https://channel9.msdn.com/Events/Connect/2017/T119/)
+Você pode criar seus aplicativos lógicos visualmente com o Designer de Aplicativos Lógicos, disponível no portal do Azure através do navegador e no Visual Studio. Para mais aplicativos lógicos personalizados, você pode criar ou editar definições de aplicativo lógico em JavaScript Object Notation (JSON) trabalhando no editor de “exibição de código”. Você também pode usar comandos do Azure PowerShell e modelos do Azure Resource Manager para selecionar tarefas. Os aplicativos lógicos implantam e são executados na nuvem no Azure. Para obter uma introdução mais detalhada, assista a este vídeo: [Usar o Azure Enterprise Integration Services para executar aplicativos de nuvem em escala](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
 ## <a name="why-use-logic-apps"></a>Por que usar Aplicativos Lógicos?
 
@@ -122,7 +122,7 @@ Saiba mais sobre aplicativos lógicos com esses vídeos introdutórios:
 
 * **Gatilhos**: muitos conectores gerenciados pela Microsoft fornecem gatilhos que são acionados quando eventos ou novos dados atendem a condições especificadas. Por exemplo, um evento pode ser receber um email ou detectar alterações em sua conta do Armazenamento do Azure. Cada vez que o gatilho é acionado, o mecanismo de Aplicativos Lógicos cria uma instância de aplicativo lógico nova que executa o fluxo de trabalho.
 
-* **Ações**: ações são todas as etapas que ocorrem após o gatilho. Cada ação normalmente é mapeada para uma operação definida por um conector gerenciado, uma API personalizada ou um conector personalizado.
+* **Ações**: Ações são todas as etapas que ocorrem após o gatilho. Cada ação normalmente é mapeada para uma operação definida por um conector gerenciado, uma API personalizada ou um conector personalizado.
 
 * **Enterprise Integration Pack**: para cenários de integração mais avançados, os Aplicativos Lógicos incluem recursos do BizTalk Server. O Enterprise Integration Pack fornece os conectores que ajudam os aplicativos lógicos a executar facilmente validação, transformação e muito mais.
 

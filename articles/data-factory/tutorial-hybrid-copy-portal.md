@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: af764557a6bd3d3f60a3aa628834d5929e073a82
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614014"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021978"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
 Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual movimenta os dados entre armazenamentos de dados locais e da nuvem.
@@ -195,7 +194,7 @@ O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem 
 
     ![Nome do tempo de execução de integração](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
 
-1. Selecione **Clique aqui para iniciar a instalação expressa para este computador** em **Opção 1: Instalação expressa**. 
+1. Na **Opção 1: Instalação expressa**, selecione **Clique aqui para iniciar a instalação expressa para este computador**. 
 
     ![Clique no link Instalação expressa](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
@@ -209,7 +208,7 @@ O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem 
 
 1. Na janela **Novo Serviço Vinculado**, siga as etapas a seguir:
 
-    a. Em **Nome**, insira **SqlServerLinkedService**.
+     a. Em **Nome**, insira **SqlServerLinkedService**.
 
     b. Confirme que o tempo de execução de integração auto-hospedado criado anteriormente é mostrado em **Conectar por meio do tempo de execução de integração**.
 
@@ -229,7 +228,7 @@ O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem 
 
 1. Você deve ter voltado para a janela com o conjunto de dados de origem aberto. Na guia **Conexão** da janela **Propriedades**, siga as etapas a seguir: 
 
-    a. Em **Serviço vinculado**, confirme que você vê **SqlServerLinkedService** como Serviço vinculado.
+     a. Em **Serviço vinculado**, confirme que você vê **SqlServerLinkedService** como Serviço vinculado.
 
     b. Em **Tabela**, selecione **[dbo].[emp]**.
 
@@ -257,7 +256,7 @@ O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem 
 
 1. Na janela **Novo Serviço Vinculado**, siga as etapas a seguir:
 
-    a. Em **Nome**, insira **AzureStorageLinkedService**.
+     a. Em **Nome**, insira **AzureStorageLinkedService**.
 
     b. Em **Nome da conta de armazenamento**, selecione sua conta de armazenamento.
 
@@ -269,7 +268,7 @@ O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem 
 
 1. Você deve ter voltado para a janela com o conjunto de dados do coletor aberto. Na guia **Conexão**, siga estas etapas: 
 
-    a. Confirme se **AzureStorageLinkedService** está selecionado como **Serviço vinculado**.
+     a. Confirme se **AzureStorageLinkedService** está selecionado como **Serviço vinculado**.
 
     b. Para a parte da **pasta**/ **Diretório** do **Caminho do arquivo**, insira **adftutorial/fromonprem**. Se a pasta de saída não existir no contêiner adftutorial, o serviço Data Factory criará essa pasta automaticamente.
 

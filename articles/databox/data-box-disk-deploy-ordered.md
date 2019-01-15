@@ -6,41 +6,46 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567444"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156164"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutorial: Solicitar um Azure Data Box Disk (visualização)
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitar um Azure Data Box Disk
 
 O Azure Data Box Disk é uma solução de nuvem híbrida que permite importar dados do local no Azure de maneira rápida, fácil e confiável. Transfira os dados para SSDs (unidades de estado sólido) fornecidas pela Microsoft e envie os discos novamente. Após, esses dados são carregados no Azure.
 
 Este tutorial descreve como você pode solicitar um Azure Data Box Disk. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Inscrever-se no Data Box Disk
 > * Solicitar um Data Box Disk
 > * Acompanhar o pedido
 > * Cancelar o pedido
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-> [!IMPORTANT]
-> - O Data Box Disk está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
-> - Durante a versão prévia, o Data Box Disk pode ser enviado para os clientes nos EUA, na Europa Setentrional e na Europa Ocidental e Oriental, no Canadá e na Austrália. Para saber mais, acesse [Disponibilidade por região](data-box-disk-overview.md#region-availability).
+Antes de implantar, preencha os seguintes pré-requisitos de configuração para o serviço do Data Box e o Data Box Disk.
 
-## <a name="sign-up"></a>Inscrição
+### <a name="for-service"></a>Para o serviço
 
-O Data Box Disk está em versão prévia e você precisa se inscrever no serviço. Execute as etapas a seguir para se inscrever no serviço do Data Box:
+Antes de começar, verifique se:
+- Você tem sua conta de armazenamento do Microsoft Azure com credenciais de acesso.
+- Verifique se a assinatura usada para o serviço Data Box é de um dos seguintes tipos:
+    - Microsoft EA (Contrato Enterprise). Leia mais sobre [assinaturas de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - CSP (Provedor de Soluções na Nuvem). Saiba mais sobre o [programa do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+- Verifique se você tem acesso de proprietário ou colaborador na assinatura para criar um pedido do Data Box.
 
-1. Entre no portal do Azure em: [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
-2. Escolha a assinatura que você deseja habilitar para a versão prévia. Responda às perguntas sobre o tamanho dos dados, país de residência de dados, período de tempo e a frequência de transferência de dados. Clique em **Inscrever-me!**.
-3. Depois de se inscrever e estar habilitado para versão prévia, você pode solicitar um Data Box Disk.
+### <a name="for-device"></a>Para dispositivo
+
+Antes de começar, verifique se:
+- Você tem um computador cliente disponível do qual você pode copiar os dados. Computador cliente deve:
+    - Executar um [Sistema operacional com suporte](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Ter outro [software obrigatório](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado se for um cliente do Windows.  
 
 ## <a name="order-data-box-disk"></a>Solicitar Data Box Disk
 
@@ -97,7 +102,7 @@ Execute as etapas a seguir no [portal do Azure](https://aka.ms/azuredataboxfromd
  
 ## <a name="track-the-order"></a>Acompanhar o pedido
 
-Depois de fazer o pedido, você pode acompanhar o status do pedido no portal de visualização do Azure. Vá até seu pedido e depois até **Visão geral** para exibir o status. O portal mostra o trabalho sob o estado **Pedido**. 
+Depois de fazer o pedido, você pode acompanhar o status do pedido no portal do Azure. Vá até seu pedido e depois até **Visão geral** para exibir o status. O portal mostra o trabalho sob o estado **Pedido**. 
 
 ![Data Box Disk com o status de pedido](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -111,17 +116,15 @@ Quando a preparação de disco for concluída, o portal mostra o pedido no estad
 
 A Microsoft preparará e enviará seus discos por meio de uma operadora regional. Depois que os discos forem enviados, você receberá um número de acompanhamento. O portal mostra o pedido no estado **Despachado**.
 
-
-
 ## <a name="cancel-the-order"></a>Cancelar o pedido
 
-Para cancelar esse pedido, no portal de visualização do Azure, vá para **Visão geral** e clique em **Cancelar** na barra de comandos. 
+Para cancelar esse pedido, no portal do Azure, vá para **Visão geral** e clique em **Cancelar** na barra de comandos. 
 
 Só é possível fazer o cancelamento quando os discos forem solicitados e o pedido estiver sendo processado para remessa. Depois que o pedido for processado, não é mais possível cancelá-lo. 
 
 ![Cancelar o pedido](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-Para excluir um pedido cancelado, vá para **Visão geral** e clique em **Excluir** na barra de comandos. 
+Para excluir um pedido cancelado, vá para **Visão geral** e clique em **Excluir** na barra de comandos.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -129,7 +132,6 @@ Para excluir um pedido cancelado, vá para **Visão geral** e clique em **Exclui
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
-> * Inscrever-se no Data Box Disk
 > * Solicitar Data Box Disk
 > * Acompanhar o pedido
 > * Cancelar o pedido
@@ -137,6 +139,6 @@ Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 Avance para o próximo tutorial para saber como proteger seu Data Box Disk.
 
 > [!div class="nextstepaction"]
-> [Configure seu Disco do Azure Data Box](./data-box-disk-deploy-set-up.md)
+> [Configure seu Azure Data Box Disk](./data-box-disk-deploy-set-up.md)
 
 

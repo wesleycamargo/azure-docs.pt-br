@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 947e5d4004565fd10e81e703111daf26fce10368
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973512"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159002"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar recursos do Azure para recuperação de desastre de computadores locais
 
@@ -68,11 +68,12 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-1. No portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Backup e Site Recovery (OMS)**.
-2. Em **Nome**, digite um nome amigável para identificar o cofre. Para este conjunto de tutoriais estamos usando **ContosoVMVault**.
-3. Em **Grupo de recursos**, estamos usando **contosoRG**.
-4. Em **Localização**. Estamos usando **Europa Ocidental**.
-5. Para acessar rapidamente o cofre do painel, selecione **Fixar no painel** > **Criar**.
+1. No portal do Azure, clique em **+Criar um recurso** e pesquise por **Serviços de recuperação** no Marketplace.
+2. Clique em **Backup e Site Recovery (OMS)** e, na página Backup e Site Recovery, clique em **Criar**. 
+1. No **cofre dos Serviços de Recuperação** > **Nome**, insira um nome amigável para identificar o cofre. Para este conjunto de tutoriais estamos usando **ContosoVMVault**.
+2. No **Grupo de recursos**, selecione um grupo de recursos existente ou crie um. Para este tutorial, estamos usando **contosoRG**.
+3. Em **Local**, selecione a região na qual o cofre deve estar localizado. Estamos usando **Europa Ocidental**.
+4. Para acessar rapidamente o cofre do painel, selecione **Fixar no painel** > **Criar**.
 
    ![Criar um novo cofre](./media/tutorial-prepare-azure/new-vault-settings.png)
 

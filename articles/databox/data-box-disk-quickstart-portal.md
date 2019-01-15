@@ -6,26 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3b158e0743a811f0d8f478c15b64c2b8b99a748a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712255"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155993"
 ---
-# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implantar o Azure Data Box Disk usando o portal do Azure (visualização)
+# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Início Rápido: Implantar o Azure Data Box Disk usando o portal do Azure
 
 Este início rápido descreve como implantar o Azure Data Box Disk usando o portal do Azure. As etapas incluem como, rapidamente, criar um pedido, receber discos, descompactar, conectar e copiar dados para discos de modo que eles sejam carregados no Azure. 
 
-Para implantação passo a passo detalhada e instruções de acompanhamento, acesse [Tutorial: solicitar Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
+Para obter a implantação detalhada passo a passo e instruções de acompanhamento, acesse [Tutorial: Solicitar o Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-> [!IMPORTANT]
-> O Data Box Disk está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -123,4 +120,4 @@ Para limpar, você pode cancelar o pedido do Data Box e, em seguida, excluí-lo.
 Neste início rápido, você implantou o Azure Data Box Disk para ajudar a importar seus dados no Azure. Para saber mais sobre o gerenciamento de Azure Data Box Disk, avance para o tutorial a seguir: 
 
 > [!div class="nextstepaction"]
-> [Usar o portal do Azure para administrar o disco do Data Box](data-box-portal-ui-admin.md)
+> [Usar o portal do Azure para administrar o Data Box Disk](data-box-portal-ui-admin.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 515ab6a4ee832c702cfe19f2aca9022f208b409d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 15940d952dad62b3f71bfef6aa1cd8598d044605
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612781"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104719"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implantar modelos do Azure Resource Manager usando o portal do Azure
 
@@ -97,7 +97,7 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "location": {
@@ -145,9 +145,9 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
     - **Grupo de recursos**: dê um nome exclusivo ao grupo de recursos.
     - **Local**: selecione um local para o grupo de recursos.
     - **Local**: selecione um local para a conta de armazenamento.  Você pode usar o mesmo local do grupo de recursos.
-    - **Tipo de conta**: insira **Standard_LRS** para este início rápido.
-    - **Variante**: insira **StorageV2** para este início rápido.
-    - **Camada de acesso**: insira **Camada de acesso frequente** para este início rápido.
+    - **Tipo de conta**: Insira **Standard_LRS** para este início rápido.
+    - **Tipo**: Insira **StorageV2** para este início rápido.
+    - **Camada de acesso**: Insira **Quente** para este início rápido.
     - **Somente Tráfego HTTPS habilitado**.  Selecione **true** para este início rápido.
     - **Concordo com os termos e as condições declarados acima**: (selecionar)
 
@@ -164,7 +164,7 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 
     ![Grupo de recursos de implantação de modelos do Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 
-    Veja que a implantação foi bem-sucedida, e há apenas uma conta de armazenamento no grupo de recursos. O nome da conta de armazenamento é uma cadeia de caracteres exclusiva gerada pelo modelo. Para saber mais sobre como usar as contas de armazenamento do Azure, confira [Início Rápido: carregar, baixar e listar blobs usando o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+    Veja que a implantação foi bem-sucedida, e há apenas uma conta de armazenamento no grupo de recursos. O nome da conta de armazenamento é uma cadeia de caracteres exclusiva gerada pelo modelo. Para saber mais sobre como usar as contas de armazenamento do Azure, confira [Início rápido: carregar, baixar e listar blobs usando o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

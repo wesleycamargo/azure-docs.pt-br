@@ -15,16 +15,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/13/2018
 ms.author: jdial
-ms.openlocfilehash: af0affc549afd8b63fe0d566fac198de054554c1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a16feffea6ac64423398b995499f0e6a60182636
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528980"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039581"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Exemplos de modelo do Azure Resource Manager para rede virtual
 
 A tabela a seguir contém links para exemplos de modelos do Azure Resource Manager. Você pode implantar os modelos usando o [Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), a [CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure ou o Azure [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para aprender a criar seus próprios modelos, consulte [Criar seu primeiro modelo](../azure-resource-manager/resource-manager-create-first-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Entender a estrutura e a sintaxe de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Para obter a sintaxe JSON e as propriedades a serem usadas em modelos, confira [Tipos de recurso de Microsoft.Network](/azure/templates/microsoft.network/allversions).
 
 
 | | |

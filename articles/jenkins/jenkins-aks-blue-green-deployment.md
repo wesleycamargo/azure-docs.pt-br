@@ -3,17 +3,17 @@ title: Implantar no Azure Kubernetes Service (AKS) usando o Jenkins e o padrão 
 description: Saiba como implantar no Azure Kubernetes Service (AKS) usando o Jenkins e o padrão de implantação azul/verde.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, implantação azul verde, entrega contínua, cd
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387371"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073876"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implantar no Azure Kubernetes Service (AKS) usando o Jenkins e o padrão de implantação azul / verde
 
@@ -31,10 +31,10 @@ Neste tutorial, você aprenderá a executar as seguintes tarefas:
 > * Criar e executar um trabalho do Jenkins
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- [Conta do GitHub](https://github.com): é necessário uma conta do GitHub para clonar o repositório de exemplo.
-- [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): você usa o Azure CLI 2.0 para criar o cluster do Kubernetes.
-- [Chocolatey](https://chocolatey.org): Um gerenciador de pacotes que você usa para instalar o kubectl.
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): Uma interface de linha de comando que você usa para executar comandos em clusters do Kubernetes.
+- [Conta do GitHub](https://github.com): é necessário ter uma conta do GitHub para clonar o repositório de exemplo.
+- [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): a CLI do Azure 2.0 é usada para criar o cluster do Kubernetes.
+- [Chocolatey](https://chocolatey.org): um gerenciador de pacotes que você usa para instalar o kubectl.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): uma interface de linha de comando que você usa para executar comandos em clusters do Kubernetes.
 - [jq](https://stedolan.github.io/jq/download/): um processador JSON leve, de linha de comando.
 
 ## <a name="clone-the-sample-app-from-github"></a>Clonar o aplicativo de exemplo do GitHub
@@ -259,7 +259,7 @@ Nesta seção, você verá como preparar o servidor Jenkins para executar uma co
 
 ## <a name="run-the-job"></a>Executar o trabalho
 
-1. Verifique se é possível executar o projeto com êxito no ambiente local. Aqui está como: [executar o projeto no computador local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Verifique se é possível executar o projeto com êxito no ambiente local. Faça assim: [Executar o projeto no computador local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Execute o trabalho do Jenkins. Na primeira vez que você executar o trabalho, o Jenkins implanta o aplicativo todo no ambiente azul, que é o ambiente inativos do padrão. 
 

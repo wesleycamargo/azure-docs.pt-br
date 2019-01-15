@@ -9,17 +9,16 @@ ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 80a740e13f5c3a13b7533d75e386a9afa2855085
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c96899fc46cd9cf6377894de773785dac14f3345
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002239"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121559"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o Cofre da Chave do Azure?
 
@@ -70,7 +69,7 @@ Ao armazenar dados valiosos, é necessário executar várias etapas. As informa�
 - Fornecendo opções de administração do Azure padrão por meio do portal, da CLI do Azure e do PowerShell.
 - Automatizando algumas tarefas em certificados que você compra de autoridades de certificação pública, como registro e renovação.
 
-Além disso, os Azure Key Vaults permitem que você separe os segredos do aplicativo. Os aplicativos podem acessar apenas o cofre que eles têm permissão para acessar, e ficam limitados a executar operações específicas. Você pode criar um Azure Key Vault por aplicativo e restringir os segredos armazenados em um Key Vault para um aplicativo e uma equipe de desenvolvedores específicos.
+Além disso, os Azure Key Vaults permitem que você separe os segredos do aplicativo. Os aplicativos podem acessar apenas o cofre que eles têm permissão para acessar e podem estar limitados a executar operações específicas. Você pode criar um Azure Key Vault por aplicativo e restringir os segredos armazenados em um Key Vault para um aplicativo e uma equipe de desenvolvedores específicos.
 
 ### <a name="integrate-with-other-azure-services"></a>Integração com outros serviços do Azure
 

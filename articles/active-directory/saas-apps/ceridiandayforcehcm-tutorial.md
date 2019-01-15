@@ -1,296 +1,245 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Ceridian Dayforce HCM | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Ceridian Dayforce HCM | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Ceridian Dayforce HCM.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 7adf1eb3-d063-45d6-96a8-fd53b329b3f3
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/19/2017
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 6577955b275adfda3f0cfafe99a8f95efd16403c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 6272565d0c9a4167af229d91255e53a78fc3441d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714573"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065232"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Tutorial: integração do Azure Active Directory ao Ceridian Dayforce HCM
+# <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Tutorial: Integração do Azure Active Directory com o Ceridian Dayforce HCM
 
 Neste tutorial, você aprenderá a integrar o Ceridian Dayforce HCM ao Azure AD (Azure Active Directory).
-
 A integração do Ceridian Dayforce HCM ao Azure AD oferece os seguintes benefícios:
 
-- No Azure AD, é possível controlar quem tem acesso ao Ceridian Dayforce HCM.
-- Você pode permitir que seus usuários façam logon automaticamente no Ceridian Dayforce HCM (logon único) com suas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* No Azure AD, é possível controlar quem tem acesso ao Ceridian Dayforce HCM.
+* Você pode permitir que seus usuários façam logon automaticamente no Ceridian Dayforce HCM (logon único) com suas contas do Azure AD.
+* Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Ceridian Dayforce HCM, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
-- Uma assinatura Ceridian Dayforce HCM com logon único habilitado
-
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma assinatura do Ceridian Dayforce HCM habilitada para logon único
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adição do Ceridian Dayforce HCM a partir da galeria
-1. configurar e testar o logon único do AD do Azure
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+
+* O Ceridian Dayforce HCM é compatível com o SSO iniciado por **SP**
 
 ## <a name="adding-ceridian-dayforce-hcm-from-the-gallery"></a>Adição do Ceridian Dayforce HCM a partir da galeria
+
 Para configurar a integração do Ceridian Dayforce HCM ao Azure AD, você precisa adicionar o Ceridian Dayforce HCM à sua lista de aplicativos SaaS gerenciados desde a galeria.
 
 **Para adicionar o Ceridian Dayforce HCM a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
-    ![O botão Azure Active Directory][1]
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
-    
-1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-    ![O botão Novo aplicativo][3]
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-1. Na caixa de pesquisa, digite **Ceridian Dayforce HCM**, selecione **Ceridian Dayforce HCM** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
-    ![Ceridian Dayforce HCM na lista de resultados](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_addfromgallery.png)
+4. Na caixa de pesquisa, digite **Ceridian Dayforce HCM**, selecione **Ceridian Dayforce HCM** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+
+     ![Ceridian Dayforce HCM na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Ceridian Dayforce HCM com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Ceridian Dayforce HCM é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado do Ceridian Dayforce HCM.
-
-No Ceridian Dayforce HCM, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Ceridian Dayforce HCM com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Ceridian Dayforce HCM.
 
 Para configurar e testar o logon único do Azure AD com o Ceridian Dayforce HCM, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Criar um usuário de teste do Ceridian Dayforce HCM](#create-a-ceridian-dayforce-hcm-test-user)** – para ter um equivalente de Brenda Fernandes no Ceridian Dayforce HCM que esteja vinculado à sua representação no Azure AD.
-1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+2. **[Configurar o logon único do Ceridian Dayforce HCM](#configure-ceridian-dayforce-hcm-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Ceridian Dayforce HCM](#create-ceridian-dayforce-hcm-test-user)** – para ter um equivalente de Brenda Fernandes no Ceridian Dayforce HCM que esteja vinculado à sua representação no Azure AD.
+6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e configurará o logon único no aplicativo do Ceridian Dayforce HCM.
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-**Para configurar o logon único do Azure AD com o Ceridian Dayforce HCM, execute as seguintes etapas:**
+Para configurar o logon único do Azure AD com o Ceridian Dayforce HCM, execute as seguintes etapas:
 
-1. No portal do Azure, na página de integração de aplicativo do **Ceridian Dayforce HCM**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo do **Ceridian Dayforce HCM**, selecione **Logon único**.
 
-    ![Link Configurar logon único][4]
+    ![Link Configurar logon único](common/select-sso.png)
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
-    ![Caixa de diálogo Logon único](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_samlbase.png)
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
-1. Na seção **URLs e Domínio do Ceridian Dayforce HCM**, realize as seguintes etapas:
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-    ![Configurar o logon único](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_url.png)
-    
-    a. Na caixa de texto **URL de Entrada** , digite a URL usada pelos usuários para fazer logon em seu aplicativo do Ceridian Dayforce HCM.
-    
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+
+    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+
+    ![Informações de Domínio e URLs do HCM do Ceridian Dayforce HCM para logon único](common/sp-identifier-reply.png)
+
+     a. Na caixa de texto **URL de Entrada** , digite a URL usada pelos usuários para fazer logon em seu aplicativo do Ceridian Dayforce HCM.
+
     | Ambiente | URL |
     | :-- | :-- |
     | Para produção | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | Para teste | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
-    
+
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
-    
+
     | Ambiente | URL |
     | :-- | :-- |
     | Para produção | `https://ncpingfederate.dayforcehcm.com/sp` |
     | Para teste | `https://fs-test.dayforcehcm.com/sp` |
-    
+
     c. Na caixa de texto **URL de Resposta** , digite a URL usada pelo Azure AD para postar a resposta.
-    
+
     | Ambiente | URL |
     | :-- | :-- |
     | Para produção | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | Para teste | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
+
+    > [!NOTE]
+    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do Ceridian Dayforce HCM](https://www.ceridian.com/support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+
+5. O aplicativo Ceridian Dayforce HCM espera as declarações SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
+
+    ![image](common/edit-attribute.png)
+
+6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
     
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Ceridian Dayforce HCM](https://www.ceridian.com/support) para obter esses valores.
+    | NOME | Atributo de Origem|
+    | ---------| --------- |
+    | Nome  | user.extensionattribute2 |
 
-1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![O link de download do Certificado](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_certificate.png) 
+    ![image](common/new-save-attribute.png)
 
-1. Seu aplicativo Ceridian Dayforce HCM espera as declarações SAML em um formato específico. Trabalhe com a [equipe de suporte do Ceridian Dayforce HCM](https://www.ceridian.com/support) primeiro para verificar o identificador de usuário correto. A Microsoft recomenda usar o atributo **"name"** como identificador de usuário. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. A captura de tela a seguir mostra um exemplo disso.  
+    ![image](common/new-attribute-details.png)
 
-    ![Configurar o logon único](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
-
-1. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
-    
-    | Nome do atributo  | Valor do atributo |
-    | --------------- | -------------------- |    
-    | Nome  | user.extensionattribute2 |    
-
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
-
-    ![Configurar o logon único](./media/ceridiandayforcehcm-tutorial/tutorial_attribute_04.png)
-
-    ![Configurar o logon único](./media/ceridiandayforcehcm-tutorial/tutorial_attribute_05.png)
-    
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Na lista **Valor**, selecione o atributo de usuário que você deseja usar na implementação.
-    Por exemplo, se você quiser usar EmployeeID como identificador exclusivo de usuário e tiver armazenado o valor do atributo em ExtensionAttribute2, selecione **user.extensionattribute2**.
-    
-    d. Clique em **OK**.
+    c. Deixe o **Namespace** em branco.
 
-1. Clique no botão **Salvar** .
+    d. Escolha Origem como **Atributo**.
 
-    ![Botão Salvar em Configurar Logon Único](./media/ceridiandayforcehcm-tutorial/tutorial_general_400.png)
-    
-1. Na seção **Configuração do Ceridian Dayforce HCM**, clique em **Configurar Ceridian Dayforce HCM** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+    e. Na lista **Atributo de origem**, selecione o atributo de usuário que você deseja usar na sua implementação. Por exemplo, se você quiser usar EmployeeID como identificador exclusivo de usuário e tiver armazenado o valor do atributo em ExtensionAttribute2, selecione user.extensionattribute2.
 
-    ![Configuração do Ceridian Dayforce HCM](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_configure.png) 
+    f. Clique em **Ok**
 
-1. Para configurar o logon único no lado do **Ceridian Dayforce HCM**, é necessário enviar o **XML de Metadados** baixado e a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** para a [equipe de suporte do Ceridian Dayforce HCM](https://www.ceridian.com/support).
+    g. Clique em **Salvar**.
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Download** para baixar o **XML de metadados** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+
+    ![O link de download do Certificado](common/metadataxml.png)
+
+8. Na seção **Configurar o Ceridian Dayforce HCM**, copie as URLs apropriadas de acordo com suas necessidades.
+
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+
+     a. URL de logon
+
+    b. Identificador do Azure Ad
+
+    c. URL de logoff
+
+### <a name="configure-ceridian-dayforce-hcm-single-sign-on"></a>Configurar o logon único do Ceridian Dayforce HCM
+
+Para configurar o logon único no lado do **Ceridian Dayforce HCM**, é necessário enviar o **XML de Metadados** baixado e as URLs corretas copiadas do portal do Azure para a [equipe de suporte do Ceridian Dayforce HCM](https://www.ceridian.com/support). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-   ![Criar um usuário de teste do Azure AD][100]
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+2. Selecione **Novo usuário** na parte superior da tela.
 
-    ![O botão Azure Active Directory](./media/ceridiandayforcehcm-tutorial/create_aaduser_01.png)
+    ![Botão Novo usuário](common/new-user.png)
 
-1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+3. Nas Propriedades do usuário, execute as etapas a seguir.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/ceridiandayforcehcm-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo Usuário](common/user-properties.png)
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
+  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![O botão Adicionar](./media/ceridiandayforcehcm-tutorial/create_aaduser_03.png)
-
-1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
-
-    ![A caixa de diálogo Usuário](./media/ceridiandayforcehcm-tutorial/create_aaduser_04.png)
-
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
-
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
-
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
     d. Clique em **Criar**.
- 
-### <a name="create-a-ceridian-dayforce-hcm-test-user"></a>Criar um usuário de teste do Ceridian Dayforce HCM
-
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Ceridian Dayforce HCM. Trabalhe com a [equipe de suporte do Ceridian Dayforce HCM](https://www.ceridian.com/support) para adicionar os usuários à conta do aplicativo Ceridian Dayforce HCM. 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Ceridian Dayforce HCM.
-
-![Atribuir usuário][200] 
-
-**Para atribuir Brenda Fernandes ao Ceridian Dayforce HCM, execute as seguintes etapas:**
-
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
-
-    ![Atribuir usuário][201] 
-
-1. Na lista de aplicativos, escolha **Ceridian Dayforce HCM**.
-
-    ![Configurar o logon único](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png) 
-
-1. No menu à esquerda, clique em **usuários e grupos**.
-
-    ![Atribuir usuário][202] 
-
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir usuário][203]
-
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
-
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
-
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Ceridian Dayforce HCM.
 
-![Atribuir a função de usuário][200] 
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Ceridian Dayforce HCM**.
 
-**Para atribuir Brenda Fernandes ao Ceridian Dayforce HCM, execute as seguintes etapas:**
+    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+2. Na lista de aplicativos, escolha **Ceridian Dayforce HCM**.
 
-    ![Atribuir usuário][201] 
+    ![O link Ceridian Dayforce HCM na lista Aplicativos](common/all-applications.png)
 
-1. Na lista de aplicativos, escolha **Ceridian Dayforce HCM**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
-    ![O link Ceridian Dayforce HCM na lista Aplicativos](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png)  
+    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **usuários e grupos**.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link “Usuários e grupos”][202]
+    ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-    ![O painel Adicionar Atribuição][203]
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+### <a name="create-ceridian-dayforce-hcm-test-user"></a>Criar um usuário de teste do Ceridian Dayforce HCM
 
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar logon único
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Ceridian Dayforce HCM. Trabalhe com a  [equipe de suporte do Ceridian Dayforce HCM](https://www.ceridian.com/support) para adicionar os usuários à plataforma do Ceridian Dayforce HCM. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.  
-Ao clicar no bloco Ceridian Dayforce HCM no Painel de Acesso, você deve fazer logon automaticamente no aplicativo do Ceridian Dayforce HCM. 
+### <a name="test-single-sign-on"></a>Testar logon único 
+
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Ao clicar no bloco do Ceridian Dayforce HCM no Painel de Acesso, você deve fazer logon automaticamente no aplicativo do Ceridian Dayforce HCM para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/ceridiandayforcehcm-tutorial/tutorial_general_01.png
-[2]: ./media/ceridiandayforcehcm-tutorial/tutorial_general_02.png
-[3]: ./media/ceridiandayforcehcm-tutorial/tutorial_general_03.png
-[4]: ./media/ceridiandayforcehcm-tutorial/tutorial_general_04.png
-
-[100]: ./media/ceridiandayforcehcm-tutorial/tutorial_general_100.png
-
-[200]: ./media/ceridiandayforcehcm-tutorial/tutorial_general_200.png
-[201]: ./media/ceridiandayforcehcm-tutorial/tutorial_general_201.png
-[202]: ./media/ceridiandayforcehcm-tutorial/tutorial_general_202.png
-[203]: ./media/ceridiandayforcehcm-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

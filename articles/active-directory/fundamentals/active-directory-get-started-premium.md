@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fd5f9567c92201b4dfa08c74574df97fa8c91ae2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073985"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065555"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscreva-se nas edições do Azure Active Directory Premium
 Você pode comprar e associar as edições do Azure Active Directory (Azure AD) Premium à sua assinatura do Azure. Se você precisar criar uma nova assinatura do Azure, também precisará ativar seu plano de licenciamento e o acesso ao serviço do Azure AD.
@@ -39,7 +39,7 @@ Se você se inscrever usando sua assinatura do Azure com licenças do Azure AD p
 Como assinante do Azure ou do Office 365, você pode comprar as edições do Azure Active Directory Premium online. Para obter etapas detalhadas, confira [Como comprar o Azure Active Directory Premium ‒ clientes existentes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) ou [Como comprar o Azure Active Directory Premium ‒ novos clientes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
 
 ## <a name="sign-up-using-your-enterprise-mobility--security-licensing-plan"></a>Inscrever-se usando o plano de licenciamento Enterprise Mobility + Security
-O Enterprise Mobility + Security é um pacote composto do Azure AD Premium, da proteção de informações do Azure e do Microsoft Intune. Se você já tiver uma licença do EMS, poderá começar com o Azure AD usando uma destas opções de licenciamento:
+O Enterprise Mobility + Security é um pacote composto pelo Azure AD Premium, pela Proteção de Informações do Azure e pelo Microsoft Intune. Se você já tiver uma licença do EMS, poderá começar com o Azure AD usando uma destas opções de licenciamento:
 
 Para obter mais informações sobre o EMS, veja o site [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security).
 
@@ -66,7 +66,7 @@ Se você se inscreveu usando um novo plano de licença do Azure AD, ative-o para
    
     ![Entrar](media/active-directory-get-started-premium/MOLSEmail.png)
 
-    - **Entrar.** Escolha este link se você tiver um locatário existente e entre usando sua conta de administrador existente. Você deve ser um administrador global no locatário em que as licenças estão sendo ativadas.
+    - **Entrar.** Escolha este link se você tiver um locatário existente e entre usando sua conta de administrador existente. Você precisa ser um administrador global no locatário em que as licenças estão sendo ativadas.
 
     - **Criar conta.** Escolha este link se você quiser abrir a página **Criar Perfil da Conta** e criar um novo locatário do Azure AD para seu plano de licenciamento.
 

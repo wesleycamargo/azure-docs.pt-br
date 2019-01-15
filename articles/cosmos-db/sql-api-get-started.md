@@ -1,23 +1,21 @@
 ---
-title: 'Azure Cosmos DB: tutorial de introdução à API do SQL'
+title: 'O Azure Cosmos DB: Tutorial de introdução à API do SQL'
 description: Um tutorial que cria um banco de dados online e um aplicativo de console C# usando a API do SQL.
-keywords: tutorial do nosql, banco de dados online, aplicativo de console c#
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 100524eacb30f77e06204fb3b31e6477dd1320a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867522"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043440"
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: tutorial de introdução à API do SQL
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>O Azure Cosmos DB: Tutorial de introdução à API do SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -55,12 +53,12 @@ Agora vamos começar!
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Etapa 1: Criar uma conta de banco de dados do Azure Cosmos DB
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Etapa 1: Criar uma conta do Azure Cosmos DB
 Vamos criar uma conta do Azure Cosmos DB. Se você já tem uma conta que deseja usar, você pode pular para [Configurar sua solução do Visual Studio](#SetupVS). Se estiver usando o Emulador do Azure Cosmos DB, execute as etapas em [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e pule para [Configurar sua solução do Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Etapa 2: configurar a sua solução do Visual Studio
+## <a id="SetupVS"></a>Etapa 2: Configurar a solução do Visual Studio
 1. Abra o **Visual Studio 2017** em seu computador.
 2. No menu **Arquivo**, selecione **Novo** e depois **Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, selecione **Modelos** / **Visual C#** / **Aplicativo de Console**, nomeie o projeto e clique em **OK**.
@@ -156,7 +154,7 @@ Pressione **F5** para executar seu aplicativo. A saída da janela console exibe 
 
 Parabéns! Você se conectou a uma conta do Azure Cosmos DB. Agora, vamos conferir como trabalhar com recursos do Azure Cosmos DB.  
 
-## <a name="step-4-create-a-database"></a>Etapa 4: criar um banco de dados
+## <a name="step-4-create-a-database"></a>Etapa 4: Criar um banco de dados
 Antes de adicionar o código para criar um banco de dados, adicione um método auxiliar para gravar no console.
 
 Copie e cole o método **WriteToConsoleAndPromptToContinue** após o método **GetStartedDemo**.
@@ -423,7 +421,7 @@ O diagrama a seguir ilustra como a sintaxe da consulta SQL do Azure Cosmos DB é
 
 A palavra-chave [FROM](how-to-sql-query.md#FromClause) é opcional na consulta, pois as consultas do Azure Cosmos DB já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Azure Cosmos DB inferirá que Famílias, raiz ou o nome de variável escolhido faz referência à coleção atual por padrão.
 
-## <a id="ReplaceDocument"></a>Etapa 8: substituir o documento JSON
+## <a id="ReplaceDocument"></a>Etapa 8: Substituir o documento JSON
 O Azure Cosmos DB dá suporte à substituição de documentos JSON.  
 
 Copie e cole o método **ReplaceFamilyDocument** após o método **ExecuteSimpleQuery**.
@@ -453,7 +451,7 @@ Pressione **F5** para executar seu aplicativo.
 
 Parabéns! Você substituiu um documento do Azure Cosmos DB com sucesso.
 
-## <a id="DeleteDocument"></a>Etapa 9: excluir o documento JSON
+## <a id="DeleteDocument"></a>Etapa 9: Excluir o documento JSON
 O Azure Cosmos DB dá suporte à exclusão de documentos JSON.  
 
 Copie e cole o método **DeleteFamilyDocument** após o método **ReplaceFamilyDocument**.
@@ -478,7 +476,7 @@ Pressione **F5** para executar seu aplicativo.
 
 Parabéns! Você excluiu um documento do Azure Cosmos DB com êxito.
 
-## <a id="DeleteDatabase"></a>Etapa 10: excluir o banco de dados
+## <a id="DeleteDatabase"></a>Etapa 10: Excluir o banco de dados
 Excluir o banco de dados criado removerá o banco de dados e todos os recursos filhos (coleções, documentos, etc.).
 
 Copie e cole o código a seguir de seu método **GetStartedDemo** após a exclusão de documento para excluir o banco de dados inteiro e todos os recursos-filhos.
@@ -495,7 +493,7 @@ Pressione **F5** para executar seu aplicativo.
 
 Parabéns! Você excluiu um banco de dados do Azure Cosmos DB com êxito.
 
-## <a id="Run"></a>Etapa 11: executar o aplicativo de console C# inteiro!
+## <a id="Run"></a>Etapa 11: Executar o aplicativo de console C# inteiro!
 Pressione F5 no Visual Studio para compilar o aplicativo no modo de depuração.
 
 Você deverá ver a saída do aplicativo iniciado em uma janela do console. A saída mostrará os resultados das consultas que adicionamos e deverá coincidir com o texto de exemplo abaixo.
@@ -538,7 +536,7 @@ Pronto, compile-o e você pode continuar!
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Quer um tutorial mais complexo do ASP.NET MVC? Confira [Tutorial do ASP.NET MVC: desenvolvimento de aplicativo Web com o Azure Cosmos DB](sql-api-dotnet-application.md).
+* Quer um tutorial mais complexo do ASP.NET MVC? Confira o [Tutorial do ASP.NET MVC: Desenvolvimento de aplicativo Web com o Azure Cosmos DB](sql-api-dotnet-application.md).
 * Quer executar testes de desempenho e escala com o Azure Cosmos DB? Confira [Teste de desempenho e escala com o Azure Cosmos DB](performance-testing.md)
 * Saiba como [monitorar solicitações, o uso e o armazenamento do Azure Cosmos DB](monitor-accounts.md).
 * Executar consultas em nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).

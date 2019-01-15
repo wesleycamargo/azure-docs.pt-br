@@ -1,44 +1,45 @@
 ---
 title: Criar um trabalho do Stream Analytics usando o Azure PowerShell
-description: Este início rápido demonstra em detalhes como usar o módulo do Azure PowerShell para implantar e executar um trabalho do Azure Stream Analytics.
+description: Este início rápido demonstra como usar o módulo do Azure PowerShell para implantar e executar um trabalho do Azure Stream Analytics.
 services: stream-analytics
-author: sidramadoss
-ms.author: sidram
-ms.date: 05/14/2018
+author: mamccrea
+ms.author: mamccrea
+ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: 126677df01ad34d488863dd83e2f8c9a2d947824
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 42cca961d58b9fd58e8a9c1b2fc2ddc369deb6d0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958883"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017186"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Início Rápido: criar um trabalho do Stream Analytics usando o Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Início Rápido: Criar um trabalho do Stream Analytics usando o Azure PowerShell
 
-O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure usando cmdlets ou scripts do PowerShell. Este início rápido demonstra em detalhes como usar o módulo do Azure PowerShell para implantar e executar um trabalho do Azure Stream Analytics. 
- 
-O trabalho de exemplo lê dados de streaming de um blob no armazenamento de blobs do Azure. O arquivo de dados de entrada usado neste guia de início rápido contém dados estáticos apenas para fins ilustrativos. Em um cenário do mundo real, você usa o fluxo de dados de entrada para um trabalho do Stream Analytics. Em seguida, o trabalho transforma os dados usando a linguagem de consulta do Stream Analytics para calcular a média de temperatura quando acima de 100 °. Finalmente, ele grava os eventos de saída resultantes em outro arquivo. 
+O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure usando scripts ou cmdlets do PowerShell. Este início rápido demonstra em detalhes como usar o módulo do Azure PowerShell para implantar e executar um trabalho do Azure Stream Analytics. 
+
+O trabalho de exemplo lê dados de streaming de um dispositivo Hub IoT. Os dados de entrada são gerados por um simulador online do Raspberry Pi. Em seguida, o trabalho do Stream Analytics transforma os dados usando a linguagem de consulta do Stream Analytics para filtrar mensagens com uma temperatura superior a 27°. Por fim, ele grava os eventos de saída resultantes em um arquivo no armazenamento de blobs. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)  
 
-* Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão que está instalada em seu computador local. Se você precisar instalá-lo ou atualizá-lo, confira o artigo [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 
+* Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão que está instalada em seu computador local. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+* Algumas ações do Hub IoT não são compatíveis com o Azure PowerShell e precisam ser concluídas por meio da CLI do Azure versão 2.0.24 ou posterior e da extensão de IoT para a CLI do Azure. [Instale a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e use `az extension add --name azure-cli-iot-ext` para instalar a extensão de IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e insira suas credenciais do Azure no navegador pop-up:
+Entre em sua assinatura do Azure com o comando `Connect-AzureRmAccount` e insira suas credenciais do Azure no navegador pop-up:
 
 ```powershell
-# Log in to your Azure account
+# Connect to your Azure account
 Connect-AzureRmAccount
 ```
 
-Depois de entrar, se você tiver várias assinaturas, selecione a que deseja usar para este início rápido executando os cmdlets a seguir. Substitua <your subscription name> pelo nome da sua assinatura:  
+Caso tenha mais de uma assinatura, selecione a assinatura que deseja usar para este início rápido executando os cmdlets a seguir. Substitua `<your subscription name>` pelo nome da sua assinatura:  
 
 ```powershell
 # List all available subscriptions.
@@ -64,20 +65,62 @@ New-AzureRmResourceGroup `
 
 Antes de definir o trabalho do Stream Analytics, prepare os dados que estão configurados como entrada do trabalho.
 
-1. Baixe os [dados de exemplo do sensor](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) do GitHub. Clique no link com o botão direito do mouse para **Salvar Link Como...** ou **Salvar destino como**.
+O bloco de código da CLI do Azure a seguir executa muitos comandos para preparar os dados de entrada necessários para o trabalho. Examine as seções para entender o código.
 
-2. O bloco de código do PowerShell a seguir usa vários comandos para preparar os dados de entrada exigidos pelo trabalho. Examine as seções para entender o código. 
+1. Na janela do PowerShell, execute o comando [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) para entrar em sua conta do Azure. 
 
-   1. Crie uma conta de armazenamento padrão de uso geral usando o cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount).  Esse exemplo cria uma conta de armazenamento chamada mystorageaccount com LRS (armazenamento com redundância local) e criptografia de blob (habilitada por padrão).  
+   Quando você entrar com êxito, a CLI do Azure retornará uma lista de suas assinaturas. Copie a assinatura que está você está usando para este início rápido e execute o comando [az account set](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) para selecionar essa assinatura. Escolha a mesma assinatura selecionada na seção anterior com o PowerShell. Substitua `<your subscription name>` pelo nome de sua assinatura.
 
-   2. Recupere o contexto da conta de armazenamento `$storageAccount.Context` que define a conta de armazenamento a ser usada. Ao trabalhar com contas de armazenamento, referencie o contexto em vez de fornecer as credenciais repetidamente. 
+   ```azurecli
+   az login
+   
+   az account set --subscription "<your subscription>"
+   ```
 
-   3. Crie um contêiner de armazenamento usando [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer)e carregue os [dados de exemplo do sensor](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) baixados anteriormente. 
+2. Crie um Hub IoT usando o comando [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). Este exemplo cria um Hub IoT chamado **MyASAIoTHub**. Como os nomes do Hub IoT são exclusivos, você precisa inventar seu próprio nome do Hub IoT. Defina o SKU como F1 para usar a camada gratuita se ela estiver disponível com sua assinatura. Caso contrário, escolha a próxima camada mais baixa.
 
-   4. Copie a chave de armazenamento que é enviada pelo código e cole-a nos arquivos JSON para criar a entrada e as saídas do trabalho de streaming posteriormente.
+   ```azurecli
+   az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
+   ```
+
+   Quando o hub IoT for criado, obtenha a cadeia de conexão do Hub IoT usando o comando [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest). Copie a cadeia de conexão inteira e salve-a para quando você adicionar o Hub IoT como entrada para o trabalho do Stream Analytics.
+   
+   ```azurecli
+   az iot hub show-connection-string --hub-name "MyASAIoTHub"
+   ```
+
+3. Adicione um dispositivo ao Hub IoT usando o comando [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Este exemplo cria um dispositivo chamado **MyASAIoTDevice**.
+
+   ```azurecli
+   az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
+   ```
+
+4. Obtenha a cadeia de conexão do dispositivo usando o comando [az iot hub device-identity show-connection-string](). Copie a cadeia de conexão inteira e salve-a para quando você criar o simulador do Raspberry Pi.
+
+   ```azurecli
+   az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
+   ```
+
+   **Exemplo de saída:**
+
+   ```azurecli
+   HostName=MyASAIoTHub.azure-devices.net;DeviceId=MyASAIoTDevice;SharedAccessKey=a2mnUsg52+NIgYudxYYUNXI67r0JmNubmfVafojG8=
+   ```
+
+## <a name="create-blob-storage"></a>Criar o armazenamento de blobs
+
+O bloco de código do Azure PowerShell a seguir usa comandos para criar o armazenamento de blobs usado para a saída de trabalho. Examine as seções para entender o código.
+
+1. Crie uma conta de armazenamento padrão de uso geral usando o cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount).  Este exemplo cria uma conta de armazenamento chamada **myasaquickstartstorage** com LRS (armazenamento com redundância local) e criptografia de blob (habilitada por padrão).  
+   
+2. Recupere o contexto da conta de armazenamento `$storageAccount.Context` que define a conta de armazenamento a ser usada. Ao trabalhar com contas de armazenamento, referencie o contexto em vez de fornecer as credenciais repetidamente. 
+
+3. Crie um contêiner de armazenamento usando [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer).
+
+4. Copie a chave de armazenamento gerada pelo código e salve essa chave para criar a saída do trabalho de streaming mais tarde.
 
    ```powershell
-   $storageAccountName = "mystorageaccount"
+   $storageAccountName = "myasaquickstartstorage"
    $storageAccount = New-AzureRmStorageAccount `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName `
@@ -86,29 +129,23 @@ Antes de definir o trabalho do Stream Analytics, prepare os dados que estão con
      -Kind Storage
    
    $ctx = $storageAccount.Context
-   $containerName = "streamanalytics"
+   $containerName = "container1"
    
    New-AzureStorageContainer `
      -Name $containerName `
      -Context $ctx
    
-   Set-AzureStorageBlobContent `
-     -File "c:\HelloWorldASA-InputStream.json" `
-     -Blob "input/HelloWorldASA-InputStream.json" `
-     -Container $containerName `
-     -Context $ctx  
-   
    $storageAccountKey = (Get-AzureRmStorageAccountKey `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName).Value[0]
    
-   Write-Host "The <storage account key> placeholder needs to be replaced in your input and output json files with this key value:" 
+   Write-Host "The <storage account key> placeholder needs to be replaced in your output json files with this key value:" 
    Write-Host $storageAccountKey -ForegroundColor Cyan
    ```
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
 
-Crie um trabalho do Stream Analytics com o cmdlet [New-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0). Esse cmdlet usa o nome do trabalho, o nome do grupo de recursos e a definição de trabalho como parâmetros. O nome do trabalho pode ser qualquer nome amigável que identifique o trabalho. Ele só pode conter caracteres alfanuméricos, hifens e sublinhados e deve ter entre 3 e 63 caracteres. A definição de trabalho é um arquivo JSON que contém as propriedades necessárias para se criar um trabalho. Em seu computador local, crie um arquivo chamado `JobDefinition.json` e adicione os seguintes dados JSON a ele:
+Crie um trabalho do Stream Analytics com o cmdlet [New-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0). Esse cmdlet usa o nome do trabalho, o nome do grupo de recursos e a definição de trabalho como parâmetros. O nome do trabalho pode ser qualquer nome amigável que identifique o trabalho. Ele só pode ter caracteres alfanuméricos, hifens e sublinhados e precisa ter entre 3 e 63 caracteres. A definição de trabalho é um arquivo JSON que contém as propriedades necessárias para se criar um trabalho. Em seu computador local, crie um arquivo chamado `JobDefinition.json` e adicione os seguintes dados JSON a ele:
 
 ```json
 {    
@@ -124,7 +161,7 @@ Crie um trabalho do Stream Analytics com o cmdlet [New-AzureRmStreamAnalyticsJob
 }
 ```
 
-Em seguida, execute o cmdlet `New-AzureRmStreamAnalyticsJob`. Substitua o valor da variável `jobDefinitionFile` pelo caminho em que você armazenou o arquivo JSON. 
+Em seguida, execute o cmdlet `New-AzureRmStreamAnalyticsJob`. Substitua o valor da variável `jobDefinitionFile` pelo caminho no qual você armazenou o arquivo JSON da definição de trabalho. 
 
 ```powershell
 $jobName = "MyStreamingJob"
@@ -140,25 +177,24 @@ New-AzureRmStreamAnalyticsJob `
 
 Adicione uma entrada para seu trabalho usando o cmdlet [New-AzureRmStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0). Esse cmdlet usa o nome do trabalho, o nome de entrada do trabalho, o nome do grupo de recursos e a definição da entrada do trabalho como parâmetros. A definição de entrada do trabalho é um arquivo JSON que contém as propriedades necessárias para configurar a entrada do trabalho. Neste exemplo, você criará um armazenamento de blobs como uma entrada. 
 
-Em seu computador local, crie um arquivo chamado `JobInputDefinition.json` e adicione os seguintes dados JSON a ele. Substitua o valor de `accountKey` pela chave de acesso da sua conta de armazenamento, que é o valor armazenado em $storageAccountKey. 
+Em seu computador local, crie um arquivo chamado `JobInputDefinition.json` e adicione os seguintes dados JSON a ele. Substitua o valor de `accesspolicykey` pela parte `SharedAccessKey` da cadeia de conexão do Hub IoT salva em uma seção anterior.
 
 ```json
 {
     "properties": {
         "type": "Stream",
         "datasource": {
-            "type": "Microsoft.Storage/Blob",
+            "type": "Microsoft.Devices/IotHubs",
             "properties": {
-                "storageAccounts": [
-                {
-                   "accountName": "mystorageaccount",
-                   "accountKey":"<storage account key>"
-                }],
-                "container": "streamanalytics",
-                "pathPattern": "input/",
-                "dateFormat": "yyyy/MM/dd",
-                "timeFormat": "HH"
-            }
+                "iotHubNamespace": "MyASAIoTHub",
+                "sharedAccessPolicyName": "iothubowner",
+                "sharedAccessPolicyKey": "accesspolicykey",
+                "endpoint": "messages/events",
+                "consumerGroupName": "$Default"
+                }
+        },
+        "compression": {
+            "type": "None"
         },
         "serialization": {
             "type": "Json",
@@ -167,15 +203,15 @@ Em seu computador local, crie um arquivo chamado `JobInputDefinition.json` e adi
             }
         }
     },
-    "name": "MyBlobInput",
+    "name": "IoTHubInput",
     "type": "Microsoft.StreamAnalytics/streamingjobs/inputs"
 }
 ```
 
-Em seguida, execute o cmdlet `New-AzureRmStreamAnalyticsInput`; substitua o valor da variável `jobDefinitionFile` pelo caminho em que você armazenou o arquivo JSON de definição de entrada do trabalho. 
+Em seguida, execute o cmdlet `New-AzureRmStreamAnalyticsInput`; substitua o valor da variável `jobDefinitionFile` pelo caminho no qual você armazenou o arquivo JSON da definição de entrada de trabalho. 
 
 ```powershell
-$jobInputName = "MyBlobInput"
+$jobInputName = "IoTHubInput"
 $jobInputDefinitionFile = "C:\JobInputDefinition.json"
 New-AzureRmStreamAnalyticsInput `
   -ResourceGroupName $resourceGroup `
@@ -198,10 +234,10 @@ Em seu computador local, crie um arquivo chamado `JobOutputDefinition.json` e ad
             "properties": {
                 "storageAccounts": [
                     {
-                      "accountName": "mystorageaccount",
+                      "accountName": "asaquickstartstorage",
                       "accountKey": "<storage account key>"
                     }],
-                "container": "streamanalytics",
+                "container": "container1",
                 "pathPattern": "output/",
                 "dateFormat": "yyyy/MM/dd",
                 "timeFormat": "HH"
@@ -215,7 +251,7 @@ Em seu computador local, crie um arquivo chamado `JobOutputDefinition.json` e ad
             }
         }
     },
-    "name": "MyBlobOutput",
+    "name": "BlobOutput",
     "type": "Microsoft.StreamAnalytics/streamingjobs/outputs"
 }
 ```
@@ -223,7 +259,7 @@ Em seu computador local, crie um arquivo chamado `JobOutputDefinition.json` e ad
 Em seguida, execute o cmdlet `New-AzureRmStreamAnalyticsOutput`. Substitua o valor da variável `jobOutputDefinitionFile` pelo caminho em que você armazenou o arquivo JSON de definição da saída do trabalho. 
 
 ```powershell
-$jobOutputName = "MyBlobOutput"
+$jobOutputName = "BlobOutput"
 $jobOutputDefinitionFile = "C:\JobOutputDefinition.json"
 New-AzureRmStreamAnalyticsOutput `
   -ResourceGroupName $resourceGroup `
@@ -243,12 +279,12 @@ Adicione uma transformação ao trabalho usando o cmdlet [New-AzureRmStreamAnaly
    "properties":{    
       "streamingUnits":1,  
       "script":null,  
-      "query":" SELECT System.Timestamp AS OutputTime, dspl AS SensorName, Avg(temp) AS AvgTemperature INTO MyBlobOutput FROM MyBlobInput TIMESTAMP BY time GROUP BY TumblingWindow(second,30),dspl HAVING Avg(temp)>100"  
+      "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"  
    }  
 }
 ```
 
-Em seguida, execute o cmdlet `New-AzureRmStreamAnalyticsTransformation`. Substitua o valor da variável `jobTransformationDefinitionFile` pelo caminho em que você armazenou o arquivo JSON de definição da transformação do trabalho. 
+Em seguida, execute o cmdlet `New-AzureRmStreamAnalyticsTransformation`. Substitua o valor da variável `jobTransformationDefinitionFile` pelo caminho no qual você armazenou o arquivo JSON da definição de transformação do trabalho. 
 
 ```powershell
 $jobTransformationName = "MyJobTransformation"
@@ -259,24 +295,32 @@ New-AzureRmStreamAnalyticsTransformation `
   -File $jobTransformationDefinitionFile `
   -Name $jobTransformationName -Force
 ```
+## <a name="run-the-iot-simulator"></a>Executar o simulador de IoT
+
+1. Abra o [Simulador Online de IoT do Azure do Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/).
+
+2. Substitua o espaço reservado na Linha 15 pela cadeia de conexão inteira do Dispositivo Hub IoT do Azure salva em uma seção anterior.
+
+3. Clique em **Executar**. A saída deve exibir os dados de sensor e as mensagens que estão sendo enviadas ao Hub IoT.
+
+   ![Simulador online de IoT do Azure do Raspberry Pi](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Iniciar o trabalho do Stream Analytics e verificar a saída
 
-Inicie o trabalho usando o cmdlet [Start-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0). Esse cmdlet usa o nome do trabalho, o nome do grupo de recursos, o modo inicial de saída e a hora de início como parâmetros. `OutputStartMode` aceita valores de `JobStartTime`, `CustomTime` ou `LastOutputEventTime`. Para saber mais sobre o que cada um desses valores referencia, confira a seção [Parâmetros](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) na documentação do PowerShell. Neste exemplo, especifique o modo como `CustomTime` e forneça um valor para `OutputStartTime`. 
+Inicie o trabalho usando o cmdlet [Start-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0). Esse cmdlet usa o nome do trabalho, o nome do grupo de recursos, o modo inicial de saída e a hora de início como parâmetros. `OutputStartMode` aceita valores de `JobStartTime`, `CustomTime` ou `LastOutputEventTime`. Para saber mais sobre o que cada um desses valores referencia, confira a seção [Parâmetros](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) na documentação do PowerShell. 
 
-Para o valor de tempo, selecione `2018-01-01`. A data de início é escolhida porque ela precede o carimbo de hora do evento dos dados de exemplo. Depois de executar o cmdlet a seguir, ele retornará `True` como saída se o trabalho for iniciado. No contêiner de armazenamento, uma pasta de saída é criada com os dados transformados. 
+Depois de executar o cmdlet a seguir, ele retornará `True` como saída se o trabalho for iniciado. No contêiner de armazenamento, uma pasta de saída é criada com os dados transformados. 
 
 ```powershell
 Start-AzureRmStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -Name $jobName `
-  -OutputStartMode CustomTime `
-  -OutputStartTime 2018-01-01T00:00:00Z 
+  -OutputStartMode 'JobStartTime'
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você estiver planejando usar o trabalho no futuro, ignore a exclusão e pare o trabalho agora. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido executando o cmdlet a seguir:
+Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você estiver planejando usar o trabalho no futuro, ignore a exclusão e pare o trabalho agora. Se você não pretende continuar usando esse trabalho, exclua todos os recursos criados por este início rápido executando o seguinte cmdlet:
 
 ```powershell
 Remove-AzureRmResourceGroup `
