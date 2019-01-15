@@ -21,7 +21,7 @@ ms.lasthandoff: 11/19/2018
 ms.locfileid: "51976546"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados ODBC usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-odbc-connector.md)
 > * [Versão atual](connector-odbc.md)
 
