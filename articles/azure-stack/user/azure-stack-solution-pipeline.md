@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 49f1d7e1fac1125984f7376cffdcaf2e60f5611b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247870"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263213"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implantar aplicativos no Azure Stack e no Azure
 
@@ -288,8 +288,8 @@ Você pode criar uma conexão de serviço usando o seguinte mapeamento:
 | Nível de escopo | Assinatura | O escopo do que a conexão. |
 | ID da assinatura | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de assinatura de usuário do Azure Stack |
 | Nome da assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
-| ID do cliente de entidade de serviço | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | A ID da entidade de [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) seção neste artigo. |
-| Chave da entidade de serviço | THESCRETGOESHERE = | A chave do mesmo artigo (ou a senha, se você usou o script). |
+| ID do cliente de entidade de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | A ID da entidade de [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) seção neste artigo. |
+| Chave da entidade de serviço | THESCRETGOESHERE= | A chave do mesmo artigo (ou a senha, se você usou o script). |
 | ID do locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Conexão: | Não verificado | Valide suas configurações de conexão para a entidade de serviço. |
 
@@ -307,13 +307,13 @@ Você pode criar uma conexão de serviço usando o seguinte mapeamento:
 
 | NOME | Exemplo | DESCRIÇÃO |
 | --- | --- | --- |
-| Nome da conexão | O Azure Stack ADFS | O nome da conexão. |
+| Nome da conexão | Azure Stack ADFS | O nome da conexão. |
 | Ambiente | AzureStack | O nome do seu ambiente. |
 | URL de ambiente | `https://management.local.azurestack.external` | O ponto de extremidade de gerenciamento. |
 | Nível de escopo | Assinatura | O escopo do que a conexão. |
 | ID da assinatura | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de assinatura de usuário do Azure Stack |
 | Nome da assinatura | name@contoso.com | Nome da assinatura de usuário do Azure Stack. |
-| ID do cliente de entidade de serviço | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | A ID do cliente da entidade de serviço que você criou para o AD FS. |
+| ID do cliente de entidade de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | A ID do cliente da entidade de serviço que você criou para o AD FS. |
 | Certificado | `<certificate>` |  Converta o arquivo de certificado de PFX para PEM. Cole o conteúdo do arquivo do certificado PEM neste campo. <br> Convertendo de PFX para PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
 | ID do locatário | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A ID do locatário recuperar seguindo as instruções em [obter a ID do locatário](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Conexão: | Não verificado | Valide suas configurações de conexão para a entidade de serviço. |
@@ -360,7 +360,7 @@ CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutu
 
 1. Entrar nos serviços de DevOps do Azure com uma organização que pode criar um pipeline de compilação.
 
-2. Navegue até a **Build Web Applicaiton** página para o projeto.
+2. Navegue até a **compilar o aplicativo de Web** página para o projeto.
 
 3. Na **argumentos**, adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
 

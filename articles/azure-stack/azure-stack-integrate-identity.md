@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188889"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263776"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
 Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
@@ -171,7 +171,7 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
 |Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do provedor de declarações. Ele aparece dessa forma, na página de aterrissagem do AD FS.|Contoso|
-|CustomADFSFederationMetadataFileContent|Conteúdo de metadados|$using: federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|Conteúdo de metadados|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Criar arquivo de metadados de Federação
 
@@ -319,7 +319,7 @@ Se ocorrer um erro que deixa o ambiente em um estado em que você não poderá m
 2. Em seguida, execute o seguinte cmdlet:
 
    ```PowerShell  
-   Reset-DatacenterIntegationConfiguration
+   Reset-DatacenterIntegrationConfiguration
    ```
 
    Depois de executar a ação de reversão, todas as alterações de configuração são revertidas. Somente a autenticação com o interno **CloudAdmin** usuário é possível.

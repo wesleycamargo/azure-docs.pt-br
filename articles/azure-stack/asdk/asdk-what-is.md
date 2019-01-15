@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 345d62f4045e7b9279d52acf70cc340d088f5db0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d2e849b4a6101cd10ce17e52056efdfe2f903381
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961324"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267106"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>O que é o Kit de desenvolvimento do Azure Stack?
 [Sistemas integrados do Microsoft Azure Stack](../azure-stack-poc.md) variam de tamanho de 4 a 16 nós e são compatíveis em conjunto com um parceiro de hardware e a Microsoft. Use sistemas integrados do Azure Stack para habilitar novos cenários para suas cargas de trabalho de produção. Se você for um operador do Azure Stack que gerencia a infra-estrutura de sistemas integrados e oferece serviços, consulte nosso [documentação do operador](https://docs.microsoft.com/azure/azure-stack).
@@ -48,7 +48,7 @@ Implantações de ASDK de nó único diferem de implantações do Azure Stack co
 |DESCRIÇÃO|ASDK|Vários nó do Azure Stack|
 |-----|-----|-----|
 |**Escala**|Todos os componentes são instalados em um computador do servidor de nó único.|Pode variar em tamanho de 4 a 16 nós.|
-|**Resiliência**|Configuração de nó único não oferece alta disponibilidade|[Obter alta disponibilidade](../azure-stack-key-features.md#high-availability-for-azure-stack) recursos têm suporte.|
+|**Resiliência**|Configuração de nó único não oferece alta disponibilidade|[Alta disponibilidade](../azure-stack-key-features.md#high-availability-for-azure-stack) recursos têm suporte.|
 |**Rede**|O ASDK usa uma VM denominada AzS-BGPNAT01 para rotear todo o tráfego de rede ASDK. Não há requisitos adicionais de comutador.|A VM AzS-BGPNAT01 não existe em implantações de vários nós. Mais complexos [infraestrutura de roteamento de rede](../azure-stack-network.md#network-infrastructure) é necessário incluindo Top-Of-Rack (TOR), Baseboard Management Controller (BMC) e comutadores de borda (rede de datacenter).|
 |**Processo de patch e atualização**|Para mover para uma nova versão do ASDK, você deve reimplantar o ASDK no computador de host do kit de desenvolvimento.|[Aplicar patch e atualização](../azure-stack-updates.md) processo usado para atualizar a versão instalada do Azure Stack.|
 |**Suporte**|Fórum do MSDN do Azure Stack. Suporte de atendimento ao cliente Microsoft e suporte (CSS) está *não* disponíveis para ambientes de não produção.|[Fórum do MSDN do Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) e dar suporte a CSS completas.|

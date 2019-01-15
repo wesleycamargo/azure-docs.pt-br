@@ -16,12 +16,12 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037372"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263504"
 ---
 # <a name="redeploy-the-asdk"></a>Reimplantar o ASDK
 Neste artigo, você aprenderá como reimplantar o Azure Stack desenvolvimento ASDK (Kit) em um ambiente de não produção. Como atualizar o ASDK não tiver suporte, você precisará completamente reimplantá-lo para mover para uma versão mais recente. Também é possível reimplantar o ASDK a qualquer momento que você apenas deseja começar do zero.
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá como reimplantar o Azure Stack desenvolvimento AS
 ## <a name="remove-azure-registration"></a>Remover o registro do Azure 
 Se você registrou sua instalação ASDK anteriormente com o Azure, você deve remover o recurso de registro antes de reimplantar o ASDK. Registre novamente o ASDK para habilitar a disponibilidade dos itens no marketplace quando você reimplanta o ASDK. Se você não registrou anteriormente o ASDK com sua assinatura do Azure, você pode ignorar esta seção.
 
-Para remover o recurso de registro, use o **AzsRegistration remover** cmdlet para cancelar o registro do Azure Stack. Em seguida, use o **AzureRMRsourceGroup remover** cmdlet para excluir o grupo de recursos do Azure Stack de sua assinatura do Azure:
+Para remover o recurso de registro, use o **AzsRegistration remover** cmdlet para cancelar o registro do Azure Stack. Em seguida, use o **Remove-AzureRMResourceGroup** cmdlet para excluir o grupo de recursos do Azure Stack de sua assinatura do Azure:
 
 1. Abra um console do PowerShell como administrador em um computador que tem acesso ao ponto de extremidade com privilégios. Para ASDK, que é o computador de host do kit de desenvolvimento.
 

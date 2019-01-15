@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 6b73cf04d768381bcc0e27cc76b6c2a25d4d9a2c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341048"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265610"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetria de pilha do Azure
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Telemetria de pilha do Azure carrega automaticamente os dados do sistema para a Microsoft por meio da experiência do usuário conectado. As equipes da Microsoft usam os dados que coleta de telemetria do Azure Stack para aprimorar as experiências do cliente. Esses dados também são usados para análise de desempenho, integridade, qualidade e segurança.
 
@@ -33,7 +33,7 @@ Para um operador do Azure Stack, a telemetria pode fornecer informações valios
 > [!NOTE]
 > Você também pode configurar o Azure Stack para encaminhar informações de uso do Azure para cobrança. Isso é necessário para clientes com vários nós do Azure Stack que optam por pagamento-como-o uso cobrança. Relatório de uso é controlado independentemente da telemetria e não é necessário para os clientes de vários nós que escolher o modelo de capacidade ou para usuários do Kit de desenvolvimento do Azure Stack. Para esses cenários, o relatório de uso pode ser desativado [usando o script de registro](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
-Telemetria de pilha do Azure baseia-se o componente de telemetria e experiência de usuário conectado do Windows Server 2016, que usa o [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging tecnologia para coletar e armazenar dados e eventos. Componentes de pilha do Azure usam a mesma tecnologia para publicar eventos e dados coletados usando o log de eventos do sistema de operacional público e o rastreamento de APIs. Exemplos desses componentes do Azure Stack incluem esses provedores: recurso de rede, recurso de armazenamento, recursos de monitoramento e atualização de recursos. O componente de experiência do usuário conectado e telemetria criptografa dados usando SSL e usa a anexação de certificado para transmitir dados via HTTPS para o serviço de gerenciamento de dados da Microsoft.
+Telemetria de pilha do Azure baseia-se o componente de telemetria e experiência de usuário conectado do Windows Server 2016, que usa o [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging tecnologia para coletar e armazenar dados e eventos. Componentes de pilha do Azure usam a mesma tecnologia para publicar eventos e dados coletados usando o log de eventos do sistema de operacional público e o rastreamento de APIs. Exemplos desses componentes do Azure Stack incluem esses provedores: Recurso, recurso de armazenamento, recursos de monitoramento de rede e recursos de atualização. O componente de experiência do usuário conectado e telemetria criptografa dados usando SSL e usa a anexação de certificado para transmitir dados via HTTPS para o serviço de gerenciamento de dados da Microsoft.
 
 > [!IMPORTANT]
 > Para habilitar o fluxo de dados de telemetria, a porta 443 (HTTPS) deve estar aberta na sua rede. O componente de experiência do usuário conectado e telemetria conecta-se para o serviço de gerenciamento de dados da Microsoft em https://v10.vortex-win.data.microsoft.com. O componente de experiência do usuário conectado e telemetria também se conecta ao https://settings-win.data.microsoft.com para baixar informações de configuração.
@@ -48,7 +48,7 @@ Entendemos que a privacidade e segurança de informações do cliente é importa
 
 - Estamos abertos com os clientes sobre os tipos de dados que podemos obter.
 - Colocamos os clientes corporativos no controle — eles podem personalizar suas próprias configurações de privacidade.
-- Colocamos segurança e privacidade do cliente pela primeira vez.
+- Nós colocamos a privacidade e a segurança dos clientes em primeiro lugar.
 - Estamos transparentes sobre como os dados de telemetria são usados.
 - Usamos os dados de telemetria para aprimorar as experiências do cliente.
 
@@ -112,7 +112,7 @@ Você pode usar o Editor de registro do Windows para definir o nível de telemet
 Antes de implantar o Azure Stack no host do kit de desenvolvimento, inicialize no CloudBuilder.vhdx e execute o seguinte script em uma janela elevada do PowerShell:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

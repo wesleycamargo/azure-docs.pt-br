@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e9eb3cc029e60acd18fc6611ca14817488a2d983
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956713"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266546"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Solucionar problemas de implantação no Kubernetes no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
 > Kubernetes no Azure Stack está em visualização.
@@ -47,8 +47,8 @@ O diagrama a seguir mostra o processo geral para implantar o cluster.
     Insira os valores que você precisa configurar o cluster Kubernetes, incluindo:
     -  **Nome de usuário**: O nome de usuário para as máquinas virtuais de Linux que fazem parte do cluster do Kubernetes e DVM.
     -  **Chave pública SSH**: A chave que é usada para a autorização de todas as máquinas Linux que foram criados como parte do cluster do Kubernetes e DVM.
-    -  **Princípio de serviço**: A ID é usada pelo provedor de nuvem do Azure do Kubernetes. A ID do cliente identificada como a ID do aplicativo quando você criou a entidade de serviço. 
-    -  **Segredo do cliente**: eles chave criada quando você criou a entidade de serviço.
+    -  **Princípio de serviço**: A ID que é usada pelo provedor de nuvem do Azure do Kubernetes. A ID do cliente identificada como a ID do aplicativo quando você criou a entidade de serviço. 
+    -  **Segredo do cliente**: Os principais que você criou ao criar a entidade de serviço.
 
 2. Criar a implantação de VM e a extensão de script personalizado.
     -  Criar a implantação de VM do Linux usando a imagem do marketplace Linux **Ubuntu Server 16.04-LTS**.
@@ -153,10 +153,10 @@ Para obter logs, execute as seguintes etapas:
 4. Revise os parâmetros e defina os valores com base em seu ambiente.
     | Parâmetro           | DESCRIÇÃO                                                                                                      | Exemplo                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,-arquivo de identidade | RSA arquivo de chave privada para se conectar a VM mestre do Kubernetes. A chave devem começar com `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
+    | -i,-arquivo de identidade | RSA arquivo de chave privada para se conectar a VM mestre do Kubernetes. A chave devem começar com `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
     | -h, --host          | O IP público ou o nome de domínio totalmente qualificado (FQDN) do mestre do cluster de Kubernetes VM. O nome da VM começa com `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --usuário          | O nome de usuário do mestre do cluster de Kubernetes VM. Você definir esse nome quando você configura o item do marketplace.                                                                    | azureuser                                                                     |
-    | -d, - vmdhost       | O IP público ou o FQDN do DVM. O nome da VM começa com `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd dnsk8 frog.local.cloudapp.azurestack.external |
+    | -u, --user          | O nome de usuário do mestre do cluster de Kubernetes VM. Você definir esse nome quando você configura o item do marketplace.                                                                    | azureuser                                                                     |
+    | -d, --vmdhost       | O IP público ou o FQDN do DVM. O nome da VM começa com `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 
    Quando você adiciona os valores de parâmetros, ele poderia ser algo semelhante ao seguinte código:
 

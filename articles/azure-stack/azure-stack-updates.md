@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ca09427de2f18612146ff03e4eef705006823ca8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222489"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302605"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gerenciar atualizações na visão geral do Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Pacotes de atualização da Microsoft para o Azure Stack integrado sistemas geralmente liberar em torno da quarta terça-feira de cada mês. Pedir ao OEM sobre seu processo de notificação específica para garantir que as notificações de atualização atingir a sua organização. Você também pode verificar na biblioteca de documentação sob **visão geral** > **notas de versão** para obter informações sobre as versões que estão em suporte do Active Directory. 
 

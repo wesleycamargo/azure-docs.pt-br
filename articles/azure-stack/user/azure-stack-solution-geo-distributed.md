@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 85400269be13295161aaff5936a6ae8c7d503b34
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: da6c9fa416d19916243860178d15619306aaf3c0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245864"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305308"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicativo distribuído geograficamente com o Azure e o Azure Stack
 
@@ -41,7 +41,7 @@ Com o padrão e distribuídos geograficamente, seu aplicativo pode abranger regi
 
 #### <a name="scalability-considerations"></a>Considerações sobre escalabilidade
 
-A solução que você criará com este tutorial é não acomodar a escalabilidade. No entanto, se usado em combinação com outras soluções e tecnologias do Azure e no local, você poderá acomodar requisitos de escalabilidade. Para obter informações sobre como criar uma solução hyrbid com dimensionamento automático por meio do tráfego manager, consulte [criar soluções de colocação em escala de nuvem com o Azure](azure-stack-solution-cloud-burst.md).
+A solução que você criará com este tutorial é não acomodar a escalabilidade. No entanto, se usado em combinação com outras soluções e tecnologias do Azure e no local, você poderá acomodar requisitos de escalabilidade. Para obter informações sobre como criar uma solução híbrida com o dimensionamento automático por meio do tráfego manager, consulte [criar soluções de colocação em escala de nuvem com o Azure](azure-stack-solution-cloud-burst.md).
 
 #### <a name="availability-considerations"></a>Considerações sobre disponibilidade
 
@@ -93,7 +93,7 @@ Uma assinatura do Azure e a instalação do Azure Stack são necessárias.
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>Obter um domínio personalizado e configurar o DNS
 
-Atualize os aplicativos de web foCreate do arquivo de zona DNS e publishr o domínio. Azure AD, em seguida, pode verificar a propriedade de nome de domínio personalizado. Use [DNS do Azure](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) para os registros DNS do Azure/Office 365/DNS externo dentro do Azure, ou adicionar a entrada DNS em [um registrador DNS diferente](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Atualize o arquivo de zona DNS para o domínio. Azure AD, em seguida, pode verificar a propriedade de nome de domínio personalizado. Use [DNS do Azure](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) para os registros DNS do Azure/Office 365/DNS externo dentro do Azure, ou adicionar a entrada DNS em [um registrador DNS diferente](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
 1. Registre um domínio personalizado com um registrador de público.
 
@@ -273,7 +273,7 @@ Atualize o arquivo de zona DNS para o domínio. Azure AD verificará a proprieda
 
 -   Atualize o arquivo de zona DNS para o domínio adicionando a entrada DNS fornecida pelo Azure AD.
 
-Por exemplo, para adicionar o DNS entradas fornorthwindcloud.comand www.northwindcloud.com, definir configurações de DNS do domínio raiz thenorthwindcloud.com.
+Por exemplo, para adicionar entradas DNS para northwindcloud.com e www.northwindcloud.com, definir configurações de DNS para o domínio raiz de northwindcloud.com.
 
 > [!Note]  
 >  Um nome de domínio pode ser adquirido usando o [portal do Azure](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
@@ -302,7 +302,7 @@ A captura de tela a seguir é um exemplo de uma página de registros DNS:
 
 2.  Adicione um registro CNAME para mapear um subdomínio para o nome de host do aplicativo padrão.
 
-  Por exemplo, www.northwindcloud.comdomain, adicione um registro CNAME que mapeia o namewwwto < aplicativo\_nome >. azurewebsites.
+  Por exemplo, domínio www.northwindcloud.com, adicione um registro CNAME que mapeia o nome para < aplicativo\_nome >. azurewebsites.
 
 Depois de adicionar o CNAME, a página de registros DNS se parece com o exemplo a seguir:
 
@@ -549,7 +549,7 @@ Na página de aplicativo da web, selecione **configurações SL**. Depois, em **
 
 Quando a operação for concluída, navegue até qualquer uma das URLs HTTP que apontam para o aplicativo. Por exemplo: 
 
--   http://<app_name>.azurewebsites.NET
+-   http://<app_name>.azurewebsites.net
 -   http://northwindcloud.com
 -   <http://www.northwindcloud.com>
 

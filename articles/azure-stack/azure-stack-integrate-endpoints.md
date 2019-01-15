@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 23c2206a873dc37f5b4f40e0c692e6a35869c419
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 314656fa276326d96684e49e2804ac393eeb606e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106454"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303816"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integration data center – publicar pontos de extremidade
 
@@ -35,18 +35,18 @@ A infraestrutura interna VIPs não estão listados porque eles não são necess�
 > [!Note]  
 > Usuário VIPs são dinâmicos, definidos pelos próprios usuários com nenhum controle pelo operador do Azure Stack.
 
-|Ponto de extremidade (VIP)|Um registro de host DNS|Protocolo|Portas|
+|Ponto de extremidade (VIP)|DNS host A record|Protocolo|Portas|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
-|Adminhosting | *.adminhosting. \<região >. \<fqdn > | HTTPS | 443 |
+|Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
 |O Azure Resource Manager (administrador)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |Portal (usuário)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|O Azure Resource Manager (usuário)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |Grafo|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lista de certificados revogados|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP E UDP|53|
-|Hosting | * .hosting. \<região >. \<fqdn > | HTTPS | 443 |
+|Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
 |Cofre de chaves (usuário)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Cofre de chaves (administrador)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Fila de Armazenamento|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
@@ -56,7 +56,7 @@ A infraestrutura interna VIPs não estão listados porque eles não são necess�
 |Provedor de recursos do MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
 |Serviço de Aplicativo|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
 |  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (azure Resource Manager)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
 |  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
 |Gateways VPN|     |     |[Consulte as perguntas Frequentes do gateway VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
 |     |     |     |     |
@@ -70,15 +70,15 @@ O Azure Stack oferece suporte a apenas os servidores de proxy transparente. Em u
 
 |Finalidade|URL|Protocolo|Portas|
 |---------|---------|---------|---------|
-|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>Office.com|HTTP<br>HTTPS|80<br>443|
+|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|
 |Sindicalização do Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |Patch e atualização|https://&#42;.azureedge.net|HTTPS|443|
 |Registro|https://management.azure.com|HTTPS|443|
-|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.NET|HTTPS|443|
-|Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|(Fornecido para a implantação de servidor IP de NTP)|UDP|123|
 |DNS|(Servidor de DNS do IP fornecido para implantação)|TCP<br>UDP|53|
-|LISTA DE CERTIFICADOS REVOGADOS|(Em pontos de distribuição de CRL no certificado de URL)|HTTP|80|
+|CRL|(Em pontos de distribuição de CRL no certificado de URL)|HTTP|80|
 |Backup de infraestrutura|(IP ou FQDN do servidor de arquivos de destino externo)|SMB|445|
 |     |     |     |     |
 

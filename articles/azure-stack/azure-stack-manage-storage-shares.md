@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249890"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304369"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para o Azure Stack 
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 As informações neste artigo ajuda a monitorar de operador de nuvem do Azure Stack e gerenciar a capacidade de armazenamento de sua implantação do Azure Stack. A infraestrutura de armazenamento do Azure Stack aloca um subconjunto da capacidade de armazenamento total da implantação do Azure Stack, a ser usado para **serviços de armazenamento**. Os serviços de armazenamento armazenam dados de um locatário em compartilhamentos em volumes que correspondem a nós da implantação.
 
@@ -90,7 +90,7 @@ Como um operador de nuvem, você pode usar o portal de administração para exib
 1. Entrar para o [portal de administração](https://adminportal.local.azurestack.external).
 2. Selecione **todos os serviços** > **armazenamento** para abrir a lista de compartilhamento de arquivo onde você pode exibir as informações de uso. 
 
-  ![Exemplo: Compartilhamentos de arquivos do armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+  ![Exemplo: Compartilhamentos de arquivos de armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **TOTAL** é o espaço total em bytes, que estão disponíveis no compartilhamento. Esse espaço é usado para dados e metadados que é mantido pelos serviços de armazenamento.
   - **USADO** é a quantidade de dados em bytes que são usados por todas as extensões dos arquivos que armazenam os dados de locatário e metadados associados.
@@ -101,12 +101,12 @@ Quando você usa o portal de administração, você receberá alertas sobre comp
 > [!IMPORTANT]
 > Como um operador de nuvem, mantenha compartilhamentos atinjam o uso completo. Quando um compartilhamento é 100% de utilização, o armazenamento de serviço não for mais funções para esse compartilhamento. Para recuperar o espaço livre e operações em um compartilhamento que é 100% de utilização de restauração, você deve contatar o suporte da Microsoft.
 
-**Aviso**: quando um compartilhamento de arquivos é mais de 80% de utilização, você recebe um *aviso* alerta no portal de administração: ![exemplo: alerta de aviso](media/azure-stack-manage-storage-shares/alert-warning.png)
+**Aviso**: Quando um compartilhamento de arquivos estiver mais de 80% de utilização, você receberá uma *aviso* alerta no portal de administração: ![Exemplo: Alerta de aviso](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**Críticos**: quando um compartilhamento de arquivos é mais de 90% de utilização, você recebe um *críticas* alerta no portal de administração: ![exemplo: alerta crítico](media/azure-stack-manage-storage-shares/alert-critical.png)
+**Crítica**: Quando um compartilhamento de arquivos estiver mais de 90% de utilização, você receberá uma *crítico* alerta no portal de administração: ![Exemplo: Alerta crítico](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Exibir detalhes**: no portal de administração, você pode abrir os detalhes de um alerta para exibir as opções de atenuação: ![exemplo: exibir detalhes do alerta](media/azure-stack-manage-storage-shares/alert-details.png)
+**Exibir detalhes**: No portal de administração, você pode abrir os detalhes de um alerta para exibir as opções de atenuação: ![Exemplo: Exibir detalhes do alerta](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>Gerenciar o espaço disponível
@@ -119,7 +119,7 @@ Você pode recuperar a capacidade usada pelas contas de locatário foram excluí
 
 Para obter mais informações, consulte [recuperar capacidade](azure-stack-manage-storage-accounts.md#reclaim) em gerenciar recursos de armazenamento.
 
-### <a name="migrate-a-container-between-volumes"></a>Migrar de um contêiner entre volumes
+### <a name="migrate-a-container-between-volumes"></a>Migrar um contêiner entre volumes
 *Essa opção só se aplica a implantações de vários nós.*
 
 Devido a padrões de uso do locatário, alguns compartilhamentos de locatário usam mais espaço do que outras pessoas. O resultado pode ser um compartilhamento que fica com pouco espaço antes de outros compartilhamentos que estão relativamente não utilizados.

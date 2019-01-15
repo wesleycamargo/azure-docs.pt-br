@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2769b78632e1a7f776359f2a4d768154c224aab5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036232"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264607"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões de API do provedor de recursos com suporte pelos perfis no Azure Stack
 
@@ -46,9 +46,9 @@ Para obter uma explicação dos perfis de API e a cadência de lançamento de ve
 | Microsoft. Web | 2016-08-01<br>qual é a versão mais recente (a partir de agora) no Azure |
 | Microsoft.KeyVault | 2016-10-01 (não alterar) |
 | Resources (Gerenciador de recursos do Azure em si) | 2016-02-01 |
-| Authorization (operações de política) | 11-2015-01 |
-| Microsoft.insights | 11-2015-01 |
-| Microsoft. keyvault | 2016-10-01 |
+| Authorization (operações de política) | 2015-11-01 |
+| Microsoft.insights | 2015-11-01 |
+| Microsoft.Keyvault | 2016-10-01 |
 | Política | 2016-10-01 |
 | Recursos | 2016-10-01 |
 | Resources_Links | 2016-10-01 |
@@ -68,9 +68,9 @@ Para mais de uma lista das versões para cada tipo de recurso para os provedores
 | Microsoft.Websites | 2016-01-01 |
 | Microsoft.KeyVault | 2016-10-01<br>(Não alterar) |
 | Microsoft.Resources<br>(Azure Resource Manager em si) | 2016-02-01 |
-| Microsoft.Authorization<Br>(operações de política) | 11-2015-01 |
-| Microsoft.insights | 11-2015-01 |
-| Microsoft. keyvault | 2016-10-01 |
+| Microsoft.Authorization<Br>(operações de política) | 2015-11-01 |
+| Microsoft.insights | 2015-11-01 |
+| Microsoft.Keyvault | 2016-10-01 |
 | Política | 2015-10-01-preview |
 | Recursos | 2016-02-01 |
 | Resources_Links | 2016-09-01 |
@@ -94,7 +94,7 @@ Você pode usar o controle de acesso baseado em função para gerenciar as açõ
 | Definições de Política | 2016-12-01 |
 | Operações do provedor | 2015-07-01-preview |
 | Atribuições de Funções | 2015-07-01 |
-| Definições de função | 2015-07-01 |
+| Definições de Funções | 2015-07-01 |
 
 ### <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -118,7 +118,7 @@ As APIs de computação do Azure oferecem acesso programático a máquinas virtu
 | Locais/operações | 2016-03-30 |
 | Editores/locais | 2016-03-30 |
 | Locais/usos | 2016-03-30 |
-| Locais/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | Operações | 2016-03-30 |
 | Máquinas Virtuais | 2016-03-30 |
 | Extensões de máquinas virtuais / | 2016-03-30 |
@@ -215,7 +215,7 @@ O Azure Resource Manager permite que você implante e gerencie a infraestrutura 
 | Grupos de assinaturas/recursos | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | Assinaturas/recursos | 2016-09-01 |
-| Assinaturas/tagNames | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
 | Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Locatários | 2017-08-01 |
 
@@ -245,7 +245,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 | Definições de Política | 2016-12-01 |
 | Operações do provedor | 2015-07-01-preview |
 | Atribuições de Funções | 2015-07-01 |
-| Definições de função | 2015-07-01 |
+| Definições de Funções | 2015-07-01 |
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -256,7 +256,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 | Locais/operações | 2016-03-30 |
 | Editores/locais | 2016-03-30 |
 | Locais/usos | 2016-03-30 |
-| Locais/vmSizes | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | Operações | 2016-03-30 |
 | Máquinas Virtuais | 2016-03-30 |
 | Extensões de máquinas virtuais / | 2016-03-30 |
@@ -312,7 +312,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 | Grupos de assinaturas/recursos | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | Assinaturas/recursos | 2016-09-01 |
-| Subscriptiosn/tagNames | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
 | Subscriptions/tagNames/tagValues | 2016-09-01 |
 | Locatários | 2017-08-01 |
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0e8138f66c9284531b9610c9bc2996974e2075ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 831c233672e162462439056e56a244e6fb8a2f31
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339502"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264200"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetria de pilha do Azure
 
@@ -42,11 +42,11 @@ O serviço ETW encaminha os dados de telemetria para o armazenamento de nuvem pr
 A Microsoft acredita em e minimização de informações de práticas. Nos esforçamos para coletar somente as informações que precisamos, e armazenamos só, desde que ele é necessário para fornecer um serviço ou para análise. Muitas das informações sobre como o sistema do Azure Stack e os serviços do Azure estão funcionando é excluída em até seis meses. Resumidos ou dados agregados são mantidos por um período mais longo.
 
 Entendemos que a privacidade e segurança de informações de nossos clientes é importante. Uma abordagem abrangente e cuidadosa é que nós tiramos a privacidade do cliente e a proteção de dados do cliente com o Azure Stack. Os administradores de TI têm controles para personalizar as configurações de privacidade e os recursos a qualquer momento. Nosso compromisso com a transparência e a relação de confiança é claro:
-- Estamos abertos com os clientes sobre os tipos de dados que podemos obter.
-- Colocamos os clientes corporativos no controle — eles podem personalizar suas próprias configurações de privacidade.
-- Colocamos segurança e privacidade do cliente pela primeira vez.
-- Estamos transparentes sobre como a telemetria é usada.
-- Podemos usar a telemetria para melhorar as experiências do cliente.
+- Somos abertos com os clientes sobre os tipos de dados que coletamos.
+- Colocamos o controle nas mãos dos clientes corporativos; eles podem personalizar suas próprias configurações de privacidade.
+- Nós colocamos a privacidade e a segurança dos clientes em primeiro lugar.
+- Somos transparentes sobre como a telemetria é usada.
+- Usamos a telemetria para melhorar as experiências de nossos clientes.
 
 Microsoft não pretende coletar informações confidenciais, como números de cartão de crédito, nomes de usuário e senhas, endereços de email ou outras informações confidenciais da mesma forma. Se determinarmos que informações confidenciais foram recebidas inadvertidamente, podemos excluí-lo.
 
@@ -68,7 +68,7 @@ O Editor de registro do Windows é usado para definir manualmente o nível de te
 Antes de implantar o Azure Stack no host do kit de desenvolvimento, inicialize no CloudBuilder.vhdx e execute o seguinte script em uma janela elevada do PowerShell:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

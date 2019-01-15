@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d47a90851777b3256474a88e5881afd8f52547f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244681"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263315"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
@@ -79,7 +79,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 - Move de serviço de backup de infraestrutura do [rede de infraestrutura pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) para o [rede VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes precisarão garantir que o serviço tem acesso a localização de armazenamento de backup da rede VIP pública.  
 
 > [!IMPORTANT]  
-> Se você tiver um firewall que não permite conexões de rede VIP pública para o servidor de arquivos, essa alteração fará com que os backups de infraestrutura para falhar com "Erro 53 o caminho de rede não foi encontrado." Isso é uma alteração significativa que não tenha nenhuma alternativa razoável. Com base nos comentários dos clientes, a Microsoft reverterá essa alteração em um hotfix. Examine os [postar a seção de etapas de atualização](#post-update-steps) para obter mais informações sobre hotfixes disponíveis para 1809. Depois que o hotfix está disponível, certifique-se para aplicá-la após a atualização para 1809 somente se suas políticas de rede não permitir a rede VIP público acessar recursos de infraestrutura. 1811, esta alteração será aplicada a todos os sistemas. Se você aplicou o hotfix em 1809, não há nenhuma ação adicional é necessária.  
+> Se você tiver um firewall que não permite conexões de rede VIP pública para o servidor de arquivos, essa alteração fará com que os backups de infraestrutura para falhar com "Erro 53 o caminho de rede não foi encontrado." Isso é uma alteração significativa que não tenha nenhuma alternativa razoável. Com base nos comentários dos clientes, a Microsoft reverterá essa alteração em um hotfix. Examine os [postar a seção de etapas de atualização](#post-update-steps) para obter mais informações sobre hotfixes disponíveis para 1809. Depois que o hotfix está disponível, certifique-se para aplicá-la após a atualização para 1809 somente se suas políticas de rede não permitir a rede VIP público para acessar os recursos de infraestrutura. 1811, esta alteração será aplicada a todos os sistemas. Se você aplicou o hotfix em 1809, não há nenhuma ação adicional é necessária.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Vulnerabilidades e exposições comuns
 

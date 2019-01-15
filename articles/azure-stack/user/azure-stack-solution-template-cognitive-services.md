@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.openlocfilehash: 5af508714b5eae5cdd23c940af0ae21300c0c5b8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf056c162684c021e3a8408edfdf82fe4590be48
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194653"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260627"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Implantar serviços Cognitivos do Azure ao Azure Stack
 
@@ -41,7 +41,7 @@ Uso de contêineres é uma abordagem de distribuição de software em que um apl
   Fornece aos usuários do aplicativo para a versão e atualização dos modelos implantados em sua solução.
 
 - **Arquitetura portátil**  
-  Habilite a criação de uma arquitetura de aplicativo portátil para que você possa implantar sua solução para a nuvem pública, para uma nuvem privada local ou na borda. Você pode implantar seu contêiner no serviço de Kubernetes do Azure, instâncias de contêiner do Azure, ou em um cluster Kubernetes no Azure Stack. Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+  Habilitar a criação de uma arquitetura de aplicativo portátil para que você possa implantar sua solução para a nuvem pública, como um privado de nuvem no local ou na borda. Você pode implantar seu contêiner no serviço de Kubernetes do Azure, instâncias de contêiner do Azure, ou em um cluster Kubernetes no Azure Stack. Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 - **Alta taxa de transferência e baixa latência**  
    Fornece aos usuários de aplicativo a capacidade de dimensionar com picos de tráfego para alta taxa de transferência e baixa latência. Habilite os serviços Cognitivos executar no serviço Kubernetes do Azure fisicamente perto de seus dados e a lógica do aplicativo.
@@ -66,7 +66,7 @@ Antes de começar, você precisará:
 
 Crie um recurso de serviço cognitivo no Azure para visualizar os contêineres de Face, LUIS ou reconhecer texto, respectivamente. Você precisará usar a URL de ponto de extremidade e a chave de assinatura do recurso para instanciar os contêineres de serviço cognitivo.
 
-1.  Crie um recurso do Azure no portal do Azure. Se você quiser visualizar os contêineres de Face, crie primeiro um recurso de Face correspondente no portal do Azure. Para obter mais informações, consulte [guia de início rápido: Criar uma conta de serviços Cognitivos no portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1.  Crie um recurso do Azure no portal do Azure. Se você quiser visualizar os contêineres de Face, crie primeiro um recurso de Face correspondente no portal do Azure. Para saber mais, confira [Início Rápido: criar uma conta de Serviços Cognitivos no portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
     >  [!Note]  
     >  O recurso de Face ou visão do computador deve usar o tipo de preço F0.

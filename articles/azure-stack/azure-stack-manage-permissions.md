@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: ab61e1f892f46ad36df741b7a72afcfcbaa0ed87
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 26ce7139b856fc2f8d7d2cad549b3dd3c0f5e406
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376928"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304669"
 ---
 # <a name="manage-role-based-access-control"></a>Gerenciar o controle de acesso baseado em função
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Um usuário do Azure Stack pode ser um leitor, proprietário ou colaborador para cada instância de uma assinatura, um grupo de recursos ou serviço. Por exemplo, o usuário A pode ter permissões de leitura para uma assinatura, mas ter permissões de proprietário para sete de máquina Virtual.
 
- - Leitor: o usuário pode exibir tudo, mas não pode fazer alterações.
- - Colaborador: o usuário pode gerenciar tudo, exceto o acesso aos recursos.
- - Proprietário: o usuário pode gerenciar tudo, incluindo o acesso aos recursos.
+ - Leitor: Usuário pode ver tudo, mas não é possível fazer alterações.
+ - Colaborador: Usuário pode gerenciar tudo, exceto o acesso aos recursos.
+ - Proprietário: Usuário pode gerenciar tudo, incluindo o acesso aos recursos.
 
 ## <a name="set-access-permissions-for-a-user"></a>Definir permissões de acesso para um usuário
 

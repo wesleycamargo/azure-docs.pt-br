@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247615"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267310"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização da pilha 1811 do Azure
 
@@ -262,6 +262,14 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
    O erro ocorre se você habilitar o diagnóstico de inicialização em uma VM, mas excluir sua conta de armazenamento de diagnóstico de inicialização. Para contornar esse problema, recrie a conta de armazenamento com o mesmo nome que você usou anteriormente.
 
 - Ao criar uma [VM da série Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 VMs permitem criar 4, 8, 16 e 32 discos de dados, respectivamente. No entanto, o painel VM de criar mostra 8, 16, 32 e 64 discos de dados.
+
+- Registros de uso no Azure Stack podem conter inesperado de maiusculas e minúsculas; Por exemplo:
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   Neste exemplo, o nome do grupo de recursos deve ser **AndrewRG**. Você pode ignorar com segurança essa inconsistência.
 
 <!-- 3235634 – IS, ASDK -->
 - Implantar VMs com tamanhos que contém um **v2** sufixo; por exemplo, **Standard_A2_v2**, especifique o sufixo como **Standard_A2_v2** (v minúsculo). Não use **Standard_A2_V2** (V maiusculo). Isso funciona no Azure global e uma inconsistência no Azure Stack.

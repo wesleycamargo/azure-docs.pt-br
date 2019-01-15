@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 2cfa789b9817562eba5224257a365f8552cdf833
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245933"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267327"
 ---
 # <a name="validate-azure-identity"></a>Validar a identidade do Azure 
 Use a ferramenta de verificador de preparação do Azure Stack (AzsReadinessChecker) para validar que seu Azure Active Directory (Azure AD) está pronta para uso com o Azure Stack. Valide sua solução de identidade do Azure antes de começar uma implantação do Azure Stack.  
@@ -48,7 +48,7 @@ Os seguintes pré-requisitos devem estar em vigor.
 **Ambiente do Active Directory do Azure:**
  - Identifique a conta do Azure AD, você usará para o Azure Stack e verifique se que ele é um Administrador Global do Active Directory do Azure.
  - Identificar o nome do locatário do Azure AD. O nome do locatário deve ser o *primário* nome de domínio do Active Directory do Azure. Por exemplo, *contoso.onmicrosoft.com*. 
- - Identifique o AzureEnvironement será usado. Valores com suporte para o parâmetro de nome de ambiente são AzureCloud, AzureChinaCloud ou AzureUSGovernment dependendo de qual assinatura do Azure que você está usando.
+ - Identifique o AzureEnvironment será usado. Valores com suporte para o parâmetro de nome de ambiente são AzureCloud, AzureChinaCloud ou AzureUSGovernment dependendo de qual assinatura do Azure que você está usando.
 
 ## <a name="validate-azure-identity"></a>Validar a identidade do Azure 
 1. Em um computador que atenda aos pré-requisitos, abra um prompt do PowerShell administrativo e, em seguida, execute o seguinte comando para instalar o AzsReadinessChecker:  

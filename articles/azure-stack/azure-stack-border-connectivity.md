@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 51f9d2dbc8a0aef6dc84e76755a71eeb73149192
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021077"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262737"
 ---
 # <a name="border-connectivity"></a>Conectividade de borda 
 Planejamento de integração de rede é um pré-requisito importante para a implantação de sistemas integrados do Azure Stack, operação e gerenciamento com êxito. O planejamento de conectividade com a borda começa escolhendo se deseja ou não usar o roteamento dinâmico com o protocolo de gateway de borda (BGP). Isso requer a atribuição de um número de sistema autônomo de BGP de 16 bits (público ou privado) ou usando o roteamento estático, em que uma rota estática padrão é atribuída para os dispositivos de borda.
@@ -29,7 +29,7 @@ Planejamento de integração de rede é um pré-requisito importante para a impl
 > A parte superior de comutadores de rack (TOR) exigem uplinks de camada 3 com IPs de ponto a ponto (/ 30 redes) configurado nas interfaces físicas. Não há suporte para usar uplinks de camada 2 com comutadores TOR oferecem suporte a operações do Azure Stack. 
 
 ## <a name="bgp-routing"></a>Roteamento de BGP
-Usar um protocolo de roteamento dinâmico como o BGP garante que o sistema sempre está ciente das alterações de rede e facilita a administração. Para segurança avançadas, uma senha pode ser definida no BGP emparelhamento entre a borda e TOR. 
+Usar um protocolo de roteamento dinâmico como o BGP garante que o sistema sempre está ciente das alterações de rede e facilita a administração. Para maior segurança, uma senha pode ser definida no BGP emparelhamento entre a borda e TOR. 
 
 Conforme mostrado no diagrama a seguir, o IP privado de publicidade espaço no comutador TOR é bloqueado usando uma lista de prefixos. A lista de prefixos nega o anúncio da rede privada e ela é aplicada como um mapa de rota sobre a conexão entre o TOR e a borda.
 
