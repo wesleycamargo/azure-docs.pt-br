@@ -1,68 +1,49 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: da46b78d764465d8b9e5ce438b0843e0b79e16a9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9fe3efba6cc18839f7d65d2f19dfb165bbdecc05
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271140"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331275"
 documentType: LandingData
 title: Documentação do Serviço do Azure Machine Learning
 metadata:
   title: Documentação - Serviço do Azure Machine Learning - Tutoriais, Referência de API | Microsoft Docs
   description: Saiba como compilar algoritmos inteligentes em aplicativos e sites. Use o Scikit-learn, Tensorflow, Pytorch ou qualquer outra estrutura baseada em Python para compilar seu modelo de machine learning e treiná-lo localmente ou na nuvem. Os tutoriais, as guias de início rápido, as referências de API e os exemplos mostram como.
   services: machine-learning
-  author: j-martens
-  manager: jhubbard
   ms.service: machine-learning
   ms.component: core
+  ms.topic: landing-page
+  manager: jhubbard
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 12/04/2018
+  ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 12/04/2018
-  ms.author: jmartens
-  ms.custom: seodec18
 abstract:
   description: Saiba como compilar algoritmos inteligentes em aplicativos e sites. Use o Scikit-learn, Tensorflow, Pytorch ou qualquer outra estrutura baseada em Python para compilar seu modelo de machine learning e treiná-lo localmente ou na nuvem. Os tutoriais, as guias de início rápido, as referências de API e os exemplos mostram como.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Iniciar o aprendizado sobre o serviço do Azure Machine Learning
-      href: /azure/machine-learning/service/overview-what-is-azure-ml
-      image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/overview-what-is-azure-ml
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: Configure seus recursos para o serviço do Azure Machine Learning.
+    text: 'Saiba como configurar o espaço de trabalho e os recursos para o Serviço do Azure Machine Learning usando um guia de início rápido:'
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-get-started.md">Introdução ao portal do Azure</a>
-    - html: <a href="quickstart-create-workspace-with-python.md">Introdução ao Python</a>
+    - html: Introdução ao <a href="quickstart-get-started">Portal do Azure</a>.
+    - html: Introdução ao <a href="quickstart-create-workspace-with-python">Python</a>.
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: Saiba como configurar um experimento e operacionalizar seus modelos.
-  - type: paragraph
-    text: <b>Tutorial de classificação de imagem com dados MNIST:</b>
+    text: 'Saiba como preparar dados, configurar experimentos e operacionalizar modelos de aprendizado de máquina:'
   - type: list
     style: unordered
     items:
-    - html: Parte 1&#58; <a href="tutorial-train-models-with-aml">Treinar seu próprio modelo de machine learning</a>
-    - html: Parte 2&#58; <a href="tutorial-deploy-models-with-aml">Implantar esse modelo</a>
+    - html: <a href="tutorial-train-models-with-aml">Treinar e implantar modelos de classificação de imagens</a> (<b>série de duas partes</b>).
+    - html: <a href="tutorial-data-prep">Preparação de dados e uso do aprendizado de máquina automatizado</a> para treinar e ajustar os modelos de regressão (<b>série de duas partes</b>).<br>&nbsp;
   - type: paragraph
-    text: <b>Tutorial de modelagem de regressão com dados dos táxi de Nova York:</b>
-  - type: list
-    style: unordered
-    items:
-    - html: Parte 1&#58; <a href="tutorial-data-prep">Preparar os dados dos táxis de Nova York para modelagem</a>
-    - html: Parte 2&#58; <a href="tutorial-auto-train-models">Usar o machine learning automatizado para compilar modelos</a>
-  - type: paragraph
-    text: '<b>Notebooks de exemplo</b>: Explore o serviço com esses <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">Jupyter Notebooks</a> no GitHub.'
+    text: '<b>Exemplos</b>: Explore o serviço com esses <a href="https://aka.ms/aml-notebooks">blocos de notas do Jupyter</a> no GitHub.'
 - title: Referência
   items:
   - type: list
