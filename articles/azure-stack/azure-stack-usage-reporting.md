@@ -11,24 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: e4e1b3cb823d08948c31aa6486c08a930a377dfa
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 147242e7d5d62204198360f580848cd997850d09
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161949"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332516"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Relatar dados de uso do Azure Stack para o Azure 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Relatar dados de uso do Azure Stack para o Azure
 
-Dados de uso, também chamados de dados de consumo, representam a quantidade de recursos usados. 
+Dados de uso, também chamados de dados de consumo, representam a quantidade de recursos usados.
 
 Sistemas de vários nós de pilha do Azure que usam o modelo de cobrança baseado em consumo devem relatar dados de uso para o Azure para fins de cobrança. Operadores do Azure Stack devem configurar sua instância do Azure Stack para relatar dados de uso para o Azure.
 
-> [!NOTE]
-> Relatórios de dados de uso é necessário para os usuários de vários nós do Azure Stack que no modelo de pagamento-como-o uso de licença. É opcional para os clientes que licenciam sob o modelo de capacidade (consulte a [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Para usuários do Kit de desenvolvimento do Azure Stack, os operadores do Azure Stack podem relatar dados de uso e testar o recurso. No entanto, os usuários não serão cobrados por qualquer uso incorrem. 
+> [!IMPORTANT]
+> Todas as cargas de trabalho [deve ser implantado em assinaturas de locatários](#are-users-charged-for-the-infrastructure-vms) em conformidade com os termos de licenciamento do Azure Stack.
+
+Relatórios de dados de uso é necessário para os usuários de vários nós do Azure Stack que no modelo de pagamento-como-o uso de licença. É opcional para os clientes que licenciam sob o modelo de capacidade (consulte a [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Para usuários do Kit de desenvolvimento do Azure Stack, os operadores do Azure Stack podem relatar dados de uso e testar o recurso. No entanto, os usuários não serão cobrados por qualquer uso incorrem.
 
 ![fluxo de cobrança](media/azure-stack-usage-reporting/billing-flow.png)
 

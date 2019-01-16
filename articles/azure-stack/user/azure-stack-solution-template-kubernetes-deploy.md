@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 064a9fc48ae60e530a11633b0823764a2f862811
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722389"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320014"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implantar Kubernetes no Azure Stack
 
@@ -139,7 +139,7 @@ Conceder acesso à entidade de serviço à sua assinatura para que a entidade de
 
 1. Insira o **chave pública SSH** usado para autorização em todas as máquinas Linux criado como parte do cluster Kubernetes e DVM.
 
-1. Insira o **prefixo de DNS do mestre de perfil** que é exclusivo para a região. Isso deve ser um nome exclusivo de região, como `k8s-12345`. Tente escolhê-lo mesmo que o grupo de recursos nomeie como melhor prática.
+1. Insira o **prefixo de DNS do mestre de perfil** que é exclusivo para a região. Isso deve ser um nome exclusivo de região, como `k8s-12345`. Tente fazer o mesmo que o nome do grupo de recursos como uma prática recomendada.
 
     > [!Note]  
     > Para cada cluster, use um prefixo DNS do mestre de perfil novos e exclusivos.
@@ -150,9 +150,9 @@ Conceder acesso à entidade de serviço à sua assinatura para que a entidade de
 
 1. Selecione o **contagem de perfil de Pool de nós de Kubernetes**. A contagem de contém o número de agentes no cluster. 
 
-1. Selecione o **perfil de armazenamento**. Você pode escolher **Blob de disco** ou **Managed Disk**. Isso especifica que as VMs do nó de tamanho de VM do Kubernetes. 
+1. Selecione o **perfil de armazenamento**. Você pode escolher **Blob de disco** ou **Managed Disk**. 
 
-1. Insira o **entidade de serviço ClientId** isso é usado pelo provedor de nuvem do Azure do Kubernetes. A ID do cliente identificada como a ID do aplicativo quando seu criou a entidade de serviço.
+1. Insira o **entidade de serviço ClientId** isso é usado pelo provedor de nuvem do Azure do Kubernetes. A ID do cliente foi identificada como a ID do aplicativo quando seu criou a entidade de serviço.
 
 1. Insira o **segredo do cliente de entidade de serviço** que você criou ao criar a entidade de serviço.
 
@@ -160,7 +160,7 @@ Conceder acesso à entidade de serviço à sua assinatura para que a entidade de
 
 ### <a name="3-summary"></a>3. Resumo
 
-1. Selecione resumo. A folha exibe uma mensagem de validação para suas configurações de Cluster do Kubernetes.
+1. Selecione resumo. A folha exibe uma mensagem de validação para suas definições de configuração do Kubernetes Cluster.
 
     ![Modelo de Solução de Implementação](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
