@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f0232c8d2627cd600f4f05b5b501db85fa7d2ec4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50956716"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051383"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conectar um Raspberry Pi ao aplicativo Azure IoT Central (C#)
 
@@ -23,10 +23,10 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um Raspberry 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir as etapas neste artigo, você precisa dos seguintes componentes:
+Para concluir as etapas deste artigo, você precisa dos seguintes componentes:
 
 * [.NET Core 2](https://www.microsoft.com/net) instalado no computador de desenvolvimento. Também é necessário ter um editor de código adequado, como [Visual Studio Code](https://code.visualstudio.com/).
-* Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte o [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+* Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 * Um dispositivo Raspberry Pi executando o sistema operacional Raspbian.
 
 
@@ -34,21 +34,21 @@ Para concluir as etapas neste artigo, você precisa dos seguintes componentes:
 
 Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Raspberry Pi** com as características a seguir: 
 
-- Telemetria, que inclui as seguintes medidas que coletará o dispositivo:
+- Telemetria, que inclui as seguintes medidas que o dispositivo coletará:
     - Umidade
     - Temperatura
     - Pressão
-    - Magnetometer (X, Y, Z)
-    - Accelerometer (X, Y, Z)
-    - Gyroscope (X, Y, Z)
+    - Magnetômetro (X, Y, Z)
+    - Acelerômetro (X, Y, Z)
+    - Giroscópio (X, Y, Z)
 - Configurações
     - Voltagem
     - Atual
     - Velocidade da ventoinha
-    - IR toggle.
+    - Alternar IR.
 - propriedades
-    - Dado de propriedade de número de dispositivo
-    - Propriedade de nuvem local
+    - Propriedade do dispositivo número de dado
+    - Propriedade de localização da nuvem 
 
 Para obter detalhes completos sobre a configuração do modelo de dispositivo, veja os [detalhes do modelo de Dispositivo do Raspberry PI](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 

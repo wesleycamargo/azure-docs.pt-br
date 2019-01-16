@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 797cef2d3a0e2cfeb28411c30a7da8a5b6f2d953
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 79ad4b3598c227ad2c2e3b76562cf95a30e82ad3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834512"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101540"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicação de máquinas virtuais do Azure para outra região do Azure
 
@@ -65,7 +65,7 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
     - **Política de replicação**: Define as configurações para o histórico de retenção do ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de “24 horas” para retenção de pontos de recuperação e “60 minutos” para a frequência de instantâneo consistente do aplicativo.
 
     ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
-
+  
 ## <a name="customize-target-resources"></a>Personalizar os recursos de destino
 
 Você pode modificar as configurações de destino padrão usadas pelo Site Recovery.
@@ -79,7 +79,13 @@ Você pode modificar as configurações de destino padrão usadas pelo Site Reco
     - Em **Contas de armazenamento de destino**, selecione a conta que você deseja usar.
 
         ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
-
+1. Clique em **Personalizar** para modificar as configurações de replicação.
+   - Em **Consistência de várias VMs**, selecione as VMs que você deseja replicar juntas 
+   - Todos os computadores de um grupo de replicação terão pontos de recuperação consistentes com o aplicativo e consistentes com falhas quando passarem por failover. A habilitação da consistência de várias VMs pode afetar o desempenho da carga de trabalho (devido ao uso intensivo de CPU) e só deve ser usada se os computadores estiverem executando a mesma carga de trabalho e se você precisar de consistência entre vários computadores. Por exemplo, se um aplicativo tem duas máquinas virtuais SQL e dois servidores Web, você deve adicionar somente máquinas virtuais SQL como parte do grupo de replicação.
+   - É possível optar por ter, no máximo, 16 máquinas virtuais em um grupo de replicação.
+   - Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Veja se não há nenhum dispositivo de firewall bloqueando a comunicação interna entre as VMs através da porta 20004. Se você quiser que VMs do Linux façam parte de um grupo de replicação, abra manualmente o tráfego de saída na porta 20004, de acordo com as diretrizes da versão específica do Linux.
+![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+    
 2. Clique em **Criar o recurso de destino** > **Habilitar Replicação**.
 3. Depois que as VMs forem habilitadas para replicação, você poderá verificar o status da integridade da VM em **Itens replicados**
 

@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039421"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062937"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar o gerenciamento de atualizações, o controle de alterações e as soluções de inventário em várias VMs
 
@@ -59,13 +59,31 @@ Se o workspace selecionado não estiver vinculado a uma Conta de Automação, vo
 
 ![Nenhum workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um Workspace do Log Analytics e uma Conta de Automação.
+
+A tabela abaixo mostra o mapeamento suportado:
+
+|**Região do Workspace do Log Analytics**|**Região da Automação do Azure**|
+|---|---|
+|SudesteAustraliano|SudesteAustraliano|
+|Canadá Central|Canadá Central|
+|CentralIndia|CentralIndia|
+|LesteDosEUA|LesteDosEUA2|
+|LesteJapão|LesteJapão|
+|SudesteAsiático|SudesteAsiático|
+|CentroOesteEUA|CentroOesteEUA|
+|WestEurope|WestEurope|
+|SulReinoUnido|SulReinoUnido|
+|VirginiaGovEUA|VirginiaGovEUA|
+|LesteEUA2EUAP|CentroEUAEUAP|
+
 Desmarque a caixa de seleção ao lado de qualquer máquina virtual que você não deseja habilitar. Máquinas virtuais que não podem ser habilitadas já estão desmarcadas.
 
 Clique em **Ativar** para ativar a solução. A solução demora até 15 minutos para habilitar.
 
 ## <a name="unlink-workspace"></a>Desvincular o workspace
 
-As soluções a seguir são dependentes de um workspace do Log Analytics:
+As seguintes soluções são dependentes de um workspace do Log Analytics:
 
 * [Gerenciamento de atualizações](automation-update-management.md)
 * [Controle de alterações](automation-change-tracking.md)
@@ -80,13 +98,13 @@ Depois de remover essas soluções, você poderá executar as etapas a seguir pa
 
 1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Workspace vinculado** na seção **Recursos Relacionados** à esquerda.
 
-1. Na página Desvincular o workspace, clique em **Desvincular o workspace**.
+2. Na página Desvincular o workspace, clique em **Desvincular o workspace**.
 
    ![Página Desvincular workspace](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    Você receberá uma solicitação perguntando se deseja prosseguir.
 
-1. Enquanto a Automação do Azure tenta desvincular a conta do seu workspace do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
+3. Enquanto a Automação do Azure tenta desvincular a conta do seu workspace do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 
@@ -106,31 +124,31 @@ Ao integrar várias máquinas, pode haver máquinas que mostrem como **Não é p
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Relatórios de VM para outro workspace: '\<workspaceName\>'.  Alterar a configuração para usá-lo para ativar
 
-**Causa**: este erro mostra a máquina virtual que você está tentando carregar relatórios para outro espaço de trabalho.
+**Causa**: este erro mostra a máquina virtual em que você está tentando carregar relatórios para outro espaço de trabalho.
 
-**Solução**: Clique em **Usar como configuração** para alterar a área de trabalho da conta de automação e do Log Analytics.
+**Solução**: Clique em **Usar como configuração**  para alterar o espaço de trabalho da conta de automação e do Log Analytics.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Relatórios VM para um workspace que não está disponível nesta assinatura
 
-**Causa**: O espaço de trabalho que se reporta a máquina virtual:
+**Causa**: o espaço de trabalho ao qual a máquina virtual se reporta:
 
 * Está em uma assinatura diferente ou
 * Não existe mais, ou
 * Está em um grupo de recursos que você não tem as permissões de acesso
 
-**Solução**: localizar a conta de automação associada com o espaço de trabalho que se reporta a VM e integrar a máquina virtual, alterando a configuração do escopo.
+**Solução**: localizar a conta de automação associada ao espaço de trabalho ao qual a máquina virtual se reporta e integrar a máquina virtual ao alterar a configuração do escopo.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>A versão ou distribuição do sistema operacional VM não é suportada
 
-**Causa:** A solução não é suportada em todas as distribuições do Linux ou em todas as versões do Windows.
+**Causa:** a solução não é suportada em todas as distribuições do Linux ou em todas as versões do Windows.
 
-**Solução:** consulte a [lista de clientes com suporte](automation-update-management.md#clients) para a solução.
+**Solução:** consulte a [lista de clientes compatíveis](automation-update-management.md#clients) para obter a solução.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>VMs clássicas não podem ser habilitadas
 
 **Causa**: máquinas virtuais que usam o modelo de implantação clássico não são suportadas.
 
-**Solução**: migre a máquina virtual para o modelo de implementação do gerenciador de recursos. Para aprender como fazer isso, consulte [ Migrar recursos do modelo de implantação clássico ](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solução**: migre a máquina virtual para o modelo de implantação do gerenciador de recursos. Para aprender como fazer isso, consulte [ Migrar recursos do modelo de implantação clássico ](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>A VM está parada. (deslocada)
 

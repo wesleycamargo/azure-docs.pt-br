@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b6640e4ef9751e235c0310b0d725cd7e27ff2b40
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745463"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101914"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
 
@@ -230,7 +230,7 @@ Você deve desfazer as alterações feitas como parte do plano de contingência 
 Se sua organização estiver usando políticas herdadas de MFA por usuário, você pode considerar a seguinte alternativa:
 
 1. Se você tiver o endereço IP de saída de rede corporativa, é possível adicioná-las como IPs confiáveis para habilitar a autenticação somente para a rede corporativa.
- 2. Se você não tiver o estoque de endereços IP de saída ou for necessário habilitar o acesso dentro e fora da rede corporativa, é possível adicionar o espaço de endereço IPv4 inteiro como IPs confiáveis em uma notação CIDR (por exemplo, 192.168.1.1/24).
+ 2. Se você não tem o inventário de endereços IP de saída ou se precisa habilitar o acesso dentro e fora da rede corporativa, é possível adicionar todo o espaço de endereços IPv4 como IPs confiáveis especificando 0.0.0.0/1 e 128.0.0.0/1.
 
 >[!IMPORTANT]
  > Se você expandir os endereços IP confiáveis para desbloquear o acesso, os eventos de risco associados a endereços IP (por exemplo, viagem impossível ou localizações desconhecidas) não serão gerados.

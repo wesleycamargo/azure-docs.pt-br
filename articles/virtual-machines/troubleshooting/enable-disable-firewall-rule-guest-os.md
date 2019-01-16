@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
+ms.lasthandoff: 01/08/2019
 ms.locfileid: "52319055"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>Habilitar ou desabilitar uma regra de firewall em um sistema operacional convidado do Azure VM
@@ -35,7 +35,7 @@ A maneira como você configura as regras do firewall depende do nível de acesso
 
 ### <a name="online-troubleshooting"></a>Resolução de problemas online 
 
-#### <a name="mitigation-1-custom-script-extension"></a>Mitigação 1: extensão de script personalizada
+#### <a name="mitigation-1-custom-script-extension"></a>Mitigação 1: Extensão de script personalizado
 
 1.  Crie seu script usando o modelo a seguir.
 
@@ -51,7 +51,7 @@ A maneira como você configura as regras do firewall depende do nível de acesso
 
 2.  Carregue esse script no portal do Azure usando o recurso [extensão de Script personalizado](../extensions/custom-script-windows.md). 
 
-#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell Remoto
+#### <a name="mitigation-2-remote-powershell"></a>Mitigação 2: PowerShell remoto
 
 Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, você poderá fazer as mitigações a seguir usando a outra VM.
 
@@ -168,4 +168,4 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
 
 10. [Desanexar o disco do sistema e recriar a VM](troubleshoot-recovery-disks-portal-windows.md).
 
-11. Verifique se o problema for resolvido.
+11. Verifique se o problema foi resolvido.

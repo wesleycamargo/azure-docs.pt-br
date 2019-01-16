@@ -12,18 +12,18 @@ ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58354bf95b11e497f05fdf08ba4740b3f55c6d6e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096552"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022777"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
 No Azure Active Directory (Azure AD), a todos os usuários é concedido um conjunto de permissões padrão. Um acesso do usuário é composto por tipo de usuário, suas [associações de função](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) e sua posse de objetos individuais. Este artigo descreve as permissões padrão e contém uma comparação entre os padrões do usuário membro e convidado.
 
 ## <a name="member-and-guest-users"></a>Usuários membro e convidado
-O conjunto de permissões padrão recebido depende se o usuário é um membro nativo do locatário (usuário membro) ou se o usuário é um convidado de colaboração B2B (usuário convidado). Para obter mais informações sobre a colaboração B2B, consulte [O que é a colaboração B2B do Azure AD?](../b2b/what-is-b2b.md) para obter mais informações sobre usuários convidados. 
+O conjunto de permissões padrão recebido depende se o usuário é um membro nativo do locatário (usuário membro) ou se o usuário é um convidado de colaboração B2B (usuário convidado). Para saber mais sobre a colaboração B2B e sobre usuários convidados, consulte [O que é a colaboração B2B do Azure AD?](../b2b/what-is-b2b.md) 
 * Usuários membro podem registrar aplicativos, gerenciar seu próprio número de celular e foto perfil, alterar sua senha e convidar pessoas B2B. Além disso, os usuários podem ler todas as informações de diretório (com algumas poucas exceções). 
 * Usuários convidados do Azure AD B2B têm permissões de diretório restritas. Por exemplo, os usuários convidados não podem procurar informações do locatário além de suas próprias informações de perfil. No entanto, um usuário convidado pode recuperar informações sobre outro usuário, fornecendo o Nome Principal do Usuário ou o objectId. Um convidado não consegue informações sobre outros objetos de locatário, como grupos e aplicativos.
 

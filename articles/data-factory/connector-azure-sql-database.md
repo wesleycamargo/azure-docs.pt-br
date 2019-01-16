@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346689"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025684"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o Banco de Dados SQL do Azure usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Versão 1](v1/data-factory-azure-sql-connector.md)
 > * [Versão atual](connector-azure-sql-database.md)
 
@@ -63,8 +62,8 @@ Essas propriedades são suportadas por um serviço vinculado ao Banco de Dados S
 Para diferentes tipos de autenticação, consulte as seções a seguir sobre pré-requisitos e amostras JSON, respectivamente:
 
 - [Autenticação do SQL](#sql-authentication)
-- [Autenticação do Azure do token do aplicativo AD: entidade de serviço](#service-principal-authentication)
-- [Autenticação de token do aplicativo Azure AD: Identidades gerenciadas para recursos do Azure](#managed-identity)
+- [Autenticação de token do aplicativo Azure AD: Entidade de serviço](#service-principal-authentication)
+- [Autenticação de token do aplicativo Azure AD: identidades gerenciadas para recursos do Azure](#managed-identity)
 
 >[!TIP]
 >Se ocorrer erro com código de erro como "UserErrorFailedToConnectToSqlServer" e mensagem como "O limite da sessão para o banco de dados é XXX e foi atingido.", adicione `Pooling=false` à cadeia de conexão e tente novamente.
@@ -343,8 +342,8 @@ Para copiar dados para o banco de dados do SQL Azure, defina o **tipo** do colet
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | O **tipo** do coletor de atividade de cópia deve ser definida como **SqlSink**. | SIM |
-| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge **writeBatchSize** .<br/> O valor permitido é **inteiro** (número de linhas). | Não. O padrão é 10000. |
-| writeBatchTimeout | O tempo de espera para o lote inserir operação seja concluída antes de expirar.<br/> O valor permitido é **timespan**. Exemplo: "00:30:00" (30 minutos). | Não  |
+| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge **writeBatchSize** .<br/> O valor permitido é **inteiro** (número de linhas). |  Não. O padrão é 10000. |
+| writeBatchTimeout | O tempo de espera para o lote inserir operação seja concluída antes de expirar.<br/> O valor permitido é **timespan**. Exemplo: “00:30:00” (30 minutos). | Não  |
 | preCopyScript | Especifique uma consulta SQL para que a Atividade de Cópia seja executada antes de gravar dados no Banco de Dados SQL do Azure. É invocado apenas uma vez por cópia. Use essa propriedade para limpar os dados pré-carregados. | Não  |
 | sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem em uma tabela de destino. Um exemplo é fazer upserts ou transformar usando sua própria lógica de negócios. <br/><br/>Este procedimento armazenado é **chamado por lote**. Para operações que são executadas apenas uma vez e não têm nada a ver com dados de origem, use a `preCopyScript` propriedade. Exemplos de operações são excluir e truncar. | Não  |
 | storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Valores permitidos são pares de nome e valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não  |
@@ -503,7 +502,7 @@ Quando você copiar dados para o banco de dados do SQL Azure, você também pode
 
 Você pode usar um procedimento armazenado quando os mecanismos internos de cópia não atendem à finalidade. Eles são normalmente usados quando um upsert, insert plus update ou processamento extra deve ser feito antes da inserção final dos dados de origem na tabela de destino. Alguns exemplos de processamento extra são colunas de mesclagem, pesquisa valores adicionais e inserção em mais de uma tabela.
 
-A amostra a seguir mostra como usar um procedimento armazenado para fazer um upsert em uma tabela no Banco de Dados SQL do Azure. Suponha que os dados de entrada e a tabela **Marketing** de recebimento tenham três colunas: **ID do perfil**, **Estado** e **Categoria**. Faça o upsert com base na coluna **ProfileID** e aplique-o apenas a uma categoria específica.
+A amostra a seguir mostra como usar um procedimento armazenado para fazer um upsert em uma tabela no Banco de Dados SQL do Azure. Supondo que os dados de entrada e cada tabela **Marketing** do coletor tenham três colunas: **ProfileID**, **State** e **Category**. Faça o upsert com base na coluna **ProfileID** e aplique-o apenas a uma categoria específica.
 
 #### <a name="output-dataset"></a>Conjunto de dados de saída
 
@@ -603,7 +602,7 @@ Quando você copia dados de ou para o Banco de Dados SQL do Azure, os seguintes 
 | sql_variant |Objeto * |
 | text |String, Char[] |
 | tempo real |timespan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |

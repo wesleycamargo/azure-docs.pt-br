@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: 7fb6917e129c015536143a707fd2a89fc5423a99
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.date: 01/03/2019
+ms.openlocfilehash: 30efbcd5ba36ea912a7238eef9e300085cb1d3d1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323073"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040193"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Gerenciamento da referência de API para Instâncias Gerenciadas do Banco de Dados SQL do Azure
 
@@ -37,9 +37,13 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do Azure SQL com 
 | Cmdlet | DESCRIÇÃO |
 | --- | --- |
 |[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Cria uma Instância Gerenciada do Banco de Dados SQL do Azure |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlInstance)|Retorna informações sobre a Instância Gerenciada do SQL do Azure|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRmSqlInstance)|Define propriedades para uma Instância Gerenciada do Banco de Dados SQL do Azure|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRmSqlInstance)|Remove uma Instância Gerenciada do Banco de Dados SQL do Azure|
+|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Retorna informações sobre a Instância Gerenciada do SQL do Azure|
+|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Define propriedades para uma Instância Gerenciada do Banco de Dados SQL do Azure|
+|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Remove uma Instância Gerenciada do Banco de Dados SQL do Azure|
+|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Cria um banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure|
+|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Retorna informações sobre o banco de dados da Instância Gerenciada do SQL do Azure|
+|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Remove um banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure|
+|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Restaura um banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure|
 
 ## <a name="azure-cli-manage-logical-servers-and-databases"></a>CLI do Azure: Gerenciar servidores lógicos e bancos de dados
 
@@ -47,15 +51,19 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Azure com 
 
 > [!TIP]
 > Para ver um início rápido da CLI do Azure, consulte [Trabalhar com a Instância Gerenciada do SQL usando a CLI do Azure](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
->
 
 | Cmdlet | DESCRIÇÃO |
 | --- | --- |
-|[az sql mi create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-create) |Cria uma instância gerenciada|
-|[az sql mi list](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-list)|Lista as instâncias gerenciadas disponíveis|
-|[az sql mi show](/cli/azure/sql/db#az-sql-mi-show)|Obtém os detalhes de uma instância gerenciada|
-|[az sql mi update](/cli/azure/sql/db#az-sql-mi-update)|Atualiza uma instância gerenciada|
-|[az sql mi delete](/cli/azure/sql/db#az-sql-mi-delete)|Remove uma instância gerenciada|
+|[az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Cria uma instância gerenciada|
+|[az sql mi list](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Lista as instâncias gerenciadas disponíveis|
+|[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtém os detalhes de uma instância gerenciada|
+|[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Atualiza uma instância gerenciada|
+|[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Remove uma instância gerenciada|
+|[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Cria um banco de dados gerenciado|
+|[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Lista os bancos de dados gerenciados disponíveis|
+|[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaura um banco de dados gerenciado|
+|[az sql midb update](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-update)|Atualiza um banco de dados gerenciado|
+|[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Remove um banco de dados gerenciado|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Gerenciar servidores lógicos e bancos de dados
 

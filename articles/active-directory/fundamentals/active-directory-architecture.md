@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076100"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013291"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qual é a arquitetura do Active Directory do Azure?
 O Azure AD (Azure Active Directory) o habilita a gerenciar o acesso a recursos e serviços do Azure para os usuários. Está incluído no Azure AD um conjunto completo de recursos de gerenciamento de identidade. Para obter informações sobre os recursos do Azure AD, confira [O que é o Azure Active Directory?](active-directory-whatis.md)
@@ -34,7 +34,7 @@ Os seguintes elementos de arquitetura são abordados neste artigo:
  *  Data centers
 
 ### <a name="service-architecture-design"></a>Design de arquitetura de serviço
-A maneira mais comum de criar um sistema rico em dados e acessível e utilizável é por meio de blocos de construção ou unidades de escala independentes para o nível de dados do AD do Azure, unidades de escala denominadas *partições*. 
+A maneira mais comum para criar um sistema rico em dados, acessível e utilizável, é através de blocos de construção independentes ou unidades de escala. Para a camada de dados do Azure AD, as unidades de escala são chamadas de *partições*. 
 
 A camada de dados tem vários serviços de front-end que fornecem a capacidade de leitura/gravação. O diagrama abaixo mostra como os componentes de uma partição de diretório único são entregues em data centers distribuídos geograficamente. 
 

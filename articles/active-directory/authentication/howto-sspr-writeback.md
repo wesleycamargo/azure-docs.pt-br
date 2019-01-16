@@ -10,16 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086940"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040652"
 ---
-# <a name="how-to-configure-password-writeback"></a>Instruções: Configurar write-back de senha
-
-É recomendável que você use o recurso de atualização automática do [Azure AD Connect](../hybrid/how-to-connect-install-express.md) ao usar write-back de senha.
+# <a name="how-to-configure-password-writeback"></a>Instruções: Configurar o write-back de senha
 
 As etapas a seguir pressupõem que você já tenha configurado o Azure AD Connect em seu ambiente usando as configurações [Expressas](../hybrid/how-to-connect-install-express.md) ou [Personalizadas](../hybrid/how-to-connect-install-custom.md).
 
@@ -38,7 +36,25 @@ Para tarefas comuns de solução de problemas relacionadas ao write-back de senh
 > [!WARNING]
 > O write-back de senha deixará de funcionar para clientes que usam as versões 1.0.8641.0 e posteriores do Azure AD Connect quando o [serviço de ACS (Controle de Acesso do Microsoft Azure) for desativado em 7 de novembro de 2018](../develop/active-directory-acs-migration.md). As versões do Azure AD Connect 1.0.8641.0 e anteriores não permitirão mais o write-back de senha porque dependem do ACS para essa funcionalidade.
 >
-> Para evitar uma interrupção no serviço, atualize de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [Azure AD Connect: atualização de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
+> Para evitar uma interrupção no serviço, atualize de uma versão anterior do Azure AD Connect para uma versão mais recente. Consulte o artigo [Azure AD Connect: atualização de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
+>
+
+## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento do write-back de senha
+
+**Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local é um recurso Premium do Azure AD**. Para obter mais informações sobre licenciamento, consulte o [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Para usar o write-back de senha, você deve ter uma das licenças a seguir atribuídas no locatário:
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 ou A3
+* Enterprise Mobility + Security E5 ou A5
+* Microsoft 365 E3 ou A3
+* Microsoft 365 E5 ou A5
+* Microsoft 365 F1
+
+> [!WARNING]
+> Os planos de licenciamento do Office 365 autônomo *não oferecem suporte à/ao "Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que esse recurso funcione.
 >
 
 ## <a name="active-directory-permissions"></a>Permissões do Active Directory

@@ -10,24 +10,23 @@ ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d2f9327841e0c6193a89df6459b4d8fffb14c05e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f2ba077b23a1fb12d1b547f8c9e3013135db1d87
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302836"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076018"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificado
 
  Um certificado do Key Vault (KV) pode ser criado ou importado em um cofre de chaves. Quando um certificado do KV é criado, a chave privada é criada no cofre de chaves e nunca exposta ao proprietário do certificado. Abaixo são apresentadas maneiras de criar um certificado no Key Vault:  
 
--   **Criar um certificado autoassinado:** isso criará um par de chaves públicas-privadas e associá-lo a um certificado. O certificado será assinado por sua própria chave.  
+-   **Criar um certificado autoassinado:** isso criará um par de chaves público-privado para associá-lo a um certificado. O certificado será assinado por sua própria chave.  
 
--    **Criar um novo certificado manualmente:** isso criará um par de chaves públicas-privadas e gerará uma solicitação de assinatura de certificado x.509. A solicitação de assinatura pode ser assinada por sua autoridade de registro ou a autoridade de certificação. O certificado X.509 assinado pode ser mesclado com o par de chaves pendente para concluir o certificado do KV no Key Vault. Embora esse método requeira mais etapas, ele oferece maior segurança porque a chave privada é criada no Key Vault e restrita a ele. Isso é explicado no diagrama a seguir.  
+-    **Criar um novo certificado manualmente:** isso criará um par de chaves público-privado e gerará uma solicitação de assinatura de certificado X.509. A solicitação de assinatura pode ser assinada por sua autoridade de registro ou a autoridade de certificação. O certificado X.509 assinado pode ser mesclado com o par de chaves pendente para concluir o certificado do KV no Key Vault. Embora esse método requeira mais etapas, ele oferece maior segurança porque a chave privada é criada no Key Vault e restrita a ele. Isso é explicado no diagrama a seguir.  
 
 ![Criar um certificado com sua própria autoridade de certificação](media/certificate-authority-1.png)  
 
@@ -39,7 +38,7 @@ As descrições a seguir correspondem às etapas indicadas em verde no diagrama 
 4. A autoridade de certificação escolhida responde com um certificado X509.
 5. Seu aplicativo conclui a criação do novo certificado com uma fusão do Certificado X509 da autoridade de certificação.
 
--   **Criar um certificado com um provedor de emissor conhecido:** esse método requer que você faça uma tarefa única de criação de um objeto de emissor. Depois que um objeto de emissor é criado no cofre de chaves, seu nome pode ser referenciado na política do certificado do KV. Uma solicitação para criar um certificado do KV criará um par de chaves no cofre e se comunicará com o serviço do provedor de emissor usando as informações no objeto de emissor referenciado para obter um certificado x509. O certificado x509 é recuperado do serviço de emissor e é mesclado com o par de chaves para concluir a criação do certificado do KV.  
+-   **Criar um certificado com um provedor de emissor conhecido:** esse método requer uma única tarefa de criação de um objeto de emissor. Depois que um objeto de emissor é criado no cofre de chaves, seu nome pode ser referenciado na política do certificado do KV. Uma solicitação para criar um certificado do KV criará um par de chaves no cofre e se comunicará com o serviço do provedor de emissor usando as informações no objeto de emissor referenciado para obter um certificado x509. O certificado x509 é recuperado do serviço de emissor e é mesclado com o par de chaves para concluir a criação do certificado do KV.  
 
 ![Criar um certificado com uma autoridade de certificação de uma parceria do Key Vault](media/certificate-authority-2.png)  
 
@@ -58,12 +57,12 @@ Quando uma solicitação para criar um certificado do KV for concluída, o statu
 
 ## <a name="first-creation"></a>Primeira criação
  Quando um certificado do KV é criado pela primeira vez, uma chave endereçável e um segredo também são criados com o mesmo nome que o certificado. Se o nome já estiver em uso, a operação falhará com um código de status http 409 (conflito).
-A chave endereçável e o segredo obtêm seus atributos dos atributos do certificado do KV. A chave endereçável e o segredo criados dessa maneira são marcados como chaves e segredos gerenciados, cujo tempo de vida é gerenciado pelo Key Vault. As chaves e os segredos são somente leitura. Observação: se um certificado do KV expirar ou for desabilitado, a chave e o segredo correspondentes se tornarão inoperantes.  
+A chave endereçável e o segredo obtêm seus atributos dos atributos do certificado do KV. A chave endereçável e o segredo criados dessa maneira são marcados como chaves e segredos gerenciados, cujo tempo de vida é gerenciado pelo Key Vault. As chaves e os segredos são somente leitura. Observação: se um certificado KV expirar ou for desabilitado, a chave e o segredo correspondentes se tornarão inoperantes.  
 
  Se essa for a primeira operação para criar um certificado do KV, uma política será necessária.  Uma política também pode ser fornecida com sucessivas operações de criação para substituir o recurso de política. Se uma política não for fornecida, o recurso de política do serviço é usado para criar uma versão posterior do certificado KV. Observe que enquanto uma solicitação para criar a próxima versão estiver em andamento, o certificado KV atual e a chave endereçável e o segredo correspondentes, permanecem inalterados.  
 
 ## <a name="self-issued-certificate"></a>Certificado auto-emitido
- Para criar um certificado autoemitido, defina o nome do emissor como "Auto" na política do certificado, conforme mostrado no trecho a seguir da política de certificado.  
+ Para criar um certificado autoemitido, defina o nome do emissor como "Auto" na política do certificado, conforme mostrado no snippet a seguir da política de certificado.  
 
 ```  
 "issuer": {  
@@ -93,7 +92,7 @@ A criação de certificado pode ser concluída manualmente ou usando um emissor 
 
 Observe que quando um pedido é feito com o provedor do emissor, ele pode aceitar ou substituir as extensões de certificado x509 e o período de validade do certificado com base no tipo de certificado.  
 
- Autorização: Requer a permissão certificados/criar.
+ Autorização: requer a permissão certificates/create.
 
  ## <a name="see-also"></a>Veja também
  - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

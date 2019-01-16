@@ -1,12 +1,11 @@
 ---
-title: Aplicativo de exemplo do Azure para uso com DMZs | Microsoft Docs
+title: Aplicativo de exemplo do Azure para uso com DMZs
+titlesuffix: Azure Virtual Network
 description: Implantar esse aplicativo Web simples depois de criar um DMZ para testar cenários de fluxo de tráfego
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 1ccdb8254551d0009a71cc047b8399a539edb8e2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f299665168e1dfca223c5cab7ba0e0f2767a50ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866841"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021417"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Aplicativo de exemplo para uso com DMZs
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]

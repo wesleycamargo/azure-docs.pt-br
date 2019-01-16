@@ -9,17 +9,16 @@ ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: afee3254ebdd325d756bfc5027cca531442c5689
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d05661c131d981538dada988131c39d4fd956ee9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257344"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016725"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Azure Data Factory
 > [!NOTE]
@@ -445,7 +444,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
     }
     ```
 
-15. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com botão direito do mouse em **Referências** e clique em **Adicionar Referência**. Selecione caixa de seleção para o assembly `System.Configuration` e clique em **OK**.
+15. No Gerenciador de Soluções, expanda o projeto: **DataFactoryAPITestApp**, clique com o botão direito do mouse em **Referências** e clique em **Adicionar referência**. Selecione caixa de seleção para o assembly `System.Configuration` e clique em **OK**.
 15. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**.
 16. Confirme se há pelo menos um arquivo no contêiner adftutorial no seu armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo de Emp.txt no bloco de notas com o seguinte conteúdo e carregue-o no contêiner adftutorial.
 

@@ -1,5 +1,5 @@
 ---
-title: Como configurar dispositivos adicionados ao Azure Active Directory híbrido | Microsoft Docs
+title: Como planejar uma implementação de ingresso do Azure Active Directory híbrido no Azure Active Directory | Microsoft Docs
 description: Saiba como configurar dispositivos adicionados ao Azure Active Directory híbrido.
 services: active-directory
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: bddd183c517c611373afd1df64f22bfcd6a0cea8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993273"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102271"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção híbrida do Active Directory do Azure
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar a sua implementação do ingresso do Azure Active Directory híbrido
 
 De maneira semelhante a um usuário, um dispositivo está se tornando outra identidade que você deseja proteger e também usa para proteger seus recursos a qualquer hora e local. É possível atingir essa meta, colocando as identidades dos dispositivos no Azure AD usando um dos métodos a seguir:
 
@@ -54,7 +54,6 @@ Para planejar sua implementação híbrida do AD do Azure, você deve se familia
 
 
  
-
 
 ## <a name="review-supported-devices"></a>Dispositivos com suporte de revisão 
 
@@ -112,6 +111,11 @@ Se a sua organização exigir acesso à Internet por meio de um proxy de saída 
 
 A associação híbrida do Azure AD é um processo para registrar automaticamente seus dispositivos associados ao domínio local com o Azure AD. Há casos em que você não quer que todos os seus dispositivos se registrem automaticamente. Se isso for verdade para você, consulte [Como controlar a associação híbrida do Azure AD aos seus dispositivos](hybrid-azuread-join-control.md).
 
+Se os dispositivos incluídos no domínio do Windows 10 já estiverem [registrados pelo Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) no seu locatário, você deverá considerar a remoção desse estado antes de habilitar o ingresso do Azure Active Directory. O dispositivo não pode apresentar o estado duplo de ingresso do Azure Active Directory híbrido e registrado pelo Azure Active Directory. No Windows 10 versão 1809, as seguintes alterações foram feitas para evitar esse estado duplo: 
+ - Qualquer estado existente registrado pelo Azure Active Directory será automaticamente removido depois que os dispositivos forem incluídos no Azure Active Directory Híbrido. 
+ - Você pode impedir que o seu dispositivo incluído no domínio seja registrado pelo Azure Active Directory adicionando esta chave do Registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
+
+
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Revise como controlar a junção híbrida do Microsoft Azure Active Directory de seus dispositivos
 
 O ingresso no Azure AD híbrido é um processo para registrar automaticamente os dispositivos ingressado no domínio local com Azure AD. Há casos em que não é necessário que todos os dispositivos sejam registrados automaticamente. Isso acontece, por exemplo, durante a distribuição inicial para verificar se tudo está funcionando conforme o esperado.
@@ -144,15 +148,15 @@ A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para con
  Se a instalação da versão necessária do Azure AD Connect não for uma opção, consulte [como configurar manualmente o registro do dispositivo](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Suporte à ID de logon alternativo no ingresso no Azure AD Híbrido
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Suporte à ID de logon alternativa no ingresso do Azure Active Directory Híbrido
 
-A junção do Azure AD Híbrido no Windows 10 fornece suporte limitado para [IDs de logon alternativas](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de ID de logon alternativa, no [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), no tipo de domínio e na versão do Windows 10. Há dois tipos de IDs de logon alternativas que podem existir em seu ambiente.
+O ingresso do Azure Active Directory Híbrido no Windows 10 fornece suporte limitado para [IDs de logon alternativas](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de ID de logon alternativa, no [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), no tipo de domínio e na versão do Windows 10. Há dois tipos de IDs de logon alternativas que podem existir em seu ambiente:
 
- - ID de logon alternativa roteável: Uma ID de logon alternativa roteável tem um domínio verificado válido, que é registrado com um registrador de domínios. Por exemplo, se contoso.com é o domínio primário, contoso.org e contoso.co.uk são domínios válidos de propriedade Contoso e [verificados no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - ID de logon alternativa roteável: uma ID de logon alternativa roteável tem um domínio verificado válido, que é catalogado com um registrador de domínios. Por exemplo, se contoso.com é o domínio primário, contoso.org e contoso.co.uk são domínios válidos de propriedade Contoso e [verificados no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - ID de logon alternativa não roteável: Uma ID de logon alternativa não roteável não tem um domínio verificado. É aplicável somente dentro da rede privada da sua organização. Por exemplo, se contoso.com for o domínio primário, contoso. local não será um domínio verificável na Internet, mas será usado na rede da Contoso.
+ - ID de logon alternativa não roteável: uma ID de logon alternativa não roteável não tem um domínio verificado. É aplicável somente dentro da rede privada da sua organização. Por exemplo, se contoso.com for o domínio primário, contoso. local não será um domínio verificável na Internet, mas será usado na rede da Contoso.
  
-A tabela a seguir apresenta detalhes sobre o suporte para qualquer uma dessas identificações de logon alternativas em associação híbrida do Azure AD do Windows 10
+A tabela a seguir apresenta detalhes sobre o suporte para qualquer uma dessas IDs de logon alternativas no ingresso do Azure Active Directory no Windows 10
 
 |Tipo de ID de logon alternativa|Tipo de domínio|Versão do Windows 10|DESCRIÇÃO|
 |-----|-----|-----|-----|

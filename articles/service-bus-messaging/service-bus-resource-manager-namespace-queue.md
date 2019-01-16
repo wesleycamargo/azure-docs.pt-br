@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4010f1582b726993a5540898492c76aa543fa2d9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 4d16e6161d2e31ed104f6b1ed9842470dd5faae9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407732"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062410"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Criar um namespace e uma fila do Barramento de Serviço usando um modelo do Azure Resource Manager
 
@@ -116,6 +116,8 @@ Cria um namespace de Barramento de Serviço padrão do tipo **Mensagens**, com u
         }]
     }]
 ```
+
+Saiba mais sobre a sintaxe e as propriedades de JSON em [namespaces](/azure/templates/microsoft.servicebus/namespaces) e [queues](/azure/templates/microsoft.servicebus/namespaces/queues).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

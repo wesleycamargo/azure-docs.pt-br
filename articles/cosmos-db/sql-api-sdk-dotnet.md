@@ -1,20 +1,19 @@
 ---
 title: 'O Azure Cosmos DB: API, SDK e recursos .NET SQL'
 description: Saiba tudo sobre o SDK e a API do .NET do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do .NET do Azure Cosmos DB.
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.author: sngun
+ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337930"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051944"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB para a API do SQL: Downloads e notas sobre a versão
 > [!div class="op_single_selector"]
@@ -49,15 +48,23 @@ ms.locfileid: "53337930"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
-* Versão prévia 1 da [Versão 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) do SDK do .NET para a versão prévia pública.
-* O destino é o .NET Standard, que dá suporte ao .NET Framework 4.6.1+ e ao .NET Core 2.0 ou posterior
+* Versão prévia 1 da [Versão 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) do SDK .NET para visualização pública.
+* O destino é .NET Standard, que dá suporte para .NET Framework 4.6.1+ e .NET Core 2.0+
 * Novo modelo de objeto, com CosmosClient de nível superior e métodos divididos entre as classes CosmosDatabases, CosmosContainers e CosmosItems. 
 * Suporte para fluxos. 
-* CosmosResponseMessage atualizado do servidor para retornar o código de status e, em seguida, lançar a exceção apenas quando nenhuma resposta for retornada. 
+* Atualizado CosmosResponseMessage do servidor para retornar o código de status e somente gerar exceção quando nenhuma resposta for retornada. 
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Melhoria na lógica de repetição durante o failover para chamadas de execução de StoredProcedure.
+
+* DocumentClientEventSource foi transformado em singleton. 
+
+* O tempo limite de GatewayAddressCache que não estava respeitando o RequestTimeout de ConnectionPolicy foi corrigido.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
-* Para o diagnóstico de transporte direto/TCP, adicionado TransportException, um tipo de exceção interna do SDK. Quando presente nas mensagens de exceção, esse tipo imprime informações adicionais para solução de problemas de conectividade do cliente.
+* Para diagnósticos de transporte TCP/direto, foi incluído TransportException, um tipo de exceção interno do SDK. Quando presente nas mensagens de exceção, esse tipo imprime informações adicionais para solução de problemas de conectividade do cliente.
 
 * Adicionada nova sobrecarga de construtor que usa um HttpMessageHandler, uma pilha de manipulador HTTP a ser usada para enviar solicitações HttpClient (por exemplo, HttpClientHandler).
 
@@ -350,6 +357,7 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 de dezembro de 2018 |--- |
 | [2.2.0](#2.2.0) |07 de dezembro de 2018 |--- |
 | [2.1.3](#2.1.3) |15 de outubro de 2018 |--- |
 | [2.1.2](#2.1.2) |04 de outubro de 2018 |--- |

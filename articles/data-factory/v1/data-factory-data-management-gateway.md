@@ -9,17 +9,16 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698750"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022301"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
 > [!NOTE]
@@ -51,7 +50,7 @@ O Gateway de Gerenciamento de Dados fornece as seguintes funcionalidades:
 ### <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
 Quando você usa uma atividade de cópia para copiar dados entre repositórios locais e a nuvem, a atividade usa um gateway para transferir dados da fonte de dados local para a nuvem, e vice-versa.
 
-Aqui está o fluxo de dados de alto nível e o resumo das etapas para a cópia com o gateway de dados: ![Fluxo de dados usando o gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+Aqui está o fluxo de dados de alto nível para a cópia com o gateway de dados, assim como o resumo das etapas: ![Fluxo de dados usando gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1. O desenvolvedor de dados cria um gateway para uma Azure Data Factory usando o [Portal do Azure](https://portal.azure.com) ou [Cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datafactories/).
 2. O desenvolvedor de dados cria um serviço vinculado para um armazenamento de dados local ao especificar o gateway. Como parte da configuração de dados do serviço vinculado, o desenvolvedor usa o aplicativo Configurando Credenciais para especificar as credenciais e tipos de autenticação.  O diálogo do aplicativo Configurando Credenciais se comunica com o armazenamento de dados para testar a conexão e o gateway para salvar as credenciais.
@@ -152,7 +151,7 @@ No nível do Firewall do Windows, essas portas de saída normalmente são habili
 
 > [!NOTE]
 > 1. Com base em sua origem/coletores, talvez você precise incluir domínios adicionais na lista de permissões e as portas de saída em seu Firewall do Windows/corporativo.
-> 2. Para alguns bancos de dados na nuvem (por exemplo: [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) etc.), talvez seja necessário incluir o endereço IP do computador do Gateway na lista de permissões na configuração do firewall deles.
+> 2. Para alguns Bancos de Dados de Nuvem (por exemplo: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) etc.), pode ser necessário colocar os endereços IP em listas de permissões do computador do Gateway na configuração do firewall.
 >
 >
 
@@ -182,7 +181,7 @@ O gateway usa o servidor proxy para se conectar ao serviço de nuvem. Clique no 
 
 Há três opções de configuração:
 
-* **Não usar proxy**: o gateway não usa explicitamente qualquer proxy para se conectar aos serviços de nuvem.
+* **Não usar a política**: o gateway não usa explicitamente qualquer proxy para se conectar aos serviços de nuvem.
 * **Usar proxy do sistema**: o gateway usa a configuração de proxy que é definida em diahost.exe.config e em diawp.exe.config.  Se nenhum proxy estiver configurado em diahost.exe.config e em diawp.exe.config, o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy.
 * **Usar proxy personalizado**: configure a definição do proxy HTTP a ser usado pelo gateway, em vez de usar as configurações em diahost.exe.config e diawp.exe.config.  Endereço e porta são necessários.  O Nome de Usuário e Senha são opcionais, dependendo da configuração de autenticação do proxy.  Todas as configurações são criptografadas com o certificado de credencial do gateway e armazenadas localmente no computador host do gateway.
 
@@ -307,7 +306,7 @@ Você pode habilitar/desabilitar o recurso de atualização automática seguindo
 Depois de instalar o gateway, você pode iniciar o Gerenciador de Configuração de Gateway de Gerenciamento de Dados de uma das seguintes maneiras:
 
 1. Na janela **Search**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário.
-2. Execute o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. Execute **ConfigManager.exe** na pasta: **C:\Arquivos de Programas\Microsoft Data Management Gateway\2.0\Shared**
 
 ### <a name="home-page"></a>Página inicial
 A home page permite que você realize as seguintes ações:

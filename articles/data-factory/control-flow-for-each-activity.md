@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 90c36e728a8ec91606f93c080258eeca9c3825e6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423721"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020771"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
@@ -86,7 +85,7 @@ Se **isSequential** estiver definido como false, a atividade iterará em paralel
 Na atividade ForEach, forneça uma matriz a ser iterada para **items** da propriedade. Use `@item()` para iterar em uma única enumeração na atividade ForEach. Por exemplo, se **items** for uma matriz: [1, 2, 3], `@item()` retornará 1 na primeira iteração, 2 na segunda iteração e 3 na terceira iteração.
 
 ## <a name="iterating-over-a-single-activity"></a>Iterar em uma única atividade
-**Cenário:** cópia do mesmo arquivo de origem no Blob do Azure para vários arquivos de destino no Blob do Azure.
+**Cenário:** copiar do mesmo arquivo de origem no Blob do Azure para vários arquivos de destino no Blob do Azure.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
 

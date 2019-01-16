@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306656"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051434"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar os dados com o Power BI
 Este tutorial mostra como usar o Power BI para se conectar ao SQL Data Warehouse e criar algumas visualizações básicas.
@@ -32,7 +32,7 @@ Para acompanhar este tutorial, você precisará:
 ## <a name="1-connect-to-your-database"></a>1. Conectar-se ao seu banco de dados
 Para abrir o Power BI e conectar-se ao banco de dados AdventureWorksDW:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **bancos de dados SQL** e escolha o banco de dados AdventureWorks do SQL Data Warehouse.
    
     ![Localize o banco de dados](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png)
@@ -77,7 +77,7 @@ Agora você está pronto para usar o Power BI para analisar os dados de exemplo 
 
 Você pode salvar seu andamento a qualquer momento clicando em **Arquivo** e selecionando **Salvar**.
 
-## <a name="using-direct-connnect"></a>Usando a Conexão Direta
+## <a name="using-direct-connect"></a>Usar a Conexão Direta
 Assim como o Banco de Dados SQL do Azure, a Conexão Direta do SQL Data Warehouse permite uma aplicação lógica junto com os recursos analíticos do Power BI. Com a Conexão Direta, as consultas são enviadas de volta para o SQL Data Warehouse do Azure em tempo real enquanto você explora os dados.  Esse recurso, combinado com a escala do SQL Data Warehouse, permite aos usuários criar relatórios dinâmicos em minutos contra terabytes de dados. Além disso, a introdução do botão Abrir no Power BI permite que os usuários conectem o Power BI diretamente ao respectivo SQL Data Warehouse sem coletar informações de outras partes do Azure.
 
 Ao usar a Conexão Direta:

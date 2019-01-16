@@ -10,17 +10,16 @@ ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736403"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015807"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -46,7 +45,7 @@ A atividade do Spark é uma das [atividades de transformação de dados](data-fa
 > - A atividade do Spark não dá suporte a clusters HDInsight Spark que usam o Azure Data Lake Store como armazenamento primário.
 > - A atividade do Spark é compatível apenas com clusters HDInsight Spark existentes (seus próprios). Ele não dá suporte a um serviço vinculado ao HDInsight sob demanda.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Passo a passo: Criar um pipeline com uma atividade do Spark
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Passo a passo: Criar um pipeline com uma atividade Spark
 Estas são as etapas típicas para criar um pipeline do data factory com uma atividade do Spark: 
 
 * Criar um data factory.
@@ -67,16 +66,16 @@ Estas são as etapas típicas para criar um pipeline do data factory com uma ati
 ### <a name="create-a-data-factory"></a>Criar uma data factory
 Para criar um data factory, siga estas etapas:
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Novo** > **Dados + Análise** > **Data Factory**.
 
 1. Na folha **Novo data factory**, em **Nome**, insira **SparkDF**.
 
    > [!IMPORTANT]
-   > O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro “O nome do data factory SparkDF não está disponível”, altere o nome do data factory. Por exemplo, use yournameSparkDFdate e crie o data factory novamente. Para obter mais informações sobre as regras de nomenclatura, consulte [Data Factory: regras de nomenclatura](data-factory-naming-rules.md).
+   > O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro “O nome do data factory SparkDF não está disponível”, altere o nome do data factory. Por exemplo, use yournameSparkDFdate e crie o data factory novamente. Para saber mais sobre as regras de nomenclatura, consulte [Data Factory: regras de nomenclatura](data-factory-naming-rules.md).
 
-1. Em **Assinatura**, selecione a assinatura do Azure em que deseja que o data factory seja criado.
+1. Em **Assinatura**, escolha a assinatura do Azure onde você deseja que o data factory seja criado.
 
 1. Selecione um grupo de recursos existente ou crie um grupo de recursos do Azure.
 
@@ -122,7 +121,7 @@ Nesta etapa, você cria um serviço vinculado do HDInsight para vincular o clust
 
 1. Copie e cole o snippet a seguir na janela de Rascunho-1. No editor de JSON, execute as seguintes etapas:
 
-    a. Especifique o URI do cluster HDInsight Spark. Por exemplo: `https://<sparkclustername>.azurehdinsight.net/`.
+     a. Especifique o URI do cluster HDInsight Spark. Por exemplo: `https://<sparkclustername>.azurehdinsight.net/`.
 
     b. Especifique o nome do usuário que tem acesso ao cluster Spark.
 
@@ -219,7 +218,7 @@ Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, 
     ```
     Observe os seguintes pontos:
 
-    a. A propriedade **type** é definida como **HDInsightSpark**.
+     a. A propriedade **type** é definida como **HDInsightSpark**.
 
     b. A propriedade **rootPath** é definida como **adfspark\\pyFiles**, em que adfspark é o contêiner de blobs e pyFiles é a pasta de arquivos nesse contêiner. Neste exemplo, o armazenamento de blobs é aquele que está associado ao cluster Spark. Carregue o arquivo em outra conta de armazenamento. Se você fizer isso, crie um serviço vinculado do Armazenamento para vincular essa conta de armazenamento ao data factory. Em seguida, especifique o nome do serviço vinculado como um valor para a propriedade **sparkJobLinkedService**. Para obter mais informações sobre essa propriedade e outras propriedades compatíveis com a atividade do Spark, consulte [Propriedades da atividade do Spark](#spark-activity-properties).
 

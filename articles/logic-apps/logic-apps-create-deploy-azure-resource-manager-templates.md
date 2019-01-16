@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 274fa3153f6a354b121b7fd8338d8e0d2d94f4f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 52aea4e47473d4dd27519ae53322b0e72d93f20e
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230805"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062886"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Criar e implantar aplicativos lógicos com modelos do Azure Resource Manager
 
-Os Aplicativos Lógicos do Azure fornecem modelos do Azure Resource Manager que você pode usar não apenas para criar aplicativos lógicos para automatizar os fluxos de trabalho, como também para definir os recursos e parâmetros utilizados para implantação. Você pode usar esse modelo para seus próprios cenários de negócios ou personalize o modelo para atender às suas necessidades. Saiba mais sobre o [modelo do Resource Manager para aplicativos lógicos](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) e sobre a [estrutura e a sintaxe de modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Os Aplicativos Lógicos do Azure fornecem modelos do Azure Resource Manager que você pode usar não apenas para criar aplicativos lógicos para automatizar os fluxos de trabalho, como também para definir os recursos e parâmetros utilizados para implantação. Você pode usar esse modelo para seus próprios cenários de negócios ou personalize o modelo para atender às suas necessidades. Saiba mais sobre o [modelo do Resource Manager para aplicativos lógicos](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) e sobre a [estrutura e a sintaxe de modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Saiba mais sobre a sintaxe e as propriedades de JSON em [tipos de recurso do Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 ## <a name="define-the-logic-app"></a>Definir o aplicativo lógico
 
@@ -93,7 +93,7 @@ Para criar e implantar automaticamente um aplicativo lógico para o Azure, escol
 
 [![Implantar no Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Essa ação conectará você ao portal do Azure, onde você poderá fornecer os detalhes do seu aplicativo lógico e fazer alterações no modelo ou nos parâmetros. Por exemplo, o portal do Azure solicitará estes detalhes:
+Essa ação conectará você ao Portal do Azure, onde você poderá fornecer os detalhes do seu aplicativo lógico e fazer alterações no modelo ou nos parâmetros. Por exemplo, o Portal do Azure solicitará estes detalhes:
 
 * Nome da assinatura do Azure
 * Grupo de recursos que você deseja usar

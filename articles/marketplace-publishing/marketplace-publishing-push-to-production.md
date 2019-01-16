@@ -3,7 +3,7 @@ title: Implantar nossa oferta no Azure Marketplace | Microsoft Docs
 description: Saiba mais sobre as instruções passo a passo para implantar sua oferta, imagem da máquina virtual, serviço do desenvolvedor, serviço de dados etc., para o Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 058f50853795453617593a6a07e2951f15f28174
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714274"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076104"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Implantar a oferta no Azure Marketplace
 Quando você estiver satisfeito com sua oferta (ou seja, os cenários de cliente, marketing, conteúdo etc. foram testados) e estiver pronto para começar, solicite **Enviar por push para produção** na guia **Publicar**.  
@@ -50,7 +51,7 @@ Quando você estiver satisfeito com sua oferta (ou seja, os cenários de cliente
 ## <a name="production-checklist-for-all-virtual-machine-offers"></a>Lista de verificação de produção para todas as ofertas de Máquina Virtual
 * Você deve ser um parceiro certificado do Microsoft Azure
 * Na guia SKUs, a opção "Ocultar esta SKU do Marketplace porque ela sempre deverá ser comprada por meio de um modelo de solução" só deverá ser marcada como SIM somente se a SKU fizer parte de um Modelo de Solução. Em todos os demais casos, essa opção sempre deverá ser marcada como NÃO.
-* Lembre-se: você não deve alterar a configuração de visibilidade da SKU depois que a SKU estiver listada. Não oferecemos suporte a essa funcionalidade.
+* Lembre-se: você não deve alterar a configuração de visibilidade da SKU depois que esta for listada. Não oferecemos suporte a essa funcionalidade.
 * Verifique se os logotipos seguem as diretrizes de logotipo do Azure Marketplace fornecidas a seguir.
 * As descrições da oferta e da SKU não devem ser iguais.
 * O título da SKU e o resumo longo da oferta não devem ser iguais.
@@ -69,8 +70,8 @@ Quando você estiver satisfeito com sua oferta (ou seja, os cenários de cliente
 **Diretrizes adicionais para o logotipo Hero:**
 
 * O logotipo Hero é opcional. O editor pode optar por não carregar um logotipo Hero. **No entanto, uma vez carregado, o ícone Hero não pode ser excluído do portal de Publicação. Nessa ocasião, o parceiro deve seguir as diretrizes do Azure Marketplace para ícones Hero. Caso contrário, a oferta não será aprovada para produção.**
-* O nome de exibição do editor, o título da SKU e o resumo longo da oferta são exibidos em uma fonte branca. Portanto, você deve evitar cores claras no plano de fundo do ícone Hero. Planos de fundo pretos, brancos e transparentes não são permitidos para ícones Hero.
-* O nome de exibição do editor, o título da SKU, o resumo longo da oferta e o botão de criação são inseridos programaticamente no logotipo Hero depois que a oferta é listada. Portanto, você não deve inserir texto ao projetar o logotipo Hero. Apenas deixe o espaço vazio à direita, porque o texto (ou seja, nome de exibição do fornecedor, título do SKU, resumo longo da oferta) será incluído programaticamente nesse local. O espaço vazio para o texto deve ser de 415x100 à direita (e ele é deslocado 370px à esquerda).
+* O nome de exibição do editor, o título da SKU e o resumo longo da oferta são exibidos em uma fonte de cor branca. Portanto, você deve evitar cores claras no plano de fundo do ícone Hero. Telas de fundo pretas, brancas e transparentes não são permitidas para ícones Hero.
+* O nome de exibição do editor, o título da SKU, o resumo longo da oferta e o botão de criação são inseridos programaticamente no logotipo Hero depois que a oferta é listada. Portanto, você não deve inserir texto ao projetar o logotipo Hero. Apenas deixe espaço vazio à direita, porque o texto (ou seja, o nome de exibição do editor, o título da SKU e o resumo longo da oferta) será incluído via programação nesse local. O espaço vazio para o texto deve ser de 415x100 à direita (e ele é deslocado em 370px da esquerda).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Lista de verificação adicional de produção para ofertas de VM já listadas
 * Verifique se já há uma oferta com o mesmo nome de oferta da sua empresa. Se houver, você deverá adicionar uma nova versão da SKU à oferta existente em vez de criar uma nova oferta duplicada.
@@ -81,7 +82,7 @@ Quando você estiver satisfeito com sua oferta (ou seja, os cenários de cliente
 Depois que a oferta ficar ativa, teste os cenários de cliente para validar todos os contratos e a funcionalidade funciona corretamente no ambiente de produção conforme testado e validado no ambiente de preparo.
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introdução: publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

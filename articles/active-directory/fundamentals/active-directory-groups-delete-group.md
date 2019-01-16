@@ -12,24 +12,24 @@ ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6c08022b47fb1a118e95a54eedf9b5239496ebf7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 405e86506f13472886878eb18557121c752e9464
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092223"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062291"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Excluir um grupo usando o Microsoft Azure Active Directory
 Você pode excluir um grupo do Azure Active Directory (Microsoft Azure Active Directory) para qualquer número de motivos, mas normalmente, será porque você:
 
-- Incorretamente, defina o **tipo de grupo** como a opção errada
+- atribuiu incorretamente o **Tipo de grupo** à opção errada.
 
-- Criado o errado ou um grupo duplicado por engano 
+- criou o grupo errado ou um grupo duplicado por engano. 
 
-- Não precisa mais do grupo
+- não precisa mais do grupo.
 
 ## <a name="to-delete-a-group"></a>Para excluir um grupo
-1. Faça login no [portal do Azure](https://portal.azure.com) usando uma conta de administrador global para o diretório.
+1. Faça login no [Portal do Azure](https://portal.azure.com) usando uma conta de administrador global para o diretório.
 
 2. Selecione **Active Directory do Azure** e, em seguida, selecione **Grupos**.
 

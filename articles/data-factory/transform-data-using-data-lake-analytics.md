@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: cbe4d3931a5e7b279218a1f56a3842efbc238780
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053549"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016487"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-usql-activity.md)
 > * [Versão atual](transform-data-using-data-lake-analytics.md)
 
@@ -37,7 +36,7 @@ A tabela a seguir apresenta as descrições das propriedades genéricas usadas n
 
 | Propriedade                 | DESCRIÇÃO                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **tipo**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | SIM                                      |
+| **tipo**                 | A propriedade de tipo deve ser configurada como: **AzureDataLakeAnalytics**. | SIM                                      |
 | **accountName**          | Nome da conta da Análise Azure Data Lake.  | SIM                                      |
 | **dataLakeAnalyticsUri** | URI da Análise Azure Data Lake.           | Não                                        |
 | **subscriptionId**       | ID de assinatura do Azure                    | Não                                        |
@@ -60,7 +59,7 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 | **servicePrincipalKey** | Especifique a chave do aplicativo.           | SIM      |
 | **tenant**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | SIM      |
 
-**Exemplo: autenticação de entidade de serviço**
+**Exemplo: Autenticação de entidade de serviço**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -89,7 +88,7 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 Para saber mais sobre o serviço vinculado, consulte [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Atividade do U-SQL da Análise Data Lake
-O seguinte trecho de código JSON define um pipeline com uma Atividade do U-SQL da Análise Data Lake. A definição de atividade tem uma referência para o serviço vinculado da Análise Azure Data Lake criado anteriormente. Para executar um script U-SQL do Data Lake Analytics, o Data Factory envia o script especificado ao Data Lake Analytics e as entradas e saídas necessárias são definidas no script do Data Lake Analytics para efetuar fetch e emitir a saída. 
+O seguinte snippet de código JSON define um pipeline com uma Atividade do U-SQL da Análise Data Lake. A definição de atividade tem uma referência para o serviço vinculado da Análise Azure Data Lake criado anteriormente. Para executar um script U-SQL do Data Lake Analytics, o Data Factory envia o script especificado ao Data Lake Analytics e as entradas e saídas necessárias são definidas no script do Data Lake Analytics para efetuar fetch e emitir a saída. 
 
 ```json
 {
@@ -130,7 +129,7 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 | prioridade            | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não        |
 | parâmetros          | Parâmetros para passar para o script U-SQL.    | Não        |
 | runtimeVersion      | Versão de tempo de execução do mecanismo U-SQL a ser usado. | Não        |
-| compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores: **Semantic:** apenas realizar verificações de semântica e as verificações de integridade necessárias, **Full:** executar a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** executar a compilação completa, com configuração de TargetType para SingleBox. Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. | Não  |
+| compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores: **Semantic:** realiza apenas as verificações de semântica e as verificações de integridade necessárias; **Full:** realiza a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc.; **SingleBox:** executa a compilação completa com a configuração TargetType definida como SingleBox. Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. | Não  |
 
 Consulte [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) (Definição de script SearchLogProcessing.txt) para obter a definição de script. 
 

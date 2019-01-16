@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
-ms.openlocfilehash: d2f3da47f1d4eebe1b81964790ff6612dd78155d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 060e647badcc3bad7b44d7cef3530c36b8ecdf57
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 01/07/2019
 ms.locfileid: "23125174"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos criptográficos e os gateways de VPN do Azure
@@ -29,7 +29,7 @@ Este artigo discute como é possível configurar os gateways de VPN do Azure par
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Sobre os parâmetros de política IKE e IPsec para os gateways de VPN do Azure
 O padrão de protocolo IKE e IPsec suporta uma ampla gama de algoritmos criptográficos em várias combinações. Se os clientes não solicitarem uma combinação específica de parâmetros e algoritmos criptográficos, os gateways de VPN do Azure utilizarão um conjunto de propostas padrão. Os conjuntos de políticas padrão foram escolhidos para maximizar a interoperabilidade com uma ampla gama de dispositivos de VPN de terceiros em configurações padrão. Como resultado, as políticas e o número de propostas não podem abranger todas as combinações possíveis de intensidades de chave e algoritmos criptográficos disponíveis.
 
-O conjunto de políticas padrão para o gateway de VPN do Azure está listado no documento: [Sobre dispositivos de VPN e parâmetros de IPsec/IKE para conexões de Gateway de VPN Site a Site](vpn-gateway-about-vpn-devices.md).
+A política padrão definida para o gateway de VPN do Azure está listada no documento: [Sobre dispositivos VPN e os parâmetros IPsec/IKE para conexões do Gateway de VPN site a site](vpn-gateway-about-vpn-devices.md).
 
 ## <a name="cryptographic-requirements"></a>Requisitos criptográficos
 Para comunicações que exigem parâmetros ou algoritmos criptográficos específicos, geralmente, devido a requisitos de segurança ou conformidade, os clientes agora podem configurar seus gateways de VPN do Azure para utilizar uma política de IPsec/IKE personalizada com algoritmos criptográficos específicos e intensidades de chave, em vez dos conjuntos de políticas padrão do Azure.

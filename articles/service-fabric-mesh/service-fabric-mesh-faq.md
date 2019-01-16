@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8d6dcdd4de8fb56935d2f66bfff045b2115d4004
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555839"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063566"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas frequentes sobre Malha do Service Fabric
 
@@ -93,9 +93,9 @@ As imagens do SO do contêiner a seguir podem ser usadas para implantar serviço
 
 ## <a name="developer-experience-issues"></a>Problemas de experiência do desenvolvedor
 
-### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>Resolução de DNS de um contêiner de saída não funciona
+### <a name="dns-resolution-from-a-container-doesnt-work"></a>A resolução de DNS de um contêiner não funciona
 
-Comunicação de serviço a serviço pode falhar em determinadas circunstâncias. Isso está sendo investigado. Para atenuar:
+As consultas DNS de saída de um contêiner para o serviço DNS do Service Fabric poderão falhar em determinadas circunstâncias. Isso está sendo investigado. Para atenuar:
 
 - Use o Windows Fall Creators update (versão 1709) ou superior como sua imagem de contêiner base.
 - Se o nome do serviço sozinho não funcionar, tente o nome totalmente qualificado: ServiceName.ApplicationName.

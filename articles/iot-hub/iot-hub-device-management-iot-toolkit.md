@@ -1,25 +1,24 @@
 ---
-title: Gerenciamento de dispositivo IoT do Azure com a extensão do Kit de Ferramentas do Hub IoT do Azure para o Visual Studio Code | Microsoft Docs
-description: Use a extensão do Kit de Ferramenta do Hub IoT do Azure para Visual Studio Code a fim de gerenciar o dispositivo do Hub IoT do Azure, com o método direto e as opções de gerenciamento de propriedades desejadas de gêmeos.
+title: Gerenciamento de dispositivo IoT do Azure com as Ferramentas IoT do Azure para Visual Studio Code | Microsoft Docs
+description: Use as Ferramentas IoT do Azure para Visual Studio Code para gerenciar dispositivos Hub IoT do Azure com métodos diretos e opções de gerenciamento de propriedades desejadas de Gêmeo.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
-ms.date: 8/3/2018
+ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 4b7de0652172de5120e88e7c597fc31037ddbbb3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ec19045892b975fed7611c7747fa7b2bb4b1515c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339550"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051129"
 ---
-# <a name="use-azure-iot-hub-toolkit-extension-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Use a extensão do Kit de Ferramentas do Azure Hub IoT para Visual Studio Code a fim de gerenciar o dispositivo Hub IoT do Azure
+# <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Use as Ferramentas IoT do Azure para Visual Studio Code para gerenciar dispositivos Hub IoT do Azure
 
 ![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/2.png)
 
-O [Kit de Ferramentas do Hub IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente Kit de Ferramentas do Azure IoT) é uma extensão útil do Visual Studio Code que facilita o gerenciamento do Hub IoT. Ela é fornecida com opções de gerenciamento que podem ser usadas para executar várias tarefas.
+As [Ferramentas IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) são uma extensão útil do Visual Studio Code que facilitam o gerenciamento do Hub IoT e o desenvolvimento de aplicativos para IoT. Ela é fornecida com opções de gerenciamento que podem ser usadas para executar várias tarefas.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -36,18 +35,18 @@ Dispositivos gêmeos são documentos JSON que armazenam informações do estado 
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
-Você aprenderá a usar a extensão do Kit de Ferramenta do Hub IoT do Azure para o Visual Studio Code com várias opções de gerenciamento na sua máquina de desenvolvimento.
+Você aprenderá a usar as Ferramentas IoT do Azure para o Visual Studio Code com várias opções de gerenciamento na sua máquina de desenvolvimento.
 
 ## <a name="what-you-do"></a>O que fazer
 
-Execute a extensão do Kit de Ferramenta do Hub IoT do Azure para o Visual Studio Code com várias opções de gerenciamento.
+Execute as Ferramentas IoT do Azure para o Visual Studio Code com várias opções de gerenciamento.
 
 ## <a name="what-you-need"></a>O que você precisa
 
 * Uma assinatura ativa do Azure.
 * Um hub IoT do Azure em sua assinatura.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Kit de ferramentas do Hub IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+* [Ferramentas IoT do Azure para VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o Hub IoT
 
@@ -98,6 +97,6 @@ Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você aprendeu como usar a extensão do Kit de Ferramenta do Hub IoT do Azure para o Visual Studio Code com várias opções de gerenciamento.
+Você aprendeu como usar a extensão Ferramentas IoT do Azure para Visual Studio Code com várias opções de gerenciamento.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

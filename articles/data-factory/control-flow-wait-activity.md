@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 74a5d687535915fab7d518faaf916b98ab262c4b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 731df55a11f4671670a65dac8a83927d81da454c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053891"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015790"
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Atividade Wait no Azure Data Factory
 Quando você usa uma atividade de espera em um pipeline, o pipeline aguarda o período de tempo especificado antes de continuar com a execução de atividades subsequentes. 
@@ -40,9 +39,9 @@ Quando você usa uma atividade de espera em um pipeline, o pipeline aguarda o pe
 
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Nome | Nome da atividade `Wait`. | Cadeia de caracteres | sim
-Tipo | Deve ser definido para **Wait**. | Cadeia de caracteres | sim
-waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de continuar o processamento. | Número inteiro | sim
+Nome | Nome da atividade `Wait`. | Cadeia de caracteres | SIM
+Tipo | Deve ser definido para **Wait**. | Cadeia de caracteres | SIM
+waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de continuar o processamento. | Número inteiro | SIM
 
 ## <a name="example"></a>Exemplo
 

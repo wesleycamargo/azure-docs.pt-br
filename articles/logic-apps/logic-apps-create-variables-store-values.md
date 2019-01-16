@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231620"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063209"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Criar variáveis para salvar e gerenciar valores nos Aplicativos Lógicos do Azure
 
@@ -28,7 +28,10 @@ Você pode criar variáveis para tipos de dados, como inteiro, float, booliano, 
 * Atribuir um valor diferente para a variável.
 * Inserir ou *acrescentar* o valor da variável como a última vez em uma cadeia de caracteres ou matriz.
 
-As variáveis existem e são globais apenas dentro da instância de aplicativo lógico que as cria. Além disso, elas persistem em quaisquer iterações de loop dentro de uma instância de aplicativo lógico. Ao fazer referência a uma variável, use o nome da variável como o token, não como o nome da ação, que é a maneira comum de fazer referência as saídas de uma ação.
+As variáveis existem e são globais apenas dentro da instância de aplicativo lógico que as cria. Além disso, elas persistem em quaisquer iterações de loop dentro de uma instância de aplicativo lógico. Ao fazer referência a uma variável, use o nome da variável como o token, não como o nome da ação, que é a maneira comum de fazer referência as saídas de uma ação. 
+
+> [!IMPORTANT]
+> Por padrão, os ciclos em um loop "Foreach" são executados em paralelo. Quando você usa variáveis em loops, execute o loop [sequencialmente](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) para que as variáveis retornem resultados previsíveis. 
 
 Caso você ainda não tenha uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
 
@@ -38,7 +41,7 @@ Para seguir este artigo, estes são os itens que você precisa:
 
 * O aplicativo lógico onde você deseja criar uma variável 
 
-  Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) como a primeira etapa no seu aplicativo lógico 
 
@@ -73,7 +76,7 @@ Você pode criar uma variável e declarar seu tipo de dados e o valor inicial, t
    |----------|----------|-------|--------------|
    | NOME | SIM | <*variable-name*> | O nome da variável para incrementar | 
    | Tipo | SIM | <*variable-type*> | O tipo de dados para a variável | 
-   | Valor | Não  | <*start-value*> | O valor inicial da variável <p><p>**Dica**: embora seja opcional, defina esse valor como uma melhor prática para que você sempre saiba o valor inicial da variável. | 
+   | Valor | Não  | <*start-value*> | O valor inicial da variável <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor inicial da variável. | 
    ||||| 
 
    ![Inicializar variável](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -208,7 +211,7 @@ Para aumentar ou *incrementar* uma variável com um valor constante, adicione a 
    | Propriedade | Obrigatório | Valor |  DESCRIÇÃO |
    |----------|----------|-------|--------------|
    | NOME | SIM | <*variable-name*> | O nome da variável para incrementar | 
-   | Valor | Não  | <*increment-value*> | O valor usado para incrementar a variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma melhor prática para que você sempre saiba o valor específico para incrementar sua variável. | 
+   | Valor | Não  | <*increment-value*> | O valor usado para incrementar a variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor específico para incrementar sua variável. | 
    |||| 
 
    Por exemplo:  
@@ -328,7 +331,7 @@ Estas são as propriedades para a ação **Diminuir variável**:
 | Propriedade | Obrigatório | Valor |  DESCRIÇÃO |
 |----------|----------|-------|--------------|
 | NOME | SIM | <*variable-name*> | O nome da variável para diminuir | 
-| Valor | Não  | <*increment-value*> | O valor para diminuição da variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma melhor prática para sempre conhecer o valor específico para diminuir da variável. | 
+| Valor | Não  | <*increment-value*> | O valor para diminuição da variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para sempre conhecer o valor específico para diminuir a variável. | 
 ||||| 
 
 Se você alternar do editor do modo de exibição de designer para código, veja como a ação **Diminuir variável** aparece dentro da sua definição de aplicativo lógico, que está no formato JSON.

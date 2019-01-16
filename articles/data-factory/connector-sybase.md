@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 349fd1f129d93a2893e2585267d17661e141ad0f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242204"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025769"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiar dados do Sybase usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-onprem-sybase-connector.md)
 > * [Versão atual](connector-sybase.md)
 
@@ -58,7 +57,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Sybase:
 | Tipo | A propriedade type deve ser definida como: **Sybase** | SIM |
 | Servidor | Nome do servidor do Sybase. |SIM |
 | Banco de Dados | Nome do banco de dados do Sybase. |SIM |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Sybase.<br/>Os valores permitidos são: **Básico** e **Windows**. |SIM |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Sybase.<br/>Valores permitidos são: **Básica** e **Windows**. |SIM |
 | Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Sybase. |SIM |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |SIM |

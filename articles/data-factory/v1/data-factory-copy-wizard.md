@@ -10,17 +10,16 @@ ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b74a431664faa95e8be9c9ff90970fd6e7c0ec7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048713"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020346"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiar ou mover dados facilmente com o Assistente de Cópia do Azure Data Factory
 > [!NOTE]
@@ -41,9 +40,9 @@ Este assistente permite mover dados facilmente de uma ampla variedade de fontes 
 > 
 > 
 
-A assistente foi projetado tendo em mente Big Data desde o início. É simples e eficiente de criar pipelines de Data Factory que movem centenas de pastas, arquivos ou tabelas usando o assistente de cópia de dados. O assistente oferece suporte a estes três recursos: visualização de dados automática, captura e mapeamento do esquema e filtragem de dados. 
+A assistente foi projetado tendo em mente Big Data desde o início. É simples e eficiente de criar pipelines de Data Factory que movem centenas de pastas, arquivos ou tabelas usando o assistente de cópia de dados. O assistente oferece suporte a estes três recursos: Visualização automática de dados, captura e mapeamento de esquemas e filtragem de dados. 
 
-## <a name="automatic-data-preview"></a>Visualização de dados automática
+## <a name="automatic-data-preview"></a>Visualização automática de dados
 O Assistente de cópia permite que você examine parte dos dados da fonte de dados selecionada para validar se os dados são os dados certos que você deseja copiar. Além disso, se a fonte de dados estiver em um arquivo de texto, o assistente de cópia analisa o arquivo de texto para saber o esquema e os delimitadores de coluna e linha automaticamente. 
 
 ![Configurações de formato de arquivo](./media/data-factory-copy-wizard/file-format-settings.png)
@@ -94,5 +93,5 @@ Uma operação de cópia única permite, uma única vez, a movimentação de dad
 ![Propriedades de agendamento](./media/data-factory-copy-wizard/scheduling-properties.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para ver um passo a passo rápido sobre como usar o Assistente de Cópia do Data Factory para criar um pipeline com uma Atividade de Cópia, confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
+Confira um breve passo a passo sobre como usar o Assistente de Cópia do Data Factory para criar um pipeline com uma Atividade de Cópia no [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
 

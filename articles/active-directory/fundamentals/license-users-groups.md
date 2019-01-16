@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0d3f417b5a169b3d8d91d85b5f47496064c8f5f3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077444"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063345"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Atribuir ou remover licenças usando o portal do Azure Active Directory
 Muitos serviços do Azure AD (Azure Active Directory) exigem que você ative um produto do Azure AD e licencie cada um dos seus usuários ou grupos (e membros associados) para esse produto. Somente usuários com licenças ativas poderão acessar e usar os serviços licenciados do Azure AD.
@@ -57,7 +57,8 @@ Você pode visualizar seus produtos disponíveis, incluindo as licenças individ
 ## <a name="assign-licenses-to-users-or-groups"></a>Atribuir licenças a usuários ou grupos
 Certifique-se de que qualquer pessoa que precise usar um serviço licenciado do Azure AD tenha a licença apropriada. Cabe a você se deseja adicionar os direitos de licenciamento a usuários individuais ou a um grupo inteiro.
 
->![Note] O licenciamento baseado em grupo é um recurso de visualização pública do Azure AD e está disponível com qualquer plano pago de licença do Azure AD. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Para obter informações detalhadas sobre como adicionar usuários, consulte [Como adicionar ou excluir usuários no Active Directory do Azure](add-users-azure-active-directory.md). Para obter informações detalhadas sobre como criar grupos e adicionar membros, consulte [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
+>[!Note]
+>O licenciamento baseado em grupo é um recurso de visualização pública do Azure AD e está disponível com qualquer plano de licença pago do Azure AD. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Para obter informações detalhadas sobre como adicionar usuários, consulte [Como adicionar ou excluir usuários no Active Directory do Azure](add-users-azure-active-directory.md). Para obter informações detalhadas sobre como criar grupos e adicionar membros, consulte [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
 
 ### <a name="to-assign-a-license-to-a-specific-user"></a>Para atribuir uma licença a um usuário específico
 1. Na página **Produtos**, selecione o nome da edição que você deseja atribuir ao usuário. Por exemplo, _Plano Premium do Azure Active Directory 2_.

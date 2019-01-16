@@ -8,21 +8,20 @@ ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048607"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017609"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de versão para o Gateway de Gerenciamento de Dados
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [tempo de execução de integração auto-hospedado na V2](../create-self-hosted-integration-runtime.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [tempo de execução de integração auto-hospedado na V2](../create-self-hosted-integration-runtime.md).
 
 Um dos desafios da integração de dados moderna é mover dados entre o local e a nuvem. O Data Factory faz essa integração com o Gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
 
@@ -50,20 +49,20 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 ### <a name="enhancements-"></a>Melhorias-
 -   Adicione as entradas DNS à lista de permissões do Barramento de Serviço, em vez de colocar na lista de permissões todos os endereços IP do Azure do firewall (se necessário). Mais detalhes aqui.
 -   Agora você pode copiar dados de/para um único blob de blocos de até 4,75 TB, que é o tamanho máximo com suporte no blob de blocos. (o limite anterior era de 195 GB).
--   Correção: problema de memória insuficiente ao descompactar vários arquivos pequenos durante a atividade de cópia.
--   Correção: problema de índice fora do intervalo durante a cópia do DocumentDB para o SQL Server local com o recurso de idempotência.
--   Correção: o script de limpeza do SQL não funcionava no SQL Server local no Assistente de Cópia.
--   Correção: um nome de coluna com espaço no final não funcionava na atividade de cópia.
+-   Corrigido: problema de memória insuficiente ao descompactar vários arquivos pequenos durante a atividade de cópia.
+-   Corrigido: problema de índice fora do intervalo durante a cópia do Document DB para o SQL Server local com o recurso de idempotência.
+-   Corrigido: o script de limpeza do SQL não funcionava no SQL Server local a partir do Assistente de Cópia.
+-   Corrigido: o nome da coluna com espaço no final não funcionava na atividade de cópia.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Melhorias-
-- Correção: problema com credenciais ausentes na reinicialização do computador do gateway.
-- Correção: problema com o registro durante a restauração do gateway usando um arquivo de backup.
+- Corrigido: problema de credenciais ausentes na reinicialização do computador do gateway.
+- Corrigido: problema com o registro durante a restauração do gateway usando um arquivo de backup.
 
 
 ## <a name="2762401"></a>2.7.6240.1
 ### <a name="enhancements-"></a>Melhorias-
-- Correção: leitura incorreta do valor nulo Decimal do Oracle como fonte.
+- Corrigido: leitura incorreta do valor nulo Decimal do Oracle como fonte.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>O que há de novo

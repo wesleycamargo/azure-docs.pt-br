@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999281"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017099"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
@@ -47,13 +47,13 @@ Com Proxies do Azure Functions, você pode modificar solicitações e respostas 
 
 Por padrão, a solicitação de back-end é inicializada como uma cópia da solicitação original. Além de definir a URL de back-end, é possível fazer alterações no método HTTP, cabeçalhos e parâmetros de cadeia de consulta. Os valores modificados podem referenciar as [configurações do aplicativo] e os [parâmetros da solicitação original do cliente].
 
-Solicitações de back-end podem ser modificadas no portal expandindo a seção *substituição da solicitação* da página de detalhes do proxy. 
+As solicitações de back-end podem ser modificadas no portal expandindo a seção *substituição da solicitação* na página de detalhes do proxy. 
 
 ### <a name="modify-response"></a>Modificar a resposta
 
 Por padrão, a resposta do cliente é inicializada como uma cópia da resposta de back-end. Você pode fazer alterações no código de status, na frase de motivo, nos cabeçalhos e no corpo da resposta. Os valores modificados podem referenciar as [configurações do aplicativo], os [parâmetros da solicitação original do cliente] e os [parâmetros da resposta de back-end].
 
-Solicitações de back-end podem ser modificadas no portal expandindo a seção *substituição da resposta* da página de detalhes do proxy. 
+As solicitações de back-end podem ser modificadas no portal expandindo a seção *substituição da resposta* na página de detalhes do proxy. 
 
 ## <a name="using-variables"></a>Usar variáveis
 
@@ -176,13 +176,13 @@ O comportamento do proxy pode ser controlado por várias configurações de apli
 
 ### <a name="reservedChars"></a> Caracteres reservados (formatação de cadeia de caracteres)
 
-Os proxies leem todas as cadeias de caracteres em notação de cadeia de caracteres C#, usando \\\\\\ como símbolo de escape. Os proxies também interpretam chaves. Veja a seguir um conjunto completo de exemplos.
+Os proxies leem todas as cadeias de caracteres de um arquivo JSON, usando \ como símbolo de escape. Os proxies também interpretam chaves. Veja a seguir um conjunto completo de exemplos.
 
 |Character|Caractere de escape|Exemplo|
 |-|-|-|
 |{ ou }|{{ ou }}|`{{ example }}` --> `{ example }`
-| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
-|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Definir um objeto requestOverrides
 

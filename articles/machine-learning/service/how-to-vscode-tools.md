@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 902c659d2c51d69f2e9d0ef3a7401326e0e530eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269576"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013138"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introdução ao Azure Machine Learning para Visual Studio Code
 
@@ -80,7 +80,8 @@ Antes de iniciar o treinamento e implantar modelos de Machine Learning usando o 
 
 1. Clique no ícone do Azure na barra de atividades do Visual Studio Code. A barra lateral Azure Machine Learning é exibida.
 
-   [![Barra lateral](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![instalar](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
+
 
 1. Clique com o botão direito do mouse em sua assinatura do Azure e selecione **Criar Espaço de Trabalho**. É exibida uma lista. Na imagem animada, o nome da assinatura é 'Avaliação gratuita' e o workspace é 'TeamWorkspace'. 
 
@@ -96,11 +97,11 @@ Antes de iniciar o treinamento e implantar modelos de Machine Learning usando o 
  
 1. Pressione enter, e o novo experimento será criado. Ele aparece na árvore abaixo do nome do espaço de trabalho.
 
-1. Clique com o botão direito do mouse no nome do experimento e escolha **Anexar Pasta ao Experimento**. Essa pasta deve conter seus scripts do Python locais. Em seguida, a pasta é vinculada ao experimento na nuvem. 
+1. Você pode clicar com o botão direito em um Experimento em um Workspace e selecionar “Definir como Experimento Ativo”. O experimento “**Ativo**” é o que você está usando no momento e sua pasta aberta no VS Code será vinculada a esse experimento na nuvem. Essa pasta deve conter seus scripts do Python locais.
 
-   Agora, cada um de seus experimentos é executado com o experimento. Todas as métricas-chave serão armazenadas no histórico de experimentos. Os modelos que você treinar serão automaticamente carregados no Azure Machine Learning e armazenados com seus logs e métricas de experimentos.
+   Agora, cada um de seus experimentos é executado com o experimento, assim, todas as métricas essenciais são armazenadas no histórico de experimentos e os modelos que você treinar são automaticamente carregados no Azure Machine Learning e armazenados com seus logs e métricas de experimentos.
 
-   [![Anexar uma pasta ao VS Code](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
+   [![Anexar uma pasta ao VS Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 ### <a name="use-keyboard-shortcuts"></a>Usar atalhos do teclado
 

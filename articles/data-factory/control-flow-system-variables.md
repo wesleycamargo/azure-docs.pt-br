@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 43ea8703bdbfc23511c831a5f91c9461948cc254
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9a4d5acfe16a2fdbb3b631cb8baf6cb8e90a7d58
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055275"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016277"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema com suporte pelo Azure Data Factory
 Este artigo descreve as variáveis do sistema com suporte pelo Azure Data Factory. Você pode usar essas variáveis em expressões ao definir entidades do Data Factory.
@@ -37,7 +36,7 @@ Essas variáveis de sistema podem ser referenciadas em qualquer lugar no pipelin
 | @pipeline().TriggerTime| Hora em que o gatilho invocou o pipeline. A hora do gatilho é a hora do disparo real, não a hora agendada. Por exemplo, `13:20:08.0149599Z` é retornado em vez de `13:20:00.00Z` |
 
 ## <a name="schedule-trigger-scope"></a>Escopo do Gatilho de Agendamento
-Essas variáveis de sistema podem ser referenciadas em qualquer lugar no JSON do gatilho se ele for do tipo: "ScheduleTrigger."
+Essas variáveis de sistema podem ser mencionadas em qualquer lugar no JSON do gatilho se este for do tipo: "ScheduleTrigger".
 
 | Nome de variável | DESCRIÇÃO |
 | --- | --- |
@@ -45,7 +44,7 @@ Essas variáveis de sistema podem ser referenciadas em qualquer lugar no JSON do
 | @trigger().startTime |Hora em que o gatilho **realmente** foi disparado para invocar a execução do pipeline. Por exemplo, para um gatilho disparado a cada cinco minutos, essa variável retornaria algo como `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z` e `2017-06-01T22:29:00.9935483Z` respectivamente.|
 
 ## <a name="tumbling-window-trigger-scope"></a>Escopo do Gatilho de Janela em Cascata
-Essas variáveis de sistema podem ser referenciadas em qualquer lugar no JSON do gatilho se ele for do tipo: "TumblingWindowTrigger."
+Essas variáveis de sistema podem ser mencionadas em qualquer lugar no JSON do gatilho se este for do tipo: "TumblingWindowTrigger".
 
 | Nome de variável | DESCRIÇÃO |
 | --- | --- |

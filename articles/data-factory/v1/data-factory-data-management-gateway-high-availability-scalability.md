@@ -9,17 +9,16 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142015"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016760"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
 > [!NOTE]
@@ -171,7 +170,7 @@ Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comu
 - Dá suporte a qualquer tamanho de chave com suporte pelo Windows Server 2012 R2 para certificados SSL.
 - Não há suporte para certificado usando chaves CNG.
 
-#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Perguntas frequentes: Quando eu não habilitaria essa criptografia?
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Perguntas frequentes: Quando eu não deveria habilitar essa criptografia?
 Habilitar criptografia pode adicionar custos à sua infraestrutura (ter um certificado público), portanto, você pode ignorar a habilitação de criptografia nestes casos:
 - Quando o tempo de execução de integração for executado em uma rede confiável ou em uma rede com criptografia transparente, como IP/SEC. Uma vez que essa comunicação de canal só é limitada na sua rede confiável, talvez você não precise de criptografia adicional.
 - Quando o tempo de execução de integração não está em execução em um ambiente de produção. Isso pode ajudar a reduzir o custo do certificado TLS/SSL.

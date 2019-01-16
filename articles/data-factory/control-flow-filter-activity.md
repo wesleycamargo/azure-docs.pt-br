@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050345"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021825"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Atividade de filtro no Azure Data Factory
 Você pode usar uma atividade de filtro em um pipeline para aplicar uma expressão de filtro para uma matriz de entrada. 
@@ -40,14 +39,14 @@ Você pode usar uma atividade de filtro em um pipeline para aplicar uma express�
 
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Nome | Nome da atividade `Filter`. | Cadeia de caracteres | sim
-Tipo | Deve ser definido como **filtro** | Cadeia de caracteres | sim
-condition | Condição a ser usada para filtragem de entrada. | Expression | sim
-itens | Matriz de entrada na qual o filtro deve ser aplicado. | Expression | sim
+Nome | Nome da atividade `Filter`. | Cadeia de caracteres | SIM
+Tipo | Deve ser definido como **filtro** | Cadeia de caracteres | SIM
+condition | Condição a ser usada para filtragem de entrada. | Expression | SIM
+itens | Matriz de entrada na qual o filtro deve ser aplicado. | Expression | SIM
 
 ## <a name="example"></a>Exemplo
 
-Neste exemplo, o pipeline tem duas atividades: **Filter** e **Foreach**. A atividade de filtro está configurada para filtrar a matriz de entrada de itens com um valor maior que 3. Para a atividade ForEach itera através dos valores filtrados e aguarda até que o número de segundos especificado pelo valor atual.
+Neste exemplo, o pipeline tem duas atividades: **Filter** e **ForEach**. A atividade de filtro está configurada para filtrar a matriz de entrada de itens com um valor maior que 3. Para a atividade ForEach itera através dos valores filtrados e aguarda até que o número de segundos especificado pelo valor atual.
 
 ```json
 {

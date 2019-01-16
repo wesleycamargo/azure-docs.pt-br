@@ -10,22 +10,21 @@ ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734245"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015943"
 ---
-# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: crie seu primeiro pipeline para processar dados usando cluster Hadoop
+# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Crie seu primeiro pipeline para transformar dados usando um cluster Hadoop
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,11 +32,11 @@ ms.locfileid: "45734245"
 
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço Data Factory, confira [Início rápido: Criar um data factory usando o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Caso esteja usando a versão atual do serviço Data Factory, consulte [Início Rápido: criar um data factory usando o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Neste tutorial, você deve criar sua Azure Data Factory com um pipeline de dados. O pipeline transforma dados de entrada, executando o script do Hive em um cluster Azure HDInsight (Hadoop) para gerar dados de saída.  
 
-Este artigo fornece uma visão geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, conclua o tutorial usando uma das seguintes ferramentas/SDKs: portal do Azure, Visual Studio, PowerShell, modelo do Resource Manager ou API REST. Selecione uma das opções na lista suspensa no início (ou) links no final deste artigo para fazer o tutorial usando uma das seguintes opções.    
+Este artigo fornece uma visão geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, siga o tutorial usando uma das seguintes ferramentas/SDKs: Portal do Azure, Visual Studio, PowerShell, Modelo do Resource Manager, API REST. Selecione uma das opções na lista suspensa no início (ou) links no final deste artigo para fazer o tutorial usando uma das seguintes opções.    
 
 ## <a name="tutorial-overview"></a>Visão geral do tutorial
 Neste tutorial, você executa as seguintes etapas:
@@ -45,12 +44,12 @@ Neste tutorial, você executa as seguintes etapas:
 1. Criar uma **data factory**. Um data factory pode conter um ou mais pipelines de dados que movem e transformam dados. 
 
     Neste tutorial, você deve criar um pipeline na data factory. 
-2. Criar um **pipeline**. Um pipeline pode ter uma ou mais atividades (exemplos: atividade de cópia, atividade de Hive do HDInsight). Este exemplo usa a atividade de Hive do HDInsight que executa um script do Hive em um cluster de Hadoop do HDInsight. Primeiro, o script cria uma tabela que faz referência aos dados brutos de log da Web colocados no armazenamento de blobs do Azure, então, particiona os dados brutos por ano e mês.
+2. Criar um **pipeline**. Um pipeline pode ter uma ou mais atividades (exemplos: Atividade de Cópia, Atividade de Hive do HDInsight). Este exemplo usa a atividade de Hive do HDInsight que executa um script do Hive em um cluster de Hadoop do HDInsight. Primeiro, o script cria uma tabela que faz referência aos dados brutos de log da Web colocados no armazenamento de blobs do Azure, então, particiona os dados brutos por ano e mês.
 
     Neste tutorial, o pipeline usa a atividade do Hive para transformar dados executando uma consulta de Hive em um cluster do Hadoop do Azure HDInsight. 
 3. Crie **serviços vinculados**. Crie um serviço vinculado para vincular um armazenamento de dados ou um serviço de computação ao data factory. Um armazenamento de dados, como o Armazenamento do Azure, armazena dados de entrada/saída de atividades no pipeline. Um serviço de computação, como o cluster de Hadoop do HDInsight, processa/transforma os dados.
 
-    Neste tutorial, você deve criar dois serviços vinculados: **Armazenamento do Azure** e **Azure HDInsight**. O serviço vinculado de armazenamento do Azure vincula uma conta de armazenamento do Azure que contém os dados de entrada/saída para a data factory. O serviço vinculado do Azure HDInsight vincula um cluster Azure HDInsight que é usado para transformar dados em data factory. 
+    Neste tutorial, você aprende a criar dois serviços vinculados: **Armazenamento do Microsoft Azure** e **Azure HDInsight**. O serviço vinculado de armazenamento do Azure vincula uma conta de armazenamento do Azure que contém os dados de entrada/saída para a data factory. O serviço vinculado do Azure HDInsight vincula um cluster Azure HDInsight que é usado para transformar dados em data factory. 
 3. Criar **conjuntos de dados**de entrada e saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade.
 
     Neste tutorial, os conjuntos de dados de entrada e saída especificam locais de entrada e saída de dados no armazenamento de blobs do Azure. O serviço vinculado de armazenamento do Azure especifica qual conta de armazenamento do Azure é usada. Um conjunto de dados de entrada especifica o local em que os arquivos de entrada estão localizados e um conjunto de dados de saída especifica o local em que os arquivos de saída são colocados. 
@@ -94,7 +93,7 @@ Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 
 Depois de concluir os pré-requisitos, selecione uma das seguintes ferramentas/SDKs para fazer o tutorial: 
 
-- [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -103,7 +102,7 @@ Depois de concluir os pré-requisitos, selecione uma das seguintes ferramentas/S
 O portal do Azure e o Visual Studio permitem criar data factories com a GUI. Enquanto isso, as opções do PowerShell, do modelo do Resource Manager e a API REST permitem criar data factories com script/programação.
 
 > [!NOTE]
-> O pipeline de dados neste tutorial transforma os dados de entrada para gerar dados de saída. Ele não copia dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como copiar dados usando o Azure Data Factory, confira [Tutorial: copiar dados do armazenamento de blobs para um banco de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> O pipeline de dados neste tutorial transforma os dados de entrada para gerar dados de saída. Ele não copia dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para ver um tutorial sobre como copiar dados usando o Azure Data Factory, consulte [Tutorial: Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f93bfcb076bfae5c50c751ac664a145e1b375f23
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341932"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107762"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência de configuração do Azure Blockchain Workbench
 
@@ -53,17 +53,17 @@ Para obter um exemplo, consulte [exemplo de arquivo de configuração](#configur
 
 Uma lógica de negócios de um aplicativo pode ser modelada como uma máquina de estado em que executar uma ação faz com que o fluxo da lógica de negócios mova de um estado para outro. Um fluxo de trabalho é uma coleção destes estados e ações. Cada fluxo de trabalho consiste em um ou mais contratos inteligentes que representam a lógica de negócios nos arquivos de código. Um contrato executável é uma instância de fluxo de trabalho.
 
-| Campo | DESCRIÇÃO | Obrigatório |
-|-------|-------------|:--------:|
-| NOME | Nome do fluxo de trabalho exclusivo. O contrato inteligente correspondente deve usar o mesmo **Nome** para a classe de contrato aplicável. | SIM |
-| DisplayName | Nome de exibição amigável do fluxo de trabalho. | SIM |
-| DESCRIÇÃO | Descrição do fluxo de trabalho. | Não  |
-| Iniciadores | Coleção de [ApplicationRoles](#application-roles). Funções que são atribuídas a usuários que estão autorizados a criar contratos no fluxo de trabalho. | SIM |
-| StartState | Nome do estado inicial do fluxo de trabalho. | SIM |
-| propriedades | Coleção de [identificadores](#identifiers). Representa os dados que podem ser lidos visualizados em cadeia em uma ferramenta de experiência do usuário. | SIM |
-| Construtor | Define os parâmetros de entrada para criar uma instância de fluxo de trabalho. | SIM |
-| Funções | Uma coleção de [funções](#functions) que podem ser executadas no fluxo de trabalho. | SIM |
-| Estados | Uma coleção de [estados](#states) de fluxo de trabalho. | SIM |
+| Campo | DESCRIÇÃO | Obrigatório | Comprimento máximo |
+|-------|-------------|:--------:|-----------:|
+| NOME | Nome do fluxo de trabalho exclusivo. O contrato inteligente correspondente deve usar o mesmo **Nome** para a classe de contrato aplicável. | SIM | 50 |
+| DisplayName | Nome de exibição amigável do fluxo de trabalho. | SIM | 255 |
+| DESCRIÇÃO | Descrição do fluxo de trabalho. | Não  | 255 |
+| Iniciadores | Coleção de [ApplicationRoles](#application-roles). Funções que são atribuídas a usuários que estão autorizados a criar contratos no fluxo de trabalho. | SIM | |
+| StartState | Nome do estado inicial do fluxo de trabalho. | SIM | |
+| propriedades | Coleção de [identificadores](#identifiers). Representa os dados que podem ser lidos visualizados em cadeia em uma ferramenta de experiência do usuário. | SIM | |
+| Construtor | Define os parâmetros de entrada para criar uma instância de fluxo de trabalho. | SIM | |
+| Funções | Uma coleção de [funções](#functions) que podem ser executadas no fluxo de trabalho. | SIM | |
+| Estados | Uma coleção de [estados](#states) de fluxo de trabalho. | SIM | |
 
 Para obter um exemplo, consulte [exemplo de arquivo de configuração](#configuration-file-example).
 
@@ -147,7 +147,7 @@ Depois que uma enumeração é definida na configuração, é possível usar tip
 enum PropertyTypeEnum {House, Townhouse, Condo, Land} PropertyTypeEnum public PropertyType; 
 ```
 
-A lista de cadeia de caracteres precisa corresponder entre a configuração e o contrato inteligente para serem declarações válidas e consistentes no Blockchain Workbench.
+É preciso haver uma correspondência entre a lista de cadeia de caracteres, a configuração e o contrato inteligente para serem declarações válidas e consistentes no Blockchain Workbench.
 
 Exemplo de atribuição:
 
@@ -207,12 +207,12 @@ Define os parâmetros de entrada para uma instância de fluxo de trabalho.
 
 Define as funções que podem ser executadas no fluxo de trabalho.
 
-| Campo | DESCRIÇÃO | Obrigatório |
-|-------|-------------|:--------:|
-| NOME | O nome exclusivo da função. O contrato inteligente correspondente deve usar o mesmo **Nome** para a função aplicável. | SIM |
-| DisplayName | Nome de exibição amigável da função. | SIM |
-| DESCRIÇÃO | Descrição da função | Não  |
-| parâmetros | Coleção de [identificadores](#identifiers) correspondente aos parâmetros da função. | SIM |
+| Campo | DESCRIÇÃO | Obrigatório | Comprimento máximo |
+|-------|-------------|:--------:|-----------:|
+| NOME | O nome exclusivo da função. O contrato inteligente correspondente deve usar o mesmo **Nome** para a função aplicável. | SIM | 50 |
+| DisplayName | Nome de exibição amigável da função. | SIM | 255 |
+| DESCRIÇÃO | Descrição da função | Não  | 255 |
+| parâmetros | Coleção de [identificadores](#identifiers) correspondente aos parâmetros da função. | SIM | |
 
 ### <a name="functions-example"></a>Exemplo de funções
 
@@ -255,14 +255,14 @@ Define as funções que podem ser executadas no fluxo de trabalho.
 
 Uma coleção de estados exclusivos dentro de um fluxo de trabalho. Cada estado captura uma etapa no fluxo de controle da lógica de negócios. 
 
-| Campo | DESCRIÇÃO | Obrigatório |
-|-------|-------------|:--------:|
-| NOME | Nome único do estado. O contrato inteligente correspondente deve usar o mesmo **Nome** para o estado aplicável. | SIM |
-| DisplayName | Nome de exibição amigável do estado. | SIM |
-| DESCRIÇÃO | Descrição do estado. | Não  |
-| PercentComplete | Um valor inteiro exibido na interface do usuário Blockchain Workbench para mostrar o progresso dentro do fluxo de controle de lógica de negócios. | SIM |
-| Estilo | Dica visual que indica se o estado representa um estado de êxito ou falha. Há dois valores válidos: `Success` ou `Failure`. | SIM |
-| Transições | Coleção de [transições](#transitions) disponíveis do estado atual para o próximo conjunto de estados. | Não  |
+| Campo | DESCRIÇÃO | Obrigatório | Comprimento máximo |
+|-------|-------------|:--------:|-----------:|
+| NOME | Nome único do estado. O contrato inteligente correspondente deve usar o mesmo **Nome** para o estado aplicável. | SIM | 50 |
+| DisplayName | Nome de exibição amigável do estado. | SIM | 255 |
+| DESCRIÇÃO | Descrição do estado. | Não  | 255 |
+| PercentComplete | Um valor inteiro exibido na interface do usuário Blockchain Workbench para mostrar o progresso dentro do fluxo de controle de lógica de negócios. | SIM | |
+| Estilo | Dica visual que indica se o estado representa um estado de êxito ou falha. Há dois valores válidos: `Success` ou `Failure`. | SIM | |
+| Transições | Coleção de [transições](#transitions) disponíveis do estado atual para o próximo conjunto de estados. | Não  | |
 
 ### <a name="states-example"></a>Exemplo de estados
 
@@ -369,10 +369,10 @@ Ações disponíveis para o próximo estado. Uma ou mais funções de usuário p
 
 Funções de aplicativo definem um conjunto de funções que podem ser atribuídos a usuários que desejam agir ou participar do aplicativo. Funções de aplicativo podem ser usadas para restringir as ações e participação dentro do aplicativo blockchain e fluxos de trabalho correspondente. 
 
-| Campo | DESCRIÇÃO | Obrigatório |
-|-------|-------------|:--------:|
-| NOME | O nome exclusivo da função do aplicativo. O contrato inteligente correspondente deve usar o mesmo **Nome** para a função aplicável. Nomes de tipo de base são reservados. Você não pode nomear uma função de aplicativo com o mesmo nome como [Tipo](#type)| SIM |
-| DESCRIÇÃO | Descrição da função do aplicativo. | Não  |
+| Campo | DESCRIÇÃO | Obrigatório | Comprimento máximo |
+|-------|-------------|:--------:|-----------:|
+| NOME | O nome exclusivo da função do aplicativo. O contrato inteligente correspondente deve usar o mesmo **Nome** para a função aplicável. Nomes de tipo de base são reservados. Você não pode nomear uma função de aplicativo com o mesmo nome como [Tipo](#type)| SIM | 50 |
+| DESCRIÇÃO | Descrição da função do aplicativo. | Não  | 255 |
 
 ### <a name="application-roles-example"></a>Exemplo de funções de aplicativo
 
@@ -392,11 +392,11 @@ Funções de aplicativo definem um conjunto de funções que podem ser atribuíd
 
 Identificadores representam uma coleção de informações usadas para descrever as propriedades de fluxo de trabalho, construtor e parâmetros de função. 
 
-| Campo | DESCRIÇÃO | Obrigatório |
-|-------|-------------|:--------:|
-| NOME | O nome exclusivo da propriedade ou parâmetro. O contrato inteligente correspondente deve usar o mesmo **Nome** para a propriedade ou parâmetro aplicável. | SIM |
-| DisplayName | Nome para exibição amigável para a propriedade ou parâmetro. | SIM |
-| DESCRIÇÃO | Descrição da propriedade ou do parâmetro. | Não  |
+| Campo | DESCRIÇÃO | Obrigatório | Comprimento máximo |
+|-------|-------------|:--------:|-----------:|
+| NOME | O nome exclusivo da propriedade ou parâmetro. O contrato inteligente correspondente deve usar o mesmo **Nome** para a propriedade ou parâmetro aplicável. | SIM | 50 |
+| DisplayName | Nome para exibição amigável para a propriedade ou parâmetro. | SIM | 255 |
+| DESCRIÇÃO | Descrição da propriedade ou do parâmetro. | Não  | 255 |
 
 ### <a name="identifiers-example"></a>Exemplo de identificadores
 
@@ -423,7 +423,7 @@ Identificadores representam uma coleção de informações usadas para descrever
 
 ## <a name="configuration-file-example"></a>Exemplo de arquivo de configuração
 
-Transferência de ativo é um cenário de contrato inteligente para comprar e vender ativos de alto valor, que requerem um inspetor e avaliador. Os vendedores podem listar seus ativos instanciando um contrato inteligente de transferência do ativo. Compradores podem fazer ofertas ao executar uma ação no contrato de smart e outras partes podem executar ações para inspecionar ou avaliar o ativo. Depois que o ativo é marcado como inspecionado e avaliado, o comprador e vendedor confirmarão a venda novamente antes de o contrato ser definido para ser concluído. Em cada ponto no processo, todos os participantes têm visibilidade para o estado do contrato conforme é atualizado. 
+Transferência de ativo é um cenário de contrato inteligente para comprar e vender ativos de alto valor, que requerem um inspetor e avaliador. Os vendedores podem listar seus ativos instanciando um contrato inteligente de transferência do ativo. Compradores podem fazer ofertas ao executar uma ação no contrato de smart e outras partes podem executar ações para inspecionar ou avaliar o ativo. Depois que o ativo é marcado como inspecionado e avaliado, o comprador e vendedor confirmarão a venda novamente antes de o contrato ser definido para ser concluído. Em cada ponto no processo, todos os participantes têm visibilidade para o estado do contrato conforme é atualizado. 
 
 Para mais informações, inclusive os arquivos de código, consulte [exemplo de transferência de ativo para oWorbench do Azure Blockchain](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

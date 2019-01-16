@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: c616ad86e6846800d214feeaf100f63e311f78b0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282723"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062060"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager
 Neste início rápido, você cria um modelo do Azure Resource Manager que cria um namespace do Barramento de Serviço do tipo **Messaging** com um SKU **Standard**. O artigo também define os parâmetros que são especificados para execução da implantação. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Azure Resource Manager][Authoring Azure Resource Manager templates]. Para ver o modelo completo, confira o [Modelo de namespace do Barramento de Serviço][Service Bus namespace template] no GitHub.
@@ -96,7 +96,7 @@ Crie um arquivo JSON denominado **MyServiceBusNamespace.json** com o seguinte co
 }
 ```
 
-Este modelo cria um namespace do Barramento de Serviço padrão.
+Este modelo cria um namespace do Barramento de Serviço padrão. Saiba mais sobre a sintaxe e as propriedades de JSON na referência de modelo [namespaces](/azure/templates/microsoft.servicebus/namespaces).
 
 ## <a name="create-the-parameters-json"></a>Crie os parâmetros JSON
 O modelo que você criou na etapa anterior tem uma seção chamada `Parameters`. Defina os parâmetros para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente de destino. Esse modelo define os seguintes parâmetros: **serviceBusNamespaceName**, **serviceBusSku** e **local**. Para saber mais sobre os SKUs do Barramento de Serviço, consulte [SKUs do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/) para criar.

@@ -9,17 +9,16 @@ ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f68e1077ebc26245b25eae3b0310db74b6d1357e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4d3c67974bc1dd0e52d3de457071d550a6379e36
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046438"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023068"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados para um índice do Azure Search usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,9 +38,9 @@ O Gateway de Gerenciamento de Dados conecta fontes de dados locais a serviços d
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com uma atividade de cópia que envie dados por push de um repositório de dados de origem para o índice do Azure Search usando diferentes ferramentas/APIs.
 
-A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
+Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor: 
 
@@ -49,7 +48,7 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. 
 3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. 
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados de um índice do Azure Search, confira a seção [Exemplo de JSON: Copiar dados do SQL Server local para o índice do Azure Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) deste artigo. 
+Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Confira como obter um exemplo com as definições de JSON para entidades do Data Factory que são usadas para copiar dados para o índice Azure Search na seção [Exemplo de JSON: copiar dados do SQL Server local para o índice do Azure Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) deste artigo. 
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas ao índice do Azure Search:
 
@@ -59,9 +58,9 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearch**. | sim |
-| URL | URL para o serviço Azure Search. | sim |
-| chave | Chave de administração para o serviço Azure Search. | sim |
+| Tipo | A propriedade type deve ser definida como: **AzureSearch**. | SIM |
+| URL | URL para o serviço Azure Search. | SIM |
+| chave | Chave de administração para o serviço Azure Search. | SIM |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -69,8 +68,8 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearchIndex**.| sim |
-| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | sim |
+| Tipo | A propriedade type deve ser definida como: **AzureSearchIndex**.| SIM |
+| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | SIM |
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -89,7 +88,7 @@ Upsert do AzureSearchSink ao gravar dados. Em outras palavras, ao escrever um do
 O AzureSearchSink fornece estes dois comportamentos de upsert (usando o SDK da AzureSearch):
 
 - **Mesclar**: combine todas as colunas no novo documento com a existente. Para colunas com valor nulo no novo documento, o valor existente é preservado.
-- **Carregar**: o novo documento substituirá o existente. Para colunas não especificadas no novo documento, o valor será definido como nulo se houver um valor não nulo no documento existente ou não.
+- **Carregar**: O novo documento substituirá o existente. Para colunas não especificadas no novo documento, o valor será definido como nulo se houver um valor não nulo no documento existente ou não.
 
 O comportamento padrão é **Mesclar**.
 
@@ -110,7 +109,7 @@ A tabela a seguir especifica se um tipo de dados do Azure Search tem suporte ou 
 | Matriz de cadeia de caracteres | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemplo de JSON: Copiar dados do SQL Server local para o índice do Azure Search
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemplo JSON: copiar dados do SQL Server local para o índice do Azure Search
 
 O exemplo a seguir mostra:
 
@@ -257,7 +256,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 }
 ```
 
-Se você estiver copiando dados de um armazenamento de dados de nuvem para o Azure Search, a propriedade `executionLocation` será necessária. O trecho JSON a seguir mostra a alteração necessária na Atividade de Cópia `typeProperties` como um exemplo. Verifique a seção [Copiar dados entre armazenamentos de dados de nuvem](data-factory-data-movement-activities.md#global) para obter mais detalhes e valores com suporte.
+Se você estiver copiando dados de um armazenamento de dados de nuvem para o Azure Search, a propriedade `executionLocation` será necessária. O snippet JSON a seguir mostra a alteração necessária na Atividade de Cópia `typeProperties` como um exemplo. Verifique a seção [Copiar dados entre armazenamentos de dados de nuvem](data-factory-data-movement-activities.md#global) para obter mais detalhes e valores com suporte.
 
 ```JSON
 "typeProperties": {
@@ -273,7 +272,7 @@ Se você estiver copiando dados de um armazenamento de dados de nuvem para o Azu
 
 
 ## <a name="copy-from-a-cloud-source"></a>Copiar de uma origem de nuvem
-Se você estiver copiando dados de um armazenamento de dados de nuvem para o Azure Search, a propriedade `executionLocation` será necessária. O trecho JSON a seguir mostra a alteração necessária na Atividade de Cópia `typeProperties` como um exemplo. Verifique a seção [Copiar dados entre armazenamentos de dados de nuvem](data-factory-data-movement-activities.md#global) para obter mais detalhes e valores com suporte.
+Se você estiver copiando dados de um armazenamento de dados de nuvem para o Azure Search, a propriedade `executionLocation` será necessária. O snippet JSON a seguir mostra a alteração necessária na Atividade de Cópia `typeProperties` como um exemplo. Verifique a seção [Copiar dados entre armazenamentos de dados de nuvem](data-factory-data-movement-activities.md#global) para obter mais detalhes e valores com suporte.
 
 ```JSON
 "typeProperties": {

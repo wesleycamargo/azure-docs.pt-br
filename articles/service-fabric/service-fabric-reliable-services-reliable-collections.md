@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/6/2017
+ms.date: 1/3/2019
 ms.author: twhitney
-ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 422b4bbcfc6811cdc6bbf1649e2c660d04d95776
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191981"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039666"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
+
 As Coleções Confiáveis permitem desenvolver aplicativos em nuvem altamente disponíveis, escalonáveis e de baixa latência como se você estivesse desenvolvendo aplicativos de computador único. As classes no namespace **Microsoft.ServiceFabric.Data.Collections** fornecem um conjunto de coleções que automaticamente tornam seu estado altamente disponível. Os desenvolvedores só precisam programar para as APIs de Coleções Confiáveis e permitir que as Coleções Confiáveis gerenciem o estado local e replicado.
 
 A principal diferença entre Coleções Confiáveis e outras tecnologias de alta disponibilidade (como Redis, serviço Tabela do Azure e serviço Fila do Azure) é que o estado é mantido localmente na instância de serviço, além de se tornar altamente disponível. Isso significa que:
@@ -35,6 +36,7 @@ As Coleções Confiáveis podem ser interpretadas como a evolução natural das 
 
 * Replicadas: Alterações de estado são replicadas para alta disponibilidade.
 * Persistentes: Os dados são persistidos no disco para durabilidade contra interrupções em larga escala (por exemplo, uma interrupção de energia de datacenter).
+* Como as gravações são persistidas e replicadas, você não pode criar um ReliableDictionary volátil, um ReliableQueue ou outra coleção confiável que somente persista dados na memória.
 * Assíncronas: As APIs são assíncronas para garantir que os threads não sejam bloqueados quando gerarem E/S.
 * Transacionais: As APIs utilizam a abstração de transações para que você possa gerenciar várias Coleções Confiáveis em um serviço com facilidade.
 
@@ -45,7 +47,7 @@ Para obter consistência mais fraca, os aplicativos podem confirmar para o clien
 As APIs de Coleções Confiáveis são uma evolução das APIs de coleções simultâneas (encontradas no namespace **System.Collections.Concurrent** ):
 
 * Assíncronas: Retorna uma tarefa, pois, ao contrário das coleções simultâneas, as operações são replicadas e persistentes.
-* Sem parâmetros externos: Usa `ConditionalValue<T>` para retornar um bool e um valor, em vez de parâmetros externos. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
+* Sem parâmetros externos: usa `ConditionalValue<T>` para retornar um `bool` e um valor, em vez de parâmetros externos. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
 * Transações: Usam um objeto de transação para permitir que o usuário agrupe as ações em várias Coleções Confiáveis em uma transação.
 
 Hoje, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:
@@ -55,6 +57,7 @@ Hoje, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:
 * [Fila Simultânea Confiável](service-fabric-reliable-services-reliable-concurrent-queue.md): Representa uma fila de ordenação de melhor esforço replicada, transacional e assíncrona para alta taxa de transferência. Semelhante à **ConcurrentQueue**, o valor pode ser de qualquer tipo.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Recomendações e Diretrizes de Coleções Confiáveis](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)

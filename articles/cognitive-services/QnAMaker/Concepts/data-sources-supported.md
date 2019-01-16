@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.author: tulasim
-ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a26c4b6d16ac16596f8b1b0606aca029be335d71
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994123"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038493"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Fontes de dados para conteúdo do QnA Maker
 
@@ -149,6 +149,23 @@ Se não tiver conteúdo pré-existente para preencher a base de dados de conheci
 ## <a name="formatting-considerations"></a>Considerações de formatação
 
 Depois de importar um arquivo ou URL, ele é convertido em Markdown e armazenado nesse formato. Se o processo de conversão não estiver convertendo corretamente links em seus arquivos e URLs, edite as perguntas e respostas na página **Editar**. 
+
+|Formatar|Finalidade|
+|--|--|
+|`\n\n`| Nova linha|
+|`\n*`|Marcador para uma lista ordenada|
+
+## <a name="editing-your-knowledge-base-locally"></a>Como editar sua base de dados de conhecimento localmente
+
+Após criar uma base de conhecimento, é recomendável que você faça as edições no texto da base de conhecimento no [portal QnA Maker](https://qnamaker.ai), em vez de exportar e reimportar por meio de arquivos locais. No entanto, pode haver ocasiões em que você precisa editar uma base de conhecimento localmente. 
+
+Exporte a base de conhecimento na página **Configurações** e, em seguida, edite-a com o Microsoft Excel. Se você optar por usar outro aplicativo para editar o arquivo TSV exportado, o aplicativo pode introduzir erros de sintaxe porque não é totalmente compatível com TSV. Em geral, os arquivos TSV do Microsoft Excel não introduzem nenhum erro de formatação. 
+
+Depois de concluir as edições, reimporte o arquivo TSV na página **Configurações**. Isso substitui totalmente a base de conhecimento atual pela base de conhecimento importada. 
+
+## <a name="testing-your-markdown"></a>Testar seu Markdown
+
+Use o tutorial **[CommonMark](https://commonmark.org/help/tutorial/index.html)** para validar seu Markdown. O tutorial tem um recurso **Experimentar** para validação rápida de copiar/colar. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

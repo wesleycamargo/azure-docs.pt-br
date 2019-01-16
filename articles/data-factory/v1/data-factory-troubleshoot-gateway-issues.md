@@ -8,17 +8,16 @@ ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047557"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022531"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solucionar problemas usando o Gateway de Gerenciamento de Dados
 Este artigo fornece informações sobre como solucionar problemas com o uso do Gateway de Gerenciamento de Dados.
@@ -169,7 +168,7 @@ O gateway não pode se conectar ao serviço de nuvem por meio do Barramento de S
 #### <a name="resolution"></a>Resolução
 Siga estas etapas para colocar o gateway novamente online:
 
-1. Permita as regras de saída do endereço IP no computador do gateway e no firewall corporativo. É possível encontrar endereços IP no Log de Eventos do Windows (ID = = 401): Tentativa de acessar um soquete de uma maneira proibida pelas permissões de acesso XX.XX.XX.XX:9350.
+1. Permita as regras de saída do endereço IP no computador do gateway e no firewall corporativo. Você pode encontrar endereços IP no Log de Eventos do Windows (ID == 401): Houve uma tentativa de acessar um soquete de uma maneira proibida pelas permissões de acesso XX.XX.XX.XX:9350.
 * Defina as configurações de proxy no gateway. Consulte a seção [Considerações sobre servidor proxy](#proxy-server-considerations) para saber mais.
 * Habilite as portas de saída 5671 e 9350 a 9354 no Firewall do Windows, no computador do gateway e no firewall corporativo. Consulte a seção [Portas e firewall](#ports-and-firewall) para saber mais. Esta etapa é opcional, mas recomendada devido a considerações sobre desempenho.
 

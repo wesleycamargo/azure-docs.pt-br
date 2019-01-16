@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291208"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063272"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurar alertas de segurança para funções do diretório do Azure AD no PIM
 
@@ -30,9 +30,9 @@ Azure Active Directory Privileged Identity Management (PIM) do Azure AD gera ale
 
 Esta seção lista todos os alertas de segurança para funções de diretório, além de como corrigir e prevenir. Severidade tem o seguinte significado:
 
-* **Alta**: exige ação imediata devido a uma violação da política.
-* **Média**: não exige ação imediata, mas sinaliza uma possível violação da política.
-* **Baixa**: não requer ação imediata, mas sugere uma alteração de política preferencial.
+* **Alta**: Exige ação imediata devido a uma violação da política.
+* **Média**: Não exige ação imediata, mas sinaliza uma possível violação da política.
+* **Baixa**: Não requer ação imediata, mas sugere uma alteração de política preferencial.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Os administradores não estão usando suas funções privilegiadas
 
@@ -69,7 +69,7 @@ Esta seção lista todos os alertas de segurança para funções de diretório, 
 | | |
 | --- | --- |
 | **Severidade** | Média |
-| **Por que recebo este alerta?** | As contas que não alteraram sua senha recentemente podem ser contas de serviço ou compartilhadas que não estão sendo atualizadas. Essas contas em funções privilegiadas são vulneráveis a invasores. |
+| **Por que recebo este alerta?** | Contas em uma função com privilégios que não tiveram sua senha alterada nos últimos 90 dias. Essas contas podem ser de serviço ou compartilhadas, que não estejam passando por manutenção e estejam vulneráveis aos invasores. |
 | **Como corrigir?** | Examine as contas na lista. Se eles não precisarem mais de acesso, remova-os de suas funções privilegiadas. |
 | **Prevenção** | Certifique-se de que as contas compartilhadas estejam girando senhas fortes quando houver uma alteração nos usuários que conhecem a senha. </br>Revise regularmente as contas com funções privilegiadas usando [ revisões de acesso ](pim-how-to-start-security-review.md) e remova as atribuições de funções que não são mais necessárias. |
 | **Ação de mitigação no portal** | Remove a conta da sua função privilegiada. |

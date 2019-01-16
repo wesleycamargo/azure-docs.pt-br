@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: cd4b58dea43e497a2d7a5b977379d95f7004af45
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9a1623cca1c185ff3dba07ad5fbe354d8662dc68
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052300"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020958"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Atividade Until no Azure Data Factory
 A atividade Until fornece a mesma funcionalidade que uma estrutura de loop do-until fornece em linguagens de programação. Ela executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira. Especifique um valor de tempo limite para a atividade Until no Data Factory. 
@@ -55,11 +54,11 @@ A atividade Until fornece a mesma funcionalidade que uma estrutura de loop do-un
 
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Nome | Nome da atividade `Until`. | Cadeia de caracteres | sim
-Tipo | Deve ser definido como **Until**. | Cadeia de caracteres | sim
-expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | sim
-Tempo limite | O loop do-until atinge o tempo limite após o tempo especificado aqui. | Cadeia de caracteres. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor padrão é de 7 dias. Valor máximo é: 90 dias. | Não 
-Atividades | Conjunto de atividades que é executado até que a expressão seja avaliada como `true`. | Matriz de atividades. |  sim
+Nome | Nome da atividade `Until`. | Cadeia de caracteres | SIM
+Tipo | Deve ser definido como **Until**. | Cadeia de caracteres | SIM
+expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | SIM
+Tempo limite | O loop do-until atinge o tempo limite após o tempo especificado aqui. | Cadeia de caracteres. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor padrão é de 7 dias. Valor máximo: 90 dias. | Não 
+Atividades | Conjunto de atividades que é executado até que a expressão seja avaliada como `true`. | Matriz de atividades. |  SIM
 
 ## <a name="example-1"></a>Exemplo 1
 

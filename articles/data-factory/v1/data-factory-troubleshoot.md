@@ -9,17 +9,16 @@ ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: cbd51c48ec5b1801062e7aaf0b77e7b347018b31
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051858"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023004"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solucionar problemas do Data Factory
 > [!NOTE]
@@ -28,7 +27,7 @@ ms.locfileid: "37051858"
 Esse artigo fornece dicas de solução de problemas ao usar o Azure Data Factory. Este artigo não lista todos os possíveis problemas ao usar o serviço, mas abrange alguns problemas e dicas de solução geral de problemas.   
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
-### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Erro: a assinatura não está registada para usar o namespace 'Microsoft.DataFactory'
+### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Erro: a assinatura não está registrada para usar o namespace 'Microsoft.DataFactory'
 Caso você receba esse erro, o provedor de recursos do Azure Data Factory não foi registrado no seu computador. Faça o seguinte:
 
 1. Inicie o Azure PowerShell.
@@ -43,14 +42,14 @@ Caso você receba esse erro, o provedor de recursos do Azure Data Factory não f
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: Erro não autorizado ao executar um cmdlet da Data Factory
+### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: erro não autorizado ao executar um cmdlet da Data Factory
 Você provavelmente não está usando a assinatura ou conta do Azure correta com o Azure PowerShell. Use os cmdlets a seguir para selecionar a assinatura e conta do Azure corretas para usar com o Azure PowerShell.
 
 1. Connect-AzureRmAccount - Use a ID de usuário e a senha corretas
 2. Get-AzureRmSubscription: exiba todas as assinaturas da conta.
 3. Select-AzureRmSubscription &lt;nome da assinatura&gt; - Selecione a assinatura correta. Use a mesma assinatura usada para criar um data factory no portal do Azure.
 
-### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: falha ao inicializar a Configura Expressa do Gateway de Gerenciamento de Dados no portal do Azure
+### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: falha ao inicializar a Configuração Expressa do Gateway de Gerenciamento de Dados no Portal do Azure
 A instalação Expressa do Gateway de Gerenciamento de Dados requer o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce. Se a Instalação Expressa não for iniciada, siga um destes procedimentos:
 
 * Use o Internet Explorer ou um navegador da Web compatível com o Microsoft ClickOnce.
@@ -63,7 +62,7 @@ A instalação Expressa do Gateway de Gerenciamento de Dados requer o Internet E
 ### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problema: falha ao se conectar ao SQL Server local
 Inicie o **Gerenciador de Configuração de Gateway de Gerenciamento de Dados** no computador do gateway e use a guia **Solução de Problemas** para testar a conexão ao SQL Server do computador do gateway. Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: as fatias de entrada ficam sempre no estado Aguardando
+### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: As fatias de entrada ficam sempre no estado Aguardando
 As fatias podem estar no estado **Aguardando** devido a vários motivos. Um dos motivos comuns é que a propriedade **external** não está definida como **true**. Qualquer conjunto de dados que seja produzido fora do escopo do Azure Data Factory deve ser marcado com a propriedade **external** . Essa propriedade indica que os dados são externos e não são compatíveis com pipelines no data factory. As fatias de dados são marcadas como **Pronto** depois que os dados estão disponíveis no respectivo armazenamento.
 
 Consulte o exemplo a seguir para o uso da propriedade **external** . Como opção, você pode especificar **externalData*** quando definir external como true.
@@ -98,7 +97,7 @@ Consulte o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obt
 
 Para resolver o erro, adicione a propriedade **external** e a seção opcional **externalData** à definição de JSON da tabela de entrada e recrie a tabela.
 
-### <a name="problem-hybrid-copy-operation-fails"></a>Problema: Falha na operação de cópia híbrida
+### <a name="problem-hybrid-copy-operation-fails"></a>Problema: falha na operação de cópia híbrida
 Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver as etapas para solucionar os problemas de cópia para/a partir de um armazenamento de dados local usando o Gateway de Gerenciamento de Dados.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problema: falha no provisionamento sob demanda do HDInsight
@@ -112,7 +111,7 @@ Esse erro normalmente indica que o local da conta de armazenamento especificado 
 
 Além disso, há uma segunda propriedade JSON additionalLinkedServiceNames, em que as contas de armazenamento adicionais podem ser especificadas no HDInsight sob demanda. Essas contas de armazenamento adicionais vinculadas devem estar no mesmo local que o cluster HDInsight, ou falharão com o mesmo erro.
 
-### <a name="problem-custom-net-activity-fails"></a>Problema: falha de atividade .NET personalizada
+### <a name="problem-custom-net-activity-fails"></a>Problema: Falha de atividade .NET personalizada
 Consulte [Depurar um pipeline com atividade personalizada](data-factory-use-custom-activities.md#troubleshoot-failures) para obter etapas detalhadas.
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Usar o portal do Azure para solucionar o problema

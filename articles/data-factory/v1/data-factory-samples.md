@@ -9,17 +9,16 @@ ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 417425a6982ca92e486ccfb578131ebc898a0466
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046081"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020805"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemplos
 > [!NOTE]
@@ -27,7 +26,7 @@ ms.locfileid: "37046081"
 
 
 ## <a name="samples-on-github"></a>Exemplos no GitHub
-O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contém vários exemplos que ajudam você a utilizar rapidamente o serviço Azure Data Factory ou modificar os scripts e usá-los no próprio aplicativo. A pasta Samples\JSON contém trechos de código JSON para cenários comuns.
+O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contém vários exemplos que ajudam você a utilizar rapidamente o serviço Azure Data Factory ou modificar os scripts e usá-los no próprio aplicativo. A pasta Samples\JSON contém snippets de código JSON para cenários comuns.
 
 | Amostra | DESCRIÇÃO |
 |:--- |:--- |
@@ -46,7 +45,7 @@ O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 | [Arquivo de entrada de exemplo U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |Este é um arquivo de exemplo usado por uma atividade U-SQL. |
 | [Excluir arquivo de blob](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity) | Esta amostra apresenta um arquivo em C# que pode ser usado como parte da atividade do .net personalizada do ADF para excluir arquivos do local do Blob do Azure de origem depois da cópia dos arquivos.|
 
-## <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
+## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 Você pode encontrar os seguintes modelos do Azure Resource Manager para Data Factory no GitHub.
 
 | Modelo | DESCRIÇÃO |
@@ -78,12 +77,12 @@ Você pode usar o bloco **Pipelines de exemplo** na home page de sua data factor
     ![Folha Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Exemplos no Visual Studio
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Você deve ter os seguintes itens instalados no seu computador:
 
 * Visual Studio 2013 ou Visual Studio 2015
 * Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
-* Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando o Visual Studio 2013, também poderá atualizar o plug-in, executando as seguintes etapas: no menu, clique em **Ferramentas** -> **Extensões e Atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory** -> **Atualizar**.
+* Baixe o último plug-in do Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você está usando o Visual Studio 2013, também é possível atualizar o plug-in executando as seguintes etapas: No menu, clique em **Ferramentas** -> **Extensões e Atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory para Visual Studio** -> **Atualizar**.
 
 ### <a name="use-data-factory-templates"></a>Use modelos de Data Factory
 1. Clique em **Arquivo** no menu, aponte para **Novo** e clique em **Projeto**.

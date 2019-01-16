@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993953"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063226"
 ---
-# <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Escolha o certo tipo de preço no Azure Mapas
+# <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha a camada de preços certa no Azure Mapas
 
-Os Mapas do Azure oferecem dois tipos de preço. A finalidade deste artigo é ajudá-lo a escolher o melhor preço para suas necessidades. Para ajudar a escolher o melhor tipo de preço, faça duas perguntas:
+Os Mapas do Azure oferecem dois tipos de preço. A finalidade deste artigo é ajudá-lo a escolher o melhor preço para suas necessidades. Para ajudar a escolher a melhor camada de preços, pergunte o seguinte a si mesmo.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Quais recursos geoespaciais planejo usar?
-Se você achar que seus requisitos de serviço são atendidos pelas APIs geoespaciais, então o tipo de preço S0 é ideal para você. Se você quiser recursos mais avançados para seu aplicativo, como imagens aéreas+híbridas, obtendo intervalo de rota, lote geocodificação, etc., considere a possibilidade de aceitar para o tipo de preço S1. A tabela a seguir com **recursos do tipo de preços** irá fornecer uma ideia melhor de necessidades do seu aplicativo e também ajudará você a escolher um tipo de preço mais adequado para seu aplicativo.
+A camada de preços S0 é ideal para você se as APIs geoespaciais principais atendem aos seus requisitos de serviço. Se quiser recursos mais avançados para seu aplicativo, considere a camada de preços S1. Exemplos de recursos incluem imagens por área e híbridas, obtenção de intervalo de rota e geocodificação em lote. A tabela de **recursos por camada de preços** a seguir dá uma ideia melhor das necessidades do seu aplicativo. Ela também ajuda a escolher um camada de preços mais adequada para seu aplicativo.
 
 ## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Quantos usuários simultâneos planejam oferecer suporte? 
-Tipo de preço S0 e S1 pode lidar com quantidades diferentes de taxa de transferência de dados. Antes de escolher um tipo de preço do Azure Mapas, considere perguntando a si mesmo perguntas como quantos usuários simultâneos você deseja oferecer suporte? O tipo de preço S0 pode manipular até **50 consultas por segundo** e o S1 pode lidar com a camada de preços **mais de 50 consultas por segundo**.
+As camadas de preços S0 e S1 lidam com diferentes quantidades de taxa de transferência de dados. Antes de escolher uma camada de preços do Azure Mapas, faça algumas perguntas a si mesmo. Um exemplo é "a quantos usuários simultâneos planejo oferecer suporte?" A camada de preços S0 lida com até **50 consultas por segundo**. A camada de preços S1 lida com **mais de 50 consultas por segundo**.
 
 ### <a name="pricing-tier-capabilities"></a>Recursos do tipo de preço
 
@@ -34,31 +34,32 @@ Tipo de preço S0 e S1 pode lidar com quantidades diferentes de taxa de transfer
 | Renderizar                                  |        ✓           |     ✓    |
 | Tráfego                                 |        ✓           |     ✓    |
 | Fusos horários                              |        ✓           |     ✓    |
-| *Imagens + imagens híbridas (visualização)     |        ✓           |     ✓    |
-| *Intervalo de rota (visualização)                  |        ✓           |     ✓    |
-| *Localização IP 2 (versão prévia)                |        ✓           |     ✓    |
-| *Polígonos de pesquisa (versão prévia)         |        ✓           |     ✓    |
-| *Geocodificação de lote (versão prévia)              |        ✓           |     ✓    |
-| *Roteamento de lote (versão prévia)                |        ✓           |     ✓    |
-| *Roteamento de lote (versão prévia)               |        ✓           |     ✓    |
+| * Imagens + imagens híbridas (versão prévia)  |        ✓           |     ✓    |
+| * Intervalo de rota (versão prévia)                  |        ✓           |     ✓    |
+| * Localização IP 2 (versão prévia)                |        ✓           |     ✓    |
+| * Polígonos de pesquisa (versão prévia)         |        ✓           |     ✓    |
+| * Geocodificação de lote (versão prévia)              |        ✓           |     ✓    |
+| * Roteamento de lote (versão prévia)                |        ✓           |     ✓    |
+| * Roteamento de matriz (versão prévia)               |        ✓           |     ✓    |
 
-> [!Note]
-> Acesso esses recursos a partir da camada de preço S0 será preterido após 4 de fevereiro de 2019.
+\* O acesso a esses recursos a partir da camada de preços S0 será preterido após 4 de fevereiro de 2019.
 
-Alguns pontos de dados adicionais que valem a pena considerar são, que tipo de empresa você tem ou quão crítico é o aplicativo que está sendo criado?
+Vale a pena considerar esses pontos de dados adicionais:
+* Que tipo de empreendimento você tem?
+* Qual a importância do aplicativo que está sendo desenvolvido?
 
-Consulte a tabela com **Clientes de destino do tipo de preço** para obter uma melhor noção dos tipos de preço S1 e S0. Para obter mais informações sobre os preços de Azure Mapas, consulte [Preço do Azure Mapas](https://azure.microsoft.com/pricing/details/azure-maps/). 
+Consulte a tabela com **Clientes da camada de preços** para obter uma noção melhor das camadas de preços S1 e S0. Para saber mais, consulte [Preços do Azure Mapas](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
 ### <a name="pricing-tier-targeted-customers"></a>Tipo de preço de clientes de destino
 
-| Tipo de preço  |        Clientes de destino                                                                |
+| Tipo de preço  |     Clientes de destino                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>O tipo de preço S0 é para clientes que são as empresas de pequeno ou médio porte. É um direito de tipo de preço para você se você não espera grandes volumes de usuários simultâneos e seus requisitos de serviço são atendidos pelas APIs geoespaciais conforme indicado pela tabela acima. Essa camada está disponível e é aplicável para aplicativos em todos os estágios de produção desde o desenvolvimento da prova de conceito e teste da etapa para a produção e implantação do aplicativo.<p>|
-| S1            |    <p>O tipo de preço S1 é para clientes em necessidade de transporte para empresa de grande porte, aplicativos de missão crítica, volumes altos de usuários concorrentes ou requer serviços geoespaciais avançados.</p>|
+| S0            |    <p>O tipo de preço S0 é para clientes que são as empresas de pequeno ou médio porte. É a camada de preços certa se você não espera altos volumes de usuários simultâneos. Também é a opção correta se as principais APIs geoespaciais mostradas na tabela anterior atendem aos seus requisitos de serviço. Esta camada está disponível para o público em geral. Ela funciona com aplicativos em todos os estágios de produção, desde o desenvolvimento da prova de conceito e o teste inicial até a produção e a implantação do aplicativo.<p>|
+| S1            |    <p>A camada de preços S1 serve clientes que precisam oferecer suporte a uma empresa de grande porte, aplicativos essenciais ou altos volumes de usuários simultâneos. Vale também para os clientes que necessitam de serviços geoespaciais avançados.</p>|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como exibir e alterar o tipo de preço:
+Saiba mais sobre como exibir e alterar a camada de preços:
 
-> [!div class="nextstepaction"]
-> [Gerenciar o Tipo de Preço](how-to-manage-pricing-tier.md)
+> [!div class="nextstepaction"] 
+> [Gerenciar uma camada de preços](how-to-manage-pricing-tier.md)

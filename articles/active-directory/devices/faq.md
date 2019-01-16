@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309171"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016147"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -180,6 +180,9 @@ Usuários excluídos ou desabilitados que fizeram logon anteriormente, não pode
 
 - [Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
  
+**P: Por que vejo um registro do Azure Active Directory duplicado para meu dispositivo incluído pelo Azure Active Directory híbrido no Windows 10 na lista de dispositivos do Azure Active Directory?**
+
+**R:** Quando os usuários adicionam a respectiva conta aos aplicativos em um dispositivo incluído no domínio, eles podem ser solicitados a "Adicionar a conta ao Windows?". Clicar em "Sim" na solicitação faz com que o dispositivo seja registrado no Azure Active Directory e o tipo de confiança seja marcado como registrado pelo Azure Active Directory. Depois de habilitar o ingresso do Azure Active Directory na organização, o dispositivo também será incluído no Azure Active Directory híbrido. Como resultado, serão mostrados dois estados para o mesmo dispositivo. No entanto, o ingresso do Azure Active Directory híbrido tem precedência sobre o estado de registrado pelo Azure Active Directory. Desse modo, o dispositivo será considerado ingresso do Azure Active Directory híbrido para qualquer autenticação e avaliação de Acesso Condicional. Portanto, você pode excluir com segurança o registro do dispositivo inscrito pelo Azure Active Directory no Portal do Azure Active Directory. Examine [esta seção](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) no artigo sobre o ingresso do Azure Active Directory Híbrido para entender como evitar ou limpar esse estado duplo na máquina com o Windows 10. 
 
 ---
 
