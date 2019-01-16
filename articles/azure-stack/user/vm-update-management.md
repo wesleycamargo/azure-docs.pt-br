@@ -1,6 +1,6 @@
 ---
 title: VM atualização e gerenciamento com o Azure Stack | Microsoft Docs
-description: Saiba como usar as soluções de gerenciamento de atualizações, controle de alterações e inventário na automação do Azure para gerenciar VMs do Windows que são implantadas no Azure Stack.
+description: Saiba como usar as soluções de gerenciamento de atualizações, controle de alterações e inventário na automação do Azure para gerenciar o Windows e VMs do Linux que são implantados no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,30 +15,30 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.openlocfilehash: be793fa5d346d05e6b7bd9f93f1108b7a3542fa6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b86a9a0cff397148b0632b3108f58a1977b518e9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959165"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332499"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Atualização de VM de pilha e gerenciamento do Azure
-Você pode usar os seguintes recursos de solução de automação do Azure para gerenciar VMs do Windows que são implantados usando o Azure Stack:
+Você pode usar os seguintes recursos de solução de automação do Azure para gerenciar o Windows e VMs do Linux que são implantados usando o Azure Stack:
 
-- **[Gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/automation-update-management)**. Com a solução de gerenciamento de atualizações, você pode rapidamente avaliar o status de atualizações disponíveis em todos os computadores de agente e gerenciar o processo de instalação de atualizações necessárias para essas VMs do Windows.
+- **[Gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/automation-update-management)**. Com a solução de gerenciamento de atualizações, você pode rapidamente avaliar o status de atualizações disponíveis em todos os computadores de agente e gerenciar o processo de instalação de atualizações necessárias para essas VMs do Linux e Windows.
 
-- **[O controle de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. As alterações ao software instalado, serviços do Windows, do registro do Windows e arquivos nos servidores monitorados são enviadas para o serviço Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+- **[O controle de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Alterações no software instalado, nos serviços Windows, nos arquivos e registros do Windows e daemons do Linux nos servidores monitorados são enviadas ao serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 
-- **[Estoque](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. O acompanhamento de inventário para uma máquina de virtual do Windows de pilha do Azure fornece uma interface de usuário baseada em navegador para instalar e configurar a coleta de inventário. 
+- **[Estoque](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. O acompanhamento de inventário para uma máquina de virtual do Azure Stack fornece uma interface de usuário baseada em navegador para instalar e configurar a coleta de inventário. 
 
 > [!IMPORTANT]
-> Essas soluções são as mesmas que aquelas usadas para gerenciar VMs do Azure. Azure e máquinas virtuais do Azure Stack Windows são gerenciados da mesma forma, usando a mesma interface, usando as mesmas ferramentas. As VMs do Azure Stack são também tem o mesmo preço VMs do Azure ao usar o gerenciamento de atualizações, controle de alterações e soluções de estoque com o Azure Stack.
+> Essas soluções são as mesmas que aquelas usadas para gerenciar VMs do Azure. Azure e máquinas virtuais do Azure Stack são gerenciados da mesma forma, usando a mesma interface, usando as mesmas ferramentas. As VMs do Azure Stack são também tem o mesmo preço VMs do Azure ao usar o gerenciamento de atualizações, controle de alterações e soluções de estoque com o Azure Stack.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Vários pré-requisitos devem ser atendidos antes de usar esses recursos para atualizar e gerenciar VMs Windows do Azure Stack. Isso inclui as etapas que devem ser executadas no portal do Azure, bem como o portal de administração do Azure Stack.
+Vários pré-requisitos devem ser atendidos antes de usar esses recursos para atualizar e gerenciar VMs do Azure Stack. Isso inclui as etapas que devem ser executadas no portal do Azure, bem como o portal de administração do Azure Stack.
 
 ### <a name="in-the-azure-portal"></a>No portal do Azure
-Para usar o inventário, o controle de alterações e os recursos de automação do Azure de gerenciamento de atualização para VMs Windows do Azure Stack, primeiro você precisa habilitar essas soluções no Azure.
+Para usar o inventário, o controle de alterações e os recursos de automação do Azure de gerenciamento de atualização para VMs do Azure Stack, primeiro você precisa habilitar essas soluções no Azure.
 
 > [!TIP]
 > Se você já tiver esses recursos habilitados para VMs do Azure, você pode usar suas credenciais do espaço de trabalho LogAnalytics já existentes. Se você já tiver um LogAnalytics WorkspaceID e a chave primária que você deseja usar, pule para [a próxima seção](./vm-update-management.md#in-the-azure-stack-administration-portal). Caso contrário, prossiga nesta seção para criar uma nova conta de automação e espaço de trabalho LogAnalytics.
@@ -60,18 +60,18 @@ Em seguida, você deve [criar uma conta de automação](https://docs.microsoft.c
    [![](media/vm-update-management/1-sm.PNG "Habilitar recursos de conta de automação")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### <a name="in-the-azure-stack-administration-portal"></a>No Portal de administração do Azure Stack
-Depois de habilitar as soluções de automação do Azure no portal do Azure, em seguida você precisa entrar no portal de administração do Azure Stack como um administrador de nuvem e baixe o **atualização do Azure e o gerenciamento de configuração** extensão do Azure Item do marketplace de pilha. 
+Depois de habilitar as soluções de automação do Azure no portal do Azure, em seguida você precisa entrar no portal de administração do Azure Stack como um administrador de nuvem e baixe o **atualização do Azure e o gerenciamento de configuração** e o  **Atualização e gerenciamento de configuração para Linux do Azure** itens do marketplace extensão do Azure Stack. 
 
    ![Azure atualização e configuração de gerenciamento extensão item do marketplace](media/vm-update-management/2.PNG) 
 
 ## <a name="enable-update-management-for-azure-stack-virtual-machines"></a>Habilitar o gerenciamento de atualizações para máquinas virtuais do Azure Stack
-Siga estas etapas para habilitar o gerenciamento de atualizações para VMs Windows do Azure Stack.
+Siga estas etapas para habilitar o gerenciamento de atualizações para VMs do Azure Stack.
 
 1. Faça logon no portal do usuário do Azure Stack.
 
-2. No Azure Stack-portal do usuário, vá até a folha de extensões do Windows máquinas virtuais para o qual você deseja habilitar essas soluções, clique em **+ adicionar**, selecione o **atualização do Azure e o gerenciamento de configuração**extensão e clique em **criar**:
+2. No Azure Stack-portal do usuário, vá até a folha de extensões das máquinas virtuais para o qual você deseja habilitar essas soluções, clique em **+ adicionar**, selecione o **atualização do Azure e o gerenciamento de configuração** extensão e clique em **criar**:
 
-   [![](media/vm-update-management/3-sm.PNG "Folha de extensão de VM do Windows")](media/vm-update-management/3-lg.PNG#lightbox)
+   [![](media/vm-update-management/3-sm.PNG "Folha de extensão VM")](media/vm-update-management/3-lg.PNG#lightbox)
 
 3. Forneça o WorkspaceID e a chave primária criada anteriormente para vincular o agente com o espaço de trabalho LogAnalytics e clique em **Okey** para implantar a extensão.
 
@@ -82,9 +82,9 @@ Siga estas etapas para habilitar o gerenciamento de atualizações para VMs Wind
    [![](media/vm-update-management/5-sm.PNG "Fornecendo a WorkspaceID e a chave")](media/vm-update-management/5-lg.PNG#lightbox) 
 
    > [!TIP]
-   > Repita essa etapa para habilitar cada solução para VMs Windows do Azure Stack que se reportam a espaço de trabalho. 
+   > Repita essa etapa para habilitar cada solução para as VMs de pilha do Azure que se reportam a espaço de trabalho. 
   
-Depois que a extensão de atualização do Azure e o gerenciamento de configuração está habilitada, uma verificação é executada duas vezes por dia para cada VM do Windows gerenciados. A API do Windows é chamada a cada 15 minutos para consultar a hora da última atualização determinar se o status foi alterado. Se o status foi alterado, uma verificação de conformidade é iniciada.
+Depois que a extensão de atualização do Azure e o gerenciamento de configuração está habilitada, uma verificação é executada duas vezes por dia para cada VM gerenciada. A API é chamada para consultar a hora da última atualização determinar se o status foi alterado a cada 15 minutos. Se o status foi alterado, uma verificação de conformidade é iniciada.
 
 Depois que as VMs são verificadas, eles aparecerão na conta de automação do Azure na solução de gerenciamento de atualização: 
 
@@ -93,10 +93,10 @@ Depois que as VMs são verificadas, eles aparecerão na conta de automação do 
 > [!IMPORTANT]
 > Pode demorar entre 30 minutos e 6 horas para o painel exibir os dados atualizados dos computadores gerenciados.
 
-As VMs do Windows de pilha do Azure podem ser incluídas em implantações de atualização agendada junto com VMs do Azure.
+As VMs do Azure Stack agora podem ser incluídas em implantações de atualização agendada junto com VMs do Azure.
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Habilitar o gerenciamento de atualização usando um modelo do Resource Manager
-Se você tiver um grande número de VMs de Windows do Azure Stack, você pode usar [este modelo do Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) para implantar mais facilmente a solução em VMs do Windows. O modelo implanta a extensão Microsoft Monitoring Agent em uma VM Windows existente e adiciona-o para um espaço de trabalho existente do Azure LogAnalytics.
+Se você tiver um grande número de VMs do Azure Stack, você pode usar [este modelo do Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) para implantar mais facilmente a solução em máquinas virtuais. O modelo implanta a extensão Microsoft Monitoring Agent em uma VM de pilha do Azure existente e adiciona-o para um espaço de trabalho existente do Azure LogAnalytics.
  
 ## <a name="next-steps"></a>Próximas etapas
 [Otimizar o desempenho do SQL Server](azure-stack-sql-server-vm-considerations.md)

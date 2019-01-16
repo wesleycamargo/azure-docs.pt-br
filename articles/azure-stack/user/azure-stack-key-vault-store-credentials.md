@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 01/16/2019
 ms.author: sethm
-ms.openlocfilehash: 570c1adc2f4615e78cbe5656c13b0e22b863baf7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3fcbf2b3160d57e56a59ba9c374c9b1b2a75a159
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192363"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330238"
 ---
 # <a name="store-service-principal-credentials-in-key-vault"></a>Store credenciais da entidade de serviço no cofre de chaves
 
@@ -83,7 +83,7 @@ Para criar um cofre de chaves, siga estas etapas:
 
 2. No **segredo** painel, selecione **gerar/importar**.
 
-3. No **criar um segredo** painel, na lista de opções, selecione **Manual**.
+3. No **criar um segredo** painel, na lista de opções, selecione **Manual**. Se você tiver criado o serviço principal usando certificados, selecione os certificados na lista suspensa e, em seguida, carregue o arquivo.
 
 4. Insira **a ID do aplicativo** copiado da entidade de serviço como o nome para a sua chave. O nome da chave pode conter apenas caracteres alfanuméricos e o caractere de hífen (-).
 
