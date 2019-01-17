@@ -42,7 +42,7 @@ Você vai:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
-* Acesso ao GitHub ou repositório Git externo que contém o .NET, Java, PHP, nó, Python ou código da Web estático.
+* Acesso ao GitHub ou repositório Git externo que contém o .NET, Java, PHP, Node, Python ou código da Web estático.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
