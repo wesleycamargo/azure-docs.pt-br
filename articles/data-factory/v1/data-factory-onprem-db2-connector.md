@@ -9,20 +9,19 @@ ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046523"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015127"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando a Atividade de Cópia do Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-db2-connector.md)
 > * [Versão 2 (versão atual)](../connector-db2.md)
 
@@ -34,7 +33,7 @@ Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Fa
 
 Atualmente, o Data Factory dá suporte apenas à movimentação de dados de um banco de dados DB2 para um [armazenamento de dados do coletor suportado](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Não há suporte para a movimentação de dados de outros armazenamentos de dados para um banco de dados DB2.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 O Data Factory dá suporte à conexão com um banco de dados DB2 local usando o [gateway de gerenciamento de dados](data-factory-data-management-gateway.md). Para obter instruções passo a passo de como configurar o pipeline de dados de gateway para mover dados, confira o artigo [Mover dados de fontes locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
 O gateway é necessário, mesmo se o DB2 estiver hospedado na VM da Iaas do Azure. Você pode instalar o gateway na mesma VM da IaaS que o armazenamento de dados. Se o gateway puder se conectar com o banco de dados, você poderá instalar o gateway em uma VM diferente.
@@ -58,8 +57,8 @@ O conector DB2 do Data Factory dá suporte às seguintes plataformas e versões 
 
 > [!TIP]
 > Se você receber a mensagem de erro "O pacote correspondente a uma solicitação de execução da instrução SQL não foi encontrado. SQLSTATE=51002 SQLCODE=-805", é porque um pacote necessário não foi criado para o usuário normal no SO. Para resolver esse problema, siga estas instruções para seu tipo de servidor DB2:
-> - DB2 para i (AS400): permita que o usuário avançado crie a coleção para o usuário normal antes de executar a Atividade de Cópia. Para criar a coleção, use o comando: `create collection <username>`
-> - DB2 para z/OS ou LUW: use uma conta com privilégios elevados – um usuário avançado ou administrador com autoridades de pacote e permissões BIND, BINDADD, GRANT EXECUTE TO PUBLIC – para executar a cópia de uma vez. O pacote necessário é criado automaticamente durante a cópia. Posteriormente, você poderá voltar para o usuário normal para as execuções de cópia subsequentes.
+> - DB2 para i (AS400): Permita que o usuário avançado crie a coleção para o usuário normal antes de executar a Atividade de Cópia. Para criar a coleção, use o comando: `create collection <username>`
+> - DB2 para z/OS ou LUW: Use uma conta com privilégios elevados – um usuário avançado ou administrador com autoridades de pacote e permissões BIND, BINDADD, GRANT EXECUTE TO PUBLIC – para executar a cópia de uma vez. O pacote necessário é criado automaticamente durante a cópia. Posteriormente, você poderá voltar para o usuário normal para as execuções de cópia subsequentes.
 
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com uma atividade de cópia para mover dados de um armazenamento de dados DB2 local usando diferentes ferramentas e APIs: 
@@ -73,7 +72,7 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 2. Criar conjuntos de dados para representar dados de entrada e saída para a operação de cópia. 
 3. Criar um pipeline com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. 
 
-Ao usar o Assistente de Cópia, as definições de JSON para os serviços vinculados, conjuntos de dados e entidades de pipeline do Data Factory são criadas automaticamente para você. Ao usar ferramentas ou APIs (exceto a API .NET), você define as entidades do Data Factory usando o formato JSON. O [Exemplo de JSON: copiar dados do DB2 para o armazenamento de Blobs do Azure](#json-example-copy-data-from-db2-to-azure-blob) mostra as definições de JSON para as entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados DB2 local.
+Ao usar o Assistente de Cópia, as definições de JSON para os serviços vinculados, conjuntos de dados e entidades de pipeline do Data Factory são criadas automaticamente para você. Ao usar ferramentas ou APIs (exceto a API .NET), você define as entidades do Data Factory usando o formato JSON. [Exemplo JSON: Copiar dados do DB2 para o armazenamento de Blobs do Azure](#json-example-copy-data-from-db2-to-azure-blob) mostra as definições de JSON para as entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados DB2 local.
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas a um armazenamento de dados DB2.
 
@@ -82,14 +81,14 @@ A tabela a seguir lista as propriedades JSON que são específicas a um serviço
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |sim |
-| **server** |O nome do servidor DB2. |sim |
-| **database** |O nome do banco de dados DB2. |sim |
+| **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |SIM |
+| **server** |O nome do servidor DB2. |SIM |
+| **database** |O nome do banco de dados DB2. |SIM |
 | **schema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não  |
-| **authenticationType** |O tipo de autenticação que é usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anônimo, Básico e Windows. |sim |
+| **authenticationType** |O tipo de autenticação que é usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anônimo, Básico e Windows. |SIM |
 | **username** |O nome da conta de usuário, se você usar a autenticação Básica ou do Windows. |Não  |
 | **password** |A senha para a conta de usuário. |Não  |
-| **gatewayName** |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |sim |
+| **gatewayName** |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados DB2 local. |SIM |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como **structure**, **availability** e **policy** de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, armazenamento de Blobs do Azure, armazenamento de Tabelas do Azure, entre outros).
@@ -112,7 +111,7 @@ Para a Atividade de Cópia, quando a fonte for do tipo **RelationalSource** (que
 > [!NOTE]
 > Os nomes de esquema e tabela diferenciam maiúsculas de minúsculas. Na instrução de consulta, coloque os nomes de propriedade usando "" (aspas duplas).
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Exemplo de JSON: copiar dados do DB2 para o armazenamento de Blobs do Azure
+## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados do DB2 para o Blob do Azure
 Esse exemplo fornece amostra de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). O exemplo mostra como copiar dados de um banco de dados do DB2 no armazenamento de Blobs. No entanto, os dados podem ser copiados em [qualquer tipo de coletor de armazenamento de dados suportado](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia do Azure Data Factory.
 
 O exemplo tem as seguintes entidades do Data Factory:

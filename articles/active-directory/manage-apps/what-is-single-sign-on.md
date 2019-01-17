@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b7e75753f8d7a9316dd1cc644dc22c42ef284736
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322697"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190036"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Logon único para aplicativos no Azure Active Directory
 Saiba como escolher o método de logon único mais apropriado ao configurar aplicativos no Azure AD (Azure Active Directory). 
@@ -79,7 +79,7 @@ Use o logon único baseado em senha quando:
 O logon único baseado em senha for compatível com qualquer aplicativo baseado em nuvem que tenha uma página de entrada baseada em HTML. O usuário pode usar qualquer um dos seguintes navegadores:
 
 - Internet Explorer 11 no Windows 7 ou posterior
-- Edge no Windows 10 Anniversary Edition ou posterior 
+- O Microsoft Edge na Edição de Aniversário do Windows 10 ou posterior 
 - Chrome no Windows 7 ou posterior e no MacOS X ou posterior
 - Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 

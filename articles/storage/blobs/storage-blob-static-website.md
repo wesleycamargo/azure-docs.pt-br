@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598883"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191812"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 As contas de GPv2 de Armazenamento do Microsoft Azure permitem que você forneça conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Aproveitar a hospedagem no Armazenamento do Microsoft Azure permite que você use arquiteturas sem servidor incluindo [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS.
@@ -21,16 +21,16 @@ As contas de GPv2 de Armazenamento do Microsoft Azure permitem que você forneç
 Em contraste com a hospedagem de site estático, sites dinâmicos que dependem do código do lado do servidor que melhor são hospedados usando o [Serviço de Aplicativo do Azure](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Como ele funciona?
-Quando você habilita o site estático hospedando em sua conta de armazenamento, selecione o nome do arquivo padrão e, opcionalmente, forneça um caminho para uma página 404 personalizada. Conforme o recurso é habilitado, um contêiner denominado *$web* será criado se ele ainda não existir. 
+Quando você habilita o site estático hospedando em sua conta de armazenamento, selecione o nome do arquivo padrão e, opcionalmente, forneça um caminho para uma página 404 personalizada. Conforme o recurso é habilitado, um contêiner denominado *$web* será criado se ele ainda não existir.
 
 Os arquivos no contêiner *$web* são:
 
 - atendidos por meio de solicitações de acesso anônimo
 - disponível somente por meio de operações de leitura do objeto
 - diferencia maiúsculas de minúsculas
-- disponível na web pública seguindo esse padrão: 
+- disponível na web pública seguindo esse padrão:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- disponível por meio de um ponto de extremidade de Armazenamento de Blobs seguindo esse padrão: 
+- disponível por meio de um ponto de extremidade de Armazenamento de Blobs seguindo esse padrão:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 Você pode usar o ponto de extremidade de Armazenamento de Blobs para carregar arquivos. Por exemplo, o arquivo carregado nesse local:
@@ -97,10 +97,10 @@ Consulta para a URL do ponto de extremidade da Web:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Carregar objetos para o contêiner *$web* a partir de um diretório de origem:
+Carregar objetos para o contêiner *$web* de um diretório de origem. Ignore adequadamente a referência para o contêiner *$web* no comando. Por exemplo, se você estiver usando a CLI do Azure do CloudShell no portal do Azure, ignore o contêiner *$web* conforme mostrado:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Implantação
@@ -120,7 +120,7 @@ Para habilitar as métricas em suas páginas do site estático, clique em **Conf
 
 Dados de métricas são gerados pendurando em diferentes APIs de métrica. O portal exibe apenas membros da API usados em um determinado período de tempo para se concentrar apenas em membros que retornam dados. Para garantir que você possa selecionar o membro de API necessário, a primeira etapa é expandir o intervalo de tempo.
 
-Clique no botão de período de tempo e selecione **Útimas 24 horas** e, em seguida, clique em **Aplicar** 
+Clique no botão de período de tempo e selecione **Útimas 24 horas** e, em seguida, clique em **Aplicar**
 
 ![Intervalo de tempo de métricas de sites estático do Armazenamento do Microsoft Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

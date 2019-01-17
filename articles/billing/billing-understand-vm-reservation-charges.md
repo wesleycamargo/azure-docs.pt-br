@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 096cf8e7a03f00cd5854ac4ce9569b14fe4b761b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cdcb4e06afab2cccff7baa92989ccf904f42cf88
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581469"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118006"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Entenda como é aplicado o desconto em reserva do Azure a máquinas virtuais
 
@@ -53,6 +53,10 @@ Para entender e exibir o aplicativo das Reservas do Azure nos relatórios de uso
 
 Quando você executa instâncias de VM Windows, a reserva é aplicada para cobrir os custos de infraestrutura. A aplicação da reserva aos custos de infraestrutura de VMs é igual para máquinas virtuais Windows e não - Windows. Você é cobrado separadamente pelo software Windows por vCPU. Consulte [Custos do software Windows com Reservas](https://go.microsoft.com/fwlink/?linkid=862756). Você pode cobrir os custos de licenciamento do Windows com [Benefício Híbrido do Azure para Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
+## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>O desconto aplica-se a diferentes tamanhos com flexibilidade de tamanho da instância
+
+Ao comprar uma instância de VM Reservada, se você selecionar **Otimizado para**: **flexibilidade de tamanho da instância**, a cobertura de desconto dependerá do tamanho de VM selecionado. A reserva pode ser aplicada aos tamanhos de VMs (máquinas virtuais) no mesmo grupo de série de tamanho. Para obter mais informações, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
@@ -66,6 +70,6 @@ Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 - [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Custos de software do Windows não estão incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

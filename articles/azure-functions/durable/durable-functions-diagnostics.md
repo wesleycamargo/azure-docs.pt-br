@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713224"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118414"
 ---
-# <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnóstico nas Funções Duráveis (Azure Functions)
+# <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico no Durable Functions no Azure
 
 Há várias opções para diagnosticar problemas com as [Funções Duráveis](durable-functions-overview.md). Algumas dessas opções são as mesmas usadas para funções regulares e algumas delas são exclusivas das Funções Duráveis.
 
 ## <a name="application-insights"></a>Application Insights
 
-O [Application Insights](../../application-insights/app-insights-overview.md) é a maneira recomendada de fazer diagnóstico e monitoramento no Azure Functions. O mesmo se aplica às Funções Duráveis. Para obter uma visão geral de como usar o Application Insights em seu aplicativo de funções, consulte [Monitor o Azure Functions](../functions-monitoring.md).
+O [Application Insights](../../azure-monitor/app/app-insights-overview.md) é a maneira recomendada de fazer diagnóstico e monitoramento no Azure Functions. O mesmo se aplica às Funções Duráveis. Para obter uma visão geral de como usar o Application Insights em seu aplicativo de funções, consulte [Monitor o Azure Functions](../functions-monitoring.md).
 
 A Extensão Durável do Azure Functions também emite *eventos de acompanhamento*, que permitem rastrear a execução de uma orquestração de ponta a ponta. Eles podem ser encontrados e consultados usando a ferramenta [Application Insights Analytics](../../azure-monitor/app/analytics.md) no portal do Azure.
 

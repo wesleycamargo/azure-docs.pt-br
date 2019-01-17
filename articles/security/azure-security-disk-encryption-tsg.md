@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 01/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6cf415112f245421b3225c2e2ccb07a7bbf9332
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098280"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103158"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
@@ -72,6 +72,9 @@ Qualquer configuração do grupo de segurança de rede aplicada ainda deve permi
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault por trás de um firewall
 A VM deve poder acessar um cofre de chaves. Veja as orientações sobre acesso ao cofre de chaves por trás de um firewall mantido pela equipe do [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
+
+### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure 
+A VM precisa conseguir acessar o ponto de extremidade do [Serviço de Metadados de Instância do Azure](../virtual-machines/windows/instance-metadata-service.md), que usa um endereço IP não roteável conhecido (`169.254.169.254`) que pode ser acessado somente na VM.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Gerenciamento de pacotes Linux por trás do firewall
 

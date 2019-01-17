@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 587ba52a1a30d187268119567b84d2dd8e471b8d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 13637e4de0d555bdd0e70c69097b204c286eb24c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300584"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063821"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -330,6 +330,61 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 </ServiceManifestImport>
 ```
 
+### <a name="configure-cluster-wide-credentials"></a>Configurar credenciais de todo o cluster
+
+Começando com o tempo de execução 6.3, o Service Fabric permite que você configure credenciais de todo o cluster que podem ser usadas como credenciais do repositório padrão por aplicativos.
+
+Você pode habilitar ou desabilitar o recurso adicionando o atributo `UseDefaultRepositoryCredentials` a `ContainerHostPolicies` em ApplicationManifest.xml com um valor de `true` ou `false`.
+
+```xml
+<ServiceManifestImport>
+    ...
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code" UseDefaultRepositoryCredentials="true">
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ...
+</ServiceManifestImport>
+```
+
+O Service Fabric, em seguida, usa as credenciais do repositório padrão que você pode especificar em ClusterManifest na seção `Hosting`.  Se `UseDefaultRepositoryCredentials` for `true`, o Service Fabric lerá os seguintes valores de ClusterManifest:
+
+* DefaultContainerRepositoryAccountName (cadeia de caracteres)
+* DefaultContainerRepositoryPassword (cadeia de caracteres)
+* IsDefaultContainerRepositoryPasswordEncrypted (booliano)
+* DefaultContainerRepositoryPasswordType (cadeia de caracteres) – com suporte a partir do tempo de execução 6.4
+
+Veja um exemplo do que você pode adicionar dentro da seção `Hosting` no arquivo ClusterManifestTemplate.json. Para obter mais informações, consulte [Alterar configurações de cluster do Azure Service Fabric](service-fabric-cluster-fabric-settings.md) e [Gerenciar segredos de aplicativo do Azure Service Fabric](service-fabric-application-secret-management.md)
+
+```json
+      {
+        "name": "Hosting",
+        "parameters": [
+          {
+            "name": "EndpointProviderEnabled",
+            "value": "true"
+          },
+          {
+            "name": "DefaultContainerRepositoryAccountName",
+            "value": "someusername"
+          },
+          {
+            "name": "DefaultContainerRepositoryPassword",
+            "value": "somepassword"
+          },
+          {
+            "name": "IsDefaultContainerRepositoryPasswordEncrypted",
+            "value": "false"
+          },
+          {
+            "name": "DefaultContainerRepositoryPasswordType",
+            "value": "PlainText"
+          }
+        ]
+      },
+```
+
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
 O Windows dá suporte a dois modos de isolamento para contêineres: processo e Hyper-V. Com o modo de isolamento de processo, todos os contêineres em execução no mesmo computador host compartilham o kernel com o host. Com o modo de isolamento do Hyper-V, os kernels são isolados entre cada contêiner do Hyper-V e o host do contêiner. O modo de isolamento é especificado no elemento `ContainerHostPolicies` no arquivo de manifesto do aplicativo. Os modos de isolamento que podem ser especificados são `process`, `hyperv` e `default`. O padrão é o modo de isolamento de processo nos hosts do Windows Server. Em hosts do Windows 10, somente o modo de isolamento do Hyper-V tem suporte, assim o contêiner é executado no modo de isolamento do Hyper-V, independentemente de sua configuração de modo de isolamento. O snippet a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
 
@@ -342,7 +397,7 @@ O Windows dá suporte a dois modos de isolamento para contêineres: processo e H
    >
 
 ## <a name="configure-resource-governance"></a>Configurar governança de recursos
-A [governança de recursos](service-fabric-resource-governance.md) restringe os recursos que o contêiner pode usar no host. O elemento `ResourceGovernancePolicy`, especificado no manifesto do aplicativo, é usado para declarar os limites de recurso para um pacote de códigos de serviço. Os limites de recursos podem ser definidos para os seguintes recursos: Memory, MemorySwap, CpuShares (CPU relative weight), MemoryReservationInMB, BlkioWeight (BlockIO relative weight). Neste exemplo, o pacote de serviço Guest1Pkg obtém um núcleo nos nós de cluster em que ele é colocado. Os limites de memória são absolutos e, portanto, o pacote de códigos é limitado a 1024 MB de memória (e a uma reserva de garantia reversível da mesma). Os pacotes de códigos (contêineres ou processos) não podem alocar mais memória do que esse limite. A tentativa de fazer isso resultará em uma exceção de memória insuficiente. Para que a imposição do limite de recursos funcione, todos os pacotes de códigos em um pacote de serviço devem ter limites de memória especificados.
+A [governança de recursos](service-fabric-resource-governance.md) restringe os recursos que o contêiner pode usar no host. O elemento `ResourceGovernancePolicy`, especificado no manifesto do aplicativo, é usado para declarar os limites de recurso para um pacote de códigos de serviço. Limites de recursos podem ser definidos para os seguintes recursos: Memory, MemorySwap, CpuShares (peso relativo da CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). Neste exemplo, o pacote de serviço Guest1Pkg obtém um núcleo nos nós de cluster em que ele é colocado. Os limites de memória são absolutos e, portanto, o pacote de códigos é limitado a 1024 MB de memória (e a uma reserva de garantia reversível da mesma). Os pacotes de códigos (contêineres ou processos) não podem alocar mais memória do que esse limite. A tentativa de fazer isso resultará em uma exceção de memória insuficiente. Para que a imposição do limite de recursos funcione, todos os pacotes de códigos em um pacote de serviço devem ter limites de memória especificados.
 
 ```xml
 <ServiceManifestImport>
@@ -388,7 +443,7 @@ Clique em **Publicar**.
 
 O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric. Abra um navegador e navegue até http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ e siga a implantação do aplicativo. O aplicativo é implantado, mas fica em estado de erro até que a imagem seja baixada nos nós de cluster (o que pode levar algum tempo, dependendo do tamanho da imagem): ![Erro][1]
 
-O aplicativo está pronto quando ele está em ```Ready``` estado: ![pronto][2]
+O aplicativo está pronto quando está com o estado ```Ready```: ![Pronto][2]
 
 Abra um navegador e navegue até http://containercluster.westus2.cloudapp.azure.com:8081. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 

@@ -10,16 +10,15 @@ ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e3076f2176739f5b9df5776f27d7483c9fd2692
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2a36993e9406613ad9182d01c3681056114dca18
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000403"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159954"
 ---
 # <a name="azure-key-vault-logging"></a>Logs do Cofre da Chave do Azure
 
@@ -39,7 +38,7 @@ Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do 
 > [!NOTE]
 > Este tutorial não inclui instruções sobre como criar cofres da chave, chaves ou segredos. Para obter essas informações, confira [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md). Ou, para obter instruções de Interface de linha de comando entre diferentes plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli2.md).
 >
-> No momento, não é possível configurar o Cofre da Chave do Azure no portal do Azure. Em vez disso, use estas instruções do PowerShell do Azure.
+> Este artigo fornece instruções do Azure PowerShell para atualizar o log de diagnósticos. No entanto, o mesmo pode ser habilitado usando o Azure Monitor no portal do Azure na seção **Logs de diagnóstico**. 
 >
 >
 
@@ -113,7 +112,7 @@ Para habilitar o log para o Cofre da Chave, usaremos o cmdlet Set-AzureRmDiagnos
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-A saída para isso inclui:
+A saída se parecerá com esta:
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -156,7 +155,7 @@ Para listar todos os blobs desse contêiner, digite:
 Get-AzureStorageBlob -Container $container -Context $sa.Context
 ```
 
-A saída será parecida com esta:
+A saída parecerá com o seguinte:
 
 **URI do Contêiner: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
@@ -230,6 +229,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 retornará uma entrada de log semelhante à mostrada abaixo:
 
+```json
     {
         "records":
         [
@@ -250,6 +250,7 @@ retornará uma entrada de log semelhante à mostrada abaixo:
             }
         ]
     }
+```
 
 A tabela a seguir lista os nomes e as descrições de campo.
 

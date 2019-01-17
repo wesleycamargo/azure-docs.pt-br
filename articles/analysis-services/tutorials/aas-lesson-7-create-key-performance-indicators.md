@@ -1,19 +1,19 @@
 ---
-title: 'Lição 7 do tutorial do Azure Analysis Services: criar indicadores chave de desempenho | Microsoft Docs'
+title: 'Lição 7 do tutorial do Azure Analysis Services: Criar indicadores chave de desempenho | Microsoft Docs'
 description: Descreve como criar indicadores chave de desempenho no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d238b3bf159a5e540eb9c72ecbcee188bd357b05
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426798"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186525"
 ---
 # <a name="create-key-performance-indicators"></a>Criar indicadores chave de desempenho
 
@@ -22,7 +22,7 @@ Nesta lição, você cria KPIs (indicadores chave de desempenho). Os KPIs são u
 Tempo estimado para conclusão desta lição: **15 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 6: criar medidas](../tutorials/aas-lesson-6-create-measures.md).   
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 6: Criar medidas](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Criar indicadores chave de desempenho  
   
@@ -76,6 +76,6 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
 6.  Em **Selecionar Estilo de Ícone**, selecione o tipo de ícone losango (vermelho), triângulo (amarelo), círculo (verde) e clique em **OK**.  
   
 ## <a name="whats-next"></a>O que vem a seguir?
-[Lição 8: criar perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).
+[Lição 8: Criar perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).
   
   

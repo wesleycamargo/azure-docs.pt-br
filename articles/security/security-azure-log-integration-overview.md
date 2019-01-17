@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: f20da4ab60eeec3e9c353445f6bc20449b9c1cb6
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: e9b547b6b582e38a51196815522132dd807c971b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584472"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079027"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introdução à Integração de Logs do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "53584472"
 
 A Integração do Logs do Azure foi disponibilizada para simplificar a tarefa de integrar registros do Azure aos seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais.
 
- O método recomendado para integração de logs do Azure é usar conectores do seu fornecedo�r de SIEM. O Azure Monitor oferece a capacidade de transmitir os logs em hubs de eventos, e os fornecedores de SIEM podem gravar conectores para integrá-los ainda mais no SIEM.  Para ver uma descrição de como isso funciona, siga as instruções em [Monitorar o monitoramento de transmissão para hubs de eventos de dados](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). O artigo também lista os SIEMs nos quais conectores diretos do Azure já estão disponíveis.  
+ O método recomendado para a integração de logs do Azure é usar conectores do seu fornecedor de SIEM. O Azure Monitor oferece a capacidade de transmitir os logs em hubs de eventos, e os fornecedores de SIEM podem gravar conectores para integrá-los ainda mais no SIEM.  Para ver uma descrição de como isso funciona, siga as instruções em [Monitorar o monitoramento de transmissão para hubs de eventos de dados](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). O artigo também lista os SIEMs nos quais conectores diretos do Azure já estão disponíveis.  
 
 > [!IMPORTANT]
 > Se o seu interesse principal é coletar logs de máquina virtual, a maioria dos fornecedores de SIEM inclui essa opção em sua solução. O uso do conector do fornecedor SIEM sempre é a opção preferencial.

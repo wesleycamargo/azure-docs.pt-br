@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fcfb3943109adbc095b90073f041662fb5c65b56
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958654"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078874"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guia de Publicação da Oferta de Máquina Virtual
 
@@ -66,14 +66,15 @@ Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual
 | Requisito | Detalhes |  
 |:--- |:--- | 
 | Cobrança e medição | Sua VM deve dar suporte à cobrança mensal BYOL ou Pagamento Conforme o Uso. |  
-| VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux.<ul> <li>Para obter mais informações sobre como criar um VHD do Linux, visite a seção Criar um VHD compatível com o Azure (baseado em Linux) localizada em [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Para obter mais informações sobre como criar um VHD do Windows, visite a seção Criar um VHD compatível com o Azure (baseado em Windows) localizada em [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux. <ul> <li>Para obter mais informações sobre como criar um VHD Linux, consulte [Distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre como criar um VHD Windows, consulte [Criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Caso ainda não tenha feito isso, 
 
-- [registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace
+- [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.
 
 Se você estiver registrado e estiver criando uma nova oferta ou trabalhando em uma existente,
 
-- [Faça logon no Portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir a oferta
+- [Entre no Portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir a oferta.
+- Consulte [Oferta de máquina virtual](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) para obter mais informações.

@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 01/08/2019
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820351"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119043"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
@@ -48,7 +48,7 @@ Se você especificar uma imagem sem suporte das Instâncias de Contêiner do Azu
 
 Esse erro geralmente ocorre ao implantar imagens do Windows que baseiam-se em uma versão do SAC (Canal Semestral). Por exemplo, o as versões 1709 e 1803 do Windows são versões de SAC e geram esse erro após a implantação.
 
-As Instâncias de Contêiner do Azure dão suporte a imagens do Windows com base apenas nas versões LTSC (Canal de Manutenção de Longo Prazo). Para atenuar esse problema ao implantar contêineres do Windows, sempre implante imagens baseadas em LTSC.
+As Instâncias de Contêiner do Azure atualmente dão suporte a imagens do Windows com base somente na versão **LTSC (Canal de Atendimento de Longo Prazo) do Windows Server 2016**. Para atenuar esse problema ao implantar contêineres do Windows, sempre implante imagens baseadas em Windows Server 2016 (LTSC). Não há suporte para imagens baseadas no Windows Server 2019 (LTSC).
 
 Para obter detalhes sobre as versões LTSC e SAC do Windows, consulte [Visão geral do Canal Semestral do Windows Server][windows-sac-overview].
 

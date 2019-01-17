@@ -1,19 +1,19 @@
 ---
-title: 'Lição 9 do tutorial do Azure Analysis Services: criar hierarquias | Microsoft Docs'
+title: 'Lição 9 do tutorial do Azure Analysis Services: Criar hierarquias | Microsoft Docs'
 description: Descreve como criar hierarquias em um modelo tabular.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2e6591dc25ab498b496f6abff1041e448240896d
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f34b2fd2ba5f6e3e1433fb8dac04d931a36920d0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426032"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188956"
 ---
 # <a name="create-hierarchies"></a>Criar hierarquias
 
@@ -24,7 +24,7 @@ Para criar hierarquias, use o designer de modelo em *Exibição de Diagrama*. N�
 Tempo estimado para conclusão desta lição: **20 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 8: criar perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).  
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 8: Criar perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).  
   
 ## <a name="create-hierarchies"></a>Criar hierarquias  
   
@@ -73,6 +73,6 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     *  DayNumberOfWeek
   
  ## <a name="whats-next"></a>O que vem a seguir?
-[Lição 10: criar partições](../tutorials/aas-lesson-10-create-partitions.md). 
+[Lição 10: Criar partições](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

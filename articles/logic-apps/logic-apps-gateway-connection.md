@@ -1,6 +1,6 @@
 ---
-title: Acessar fontes de dados locais para Aplicativos Lógicos do Azure | Microsoft Docs
-description: Criar e configurar o gateway de dados local para poder acessar fontes de dados locais de aplicativos lógicos
+title: Acessar fontes de dados locais de Aplicativos Lógicos do Azure | Microsoft Docs
+description: Conectar-se a fontes de dados locais de aplicativos lógicos criando um gateway de dados local
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,19 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413699"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064059"
 ---
-# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Conectar a fontes de dados locais dos Aplicativos Lógicos do Azure com gateway de dados local
+# <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
 
-Para acessar fontes de dados locais dos aplicativos lógicos, é possível criar um recurso de gateway de dados no Azure para que os aplicativos lógicos possam usar [conectores locais](../logic-apps/logic-apps-gateway-install.md#supported-connections). Este artigo mostra como criar o recurso de gateway do Azure *após* você [baixar e instalar o gateway no computador local](../logic-apps/logic-apps-gateway-install.md). 
+Para acessar fontes de dados locais de seus aplicativos lógicos, crie um recurso de gateway de dados local no portal do Azure. Os aplicativos lógicos podem, então, usar os [conectores locais](../logic-apps/logic-apps-gateway-install.md#supported-connections). Este artigo mostra como criar o recurso de gateway do Azure *após* você [baixar e instalar o gateway no computador local](../logic-apps/logic-apps-gateway-install.md). 
+
+> [!TIP]
+> Para se conectar a redes virtuais do Azure, considere criar um [*ambiente de serviço de integração*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 
 
 Para obter informações sobre como usar o gateway com outros serviços, consulte estes artigos:
 
@@ -65,7 +68,7 @@ Após instalar o gateway em um computador local, será possível criar um recurs
    | **Nome** | O nome do recurso de gateway | 
    | **Assinatura** | O nome da assinatura do Azure, que deve ser a mesma assinatura do aplicativo lógico. A assinatura padrão é baseada na conta do Azure que você usou para entrar. | 
    | **Grupo de recursos** | O nome do [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) para organizar recursos relacionados | 
-   | **Localidade** | O Azure restringe esse local à mesma região que foi selecionada para o serviço de nuvem do gateway durante a [instalação de gateway](../logic-apps/logic-apps-gateway-install.md). <p>**Observação**: certifique-se de que esse local de recurso do gateway corresponda ao local do serviço de nuvem do gateway. Caso contrário, a instalação do gateway poderá não aparecer na lista de gateways instalados para você selecionar na próxima etapa. Você pode usar diferentes regiões para o recurso de gateway e para seu aplicativo lógico. | 
+   | **Localidade** | O Azure restringe esse local à mesma região que foi selecionada para o serviço de nuvem do gateway durante a [instalação de gateway](../logic-apps/logic-apps-gateway-install.md). <p>**Observação**: certifique-se de que o local desse recurso do gateway corresponda ao local do serviço de nuvem do gateway. Caso contrário, a instalação do gateway poderá não aparecer na lista de gateways instalados para você selecionar na próxima etapa. Você pode usar diferentes regiões para o recurso de gateway e para seu aplicativo lógico. | 
    | **Nome de Instalação** | Se a instalação do gateway não estiver selecionada, selecione o gateway que você instalou anteriormente. | 
    | | | 
 

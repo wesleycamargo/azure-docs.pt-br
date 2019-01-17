@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/03/2019
+ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715895"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038204"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -26,18 +26,17 @@ Este artigo explica a arquitetura de conectividade do Banco de Dados SQL do Azur
 > [!IMPORTANT]
 > **[Alteração futura] Para conexões de ponto de extremidade de serviço para servidores do SQL do Azure, um comportamento de conectividade `Default` é alterado para `Redirect`.**
 >
-> A alteração já estará em vigor a partir de 10 de novembro de 2018 para as regiões Sul do Brasil e Europa Ocidental. Para todas as outras regiões, a alteração entrará em vigor a partir de 2 de janeiro de 2019.
+> A alteração é efetiva para todas as regiões em ou antes de 2 de janeiro de 2019.
 >
 > Para impedir a interrupção da conectividade por meio de um ponto de extremidade de serviço em ambientes existentes como resultado dessa alteração, usamos a telemetria para fazer o seguinte:
 > - Para os servidores que detectamos que foram acessados por meio de pontos de extremidade de serviço antes da alteração, alternamos o tipo de conexão para `Proxy`.
 > - Para todos os outros servidores, alternamos o tipo de conexão para `Redirect`.
 >
-> Os usuários do ponto de extremidade de serviço ainda poderão ser afetados nos seguintes cenários: 
-> - O aplicativo se conecta a um servidor existente com pouca frequência e, portanto, nossa telemetria não capturou as informações sobre esses aplicativos 
-> - A lógica de implantação automatizada cria um servidor lógico, supondo que o comportamento padrão das conexões de ponto de extremidade de serviço seja `Proxy` 
+> Os usuários do ponto de extremidade de serviço ainda poderão ser afetados nos seguintes cenários:
+> - O aplicativo se conecta a um servidor existente com pouca frequência e, portanto, nossa telemetria não capturou as informações sobre esses aplicativos
+> - A lógica de implantação automatizada cria um servidor lógico, supondo que o comportamento padrão das conexões de ponto de extremidade de serviço seja `Proxy`
 >
 > Se não foi possível estabelecer conexões do ponto de extremidade de serviço com o servidor SQL do Azure e você suspeita que foi afetado por essa alteração, verifique se o tipo de conexão está explicitamente definido como `Redirect`. Se esse for o caso, você precisará abrir as regras de firewall da VM e o NSG (Grupos de Segurança de Rede) para todos os endereços IP do Azure na região que pertencem à [marca de serviço](../virtual-network/security-overview.md#service-tags) Sql para as portas 11000-12000. Se essa não for uma opção para você, alterne o servidor explicitamente para `Proxy`.
-
 > [!NOTE]
 > Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
 
@@ -131,7 +130,6 @@ Para alterar a política de conexão de Banco de Dados SQL do Azure para um serv
 
 > [!IMPORTANT]
 > Este script requer o [módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
->
 
 O script do PowerShell a seguir mostra como alterar a política de conexão.
 

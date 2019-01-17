@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0f6f485bb251bfae942c258b9be879c0aff5f5b9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5b98513625a6179585601320d45996396fca7207
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955670"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035896"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Criar um cluster HDInsight com Azure Data Lake Storage Gen1 usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -66,6 +66,12 @@ Get-AzureRmSubscription
 # Select a subscription
 Set-AzureRmContext -SubscriptionId <subscription ID>
 ```
+
+O modelo implanta estes tipos de recursos:
+
+* [Microsoft.DataLakeStore/accounts](/azure/templates/microsoft.datalakestore/accounts)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
 
 ## <a name="upload-sample-data-to-data-lake-storage-gen1"></a>Carregar dados de exemplo para o Data Lake Storage Gen1
 O modelo do Resource Manager cria uma nova conta do Data Lake Storage Gen1 e a associa ao cluster HDInsight. Agora você deve carregar alguns dados de exemplo para o Data Lake Storage Gen1. Esses dados serão necessários posteriormente no tutorial para executar trabalhos de um cluster HDInsight que acessa dados na conta do Data Lake Storage Gen1. Para obter instruções sobre como carregar dados, consulte [Carregar um arquivo para a conta do Data Lake Storage Gen1](data-lake-store-get-started-portal.md#uploaddata). Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).

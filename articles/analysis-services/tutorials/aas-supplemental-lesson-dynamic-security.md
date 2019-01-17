@@ -1,19 +1,19 @@
 ---
-title: 'Lição suplementar de tutorial do Azure Analysis Services: segurança dinâmica | Microsoft Docs'
+title: 'Lição suplementar do tutorial do Azure Analysis Services: Segurança dinâmica | Microsoft Docs'
 description: Descreve como usar a segurança dinâmica usando filtros de linha no tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a0c4158b85a6bc6c9276eff19466fb742c6f442
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1908d655064a4a320191695c048271246951c29c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235914"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187477"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lição suplementar – segurança dinâmica
 
@@ -37,7 +37,7 @@ Para implementar a segurança dinâmica para este cenário da Adventure Works, v
   
 1.  Em Gerenciador de Modelos tabulares > **Fontes de Dados**, clique com o botão direito do mouse em sua conexão e clique em **Importar Novas Tabelas**.  
 
-    Se a caixa de diálogo Credenciais de Representação aparecer, digite as credenciais de representação usadas na Lição 2: adicionar dados.
+    Se a caixa de diálogo Credenciais de Representação aparecer, digite as credenciais de representação usadas na Lição 2: Adicionar dados.
   
 2.  No navegador, selecione a tabela **DimSalesTerritory** e, em seguida, clique em **OK**.    
   
@@ -107,7 +107,7 @@ Nesta tarefa, você oculta a tabela EmployeeSecurity, impedindo que ela apareça
 Nesta tarefa, você deve criar uma função de usuário. Essa função inclui um filtro de linha definindo quais linhas da tabela DimSalesTerritory estão visíveis aos usuários. O filtro é então aplicado na direção da relação um-para-muitos a todas as outras tabelas relacionadas a DimSalesTerritory. Você também pode aplicar um filtro que protege toda a tabela EmployeeSecurity de ser consultável por qualquer usuário que seja um membro da função.  
   
 > [!NOTE]  
-> A função Funcionários de Vendas por Região criada nesta lição restringe os membros para procurar (ou consultar) apenas dados de vendas da região de vendas à qual pertencem. Se você adicionar um usuário como um membro para a função Funcionários de Vendas por Região que também existe como um membro em uma função criada na [Lição 11: criar funções](../tutorials/aas-lesson-11-create-roles.md), você obterá uma combinação de permissões. Quando um usuário é um membro de várias funções, permissões e filtros de linha definidos para cada função são cumulativos. Ou seja, o usuário tem as maiores permissões determinadas pela combinação de funções.  
+> A função Funcionários de Vendas por Região criada nesta lição restringe os membros para procurar (ou consultar) apenas dados de vendas da região de vendas à qual pertencem. Se você adicionar um usuário como um membro à função Funcionários de Vendas por Região que também existe como um membro em uma função criada na [Lição 11: Criar funções](../tutorials/aas-lesson-11-create-roles.md), você obterá uma combinação de permissões. Quando um usuário é um membro de várias funções, permissões e filtros de linha definidos para cada função são cumulativos. Ou seja, o usuário tem as maiores permissões determinadas pela combinação de funções.  
   
 #### <a name="to-create-a-sales-employees-by-territory-user-role"></a>Para criar uma função de usuário de Funcionários de Vendas por Região  
   

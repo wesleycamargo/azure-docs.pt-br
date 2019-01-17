@@ -4,15 +4,15 @@ description: Fornece informações sobre o dispositivo Coletor nas Migrações p
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255968"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104193"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre o dispositivo Coletor
 
@@ -63,7 +63,7 @@ O Coletor precisa passar por algumas verificações de pré-requisitos para conf
     - Selecione Azure Global se você estiver planejando migrar para a nuvem do Azure Governamental.
     - Com base em nuvem especificada aqui, o dispositivo enviará metadados descobertos para os respectivos pontos de extremidade.
 - **Verificar conexão com a Internet**: O coletor pode conectar-se à Internet diretamente ou por meio de um proxy.
-    - A verificação de pré-requisitos confere a conectividade com as [URLs obrigatórias e opcionais](#connect-to-urls).
+    - A verificação de pré-requisitos confere a conectividade com as [URLs obrigatórias e opcionais](#urls-for-connectivity).
     - Se houver uma conexão direta com a Internet, não será necessária nenhuma ação específica, além de conferir se o coletor pode acessar as URLs necessárias.
     - Se você estiver conectando por meio de um proxy, observe os [requisitos abaixo](#connect-via-a-proxy).
 - **Verificar sincronização de horário**: O Coletor deve ser sincronizado com o servidor de horário de internet para garantir que as solicitações para o serviço sejam autenticadas.
@@ -105,7 +105,7 @@ O Coletor precisa passar por algumas verificações de pré-requisitos para conf
 
 
 
-### <a name="connect-to-urls"></a>Conectar-se às URLs
+### <a name="urls-for-connectivity"></a>URLs para conectividade
 
 A verificação de conectividade é validada conectando-se a uma lista de URLs.
 

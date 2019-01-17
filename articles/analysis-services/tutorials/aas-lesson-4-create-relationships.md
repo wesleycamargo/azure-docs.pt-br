@@ -1,19 +1,19 @@
 ---
-title: 'Lição 4 do tutorial do Azure Analysis Services: criar relações | Microsoft Docs'
+title: 'Lição 4 do tutorial do Azure Analysis Services: Criar relações | Microsoft Docs'
 description: Descreve como criar relações no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4a595e4c955b08bda6fcf49b9ca6a050e8440621
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428481"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187494"
 ---
 # <a name="create-relationships"></a>Criar relações
 
@@ -22,7 +22,7 @@ Nesta lição, você verifica as relações que foram criadas automaticamente qu
 Tempo estimado para conclusão desta lição: **10 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 3: marcar como tabela de data](../tutorials/aas-lesson-3-mark-as-date-table.md). 
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 3: Marcar como tabela de data](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Examinar relações existentes e adicionar novas relações  
 Quando você importou dados por meio de Obter Dados, você obteve sete tabelas do banco de dados AdventureWorksDW2014. Geralmente, quando você importa dados de uma fonte relacional, as relações existentes são importadas automaticamente junto com os dados. Para que Get Data crie automaticamente relações no modelo de dados, deve haver relações entre tabelas na fonte de dados.
@@ -60,7 +60,7 @@ Antes de prosseguir com a criação de seu modelo, você deve verificar se essas
     |SIM|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |SIM|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Se qualquer uma das relações estiver ausente, verifique se o modelo inclui as tabelas a seguir: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory e FactInternetSales. Se as tabelas da mesma conexão de fonte de dados forem importadas em momentos distintos, eventuais relações entre essas tabelas não serão criadas e deverão ser criadas manualmente. Se nenhuma relação aparecer, isso significa que não há nenhuma relação na fonte de dados. Você pode criá-los manualmente no modelo de dados.
+    Se qualquer uma das relações estiver ausente, verifique se o modelo inclui as seguintes tabelas: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory e FactInternetSales. Se as tabelas da mesma conexão de fonte de dados forem importadas em momentos distintos, eventuais relações entre essas tabelas não serão criadas e deverão ser criadas manualmente. Se nenhuma relação aparecer, isso significa que não há nenhuma relação na fonte de dados. Você pode criá-los manualmente no modelo de dados.
 
 ### <a name="take-a-closer-look"></a>Veja uma análise mais detalhada
 No modo de Exibição de Diagrama, você observará uma seta, um asterisco e um número de linhas que mostram a relação entre as tabelas.
@@ -95,7 +95,7 @@ Em alguns casos, talvez seja necessário criar relações adicionais entre tabel
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   
 ## <a name="whats-next"></a>O que vem a seguir?
-[Lição 5: criar colunas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md).
+[Lição 5: Criar colunas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md).
   
   
   

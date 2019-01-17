@@ -1,25 +1,24 @@
 ---
 title: Dimensionar a taxa de transferência no Azure Cosmos DB
 description: Este artigo descreve como o Azure Cosmos DB dimensiona a taxa de transferência de maneira elástica
-services: cosmos-db
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c5e4720a6b830158581d17bbdcb9aba49e13183b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160657"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064484"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Dimensionar a taxa de transferência no Azure Cosmos DB
 
 No Azure Cosmos DB, a taxa de transferência provisionada é representada como unidades de solicitação/segundo (RU/s ou, no plural, RUs). As RUs medem o custo das operações de leitura e de gravação em seu contêiner do Cosmos como mostrado nesta imagem:
 
-![Unidades de solicitação](./media/scale-throughput/figure1.png)
+![Unidades de solicitação](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 Você pode provisionar RUs em um contêiner ou em um banco de dados do Cosmos. RUs provisionadas em um contêiner ficam disponíveis exclusivamente para operações executadas no contêiner. RUs provisionadas em um banco de dados são compartilhadas entre todos os contêineres do banco de dados (exceto por contêineres com RUs atribuídas de maneira exclusiva).
 

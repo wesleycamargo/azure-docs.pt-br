@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d7f364ac5863c70cd0034d9c458e94cfb164cba
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190978"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116952"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
-Este artigo descreve as políticas de senha e os requisitos de complexidade associados a contas de usuário armazenadas no locatário do Azure Active Directory (Azure AD).
+Este artigo descreve as políticas de senha e os requisitos de complexidade associados a contas de usuário no locatário do Azure AD (Azure Active Directory).
 
 ## <a name="administrator-reset-policy-differences"></a>Diferenças da política de redefinição de senha do administrador
 
@@ -79,7 +79,7 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 | Propriedade | Requisitos |
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Caracteres não permitidos |<ul><li>Caracteres Unicode.</li><li>Espaços.</li><li> Somente senhas fortes</li></ul> |
+| Caracteres não permitidos |<ul><li>Caracteres Unicode.</li><li>Espaços.</li><li> Somente senhas fortes: Não pode conter um caractere de ponto "." Imediatamente anterior ao "símbolo \@\"".</li></ul> |
 | Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 caracteres.</li><li>Somente senhas fortes: Requer três de quatro dos seguintes itens:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (veja as restrições de senha acima).</li></ul></li></ul> |
 | Tempo de expiração da senha |<ul><li>Valor Padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do Módulo do Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de senha |<ul><li>Valor Padrão: **14** dias (antes do vencimento de senha).</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy`.</li></ul> |

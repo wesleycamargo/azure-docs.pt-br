@@ -1,19 +1,19 @@
 ---
-title: 'Lição 13 do tutorial do Azure Analysis Services: implantar | Microsoft Docs'
+title: 'Lição 13 do tutorial do Azure Analysis Services: Implantar | Microsoft Docs'
 description: Descreve como implantar o projeto do tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f0528af5f3a6b7309d81c36ca5bc7a3faccfa293
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427103"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188378"
 ---
 # <a name="deploy"></a>Implantar
 
@@ -22,7 +22,7 @@ Nesta lição, você configura as propriedades de implantação especificando um
 Tempo estimado para conclusão desta lição: **5 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este artigo faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 12: analisar no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+Este artigo faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 12: Analisar no Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > Você deve ter [permissões de Administrador](../analysis-services-server-admins.md) no servidor remoto do Analysis Services para poder implantar nele.  

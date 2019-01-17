@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 01/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837164"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121185"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
-Este artigo descreve duas maneiras de controlar um nome de domínio DNS em um diretório não gerenciado no Azure AD (Azure Active Directory). Quando um usuário de autoatendimento se inscreve em um serviço de nuvem que usa o Azure AD, eles são adicionados a um diretório do Azure AD não gerenciado com base em seu domínio de email. Para obter mais informações sobre o autoatendimento ou inscrição “viral” em um serviço, consulte [O que é a inscrição de autoatendimento do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
+Este artigo descreve duas maneiras de controlar um nome de domínio DNS em um diretório não gerenciado no Azure AD (Azure Active Directory). Quando um usuário de autoatendimento se inscreve em um serviço de nuvem que usa o Azure AD, eles são adicionados a um diretório do Azure AD não gerenciado com base em seu domínio de email. Para obter mais informações sobre o autoatendimento ou inscrição "viral" para um serviço, veja [O que é a inscrição de autoatendimento do Azure Active Directory?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decida como você deseja controlar um diretório não gerenciado
 Durante o processo de controle do administrador, você pode comprovar a propriedade conforme descrito em [Adicionar um nome de domínio personalizado para o Azure AD](../fundamentals/add-custom-domain.md). As próximas seções explicam a experiência de administração mais detalhadamente, mas aqui está um resumo:
@@ -41,7 +41,7 @@ Alguns produtos que incluem o SharePoint e OneDrive, como o Office 365, não dã
 
 3. No email de confirmação do Power BI, selecione **Sim, sou eu**.
 
-4. Entre no [Centro de administração do Office 365](https://portal.office.com/adminportal/Home) com a conta de usuário do Power BI. Você receberá uma mensagem instruindo-lhe a **Tornar-se o administrador** do nome de domínio que já foi verificado no locatário não gerenciado. selecione **Sim, quero ser o administrador**.
+4. Entre no [Centro de administração do Office 365](https://portal.office.com/admintakeover) com a conta de usuário do Power BI. Você receberá uma mensagem instruindo-lhe a **Tornar-se o administrador** do nome de domínio que já foi verificado no locatário não gerenciado. selecione **Sim, quero ser o administrador**.
   
   ![primeira captura de tela para Tornar-se o administrador](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -53,9 +53,9 @@ Quando os registros TXT do DNS forem verificados no seu registrador de nomes de 
 
 Após concluir as etapas anteriores, você será o administrador global do locatário Fourth Coffee no Office 365. Para integrar o nome de domínio aos outros serviços do Azure, você pode removê-lo do Office 365 e adicioná-lo a um locatário gerenciado diferente no Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Como adicionar o nome de domínio a um locatário gerenciado no Azure AD 
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Como adicionar o nome de domínio a um locatário gerenciado no Azure AD
 
-1. Abra o [Centro de administração do Office 365](https://portal.office.com/adminportal/Home).
+1. Abra o [Centro de administração do Office 365](https://portal.office.com/admintakeover).
 2. Selecione a guia **Usuários** e crie uma nova conta de usuário com um nome como *user@fourthcoffeexyz.onmicrosoft.com* que não usa o nome de domínio personalizado. 
 3. Verifique se a nova conta de usuário tem privilégios de administrador global para o locatário do Azure AD.
 4. Abra a guia **Domínios** no Centro de administração do Office 365, selecione o nome de domínio e escolha **Remover**. 

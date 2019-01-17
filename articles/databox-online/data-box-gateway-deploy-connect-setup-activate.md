@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166739"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120506"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Conectar, configurar, ativar o Azure Data Box Gateway (Visualizar) 
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Conectar, configurar, ativar o Azure Data Box Gateway (Versão Prévia) 
 
 ## <a name="introduction"></a>Introdução
 
@@ -84,7 +84,10 @@ Agora você está no **Dashboard** do seu dispositivo.
     - Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. Portanto, um endereço IP, sub-rede, gateway e DNS são atribuídos automaticamente.
     - Se o DHCP não estiver ativado, você poderá atribuir IPs estáticos, se necessário.
     - Você pode configurar sua interface de rede como IPv4.
-   
+
+    >[!NOTE] 
+    > É recomendável que você não alterne o endereço IP local da interface de rede de estático para DHCP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser registrado com o serviço e então altere. Em seguida, você pode exibir os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
+
 4. Opcionalmente, configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, saiba que se você usar um proxy da Web, só poderá configurá-lo aqui.
    
    ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
@@ -130,4 +133,4 @@ Neste tutorial, você aprendeu sobre os tópicos do Data Box Gateway, como:
 Avance para o próximo tutorial para aprender como transferir dados com seu Data Box Gateway.
 
 > [!div class="nextstepaction"]
-> [Transferir dados com o Gateway da caixa de dados](./data-box-gateway-deploy-add-shares.md).
+> [Transferir dados com o Data Box Gateway](./data-box-gateway-deploy-add-shares.md).

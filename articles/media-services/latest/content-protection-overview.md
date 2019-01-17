@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 09c8b63cddde547b0dc42cf1f15a8ac5002d0a3e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725131"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187970"
 ---
 # <a name="content-protection-overview"></a>Visão geral de proteção do conteúdo
 
@@ -60,7 +60,7 @@ Para concluir com êxito o design do sistema / aplicativo de "proteção de cont
 
     Para testar conteúdo criptografado AES ou CENC (Widevine e/ou PlayReady), é possível usar o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Certifique-se de clicar em "Opções avançadas" e verifique as opções de criptografia.
 
-    Se você quiser testar o conteúdo do FairPlay criptografado, use [esse teste player](https://aka.ms/amtest). O player suporta DRM Widevine, PlayReady e FairPlay, bem como a criptografia de chave AES-128. Você precisa escolher o navegador correto para testar DRMs diferentes: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
+    Se você quiser testar o conteúdo do FairPlay criptografado, use [esse teste player](https://aka.ms/amtest). O player suporta DRM Widevine, PlayReady e FairPlay, bem como a criptografia de chave AES-128. Você precisa escolher o navegador correto para testar DRMs diferentes: Chrome/Opera/Firefox para Widevine, Microsoft Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
 
 3. O Secure Token Service (STS), que emite o JSON Web Token (JWT) como token de acesso para acesso a recursos de back-end. Você pode usar os serviços de entrega de licença do AMS como o recurso de back-end. Um STS deve definir o seguinte:
 

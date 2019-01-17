@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975637"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120947"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência do Swagger de Gêmeos Digitais do Azure
 
@@ -55,7 +55,7 @@ Você pode selecionar cada modelo de objeto listados para um resumo detalhado do
 
 ![Modelo do Swagger][3]
 
-Os modelos de objeto Swagger gerados são convenientes para ver todos os [objetos e APIs](./concepts-objectmodel-spatialgraph.md) dos Gêmeos Digitais do Azure. Os desenvolvedores podem fazer usar esse recurso quando eles criarem soluções nos Gêmeos Digitais do Azure.
+Os modelos de objeto Swagger gerados são convenientes para ver todos os [objetos e APIs](./concepts-objectmodel-spatialgraph.md) dos Gêmeos Digitais do Azure. Os desenvolvedores podem usar esse recurso ao criarem soluções nos Gêmeos Digitais do Azure.
 
 ## <a name="endpoint-summary"></a>Resumo de ponto de extremidade
 
@@ -79,7 +79,7 @@ Depois de selecionar um endpoint específico, você verá **Try it out**.
 
 ![Experimentar o Swagger][5]
 
-Expanda essa seção para exibir os campos de entrada para cada parâmetro obrigatório e opcional. Insira os valores de acordo e selecione **Execute**.
+Expanda essa seção para exibir os campos de entrada para cada parâmetro obrigatório e opcional. Insira os valores corretos e selecione **Executar**.
 
 ![Swagger experimentado][6]
 
@@ -102,9 +102,9 @@ Para saber mais sobre solicitações de teste interativas protegidas pelo OAuth 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ler mais sobre os modelos de objetos dos Gêmeos Digitais do Azure e o gráfico de inteligência espacial, leia [Entender os modelos de objetos do Azure Digital Twins](./concepts-objectmodel-spatialgraph.md).
+- Para ler mais sobre os modelos de objetos dos Gêmeos Digitais do Azure e o gráfico de inteligência espacial, leia [Entender os modelos de objetos do Azure Digital Twins](./concepts-objectmodel-spatialgraph.md).
 
-Para saber como se autenticar com sua API de gerenciamento, leia [Autenticar com APIs](./security-authenticating-apis.md).
+- Para saber como se autenticar com sua API de gerenciamento, leia [Autenticar com APIs](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

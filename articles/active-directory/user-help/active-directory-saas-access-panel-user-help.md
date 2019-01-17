@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: a761e6a42e478aafca75709689a022edec2a64db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705677"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191018"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Solucionar problemas ao acessar e usar o portal MyApps
 
@@ -49,7 +49,7 @@ O portal MyApps requer um navegador que dê suporte para JavaScript e tenha CSS 
 
 Verifique se você está cumprindo os seguintes requisitos de navegador:
 
-- **Edge**: no Windows 10 Anniversary Edition ou posterior.
+- **Microsoft Edge**: na Edição de Aniversário do Windows 10 ou posterior.
 - **Chrome**: no Windows 7 ou posterior e no Mac OS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 - **Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).
@@ -87,7 +87,7 @@ Se você instalou a extensão e ainda está enfrentando problemas, tente o segui
    2. Selecione o ícone de extensão para abrir o menu.
    3. Pesquise um aplicativo que esteja disponível no portal MyApps.
    4. Na lista de resultados de pesquisa, selecione o aplicativo.  
-       Os três últimos aplicativos usados são exibidos na lista de atalhos **Usados Recentemente**.
+       Os três aplicativos que você usou são exibidos na lista de atalho **Usados recentemente**.
 
 > [!NOTE]
 > Essas opções estão disponíveis apenas para Microsoft Edge, Chrome e Firefox.

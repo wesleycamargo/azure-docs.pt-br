@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320230"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117394"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividad
 > Para atividades CRUD do objeto de usuário, consulte a categoria **Diretório Principal**.
 
 ## <a name="example-activity"></a>Atividade de exemplo
-O exemplo a seguir mostra os dados capturados quando um usuário entra com um provedor de identidade externa: ![Logs de auditoria - exemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+O exemplo a seguir mostra os dados capturados quando um usuário entra com um provedor de identidade externa: ![Logs de Auditoria – Exemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Acessar os logs de auditoria por meio do Portal do Azure
 1. Vá para o [Portal do Azure](https://portal.azure.com). Verifique se você está no diretório do B2C.
@@ -68,7 +68,7 @@ Os logs de auditoria são publicados para o mesmo pipeline como outras atividade
 ### <a name="prerequisites"></a>Pré-requisitos
 Para autenticar à API de relatórios do Microsoft Azure Active Directory, você precisa registrar um aplicativo. Antes de começar, você precisa concluir as etapas em [Pré-requisitos para acessar as APIs de relatórios do Microsoft Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-### <a name="accesing-the-api"></a>Acessando a API
+### <a name="accessing-the-api"></a>Como acessar a API
 Para realizar o download dos logs de auditoria do Microsoft Azure Active Directory B2C por meio da API, você desejará filtrar os registros para a categoria **B2C**. Para filtrar por categoria, use o parâmetro de cadeia de caracteres de consulta ao chamar o ponto de extremidade da API de relatórios do Microsoft Azure Active Directory, conforme exibido abaixo:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 29c0a1a15db7670d83ff384a1ba0f37499389ef7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741871"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036555"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre os modelos do conjunto de dimensionamento de máquinas virtuais
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma excelente maneira de implantar grupos de recursos relacionados. Esta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento mínimo viável e como modificar esse modelo para adaptá-lo a vários cenários. Todos os exemplos foram obtidos neste [repositório GitHub](https://github.com/gatneil/mvss). 
@@ -70,7 +70,7 @@ Em seguida, temos a seção de recursos do modelo. Aqui, você define o que real
    "resources": [
 ```
 
-Todos os recursos exigem propriedades `type`, `name`, `apiVersion` e `location`. O primeiro recurso desse exemplo tem o tipo `Microsft.Network/virtualNetwork`, o nome `myVnet` e a apiVersion `2016-03-30`. (Para encontrar a última versão de API de um tipo de recurso, consulte a [documentação da API REST do Azure](https://docs.microsoft.com/rest/api/).)
+Todos os recursos exigem propriedades `type`, `name`, `apiVersion` e `location`. O primeiro recurso desse exemplo tem tipo [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), nome `myVnet` e apiVersion `2016-03-30`. (Para encontrar a última versão de API de um tipo de recurso, consulte a [referência do modelo do Azure Resource Manager](/azure/templates/).)
 
 ```json
      {
@@ -124,7 +124,7 @@ Nesse caso, há somente um elemento na lista, a rede virtual do exemplo anterior
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Especificar as propriedades do conjunto de dimensionamento
-Os conjunto de dimensionamento têm várias propriedades para personalizar as VMs no conjunto de dimensionamento. Para obter uma lista completa dessas propriedades, consulte a [documentação da API REST sobre conjuntos de dimensionamento](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). Para este tutorial, apenas algumas propriedades mais usadas são definidas.
+Os conjunto de dimensionamento têm várias propriedades para personalizar as VMs no conjunto de dimensionamento. Para obter uma lista completa dessas propriedades, consulte a [referência de modelo](/azure/templates/microsoft.compute/virtualmachinescalesets). Para este tutorial, apenas algumas propriedades mais usadas são definidas.
 ### <a name="supply-vm-size-and-capacity"></a>Fornecer o tamanho e a capacidade da VM
 O conjunto de dimensionamento precisa saber qual tamanho de VM será criado (“nome de SKU”) e quantas dessas VMs serão criadas (“capacidade de SKU”). Para ver quais tamanhos de VM estão disponíveis, consulte a [documentação Tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

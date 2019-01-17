@@ -1,19 +1,19 @@
 ---
-title: 'Lição suplementar de tutorial do Azure Analysis Services: hierarquias desbalanceadas | Microsoft Docs'
+title: 'Lição suplementar do tutorial do Azure Analysis Services: Hierarquias desbalanceadas | Microsoft Docs'
 description: Descreve como corrigir hierarquias desbalanceadas no tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 50926b7c8b06668770d9a00b8342d209fdb94649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426299"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191098"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lição suplementar – hierarquias desbalanceadas
 
@@ -23,7 +23,7 @@ Nesta lição suplementar, você resolver um problema comum ao dinamizar hierarq
 
 Modelos tabulares no nível de compatibilidade 1400 têm uma propriedade **Ocultar Membros** adicional para hierarquias. A configuração **Padrão** pressupõe que não existem membros em branco em nenhum nível. A configuração **Ocultar membros em branco** exclui membros em branco da hierarquia quando adicionada a uma tabela dinâmica ou relatório.  
   
-Tempo estimado para conclusão desta lição: **20 minutos**  
+Tempo estimado para concluir esta lição: **20 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico de lição suplementar faz parte de um tutorial de modelagem Tabular. Antes de executar as tarefas desta lição suplementar, você deve ter concluído todas as lições anteriores ou ter um projeto de modelo de amostra de Vendas pela Internet da Adventure Works concluído. 
@@ -87,7 +87,7 @@ Se você criou o projeto de vendas pela Internet da AW como parte do tutorial, o
     =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1)) 
     ```
 
-6.  Na tabela **DimEmployee**, crie uma [hierarquia](../tutorials/aas-lesson-9-create-hierarchies.md) chamada **Organização**. Adicione a seguintes colunas, em ordem: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
+6.  Na tabela **DimEmployee**, crie uma [hierarquia](../tutorials/aas-lesson-9-create-hierarchies.md) chamada **Organização**. Adicione as seguintes colunas em ordem: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
 
 7.  Na tabela **FactResellerSales**, crie a seguinte [medida](../tutorials/aas-lesson-6-create-measures.md):
 
@@ -118,6 +118,6 @@ Se você criou o projeto de vendas pela Internet da AW como parte do tutorial, o
     Agora isso tem uma aparência muito melhor!
 
 ## <a name="see-also"></a>Veja também   
-[Lição 9: criar hierarquias](../tutorials/aas-lesson-9-create-hierarchies.md)  
+[Lição 9: Criar hierarquias](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Lição Suplementar – Segurança Dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Lição suplementar – linhas de detalhes](../tutorials/aas-supplemental-lesson-detail-rows.md)  

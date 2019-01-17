@@ -1,6 +1,6 @@
 ---
-title: Como criar Assinaturas no Gerenciamento de API do Azure | Microsoft Docs
-description: Saiba como criar ou Assinaturas no Gerenciamento de API do Azure.
+title: Criar assinaturas no Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como criar assinaturas no Gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,40 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 3f4e113125ec9644aac974e47996afe290e57cee
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1393e548c46c23f6b50c1b18a274febb74914ae8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52621670"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054481"
 ---
-# <a name="how-to-create-subscriptions-in-azure-api-management"></a>Como criar Assinaturas no Gerenciamento de API do Azure
+# <a name="create-subscriptions-in-azure-api-management"></a>Criar assinaturas no Gerenciamento de API do Azure
 
-Ao publicar APIs por meio do Gerenciamento de API do Azure (APIM), a maneira mais fácil e mais comum de proteger o acesso a essas APIs é usando chaves de assinatura. Em outras palavras, os aplicativos cliente que precisam consumir as APIs publicadas devem incluir uma chave de assinatura válida em solicitações HTTP ao fazer chamadas para essas APIs. Para obter uma chave de assinatura para acessar APIs, uma assinatura é necessária. Para obter mais informações sobre as assinaturas do Azure, confira [Subscrições no Gerenciamento de API do Azure](api-management-subscriptions.md)
+Quando você publica APIs por meio do Gerenciamento de API do Azure, é fácil e normal proteger o acesso a essas APIs usando chaves de assinatura. Os aplicativos cliente que precisam consumir as APIs publicadas devem incluir uma chave de assinatura válida em solicitações HTTP quando fazem chamadas a essas APIs. Para obter uma chave de assinatura para acessar APIs, é necessária uma assinatura. Para obter mais informações sobre as assinaturas do Azure, confira [Assinaturas no Gerenciamento de API do Azure](api-management-subscriptions.md).
 
 Este artigo explica as etapas para criar assinaturas no portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar as etapas neste artigo, você precisa:
+Para executar as etapas neste artigo, os pré-requisitos são da seguinte maneira:
 
-+ [Criar uma instância APIM](get-started-create-service-instance.md)
-+ Entender as [Assinaturas em APIM](api-management-subscriptions.md)
++ [Crie uma instância de Gerenciamento de API](get-started-create-service-instance.md).
++ Compreenda as [assinaturas no Gerenciamento de API](api-management-subscriptions.md).
 
-## <a name="create-a-new-subscription"></a>Criar uma nova Assinatura
+## <a name="create-a-new-subscription"></a>Criar uma nova assinatura
 
-1. Clicar em **Assinaturas** no menu à esquerda
-2. Clicar em **Adicionar assinatura**
-3. Fornecer um nome da assinatura e selecione o escopo
-4. Clique em **Salvar**
+1. Selecione **Assinaturas** no menu à esquerda.
+2. Selecione **Adicionar assinatura**.
+3. Forneça um nome da assinatura e selecione o escopo.
+4. Clique em **Salvar**.
 
 ![Assinaturas flexíveis](./media/api-management-subscriptions/flexible-subscription.png)
 
-Depois que a assinatura for criada, um par de chaves de API (primárias e secundárias) são provisionados para acessar as APIs.
+Depois de criar a assinatura, duas chaves de API são fornecidas para acessar as APIs. Uma chave é primária e uma é secundária. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações, consulte Gerenciamento de API:
+Saiba mais sobre o Gerenciamento de API:
 
-+ Conheça outros [conceitos](api-management-terminology.md) no Gerenciamento de API
-+ Siga nossos [tutoriais](import-and-publish.md) para saber mais sobre o Gerenciamento de API
-+ Verifique nossa [página de perguntas Frequentes](api-management-faq.md) para perguntas comuns
++ Conheça outros [conceitos](api-management-terminology.md) no Gerenciamento de API.
++ Siga nossos [tutoriais](import-and-publish.md) para saber mais sobre o Gerenciamento de API.
++ Verifique nossa [página de perguntas Frequentes](api-management-faq.md) para perguntas comuns.

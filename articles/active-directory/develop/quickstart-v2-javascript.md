@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99ea7e7db9d0cc80bfd37a256fc1be388feaa530
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317340"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043882"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Início rápido: conectar os usuários e adquirir um token de acesso de um aplicativo JavaScript
+# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Início Rápido: Conectar os usuários e adquirir um token de acesso de um aplicativo JavaScript
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -31,9 +31,20 @@ Neste início rápido, você aprenderá a usar um exemplo de código que demonst
 ![Como funciona o aplicativo de exemplo gerado por esse Início rápido](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registre seu aplicativo e faça o download de seu aplicativo de início rápido
+> ## <a name="register-and-download-your-quickstart-application"></a>Registrar e baixar o aplicativo de início rápido
+> Você tem duas opções para iniciar o aplicativo de início rápido:
+> * [Express] [Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Opção 2: Registrar e configurar manualmente o aplicativo e o exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> #### <a name="step-1-register-your-application"></a>Etapa 1: Registrar seu aplicativo
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
+>
+> 1. Vá para o [portal do Azure – Registro de Aplicativo (Versão Prévia)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Insira um nome para o aplicativo e clique em **Registrar**.
+> 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente o aplicativo e o exemplo de código
+>
+> #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 >
 > 1. Faça login no [Portal do Azure](https://portal.azure.com/) para registrar um aplicativo.
 > 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
@@ -47,7 +58,7 @@ Neste início rápido, você aprenderá a usar um exemplo de código que demonst
 > 1. Clique em **Salvar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no Portal do Azure
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
 > Para que o exemplo de código deste Início Rápido funcione, você precisa adicionar uma URI de redirecionamento como `http://localhost:30662/` e habilitar o recurso **Concessão implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
@@ -55,7 +66,7 @@ Neste início rápido, você aprenderá a usar um exemplo de código que demonst
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-javascript/green-check.png) Seu aplicativo já está configurado com esses atributos.
 
-#### <a name="step-2-download-the-project"></a>Etapa 2: Baixar o projeto
+#### <a name="step-2-download-the-project"></a>Etapa 2: Baixe o projeto
 
 Você pode escolher a opção mais adequada para seu ambiente de desenvolvimento.
 * [Baixar os principais arquivos do projeto para um servidor Web local, como Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)

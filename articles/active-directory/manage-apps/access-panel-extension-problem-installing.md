@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: aa0602ec0ecb97e9174fe6ef552b88fc30900d09
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 46f1d49e210a483b8e7645d7eba84ad21ed477da
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354259"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190504"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
 
@@ -36,7 +36,7 @@ O painel de acesso requer, no mínimo, um navegador que ofereça suporte ao Java
 
 Para SSO baseado em senha, você pode usar qualquer um dos seguintes navegadores:
 
-- **Edge**: na Edição de Aniversário do Windows 10 ou posterior. 
+- **Microsoft Edge**: na Edição de Aniversário do Windows 10 ou posterior. 
 - **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f51fb1d92fdec93fdb57fd25f8ca1cbaeb4fc46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834699"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188922"
 ---
 # <a name="what-is-the-myapps-portal"></a>O que é o portal do MyApps?
 
@@ -65,7 +65,7 @@ O instalador é específico da arquitetura. Se clicar no link de download, você
 
 
 A extensão do portal MyApps está atualmente disponível para:
-- **Edge**: na Edição de Aniversário do Windows 10 ou posterior. 
+- **Microsoft Edge**: Edição de Aniversário do Windows 10 ou posterior. 
 - **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 - **Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).

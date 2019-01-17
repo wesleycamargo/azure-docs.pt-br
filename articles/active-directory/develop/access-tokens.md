@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979226"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157761"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
 
@@ -38,7 +38,7 @@ Confira as seções a seguir para saber como um recurso pode validar e usar as d
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 
-Os tokens v1.0 e v2.0 são muito semelhantes e contêm muitas das mesmas declarações. Um exemplo de cada um é fornecido aqui.
+Os tokens v1.0 e v2.0 são semelhantes e contêm muitas das mesmas declarações. Um exemplo de cada um é fornecido aqui.
 
 ### <a name="v10"></a>v1.0
 
@@ -79,7 +79,7 @@ As declarações estão presentes somente se existe um valor para preenchê-lo. 
 | `nonce` | Cadeia de caracteres | Um identificador exclusivo usado para proteger contra ataques de reprodução de token. O recurso pode registrar esse valor para proteger contra reproduções. |
 | `alg` | Cadeia de caracteres | Indica o algoritmo que foi usado para assinar o token, por exemplo, "RS256" |
 | `kid` | Cadeia de caracteres | Especifica a impressão digital da chave pública que é usada para assinar esse token. Emitido nos tokens de acesso v1.0 e v2.0. |
-| `x5t` | Cadeia de caracteres | Funciona da mesma forma (em uso e valor) que `kid`. Essa é uma declaração herdada emitida somente em tokens de acesso da v1.0 para fins de compatibilidade. |
+| `x5t` | Cadeia de caracteres | Funciona da mesma forma (em uso e valor) que `kid`. `x5t` é uma declaração herdada emitida somente em tokens de acesso da v1.0 para fins de compatibilidade. |
 
 ### <a name="payload-claims"></a>Declarações de conteúdo
 
@@ -121,7 +121,7 @@ As declarações a seguir serão incluídas nos tokens v1.0, se aplicável, mas 
 | Declaração | Formatar | DESCRIÇÃO |
 |-----|--------|-------------|
 | `ipaddr`| Cadeia de caracteres | O endereço IP por meio do qual o usuário se autenticou. |
-| `onprem_sid`| Cadeia de caracteres, em [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o usuário tem uma autenticação local, essa declaração fornece o SID. Isso pode ser usado para autorização em aplicativos herdados. |
+| `onprem_sid`| Cadeia de caracteres, em [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o usuário tem uma autenticação local, essa declaração fornece o SID. Você pode usar `onprem_sid` para autorização em aplicativos herdados. |
 | `pwd_exp`| int, um carimbo de data/hora UNIX | Indica quando a senha do usuário expira. |
 | `pwd_url`| Cadeia de caracteres | Uma URL para a qual os usuários podem ser enviados para redefinir suas senhas. |
 | `in_corp`|booleano | Indica se o cliente está se conectando da rede corporativa. Caso não esteja, a declaração não será incluída. |
@@ -200,7 +200,7 @@ A lógica de negócios do aplicativo determinará esta etapa; alguns métodos co
 * Valide o status de autenticação do cliente de chamada usando `appidacr` – ele não deve ser 0 se os clientes públicos não têm permissão para chamar a API.
 * Verifique em uma lista das últimas declarações `nonce` para verificar se o token não está sendo reproduzido.
 * Verifique se o `tid` corresponde a um locatário que tem permissão para chamar sua API.
-* Use a declaração `acr` para verificar se o usuário realizou a MFA. Observe que isso deve ser imposto por meio do [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Use a declaração `acr` para verificar se o usuário realizou a MFA. Isso deve ser imposto por meio do [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Se você solicitou as declarações `roles` ou `groups` no token de acesso, verifique se o usuário está no grupo com permissão para executar essa ação.
   * Para os tokens recuperados usando o fluxo implícito, provavelmente, você precisará conferir o [Microsoft Graph](https://developer.microsoft.com/graph/) para esses dados, pois eles costumam ser muito grandes para se ajustarem ao token. 
 
@@ -217,7 +217,7 @@ Os tokens de atualização podem ser invalidados ou revogados a qualquer momento
 
 ### <a name="token-timeouts"></a>Tempos limite de token
 
-* MaxInactiveTime: Se o token de atualização não foi usado no tempo determinado pelo MaxInactiveTime, o Token de atualização não será válido. 
+* MaxInactiveTime: se o token de atualização não foi usado no tempo determinado pelo MaxInactiveTime, o Token de atualização não será válido. 
 * MaxSessionAge: se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor tiver sido definido como algo diferente do padrão (até revogado), será necessária a reautenticação depois de decorrido o tempo definido em MaxAgeSession*. 
 * Exemplos:
   * O locatário tem uma MaxInactiveTime de 5 dias e o usuário entrou em férias por uma semana e então AAD não obteve uma nova solicitação de token do usuário em 7 dias. Na próxima vez que o usuário solicitar um novo token, ele verá que seu Token de atualização foi revogado e deverá inserir suas credenciais novamente.
@@ -225,7 +225,7 @@ Os tokens de atualização podem ser invalidados ou revogados a qualquer momento
 
 ### <a name="revocation"></a>Revogação
 
-|   | Cookie baseado em senha | Token baseado em senha | Cookie não baseado em senha | Token não baseado em senha | Token de cliente confidencial| 
+|   | Cookie baseado em senha | Token baseado em senha | Cookie não baseado em senha | Token não baseados em senha | Token de cliente confidencial| 
 |---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
 | A senha expira | Permanece ativo| Permanece ativo | Permanece ativo | Permanece ativo | Permanece ativo |
 | Senha alterada pelo usuário | Revogado | Revogado | Permanece ativo | Permanece ativo | Permanece ativo |

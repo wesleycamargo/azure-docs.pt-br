@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 79a44e3f5303aaf0d337333b482c2df670e0b3da
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 954a57bb9253e4f18d61c3a699b6e721568da292
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146102"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157390"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Conectar o MXChip IoT DevKit ao acelerador de solução de Monitoramento Remoto do Azure IoT
 
@@ -77,7 +77,7 @@ Uma assinatura ativa do Azure. Se você não tiver uma, você pode registrar por
 3. Conecte o DevKit ao computador. O Código VS detecta automaticamente o DevKit e abre as seguintes páginas:
 
   * Página de introdução do DevKit.
-  * Exemplos de Arduino: Exemplos práticos de como começar com DevKit.
+  * Exemplos do Arduino: Exemplos práticos de como começar a usar o DevKit.
 
 4. Expanda a seção **EXEMPLOS DO ARDUINO** no canto esquerdo, vá até **Exemplos para MXCHIP AZ3166 > AzureIoT** e selecione **RemoteMonitoring**. Isso abrirá uma nova janela do VS Code com a pasta de projeto nela.
 
@@ -127,7 +127,7 @@ Se você quiser alterar o **AZ3166** embutido em código para uma ID do disposit
 Se você encontrar problemas, consulte [as perguntas frequentes do kit de desenvolvedores da IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou entre em contato conosco usando os seguintes canais:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Próximas etapas
 

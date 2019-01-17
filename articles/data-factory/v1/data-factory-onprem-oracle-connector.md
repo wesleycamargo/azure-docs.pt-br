@@ -9,21 +9,20 @@ ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 848616bb69aa0eae384b9c4e7ea1c2ac3da3c04e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167113"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024902"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para o Oracle local usando o Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-oracle-connector.md)
 > * [Versão 2 (versão atual)](../connector-oracle.md)
 
@@ -56,7 +55,7 @@ O gateway é necessário mesmo que o Oracle esteja hospedado em uma VM de IaaS (
 
 Este conector Oracle dá suporte a duas versões de drivers:
 
-- **Driver da Microsoft para Oracle (recomendado)**: do Gateway de Gerenciamento de Dados versão 2.7 em diante, um driver da Microsoft para Oracle é instalado automaticamente com o gateway. Você não precisa instalar nem atualizar o driver para estabelecer a conectividade com o Oracle. Você também pode ter um melhor desempenho de cópia usando este driver. Há suporte para estas versões abaixo de bancos de dados Oracle:
+- **Driver da Microsoft para Oracle (recomendado)**: Do Gateway de Gerenciamento de Dados versão 2.7 em diante, um driver da Microsoft para Oracle é instalado automaticamente com o gateway. Você não precisa instalar nem atualizar o driver para estabelecer a conectividade com o Oracle. Você também pode ter um melhor desempenho de cópia usando este driver. Há suporte para estas versões abaixo de bancos de dados Oracle:
     - Oracle 12c R1 (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10.1, 10.2)
@@ -70,7 +69,7 @@ Este conector Oracle dá suporte a duas versões de drivers:
     > Atualmente, o driver da Microsoft para Oracle dá suporte apenas para copiar dados do Oracle. O driver não dá suporte à gravação para o Oracle. A funcionalidade de conexão de teste na guia **Diagnóstico** do Gateway de Gerenciamento de Dados não oferece suporte a este driver. Como alternativa, você pode usar o assistente para Copiar para validar a conectividade.
     >
 
-- **Provedor de Dados Oracle para .NET:** você também pode usar o Provedor de Dados do Oracle para copiar dados de ou para o Oracle. Esse componente está incluído nos [Componentes de Acesso a Dados do Oracle para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Instale a versão adequada (32 bits ou 64 bits) no computador em que o gateway foi instalado. [O Provedor de Dados Oracle para .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) pode acessar o Oracle Database 10g Versão 2 e versões posteriores.
+- **Provedor de Dados Oracle para .NET**: Você também pode usar o Provedor de Dados do Oracle para copiar dados de ou para o Oracle. Esse componente está incluído nos [Componentes de Acesso a Dados do Oracle para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Instale a versão adequada (32 bits ou 64 bits) no computador em que o gateway foi instalado. [O Provedor de Dados Oracle para .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) pode acessar o Oracle Database 10g Versão 2 e versões posteriores.
 
     Se você selecionar **Instalação de XCopy**, conclua as etapas descritas no arquivo readme.htm. É recomendável selecionar o instalador que tem a interface do usuário (não o instalador de XCopy).
 
@@ -82,7 +81,7 @@ Se você usar o assistente de Cópia para criar o pipeline de cópia, o tipo de 
 
 Você pode criar um pipeline com uma atividade de cópia. O pipeline move dados de ou para um Oracle Database local usando diferentes ferramentas ou APIs.
 
-A maneira mais fácil de criar um pipeline é usar o assistente de Cópia. Confira o [Tutorial: Criar um pipeline usando o assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para instruções passo a passo rápidas sobre como criar um pipeline usando o assistente Copiar Dados.
+A maneira mais fácil de criar um pipeline é usar o assistente de Cópia. Consulte [Tutorial: Criar um pipeline usando o assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para instruções passo a passo rápidas sobre como criar um pipeline usando o assistente Copiar Dados.
 
 Você também pode usar uma das seguintes ferramentas para criar um pipeline: o **portal do Azure**, **Visual Studio**, **Azure PowerShell**, um **modelo do Azure Resource Manager**, **API .NET** ou **API REST**. Consulte o [tutorial Atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
 
@@ -108,10 +107,10 @@ A tabela a seguir descreve elementos JSON que são específicos para o serviço 
 | connectionString | Especifique as informações necessárias para se conectar à instância do Oracle Database para a propriedade **connectionString**. | SIM |
 | gatewayName | O nome do gateway usado para conectar-se ao servidor Oracle local. |SIM |
 
-**Exemplo: usando o driver da Microsoft**
+**Exemplo: Usando o driver da Microsoft**
 
 > [!TIP]
-> Se aparecer um erro dizendo "ORA-01025: parâmetro UPI fora do intervalo" e o Oracle for versão 8i, adicione `WireProtocolMode=1` à cadeia de conexão e tente novamente:
+> Se você visualizar um erro informando "ORA-01025: parâmetro UPI fora do intervalo" e o Oracle for versão 8i, adicione `WireProtocolMode=1` à cadeia de conexão e tente novamente:
 
 ```json
 {
@@ -182,7 +181,7 @@ Na Atividade de Cópia, quando a fonte é do tipo **OracleSource**, as seguintes
 
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| writeBatchTimeout |O tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite. |**timespan**<br/><br/> Exemplo: "00:30:00" (30 minutos) |Não  |
+| writeBatchTimeout |O tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite. |**timespan**<br/><br/> Exemplo: 00:30:00 (30 minutos) |Não  |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge o valor de **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
 | sqlWriterCleanupScript |Especifica uma consulta da Atividade de Cópia a ser executada para que os dados de uma fatia específica sejam removidos. |Uma instrução de consulta. |Não  |
 | sliceIdentifierColumnName |Especifica o nome da coluna para a atividade de cópia a ser preenchida com um identificador de fatia gerado automaticamente.  O valor para **sliceIdentifierColumnName** é usado para limpar os dados de uma fatia específica quando executada novamente. |O nome da coluna de uma coluna que tem o tipo de dados **binary(32)**. |Não  |
@@ -191,7 +190,7 @@ Na Atividade de Cópia, quando a fonte é do tipo **OracleSource**, as seguintes
 
 Os exemplos a seguir fornecem amostras de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de ou para um Oracle Database e para ou do Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores listados em [Formatos e armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.   
 
-**Exemplo: copiar dados do Oracle para o Armazenamento de Blobs do Azure**
+**Exemplo: Copiar dados do Oracle para o Armazenamento de Blobs do Azure**
 
 O exemplo tem as seguintes entidades do Data Factory:
 

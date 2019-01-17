@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 1a64749b7218fccfdad6b6eeebfac39a44aa0522
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2b1aca07fe60a328dac9d3724454a21835026a53
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687764"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063838"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Criar um Hub IoT usando um modelo do Azure Resource Manager (.NET)
 
@@ -23,7 +23,7 @@ ms.locfileid: "38687764"
 Você pode usar o Gerenciador de Recursos do Azure para criar e gerenciar hubs IoT do Azure de forma programática. Este tutorial mostra como usar um modelo do Azure Resource Manager para criar um Hub IoT em um programa em C#.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e Classic](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação do Azure Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos:  [Azure Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação do Azure Resource Manager.
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -203,6 +203,7 @@ Agora que você implantou um Hub IoT usando um modelo do Azure Resource Manager 
 
 * Leia sobre as funcionalidades da [API REST do provedor de recursos Hub IoT][lnk-rest-api].
 * Leia a [Visão geral do Azure Resource Manager][lnk-azure-rm-overview] para saber mais sobre os recursos do Azure Resource Manager.
+* Para obter a sintaxe JSON e as propriedades a serem usadas nos modelos, confira [Tipos de recurso de Microsoft.Devices](/azure/templates/microsoft.devices/iothub-allversions).
 
 Para saber mais sobre como desenvolver para o Hub IoT, veja os seguintes artigos:
 

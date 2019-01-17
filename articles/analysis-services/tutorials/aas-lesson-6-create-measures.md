@@ -1,19 +1,19 @@
 ---
-title: 'Lição 6 do tutorial do Azure Analysis Services: criar medidas | Microsoft Docs'
+title: 'Lição 6 do tutorial do Azure Analysis Services: Criar medidas | Microsoft Docs'
 description: Descreve como criar medidas no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ce38cac7a0b175004fbb670069ddbeefb53e96e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0e9f798917b557d99259ece4773cce0853b15237
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428565"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191676"
 ---
 # <a name="create-measures"></a>Criar medidas
 
@@ -25,10 +25,10 @@ Você pode criar uma medida clicando em uma célula vazia na grade de medida e d
   
 Nesta lição, você criará medidas inserindo uma fórmula DAX na barra de fórmulas e usando o recurso AutoSoma.  
   
-Tempo estimado para conclusão desta lição: **30 minutos**  
+Tempo estimado para concluir esta lição: **30 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 5: criar colunas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md).  
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 5: Criar colunas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Criar medidas  
   
@@ -122,6 +122,6 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
 As medidas criadas para a tabela FactInternetSales podem ser usadas para analisar dados financeiros essenciais, como vendas, custos e margem de lucro para itens definidos pelo filtro selecionado pelo usuário.  
   
 ## <a name="whats-next"></a>O que vem a seguir?
-[Lição 7: criar indicadores chave de desempenho](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
+[Lição 7: Criar Indicadores de Desempenho Principais](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   

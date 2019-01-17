@@ -1,24 +1,26 @@
 ---
-title: Implantar no Azure Analysis Services usando o SSDT | Microsoft Docs
+title: Implantar no Azure Analysis Services usando o Visual Studio (SSDT) | Microsoft Docs
 description: Saiba como implantar um modelo de tabela em um servidor do Azure Analysis Services usando SSDT.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5f56ee65cd2ec5dfb39929f6985c26ebc339953e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429041"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188582"
 ---
-# <a name="deploy-a-model-from-ssdt"></a>Implantar um modelo a partir do SSDT
+# <a name="deploy-a-model-from-visual-studio"></a>Implantar um modelo no Visual Studio
+
 Depois de criar um servidor em sua assinatura do Azure, você estará pronto para implantar nele um banco de dados de modelo de tabela. Você pode usar o SSDT (SQL Server Data Tools) para criar e implantar um projeto de modelo de tabela no qual você está trabalhando. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para começar, você precisa do seguinte:
 
 * **Servidor do Analysis Services** no Azure. Para saber mais, veja [Criar um servidor do Azure Analysis Services](analysis-services-create-server.md).
@@ -53,10 +55,12 @@ Isso é tudo!
 
 
 ## <a name="troubleshooting"></a>solução de problemas
+
 Se a implantação falhar durante a implantação dos metadados, provavelmente o SSDT não conseguiu se conectar ao servidor. Verifique se você consegue se conectar ao servidor usando o SSMS. Em seguida, verifique se a propriedade do Servidor de Implantação do projeto está correta.
 
 Se a implantação falhar em uma tabela, provavelmente o servidor não conseguiu se conectar a uma fonte de dados. Se a sua fonte de dados for local, na rede da sua organização, instale um [Gateway de dados local](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora que seu modelo de tabela foi implantado em seu servidor, você está pronto para se conectar a ele. Você pode [conectar-se a ele com SSMS](analysis-services-manage.md) para gerenciá-lo. E, você pode [conectar-se a ele usando uma ferramenta de cliente](analysis-services-connect.md) como o Power BI, o Power BI Desktop ou o Excel, e começar a criar relatórios.
 

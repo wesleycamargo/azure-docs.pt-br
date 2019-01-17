@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035521"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084048"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Entender as reinicializações de VM - manutenção vs. tempo de inatividade
 Há três cenários que podem afetar a máquina virtual no Azure: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
@@ -32,7 +32,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 
 * [Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância]
 * [Como usar discos gerenciados para VMs em um conjunto de disponibilidade]
-* [Use eventos agendados para responder de forma proativa a eventos de impacto da VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Usar eventos agendados para responder de forma proativa a eventos que afetam a VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configurar cada camada de aplicativo em conjuntos de disponibilidade separados]
 * [Combinar o balanceador de carga com os conjuntos de disponibilidade]
 * [Usar as zonas de disponibilidade para se proteger contra falhas no nível do datacenter]
@@ -65,6 +65,10 @@ Se você planeja usar VMs com [discos não gerenciados](../articles/virtual-mach
 1. **Manter todos os discos (sistema operacional e dados) associados a uma VM na mesma conta de armazenamento**
 2. **Examine os [limites](../articles/storage/common/storage-scalability-targets.md) no número de discos não gerenciados em uma Conta de armazenamento** antes de adicionar mais VHDs a uma conta de armazenamento
 3. **Use uma conta de armazenamento distinta para cada VM em um conjunto de disponibilidade.** Não compartilhe Contas de armazenamento com várias VMs no mesmo Conjunto de Disponibilidade. É aceitável que as VMs em diferentes Conjuntos de Disponibilidade compartilhem contas de armazenamento, desde que as melhores práticas acima sejam seguidas ![FDs de discos não gerenciados](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Usar eventos agendados para responder de forma proativa a eventos que afetam a VM
+
+Quando você assina [eventos agendados](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), sua VM é notificada sobre eventos de manutenção futura que podem afetá-la. Quando os eventos agendados são habilitados, sua máquina virtual recebe uma quantidade mínima de tempo antes que a atividade de manutenção seja realizada. Por exemplo, as atualizações do sistema operacional do host que podem afetar a VM são colocadas na fila como eventos que especificam o impacto, bem como uma hora em que a manutenção será realizada, caso nenhuma medida seja tomada. Os eventos de agendamento também são colocados na fila quando o Azure detecta uma falha de hardware iminente que pode afetar a VM, o que permite que você decida quando a recuperação deve ser executada. Os clientes podem usar o evento para executar tarefas antes da manutenção, como salvar o estado, fazer failover para o secundário e assim por diante. Depois de concluir a lógica para manipular normalmente o evento de manutenção, você poderá aprovar o evento agendado pendente para permitir que a plataforma continue com a manutenção.
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Configurar cada camada de aplicativo em conjuntos de disponibilidade separados
 Se as suas máquinas virtuais forem quase idênticas e servirem para o mesmo propósito para o seu aplicativo, recomendamos que configure o seu conjunto de disponibilidade para cada camada de seu aplicativo.  Se você colocar duas camadas diferentes no mesmo conjunto de disponibilidade, todas as máquinas virtuais na mesma camada de aplicativo podem ser reinicializadas ao mesmo tempo. Ao configurar ao menos duas máquinas virtuais no conjunto de disponibilidade de cada camada, você garante que ao menos uma máquina virtual de cada camada estará disponível.

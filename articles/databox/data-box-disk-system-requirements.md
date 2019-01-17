@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5debc14a6a20c42b62b9a7b2c524e36e94302221
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: b2f8a299dfc52bcc1f2eaa17e658b841d27bf62c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792859"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154922"
 ---
-# <a name="azure-data-box-disk-system-requirements-preview"></a>Requisitos do sistema do Azure Data Box Disk (versão prévia)
+# <a name="azure-data-box-disk-system-requirements"></a>Requisitos do sistema do Azure Data Box Disk
 
 Este artigo descreve os requisitos de sistema importantes para a solução do Microsoft Azure Data Box Disk e para os clientes se conectando ao Data Box Disk. Recomendamos que você examine as informações com atenção antes de implantar o Data Box Disk e consulte-as, quando necessário, durante a implantação e a subsequente operação.
-
-> [!IMPORTANT]
-> O Data Box Disk está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
 
 Os requisitos de sistema incluem as plataformas compatíveis com os clientes que se conectam a discos, contas de armazenamento compatíveis e tipos de armazenamento.
 

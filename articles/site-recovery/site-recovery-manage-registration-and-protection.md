@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 8e8cabe48f7f1036986a896d0449798f4aea2522
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 64011614c28fc2d94132e0bf4848b9a2c4fad599
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844559"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118317"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover os servidores e desabilitar a proteção
 
@@ -126,7 +126,7 @@ Os hosts Hyper-V que não são gerenciados pelo VMM são reunidos em um site do 
         }catch
         {    
             [system.exception]
-            Write-Host "Error occured" -ForegroundColor "Red"
+            Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
             Write-Host "FAILED" -ForegroundColor "Red"
         }
@@ -138,7 +138,7 @@ Os hosts Hyper-V que não são gerenciados pelo VMM são reunidos em um site do 
 
 1. Em **Itens Protegidos** > **Itens Replicados**, clique com o botão direito na máquina > **Desabilitar replicação**.
 2. Na página **Desabilitar replicação**, selecione uma destas opções:
-    - **Desabilitar a replicação e remover (recomendado)** - Esta opção remove o item replicado do Azure Site Recovery e a replicação da máquina é interrompida. A configuração de replicação no Servidor de Configuração é limpa, e a cobrança do Site Recovery para este servidor protegido é interrompida.
+    - **Desabilitar a replicação e remover (recomendado)** - Esta opção remove o item replicado do Azure Site Recovery e a replicação da máquina é interrompida. A configuração de replicação no Servidor de Configuração é limpa, e a cobrança do Site Recovery para este servidor protegido é interrompida. Observe que essa opção só pode ser usada quando o servidor de configuração está no estado conectado.
     - **Remover** - Essa opção deve ser usada somente se o ambiente de origem for excluído ou não está acessível (não conectado). Isso remove o item replicado do Azure Site Recovery (a cobrança é interrompida). A configuração de replicação no Servidor de Configuração **não será** limpo. 
 
 > [!NOTE]

@@ -10,21 +10,20 @@ ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6330854f4ee9b2db1597d916c815bb6646da6a29
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d13e304b0d10e8bd34d306426f1f9164bcc6be94
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052742"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014243"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de Cópia do Azure Data Factory
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory. 
+> Este artigo aplica-se à versão 1 do Data Factory. 
 
 O Assistente de Cópia do Azure Data Factory facilita o processo de ingerir dados, que geralmente é a primeira etapa no cenário de integração completa de dados. Ao executar o Assistente de Cópia do Azure Data Factory, você não precisa entender qualquer definição de JSON para serviços vinculados, conjuntos de dados e pipelines. O assistente cria automaticamente um pipeline para copiar dados da fonte de dados selecionada para o destino selecionado. Além disso, o Assistente de Cópia ajuda você a validar os dados que estão sendo ingeridos no momento da criação. Isso poupa tempo, especialmente quando você está ingerindo dados pela primeira vez da fonte de dados. Para iniciar o Assistente de Cópia, clique no bloco **Copiar dados** na home page da sua fábrica de dados.
 
@@ -92,4 +91,4 @@ Uma operação de cópia única permite, uma única vez, a movimentação de dad
 ![Propriedades de agendamento](./media/data-factory-copy-wizard/scheduling-properties.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para ver um passo a passo rápido sobre como usar o Assistente de Cópia do Data Factory para criar um pipeline com uma Atividade de Cópia, confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
+Para ver um breve passo a passo sobre como usar o Assistente de Cópia do Data Factory para criar um pipeline com uma Atividade de Cópia, confira o [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).

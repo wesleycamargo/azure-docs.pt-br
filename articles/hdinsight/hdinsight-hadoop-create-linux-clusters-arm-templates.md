@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 028d00f579e266c92b4a6d00d5ebb5b0ef7b1b60
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 1b145b1162dcba5653c962f0af1969c1aa017f57
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787528"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054632"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -42,6 +42,7 @@ Para obter mais informações sobre modelos do Resource Manager, consulte os seg
 
 * [Criar modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Implantar um aplicativo com o modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
+* Referência de modelo de [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
 
 ## <a name="generate-templates"></a>Gerar modelos
 
@@ -77,7 +78,7 @@ Para obter uma introdução ao uso do Visual Studio com grupos de recursos, veja
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, confira os seguintes artigos:
+Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
 
 * Para mais modelos relacionados ao HDInsight, consulte [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

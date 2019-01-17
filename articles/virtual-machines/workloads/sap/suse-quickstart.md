@@ -3,8 +3,8 @@ title: Testando o SAP NetWeaver em VMs SUSE Linux no Microsoft Azure| Microsoft 
 description: Testando o SAP NetWeaver em VMs SUSE Linux no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermanndms
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
-ms.author: hermannd
-ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: juergent
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 032ab2a221f64d01af25056a4eff3ee3384de0c3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950039"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157217"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Executando o SAP NetWeaver em VMs do SUSE Linux no Microsoft Azure
 Este artigo descreve fatores que devem ser levados em consideração quando você estiver executando o SAP NetWeaver em VMs (máquinas virtuais) do SUSE Linux no Microsoft Azure. A partir de 19 de maio de 2016, o SAP NetWeaver possui suporte oficial em VMs do SUSE Linux no Azure. Todos os detalhes relativos a versões do Linux, versões de kernel do SAP e outros pré-requisitos podem ser encontrados na Nota SAP 1928533 "Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure".
-Outras documentações sobre o SAP em VMs Linux podem ser encontradas aqui: [Usando o SAP em máquinas virtuais (VMs) do Linux](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Mais documentação sobre o SAP em VMs do Linux podem ser encontradas aqui: [Usando o SAP em VMs (máquinas virtuais) do Linux](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 As informações a seguir devem ajudar você a evitar algumas possíveis armadilhas.
 
@@ -75,7 +76,7 @@ O agente chamado WALinuxAgent faz parte das imagens do SLES no Azure Marketplace
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
 ## <a name="sap-enhanced-monitoring"></a>"Monitoramento avançado" do SAP
-O "monitoramento avançado" do SAP é um pré-requisito obrigatório para executar o SAP no Azure. Verifique os detalhes na nota do SAP 2191498 "SAP no Linux com o Azure: monitoramento aprimorado".
+O "monitoramento avançado" do SAP é um pré-requisito obrigatório para executar o SAP no Azure. Verifique os detalhes na nota SAP 2191498 "SAP no Linux com o Azure: Monitoramento Avançado".
 
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>Anexar discos de dados do Azure em uma VM Linux do Azure
 Nunca monte discos de dados do Azure em uma VM Linux do Azure usando a ID do dispositivo. Em vez disso, use o identificador universal exclusivo (UUID). Tenha cuidado ao usar, por exemplo, ferramentas gráficas para montar discos de dados do Azure. Verifique as entradas em /etc/fstab.
@@ -125,7 +126,7 @@ Para obter mais informações sobre a CLI Clássica do Azure e o Azure Resource 
 Para a certificação oficial SAP-Azure, um novo mecanismo foi introduzido para calcular a chave de hardware do SAP usada para a licença do SAP. O kernel do SAP precisou ser adaptado para fazer uso do novo algoritmo. As versões anteriores de kernel do SAP para Linux não incluíam essa alteração de código. Portanto, pode acontecer que, em certas situações (por exemplo, no redimensionamento da VM do Azure), a chave de hardware do SAP tenha sido alterada e a licença do SAP não fosse mais válida. Uma solução é fornecida com kernels de Linux SAP mais recentes.  Os patches de kernel do SAP estão documentados detalhadamente na nota do SAP 1928533.
 
 ## <a name="suse-sapconf-package--tuned-adm"></a>SUSE sapconf package / tuned-adm
-O SUSE fornece um pacote chamado "sapconf", que gerencia um conjunto de configurações específicas do SAP. Para obter mais informações sobre o que este pacote faz e como instalá-lo e usá-lo, veja [Como usar sapconf para preparar o SUSE Linux Enterprise Server para executar sistemas SAP](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) e [Como preparar um SUSE Linux Enterprise Server para executar sistemas SAP ou o que é sapconf?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
+O SUSE fornece um pacote chamado "sapconf", que gerencia um conjunto de configurações específicas do SAP. Para obter mais informações sobre o que esse pacote faz e como instalá-lo e usá-lo, veja:  [Usando sapconf para preparar um SUSE Linux Enterprise Server para executar sistemas SAP](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) e [O que é sapconf e como preparar um SUSE Linux Enterprise Server para executar sistemas SAP?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
 
 Enquanto isso, há uma nova ferramenta que substitui a “sapconf - tuned-adm”. Mais informações sobre essa ferramenta podem ser encontradas nos dois links a seguir:
 

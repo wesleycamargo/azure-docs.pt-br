@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000556"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065725"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Criar modelos do Azure Resource Manager para implantar aplicativos lógicos
 
@@ -34,7 +34,7 @@ No recurso do aplicativo lógico, é possível encontrar essa definição na pro
 * **Conexões**: Refere-se a recursos separados para armazenar com segurança os metadados sobre quaisquer conexões do conector, como uma cadeia de conexão e um token de acesso.
 No recurso do aplicativo lógico, o aplicativo lógico referencia esses recursos na seção `parameters`.
 
-É possível exibir todas essas partes de aplicativos lógicos existentes usando uma ferramenta como o [Gerenciador de Recursos do Azure](http://resources.azure.com).
+É possível exibir todas essas partes de aplicativos lógicos existentes usando uma ferramenta como o [Gerenciador de Recursos do Azure](http://resources.azure.com). Para saber mais sobre a sintaxe e as propriedades de JSON, consulte [Tipos de recurso do Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 Para criar um modelo para um aplicativo lógico a ser usado com implantações do grupo de recursos, é necessário definir os recursos e parametrizá-los, conforme necessário.
 Por exemplo, se você estiver implantando em um ambiente de produção, desenvolvimento e teste, provavelmente, desejará usar cadeias de conexão diferentes para um banco de dados SQL em cada ambiente.

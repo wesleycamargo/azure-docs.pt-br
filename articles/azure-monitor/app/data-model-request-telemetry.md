@@ -9,19 +9,19 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001899"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117139"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria da solicitação: Modelo de dados do Application Insights
 
-Um item de telemetria de solicitação (em [Application Insights](../../application-insights/app-insights-overview.md)) representa a sequência lógica de execução acionada por uma solicitação externa a seu aplicativo. Toda execução de solicitação é identificada por um `ID` e `url` exclusivos que contêm todos os parâmetros de execução. Você pode agrupar solicitações por `name` lógico e definir a `source` dessa solicitação. A execução de código pode resultar em `success` ou `fail` e tem um determinado `duration`. Execuções com êxito e falha podem ser agrupadas ainda mais pelo `resultCode`. Hora de início para a telemetria de solicitação definida no nível de envelope.
+Um item de telemetria de solicitação (em [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa a sequência lógica de execução acionada por uma solicitação externa a seu aplicativo. Toda execução de solicitação é identificada por um `ID` e `url` exclusivos que contêm todos os parâmetros de execução. Você pode agrupar solicitações por `name` lógico e definir a `source` dessa solicitação. A execução de código pode resultar em `success` ou `fail` e tem um determinado `duration`. Execuções com êxito e falha podem ser agrupadas ainda mais pelo `resultCode`. Hora de início para a telemetria de solicitação definida no nível de envelope.
 
 A solicitação de telemetria dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements` personalizadas.
 
@@ -63,9 +63,9 @@ Tamanho máx: 1024 caracteres
 
 ## <a name="success"></a>Sucesso
 
-Indicação de chamada bem-sucedida ou malsucedida. Esse campo é obrigatório. Quando não definido explicitamente como `false`, a solicitação é considerada bem-sucedida. Defina esse valor como `false` se a operação for interrompida por exceção ou tiver retornado um código de resultado do erro.
+Indicação de chamada bem-sucedida ou malsucedida. Esse campo é obrigatório. Quando não definido explicitamente como `false`, uma solicitação é considerada bem-sucedida. Defina esse valor como `false` se a operação for interrompida por exceção ou tiver retornado um código de resultado do erro.
 
-Para aplicativos Web, o Application Insights define a solicitação como com falha quando o código de resposta é menor que `400` ou igual a `401`. No entanto, há casos em que esse mapeamento padrão não coincide com a semântica do aplicativo. O código de resposta `404` não pode indicar "nenhum registro", o que pode ser parte do fluxo regular. Ele também pode indicar um link desfeito. Para os links desfeitos, você pode até mesmo implementar lógica mais avançada. Você pode marcar links desfeitos como falhas somente quando esses links estiverem localizados no mesmo site, analisando o referenciador da URL. Ou então, marcá-los como falhas quando acessados por aplicativos móveis da empresa. Da mesma forma, `301` e `302` indicam falha quando acessados do cliente que não dá suporte a redirecionamento.
+Para aplicativos Web, o Application Insights define uma solicitação como bem-sucedida quando o código de resposta é menor que `400` ou igual a `401`. No entanto, há casos em que esse mapeamento padrão não coincide com a semântica do aplicativo. O código de resposta `404` não pode indicar "nenhum registro", o que pode ser parte do fluxo regular. Ele também pode indicar um link desfeito. Para os links desfeitos, você pode até mesmo implementar lógica mais avançada. Você pode marcar links desfeitos como falhas somente quando esses links estiverem localizados no mesmo site, analisando o referenciador da URL. Ou então, marcá-los como falhas quando acessados por aplicativos móveis da empresa. Da mesma forma, `301` e `302` indicam falha quando acessados do cliente que não dá suporte a redirecionamento.
 
 Conteúdo `206` parcialmente aceito pode indicar uma falha de uma solicitação geral. Por exemplo, o ponto de extremidade do Application Insights recebe um lote de itens de telemetria como uma única solicitação. Ele retorna `206` quando alguns itens no lote não foram processados com êxito. A taxa crescente de `206` indica um problema que precisa ser investigado. Uma lógica semelhante se aplica ao Status Múltiplo `207`, em que o êxito pode ser o pior dos códigos de resposta separados.
 

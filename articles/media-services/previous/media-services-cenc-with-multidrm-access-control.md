@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c19b43f652b490ceb86606633f543f4e455b6116
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141468"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189296"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure
 
@@ -368,7 +368,7 @@ Ao usar um STS personalizado, duas alterações devem ser feitas:
 Há dois tipos de chaves de segurança:
 
 * Chave simétrica: a mesma chave é usada para gerar e verificar um JWT.
-* Chave assimétrica: um par de chaves pública/privada em um certificado X509 é usado com uma chave privada para criptografar/gerar um JWT e, com a chave pública, verificar o token.
+* Chave assimétrica: um par de chaves pública/privada em um certificado X509 é usado com uma chave privada para criptografar/gerar um JWT e, com a chave pública, para verificar o token.
 
 > [!NOTE]
 > Se você usa o .NET Framework /C# como sua plataforma de desenvolvimento, o certificado X509 usado para uma chave assimétrica de segurança deve ter um comprimento de chave de pelo menos 2048. Este é um requisito da classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey no .NET Framework. Caso contrário, a seguinte exceção é lançada:
@@ -407,7 +407,7 @@ Entre em contato com qualquer um dos autores para que criem ou adicionem uma con
 
 As capturas de tela a seguir mostram as diferentes páginas de entrada usadas por diferentes contas de domínio:
 
-**Conta de domínio do locatário do Azure AD personalizado**: a página de entrada personalizada do domínio de locatário do Azure AD personalizado.
+**Conta de domínio do locatário do AD do Azure personalizada**: a página de entrada personalizada do domínio de locatário do Azure AD personalizado.
 
 ![Conta de domínio do locatário do AD do Azure personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 

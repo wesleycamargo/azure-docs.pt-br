@@ -9,17 +9,16 @@ ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618862"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015485"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -162,7 +161,7 @@ Após a implantação de uma data factory e a atribuição de um período de ati
 
 ![Diagrama de estado](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-O fluxo de transição de estado do conjunto de dados no data factory é o seguinte: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed.
+O fluxo de transição de estado do conjunto de dados no data factory é o seguinte: Aguardando -> Em Andamento/Em Andamento (Validando) -> Pronto/Falha.
 
 A fatia começa em um estado de **Aguardando**, esperando pelo atendimento de pré-condições antes da execução. Depois disso, a atividade começa a ser executada e a fatia passa para um estado **Em Andamento** . A execução da atividade pode ser bem-sucedida ou falhar. A fatia é marcada como **Pronta** ou **Falha** com base no resultado da execução.
 

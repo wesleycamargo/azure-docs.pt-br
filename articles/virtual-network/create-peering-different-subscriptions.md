@@ -1,13 +1,10 @@
 ---
-title: Criar um emparelhamento de rede virtual do Azure – Resource Manager – assinaturas diferentes | Microsoft Docs
+title: Criar um emparelhamento de rede virtual do Azure – Resource Manager – assinaturas diferentes
+titlesuffix: Azure Virtual Network
 description: Saiba como criar um emparelhamento de rede virtual entre redes virtuais criadas por meio do Resource Manager que existem em assinaturas do Azure diferentes.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727470"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014957"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um emparelhamento de rede virtual – Resource Manager, assinaturas diferentes
 
@@ -50,9 +47,9 @@ As etapas a seguir usam diferentes contas para cada assinatura. Se você estiver
 2. Selecione **+ Criar um recurso**, selecione **Rede** e, em seguida, selecione **Rede Virtual**.
 3. Selecione ou digite os valores de exemplo a seguir para as seguintes configurações e selecione **Criar**:
     - **Nome**: *myVnetA*
-    - **Espaço de endereçamento**: *10.0.0.0/16*
+    - **Espaço de endereço**: *10.0.0.0/16*
     - **Nome da sub-rede**: *padrão*
-    - **Faixa de endereços de sub-rede**: *10.0.0.0/24*
+    - **Intervalo de endereços da sub-rede**: *10.0.0.0/24*
     - **Assinatura**: Selecione a assinatura A.
     - **Grupo de recursos**: Selecione **Criar novo** e insira *myResourceGroupA*
     - **Localização**: *Leste dos EUA*
@@ -67,9 +64,9 @@ As etapas a seguir usam diferentes contas para cada assinatura. Se você estiver
 12. Conclua as etapas 2 a 3, inserindo ou selecionando os seguintes valores na etapa 3:
 
     - **Nome**: *myVnetB*
-    - **Espaço de endereçamento**: *10.1.0.0/16*
+    - **Espaço de endereço**: *10.1.0.0/16*
     - **Nome da sub-rede**: *padrão*
-    - **Faixa de endereços de sub-rede**: *10.1.0.0/24*
+    - **Intervalo de endereços da sub-rede**: *10.1.0.0/24*
     - **Assinatura**: Selecione a assinatura B.
     - **Grupo de recursos**: Selecione **Criar novo** e insira *myResourceGroupB*
     - **Localização**: *Leste dos EUA*

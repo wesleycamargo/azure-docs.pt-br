@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846463"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077548"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Torne-se um editor do Marketplace de nuvem
 
@@ -97,15 +97,15 @@ A pessoa realizando o registro no [Centro de Desenvolvimento](https://developer.
 Depois de ter concluído o registro no [Centro de Desenvolvimento](https://developer.microsoft.com/store/register) vincule seu Perfil do Cloud Partner à sua conta do [Centro de Desenvolvimento](https://developer.microsoft.com/store/register) (consulte as etapas detalhadas aqui). Esta etapa deve ser concluída antes de publicar sua oferta de transação. 
 
 >[!Note]
->Para renunciar ao valor de US$ 99,00 de registro no Centro de Desenvolvedores, preencha o [formulário de registro do marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) e você receberá um email contendo seu código promocional. 
+>Para renunciar ao valor de US$ 99,00 de registro no Centro de Desenvolvedores, preencha o [formulário de registro do marketplace](https://azuremarketplace.microsoft.com/sell/signup) e você receberá um email contendo seu código promocional. 
 
 >[!Important]
 >Antes de criar uma conta do Centro de Desenvolvedor Microsoft, verifique se sua organização já não tem uma conta do Centro de Desenvolvedor para evitar contas duplicadas. Para obter mais informações, visite a seção [Registrar no Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre as vitrines do Marketplace: [Comparar AppSource e o Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Determinar o tipo de listagem para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Saiba mais sobre as vitrines do Marketplace: [Comparar o AppSource com o Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+*   [Determinar o tipo de listagem para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
 ---  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2237d523b8023c0a6551515f9a2740e92e7beb3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548911"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065674"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -104,7 +104,7 @@ Por exemplo, você pode ter um dispositivo de segurança de rede virtual em sua 
 
 [Túnel forçado](https://www.petri.com/azure-forced-tunneling) é um mecanismo que pode ser usado para garantir que seus serviços não tenham permissão para iniciar uma conexão com dispositivos na Internet. Observe que isso é diferente de aceitar conexões de entrada e responder a elas em seguida. Os servidores Web front-end precisam responder às solicitações dos hosts da Internet e, portanto, o tráfego originado da Internet tem permissão de entrada nesses servidores Web, que, por sua vez, têm permissão para responder.
 
-O que você não quer permitir é que um servidor Web front-end inicie uma solicitação de saída. Essas solicitações podem representar um risco de segurança, pois essas conexões podem ser usadas para o download de malware. Mesmo se você quiser que esses servidores front-end iniciem solicitações de saída para a Internet, será conveniente forçá-los a passar pelos proxies Web locais. Isso permite que você aproveite a filtragem de URL e o log.
+O que você não quer permitir é que um servidor Web de front-end inicie uma solicitação de saída. Essas solicitações podem representar um risco de segurança, pois essas conexões podem ser usadas para o download de malware. Mesmo se você quiser que esses servidores front-end iniciem solicitações de saída para a Internet, será conveniente forçá-los a passar pelos proxies Web locais. Isso permite que você aproveite a filtragem de URL e o log.
 
 Em vez disso, é adequado usar o túnel forçado para evitar essa situação. Ao habilitar o túnel forçado, todas as conexões com a Internet serão forçadas pelo gateway local. É possível configurar o túnel forçado aproveitando as vantagens de UDRs.
 
@@ -171,7 +171,7 @@ Saiba mais:
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Conectar a rede local a uma rede virtual com uma VPN
 
-Você conectar toda a sua rede corporativa, ou partes dela, a uma rede virtual. Isso é comum em cenários de TI híbrida, em que as organizações [estendem seu data center local para o Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Em muitos casos, as organizações hospedam partes de um serviço no Azure e partes no local. Por exemplo, eles poderão fazer isso quando uma solução incluir servidores Web front-end no Azure e bancos de dados back-end no local. Esses tipos de conexões "entre instalações" também tornam o gerenciamento dos recursos localizados no Azure mais seguros e possibilitam cenários como a extensão dos controladores de domínio do Active Directory para o Azure.
+Você conectar toda a sua rede corporativa, ou partes dela, a uma rede virtual. Isso é comum em cenários de TI híbrida, em que as organizações [estendem seu data center local para o Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Em muitos casos, as organizações hospedam partes de um serviço no Azure e partes no local. Por exemplo, eles poderão fazer isso quando uma solução incluir servidores Web front-end no Azure e bancos de dados back-end no local. Esses tipos de conexões "entre instalações" também tornam o gerenciamento dos recursos localizados no Azure mais seguro e possibilitam cenários como a extensão dos controladores de domínio do Active Directory para o Azure.
 
 Uma maneira de fazer isso é usar uma [VPN site a site](https://www.techopedia.com/definition/30747/site-to-site-vpn). A diferença entre uma VPN site a site e VPN ponto a site é que a última conecta um único dispositivo a uma rede virtual. Uma VPN site a site conecta a uma rede inteira (por exemplo, sua rede local) a uma rede virtual. As VPNs site a site em uma rede virtual usam o protocolo VPN de modo de túnel IPsec altamente seguro.
 
@@ -272,7 +272,7 @@ Resolução de nomes é uma função crítica para todos os serviços hospedados
 
 Há dois tipos de resolução de nomes que precisam ser abordados:
 
-* Resolução de nomes interna. Isso é usado pelos serviços nas redes virtuais, redes locais ou ambas. Os nomes usados para a resolução de nomes interna não são acessíveis pela Internet. Para uma segurança ideal, é importante que seu esquema de resolução de nomes interna não seja acessível a usuários externos.
+* Resolução de nomes interna. Isso é usado pelos serviços nas redes virtuais, redes locais ou ambas. Os nomes usados para a resolução de nomes interna não são acessíveis pela Internet. Para ter a segurança ideal, é importante que seu esquema de resolução de nomes interna não seja acessível a usuários externos.
 * Resolução de nomes externa. Isso é usado por pessoas e dispositivos fora de suas redes locais e virtuais. Esses são os nomes visíveis para a Internet e que são usados para direcionar a conexão para os serviços baseados na nuvem.
 
 Para a resolução de nomes interna, você tem duas opções:
@@ -303,7 +303,7 @@ Saiba mais:
 
 ## <a name="perimeter-network-architecture"></a>Arquitetura de rede de perímetro
 
-Muitas organizações grandes usam redes de perímetro para segmentar suas redes e criar uma zona de buffer entre a Internet e seus serviços. A parte de perímetro da rede é considerada uma zona de baixa segurança e nenhum ativo de alto valor é colocado nesse segmento da rede. Normalmente, você verá dispositivos de segurança de rede que têm uma interface de rede no segmento de rede de perímetro. Outra interface de rede está conectada a uma rede que tem máquinas virtuais e serviços que aceitam conexões de entrada da Internet.
+Muitas organizações grandes usam redes de perímetro para segmentar suas redes e criar uma zona de buffer entre a Internet e seus serviços. A parte de perímetro da rede é considerada uma zona de baixa segurança e nenhum ativo de alto valor é colocado nesse segmento da rede. Normalmente, você verá dispositivos de segurança de rede que têm um adaptador de rede no segmento de rede de perímetro. Outra interface de rede está conectada a uma rede que tem máquinas virtuais e serviços que aceitam conexões de entrada da Internet.
 
 Você pode criar redes de perímetro de várias maneiras diferentes. A decisão de implantar uma rede de perímetro e o tipo de perímetro da rede a ser usado se você decidir usar um depende de seus requisitos de segurança de rede.
 
@@ -313,7 +313,7 @@ Saiba mais:
 
 ## <a name="azure-ddos-protection"></a>Proteção contra DDoS do Azure
 
-Ataques de DDoS (negação de serviço distribuído) são uma das maiores preocupações de disponibilidade e de segurança enfrentadas pelos clientes que estão migrando seus aplicativos para a nuvem. Um ataque de DDoS tenta esgotar os recursos de um aplicativo, fazendo com que o aplicativo não fique disponível para usuários legítimos. Ataques de DDoS podem ser direcionadas a qualquer ponto de extremidade publicamente acessível pela Internet.
+Ataques de DDoS (negação de serviço distribuído) são uma das maiores preocupações de disponibilidade e de segurança enfrentadas pelos clientes que estão migrando seus aplicativos para a nuvem. Um ataque de DDoS tenta esgotar os recursos de um aplicativo, fazendo com que o aplicativo fique indisponível para usuários legítimos. Ataques de DDoS podem ser direcionadas a qualquer ponto de extremidade publicamente acessível pela Internet.
 A Microsoft fornece proteção contra DDoS conhecido como **Básico** como parte da plataforma Azure. Isso é fornecido sem custo adicional e sempre inclui monitoramento ativo e em tempo real mitigação de ataques comuns de nível de rede. Além das proteções incluídas com a proteção contra DDoS **Básico** você pode permitir que a opção **Standard**. Os recursos da Proteção contra DDoS do Azure Standard:
 
 * **Integração de plataforma nativa:** nativamente integrada ao Azure. Inclui a configuração por meio do Portal do Azure. A Proteção contra DDoS Standard compreende seus recursos e a respectiva configuração.
@@ -321,7 +321,7 @@ A Microsoft fornece proteção contra DDoS conhecido como **Básico** como parte
 * **Monitoramento de tráfego Always On:** seus padrões de tráfego do aplicativo são monitorados 24 horas por dia, 7 dias por semana, procurando indicadores de ataques de DDoS. A mitigação é realizada quando as políticas de proteção são excedidas.
 * **Relatórios de Mitigação de Ataque** Os Relatórios de Mitigação de Ataques usam dados de fluxo de rede agregados para fornecer informações detalhadas sobre ataques direcionados a seus recursos.
 * **Registros de Fluxo de Mitigação de Ataque** Os Registros de Fluxo de Mitigação de Ataque permitem que você revise o tráfego perdido, o tráfego encaminhado e outros dados de ataque quase em tempo real durante um ataque DDoS ativo.
-* **Ajuste adaptável:** a criação de perfil de tráfego inteligente aprende sobre o tráfego do seu aplicativo ao longo do tempo e seleciona e atualiza o perfil é o mais adequado para seu serviço. O perfil se ajusta conforme o tráfego é alterado ao longo do tempo. Proteção das camadas 3 a 7: fornece proteção contra DDoS de pilha completa, quando usado com um firewall do aplicativo Web.
+* **Ajuste adaptável:** a criação de perfis de tráfego inteligente aprende sobre o tráfego do seu aplicativo ao longo do tempo e seleciona e atualiza o perfil mais adequado para seu serviço. O perfil se ajusta conforme o tráfego é alterado ao longo do tempo. Proteção das camadas 3 a 7: fornece proteção contra DDoS de pilha completa, quando usado com um firewall do aplicativo Web.
 * **Escala de mitigação ampla:** mais de 60 tipos de ataques diferentes podem ser atenuados, com capacidade global, para proteger contra os maiores ataques de DDoS conhecidos.
 * **Métricas de ataque:** as métricas resumidas de cada ataque são acessíveis por meio do Azure Monitor.
 * **Alerta de ataque:** alertas podem ser configurados no início, durante e após a interrupção de um ataque, usando métricas de ataque internas. Os alertas integram-se ao software operacional, como o Microsoft Azure Log Analytics, Splunk, Armazenamento do Microsoft Azure, Email e o Portal do Azure.

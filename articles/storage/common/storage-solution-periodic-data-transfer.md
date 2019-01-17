@@ -8,12 +8,12 @@ ms.subservice: blob
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 61d3bcf8fd046ec1b68637bfdcc9827bb5b5d084
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263241"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158441"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para transferência de dados periódica
  
@@ -54,7 +54,7 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 | Recurso                                       | Data Box Gateway (versão prévia) | Azure Data Box Edge (visualização)  | Fábrica de dados do Azure        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
-| Fator forma                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal do Azure, agente no local                                                            |
+| Fator forma                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal do Azure, agente local                                                            |
 | Hardware                                      | Seu hipervisor            | Fornecido pela Microsoft    | ND                                                            |
 | Esforço de configuração inicial                          | Baixo (< 30 min.)            | Moderado (~ acoplar horas) | Grande (~dias)                                                 |
 | Formato de Dados                                   | Blobs do Azure, Azure Files   | Blobs do Azure, Azure Files | [Dá suporte a mais de 70 conectores de dados para os formatos e armazenamentos de dados](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|

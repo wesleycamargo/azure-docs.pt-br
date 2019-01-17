@@ -1,13 +1,9 @@
 ---
-title: Medidas Reais de Usuário no Gerenciador de Tráfego do Azure | Microsoft Docs
+title: Medidas de Usuário Reais do Gerenciador de Tráfego do Azure
 description: Introdução às Medidas Reais de Usuário do Gerenciador de Tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fd37ef739522955ae8227db39a41aecf199d65c3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178106"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052812"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Visão geral das Medidas Reais de Usuário do Gerenciador de Tráfego
 
@@ -31,7 +27,7 @@ O recurso de Medidas Reais de Usuário permite obter as medidas de latência de 
 
 ## <a name="how-real-user-measurements-work"></a>Como funcionam as Medidas Reais de Usuário
 
-As Medidas Reais de Usuário funcionam fazendo com que os aplicativos clientes meçam a latência das regiões do Azure como ela é percebida nas redes de usuário final em que esses aplicativos são usados. Por exemplo, se houver uma página da Web que seja acessada por usuários em diferentes locais (por exemplo, nas regiões na América do Norte), você poderá aproveitar a capacidade das Medidas Reais de Usuário ao usar o método de roteamento de desempenho para chegar à melhor região do Azure em que o aplicativo para servidores esteja hospedado.
+As Medidas de Usuário Reais funcionam fazendo com que os aplicativos clientes meçam a latência das regiões do Azure como ela é percebida nas redes de usuário final em que esses aplicativos são usados. Por exemplo, se houver uma página da Web que seja acessada por usuários em diferentes locais (por exemplo, nas regiões na América do Norte), você poderá usar as Medidas de Usuário Reais com o método de roteamento de desempenho para chegar à melhor região do Azure em que o aplicativo para servidores esteja hospedado.
 
 Ele começa pela inserção de um JavaScript fornecido pelo Azure (contendo uma chave exclusiva) nas páginas da Web. Depois disso, sempre que um usuário visitar a página da Web, o JavaScript consultará o Gerenciador de Tráfego para obter informações sobre as regiões do Azure que ele deve medir. O serviço retorna um conjunto de pontos de extremidade para o script que, em seguida, mede essas regiões consecutivamente ao baixar uma imagem de pixel único hospedada nessas regiões do Azure e observar a latência entre o momento em que a solicitação foi enviada e o momento em que o primeiro byte foi recebido. Em seguida, essas medidas são retornadas ao serviço do Gerenciador de Tráfego.
 

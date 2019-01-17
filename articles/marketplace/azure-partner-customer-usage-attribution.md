@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602164"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077735"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de uso do cliente do parceiro do Azure
 
@@ -36,10 +36,8 @@ A atribuição de uso do cliente é obrigatória em todos os [modelos de soluç�
 
 ## <a name="use-resource-manager-templates"></a>Use modelos do Gerenciador de Recursos
 
-Muitas soluções de parceiros são implantadas na assinatura de um cliente usando modelos do Resource Manager. Se você tiver um modelo do Resource Manager disponível no Azure Marketplace, no GitHub ou como início rápido, o processo para modificar o modelo para ativar o novo método de rastreamento deverá ser direto. Se você não estiver usando um modelo do Azure Resource Manager, aqui estão alguns links para ajudá-lo a entender melhor os modelos do Resource Manager e como criar um: 
+Muitas soluções de parceiros são implantadas na assinatura de um cliente usando modelos do Resource Manager. Se você tiver um modelo do Resource Manager disponível no Azure Marketplace, no GitHub ou como início rápido, o processo para modificar o modelo para ativar o novo método de rastreamento deverá ser direto. Para obter mais informações, consulte [Criar e implantar seu primeiro modelo do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
-*   [Crie e implante seu primeiro modelo do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [Criar um modelo de solução para o Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>Adicionar um GUID para o modelo
 
@@ -270,11 +268,15 @@ A Microsoft fornece aos parceiros uma visão das implantações de clientes de s
 
 **Quem pode adicionar um GUID para um modelo?**
 
-O recurso de rastreamento destina-se a conectar a solução do parceiro ao uso do Azure do cliente. Os dados de uso estão vinculados à identidade do Microsoft Partner Network de um parceiro (ID do MPN). 
+O recurso de rastreamento destina-se a conectar a solução do parceiro ao uso do Azure do cliente. Os dados de uso estão vinculados à identidade do Microsoft Partner Network de um parceiro (ID do MPN). Os relatórios estão disponíveis para parceiros no CPP.
 
 **Depois de um GUID é adicionado, ela pode ser alterada?**
  
 Sim, um cliente ou parceiro de implementação pode personalizar o modelo e alterar ou remover o GUID. Sugerimos que os parceiros proativamente descrevem a função do recurso e do GUID a seus clientes e parceiros para evitar a remoção ou edições para o GUID de rastreamento. Alterar o GUID afeta somente implantações e recursos novos e não existentes.
+
+**Quando os relatórios estarão disponível?**
+
+Uma versão beta dos relatórios deve estar disponível em breve. Emissão de relatórios será integrado ao CPP.
 
 **Posso acompanhar modelos implantados de um repositório não Microsoft como o GitHub?**
 

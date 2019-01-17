@@ -1,19 +1,19 @@
 ---
 title: Limites de serviço de versão prévia dos Gêmeos Digitais do Azure | Microsoft Docs
-description: Entenda os limites de serviço de visualização pública dos Gêmeos Digitais do Azure
+description: Entenda os limites de serviço de versão prévia pública dos Gêmeos Digitais do Azure.
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 86ae75118dd1311ea2ae92fb718fe4c58b8e5673
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961748"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118805"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de visualização pública
 
@@ -35,21 +35,25 @@ Durante a visualização pública, cada assinatura do Azure pode criar ou execut
 
 Por sua vez, cada instância de Gêmeos Digitais do Azure podem ter:
 
-- Um recurso **IoTHub**.
-- Um endpoint **EventHub** para o tipo de evento **DeviceMessage**.
+- Exatamente um recurso de **IoTHub**.
+- Exatamente um ponto de extremidade **EventHub** para o tipo de evento **DeviceMessage**.
 - Até três **EventHub**, **ServiceBus** ou **EventGrid** endpoints do tipo de evento **SensorChange**, **SpaceChange**, **TopologyOperation** ou **UdfCustom**.
 
-## <a name="management-api-limits"></a>Limites da API de Gerenciamento
+> [!NOTE]
+> Alguns parâmetros que geralmente são definidos ao criar as entidades de IoT do Azure acima não são necessários durante a versão prévia pública.
+> - Veja a [documentação de referência do Swagger](./how-to-use-swagger.md) para as especificações de API mais recentes.
 
-Os limites de taxa de solicitação para a API de gerenciamento são:
+## <a name="azure-digital-twins-management-api-limits"></a>Limites de API de Gerenciamento dos Gêmeos Digitais do Azure
 
-- 100 solicitações por segundo para a API de gerenciamento.
-- Até 1.000 objetos retornados por uma única consulta da API de gerenciamento. 
+Os limites de taxa de solicitação para a API de Gerenciamento dos Gêmeos Digitais do Azure são:
+
+- 100 solicitações por segundo para a API de Gerenciamento Digital dos Gêmeos Digitais do Azure.
+- Até 1.000 objetos retornados por uma única consulta de API de Gerenciamento de Gêmeos Digitais do Azure.
 
 > [!IMPORTANT]
 > Se você exceder o limite de 1.000 objetos, receberá um erro e deverá simplificar sua consulta.
 
-## <a name="udf-rate-limits"></a>Limites de taxa UDF
+## <a name="user-defined-functions-rate-limits"></a>Limites de taxa de funções definidas pelo usuário
 
 Os limites a seguir definem o número total de todas as chamadas de função definida pelo usuário feitas à sua instância de Gêmeos Digitais do Azure:
 
@@ -59,7 +63,7 @@ Os limites a seguir definem o número total de todas as chamadas de função def
 > [!NOTE]
 > As ações a seguir podem fazer com que limites de taxa adicionais sejam aplicados temporariamente:
 > - Edições feitas aos metadados do objeto de topologia
-> - Atualizações feitas na definição de UDF
+> - Atualizações feitas à definição de função definida pelo usuário
 > - Dispositivos que enviam telemetria pela primeira vez
 
 ## <a name="device-telemetry-limits"></a>Limites de telemetria do dispositivo
@@ -70,4 +74,4 @@ Os limites a seguir limitam o número total de todas as mensagens que seus dispo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para testar um exemplo de Gêmeos Digitais do Azure,vá para [Início Rápido para encontrar salas disponíveis](./quickstart-view-occupancy-dotnet.md).
+- Para testar um exemplo de Gêmeos Digitais do Azure,vá para [Início Rápido para encontrar salas disponíveis](./quickstart-view-occupancy-dotnet.md).

@@ -10,16 +10,16 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229410"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061050"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar um painel de informações do cliente em streaming com os Aplicativos Lógicos do Azure e o Azure Functions
 
-Ferramentas sem servidor do Azure que ajudam você a rapidamente criar e hospedar aplicativos na nuvem, sem precisar pensar sobre a infraestrutura. Nesse tutorial, você pode criar um painel que terá como gatilho os comentários de cliente, analisará os comentários com o aprendizado de máquina e publicará informações em uma fonte como o Power BI ou Azure Data Lake.
+O Azure oferece ferramentas [sem servidor](https://azure.microsoft.com/solutions/serverless/) do Azure que ajudam você a rapidamente criar e hospedar aplicativos na nuvem, sem precisar pensar sobre a infraestrutura. Nesse tutorial, você pode criar um painel que terá como gatilho os comentários de cliente, analisará os comentários com o aprendizado de máquina e publicará informações em uma fonte como o Power BI ou Azure Data Lake.
 
 Para esta solução, você deve usar esses componentes-chave do Azure para aplicativos sem servidor: [Azure Functions](https://azure.microsoft.com/services/functions/) e [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/).
 Aplicativos Lógicos do Azure fornecem um mecanismo de fluxo de trabalho sem servidor na nuvem para que você possa criar orquestrações entre componentes sem servidor e se conectar a mais de 200 serviços e APIs. O Azure Functions fornece computação sem servidor na nuvem. Essa solução usa o Azure Functions para sinalizar tweets de cliente com base em palavras-chave predefinidas.
@@ -60,10 +60,10 @@ Para detectar o sentimento por trás de um texto, você pode usar os [Serviços 
 
 Depois de obter os dados de tweet e informações sobre o tweet, agora você pode usar vários outros conectores relevantes e suas ações:
 
-* **Power BI - Adicionar linhas ao conjunto de dados de streaming**: exibição de tweets de entrada em um painel do Power BI.
-* **Azure Data Lake - Acrescentar arquivo**: adicionar dados do cliente em um conjunto de dados do Azure Data Lake para incluir nos trabalhos de análise.
-* **SQL - Adicionar linhas**: armazenar dados em um banco de dados para recuperação posterior.
-* **Slack - Enviar mensagem**: notificar um canal do Slack quando um comentário negativo requer ações.
+* **Power BI – adicionar linhas ao conjunto de dados de streaming**: Exiba tweets de entrada em um dashboard do Power BI.
+* **Azure Data Lake – acrescentar arquivo**: Adicionar dados do cliente em um conjunto de dados do Azure Data Lake para incluir nos trabalhos de análise.
+* **SQL – adicionar linhas**: Armazenar dados em um banco de dados para recuperação posterior.
+* **Slack – enviar mensagem**: Notificar um canal do Slack quando um comentário negativo requer ações.
 
 Você também pode criar uma função do Azure para que você possa executar processamento personalizado em seus dados. 
 

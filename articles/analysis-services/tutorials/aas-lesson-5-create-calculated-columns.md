@@ -1,19 +1,19 @@
 ---
-title: 'Lição 5 do tutorial do Azure Analysis Services: criar colunas calculadas | Microsoft Docs'
+title: 'Lição 5 do tutorial do Azure Analysis Services: Criar colunas calculadas | Microsoft Docs'
 description: Descreve como criar colunas calculadas no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428123"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187443"
 ---
 # <a name="create-calculated-columns"></a>Criar colunas calculadas
 
@@ -26,7 +26,7 @@ Nesta lição, você também usará primeiro as DAX (Expressões de Análise de 
 Tempo estimado para conclusão desta lição: **15 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 4: criar relações](../tutorials/aas-lesson-4-create-relationships.md). 
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 4: Criar relações](../tutorials/aas-lesson-4-create-relationships.md). 
   
 ## <a name="create-calculated-columns"></a>Criar colunas calculadas  
   
@@ -42,7 +42,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
   
     Uma nova coluna chamada **Coluna Calculada 1** é inserida à esquerda da coluna **Trimestre do Calendário**.  
   
-4.  Na barra de fórmulas acima da tabela, digite a seguinte fórmula DAX: o Preenchimento Automático ajuda você a digitar os nomes totalmente qualificados de colunas e tabelas e lista as funções que estão disponíveis.  
+4.  Na barra de fórmulas acima da tabela, digite a fórmula DAX a seguir: O Preenchimento Automático ajuda você a digitar os nomes totalmente qualificados de colunas e tabelas e lista as funções que estão disponíveis.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  
@@ -125,7 +125,7 @@ A coluna calculada ProductCategoryName é usada para criar uma hierarquia na tab
     A coluna calculada Margin é usada para analisar as margens de lucro de cada venda.  
   
 ## <a name="whats-next"></a>O que vem a seguir?
-[Lição 6: criar medidas](../tutorials/aas-lesson-6-create-measures.md).
+[Lição 6: Criar medidas](../tutorials/aas-lesson-6-create-measures.md).
   
   
   

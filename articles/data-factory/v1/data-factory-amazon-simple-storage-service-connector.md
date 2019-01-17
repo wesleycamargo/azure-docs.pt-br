@@ -9,17 +9,16 @@ ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d895dcdf9eefac01790aab6dc3f36a3feb0a8b12
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: fda80455cf3504bf992fabc3018be2d5c05612ae
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051143"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019139"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mover dados do Amazon Simple Storage Service usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,9 +43,9 @@ Parra detalhes sobre a lista completa e detalhada das permissões da Amazon S3,c
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com uma atividade de cópia que mova dados de uma origem do Amazon S3 usando diferentes ferramentas ou APIs.
 
-A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Para obter uma explicação rápida, confira [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) (Tutorial: criar um pipeline usando o Assistente de Cópia).
+A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Para uma rápida explicação passo a passo, consulte [Tutorial: Criar um pipeline usando Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -54,7 +53,7 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia.
 3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída.
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas ou APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON. Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados do Amazon S3, confira a seção [Exemplo de JSON: Copiar dados do Amazon S3 para o Blob do Azure](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) deste artigo.
+Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas ou APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON. Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados do armazenamento de dados do Amazon S3, confira a seção [Exemplo de JSON: Copiar dados do Amazon S3 para o Blob do Azure](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) neste artigo.
 
 > [!NOTE]
 > Para obter detalhes sobre os formatos de arquivo e de compactação com suporte para uma atividade de cópia, consulte [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
@@ -66,8 +65,8 @@ Um serviço vinculado vincula um armazenamento de dados a um data factory. Crie 
 
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso secreta. |string |sim |
-| secretAccessKey |A chave de acesso do secreta em si. |Cadeia de caracteres secreta criptografada |sim |
+| accessKeyID |ID da chave de acesso secreta. |string |SIM |
+| secretAccessKey |A chave de acesso do secreta em si. |Cadeia de caracteres secreta criptografada |SIM |
 
 >[!NOTE]
 >Este conector requer chaves de acesso da conta IAM para copiar dados do Amazon S3. [Não há suporte para a credencial de segurança temporária](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
@@ -95,12 +94,12 @@ As seções como structure, availability e policy são similares para todos os t
 
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| bucketName |O nome do bucket S3. |Cadeia de caracteres |sim |
+| bucketName |O nome do bucket S3. |Cadeia de caracteres |SIM |
 | chave |A chave do objeto S3. |Cadeia de caracteres |Não  |
 | prefixo |Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a chave está vazia. |Cadeia de caracteres |Não  |
 | version |A versão do objeto S3 se o controle de versão do S3 está habilitado. |Cadeia de caracteres |Não  |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios com base em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não  | |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **Mais rápido**. Para obter mais informações, consulte [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não  | |
+| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios com base em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não  | |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos que recebem suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis compatíveis são: **Ideal** e **Mais Rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não  | |
 
 
 > [!NOTE]
@@ -178,7 +177,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 | --- | --- | --- | --- |
 | recursive |Especifica se devemos listar recursivamente objetos S3 no diretório. |true/false |Não  |
 
-## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Exemplo JSON: copiar dados do Amazon S3 para o Armazenamento do Blob do Azure
+## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados do Amazon S3 para o Armazenamento de Blobs do Azure
 Este exemplo mostra como copiar dados de um Amazon S3 para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados [diretamente](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para qualquer uma das fontes que são suportadas usando a atividade de cópia no Data Factory.
 
 O exemplo fornece definições de JSON para as entidades de Data Factory a seguir. Você pode usar essas definições para criar um pipeline para copiar dados da Amazon S3 para armazenamento de Blob, usando o [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
@@ -249,7 +248,7 @@ Configurar **"external": true** informa ao serviço Data Factory que o conjunto 
 
 ### <a name="azure-blob-output-dataset"></a>Conjunto de dados de saída de Blob do Azure
 
-Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e hora da hora de início.
+Dados são gravados em um novo blob a cada hora (frequência: horas, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e hora da hora de início.
 
 ```json
 {

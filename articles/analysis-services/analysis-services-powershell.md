@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633701"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187512"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerenciar o Azure Analysis Services com PowerShell
 
@@ -22,11 +22,13 @@ Este artigo descreve os cmdlets do PowerShell usados para executar tarefas de ge
 Tarefas de gerenciamento de servidor, como criar ou excluir um servidor, suspender ou retomar operações do servidor ou alterar o nível (camada) de serviço, usam cmdlets do Azure Resource Manager (recurso) e do Analysis Services (servidor). Outras tarefas de gerenciamento de bancos de dados, como adição ou remoção de membros da função, processamento ou particionamento, usam os cmdlets incluídos no mesmo módulo SqlServer que o SQL Server Analysis Services.
 
 ## <a name="permissions"></a>Permissões
+
 A maioria das tarefas do PowerShell exige privilégios de administrador no servidor do Analysis Services que está sendo gerenciado. As tarefas agendadas do PowerShell são operações autônomas. A conta ou a entidade de serviço que executa o agendador precisa ter privilégios de administrador no servidor do Analysis Services. 
 
 Para operações de servidor usando os cmdlets AzureRm, sua conta ou a conta executando o Agendador também deve pertencer à função de Proprietário do recurso no [Controle de Acesso Baseado em Função do Azure (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Operações de gerenciamento de recursos 
+
 Módulo – [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|DESCRIÇÃO| 

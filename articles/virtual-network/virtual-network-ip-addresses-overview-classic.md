@@ -1,13 +1,10 @@
 ---
-title: Tipos de endereços IP no Azure (Clássico) | Microsoft Docs
+title: Tipos de endereço IP no Azure (Clássico)
+titlesuffix: Azure Virtual Network
 description: Saiba mais sobre endereços IP (clássicos) públicos e privados no Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011668"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024562"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereço IP e métodos de alocação (clássico) no Azure
 Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure: público e privado.
@@ -44,7 +41,7 @@ Um endereço IP público é associado aos seguintes tipos de recursos:
 * Application gateways
 
 ### <a name="allocation-method"></a>Método de alocação
-Quando precisa de um endereço IP público precisa ser atribuído a um recurso do Azure, ele é *dinamicamente* alocado de um pool de endereço IP público disponível no local em que o recurso é criado. Esse endereço IP é liberado quando o recurso é interrompido. No caso de um serviço de nuvem, isso acontece quando todas as instâncias de função são interrompidas, o que pode ser evitado usando um endereço IP *estático* (reservado) (consulte [Serviços de Nuvem](#Cloud-services)).
+Quando precisa de um endereço IP público precisa ser atribuído a um recurso do Azure, ele é *dinamicamente* alocado de um pool de endereço IP público disponível no local em que o recurso é criado. Esse endereço IP é liberado quando o recurso é interrompido. Com um serviço de nuvem, isso acontece quando todas as instâncias de função são interrompidas, o que pode ser evitado usando um endereço IP *estático* (reservado) (consulte [Serviços de Nuvem](#Cloud-services)).
 
 > [!NOTE]
 > A lista de intervalos IP do qual os endereços IP públicos são alocados a recursos do Azure é publicada em [intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).

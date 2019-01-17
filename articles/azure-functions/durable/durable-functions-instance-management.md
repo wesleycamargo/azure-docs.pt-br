@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343931"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042454"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerenciar instâncias nas Funções Duráveis (Azure Functions)
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Gerenciar instâncias em Durable Functions no Azure
 
 As instâncias de orquestração das [Funções Duráveis](durable-functions-overview.md) podem ser iniciadas, encerradas, consultadas e podem receber eventos de notificação. Todo o gerenciamento de instâncias é feito usando a [associação de cliente de orquestração](durable-functions-bindings.md). Este artigo mostra os detalhes de cada operação de gerenciamento de instância.
 
@@ -520,7 +520,7 @@ modules.exports = async function(context, ctx) {
 > [!NOTE]
 > Essa API não pretende ser uma substituição para as políticas de repetição e de tratamento de erros apropriadas. Em vez disso, destina-se a ser usada apenas em casos em que as instâncias de orquestração falhem por motivos inesperados. Para obter mais detalhes sobre políticas de repetição e tratamento de erro, confira o tópico [Tratamento de erro](durable-functions-error-handling.md).
 
-Um caso de uso de exemplo para *rewind* é um fluxo de trabalho que envolve uma série de [aprovações humanas](durable-functions-overview.md#pattern-5-human-interaction). Suponha que haja uma série de funções de atividade que notifique alguém sobre a necessidade de aprovação e aguarde a resposta em tempo real. Depois de todas as atividades de aprovação terem recebido respostas ou atingido o tempo limite, outra atividade falhará devido a um erro de configuração do aplicativo (por exemplo, uma cadeia de conexão de banco de dados inválida). O resultado é uma falha de orquestração profundamente no fluxo de trabalho. Com a API `RewindAsync` (.NET) ou `rewindAsync` (JavaScript), um administrador do aplicativo pode corrigir o erro de configuração e *retrocede* a orquestração com falha de volta para o estado imediatamente anterior à falha. Nenhuma das etapas com interação humana precisa ser aprovada novamente e a orquestração pode agora ser concluída com êxito.
+Um caso de uso de exemplo para *rewind* é um fluxo de trabalho que envolve uma série de [aprovações humanas](durable-functions-concepts.md#human). Suponha que haja uma série de funções de atividade que notifique alguém sobre a necessidade de aprovação e aguarde a resposta em tempo real. Depois de todas as atividades de aprovação terem recebido respostas ou atingido o tempo limite, outra atividade falhará devido a um erro de configuração do aplicativo (por exemplo, uma cadeia de conexão de banco de dados inválida). O resultado é uma falha de orquestração profundamente no fluxo de trabalho. Com a API `RewindAsync` (.NET) ou `rewindAsync` (JavaScript), um administrador do aplicativo pode corrigir o erro de configuração e *retrocede* a orquestração com falha de volta para o estado imediatamente anterior à falha. Nenhuma das etapas com interação humana precisa ser aprovada novamente e a orquestração pode agora ser concluída com êxito.
 
 > [!NOTE]
 > O recurso de *retroceder* não dá suporte para retroceder instâncias de orquestração que usam temporizadores duráveis.

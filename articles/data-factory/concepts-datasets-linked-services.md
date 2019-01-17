@@ -9,25 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38581259"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044239"
 ---
-# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços vinculados no Azure Data Factory 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços vinculados no Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-create-datasets.md)
 > * [Versão atual](concepts-datasets-linked-services.md)
 
-Este artigo descreve o que são conjuntos de dados, como eles são definidos no formato JSON e como são usados em pipelines do Azure Data Factory. 
+Este artigo descreve o que são conjuntos de dados, como eles são definidos no formato JSON e como são usados em pipelines do Azure Data Factory.
 
-Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azure Data Factory](introduction.md) para obter uma visão geral. 
+Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azure Data Factory](introduction.md) para obter uma visão geral.
 
 ## <a name="overview"></a>Visão geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você poderá usar uma atividade de cópia para copiar os dados de um SQL Server local para um armazenamento de Blobs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, poderá usar uma segunda atividade de cópia para copiar os dados de saída para o SQL Data Warehouse do Azure, no qual as soluções de relatório de BI (business intelligence) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) no Azure Data Factory.
@@ -36,7 +35,7 @@ Por outro lado, um **conjunto de dados** é uma exibição nomeada de dados que 
 
 Antes de criar um conjunto de dados, você deve criar um **serviço vinculado** para vincular seu armazenamento de dados com o data factory. Serviços vinculados são como cadeias de conexão, que definem as informações de conexão necessárias para o Data Factory para se conectar a recursos externos. Pense dessa maneira: o conjunto de dados representa a estrutura dos dados nos armazenamentos de dados vinculados e o serviço vinculado define a conexão à fonte de dados. Por exemplo, um serviço vinculado do Armazenamento do Azure vincula uma conta de armazenamento ao data factory. Um conjunto de dados de Blob do Azure representa o contêiner de blob e a pasta naquela conta de armazenamento do Azure que contém os blobs de entrada a serem processados.
 
-Veja abaixo um cenário de exemplo. Para copiar dados do armazenamento de Blobs para um banco de dados SQL, crie dois serviços vinculados: Armazenamento do Azure e Banco de Dados SQL do Azure. Em seguida, crie dois conjuntos de dados: o conjunto de dados de Blob do Azure (que se refere ao serviço vinculado do Armazenamento do Azure) e o conjunto de dados de Tabela do SQL do Azure (que se refere ao serviço vinculado do Banco de Dados SQL do Azure). Os serviços vinculados do Armazenamento do Azure e do Banco de Dados SQL do Azure contêm cadeias de conexão que o Data Factory usa em tempo de execução para se conectar ao Armazenamento do Azure e ao Banco de Dados SQL do Azure, respectivamente. O conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta de blobs que contém os blobs de entrada no armazenamento de Blobs. O conjunto de dados de Tabela do SQL do Azure especifica a tabela do SQL no banco de dados SQL para o qual os dados serão copiados.
+Veja abaixo um cenário de exemplo. Para copiar dados do armazenamento de Blobs para um banco de dados SQL, crie dois serviços vinculados: Armazenamento do Azure e Banco de Dados SQL do Azure. Em seguida, crie dois conjuntos de dados: O conjunto de dados de Blob do Azure (que se refere ao serviço vinculado do Armazenamento do Azure) e o conjunto de dados de Tabela do SQL do Azure (que se refere ao serviço vinculado do Banco de Dados SQL do Azure). Os serviços vinculados do Armazenamento do Azure e do Banco de Dados SQL do Azure contêm cadeias de conexão que o Data Factory usa em tempo de execução para se conectar ao Armazenamento do Azure e ao Banco de Dados SQL do Azure, respectivamente. O conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta de blobs que contém os blobs de entrada no armazenamento de Blobs. O conjunto de dados de Tabela do SQL do Azure especifica a tabela do SQL no banco de dados SQL para o qual os dados serão copiados.
 
 O seguinte diagrama mostra a relação entre pipeline, atividade, conjunto de dados e serviço vinculado no Data Factory:
 
@@ -65,13 +64,13 @@ A tabela a seguir descreve as propriedades no JSON acima:
 
 Propriedade | DESCRIÇÃO | Obrigatório |
 -------- | ----------- | -------- |
-Nome | Nome do serviço vinculado. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  sim |
-Tipo | Tipo de serviço vinculado. Por exemplo: AzureStorage (armazenamento de dados) ou AzureBatch (computação). Consulte a descrição de typeProperties. | sim |
-typeProperties | As propriedades de tipo são diferentes para cada armazenamento de dados ou de computação. <br/><br/> Para os tipos de armazenamento de dados suportados e suas propriedades de tipo, consulte a tabela [tipo de conjunto de dados](#dataset-type) neste artigo. Navegue até o artigo de conector do armazenamento de dados para saber mais sobre as propriedades de tipo específicas para um armazenamento de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [serviços vinculados de computação](compute-linked-services.md). | sim |
+Nome | Nome do serviço vinculado. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  SIM |
+Tipo | Tipo de serviço vinculado. Por exemplo:  AzureStorage (armazenamento de dados) ou AzureBatch (computação). Consulte a descrição de typeProperties. | SIM |
+typeProperties | As propriedades de tipo são diferentes para cada armazenamento de dados ou de computação. <br/><br/> Para os tipos de armazenamento de dados suportados e suas propriedades de tipo, consulte a tabela [tipo de conjunto de dados](#dataset-type) neste artigo. Navegue até o artigo de conector do armazenamento de dados para saber mais sobre as propriedades de tipo específicas para um armazenamento de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [serviços vinculados de computação](compute-linked-services.md). | SIM |
 connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não 
 
 ## <a name="linked-service-example"></a>Exemplo de serviço vinculado
-O seguinte serviço vinculado é um serviço vinculado de Armazenamento do Azure. Observe que o tipo é definido como AzureStorage. As propriedades de tipo para o serviço vinculado do Armazenamento do Azure incluem uma cadeia de conexão. O serviço de Data Factory usa essa cadeia de conexão para se conectar ao armazenamento de dados em tempo de execução. 
+O seguinte serviço vinculado é um serviço vinculado de Armazenamento do Azure. Observe que o tipo é definido como AzureStorage. As propriedades de tipo para o serviço vinculado do Armazenamento do Azure incluem uma cadeia de conexão. O serviço de Data Factory usa essa cadeia de conexão para se conectar ao armazenamento de dados em tempo de execução.
 
 ```json
 {
@@ -102,7 +101,7 @@ Um conjunto de dados no Data Factory é definido no formato JSON da seguinte man
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "structure": [
             {
@@ -122,10 +121,10 @@ A tabela a seguir descreve as propriedades no JSON acima:
 
 Propriedade | DESCRIÇÃO | Obrigatório |
 -------- | ----------- | -------- |
-Nome | Nome do conjunto de dados. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  sim |
-Tipo | Tipo de conjunto de dados. Especifique um dos tipos com suporte no Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [Tipos de conjunto de dados](#dataset-type). | sim |
+Nome | Nome do conjunto de dados. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  SIM |
+Tipo | Tipo de conjunto de dados. Especifique um dos tipos compatíveis com o Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [Tipos de conjunto de dados](#dataset-type). | SIM |
 estrutura | Esquema do conjunto de dados. Para obter detalhes, consulte [Estrutura de conjunto de dados](#dataset-structure). | Não  |
-typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Blob do Azure, tabela do SQL Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [Tipo de conjunto de dados](#dataset-type). | sim |
+typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Blob do Azure, tabela do SQL Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [Tipo de conjunto de dados](#dataset-type). | SIM |
 
 ## <a name="dataset-example"></a>Exemplo de conjunto de dados
 No exemplo a seguir, o conjunto de dados representa uma tabela chamada MyTable em um banco de dados SQL.
@@ -137,7 +136,7 @@ No exemplo a seguir, o conjunto de dados representa uma tabela chamada MyTable e
         "type": "AzureSqlTable",
         "linkedServiceName": {
                 "referenceName": "MyAzureSqlLinkedService",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "typeProperties":
         {
@@ -151,7 +150,7 @@ Observe os seguintes pontos:
 
 - O tipo foi definido como AzureSqlTable.
 - A propriedade de tipo tableName (específica do tipo AzureSqlTable) foi definida como MyTable.
-- linkedServiceName se refere a um serviço vinculado do tipo AzureSqlDatabase, que é definido no seguinte trecho de JSON.
+- linkedServiceName se refere a um serviço vinculado do tipo AzureSqlDatabase, que é definido no seguinte snippet de JSON.
 
 ## <a name="dataset-type"></a>Tipo de conjunto de dados
 Há muitos tipos diferentes de conjuntos de dados, dependendo do armazenamento de dados que você usa. Consulte a tabela a seguir para obter uma lista de armazenamentos de dados com suporte pelo Data Factory. Clique em um armazenamento de dados para saber como criar um serviço vinculado e um conjunto de dados para esse armazenamento de dados.
@@ -167,9 +166,9 @@ No exemplo na seção anterior, o tipo do conjunto de dados é definido como **A
         "type": "AzureBlob",
         "linkedServiceName": {
                 "referenceName": "MyAzureStorageLinkedService",
-                 "type": "LinkedServiceReference",
-        }, 
- 
+                "type": "LinkedServiceReference",
+        },
+
         "typeProperties": {
             "fileName": "input.log",
             "folderPath": "adfgetstarted/inputdata",
@@ -188,8 +187,8 @@ Cada coluna da seção Estrutura contém as seguintes propriedades:
 
 Propriedade | DESCRIÇÃO | Obrigatório
 -------- | ----------- | --------
-Nome | Nome da coluna. | sim
-Tipo | Tipo de dados da coluna. O Data Factory dá suporte aos seguintes tipos de dados intermediários como os valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset e Timespan** | Não 
+Nome | Nome da coluna. | SIM
+Tipo | Tipo de dados da coluna. O Data Factory dá suporte aos seguintes tipos de dados provisórios como valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset e Timespan** | Não 
 culture | Cultura baseada em .NET a ser usada quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. O padrão é `en-us`. | Não 
 formato | O formato de cadeia de caracteres a ser usado quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. Consulte [Data personalizada e cadeias de caracteres de formato de hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data e hora. | Não 
 
@@ -219,14 +218,14 @@ Você pode criar conjuntos de dados usando uma dessas ferramentas ou SDKs: [API 
 
 ## <a name="current-version-vs-version-1-datasets"></a>Conjuntos de dados da versão atual vs. versão 1
 
-A seguir, são apresentadas algumas diferenças entre os conjuntos de dados do Data Factory e Data Factory versão 1: 
+A seguir, são apresentadas algumas diferenças entre os conjuntos de dados do Data Factory e Data Factory versão 1:
 
 - A propriedade externa não é tem suporte na versão atual. Ela é substituída por um [gatilho](concepts-pipeline-execution-triggers.md).
 - Não há suporte para as propriedades de disponibilidade e política na versão atual. A hora de início de um pipeline depende de [gatilhos](concepts-pipeline-execution-triggers.md).
-- Não há suporte para conjuntos de dados com escopo (conjuntos de dados definidos em um pipeline) na versão atual. 
+- Não há suporte para conjuntos de dados com escopo (conjuntos de dados definidos em um pipeline) na versão atual.
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte os seguintes tutoriais para obter instruções passo a passo para criar pipelines e conjuntos de dados usando uma destas ferramentas ou SDKs. 
+Consulte os seguintes tutoriais para obter instruções passo a passo para criar pipelines e conjuntos de dados usando uma destas ferramentas ou SDKs.
 
 - [Início rápido: criar um data factory usando o .NET](quickstart-create-data-factory-dot-net.md)
 - [Início rápido: criar um data factory usando o PowerShell](quickstart-create-data-factory-powershell.md)

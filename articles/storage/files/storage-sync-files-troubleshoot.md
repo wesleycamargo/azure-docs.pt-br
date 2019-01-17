@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794542"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157625"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -145,11 +145,13 @@ Um status de integridade do ponto de extremidade de servidor de “Sem Atividade
 
 Um ponto de extremidade do servidor não pode registrar a atividade de sincronização em log pelos seguintes motivos:
 
-- O servidor atingiu o número máximo de sessões de sincronização simultâneas. A Sincronização de Arquivos do Azure dá suporte a duas sessões de sincronização ativas por processador ou, no máximo, oito sessões de sincronização ativas por servidor.
+- O servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto de extremidade do servidor, outros pontos de extremidade no do mesmo não podem iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída.
 
-- O servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto de extremidade do servidor, outros pontos de extremidade no servidor não podem iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída.
+    Para verificar a atividade de sincronização atual em um servidor, confira [Como fazer para monitorar o andamento de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Para verificar a atividade de sincronização atual em um servidor, confira [Como fazer para monitorar o andamento de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- O servidor atingiu o número máximo de sessões de sincronização simultâneas. 
+    - Versão do agente 4.x e posterior: O limite varia com base nos recursos de sistema disponíveis.
+    - Versão do agente 3.x: duas sessões de sincronização ativas por processador ou um máximo de oito sessões de sincronização ativas por servidor.
 
 > [!Note]  
 > Se o estado do servidor na folha de servidores registrados for “Aparece Offline”, execute as etapas documentadas na seção [O ponto de extremidade do servidor tem um status de integridade “Sem Atividade” ou “Pendente” e o estado do servidor na folha de servidores registrados é “Aparece offline”](#server-endpoint-noactivity).
@@ -244,13 +246,14 @@ Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport.ps1*
 **ItemResulta erros de sincronização de log por item**  
 | HRESULT | HRESULT (decimal) | Cadeia de caracteres de erro | Problema | Correção |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | O arquivo produz erros persistentes durante a sincronização e, portanto, só será tentado sincronizar uma vez por dia. O erro subjacente pode ser encontrado em um log de eventos anterior. | Nos agentes R2 (2.0) e acima, o erro original, e não este, é exibido. Atualize para o agente mais recente para ver o erro subjacente ou observe os logs de eventos anteriores para localizar a causa do erro original. |
-| 0x7b | 123 | ERROR_INVALID_NAME | O nome do arquivo ou diretório é inválido. | Renomeie o arquivo ou diretório em questão. Veja as [diretrizes de nomenclatura dos Arquivos do Azure](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e a lista de caracteres não suportados abaixo. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | O nome do arquivo ou diretório é inválido. | Renomeie o arquivo ou diretório em questão. Veja as [diretrizes de nomenclatura dos Arquivos do Azure](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) e a lista de caracteres não suportados abaixo. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um arquivo foi alterado, mas a alteração ainda não foi detectada pela sincronização. A sincronização será recuperada depois que essa alteração for detectada. | Nenhuma ação é necessária. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Um arquivo não pode ser sincronizado porque está em uso. O arquivo será sincronizado quando não estiver mais em uso. | Nenhuma ação é necessária. O Azure File Sync cria um instantâneo temporário do VSS uma vez por dia no servidor para sincronizar arquivos que tenham identificadores abertos. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | Um arquivo não pode ser sincronizado porque está em uso. O arquivo será sincronizado quando não estiver mais em uso. | Nenhuma ação é necessária. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Uma alteração de arquivo ou diretório ainda não pode ser sincronizada porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado após o mudanças dependentes serem sincronizadas. | Nenhuma ação é necessária. |
+| 0x7b | 123 | ERROR_INVALID_NAME | O nome do arquivo ou diretório é inválido. | Renomeie o arquivo ou diretório em questão. Veja [Tratamento de caracteres sem suporte](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
+| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | O nome do arquivo ou diretório é inválido. | Renomeie o arquivo ou diretório em questão. Veja [Tratamento de caracteres sem suporte](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Um arquivo não pode ser sincronizado porque está em uso. O arquivo será sincronizado quando não estiver mais em uso. | Nenhuma ação é necessária. O Azure File Sync cria um instantâneo temporário do VSS uma vez por dia no servidor para sincronizar arquivos que tenham identificadores abertos. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um arquivo foi alterado, mas a alteração ainda não foi detectada pela sincronização. A sincronização será recuperada depois que essa alteração for detectada. | Nenhuma ação é necessária. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | O arquivo não pode ser sincronizado porque o limite de compartilhamento de arquivos do Azure foi atingido. | Para resolver esse problema, veja a seção [Você atingiu o limite de armazenamento de compartilhamento de arquivos do Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) no guia de solução de problemas. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Esse erro poderá ocorrer se o arquivo for criptografado por uma solução sem suporte (como NTFS EFS) ou o arquivo tiver uma exclusão pendente. | Se o arquivo estiver criptografado por uma solução sem suporte, descriptografe-o e use uma solução de criptografia com suporte. Para obter uma lista de soluções com suporte, veja a seção [Soluções de criptografia](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) no guia de planejamento. Se o arquivo estiver em um estado de exclusão pendente, ele será excluído assim que todos os identificadores de arquivos abertos forem fechados. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | Um arquivo não pode ser sincronizado porque está em uso. O arquivo será sincronizado quando não estiver mais em uso. | Nenhuma ação é necessária. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um arquivo foi alterado durante a sincronização, portanto, ele precisa ser sincronizado novamente. | Nenhuma ação é necessária. |
 
 #### <a name="handling-unsupported-characters"></a>Manipulando Caracteres Não Suportados
@@ -549,6 +552,16 @@ Nos casos em que há muitos erros de sincronização por arquivo, as sessões de
 | **Correção necessária** | SIM |
 
 Assegure-se de que o caminho exista, esteja em um volume NTFS local e não seja um ponto de nova análise ou um terminal do servidor existente.
+
+<a id="-2134375817"></a>**Falha na sincronização porque a versão do driver de filtro não é compatível com a versão do agente**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C80277 |
+| **HRESULT (decimal)** | -2134375817 |
+| **Cadeia de caracteres de erro** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
+| **Correção necessária** | SIM |
+
+Esse erro ocorre porque a versão do driver do filtro de Camada de Nuvem (StorageSync.sys) carregada não é compatível com o serviço de Agente de Sincronização de Armazenamento (FileSyncSvc). Se o agente de Sincronização de Arquivos do Azure tiver sido atualizado, reinicie o servidor para concluir a instalação. Se o erro persistir, desinstale o agente, reinicie o servidor e reinstale o agente de Sincronização de Arquivos do Azure.
 
 <a id="-2134376373"></a>**O serviço está indisponível no momento.**  
 | | |

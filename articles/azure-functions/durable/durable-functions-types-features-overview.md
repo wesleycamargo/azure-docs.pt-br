@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fbfee92343bfecfbe8395f95775ae1f107b99299
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336519"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037269"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Visão geral dos tipos de função e recursos para Funções Duráveis (Azure Functions)
 
@@ -37,7 +37,7 @@ Encontre mais informações e exemplos no [artigo sobre associação de Funçõe
 
 ### <a name="orchestrator-functions"></a>Funções de orquestrador
 
-As funções de orquestrador são o centro de uma função durável.  As funções de orquestrador descrevem a forma e a ordem na qual as ações são executadas.  As funções de orquestrador descrevem a orquestração no código (C# ou JavaScript), conforme mostrado na [Visão geral das funções duráveis](durable-functions-overview.md).  Uma orquestração pode ter muitos tipos diferentes de ações, como [funções de atividade](#activity-functions), [suborquestrações](#sub-orchestrations), [espera de eventos externos](#external-events) e [temporizadores](#durable-timers).  
+As funções de orquestrador são o centro de uma função durável.  As funções de orquestrador descrevem a forma e a ordem na qual as ações são executadas.  As funções de orquestrador descrevem a orquestração no código (C# ou JavaScript), conforme mostrado nos [Padrões e conceitos técnicos das Durable Functions](durable-functions-concepts.md).  Uma orquestração pode ter muitos tipos diferentes de ações, como [atividade do Functions](#activity-functions), [suborquestrações](#sub-orchestrations), [espera de eventos externos](#external-events) e [temporizadores](#durable-timers).  
 
 Uma função de orquestrador precisa ser disparada por um [gatilho de orquestração](durable-functions-bindings.md#orchestration-triggers).
 

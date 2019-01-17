@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/13/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8cfbc72e239a7a5b38cee6752803e79735e2adc9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321267"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190800"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -74,15 +74,19 @@ Em **Visão Geral** > modelo > **Sincronizar modelo**.
 ![Controle deslizante da escala horizontal](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
+
 Use a operação de **sincronização**.
 
 #### <a name="synchronize-a-model"></a>Sincronizar um modelo   
+
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>Obter o status de sincronização  
+
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
+
 Antes de usar o PowerShell, [instale ou atualize o último módulo do AzureRM](https://github.com/Azure/azure-powershell/releases). 
 
 Para definir o número de réplicas de consulta, use [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Especifique o parâmetro `-ReadonlyReplicaCount` opcional.
@@ -103,7 +107,7 @@ Para SSMS, SSDT e cadeias de conexão no PowerShell, aplicativos do Azure Functi
 
 **Problema:** usuários obtêm o erro **não é possível localizar o servidor '\<nome do servidor >' instância no modo de conexão 'ReadOnly'.**
 
-**Solução:** ao selecionar o **separar o servidor de processamento do pool de consulta** opção conexões de cliente usando a cadeia de caracteres de conexão padrão (sem: rw) são redirecionadas para réplicas de pool de consulta. Se as réplicas no pool de consulta estiverem ainda online porque a sincronização ainda não foi concluída, as conexões de cliente redirecionada podem falhar. Para evitar conexões com falha, escolha não separar o servidor de processamento do pool de consulta até que uma operação de expansão e sincronização sejam concluídas. Você pode usar as métricas de memória e QPU para monitorar o status de sincronização.
+**Solução:** ao selecionar o **separar o servidor de processamento do pool de consulta** opção conexões de cliente usando a cadeia de conexão padrão (sem :rw) são redirecionadas para réplicas de pool de consulta. Se as réplicas no pool de consulta estiverem ainda online porque a sincronização ainda não foi concluída, as conexões de cliente redirecionada podem falhar. Para evitar conexões com falha, escolha não separar o servidor de processamento do pool de consulta até que uma operação de expansão e sincronização sejam concluídas. Você pode usar as métricas de memória e QPU para monitorar o status de sincronização.
 
 ## <a name="related-information"></a>Informações relacionadas
 

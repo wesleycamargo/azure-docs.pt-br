@@ -1,5 +1,5 @@
 ---
-title: Como exibir dependências de aplicativo com o Azure Monitor para VMs (Versão Prévia) | Microsoft Docs
+title: Como exibir dependências de aplicativo com o Azure Monitor para VMs (versão prévia) | Microsoft Docs
 description: O Mapa é um recurso do Azure Monitor para VMs que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usá-lo em vários cenários.
 services: azure-monitor
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337063"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187738"
 ---
-# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Usar o Mapa do Azure Monitor para VMs (Versão Prévia) para entender os componentes do aplicativo
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Usar o Mapa do Azure Monitor para VMs (versão prévia) para entender os componentes do aplicativo
 Exibindo os componentes de aplicativos descobertos em máquinas virtuais Windows e Linux em execução no Azure, seu ambiente pode ser observado de duas maneiras com o Monitor do Azure para VMs, a partir de uma máquina virtual diretamente ou entre grupos de VMs do Monitor do Azure. 
 
 Este artigo ajudará você a entender a experiência entre as duas perspectivas e como usar o recurso Mapa. Para obter informações sobre como configurar o Monitor do Azure para VMs, consulte [Ativar o Monitor do Azure para VMs](vminsights-onboard.md).

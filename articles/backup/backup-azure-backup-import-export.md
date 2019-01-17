@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974430"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188293"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. Durante o processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup offline no Azure.
@@ -109,7 +109,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
     * O computador de cópia pode acessar o local de preparo para o fluxo de trabalho de propagação offline usando o mesmo caminho de rede fornecido no fluxo de trabalho de **Iniciar o backup offline** .
     * O BitLocker está habilitado no computador de cópia.
     * O Azure PowerShell 3.7.0 está instalado.
-    * Os navegadores com suporte mais recentes (Microsoft Edge ou Internet Explorer 11) estão instalados e se o JavaScript está habilitado. 
+    * Os navegadores compatíveis mais recentes (Microsoft Edge ou Internet Explorer 11) estão instalados e se o JavaScript está habilitado. 
     * O computador de cópia pode acessar o portal do Azure. Se necessário, o computador de cópia também pode ser o computador de origem.
     
     > [!IMPORTANT] 

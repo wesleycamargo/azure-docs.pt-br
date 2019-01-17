@@ -1,23 +1,23 @@
 ---
-title: 'Lição 3 do tutorial do Azure Analysis Services: marcar como tabela de data | Microsoft Docs'
+title: 'Lição 3 do tutorial do Azure Analysis Services: Marcar como tabela de data | Microsoft Docs'
 description: Descreve como marcar uma tabela de data no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9cbbf8c5ea05915293c785028bdd0a47ba081036
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c383fe30b8a6be3a5915f3cc1c0f5e5712ab328
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426015"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188990"
 ---
 # <a name="mark-as-date-table"></a>Marcar como Tabela de Data
 
-Na Lição 2: obter dados, você importou uma tabela de dimensões chamada DimDate. Enquanto no seu modelo essa tabela é denominada DimDate, ela também é conhecida como uma *Tabela de data*, que contém dados de data e hora.  
+Na Lição 2: Obter dados, você importou uma tabela de dimensões chamada DimDate. Enquanto no seu modelo essa tabela é denominada DimDate, ela também é conhecida como uma *Tabela de data*, que contém dados de data e hora.  
   
 Sempre que usar funções de inteligência de dados temporais DAX, como fará quando criar medidas mais adiante, você deverá especificar as propriedades, que incluem uma *Tabela de data* e uma *coluna Data*, que é um identificador exclusivo nessa tabela.
   
@@ -25,10 +25,10 @@ Nesta lição, você marca a tabela DimDate, como a *Tabela de data* e a coluna 
 
 Antes de marcar a tabela de data e a coluna de data, é um bom momento para fazer um pouco de manutenção para facilitar a compreensão do seu modelo. Na tabela DimDate, observe uma coluna denominada **FullDateAlternateKey**. Esta coluna contém uma linha para cada dia em cada ano civil incluído na tabela. Você usará muito essa coluna em fórmulas de medida e em relatórios. No entanto, FullDateAlternateKey não é um bom identificador para essa coluna. Você o renomeará para **Data**, tornando-o mais fácil de identificar e incluir em fórmulas. Sempre que possível, é uma boa ideia para renomear objetos, como tabelas e colunas, para torná-los mais fáceis de identificar no SSDT e aplicativos cliente de relatório como o Power BI e o Excel. 
   
-Tempo estimado para conclusão desta lição: **três minutos**  
+Tempo estimado para conclusão desta lição: **Três minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 2: obter dados](../tutorials/aas-lesson-2-get-data.md). 
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 2: Obter dados](../tutorials/aas-lesson-2-get-data.md). 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>Para renomear a coluna FullDateAlternateKey
 
@@ -49,5 +49,5 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
   
 
 ## <a name="whats-next"></a>O que vem a seguir?
-[Lição 4: criar relações](../tutorials/aas-lesson-4-create-relationships.md).
+[Lição 4: Criar relações](../tutorials/aas-lesson-4-create-relationships.md).
   

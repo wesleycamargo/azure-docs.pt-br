@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866059"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024783"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
 
@@ -35,7 +35,7 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
 
 ## <a name="set-up-open-networking-mode"></a>Configurar o modo de rede Aberto
 
-1. Configurar o modelo do Azure Resource Manager. Na seção **fabricSettings**, habilite o serviço DNS e o provedor de IP: 
+1. Configurar o modelo do Azure Resource Manager. Na seção **fabricSettings** do recurso de cluster, habilite o serviço DNS e o provedor de IP: 
 
     ```json
     "fabricSettings": [
@@ -77,8 +77,10 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
                 }
             ],
     ```
+    
+2. Configure a seção de perfil de rede do recurso de conjunto de dimensionamento de máquinas virtuais. Isso permite a configuração de vários endereços IP em cada nó do cluster. O exemplo a seguir define cinco endereços de IP por nó para um cluster do Windows/Linux Service Fabric. Você pode ter cinco instâncias de serviço escutando na porta em cada nó. Para que os cinco IPs sejam acessíveis no Azure Load Balancer, inscreva os cinco IPs no Pool de Endereços de Back-End do Azure Load Balancer, conforme mostrado abaixo.  Você também precisará adicionar as variáveis na parte superior do seu modelo, na seção de variáveis.
 
-2. Configure a seção de perfil de rede para permitir a configuração de vários endereços IP em cada nó do cluster. O exemplo a seguir define cinco endereços de IP por nó para um cluster do Windows/Linux Service Fabric. Você pode ter cinco instâncias de serviço escutando na porta em cada nó. Para que os cinco IPs sejam acessíveis no Azure Load Balancer, inscreva os cinco IPs no Pool de Endereços de Back-End do Azure Load Balancer, conforme mostrado abaixo.
+    Adicione essa seção a Variáveis:
 
     ```json
     "variables": {
@@ -97,6 +99,11 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    Adicione esta seção ao recurso de conjunto de dimensionamento de máquinas virtuais:
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {

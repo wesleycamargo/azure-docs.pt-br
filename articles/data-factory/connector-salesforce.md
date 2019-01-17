@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409570"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015076"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-salesforce-connector.md)
 > * [Versão atual](connector-salesforce.md)
 
@@ -168,7 +167,7 @@ Para copiar dados do e para o Salesforce, defina a propriedade tipo do conjunto 
 ```
 
 >[!NOTE]
->Para retrocompatibilidade: ao copiar dados de Salesforce, se você usar o conjunto de dados de tipo "RelationalTable" anterior continuará funcionando, enquanto você vê uma sugestão para alternar para o novo tipo de "SalesforceObject".
+>Para a compatibilidade com versões anteriores: Ao copiar dados de Salesforce, se você usar o conjunto de dados de tipo "RelationalTable" anterior continuará funcionando, enquanto você vê uma sugestão para alternar para o novo tipo de "SalesforceObject".
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
@@ -227,7 +226,7 @@ Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia 
 ```
 
 >[!NOTE]
->Para retrocompatibilidade: ao copiar dados de Salesforce, se você usar a cópia de tipo "RelationalSource" anterior, a fonte continuará funcionando, enquanto você vê uma sugestão para alternar para o novo tipo de "SalesforceSource".
+>Para a compatibilidade com versões anteriores: Ao copiar dados de Salesforce, se você usar a cópia de tipo "RelationalSource" anterior, a fonte continuará funcionando, enquanto você vê uma sugestão para alternar para o novo tipo de "SalesforceSource".
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce como um tipo de coletor
 
@@ -239,9 +238,9 @@ Para copiar dados do Salesforce, defina o tipo de coletor na atividade de cópia
 | writeBehavior | O comportamento da operação de gravação.<br/>Valores permitidos são **Insert** e **Upsert**. | Não (o padrão é Insert) |
 | externalIdFieldName | O nome do campo de ID externo para a operação upsert. O campo especificado deve ser definido como "Campo de ID externo" no objeto de Salesforce. Ele não pode ter valores nulos nos dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados gravados no Salesforce em cada lote. | Não (o padrão é 5.000) |
-| ignoreNullValues | Indica se deve ignorar valores NULL de dados de entrada durante a operação de gravação.<br/>Os valores permitidos são **True** e **False**.<br>- **True**: Deixa os dados no objeto de destino inalterados quando você faz uma operação upsert ou atualização. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False**: atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert ou atualização. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |
+| ignoreNullValues | Indica se deve ignorar valores NULL de dados de entrada durante a operação de gravação.<br/>Os valores permitidos são **True** e **False**.<br>- **True**: Deixa os dados no objeto de destino inalterados quando você faz uma operação upsert ou atualização. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False**: Atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert ou atualização. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |
 
-**Exemplo: coletor Salesforce em uma atividade de cópia**
+**Exemplo: Coletor Salesforce em uma atividade de cópia**
 
 ```json
 "activities":[

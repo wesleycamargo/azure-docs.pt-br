@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e92e86f59058f1f226c67f873530cd9c06b5d5fc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c26da5d047a1e904510f96b44d81632b6e98689e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428327"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190962"
 ---
 # <a name="create-perspectives"></a>Criar perspectivas
 
@@ -23,10 +23,10 @@ A perspectiva de vendas pela Internet que você criou nesta lição excluirá o 
   
 O objetivo desta lição é descrever como criar perspectivas e se familiarizar com ferramentas de criação de modelo tabular. Se você expandir este modelo para incluir tabelas adicionais posteriormente, você poderá criar perspectivas adicionais para definir diferentes pontos de vista do modelo, por exemplo, Vendas e Inventário.  
   
-Tempo estimado para a conclusão desta lição: **Cinco minutos**  
+Tempo estimado para concluir esta lição: **Cinco minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 7: criar indicadores chave de desempenho](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 7: Criar Indicadores de Desempenho Principais](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
 ## <a name="create-perspectives"></a>Criar perspectivas  
   
@@ -45,7 +45,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     Em uma lição posterior, você usará o recurso Analisar no Excel para testar essa perspectiva. A Lista de Campos de Tabela Dinâmica do Excel incluirá cada tabela, com exceção da tabela DimCustomer.  
 
 ## <a name="whats-next"></a>O que vem a seguir?
-[Lição 9: criar hierarquias](../tutorials/aas-lesson-9-create-hierarchies.md).
+[Lição 9: Criar hierarquias](../tutorials/aas-lesson-9-create-hierarchies.md).
   
   
   

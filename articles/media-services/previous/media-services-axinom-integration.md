@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 81247863eb86752113989f6e48e79f5c8bc75505
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d269818e82261c51b63379bb41f69efdc21de18a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061147"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191251"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando o Axinom para fornecer licenças Widevine para os Serviços de Mídia do Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37061147"
 ## <a name="overview"></a>Visão geral
 O AMS (Serviços de Mídia do Azure) adicionou a proteção dinâmica do Google Widevine (veja o [blog de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) para obter detalhes). Além disso, o Player de Mídia do Azure (AMP) também adicionou suporte Widevine (consulte o [documento AMP](http://amp.azure.net/libs/amp/latest/docs/) para obter detalhes). Isso é uma grande conquista de streaming de conteúdo DASH protegido por CENC com DRM multinativo (PlayReady e Widevine) em navegadores modernos equipados com MSE e EME.
 
-A partir da versão 3.5.2 do SDK do .NET dos Serviços de Mídia, os Serviços de Mídia permitem que você configure um modelo de licença do Widevine e obtenha licenças do Widevine. Você também pode usar os seguintes parceiros do AMS para ajudar no fornecimento de licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
+A partir da versão 3.5.2 do SDK do .NET dos Serviços de Mídia, os Serviços de Mídia permitem que você configure um modelo de licença do Widevine e obtenha licenças do Widevine. Você também pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 Este artigo descreve como integrar e testar o servidor de licença Widevine gerenciado pelo Axinom. Especificamente, ele abrange:  
 
@@ -44,11 +44,11 @@ O sistema completo e o fluxo de chave de conteúdo, a ID da chave, a propagaçã
 ![DASH e CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Proteção do conteúdo
-Para configurar a proteção dinâmica e a política de entrega de chaves, consulte o blog de Mingfei: [Como configurar o empacotamento do Widevine com os Serviços de Mídia do Azure](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Para configurar a proteção dinâmica e a política de entrega de chaves, confira o blog de Mingfei: [Como configurar o empacotamento Widevine com os Serviços de Mídia do Azure](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 Você pode configurar a proteção CENC dinâmica com multi-DRM para o streaming DASH com o seguinte:
 
-1. Proteção do PlayReady para o MS Edge e o IE11, que pode ter restrições de autorização de token. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS), como o Active Directory do Azure.
+1. Proteção do PlayReady para o Microsoft Edge e o IE11, que pode ter uma restrição de autorização de token. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS), como o Active Directory do Azure.
 2. Proteção do Widevine para o Chrome, pode exigir autenticação de token com um token emitido pelo outro STS. 
 
 Consulte a seção [Geração de tokens JWT](media-services-axinom-integration.md#jwt-token-generation) para saber por que o Azure Active Directory não pode ser usado como um STS para o servidor de licença Widevine da Axinom.
@@ -59,7 +59,7 @@ Consulte a seção [Geração de tokens JWT](media-services-axinom-integration.m
 
 ## <a name="azure-media-player-preparation"></a>Preparação do Player de Mídia do Azure
 O AMP v1.4.0 oferece suporte à reprodução de conteúdo AMS dinamicamente empacotado com o PlayReady e o Widevine DRM.
-Se o servidor de licença Widevine não exigir autenticação de token, não haverá nada mais que deva ser feito para testar um conteúdo DASH protegido pelo Widevine. Por exemplo, a equipe AMP fornece um [exemplo](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html)simples, que você pode ver funcionando na Extremidade e IE11 com PlayReady e Chrome com Widevine.
+Se o servidor de licença Widevine não exigir autenticação de token, não haverá nada mais que deva ser feito para testar um conteúdo DASH protegido pelo Widevine. Por exemplo, a equipe AMP apresenta um [exemplo](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html) simples, em que você pode vê-lo funcionando no Microsoft Edge e no IE11 com o PlayReady e o Chrome com Widevine.
 O servidor de licença do Widevine fornecido pela Axinom requer autenticação de token JWT. O token JWT precisa ser enviado com uma solicitação de licença por meio de um cabeçalho HTTP “X-AxDRM-Message”. Para essa finalidade, você precisa adicionar o seguinte javascript à página da Web que esteja hospedando o AMP antes de configurar a fonte:
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
@@ -200,5 +200,5 @@ Os parâmetros a seguir são necessários na mini-solução que aproveita o serv
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Agradecimentos
-Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Kristjan Jõgi da Axinom, Mingfei Yan e Amit Rajput.
+Gostaríamos de agradecer às seguintes pessoas que contribuíram para a criação deste documento: Kristjan Jõgi da Axinom, Mingfei Yan e Amit Rajput.
 

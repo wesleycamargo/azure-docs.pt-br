@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987689"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023831"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 
@@ -448,7 +448,7 @@ Também é possível obter informações sobre extensões usando o comando do Po
 
 Quando você implanta um modelo, o Azure rastreia os recursos implantados como um grupo e atribui automaticamente um nome a esse grupo implantado. O nome da implantação é o mesmo que o nome do modelo.
 
-Se você estiver curioso sobre o status dos recursos na implantação, será possível usar a folha Grupo de Recursos no portal do Azure:
+Se você estiver curioso sobre o status dos recursos na implantação, veja o grupo de recursos no portal do Azure:
 
 ![Obter informações sobre a implantação](./media/template-description/virtual-machines-deployment-info.png)
     
@@ -459,3 +459,4 @@ Não é um problema usar o mesmo modelo para criar recursos ou para atualizar re
 - Crie seu próprio modelo usando [Criação de modelos do Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Implante o modelo criado usando [Create a Windows virtual machine with a Resource Manager template (Criar uma máquina virtual do Windows com um modelo do Resource Manager)](ps-template.md).
 - Saiba como gerenciar as VMs que você criou, revisando [Criar e gerenciar VMs do Windows com o módulo do Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Para informações sobre a sintaxe JSON e as propriedades de tipos de recursos em modelos, consulte [Referência de modelo do Azure Resource Manager](/azure/templates/).

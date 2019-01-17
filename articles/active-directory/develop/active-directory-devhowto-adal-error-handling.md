@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d6e70048f5c86ad18962237d7ffcc442c82bf035
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974775"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107643"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Práticas recomendadas em tratamento de erro para clientes da Biblioteca de autenticação do Azure Active Directory (ADAL)
 
@@ -27,8 +27,8 @@ Este artigo apresenta diretrizes sobre o tipo de erro que desenvolvedores podem 
 
 Neste artigo, exploramos os casos específicos de cada plataforma suportada por ADAL e como o aplicativo pode tratar cada caso corretamente. As diretrizes de erro estão divididas em duas categorias mais amplas, com base nos padrões de aquisição de token fornecidos por APIs da ADAL:
 
-- **AcquireTokenSilent**: o cliente tenta obter um token silenciosamente (sem interface do usuário) e poderá falhar se ADAL for malsucedida. 
-- **AcquireToken**: o cliente pode tentar uma aquisição silenciosa, mas também pode realizar solicitações interativas que exijam entrada.
+- **AcquireTokenSilent**: O cliente tenta obter um token silenciosamente (sem interface do usuário) e poderá falhar se a ADAL não for bem-sucedida. 
+- **AcquireToken**: O cliente pode tentar uma aquisição silenciosa, mas também pode realizar solicitações interativas que exijam credenciais.
 
 > [!TIP]
 > É uma boa ideia registrar todos os erros e exceções ao usar a ADAL e o Azure AD. Os logs não apenas são úteis para entender a integridade geral do aplicativo, mas também são importantes durante a depuração de problemas mais amplos. Embora o aplicativo possa se recuperar de determinados erros, eles podem indicar problemas de design mais amplos que exijam alterações no código para serem resolvidos. 
@@ -53,8 +53,8 @@ Basicamente, há dois casos de erros AcquireTokenSilent:
 
 | Caixa | DESCRIÇÃO |
 |------|-------------|
-| **Caso 1**: o erro pode ser resolvido com uma entrada interativa | Para erros causados pela falta de tokens válidos, uma solicitação interativa é necessária. Mais especificamente, a pesquisa de cache e um token de atualização inválido/expirado exigem uma chamada AcquireToken para serem resolvidos.<br><br>Nesses casos, o usuário final precisa ser solicitado a entrar. O aplicativo pode optar por fazer uma solicitação interativa imediatamente, após a interação do usuário final (como apertar um botão de entrada) ou posterior. A escolha depende do comportamento desejado do aplicativo.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele.|
-| **Caso 2**: o erro não pode ser resolvido com uma entrada interativa | Para erros de rede e transitórios/temporários ou outras falhas, a execução de uma solicitação AcquireToken interativa não resolve o problema. Avisos de entrada interativa desnecessários também podem frustrar usuários finais. A ADAL tenta automaticamente uma nova tentativa única para a maioria dos erros em falha AcquireTokenSilent.<br><br>O aplicativo cliente também poderá tentar novamente depois, mas quando e como fazer isso depende do comportamento do aplicativo e da experiência do usuário final desejada. Por exemplo, o aplicativo poderá fazer uma nova tentativa AcquireTokenSilent depois de alguns minutos, ou em resposta a uma ação do usuário final. Uma repetição imediata resultará na limitação do aplicativo e não deve ser tentada.<br><br>Uma falha em nova tentativa subsequente com o mesmo erro não significa que o cliente deva fazer uma solicitação interativa usando AcquireToken, pois isso não resolve o erro.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele. |
+| **Caso 1**: O erro pode ser resolvido com credenciais interativas | Para erros causados pela falta de tokens válidos, uma solicitação interativa é necessária. Mais especificamente, a pesquisa de cache e um token de atualização inválido/expirado exigem uma chamada AcquireToken para serem resolvidos.<br><br>Nesses casos, o usuário final precisa ser solicitado a entrar. O aplicativo pode optar por fazer uma solicitação interativa imediatamente, após a interação do usuário final (como apertar um botão de entrada) ou posterior. A escolha depende do comportamento desejado do aplicativo.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele.|
+| **Caso 2**: O erro não pode ser resolvido com credenciais interativas | Para erros de rede e transitórios/temporários ou outras falhas, a execução de uma solicitação AcquireToken interativa não resolve o problema. Avisos de entrada interativa desnecessários também podem frustrar usuários finais. A ADAL tenta automaticamente uma nova tentativa única para a maioria dos erros em falha AcquireTokenSilent.<br><br>O aplicativo cliente também poderá tentar novamente depois, mas quando e como fazer isso depende do comportamento do aplicativo e da experiência do usuário final desejada. Por exemplo, o aplicativo poderá fazer uma nova tentativa AcquireTokenSilent depois de alguns minutos, ou em resposta a uma ação do usuário final. Uma repetição imediata resultará na limitação do aplicativo e não deve ser tentada.<br><br>Uma falha em nova tentativa subsequente com o mesmo erro não significa que o cliente deva fazer uma solicitação interativa usando AcquireToken, pois isso não resolve o erro.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele. |
 
 ### <a name="net"></a>.NET
 
@@ -187,7 +187,7 @@ O sistema operacional também pode gerar um conjunto de erros, que exigem o trat
   - Todos os cenários, inclusive em nome de
   - Cenários específicos em nome de
 
-### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casos de erro e etapas práticas: aplicativos de cliente nativo
+### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casos de erro e etapas práticas: Aplicativos cliente nativos
 
 Se você estiver criando um aplicativo de cliente nativo, há alguns casos de tratamento de erro a serem considerados que estão relacionados a problemas de rede, falhas transitórias e outros erros específicos da plataforma. Na maioria dos casos, um aplicativo não deve realizar novas tentativas imediatas, e sim aguardar a interação do usuário final que solicita uma entrada. 
 
@@ -340,7 +340,7 @@ O código seria implementado da seguinte maneira:
 }]
 ```
 
-### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Casos de erro e etapas práticas: aplicativos Web que chamam uma API de recurso (.NET)
+### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Casos de erro e etapas práticas: Aplicativos Web que chamam uma API de recurso (.NET)
 
 Se você estiver criando um aplicativo Web .NET que receba um token usando um código de autorização para um recurso, o único código obrigatório será o manipulador padrão para o caso genérico. 
 
@@ -365,7 +365,7 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de erro e etapas práticas: aplicativos de página única (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de erro e etapas práticas: Aplicativos de página única (adal.js)
 
 Se estiver criando um aplicativo de página única usando adal.js com AcquireToken, o código de tratamento de erro será semelhante ao de uma chamada silenciosa típica. Mais especificamente em adal.js, AcquireToken jamais mostra uma interface do usuário. 
 
@@ -580,13 +580,19 @@ window.Logging = {
 
 * [Guia do Desenvolvedor do Azure AD][AAD-Dev-Guide]
 * [Bibliotecas de autenticação do Azure Active Directory][AAD-Auth-Libraries]
-* [Bibliotecas de Autenticação do Azure Active Directory][AAD-Auth-Scenarios]
-* [Integrando aplicativos ao Azure Active Directory][AAD-Integrating-Apps]
+* [Cenários de autenticação do Azure Active Directory][AAD-Auth-Scenarios]
+* [Integrando aplicativos com o Azure Active Directory][AAD-Integrating-Apps]
 
 Use a seção de comentários a seguir para fazer comentários e nos ajudar a refinar e modelar o conteúdo.
 
-[![Botão de entrada][AAD-Sign-In]] [ AAD-Sign-In] 
- <!--Reference style links --> [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]:authentication-scenarios.md [AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.com
+[![Botão Entrar][AAD-Sign-In]][AAD-Sign-In]
+<!--Reference style links -->
+
+[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
+[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Dev-Guide]:azure-ad-developers-guide.md
+[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
+[AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

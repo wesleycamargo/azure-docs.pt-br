@@ -1,13 +1,10 @@
 ---
-title: Criar e associar políticas de ponto de extremidade de serviço – Portal do Azure | Microsoft Docs
+title: Criar e associar políticas de ponto de extremidade de serviço – portal do Azure
+titlesuffix: Azure Virtual Network
 description: Neste artigo, saiba como configurar e associar políticas de ponto de extremidade de serviço usando o portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633003"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054428"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou excluir a política de ponto de extremidade de serviço usando o portal do Azure
 
@@ -46,28 +43,28 @@ Entre no Portal do Azure em http://portal.azure.com.
 2. No painel de pesquisa, digite "política de ponto de extremidade de serviço" e selecione **Política de ponto de extremidade de serviço (Versão prévia)** e, em seguida, selecione **Criar**.
 3. Insira, ou selecione, as seguintes informações em **Básico** 
 
-   - Assinatura: selecione sua assinatura para a política.    
-   - Grupo de recursos: selecione **Criar novo** e insira *myResourceGroup*.     
+   - Assinatura: Selecione sua assinatura para a política.    
+   - Grupo de recursos: Selecione **Criar novo** e insira *myResourceGroup*.     
    - Nome: myEndpointPolicy
-   - Local: Centro-oeste dos EUA     
+   - Local: Centro-Oeste dos EUA     
  
    ![Criar o básico da política de ponto de extremidade de serviço](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
 4. Insira, ou selecione, as seguintes informações em **Definições de política**
 
    - Em **+ Adicionar um recurso**, insira, ou selecione, as informações a seguir, aceite o padrão para as configurações restantes e clique em **Adicionar**.  
-   - Escopo: selecione **Conta individual** ou **Todas as contas na assinatura** ou **Todas as contas no grupo de recursos**.    
-   - Assinatura: selecione sua assinatura para a conta de armazenamento. A política e as contas de armazenamento podem estar em diferentes assinaturas.   
-   - Grupo de recursos: selecione seu grupo de recursos. Obrigatório, se o escopo estiver definido como "Todas as contas no grupo de recursos" ou "Conta individual".  
+   - Escopo: Selecione **Conta individual** ou **Todas as contas na assinatura** ou **Todas as contas no grupo de recursos**.    
+   - Assinatura: Selecione sua assinatura para a conta de armazenamento. A política e as contas de armazenamento podem estar em diferentes assinaturas.   
+   - Grupo de recursos: Selecione o grupo de recursos. Obrigatório, se o escopo estiver definido como "Todas as contas no grupo de recursos" ou "Conta individual".  
    - Recurso: mystorageaccountportal    
    - Clique em **+ Adicionar um recurso** para continuar adicionando mais recursos.
    
    ![Criar definições da política de ponto de extremidade de serviço](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. Opcional: insira ou selecione as seguintes informações em **Tags**:
+5. Opcional: Insira, ou selecione, as seguintes informações em **Marcas**:
    
-   - Chave: selecione sua chave para a política. Por exemplo: Depto     
-   - Valor: insira um par de valor para a chave. Por exemplo: Finanças
+   - Chave: Selecione sua chave para a política. Por exemplo: Dept     
+   - Valor: Insira um par de valor para a chave. Por exemplo: Finanças
 
 6. Selecione **Examinar + criar**. Valide as informações e clique em **Criar**. Para fazer mais edições, clique em **Anterior**. 
 
@@ -101,9 +98,9 @@ Antes de poder associar uma política a uma sub-rede, é necessário criar uma r
 3. Em **Criar rede virtual**, insira, ou selecione, as informações a seguir, aceite o padrão para as configurações restantes e, em seguida, selecione **Criar**:
    - Nome: myVirtualNetwork      
    - Espaço de endereço: 10.0.0.0/16      
-   - Assinatura: selecione sua assinatura. A política deve estar na mesma assinatura que a VNet     
-   - Grupo de recursos: selecione **Usar existente** e, em seguida, selecione *myResourceGroup*     
-   - Local: Centro-oeste dos EUA     
+   - Assinatura: Selecione sua assinatura. A política deve estar na mesma assinatura que a VNet     
+   - Grupo de recursos: Selecione **Usar existente** e depois *myResourceGroup*     
+   - Local: Centro-Oeste dos EUA     
    - Nome da sub-rede: privado     
    - Intervalo de endereços: 10.0.0.0/24
      

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f3d171a8f0e353d5860f410a8c32149f8872338
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247289"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189381"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Configurações e perguntas frequentes sobre o roaming de dados
 Este artigo responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo.
@@ -37,7 +37,7 @@ Este artigo responde a algumas dúvidas que os administradores de TI podem ter s
 * *Recursos de facilidade de acesso*, como tema de alto contraste, Narrador e Lupa.
 * *Outras configurações do Windows*, como as configurações de mouse.
 
-**Dados de aplicativo**: os aplicativos Universais do Windows podem gravar dados de configurações em uma pasta de roaming e todos os dados gravados nessa pasta serão automaticamente sincronizados. Cabe ao desenvolvedor de aplicativos individuais criar um aplicativo para tirar proveito desse recurso. Para obter mais detalhes sobre como desenvolver um aplicativo Universal do Windows que usa roaming, confira a [API de armazenamento appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [blog do desenvolvedor sobre roaming appdata do Windows 8](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Dados do aplicativo**: os aplicativos Universais do Windows podem gravar dados de configurações em uma pasta de roaming e todos os dados gravados nessa pasta serão automaticamente sincronizados. Cabe ao desenvolvedor de aplicativos individuais criar um aplicativo para tirar proveito desse recurso. Para obter mais detalhes sobre como desenvolver um aplicativo Universal do Windows que usa roaming, confira a [API de armazenamento appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [blog do desenvolvedor sobre roaming appdata do Windows 8](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Qual conta é usada para a sincronização de configurações?
 No Windows 8.1, a sincronização de configurações sempre usou as contas de consumidor da Microsoft. Os usuários corporativos tinham a capacidade de conectar uma conta da Microsoft à conta de domínio do Active Directory para obter acesso à sincronização de configurações. No Windows 10, essa funcionalidade de conta da Microsoft conectada está sendo substituída por uma estrutura de conta principal/secundária.

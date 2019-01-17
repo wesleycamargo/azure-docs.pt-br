@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 19600ccbc2a424d210c686d7027b52bc6254de57
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123475"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074709"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de Publicação da Oferta de Aplicativos SaaS
 
@@ -34,8 +34,8 @@ Aplicativos SaaS estão disponíveis em ambas as vitrines do Azure A tabela a se
 | AppSource | Sim (Entrar em contato comigo) | Sim (PowerBI/Dynamics) |
 | Azure Marketplace | Não  | Sim (Aplicativos SaaS) |   
 
-**Lista:** a opção de publicação de lista é uma oferta do tipo "Entre em contato" usada quanto a participação no nível Avaliação ou Transação não é viável. O benefício dessa abordagem é permitir que os editores com uma solução no mercado comecem imediatamente a receber clientes potenciais que possam ser convertidos em ofertas para impulsionar seu negócio.  
-**Avaliação/Transação:** o cliente tem a opção de comprar diretamente ou solicitar uma avaliação para sua solução. Fornecer uma experiência de avaliação aumenta o nível de engajamento oferecido aos clientes e permite explorar a solução antes da compra. Com uma experiência de avaliação, você terá melhores oportunidades de promoção nas vitrines e pode esperar mais clientes potenciais mais valiosos com base no engajamento dos clientes. As Avaliações devem incluir suporte gratuito pelo menos durante o período de avaliação.  
+**Lista:**  a opção de publicação em lista é uma oferta do tipo "Entre em contato" usada quando a participação no nível Avaliação ou Transação não é viável. O benefício dessa abordagem é permitir que os editores com uma solução no mercado comecem imediatamente a receber clientes potenciais que possam ser convertidos em ofertas para impulsionar seu negócio.  
+**Avaliação/Transação:**  o cliente tem a opção de comprar diretamente ou solicitar uma avaliação de sua solução. Fornecer uma experiência de avaliação aumenta o nível de engajamento oferecido aos clientes e permite explorar a solução antes da compra. Com uma experiência de avaliação, você terá melhores oportunidades de promoção nas vitrines e pode esperar mais clientes potenciais mais valiosos com base no engajamento dos clientes. As Avaliações devem incluir suporte gratuito pelo menos durante o período de avaliação.  
 
 | Oferta de aplicativos SaaS | Requisitos de negócios | Requisitos técnicos |  
 | --- | --- | --- |  
@@ -94,7 +94,7 @@ Para tutoriais em vídeo, examine o seguinte:
 * [Vídeos do Microsoft Azure focados no Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Um treinamento gratuito do Azure Active Directory está disponível em  
-* [ Microsoft Azure para Séries de Conteúdo para Profissionais de TI: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Série de Conteúdo do Microsoft Azure para Profissionais de TI: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Além disso, o Azure Active Directory fornece um site para verificar se há atualizações de serviço   
 * [Atualizações de serviço do Microsoft Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
@@ -145,10 +145,11 @@ A Microsoft hospeda a transação comercial. A Microsoft cobra o cliente em seu 
 | API de assinatura | Você expõe um serviço que pode interagir com a Assinatura de SaaS para criar, atualizar e excluir um plano de serviço e uma conta de usuário. As alterações críticas na API devem ter suporte em até 24 horas. As alterações não críticas de API serão lançadas periodicamente. |  
 
 ## <a name="next-steps"></a>Próximas etapas
-Caso ainda não tenha feito isso, 
+Caso ainda não tenha feito isso,
 
-- [registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace
+- [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.
 
 Se você estiver registrado e estiver criando uma nova oferta ou trabalhando em uma existente,
 
-- [Faça logon no Portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir a oferta
+- [Entre no Portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir a oferta.
+- Consulte [Oferta de aplicativo SaaS do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) para obter mais informações.

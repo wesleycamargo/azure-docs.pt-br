@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 458b615ea872b62a412a71cbbb0b3827ccb4d9b8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: eb81e5202b5705c59bae8e07cbf2ade43b03f075
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580919"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064467"
 ---
 # <a name="azure-log-integration-faq"></a>Perguntas frequentes sobre a Integração de Logs do Azure
 
@@ -31,7 +31,7 @@ Este artigo responde as perguntas frequentes (FAQ) sobre a Integração de Logs 
 
 A Integração de Logs do Azure é um serviço do sistema operacional Windows que permite integrar logs brutos de recursos do Azure a seus sistemas locais de SIEM (Gerenciamento de Eventos e Informações de Segurança). Essa integração oferece um painel unificado para todos os seus ativos, locais ou na nuvem. Você pode então agregar, correlacionar, analisar e alertar sobre eventos de segurança associados a seus aplicativos.
 
-É o método preferencial para integrar os logs do Azure usando o conector do Azure Monitor do seu fornecedor SIEM e seguindo estas [instruções](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
+O método preferencial para integrar os logs do Azure é usando o conector do Azure Monitor do seu fornecedor de SIEM e seguindo estas [instruções](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor de SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>O software Integração de Log do Azure é gratuito?
 

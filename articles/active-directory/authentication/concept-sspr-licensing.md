@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158991"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043032"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD
 
-O Azure AD (Azure Active Directory) é fornecido em quatro edições: Gratuito, Basic, Premium P1 e Premium P2. Há vários recursos diferentes que compõem a redefinição de senha de autoatendimento, incluindo alteração, redefinição, desbloqueio e write-back, que estão disponíveis nas diferentes edições do Azure AD. Este artigo tenta explicar as diferenças. Mais detalhes dos recursos incluídos em cada edição do Azure AD podem ser encontrados na [página de preços do Microsoft Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+O Azure AD (Azure Active Directory) é fornecido em quatro edições: Gratuito, Básico, Premium P1 e Premium P2. Há vários recursos diferentes que compõem a redefinição de senha de autoatendimento, incluindo alteração, redefinição, desbloqueio e write-back, que estão disponíveis nas diferentes edições do Azure AD. Este artigo tenta explicar as diferenças. Mais detalhes dos recursos incluídos em cada edição do Azure AD podem ser encontrados na [página de preços do Microsoft Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Comparar edições e recursos
 
@@ -41,7 +41,7 @@ A redefinição de senha de autoatendimento do Azure AD é licenciada por usuár
    * Essa funcionalidade está incluída nas edições do Azure AD Premium P1 ou Premium P2.
 
 > [!WARNING]
-> Planos de licenciamento autônomo do Office 365 **não dão suporte para write-back de senha** e requerem as edições do Azure AD Premium P1 ou Premium P2 para efetivar essa funcionalidade.
+> Os planos de licenciamento do Office 365 autônomo *não oferecem suporte à/ao "Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem um plano que inclui as edições P1 e P2 do Azure AD Premium para que essa funcionalidade funcione.
 >
 
 As informações de licenciamento adicionais, inclusive custos, podem ser encontradas nas páginas a seguir:

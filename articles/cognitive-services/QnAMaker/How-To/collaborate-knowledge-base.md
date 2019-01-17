@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/08/2018
 ms.author: tulasim
-ms.openlocfilehash: bb074b1f256275c26889a30435dff28c86060a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ec26e7ab535084fa5d8f52c11c671212eeab0f13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035225"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119811"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colaborar com sua base de dados de conhecimento
 
@@ -35,7 +35,7 @@ Execute as seguintes etapas para compartilhar seu serviço QnA Maker com alguém
 
     ![Adicionar IAM do QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-4. Selecione a função de **Proprietário** ou **Colaborador**.
+4. Selecione a função de **Proprietário** ou **Colaborador**. Você não pode conceder acesso somente leitura por meio do Controle de Acesso Baseado em Função. Função de Proprietário e Colaborador tem direito de acesso de leitura/gravação ao serviço QnA Maker.
 
     ![Adicionar função no IAM do QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 

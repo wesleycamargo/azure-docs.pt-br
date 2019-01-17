@@ -1,6 +1,6 @@
 ---
-title: Criar tarefas e fluxos de trabalho de execução regular com os Aplicativos Lógicos do Azure| Microsoft Docs
-description: Automatizar tarefas e fluxos de trabalho que são executados em uma agenda com o Conector de recorrência nos Aplicativos Lógicos do Azure
+title: Agendar e executar tarefas automatizadas e fluxos de trabalho com Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatizar tarefas agendadas e recorrentes com o conector de Recorrência em Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,24 +10,24 @@ ms.reviewer: klam, LADocs
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
-ms.date: 09/25/2017
-ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/08/2019
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127047"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107830"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Criar e executar tarefas recorrentes e fluxos de trabalho com os Aplicativos Lógicos do Azure
 
-Para agendar tarefas, ações, cargas de trabalho ou processos que são executados regularmente, você pode criar um fluxo de trabalho de aplicativo lógico que começa com o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Agenda – Recorrência**. Com esse gatilho, você pode definir uma data e hora para iniciar a recorrência, bem como uma agenda de recorrência para a realização das tarefas, como esses exemplos e muito mais:
+Para agendar ações, cargas de trabalho ou processos que são executados regularmente, crie um fluxo de trabalho de aplicativo lógico que começa com o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Agenda – Recorrência**. Você pode definir uma data e hora para iniciar o fluxo de trabalho, bem como uma agenda de recorrência para a realização das tarefas, como esses exemplos e muito mais:
 
-* Obter dados internos: [executar um procedimento armazenado de SQL](../connectors/connectors-create-api-sqlazure.md) todos os dias.
-* Obter dados externos: efetuar pull de relatórios de previsão do tempo do NOAA a cada 15 minutos.
+* Obter dados internos: [Executar um procedimento armazenado SQL](../connectors/connectors-create-api-sqlazure.md) todos os dias.
+* Obter dados externos: Extrair relatórios meteorológicos do NOAA a cada 15 minutos.
 * Relatar dados: enviar por email um resumo de todos os pedidos que sejam acima de uma quantidade específica na última semana.
 * Processar dados: compactar as imagens do dia, todos os dias da semana, fora do horário de pico.
-* Limpar dados: excluir todos os tweets com mais de três meses.
-* Arquivar dados: enviar faturas por push para um serviço de backup todos os meses.
+* Limpar dados: exclua todos os tweets com mais de três meses.
+* Arquivar dados: efetuar push de faturas para um serviço de backup todos os meses.
 
 Esse gatilho oferece suporte a vários padrões, por exemplo:
 
@@ -37,7 +37,9 @@ Esse gatilho oferece suporte a vários padrões, por exemplo:
 * Executar e repetir a cada semana, mas apenas em dias específicos, como sábado e domingo.
 * Executar e repetir a cada semana, mas somente em determinados dias e horas, como de segunda a sexta-feira, às 8h e às 17h.
 
-A cada vez que o gatilho de recorrência é disparado, os Aplicativos Lógicos criam e executam uma nova instância do seu fluxo de trabalho de aplicativo lógico.
+A cada vez que o gatilho de recorrência é disparado, os Aplicativos Lógicos criam e executam uma nova instância do seu fluxo de trabalho de aplicativo lógico. 
+
+Para disparar seu aplicativo lógico e executar apenas uma vez no futuro, veja [Executar trabalhos somente uma vez](#run-once) mais adiante neste tópico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,9 +51,9 @@ A cada vez que o gatilho de recorrência é disparado, os Aplicativos Lógicos c
 
 1. Entre no [Portal do Azure](https://portal.azure.com). Crie um aplicativo lógico em branco ou saiba [como criar um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Depois que o Designer de Aplicativos Lógicos aparecer, na caixa Pesquisar, digite "recorrência" como filtro. Selecione o gatilho **Agenda – Recorrência**. 
+2. Depois que o Designer de Aplicativos Lógicos é exibido na caixa de pesquisa, escolha **Todos**. Na caixa de pesquisa, insira "recorrência" como filtro. Na lista de gatilhos, selecione este gatilho: **Recorrência – Agendamento** 
 
-   ![Gatilho Agenda – Recorrência](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   ![Selecione o gatilho "Recorrência – Agendamento"](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
    Esse gatilho já é a primeira etapa no seu aplicativo lógico.
 
@@ -96,10 +98,10 @@ Você pode configurar essas propriedades para o gatilho de recorrência.
 | NOME | Obrigatório | Nome da propriedade | Tipo | DESCRIÇÃO | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Frequência** | SIM | frequência | Cadeia de caracteres | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** | 
-| **Intervalo** | SIM | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>O intervalo padrão é 1. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
+| **Intervalo** | SIM | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>O intervalo padrão é 1. Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1-16 meses </br>- Dia: 1-500 dias </br>- Hora: 1-12.000 horas </br>- Minuto: 1-72.000 minutos </br>- Segundo: 1-9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
 | **Fuso horário** | Não  | timeZone | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. | 
 | **Hora de início** | Não  | startTime | Cadeia de caracteres | Forneça uma hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como Hora do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** a hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](#start-time) | 
-| **Nestes dias** | Não  | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana", poderá selecionar um ou mais dias nos quais deseja executar o fluxo de trabalho: **segunda-feira**, **terça-feira**, **quarta-feira**, **quinta-feira**, **Sexta-feira**, **sábado** e **domingo** | 
+| **Nestes dias** | Não  | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana", poderá selecionar um ou mais dias em que você deseja executar o fluxo de trabalho: **Segunda-feira**, **Terça-feira**, **Quarta-feira**, **Quinta-feira**, **Sexta-feira**, **Sábado** e **Domingo** | 
 | **A estas horas** | Não  | hours | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana", poderá selecionar um ou mais números inteiros, de 0 a 23, como as horas do dia nas quais você deseja executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", você obterá 10h, 12h e 14h como as marcas de hora. | 
 | **A estes minutos** | Não  | minutes | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana", poderá selecionar um ou mais números inteiros, de 0 a 59, como os minutos da hora em que você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minutos e, usando o exemplo anterior como as horas do dia, você obtém 10h30, 12h30 e 14h30. | 
 ||||| 
@@ -109,40 +111,47 @@ Você pode configurar essas propriedades para o gatilho de recorrência.
 Aqui está um exemplo [definição de gatilho de recorrência](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
-{
-    "triggers": {
-        "Recurrence": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
-    }
+"triggers": {
+   "Recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+         "frequency": "Week",
+         "interval": 1,
+         "schedule": {
+            "hours": [
+               10,
+               12,
+               14
+            ],
+            "minutes": [
+               30
+            ],
+            "weekDays": [
+               "Monday"
+            ]
+         },
+         "startTime": "2017-09-07T14:00:00",
+         "timeZone": "Pacific Standard Time"
+      }
+   }
 }
 ```
 
 ## <a name="faq"></a>Perguntas frequentes
 
+<a name="run-once"></a>
+
+**P:** E se eu quiser executar um aplicativo lógico uma vez apenas no futuro? </br>
+**R:** Para disparar seu aplicativo lógico e executar uma vez sem recorrência, você pode usar o modelo **Agendador: executar trabalhos uma vez**. Depois de criar um novo aplicativo lógico, mas antes de abrir o designer de aplicativos lógicos, na seção **Modelos**, na lista **Categoria**, selecione **Agendar** e, em seguida, selecione o modelo:
+
+![Selecione "Agendador: executar trabalhos uma vez"](./media/connectors-native-recurrence/choose-run-once-template.png)
+
+Ou, se você estiver usando um modelo de aplicativo lógico em branco, inicie seu aplicativo lógico com o gatilho **Quando uma solicitação HTTP for recebida – Solicitação**. Passe a hora de início do gatilho como um parâmetro. Para a próxima etapa, adicione a ação **Atrasar até – Agendamento** e informe a hora de quando a próxima ação começará a ser executada.
+
 <a name="example-recurrences"></a>
 
-**P:** quais são outros agendamentos de recorrência de exemplo? </br>
-**R:** veja mais alguns exemplos:
+**P:** Quais são outros agendamentos de recorrência de exemplo? </br>
+**R:** Veja mais alguns exemplos:
 
 | Recorrência | Intervalo | Frequência | Hora de início | Nestes dias | A estas horas | A estes minutos | Observação |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
@@ -171,8 +180,8 @@ Aqui está um exemplo [definição de gatilho de recorrência](../logic-apps/log
 
 <a name="start-time"></a>
 
-**P:** quais são as maneiras que posso usar a data e a hora de início? </br>
-**R:** aqui estão alguns padrões que mostram como você pode controlar a recorrência com a data e hora de início e como o mecanismo dos Aplicativos Lógicos executa essas recorrências:
+**P:** Quais são as maneiras que posso usar a data e hora de início? </br>
+**R:** Aqui estão alguns padrões que mostram como você pode controlar a recorrência com a data e hora de início e como o mecanismo dos Aplicativos Lógicos executa essas recorrências:
 
 | Hora de início | Recorrência sem agendamento | Recorrência com agendamento | 
 | ---------- | --------------------------- | ------------------------ | 

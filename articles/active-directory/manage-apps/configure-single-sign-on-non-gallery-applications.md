@@ -1,37 +1,33 @@
 ---
-title: Configurar o SSO do Azure AD para aplicativos | Microsoft Docs
-description: Saiba como conectar aplicativos ao Active Directory do Azure por conta própria usando SAML e SSO baseado em senha
+title: Logon único – aplicativos não da galeria – Azure Active Directory | Microsoft Docs
+description: Configurar o SSO (logon único) para aplicativos não da galeria no Azure AD (Azure Active Directory)
 services: active-directory
 author: barbkess
-documentationcenter: na
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2018
+ms.date: 01/08/2019
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: bb2fcbad3d415a8ac7a8e0c3237fcb97042defd7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408112"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121338"
 ---
-# <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o logon único para aplicativos que não estão na galeria de aplicativos do Azure Active Directory
+# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurar o logon único para aplicativos não da galeria no Azure Active Directory
 
-Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Este recurso foi lançado a partir da versão prévia em 18 de novembro de 2015 e está incluído no [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md). Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](../develop/authentication-scenarios.md).
+Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](../develop/authentication-scenarios.md).
 
 A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplicativos que reconhecidamente dão suporte a um formulário de logon único com o Active Directory do Azure, conforme descrito [neste artigo](what-is-single-sign-on.md). Como especialista em TI ou integrador de sistema em sua organização, quando você tiver localizado o aplicativo que deseja conectar, poderá começar seguindo as instruções apresentadas no Portal do Azure para habilitar o logon único.
 
-Clientes com licenças do [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) também obtêm esses recursos adicionais:
+Essas funcionalidades também estão disponíveis, de acordo com seu contrato de licença. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/active-directory/). 
 
-* Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0 (iniciado por SP ou IdP)
-* Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](what-is-single-sign-on.md#password-based-sso)
+- Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0 (iniciado por SP ou IdP)
+- Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](what-is-single-sign-on.md#password-based-sso)
 * Conexão de autoatendimento de aplicativos que usam o protocolo SCIM para provisionamento de usuários ([descrito aqui](use-scim-to-provision-users-and-groups.md))
 * Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do Azure AD](what-is-single-sign-on.md#linked-sso)
 

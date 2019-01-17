@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 9a80671a72f059e24a8cebc5de803af9261ad829
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743943"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107422"
 ---
 # <a name="about-azure-vm-backup"></a>Sobre o backup de VM do Azure
 
@@ -30,7 +30,7 @@ Veja como o Backup do Azure completa um backup de VMs do Azure.
     - A extensão é instalada durante o primeiro backup de VM.
     - Para instalar a extensão, a VM deve estar em execução.
     - Se a VM não estiver em execução, o serviço de Backup criará um instantâneo do armazenamento subjacente (já que nenhuma gravação de aplicativo ocorre enquanto a VM está parada).
-4. A extensão de backup tira um instantâneo consistente com o aplicativo, no nível do armazenamento.
+4. A extensão de backup tira um instantâneo consistente com arquivo/consistente com falhas no nível do armazenamento.
 5. Após o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde o backup anterior (o delta).
 5. Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado.
 
@@ -42,7 +42,7 @@ O Backup do Azure não criptografa os dados como parte do processo de backup. O 
 
 - Há suporte para backup de VMs criptografadas apenas com a BEK (Chave de Criptografia Bitlocker), e com BEK junto com KEK (Chave de Criptografia de Chave), para VMs do Azure gerenciadas e não gerenciadas.
 - Tanto a BEK (segredos) quanto a KEK (chaves) submetidas a backup são criptografadas para que possam ser lidas e usadas somente quando restauradas no cofre de chaves por usuários autorizados.
-- Como também ocorre o backup da BEK, em cenários nos quais a BEK é perdida, usuários autorizados podem restaurar a BEK no cofre de chaves e recuperar a VM criptografada. O backup de chaves e segredos de VMs criptografadas ocorre de forma criptografada, de modo que usuários não autorizados, nem o Azure, podem ler ou usar chaves e segredos em backup. Somente os usuários com o nível certo de permissões podem fazer backup e restaurar VMs criptografadas, bem como chaves e segredos.
+- Como também ocorre o backup da BEK, em cenários nos quais a BEK é perdida, usuários autorizados podem restaurar a BEK no cofre de chaves e recuperar a VM criptografada. O backup de chaves e segredos de VMs criptografadas ocorre de forma criptografada, de modo que usuários não autorizados, nem o Azure, podem ler ou usar chaves e segredos em backup. Somente os usuários com o nível correto de permissões podem fazer backup e restaurar VMs criptografadas, bem como chaves e segredos.
 
 ## <a name="snapshot-consistency"></a>Consistência do instantâneo
 
@@ -68,7 +68,7 @@ A tabela a seguir explica os diferentes tipos de consistência.
 **Instantâneo** | **Baseado em VSS** | **Detalhes** | **Recuperação**
 --- | --- | --- | ---
 **Consistente com o aplicativo** | Sim (somente Windows) | Backups consistentes com o aplicativo capturam o conteúdo da memória e operações de E/S pendentes. Instantâneos consistentes com o aplicativo usam o gravador VSS (ou pré/pós-script para Linux) que garantem a consistência dos dados do aplicativo antes do backup. | Ao recuperar com um instantâneo consistente com o aplicativo, a VM é inicializada. Não há perda ou corrupção de dados. O aplicativo é iniciado em um estado consistente.
-**Consistente com o sistema de arquivos** | Sim (somente Windows) |  Backups consistentes com o arquivo fornecem backups consistentes de arquivos de disco por meio de um instantâneo simultâneo de todos os arquivos.<br/><br/> Pontos de recuperação do Backup do Azure são consistentes com o arquivo para:<br/><br/> - Backups de VM do Linux que não têm pré/pós-scripts, ou cujo script falhou.<br/><br/> - Backups de VM do Windows nos quais o VSS falhou. | Ao recuperar usando um instantâneo consistente com o aplicativo, a VM é inicializada. Não há perda ou corrupção de dados. Os aplicativos precisa implementar seus próprios mecanismos de "correção" para assegurar a consistência dos dados restaurados.
+**Consistente com o sistema de arquivos** | Sim (somente Windows) |  Backups consistentes com o arquivo fornecem backups consistentes de arquivos de disco por meio de um instantâneo simultâneo de todos os arquivos.<br/><br/> Pontos de recuperação do Backup do Azure são consistentes com o arquivo para:<br/><br/> - Backups de VM do Linux que não têm pré/pós-scripts, ou cujo script falhou.<br/><br/> - Backups de VM do Windows nos quais o VSS falhou. | Ao recuperar usando um instantâneo consistente com o aplicativo, a VM é inicializada. Não há perda ou corrupção de dados. Os aplicativos precisam implementar seus próprios mecanismos de "correção" para garantir a consistência dos dados restaurados.
 **Controle de falhas** | Não  | Normalmente, o controle de falhas ocorre quando uma VM do Azure é desligada no momento do backup.  Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup.<br/><br/> Um ponto de recuperação de controle de falhas não garante a consistência de dados para o sistema operacional ou o aplicativo. | Não há garantias, mas, geralmente, a VM é inicializada e executa uma verificação de disco para corrigir erros de corrupção. Quaisquer dados na memória ou gravações que não tenham sido transferidos para o disco serão perdidos. Os aplicativos implementam sua própria verificação de dados. Por exemplo, para um aplicativo de banco de dados, se o log de transações tiver entradas que não estão presentes no banco de dados, o software do banco de dados será executado até que os dados fiquem consistentes.
 
 
@@ -83,26 +83,14 @@ O Backup do Azure tem diversos limites de assinaturas e cofres.
 
 ### <a name="disk-considerations"></a>Considerações de disco
 
-O backup tenta concluir assim que possível, consumindo o máximo de recursos possível.
-
-- Na tentativa de maximizar sua velocidade, o processo de backup tenta fazer backup de cada um dos discos da VM em paralelo.
-- Por exemplo, se uma VM tiver quatro discos, o serviço tentará fazer backup dos quatro discos em paralelo.
-- O número de discos que estão passando por backup é o fator mais importante para determinar o tráfego de backup da conta de armazenamento.
-- Todas as operações de E/S são limitadas pela *Taxa de transferência de destino para blob único*, que tem um limite de 60 MB por segundo.
-- Para cada disco cujo backup está sendo feito, o Backup do Azure lê os blocos no disco e armazena somente os dados alterados (backup incremental). Use os valores médios de taxa de transferência a seguir para fazer uma estimativa do tempo necessário para fazer backup de um disco de um tamanho específico.
-
-    **Operação** | **Melhor taxa de transferência possível**
-    --- | ---
-    Backup inicial | 160 Mbps |
-    Backup incremental | 640 Mbps  <br><br> A taxa de transferência cai consideravelmente se os dados de delta forem espalhados pelo disco.|
-
+A operação de backup oferece otimizações fazendo backup de cada disco da VM em paralelo. Por exemplo, se uma VM tiver quatro discos, o serviço tentará fazer backup dos quatro discos em paralelo. Para cada disco cujo backup está sendo feito, o Backup do Azure lê os blocos no disco e armazena somente os dados alterados (backup incremental).
 
 
 ### <a name="scheduling-considerations"></a>Considerações de agendamento
 
 O agendamento do backup afeta o desempenho.
 
-- Se você configurar políticas para que todas as VMs passem por backup simultaneamente, causará um congestionamento, pois o processo de backup tentará fazer backup de todos os discos em paralelo.
+- Se você configurar políticas para que todas as VMs sejam copiadas em backup ao mesmo tempo, você terá agendado um congestionamento, pois o processo de backup tentará fazer backup de todos os discos em paralelo.
 - Para reduzir o tráfego de backup, faça backup de VMs diferentes em horários diferentes do dia, sem sobreposição.
 
 
@@ -128,39 +116,28 @@ O backup é composto por duas fases: criação de instantâneos e transferência
 
 Entre as situações que podem afetar o tempo de backup estão as seguintes:
 
-
-- **Backup inicial de um disco recém-adicionado a uma VM já protegida**: Se uma VM estiver passando por backup incremental, quando um novo disco for adicionado, o backup poderá perder o SLA de um dia, dependendo do tamanho do novo disco.
-- **Aplicativo fragmentado**: Se um aplicativo estiver mal configurado, talvez não seja ideal para armazenamento:
-    - Se o instantâneo contém várias gravações pequenas e fragmentadas, o serviço gasta mais tempo no processamento dos dados gravados pelos aplicativos.
-    - Para aplicativos executados dentro da VM, o bloco de gravações de aplicativos recomendados mínimo é de 8 KB. Se o aplicativo usar um bloco inferior a 8 KB, o desempenho do backup será afetado.
-- **Conta de armazenamento sobrecarregada**: Um backup pode ser agendado quando o aplicativo estiver sendo executado em produção, ou se mais de cinco a dez discos estiverem hospedados na mesma conta de armazenamento.
-- **Modo CC (Verificação de consistência)**: Para discos com mais de 1TB, o backup pode estar no modo CC por alguns motivos:
-    - O disco gerenciado é movido como parte da reinicialização da VM.
-    - Promoções de instantâneo para blob de base.
-
+- **Backup inicial de um disco recém-adicionado a uma VM já protegida**: Se uma VM estiver passando por um backup incremental e um novo disco for adicionado a essa VM, a duração do backup poderá ultrapassar 24 horas, pois o disco recém-adicionado precisará passar pela replicação inicial, juntamente com a replicação delta dos discos existentes.
+- **Fragmentação**: O produto de backup examina em busca de alterações incrementais entre duas operações de backup. As operações de backup são mais rápidas quando as alterações no disco são colocadas em comparação com as alterações distribuídas pelo disco. 
+- **Variação**: Uma variação diária (para a replicação incremental) por disco superior a 200 GB pode levar aproximadamente mais de 8 horas para concluir a operação. Se a VM tiver mais de um disco e se um desses discos estiver levando mais tempo para ser copiado em backup, isso poderá afetar a operação de backup geral (ou resultar em uma falha). 
+- **Modo CC (Comparação da Soma de Verificação)**: O modo CC é comparativamente mais lento do que o modo otimizado usado pelo RP Instantâneo. Se você já estiver usando o RP Instantâneo e tiver excluído os instantâneos da Camada 1, o backup alternará para o modo CC fazendo com que a operação de Backup exceda 24 horas (ou falhe).
 
 ## <a name="restore-considerations"></a>Considerações de restauração
 
 Uma operação de restauração é composta por duas tarefas principais: copiar dados do cofre para a conta de armazenamento escolhida e criar a máquina virtual. O tempo necessário para copiar dados do cofre depende de onde os backups estão armazenados no Azure e do local da conta de armazenamento. O tempo necessário para copiar os dados depende de:
 
 - **Tempo de espera da fila**: Como o serviço processa trabalhos de restauração de várias contas de armazenamento ao mesmo tempo, as solicitações de restauração são colocadas em uma fila.
-- **Tempo de cópia de dados**: Os dados são copiados do cofre para a conta de armazenamento. O tempo de restauração depende do IOPS e da taxa de transferência da conta de armazenamento selecionada usada pelo serviço de Backup do Azure. Para reduzir o tempo de cópia durante o processo de restauração, selecione uma conta de armazenamento não carregada com outras leituras e gravações de aplicativo.
+- **Tempo de cópia de dados**: Os dados são copiados do cofre para a conta de armazenamento. O tempo de restauração depende do IOPS e da taxa de transferência da conta de armazenamento selecionada, que é usada pelo serviço Backup do Azure. Para reduzir o tempo de cópia durante o processo de restauração, selecione uma conta de armazenamento não carregada com outras leituras e gravações de aplicativo.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
 Recomendamos seguir essas práticas ao configurar backups de VM:
 
-- Não agende backups para mais de 100 VMs de um cofre ao mesmo tempo.
-- Agende os backups de VM fora do horário de pico. Dessa forma, o serviço de Backup usa o IOPS para transferir dados da conta de armazenamento para o cofre.
-- Se você estiver fazendo backup de discos gerenciados, o serviço de Backup do Azure lidará com o gerenciamento de armazenamento. Se você estiver fazendo backup de discos não gerenciados:
-    - Certifique-se de aplicar uma política de backup às VMs espalhadas por várias contas de armazenamento.
-    - No máximo 20 discos de uma única conta de armazenamento devem ser protegidos pelo mesmo agendamento de backup.
-    - Se você tiver mais de 20 discos em uma conta de armazenamento, distribua as VMs por várias políticas para obter o IOPS necessário durante a fase de transferência do processo de backup.
-    - Não restaure uma VM em execução no armazenamento Premium para a mesma conta de armazenamento. Se o processo de operação de restauração coincidir com a operação de backup, ele reduzirá o IOPS disponível para backup.
-    - Para backup de VM Premium na pilha de backup de VM V1, você deve alocar apenas 50% do espaço total da conta de armazenamento para que o serviço de Backup possa copiar o instantâneo para a conta de armazenamento e transferir dados da conta de armazenamento para a área segura.
-- Recomendamos o uso de contas de armazenamento diferentes, em vez de usar as mesmas contas de armazenamento para restaurar VMs de um único cofre. Isso evitará a limitação e resultará em 100% de sucesso da restauração com bom desempenho.
-- As restaurações da camada de armazenamento 1 serão concluídas em questão de minutos, ao contrário das restaurações de armazenamento de camada 2, que demoram algumas horas. Recomendamos o uso do [recurso de RP Instantâneo](backup-upgrade-to-vm-backup-stack-v2.md) para restaurações mais rápidas. Isso é aplicável apenas em VMs do Azure gerenciadas.
-
+- Atualizar os cofres para o RP Instantâneo. Analise esses [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e, em seguida, faça o upgrade seguindo estas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+- Considere a possibilidade de modificar a hora da política padrão fornecida (por ex.: Se a hora da política padrão for 12h, considere a possibilidade de incrementá-la em minutos) quando os instantâneos de dados forem tirados, a fim de garantir que os recursos sejam usados de forma ideal.
+- Para a VM Premium no recurso RP não Instantâneo, o backup aloca cerca de 50% do espaço total da conta de armazenamento. O serviço de backup exige que esse espaço copie o instantâneo para a mesma conta de armazenamento e para transferi-lo para o cofre.
+- Para restaurar VMs de um único cofre, é altamente recomendável usar [contas de armazenamento v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diferentes para garantir que a conta de armazenamento de destino não seja limitada. Por exemplo, cada VM precisa ter uma conta de armazenamento diferente (se 10 VMs forem restauradas, considere o uso de 10 contas de armazenamento diferentes).
+- As restaurações da camada de armazenamento da Camada 1 (instantâneo) serão concluídas em minutos (pois essa é a mesma conta de armazenamento) em relação à camada de armazenamento da Camada 2 (cofre), que poderá levar várias horas. Recomendamos que você use o recurso [RP Instantâneo](backup-upgrade-to-vm-backup-stack-v2.md) para obter restaurações mais rápidas, nos casos em que os dados estão disponíveis na Camada 1 (se os dados precisarem ser restaurados do cofre, isso levará tempo).
+- O limite no número de discos por conta de armazenamento é relativo à intensidade de acesso dos discos por aplicativos executados na VM IaaS. Verifique se vários discos são hospedados em uma única conta de armazenamento. Como prática geral, se 5 a 10 discos ou mais estiverem presentes em uma única conta de armazenamento, balanceie a carga movendo alguns discos para contas de armazenamento separadas.
 
 ## <a name="backup-costs"></a>Custos de backup
 
@@ -193,6 +170,5 @@ Por exemplo, leve uma máquina virtual A2 de tamanho padrão que tenha dois disc
 
 Depois de revisar o processo de backup e considerações de desempenho, faça o seguinte:
 
-- Baixe a [planilha do Excel para planejamento de capacidade](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) a fim de experimentar os vários agendamentos de backup e de disco.
 - [Saiba mais sobre](../virtual-machines/windows/premium-storage-performance.md) como ajustar aplicativos para obter o desempenho ideal com o armazenamento do Azure. O artigo se concentra no armazenamento Premium, mas também é aplicável para discos de armazenamento padrão.
 - [Comece a usar](backup-azure-arm-vms-prepare.md) o backup revisando as limitações e suporte de VM, criando um cofre e preparando VMs para backup.

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747908"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157200"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
@@ -168,15 +168,15 @@ SELECT * FROM devices.modules
 Não permitimos a união de coleções de dispositivos e módulos. Para consultar módulos gêmeos entre dispositivos, use marcas. Essa consulta retornará todos os módulos gêmeos em todos os dispositivos com o status de “examinando”:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 Essa consulta retornará todos os módulos gêmeos com o status “examinando”, mas somente para o subconjunto especificado de dispositivos:
 
 ```sql
-Select * from devices.modules 
-  where properties.reported.status = 'scanning' 
-  and deviceId IN ['device1', 'device2']
+SELECT * FROM devices.modules 
+  WHERE properties.reported.status = 'scanning' 
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>Exemplo de C#
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Cláusula FROM
 
-A cláusula **FROM <from_specification>** pode assumir somente dois valores: **FROM devices**, para consultar dispositivos gêmeos ou **FROM devices.jobs**, para consultar os detalhes de trabalho por dispositivo.
+A cláusula **FROM <from_specification>** pode assumir somente dois valores: **FROM devices** para consultar dispositivos gêmeos ou **FROM devices.jobs** para consultar detalhes por dispositivo.
 
 
 ## <a name="where-clause"></a>Cláusula WHERE

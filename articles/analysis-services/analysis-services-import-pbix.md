@@ -5,25 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3adf0c9c2e2b264904e66b82716447d634aaeee7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 47223f22c797d892bc7cbdc0086439ee9cae9fcb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209642"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187715"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importar um arquivo do Power BI Desktop
 
-É possível importar um modelo de dados em um arquivo do Power BI Desktop (pbix) para o Azure Analysis Services. Metadados de modelo, dados armazenados em cache e conexões de fonte de dados são importados. Relatórios e visualizações não serão importadas. Modelos de dados importados do Power BI Desktop estão no nível de compatibilidade 1400.
+É possível importar um modelo de dados em um arquivo do Power BI Desktop (pbix) para o Azure Analysis Services. Metadados de modelo, dados armazenados em cache e conexões de fonte de dados são importados. Relatórios e visualizações não serão importadas. Modelos de dados importados do Power BI Desktop estão no nível de compatibilidade 1400 e 1465.
 
 > [!IMPORTANT]
 > Esse recurso foi preterido. Ele pode ser removido ou alterado significativamente em uma atualização futura. Recomenda-se que você descontinue o uso desses recursos em projetos novos e existentes para manter a compatibilidade com atualizações futuras. Para desenvolvimento e teste de modelos mais avançados, é melhor usar o Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
 
-**Restrições**   
-
+## <a name="restrictions"></a>Restrições  
 
 - Se o modelo de dados tiver sido criado no Power BI Desktop (2.60.5169.3201) Atualização de julho de 2018 ou posterior, assegure que nenhuma versão prévia do recurso esteja habilitada. Versões prévias do recurso ainda não são compatíveis com o Azure Analysis Services. Se você recebe o erro a seguir durante a importação, isso significa que o arquivo pbix tem versões prévias do recurso habilitadas que ainda não dão suporte ao Azure Analysis Services.
 

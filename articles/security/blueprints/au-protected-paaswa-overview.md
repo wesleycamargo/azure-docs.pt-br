@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 3505d65b55807010904494079532fe5741e6df77
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601161"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055176"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Blueprint de Segurança e Conformidade do Azure - Aplicativo Web de PaaS PROTEGIDO para Austrália
 
@@ -73,7 +73,7 @@ Este Blueprint contém Serviços do Azure que não foram certificados para uso n
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 A seção a seguir fornece detalhes sobre os elementos de implantação e implementação.
 
-**Azure Resource Manager**: O [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhem com os recursos da solução como um grupo. Os clientes podem implantar, atualizar ou excluir todos os recursos da solução em uma única operação coordenada. Os clientes usam um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Resource Manager fornece recursos de segurança, auditoria e marcação para ajudar os clientes a gerenciar seus recursos após a implantação.
+**Azure Resource Manager**: [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permite que os clientes trabalhem com os recursos da solução como um grupo. Os clientes podem implantar, atualizar ou excluir todos os recursos da solução em uma única operação coordenada. Os clientes usam um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Resource Manager fornece recursos de segurança, auditoria e marcação para ajudar os clientes a gerenciar seus recursos após a implantação.
 
 **Host bastião**: O host bastião é o único ponto de entrada que permite que os usuários acessem os recursos implantados nesse ambiente. O host bastião fornece uma conexão segura com os recursos implantados, permitindo apenas tráfego remoto de endereços IP públicos em uma lista de segurança. Para permitir o tráfego RDP (área de trabalho remota), a origem do tráfego precisa ser definida no grupo de segurança de rede.
 
@@ -201,7 +201,7 @@ As seguintes [soluções de gerenciamento](https://docs.microsoft.com/azure/log-
 
 **Azure Monitor**: O [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações façam auditoria, criem alertas e arquivem dados, incluindo o rastreamento de chamadas à API nos recursos do Azure.
 
-Observador de Rede do Azure: [Observador de Rede do Azure]9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) o Observador de Rede do Azure fornece ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs para recursos em uma rede virtual do Azure.  As entidades de comunidade devem implementar logs de fluxo do Observador de Rede para NSGs e Máquinas Virtuais. Esses logs devem ser armazenados em uma conta de armazenamento dedicada, na qual apenas os logs de segurança são armazenados e o acesso à conta de armazenamento deve ser protegida com Controles de Acesso Baseado em Função.
+Observador de Rede do Azure: O [Observador de Rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar os registros de recursos em uma rede virtual do Azure.  As entidades de comunidade devem implementar logs de fluxo do Observador de Rede para NSGs e Máquinas Virtuais. Esses logs devem ser armazenados em uma conta de armazenamento dedicada, na qual apenas os logs de segurança são armazenados e o acesso à conta de armazenamento deve ser protegida com Controles de Acesso Baseado em Função.
 
 ## <a name="threat-model"></a>Modelo de ameaça
 

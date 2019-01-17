@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c6472b824eefdd1954f3645c69090d1fb5455de
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: fb1ac992f174327d08a606549da7b2b094a7a88e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754451"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157982"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de aprendizado de máquina usando o SDK do Azure Machine Learning
 
@@ -26,8 +26,7 @@ Os pipelines que você cria são visíveis para os membros do [workspace](how-to
 
 Pipelines usam destinos de computação remota para computação e armazenamento de dados intermediários e finais associados a esse pipeline. Pipelines podem ler e gravar dados de para locais de [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/) com suporte.
 
->[!Note]
->Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree).
+Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -101,35 +100,138 @@ output_data1 = PipelineData(
     output_name="output_data1")
 ```
 
-### <a name="set-up-compute"></a>Configurar computação
+## <a name="set-up-compute-target"></a>Configurar destino de computação
 
-No Azure Machine Learning, o termo *computação* (ou *destino de computação*) refere-se a computadores ou clusters que executam as etapas computacionais no pipeline de aprendizado de máquina. Por exemplo, você pode criar uma computação do Azure Machine Learning para executar suas etapas.
+No Azure Machine Learning, o termo __computação__ (ou __destino de computação__) refere-se a computadores ou clusters que executam as etapas computacionais no pipeline de aprendizado de máquina.   Veja [destinos de computação para treinamento do modelo](how-to-set-up-training-targets.md) para obter uma lista completa de destinos de computação e como criá-los e anexá-los ao seu workspace.  O processo para criar e/ou anexar um destino de computação é o mesmo, não importa se você está treinando um modelo ou executando uma etapa do pipeline. Depois de criar e anexar seu destino de computação, use o objeto `ComputeTarget` em na [etapa do pipeline](#steps).
+
+Abaixo estão exemplos de como criar e anexar destinos de computação para:
+
+* Computação do Azure Machine Learning
+* Azure Databricks 
+* Análise Azure Data Lake
+
+### <a name="azure-machine-learning-compute"></a>Computação do Azure Machine Learning
+
+Você pode criar uma computação do Azure Machine Learning para executar suas etapas.
+
+    ```python
+    compute_name = "aml-compute"
+     if compute_name in ws.compute_targets:
+        compute_target = ws.compute_targets[compute_name]
+        if compute_target and type(compute_target) is AmlCompute:
+            print('Found compute target: ' + compute_name)
+    else:
+        print('Creating a new compute target...')
+        provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                    min_nodes = 1, 
+                                                                    max_nodes = 4)
+         # create the compute target
+        compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+        
+        # Can poll for a minimum number of nodes and for a specific timeout. 
+        # If no min node count is provided it will use the scale settings for the cluster
+        compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+        
+         # For a more detailed view of current cluster status, use the 'status' property    
+        print(compute_target.status.serialize())
+    ```
+
+### <a id="databricks"></a>Banco de Dados do Azure
+
+As Azure Databricks são um ambiente baseado em Apache Spark na nuvem do Azure. Ele pode ser usado como um destino de computação com um pipeline do Azure Machine Learning.
+
+Crie um workspace do Azure Databricks antes de usá-lo. Para criar esses recursos, consulte o documento [Executar um trabalho do Spark no Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+
+Para anexar o Azure Databricks como um destino de computação, forneça as seguintes informações:
+
+* __Nome de computação do Databricks__: O nome que você quer atribuir a esse recurso de computação.
+* __Nome do Workspace do Databricks__: O nome do workspace do Azure Databricks.
+* __Token de acesso do Databricks__: O token de acesso usado para autenticar no Azure Databricks. Para gerar um token de acesso, consulte o documento [Autenticação](https://docs.azuredatabricks.net/api/latest/authentication.html).
+
+O código a seguir demonstra como anexar o Azure Databricks como um destino de computação com o SDK do Azure Machine Learning:
 
 ```python
-compute_name = "aml-compute"
- if compute_name in ws.compute_targets:
-    compute_target = ws.compute_targets[compute_name]
-    if compute_target and type(compute_target) is AmlCompute:
-        print('Found compute target: ' + compute_name)
-else:
-    print('Creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                min_nodes = 1, 
-                                                                max_nodes = 4)
-     # create the compute target
-    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+import os
+from azureml.core.compute import ComputeTarget, DatabricksCompute
+from azureml.exceptions import ComputeTargetException
+
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_workspace_name {}'.format(databricks_workspace_name))
+    print('databricks_access_token {}'.format(databricks_access_token))
+
+    # Create attach config
+    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
+                                                           workspace_name = databricks_workspace_name,
+                                                           access_token = databricks_access_token)
+    databricks_compute = ComputeTarget.attach(
+             ws,
+             databricks_compute_name,
+             attach_config
+         )
     
-    # Can poll for a minimum number of nodes and for a specific timeout. 
-    # If no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    databricks_compute.wait_for_completion(True)
+```
+### <a id="adla"></a>Azure Data Lake Analytics
+
+O Azure Data Lake Analytics é uma plataforma de análise de big data na nuvem do Azure. Ele pode ser usado como um destino de computação com um pipeline do Azure Machine Learning.
+
+Crie uma conta do Azure Data Lake Analytics antes de usá-lo. Para criar este recurso, consulte o documento [Introdução ao Google Analytics do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+
+Para anexar o Data Lake Analytics como um destino de computação, você deve usar o SDK do Aprendizado de Máquina do Azure e fornecer as seguintes informações:
+
+* __Nome de computação__: O nome que você quer atribuir a esse recurso de computação.
+* __Grupo de recursos__: O grupo de recursos que contém a conta do Data Lake Analytics.
+* __Nome da conta__: O nome de conta do Data Lake Analytics.
+
+O código a seguir demonstra como anexar o Data Lake Analytics como um destino de computação:
+
+```python
+import os
+from azureml.core.compute import ComputeTarget, AdlaCompute
+from azureml.exceptions import ComputeTargetException
+
+
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_group))
+    print('adla_account_name {}'.format(adla_account_name))
+    # create attach config
+    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
+                                                     account_name = adla_account_name)
+    # Attach ADLA
+    adla_compute = ComputeTarget.attach(
+             ws,
+             adla_compute_name,
+             attach_config
+         )
     
-     # For a more detailed view of current cluster status, use the 'status' property    
-    print(compute_target.status.serialize())
+    adla_compute.wait_for_completion(True)
 ```
 
-## <a name="construct-your-pipeline-steps"></a>Construir suas etapas de pipeline
+> [!TIP]
+> Os pipelines do Azure Machine Learning só podem funcionar com dados armazenados no armazenamento de dados padrão da conta do Data Lake Analytics. Se os dados que você precisa para trabalhar com está em um armazenamento não padrão, você pode usar um [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar os dados antes do treinamento.
 
-Agora você está pronto para definir uma etapa do pipeline. Há muitas etapas internas disponíveis por meio do SDK do Azure Machine Learning. As mais básicas dessas etapas são um `PythonScriptStep`, que executa um script do Python em um destino de computação especificado.
+## <a id="steps"></a>Construir suas etapas de pipeline
+
+Depois de criar e anexar um destino de computação ao workspace, você está pronto para definir uma etapa do pipeline. Há muitas etapas internas disponíveis por meio do SDK do Azure Machine Learning. As mais básicas dessas etapas é [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que executa um script do Python em um destino de computação especificado.
 
 ```python
 trainStep = PythonScriptStep(
@@ -155,13 +257,36 @@ compareModels = [trainStep, extractStep, compareStep]
 pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 ```
 
+O exemplo a seguir usa o destino de computação do Azure Databricks criado anteriormente: 
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# List of steps to run
+steps = [dbStep]
+
+# Build the pipeline
+pipeline1 = Pipeline(workspace=ws, steps=steps)
+```
+
 ## <a name="submit-the-pipeline"></a>Enviar o pipeline
 
 Quando você envia o pipeline, o Serviço do Azure Machine Learning verifique as dependências para cada etapa e carrega um instantâneo do diretório de origem especificado. Se nenhum diretório de origem for especificado, o diretório local atual será carregado.
 
+
 ```python
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
+pipeline_run.wait_for_completion()
 ```
 
 Quando você executar um pipeline pela primeira vez, o Azure Machine Learning:

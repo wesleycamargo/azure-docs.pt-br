@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/07/2019
 ms.author: alkohli
-ms.openlocfilehash: f5e19d59dfddc3be849700f3678519179b5b39ba
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 31bcc5ed447b32f4474ecef6a8a9f79377061975
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164562"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078976"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de versão da versão prévia do Azure Data Box Gateway
 
@@ -31,7 +31,10 @@ A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
 
 | Não. | Problema |
 | --- | --- |
-| 1 | Nesta versão, quando um arquivo carregado por outra ferramenta (AzCopy) é atualizado e, depois, atualizado de um jeito que aumentam/estende o tamanho do arquivo, o seguinte erro é observado: *Erro 400: InvalidBlobOrBlock (o blob especificado ou conteúdo do bloco é inválido.)*|
+| **1.** | Nesta versão, quando um arquivo que foi carregado por outra ferramenta (AzCopy) é atualizado e, depois, atualizado de um jeito que aumenta/estende o tamanho do arquivo, o seguinte erro é observado: *Erro 400: InvalidBlobOrBlock (o conteúdo do blob ou bloco especificado é inválido.)*|
+| **2.** |Devido a um bug nesta versão, você poderá ver as instâncias do código de erro 110 em *error.xml* com nomes de item irreconhecíveis. | 
+| **3.** |Devido a um bug nesta versão, poderá ocorrer casos do código de erro 2003 durante o upload de arquivos específicos. | 
+| **4.** |Nesta versão, você pode atualizar apenas um compartilhamento por vez. | 
 
 
 ## <a name="known-issues-in-preview-release"></a>Problemas conhecidos na versão prévia
@@ -42,20 +45,17 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para o Data Box Gat
 | --- | --- | --- | --- |
 | **1.** |Atualizações |Os dispositivos do Data Box Gateway criados em versões prévias anteriores não podem ser atualizados para esta versão. |Faça o download das imagens de disco virtual da nova versão e configure e implante os novos dispositivos. Para saber mais, acesse [Preparar para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md). |
 | **2.** |Disco de dados provisionado |Após o provisionamento de um disco de dados de um determinado tamanho e a criação do Data Box Gateway correspondente, você não deve reduzir o disco de dados. A tentativa de reduzir o disco resulta na perda de todos os dados locais no dispositivo. | |
-| **3.** |Atualizar |Nesta versão, você pode atualizar apenas um compartilhamento por vez. | |
-| **4.** |Renomear |Não há suporte para renomeação de objetos. |Entre em contato com o Suporte da Microsoft se esse recurso for crucial para seu fluxo de trabalho. |
-| **5.** |Copiar| Se um arquivo somente leitura for copiado no dispositivo, a propriedade somente leitura não será preservada. | |
-| **6.** |Logs| Devido a um bug nesta versão, você poderá ver as instâncias do código de erro 110 em *error.xml* com nomes de item irreconhecíveis. | |
-| **7.** |Carregar | Devido a um bug nesta versão, poderá ocorrer casos do código de erro 2003 durante o upload de arquivos específicos. | |
-| **8.** |Tipos de arquivo | Não há suporte para os seguintes tipos de arquivo do Linux: arquivos de caracteres, arquivos de bloco, soquetes, pipes e links simbólicos.  |A cópia desses arquivos resulta na criação de arquivos de comprimento 0 no compartilhamento NFS. Esses arquivos permanecem no estado de erro e também são relatados no *error.xml*. |
-| **9.** |Exclusão | Devido a um bug nesta versão, se um compartilhamento NFS for excluído, o compartilhamento não poderá ser excluído. O status do compartilhamento mostrará *Excluindo*.  |Isso ocorre apenas quando o compartilhamento estiver usando um nome de arquivo sem suporte. |
-| **10.** |Atualizar | As permissões e ACLs (listas de controle de acesso) não são preservadas em uma operação de atualização.  | |
-| **11.** |Ajuda online |Talvez os links para a Ajuda no portal do Azure não levem à documentação.|Os links para a Ajuda funcionarão na versão de Disponibilidade geral. |
+| **3.** |Renomear |Não há suporte para renomeação de objetos. |Entre em contato com o Suporte da Microsoft se esse recurso for crucial para seu fluxo de trabalho. |
+| **4.** |Copiar| Se um arquivo somente leitura for copiado no dispositivo, a propriedade somente leitura não será preservada. | |
+| **5.** |Tipos de arquivo | Não há suporte para os seguintes tipos de arquivo do Linux: arquivos de caracteres, arquivos de bloco, soquetes, pipes e links simbólicos.  |A cópia desses arquivos resulta na criação de arquivos de comprimento 0 no compartilhamento NFS. Esses arquivos permanecem no estado de erro e também são relatados no *error.xml*. |
+| **6.** |Exclusão | Devido a um bug nesta versão, se um compartilhamento NFS for excluído, o compartilhamento não poderá ser excluído. O status do compartilhamento mostrará *Excluindo*.  |Isso ocorre apenas quando o compartilhamento estiver usando um nome de arquivo sem suporte. |
+| **7.** |Atualizar | As permissões e ACLs (listas de controle de acesso) não são preservadas em uma operação de atualização.  | |
+| **8.** |Ajuda online |Talvez os links para a Ajuda no portal do Azure não levem à documentação.|Os links para a Ajuda funcionarão na versão de Disponibilidade geral. |
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Preparar para implantar o Gateway do Azure Data Box](data-box-gateway-deploy-prep.md).
+- [Preparar para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 
 

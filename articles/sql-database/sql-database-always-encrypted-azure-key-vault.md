@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: Banco de Dados SQL - Azure Key Vault | Microsoft Docs'
+title: 'Always Encrypted: Banco de Dados SQL – Azure Key Vault | Microsoft Docs'
 description: Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia de dados usando o Assistente Always Encrypted no SQL Server Management Studio.
 keywords: criptografia de dados, chave de criptografia, criptografia de nuvem
 services: sql-database
@@ -12,15 +12,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 5499193ba96d5a32ac6d3b310eee531c68fd52fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/03/2019
+ms.openlocfilehash: e988a3c86302b875f8393264279e4a65c45ba1eb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255908"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041230"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre criptografado: proteja dados confidenciais e armazene chaves de criptografia no Cofre de Chaves do Azure
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Proteja dados confidenciais e armazene chaves de criptografia no Azure Key Vault
 
 Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia de dados usando o [Assistente Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) no [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Ele também inclui instruções que mostram como armazenar cada chave de criptografia no Cofre de Chaves do Azure.
 
@@ -60,6 +60,7 @@ Você pode criar rapidamente um cofre de chaves executando o script a seguir. Pa
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
+    # Use the same resource group name when creating your SQL Database below
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
 
@@ -132,7 +133,7 @@ O SSMS fornece um assistente que ajuda você a configurar facilmente o Always En
    
     ![Criptografar Colunas](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-O assistente Always Encrypted inclui as seguintes seções: **Seleção de Coluna**, **Configuração da Chave Mestra**, **Validação** e **Resumo**.
+O assistente Always Encrypted inclui as seções a seguir: **Seleção de Coluna**, **Configuração da Chave Mestra**, **Validação** e **Resumo**.
 
 ### <a name="column-selection"></a>Seleção de coluna
 Clique em **Avançar** na página **Introdução** para abrir a página **Seleção de Coluna**. Nessa página, você escolherá as colunas que quer criptografar, [o tipo de criptografia e quais CEK (Chave de Criptografia da Coluna)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) usar.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993778"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074498"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -674,6 +674,10 @@ No C#, e em outras linguagens .NET, você pode usar um padrão de associação o
 ## <a name="functionjson-file-schema"></a>Esquema de arquivo function.json
 
 O esquema de arquivos *function.json* está disponível em [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
+## <a name="testing-bindings"></a>Testando associações
+
+Ao desenvolver funções localmente, você pode testar as associações usando o Visual Studio 2017 ou o Visual Studio Code. Para saber mais, consulte [Estratégias para testar seu código no Azure Functions](functions-test-a-function.md). Você também pode invocar associações não HTTP usando APIs REST. Para saber mais, consulte [Executar manualmente uma função não disparada por HTTP](functions-manually-run-non-http.md).
 
 ## <a name="handling-binding-errors"></a>Tratamento de erros de associação
 

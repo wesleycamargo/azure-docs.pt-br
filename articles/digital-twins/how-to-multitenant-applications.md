@@ -1,60 +1,76 @@
 ---
 title: Ativar aplicativos de vários usuários com os Gêmeos Digitais do Azure| Microsoft Docs
-description: Noções básicas sobre como registrar os locatários do Azure Active Directory dos seus clientes com Gêmeos Digitais do Azure
+description: Como configurar aplicativos multilocatário do Azure Active Directory para os Gêmeos Digitais do Azure.
 author: mavoge
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 01/03/2019
 ms.author: mavoge
-ms.openlocfilehash: a2d9ece119003c341f49ee03d735d5636b179a32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259880"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119961"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Ativar aplicativos de vários usuários com Gêmeos Digitais do Azure
 
-Os desenvolvedores que usam os Gêmeos Digitais do Azure geralmente desejam criar aplicativos para vários usuários. Um aplicativo de *multilocatário* é uma única instância provisionada que suporta vários clientes. Cada cliente tem seus próprios dados e privilégios independentes.
+Os desenvolvedores de soluções que criam em Gêmeos Digitais do Azure descobrir que desejam dar suporte a vários clientes com um único serviço ou solução. Na verdade, aplicativos *multilocatários* estão entre as configurações mais comuns dos Gêmeos Digitais do Azure.
 
-Este documento detalha como criar um aplicativo para vários usuários dos Gêmeos Digitais do Azure que ofereça suporte a vários inquilinos e clientes do Azure AD (Azure Active Directory).
+Este documento descreve como configurar um aplicativo de Gêmeos Digitais do Azure para dar suporte a vários locatários e clientes do Azure Active Directory.
 
-## <a name="scenario-summary"></a>Resumo do cenário
+## <a name="multitenancy"></a>Multilocação
 
-Nesse cenário, considere D de desenvolvedor e C de cliente:
+Um recurso *multilocatário* é uma única instância provisionada compatível com vários clientes. Cada cliente tem seus próprios dados e privilégios independentes. A experiência de cada cliente é isolada uma da outra para que as respectivas "exibições" do aplicativo sejam diferente.
 
-- O desenvolvedor D tem uma assinatura do Azure com um locatário do Azure Active Directory.
-- O desenvolvedor D implanta uma instância dos Gêmeos Digitais do Azure em sua assinatura do Azure.
-- Os usuários do locatário Azure Active Directory do Developer D podem obter tokens em relação ao serviço Azure Digital Twins porque o Azure AD criou uma entidade de serviço no locatário Azure AD do Developer D.
-- O desenvolvedor D agora cria um aplicativo para dispositivos móveis que se integra diretamente à API de gerenciamento de Gêmeos Digitais do Azure.
-- O desenvolvedor D permite ao cliente C o uso do aplicativo móvel.
-- O cliente C deve estar autorizado a usar a API de gerenciamento dos Gêmeos Digitais do Azure no aplicativo do desenvolvedor.
+Para saber mais sobre multilocação, leia [Aplicativos multilocatário no Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications).
 
-  > [!IMPORTANT]
-  > - Quando o Cliente C efetua login no aplicativo do Desenvolvedor D, o aplicativo não pode adquirir tokens para que os usuários do Cliente C conversem com a API de Gerenciamento.
-  > - O Microsoft Azure Active Directory lança um erro, que indica que o Azure Digital Twins não é reconhecido no diretório do Cliente C.
+## <a name="problem-scenario"></a>Cenário de problema
 
-## <a name="solution"></a>Solução
+Nesse cenário, considere um desenvolvedor criando uma solução dos Gêmeos Digitais do Azure (**DEVELOPER**) e um cliente que usa essa solução (**CUSTOMER**):
 
-Para resolver o cenário anterior, as seguintes ações são necessárias para criar uma entidade de serviço dos Gêmeos Digitais do Azure no locatário do Azure Active Directory do Customer C:
+- **DEVELOPER** tem uma assinatura do Azure com um locatário do Azure Active Directory.
+- O **DEVELOPER** implanta uma instância dos Gêmeos Digitais do Azure em sua assinatura do Azure. O Azure Active Directory automaticamente criou uma entidade de serviço no locatário do Azure Active Directory do **DEVELOPER**.
+- Usuários dentro do locatário do Azure Active Directory do **DEVELOPER** então podem [adquirir tokens OAuth 2.0](./security-authenticating-apis.md) do serviço de Gêmeos Digitais do Azure.
+- **DEVELOPER** agora cria um aplicativo móvel que se integra diretamente à API de gerenciamento de Gêmeos Digitais do Azure.
+- **DEVELOPER** permite ao **CUSTOMER** usar o aplicativo móvel.
+- **CUSTOMER** deve estar autorizado a usar a API de gerenciamento dos Gêmeos Digitais do Azure no aplicativo **DEVELOPER**.
 
-- Se o Cliente C ainda não tiver uma assinatura do Azure com um locatário do Microsoft Azure Active Directory:
+O problema:
 
-  - O administrador de locatários do Microsoft Azure Active Directory do cliente C deve adquirir uma [assinatura do Azure pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p/).
-  - O administrador do locatário do Microsoft Azure Active Directory do cliente C deve [vincular seu locatário à nova assinatura](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+- Quando o **CUSTOMER** efetua logon no aplicativo do **DEVELOPER**, o aplicativo não consegue adquirir tokens para os usuários do **CUSTOMER** autenticarem-se com as APIs de Gerenciamento dos Gêmeos Digitais do Azure.
+- É gerada uma exceção no Azure Active Directory indicando que os Gêmeos Digitais do Azure não são reconhecidos no diretório do **CUSTOMER**.
 
-- No [Portal do Azure](https://portal.azure.com), o administrador do locatário do Microsoft Azure Active Directory do Cliente C executa as seguintes etapas:
+## <a name="problem-solution"></a>Solução do problema
+
+Para resolver o cenário de problema anterior, as seguintes ações são necessárias para criar uma entidade de serviço dos Gêmeos Digitais do Azure dentro de um locatário do Azure Active Directory do **CUSTOMER**:
+
+- Se **CUSTOMER** ainda não tiver uma assinatura do Azure com um locatário do Azure Active Directory:
+
+  - O administrador do locatário do Azure Active Directory do **CUSTOMER** deverá adquirir uma [assinatura do Azure paga conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/).
+  - O administrador do locatário do Azure Active Directory do **CUSTOMER** deverá [vincular seu locatário à nova assinatura](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
+
+- No [portal do Azure](https://portal.azure.com), o administrador do locatário do Azure Active Directory do **CUSTOMER** realiza as seguintes etapas:
 
   1. Abrir **assinaturas**.
-  1. Selecione a assinatura que tem um locatário do Microsoft Azure Active Directory para ser usado em aplicativo do D do desenvolvedor.
+  1. Selecione a assinatura que tem um locatário do Azure Active Directory a ser usado no aplicativo do **DEVELOPER**.
+
+     ![Assinaturas do Azure Active Directory][1]
+
   1. Selecione **Provedores de Recursos**.
   1. Pesquise **Microsoft.IoTSpaces**.
   1. Selecione **Registrar**.
+
+     ![Provedores de recursos do Azure Active Directory][2]
   
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como usar as funções definidas pelo usuário com os Gêmeos Digitais do Azure, leia [UDFs do Azure Digital Twins](how-to-user-defined-functions.md).
+- Para saber mais sobre como usar funções definidas pelo usuário com os Gêmeos Digitais do Azure, leia [Como criar funções definidas pelo usuário dos Gêmeos Digitais do Azure](./how-to-user-defined-functions.md).
 
-Para saber como usar o controle de acesso baseado em função para proteger ainda mais o aplicativo com as atribuições de função, leia [Gêmeos Digitais do Azure baseado em função de controle de acesso](security-create-manage-role-assignments.md).
+- Para saber como usar o controle de acesso baseado em função para proteger ainda mais o aplicativo com as atribuições de função, leia [Como criar e gerenciar controle de acesso baseado em função dos Gêmeos Digitais do Azure](./security-create-manage-role-assignments.md).
+
+<!-- Images -->
+[1]: media/multitenant/ad-subscriptions.png
+[2]: media/multitenant/ad-resource-providers.png

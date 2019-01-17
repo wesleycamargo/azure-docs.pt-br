@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: b996d42e5c543235d09b46d29889bc5eaeafd52a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410943"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118968"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Entender as mensagens de erro comuns ao gerenciar máquinas virtuais no Azure
 
@@ -108,7 +108,7 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  InvalidParameter  |  Não é possível especificar substituições da imagem de utilizador para um disco que já está definido na referência de imagem especificada.  |
 |  InvalidParameter  |  Um disco chamado "{0}" já utiliza a mesma URL do VHD {1}.  |
 |  InvalidParameter  |  A contagem especificada de domínios de falha de {0} deve estar no intervalo de {1} a {2}.  |
-|  InvalidParameter  |  O tipo de licença {0} é inválido. Os tipos de licenças válidos são: Windows_Client ou Windows_Server, sensíveis às maiúsculas e minúsculas.  |
+|  InvalidParameter  |  O tipo de licença {0} é inválido. Os tipos de licença válidos são: Windows_Client ou Windows_Server, diferencia maiúsculas de minúsculas.  |
 |  InvalidParameter  |  O nome do host Linux não pode ter mais de {0} caracteres de comprimento ou conter os seguintes caracteres: {1}.  |
 |  InvalidParameter  |  O caminho de destino das chaves públicas Ssh está limitado ao valor predefinido {0} devido a um problema conhecido no agente de provisionamento do Linux.  |
 |  InvalidParameter  |  Já existe um disco no LUN {0}.  |
@@ -202,7 +202,7 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  VMArtifactRepositoryInternalError  |  Ocorreu um erro interno ao obter os dados de artefato da VM a partir do repositório de artefatos.  |
 |  VMExtensionHandlerNonTransientError  |  O manipulador '{0}' relatou uma falha na extensão da VM '{1}' com código de erro terminal '{2}' e mensagem de erro: '{3}'  |
 |  VMExtensionManagementInternalError  |  Ocorreu um erro interno durante o processamento da extensão de VM "{0}".  |
-|  VMExtensionManagementInternalError  |  Vários erros ao preparar as extensões da VM. Consulte a exibição de instância de extensão de VM para obter detalhes.  |
+|  VMExtensionManagementInternalError  |  Vários erros ocorreram ao preparar as extensões da VM. Consulte a exibição de instância de extensão de VM para obter detalhes.  |
 |  VMExtensionProvisioningError  |  A VM reportou uma falha durante o processamento da extensão "{0}". Mensagem de erro: “{1}”.  |
 |  VMExtensionProvisioningError  |  Houve falha no provisionamento de várias extensões de VM na VM. Consulte a exibição de instância de extensão de VM para obter detalhes.  |
 |  VMExtensionProvisioningTimeout  |  Provisionamento de extensão da VM "{0}" expirou. A instalação da extensão pode estar demorando muito tempo, ou não foi possível obtê-la.  |

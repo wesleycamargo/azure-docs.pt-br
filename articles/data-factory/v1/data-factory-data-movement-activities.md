@@ -9,17 +9,16 @@ ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3d0a3014fa224d6b5c85142e492afb0679f9f0b1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299853"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014674"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +78,7 @@ A Atividade de Cópia no Data Factory copia os dados de um repositório de dados
 ### <a name="supported-file-formats"></a>Formatos de arquivo com suporte
 Você pode usar a Atividade de Cópia para **copiar arquivos no estado em que se encontram** entre dois armazenamentos de dados baseados em arquivo, ignore a [seção de formato](data-factory-create-datasets.md) nas duas definições de conjunto de dados de entrada e de saída. Os dados são copiados com eficiência sem qualquer serialização/desserialização.
 
-A Atividade de Cópia também lê e grava em arquivos em formatos especificados: há suporte para **texto, Avro, JSON, ORC e Parquet** e para os codecs de compactação **GZip, Deflate, BZip2 e ZipDeflate**. Consulte [Formatos de arquivo e compactação com suporte](data-factory-supported-file-and-compression-formats.md) para obter detalhes.
+A Atividade de Cópia também lê e grava em arquivos em formatos especificados: **Texto, JSON, Avro, ORC e Parquet** e os codecs de compactação **GZip, Deflate, BZip2 e ZipDeflate** têm suporte. Consulte [Formatos de arquivo e compactação com suporte](data-factory-supported-file-and-compression-formats.md) para obter detalhes.
 
 Por exemplo, você pode fazer as seguintes atividades de cópia:
 
@@ -139,7 +138,7 @@ Você pode criar um pipeline com uma Atividade de Cópia de duas maneiras:
 O Assistente de Cópia do Data Factory ajuda você a criar um pipeline com a Atividade de Cópia. Esse pipeline permite copiar dados de fontes compatíveis para destinos *sem gravar definições JSON* para serviços vinculados, conjuntos de dados e pipelines. Veja [Assistente de Cópia do Data Factory](data-factory-copy-wizard.md) para obter detalhes sobre o assistente.  
 
 ### <a name="by-using-json-scripts"></a>Usando scripts JSON
-Você pode usar o Editor do Data Factory no portal do Azure, no Visual Studio ou no Azure PowerShell para criar uma definição JSON para um pipeline (usando Atividade de Cópia). Em seguida, você pode implantá-la para criar o pipeline no Data Factory. Confira [Tutorial: Use Copy Activity in an Azure Data Factory pipeline (Tutorial: Usar Atividade de Cópia em um pipeline do Azure Data Factory)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver um tutorial com instruções detalhadas.    
+Você pode usar o Editor do Data Factory no portal do Azure, no Visual Studio ou no Azure PowerShell para criar uma definição JSON para um pipeline (usando Atividade de Cópia). Em seguida, você pode implantá-la para criar o pipeline no Data Factory. Consulte [Tutorial: Usar Atividade de Cópia em um pipeline do Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver um tutorial com instruções detalhadas.    
 
 As propriedades JSON (como nome, descrição, tabelas de entrada e saída, e políticas) estão disponíveis para todos os tipos de atividade. As propriedades que estão disponíveis na seção `typeProperties` da atividade variam de acordo com cada tipo de atividade.
 

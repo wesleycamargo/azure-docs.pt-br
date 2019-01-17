@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: perguntas frequentes | Microsoft Docs'
+title: 'Azure Data Factory: Perguntas frequentes | Microsoft Docs'
 description: Obtenha resposta a perguntas frequentes sobre o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,16 +9,15 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249580"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024086"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 Este artigo fornece respostas a perguntas frequentes sobre o Azure Data Factory.  
@@ -50,7 +49,7 @@ O Data Factory fornece liberdade para modelar qualquer estilo de fluxo que seja 
 - Fluxos delta:
     - Use parâmetros e defina seus limites para cópia de delta ao mover tabelas de referência ou dimensão de um relational store local ou na nuvem para carregar os dados no lake. 
 
-Para obter mais informações, consulte [Tutorial: fluxo de controle](tutorial-control-flow.md).
+Para obter mais informações, confira [Tutorial: Fluxos de controle](tutorial-control-flow.md).
 
 ### <a name="transform-your-data-at-scale-with-code-free-pipelines"></a>Transformar os dados em escala com pipelines sem código
 A nova experiência de ferramentas baseada em navegador fornece criação e implantação de pipeline sem código, com uma experiência moderna e interativa baseada na Web.
@@ -92,9 +91,9 @@ Desde o lançamento inicial da Visualização Pública em 2017, o Data Factory a
 ## <a name="what-is-integration-runtime"></a>O que é o tempo de execução de integração?
 O tempo de execução de integração é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre vários ambientes de rede:
 
-- **Movimentação de dados**: para a movimentação de dados, o Integration Runtime movimenta os dados entre os armazenamentos de dados de origem e de destino, dando suporte a conectores internos, à conversão de formato, ao mapeamento de coluna e à transferência de dados escalonável e com bom desempenho.
-- **Atividades de expedição**: para a transformação, o Integration Runtime fornece a funcionalidade de executar pacotes do SSIS de maneira nativa.
-- **Executar pacotes SSIS**: executa nativamente pacotes SSIS em um ambiente de computação do Azure gerenciado. O Integration Runtime também dá suporte à expedição e ao monitoramento de atividades de transformação executadas em uma variedade de serviços de computação, como Azure HDInsight, Azure Machine Learning, Banco de Dados SQL do Azure, SQL Server e muitos mais.
+- **Movimentação de dados**: Para a movimentação de dados, o Integration Runtime movimenta os dados entre os repositórios de dados de origem e de destino dando suporte a conectores internos, à conversão de formato, ao mapeamento de coluna e à transferência de dados escalonável e com bom desempenho.
+- **Expedição de atividades**: Para a transformação, o Integration Runtime fornece a funcionalidade de executar pacotes do SSIS de maneira nativa.
+- **Executar pacotes SSIS**: Executa nativamente pacotes SSIS em um ambiente de computação do Azure gerenciado. O Integration Runtime também dá suporte à expedição e ao monitoramento de atividades de transformação executadas em uma variedade de serviços de computação, como Azure HDInsight, Azure Machine Learning, Banco de Dados SQL do Azure, SQL Server e muitos mais.
 
 Você pode implantar uma ou mais instâncias do tempo de execução de integração conforme necessário para movimentar e transformar os dados. O tempo de execução de integração pode ser executado na rede pública do Azure ou em uma rede privada (local, Rede Virtual do Azure ou VPC (nuvem privada virtual) do Amazon Web Services). 
 
@@ -179,5 +178,5 @@ Você pode usar o constructo `@coalesce` nas expressões para manipular valores 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter instruções passo a passo para criar um data factory, consulte os tutoriais a seguir:
 
-- [Início rápido: criar um data factory](quickstart-create-data-factory-dot-net.md)
-- [Tutorial: copiar os dados na nuvem](tutorial-copy-data-dot-net.md)
+- [Início Rápido: Criar um data factory](quickstart-create-data-factory-dot-net.md)
+- [Tutorial: Copiar dados na nuvem](tutorial-copy-data-dot-net.md)

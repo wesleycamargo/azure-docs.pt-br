@@ -1,6 +1,6 @@
 ---
 title: Notas sobre a versão do SQL Data Warehouse do Azure | Microsoft Docs
-description: Notas sobre a versão do SQL Data Warehouse do Azure.
+description: Notas de versão do SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: twounder
 manager: craigg
@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: b702d375f7a66843918a960ca3783c078eac541e
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579264"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118431"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas sobre a versão do SQL Data Warehouse do Azure
 
@@ -23,6 +23,7 @@ O SQL Data Warehouse do Azure é um EDW (Enterprise Data Warehouse) baseado em n
 
 Clique nos links abaixo para saber mais sobre os novos recursos e aprimoramentos que você pode esperar na última versão do SQL Data Warehouse do Azure. Você pode esperar receber essas atualizações de serviço durante a programação de manutenção identificada.
 
+- [Dezembro de 2018](./release-notes-december-2018.md)
 - [Outubro de 2018](./release-notes-october-2018.md)
 - [Setembro de 2018](./release-notes-september-2018.md)
 - [Agosto de 2018](./release-notes-august-2018.md)
@@ -38,7 +39,7 @@ Para confirmar qual versão foi aplicada ao data warehouse. Conecte-se ao data w
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Saída de exemplo: ![versão do SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+Saída de exemplo: ![Versão do SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
 Use a data identificada para confirmar qual versão foi aplicada ao seu SQL Data Warehouse do Azure. 
 

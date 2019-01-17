@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228208"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063991"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais ouvintes de grupo de disponibilidade AlwaysOn – Resource Manager
 Este tópico mostra como:
@@ -45,7 +45,7 @@ Configure o Firewall do Windows para permitir acesso ao SQL Server. As regras de
 
 Se você estiver restringindo o acesso a um Grupo de Segurança de Rede do Azure, verifique se as regras de permissão incluem os endereços IP da VM do SQL Server de back-end e os endereços IP flutuantes do balanceador de carga para o ouvinte da AG e o endereço IP do núcleo do cluster, se aplicável.
 
-## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de exemplo: criar um balanceador de carga interno usando o PowerShell
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de exemplo: criar um balanceador de carga interno com o PowerShell
 > [!NOTE]
 > Se você criou o grupo de disponibilidade com o [modelo Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), o balanceador de carga interno já foi criado. 
 > 
@@ -176,7 +176,7 @@ Para testar a conexão:
 1. Use o utilitário **sqlcmd** para testar a conexão. Por exemplo, o script a seguir estabelece uma conexão de **sqlcmd** com a réplica primária por meio do ouvinte com autenticação do Windows:
    
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
    
     Se o ouvinte estiver usando uma porta diferente da porta padrão (1433), especifique a porta na cadeia de conexão. Por exemplo, o comando sqlcmd a seguir conecta-se a um ouvinte na porta 1435: 

@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 8c3eac208a4e1b0fd55e56956035b3fb5a23fc00
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729735"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015195"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Diretrizes sobre a implantação de aplicativos Web usando modelos do Azure Resource Manager
 
@@ -138,3 +138,4 @@ Para obter um modelo de exemplo, confira [Implantar um certificado de aplicativo
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para um tutorial sobre a implantação de aplicativos Web com um modelo, consulte [Provisionar e implantar microsserviços previsíveis no Azure](deploy-complex-application-predictably.md).
+* Para saber mais sobre a sintaxe JSON e as propriedades de tipos de recursos em modelos, consulte [Referência de modelo do Azure Resource Manager](/azure/templates/).

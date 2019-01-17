@@ -11,21 +11,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/03/2019
+ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945460"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035263"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Regras de firewall do Banco de Dados SQL e do SQL Data Warehouse do Azure
 
 O [Banco de Dados SQL](sql-database-technical-overview.md) e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) do Microsoft Azure fornecem um serviço de banco de dados relacional para o Azure e para outros aplicativos baseados na Internet. Para ajudar a proteger seus dados, os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso aos bancos de dados com base no endereço IP de origem de cada solicitação.
 
 > [!NOTE]
-> Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. 
-
+> Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
 > [!IMPORTANT]
 > Este artigo faz *não* se aplica ao **Banco de Dados de Instância Gerenciada do SQL**. Consulte o seguinte artigo sobre [Conectar-se a uma Instância Gerenciada](sql-database-managed-instance-connect-app.md) para obter mais informações sobre a configuração de rede necessária.
 
@@ -58,9 +57,9 @@ As tentativas de conexão da Internet e do Azure devem passar primeiramente pelo
 
 A Microsoft recomenda o uso de regras de firewall no nível do banco de dados sempre que possível, a fim de tornar seu banco de dados mais portátil. Use regras de firewall no nível do servidor para administradores e quando você tem muitos bancos de dados com os mesmos requisitos de acesso e não quer gastar tempo configurando cada um individualmente.
 
-> [!Important]
+> [!IMPORTANT]
 > Banco de Dados SQL do Microsoft Azure dá suporte a um máximo de 128 regras de firewall.
-> [!Note]
+> [!NOTE]
 > Para obter informações sobre bancos de dados portáteis no contexto de continuidade de negócios, confira [Requisitos de autenticação para a recuperação de desastres](sql-database-geo-replication-security-config.md).
 
 ### <a name="connecting-from-the-internet"></a>Conectando pela Internet
@@ -102,7 +101,7 @@ Para definir uma regra de firewall no nível do servidor no Portal do Azure, voc
 
 ### <a name="from-database-overview-page"></a>Na página de visão geral de banco de dados
 
-1. Para definir uma regra de firewall de nível de servidor da página de visão geral do banco de dados, clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem a seguir: a página **Configurações de Firewall** é exibida para o servidor do Banco de Dados SQL.
+1. Para definir uma regra de firewall de nível de servidor da página de visão geral do banco de dados, clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem a seguir: A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta.
 
       ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -223,7 +222,7 @@ Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL 
 
 - **Configuração de firewall local:**
 
-  Antes que o computador possa acessar o Banco de Dados SQL do Azure, talvez seja necessário criar uma exceção de firewall em seu computador para a porta TCP 1433. Talvez seja necessário abrir portas adicionais se você estiver criando conexões dentro do limite de nuvem do Azure. Para obter mais informações, consulte a seção **Banco de Dados SQL: fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+  Antes que o computador possa acessar o Banco de Dados SQL do Azure, talvez seja necessário criar uma exceção de firewall em seu computador para a porta TCP 1433. Talvez seja necessário abrir portas adicionais se você estiver criando conexões dentro do limite de nuvem do Azure. Para obter mais informações, consulte a seção **Banco de Dados SQL: Fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Conversão de endereços de rede (NAT):**
 
@@ -248,7 +247,7 @@ Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL 
 
 - Para um início rápido sobre como criar um banco de dados e uma regra de firewall de nível de servidor, consulte [Criar um Banco de Dados SQL do Azure](sql-database-get-started-portal.md).
 - Para obter ajuda com a conexão de um Banco de Dados SQL do Azure a partir de aplicativos de fonte aberta ou de terceiros, consulte [Exemplos de código do cliente de início rápido para o Banco de Dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-- Para obter mais informações sobre as portas adicionais que você pode precisar abrir, consulte a seção **Banco de Dados SQL: fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Para obter informações sobre as portas adicionais que talvez você precise abrir, consulte a seção **Banco de Dados SQL: Fora versus dentro** de [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Para obter uma visão geral de segurança do Banco de Dados SQL do Azure, consulte [Protegendo seu banco de dados](sql-database-security-overview.md)
 
 <!--Image references-->

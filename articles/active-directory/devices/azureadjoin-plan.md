@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310361"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189506"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planejar sua implementação de ingresso no Azure AD
 
@@ -113,7 +113,7 @@ Se você criar usuários no seu:
 
 - **Azure AD**, nenhuma configuração adicional é necessária.
 
-[Alternativa de IDs de logon](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) não têm suporte em dispositivos ingressados no Azure Active Directory. Se os usuários usam uma ID de logon alternativo, você deve planejar passar a usar seus UPNS primário do Azure Active Directory.
+UPNs locais que são diferentes de UPNs do Azure AD não têm suporte em dispositivos ingressados no Azure AD. Se os usuários usarem um UPN local, você deverá planejar passar a usar seus UPNs primários do Azure AD.
 
 
 
@@ -167,7 +167,7 @@ As seções a seguir listam considerações para diferentes tipos de aplicativos
 
 ### <a name="cloud-based-applications"></a>Aplicativos seguros baseados em nuvem
 
-Se um aplicativo for adicionado à galeria de aplicativo do Azure Active Directory, os usuários obtêm SSO através dos dispositivos do Azure Active Directory ingressado. É necessário realizar uma configuração adicional. Os usuários a obtêm o SSO em ambos os navegadores Edge e Chrome. Para o Chrome, você precisará implantar a [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Se um aplicativo for adicionado à galeria de aplicativo do Azure Active Directory, os usuários obtêm SSO através dos dispositivos do Azure Active Directory ingressado. É necessário realizar uma configuração adicional. Os usuários obtêm o SSO em navegadores Microsoft Edge e Chrome. Para o Chrome, você precisará implantar a [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Todos os aplicativos Win32 que:
 

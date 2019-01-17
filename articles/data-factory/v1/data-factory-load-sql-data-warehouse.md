@@ -9,17 +9,16 @@ ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246361"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020142"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
 > [!NOTE]
@@ -30,7 +29,7 @@ O [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overvie
 
 A introdução ao Azure SQL Data Warehouse agora é mais fácil do que nunca, usando o **Azure Data Factory**.  O Azure Data Factory é um serviço de integração de dados baseado em nuvem totalmente gerenciado, que pode ser usado para popular um SQL Data Warehouse com os dados de seu sistema existente e economizar tempo valioso ao avaliar o SQL Data Warehouse e criar suas soluções de análise. Aqui estão os principais benefícios de carregar dados no Azure SQL Data Warehouse usando o Azure Data Factory:
 
-* **Fácil de configurar**: assistente intuitivo de 5 etapas sem nenhum script necessário.
+* **Fácil de configurar**: Assistente intuitivo de 5 etapas, sem nenhum script necessário.
 * **Suporte de armazenamento de dados avançados**: suporte interno para um conjunto avançado de armazenamentos de dados locais e baseados em nuvem.
 * **Seguro e compatível**: os dados são transferidos por HTTPS ou ExpressRoute e a presença global do serviço garante que os dados nunca saiam do limite geográfico
 * **Desempenho incomparável usando PolyBase** – usar o Polybase é a maneira mais eficiente para mover dados para o SQL Data Warehouse. Usando o recurso de blob de preparo, você pode obter velocidades de alta carga de todos os tipos de armazenamentos de dados além do Armazenamento de Blobs do Azure, ao qual o Polybase dá suporte por padrão.
@@ -42,7 +41,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 > [!NOTE]
 >  Para obter informações gerais sobre as funcionalidades do Data Factory para movimentação de dados bidirecionalmente no SQL Data Warehouse do Azure, consulte o artigo [Mover dados bidirecionalmente no SQL Data Warehouse do Azure usando o Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
 >
-> Você também pode criar pipelines usando o Portal do Azure, Visual Studio, PowerShell, etc. Confira [Tutorial: copiar dados do Blob do Azure para o Banco de Dados SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter um breve passo a passo com instruções sobre como usar a Atividade de cópia na Azure Data Factory.  
+> Você também pode criar pipelines usando o Portal do Azure, Visual Studio, PowerShell, etc. Consulte [Tutorial: Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter um breve passo a passo com instruções sobre como usar a Atividade de cópia na Azure Data Factory.  
 >
 >
 
@@ -136,7 +135,7 @@ Com as etapas de pré-requisito concluídas, agora estamos prontos para configur
    >
    >
 
-## <a name="step-1-configure-data-loading-schedule"></a>Etapa 1: configurar o cronograma de carregamento de dados
+## <a name="step-1-configure-data-loading-schedule"></a>Etapa 1: Configurar o cronograma de carregamento de dados
 A primeira etapa é configurar o cronograma de carregamento de dados.  
 
 Na página **Propriedades** :
@@ -147,8 +146,8 @@ Na página **Propriedades** :
 
     ![Assistente de Cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
-## <a name="step-2-configure-source"></a>Etapa 2: Configurar a origem
-Esta seção mostra as etapas para configurar a origem: Blob do Azure contendo os arquivos de item de linha de 1 TB TPC-H.
+## <a name="step-2-configure-source"></a>Etapa 2: Configurar fonte
+Esta seção mostra as etapas para configurar a origem: Blob do Azure que contém de 1 TB de arquivos de item de linha TPC-H.
 
 1. Selecione o **Armazenamento de Blobs do Azure** como o armazenamento de dados e clique em **Próximo**.
 

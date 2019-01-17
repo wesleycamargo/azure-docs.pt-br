@@ -1,20 +1,20 @@
 ---
 title: Como criar funções definidas pelo usuário em Gêmeos Digitais do Azure | Microsoft Docs
-description: Diretrizes sobre como criar funções definidas pelo usuário, correspondentes e atribuições de função com Gêmeos Digitais do Azure.
+description: Como criar funções definidas pelo usuário, correspondentes e atribuições de função com os Gêmeos Digitais do Azure.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993392"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076239"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo usuário em Gêmeos Digitais do Azure
 
@@ -73,21 +73,17 @@ Com o corpo JSON:
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida pelo usuário
 
-Depois que os correspondentes forem criados, carregue o trecho de código de função com a seguinte solicitação **POST** autenticada:
+A criação de uma função definida pelo usuário envolve fazer uma solicitação HTTP com várias partes para as APIs de Gerenciamento dos Gêmeos Digitais do Azure.
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
+
+Depois que os correspondentes forem criados, carregue o trecho de código de função com a seguinte solicitação HTTP POST de várias partes autenticada:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-> [!IMPORTANT]
-> - Verifique se os cabeçalhos incluem: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> - O corpo fornecido é de partes múltiplas:
->   - A primeira parte contém os metadados de UDF necessários.
->   - A segunda parte contém a lógica de computação do JavaScript.
-> - Na seção **USER_DEFINED_BOUNDARY**, substitua os valores **spaceId** (`YOUR_SPACE_IDENTIFIER`) e **matchers**(`YOUR_MATCHER_IDENTIFIER`).
-> - Observe o UDF do JavaScript fornecido como `Content-Type: text/javascript`.
-
-Use o corpo JSON a seguir:
+Use o seguinte corpo:
 
 ```plaintext
 --USER_DEFINED_BOUNDARY
@@ -116,6 +112,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | Um nome de limite de conteúdo com diversas partes |
 | YOUR_SPACE_IDENTIFIER | O identificador de espaço  |
 | YOUR_MATCHER_IDENTIFIER | A ID do correspondente que você quer usar |
+
+1. Verifique se os cabeçalhos incluem: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Verifique se o corpo tem diversas partes:
+
+   - A primeira parte contém os metadados de função definida pelo usuário necessários.
+   - A segunda parte contém a lógica de computação do JavaScript.
+
+1. Na seção **USER_DEFINED_BOUNDARY**, substitua os valores de **spaceId** (`YOUR_SPACE_IDENTIFIER`) e **matchers**(`YOUR_MATCHER_IDENTIFIER`).
+1. Verifique se a função definida pelo usuário do JavaScript é fornecida como `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Funções de exemplo
 
@@ -190,16 +195,16 @@ Para obter um exemplo de código de função mais complexo definido pelo usuári
 
 ## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 
-Crie uma atribuição de função para que a função definida pelo usuário seja executada. Se não houver atribuição de função para a função definida pelo usuário, ela não terá as permissões adequadas para interagir com a API de Gerenciamento ou o acesso para executar ações em objetos gráficos. As ações que uma função definida pelo usuário podem executar são especificadas e definidas por meio do controle de acesso baseado em função nas APIs de Gerenciamento de Gêmeos Digitais do Azure. Por exemplo, funções definidas pelo usuário podem ser limitadas no escopo, especificando determinadas funções ou certos caminhos de controle de acesso. Para obter mais informações, consulte a documentação de [controle de acesso baseado em função](./security-role-based-access-control.md).
+Crie uma atribuição de função para que a função definida pelo usuário seja executada. Se não houver nenhuma atribuição de função para a função definida pelo usuário, ela não terá as permissões corretas para interagir com a API de Gerenciamento ou para ter acesso para executar ações nos objetos de grafo. As ações que a função definida pelo usuário pode executar são especificadas por meio do controle de acesso baseado em função nas APIs do Gerenciamento de Gêmeos Digitais do Azure. Por exemplo, funções definidas pelo usuário podem ser limitadas no escopo, especificando determinadas funções ou certos caminhos de controle de acesso. Para obter mais informações, consulte a documentação de [controle de acesso baseado em função](./security-role-based-access-control.md).
 
-1. [Consulte a API do sistema](./security-create-manage-role-assignments.md#all) de todas as funções para obter o ID da função que você deseja atribuir ao UDF. Faça isso, executando uma solicitação HTTP GET autenticada para:
+1. [Consulte a API do sistema](./security-create-manage-role-assignments.md#all) de todas as funções para obter a ID da função que você deseja atribuir à sua função definida pelo usuário. Faça isso, executando uma solicitação HTTP GET autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Guarde a ID da função desejada. Ela será passada como o atributo do corpo JSON **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) abaixo.
 
-1. O **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) será a ID do UDF criado anteriormente.
+1. O **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) será a ID da função definida pelo usuário criada anteriormente.
 1. Localize o valor do **caminho** (`YOUR_ACCESS_CONTROL_PATH`), consultando os espaços com `fullpath`.
 1. Copie o valor `spacePaths` retornado. Esse valor será utilizado posteriormente. Faça uma solicitação HTTP GET autenticada para:
 
@@ -211,7 +216,7 @@ Crie uma atribuição de função para que a função definida pelo usuário sej
     | --- | --- |
     | YOUR_SPACE_NAME | O nome do espaço que você deseja usar |
 
-1. Cole o valor `spacePaths` retornado no **caminho** para criar uma atribuição de função de UDF, fazendo uma solicitação HTTP POST autenticada para:
+1. Cole o valor `spacePaths` retornado no **caminho** para criar uma atribuição de função definida pelo usuário, fazendo uma solicitação HTTP POST autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -230,12 +235,12 @@ Crie uma atribuição de função para que a função definida pelo usuário sej
     | Valor | Substitua por |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | O identificador para a função desejada |
-    | YOUR_USER_DEFINED_FUNCTION_ID | A ID para o UDF que você deseja usar |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | A ID especificando o tipo de UDF |
+    | YOUR_USER_DEFINED_FUNCTION_ID | A ID da função definida pelo usuário que você deseja usar |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | A ID especificando o tipo de função definida pelo usuário |
     | YOUR_ACCESS_CONTROL_PATH | O caminho de controle de acesso |
 
 >[!TIP]
-> Leia o artigo [Como criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md) para obter mais informações sobre operações e pontos de extremidade de API de Gerenciamento relacionados a UDF.
+> Leia o artigo [Como criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md) para obter mais informações sobre operações e pontos de extremidade da API de Gerenciamento de funções definidas pelo usuário.
 
 ## <a name="send-telemetry-to-be-processed"></a>Enviar telemetria para ser processada
 

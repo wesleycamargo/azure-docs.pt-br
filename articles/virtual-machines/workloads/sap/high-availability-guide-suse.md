@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 02a12cc9fc614a642a5dad37e21bd8343c669aad
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 472041aaef0817aae278fed6ef632aadda3466a3
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631133"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119026"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP
 
@@ -149,7 +149,7 @@ Você pode usar um dos modelos de início rápido no GitHub para implantar todos
    9. Nome de Usuário de Administrador e Senha do Administrador  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    10. ID da Sub-rede  
-   Se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/**&lt;ID da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
+   Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/**&lt;ID da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
@@ -724,7 +724,7 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de melhores prá
 
 1. Testar HAGetFailoverConfig, HACheckConfig e HACheckFailoverConfig
 
-   Execute os seguintes comandos como \<sapsid>adm no nó onde a instância do ASCS está sendo executada. Se os comandos falham com FAIL: memória insuficiente, isso pode ser causado por traços em seu nome de host. Isso é um problema conhecido e será corrigido pela SUSE no pacote sap-suse-cluster-connector.
+   Execute os seguintes comandos como \<sapsid>adm no nó onde a instância do ASCS está sendo executada. Se os comandos falharem com FALHA: memória insuficiente, talvez isso seja causado por traços em seu nome de host. Isso é um problema conhecido e será corrigido pela SUSE no pacote sap-suse-cluster-connector.
 
    <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
    
@@ -800,7 +800,7 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de melhores prá
    nw1-cl-0:~ # crm resource unmigrate rsc_sap_NW1_ASCS00
    # INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 
@@ -841,7 +841,7 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de melhores prá
    <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
    
    # run as root
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 

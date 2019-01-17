@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: alertas de solução de problemas | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Solucionar problemas de alertas | Microsoft Docs'
 description: Alertas de solução de problemas para os Serviços de Domínio do Azure AD
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c4aa5786ea1dfbef32c40306de6291ebeb2fe6f8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c30e18c42f310172b07995e0ad88a505a01c4218
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036131"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159597"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services – Alertas de solução de problemas
 Este artigo fornece guias de solução de problemas para quaisquer alertas que podem ocorrer em seu domínio gerenciado.
@@ -83,7 +83,7 @@ Para restaurar seu serviço, siga estas etapas:
 2. Crie um novo diretório que não é um diretório do Azure AD B2C.
 3. Siga o guia [Introdução](active-directory-ds-getting-started.md) para recriar um domínio gerenciado.
 
-## <a name="aadds103-address-is-in-a-public-ip-range"></a>ADDS103: Endereço está em um intervalo de IP público
+## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103: Endereço está em um intervalo de IP público
 
 **Mensagem de alerta:**
 
@@ -114,7 +114,7 @@ Dentro da rede virtual, as máquinas podem fazer solicitações para recursos do
 4. Para associar domínio às suas máquinas virtuais para seu novo domínio, siga [este guia](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Para garantir que o alerta seja resolvido, verifique a integridade do seu domínio em duas horas.
 
-## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Assinatura do Azure não encontrada
+## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Sua assinatura do Azure não foi encontrada
 
 **Mensagem de alerta:**
 
@@ -128,7 +128,7 @@ Serviços de domínio do Azure Active Directory Domain Services requerem uma ass
 2. [Exclua seu domínio gerenciado](active-directory-ds-disable-aadds.md) do seu diretório do Azure AD existente.
 3. Siga o guia [Introdução](active-directory-ds-getting-started.md) para recriar um domínio gerenciado.
 
-## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Sua Assinatura do Azure está desabilitada
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Sua assinatura do Azure está desabilitada
 
 **Mensagem de alerta:**
 
@@ -140,7 +140,7 @@ Serviços de domínio do Azure Active Directory Domain Services requerem uma ass
 1. [Renovar sua assinatura do Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. Depois que a assinatura for renovada, o Azure AD Domain Services receberá uma notificação do Azure para habilitar novamente o seu domínio gerenciado.
 
-## <a name="aadds108-subscription-moved-directories"></a>AADDS108: Diretórios de assinatura movida
+## <a name="aadds108-subscription-moved-directories"></a>AADDS108: A assinatura mudou de diretório
 
 **Mensagem de alerta:**
 
@@ -150,7 +150,7 @@ Serviços de domínio do Azure Active Directory Domain Services requerem uma ass
 
 Você pode mover a assinatura associada ao Azure Active Directory Domain Services de volta ao diretório anterior ou precisará [excluir seu domínio gerenciado](active-directory-ds-disable-aadds.md) do diretório existente e recriá-lo no diretório escolhido (com um nova assinatura ou alterando o diretório em que a instância do Azure Active Directory Domain Services se encontra).
 
-## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Recursos para seu domínio gerenciado que não pode ser encontrado
+## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Não foi possível encontrar recursos para seu domínio gerenciado
 
 **Mensagem de alerta:**
 
@@ -179,7 +179,7 @@ O Azure Active Directory Domain Services cria recursos específicos ao implantar
 
 Esse erro é irrecuperável. Para resolver, você deve [excluir seu domínio gerenciado existente](active-directory-ds-disable-aadds.md) e [recriar seu domínio gerenciado](active-directory-ds-getting-started.md)
 
-## <a name="aaddds111-service-principal-unauthorized"></a>AADDDS111: Entidade de serviço não autorizada
+## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: Entidade de serviço não autorizada
 
 **Mensagem de alerta:**
 
@@ -193,7 +193,7 @@ Nossas entidades de serviço precisam de acesso para poder gerenciar e criar rec
 2. Examine o acesso que a entidade de serviço com a ID ```abba844e-bc0e-44b0-947a-dc74e5d09022``` e conceda o acesso que foi negado em uma data anterior.
 
 
-## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Não há endereços IP suficientes disponíveis no domínio gerenciado
+## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Não há endereços IP suficientes no domínio gerenciado
 
 **Mensagem de alerta:**
 
@@ -283,7 +283,7 @@ Veja alguns motivos comuns pelos quais a sincronização é interrompida em dom�
 [Verifique a integridade do seu domínio](active-directory-ds-check-health.md) para todos os alertas que possam indicar problemas na configuração do seu domínio gerenciado. Às vezes, problemas com sua configuração podem impedir que a Microsoft faça backup de seu domínio gerenciado. Se você conseguir resolver os alertas, aguarde duas horas e veja de novo se o backup foi concluído.
 
 
-## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Suspensão devido a uma assinatura desativada
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Suspensão devido a uma assinatura desabilitada
 
 **Mensagem de alerta:**
 

@@ -8,14 +8,14 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426478"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054955"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: Referência do PowerShell ADSyncTools
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell do ADSyncTools
 A documentação a seguir fornece informações de referência para o módulo do PowerShell ADSyncTools.psm1 que é incluído com o Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -338,7 +338,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>Descrição
-Retorna um objeto do AD para fazer: suporte a várias florestas
+Retorna um objeto do AD TO DO: Suporte a várias florestas
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -470,7 +470,7 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>SINOPSE
-Obter o histórico de execução do AAD Connect
+Obter o histórico de execuções do AAD Connect
 
 ### <a name="syntax"></a>SINTAXE
 
@@ -593,7 +593,7 @@ Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFrom
 ```
 
 ### <a name="description"></a>Descrição
-Gera um arquivo com todos os usuários sincronizados do Azure AD que contém o valor de ImmutableID no formato GUID. Requisitos: módulo do PowerShell do MSOnline
+Gera um arquivo com todos os usuários sincronizados do Azure AD que contém o valor de ImmutableID no formato GUID. Requisitos: Módulo do PowerShell MSOnline
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -719,7 +719,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 Esse script usa todos os objetos de uma unidade organizacional de destino no domínio do Active Directory – filtrados por classe de objeto (usuário/computador) – e exclui todos os certificados expirados presentes no atributo UserCertificate.
 Por padrão, (modo BackupOnly) ele fará backup apenas de certificados expirados para um arquivo e não fará nenhuma alteração no AD.
 Se você usa -BackupOnly $false, então qualquer certificado expirado presente no atributo UserCertificate para esses objetos é removido do AD depois de ser copiado para o arquivo.
-Cada certificado será feito para um nome do arquivo separado: ObjectClass_ObjectGUID_CertThumprint.cer. O script também criará um arquivo de log no formato CSV mostrando todos os usuários com certificados que são válidos ou expirados, incluindo a ação real tomada ( Ignorado/Exportado/Excluído).
+Cada certificado será feito para um nome de arquivo separado: ObjectClass_ObjectGUID_CertThumprint.cer. O script também criará um arquivo de log no formato CSV mostrando todos os usuários com certificados que são válidos ou expirados, incluindo a ação real tomada ( Ignorado/Exportado/Excluído).
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -1227,7 +1227,7 @@ Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-Imm
 ```
 
 ### <a name="description"></a>Descrição
-Atualiza os usuários com o novo valor de ConsistencyGuid (ImmutableId) obtido do Relatório de ConsistencyGuid. Essa função dá suporte à opção WhatIf. Observação: o relatório ConsistencyGuid precisa ser importado com delimitador de guias
+Atualiza os usuários com o novo valor de ConsistencyGuid (ImmutableId) obtido do Relatório de ConsistencyGuid. Essa função dá suporte à opção WhatIf. Observação: O relatório ConsistencyGuid precisa ser importado com delimitador de guias
 
 ### <a name="examples"></a>EXEMPLOS
 

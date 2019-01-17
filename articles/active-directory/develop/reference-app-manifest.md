@@ -17,12 +17,12 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: a971806b453d34aa8459cb30090024bfca96d342
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d89a80ac6d6e81fd9cc68e1dc04d4461691994fd
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631169"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157965"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 
@@ -47,12 +47,9 @@ Para configurar o manifesto do aplicativo:
 > [!NOTE]
 > Se você não conseguir vir a coluna **Valor de exemplo** após a **Descrição**, maximize a janela do navegador e role/passe o dedo até ver a coluna **Valor de exemplo**.
 
->[!div class="mx-tdBreakAll"]
->[!div class="mx-tdCol2BreakAll"]
-
 | Chave  | Tipo de valor | DESCRIÇÃO  | Valor de exemplo |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Int32 anulável | Especifica a versão do token de acesso aceito para o recurso de API atual. Os valores possíveis são 1, 2, nulo. O padrão é nulo, que será tratado como 2. | `2` |
+| `accessTokenAcceptedVersion` | Int32 anulável | Especifica a versão do token de acesso esperada pelo recurso. Isso altera a versão e o formato do JWT produzido, independentemente do ponto de extremidade ou do cliente usado para solicitar o token de acesso.<br/><br/>O ponto de extremidade usado, v1.0 ou v2.0, é escolhido pelo cliente e só afeta a versão do id_tokens. Os recursos precisam configurar explicitamente `accesstokenAcceptedVersion` para indicar o formato do token de acesso com suporte.<br/><br/>Os valores possíveis para `accesstokenAcceptedVersion` são 1, 2 ou nulo. Se o valor for nulo, será usado o padrão de 1, que corresponde ao ponto de extremidade v1.0. | `2` |
 | `allowPublicClient` | booleano | Especifica o tipo de aplicativo de fallback. O Azure AD infere o tipo de aplicativo do replyUrlsWithType por padrão. Há alguns cenários nos quais o Azure AD não consegue determinar o tipo de aplicativo do cliente (por exemplo, o fluxo [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3), no qual a solicitação HTTP acontece sem um redirecionamento de URL). Nesses casos, o Azure AD interpretará o tipo de aplicativo com base no valor dessa propriedade. Se esse valor for definido como true, o tipo de aplicativo de fallback será definido como cliente público, como um aplicativo instalado em execução em um dispositivo móvel. O valor padrão é false, que significa que o tipo de aplicativo de fallback é cliente confidencial, como o aplicativo Web. | `false` |
 | `appId` | Cadeia de caracteres do identificador | Especifica o identificador exclusivo do aplicativo que é atribuído a um aplicativo pelo Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Tipo de matriz | Especifica a coleção de funções que um aplicativo pode declarar. Essas funções podem ser atribuídas a usuários, grupos ou entidades de serviço. Para ver exemplos e mais informações, consulte: [Adicionar funções de aplicativo ao seu aplicativo e recebê-las no token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |

@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723664"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076783"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -127,7 +127,7 @@ Antes de enviar scripts para clusters HDInsight a partir do VS Code, você preci
 
 1. Abra a paleta de comandos selecionando **CTRL+SHIFT+P** e, em seguida, insira **HDInsight: Vincular um Cluster**.
 2. Selecione **Ponto de Extremidade do Livy Genérico**.
-3. Digite o terminal genérico Livy, por exemplo: http://10.172.41.42:18080.
+3. Digite o ponto de extremidade genérico do Livy, por exemplo: http\://10.172.41.42:18080.
 4. Selecione **Básico** quando precisar de autorização para o terminal genérico Livy, caso contrário, selecione **Nenhum**.
 5. Insira o nome de usuário quando selecionar **Básico** na etapa 4.
 6. Insira a senha quando selecionar **Básico** na etapa 4.

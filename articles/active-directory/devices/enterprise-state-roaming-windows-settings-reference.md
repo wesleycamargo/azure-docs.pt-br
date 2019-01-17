@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c225761f18a89539ea4966fab620104a25d1270e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128772"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189263"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 A seguir, uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10. 
@@ -44,15 +44,15 @@ Os grupos de configurações a seguir estão disponíveis para que os usuários 
 
 * Tema: plano de fundo da área de trabalho, bloco de usuário, posição da barra de tarefas etc. 
 * Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc.Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc. 
-* Senhas: gerenciador de credenciais do Windows, incluindo perfis de Wi-Fi 
+* Senhas: Gerenciador de credenciais do Windows, incluindo perfis de Wi-Fi 
 * Preferências de Idioma: dicionário de ortografia, configurações de idioma do sistema 
 * Facilidade de Acesso: narrador, teclado virtual, lente de aumento 
 * Outras Configurações do Windows: veja Detalhes das configurações do Windows
-* Configuração do navegador do Microsoft Edge: favoritos, lista de leitura e outras configurações do Microsoft Microsoft Edge
+* Configuração do navegador Microsoft Edge: Favoritos, lista de leitura e outras configurações do Microsoft Edge
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
-A sincronização do grupo de configuração (favoritos, lista de leitura) do navegador Microsoft Edge pode ser habilitada ou desabilitada por usuários finais por meio da opção de menu Configurações do navegador Microsoft Edge.
+A sincronização do grupo de configuração do navegador do Microsoft Edge (favoritos, lista de leitura) pode ser habilitada ou desabilitada por usuários finais por meio da opção de menu Configurações do navegador Microsoft Edge.
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
@@ -74,10 +74,10 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Dados de aplicativo**: aplicativos individuais podem sincronizar dados |sincronizar backup |sincronizar backup |interno |
 | **Lista de aplicativos**: lista de aplicativos instalados |X |backup |Outros |
 | **Bluetooth**: todas as configurações do Bluetooth |X |X | |
-| **Prompt de comando**: configurações “Padrão” do prompt de comando |sync |X |interno |
-| **Credenciais**: Cofre de Credenciais |sync |sync |Senha |
+| **Prompt de comando**: configurações "Padrão " de prompt de comando |sync |X |interno |
+| **Credenciais**: Cofre de credenciais |sync |sync |Senha |
 | **Data, Hora e Região**: horário automático (sincronização de horário da Internet) |sync |sync |Linguagem |
-| **Data, Hora e Região**: relógio de 24 horas |sync |X |Linguagem |
+| **Data, Hora e Região**: Relógio de 24 horas |sync |X |Linguagem |
 | **Data, Hora e Região**: data e hora |sync |X |Linguagem |
 | **Data, Hora e Região**: fuso horário | |X |Linguagem |
 | **Data, Hora e Região**: horário de verão |sync |X |Linguagem |
@@ -98,7 +98,7 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Navegador Microsoft Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Microsoft Edge**: URLs digitadas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Microsoft Edge**: configurações da barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Microsoft Edge**: mostrar o botão home <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: mostrar o botão Página Inicial <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Microsoft Edge**: bloquear pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Microsoft Edge**: perguntar-me o que fazer com cada download <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Microsoft Edge**: oferecer para salvar senhas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
@@ -108,8 +108,8 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Navegador Microsoft Edge**: preferência de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Microsoft Edge**: permitir que sites salvem licenças de mídia protegida em meu dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Navegador Microsoft Edge**: configuração de leitor de tela <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Alto Contraste**: ativado ou desativado |sync |X |facilidade de acesso |
-| **Alto Contraste**: configurações do Tema |sync |X |facilidade de acesso |
+| **Alto Contraste**: Ligado ou Desligado |sync |X |facilidade de acesso |
+| **Alto contraste**: configurações de tema |sync |X |facilidade de acesso |
 | **Internet Explorer**: abrir guias (URL e título) |sync |sync |Internet Explorer |
 | **Internet Explorer**: lista de leitura |sync |sync |Internet Explorer |
 | **Internet Explorer**: URLs tipadas |sync |sync |Internet Explorer |
@@ -122,23 +122,23 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Teclado**: ativar adesivo (desativado por padrão) |sync |X |facilidade de acesso |
 | **Teclado**: ativar teclas de filtro (desativado por padrão) |sync |X |facilidade de acesso |
 | **Teclado**: ativar teclas de alternância (desativado por padrão) |sync |X |facilidade de acesso |
-| **Internet Explorer**: idioma do domínio: chinês (CHS) QWERTY - habilitar a aprendizagem automática |sync |X |Linguagem |
-| **Idioma**: CHS QWERTY - habilitar a classificação dinâmica de candidatos |sync |X |Linguagem |
-| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês simplificado |sync |X |Linguagem |
-| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês tradicional |sync |X |Linguagem |
-| **Idioma**: CHS QWERTY - pinyin difuso |sync |backup |Linguagem |
-| **Idioma**: CHS QWERTY - pares difusos |sync |backup |Linguagem |
-| **Idioma**: CHS QWERTY - pinyin completo |sync |X |Linguagem |
-| **Idioma**: CHS QWERTY - pinyin duplo |sync |X |Linguagem |
-| **Idioma**: CHS QWERTY - correção automática de leitura |sync |X |Linguagem |
-| **Idioma**: CHS QWERTY - tecla de alternância C/E, shift |sync |X |Linguagem |
-| **Idioma**: CHS QWERTY - tecla de alternância C/E, Ctrl |sync |X |Linguagem |
-| **Idioma**: CHS WUBI - modo de entrada de caractere único |sync |X |Linguagem |
-| **Idioma**: CHS WUBI - mostrar a codificação restante do candidato |sync |X |idioma |
-| **Idioma**: CHS WUBI - um aviso sonoro quando a codificação 4 é inválida |sync |X |Linguagem |
-| **Idioma**: CHT Bopomofo; inclui CJK Ext-A |sync |X |Linguagem |
-| **Idioma**: IME japonês - digitação preditiva e palavras personalizadas |sync |sync |Linguagem |
-| **Idioma**: IME coreano (KOR) |X |X |Linguagem |
+| **Internet Explorer**: domínio Idioma: Chinês (CHS) QWERTY – habilitar a aprendizagem automática |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY – habilitar a classificação dinâmica de candidatos |sync |X |Linguagem |
+| **Idioma**: QWERTY CHS – conjunto de caracteres do chinês simplificado |sync |X |Linguagem |
+| **Idioma**: QWERTY CHS – conjunto de caracteres do chinês tradicional |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY – pinyin difuso |sync |backup |Linguagem |
+| **Idioma**: CHS QWERTY – pares difusos |sync |backup |Linguagem |
+| **Idioma**: CHS QWERTY – pinyin completo |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY – pinyin duplo |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY – correção automática de leitura |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY – tecla de alternância C/E, shift |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY – tecla de alternância C/E, Ctrl |sync |X |Linguagem |
+| **Idioma**: CHS WUBI – modo de entrada de caractere único |sync |X |Linguagem |
+| **Idioma**: CHS WUBI – mostrar a codificação restante do candidato |sync |X |Linguagem |
+| **Idioma**: CHS WUBI – um aviso sonoro quando a codificação 4 é inválida |sync |X |Linguagem |
+| **Idioma**: CHT Bopomofo – inclui CJK Ext-A |sync |X |Linguagem |
+| **Idioma**: IME japonês – digitação preditiva e palavras personalizadas |sync |sync |Linguagem |
+| **Idioma**: Coreano (KOR) IME |X |X |Linguagem |
 | **Idioma**: reconhecimento de manuscrito |X |X |Linguagem |
 | **Idioma**: perfil de idioma |sync |backup |Linguagem |
 | **Idioma**: verificação ortográfica - autocorreção e realçar erros de ortografia |sync |backup |Linguagem |

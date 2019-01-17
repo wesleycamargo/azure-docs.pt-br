@@ -9,17 +9,16 @@ ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3d5832f63a3ebe7583d18fcd863c8cc60b9b045d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048757"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025166"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -38,12 +37,12 @@ ms.locfileid: "37048757"
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [transformar dados usando o Hadoop Streaming Activity no Data Factory](../transform-data-using-hadoop-streaming.md).
 
 
-Você pode usar a atividade HDInsightStreamingActivity para invocar um trabalho de Transmissão do Hadoop de um pipeline do Azure Data Factory. O trecho de código JSON a seguir mostra a sintaxe para usar HDInsightStreamingActivity em um arquivo JSON do pipeline. 
+Você pode usar a atividade HDInsightStreamingActivity para invocar um trabalho de Transmissão do Hadoop de um pipeline do Azure Data Factory. O snippet de código JSON a seguir mostra a sintaxe para usar HDInsightStreamingActivity em um arquivo JSON do pipeline. 
 
 A Atividade de Streaming do HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa programas de Transmissão do Hadoop [em seu próprio cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou no cluster HDInsight [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) baseado em Windows/Linux. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 
 > [!NOTE] 
-> Se você estiver conhecendo o Azure Data Factory agora, leia a [Introdução ao Azure Data Factory](data-factory-introduction.md) e siga o tutorial [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
+> Se você é novo no Azure Data Factory, leia a [Introdução ao Azure Data Factory](data-factory-introduction.md) e siga o tutorial: [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
 
 ## <a name="json-sample"></a>Exemplo de JSON
 O cluster HDInsight é preenchido automaticamente com os programas de exemplo (wc.exe e cat.exe) e os dados (DaVinci). Por padrão, o nome do contêiner que é usado pelo cluster HDInsight é o nome do próprio cluster. Por exemplo, se o nome do cluster for myhdicluster, o nome do contêiner de blob associado seria myhdicluster. 
@@ -176,7 +175,7 @@ O pipeline neste exemplo não tem entradas. Você especifica um conjunto de dado
 ```
 
 ### <a name="pipeline"></a>Pipeline
-O pipeline neste exemplo tem apenas uma atividade que seja do tipo: **HDInsightStreaming**. 
+O pipeline neste exemplo tem apenas uma atividade que é do tipo: **HDInsightStreaming**. 
 
 O cluster HDInsight é preenchido automaticamente com os programas de exemplo (wc.exe e cat.exe) e os dados (DaVinci). Por padrão, o nome do contêiner que é usado pelo cluster HDInsight é o nome do próprio cluster. Por exemplo, se o nome do cluster for myhdicluster, o nome do contêiner de blob associado seria myhdicluster.  
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d727c9c3a9add701263e799dba778b37e637adef
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc9892882cfd4c3f68118648baaaf278133bb2a8
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194276"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191914"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar para Novidades no Active Directory do Azure
 
@@ -857,7 +857,7 @@ A extensão do navegador Meus Aplicativos agora está disponível por meio de um
 - A capacidade de fazer login diretamente em aplicativos baseados em senha com SSO a partir da página de login do aplicativo
 - Iniciar um aplicativo usando o recurso de pesquisa rápida
 - Atalhos para os aplicativos usados recentemente da extensão
-- A extensão está disponível para Edge, Chrome e Firefox.
+- A extensão está disponível para Microsoft Edge, Chrome e Firefox.
  
 Para obter mais informações, consulte [Extensão de Entrada Segura dos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 

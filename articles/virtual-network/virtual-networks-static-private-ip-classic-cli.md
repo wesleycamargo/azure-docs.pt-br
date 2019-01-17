@@ -1,13 +1,10 @@
 ---
-title: Configurar endereços IP privados para VMs (Clássicas) – CLI Clássica do Azure | Microsoft Docs
+title: Configurar endereços IP privados para VMs (Clássicas) – CLI Clássica do Azure
+titlesuffix: Azure Virtual Network
 description: Saiba como configurar endereços IP privados para máquinas virtuais (Clássicas) usando a CLI (interface de linha de comando) clássica do Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abc551f796cb2d8921b6b1f67fb6a6714655ffde
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134668"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023882"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configurar endereços IP privados para uma máquina virtual (Clássica) usando a CLI Clássica do Azure
 
@@ -118,7 +114,7 @@ Saída esperada:
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Definir endereços IP no sistema operacional
 
-É recomendável que você não atribua estaticamente o IP privado atribuído à máquina virtual do Azure no sistema operacional de uma VM, a menos que seja necessário. Se você definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído à VM do Azure ou se é possível perder a conectividade com a máquina virtual. Nunca atribua manualmente o endereço IP público atribuído a uma máquina virtual do Azure no sistema operacional da máquina virtual.
+É recomendável que você não atribua estaticamente o IP privado atribuído à máquina virtual do Azure no sistema operacional de uma VM, a menos que seja necessário. Se você definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído à VM do Azure ou se é possível perder a conectividade com a máquina virtual. Não atribua manualmente o endereço IP público atribuído a uma máquina virtual do Azure no sistema operacional da máquina virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md) .

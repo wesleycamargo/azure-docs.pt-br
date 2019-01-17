@@ -6,21 +6,21 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 36f4caac38f2f4891af6f61b78b55c7eff15eae4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974498"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116731"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos nos Gêmeos Digitais do Azure
 
 Os blobs são representações não estruturadas de tipos de arquivos comuns, como imagens e logs. Os blobs rastreiam o tipo de dados que eles representam usando um tipo MIME (por exemplo: "image/jpeg") e metadados (nome, descrição, tipo, etc.).
 
-Os Gêmeos Digitais do Azure oferecem suporte à conexão de blobs a dispositivos, espaços e usuários. Os blobs podem representar uma imagem de perfil para um usuário, uma foto do dispositivo, um vídeo, um mapa ou um log.
+Os Gêmeos Digitais do Azure oferecem suporte à conexão de blobs a dispositivos, espaços e usuários. Os blobs podem representar uma foto de perfil para um usuário, uma foto do dispositivo, um vídeo, um mapa, um zip de firmware, dados JSON, um log etc.
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
@@ -28,27 +28,11 @@ Os Gêmeos Digitais do Azure oferecem suporte à conexão de blobs a dispositivo
 
 Você pode usar solicitações multipartes para fazer o upload de blobs para pontos de extremidade específicos e suas respectivas funcionalidades.
 
-> [!IMPORTANT]
-> Os solicitações multipartes requerem três informações:
-> * Um **Content-Type** cabeçalho:
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * Um **Content-Disposition**: `form-data; name="metadata"`
-> * O conteúdo do arquivo que será carregado
->
-> As informações de **Content-Type** e **Content-Disposition** podem variar dependendo do cenário de uso.
-
-As solicitações multipartes feitas para as APIs do Gerenciamento dos Gêmeos Digitais do Azure são divididas em duas partes:
-
-* metadados de blob como um tipo MIME associado, conforme mostrado nas informações de **Content-Type** e **Content-Disposition**
-
-* conteúdo do blob (o conteúdo não estruturado do arquivo)  
-
-Nenhuma das duas partes é necessária para solicitações de **PATCH**. Ambos são necessários para **POST** ou criam operações.
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### <a name="blob-metadata"></a>Metadados de blob
 
-Além de **Content-Type** e **Content-Disposition**, as solicitações multipartes devem especificar o corpo JSON correto. Qual corpo JSON a ser enviado depende do tipo de operação de solicitação HTTP que está sendo executada.
+Além de **Content-Type** e **Content-Disposition**, as solicitações multipartes de blob dos Gêmeos Digitais do Azure devem especificar o corpo JSON correto. Qual corpo JSON a ser enviado depende do tipo de operação de solicitação HTTP que está sendo executada.
 
 Os quatro esquemas JSON principais são:
 
@@ -64,12 +48,15 @@ Aprenda a usar a documentação de referência lendo [Como usar o Swagger](./how
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Para fazer uma solicitação **POST** que carregue um arquivo de texto como um blob e o associe a um espaço:
+Para carregar um arquivo de texto como um blob e associá-lo a um espaço, faça uma solicitação HTTP POST autenticada para:
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/spaces/blobs
+```
 
+Com o seguinte corpo:
+
+```plaintext
 --USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
@@ -112,6 +99,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
+Em ambos os exemplos:
+
+1. Verifique se os cabeçalhos incluem: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Verifique se o corpo tem diversas partes:
+
+   - A primeira parte contém os metadados de blob necessários.
+   - A segunda parte contém o arquivo de texto.
+
+1. Verifique se que o arquivo de texto é fornecido como `Content-Type: text/plain`.
+
 ## <a name="api-endpoints"></a>Pontos de extremidade de API
 
 As seções a seguir descrevem os pontos de extremidade de API relacionados ao blob principal e suas funcionalidades.
@@ -122,7 +119,7 @@ Você pode anexar blobs aos dispositivos. A imagem a seguir mostra a documentaç
 
 ![Blobs de dispositivo][2]
 
-Por exemplo, para atualizar ou criar um blob e anexar o blob a um dispositivo, faça uma solicitação **PATCH** para:
+Por exemplo, para atualizar ou criar um blob e anexar o blob a um dispositivo, faça uma solicitação HTTP PATCH autenticada para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -148,7 +145,7 @@ Você também pode anexar blobs aos espaços. A imagem abaixo lista todos os pon
 
 ![Blobs de espaço][3]
 
-Por exemplo, para retornar um blob anexado a um espaço, faça uma solicitação **GET** para:
+Por exemplo, para retornar um blob anexado a um espaço, faça uma solicitação HTTP GET autenticada para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -158,7 +155,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | A ID do blob desejado |
 
-Fazer uma solicitação **PATCH** para o mesmo ponto de extremidade permitirá que você atualize uma descrição de metadados e crie uma nova versão do blob. A solicitação HTTP é feita usando o método **PATCH** juntamente com quaisquer dados de formulário meta e multipartes necessários.
+Uma solicitação PATCH para o mesmo ponto de extremidade atualiza descrições de metadados e cria novas versões do blob. A solicitação HTTP é feita usando o método PATCH juntamente com quaisquer dados de formulário meta e multipartes necessários.
 
 As operações bem-sucedidas retornarão um objeto **SpaceBlob** que esteja de acordo com o esquema a seguir. Você pode usá-lo para consumir os dados retornados.
 
@@ -173,7 +170,7 @@ Você pode anexar os blobs aos modelos do usuário (por exemplo, para associar u
 
 ![Blobs de usuário][4]
 
-Por exemplo, para buscar um blob anexado a um usuário, faça uma solicitação **GET** com todos os dados de formulário necessários para:
+Por exemplo, para buscar um blob anexado a um usuário, faça uma solicitação HTTP GET autenticada com todos os dados de formulário necessários para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
@@ -205,7 +202,7 @@ Um erro comum é não incluir as informações de cabeçalho corretas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre a documentação de referência do Swagger para Gêmeos Digitais do Azure, leia [Como usar o Swagger dos Gêmeos Digitais do Azure](how-to-use-swagger.md).
+- Para obter mais informações sobre a documentação de referência do Swagger para Gêmeos Digitais do Azure, leia [Como usar o Swagger dos Gêmeos Digitais do Azure](how-to-use-swagger.md).
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG

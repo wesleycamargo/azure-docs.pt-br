@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: sincronização no escopo | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Sincronização no escopo | Microsoft Docs'
 description: Configurar a sincronização no escopo do Microsoft Azure Active Directory para seus domínios gerenciados
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442974"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121512"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurar a sincronização no escopo do Microsoft Azure Active Directory para seu domínio gerenciado
 Este artigo mostra como configurar apenas contas de usuários específicos para serem sincronizadas entre seu diretório do Azure AD e o domínio gerenciado do Azure AD Domain Services.
@@ -58,8 +58,8 @@ Use o PowerShell para concluir esse conjunto de etapas. Confira as instruções 
 Conclua as seguintes etapas para configurar a sincronização de escopo com base em grupo para seu domínio gerenciado:
 
 1. Conclua as seguintes tarefas:
-  * [Tarefa 1: Instalar os módulos necessários do PowerShell](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
-  * [Tarefa 2: Criar a entidade de serviço exigida em seu diretório do Microsoft Azure Active Directory](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
+  * [Tarefa 1: Instalar os módulos do PowerShell exigidos](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
+  * [Tarefa 2: Criar a entidade de serviço exigida em seu diretório do Azure AD](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
   * [Tarefa 3: Criar e configurar o grupo 'Administradores do AAD DC'](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
   * [Tarefa 4: Registrar o provedor de recursos do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
   * [Tarefa 5: Criar um grupo de recursos](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
@@ -79,7 +79,7 @@ Conclua as seguintes etapas para configurar a sincronização de escopo com base
   > Você deve incluir o grupo 'Administradores do AAD DC' na lista de grupos configurados para sincronização no escopo. Se você não incluir esse grupo, o domínio gerenciado não poderá ser usado.
   >
 
-4. Agora, crie o domínio gerenciado e habilite a sincronização no escopo com base no grupo para o domínio gerenciado. Inclua a propriedade ```"filteredSync" = "Enabled"``` no parâmetro ```Properties```. Por exemplo, confira o seguinte fragmento de script, copiado da [Tarefa 7: Provisionar o domínio gerenciado do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Agora, crie o domínio gerenciado e habilite a sincronização no escopo com base no grupo para o domínio gerenciado. Inclua a propriedade ```"filteredSync" = "Enabled"``` no parâmetro ```Properties```. Por exemplo, veja o seguinte fragmento de script, copiado da [Tarefa 7: Provisionar o domínio gerenciado do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

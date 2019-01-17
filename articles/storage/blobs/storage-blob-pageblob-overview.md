@@ -1,23 +1,23 @@
 ---
-title: Recursos exclusivos de blobs de páginas do Azure | Microsoft Docs
-description: Uma visão geral dos blobs de página do Azure e seus benefícios, incluindo os casos de uso com scripts de exemplo.
+title: Visão geral de blobs de páginas do Azure | Microsoft Docs
+description: Uma visão geral dos blobs de página do Azure e suas vantagens, incluindo casos de uso com scripts de exemplo.
 services: storage
 author: anasouma
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6d1c443cfe3454d1b1e50a7270bd78598f69f6de
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022681"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063923"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>Recursos exclusivos de blobs de páginas do Azure
+# <a name="overview-of-azure-page-blobs"></a>Visão geral de blobs de páginas do Azure
 
-O Armazenamento do Azure oferece três tipos de armazenamento de blobs: Blobs de Blocos, Blobs de Acréscimo e blobs de páginas. Blobs de blocos são compostos por blocos e são ideais para armazenar arquivos de texto ou binários e carregar arquivos grandes com eficiência. Blobs de acréscimo também são compostos por blocos, mas são otimizados para operações de acréscimo, tornando-os ideais para cenários de log. Blobs de páginas são compostos por páginas de 512 bytes até um tamanho total de 8 TB e são projetados para operações de leitura/gravação aleatórias frequentes. Os blobs de páginas são a base dos Discos IaaS do Azure. Este artigo ressalta a explicação dos recursos e benefícios de blobs de páginas.
+O Armazenamento do Microsoft Azure oferece três tipos de armazenamento de blobs: Blobs de blocos, Blobs de páginas e Blobs de acréscimo. Blobs de blocos são compostos por blocos e são ideais para armazenar arquivos de texto ou binários e carregar arquivos grandes com eficiência. Blobs de acréscimo também são compostos por blocos, mas são otimizados para operações de acréscimo, tornando-os ideais para cenários de log. Blobs de páginas são compostos por páginas de 512 bytes até um tamanho total de 8 TB e são projetados para operações de leitura/gravação aleatórias frequentes. Os blobs de páginas são a base dos Discos IaaS do Azure. Este artigo ressalta a explicação dos recursos e benefícios de blobs de páginas.
 
 Blobs de páginas são uma coleção de páginas de 512 bytes, que fornecem a capacidade de ler/gravar intervalos arbitrários de bytes. Portanto, os blobs de páginas são ideais para armazenar estruturas de dados esparsos e baseados em índice como discos do sistema operacional e de dados para Máquinas Virtuais e Bancos de Dados. Por exemplo, o BD SQL do Azure usa blobs de páginas como o armazenamento persistente subjacente para seus bancos de dados. Além disso, os blobs de páginas também costumam ser usados para arquivos com atualizações Baseadas em Intervalo.  
 

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339256"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053901"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -75,11 +75,11 @@ Há várias ferramentas de código-fonte aberto para ajudá-lo a gerenciar seu H
 
 * Um aplicativo do Windows chamado [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Uma extensão de código do Visual Studio de plataforma cruzada chamada [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente chamada Azure IoT Toolkit).
+* Uma extensão multiplataforma do Visual Studio Code chamada [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 * Uma CLI do Python multiplataforma denominada [a extensão de IoT da CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
-Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você pode usar a extensão do *Azure IoT Hub Toolkit para o código do VS*, se desenvolver neste código. Você também pode usar a ferramenta *a extensão de IoT do Azure CLI 2.0* se preferir usar uma ferramenta CLI.
+Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você poderá usar a extensão do *Kit de Ferramentas do Azure IoT para o VS Code* se desenvolver no VS Code. Você também pode usar a ferramenta *a extensão de IoT do Azure CLI 2.0* se preferir usar uma ferramenta CLI.
 
 A ferramenta Gerenciador de Dispositivos usa as bibliotecas de serviço IoT do Azure para executar várias funções no Hub IoT, incluindo a adição de dispositivos. Se você usar a ferramenta Gerenciador de Dispositivos para adicionar um dispositivo, você obterá uma cadeia de conexão para seu dispositivo. Você precisa dessa cadeia de conexão para executar os aplicativos de exemplo.
 

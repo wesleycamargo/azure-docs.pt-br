@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 1c850b16492f725114fb23a8503f6345e1509212
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868660"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073995"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos por tipo de listagem  
 Os requisitos de conteúdo técnico e de marketing variam de acordo com a vitrine, com o tipo de oferta e com o tipo de listagem. Analise as especificações a seguir para verificar sua conformidade.  
@@ -40,7 +40,7 @@ A tabela a seguir descreve os pré-requisitos necessários para a publicação n
 | ***Aplicativo SaaS (software como serviço) para empresas*** | Seu aplicativo deve atender aos seguintes requisitos.<ul> <li>Um aplicativo SaaS de linha de negócios</li> <li>Com foco no processo comercial</li> <li>Destinado a clientes comerciais</li> <li>Permita que os usuários usem suas credenciais de trabalho para entrar, como o nome de usuário e a senha</li> </ul> | Obrigatório |  
 | ***Período de avaliação gratuita e experiência de avaliação*** | Seu aplicativo deve incluir uma das opções a seguir para um cliente usar seu aplicativo gratuitamente por um período limitado.<ul> <li>Forneça um método `try` para que os clientes possam iniciar uma avaliação do seu aplicativo no AppSource</li> <li>Forneça uma opção `request trial` no AppSource, para que os clientes possam solicitar uma versão de avaliação do seu aplicativo</li> </ul>A avaliação gratuita que você fornecer deve oferecer ao cliente um intervalo de tempo predefinido para testar seu aplicativo sem nenhum custo adicional. | Obrigatório |  
 | ***Solução facilmente configurável, pronta para uso*** | Seu aplicativo deve ser fácil e rápido de instalar e configurar, sem nenhuma personalização necessária. | Obrigatório |  
-| ***Gerenciamento de cliente potencial*** | Você deve habilitar o CRM para aceitar dados de clientes potenciais antes de recebê-los da vitrine.<ul> <li>Como exemplos de CRMs temos: Marketo, Microsoft Dynamics ou Salesforce</li> </ul> | Obrigatório |  
+| ***Gerenciamento de cliente potencial*** | Habilite o CRM para aceitar dados de clientes potenciais antes de recebê-los da vitrine.<ul> <li>Como exemplos de CRMs temos: Marketo, Microsoft Dynamics ou Salesforce</li> </ul> | Obrigatório |  
 | ***Política de privacidade e termos de uso*** | Seu aplicativo deve fornecer um link para sua página de política de privacidade usando uma URL pública. Seus termos de uso devem ser fornecidos durante a publicação como texto. | Obrigatório |  
 | ***Suporte*** | Seu aplicativo deve fornecer um link para sua página de suporte ao cliente usando uma URL pública. Se seu aplicativo for uma versão de avaliação, você deverá oferecer suporte sem custo adicional durante o período de avaliação. | Obrigatório |  
 
@@ -52,7 +52,7 @@ A seguir estão os pré-requisitos necessários para os tipos de listagem no Azu
 | ***Políticas de participação*** | Seu aplicativo deve seguir as políticas de participação do Azure Marketplace.<ul> <li>Para obter mais informações sobre as políticas de participação, visite a página Políticas de Participação do Azure Marketplace localizada em [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transação<br />versão de avaliação |  
 | ***Integração com a Microsoft*** | Suas ofertas devem usar ou estender os tipos de serviço do Microsoft Azure, como computação, rede ou armazenamento. Suas ofertas devem ser alinhadas a uma categoria existente do Azure Marketplace, como bancos de dados, segurança ou rede.<ul> <li>Para obter mais informações sobre as ofertas do Marketplace, visite a página Aplicativos do Marketplace localizada em [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | list<br />transação<br />versão de avaliação |  
 | ***Público-alvo*** | Suas ofertas devem ser para profissionais de TI, desenvolvedores de nuvem ou outras funções técnicas do cliente. | list<br />transação<br />versão de avaliação |  
-| ***Gerenciamento de cliente potencial*** | Você deverá habilitar seu CRM (Marketo, Microsoft Dynamics ou Salesforce) para aceitar dados de cliente potencial antes de recebê-los da vitrine. | list<br />transação<br />versão de avaliação |  
+| ***Gerenciamento de cliente potencial*** | Habilite seu CRM (Marketo, Microsoft Dynamics ou Salesforce) para aceitar dados de cliente potencial antes de recebê-los da vitrine. | list<br />transação<br />versão de avaliação |  
 | ***Política de privacidade e termos de uso*** | Seu aplicativo deve fornecer um link para sua página de política de privacidade usando uma URL pública. Seus termos de uso devem ser fornecidos durante a publicação como texto. | list<br />transação<br />versão de avaliação |  
 | ***Suporte*** | Sua oferta deve fornecer um link para sua página de suporte ao cliente usando uma URL pública. Se sua oferta for uma versão de avaliação, você deverá oferecer suporte sem custo adicional durante o período de avaliação. | transação<br />versão de avaliação |    
 
@@ -164,9 +164,8 @@ O tipo de listagem de Lista inclui os tipos de oferta a seguir nas vitrines do M
 | Requisito | Detalhes |  
 |:--- |:--- | 
 | Cobrança e medição | Sua VM deve dar suporte à cobrança mensal BYOL ou Pagamento Conforme o Uso. |  
-| VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux.<ul> <li>Para obter mais informações sobre como criar um VHD do Linux, visite a seção Criar um VHD compatível com o Azure (baseado em Linux) localizada em [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Para obter mais informações sobre como criar um VHD do Windows, visite a seção Criar um VHD compatível com o Azure (baseado em Windows) localizada em [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux.<ul> <li>Para obter mais informações sobre como criar um VHD Linux, consulte [Distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre como criar um VHD Windows, consulte [Criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 ## <a name="next-steps"></a>Próximas etapas
 *   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
- 
----  
+

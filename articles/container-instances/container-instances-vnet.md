@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993274"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077464"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -33,26 +33,28 @@ Os grupos de contêineres implantados em uma rede virtual do Azure permitem cen�
 
 Algumas limitações se aplicam ao implantar grupos de contêineres em uma rede virtual.
 
-* Não há suporte para contêineres do Windows
 * Para implantar grupos de contêineres em uma sub-rede, a sub-rede não pode conter outros tipos de recursos. Remova todos os recursos existentes de uma sub-rede existente antes de implantar grupos de contêineres nela ou crie uma nova sub-rede.
 * No momento, os grupos de contêineres implantados em uma rede virtual não dão suporte a endereços IP públicos ou rótulos de nome DNS.
 * Devido aos recursos de rede adicionais envolvidos, a implantação de um grupo de contêineres em uma rede virtual normalmente é um pouco mais lenta do que a implantação de uma instância de contêiner padrão.
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-Enquanto esse recurso está em versão prévia, as limitações a seguir se aplicam ao implantar instâncias de contêiner em uma rede virtual.
+Enquanto esse recurso está em versão prévia, as limitações a seguir se aplicam ao implantar instâncias de contêiner em uma rede virtual. 
 
-Regiões **com suporte**:
+**Regiões com suporte e limites de recursos**
 
-* Norte da Europa (northeurope)
-* Europa Ocidental (westeurope)
-* Oeste dos EUA (westus)
-* Leste dos EUA (eastus)
+| Local padrão | SO | CPU | Memória (GB) |
+| -------- | :---: | :---: | :-----------: |
+| Europa Ocidental | Linux | 4 | 14 |
+| Leste dos EUA, Oeste dos EUA | Linux | 2 | 3,5 |
+| Leste da Austrália, Europa Setentrional | Linux | 1 | 1.5 |
 
-Recursos de rede **sem suporte**:
+Limites de recursos de contêineres podem ser diferente dos limites para as instâncias de contêiner fora da rede nessas regiões. Atualmente, há suporte apenas para contêineres do Linux para esse recurso. O suporte para Windows está planejado.
 
-* Grupo de Segurança de Rede
+**Funcionalidades e recursos de rede sem suporte**
+
 * Azure Load Balancer
+* Emparelhamento de rede virtual
 
 A **exclusão de recursos de rede** requer [etapas adicionais](#delete-network-resources) depois da implantação de grupos de contêineres na rede virtual.
 

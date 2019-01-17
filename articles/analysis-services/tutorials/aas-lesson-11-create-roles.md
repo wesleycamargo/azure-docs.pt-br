@@ -1,19 +1,19 @@
 ---
-title: 'Lição 11 do tutorial do Azure Analysis Services: criar funções | Microsoft Docs'
+title: 'Lição 11 do tutorial do Azure Analysis Services: Criar funções | Microsoft Docs'
 description: Descreve como criar funções no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428890"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189738"
 ---
 # <a name="create-roles"></a>Criar funções
 
@@ -30,12 +30,12 @@ Você cria três funções:
   
 -   **Administrador** – essa função pode incluir usuários para os quais você deseja ter permissão de Administrador, que fornece acesso ilimitado e permissões para executar tarefas administrativas no modelo de banco de dados.  
   
-Já que as contas de usuário e de grupo do Windows em sua organização são exclusivas, você pode adicionar contas da sua organização privada para membros. No entanto, para este tutorial, você também pode deixar os membros em branco. Você testará o efeito de cada função posteriormente na Lição 12: Analisar no Excel.  
+Já que as contas de usuário e de grupo do Windows em sua organização são exclusivas, você pode adicionar contas da sua organização privada para membros. No entanto, para este tutorial, você também pode deixar os membros em branco. Você testa o efeito de cada função mais tarde na Lição 12: Analisar no Excel.  
   
-Tempo estimado para conclusão desta lição: **15 minutos**  
+Tempo estimado para concluir esta lição: **15 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 10: criar partições](../tutorials/aas-lesson-10-create-partitions.md).  
+Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 10: Criar partições](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Criar funções  
   
@@ -51,7 +51,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
 
     ![aas-lesson11-new-role](../tutorials/media/aas-lesson11-new-role.png) 
   
-5.  Opcional: clique na guia **Membros** e, em seguida, clique em **Adicionar**. Na caixa de diálogo **Selecionar Usuários ou Grupos**, digite os grupos os usuários do Windows da sua organização que você deseja incluir na função.  
+5.  Opcional: Clique na guia **Membros** e, em seguida, clique em **Adicionar**. Na caixa de diálogo **Selecionar Usuários ou Grupos**, digite os grupos os usuários do Windows da sua organização que você deseja incluir na função.  
   
 #### <a name="to-create-a-sales-analyst-us-user-role"></a>Para criar uma função de usuário de Analista de Vendas dos EUA  
   
@@ -70,7 +70,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
     Uma fórmula de Filtro de Linha deve ser resolvida para um valor booliano (TRUE/FALSE). Com esta fórmula, você está especificando que somente as linhas com o valor de Código do País/Região "US" estarão visíveis para o usuário.  
     ![aas-lesson11-role-filter](../tutorials/media/aas-lesson11-role-filter.png) 
   
-6.  Opcional: clique na guia **Membros** e, em seguida, clique em **Adicionar**. Na caixa de diálogo **Selecionar Usuários ou Grupos**, digite os grupos os usuários do Windows da sua organização que você deseja incluir na função.  
+6.  Opcional: Clique na guia **Membros** e, em seguida, clique em **Adicionar**. Na caixa de diálogo **Selecionar Usuários ou Grupos**, digite os grupos os usuários do Windows da sua organização que você deseja incluir na função.  
   
 #### <a name="to-create-an-administrator-user-role"></a>Para criar uma função de usuário Administrador  
   
@@ -80,7 +80,7 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
   
 3.  Dê permissão de **Administrador** a essa função.  
   
-4.  Opcional: clique na guia **Membros** e, em seguida, clique em **Adicionar**. Na caixa de diálogo **Selecionar Usuários ou Grupos**, digite os grupos os usuários do Windows da sua organização que você deseja incluir na função. 
+4.  Opcional: Clique na guia **Membros** e, em seguida, clique em **Adicionar**. Na caixa de diálogo **Selecionar Usuários ou Grupos**, digite os grupos os usuários do Windows da sua organização que você deseja incluir na função. 
   
   
 ## <a name="whats-next"></a>O que vem a seguir?

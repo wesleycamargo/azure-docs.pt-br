@@ -5,30 +5,29 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 14453a1603eb414441008ef1381800009f4268e4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994427"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189007"
 ---
 # <a name="connect-with-excel"></a>Conectar com o Excel
 
 Após criar um servidor e implantar um modelo tabular, os clientes poderão conectar e começar a explorar os dados. 
 
 ## <a name="before-you-begin"></a>Antes de começar
+
 A conta de logon precisa pertencer a uma função de modelo de banco de dados com, pelo menos, permissões de leitura. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Conectar-se no Excel
 
-Há suporte para a conexão com um servidor no Excel usando Obter Dados no Excel 2016. Não há suporte para a conexão usando o Assistente para Importar tabela no Power Pivot. 
+A conexão com um servidor no Excel usando Obter Dados no Excel 2016 e posterior é compatível. Não há suporte para a conexão usando o Assistente para Importar tabela no Power Pivot. 
 
-**Para se conectar no Excel 2016**
-
-1. No Excel 2016, na faixa de opções **Dados**, clique em **Obter Dados Externos** > **De Outras Fontes** > **Do Analysis Services**.
+1. No Excel, na faixa de opções **Dados**, clique em **Obter Dados Externos** > **De Outras Fontes** > **Do Analysis Services**.
 
 2. No Assistente de Conexão de Dados, em **Nome do servidor**, insira o nome do servidor, incluindo protocolo e URI. Por exemplo, asazure://westcentralus.asazure.windows.net/advworks. Em seguida, em **Credenciais de logon**, selecione **Usar o seguinte Nome de Usuário e Senha** e digite o nome de usuário da organização, por exemplo nancy@adventureworks.com, e a senha.
 
@@ -43,6 +42,7 @@ Há suporte para a conexão com um servidor no Excel usando Obter Dados no Excel
 
 
 ## <a name="see-also"></a>Consulte também
+
 [Bibliotecas do cliente](analysis-services-data-providers.md)   
 [Gerenciar seu serviço](analysis-services-manage.md)     
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 3cf13dc7b3a57435e4e93d6f01da482a2b992bb9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743844"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065300"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Usar o Túnel SSH para acessar a interface do usuário da Web do Apache Ambari, JobHistory, NameNode, Apache Oozie e outras UIs da Web
 
@@ -126,10 +126,10 @@ O [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH 
 
 Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verificar se você pode acessar as interfaces do usuário da Web do serviço Ambari Web:
 
-1. No navegador, acesse http://headnodehost:8080. O endereço `headnodehost` é enviado pelo túnel para o cluster e resolverá o nó principal que o Ambari está executando. Quando solicitado, insira o nome de usuário do administrador (admin) e a senha do seu cluster. Talvez a interface do usuário do Ambari Web seja solicitada uma segunda vez. Nesse caso, insira novamente as informações.
+1. Em seu navegador, vá até http\://headnodehost:8080. O endereço `headnodehost` é enviado pelo túnel para o cluster e resolverá o nó principal que o Ambari está executando. Quando solicitado, insira o nome de usuário do administrador (admin) e a senha do seu cluster. Talvez a interface do usuário do Ambari Web seja solicitada uma segunda vez. Nesse caso, insira novamente as informações.
 
    > [!NOTE]  
-   > Ao usar o endereço http://headnodehost:8080 para conectar o cluster, você estará conectando através do túnel. A comunicação é protegida usando o túnel SSH em vez de HTTPS. Para conectar pela Internet usando HTTPS, use https://clustername.azurehdinsight.net, onde **clustername** é o nome do cluster.
+   > Ao usar o endereço http\://headnodehost:8080 para se conectar ao cluster, você estará se conectando através do túnel. A comunicação é protegida usando o túnel SSH em vez de HTTPS. Para se conectar pela Internet usando o HTTPS, use https\://clustername.azurehdinsight.net, em que **clustername** é o nome do cluster.
 
 2. Na interface do usuário do Ambari na Web, selecione HDFS na lista à esquerda da página.
 
@@ -149,7 +149,7 @@ Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verific
     ![Imagem da interface do usuário do NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]  
-   > Observe a URL dessa página, que deve ser semelhante a **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Essa URI está usando o nome de domínio totalmente qualificado (FQDN) interno do nó e é acessada apenas ao utilizar um túnel SSH.
+   > Observe a URL da página; ela deve ser semelhante a **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Essa URI está usando o nome de domínio totalmente qualificado (FQDN) interno do nó e é acessada apenas ao utilizar um túnel SSH.
 
 ## <a name="next-steps"></a>Próximas etapas
 

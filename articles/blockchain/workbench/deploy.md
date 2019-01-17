@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 12/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876142"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102985"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implantar o Azure Blockchain Workbench
 
@@ -61,7 +61,7 @@ O Azure Blockchain Workbench requer a configuração do Azure AD e os registros 
 Depois de concluir as etapas de pré-requisito, você estará pronto para implantar o Blockchain Workbench. As seções a seguir descrevem como implantar a estrutura.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecione sua conta no canto superior direito e alterne para o locatário desejado do Microsoft Azure Active Directory em que você deseja implantar o Azure Blockchain Workbench.
+2. Selecione sua conta no canto superior direito e alterne para o locatário desejado do Azure AD em que deseja implantar o Azure Blockchain Workbench.
 3. No painel esquerdo, selecione **Criar um recurso**. Pesquise por `Azure Blockchain Workbench` na barra de pesquisa **Pesquisar no Marketplace**. 
 
     ![Barra de pesquisa do Marketplace](media/deploy/marketplace-search-bar.png)
@@ -119,7 +119,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
     | Configuração | DESCRIÇÃO  |
     |---------|--------------|
-    | Ponto de extremidade RPC do Ethereum | Fornecer o ponto de extremidade RPC de uma rede de blockchain de PoA existente. O ponto de extremidade começa com https:// ou http:// e termina com um número de porta. Por exemplo, `https://network.westus.cloudapp.com:8540` |
+    | Ponto de extremidade RPC do Ethereum | Fornecer o ponto de extremidade RPC de uma rede de blockchain de PoA existente. O ponto de extremidade começa com https:// ou http:// e termina com um número de porta. Por exemplo, `http<s>://<network-url>:<port>` |
     | Configurações do Azure Active Directory | Escolha **Adicionar mais tarde**.</br>Observação: Se você escolher [pré-configurar o Microsoft Azure Active Directory](#azure-ad-configuration) ou estiver reimplantando, escolha *Adicionar Agora*. |
     | Seleção de VM | Escolha o tamanho de VM preferido para sua rede de blockchain. |
 
@@ -194,7 +194,7 @@ A implantação do Blockchain Workbench exige o registro de um aplicativo do Mic
 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecione sua conta no canto superior direito e alterne para o locatário do Microsoft Azure Active Directory desejado. O locatário deve ser o locatário do administrador da assinatura onde o Workbench é implantado e você tem permissões suficientes para registrar aplicativos.
+2. Selecione sua conta no canto superior direito e alterne para o locatário desejado do Azure AD. O locatário deve ser o locatário do administrador da assinatura onde o Workbench é implantado e você tem permissões suficientes para registrar aplicativos.
 3. No painel de navegação esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **Registros do aplicativo** > **Novo registro de aplicativo**.
 
     ![Registro do aplicativo](media/deploy/app-registration.png)

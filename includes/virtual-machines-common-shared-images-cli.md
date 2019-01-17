@@ -8,18 +8,24 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 830deb7569772b610b7e6abde649830b7ad67a92
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 547e0b08b2a57b4b9192f11907f77160142d4466
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045505"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192118"
 ---
+## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+
+O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. 
+
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
+
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada existente de uma VM generalizada. Para obter mais informações, consulte [Tutorial: criar uma imagem personalizada de uma VM do Azure com a CLI do Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
+Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada existente de uma VM generalizada. Para obter mais informações, confira [Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI do Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
 
-## <a name="preview-register-the-feature"></a>Versão prévia: registrar o recurso
+## <a name="preview-register-the-feature"></a>Visualização: Registrar o recurso
 
 As Galerias de Imagens Compartilhadas estão na versão prévia, mas você precisa registrar o recurso antes que possa usá-lo. Para registrar o recurso de Galerias de Imagens Compartilhadas:
 

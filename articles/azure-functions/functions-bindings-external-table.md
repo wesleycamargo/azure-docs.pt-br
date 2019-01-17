@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 38f0d03698ff8b11e1a6a06dc29102f407e0e90f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997820"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156860"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Associação de tabela externa do Azure Functions (experimental)
 
-Este artigo explica como trabalhar com dados tabulares em provedores de SaaS, como o Sharepoint e o Dynamics, no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para tabelas externas.
+Este artigo explica como trabalhar usando dados tabulares em provedores de SaaS, como o SharePoint e o Dynamics, no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para tabelas externas.
 
 > [!IMPORTANT]
 > A associação de Tabela Externa é experimental e pode nunca alcançar o status de GA (Disponibilidade Geral). Ela foi incluída somente no Azure Functions 1.x e não há planos de adicioná-la ao Azure Functions 2.x. Para os cenários que exigem acesso aos dados de provedores de SaaS, considere o uso de [aplicativos lógicos que chamem funções](functions-twitter-email.md).

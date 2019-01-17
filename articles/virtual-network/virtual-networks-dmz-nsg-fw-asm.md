@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdc4885c079a3659d394517f0a10394eff0720c8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126924"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119146"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exemplo 2: criar uma DMZ para proteger aplicativos com firewall e NSGs
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -32,7 +32,7 @@ Este exemplo criará uma DMZ com um firewall, quatro servidores Windows e Grupos
 Neste exemplo, há uma assinatura que contém o seguinte:
 
 * Dois serviços de nuvem: "FrontEnd001" e "BackEnd001"
-* Uma rede virtual, “CorpNetwork”, com duas sub-redes: “FrontEnd” e “BackEnd”
+* Uma rede Virtual "CorpNetwork", com duas sub-redes: "FrontEnd" e "BackEnd"
 * Um único grupo de segurança de rede que é aplicado a ambas as sub-redes
 * Um dispositivo virtual de rede, neste exemplo um Firewall NextGen Barracuda, conectado à sub-rede Frontend
 * Um Windows Server que representa um servidor Web de aplicativos ("IIS01")
@@ -52,12 +52,12 @@ Para compilar o ambiente:
 2. Atualize as variáveis do usuário no script para fazer a correspondência do ambiente em que o script deve ser executado (assinaturas, nomes de serviço, etc.)
 3. Execute o script no PowerShell
 
-**Observação**: a região representada no script do PowerShell deve corresponder à região representada no arquivo xml de configuração de rede.
+**Observação**: A região representada no script do PowerShell deve corresponder à região representada no arquivo xml de configuração de rede.
 
 Assim que o script for executado com êxito, as seguintes etapas pós-script poderão ser utilizadas:
 
 1. Configure as regras de firewall; isso será abordado na seção abaixo: Regras de Firewall.
-2. Opcionalmente, na seção de referências, há dois scripts para configurar o servidor Web e um servidor de aplicativos com um aplicativo Web simples para testar a configuração desta DMZ.
+2. Opcionalmente, na seção de referências, há dois scripts para configurar o servidor Web e um servidor de aplicativos com um aplicativo Web simples para testar a configuração desta rede de perímetro.
 
 A próxima seção explica a maioria das instruções de scripts em relação a Grupos de Segurança de Rede.
 
@@ -95,7 +95,7 @@ Para criar a regra a seguir (ou verificar as regras padrão existentes), começa
 
 Crie uma nova regra e forneça um nome, como "WebTraffic". 
 
-O ícone da regra NAT de Destino tem esta aparência: ![Ícone de NAT de Destino][2]
+O ícone da regra NAT de Destino tem esta aparência:  ![Ícone de NAT de destino][2]
 
 A própria regra seria semelhante a esta:
 
@@ -427,7 +427,7 @@ Este script do PowerShell deve ser executado localmente em um computador ou serv
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -568,7 +568,7 @@ Salve esse arquivo xml com localização atualizada e adicione o link a esse arq
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicativo de exemplo
-Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de aplicativo de exemplo][SampleApp]
+Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de Aplicativo de Exemplo][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "DMZ de entrada com NSG"

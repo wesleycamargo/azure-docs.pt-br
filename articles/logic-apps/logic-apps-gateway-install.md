@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420091"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065793"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -234,7 +234,7 @@ O firewall também pode bloquear conexões que o Barramento de Serviço do Azure
 
 ## <a name="configure-ports"></a>Configure portas
 
-O gateway cria uma conexão de saída para o [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) e comunica-se nas portas de saída: TCP 443 (padrão), 5671, 5672, 9350 a 9354. O gateway não exige portas de entrada. Saiba mais sobre [Soluções híbridas e de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md).
+O gateway cria uma conexão de saída para o [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) e se comunica nas portas de saída: TCP 443 (padrão), 5671, 5672, 9350 a 9354. O gateway não exige portas de entrada. Saiba mais sobre [Soluções híbridas e de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md).
 
 O gateway usa estes nomes de domínio totalmente qualificados:
 
@@ -276,10 +276,9 @@ Você pode forçar o gateway para comunicar-se com o Barramento de Serviço do A
 
 ## <a name="windows-service-account"></a>Conta de serviço do Windows
 
-O gateway de dados local é executado como um serviço Windows nomeado "Serviço de gateway de dados local", mas usa "NT SERVICE\PBIEgwService" para suas credenciais de conta "Fazer logon como". Por padrão, o gateway de dados local tem permissões "Fazer logon como um serviço" para o computador no qual você instala o gateway. Para criar e manter o gateway no portal do Azure, a conta de serviço Windows deve ter, pelo menos, permissões de **Colaborador**. 
+No computador onde você instalar o gateway de dados local, o gateway será executado como uma conta de serviço Windows chamada "Serviço de gateway de dados local". No entanto, o gateway usa o nome "NT SERVICE\PBIEgwService" para suas credenciais de conta de "Fazer logon como". Por padrão, o gateway tem permissões para "Fazer logon como um serviço" para o computador no qual você o instala. A conta de serviço Windows do gateway normalmente é diferente da conta usada para conexão com fontes de dados locais e da conta corporativa ou de estudante do Azure usada para entrar em serviços de nuvem.
 
-> [!NOTE]
-> A conta de serviço Windows é diferente da conta usada para conexão a fontes de dados locais e da conta corporativa ou de estudante do Azure usada para entrar em serviços de nuvem.
+Para você criar e manter o gateway no portal do Azure, a conta de serviço Windows deve ter, pelo menos, permissões de **Colaborador**. Para verificar essas permissões, confira [Gerenciar o acesso usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md). 
 
 <a name="restart-gateway"></a>
 
@@ -332,7 +331,7 @@ Estas etapas descrevem o que acontece quando um usuário na nuvem interage com u
 **P**: Preciso de um gateway para fontes de dados na nuvem, como o Banco de Dados SQL do Azure? <br/>
 **R**: Não, o gateway conecta-se apenas a fontes de dados locais.
 
-**Pergunta**: O gateway precisa ser instalado no mesmo computador que a fonte de dados? <br/>
+**P**: O gateway precisa ser instalado no mesmo computador que a fonte de dados? <br/>
 **R**: Não, o gateway se conecta à fonte de dados usando as informações de conexão fornecidas. Considere o gateway como um aplicativo de cliente nesse sentido. O gateway precisa apenas da capacidade de se conectar ao nome do servidor que foi fornecido.
 
 <a name="why-azure-work-school-account"></a>
@@ -377,7 +376,7 @@ Estas etapas descrevem o que acontece quando um usuário na nuvem interage com u
 Esta seção aborda alguns problemas comuns que você pode ter ao configurar e usar o gateway de dados local.
 
 **P**: Por que minha instalação do gateway falhou? <br/>
-**R**: Esse problema pode ocorrer se o software antivírus no computador de destino estiver desatualizado. Você pode atualizar ou desabilitar o software antivírus, mas somente durante a instalação do gateway e, em seguida, habilitar o software novamente.
+**R**: Esse problema poderá ocorrer se o software antivírus no computador de destino estiver desatualizado. Você pode atualizar ou desabilitar o software antivírus, mas somente durante a instalação do gateway e, em seguida, habilitar o software novamente.
 
 **P**: Por que não vejo minha instalação do gateway ao criar o recurso de gateway no Azure? <br/>
 **R**: Esse problema pode ocorrer pelos seguintes motivos:
@@ -390,7 +389,7 @@ Para verificar os registros de gateway no portal do Azure, examine todos os seus
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
 **P**: Em que local estão os logs do gateway? <br/>
-**R**: Consulte a [seção**Logs**](#logs) mais adiante neste artigo.
+**R**: Consulte a seção [**Logs** mais](#logs) adiante neste artigo.
 
 **P**: Como posso ver quais consultas estão sendo enviadas à fonte de dados local? <br/>
 **R**: Você pode habilitar o rastreamento de consulta, que inclui as consultas que são enviadas. Lembre-se de alterar o rastreamento de consulta de volta para o valor original quando concluir a solução de problemas. Deixar o acompanhamento de consulta ativado cria logs maiores.
@@ -401,7 +400,7 @@ Você também pode examinar ferramentas de rastreamento de consultas disponibili
 
 Muitos problemas podem surgir quando a versão do gateway fica desatualizada. Como prática geral recomendada, certifique-se de ter a última versão. Se você não atualiza o gateway há um mês ou mais, convém instalar a versão mais recente do gateway e verificar se o problema pode ser reproduzido.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Erro: falha ao adicionar usuário ao grupo. (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Erro: Falha ao adicionar usuário ao grupo. (-2147463168 PBIEgwService Performance Log Users)
 
 Você poderá obter esse erro se tentar instalar o gateway em um controlador de domínio, o que não tem suporte. Certifique-se de implantar o gateway em um computador que não seja um controlador de domínio.
 

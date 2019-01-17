@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 0d777b5dcebfba7dbff7c9ea1f4fedad12b3cf1a
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0ed4becee5eeab258585eb7d9b406dd66d79c9ff
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283801"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077871"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa
 
-O Managed Disks oferece três opções de armazenamento: [SSD Premium](../windows/premium-storage.md), SSD Padrão (Versão Prévia) e [HD Padrão](../windows/standard-storage.md). Ele permite alternar facilmente entre as opções com tempo de inatividade mínimo, com base nas suas necessidades de desempenho. Isso não dá suporte para discos não gerenciados. Porém, é possível [convertê-los em discos gerenciados](convert-unmanaged-to-managed-disks.md) facilmente para alternar com facilidade entre os tipos de disco.
+Os Managed Disks oferecem três opções de armazenamento: [SSD Premium](../windows/premium-storage.md), SSD Standard e [HDD Standard](../windows/standard-storage.md). Ele permite alternar facilmente entre as opções com tempo de inatividade mínimo, com base nas suas necessidades de desempenho. Isso não dá suporte para discos não gerenciados. Porém, é possível [convertê-los em discos gerenciados](convert-unmanaged-to-managed-disks.md) facilmente para alternar com facilidade entre os tipos de disco.
 
 Este artigo mostra como converter Managed Disks de padrão em premium, e vice-versa, usando a CLI do Azure. Se você precisar instalar ou atualizá-lo, confira [instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 

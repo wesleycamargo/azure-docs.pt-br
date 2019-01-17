@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/08/2019
+ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722072"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102798"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status dos cenários de migração compatíveis com o Serviço de Migração de Banco de Dados do Azure
 O Serviço de Migração de Banco de Dados do Azure foi projetado para oferecer suporte a diversos cenários de migração (pares de origem/destino), tanto para migrações offline (uma vez) como para migrações online (sincronização contínua). A cobertura do cenário fornecido pelo Serviço de Migração de Banco de Dados do Azure está sendo estendida ao longo do tempo. Novos cenários são adicionados regularmente. Este artigo identifica os cenários de migração atualmente compatíveis com o Serviço de Migração de Banco de Dados do Azure e o status (versão prévia privada [ou limitada], visualização pública ou geralmente disponível).
@@ -45,7 +45,7 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 | **MI do BD SQL do Azure**  | SQL Server  | ✔ |
 |   | SQL para RDS  | ✔ |
 |   | Oracle  | ✔  |
-| **MV do SQL do Azure**  | SQL Server  | ✔ |
+| **VM do SQL do Azure**  | SQL Server  | ✔ |
 |   | Oracle  |   |
 | **Cosmos DB**  | MongoDB  | ✔ |
 | **BD do Azure para MySQL**  | MySLQ  |  |
@@ -64,7 +64,7 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 | **MI do BD SQL do Azure**  | SQL Server  | ✔ |
 |   | SQL para RDS  |  |
 |   | Oracle  | ✔  |
-| **MV do SQL do Azure**  | SQL Server  |   |
+| **VM do SQL do Azure**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **Cosmos DB**  | MongoDB  | ✔ |
 | **BD do Azure para MySQL**  | MySLQ  | ✔ |

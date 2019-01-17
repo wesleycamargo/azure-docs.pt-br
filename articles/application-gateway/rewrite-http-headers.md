@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971811"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187410"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de Aplicativo (visualização pública)
 
 Os cabeçalhos HTTP permitem que o cliente e o servidor passem informações adicionais com a solicitação ou a resposta. A reescrita desses cabeçalhos HTTP ajuda você a realizar vários cenários importantes, como a adição de campos de cabeçalho relacionados à Segurança, como HSTS/X-XSS-Protection, ou a remoção de campos de cabeçalho que podem revelar informações confidenciais, como o nome do servidor back-end.
 
-O Gateway de Aplicativo agora dá suporte à capacidade de rescrever cabeçalhos das solicitações HTTP de entrada, bem como das respostas HTTP de saída. Você poderá adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação/resposta são transferidos entre os pools de back-end e do cliente. Você pode reescrever campos de cabeçalho padrão (definidos no [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)), bem como não padrão.
+O Gateway de Aplicativo agora dá suporte à capacidade de rescrever cabeçalhos das solicitações HTTP de entrada, bem como das respostas HTTP de saída. Você poderá adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação/resposta são transferidos entre os pools de back-end e do cliente. Você pode reescrever campos de cabeçalho padrão, bem como não padrão.
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ Você pode reescrever o valor nos cabeçalhos para:
 
 - Uma combinação das opções acima.
 
-As variáveis de servidor mencionadas acima são as variáveis que fornecem informações sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Essa funcionalidade dá suporte à regravação de cabeçalhos para as seguintes variáveis de servidor:
+## <a name="server-variables"></a>Variáveis de servidor
+
+Variáveis de servidor armazenam informações úteis sobre um servidor Web. Essas variáveis fornecem informações sobre o servidor, a conexão com o cliente e a solicitação atual na conexão, como o tipo de navegador da Web ou o endereço IP do cliente. Elas são alteradas dinamicamente, como quando uma nova página é carregada ou um formulário é postado.  Usando essas variáveis, os usuários podem configurar cabeçalhos de solicitação, bem como cabeçalhos de resposta. 
+
+Essa funcionalidade dá suporte à regravação de cabeçalhos para as seguintes variáveis de servidor:
 
 | Variáveis do servidor compatíveis | DESCRIÇÃO                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ As variáveis de servidor mencionadas acima são as variáveis que fornecem info
 | http_status                | estado da sessão, por exemplo: 200, 400, 403 etc.                       |
 | http_version               | protocolo de solicitação, normalmente, "HTTP/1.0", "HTTP 1.1" ou "HTTP 2.0" |
 | query_string               | a lista de valores de variável de pares que seguem o "?" na URL solicitada. |
-| received_byte              | comprimento da solicitação (inclusive a linha de solicitação, o cabeçalho e o corpo da solicitação) |
+| received_bytes             | comprimento da solicitação (inclusive a linha de solicitação, o cabeçalho e o corpo da solicitação) |
 | request_query              | argumentos na linha da solicitação                                |
 | request_scheme             | esquema da solicitação, "http" ou "https"                            |
 | request_uri                | URI da solicitação original completa (com argumentos)                   |

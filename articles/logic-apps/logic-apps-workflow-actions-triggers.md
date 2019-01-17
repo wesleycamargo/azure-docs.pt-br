@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 27c074b12d2b151015e6946c483302387726dfc5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044766"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190799"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de tipos de acionadores e ações para a Linguagem de Definição de Fluxo de Trabalho nos Aplicativos Lógicos do Azure
 
@@ -54,8 +54,8 @@ Os gatilhos têm esses elementos de nível superior, embora alguns sejam opciona
 | <*nome do gatilho*> | Cadeia de caracteres | O nome do gatilho | 
 | <*tipo de gatilho*> | Cadeia de caracteres | O tipo de gatilho como "Http" ou "ApiConnection" | 
 | <*entradas do gatilho*> | Objeto JSON | As entradas que definem o comportamento do gatilho | 
-| <*unidade de tempo*> | Cadeia de caracteres | A unidade de tempo que descreve com que frequência o acionador dispara: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
-| <*número de unidades de tempo*> | Número inteiro | Um valor que especifica com que frequência o acionador é disparado com base na frequência, que é o número de unidades de tempo a aguardar até que o acionador seja acionado novamente <p>Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", a recorrência será a cada 6 meses. | 
+| <*unidade de tempo*> | Cadeia de caracteres | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
+| <*número de unidades de tempo*> | Número inteiro | Um valor que especifica com que frequência o acionador é disparado com base na frequência, que é o número de unidades de tempo a aguardar até que o acionador seja acionado novamente <p>Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1 a 16 meses </br>- Dia: 1 a 500 dias </br>- Hora: 1 a 12.000 horas </br>- Minuto: 1 a 72.000 minutos </br>- Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", a recorrência será a cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -133,10 +133,10 @@ Esse acionador verifica ou *pesquisa* um terminal usando [APIs gerenciadas pela 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | Cadeia de caracteres | O nome do gatilho | 
 | <*connection-name*> | Cadeia de caracteres | O nome da conexão com a API gerenciada usada pelo fluxo de trabalho | 
-| <*tipo de método*> | Cadeia de caracteres | O método HTTP para se comunicar com a API gerenciada: "GET", "PUT", "POST", "PATCH", "Excluir" | 
+| <*tipo de método*> | Cadeia de caracteres | O método HTTP para comunicação com a API gerenciada: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*operação de API*> | Cadeia de caracteres | A operação de API para chamar | 
-| <*unidade de tempo*> | Cadeia de caracteres | A unidade de tempo que descreve com que frequência o acionador dispara: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
-| <*número de unidades de tempo*> | Número inteiro | Um valor que especifica com que frequência o acionador é disparado com base na frequência, que é o número de unidades de tempo a aguardar até que o acionador seja acionado novamente <p>Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", a recorrência será a cada 6 meses. | 
+| <*unidade de tempo*> | Cadeia de caracteres | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
+| <*número de unidades de tempo*> | Número inteiro | Um valor que especifica com que frequência o acionador é disparado com base na frequência, que é o número de unidades de tempo a aguardar até que o acionador seja acionado novamente <p>Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1 a 16 meses </br>- Dia: 1 a 500 dias </br>- Hora: 1 a 12.000 horas </br>- Minuto: 1 a 72.000 minutos </br>- Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", a recorrência será a cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -304,10 +304,10 @@ Esse acionador verifica ou pesquisa o terminal especificado com base no agendame
 
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
-| <*tipo de método*> | Cadeia de caracteres | O método HTTP para pesquisar o ponto de salto especificado: "GET", "PUT", "POST", "PATCH", "DELETE" ou "HEAD" | 
+| <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para sondar o ponto de extremidade especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*endpoint-URL*> | Cadeia de caracteres | A URL HTTP ou HTTPS para o ponto de extremidade para sondar <p>Tamanho máximo da cadeia de caracteres: 2 KB | 
-| <*unidade de tempo*> | Cadeia de caracteres | A unidade de tempo que descreve com que frequência o acionador dispara: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
-| <*número de unidades de tempo*> | Número inteiro | Um valor que especifica com que frequência o acionador é disparado com base na frequência, que é o número de unidades de tempo a aguardar até que o acionador seja acionado novamente <p>Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", a recorrência será a cada 6 meses. | 
+| <*unidade de tempo*> | Cadeia de caracteres | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
+| <*número de unidades de tempo*> | Número inteiro | Um valor que especifica com que frequência o acionador é disparado com base na frequência, que é o número de unidades de tempo a aguardar até que o acionador seja acionado novamente <p>Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1 a 16 meses </br>- Dia: 1 a 500 dias </br>- Hora: 1 a 12.000 horas </br>- Minuto: 1 a 72.000 minutos </br>- Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", a recorrência será a cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -401,7 +401,7 @@ Alguns valores, como <*tipo de método*>, estão disponíveis para ambos os `"su
 
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
-| <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para a solicitação de inscrição: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
+| <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para a solicitação de assinatura: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
 | <*endpoint-subscribe-URL*> | Cadeia de caracteres | O URL do ponto final para onde enviar o pedido de subscrição | 
 |||| 
 
@@ -495,19 +495,19 @@ Esse acionador é executado com base no agendamento de recorrência especificado
 
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
-| <*unidade de tempo*> | Cadeia de caracteres | A unidade de tempo que descreve com que frequência o acionador dispara: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
-| <*número de unidades de tempo*> | Número inteiro | Um valor que especifica com que frequência o acionador é disparado com base na frequência, que é o número de unidades de tempo a aguardar até que o acionador seja acionado novamente <p>Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", a recorrência será a cada 6 meses. | 
+| <*unidade de tempo*> | Cadeia de caracteres | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
+| <*número de unidades de tempo*> | Número inteiro | Um valor que especifica com que frequência o acionador é disparado com base na frequência, que é o número de unidades de tempo a aguardar até que o acionador seja acionado novamente <p>Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1 a 16 meses </br>- Dia: 1 a 500 dias </br>- Hora: 1 a 12.000 horas </br>- Minuto: 1 a 72.000 minutos </br>- Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", a recorrência será a cada 6 meses. | 
 |||| 
 
 *Opcional*
 
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Cadeia de caracteres | A data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você especificar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h00, especifique "2017-09-18T14:00:00" e especifique um fuso horário como "Hora Padrão do Pacífico" ou especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** a hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. Para obter mais informações sobre datas e horas de início, consulte [Criar e agendar tarefas de execução regularmente](../connectors/connectors-native-recurrence.md). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Cadeia de caracteres | A data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você especificar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h00, especifique "2017-09-18T14:00:00" e especifique um fuso horário como "Hora Padrão do Pacífico" ou especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. Para obter mais informações sobre datas e horas de início, consulte [Criar e agendar tarefas de execução regularmente](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que deseja aplicar. | 
 | <*um-ou-mais--marcas de hora*> | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana" para `frequency`, poderá selecionar um ou mais números inteiros, de 0 a 23, separados por vírgulas, como as horas do dia nas quais você deseja executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", você obterá 10h, 12h e 14h como as marcas de hora. | 
 | <*uma-ou-mais--marcas de minuto*> | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana" para `frequency`, poderá selecionar um ou mais números inteiros, de 0 a 59, separados por vírgulas, como os minutos da hora nos quais você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minutos e, usando o exemplo anterior como as horas do dia, você obtém 10h30, 12h30 e 14h30. | 
-| weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana" para `frequency`, poderá selecionar um ou mais dias, separados por vírgulas, nos quais deseja executar o fluxo de trabalho: “segunda-feira”, “terça-feira”, “quarta-feira”, “quinta-feira”, “Sexta-feira”, “sábado” e “domingo” | 
+| weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você especificar "Semana" para `frequency`, poderá especificar um ou mais dias, separados por vírgulas, quando quiser executar o fluxo de trabalho: "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado" e "Domingo" | 
 | <*execuções de max*> | Número inteiro | Por padrão, as instâncias do fluxo de trabalho do aplicativo lógico são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite, definindo um novo <*contagem*> de valor, consulte [simultaneidade do gatilho de alteração](#change-trigger-concurrency). | 
 | <*máximo de execuções de fila*> | Número inteiro | Quando seu aplicativo lógico já estiver executando o número máximo de instâncias, que você pode alterar com base na propriedade `runtimeConfiguration.concurrency.runs`, quaisquer novas execuções serão colocadas nessa fila até o limite [padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [execuções de espera da alteração limitam](#change-waiting-runs). | 
 | <*opção de operação*> | Cadeia de caracteres | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
@@ -612,7 +612,7 @@ Para chamar esse gatilho, você deve usar a `listCallbackUrl`API, descrita na [A
 
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
-| <*tipo de método*> | Cadeia de caracteres | O método que as solicitações recebidas devem usar para chamar seu aplicativo lógico: "GET", "PUT", "POST", "PATCH", "DELETE" |
+| <*tipo de método*> | Cadeia de caracteres | O método que as solicitações de entrada devem usar para chamar seu aplicativo lógico: "GET", "PUT", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | Cadeia de caracteres | O caminho relativo para o parâmetro que o URL do seu endpoint pode aceitar | 
 | <*propriedades obrigatórias*> | Matriz | Uma ou mais propriedades que exigem valores | 
 | <*execuções de max*> | Número inteiro | Por padrão, as instâncias do fluxo de trabalho do aplicativo lógico são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite, definindo um novo <*contagem*> de valor, consulte [simultaneidade do gatilho de alteração](#change-trigger-concurrency). | 
@@ -971,7 +971,7 @@ Alguns valores, como <*tipo de método*>, estão disponíveis para ambos os `"su
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*nome da ação*> | Cadeia de caracteres | O nome da ação fornecida pelo conector | 
-| <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para assinar ou cancelar a assinatura de um terminal: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
+| <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para se inscrever ou cancelar a inscrição em um ponto de extremidade: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
 | <*api-subscribe-URL*> | Cadeia de caracteres | O URI a ser usado para assinar a API | 
 |||| 
 
@@ -1238,7 +1238,7 @@ Essa ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSO
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*Origem do JSON*> | Objeto JSON | O conteúdo JSON que você deseja analisar | 
-| <*JSON-schema*> | Objeto JSON | O esquema JSON que descreve o conteúdo JSON subjacente, que a ação usa para analisar o conteúdo JSON de origem. <p>**Dica**: no Logic Apps Designer, você pode fornecer o esquema ou fornecer uma amostra de carga para que a ação possa gerar o esquema. | 
+| <*JSON-schema*> | Objeto JSON | O esquema JSON que descreve o conteúdo JSON subjacente, que a ação usa para analisar o conteúdo JSON de origem. <p>**Dica**: no Designer de Aplicativos Lógicos, você pode fornecer o esquema ou fornecer uma amostra de conteúdo para que a ação possa gerar o esquema. | 
 |||| 
 
 *Exemplo*
@@ -1455,7 +1455,7 @@ Essa ação cria uma matriz com objetos JSON, transformando itens de outra matri
 
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
-| <*array*> | Matriz | A matriz ou expressão que fornece os itens de origem. Certifique-se de que você coloque uma expressão entre aspas duplas. <p>**Observação**: se a matriz de origem estiver vazia, a ação cria uma matriz vazia. | 
+| <*array*> | Matriz | A matriz ou expressão que fornece os itens de origem. Certifique-se de que você coloque uma expressão entre aspas duplas. <p>**Observação**: se a matriz de origem estiver vazia, a ação criará uma matriz vazia. | 
 | <*key-name*> | Cadeia de caracteres | O nome da propriedade atribuído ao resultado de <*expressão*> <p>Para adicionar uma nova propriedade a todos os objetos na matriz de saída, forneça um <*nome-chave*> para essa propriedade e uma <*expressão*> para o valor da propriedade. <p>Para remover uma propriedade de todos os objetos na matriz, omita o <*nome-chave*> para essa propriedade. | 
 | <*expression*> | Cadeia de caracteres | A expressão que transforma o item na matriz de origem e atribui o resultado a <*nome-chave* > | 
 |||| 
@@ -1554,7 +1554,7 @@ Esta ação cria uma tabela CSV ou HTML a partir de uma matriz. Para matrizes co
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
 | < CSV *ou* HTML >| Cadeia de caracteres | O formato para a tabela que você deseja criar | 
-| <*array*> | Matriz | A matriz ou expressão que fornece os itens de origem para a tabela <p>**Observação**: se a matriz de origem estiver vazia, a ação cria uma tabela vazia. | 
+| <*array*> | Matriz | A matriz ou expressão que fornece os itens de origem para a tabela <p>**Observação**: se a matriz de origem estiver vazia, a ação criará uma tabela vazia. | 
 |||| 
 
 *Opcional*
@@ -1666,7 +1666,7 @@ Essa ação interrompe a execução da instância do fluxo de trabalho do aplica
 
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
-| <*Status*> | Cadeia de caracteres | O status para retornar para a execução: "Falha", "Cancelado" ou "Êxito" |
+| <*Status*> | Cadeia de caracteres | O status a ser retornado para a execução: "Falhou", "Cancelado" ou "Êxito" |
 |||| 
 
 *Opcional*
@@ -1737,7 +1737,7 @@ Esta ação pausa a execução do fluxo de trabalho para o intervalo especificad
 | Valor | Tipo | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*número de unidades*> | Número inteiro | Para o **atraso** ação, o número de unidades de espera | 
-| <*interval*> | Cadeia de caracteres | Para o **atraso** ação, o intervalo de espera: "Second", "Minuto", "Hour", "Day", "Week", "Mês" | 
+| <*interval*> | Cadeia de caracteres | Para a ação **Atrasar**, o intervalo de espera: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
 | <*carimbo de data-hora*> | Cadeia de caracteres | Para o **atraso até que** ação, a data e hora para retomar a execução. Esse valor deve usar o [formato de hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
@@ -2350,9 +2350,9 @@ Aqui está um exemplo que limita as execuções simultâneas a 10 instâncias:
 
 1. No canto superior direito do gatilho, escolha o botão reticências (...) e, em seguida, escolha **Configurações**.
 
-2. Em **Controle de simultaneidade**, defina **Substituir padrão** para **em**. 
+2. Em **Controle de Simultaneidade**, defina **Limite** como **Ligado**. 
 
-3. Arraste o controle deslizante **Grau de Paralelismo** para o valor desejado. 
+3. Arraste o controle deslizante **Grau de Paralelismo** para o valor desejado. Para executar seu aplicativo lógico em sequência, arraste o valor do controle deslizante para **1**.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2387,9 +2387,9 @@ Aqui está um exemplo que limita as execuções simultâneas a 10 iterações:
 
 1. Na ação **Para cada**, no canto superior direito, escolha o botão reticências (...) e, em seguida, escolha **Configurações**.
 
-2. Em **Controle de simultaneidade**, defina **Substituir padrão** para **em**. 
+2. Em **Controle de Simultaneidade**, defina **Controle de Simultaneidade** como **Ligado**. 
 
-3. Arraste o controle deslizante **Grau de Paralelismo** para o valor desejado. 
+3. Arraste o controle deslizante **Grau de Paralelismo** para o valor desejado. Para executar seu aplicativo lógico em sequência, arraste o valor do controle deslizante para **1**.
 
 <a name="change-waiting-runs"></a>
 
@@ -2465,7 +2465,7 @@ Para fazer isso, defina a `operationOptions`propriedade para `SingleInstance`:
 
 1. No canto superior direito do gatilho, escolha o botão reticências (...) e, em seguida, escolha **Configurações**.
 
-2. Em **Controle de simultaneidade**, defina **Substituir padrão** para **em**. 
+2. Em **Controle de Simultaneidade**, defina **Limite** como **Ligado**. 
 
 3. Arraste o **grau de paralelismo** controle deslizante para o número `1`. 
 
@@ -2516,7 +2516,7 @@ Para fazer isso, defina a `operationOptions`propriedade para `Sequential`:
 
 1. No **para cada** canto do superior direito da ação, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
 
-2. Em **Controle de simultaneidade**, defina **Substituir padrão** para **em**. 
+2. Em **Controle de Simultaneidade**, defina **Controle de Simultaneidade** como **Ligado**. 
 
 3. Arraste o **grau de paralelismo** controle deslizante para o número `1`. 
 
@@ -2644,7 +2644,7 @@ Para esse tipo de autenticação, sua definição de gatilho ou ação pode incl
 | **secret** | Sim, somente para o tipo de credencial “Secret” | <*secret-for-authentication*> | O segredo codificado em base64 que o cliente usa para solicitar autorização |
 ||||| 
 
-Por exemplo, aqui está o formato para o objeto `authentication` quando sua definição de gatilho ou ação usa o tipo de credencial "Secret": para obter mais informações sobre como proteger parâmetros, consulte [Proteger informações confidenciais](#secure-info). 
+Por exemplo, aqui está o formato para o objeto `authentication` quando sua definição de gatilho ou ação usa o tipo de credencial "Segredo": Para obter mais informações sobre como proteger parâmetros, consulte [Proteger informações confidenciais](#secure-info). 
 
 ```javascript
 "authentication": {
@@ -2706,7 +2706,7 @@ Na seção `parameters` da definição do seu aplicativo lógico, defina os par�
 },
 ```
 
-Se você estiver criando ou usando um modelo de implantação do Azure Resource Manager, também precisará incluir uma seção `parameters` externa para a definição do modelo. Para obter mais informações sobre como proteger parâmetros, consulte [Proteger o acesso aos aplicativos lógicos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
+Se você estiver criando ou usando um modelo de implantação do Azure Resource Manager, também precisará incluir uma seção `parameters` externa para a definição do modelo. Para obter mais informações sobre como proteger parâmetros, consulte [Proteger o acesso aos aplicativos lógicos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

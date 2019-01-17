@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: edbdd12ed292ac2e2953219d6f50da8e6c5c995f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c8b254656dcd94fd846336e9c9de3ca823691904
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343081"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053493"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (C)
 
@@ -209,6 +209,6 @@ Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT. Para ver as mensagens que seu Raspberry Pi enviou ao hub IoT ou enviar mensagens para o Raspberry Pi, consulte [Usar extensão do kit de ferramentas do Hub IoT para Visual Studio Code para enviar e receber mensagens entre o dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT. Para ver as mensagens que seu Raspberry Pi enviou ao hub IoT ou enviar mensagens para o Raspberry Pi, confira [Usar Ferramentas do Azure IoT para Visual Studio Code para enviar e receber mensagens entre o dispositivo e o Hub IoT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

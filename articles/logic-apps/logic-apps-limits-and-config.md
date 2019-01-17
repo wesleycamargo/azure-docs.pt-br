@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853822"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159019"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -85,10 +85,10 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
-| Simultaneidade do gatilho | 50 | O limite padrão é 20. Esse limite descreve o número máximo de instâncias de aplicativos lógicos que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [simultaneidade do gatilho de alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Execuções de espera máximo | 100 | O limite padrão é 10. Esse limite descreve o número máximo de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão para um valor entre 0 e 100, inclusive, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Itens foreach | 100.000 | Esse limite descreve o número máximo de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](../connectors/connectors-native-query.md). | 
-| Iterações de foreach | 50 | O limite padrão é 20. Esse limite descreve o número máximo de iterações de loop "para cada" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusive, consulte [Alterar "para cada" simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Executar "para cada" faz um loop sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Simultaneidade do gatilho | 50 quando você limita a simultaneidade | Quando você ativa o controle de simultaneidade para um gatilho, o limite padrão é 25. Esse limite descreve o número máximo de instâncias de aplicativos lógicos que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Execuções de espera máximo | 100 quando você limita a simultaneidade | Quando você ativa o controle de simultaneidade para um gatilho, o limite padrão é 10. Esse limite descreve o número máximo de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão para um valor entre 0 e 100, inclusive, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Itens da matriz de foreach | 100.000 | Esse limite descreve o número máximo de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](../connectors/connectors-native-query.md). | 
+| Simultaneidade de foreach | 50 quando você limita a simultaneidade | Quando você ativa o controle de simultaneidade para este loop, o limite padrão é 20. Esse limite descreve o número máximo de iterações de loop "para cada" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusive, consulte [Alterar o limite de simultaneidade “para cada”](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Executar loops "para cada" sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | Itens SplitOn | 100.000 | | 
 | Iterações Until | 5.000 | | 
 |||| 
@@ -102,10 +102,10 @@ Estes são os limites de execução de um único aplicativo lógico:
 | NOME | Limite | Observações | 
 | ---- | ----- | ----- | 
 | Ação: Execuções a cada 5 minutos | 300.000 | O limite padrão é 100.000. Para alterar o limite padrão, consulte [Execute seu aplicativo lógico no modo "alto rendimento"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está na visualização. Ou, você pode distribuir a carga de trabalho entre mais de um aplicativo lógico conforme necessário. | 
-| Ação: Saída de chamadas simultâneas | ~2.500 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
-| Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
-| Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos  | 60.000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. | 
-| Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. | 
+| Ação: Chamadas de saída simultâneas | ~2.500 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
+| Ponto de extremidade de tempo de execução: Chamadas recebidas simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
+| Ponto de extremidade de tempo de execução: Chamadas de leitura a cada 5 minutos  | 60.000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. | 
+| Ponto de extremidade de tempo de execução: Chamadas de invocação a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. | 
 | Taxa de transferência de conteúdo por 5 minutos | 600 MB | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. | 
 |||| 
 
@@ -119,9 +119,9 @@ Para ultrapassar esses limites no processamento normal ou executar um teste de c
 
 | NOME | Limite | Observações |
 |------|-------|-------|
-| FTP | 50 MB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
-| SFTP | 50 MB | Para contornar esse limite, use o [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Tratar mensagens grandes com agrupamento). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
-| SFTP-SSH | 1 GB | Para contornar esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
+| FTP | 50 MB | Para exceder esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
+| SFTP | 50 MB | Para exceder esse limite, use o [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Tratar mensagens grandes com agrupamento). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
+| SFTP-SSH | 1 GB | Para exceder esse limite, consulte [Tratar mensagens grandes com agrupamento](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não oferecer suporte a agrupamento ou até o limite padrão. | 
 |||| 
 
 <a name="request-limits"></a>
@@ -238,10 +238,10 @@ Use a camada gratuita somente para cenários exploratórios, não cenários de p
 | ---- | ----- | ----- | 
 | Esquema | 8 MB | Para carregar arquivos maiores que 2 MB, use o [URI do blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Mapa (arquivo XSLT) | 2 MB | | 
-| Ponto de extremidade de tempo de execução: lê chamadas por 5 minutos | 60.000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
-| Ponto de extremidade de tempo de execução: invoca chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
-| Ponto de extremidade do tempo de execução: acompanhando chamadas por 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
-| Ponto de extremidade de tempo de execução: bloqueando chamadas simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
+| Ponto de extremidade de tempo de execução: Chamadas de leitura a cada 5 minutos | 60.000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
+| Ponto de extremidade de tempo de execução: Chamadas de invocação a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
+| Ponto de extremidade de tempo de execução: Chamadas de acompanhamento a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de uma conta conforme necessário. | 
+| Ponto de extremidade de tempo de execução: Chamadas simultâneas de bloqueio | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -259,7 +259,7 @@ Estes são os limites que se aplicam a protocolos B2B:
 
 <a name="configuration"></a>
 
-## <a name="configuration-ip-addresses"></a>Configuração: endereços IP
+## <a name="configuration-ip-addresses"></a>Configuração: Endereços IP
 
 ### <a name="azure-logic-apps-service"></a>Serviço de Aplicativos Lógicos do Azure
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 37e7281af87a8cfc57aae95411eb2d4cce9eef65
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228055"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018986"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiar dados do Teradata usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +56,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Teradata:
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como: **Teradata** | SIM |
 | Servidor | Nome do servidor Teradata. | SIM |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Teradata.<br/>Os valores permitidos são: **Básico** e **Windows**. | SIM |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Teradata.<br/>Valores permitidos são: **Básico** e **Windows**. | SIM |
 | Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Teradata. | SIM |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |SIM |

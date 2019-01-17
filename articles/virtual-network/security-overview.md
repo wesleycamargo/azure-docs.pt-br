@@ -1,22 +1,23 @@
 ---
-title: Visão geral de grupos de segurança do Azure | Microsoft Docs
+title: Visão geral dos grupos de segurança do Azure
+titlesuffix: Azure Virtual Network
 description: Saiba mais sobre grupos de segurança de rede e aplicativo. Os grupos de segurança ajudam você a filtrar o tráfego de rede entre recursos do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: ad5205bcf063cd3375e68ef609c71ced2f551b61
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311755"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159053"
 ---
 # <a name="security-groups"></a>Grupos de segurança
 <a name="network-security-groups"></a>
@@ -70,15 +71,18 @@ As regras de segurança aumentada simplificam a definição de segurança para r
 * **MicrosoftContainerRegistry** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Registro de Contêiner da Microsoft. Se você especificar *MicrosoftContainerRegistry* para o valor, o tráfego será permitido ou negado para MicrosoftContainerRegistry. Se você quiser permitir o acesso ao MicrosoftContainerRegistry em uma determinada [região](https://azure.microsoft.com/regions), poderá especificar a região no seguinte formato MicrosoftContainerRegistry.[nome da região]. 
 * **AzureContainerRegistry** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Registro de Contêiner do Azure. Se você especificar *AzureContainerRegistry* para o valor, o tráfego será permitido ou negado para AzureContainerRegistry. Se você quiser permitir o acesso ao AzureContainerRegistry em uma determinada [região](https://azure.microsoft.com/regions), poderá especificar a região no seguinte formato AzureContainerRegistry.[nome da região]. 
 * **AppService** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço AppService do Azure. Se você especificar *AppService* para o valor, o tráfego será permitido ou negado para o AppService. Se desejar permitir o acesso ao AppService em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AppService.[nome de região]. 
-* **AppServiceManagement** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço de Gerenciamento do Serviço de Aplicativo do Azure. Se você especificar *AppServiceManagement* para o valor, o tráfego será permitido ou negado para AppServiceManagement. Se desejar permitir o acesso ao AppServiceManagement em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AppServiceManagement.[nome de região]. 
-* **ApiManagement** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço de Gerenciamento de API do Azure. Se você especificar *ApiManagement* para o valor, o tráfego será permitido ou negado para ApiManagement. Se desejar permitir o acesso ao ApiManagement em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato ApiManagement.[ nome de região]. 
+* **AppServiceManagement** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço de Gerenciamento do Serviço de Aplicativo do Azure. Se você especificar *AppServiceManagement* para o valor, o tráfego será permitido ou negado para AppServiceManagement. 
+* **ApiManagement** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço de Gerenciamento de API do Azure. Se você especificar *ApiManagement* para o valor, o tráfego será permitido ou negado para ApiManagement.  
 * **AzureConnectors** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço de Conectores do Azure. Se você especificar *AzureConnectors* para o valor, o tráfego será permitido ou negado para o AzureConnectors. Se desejar permitir o acesso ao AzureConnectors em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AzureConnectors.[nome de região]. 
-* **GatewayManager** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Gerenciador de Gateway do Azure. Se você especificar *GatewayManager* para o valor, o tráfego será permitido ou negado para GatewayManager. Se você quiser permitir o acesso ao GatewayManager em uma determinada [região](https://azure.microsoft.com/regions), poderá especificar a região no seguinte formato GatewayManager.[nome da região]. 
+* **GatewayManager** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Gerenciador de Gateway do Azure. Se você especificar *GatewayManager* para o valor, o tráfego será permitido ou negado para GatewayManager.  
 * **AzureDataLake** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Azure Data Lake. Se você especificar *AzureDataLake* para o valor, o tráfego será permitido ou negado para AzureDataLake. 
 * **AzureActiveDirectory** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do AzureActiveDirectory. Se você especificar *AzureActiveDirectory* para o valor, o tráfego será permitido ou negado para AzureActiveDirectory.  
+* **AzureMonitor** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do AzureMonitor. Se você especificar *AzureMonitor* para o valor, o tráfego será permitido ou negado para o AzureMonitor. 
+* **ServiceFabric** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço ServiceFabric. Se você especificar *ServiceFabric* para o valor, o tráfego será permitido ou negado para o ServiceFabric. 
+* **AzureMachineLearning** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço AzureMachineLearning. Se você especificar *AzureMachineLearning* para o valor, o tráfego será permitido ou negado para o AzureMachineLearning. 
 
 > [!NOTE]
-> Marcas de serviço dos serviços do Microsoft Azure indicam os prefixos de endereço da nuvem específica que está sendo usada. Não há suporte para marcas de serviços regionais em nuvens nacionais; somente no formato global. Por exemplo, *Armazenamento* e *Sql*.
+> Marcas de serviço dos serviços do Microsoft Azure indicam os prefixos de endereço da nuvem específica que está sendo usada. 
 
 > [!NOTE]
 > Se você implementar um [ponto de extremidade do serviço de rede virtual](virtual-network-service-endpoints-overview.md) em um serviço, como o Armazenamento do Azure ou o Banco de Dados SQL do Azure, o Azure adicionará uma [rota](virtual-networks-udr-overview.md#optional-default-routes) para uma sub-rede de rede virtual para o serviço. Os prefixos de endereço na rota são os mesmos prefixos de endereço, ou intervalos CIDR, que a marca de serviço correspondente.

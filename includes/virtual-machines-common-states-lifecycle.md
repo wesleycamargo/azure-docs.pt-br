@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035411"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122795"
 ---
 As VMs (Máquinas Virtuais) do Azure passam por diferentes estados que podem ser categorizados entre os estados de *provisionamento* e *energia*. A finalidade deste artigo é descrever esses estados e realçar especificamente quando os clientes são cobrados pelo uso de instância. 
 
@@ -108,7 +108,7 @@ Cobrança de uso de instância
  ]</code><br>
 </td>
 <td>
-<p><b>Não é cobrado&#42;</b></p>
+<p><b>Cobrado&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@ Cobrança de uso de instância
 </table>
 
 
-&#42;Alguns recursos do Azure, como Discos e Redes, incorrem em encargos, independentemente do estado da instância. 
+&#42;Alguns recursos do Azure, como Discos e Redes, geram encargos. Licenças de software na instância não geram encargos.
 
 ## <a name="provisioning-states"></a>Estados de provisionamento
 
@@ -287,7 +287,7 @@ Depois que a operação for concluída, a VM fará a transição para um dos seg
 
 A API de exibição de instância fornece informações sobre o estado de execução da VM. Para obter mais informações, consulte a documentação da API [Máquinas virtuais – Exibição de instância](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview).
 
-O Gerenciador de recursos do Azure fornece uma interface do usuário simple para exibir o estado de execução de VM: [Resource Explorer](https://resources.azure.com/).
+O Gerenciador de recursos do Azure fornece uma interface do usuário simples para exibir o estado de execução de VM: [Resource Explorer](https://resources.azure.com/).
 
 Os estados de provisionamento são visíveis na exibição de instância e de propriedades da VM. Os estados de energia estão disponíveis na exibição de instância da VM. 
 

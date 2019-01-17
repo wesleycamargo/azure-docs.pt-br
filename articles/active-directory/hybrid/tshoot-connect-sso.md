@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 308623b4643724d95777d7e21d1138f808e9c1c9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055893"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190418"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -36,7 +36,7 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 - Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 50 KB; os tíquetes Kerberos precisam ser muito menores do que o limite para acomodar outros artefatos do Azure AD (tipicamente, 2 a 5 KB), como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-the-feature) o recurso em seu locatário.
 - Adicionar a URL do serviço Azure AD (https://autologon.microsoftazuread-sso.com)) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
-- O Seamless SSO usa o tipo de criptografia **RC4_HMAC_MD5** para Kerberos. Desabilitar o uso do tipo de criptografia **RC4_HMAC_MD5** em suas configurações do Active Directory interromperá o Seamless SSO. Na ferramenta do Editor de Gerenciamento de Política de Grupo, verifique se o valor da política para **RC4_HMAC_MD5** em **Configuração do Computador -> Configurações do Windows -> Configurações de Segurança -> Políticas Locais -> Opções de Segurança -> "Segurança de Rede: configurar tipos de criptografia permitidos para Kerberos"** está **habilitado**. Além disso, o Seamless SSO não usa outros tipos de criptografia, portanto, verifique se eles estão **desabilitados**.
+- O Seamless SSO usa o tipo de criptografia **RC4_HMAC_MD5** para Kerberos. Desabilitar o uso do tipo de criptografia **RC4_HMAC_MD5** em suas configurações do Active Directory interromperá o Seamless SSO. Na ferramenta do Editor de Gerenciamento de Política de Grupo, verifique se o valor da política para **RC4_HMAC_MD5** em **Configuração do Computador -> Configurações do Windows -> Configurações de Segurança -> Políticas Locais -> Opções de Segurança -> "Segurança de Rede: Configurar tipos de criptografia permitidos para Kerberos"** está **habilitado**. Além disso, o Seamless SSO não usa outros tipos de criptografia, portanto, verifique se eles estão **desabilitados**.
 
 ## <a name="check-status-of-feature"></a>Verificar o status do recurso
 
@@ -46,13 +46,13 @@ Verifique se o recurso SSO ainda está **Habilitado** em seu locatário. Você p
 
 Clique para ver todas as florestas do AD que foram habilitadas para SSO Contínuo.
 
-![Centro de administração do Azure Active Directory: painel SSO Contínuo](./media/tshoot-connect-sso/sso13.png)
+![Centro de administração do Azure Active Directory: Painel SSO contínuo](./media/tshoot-connect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory (é necessário uma licença Premium)
 
 Se o locatário tiver uma licença do Azure AD Premium associada a ele, você também poderá analisar o [relatório de atividade de entrada](../reports-monitoring/concept-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centro de administração do Azure Active Directory: relatório Entradas](./media/tshoot-connect-sso/sso9.png)
+![Centro de administração do Azure Active Directory: Relatório de entradas](./media/tshoot-connect-sso/sso9.png)
 
 Navegue até **Azure Active Directory** > **Entradas** no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/) e selecione uma atividade de entrada de um usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
 
@@ -104,7 +104,7 @@ Se a auditoria de êxito estiver habilitada em seu controlador de domínio, semp
 
 Se a solução de problemas não ajudar, você poderá redefinir manualmente o recurso em seu locatário. Execute estas etapas no servidor local em que você está executando o Azure AD Connect.
 
-### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Etapa 1: importar o módulo do PowerShell de SSO Contínuo
+### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Etapa 1: Importar o módulo do PowerShell de SSO Contínuo
 
 1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
@@ -115,7 +115,7 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 1. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Quando solicitado, insira as suas credenciais de Administrador global do locatário.
 2. Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do Active Directory (veja a lista “Domínios”) em que esse recurso foi habilitado.
 
-### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Etapa 3: Desabilitar o SSO Contínuo para cada floresta do Active Directory onde você configurou o recurso
+### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Etapa 3: Desabilitar o SSO Contínuo para cada floresta do Active Directory em que você configurou o recurso
 
 1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
 

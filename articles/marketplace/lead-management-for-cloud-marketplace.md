@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840156"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076953"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gerenciamento de cliente potencial para marketplace de nuvem
 
@@ -60,7 +60,7 @@ Quando a instalação técnica estiver em vigor, incorpore esses leads à estrat
 
 ## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Erros comuns de configuração de cliente potencial durante a publicação no portal do cloud partner 
 
-**Não foi possível salvar o cliente potencial ao Dynamics CRM. Verifique as configurações de conta do Dynamics CRM. LastCRMError: Não é possível fazer logon no Dynamics CRM, LastCRMException:** 
+**Não foi possível salvar o cliente potencial ao Dynamics CRM. Verifique as configurações de conta do Dynamics CRM. LastCRMError: Não é possível entrar no Dynamics CRM, LastCRMException:** 
 
 > Se a autenticação do O365 foi selecionada, verifique se a conta de usuário e senha é válida. Se AAD tiver sido selecionado, verifique a ID de locatário, ID do aplicativo e correspondências de chave secreta do aplicativo que foi configurado no AAD. Siga as instruções [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics). Se o nome de usuário/senha da conta é válida, verifique se ele tem acesso ao Dynamics 365 e tem uma licença atribuída (as etapas 11 a 15 se usando o Microsoft Azure Active Directory ou as configurações de segurança se usando um usuário do Office). 
 
@@ -87,11 +87,11 @@ Quando a instalação técnica estiver em vigor, incorpore esses leads à estrat
 
 **Não foi possível salvar o cliente potencial ao Dynamics CRM usando o Microsoft Azure Active Directory. Exception:: Erro ao validar credenciais.: Segredo do cliente inválido é fornecido.** 
 
-> Resolução: Faça logon no portal do Azure, verifique se a chave do aplicativo corresponde ao que está no Portal do Microsoft Cloud Partner. Gere senha com base na instrução na Etapa 10 (no Azure Active Directory), de [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Resolução: Entre no portal do Azure, verifique se a chave do aplicativo corresponde ao que está no Portal do Cloud Partner. Gere senha com base na instrução na Etapa 10 (no Azure Active Directory), de [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Não foi possível salvar o cliente potencial ao Dynamics CRM. LastCRMError: O canal de solicitação atingiu o tempo limite ao aguardar uma resposta após 00:02:00. Aumente o valor de tempo limite passado à chamada para solicitação ou aumente o valor de SendTimeout na associação. O tempo alocado para essa operação pode ter sido uma parte de um tempo limite maior.**  
 
-> Resolução: Logon ao Portal do Cloud Partner, verifique os detalhes da vitrine eletrônica >> Destino de cliente potencial >> URL, verifique se é uma instância válida do Dynamic CRM
+> Resolução: Entre no Portal do Cloud Partner, verifique os Detalhes da vitrine eletrônica >> Destino de cliente potencial >> URL, verifique se é uma instância válida do Dynamic CRM
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

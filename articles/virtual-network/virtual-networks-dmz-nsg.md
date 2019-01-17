@@ -5,8 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457282"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052386"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemplo 1 – Criar uma DMZ simples usando NSGs com um modelo do Azure Resource Manager
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -51,8 +49,8 @@ Na seção de referências, há um link para um modelo do Azure Resource Manager
 
 **Para criar esse ambiente** (as instruções detalhadas estão na seção de referências deste documento);
 
-1. Implantar o Modelo do Azure Resource Manager em: [Modelos de Início Rápido do Azure][Template]
-2. Instalar o aplicativo de exemplo em: [Script do Aplicativo de Exemplo][SampleApp]
+1. Implante o modelo do Azure Resource Manager em: [Modelos de Início Rápido do Azure][Template]
+2. Instale o aplicativo de exemplo em: [Script de Aplicativo de Exemplo][SampleApp]
 
 >[!NOTE]
 >Para usar o RDP em quaisquer servidores de back-end nesta instância, o servidor IIS é usado como uma “jump box”. Primeiro use RDP no servidor IIS e, em seguida, do RDP do Servidor IIS para o servidor de back-end. Como alternativa, um IP público pode ser associado a cada servidor de NIC para realizar RDP mais facilmente.
@@ -350,7 +348,7 @@ Para implantar o modelo que cria esse exemplo do GitHub e do Portal do Azure, si
 Para remover essa implantação, exclua o Grupo de Recursos e todos os recursos filho também serão excluídos.
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicativo de exemplo
-Depois que o modelo for executado com êxito, você poderá configurar o servidor Web e o servidor de aplicativos com um aplicativo Web simples para testar a configuração desta DMZ. Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um é fornecido no seguinte link: [Script de aplicativo de exemplo][SampleApp]
+Depois que o modelo for executado com êxito, você poderá configurar o servidor Web e o servidor de aplicativos com um aplicativo Web simples para testar a configuração desta DMZ. Para instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de Aplicativo de Exemplo][SampleApp]
 
 ## <a name="next-steps"></a>Próximas etapas
 

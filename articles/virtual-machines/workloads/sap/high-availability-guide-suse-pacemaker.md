@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00e50d60ed7f13a2f28338891b39b1b55b7adbfa
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076348"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074369"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -483,12 +483,12 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microsoft Azure. Siga estas etapas para criar uma Entidade de Serviço.
 
-1. Acesse <https://portal.azure.com>
+1. Vá até <https\://portal.azure.com>
 1. Abra a folha Azure Active Directory  
    Vá para Propriedades e anote a ID do Diretório. Essa é a **ID de locatário**.
 1. Clique em Registros do Aplicativo
 1. Clique em Adicionar
-1. Digite um Nome, selecione Tipo de Aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo, http://localhost) e clique em Criar
+1. Digite um Nome, selecione o Tipo de Aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo, http\://localhost) e clique em Criar
 1. A URL de logon não é usada e pode ser qualquer URL válida
 1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
 1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar
@@ -525,7 +525,7 @@ Use o seguinte conteúdo para o arquivo de entrada. Você precisa adaptar o cont
 
 Atribua a função personalizada “Função do Agente de Isolamento Linux" que foi criada no último capítulo para a Entidade de Serviço. Não mais use a função de proprietário!
 
-1. Acesse https://portal.azure.com
+1. Vá até https\://portal.azure.com
 1. Abra a folha Todos os recursos
 1. Selecione a máquina virtual do primeiro nó do cluster
 1. Clique em Controle de acesso (IAM)

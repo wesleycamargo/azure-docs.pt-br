@@ -10,16 +10,15 @@ ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d4d2ce4dcda9ea72d4a33ee363efd3519c2118aa
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1441e16e141bd33acfdfe4087f74afbc7b47bc77
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635825"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118278"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
 Os cenários a seguir descrevem vários dos principais usos do serviço de gerenciamento de certificado do Key Vault incluindo as etapas adicionais necessárias para criar seu primeiro certificado em seu Key Vault.
@@ -58,7 +57,7 @@ Certificados são compostos de três recursos inter-relacionados vinculados como
 
      Para obter mais informações sobre como criar contas com provedores de autoridade de certificação, consulte a postagem relacionada no [blog do Key Vault](https://aka.ms/kvcertsblog).  
 
-**Etapa 3.1** - configure os [contatos do certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contato para o usuário do Key Vault. O Key Vault não impõe essa etapa.  
+**Etapa 3.1** – Configurar [contatos do certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contato para o usuário do Key Vault. O Key Vault não impõe essa etapa.  
 
 Observação - Esse processo, por meio de etapa 3.1, é uma operação única.  
 

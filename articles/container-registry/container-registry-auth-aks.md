@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752530"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078772"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Registro de Contêiner do Azure do Serviço de Kubernetes do Azure
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Acesso com segredo do Kubernetes
 
-Em alguns casos, você não poderá atribuir a função necessária à entidade de serviço do AKS autogerada por meio da concessão de acesso ao ACR. Por exemplo, devido ao modelo de segurança da sua organização, talvez você não tenha permissão suficiente em seu diretório do Azure AD para atribuir uma função à entidade de serviço gerada pelo AKS. Nesse caso, você pode criar uma nova entidade de serviço e conceder a ela acesso ao registro de contêiner usando um segredo de pull de imagem do Kubernetes.
+Em alguns casos, você não poderá atribuir a função necessária à entidade de serviço do AKS autogerada por meio da concessão de acesso ao ACR. Por exemplo, devido ao modelo de segurança da sua organização, talvez você não tenha permissão suficiente em seu locatário do Azure Active Directory para atribuir uma função à entidade de serviço gerada pelo AKS. Atribuir uma função a uma entidade de serviço exige que sua conta do Azure AD tenha permissão de gravação em seu locatário do Azure AD. Se não tiver a permissão, você poderá criar uma nova entidade de serviço e conceder a ela acesso ao registro de contêiner usando um segredo de pull de imagem do Kubernetes.
 
 Use o script a seguir para criar uma nova entidade de serviço (você usará as credenciais para o segredo de pull de imagem do Kubernetes). Modifique a variável `ACR_NAME` de seu ambiente antes de executar o script.
 

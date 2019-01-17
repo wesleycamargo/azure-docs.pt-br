@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: da11bb0669bf6bde2c65b2a7a0badaa1ae35abda
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189108"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187987"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Como exibir logs de contêiner em tempo real com o Azure Monitor para contêineres (versão prévia)
-Esse recurso, que está atualmente em versão prévia, fornece uma exibição em tempo real nos logs de contêiner do AKS (Serviço de Kubernetes do Azure) (stdout/stderr) sem ter de executar comandos kubectl. Quando você seleciona essa opção, um novo painel aparece abaixo da tabela de dados de desempenho dos contêineres no modo de exibição **Contêineres** mostrando o log em tempo real gerado pelo mecanismo de contêiner para auxiliar mais ainda na solução de problemas em tempo real.  
+Esse recurso, que está atualmente em versão prévia, fornece uma exibição em tempo real nos logs de contêiner do AKS (Serviço de Kubernetes do Azure) (stdout/stderr) sem ter de executar comandos kubectl. Quando você seleciona essa opção, o novo painel aparece abaixo da tabela de dados de desempenho de contêineres na exibição **Contêineres**.  Ela mostra o log em tempo real gerado pelo mecanismo de contêiner para auxiliar mais ainda na solução de problemas em tempo real.  
 
 Os logs em tempo real dão suporte a três métodos diferentes para controlar o acesso aos logs:
 
@@ -31,7 +31,7 @@ Os logs em tempo real dão suporte a três métodos diferentes para controlar o 
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster do Kubernetes sem RBAC habilitado
  
-Se você tiver um cluster do Kubernetes que não está configurado com autorização do RBAC do Kubernetes ou integrado ao Azure AD com logon único, não precisará seguir estas etapas. Como a autorização do Kubernetes usa a kube-api, é necessário ter permissões somente leitura.
+Se você tiver um cluster do Kubernetes que não está configurado com autorização do RBAC do Kubernetes ou integrado ao Azure AD com logon único, não precisará seguir estas etapas. Como a autorização do Kubernetes usa a kube-api, são necessárias permissões somente leitura.
 
 ## <a name="kubernetes-rbac-authorization"></a>Autorização do RBAC do Kubernetes
 Se você habilitou a autorização do RBAC do Kubernetes, precisará aplicar a associação de função de cluster. As etapas de exemplo a seguir demonstram como configurar a associação de função de cluster com base no modelo de configuração yaml.   
@@ -39,33 +39,33 @@ Se você habilitou a autorização do RBAC do Kubernetes, precisará aplicar a a
 1. Copie e cole o arquivo yaml e salve-o como LogReaderRBAC.yaml.  
 
    ```
-   kind: ClusterRole 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRole 
+   metadata: 
       name: containerHealth-log-reader 
    rules: 
-      - apiGroups: [""]   
-        resources: ["pods/log"]   
+      - apiGroups: [""] 
+        resources: ["pods/log"] 
         verbs: ["get"] 
    --- 
-   kind: ClusterRoleBinding 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRoleBinding 
+   metadata: 
       name: containerHealth-read-logs-global 
-   subjects:   
-      - kind: User     
-        name: clusterUser
-        apiGroup: rbac.authorization.k8s.io 
-    roleRef:   
-       kind: ClusterRole
-       name: containerHealth-log-reader
+   roleRef: 
+       kind: ClusterRole 
+       name: containerHealth-log-reader 
        apiGroup: rbac.authorization.k8s.io 
+   subjects: 
+      - kind: User 
+        name: clusterUser 
+        apiGroup: rbac.authorization.k8s.io 
    ```
 
 2. Crie a associação de regra de cluster executando o seguinte comando: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configurar o AKS com o Azure Active Directory
-O AKS pode ser configurado para usar o Azure AD (Active Directory) na autenticação do usuário. Se você estiver configurando isso pela primeira vez, confira [Integrar o Azure Active Directory ao Serviço de Kubernetes do Azure](../../aks/aad-integration.md). Durante as etapas para criar o [aplicativo cliente](../../aks/aad-integration.md#create-client-application) e especificar o **URI de redirecionamento**, você precisará adicionar outro URI à lista ** https://ininprodeusuxbase.microsoft.com/***.  
+O AKS pode ser configurado para usar o Azure AD (Active Directory) na autenticação do usuário. Se você estiver configurando isso pela primeira vez, confira [Integrar o Azure Active Directory ao Serviço de Kubernetes do Azure](../../aks/aad-integration.md). Durante as etapas para criar o [aplicativo cliente](../../aks/aad-integration.md#create-client-application) e especificar o **URI de redirecionamento**, você precisará adicionar outro URI à lista `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >A configuração da autenticação com o Azure Active Directory para logon único só pode ser realizada durante a implantação inicial de um novo cluster do AKS. Não é possível configurar o logon único em um cluster do AKS já implantado.  

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268437"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053969"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -51,9 +51,7 @@ Para obter mais informações sobre como atribuir permissões aos dados de Geren
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Criar um orçamento no portal do Azure
 
-Você pode criar um orçamento de assinatura do Azure para um período mensal, trimestral ou anual. Seu conteúdo de navegação no portal do Azure determina se você cria um orçamento para uma assinatura ou para um grupo de recursos.
-
-No portal do Azure, navegue até **Gerenciamento de Custos + Cobrança** &gt; **Assinaturas** &gt; Selecione uma assinatura &gt; **Orçamentos**. Neste exemplo, o orçamento que você cria é para a assinatura selecionada.
+Você pode criar um orçamento de assinatura do Azure para um período mensal, trimestral ou anual. Seu conteúdo de navegação no portal do Azure determina se você cria um orçamento para uma assinatura ou para um grupo de recursos. No portal do Azure, navegue até **Assinaturas** &gt; selecione uma assinatura &gt; **Orçamentos**. Neste exemplo, o orçamento que você cria é para a assinatura selecionada. Se você quiser criar um orçamento para um grupo de recursos, navegue até **Grupos de recursos** > selecionar um grupo de recursos > **Orçamentos**.
 
 Depois de criar os orçamentos, eles mostram uma exibição simples de seus gastos atual em relação a eles.
 

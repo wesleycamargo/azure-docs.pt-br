@@ -1,13 +1,10 @@
 ---
-title: Criar, alterar ou excluir um prefixo de endereço IP público do Azure | Microsoft Docs
+title: Criar, alterar ou excluir um prefixo de endereço IP público do Azure
+titlesuffix: Azure Virtual Network
 description: Saiba como criar, alterar ou excluir um prefixo de endereço IP público.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427566"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015263"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou excluir um prefixo de endereço IP público
 
@@ -29,7 +26,7 @@ Saiba mais sobre um prefixo de endereço IP público e como criar, alterar e exc
 ## <a name="before-you-begin"></a>Antes de começar
 
 > [!IMPORTANT]
-> O prefixo de IP público está na versão prévia pública em regiões limitadas. [Saiba o que significa estar na versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). O prefixo de IP público está disponível atualmente e nas seguintes regiões: Centro-Oeste dos EUA, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Europa Setentrional, Europa Ocidental e Sudeste Asiático. Para obter uma lista de regiões atualizada, visite [Atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> O prefixo de IP público está na versão prévia pública em regiões limitadas. [Saiba o que significa estar na versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). O prefixo do IP público está disponível atualmente em: Centro-Oeste dos EUA, Oeste dos EUA, Oeste dos EUA 2, Centro dos EUA, Europa Setentrional, Europa Ocidental e Sudeste Asiático. Para obter uma lista de regiões atualizada, visite [Atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção deste artigo:
 
@@ -84,8 +81,8 @@ Após criar um prefixo, você deverá criar endereços IP estáticos a partir do
 1. Na caixa que contém o texto *Pesquisar recursos* na parte superior do portal do Azure, digite *prefixo de endereço IP público*. Quando **Prefixos de endereços IP públicos** aparecerem nos resultados da pesquisa, selecione-os.
 2. Selecione o nome do prefixo de endereço IP público que você quer exibir, alterar ou excluir da lista.
 3. Conclua uma das seguintes opções, dependendo se você quer exibir, excluir ou alterar o prefixo de endereço IP público.
-    - **Exibir**: a seção **Visão geral** mostra as principais configurações do prefixo de endereço IP público, como prefixo.
-    - **Excluir**: para excluir o prefixo de endereço IP público, selecione **Excluir** na seção **Visão geral**. Se os endereços dentro do prefixo estiverem associados a recursos de endereço IP público, primeiro você deverá excluir os recursos de endereço IP público. Consulte [excluir um endereço IP público](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+    - **Exibir**: A seção **Visão geral** mostra as principais configurações do prefixo de endereço IP público, como prefixo.
+    - **Excluir**: Para excluir o prefixo de endereço IP público, selecione **Excluir** na seção **Visão geral**. Se os endereços dentro do prefixo estiverem associados a recursos de endereço IP público, primeiro você deverá excluir os recursos de endereço IP público. Consulte [excluir um endereço IP público](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Comandos**
 

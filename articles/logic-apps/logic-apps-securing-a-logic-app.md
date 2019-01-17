@@ -1,6 +1,6 @@
 ---
 title: Proteger o acesso aos Aplicativos Lógicos do Azure | Microsoft Docs
-description: Proteger o acesso a gatilhos, entradas e saídas, parâmetros de ação e serviços em fluxos de trabalho para os Aplicativos Lógicos do Azure
+description: Adicionar segurança para Aplicativos Lógicos do Azure, incluindo gatilhos, entradas e saídas, parâmetros e outros serviços
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,262 +9,362 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.date: 11/22/2016
-ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/08/2019
+ms.openlocfilehash: a7d34b76eb6184e546c8217aa6b3723819be70be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232589"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189523"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso nos Aplicativos Lógicos do Azure
 
-Aqui estão algumas maneiras pelas quais você pode proteger o acesso a diferentes componentes em seu aplicativo lógico:
+Aqui estão os elementos em seu aplicativo lógico no qual você pode proteger o acesso:
 
-* Proteja o acesso para disparar um fluxo de trabalho do aplicativo lógico com o gatilho de solicitação HTTP.
-* Proteja o acesso para gerenciar, editar ou ler um aplicativo lógico.
-* Proteja o acesso ao conteúdo dentro das entradas e saídas para uma execução de aplicativo lógico.
-* Proteja parâmetros ou entradas para as ações em um fluxo de trabalho do aplicativo lógico.
-* Proteja o acesso aos serviços que recebem solicitações de um fluxo de trabalho do aplicativo lógico.
+* [Gatilhos de Webhook ou Solicitação](#secure-triggers)
+* [Operações como gerenciar, editar ou exibir](#secure-operations) seu aplicativo lógico
+* [Entradas e saídas](#secure-run-history) do histórico de execução do aplicativo lógico
+* [Entradas e parâmetros de ação](#secure-action-parameters)
+* [Serviços que recebem solicitações](#secure-requests) do seu aplicativo lógico
 
-## <a name="secure-access-to-trigger"></a>Proteger o acesso a gatilhos
+<a name="secure-triggers"></a>
 
-Ao trabalhar com um aplicativo lógico que é acionado em uma solicitação HTTP ([Solicitação](../connectors/connectors-native-reqres.md) ou [Webhook](../connectors/connectors-native-webhook.md)), você pode restringir o acesso para que somente clientes autorizados possam acionar o aplicativo lógico. Todas as solicitações para um aplicativo lógico são criptografadas e protegidas por SSL.
+## <a name="secure-access-to-request-triggers"></a>Proteger o acesso a gatilhos de solicitação
 
-### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
+Quando seu aplicativo lógico usa um gatilho baseado em solicitação HTTP, como o gatilho [Solicitação](../connectors/connectors-native-reqres.md) ou [Webhook](../connectors/connectors-native-webhook.md), você pode restringir o acesso para que somente clientes autorizados possam iniciar seu aplicativo lógico. Todas as solicitações recebidas por um aplicativo lógico são criptografadas e protegidas com o protocolo SSL (Secure Sockets Layer). Aqui estão as diferentes maneiras de proteger o acesso a esse tipo de gatilho:
 
-Cada ponto de extremidade de solicitação para um aplicativo lógico inclui uma [Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS) como parte da URL. Cada URL contém um parâmetro de consulta `sp`, `sv`, e `sig`. As permissões são especificadas por `sp`e correspondem aos métodos HTTP permitidos, `sv` é a versão usada para gerar e `sig` é usado para autenticar o acesso para disparar. A assinatura é gerada usando o algoritmo SHA256 com uma chave secreta em todos os caminhos de URL e propriedades. A chave secreta nunca é exposta e publicada e é mantida criptografada e armazenada como parte do aplicativo lógico. Seu aplicativo lógico somente autoriza gatilhos que contêm uma assinatura válida criada com a chave secreta.
+* [Gerar assinaturas de acesso compartilhado](#sas)
+* [Restringir endereços IP de entrada](#restrict-incoming-IP)
+* [Adicionar Azure Active Directory, OAuth ou outra segurança](#add-authentication)
+
+<a name="sas"></a>
+
+### <a name="generate-shared-access-signatures"></a>Gerar assinaturas de acesso compartilhado
+
+Cada ponto de extremidade de solicitação em um aplicativo lógico inclui uma [SAS (Assinatura de Acesso Compartilhado)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) na URL do ponto de extremidade. Cada URL contém um parâmetro de consulta `sp`, `sv` e `sig`:
+
+* O `sp` especifica as permissões, que são mapeadas para os métodos HTTP permitidos para uso.
+* O `sv` especifica a versão usada para gerar a assinatura.
+* `sig` é usado para autenticar o acesso ao gatilho.
+
+A assinatura é gerada usando o algoritmo SHA256 com uma chave de acesso secreta em todos os caminhos de URL e propriedades. A chave secreta nunca é exposta nem publicada e é mantida criptografada e armazenada como o aplicativo lógico. Seu aplicativo lógico autoriza somente gatilhos que contenham uma assinatura válida criada com a chave secreta. 
+
+Eis aqui mais informações sobre como proteger o acesso com Assinatura de Acesso Compartilhado:
+
+* [Regenerar chaves de acesso](#access-keys)
+* [Criar URLs de retorno de chamada prestes a expirar](#expiring-URLs)
+* [Criar URLs com chave primária ou secundária](#primary-secondary-key)
+
+<a name="access-keys"></a>
 
 #### <a name="regenerate-access-keys"></a>Regenerar chaves de acesso
 
-Você pode regenerar uma nova chave segura a qualquer momento por meio da API REST ou do Portal do Azure. Todas as URLs atuais que foram geradas anteriormente usando a chave antiga são invalidadas e têm sua autorização para acionar o aplicativo lógico revogada.
+Para regenerar uma nova chave de acesso seguro a qualquer momento, use a API REST do Azure ou o portal do Azure. Todas as URLs geradas anteriormente que usam a chave antiga são invalidadas e não estão mais autorizadas a disparar o aplicativo lógico. As URLs obtidas após a regeneração são assinadas com a nova chave de acesso.
 
-1. No portal do Azure, abra o aplicativo lógico que você cuja chave você deseja regenerar
-1. Clique no item de menu **Chaves de Acesso** em **Configurações**
-1. Escolha a chave a regenerar e conclua o processo
+1. No portal do Azure, abra o aplicativo lógico que tem a chave que você deseja regenerar.
 
-As URLs obtidas após a regeneração são assinadas com a nova chave de acesso.
+1. No menu do aplicativo lógico, em **Configurações**, selecione **Chaves de Acesso**.
 
-#### <a name="creating-callback-urls-with-an-expiration-date"></a>Criar URLs de retorno de chamada com uma data de expiração
+1. Selecione a chave que você deseja regenerar e conclua o processo.
 
-Se você estiver compartilhando a URL com terceiros, você poderá gerar URLs com chaves específicas e datas de vencimento, conforme necessário. Você poderá então reverter chaves perfeitamente ou então assegurar que o acesso para acionar um aplicativo fique restrito a um determinado período de tempo. Você pode especificar uma data de expiração para uma URL por meio da [API REST dos Aplicativos Lógicos](https://docs.microsoft.com/rest/api/logic/workflowtriggers):
+<a name="expiring-urls"></a>
 
-``` http
-POST 
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
-```
+#### <a name="create-callback-urls-with-expiration-dates"></a>Criar URLs de retorno de chamada com datas de término
 
-No corpo, inclua a propriedade `NotAfter` como uma cadeia de caracteres de data JSON, que retorna uma URL de retorno de chamada que só é válida até a data e hora `NotAfter`.
-
-#### <a name="creating-urls-with-primary-or-secondary-secret-key"></a>Criar URLs com chave secreta primária ou secundária
-
-Quando você gera ou lista URLs de retorno de chamada para gatilhos com base em solicitações, você também pode especificar qual chave usar para acessar a URL.  Você pode gerar uma URL assinada por uma chave específica por meio da [API REST de aplicativos lógicos](https://docs.microsoft.com/rest/api/logic/workflowtriggers) da seguinte maneira:
+Se você compartilhar uma URL de um ponto de extremidade de gatilho com base em solicitação com outras partes, poderá gerar URLs de retorno de chamada com chaves e datas de término específicas conforme necessário. Então você pode reverter ou restringir facilmente o acesso para o disparo de seu aplicativo lógico a um período específico. Você pode especificar uma data do término para uma URL usando a [API REST de Aplicativos Lógicos](https://docs.microsoft.com/rest/api/logic/workflowtriggers), por exemplo:
 
 ``` http
 POST 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
 ```
 
-No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`.  Isso retorna uma URL assinada pela chave segura especificada.
+No corpo, inclua a `NotAfter`propriedade usando uma cadeia de caracteres de data JSON. Essa propriedade retorna uma URL de retorno de chamada válida somente até a data e hora `NotAfter`.
+
+<a name="primary-secondary-key"></a>
+
+#### <a name="create-urls-with-primary-or-secondary-secret-key"></a>Criar URLs com chave secreta primária ou secundária
+
+Quando você gera ou lista URLs de retorno de chamada para gatilhos com base em solicitações, você também pode especificar a chave a ser usada para assinar a URL. Você pode gerar uma URL que seja assinada por uma chave específica usando a [API REST de Aplicativos Lógicos](https://docs.microsoft.com/rest/api/logic/workflowtriggers), por exemplo:
+
+``` http
+POST 
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
+```
+
+No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Essa propriedade retorna uma URL assinada pela chave segura especificada.
+
+<a name="restrict-incoming-ip"></a>
 
 ### <a name="restrict-incoming-ip-addresses"></a>Restringir endereços IP de entrada
 
-Além da Assinatura de Acesso Compartilhado, talvez você queira restringir chamando um aplicativo lógico somente de clientes específicos.  Por exemplo, se você gerenciar seu ponto de extremidade por meio do Gerenciamento de API do Azure, você pode restringir o aplicativo lógico para só aceitar a solicitação quando a solicitação é proveniente do endereço IP de instância de Gerenciamento de API.
+Junto com a assinatura de acesso compartilhado, você talvez queira limitar os clientes específicos que podem chamar seu aplicativo lógico.  
+Por exemplo, se você gerenciar seu ponto de extremidade de solicitação com o Gerenciamento de API do Azure, poderá restringir seu aplicativo lógico a aceitar somente solicitações do endereço IP da instância de Gerenciamento de API. 
 
-Essa configuração pode ser definida nas configurações de aplicativo lógico:
+#### <a name="set-ip-ranges---azure-portal"></a>Definir intervalos IP – portal do Azure
 
-1. No portal do Azure, abra o aplicativo lógico cuja chave você deseja regenerar
-1. Clique no item de menu **Configurações de Fluxo de Trabalho** em **Configurações**
-1. Especifique a lista de intervalos de endereços IP a serem aceitos pelo gatilho
+Para configurar essa restrição no portal do Azure, vá para as configurações do aplicativo lógico: 
 
-Um intervalo IP válido assume o formato `192.168.1.1/32`. Se quiser que o aplicativo lógico seja acionado apenas como um aplicativo lógico aninhado, selecione a opção **Somente outros aplicativos lógicos**. Essa opção grava uma matriz vazia para o recurso, o que significa que somente chamadas do serviço em si (aplicativos lógicos pai) acionam com êxito.
+1. No portal do Azure, abra o aplicativo lógico no Designer de Aplicativo lógico. 
+
+1. No menu do aplicativo lógico, em **Configurações**, selecione **Configurações de fluxo de trabalho**.
+
+1. Em **Configuração de controle de acesso** > 
+**Endereços IP de entrada permitidos**, selecione **Intervalos IP específicos**.
+
+1. Em **Intervalos de IP para gatilhos**, especifique os intervalos de endereço IP que aceitam o gatilho. Um intervalo IP válido usa estes formatos: *x.x.x.* ou *x.x.x. x-x.x.x. x* 
+
+Se você quer que seu aplicativo lógico seja acionado apenas como um aplicativo lógico aninhado, na lista **Endereços IP de entrada permitidos**, selecione **Somente outros Aplicativos Lógicos**. Essa opção grava uma matriz vazia em seu recurso de aplicativo lógico de modo que somente chamadas do serviço de Aplicativos Lógicos (aplicativos lógicos pai) possam disparar o aplicativo lógico aninhado.
 
 > [!NOTE]
-> Você ainda pode executar um aplicativo lógico com um gatilho de solicitação por meio de `/triggers/{triggerName}/run` da API REST/Gerenciamento, independentemente do IP. Esse cenário requer autenticação em relação à API REST do Azure e todos os eventos apareceriam no Log de Auditoria do Azure. Defina políticas de controle de acesso de apropriadamente.
+> Independentemente do endereço IP, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando `/triggers/{triggerName}/run` por meio da API REST do Azure ou do Gerenciamento de API. Porém, esse cenário ainda requer autenticação em relação à API REST do Azure e todos os eventos aparecem no Log de Auditoria do Azure. Defina políticas de controle de acesso adequadamente.
 
-#### <a name="setting-ip-ranges-on-the-resource-definition"></a>Definir intervalos de IP na definição de recurso
+#### <a name="set-ip-ranges---logic-app-deployment-template"></a>Definir intervalos IP – modelo de implantação de aplicativo lógico
 
-Se você estiver usando um [modelo de implantação](logic-apps-create-deploy-template.md) para automatizar suas implantações, as configurações de intervalo IP podem ser configuradas no modelo de recurso.  
+Se você estiver automatizando implantações de aplicativo lógico usando um [modelo de implantação do Azure Resource Manager](logic-apps-create-deploy-template.md), poderá definir os intervalos de IP nesse modelo, por exemplo:
 
 ``` json
 {
-    "properties": {
-        "definition": {
-        },
-        "parameters": {},
-        "accessControl": {
-            "triggers": {
-                "allowedCallerIpAddresses": [
-                    {
-                        "addressRange": "192.168.12.0/23"
-                    },
-                    {
-                        "addressRange": "2001:0db8::/64"
-                    }
-                ]
-            }
-        }
-    },
-    "type": "Microsoft.Logic/workflows"
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "accessControl": {
+         "triggers": {
+            "allowedCallerIpAddresses": [
+               {
+               "addressRange": "192.168.12.0/23"
+               },
+               {
+                  "addressRange": "2001:0db8::/64"
+               }
+            ]
+         }
+      }
+   },
+   "type": "Microsoft.Logic/workflows",
 }
-
 ```
 
-### <a name="adding-azure-active-directory-oauth-or-other-security"></a>Adicionar Azure Active Directory, OAuth, ou outra proteção
+<a name="add-authentication"></a>
 
-Para adicionar mais protocolos de autorização sobre um aplicativo lógico, o [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/) oferece monitoramento avançado, segurança, política e documentação para qualquer ponto de extremidade com a capacidade de expor um aplicativo lógico como uma API. O Gerenciamento de API do Azure pode expor um ponto de extremidade público ou privado para o aplicativo lógico, que pode usar o Azure Active Directory, certificado, OAuth ou outros padrões de segurança. Quando uma solicitação é recebida, o Gerenciamento de API do Azure encaminha a solicitação para o aplicativo lógico (executando quaisquer transformações necessárias ou restrições em andamento). Você pode usar as configurações de intervalo IP de entrada no aplicativo lógico para permitir que somente o aplicativo lógico seja disparado do Gerenciamento de API.
+### <a name="add-azure-active-directory-oauth-or-other-security"></a>Adicionar Azure Active Directory, OAuth ou outra segurança
 
-## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Proteger o acesso para gerenciar ou editar aplicativos lógicos
+Para adicionar mais protocolos de autorização ao seu aplicativo lógico, considere usar [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/). Esse serviço oferece monitoramento avançado, segurança, política e documentação para qualquer ponto de extremidade e possibilita expor seu aplicativo lógico como uma API. O Gerenciamento de API pode expor um ponto de extremidade público ou privado para seu aplicativo lógico, que então pode usar Azure Active Directory, OAuth, certificado ou outros padrões de segurança. Quando o Gerenciamento de API recebe uma solicitação, o serviço envia a solicitação ao aplicativo lógico, fazendo também quaisquer transformações ou restrições necessárias ao longo do caminho. Para permitir que apenas o Gerenciamento de API dispare seu aplicativo lógico, você pode usar as configurações de intervalo IP de entrada do aplicativo lógico. 
 
-Você pode restringir o acesso a operações de gerenciamento em um aplicativo lógico para que somente usuários ou grupos específicos sejam capazes de realizar operações no recurso. Aplicativos lógicos usam o recurso de [RBAC (Controle de Acesso Baseado em Função)](../role-based-access-control/role-assignments-portal.md) do Azure e podem ser personalizados com as mesmas ferramentas.  Há algumas funções internas que você pode aos atribuir membros da sua assinatura:
+<a name="secure-operations"></a>
 
-* **Colaborador do Aplicativo Lógico** - Fornece acesso para exibir, editar e atualizar um aplicativo lógico.  Não pode remover o recurso ou executar operações de administração.
-* **Operador de Aplicativo Lógico** - Pode exibir o aplicativo lógico e histórico de execução e habilitar/desabilitar.  Não é pode editar ou atualizar a definição.
+## <a name="secure-access-to-logic-app-operations"></a>Proteger o acesso a operações de aplicativo lógico
 
-Você também pode usar o [Bloqueio de Recursos do Azure](../azure-resource-manager/resource-group-lock-resources.md) para evitar a alteração ou exclusão de aplicativos lógicos. Essa funcionalidade é importante para evitar que os recursos de produção sejam alterados ou excluídos.
+Para permitir que somente usuários ou grupos específicos executem operações em seu aplicativo lógico, você pode restringir o acesso em tarefas, como gerenciar, editar e exibir. Aplicativos Lógicos dão suporte a [RBAC (Controle de Acesso Baseado em Função) do Azure](../role-based-access-control/role-assignments-portal.md), que você pode personalizar ou atribuir funções internas a membros em sua assinatura, por exemplo:
 
-## <a name="secure-access-to-contents-of-the-run-history"></a>Proteger o acesso ao conteúdo do histórico de execução
+* **Colaborador de Aplicativo Lógico**: os usuários podem exibir, editar e atualizar seu aplicativo lógico. Essa função não pode excluir o aplicativo lógico nem executar operações de administrador.
+* **Operador de Aplicativo Lógico**: os usuários podem exibir o histórico de execução e o seu aplicativo lógico e habilitar ou desabilitar seu aplicativo lógico. Essa função não pode editar nem atualizar seu aplicativo lógico.
 
-Você pode restringir o acesso ao conteúdo de entradas ou saídas de execuções anteriores para intervalos de endereços IP específicos.  
+Para impedir que outras pessoas alterem ou excluam seu aplicativo lógico, você pode usar [Bloqueio de Recursos do Azure](../azure-resource-manager/resource-group-lock-resources.md). Essa funcionalidade ajuda a evitar que outras pessoas alterem ou excluam recursos de produção.
 
-Todos os dados dentro de uma execução de fluxo de trabalho são criptografados em trânsito e em repouso. Quando uma chamada para o histórico de execução é feita, o serviço autentica a solicitação e fornece links para a solicitação e resposta de entradas e saídas. Esse link pode ser protegido para que somente solicitações para exibir o conteúdo de um intervalo de endereços IP designado retornem o conteúdo. Você pode usar essa funcionalidade para controle de acesso adicional. Você pode até mesmo especificar um endereço IP como `0.0.0.0` para que ninguém possa acessar entradas/saídas. Somente alguém com permissões de administrador poderá remover essa restrição, fornecendo a possibilidade para acesso 'just-in-time' ao conteúdo de fluxo de trabalho.
+<a name="secure-run-history"></a>
 
-Essa configuração pode ser definida nas configurações de recurso do portal do Azure:
+## <a name="secure-access-to-logic-app-run-history"></a>Proteger o acesso ao histórico de execução do aplicativo lógico
 
-1. No portal do Azure, abra o aplicativo lógico cuja chave você deseja regenerar
-2. Clique no item de menu **Configuração de Controle de Acesso** em **Configurações**
-3. Especificar a lista de intervalos de endereços IP para acesso ao conteúdo
+Para proteger o conteúdo transmitido como entradas ou saídas de execuções do aplicativo lógico anteriores, você pode restringir o acesso aos intervalos de endereços IP específicos. Essa funcionalidade oferece a você mais controle de acesso. Todos os dados em execução de um aplicativo lógico são criptografados durante o trânsito e em repouso. Quando você solicita o histórico de execução de um aplicativo lógico, Aplicativos Lógicos autenticam a solicitação e fornecem links para as entradas e saídas das solicitações e das respostas no fluxo de trabalho do aplicativo lógico. Você pode proteger esses links para que somente as solicitações de um endereço IP específico retornem esse conteúdo. Por exemplo, você pode até mesmo especificar um endereço IP como `0.0.0.0-0.0.0.0` para que ninguém possa acessar as entradas e saídas. Apenas uma pessoa com permissões de administrador pode remover essa restrição, dando a possibilidade de acesso "Just-In-Time" ao conteúdo do aplicativo lógico.
 
-#### <a name="setting-ip-ranges-on-the-resource-definition"></a>Definir intervalos de IP na definição de recurso
+### <a name="set-ip-ranges---azure-portal"></a>Definir intervalos IP – portal do Azure
 
-Se você estiver usando um [modelo de implantação](logic-apps-create-deploy-template.md) para automatizar suas implantações, as configurações de intervalo IP podem ser configuradas no modelo de recurso.  
+Para configurar essa restrição no portal do Azure, vá para as configurações do aplicativo lógico:
+
+1. No portal do Azure, abra o aplicativo lógico no Designer de Aplicativo lógico. 
+
+1. No menu do aplicativo lógico, em **Configurações**, selecione **Configurações de fluxo de trabalho**.
+
+1. Em **Configuração de controle de acesso** > 
+**Endereços IP de entrada permitidos**, selecione **Intervalos IP específicos**.
+
+1. Em **intervalos IP para conteúdo**, especifique os intervalos de endereços IP que podem acessar o conteúdo de entradas e saídas. Um intervalo IP válido usa estes formatos: *x.x.x.* ou *x.x.x. x-x.x.x. x* 
+
+### <a name="set-ip-ranges---logic-app-deployment-template"></a>Definir intervalos IP – modelo de implantação de aplicativo lógico
+
+Se você estiver automatizando implantações de aplicativo lógico usando um [modelo de implantação do Azure Resource Manager](logic-apps-create-deploy-template.md), poderá definir os intervalos de IP nesse modelo, por exemplo:
 
 ``` json
 {
-    "properties": {
-        "definition": {
-        },
-        "parameters": {},
-        "accessControl": {
-            "contents": {
-                "allowedCallerIpAddresses": [
-                    {
-                        "addressRange": "192.168.12.0/23"
-                    },
-                    {
-                        "addressRange": "2001:0db8::/64"
-                    }
-                ]
-            }
-        }
-    },
-    "type": "Microsoft.Logic/workflows"
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "accessControl": {
+         "contents": {
+            "allowedCallerIpAddresses": [
+               {
+               "addressRange": "192.168.12.0/23"
+               },
+               {
+                  "addressRange": "2001:0db8::/64"
+               }
+            ]
+         }
+      }
+   },
+   "type": "Microsoft.Logic/workflows",
 }
 ```
 
-## <a name="secure-parameters-and-inputs-within-a-workflow"></a>Proteger parâmetros e entradas em um fluxo de trabalho
+<a name="secure-action-parameters"></a>
 
-Você pode querer parametrizar alguns aspectos de uma definição de fluxo de trabalho para implantação entre ambientes. Além disso, alguns parâmetros podem ser parâmetros seguros que você não deseja que apareçam ao editar um fluxo de trabalho, como uma ID de cliente e o segredo do cliente para a [Autenticação do Azure Active Directory](../connectors/connectors-native-http.md#authentication) de uma ação HTTP.
+## <a name="secure-action-parameters-and-inputs"></a>Proteger entradas e parâmetros de ação
 
-### <a name="using-parameters-and-secure-parameters"></a>Usar parâmetros e proteger parâmetros
+Ao implantar entre vários ambientes, você talvez queira parametrizar aspectos específicos na definição de fluxo de trabalho do aplicativo lógico. Por exemplo, você pode especificar parâmetros no [modelo de implantação do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Para acessar o valor do parâmetro do recurso durante o tempo de execução, você pode usar a expressão `@parameters('parameterName')`, que é fornecida pela [Linguagem de Definição de Fluxo de Trabalho](https://aka.ms/logicappsdocs). 
 
-A [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs) fornece uma operação `@parameters()` para acessar o valor de um parâmetro de recurso em tempo de execução. Além disso, você pode [especificar parâmetros no modelo de implantação do recurso](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Mas se você especificar o tipo de parâmetro para ser `securestring`, ele não será retornado com o restante da definição de recurso e não poderá ser acessado ao exibir o recurso após a implantação.
+Você também pode proteger parâmetros específicos que você não deseja que sejam exibidos durante a edição do fluxo de trabalho do aplicativo lógico quando você usa o tipo de parâmetro `securestring`. Por exemplo, você pode proteger parâmetros como a ID do cliente e o segredo do cliente usados para autenticar uma ação HTTP com o [Azure Active Directory](../connectors/connectors-native-http.md#authentication).
+Quando você especifica um tipo de um parâmetro como `securestring`, o parâmetro não é retornado com a definição de recurso e não está acessível ao exibir o recurso após a implantação. 
 
 > [!NOTE]
-> Se o parâmetro for usado nos cabeçalhos ou no corpo de uma solicitação, ele poderá ser visível ao acessar o histórico de execução e a solicitação HTTP de saída. Certifique-se de definir as políticas de acesso ao conteúdo apropriadamente.
-> Cabeçalhos de autorização nunca são visíveis por meio de entradas ou saídas. Então, se o segredo estiver sendo usado ali, esse segredo não será recuperável.
+> Quando você usa um parâmetro em cabeçalhos ou no corpo da solicitação, esse parâmetro pode ficar visível ao acessar o histórico de execuções do aplicativo lógico e a solicitação HTTP de saída. Defina as políticas de acesso ao conteúdo apropriadamente.
+> Cabeçalhos de autorização nunca são visíveis por meio de entradas ou saídas. Portanto, se um segredo for usado lá, ele não será recuperável.
 
-#### <a name="resource-deployment-template-with-secrets"></a>Modelo de implantação de recursos com segredos
+Este exemplo mostra um modelo de implantação do Azure Resource Manager que usa mais de um parâmetro de tempo de execução com o tipo `securestring`: 
 
-O exemplo a seguir mostra uma implantação que faz referência a um parâmetro seguro de `secret` em tempo de execução. Em um arquivo de parâmetros separado, você poderia especificar o valor de ambiente para o `secret` ou usar o [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) para recuperar os segredos no momento da implantação.
+* `armTemplatePasswordParam`, que é a entrada para o parâmetro `logicAppWfParam` da definição de aplicativo lógico
 
-``` json
+* `logicAppWfParam`, que é a entrada para a ação HTTP usando autenticação Básica
+
+Em um arquivo de parâmetros separado, você pode especificar o valor de ambiente para o parâmetro `armTemplatePasswordParam`, ou pode recuperar os segredos no momento da implantação usando o [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+A seção `parameters` interna pertence à definição de fluxo de trabalho do aplicativo lógico, enquanto a seção `parameters` externa pertence ao seu modelo de implantação.
+
+```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-      "secretDeploymentParam": {
-         "type": "securestring"
+      "logicAppName": {       
+         "type": "string",
+         "minLength": 1,
+         "maxLength": 80,
+         "metadata": {         
+            "description": "Name of the Logic App."       
+         }     
+      },
+      "armTemplatePasswordParam": {
+         "type": "securestring"     
+      },     
+      "logicAppLocation": {       
+         "type": "string",
+         "defaultValue": "[resourceGroup().location]",
+         "allowedValues": [         
+            "[resourceGroup().location]",
+            "eastasia",
+            "southeastasia",
+            "centralus",
+            "eastus",
+            "eastus2",
+            "westus",
+            "northcentralus",
+            "southcentralus",
+            "northeurope",
+            "westeurope",
+            "japanwest",
+            "japaneast",
+            "brazilsouth",
+            "australiaeast",
+            "australiasoutheast",
+            "southindia",
+            "centralindia",
+            "westindia",
+            "canadacentral",
+            "canadaeast",
+            "uksouth",
+            "ukwest",
+            "westcentralus",
+            "westus2"
+         ],
+         "metadata": {
+            "description": "Location of the Logic App."
+         }
       }
    },
    "variables": {},
-   "resources": [ {
-      "name": "secret-deploy",
-      "type": "Microsoft.Logic/workflows",
-      "location": "westus",
-      "tags": {
-         "displayName": "LogicApp"
-      },
-      "apiVersion": "2016-06-01",
-      "properties": {
-         "definition": {
-            "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-            "actions": {
-               "Call_External_API": {
-                  "type": "Http",
-                  "inputs": {
-                     "headers": {
-                        "Authorization": "@parameters('secret')"
+   "resources": [
+      {       
+         "name": "[parameters('logicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('logicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "properties": {
+            "definition": {
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-0601/workflowdefinition.json#",
+               "actions": {
+                  "HTTP": {
+                     "type": "Http",
+                     "inputs": {
+                        "method": "GET",
+                        "uri": "http://www.microsoft.com",
+                        "authentication": {
+                           "type": "Basic",
+                           "username": "username",
+                              "password": "@parameters('logicAppWfParam')"
+                        }
                      },
-                     "body": "This is the request"
-                  },
                   "runAfter": {}
-               }
+                  }
+               },
+               "parameters": { 
+                  "logicAppWfParam": {
+                     "type": "securestring"
+                  }
+               },
+               "triggers": {
+                  "manual": {
+                     "type": "Request",
+                     "kind": "Http",
+                     "inputs": {
+                        "schema": {}
+                     }
+                  }
+               },
+               "contentVersion": "1.0.0.0",
+               "outputs": {}
             },
             "parameters": {
-               "secret": {
-                  "type": "SecureString"
+               "logicAppWfParam": {
+                  "value": "[parameters('armTemplatePasswordParam')]"
                }
-            },
-            "triggers": {
-               "manual": {
-                  "type": "Request",
-                  "kind": "Http",
-                  "inputs": {
-                     "schema": {}
-                  }
-               }
-            },
-            "contentVersion": "1.0.0.0",
-            "outputs": {}
-         },
-         "parameters": {
-            "secret": {
-               "value": "[parameters('secretDeploymentParam')]"
             }
          }
       }
-   } ],
-   "outputs": {}
-}
+   ],
+   "outputs": {} 
+}   
 ```
 
-## <a name="secure-access-to-services-receiving-requests-from-a-workflow"></a>Proteger o acesso aos serviços que recebem solicitações de um fluxo de trabalho
+<a name="secure-requests"></a>
 
-Há várias maneiras para ajudar a proteger qualquer ponto de extremidade que o aplicativo lógico precisa acessar.
+## <a name="secure-access-to-services-receiving-requests"></a>Proteger o acesso aos serviços que recebem solicitações
 
-### <a name="using-authentication-on-outbound-requests"></a>Usar a autenticação em solicitações de saída
+Aqui estão algumas maneiras de proteger qualquer ponto de extremidade em que seu aplicativo lógico precise de acesso e envie solicitações.
 
-Ao trabalhar com uma ação HTTP, HTTP + Swagger (API Open) ou Webhook, você pode adicionar autenticação para a solicitação que está sendo enviada. Você pode incluir a autenticação básica, autenticação de certificado ou autenticação do Azure Active Directory. Detalhes sobre como configurar essa autenticação podem ser encontrados [neste artigo](../connectors/connectors-native-http.md#authentication).
+### <a name="add-authentication-on-outbound-requests"></a>Adicionar autenticação em solicitações de saída
 
-### <a name="restricting-access-to-logic-app-ip-addresses"></a>Restringir o acesso a endereços IP de aplicativo lógico
+Ao trabalhar com uma ação HTTP, HTTP + Swagger (API Open) ou Webhook, você pode adicionar autenticação para a solicitação enviada pelo seu aplicativo lógico. Por exemplo, você usar autenticação Básica, autenticação de certificado ou autenticação do Azure Active Directory. Para obter mais informações, confira [Autenticar gatilhos ou ações](logic-apps-workflow-actions-triggers.md#connector-authentication) e [autenticação para ações de HTTP](../connectors/connectors-native-http.md#authentication).
 
-Todas as chamadas de aplicativos lógicos vêm de um conjunto específico de endereços IP por região. Você pode adicionar filtragem adicional para aceitar somente solicitações desses endereços IP designados. Para obter uma lista desses endereços IP, consulte [limites e configuração do aplicativo lógico](logic-apps-limits-and-config.md#configuration).
+### <a name="restrict-access-to-logic-app-ip-addresses"></a>Restringir acesso a endereços IP de aplicativo lógico
 
-### <a name="on-premises-connectivity"></a>Conectividade local
+Todas as chamadas de aplicativos lógicos vêm de endereços IP específicos designados com base na região. Você pode adicionar filtragem que aceite solicitações somente de endereços IP. Para esses endereços IP, confira [Limites e configuração para Aplicativos Lógicos do Azure](logic-apps-limits-and-config.md#configuration).
 
-Aplicativos lógicos fornecem integração com diversos serviços que fornecem comunicação local segura e confiável.
+### <a name="secure-on-premises-connectivity"></a>Conectividade local segura
+
+Os Aplicativos Lógicos do Azure fornecem integração com esses serviços para comunicação local segura e confiável.
 
 #### <a name="on-premises-data-gateway"></a>Gateway de dados local
 
-Muitos conectores gerenciados de aplicativo lógico fornecem conectividade segura para sistemas locais, incluindo o sistema de arquivos, SQL, SharePoint, DB2 e muito mais. O gateway retransmite dados de fontes locais em canais criptografados por meio do Barramento de Serviço do Azure. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. Saiba mais sobre [como o gateway de dados funciona](logic-apps-gateway-install.md#gateway-cloud-service).
+Muitos conectores gerenciados de Aplicativos Lógicos do Azure fornecem conexões seguras com sistemas locais, como Sistema de Arquivos, SQL, SharePoint, DB2 e outros. O gateway envia dados de fontes locais em canais criptografados por meio do Barramento de Serviço do Azure. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. Saiba [como o gateway de dados local funciona](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Gerenciamento de API do Azure
 
-O [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/) tem opções de conectividade local incluindo integração VPN e ExpressRoute site a site para proxy seguro e a comunicação com sistemas locais. No Designer de Aplicativos Lógicos, você pode selecionar rapidamente uma API exposta do Gerenciamento de API do Azure em um fluxo de trabalho, fornecendo acesso rápido a sistemas locais.
+O [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/) fornece opções de conexão locais, como rede privada virtual site a site e integração do ExpressRoute para proxy seguro e comunicação com sistemas locais. No Designer de Aplicativo Lógico, você pode selecionar uma API exposta pelo Gerenciamento de API do seu fluxo de trabalho do aplicativo lógico, fornecendo acesso rápido a sistemas locais.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um modelo de implantação](logic-apps-create-deploy-template.md)  
-[Manipulação de exceção](logic-apps-exception-handling.md)  
-[Monitorar seus aplicativos lógicos](logic-apps-monitor-your-logic-apps.md)  
-[Diagnosticando falhas e problemas nos aplicativos lógicos](logic-apps-diagnosing-failures.md)  
+
+* [Criar um modelo de implantação](logic-apps-create-deploy-template.md)  
+* [Manipulação de exceção](logic-apps-exception-handling.md)  
+* [Monitorar seus aplicativos lógicos](logic-apps-monitor-your-logic-apps.md)  
+* [Diagnosticar falhas e problemas do aplicativo lógico](logic-apps-diagnosing-failures.md)  

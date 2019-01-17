@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724308"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187755"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
 
@@ -175,7 +175,7 @@ A Microsoft atualmente não fornece suporte para idiomas escritos da direita par
 ### <a name="social-identity-provider-translations"></a>Traduções de provedor de identidade social
 A Microsoft fornece o parâmetro OIDC `ui_locales` para logons sociais. Mas alguns provedores de identidade social, incluindo o Facebook e o Google, não os consideram. 
 ### <a name="browser-behavior"></a>Comportamento do navegador
-Ambos Chrome e o Firefox solicitam o idioma definido. Se for um idioma com suporte, será exibido antes do padrão. Atualmente, o Edge não solicita um idioma e exibe diretamente o idioma padrão.
+Ambos Chrome e o Firefox solicitam o idioma definido. Se for um idioma com suporte, será exibido antes do padrão. Atualmente, o Microsoft Edge não solicita um idioma e exibe diretamente o idioma padrão.
 
 ### <a name="supported-languages"></a>Idiomas com suporte
 

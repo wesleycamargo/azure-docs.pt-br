@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23127154"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119434"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemplo 3 - Criar uma rede de perímetro para proteger as redes com um Firewall, um UDR e um NSG
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
@@ -31,8 +31,8 @@ Este exemplo criará uma rede de perímetro com um firewall, quatro servidores W
 ## <a name="environment-setup"></a>Configuração do ambiente
 Neste exemplo, há uma assinatura que contém o seguinte:
 
-* Três serviços de nuvem: “SecSvc001”, “FrontEnd001” e “BackEnd001”
-* Uma rede virtual, “CorpNetwork”, com três sub-redes; “SecNet”, “FrontEnd” e “BackEnd”
+* Três serviços de nuvem: "SecSvc001", "FrontEnd001" e "BackEnd001"
+* Uma Rede Virtual "CorpNetwork" com três sub-redes: "SecNet", "FrontEnd" e "BackEnd"
 * Um dispositivo virtual de rede, neste exemplo um firewall, conectado à sub-rede SecNet
 * Um Windows Server que representa um servidor Web de aplicativos ("IIS01")
 * Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
@@ -46,14 +46,14 @@ Para compilar o ambiente:
 2. Atualize as variáveis do usuário no script para fazer a correspondência do ambiente em que o script deve ser executado (assinaturas, nomes de serviço, etc.)
 3. Execute o script no PowerShell
 
-**Observação**: a região representada no script do PowerShell deve corresponder à região representada no arquivo xml de configuração de rede.
+**Observação**: A região representada no script do PowerShell deve corresponder à região representada no arquivo xml de configuração de rede.
 
 Assim que o script for executado com êxito, as seguintes etapas pós-script poderão ser utilizadas:
 
-1. Configure as regras de firewall; isso será abordado na seção: Descrição da regra de firewall.
+1. Configure as regras de firewall; isso será abordado na seção abaixo: Descrição da Regra de Firewall.
 2. Opcionalmente, na seção de referências, há dois scripts para configurar o servidor Web e um servidor de aplicativos com um aplicativo Web simples para testar a configuração desta rede de perímetro.
 
-Assim que o script for executado com êxito, será necessário concluir as regras de firewall; isso será abordado na seção: Regras de firewall.
+Assim que o script for executado com êxito, será necessário concluir as regras de firewall; isso será abordado na seção intitulada: Regras de Firewall.
 
 ## <a name="user-defined-routing-udr"></a>Roteamento definido pelo usuário (UDR)
 Por padrão, as rotas do sistema a seguir são definidas como:
@@ -108,7 +108,7 @@ Depois que as tabelas de roteamento forem criadas, serão associadas às sub-red
 
 Para este exemplo, os comandos a seguir são usados para criar a tabela de rotas, adicionar uma rota definida pelo usuário e associar a tabela de rotas a uma sub-rede (Observação: todos os itens abaixo que começarem com um sinal de cifrão (por exemplo, $BESubnet) são variáveis definidas pelo usuário do script na seção de referência deste documento):
 
-1. Primeiro, a tabela de roteamento de base deverá ser criada. Este trecho mostra a criação da tabela para a sub-rede Backend. No script, uma tabela correspondente também será criada para a sub-rede Frontend.
+1. Primeiro, a tabela de roteamento de base deverá ser criada. Este snippet mostra a criação da tabela para a sub-rede Backend. No script, uma tabela correspondente também será criada para a sub-rede Frontend.
    
      New-AzureRouteTable -Name $BERouteTableName `
    
@@ -149,7 +149,7 @@ Por exemplo, se o tráfego de AppVM01 fizer uma solicitação para o servidor DN
 > 
 > 
 
-A configuração do Encaminhamento IP é um único comando e pode ser feito no momento da criação da VM. Para o fluxo deste exemplo, o trecho de código será mostrado até o fim do script e agrupado com os comandos UDR:
+A configuração do Encaminhamento IP é um único comando e pode ser feito no momento da criação da VM. Para o fluxo deste exemplo, o snippet de código será mostrado até o fim do script e agrupado com os comandos UDR:
 
 1. Chame a instância da VM que seja o seu dispositivo virtual, neste caso, o firewall, e habilite o Encaminhamento IP (observação; todos os itens em vermelho que começam com um cifrão (por exemplo, $VMName[0] são uma variável definida pelo usuário no script na seção de referência deste documento. O zero entre colchetes, [0], representa a primeira VM na matriz de VMs; para que o script de exemplo funcione sem modificações, a primeira VM (VM 0) deverá ser o firewall):
    
@@ -200,14 +200,14 @@ Neste exemplo, precisamos de sete tipos de regras, descritos abaixo:
 
 * Regras externas (para o tráfego de entrada):
   1. Regra de Gerenciamento de Firewall: essa regra de Redirecionamento de Aplicativo permite que o tráfego passe para as portas de gerenciamento do dispositivo virtual de rede.
-  2. Regras de RDP (para cada servidor Windows): essas quatro regras (uma para cada servidor) permitirão o gerenciamento dos servidores individuais via RDP. Isso também poderia ser empacotado em uma regra, dependendo dos recursos do Dispositivo Virtual de Rede usado.
-  3. Regras de Tráfego do Aplicativo: há duas regras de tráfego de aplicativo, a primeira para o tráfego da Web de front-end e a segunda para o tráfego de back-end (por exemplo, o servidor Web para a camada de dados). A configuração dessas regras dependerá de arquitetura de rede (onde os servidores são colocados) e dos fluxos de tráfego (a direção na qual o tráfego flui e quais portas são usadas).
+  2. Regras de RDP (para cada Windows Server): Essas quatro regras (uma para cada servidor) permitirão o gerenciamento dos servidores individuais via RDP. Isso também poderia ser empacotado em uma regra, dependendo dos recursos do Dispositivo Virtual de Rede usado.
+  3. Regras de Tráfego de Aplicativo: há duas Regras de Tráfego de Aplicativo, a primeira para o tráfego da Web de front-end e a segunda para o tráfego de back-end (por exemplo, o servidor Web para a camada de dados). A configuração dessas regras dependerá de arquitetura de rede (onde os servidores são colocados) e dos fluxos de tráfego (a direção na qual o tráfego flui e quais portas são usadas).
      * A primeira regra permitirá que o tráfego de aplicativo real chegue ao servidor de aplicativos. Embora as outras regras permitam a segurança, o gerenciamento etc, as Regras de Aplicativo são as que permitem que usuários ou serviços externos acessem os aplicativos. Neste exemplo, há um único servidor Web na porta 80 e, portanto, uma única regra de aplicativo de firewall redirecionará o tráfego de entrada para o IP externo, para o endereço IP interno dos servidores Web. A sessão de tráfego redirecionado seria enviada por meio de NAT para o servidor interno.
      * A segunda Regra de Tráfego de Aplicativo é a regra de back-end que permite que o Servidor Web converse com o servidor AppVM01 (mas não com AppVM02) por meio de qualquer porta.
 * Regras internas (para o tráfego interno da Rede Virtual)
-  1. Regra de Saída para Internet: essa regra permitirá que o tráfego de qualquer rede passe para as redes selecionadas. Normalmente, essa regra é uma regra padrão que já existe no firewall, mas em um estado desabilitado. Essa regra deve ser habilitada para esse exemplo.
-  2. Regra DNS: essa regra permite que somente o tráfego DNS (porta 53) passe para o servidor DNS. Para este ambiente, a maioria do tráfego do Frontend para o Backend será bloqueado, e essa regra permite especificamente o DNS de qualquer sub-rede local.
-  3. Regra Sub-rede para Sub-rede: essa regra permite que qualquer servidor na rede de back-end se conecte a qualquer servidor na rede de front-end (mas não o contrário).
+  1. Regra de Saída para a Internet: essa regra permitirá que o tráfego de qualquer rede passe para as redes selecionadas. Normalmente, essa regra é uma regra padrão que já existe no firewall, mas em um estado desabilitado. Essa regra deve ser habilitada para esse exemplo.
+  2. Regra de DNS: essa regra permite que somente o tráfego DNS (porta 53) passe para o servidor DNS. Para este ambiente, a maioria do tráfego do Frontend para o Backend será bloqueado, e essa regra permite especificamente o DNS de qualquer sub-rede local.
+  3. Regra de Sub-rede para Sub-rede: essa regra permite que qualquer servidor na rede de back-end se conecte a qualquer servidor na rede de front-end (mas não o contrário).
 * Regra à prova de falhas (para o tráfego que não atenda a qualquer um dos itens acima):
   1. Regra Negar Todo o Tráfego: essa sempre deverá ser a última regra (em termos de prioridade) e, como tal, se os fluxos de tráfego falharem na correspondência a todas as regras anteriores, serão descartados por essa regra. Essa é uma regra padrão e normalmente é ativada; geralmente, não é necessário fazer qualquer modificação.
 
@@ -231,7 +231,7 @@ Um pré-requisito para a Máquina Virtual que esteja executando o firewall são 
 > 
 > 
 
-Um ponto de extremidade pode ser aberto no momento da criação da VM ou após a compilação; isso é feito no script de exemplo e mostrado abaixo neste trecho de código (observação; todos os itens que começam com um cifrão (por exemplo: $VMName[$i]) são uma variável definida pelo usuário do script na seção de referência deste documento. O “$i” entre colchetes, [$i], representa o número da matriz de uma VM específica em uma matriz de VMs):
+Um ponto de extremidade pode ser aberto no momento da criação da VM ou após a compilação; isso é feito no script de exemplo e mostrado abaixo neste snippet de código (observação; todos os itens que começam com um cifrão (por exemplo: $VMName[$i]) são uma variável definida pelo usuário do script na seção de referência deste documento. O “$i” entre colchetes, [$i], representa o número da matriz de uma VM específica em uma matriz de VMs):
 
     Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
         -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
@@ -275,11 +275,11 @@ Esse processo deve ser repetido para criar Serviços RDP para os demais servidor
 ### <a name="firewall-rules-creation"></a>Criação de regras de firewall
 Há três tipos de regras de firewall usadas neste exemplo, todas elas têm ícones distintos:
 
-A regra de redirecionamento do aplicativo: ![ícone de Redirecionamento do Aplicativo][7]
+A regra Redirecionamento de Aplicativo: ![Ícone de Redirecionamento do Aplicativo][7]
 
-A regra NAT de destino: ![ícone de NAT de Destino][8]
+A regra NAT de Destino:  ![Ícone de NAT de Destino][8]
 
-A regra de Passagem: ![ícone de Passagem][9]
+A regra Aprovar:  ![Ícone de Passagem][9]
 
 Para saber mais sobre essas regras, visite o site do Barracuda.
 
@@ -298,7 +298,7 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
 > 
 > 
 
-* **Regras RDP**: essas regras de NAT de destino permitirão o gerenciamento dos servidores individuais via RDP.
+* **Regras de RDP**:  essas regras de NAT de destino permitirão o gerenciamento dos servidores individuais via RDP.
   Há quatro campos essenciais necessários para a criação dessa regra:
   
   1. Origem – para permitir o RDP de qualquer lugar, a referência "Qualquer" é usada no campo Origem.
@@ -310,7 +310,7 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
      
      Será necessário criar um total de quatro regras RDP: 
      
-     | Nome da Regra | Servidor | O Barramento de | Lista de destino |
+     | Nome da Regra | Servidor | Serviço | Lista de destino |
      | --- | --- | --- | --- |
      | RDP-para-IIS01 |IIS01 |RDP de IIS01 |10.0.1.4:3389 |
      | RDP-para-DNS01 |DNS01 |RDP de DNS01 |10.0.2.4:3389 |
@@ -322,7 +322,7 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
 > 
 > 
 
-* **Regras de Tráfego do Aplicativo**: há duas Regras de Tráfego de Aplicativo, a primeira para o tráfego da Web de front-end e a segunda para o tráfego de back-end (por exemplo, o servidor Web para a camada de dados). Essas regras dependerão de arquitetura de rede (onde os servidores são colocados) e dos fluxos de tráfego (a direção na qual o tráfego flui e quais portas são usadas).
+* **Regras de Tráfego de Aplicativo**: há duas Regras de Tráfego de Aplicativo, a primeira para o tráfego da Web de front-end e a segunda para o tráfego de back-end (por exemplo, o servidor Web para a camada de dados). Essas regras dependerão de arquitetura de rede (onde os servidores são colocados) e dos fluxos de tráfego (a direção na qual o tráfego flui e quais portas são usadas).
   
     Em primeiro lugar, será discutida a regra de front-end para o tráfego Web:
   
@@ -356,19 +356,19 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
 > 
 > 
 
-* **Regra de Saída para Internet**: essa regra aprovar permitirá que o tráfego de qualquer rede Origem passe para as redes Destino selecionadas. Normalmente, essa regra é uma regra padrão que já existe no firewall NextGen Barracuda, mas em um estado desabilitado. Clicar com o botão direito do mouse nessa regra poderá acessar o comando Ativar Regra. A regra mostrada aqui foi modificada para adicionar as duas sub-redes locais criadas como referências na seção de pré-requisito deste documento para o atributo Origem dessa regra.
+* **Regra de Saída para a Internet**: essa regra aprovar permitirá que o tráfego de qualquer rede Origem passe para as redes Destino selecionadas. Normalmente, essa regra é uma regra padrão que já existe no firewall NextGen Barracuda, mas em um estado desabilitado. Clicar com o botão direito do mouse nessa regra poderá acessar o comando Ativar Regra. A regra mostrada aqui foi modificada para adicionar as duas sub-redes locais criadas como referências na seção de pré-requisito deste documento para o atributo Origem dessa regra.
   
     ![Regra de saída do firewall][14]
-* **Regra DNS**: essa regra Aprovar permite que somente o tráfego DNS (porta 53) passe para o servidor DNS. Para este ambiente, a maior parte do tráfego do Frontend para o Backend será bloqueado, e essa regra permite especificamente DNS.
+* **Regra de DNS**: essa regra Aprovar permite que somente o tráfego DNS (porta 53) passe para o servidor DNS. Para este ambiente, a maior parte do tráfego do Frontend para o Backend será bloqueado, e essa regra permite especificamente DNS.
   
     ![Regra DNS do firewall][15]
   
     **Observação**: nesta captura de tela, o Método de Conexão foi incluído. Como essa regra destina-se ao tráfego de endereço IP interno para IP interno, NAT não será necessário; esse Método de Conexão é definido como “Sem SNAT” para essa regra Aprovar.
-* **Regra Sub-rede para Sub-rede**: essa regra Aprovar é uma regra padrão ativada e modificada para permitir que todos os servidores da sub-rede Backend se conectem a qualquer servidor da sub-rede Frontend. Essa regra é para todo o tráfego interno, de forma que o Método de Conexão pode ser definido como Sem SNAT.
+* **Regra de Sub-rede para Sub-rede**: essa regra Aprovar é uma regra padrão ativada e modificada para permitir que todos os servidores da sub-rede de back-end se conectem a qualquer servidor da sub-rede Frontend. Essa regra é para todo o tráfego interno, de forma que o Método de Conexão pode ser definido como Sem SNAT.
   
     ![Regra IntraVNet do firewall][16]
   
-    **Observação**: a caixa de seleção Bidirecional não está marcada (nem é marcado na maioria das regras), isso é significativo para essa regra, já que ela torna essa regra “unidirecional”, uma conexão pode ser iniciada na sub-rede Backend para a rede Frontend, mas não inverso. Se essa caixa de seleção tiver sido marcada, essa regra permitirá o tráfego bidirecional, o que não é desejável em nosso diagrama lógico.
+    **Observação**: a caixa de seleção Bidirecional não está marcada (nem é marcado na maioria das regras), isso é significativo para essa regra, já que ela torna essa regra “unidirecional”, uma conexão pode ser iniciada na sub-rede Back-end para a rede Frontend, mas não inverso. Se essa caixa de seleção tiver sido marcada, essa regra permitirá o tráfego bidirecional, o que não é desejável em nosso diagrama lógico.
 * **Regra Negar Todo o Tráfego**: essa sempre deverá ser a última regra (em termos de prioridade) e, como tal, se os fluxos de tráfego falharem na correspondência a todas as regras anteriores, serão descartados por essa regra. Essa é uma regra padrão e normalmente é ativada; geralmente, não é necessário fazer qualquer modificação. 
   
     ![Regra Negar do firewall][17]
@@ -419,7 +419,7 @@ Lembre-se também de que os Grupos de Segurança de Rede existem para o tráfego
 5. O firewall inicia o processamento de regras:
    1. A Regra FW 1 (Gerenc. FW) não se aplica; vá para a próxima regra
    2. As Regras FW 2 - 5 (regras RDP) não se aplicam; vá para a próxima regra
-   3. A Regra FW 6 (Aplicativo: Web) se aplica; o tráfego é permitido, o firewall usa a NAT para 10.0.1.4 (IIS01)
+   3. Regra de FW 6 (Aplicativo: Web) se aplica; o tráfego é permitido, o firewall usa a NAT para 10.0.1.4 (IIS01)
 6. A sub-rede Frontend inicia o processamento da regra de entrada:
    1. A Regra NSG 1 (Bloquear Internet) não se aplica (esse tráfego passou por NAT pelo firewall e, portanto, o endereço de origem agora é o firewall, que está na sub-rede Security e é visto pelo NSG da sub-rede Frontend como tráfego “local” e assim é permitido), vá para a próxima regra
    2. As Regras NSG padrão permitem o tráfego de sub-rede para sub-rede, o tráfego é permitido, pare o processamento da regra NSG
@@ -429,9 +429,9 @@ Lembre-se também de que os Grupos de Segurança de Rede existem para o tráfego
 10. Não há regras de saída na sub-rede Frontend; o tráfego é permitido
 11. O firewall inicia o processamento de regras:
     1. A Regra FW 1 (Gerenc. FW) não se aplica; vá para a próxima regra
-    2. As Regras FW 2 - 5 (regras RDP) não se aplicam; vá para a próxima regra
-    3. A Regra FW 6 (Aplicativo: Web) não se aplica; vá para a próxima regra
-    4. A Regra FW 7 (Aplicativo: Backend) se aplica; o tráfego é permitido, o firewall encaminha o tráfego para 10.0.2.5 (AppVM01)
+    2. As Regras FW 2 - 5 (Regras RDP) não se aplicam; vá para a próxima regra
+    3. Regra de FW 6 (Aplicativo: Web) não se aplica; vá para a próxima regra
+    4. Regra de FW 7 (Aplicativo: Back-end) se aplica; o tráfego é permitido, o firewall encaminha o tráfego para 10.0.2.5 (AppVM01)
 12. A sub-rede Backend inicia o processamento da regra de entrada:
     1. A Regra NSG 1 (Bloquear Internet) não se aplica; vá para a próxima regra
     2. As Regras NSG padrão permitem o tráfego de sub-rede para sub-rede, o tráfego é permitido, pare o processamento da regra NSG
@@ -782,7 +782,7 @@ Este script do PowerShell deve ser executado localmente em um computador ou serv
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -959,7 +959,7 @@ Salve esse arquivo xml com localização atualizada e adicione o link a esse arq
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicativo de exemplo
-Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de aplicativo de exemplo][SampleApp]
+Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de Aplicativo de Exemplo][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "DMZ bidirecional com NVA, NSG e UDR"

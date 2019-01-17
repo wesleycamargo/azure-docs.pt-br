@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6ee89f3d57ded382b4d4519e4054448c144b10c5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7d79e7aca0e8aa506abba174668c60fcd2fd4bc2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632680"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065436"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
@@ -31,6 +31,24 @@ Navegue até sua conta de Automação e selecione **Inventário** ou **Controle 
 Escolha o workspace do Log Analytics e a conta de automação e clique em **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
 ![Integrar a solução de Inventário](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
+
+Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um Workspace do Log Analytics e uma Conta de Automação.
+
+A tabela abaixo mostra os mapeamentos com suporte:
+
+|**Região do Workspace do Log Analytics**|**Região da Automação do Azure**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|Canadá Central|Canadá Central|
+|CentralIndia|CentralIndia|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
 
 A solução de Controle de Alterações e Inventário fornece a capacidade de [acompanhar alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) em suas máquinas virtuais. Nesta etapa, você deve habilitar a solução em uma máquina virtual.
 

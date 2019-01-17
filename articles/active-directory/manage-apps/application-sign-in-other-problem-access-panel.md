@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 830fc1d96825e28aad41aac9afee499b9bc1f7ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 02aa4eb37437861d428c6f361b3ff21def56b49b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354436"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189823"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas para entrar em um aplicativo a partir do Painel de Acesso
 
@@ -68,7 +68,7 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 
 -   Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior
 
--   Edge no Windows 10 Anniversary Edition ou posterior
+-   O Microsoft Edge na Edição de Aniversário do Windows 10 ou posterior
 
 -   Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
 
@@ -96,7 +96,7 @@ Também é possível baixar a extensão para Chrome e Microsoft Edge diretamente
 
 -   [Extensão do Painel de Acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensão do Painel de Acesso do Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Extensão do Painel de Acesso do Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único federado para um aplicativo na galeria do Azure AD
 
@@ -500,7 +500,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
-12. **Opcional:** caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
+12. **Opcional:** Caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
 
 13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 

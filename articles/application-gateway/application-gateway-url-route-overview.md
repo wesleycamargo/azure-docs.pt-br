@@ -1,18 +1,17 @@
 ---
-title: Visão geral do roteamento de conteúdo baseado em URL | Microsoft Docs
-description: Esta página fornece uma visão geral do roteamento de conteúdo baseado em URL do Gateway de Aplicativo, da configuração de UrlPathMap e da regra de PathBasedRouting.
+title: Visão geral do roteamento de conteúdo baseado na URL do Gateway de Aplicativo do Azure
+description: Esta página fornece uma visão geral do roteamento de conteúdo baseado em URL do Gateway de Aplicativo Azure, da configuração de UrlPathMap e da regra de PathBasedRouting.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218416"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188752"
 ---
 # <a name="url-path-based-routing-overview"></a>Visão geral do Roteamento Baseado em Caminho de URL
 
@@ -62,8 +61,37 @@ O elemento urlPathMap é usado para especificar padrões de Caminho para mapeame
 }]
 ```
 
-> [!NOTE]
-> PathPattern: essa configuração é uma lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar onde um "*" é permitido é no final após um "/". A cadeia alimentada para o correspondente de caminho não inclui nenhum texto após o primeiro? ou #, e esses caracteres não são permitidos aqui. Caso contrário, todos os caracteres permitidos em um URL serão permitidos no PathPattern.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern é uma a lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar onde um "*" é permitido é no final após um "/". A cadeia alimentada para o correspondente de caminho não inclui nenhum texto após o primeiro? ou #, e esses caracteres não são permitidos aqui. Caso contrário, todos os caracteres permitidos em um URL serão permitidos no PathPattern.
+
+Os padrões compatíveis dependem de se você implanta o Gateway de Aplicativo v1 ou v2:
+
+#### <a name="v1"></a>v1
+
+As regras de caminho não diferenciam maiúsculas de minúsculas.
+
+|Padrão de caminho v1  |É compatível?  |
+|---------|---------|
+|`/images/*`     |Sim|
+|`/images*`     |não|
+|`/images/*.jpg`     |não|
+|`/*.jpg`     |não|
+|`/Repos/*/Comments/*`     |não|
+|`/CurrentUser/Comments/*`     |Sim|
+
+#### <a name="v2"></a>v2
+
+As regras de caminho diferenciam maiúsculas de minúsculas.
+
+|Padrão de caminho v2  |É compatível?  |
+|---------|---------|
+|`/images/*`     |Sim|
+|`/images*`     |Sim|
+|`/images/*.jpg`     |não|
+|`/*.jpg`     |não|
+|`/Repos/*/Comments/*`     |não|
+|`/CurrentUser/Comments/*`     |Sim|
 
 Você pode conferir um [modelo do Resource Manager usando o roteamento baseado em URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) para obter mais informações.
 

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857764"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065164"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Excluir imagens de contêiner no Registro de Contêiner do Azure
 
@@ -60,7 +60,7 @@ Em um registro privado como o Azure Container Registry, o nome da imagem também
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-Para uma discussão sobre as práticas recomendadas de marcação de imagem, consulte o [marcação do Docker: práticas recomendadas para a marcação e controle de versão de imagens do docker][tagging-best-practices] postagem de blog no MSDN.
+Para ver uma discussão sobre as práticas recomendadas de marcação de imagens, consulte [Marcação no Docker: Best practices for tagging and versioning docker images][tagging-best-practices] (Marcação no Docker: práticas recomendadas para a marcação e o controle de versão de imagens do Docker) no MSDN.
 
 ### <a name="layer"></a>Camada
 
@@ -129,9 +129,9 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 Você pode excluir dados de imagem do seu registro de contêiner de várias maneiras:
 
-* Exclua um [repositório](#delete-repository): Exclui todas as imagens e todas as camadas exclusivas do repositório.
-* Excluir pela [tag](#delete-by-tag): exclui uma imagem, a tag, todas as camadas exclusivas mencionadas pela imagem e todas as outras tags associadas à imagem.
-* Exclua [digest manifesto](#delete-by-manifest-digest): exclui uma imagem, todas as camadas exclusivas referenciadas pela imagem e todas as marcas associadas à imagem.
+* Excluir um [repositório](#delete-repository): exclui todas as imagens e todas as camadas exclusivas do repositório.
+* Excluir por [marca](#delete-by-tag): exclui uma imagem, a marca, todas as camadas exclusivas referenciadas pela imagem e todas as outras marcas associadas à imagem.
+* Excluir por [resumo do manifesto](#delete-by-manifest-digest): exclui uma imagem, todas as camadas exclusivas referenciadas pela imagem e todas as marcas associadas à imagem.
 
 ## <a name="delete-repository"></a>Excluir repositório
 
@@ -239,20 +239,20 @@ Conforme mencionado na [manifesto digest](#manifest-digest) seção, enviar por 
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-Como você pode ver na saída da última etapa da sequência, agora há um manifesto órfão cuja `"tags"`propriedade é `null`. Esse manifesto ainda existe no registro, junto com todos os dados de camada exclusivos que ele referencia. **Para excluir tais órfão imagens e seus dados de camada, você deve excluir digest manifesto**.
+Como você pode ver na saída da última etapa da sequência, agora há um manifesto órfão cuja propriedade `"tags"` é uma matriz vazia. Esse manifesto ainda existe no registro, junto com todos os dados de camada exclusivos que ele referencia. **Para excluir tais órfão imagens e seus dados de camada, você deve excluir digest manifesto**.
 
 ### <a name="list-untagged-images"></a>Listar imagens sem marcas
 
 Você pode listar todas as imagens não identificadas em seu repositório usando o seguinte comando da CLI do Azure. Substitua `<acrName>` e `<repositoryName>` por valores apropriados para o seu ambiente.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>Excluir todas as imagens não marcas
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

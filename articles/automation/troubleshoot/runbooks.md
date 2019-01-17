@@ -4,16 +4,16 @@ description: Saiba como solucionar problemas com runbooks de automação do Azur
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015459"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063634"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -94,13 +94,15 @@ Esse erro ocorrerá se o nome da assinatura não for válido ou se o usuário do
 Para determinar se você autenticou corretamente no Azure e tem acesso à assinatura que está tentando selecionar, siga estas etapas:  
 
 1. Teste o script fora da Automação do Azure para verificar se ele funciona independentemente.
-2. Execute o cmdlet **Add-AzureAccount** antes de executar o cmdlet **Select-AzureSubscription**.  
-3. Se essa mensagem de erro ainda for exibida, modifique o código adicionando o parâmetro **-AzureRmContext** após o cmdlet **Add-AzureAccount** e execute o código.
+2. Antes de executar o cmdlet `Select-AzureSubscription`, verifique se você executou o cmdlet `Add-AzureAccount`. 
+3. Adicione `Disable-AzureRmContextAutosave –Scope Process` ao início do seu runbook. Isso garante que todas as credenciais se aplicam apenas à execução do runbook atual.
+4. Se essa mensagem de erro ainda for exibida, modifique o código adicionando o parâmetro **-AzureRmContext** após o cmdlet `Add-AzureAccount` e execute o código.
 
    ```powershell
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
@@ -147,21 +149,24 @@ Esse erro pode ser resolvido atualizando os módulos do Azure para a versão mai
 
 Na sua conta de automação, clique em **módulos**e clique em **módulos do Azure atualização**. A atualização leva aproximadamente 15 minutos, uma vez concluídos executados novamente o runbook que estava falhando. Para saber mais sobre como atualizar seus módulos, consulte [Atualizar os módulos do Azure na Automação do Azure](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Cenário: O runbook de crianças falha ao lidar com várias assinaturas
+### <a name="runbook-auth-failure"></a>Cenário: Os runbooks falham ao lidar com várias assinaturas
 
 #### <a name="issue"></a>Problema
 
-Ao executar runbooks filho com `Start-AzureRmRunbook`, o runbook filho não conseguir gerenciar recursos do Azure.
+Ao executar runbooks filho com `Start-AzureRmAutomationRunbook`, o runbook filho não consegue gerenciar recursos do Azure.
 
 #### <a name="cause"></a>Causa
 
-O runbook filho não está usando o contexto correto durante a execução.
+O runbook não está usando o contexto correto durante a execução.
 
 #### <a name="resolution"></a>Resolução
 
-Ao trabalhar com várias assinaturas, o contexto de assinatura pode ser perdido ao invocar runbooks filhos. Para garantir que o contexto da assinatura é passado para os runbooks filho, adicione o parâmetro `AzureRmContext` ao cmdlet e passe o contexto para ele.
+Ao trabalhar com várias assinaturas, o contexto de assinatura pode ser perdido ao invocar runbooks. Para garantir que o contexto da assinatura seja passado para os runbooks, adicione o parâmetro `AzureRmContext` ao cmdlet e passe o contexto para ele. Também é recomendável usar o cmdlet `Disable-AzureRmContextAutosave` com o escopo **Process** para garantir que as credenciais que você usa somente sejam usadas para o runbook atual.
 
 ```azurepowershell-interactive
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -222,11 +227,11 @@ The job was tried three times but it failed
 
 Esse erro pode ser causado pelos seguintes motivos:
 
-1. Limite de Memória. Existem limites documentados na quantidade de memória alocada a um [Limite de serviço de automação](../../azure-subscription-service-limits.md#automation-limits) da Sandbox, de modo que uma tarefa pode falhar se estiver usando mais de 400 MB de memória.
+1. Limite de Memória. Os limites documentados sobre quanta memória é alocada em uma área restrita é encontrado em [Limites do serviço de automação](../../azure-subscription-service-limits.md#automation-limits). Um trabalho pode falhar se ele está usando mais de 400 MB de memória.
 
-1. Soquetes de rede. Áreas restritas do Azure são limitadas a 1.000 soquetes de rede simultâneos, conforme descrito em [Limites de serviço de automação](../../azure-subscription-service-limits.md#automation-limits).
+2. Soquetes de rede. Áreas restritas do Azure são limitadas a 1.000 soquetes de rede simultâneos, conforme descrito em [Limites de serviço de automação](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Módulo Incompatível. Esse erro pode ocorrer se as dependências do módulo não estiverem corretas e, se não o forem, o seu runbook normalmente retornará uma mensagem "Comando não encontrado" ou "Não é possível ligar o parâmetro".
+3. Módulo Incompatível. Esse erro pode ocorrer se as dependências do módulo não estiverem corretas e, se não o forem, o seu runbook normalmente retornará uma mensagem "Comando não encontrado" ou "Não é possível ligar o parâmetro".
 
 #### <a name="resolution"></a>Resolução
 
@@ -330,7 +335,7 @@ Uma solução recomendada é executar o runbook em um [Hybrid Runbook Worker](..
 
 Hybrid Workers não são limitados pela [justa](../automation-runbook-execution.md#fair-share) limite de runbook de 3 horas que são áreas de segurança do Azure. Enquanto o Hybrid Runbook Workers não são limitados pelo limite de fração justa de 3 horas, runbooks executados no Hybrid Runbook Workers ainda devem ser desenvolvidos para oferecer suporte a comportamentos de reinicialização em caso de problemas de infraestrutura local inesperada.
 
-Outra opção é otimizar o runbook criando [runbooks filho](../automation-child-runbooks.md). Se seu runbook percorre a mesma função em um número de recursos, como uma operação de banco de dados em vários bancos de dados, você pode mover essa função para um runbook filho. Cada um desses runbooks filhos será executado em paralelo em processos separados, diminuindo a quantidade total de tempo para que o runbook pai seja concluído.
+Outra opção é otimizar o runbook criando [runbooks filho](../automation-child-runbooks.md). Se seu runbook percorre a mesma função em um número de recursos, como uma operação de banco de dados em vários bancos de dados, você pode mover essa função para um runbook filho. Cada um desses runbooks filho é executado em paralelo em processos separados. Esse comportamento reduz a quantidade total de tempo para o runbook pai concluir.
 
 Os cmdlets do PowerShell que habilitam o cenário do runbook filho são:
 
@@ -342,7 +347,7 @@ Os cmdlets do PowerShell que habilitam o cenário do runbook filho são:
 
 #### <a name="issue"></a>Problema
 
-Quando você tentar chamar um webhook para um runbook de Automação do Azure, você recebe o erro a seguir.
+Quando você tentar invocar um webhook para um runbook de Automação do Azure, você recebe o erro a seguir.
 
 ```error
 400 Bad Request : This webhook has expired or is disabled
@@ -360,7 +365,7 @@ Se o webhook estiver desabilitado, você pode habilitar novamente o webhook por 
 
 #### <a name="issue"></a>Problema
 
-Você receberá a seguinte mensagem de erro ao executar o `Get-AzureRmAutomationJobOutput` cmdlet:
+Você receberá a seguinte mensagem de erro ao executar o cmdlet `Get-AzureRmAutomationJobOutput`:
 
 ```
 429: The request rate is currently too large. Please try again
@@ -375,7 +380,7 @@ Esse erro pode ocorrer ao recuperar a saída do trabalho de um runbook que tenha
 Há três maneiras de resolver esse erro:
 
 * Edite o runbook e reduza o número de fluxos de trabalho que ele emite.
-* Reduza o número de fluxos a ser recuperado ao executar o cmdlet. Para fazer isso, você pode especificar o `-Stream Output` parâmetro para o `Get-AzureRmAutomationJobOutput` cmdlet para recuperar apenas os fluxos de saída. 
+* Reduza o número de fluxos a ser recuperado ao executar o cmdlet. Para fazer isso, você pode especificar o parâmetro `-Stream Output` para o cmdlet `Get-AzureRmAutomationJobOutput` para recuperar apenas os fluxos de saída. 
 
 ## <a name="common-errors-when-importing-modules"></a>Erros comuns durante a importação de módulos
 

@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: f3c5d7bc1907e94ff2e590fe77cc531ac4b01f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628246"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034075"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Tipos de índice no Azure Cosmos DB
 
 Há várias opções nas quais você configura a política de indexação para um caminho. Você pode especificar uma ou mais definições de indexação para cada caminho:
 
-- **Tipo de dados**: cadeia de caracteres, Número, Ponto, Polígono ou LineString (pode conter apenas uma entrada por tipo de dados por caminho).
+- **Tipo de dados:** Cadeia de caracteres, Número, Ponto, Polígono ou LineString (pode conter apenas uma entrada por tipo de dados por caminho).
 
-- **Tipo de Índice**: hash (consultas de igualdade), Intervalo (consultas ORDER BY, intervalo ou igualdade) ou Espacial (consultas espaciais).
+- **Tipo de índice:** Hash (consultas de igualdade), Intervalo (consultas ORDER BY, intervalo ou igualdade) ou Espacial (consultas espaciais).
 
-- **Precisão**: para um índice de hash, isso varia de 1 a 8 para cadeias de caracteres e números e o valor padrão é 3. Para um índice de intervalo, o valor de precisão máxima é -1. Pode variar entre 1 e 100 (precisão máxima) para valores de cadeia de caracteres ou números.
+- **Precisão:** Para um índice de hash, isso varia de 1 a 8 para cadeias de caracteres e números e o valor padrão é 3. Para um índice de intervalo, o valor de precisão máxima é -1. Pode variar entre 1 e 100 (precisão máxima) para valores de cadeia de caracteres ou números.
 
 ## <a name="index-kind"></a>Tipo de índice
 
@@ -31,7 +31,7 @@ O Azure Cosmos DB dá suporte a índice de hash e índice de intervalo para cada
 
 - O **índice de intervalo** dá suporte a consultas de igualdade eficientes, consultas de intervalo (usando >, <, >=, <=, !=) e consultas ORDER BY. Por padrão,consultas ORDER By também requerem precisão máxima de índice (-1). O tipo de dados pode ser Cadeia de Caracteres ou Número.
 
-- O **índice espacial** dá suporte a consultas espaciais (interna e de distância) eficientes. Os tipos de dados podem ser Ponto, Polígono ou LineString. O Azure Cosmos DB também dá suporte ao tipo de índice espacial em todos os caminhos que podem ser especificados para os tipos de dados Ponto, Polígono ou LineString. O valor no caminho especificado deve ser um fragmento GeoJSON válido como {"type": "Point", "coordinates": [0.0, 10.0]}. O Azure Cosmos DB dá suporte à indexação automática de tipos de dados Ponto, Polígono e LineString.
+- O **índice espacial** dá suporte a consultas espaciais (interna e de distância) eficientes. Os tipos de dados podem ser Ponto, Polígono ou LineString. O Azure Cosmos DB também dá suporte ao tipo de índice espacial em todos os caminhos que podem ser especificados para os tipos de dados Ponto, Polígono ou LineString. O valor no caminho especificado deve ser um fragmento GeoJSON válido, assim como {"type": "Point", "coordinates": [0.0, 10.0]}. O Azure Cosmos DB dá suporte à indexação automática de tipos de dados Ponto, Polígono e LineString.
 
 A seguir, são apresentados exemplos de consultas em que os índices de Hash, Intervalo e Espaciais podem ser usados:
 
@@ -39,7 +39,7 @@ A seguir, são apresentados exemplos de consultas em que os índices de Hash, In
 | ---------- | ---------------- |
 | Hash  | O hash em /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash em /props/[]/? (or / or /props/) pode ser usado para servir às consultas a seguir eficientemente:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
 | Intervalo  | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
-| Espacial     | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --com indexação nos pontos habilitada<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --com indexação nos polígonos habilitada.     |
+| Espacial     | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --com a indexação nos pontos habilitada<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --com a indexação nos pontos habilitada.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>Comportamento padrão de tipos de índice
 

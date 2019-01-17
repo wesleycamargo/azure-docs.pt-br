@@ -1,5 +1,5 @@
 ---
-title: Acessar redes virtuais do Azure a partir do Aplicativo Lógico do Azure com ISEs (Ambientes de Serviço de Integração)
+title: Acessar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure com ISEs (Ambientes de Serviço de Integração)
 description: Esta visão geral descreve como ISEs (ambientes de serviço de integração) ajudam os aplicativos lógicos a acessarem as VNETs (redes virtuais) do Azure
 services: logic-apps
 ms.service: logic-apps
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845188"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061016"
 ---
-# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acessar recursos de rede virtual do Azure a partir do Aplicativo Lógico do Azure usando ISEs (Ambientes de Serviço de Integração)
+# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acessar recursos de rede virtual do Azure a partir dos Aplicativos Lógicos do Azure usando ISEs (Ambientes de Serviço de Integração)
 
 > [!NOTE]
 > Essa funcionalidade está em *versão prévia privada*. Para solicitar acesso, [crie sua solicitação para ingressar aqui](https://aka.ms/iseprivatepreview).
@@ -33,7 +33,7 @@ Esta visão geral descreve como um ISE fornece acesso direto dos aplicativos ló
 
 ## <a name="isolated-versus-global"></a>Isolado versus global
 
-Ao criar um ISE (ambiente de serviço de integração), você seleciona uma rede virtual do Azure na qual *injeta* o ambiente. O Azure implanta uma instância privada do serviço de Aplicativos Lógicos na rede virtual. Essa ação cria um ambiente isolado em que é possível criar e executar os aplicativos lógicos em recursos dedicados. Ao criar um aplicativo lógico, é possível selecionar esse ambiente como o local do aplicativo, o que também fornece acesso direto do aplicativo lógico aos recursos na rede virtual. 
+Ao criar um ISE (ambiente de serviço de integração), você seleciona a rede virtual do Azure na qual deseja *injetar* o ISE. O Azure implanta uma instância privada do serviço de Aplicativos Lógicos na rede virtual. Essa ação cria um ambiente isolado em que é possível criar e executar os aplicativos lógicos em recursos dedicados. Ao criar um aplicativo lógico, é possível selecionar esse ambiente como o local do aplicativo, o que também fornece acesso direto do aplicativo lógico aos recursos na rede virtual. 
 
 Os aplicativos lógicos em um ISE fornecem as mesmas experiências de usuário e funcionalidades semelhantes às do serviço global dos Aplicativos Lógicos. Não só é possível usar as mesmas ações internas e conectores no serviço global de Aplicativos Lógicos, mas também é possível usar conectores específicos do ISE. Por exemplo, veja alguns conectores padrão que oferecem versões que podem ser executadas em um ISE:
  
@@ -74,7 +74,7 @@ Para sistemas conectados a uma rede virtual, é possível injetar um ISE nessa r
 
 Para sistemas locais que não estão conectados a uma rede virtual ou não têm conectores ISE, é possível conectar a esses sistemas ao [configurar e usar o gateway de dados local](../logic-apps/logic-apps-gateway-install.md).
 
-Antes de selecionar uma rede virtual do Azure para injetar o ambiente, é necessário configurar permissões de RBAC (controle de acesso baseado em função) na rede virtual para o serviço de Aplicativos Lógicos do Azure. Essa tarefa exige que você atribua as funções de **Colaborador de Rede** e **Colaborador Clássico** ao serviço do Aplicativo Lógico do Azure.
+Antes de selecionar uma rede virtual do Azure para injetar o ambiente, é necessário configurar permissões de RBAC (controle de acesso baseado em função) na rede virtual para o serviço de Aplicativos Lógicos do Azure. Essa tarefa exige que você atribua as funções de **Colaborador de Rede** e **Colaborador Clássico** ao serviço dos Aplicativos Lógicos do Azure.
 Para definir essas permissões, consulte [Conectar a redes virtuais do Azure a partir de aplicativos lógicos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)
 
 <a name="create-integration-account-environment"></a>

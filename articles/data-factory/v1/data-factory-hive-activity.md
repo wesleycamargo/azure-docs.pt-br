@@ -9,17 +9,16 @@ ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e8d3b83c8508ae5913975edcbf89f4e70a8b08be
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3dda16450f5454b4fae6d18235b05b7bb29a8b91
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050841"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018851"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Hive no Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -40,7 +39,7 @@ ms.locfileid: "37050841"
 A atividade de Hive do HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa consultas de Hive em [seu próprio cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou no [cluster sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do HDInsight baseado em Windows/Linux. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 
 > [!NOTE] 
-> Se você estiver conhecendo o Azure Data Factory agora, leia a [Introdução ao Azure Data Factory](data-factory-introduction.md) e siga o tutorial [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
+> Se você é novo no Azure Data Factory, leia a [Introdução ao Azure Data Factory](data-factory-introduction.md) e siga o tutorial: [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -76,12 +75,12 @@ A atividade de Hive do HDInsight em um [pipeline](data-factory-create-pipelines.
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Nome |Nome da atividade |sim |
+| Nome |Nome da atividade |SIM |
 | Descrição |Texto que descreve qual a utilidade da atividade |Não  |
-| Tipo |HDInsightHive |sim |
+| Tipo |HDInsightHive |SIM |
 | inputs |Entradas consumidas pela atividade de Hive |Não  |
-| outputs |Saídas produzidas pela atividade de Hive |sim |
-| linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |sim |
+| outputs |Saídas produzidas pela atividade de Hive |SIM |
+| linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |SIM |
 | script |Especifique o script de Hive embutido |Não  |
 | script path |Armazene o script de Hive em um armazenamento de blob do Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. |Não  |
 | defines |Especifique parâmetros como pares chave/valor para referenciar dentro do script de Hive usando 'hiveconf' |Não  |

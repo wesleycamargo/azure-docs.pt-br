@@ -5,21 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 87e6c19268ad8aeb486ce32cf8bfb668e4538a2a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 31ca6deef6d81ca7beb08f6df1a15d52ef381a46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428208"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190384"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Nível de compatibilidade para modelos de tabela do Analysis Services
 
 *Nível de compatibilidade* refere-se a comportamentos específicos à versão no mecanismo do Analysis Services. As alterações para o nível de compatibilidade geralmente coincidem com as versões principais do SQL Server. Essas alterações também são implementadas no Azure Analysis Services para manter a paridade entre as duas plataformas. Alterações de nível de compatibilidade também afetam recursos disponíveis em modelos de tabela. Por exemplo, o DirectQuery e os metadados de objeto de tabela têm implementações diferentes dependendo do nível de compatibilidade. O nível de compatibilidade é especificado no projeto do modelo tabular no Visual Studio (SSDT). Modelos tabulares criados no Power BI Desktop e importados dele estão apenas no nível de compatibilidade 1400.
 
 O Azure Analysis Services dá suporte a modelos de tabela no nível de compatibilidade 1200 e 1400. 
+
+> [!NOTE]
+> O Power BI Desktop de setembro de 2018 e versões posteriores têm um nível de compatibilidade .pbix 1465. Esse nível de compatibilidade tem suporte no Azure Analysis Services. No entanto, importar um arquivo do Power BI Desktop não é recomendado para ambientes de produção. Para obter mais informações, confira [Importar um arquivo do Power BI Desktop](analysis-services-import-pbix.md).
 
 O nível de compatibilidade mais recente é 1400. Esse nível coincide com o Analysis Services do SQL Server 2017. Os principais recursos do nível de compatibilidade 1400 incluem:
 
@@ -29,8 +32,9 @@ O nível de compatibilidade mais recente é 1400. Esse nível coincide com o Ana
 *  Segurança em nível de objeto para nomes de tabela e coluna, além dos dados dentro deles.
 *  Suporte aprimorado para hierarquias desbalanceadas.
 *  Monitoramento de desempenho e melhorias.
-  
-## <a name="set-compatibility-level"></a>Configuração de nível de compatibilidade 
+ 
+## <a name="set-compatibility-level"></a>Configuração de nível de compatibilidade
+
  Ao criar um novo projeto de modelo de tabela no SSDT, você pode especificar o nível de compatibilidade na caixa de diálogo **Designer de modelo de tabela**. 
   
  ![ssas_tabularproject_compat1200](./media/analysis-services-compat-level/aas-tabularproject-compat.png)  
@@ -40,13 +44,16 @@ O nível de compatibilidade mais recente é 1400. Esse nível coincide com o Ana
  Para atualizar um projeto de modelo de tabela existente no SSDT, defina a propriedade do **Nível de compatibilidade** na janela**Propriedades** do modelo. Não se esqueça de que o nível de compatibilidade de atualização é irreversível.
   
 ## <a name="check-compatibility-level-for-a-tabular-model-database-in-sql-server-management-studio"></a>Verifique o nível de compatibilidade de um banco de dados de modelo de tabela no SQL Server Management Studio 
+
  No SSMS, clique o botão direito do mouse no nome do banco de dados > **Propriedades** > **Nível de Compatibilidade**.  
   
 ## <a name="check-supported-compatibility-level-for-a-server-in-ssms"></a>Verifique o nível de compatibilidade com suporte para um servidor no SSMS  
+
  No SSMS, clique o botão direito do mouse no nome do servidor > **Propriedades** > **Nível de Compatibilidade com Suporte**.  
   
  Essa propriedade especifica o nível mais alto de compatibilidade de um banco de dados que será executado no servidor (exceto a visualização). O nível de compatibilidade com suporte não pode ser alterado.  
 
 ## <a name="next-steps"></a>Próximas etapas
+
   [Como criar um modelo no portal do Azure](analysis-services-create-model-portal.md)   
   [Gerenciar o Analysis Services](analysis-services-manage.md)  

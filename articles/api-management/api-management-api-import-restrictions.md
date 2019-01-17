@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: c55a80749506b0a03af2f8c5f0179b67c8a78d15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: bad87931feb11012f23f0ef19bd853b38566c07c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016725"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106817"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
@@ -47,6 +47,7 @@ Arquivos WSDL são usados para gerar as APIs de passagem SOAP ou servir como o b
 * **WCF wsHttpBinding** - Serviços SOAP criados com Windows Communication Foundation devem usar basicHttpBinding - não há suporte para wsHttpBinding.
 * **MTOM** - Serviços usando MTOM <em>podem</em> funcionar. No momento, não oferecemos suporte oficial.
 * **Recursão** - Tipos que são definidos recursivamente (por exemplo, referem-se a uma matriz deles) não têm suporte pelo APIM.
+* **Vários Namespaces** – vários namespaces podem ser usados em um esquema, mas apenas o namespace de destino pode ser usado para definir partes da mensagem. Namespaces que não sejam o destino usados para definir outros elementos de entrada ou saída não são preservados. Embora um documento WSDL desse tipo possa ser importado, na exportação, todas as partes da mensagem terão o namespace de destino do WSDL.
 
 ## <a name="wadl"> </a>WADL
 Atualmente, não há problemas de importação de WADL conhecidos.

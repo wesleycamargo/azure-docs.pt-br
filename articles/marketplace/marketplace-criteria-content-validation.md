@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bf0eac5391ea2d9bbb9ba42887b0a53e075589d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847228"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078007"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -99,8 +99,8 @@ Todas as ofertas precisam cumprir [Todos os requisitos de listagem](https://docs
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre os diferentes tipos de oferta no Marketplace <br>[Aplicativos SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Contêineres](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Serviços de consultoria](https://docs.microsoft.com/azure/marketplace/consulting-services)
-*   [Determinar o tipo de listagem para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Saiba mais sobre os diferentes tipos de oferta no Marketplace. <br>[Aplicativos SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Contêineres](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Serviços de consultoria](https://docs.microsoft.com/azure/marketplace/consulting-services)
+*   [Determinar o tipo de listagem para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
 ---  

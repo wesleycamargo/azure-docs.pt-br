@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9f701f0f6d00d2913eaf5b237435fd375b2030e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 80b1896c55d00a4ac8e5dea62afc08ace1a84249
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435269"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078517"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Sync smart lockout
 
@@ -70,6 +70,14 @@ Para verificar ou modificar os valores de bloqueio inteligente para a sua organi
 > Se o primeiro login depois do bloqueio também falhar, a conta será bloqueada de novo. Se uma conta bloquear repetidamente, o bloqueio aumentará a duração.
 
 ![Personalize a política de bloqueio inteligente do Azure AD no portal do Azure](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+
+## <a name="how-to-determine-if-the-smartlockout-feature-is-working-or-not"></a>Como determinar se o recurso Smartlockout está funcionando
+
+Quando o limite do Smartlockout for atingido, você receberá a seguinte mensagem enquanto a conta é bloqueada:
+
+**Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente depois e, se ainda tiver problemas, entre em contato com seu administrador.**
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
 [Descubra como banir senhas ruins na sua organização usando Azure AD.](howto-password-ban-bad.md)

@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104026"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103308"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar conexões coexistentes Site a Site e ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "53104026"
 > 
 
 
-Este artigo ajuda você a configurar conexões de VPN site a site e de ExpressRoute que coexistam. Poder configurar a VPN site a site e o ExpressRoute tem várias vantagens. Você pode configurar um VPN Site a Site como um caminho de failover seguro para o ExpressRoute ou usar VPNs Site a Site para se conectar a sites que não estão conectados por meio do ExpressRoute. Neste artigo, analisaremos as etapas para configurar as duas situações. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos.
+Este artigo descreve como configurar as conexões VPN site a site e de ExpressRoute que coexistam. Poder configurar a VPN site a site e o ExpressRoute tem várias vantagens. Você pode configurar um VPN Site a Site como um caminho de failover seguro para o ExpressRoute ou usar VPNs Site a Site para se conectar a sites que não estão conectados por meio do ExpressRoute. Neste artigo, analisaremos as etapas para configurar as duas situações. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos.
 
 Configurar conexões coexistentes VPN Site a Site e a ExpressRoute tem várias vantagens:
 
@@ -43,6 +43,7 @@ As etapas para configurar as duas situações são cobertas neste artigo. Este a
 * **Não há suporte para o gateway SKU básico.** Você deve usar um gateway SKU não Básico para o [gateway de ExpressRoute](expressroute-about-virtual-network-gateways.md) e o [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Há suporte para apenas um gateway de VPN baseado em rotas.** Você deve usar uma rota baseada no [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **O roteamento estático deve ser configurado para o gateway de VPN.** Se sua rede local estiver conectada à VPN Site a Site e de ExpressRoute, será necessário ter uma rota estática configurada em sua rede local para rotear a conexão VPN Site a Site para a Internet pública.
+* **O Gateway de VPN usa ASN 65515 como padrão se essa opção não é especificada.** O Gateway de VPN do Azure dá suporte ao protocolo de roteamento BGP. Você pode especificar o ASN (número AS) de uma rede virtual adicionando a opção -Asn. Se você não especificar esse parâmetro, o número AS padrão será 65515. Você pode usar qualquer ASN para a configuração, mas se selecionar algo diferente de 65515, precisará redefinir o gateway para que a configuração entre em vigor.
 
 ## <a name="configuration-designs"></a>Designs de configuração
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurar uma VPN site a site como um caminho de failover para o ExpressRoute

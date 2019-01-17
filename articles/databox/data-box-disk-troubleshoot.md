@@ -4,30 +4,27 @@ description: Descreve como solucionar os problemas observados no Azure Data Box 
 services: databox
 author: alkohli
 ms.service: databox
-ms.topic: overview
-ms.date: 10/09/2018
+ms.subservice: disk
+ms.topic: article
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 776108b109bc27e0f8059d287e87c67aeca9fbd2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091837"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191693"
 ---
-# <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Solucionar problemas no Azure Data Box Disk (versão prévia)
+# <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Solucionar problemas no Azure Data Box Disk
 
-Este artigo se aplica ao Microsoft Azure Data Box que está executando a versão prévia. Este artigo descreve alguns dos fluxos de trabalho complexos e tarefas de gerenciamento que podem ser executadas na Data Box e Data Box Disk. 
+Este artigo se aplica ao Microsoft Azure Data Box Disk e descreve os fluxos de trabalho usados para solucionar quaisquer problemas que você encontrar ao implantar essa solução. 
 
-Você pode gerenciar o Data Box Disk pelo portal do Azure. Este artigo se concentra nas tarefas que você pode executar usando o portal do Azure. Use o Portal do Azure para gerenciar pedidos, gerenciar dispositivos e acompanhar o status do pedido, conforme ele progride para a conclusão.
-
-Este artigo inclui os seguintes tutoriais:
+Este artigo inclui as seguintes seções:
 
 - Fazer download de logs de diagnóstico
 - Consultar logs de atividade
-
-
-> [!IMPORTANT]
-> O Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução.
+- Erros da ferramenta de desbloqueio do Data Box Disk
+- Erros da ferramenta de cópia de divisão do Data Box Disk
 
 ## <a name="download-diagnostic-logs"></a>Fazer download de logs de diagnóstico
 
@@ -76,20 +73,89 @@ Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer int
 | Não foi possível desbloquear ou verificar os volumes. Contatar Suporte da Microsoft  <br><br>A ferramenta não consegue desbloquear ou verificar qualquer unidade bloqueada. | A ferramenta não conseguiu desbloquear as unidades bloqueadas com a chave de acesso fornecida. Contate o Suporte da Microsoft para as próximas etapas.                                                |
 | Os volumes a seguir foram desbloqueados e verificados. <br>Letras de unidade de volume: E:<br>Não foi possível desbloquear os volumes com as seguintes chaves de acesso: werwerqomnf, qwerwerqwdfda <br><br>A ferramenta desbloqueia algumas unidades e lista as letras de unidade bem-sucedidas e com falha.| Êxito parcial. Não foi possível desbloquear algumas unidades com a chave de acesso fornecida. Contate o Suporte da Microsoft para as próximas etapas. |
 | Não foi possível localizar os volumes bloqueados. Verifique se o disco recebido da Microsoft está conectado corretamente e está em estado bloqueado.          | A ferramenta não consegue encontrar unidades bloqueadas. Ou as unidades já estão desbloqueadas ou não foram detectadas. Verifique se as unidades estão conectadas e bloqueadas.                                                           |
-| Erro fatal: parâmetro inválido<br>Nome do parâmetro: nvalid_arg<br>USO:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Exemplo: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exemplo: DataBoxDiskUnlock /SystemCheck<br>Exemplo: DataBoxDiskUnlock /Help<br><br>/PassKeys:       obtenha essa chave de acesso do pedido do Azure DataBox Disk. A chave de acesso desbloqueia seus discos.<br>/Help:           esta opção fornece ajuda sobre o uso de cmdlet e exemplos.<br>/SystemCheck:    esta opção verifica se o seu sistema atende aos requisitos para executar a ferramenta.<br><br>Pressione qualquer tecla para sair. | Parâmetro inválido inserido. Os únicos parâmetros permitidos são /SystemCheck, /PassKey e /Help.                                                                            |
+| Erro fatal: Parâmetro inválido<br>Nome do parâmetro: nvalid_arg<br>USO:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Exemplo: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exemplo: DataBoxDiskUnlock /SystemCheck<br>Exemplo: DataBoxDiskUnlock /Help<br><br>/PassKeys:       obtenha essa chave de acesso do pedido do Azure DataBox Disk. A chave de acesso desbloqueia seus discos.<br>/Help:           esta opção fornece ajuda sobre o uso de cmdlet e exemplos.<br>/SystemCheck:    essa opção verifica se o sistema atende aos requisitos para executar a ferramenta.<br><br>Pressione qualquer tecla para sair. | Parâmetro inválido inserido. Os únicos parâmetros permitidos são /SystemCheck, /PassKey e /Help.                                                                            |
 
 ## <a name="data-box-disk-split-copy-tool-errors"></a>Erros da ferramenta de cópia de divisão do Data Box Disk
 
 |Mensagem de erro/avisos  |Recomendações |
 |---------|---------|
 |[Informações] Recuperação de senha do BitLocker para o volume: m <br>[Erro] Exceção detectada ao recuperar a chave do BitLocker para o volume m:<br> A sequência não contém elementos.|Esse erro será gerado se o Data Box Disk de destino estiver offline. <br> Use a ferramenta `diskmgmt.msc` em discos online.|
-|[Erro] Exceção gerada: falha na operação do WMI:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message = o formato da senha de recuperação fornecida é inválido. <br>As senhas de recuperação do BitLocker têm 48 dígitos. <br>Verifique se a senha de recuperação está no formato correto e, em seguida, tente novamente.|Use a ferramenta de desbloqueio do Data Box Disk para desbloquear os discos e repita o comando. Para obter mais informações, acesse <li> [Desbloquear Disco do Data Box para clientes Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Desbloquear Disco do Data Box para clientes Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
-|[Erro] Exceção gerada: existe um arquivo DriveManifest.xml na unidade de destino. <br> Isso indica que a unidade de destino pode ter sido preparada com um arquivo de diário diferente. <br>Para adicionar mais dados à mesma unidade, use o arquivo de diário anterior. Para excluir dados existentes e reutilizar a unidade de destino para um novo trabalho de importação, exclua DriveManifest.xml na unidade. Execute o comando novamente com um novo arquivo de diário.| Esse erro é recebido quando você tenta usar o mesmo conjunto de unidades para várias sessões de importação. <br> Use um conjunto de unidades apenas para uma sessão de divisão e cópia.|
+|[Erro] Exceção gerada: A operação de WMI falhou:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message = o formato da senha de recuperação fornecida é inválido. <br>As senhas de recuperação do BitLocker têm 48 dígitos. <br>Verifique se a senha de recuperação está no formato correto e, em seguida, tente novamente.|Use a ferramenta de desbloqueio do Data Box Disk para desbloquear os discos e repita o comando. Para obter mais informações, acesse <li> [Desbloquear Data Box Disk para clientes Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Desbloquear Data Box Disk para clientes Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
+|[Erro] Exceção gerada: Existe um arquivo de DriveManifest.xml na unidade de destino. <br> Isso indica que a unidade de destino pode ter sido preparada com um arquivo de diário diferente. <br>Para adicionar mais dados à mesma unidade, use o arquivo de diário anterior. Para excluir dados existentes e reutilizar a unidade de destino para um novo trabalho de importação, exclua DriveManifest.xml na unidade. Execute o comando novamente com um novo arquivo de diário.| Esse erro é recebido quando você tenta usar o mesmo conjunto de unidades para várias sessões de importação. <br> Use um conjunto de unidades apenas para uma sessão de divisão e cópia.|
 |[Erro] Exceção gerada: CopySessionId importdata-sept-test-1 se refere a uma sessão de cópia anterior e não pode ser reutilizado para uma nova sessão de cópia.|Esse erro é relatado ao tentar usar o mesmo nome de um trabalho anterior concluído com êxito para um novo trabalho.<br> Atribua um nome exclusivo para seu trabalho.|
 |[Informações] O nome do arquivo ou diretório de destino ultrapassa o limite de comprimento NTFS. |Esta mensagem é relatada quando o arquivo de destino foi renomeado devido a um caminho de arquivo longo.<br> Modifique a opção de descarte no arquivo `config.json` para controlar esse comportamento.|
-|[Erro] Exceção gerada: sequência de escape JSON inválida. |Esta mensagem é relatada quando o config.json tem formato que não é válido. <br> Validar sua `config.json` usando [JSONlint](https://jsonlint.com/) antes de salvar o arquivo.|
+|[Erro] Exceção gerada: Sequência de escape JSON inválida. |Esta mensagem é relatada quando o config.json tem formato que não é válido. <br> Validar sua `config.json` usando [JSONlint](https://jsonlint.com/) antes de salvar o arquivo.|
 
+## <a name="deployment-issues-for-linux"></a>Problemas de implantação para Linux
 
+Esta seção apresenta detalhes sobre alguns dos principais problemas enfrentados durante a implantação do Data Box Disk ao usar um cliente Linux para cópia de dados.
+
+### <a name="issue-drive-getting-mounted-as-read-only"></a>Problema: Unidade sendo montada como somente leitura
+ 
+**Causa** 
+
+Isso pode ser devido a um sistema de arquivos não limpo. 
+
+- Remontar uma unidade como leitura não funciona com Data Box Disks. Não há suporte para esse cenário em unidades descriptografadas pelo dislocker. 
+- Remontar como leitura-gravação não funcionará. Você pode ter remontado o dispositivo com sucesso usando o seguinte comando: 
+
+    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+
+   Embora a remontagem tenha sido bem-sucedida, os dados não persistirão.
+
+**Resolução**
+
+Se você vir o erro acima, poderá tentar uma das seguintes resoluções:
+
+- Instale [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (disponível no pacote `ntfsprogs`) e execute-o em relação à partição relevante.
+
+- Se você tiver acesso a um sistema Windows
+
+    - Carregue a unidade no sistema Windows.
+    - Abra uma prompt de comando com privilégios de administrativos. Execute `chkdsk` no volume.
+    - Remova o volume com segurança e tente novamente.
+ 
+### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problema: Erro de dados não persistirem após a cópia
+ 
+**Causa** 
+
+Se você vir que sua unidade não tem dados depois de ter sido desmontada (embora os dados tenham sido copiados para ela), talvez você tenha remontado uma unidade como leitura-gravação depois de a unidade ter sido montada como somente leitura.
+
+**Resolução**
+ 
+Se esse for o caso, confira a resolução para [unidades sendo montadas como somente leitura](#issue-drive-getting-mounted-as-read-only).
+
+Se esse não for o caso, escolha [baixar logs de diagnóstico](#download-diagnostic-logs) do seu sistema e [contate o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
+
+## <a name="deployment-issues-for-windows"></a>Problemas de implantação para Windows
+
+Esta seção apresenta detalhes sobre alguns dos principais problemas enfrentados durante a implantação do Data Box Disk ao usar um cliente Linux para cópia de dados
+
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: Não foi possível desbloquear a unidade do BitLocker
+ 
+**Causa** 
+
+Você usou a senha na caixa de diálogo do BitLocker e tentou desbloquear o disco usando a caixa de diálogo desbloquear unidades do BitLocker. Isso não funcionaria. 
+
+**Resolução**
+
+Para desbloquear Data Box Disks, você precisa usar a ferramenta de Desbloqueio do Data Box Disk e fornecer a senha do portal do Azure.
+ 
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: Não foi possível desbloquear nem verificar alguns volumes. Contatar Suporte da Microsoft
+ 
+**Causa** 
+
+Talvez você veja o seguinte erro no log de erros e não consiga desbloquear nem verificar alguns volumes.
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+Isso indica que você provavelmente não tem a versão apropriada do Windows PowerShell no seu cliente do Windows.
+
+**Resolução**
+
+Você pode instalar o [Windows PowerShell v5.0](https://www.microsoft.com/download/details.aspx?id=54616) e repetir a operação.
+ 
+Se você ainda não conseguir desbloquear os volumes, [entre em contato com o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 821aecf5549548365d95ef83ea1fcdeb017a4a21
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321436"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190163"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Criar uma tabela de rotas do Hub Virtual para conduzir o tráfego para uma solução de virtualização de rede
 
@@ -43,7 +43,7 @@ Verifique se você atende aos seguintes critérios:
 
 ## <a name="signin"></a>1. Entrar
 
-Certifique-se de instalar a versão mais recente dos cmdlets do PowerShell do Resource Manager. Para saber mais sobre como instalar cmdlets do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Isso é importante porque as versões anteriores dos cmdlets não contêm os valores atuais que são necessários para este exercício.
+Certifique-se de instalar a versão mais recente dos cmdlets do PowerShell do Resource Manager. Para saber mais sobre como instalar cmdlets do PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/overview). Isso é importante porque as versões anteriores dos cmdlets não contêm os valores atuais que são necessários para este exercício. Os módulos nos exemplos a seguir são o Azure RM. Este artigo será atualizado para o Azure Az no futuro.
 
 1. Abra o console do PowerShell com privilégios elevados e entre na sua conta do Azure. Esse cmdlet solicita as credenciais de entrada. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970324"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158203"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso em modelos de portal do desenvolvedor.  
@@ -108,7 +108,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Tem certeza de que deseja remover o aplicativo?|  
 |WebDevelopersAppNotPublished|Não publicado|  
-|WebDevelopersAppNotSubminted|Não enviado|  
+|WebDevelopersAppNotSubmitted|Não enviado|  
 |WebDevelopersAppTableCategoryHeader|Categoria|  
 |WebDevelopersAppTableNameHeader|NOME|  
 |WebDevelopersAppTableStateHeader|Estado|  
@@ -275,7 +275,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|OBRIGATÓRIO. O tipo do token emitido.|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|OBRIGATÓRIO. O tipo do token emitido.|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OBRIGATÓRIO. O nome de usuário do proprietário do recurso.|  
-|OAuth2UnsupportedTokenType|Tipo de token '{0}' não é suportado.|  
+|OAuth2UnsupportedTokenType|Não há suporte para o tipo de token '{0}'.|  
 |OAuth2InvalidState|Resposta inválida do servidor de autorização|  
 |OAuth2GrantType_AuthorizationCode|Código de autorização|  
 |OAuth2GrantType_Implicit|Implícito|  
@@ -361,7 +361,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |WebProductsUsageLimitsHeader|Limites de uso|  
 |WebProductsYouAreNotSubscribed|Você assinou este produto.|  
 |WebProductsYouRequestedSubscription|Você solicitou a assinatura para este produto.|  
-|ErrorYouNeedtoAgreeWithLegalTerms|Você deve concordar com os Termos de Uso antes de continuar.|  
+|ErrorYouNeedToAgreeWithLegalTerms|Você deve concordar com os Termos de Uso antes de continuar.|  
 |ButtonLabelAddSubscription|Adicionar assinatura|  
 |LinkLabelChangeSubscriptionName|alterar|  
 |ButtonLabelConfirm|Confirmar|  
@@ -517,7 +517,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |WebDevelopersSecondaryKey|Chave secundária|  
 |ButtonLabelShowKey|Mostrar|  
 |ButtonLabelRenewSubscription|Renew|  
-|WebDevelopersSubscriptionReqested|Solicitado em {0}|  
+|WebDevelopersSubscriptionRequested|Solicitado em {0}|  
 |WebDevelopersSubscriptionRequestedState|Solicitado|  
 |WebDevelopersSubscriptionTableNameHeader|NOME|  
 |WebDevelopersSubscriptionTableStateHeader|Estado|  
