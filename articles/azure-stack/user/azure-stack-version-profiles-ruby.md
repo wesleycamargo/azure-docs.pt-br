@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 0e7d624c77447f537e6d47ea19d9054c1117d742
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: aafeeab50a60116ac93cbfa8acb0375224453b03
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263639"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353984"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Use perfis de versão de API com o Ruby no Azure Stack
 
@@ -33,7 +33,7 @@ O SDK do Ruby do Azure Stack Resource Manager fornece ferramentas para ajudá-lo
 Um perfil de API é uma combinação de provedores de recursos e as versões de serviço. Você pode usar um perfil de API para combinar diferentes tipos de recursos.
 
 - Para usar as versões mais recentes de todos os serviços, use o **mais recente** perfil da gem de pacote cumulativo de atualizações do SDK do Azure.
-- Para usar os serviços compatíveis com o Azure Stack, use o **V2017_03_09** perfil da gem de pacote cumulativo de atualizações do SDK do Azure.
+- Para usar os serviços compatíveis com o Azure Stack, use o **V2018_03_01** perfil da gem de pacote cumulativo de atualizações do SDK do Azure.
 - Para usar a versão mais recente **api-version** de um serviço, use o **mais recente** perfil da gem específico. Por exemplo, se você gostaria de usar a versão mais recente **api-version** do serviço de computação sozinho, use o **mais recente** perfil dos **computação** gem.
 - Para usar um determinado **versão da api** para um serviço, use as versões de API específicas definidas dentro do gem.
 
@@ -72,12 +72,12 @@ O SDK do Ruby do Azure Resource Manager está em visualização e provavelmente 
 
 ## <a name="use-the-azuresdk-gem"></a>Use o gem azure_sdk
 
-O gem **azure_sdk**, é um rollup de todas as gems com suporte no SDK do Ruby. Vejam essa pérola consiste em uma **mais recente** perfil, que oferece suporte a versão mais recente de todos os serviços. Ele apresenta um perfil de controle de versão **V2017_03_09** perfil, que é criado para o Azure Stack.
+O gem **azure_sdk**, é um rollup de todas as gems com suporte no SDK do Ruby. Vejam essa pérola consiste em uma **mais recente** perfil, que oferece suporte a versão mais recente de todos os serviços. Ele apresenta o perfil de controle de versão duas **V2017_03_09** e **V2018_03_01** perfis, que são criados para o Azure Stack.
 
 Você pode instalar a gem azure_sdk pacote cumulativo de atualizações com o seguinte comando:  
 
 ```Ruby  
-gem install 'azure_sdk
+gem install 'azure_sdk'
 ```
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -127,11 +127,12 @@ Para definir as variáveis de ambiente em um prompt de comando do Windows, use o
 
 ## <a name="existing-api-profiles"></a>Perfis de API existentes
 
-Gem Azure_sdk rollup tem os seguintes dois perfis:
+Gem Azure_sdk rollup tem os seguintes três perfis:
 
-1. **V2017_03_09**  
+1. **V2018_03_01** perfil criado para o Azure Stack. Use esse perfil para utilizar todas as versões mais recentes dos serviços disponíveis no Azure Stack.
+2. **V2017_03_09**  
   Perfil criado para o Azure Stack. Use esse perfil para os serviços sejam mais compatíveis com o Azure Stack.
-2. **Mais recente**  
+3. **Mais recente**  
   Perfil consiste em versões mais recentes de todos os serviços. Use as versões mais recentes de todos os serviços.
 
 Para obter mais informações sobre perfis de API e o Azure Stack, consulte o [perfis de resumo da API](azure-stack-version-profiles.md#summary-of-api-profiles).
@@ -158,7 +159,7 @@ options = {
 }
 
 # Target profile built for Azure Stack
-client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
 ```
 
 O cliente de perfil pode ser usado para acessar os provedores de recursos individuais, como computação, armazenamento e rede:
@@ -172,7 +173,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 
 # Option 2: To access the models associated with Compute
 # Notice Namespace: Azure::Profiles::<Profile Name>::<Service Name>::Mgmt::Models::<Model Name>
-purchase_plan_obj = Azure::Profiles::V2017_03_09::Compute::Mgmt::Models::PurchasePlan.new
+purchase_plan_obj = Azure::Profiles::V2018_03_01::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Definir funções de configuração do ambiente do Azure Stack
@@ -201,27 +202,27 @@ end
 
 Você pode usar os exemplos a seguir encontrados no GitHub como referências para a criação de soluções com perfis de Ruby e API do Azure Stack:
 
-- [Gerenciar recursos e grupos de recursos do Azure com Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
-- [Gerenciar máquinas virtuais usando o Ruby](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)
-- [Implantar uma VM Habilitada para SSH com um Modelo no Ruby](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/tree/master/Hybrid)
+- [Gerenciar recursos e grupos de recursos do Azure com Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)
+- [Gerenciar máquinas virtuais usando o Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)
+- [Implantar uma VM Habilitada para SSH com um Modelo no Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment)
 
 ### <a name="sample-resource-manager-and-groups"></a>Exemplo de Gerenciador de recursos e grupos
 
 Para executar o exemplo, verifique se você instalou o Ruby. Se você estiver usando o Visual Studio Code, baixe a extensão do SDK do Ruby.
 
 > [!NOTE]  
-> Você pode obter o repositório para o exemplo em "[gerenciar recursos do Azure e grupos de recursos com o Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)".
+> Você pode obter o repositório para o exemplo em "[gerenciar recursos do Azure e grupos de recursos com o Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)".
 
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups.git
+   git clone https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups.git
    ```
 
 2. Instale as dependências usando o pacote:
 
    ```Bash
-   cd resource-manager-ruby-resources-and-groups\Hybrid\
+   cd Hybrid-Resource-Manager-Ruby-Resources-And-Groups
    bundle install
    ```
 
@@ -269,7 +270,7 @@ Para executar o exemplo, verifique se você instalou o Ruby. Se você estiver us
 7. Crie um cliente de perfil que tem como alvo o perfil do Azure Stack:
 
    ```ruby  
-   client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+   client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
    ```
 
 8. Para autenticar a entidade de serviço com o Azure Stack, os pontos de extremidade devem ser definidos usando **get_active_directory_settings()**. Esse método usa o **ARM_Endpoint** variável de ambiente que você definir durante o estabelecimento de suas variáveis de ambiente:
