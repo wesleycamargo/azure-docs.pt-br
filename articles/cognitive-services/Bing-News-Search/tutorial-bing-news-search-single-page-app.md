@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: tutorial
-ms.date: 10/30/2017
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 02cfd00b8ab1f51c46e745dae480e39dee2ed710
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262037"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262329"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: criar um aplicativo Web de página única
 
-A API de Pesquisa de Notícias do Bing permite que você faça pesquisas na Web e obtenha resultados dos tipos de notícias relevantes para uma consulta de pesquisa. Neste tutorial, criaremos um aplicativo Web de página única que usa a API de Pesquisa de Notícias do Bing para exibir os resultados da pesquisa na página. O aplicativo inclui componentes HTML, CSS e JavaScript.
+A API de Pesquisa de Notícias do Bing permite que você faça pesquisas na Web e obtenha resultados dos tipos de notícias relevantes para uma consulta de pesquisa. Neste tutorial, criaremos um aplicativo Web de página única que usa a API de Pesquisa de Notícias do Bing para exibir os resultados da pesquisa na página. O aplicativo inclui componentes HTML, CSS e JavaScript. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -39,8 +39,6 @@ O aplicativo de tutorial ilustra como:
 > * Tratar erros que podem ocorrer
 
 A página do tutorial é completamente autossuficiente; ela não usa estruturas externas, folhas de estilo nem arquivos de imagem. Ela usa apenas recursos de linguagem JavaScript amplamente compatíveis e funciona com as versões atuais de todos os principais navegadores da Web.
-
-Neste tutorial, abordaremos as partes selecionadas do código-fonte. O [código-fonte](tutorial-bing-news-search-single-page-app-source.md) completo está disponível. Para executar o exemplo, copie e cole o código-fonte em um editor de texto e salve-o como `bing.html`.
 
 ## <a name="app-components"></a>Componentes do aplicativo
 Como qualquer aplicativo Web de página única, esse aplicativo de tutorial inclui três partes:

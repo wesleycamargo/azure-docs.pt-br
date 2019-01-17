@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890374"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246357"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
 
@@ -236,7 +236,7 @@ Os serviços são especificados no modelo como propriedades do recurso de aplica
   },
   "resources": [
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "MyMeshApplication",
       "type": "Microsoft.ServiceFabricMesh/applications",
       "location": "[parameters('location')]",
@@ -319,7 +319,7 @@ Os serviços são especificados no modelo como propriedades do recurso de aplica
       }
     },
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "ServiceAVolume",
       "type": "Microsoft.ServiceFabricMesh/volumes",
       "location": "[parameters('location')]",
@@ -375,7 +375,7 @@ Essa informação vem da seção ```outputs``` no modelo ARM. Conforme mostrado 
 ```json
   "outputs": {
     "publicIPAddress": {
-      "value": "[reference('helloWorldGateway').ipAddress]",
+      "value": "[reference('todolistappGateway').ipAddress]",
       "type": "string"
     }
   }
@@ -386,7 +386,7 @@ Essa informação vem da seção ```outputs``` no modelo ARM. Conforme mostrado 
 Depois que o aplicativo é implantado com êxito, obtenha o endereço IP público para o ponto de extremidade de serviço. O comando de implantação retorna o endereço IP público do ponto de extremidade de serviço. Opcionalmente, você também pode consultar o recurso de rede para localizar o endereço IP público do ponto de extremidade de serviço. O nome do recurso de rede para este aplicativo é `todolistappNetwork`, buscar informações sobre ele usando o comando a seguir. 
 
 ```azurecli
-az mesh network show --resource-group myResourceGroup --name todolistappNetwork
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 Navegue até o endereço IP em um navegador da web.

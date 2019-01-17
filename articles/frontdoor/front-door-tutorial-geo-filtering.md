@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/20/2018
 ms.author: sharadag
-ms.openlocfilehash: c4032f7c33cec7b7a7864ccff07a05b87c945949
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988572"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214871"
 ---
 # <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>Como configurar uma política de filtragem geográfica para o Front Door
 Este tutorial mostra como usar o Azure PowerShell para criar uma política de filtragem geográfica de exemplo e associar a política a seu host de front-end Front Door existente. Essa política de filtragem geográfica de exemplo bloqueará as solicitações de todos os outros países, exceto dos Estados Unidos.
@@ -47,7 +47,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 ```
 
 ## <a name="2-define-geo-filtering-match-conditions"></a>2. Definir as condições de correspondência da filtragem geográfica
-Primeiro, crie uma condição de correspondência de exemplo que seleciona as solicitações não provenientes de "US". Consulte o [guia](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) do PowerShell sobre parâmetros durante a criação de uma condição de correspondência. O código do país de duas letras para o mapeamento de país é fornecido [aqui](/Protection/GeoFiltering).
+Primeiro, crie uma condição de correspondência de exemplo que seleciona as solicitações não provenientes de "US". Consulte o [guia](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) do PowerShell sobre parâmetros durante a criação de uma condição de correspondência. O código do país de duas letras para o mapeamento de país é fornecido [aqui](front-door-geo-filtering.md).
 
 ```
 $nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"

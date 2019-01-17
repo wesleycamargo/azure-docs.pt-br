@@ -16,12 +16,12 @@ ms.workload: ''
 ms.date: 05/02/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2b8766a5353b015030872176e9032034afb7cb9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a0153cf11c3fe817ce397b4d0c47a786a4334f39
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779514"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214803"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>Modelos de exemplo de política do Azure para a rede virtual
 
@@ -43,7 +43,7 @@ A tabela a seguir inclui links para modelos de exemplo do [Azure Policy](../azur
 | [Exigir padrão de correspondência](../azure-policy/scripts/enforce-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Verifique se os nomes de recursos correspondem a um padrão de nomenclatura especificado. |
 | [Exigir padrão de correspondência de marcas](../azure-policy/scripts/enforce-tag-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Certifique-se de que um valor de marca corresponde a um padrão de texto. |
 |**Marcas**||
-| [Iniciativa de política de marcas de cobrança](../azure-policy/scripts/billing-tags-policy-init.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Exige valores de marca especificados para o nome do produto e o centro de custo. Usa políticas internas para aplicar e impor as marcas necessárias. Especifique os valores necessários para as marcas.  |
+| [Iniciativa de política de marcas de cobrança](../governance/policy/samples/billing-tags-policy-initiative.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Exige valores de marca especificados para o nome do produto e o centro de custo. Usa políticas internas para aplicar e impor as marcas necessárias. Especifique os valores necessários para as marcas.  |
 | [Impor marca e seu valor em grupos de recursos](../azure-policy/scripts/enforce-tag-rg.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Exige uma marca e um valor em um grupo de recursos. Especifique o nome e o valor da marca exigidos.  |
 | [Impor marca e seu valor](../azure-policy/scripts/enforce-tag-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Exige um nome e um valor de marca especificados. Especifique o nome e o valor da marca a serem impostos.  |
 | [Aplicar marca e seu valor padrão](../azure-policy/scripts/apply-tag-def-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Acrescentará um nome e um valor de marca especificados se a marca não for indicada. Especifique o nome e o valor da marca a serem aplicados.  |
