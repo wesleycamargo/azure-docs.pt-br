@@ -1,17 +1,19 @@
 ---
 title: Excluir discos da replicação durante a configuração da recuperação de desastre com o serviço Azure Site Recovery | Microsoft Docs
 description: Descreve como excluir discos de VM da replicação durante a recuperação de desastre no Azure.
-author: nsoneji
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 7de9dc497b1c9ee29b46aa0d645b7b28676cb22d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/19/2019
+ms.author: mayg
+ms.openlocfilehash: 9b26c80b59a57b4a9b2423e1a9028cf723f40fb1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849013"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321221"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 Este artigo descreve como excluir discos da replicação. Essa exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos de destino que esses discos utilizam.
@@ -165,7 +167,7 @@ DB-Disk4 | Disk4 | G:\ | User Database2
 Vamos considerar uma máquina virtual que tem um disco de arquivo de paginação que pode ser excluído.
 Existem dois casos.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: o arquivo de paginação está configurado na unidade D:
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: O arquivo de paginação está configurado na unidade D:
 Aqui está a configuração de disco:
 
 **Nome do disco** | **Sistema operacional convidado - disco nº** | **Letra da unidade** | **Tipo de dados no disco**
@@ -194,7 +196,7 @@ Aqui estão as configurações de arquivo de paginação na máquina virtual do 
 
 ![Configurações do arquivo de paginação na máquina virtual do Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: o arquivo de paginação está configurado em outra unidade (que não a unidade D:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: O arquivo de paginação está configurado em outra unidade (diferente da unidade D:)
 
 Aqui está a configuração de disco de máquina virtual de origem:
 

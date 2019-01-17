@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 768a9d930314882f88eab630365475d69aa5f83b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134821"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213715"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível Acessar este Aplicativo Corporativo" ao usar um aplicativo de Proxy de Aplicativo
 
@@ -62,7 +62,7 @@ Um erro de gateway incorreto indica que o conector não consegue alcançar o apl
 
 Se você se deparar com um erro proibido, significa que o usuário não foi atribuído ao aplicativo. Esse erro pode ser no Azure Active Directory ou no aplicativo back-end.
 
-Para saber como atribuir usuários ao aplicativo no Azure, consulte a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
+Para saber como atribuir usuários ao aplicativo no Azure, consulte a [documentação de configuração](application-proxy-add-on-premises-application.md#test-the-application).
 
 Se você confirmar que o usuário está atribuído ao aplicativo no Azure, verifique a configuração do usuário no aplicativo back-end. Se você estiver usando Delegação Restrita de Kerberos/Autenticação Integrada do Windows, consulte a página Solucionar problemas de KCD para ver diretrizes.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 898080f445c54c93543a481bdd0487c70e772160
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994327"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214380"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução ao Azure Data Lake Storage Gen2 Preview
 
@@ -51,7 +51,7 @@ O Armazenamento do Azure é dimensionável por design, independentemente de voc�
 
 ### <a name="cost-effectiveness"></a>Custo-benefício
 
-Um dos muitos benefícios da criação do Data Lake Storage Gen2 no Armazenamento de Blobs do Azure é o baixo custo de capacidade de armazenamento e transações. Ao contrário de outros serviços de armazenamento em nuvem, os dados armazenados no Data Lake Storage Gen2 não precisam ser movidos ou transformados antes de executar a análise. Para obter mais informações sobre preços, confira [Preços de Armazenamento do Azure]((https://azure.microsoft.com/pricing/details/storage)).
+Um dos muitos benefícios da criação do Data Lake Storage Gen2 no Armazenamento de Blobs do Azure é o baixo custo de capacidade de armazenamento e transações. Ao contrário de outros serviços de armazenamento em nuvem, os dados armazenados no Data Lake Storage Gen2 não precisam ser movidos ou transformados antes de executar a análise. Para obter mais informações sobre preços, confira [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage).
 
 Além disso, recursos como o [namespace hierárquico](data-lake-storage-namespace.md) melhoram significativamente o desempenho geral de muitas tarefas de análise. Essa melhoria no desempenho significa que você precisa de menos poder computacional para processar a mesma quantidade de dados, resultando em um custo total de propriedade (TCO) mais baixo para o trabalho analítico de ponta a ponta.
 

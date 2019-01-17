@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
-ms.openlocfilehash: a8d588b186652ab86ee1e8152bd9be08f0f1ef04
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978713"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193280"
 ---
 As Estatísticas do Bing fornecem análise para APIs de Pesquisa do Bing. A análise inclui o volume de chamadas, as principais cadeias de caracteres de consulta, a distribuição geográfica, e muito mais. Para habilitar as Estatísticas do Bing na assinatura paga da Pesquisa do Bing, navegue até o [painel do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), selecione a assinatura paga e clique em Habilitar Estatísticas do Bing. Habilitar as Estatísticas do Bing aumenta ligeiramente a taxa de assinatura (consulte o [preço](https://aka.ms/bingstatisticspricing)).
 

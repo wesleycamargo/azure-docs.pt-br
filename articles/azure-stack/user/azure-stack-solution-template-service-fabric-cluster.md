@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087264"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351842"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implantar um cluster do Service Fabric no Azure Stack
 
@@ -118,7 +118,7 @@ Use o seguinte script para criar o Cofre de chaves e adicionar o *certificado de
    ``` 
 
 
-Para obter mais informações, consulte [Gerenciar cofre de chaves no Azure Stack com o PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+Para obter mais informações, consulte [Gerenciar cofre de chaves no Azure Stack com o PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell).
 
 ## <a name="deploy-the-marketplace-item"></a>Implantar o item do Marketplace
 
@@ -138,12 +138,12 @@ Para obter mais informações, consulte [Gerenciar cofre de chaves no Azure Stac
 
    Para o *impressão digital do certificado de cliente de administrador*, insira a impressão digital do *certificado de cliente administrador*. (Consulte a [pré-requisitos](#prerequisites).)
    
-   - Cofre de chaves de origem: Especificar toda *id do keyVault* cadeia de caracteres do que os resultados do script. 
+   - Key Vault de origem:  Especificar toda *id do keyVault* cadeia de caracteres do que os resultados do script. 
    - URL do certificado de cluster: Especificar a URL inteira na *segredo Id* dos resultados do script. 
-   - Impressão digital do certificado de cluster: especifique o *impressão digital do certificado de Cluster* dos resultados do script.
+   - Impressão digital do certificado do cluster: Especifique o *impressão digital do certificado de Cluster* dos resultados do script.
    - Impressões digitais de certificado de cliente do administrador: Especifique o *impressão digital do certificado de cliente administrador* criou nos pré-requisitos. 
 
-   ![Saída do script](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
+   ![Saída de script](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
    ![Segurança](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
@@ -158,7 +158,7 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
 ### <a name="use-service-fabric-explorer"></a>Usar o Service Fabric Explorer
 1.  Valide se o navegador da Web tem acesso ao seu certificado de cliente administrador e possa ser autenticada no cluster do Service Fabric.  
 
-    a. Abra o Internet Explorer e vá para **opções da Internet** > **conteúdo** > **certificados**.
+     a. Abra o Internet Explorer e vá para **opções da Internet** > **conteúdo** > **certificados**.
   
     b. Sobre certificados, selecione **importação** para iniciar o *Assistente de importação de certificado*e, em seguida, clique em **próxima**. Sobre o *arquivo a ser importado* página, clique em **procurar**e selecione o **certificado de cliente do administrador** fornecido para o modelo do Azure Resource Manager.
         
@@ -173,7 +173,7 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
        ![Repositório de certificados](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. Para localizar o FQDN do cluster do Service Fabric:  
 
-    a. Vá para o grupo de recursos que está associado com sua malha de serviço de cluster e localize o *endereço IP público* recursos. Selecione o objeto associado com o endereço IP público para abrir o *endereço IP público* folha.  
+     a. Vá para o grupo de recursos que está associado com sua malha de serviço de cluster e localize o *endereço IP público* recursos. Selecione o objeto associado com o endereço IP público para abrir o *endereço IP público* folha.  
 
       ![Endereço IP público](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
@@ -198,7 +198,7 @@ Você pode acessar o cluster do Service Fabric usando o Service Fabric Explorer 
 
 1. Depois que a instalação for concluída, configure as variáveis de ambiente do sistema para garantir que os cmdlets do Service Fabric são acessíveis a partir do PowerShell.  
     
-    a. Vá para **painel de controle** > **sistema e segurança** > **sistema**e, em seguida, selecione **configurações avançadas do sistema**.  
+     a. Vá para **painel de controle** > **sistema e segurança** > **sistema**e, em seguida, selecione **configurações avançadas do sistema**.  
     
       ![Painel de controle](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 

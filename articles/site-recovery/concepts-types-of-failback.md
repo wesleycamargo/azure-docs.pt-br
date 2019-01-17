@@ -2,18 +2,18 @@
 title: Failback durante a recuperação de desastre com o Azure Site Recovery | Microsoft Docs
 description: Este artigo fornece uma visão geral dos vários tipos de failback e advertências a serem considerados durante o failback no local durante a recuperação de desastre com o serviço Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: guaravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 11/27/2018
-ms.author: rajanki
-ms.openlocfilehash: 9b181f21affa5b762dd6e9062953badc3a37191d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.topic: conceptual
+ms.date: 01/17/2019
+ms.author: raynew
+ms.openlocfilehash: 16233c9013e97a7db7ef799b79526abac4741612
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841873"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318433"
 ---
 # <a name="overview-of-failback"></a>Visão geral do failback
 

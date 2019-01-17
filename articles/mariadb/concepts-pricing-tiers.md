@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544576"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354443"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Banco de dados do Azure para níveis de preços do MariaDB
 
@@ -53,8 +53,7 @@ O armazenamento que você provisiona é a quantidade de capacidade de armazename
 
 Você pode adicionar mais capacidade de armazenamento durante e após a criação do servidor. A camada Básico não oferece garantia de IOPS. Nos tipos de preço Uso Geral e Otimizado para Memória, o IOPS é dimensionado com o tamanho de armazenamento provisionado a uma taxa de 3:1.
 
-Você pode monitorar o consumo de E/S no Portal do Azure ou usando os comandos da CLI do Azure. As métricas relevantes para monitorar são o limite de armazenamento, a porcentagem de armazenamento, o armazenamento usado e a porcentagem de IO.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+Você pode monitorar o consumo de E/S no Portal do Azure ou usando os comandos da CLI do Azure. As métricas relevantes para monitorar são o [limite de armazenamento, porcentagem de armazenamento, armazenamento usado e porcentagem de E/S](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Alcançando o limite de armazenamento
 
@@ -64,7 +63,7 @@ Enquanto o serviço tenta tornar o servidor somente leitura, todas as novas soli
 
 Recomendamos que você configure um alerta para notificá-lo quando o armazenamento do servidor estiver se aproximando do limite, para evitar entrar no estado somente leitura. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Para mais informações, consulte a documentação em [como configurar um alerta](howto-alert-metric.md).
 
 ## <a name="backup"></a>Backup
 

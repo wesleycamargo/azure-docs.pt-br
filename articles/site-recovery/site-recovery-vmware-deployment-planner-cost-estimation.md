@@ -1,18 +1,18 @@
 ---
 title: Examinar o relatório de estimativa de custo no Planejador de Implantações do Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como examinar o relatório de estimativa de custo no Planejador de Implantações do Azure Site Recovery para VMware para recuperação de desastre do Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 46ec116b357df8cc5de889f64d4620544c062979
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848333"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321477"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Examine o relatório de estimativa de custo no Planejador de Implantações do Azure Site Recovery para recuperação de desastres do VMware para o Azure
 
@@ -120,7 +120,7 @@ Para adicionar manualmente as máquinas virtuais:
 
 **Tipo de armazenamento**: O tipo de armazenamento usado pela VM. É armazenamento standard ou premium.
 
-**Tamanho total de armazenamento da VM (GB)**: O armazenamento total da VM.
+**Tamanho total de armazenamento da VM (GB)**: Armazenamento total da VM.
 
 **Número de análises de DR em um ano**: O número de vezes que você executa análises de DR em um ano. Por padrão, é quatro vezes ao ano. Você pode modificar o período de VMs específicas ou aplicar o novo valor a todas as VMs inserindo o novo valor na linha superior e clicando no botão 'Aplicar a todos'. Com base no número de Análises de Recuperação de Desastre e do período de duração de cada Análise de Recuperação de Desastre, o custo total da Análise de Recuperação de Desastre é calculado.  
 

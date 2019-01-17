@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: 805f7844b144da1feb141a46080912790008f32e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 145273d48060955005f1d93f30e79014244cf4ba
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538758"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321374"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -52,14 +52,14 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Centro-Sul dos Estados Unidos | X | X |
 | Oeste dos EUA | X | X |
 | Oeste dos EUA 2 |  | X |
+| Sul do Brasil | X | X |
 | Canadá Central | X | X |
 | Leste do Canadá | X | X |
-| Sul do Brasil | X | X |
 | Norte da Europa | X | X |
 | Europa Ocidental |  | X |
 | França Central |  | X |
-| Oeste do Reino Unido |  | X |
 | Sul do Reino Unido |  | X |
+| Oeste do Reino Unido |  | X |
 | Ásia Oriental | X | X |
 | Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
@@ -67,17 +67,22 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Austrália Central 2 |  | X |
 | Sudeste da Austrália |  | X |
 | Índia Central | X | X |
-| Índia Ocidental | X | X |
 | Sul da Índia |  | X |
+| Índia Ocidental | X | X |
 | Leste do Japão | X | X |
 | Oeste do Japão | X | X |
 | Coreia Central |  | X |
 | Sul da Coreia |  | X |
+| Leste da China 1 | X |  |
+| Leste da China 2 |  | X |
+| Norte da China 1 | X |  |
+| Norte da China 2 |  | X |
 | Alemanha Central |  | X |
 | DoD Central dos EUA  | X |  |
 | DoD do Leste dos EUA  | X |  |
 | Governo dos EUA do Arizona |  | X |
 | Governo dos EUA do Texas |  | X |
+| Gov. dos EUA – Virgínia |  | X |
 
 ## <a name="storage"></a>Armazenamento
 
