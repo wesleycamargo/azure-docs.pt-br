@@ -13,13 +13,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 01/12/2019
+ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063860"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267259"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Comece com a Auditoria da Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -172,9 +172,9 @@ Há vários métodos que podem ser usados para exibir os logs de auditoria de bl
 
 - Use a função do sistema caractere `sys.fn_get_audit_file` (T-SQL) para retornar os dados do log de auditoria em um formato tabular. Para obter mais informações sobre como usar essa função, consulte a [documentação de sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Explore os logs de auditoria usando uma ferramenta como o Gerenciador de Armazenamento do Azure. No Armazenamento do Azure, os logs de auditoria de blob são salvos como uma coleção de arquivos de blob em um contêiner chamado sqldbauditlogs. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e o formato do log, consulte a Referência de formato do log de auditoria de blob.
+- Explore os logs de auditoria usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/en-us/features/storage-explorer/). No Armazenamento do Azure, os logs de auditoria de blob são salvos como uma coleção de arquivos de blob em um contêiner chamado sqldbauditlogs. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e o formato do log, consulte a [Referência de formato do log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Para obter uma lista completa de métodos de consumo de log de auditoria, consulte o [Introdução à auditoria de banco de dados do SQL](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- Para obter uma lista completa de métodos de consumo de log de auditoria, consulte o [Introdução à auditoria de banco de dados do SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
 > A exibição dos registros de auditoria do Portal do Azure (painel de ‘registros de auditoria’) atualmente não está disponível para a Instância Gerenciada.

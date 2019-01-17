@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 058aad72ea8e5741bc632b3c27c032613683ae78
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4dc34a390303ffe5e4bafc6b71d77a19e554374c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444075"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052182"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: integração do Azure Active Directory ao SkyDesk Email
+# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Integração do Azure Active Directory ao SkyDesk Email
 
 Neste tutorial, você aprende a integrar o SkyDesk Email ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Caso não tenha um ambiente de avaliação do Azure AD, obtenha uma avaliação de um mês aqui: [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o SkyDesk Email a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -115,7 +115,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE] 
-    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do SkyDesk Email](https://www.skydesk.sg/support/) para obter o valor. 
+    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do SkyDesk Email](https://www.skydesk.jp/apps/support/) para obter o valor. 
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -131,7 +131,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Para habilitar o SSO no **SkyDesk Email**, execute as seguintes etapas:
 
-    a. Entre na sua conta do SkyDesk Email como administrador.
+     a. Entre na sua conta do SkyDesk Email como administrador.
 
     b. No menu na parte superior, clique em **Configuração** e selecione **Organização**. 
     
@@ -164,7 +164,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configurar o logon único](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
-    a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+     a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
    
     b. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Saída** copiado do portal do Azure.
 
@@ -177,7 +177,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     f. Clique em **Ok** para salvar as alterações.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -220,7 +220,7 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no SkyDesk Em
     ![Configurar o logon único](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 >[!NOTE] 
->Se você precisar criar usuários em massa, contate a [equipe de suporte ao Cliente do SkyDesk Email](https://www.skydesk.sg/support/).
+>Se você precisar criar usuários em massa, contate a [equipe de suporte ao Cliente do SkyDesk Email](https://www.skydesk.jp/apps/support/).
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure

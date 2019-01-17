@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014490"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191659"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento Premium (versão prévia), Frequente, Esporádico e Arquivos
 
@@ -63,7 +63,7 @@ Durante a versão prévia, a camada de acesso Premium:
 
 - Está disponível como LRS (armazenamento com redundância local)
 - Está disponível nas seguintes regiões: Leste dos EUA 2, Centro dos EUA e Oeste dos EUA
-- Não dá suporte ao gerenciamento automático de ciclo de vida de dados e de disposição em camadas
+- Não oferece suporte para a camada automatizada ou camada no nível de objeto com gerenciamento de ciclo de vida de dados
 
 Para saber como se registrar para a versão prévia da camada de acesso Premium, confira [Introdução ao Armazenamento de Blobs Premium do Azure](https://aka.ms/premiumblob).
 
@@ -86,7 +86,8 @@ O nível de armazenamento fresco tem custos de armazenamento mais baixos e custo
 
 O armazenamento em arquivo morto tem o menor custo de armazenamento e maiores custos de recuperação de dados em comparação com o armazenamento Hot e Cool. Essa camada destina-se a dados que podem tolerar várias horas de latência de recuperação e permanecerão na camada de arquivamento por pelo menos 180 dias.
 
-Enquanto um blob está no armazenamento do arquivo morto, ele está off-line e não pode ser lido (exceto os metadados, que estão on-line e disponíveis), copiados, sobrescritos ou modificados. Também não é possível tirar instantâneos de um blob no armazenamento do arquivo morto. No entanto, você pode usar as operações existentes para excluir, listar, obter propriedades/metadados de blob ou alterar a camada do seu blob.
+Embora um blob seja um Armazenamento de Arquivos, os dados de blob estão offline e não podem ser lidos, copiados, substituídos nem modificados. Também não é possível tirar instantâneos de um blob no armazenamento do arquivo morto. No entanto, os metadados de blob permanecem online e disponíveis, permitindo que você liste o blob e suas propriedades. Para blobs em Arquivos, as únicas operações válidas são GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier e DeleteBlob. 
+
 
 Cenários de uso de exemplo para a camada de armazenamento de arquivamento incluem:
 
@@ -110,20 +111,27 @@ Blobs em todos os três camadas de armazenamento podem coexistir na mesma conta.
 > [!NOTE]
 > O armazenamento de arquivos e as camadas no nível do blob só oferecem suporte aos blobs de bloco. Também não é possível alterar a camada de um blob de blocos que tenha instantâneos.
 
-Os dados armazenados na camada de acesso Premium não podem ser dispostos em camadas para acesso frequente, esporádico ou de arquivos usando [Definir camada de blob](/rest/api/storageservices/set-blob-tier) ou usando o gerenciamento de ciclo de vido do Armazenamento de Blobs do Azure. Para mover dados, é necessário copiar blobs sincronicamente da camada de acesso Premium para o acesso esporádico usando [Colocar bloco da API de URL](/rest/api/storageservices/put-block-from-url) ou uma versão do AzCopy compatível com essa API. A API *Colocar bloco pela URL* copia dados sincronicamente no servidor, o que significa que a chamada é concluída apenas depois que todos os dados são movidos do local do servidor de origem para o local de destino.
+> [!NOTE]
+> Os dados armazenados na camada de acesso Premium no momento não podem ser dispostos em camadas para acesso frequente, esporádico ou de arquivos usando [Definir camada de blob](/rest/api/storageservices/set-blob-tier) ou usando o gerenciamento de ciclo de vido do Armazenamento de Blobs do Azure. Para mover dados, é necessário copiar blobs sincronicamente da camada de acesso Premium para o acesso esporádico usando [Colocar bloco da API de URL](/rest/api/storageservices/put-block-from-url) ou uma versão do AzCopy compatível com essa API. A API *Colocar bloco pela URL* copia dados sincronicamente no servidor, o que significa que a chamada é concluída apenas depois que todos os dados são movidos do local do servidor de origem para o local de destino.
 
 ### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
 O gerenciamento de ciclo de vida do Armazenamento de Blobs (versão prévia) oferece uma avançada política baseada em regra que pode ser usada para fazer a transição dos seus dados para a melhor camada de acesso e para expirar os dados ao fim do seu ciclo de vida. Ver [gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md) para saber mais.  
 
 ### <a name="blob-level-tiering-billing"></a>Cobrança da camada no nível do blob
 
-Quando um blob é movido para uma camada mais esporádica (frequente -> esporádico, frequente -> arquivos ou esporádico -> arquivos), a operação é cobrada como uma operação de gravação na camada de destino, em que os encargos pela operação de gravação (por 10.000) e gravação de dados (por GB) da camada de destino são aplicados. Quando um blob é movido para uma camada mais frequente (arquivo -> esporádico, arquivo -> frequente ou esporádico -> frequente), a operação é cobrada como uma leitura da camada de origem, em que os encargos da operação de leitura (por 10.000) e a recuperação de dados (por GB) da camada de origem são aplicados.
+Quando um blob é movido para uma camada mais esporádica (frequente -> esporádico, frequente -> arquivos ou esporádico -> arquivos), a operação é cobrada como uma operação de gravação na camada de destino, em que os encargos pela operação de gravação (por 10.000) e gravação de dados (por GB) da camada de destino são aplicados. Quando um blob é movido para uma camada mais frequente (Arquivos -> Esporádico, Arquivos -> Frequente ou Esporádico -> Frequente), a operação é cobrada como uma leitura da camada de origem, em que os encargos da operação de leitura (por 10.000) e a recuperação de dados (por GB) da camada de origem são aplicados.
+
+| | **Encargo de Gravação** | **Encargo de Leitura** 
+| ---- | ----- | ----- |
+| **Direção de SetBlobTier** | Frequente->Esporádico, Frequente->Arquivos, Esporádico->Arquivos | Arquivos->Esporádico, Arquivos->Frequente, Esporádico->Frequente
 
 Caso altere a camada de conta de frequente para esporádico, você será cobrado por operações de gravação (por 10.000) para todos os blobs sem uma camada de conjunto apenas em contas de GPv2. Não há nenhum encargo para essa alteração em contas de Armazenamento de Blobs. Você será cobrado por operações de leitura (por 10.000) e por recuperação de dados (por GB) caso altere a conta de Armazenamento de Blobs ou de GPv2 de esporádica para frequente. Encargos de exclusão antecipada para qualquer blob tirado das camadas esporádica ou de arquivo também podem incorrer.
 
 ### <a name="cool-and-archive-early-deletion"></a>Arrefecer e arquivar eliminação antecipada
 
 Além da cobrança por GB, por mês, qualquer blob movido para a camada legal (apenas para as contas GPv2) está sujeito a um período de exclusão antecipada Cool de 30 dias, e qualquer blob transferido para a camada Arquivo está sujeito a um período de exclusão antecipada de arquivamento de 180 dias. A cobrança é proporcional. Por exemplo, se um blob for movido para o arquivo e depois for excluído ou movido para o nível quente após 45 dias, será cobrada uma taxa de exclusão antecipada equivalente a 135 (180 menos 45) dias após o armazenamento desse blob no arquivo.
+
+Você poderá calcular a exclusão antecipada usando a propriedade de blob, **creation-time**, se não tiverem ocorrido alterações à camada de acesso. Caso contrário, você pode usar a camada de acesso modificada pela última vez para Esporádico ou Arquivos, exibindo a propriedade de blob: **access-tier-change-time**. Para obter mais informações sobre as propriedades de blob, confira [Obter Propriedades de Blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparison-of-the-storage-tiers"></a>Comparação entre camadas de armazenamento
 
@@ -140,7 +148,7 @@ A tabela a seguir mostra uma comparação das camadas de armazenamento Hot, Cool
 | **Escalabilidade e metas de desempenho** | Igual ao das contas de armazenamento de finalidade geral | Igual ao das contas de armazenamento de finalidade geral | Igual ao das contas de armazenamento de finalidade geral |
 
 > [!NOTE]
-> As contas de armazenamento de Blobs dão suporte às mesmas metas de desempenho e escalabilidade que as contas de armazenamento de finalidade geral. Confira [Metas de desempenho e de escalabilidade do Armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para saber mais.
+> As contas de armazenamento de Blobs dão suporte às mesmas metas de desempenho e escalabilidade que as contas de armazenamento de finalidade geral. Para saber mais, consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## <a name="quickstart-scenarios"></a>Cenários de início rápido
 

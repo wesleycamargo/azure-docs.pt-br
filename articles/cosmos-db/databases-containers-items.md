@@ -1,18 +1,18 @@
 ---
 title: Trabalhando com bancos de dados, contêineres e itens do Azure Cosmos DB
 description: Este artigo descreve como criar e usar bancos de dados, contêineres e itens do Azure Cosmos DB
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807679"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107728"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhando com bancos de dados, contêineres e itens do Azure Cosmos
 
@@ -45,7 +45,7 @@ Você pode interagir com um banco de dados do Azure Cosmos usando as seguintes A
 
 ## <a name="azure-cosmos-containers"></a>Contêineres do Azure Cosmos
 
-Um contêiner do Azure Cosmos é a unidade de escalabilidade para a taxa de transferência e para o armazenamento provisionados de itens. Um contêiner é particionado horizontalmente e, em seguida, é replicado em várias regiões. Os itens que você adiciona ao contêiner e a taxa de transferência que provisiona nesse contêiner são automaticamente distribuídos em um conjunto de partições lógicas baseado na chave de partição. Para saber mais sobre particionamento e chave de partição, confira o artigo [partições lógicas](partition-data.md). 
+Um contêiner do Azure Cosmos é a unidade de escalabilidade para a taxa de transferência e para o armazenamento provisionados de itens. Um contêiner é particionado horizontalmente e, em seguida, é replicado em várias regiões. Os itens que você adiciona ao contêiner e a taxa de transferência que provisiona nesse contêiner são ambos automaticamente distribuídos em um conjunto de partições lógicas baseado na chave de partição. Para saber mais sobre particionamento e chave de partição, confira o artigo [partições lógicas](partition-data.md). 
 
 Ao criar um contêiner do Azure Cosmos, você configura a taxa de transferência em um dos seguintes modos:
 
@@ -77,10 +77,10 @@ Um contêiner do Azure Cosmos tem um conjunto de propriedades definidas pelo sis
 
 | **Propriedade definida pelo sistema** | **Configurável pelo usuário ou gerada pelo sistema** | **Finalidade** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__rid | Gerada pelo sistema | Identificador exclusivo do contêiner | SIM | Não | Não | Não | Não  |
-|__etag | Gerada pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | SIM | Não | Não | Não | Não  |
-|__ts | Gerada pelo sistema | Último carimbo de data/hora atualizado do contêiner | SIM | Não | Não | Não | Não  |
-|__self | Gerada pelo sistema | URI endereçável do contêiner | SIM | Não | Não | Não | Não  |
+|_rid | Gerada pelo sistema | Identificador exclusivo do contêiner | SIM | Não | Não | Não | Não  |
+|_etag | Gerada pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | SIM | Não | Não | Não | Não  |
+|_ts | Gerada pelo sistema | Último carimbo de data/hora atualizado do contêiner | SIM | Não | Não | Não | Não  |
+|_self | Gerada pelo sistema | URI endereçável do contêiner | SIM | Não | Não | Não | Não  |
 |ID | Configurável pelo usuário | Nome exclusivo do contêiner definido pelo usuário | SIM | sim | sim | sim | SIM |
 |indexingPolicy | Configurável pelo usuário | Fornece a capacidade de alterar o caminho do índice, sua precisão e o modelo de consistência. | SIM | Não | Não | Não  | SIM |
 |TimeToLive | Configurável pelo usuário | Fornece a capacidade de excluir itens automaticamente de um contêiner após um período de tempo determinado. Para obter mais detalhes, confira o artigo [Vida útil](time-to-live.md). | SIM | Não | Não | Não  | SIM |
@@ -113,10 +113,10 @@ Cada item do Azure Cosmos tem as propriedades definidas pelo sistema listadas a 
 
 |**Propriedade definida pelo sistema** | **Configurável pelo usuário ou gerada pelo sistema**| **Finalidade** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__id | Gerada pelo sistema | Identificador exclusivo do item | SIM | Não | Não | Não | Não  |
-|__etag | Gerada pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | SIM | Não | Não | Não | Não  |
-|__ts | Gerada pelo sistema | Carimbo de data/hora de última atualização do item | SIM | Não | Não | Não | Não  |
-|__self | Gerada pelo sistema | URI endereçável do item | SIM | Não | Não | Não | Não  |
+|_id | Gerada pelo sistema | Identificador exclusivo do item | SIM | Não | Não | Não | Não  |
+|_etag | Gerada pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | SIM | Não | Não | Não | Não  |
+|_ts | Gerada pelo sistema | Carimbo de data/hora de última atualização do item | SIM | Não | Não | Não | Não  |
+|_self | Gerada pelo sistema | URI endereçável do item | SIM | Não | Não | Não | Não  |
 |ID | Você pode usar o | Nome exclusivo definido pelo usuário dentro de uma partição lógica. Se o usuário não especificar a ID, o sistema gerará uma automaticamente. | SIM | sim | sim | sim | SIM |
 |Propriedades arbitrárias definidas pelo usuário | Definido pelo usuário | Propriedades definidas pelo usuário, representadas na representação nativa de API (JSON, BSON, CQL, etc.) | SIM | sim | sim | sim | SIM |
 

@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 950336db215bbca76f20c15527397212c6fe5ffd
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554921"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191778"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração e entrega contínua (CI / CD) no Azure Data Factory
 
@@ -162,7 +161,7 @@ Há duas maneiras de lidar cos segredos:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Conceder permissões ao agente do Azure Pipelines
-A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de Acesso Negado. Baixe os logs da versão e localize o arquivo `.ps1` com o comando para conceder permissões ao agente do Azure Pipelines. Você pode executar o comando diretamente ou pode copiar a ID de entidade de segurança do arquivo e adicionar a política de acesso manualmente no Portal do Azure. (*Obter* e *Listar* são as permissões mínimas necessárias).
+Poderá haver falha na hora do fIntegration Runtimest da tarefa do Azure Key Vault com um erro de Acesso Negado. Baixe os logs da versão e localize o arquivo `.ps1` com o comando para conceder permissões ao agente do Azure Pipelines. Você pode executar o comando diretamente ou pode copiar a ID de entidade de segurança do arquivo e adicionar a política de acesso manualmente no Portal do Azure. (*Obter* e *Listar* são as permissões mínimas necessárias).
 
 ### <a name="update-active-triggers"></a>Atualizar gatilhos ativos
 A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para atualizar os gatilhos ativos, você precisa interrompê-los manualmente e iniciá-los após a implantação. Você pode adicionar uma tarefa do Azure Powershell para essa finalidade, conforme mostrado no exemplo a seguir:
@@ -184,7 +183,7 @@ A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para a
 Você pode seguir etapas semelhantes e usar um código semelhante (com a função `Start-AzureRmDataFactoryV2Trigger`) para reiniciar os gatilhos depois da implantação.
 
 > [!IMPORTANT]
-> Em cenários de integração e implementação contínuos, o tipo de tempo de execução de integração em diferentes ambientes deve ser o mesmo. Por exemplo, se você tiver um *Runtime de integração (IR) auto-hospedado* no ambiente de desenvolvimento, o mesmo IR deve ser do tipo *Auto-Hospedado* em outros ambientes, como teste e produção Além disso. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, será necessário configurar os IRs como *Linked Self-Hosted* em todos os ambientes, como desenvolvimento, teste e produção.
+> Em cenários de integração e implementação contínuos, o tipo de tempo de execução de integração em diferentes ambientes deve ser o mesmo. Por exemplo, se você tiver um *Runtime de integração (IR) auto-hospedado* no ambiente de desenvolvimento, o mesmo IR deve ser do tipo *Auto-Hospedado* em outros ambientes, como teste e produção Além disso. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, será necessário configurar os Integration Runtimes como *Linked Self-Hosted* em todos os ambientes, como desenvolvimento, teste e produção.
 
 ## <a name="sample-deployment-template"></a>Modelo de implantação de exemplo
 
@@ -854,7 +853,7 @@ Você pode definir parâmetros personalizados para o modelo do Resource Manager.
 
 Aqui estão algumas diretrizes para usar ao criar o arquivo de parâmetros personalizados. Para ver exemplos dessa sintaxe, consulte a seção a seguir, [Amostra do arquivo de parâmetros customizados](#sample).
 
-1. Quando você especifica uma matriz no arquivo de definição, indica que a propriedade correspondente no modelo é uma matriz. O Data Factory percorre todos os objetos no array usando a definição especificada no primeiro objeto do array. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usada como o nome do parâmetro para cada iteração.
+1. Quando você especifica uma matriz no arquivo de definição, indica que a propriedade correspondente no modelo é uma matriz. O Data Factory percorre todos os objetos na matriz usando a definição especificada no objeto fIntegration Runtimest da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usada como o nome do parâmetro para cada iteração.
 
     ```json
     ...
@@ -978,7 +977,7 @@ O exemplo a seguir mostra um arquivo de parâmetros de amostra. Use este exemplo
 
 ## <a name="linked-resource-manager-templates"></a>Modelos Vinculados do Resource Manager
 
-Se você configurou a integração e implantação contínua (CI/CD) para as Fábricas de Dados, é possível observar que, à medida que sua fábrica cresce, atinge os limites de modelo do Resource Manager, como o número máximo de recursos ou a carga máxima em um modelo do Resource Manager. Para cenários como esses, juntamente com a geração de modelo completo do Resource Manager completo para uma fábrica, o Data Factory agora também gera modelos vinculados do Resource Manager. Como resultado, você tem a carga de fábrica inteira dividida em vários arquivos, assim você não atinge os limites mencionados.
+Se você configurou a integração e implantação contínua (CI/CD) para as Fábricas de Dados, é possível observar que, à medida que sua fábrica cresce, atinge os limites de modelo do Resource Manager, como o número máximo de recursos ou o conteúdo máximo em um modelo do Resource Manager. Para cenários como esses, juntamente com a geração de modelo completo do Resource Manager completo para uma fábrica, o Data Factory agora também gera modelos vinculados do Resource Manager. Como resultado, você tem a carga de fábrica inteira dividida em vários arquivos, assim você não atinge os limites mencionados.
 
 Se você tiver o Git configurado, os modelos vinculados são gerados e salvos juntamente com os modelos completos do Resource Manager, na ramificação `adf_publish`, em uma nova pasta chamada `linkedTemplates`.
 
@@ -989,3 +988,23 @@ Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um 
 Lembre-se de adicionar os scripts do Data Factory no pipeline de CI/CD antes e depois a tarefa de implantação.
 
 Se você não tiver o Git configurado, os modelos vinculados são acessíveis por meio do gesto **Exportar modelo ARM**.
+
+## <a name="best-practices-for-cicd"></a>Práticas recomendadas para CI/CD
+
+Se você estiver usando a integração de Git com seu data factory e tiver um pipeline de CI/CD que mova as alterações de Desenvolvimento para Teste e então para Produção, recomendamos as seguintes melhores práticas:
+
+-   **Integração do Git**. Você precisa apenas configurar seu data factory de Desenvolvimento com a integração do Git. Alterações para Teste e Produção são implantadas por meio de CI/CD e não precisam ter integração do Git.
+
+-   **Script de CI/CD do Data Factory**. Antes da etapa de implantação do Resource Manager no CI/CD, você deve cuidar de elementos como parar os gatilhos e diferentes tipos de limpeza de alocador. É recomendável usar [este script](#sample-script-to-stop-and-restart-triggers-and-clean-up), uma vez que ele cuida de tudo isso. Execute o script uma vez antes da implantação e uma vez depois usando os sinalizadores adequados.
+
+-   **Integration Runtimes e compartilhamento**. Integration Runtimes são um dos componentes de infraestrutura no seu data factory, que passam por alterações com menos frequência, e são semelhantes entre todos os estágios em seu CI/CD. Como resultado, o Data Factory espera que você tenha o mesmo nome e o mesmo tipo de Integration Runtimes em todos os estágios de CI/CD. Se você estiver buscando compartilhar Integration Runtimes em todos os estágios, por exemplo, Integration Runtimes Auto-hospedados, uma maneira de compartilhar é hospedando o IR auto-hospedado em um alocador ternário, apenas para conter os Integration Runtimes compartilhados. Em seguida, você pode usá-los em Desenvolvimento/Teste/Produção como um tipo de IR Vinculado.
+
+-   **Key Vault**. Quando você usa os serviços vinculados baseados em Azure Key Vault recomendados, pode elevar sua vantagens a um novo patamar potencialmente mantendo cofres de chaves separados para Desenvolvimento/Teste/Produção. Você também pode configurar níveis de permissão separados para cada um deles. Talvez você não queira que os membros da sua equipe tenham permissões para os segredos de Produção. Também recomendamos que você mantenha os mesmos nomes secretos em todos os estágios. Se você mantiver os mesmos nomes, não precisará alterar os modelos do Resource Manager entre CI/CD, uma vez que a única alteração necessária será no nome do cofre de chaves, que é um dos parâmetros de modelo do Resource Manager.
+
+## <a name="unsupported-features"></a>Recursos sem suporte
+
+-   Você não pode publicar recursos individuais, pois as entidades do data factory dependem entre si. Por exemplo, os gatilhos dependem de pipelines, pipelines dependem de conjuntos de dados e de outros pipelines etc. É difícil acompanhar dependências inconstantes. Se fosse possível selecionar os recursos para publicar manualmente, seria possível selecionar apenas um subconjunto de todo o conjunto de alterações, o que levaria a um comportamento inesperado dos itens após a publicação.
+
+-   Não é possível publicar de branches particulares.
+
+-   Você não pode hospedar projetos no Bitbucket.

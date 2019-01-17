@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: f4ca513e3c2e2345dc0005b95ddb7927c0164ffe
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e5f2ecd2cdff0ae5f3f5f086bde0741f7f6d2dbb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383010"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121610"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Tutorial: Conectar, configurar e ativar o Azure Data Box Edge (versão prévia) 
 
@@ -85,7 +85,10 @@ O painel exibe as várias configurações necessárias para configurar e registr
     - Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. Um endereço IP, sub-rede, gateway e DNS são atribuídos automaticamente.
     - Se o DHCP não estiver ativado, você poderá atribuir IPs estáticos, se necessário.
     - Você pode configurar sua interface de rede como IPv4.
-   
+
+    >[!NOTE] 
+    > É recomendável que você não alterne o endereço IP local da interface de rede de estático para DHCP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser registrado com o serviço e então altere. Em seguida, você pode exibir os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
+
 1. (Opcional) No painel esquerdo, selecione **Configurações de proxy Web** e, em seguida, configure seu servidor proxy Web. Embora a configuração do proxy Web seja opcional, se você usar um proxy Web, poderá configurá-lo apenas nesta página.
    
    ![A página "Configurações de proxy Web"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)

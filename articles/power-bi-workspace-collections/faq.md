@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83f4ebd9c3f5ad05173b045b3fa15804ddc88df6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249193"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157557"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Perguntas frequentes sobre as Coleções de Workspaces do Power BI
 
@@ -61,7 +61,7 @@ Consulte nossa documentação de serviço para obter detalhes sobre como usar o 
 Sim. Você pode usar sua assinatura do Azure existente para provisionar e usar o serviço de Coleções de Workspaces do Microsoft Power BI.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>O usuário final do meu aplicativo precisa de uma licença do Power BI?
-Não. Os usuários finais do aplicativo não precisarão comprar uma assinatura do Power BI separada para acessar as visualizações de dados no aplicativo. No modelo de Coleções de Workspaces do Power BI, você, como provedor do aplicativo, será cobrado pelo serviço por meio do medidor de consumo do Azure. Consulte a [página Preços e licenciamento](https://go.microsoft.com/fwlink/?LinkId=760527).
+ Não. Os usuários finais do aplicativo não precisarão comprar uma assinatura do Power BI separada para acessar as visualizações de dados no aplicativo. No modelo de Coleções de Workspaces do Power BI, você, como provedor do aplicativo, será cobrado pelo serviço por meio do medidor de consumo do Azure. Consulte a [página Preços e licenciamento](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Como a autenticação do usuário funciona com as Coleções de Workspaces do Power BI?
 O serviço de Coleções de Workspaces do Power BI usa Tokens de Aplicativo para autenticação e autorização em vez de usar a autenticação explícita de usuário final. No modelo de Token de Aplicativo, seu aplicativo gerencia a autenticação e autorização para os usuários finais. Em seguida, quando necessário, seu aplicativo cria
@@ -77,7 +77,7 @@ No modelo de Coleções de Workspaces do Power BI, não há nenhum requisito exp
 Os desenvolvedores/funcionários que trabalham em seu aplicativo ou que criam seu aplicativo precisam ter uma conta de usuário do AAD quando precisarem gerenciar sua Assinatura do Azure e suas Coleções de Workspaces por meio do Portal do Azure. APIs programáticas que permitem aos desenvolvedores importar relatórios, modificar cadeias de conexão e fazer com que as URLs de inserção aproveitem Tokens de Aplicativo para autenticação em seu lugar, de modo que, como resultado, não exigem o AAD.
 
 ## <a name="where-can-i-learn-more"></a>Onde posso saber mais?
-Você pode visitar a [página de documentação das Coleções de Workspaces do Power BI](get-started.md). Você pode manter-se atualizado sobre esse serviço visitando o [blog do Power BI](https://powerbi.microsoft.com/blog/) ou visitando o centro de desenvolvedores do Power BI em dev.powerbi.com. Você também pode fazer perguntas no [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
+Você pode visitar a [página de documentação das Coleções de Workspaces do Power BI](get-started.md). Você pode manter-se atualizado sobre esse serviço visitando o [blog do Power BI](https://powerbi.microsoft.com/blog/) ou visitando o centro de desenvolvedores do Power BI em dev.powerbi.com. Você também pode fazer perguntas no [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Como começar?
 Você pode começar gratuitamente agora! Se tiver uma assinatura do Azure, agora você poderá provisionar Coleções de Workspaces do Power BI diretamente no Portal do Azure. Você também pode criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/). Depois de provisionar o serviço de Coleções de Workspaces do Power BI, você poderá usar com facilidade APIs REST do Power BI diretamente ou usar o SDK de desenvolvedor disponível no [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). São fornecidas amostras de como utilizar o SDK de desenvolvedor.

@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426784"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019294"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -106,7 +105,7 @@ Neste exemplo, a atividade Copy copia dados de uma tabela SQL em uma instância 
 Este exemplo demonstra a pesquisa apenas para a primeira linha. Para pesquisar por todas as linhas e para encadear os resultados com a atividade ForEach, consulte os exemplos em [Copiar várias tabelas em massa usando o Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pipeline
-Esse pipeline contém duas atividades: Lookup e Copy. 
+Esse pipeline contém duas atividades: Pesquisa e cópia. 
 
 - A atividade Lookup está configurada para usar **LookupDataset**, que se refere a um local no armazenamento de Blobs do Azure. A atividade Lookup lê o nome da tabela SQL de um arquivo JSON nesse local. 
 - A atividade Copy usa a saída da atividade Lookup, que é o nome da tabela SQL. A propriedade **tableName** no **SourceDataset** está configurada para usar a saída da atividade Lookup. A atividade Copy copia dados da tabela SQL para um local no armazenamento de Blobs do Azure. O local é especificado pela propriedade **SinkDataset**. 
@@ -298,7 +297,7 @@ Esta instância de Banco de Dados SQL do Azure contém os dados a serem copiados
 ]
 ```
 
-## <a name="limitations-and-workarounds"></a>Limitações e soluções alternativas
+## <a name="limitations-and-workarounds"></a>Limitações e Soluções Alternativas
 
 Aqui estão algumas limitações da atividade de pesquisa e soluções alternativas sugeridas.
 

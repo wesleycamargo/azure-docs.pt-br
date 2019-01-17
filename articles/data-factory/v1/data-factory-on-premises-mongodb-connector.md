@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4059d8d2f6020a23e3593bb906c2e3fc64a4779e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025582"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331530"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,12 +31,12 @@ ms.locfileid: "54025582"
 
 Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um banco de dados MongoDB local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
-Você pode copiar dados de um armazenamento de dados local do MongoDB para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MongoDB para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MongoDB. 
+Você pode copiar dados de um armazenamento de dados local do MongoDB para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MongoDB para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MongoDB.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para o serviço Azure Data Factory poder se conectar ao banco de dados MongoDB no local, você deve instalar os seguintes componentes:
 
-- As versões compatíveis do MongoDB são:  2.4, 2.6, 3.0, 3.2, 3.4 e 3.6.
+- As versões compatíveis do MongoDB são: 2.4, 2.6, 3.0, 3.2, 3.4 e 3.6.
 - Gateway de Gerenciamento de Dados na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar competência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Confira o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados. Consulte o artigo [Mover dados de pontos locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções detalhadas sobre como configurar um pipeline de dados para o gateway a fim de mover dados.
 
     Quando você instala o gateway, ele instala automaticamente um driver ODBC do Microsoft MongoDB usado para se conectar ao banco de dados MongoDB.
@@ -47,17 +47,17 @@ Para o serviço Azure Data Factory poder se conectar ao banco de dados MongoDB n
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local MongoDB usando diferentes ferramentas/APIs.
 
-A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
+Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
-Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor: 
+Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
 1. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory.
-2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. 
-3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. 
+2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia.
+3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída.
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados do armazenamento de dados MongoDB local, confira a seção [Exemplo de JSON: Copiar dados do MongoDB para o Blob do Azure](#json-example-copy-data-from-mongodb-to-azure-blob) neste artigo. 
+Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são usadas para copiar dados do armazenamento de dados MongoDB local, confira a seção [Exemplo de JSON: Copiar dados do MongoDB para o Blob do Azure](#json-example-copy-data-from-mongodb-to-azure-blob) neste artigo.
 
 As seções que se seguem fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas a uma origem do MongoDB:
 
@@ -125,11 +125,11 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
         "typeProperties":
         {
             "authenticationType": "<Basic or Anonymous>",
-            "server": "< The IP address or host name of the MongoDB server >",  
+            "server": "< The IP address or host name of the MongoDB server >",
             "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
             "username": "<username>",
             "password": "<password>",
-           "authSource": "< The database that you want to use to check your credentials for authentication. >",
+            "authSource": "< The database that you want to use to check your credentials for authentication. >",
             "databaseName": "<database name>",
             "gatewayName": "<mygateway>"
         }
@@ -155,12 +155,12 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 
 ```json
 {
-     "name":  "MongoDbInputDataset",
+    "name": "MongoDbInputDataset",
     "properties": {
         "type": "MongoDbCollection",
         "linkedServiceName": "OnPremisesMongoDbLinkedService",
         "typeProperties": {
-            "collectionName": "<Collection name>"    
+            "collectionName": "<Collection name>"
         },
         "availability": {
             "frequency": "Hour",
@@ -173,7 +173,7 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 
 **Conjunto de dados de saída de Blob do Azure:**
 
-Dados são gravados em um novo blob a cada hora (frequência: horas, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
+Os dados são gravados em um novo blob a cada hora (frequência: horas, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
 ```json
 {
@@ -246,7 +246,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
                 "typeProperties": {
                     "source": {
                         "type": "MongoDbSource",
-                        "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
+                        "query": "$$Text.Format('select * from MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
                     },
                     "sink": {
                         "type": "BlobSink",

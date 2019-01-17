@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: dd8e0950de6aae71dd123d21b59c6de591bd7f29
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262258"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107695"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azure.
@@ -24,7 +24,7 @@ Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azur
 Sim. Crie até 500 cofres dos Serviços de Recuperação por região com suporte do Backup do Azure por assinatura. Se você precisar de cofres adicionais, crie outra assinatura.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Há limites para o número de servidores/computadores que podem ser registrados em cada cofre?
-Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se você estiver usando o agente MAB, você pode registrar até 50 agentes MAB por cofre. E você pode registrar servidores DPM/servidores MAB 50 em um cofre.
+Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se você estiver usando o agente de Backup do Microsoft Azure, poderá registrar até 50 agentes MAB por cofre. E você pode registrar servidores DPM/servidores MAB 50 em um cofre.
 
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Se a minha organização tiver um cofre, como posso isolar dados de servidores diferentes no cofre ao restaurar dados?

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fac22508e679c1e1c93ec62a5b120ba9c7c52317
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 607d05818966e62407795640d223f1aed2f59bbb
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162315"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Azure Active Directory com o SAP NetWeaver
 
@@ -142,7 +142,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![O link de download do Certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Substitua **Nome do Provedor** de T01122 para **http://T01122** e clique em **Salvar**.
+6. Substitua **Nome do Provedor** de T01122 para `http://T01122` e clique em **Salvar**.
 
     > [!NOTE]
     > Como nome do provedor vem como <sid><client> formato mas o Azure AD espera nome no formato <protocol>://<name>, recomendadas manter o nome do provedor como https://<sid> <client> para permitir que vários mecanismos SAP NetWeaver configurem no Azure Active Directory.
@@ -275,7 +275,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 29. Observe que os valores de **Fonte de ID de usuário** e **modo de mapeamento de id de usuário** determinam o vínculo entre um usuário do SAP e a declaração do Azure Active Directory.  
 
-    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Cenário: o usuário do SAP para o mapeamento de usuário do Azure Active Directory.
+    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Cenário: o usuário do SAP para o mapeamento de usuário do Azure AD.
 
      a. Captura de tela de detalhes de NameID do SAP.
 
@@ -319,7 +319,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com

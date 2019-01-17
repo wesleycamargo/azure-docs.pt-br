@@ -5,15 +5,15 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 01/03/2019
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c0672ddb3e6791fae3b9b8c04e9ff98827c9e22f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256724"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019292"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com AzCopy no Windows
 O AzCopy é um utilitário de linha de comando projetado para copiar dados entre o armazenamento de Blobs, Arquivos e Tabelas do Microsoft Azure, usando comandos simples para um desempenho ideal. Você pode copiar dados entre um sistema de arquivos e uma conta de armazenamento, ou entre contas de armazenamento.  
@@ -448,9 +448,9 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytab
 
 A opção `/EntityOperation` indica como inserir entidades na tabela. Os valores possíveis são:
 
-* `InsertOrSkip`: ignora uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
-* `InsertOrMerge`: mescla uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
-* `InsertOrReplace`: substitui uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
+* `InsertOrSkip`: Ignora uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
+* `InsertOrMerge`: Mescla uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
+* `InsertOrReplace`: Substitui uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
 
 Observe que não é possível especificar a opção `/PKRS` no cenário de importação. Diferente do cenário de exportação, no qual é necessário especificar a opção `/PKRS` para iniciar operações simultâneas, o AzCopy inicia as operações simultâneas por padrão quando você importar a tabela. A quantidade padrão de operações simultâneas iniciadas é igual à quantidade de processadores de núcleo. No entanto, você pode especificar uma quantidade diferente com a opção `/NC`. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando.
 
@@ -458,7 +458,7 @@ Observe que o AzCopy dá suporte apenas à importação para JSON, não para CSV
 
 ### <a name="import-entities-into-a-table-from-blob-storage"></a>Importar entidades para uma tabela do Armazenamento de blobs
 
-Vamos supor que um contêiner de Blob contenha o seguinte: um arquivo JSON que representa uma Tabela do Azure, e seu arquivo de manifesto.
+Suponha que um contêiner de Blob contém o seguinte: Um arquivo JSON que representa uma Tabela do Azure, e seu arquivo de manifesto.
 
     myaccount_mytable_20140103T112020.manifest
     myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
@@ -642,13 +642,13 @@ Veja abaixo uma descrição dos parâmetros do AzCopy. Também é possível digi
 
 Especifica os dados de origem para cópia. A origem pode ser um diretório do sistema de arquivos, um contêiner de blob, um diretório virtual de blob, um compartilhamento de arquivos de armazenamento, um diretório de arquivos de armazenamento ou uma tabela do Azure.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="destdestination"></a>/Dest: "destino"
 
 Especifica o destino da cópia. O destino pode ser um diretório do sistema de arquivos, um contêiner de blob, um diretório virtual de blob, um compartilhamento de arquivos de armazenamento, um diretório de arquivos de armazenamento ou uma tabela do Azure.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="patternfile-pattern"></a>/Pattern:"padrão de arquivo"
 
@@ -662,15 +662,15 @@ Se a origem especificada for um compartilhamento de arquivos do Azure, você dev
 
 O AzCopy diferencia maiúsculas de minúsculas quando /Source é um contêiner de blob ou diretório virtual de blob, e não diferencia maiúsculas de minúsculas em todos os outros casos.
 
-O padrão de arquivo usado quando nenhum padrão de arquivo é especificado é *.* para uma localização do sistema de arquivos, ou um prefixo vazio para uma localização de armazenamento do Azure. Não é possível especificar diversos padrões para os arquivos.
+O padrão de arquivo usado quando nenhum padrão de arquivo é especificado é *.*  para uma localização do sistema de arquivos, ou um prefixo vazio para uma localização de armazenamento do Azure. Não é possível especificar diversos padrões para os arquivos.
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="destkeystorage-key"></a>/DestKey:"chave de armazenamento"
 
 Especifica a chave de conta de armazenamento do recurso de destino.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="destsassas-token"></a>/DestSAS:"sas-token"
 
@@ -680,13 +680,13 @@ Se o recurso de destino for um contêiner de blob, compartilhamento de arquivo o
 
 Se a origem e o destino forem blobs, ambos devem residir na mesma conta de armazenamento.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="sourcekeystorage-key"></a>/Sourcekey: "chave de armazenamento"
 
 Especifica a chave de conta de armazenamento para o recurso de origem.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
 
@@ -696,13 +696,13 @@ Se o recurso da fonte for um contêiner de blob, e nenhuma chave ou uma SAS for 
 
 Se a origem for um compartilhamento de arquivo ou uma tabela, será necessário fornecer uma chave ou SAS.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="s"></a>/S
 
 Especifica o modo recursivo para operações de cópia. No modo recursivo, o AzCopy copia todos os blobs ou arquivos correspondentes ao padrão do arquivo, inclusive os presentes nas subpastas.
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="blobtypeblock--page--append"></a>/BlobType:"bloco" | "página" | "anexo"
 
@@ -712,13 +712,13 @@ Especifica se o blob de destino é um blob de blocos, um blob de páginas ou um 
 
 ### <a name="checkmd5"></a>/CheckMD5
 
-Calcula um hash MD5 para dados baixados e certifica que o hash MD5 armazenado no blob, ou a propriedade Content-MD5 do arquivo, corresponde ao hash calculado. Como, por padrão, a verificação MD5 permanece desativada, você deve especificar essa opção para realizar a verificação MD5 ao baixar os dados.
+Calcula um hash MD5 para dados baixados e certifica que o hash MD5 armazenado no blob, ou a propriedade Content-MD5 do arquivo, corresponde ao hash calculado. Se os valores não corresponderem, o AzCopy falhará em baixar os dados. Como, por padrão, a verificação MD5 permanece desativada, você deve especificar essa opção para realizar a verificação MD5 ao baixar os dados.
 
-O Azure Storage não assegura que o hash MD5 armazenado para o blob ou o arquivo esteja atualizado. É de responsabilidade do cliente atualizar o MD5 sempre que o blob ou o arquivo é modificado.
+O Azure Storage não assegura que o hash MD5 armazenado para o blob ou o arquivo esteja atualizado. É de responsabilidade do cliente atualizar o MD5 sempre que o blob ou o arquivo é modificado. No caso de imagens de disco (discos gerenciados ou não gerenciados), as VMs do Azure não atualizam o valor de MD5 conforme os conteúdos do disco se alteram, portanto, /CheckMD5 gera um erro ao fazer o download de imagens de disco.
 
-O AzCopy sempre define a propriedade Content-MD5 para um blob ou um arquivo do Azure depois de carregá-lo no serviço.  
+O AzCopy v8 sempre define a propriedade Content-MD5 para um blob ou um arquivo do Azure depois de carregá-lo no serviço.  
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="snapshot"></a>/Snapshot
 
@@ -736,7 +736,7 @@ Produz mensagens de status detalhadas em um arquivo de log.
 
 Por padrão, o arquivo de log detalhado é chamado de AzCopyVerbose.log no `%LocalAppData%\Microsoft\Azure\AzCopy`. Se você especificar um local de arquivo existente para essa opção, o log detalhado será acrescentado a esse arquivo.  
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
@@ -754,7 +754,7 @@ O arquivo de diário é excluído mediante a conclusão bem-sucedida da operaç�
 
 A retomada de uma operação de um arquivo de diário criado por uma versão anterior do AzCopy não é compatível.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="parameter-file"></a>/@: “arquivo de parâmetro”
 
@@ -766,13 +766,13 @@ Os arquivos de resposta podem incluir linhas de comentários iniciadas pelo sím
 
 É possível especificar vários arquivos de resposta. No entanto, o AzCopy não permite arquivos de resposta aninhados.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="y"></a>/Y
 
 Suprime todas as solicitações de confirmação do AzCopy. Essa opção também permite o uso de tokens SAS somente gravação para cenários de upload de dados, quando /XO e /XN não são especificados.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="l"></a>/L
 
@@ -784,30 +784,30 @@ O comportamento dessa opção também é determinado pelo local dos dados de ori
 
 O AzCopy exige a permissão de LISTAGEM e de LEITURA deste local de origem ao usar essa opção.
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="mt"></a>/MT
 
 Define a hora da última modificação do arquivo baixado como a mesma do blob de origem ou do arquivo.
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="xn"></a>/XN
 
 Exclui um recurso de origem mais novo. O recurso não é copiado se a hora da última modificação na origem for igual ou mais recente do que o destino.
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="xo"></a>/XO
 Exclui um recurso de origem mais antigo. O recurso não é copiado se a hora da última modificação na origem for igual ou mais recente do que o destino.
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="a"></a>/A
 
 Carrega apenas arquivos que tenham o atributo Archive definido.
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
@@ -826,7 +826,7 @@ Entre os atributos disponíveis estão:
 * O = Arquivos offline
 * I = Arquivos não indexados
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
@@ -845,7 +845,7 @@ Entre os atributos disponíveis estão:
 * O = Arquivos offline
 * I = Arquivos não indexados
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="delimiterdelimiter"></a>/Delimiter: "delimitador"
 
@@ -865,19 +865,19 @@ Por padrão, o AzCopy inicia uma determinada quantidade de operações simultân
 
 O limite máximo de operações simultâneas é 512.
 
-**Aplicável a:** Blobs, Arquivos, Tabelas
+**Aplicável a:** Blobs, arquivos e tabelas
 
 ### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
 
 Especifica se o recurso `source` é um blob disponível no ambiente de desenvolvimento local, em execução no emulador de armazenamento.
 
-**Aplicável a:** Blobs, Tabelas
+**Aplicável a:** Blobs, tabelas
 
 ### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
 
 Especifica se o recurso `destination` é um blob disponível no ambiente de desenvolvimento local, em execução no emulador de armazenamento.
 
-**Aplicável a:** Blobs, Tabelas
+**Aplicável a:** Blobs, tabelas
 
 ### <a name="pkrskey1key2key3"></a>/PKRS: "chave1#chave2#chave3#..."
 
@@ -933,7 +933,7 @@ O AzCopy por padrão usa cópia assíncrona no servidor. Especifique essa opçã
 
 Você pode usar essa opção ao copiar arquivos no armazenamento de Blob no armazenamento de arquivo ou do armazenamento de Blob para armazenamento de arquivos ou vice-versa.
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
 
@@ -943,7 +943,7 @@ O AzCopy define o tipo de conteúdo para um blob ou arquivo application/octet-st
 
 Se você especificar essa opção sem um valor, AzCopy definirá cada blob ou tipo de conteúdo do arquivo de acordo com a sua extensão de arquivo.
 
-**Aplicável a:** Blobs, Arquivos
+**Aplicável a:** Blobs e arquivos
 
 ### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 
@@ -981,7 +981,7 @@ Para a propriedade “AzureStorageUseV1MD5”:
 * True – o valor padrão; o AzCopy usa a implementação MD5 do .NET.
 * False – o AzCopy usa o algoritmo MD5 em conformidade com FIPS.
 
-Os algoritmos em conformidade com FIPS são desabilitados por padrão no Windows. Altere essa configuração de política no computador. Na janela Executar (Windows+R), digite secpol.msc para abrir a janela **Política de Segurança Local**. Na janela **Configurações de Segurança**, navegue para **Configurações de Segurança** > **Políticas Locais** > **Opções de Segurança**. Localize a política **Criptografia do Sistema: Usar algoritmos em conformidade com FIPS para criptografia, hash e assinatura**. Clique duas vezes na política para ver o valor exibido na coluna **Configuração de Segurança**.
+Os algoritmos em conformidade com FIPS são desabilitados por padrão no Windows. Altere essa configuração de política no computador. Na janela Executar (Windows+R), digite secpol.msc para abrir a janela **Política de Segurança Local**. Na janela **Configurações de Segurança**, navegue para **Configurações de Segurança** > **Políticas Locais** > **Opções de Segurança**. Localize a política **Criptografia do sistema: Usar algoritmos em conformidade com FIPS para política de criptografia, hash e assinatura**. Clique duas vezes na política para ver o valor exibido na coluna **Configuração de Segurança**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -1001,6 +1001,6 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 * [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support (AzCopy: anúncio de disponibilidade geral do AzCopy 3.0 mais versão de teste do AzCopy 4.0 com suporte para Tabela e Arquivo)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: Optimized for Large-Scale Copy Scenarios (AzCopy: otimizado para cenários de cópia em larga escala)](https://go.microsoft.com/fwlink/?LinkId=507682)
 * [AzCopy: Support for read-access geo-redundant storage (AzCopy: suporte para o armazenamento com redundância geográfica com acesso de leitura)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Transferir dados com o modo reiniciável e um token SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Transfer data with re-startable mode and SAS token (AzCopy: transferir dados com o modo reiniciável e token de SAS)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

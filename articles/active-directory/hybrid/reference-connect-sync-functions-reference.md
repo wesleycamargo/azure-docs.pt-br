@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: referência de funções | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect: Referências de funções | Microsoft Docs'
 description: Referência de expressões de provisionamento declarativo na sincronização do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425686"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157472"
 ---
-# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
+# <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: Referência de funções
 No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização.  
 A sintaxe das funções é expressa usando o seguinte formato:   
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -146,7 +146,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 **Sintaxe:**  
 `dt CDate(str value)`
 
-* Value: uma cadeia de caracteres com uma data, hora e opcionalmente um fuso horário
+* Valor: uma cadeia de caracteres com uma data, hora e opcionalmente um fuso horário
 
 **Comentários:**  
  a cadeia de caracteres retornada é sempre em UTC.
@@ -166,7 +166,7 @@ Retorna os valores de OID de todas as extensões críticas de um objeto de certi
 
 **Sintaxe:**  
 `mvstr CertExtensionOids(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certformat"></a>CertFormat
@@ -175,7 +175,7 @@ Retorna o nome do formato desse certificado X.509v3.
 
 **Sintaxe:**  
 `str CertFormat(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certfriendlyname"></a>CertFriendlyName
@@ -184,7 +184,7 @@ Retorna o alias associado de um certificado.
 
 **Sintaxe:**  
 `str CertFriendlyName(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certhashstring"></a>CertHashString
@@ -193,7 +193,7 @@ Retorna o valor de hash SHA1 do certificado X.509v3 como uma cadeia de caractere
 
 **Sintaxe:**  
 `str CertHashString(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certissuer"></a>CertIssuer
@@ -202,7 +202,7 @@ Retorna o nome da autoridade de certificação que emitiu o certificado X.509v3.
 
 **Sintaxe:**  
 `str CertIssuer(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certissuerdn"></a>CertIssuerDN
@@ -211,7 +211,7 @@ Retorna o nome diferenciado do emissor do certificado.
 
 **Sintaxe:**  
 `str CertIssuerDN(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certissueroid"></a>CertIssuerOid
@@ -220,7 +220,7 @@ Retorna o OID do emissor do certificado.
 
 **Sintaxe:**  
 `str CertIssuerOid(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
@@ -229,7 +229,7 @@ Retorna as informações de algoritmo de chave do certificado X.509v3 como uma c
 
 **Sintaxe:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
@@ -238,7 +238,7 @@ Retorna os parâmetros de algoritmo de chave do certificado X.509v3 como uma cad
 
 **Sintaxe:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certnameinfo"></a>CertNameInfo
@@ -247,7 +247,7 @@ Retorna os nomes de entidade e emissor de um certificado.
 
 **Sintaxe:**  
 `str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 *   X509NameType: o valor de X509NameType para a entidade.
 *   includesIssuerName: verdadeiro para incluir o nome do emissor; caso contrário, falso.
 
@@ -258,7 +258,7 @@ Retorna a data, em hora local, depois da qual um certificado não será mais vá
 
 **Sintaxe:**  
 `dt CertNotAfter(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certnotbefore"></a>CertNotBefore
@@ -267,7 +267,7 @@ Retorna a data, em hora local, na qual um certificado se torna válido.
 
 **Sintaxe:**  
 `dt CertNotBefore(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
@@ -276,7 +276,7 @@ Retorna o OID da chave pública do certificado X.509v3.
 
 **Sintaxe:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
@@ -285,7 +285,7 @@ Retorna o OID dos parâmetros de chave pública do certificado X.509v3.
 
 **Sintaxe:**  
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certserialnumber"></a>CertSerialNumber
@@ -294,7 +294,7 @@ Retorna o número de série do certificado X.509v3.
 
 **Sintaxe:**  
 `str CertSerialNumber(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
@@ -303,7 +303,7 @@ Retorna o OID do algoritmo usado para criar a assinatura de um certificado.
 
 **Sintaxe:**  
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certsubject"></a>CertSubject
@@ -312,7 +312,7 @@ Obtém o nome diferenciado da entidade de um certificado.
 
 **Sintaxe:**  
 `str CertSubject(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
@@ -321,7 +321,7 @@ Retorna o nome diferenciado da entidade de um certificado.
 
 **Sintaxe:**  
 `str CertSubjectNameDN(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
@@ -330,7 +330,7 @@ Retorna o OID do nome da entidade de um certificado.
 
 **Sintaxe:**  
 `str CertSubjectNameOid(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certthumbprint"></a>CertThumbprint
@@ -339,7 +339,7 @@ Retorna a impressão digital de um certificado.
 
 **Sintaxe:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="certversion"></a>CertVersion
@@ -348,7 +348,7 @@ Retorna a versão do formato X.509 de um certificado.
 
 **Sintaxe:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 
 - - -
 ### <a name="cguid"></a>CGuid
@@ -393,7 +393,7 @@ Para atributos de referência, a cadeia de caracteres pesquisada deve correspond
 `str ConvertFromBase64(str source)` - adota Unicode para codificação  
 `str ConvertFromBase64(str source, enum Encoding)`
 
-* source: cadeia de caracteres codificada em Base64  
+* source: Cadeia codificada em Base64  
 * Codificação: Unicode, ASCII, UTF8
 
 **Exemplo**  
@@ -510,7 +510,7 @@ Converte o valor de uma matriz de inteiros em sua representação equivalente de
   * h - Hora
   * m - Minuto
   * s - Segundo
-* valor: O número de unidades que você deseja adicionar. Ele pode ser positivo (para obter datas no futuro) ou negativo (para obter datas no passado).
+* valor: o número de unidades que você deseja adicionar. Ele pode ser positivo (para obter datas no futuro) ou negativo (para obter datas no passado).
 * date: DateTime, representando a data à qual o intervalo é adicionado.
 
 **Exemplo:**  
@@ -556,7 +556,7 @@ Converte o valor de uma matriz de inteiros em sua representação equivalente de
 
 * dn: o atributo de referência a interpretar
 * ComponentNumber - o componente no DN a retornar
-* Opções: DC – ignorar todos os componentes com “dc=”
+* Opções: DC – ignorar todos os componentes com "dc="
 
 **Exemplo:**  
 Se dn for "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" então  
@@ -600,7 +600,7 @@ Se dn for "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" então
 * format: uma cadeia de caracteres que representa o formato para o qual converter.
 
 **Comentários:**  
-Os possíveis valores para o formato podem ser encontrados aqui: [Formatos de Data/Hora Definidos pelo Usuário (Função Format)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+os valores possíveis para o formato podem ser encontrados aqui: [Formatos de data e hora personalizados para a função FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exemplo:**  
 
@@ -714,7 +714,7 @@ Retorna verdadeiro se os dados brutos puderem ser serializados no objeto de cert
 
 **Sintaxe:**  
 `bool CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: Representação da matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 - - -
 ### <a name="isempty"></a>IsEmpty
 **Descrição:**  
@@ -852,7 +852,7 @@ Se o índice estiver fora dos limites, retornará um valor Null.
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* attribute: um atributo de valores múltiplos contendo cadeias de caracteres a serem unidas.
+* atributo: um atributo de valores múltiplos contendo cadeias de caracteres a serem unidas.
 * delimiter: qualquer cadeia de caracteres usada para separar as subcadeias de caracteres na cadeia de caracteres retornada. Se omitido, o caractere de espaço (" ") é usado. Se o Delimitador é uma cadeia de caracteres de comprimento zero ("") ou Nada, todos os itens na lista são concatenados sem delimitadores.
 
 **Comentários**  
@@ -1079,7 +1079,7 @@ Se não houver nenhum caractere numChar restante na cadeia de caracteres a parti
 
 * string: uma cadeia de caracteres na qual substituir valores.
 * OldValue: a cadeia de caracteres pela qual pesquisar e a qual substituir.
-* NewValue: a cadeia de caracteres a substituir.
+* NewValue: a cadeia de caracteres para substituir.
 
 **Comentários:**  
  a função reconhece os seguintes monikers especiais:
@@ -1223,7 +1223,7 @@ Retorna todos os valores no atributo de valores múltiplos otherPhone depois que
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
 * expr: expressão variante que você deseja avaliar.
-* value: valor a ser retornado se a expressão correspondente for True.
+* valor: valor a ser retornado se a expressão correspondente for True.
 
 **Comentários:**  
  a lista de argumentos da função Switch consiste em pares de expressões e valores. As expressões são avaliadas da esquerda para a direita e o valor associado à primeira expressão avaliada como True é retornado. Se as partes não tiverem pares adequados, ocorrerá um erro em tempo de execução.
@@ -1335,5 +1335,5 @@ Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não c
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Noções básicas sobre expressões de provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect Sync: personalizando opções de sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: personalizando opções de Sincronização](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)

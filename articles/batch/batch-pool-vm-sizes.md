@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 01/07/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a1d733e918d4b53ea9dd220f5e379e0c8133c03a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540649"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191710"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
@@ -42,6 +42,16 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a todos 
 | Série A básica | Basic_A0 (A0) |
 | Séria A | Standard_A0 |
 | Série B | Todos |
+| Série DC | Todos | 
+| Otimizado para memória extrema | Todos |
+| Hb-series<sup>1</sup> | Todos | 
+| Hc-series<sup>1</sup> | Todos |
+| Série Lsv2 | Todos |
+| NDv2-series<sup>1</sup> | Todos |
+| NVv2-series<sup>1</sup> | Todos |
+| SAP HANA | Todos |
+
+<sup>1</sup> Sem suporte no momento, mas terá suporte no futuro.
 
 Os tamanhos de VM a seguir são suportados somente para nós de baixa prioridade:
 

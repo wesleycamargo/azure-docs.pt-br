@@ -2,18 +2,18 @@
 title: Navegar nas APIs dos Gêmeos Digitais do Azure | Microsoft Docs
 description: Aprenda os padrões comuns para consultar as APIs de gerenciamento dos Gêmeos Digitais do Azure.
 author: dsk-2015
-manager: bertvanhoof
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 2221e8b22450a353da42564e5b93342a11e59f71
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109391"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200948"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Como usar as APIs de gerenciamento de Gêmeos Digitais do Azure
 
@@ -25,11 +25,11 @@ A lista a seguir mostra os componentes das APIs de Gêmeos Digitais.
 
 * [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): essas APIs interagem com os locais físicos em sua configuração. Elas o ajudam a criar, excluir e gerenciar os mapeamentos digitais de seus locais físicos na forma de um [grafo espacial](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
 
-* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): essas APIs ajudam a configurar recursos, como um Hub IoT, para sua instância dos Gêmeos Digitais.
-
 * [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): essas APIs interagem com os dispositivos em sua configuração. Esses dispositivos podem gerenciar um ou mais sensores. Por exemplo, um dispositivo pode ser seu telefone, um pod do sensor Raspberry Pi, um gateway Lora e assim por diante.
 
 * [/sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors): essas APIs ajudam você a se comunicar com os sensores associados com seus dispositivos e seus locais físicos. os sensores gravam e enviam valores de ambiente que, em seguida, podem ser usados para manipular o seu ambiente espacial.  
+
+* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): essas APIs ajudam a configurar recursos, como um Hub IoT, para sua instância dos Gêmeos Digitais.
 
 * [/types](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): essas APIs permitem que você associe tipos estendidos de seus objetos dos Gêmeos Digitais para adicionar características específicas a esses objetos. esses tipos permitem filtrar e agrupar facilmente objetos na interface do usuário e as funções personalizadas que processam os dados de telemetria. Exemplos de tipos estendidos são *DeviceType*, *SensorType*, *SensorDataType*, *SpaceType*, *SpaceSubType*, *SpaceBlobType*, *SpaceResourceType* e assim por diante.
 

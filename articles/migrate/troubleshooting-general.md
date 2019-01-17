@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259147"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189489"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -23,11 +23,11 @@ As [Migrações para Azure](migrate-overview.md) avaliam as cargas de trabalho l
 
 O dispositivo de descoberta contínua apenas coleta dados de desempenho continuamente, ele não detectar qualquer alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, a adição de disco etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
 
-- Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-la novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+- Adição de itens (VMs, discos, núcleos, etc.): Para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-la novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
 
    ![Interromper descoberta](./media/troubleshooting-general/stop-discovery.png)
 
-- Exclusão de VMs: devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
+- Exclusão de VMs: Devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Falha na criação do projeto de migração com o erro *As solicitações devem conter cabeçalhos de identidade do usuário*
 
@@ -136,7 +136,7 @@ O Coletor de Migrações para Azure baixa o PowerCLI e o instala no dispositivo.
 2. Vá para o diretório C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. Execute o script InstallPowerCLI.ps1
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro Interno de UnhandledException: System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>Ocorreu um erro Interno de UnhandledException: System.IO.FileNotFoundException
 
 Esse problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga as etapas abaixo para resolver o problema:
 
@@ -245,14 +245,14 @@ Para coletar Rastreamento de Eventos para Windows, faça o seguinte:
 2. Pressione F12 para iniciar as Ferramentas para Desenvolvedores. Se necessário, desmarque a configuração **Limpar entradas na navegação**.
 3. Clique na guia **Rede** e inicie a captura do tráfego de rede:
  - No Chrome, selecione **Preservar log**. A gravação deve ser iniciada automaticamente. Um círculo vermelho indica que o tráfego está sendo capturado. Se não for exibido, clique no círculo preto para iniciar
- - No Edge/IE, a gravação deve ser iniciada automaticamente. Se não estiver, clique no botão verde para executar.
+ - No Microsoft Edge/IE, a gravação deve ser iniciada automaticamente. Se não estiver, clique no botão verde para executar.
 4. Tente reproduzir o erro.
 5. Depois que você tiver encontrado o erro durante a gravação, interrompa a gravação e salve uma cópia da atividade registrada:
  - No Chrome, clique com o botão direito e clique em **Salvar como HAR com conteúdo**. Isso compacta e exporta os logs como um arquivo .har.
- - No IE/Edge, clique no ícone **Exportar tráfego capturado**. Isso compacta e exporta o log.
+ - No IE/Microsoft Edge, clique no ícone **Exportar tráfego capturado**. Isso compacta e exporta o log.
 6. Navegue até a guia **Console** para verificar se há avisos ou erros. Para salvar o log do console:
  - No Chrome, clique com o botão direito em qualquer lugar no log do console. Selecione **Salvar como**, para exportar e compactar o log.
- - No Edge/IE, clique com o botão direito nos erros e selecione **Copiar tudo**.
+ - No Microsoft Edge/IE, clique com o botão direito do mouse nos erros e selecione **Copiar tudo**.
 7. Fechar as Ferramentas para Desenvolvedores.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de erro de coletor e ações recomendadas

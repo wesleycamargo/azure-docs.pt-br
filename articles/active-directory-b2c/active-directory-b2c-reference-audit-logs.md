@@ -10,19 +10,19 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 93ca61c610856ebba64bff46b2338090f317ad56
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117394"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302027"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
 O Azure Active Directory B2C (Azure AD B2C) emite os logs de auditoria que contém informações de atividade sobre os recursos B2C, tokens emitidos e acesso de administrador. Este artigo fornece uma visão geral das informações disponíveis por meio de logs de auditoria e instruções sobre como acessar esses dados para seu locatário do Azure AD B2C.
 
 > [!IMPORTANT]
-> Os logs de auditoria são retidos por sete dias. Planeje realizar o download e armazenar seus logs usando um dos métodos abaixo se precisar de um período de retenção mais longo. 
+> Os logs de auditoria são retidos por sete dias. Planeje realizar o download e armazenar seus logs usando um dos métodos abaixo se precisar de um período de retenção mais longo.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Visão geral das atividades disponíveis na categoria B2C dos logs de auditoria
 A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividades:
@@ -43,7 +43,7 @@ O exemplo a seguir mostra os dados capturados quando um usuário entra com um pr
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Acessar os logs de auditoria por meio do Portal do Azure
 1. Vá para o [Portal do Azure](https://portal.azure.com). Verifique se você está no diretório do B2C.
-2. Clique no **Azure Active Directory** na barra de favoritas à esquerda 
+2. Clique no **Azure Active Directory** na barra de favoritas à esquerda
     
     ![Logs de auditoria - botão AAD](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
@@ -56,14 +56,14 @@ O exemplo a seguir mostra os dados capturados quando um usuário entra com um pr
 
     ![Logs de Auditoria - Categoria](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
-Você verá uma lista de atividades registradas nos últimos sete dias. 
+Você verá uma lista de atividades registradas nos últimos sete dias.
 - Use o menu suspenso **Tipo de Recurso de Atividade** para filtrar os tipos de atividade descritos acima
 - Use o menu suspenso **Intervalo de Datas** para filtrar o intervalo de datas das atividades mostradas
 - Se você clicar em uma linha específica na lista, uma caixa contextual à direita mostra atributos adicionais associados à atividade
 - Clique em **Download** para baixar as atividades como um arquivo csv
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Acessar os logs de auditoria por meio da API de relatórios do Microsoft Azure Active Directory
-Os logs de auditoria são publicados para o mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acessados por meio da [API de relatórios do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
+Os logs de auditoria são publicados para o mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acessados por meio da [API de relatórios do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Para autenticar à API de relatórios do Microsoft Azure Active Directory, você precisa registrar um aplicativo. Antes de começar, você precisa concluir as etapas em [Pré-requisitos para acessar as APIs de relatórios do Microsoft Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
@@ -82,7 +82,7 @@ O script a seguir fornece um exemplo de uso do PowerShell para consultar a API d
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
-$loginURL       = "https://login.microsoftonline.com"     
+$loginURL       = "https://login.microsoftonline.com"
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD B2C Tenant; for example, contoso.onmicrosoft.com
 $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -93,13 +93,13 @@ $body       = @{grant_type="client_credentials";resource=$resource;client_id=$Cl
 $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
 # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
-if ($oauth.access_token -ne $null) {   
+if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago 
+    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago
 
     # loop through each query page (1 through n)
-    Do{
+    Do {
         # display each event on the console window
         Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
@@ -117,4 +117,3 @@ if ($oauth.access_token -ne $null) {
     Write-Host "ERROR: No Access Token"
 }
 ```
-

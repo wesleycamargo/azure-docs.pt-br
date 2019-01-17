@@ -9,23 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876470"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064365"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Versão 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versão atual](concepts-pipeline-execution-triggers.md)
 
-Uma _execução de pipeline_ no Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Nesse caso, há três execuções de pipeline separadas. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução é um GUID que define exclusivamente essa execução de pipeline específica. 
+Uma _execução de pipeline_ no Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Nesse caso, há três execuções de pipeline separadas. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução é um GUID que define exclusivamente essa execução de pipeline específica.
 
 As execuções de pipeline normalmente são instanciadas por meio da passagem de argumentos para parâmetros definidos no pipeline. Você pode executar um pipeline manualmente ou usando um _gatilho_. Este artigo fornece detalhes sobre as duas maneiras de executar um pipeline.
 
@@ -85,7 +84,7 @@ Você pode executar o pipeline manualmente usando um dos seguintes métodos:
 - SDK do Python
 
 ### <a name="rest-api"></a>API REST
-O comando de exemplo abaixo mostra como executar o pipeline manualmente usando a API REST:  
+O comando de exemplo abaixo mostra como executar o pipeline manualmente usando a API REST:
 
 ```
 POST
@@ -176,7 +175,7 @@ Um gatilho de agendamento executa pipelines em um agendamento de hora de relógi
 Para saber mais sobre os gatilhos de agendamento e obter exemplos, confira [Criar um gatilho de agendamento](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definição do gatilho de agenda
-Quando você cria um gatilho de agenda, especifica o agendamento e a recorrência usando uma definição JSON. 
+Quando você cria um gatilho de agenda, especifica o agendamento e a recorrência usando uma definição JSON.
 
 Para que o gatilho de agendamento dispare uma execução de pipeline, inclua uma referência de pipeline do pipeline específico na definição do gatilho. Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos podem disparar um único pipeline. Um único gatilho pode disparar vários pipelines.
 
@@ -313,7 +312,7 @@ A seguinte tabela descreve elementos **schedule** em detalhes:
 | **minutos** | Minutos da hora em que o gatilho será executado. |- Número inteiro<br />- Matriz de números inteiros|
 | **horas** | As horas do dia em que o gatilho será executado. |- Número inteiro<br />- Matriz de números inteiros|
 | **Dias da semana** | Dias da semana em que o gatilho será executado. O valor pode ser especificado apenas com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores de dia não diferenciam maiúsculas de minúsculas|
-| **monthlyOccurences** | Dias do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. |- Matriz de objetos **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana no qual o gatilho é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor de **day** igual a `{Sunday}` significa todo domingo do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência de **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores de **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
+| **monthlyOccurences** | Dias do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. |- Matriz de objetos **monthlyOccurrence**: `{ "day": day, "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana no qual o gatilho é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor de **day** igual a `{Sunday}` significa todo domingo do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência de **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores de **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
 | **Dias do mês** | Dia do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. |- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31<br />- Matriz de valores|
 
 ## <a name="tumbling-window-trigger"></a>Gatilho de janela em cascata
@@ -373,7 +372,7 @@ A tabela a seguir fornece uma comparação entre o gatilho de janela em cascata 
 | **Repetir o recurso** |  Com suporte. As execuções de pipeline com falha têm o padrão de política de repetição como 0, ou uma política especificada pelo usuário como parte da definição do gatilho. Repete automaticamente quando a execução do pipeline falha devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de status 400: Erro de Usuário, 429: Excesso de solicitações; e 500: Erro interno do servidor). | Sem suporte. |
 | **Simultaneidade** |  Com suporte. Os usuários podem definir explicitamente os limites de simultaneidade para o gatilho. Permite entre 1 e 50 execuções de pipeline disparadas simultaneamente. | Sem suporte. |
 | **Variáveis do sistema** | Dá suporte ao uso das variáveis de sistema **WindowStart** e **WindowEnd**. Os usuários podem acessar `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis de sistema de gatilho na definição do gatilho. Os valores são usados como hora de início e hora de término da janela, respectivamente. Por exemplo, para um gatilho de janela em cascata que é executado a cada hora, para a janela de 1h a 2h, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Sem suporte. |
-| **Relação pipeline para gatilho** | Dá suporte a uma relação um para um. Somente um pipeline pode ser disparado. | Dá suporte a relações muitos para muitos. Vários gatilhos podem disparar um único pipeline. Um único gatilho pode disparar vários pipelines. | 
+| **Relação pipeline para gatilho** | Dá suporte a uma relação um para um. Somente um pipeline pode ser disparado. | Dá suporte a relações muitos para muitos. Vários gatilhos podem disparar um único pipeline. Um único gatilho pode disparar vários pipelines. |
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes tutoriais:

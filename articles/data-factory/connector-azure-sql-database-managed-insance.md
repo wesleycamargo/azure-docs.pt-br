@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706714"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025072"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Copiar dados para e da Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -50,7 +49,7 @@ As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenc
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como **SqlServer** | SIM |
+| Tipo | A propriedade type deve ser definida como: **SqlServer** | SIM |
 | connectionString |Especifique as informações de connectionString necessárias para conexão com a Instância Gerenciada usando a autenticação SQL ou a autenticação do Windows. Consulte o exemplo a seguir. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |SIM |
 | userName |Especifique o nome de usuário se você estiver usando a Autenticação do Windows. Exemplo: **domainname\\username**. |Não  |
 | Senha |Especifique a senha da conta de usuário que você especificou para userName. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não  |
@@ -59,7 +58,7 @@ As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenc
 >[!TIP]
 >Se ocorrer erro com código de erro como "UserErrorFailedToConnectToSqlServer" e mensagem como "O limite da sessão para o banco de dados é XXX e foi atingido.", adicione `Pooling=false` à cadeia de conexão e tente novamente.
 
-**Exemplo 1: usando a autenticação SQL**
+**Exemplo 1: Usando a autenticação SQL**
 
 ```json
 {
@@ -156,7 +155,7 @@ Para copiar dados da Instância Gerenciada do Banco de Dados SQL do Azure, defin
 - Se **sqlReaderQuery** for especificado para SqlSource, a atividade de cópia executará essa consulta na fonte de dados da Instância Gerenciada para obter os dados. Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usa parâmetros).
 - Se você não especificar a propriedade “sqlReaderQuery” nem a “sqlReaderStoredProcedureName”, as colunas definidas na seção “estrutura” do JSON do conjunto de dados serão usadas para criar uma consulta (`select column1, column2 from mytable`) para ser executada na Instância Gerenciada. Se a definição de conjunto de dados não tiver a seção "structure", todas as colunas serão selecionadas da tabela.
 
-**Exemplo: usando uma consulta SQL**
+**Exemplo: Usando uma consulta SQL**
 
 ```json
 "activities":[
@@ -188,7 +187,7 @@ Para copiar dados da Instância Gerenciada do Banco de Dados SQL do Azure, defin
 ]
 ```
 
-**Exemplo: usando um procedimento armazenado**
+**Exemplo: Usando um procedimento armazenado**
 
 ```json
 "activities":[
@@ -249,9 +248,9 @@ Para copiar dados para a Instância Gerenciada do Banco de Dados SQL do Azure, d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como: **SqlSink** | SIM |
+| Tipo | A propriedade type do coletor da atividade de cópia deve ser definida como: **SqlSink** | SIM |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (padrão: 10000) |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período.  Exemplo: "00:30:00" (30 minutos). |Não  |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período. Exemplo: “00:30:00” (30 minutos). |Não  |
 | preCopyScript |Especifica uma consulta SQL para a atividade de cópia executar antes da gravação dos dados na Instância Gerenciada. Isso será invocado somente uma vez por execução de cópia. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não  |
 | sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar os dados de origem à tabela de destino, por exemplo, para fazer upserts ou transformações usando sua própria lógica de negócios. <br/><br/>Observe que esse procedimento armazenado será **invocado por lote**. Se você deseja executar uma operação que é executada apenas uma vez e que não tem nenhuma relação com os dados de origem, por exemplo, excluir/truncar, use a propriedade `preCopyScript`. |Não  |
 | storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são: pares nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não  |
@@ -260,7 +259,7 @@ Para copiar dados para a Instância Gerenciada do Banco de Dados SQL do Azure, d
 > [!TIP]
 > Ao copiar dados para a Instância Gerenciada do Banco de Dados SQL do Azure, a atividade de cópia acrescenta dados à tabela de coletor por padrão. Para executar um UPSERT ou lógica de negócios adicional, use o procedimento armazenado no SqlSink. Obtenha mais detalhes de [Invocando o procedimento armazenado para o coletor SQL](#invoking-stored-procedure-for-sql-sink).
 
-**Exemplo 1: anexar dados**
+**Exemplo 1: Anexar dados**
 
 ```json
 "activities":[
@@ -292,7 +291,7 @@ Para copiar dados para a Instância Gerenciada do Banco de Dados SQL do Azure, d
 ]
 ```
 
-**Exemplo 2: invocar um procedimento armazenado durante a cópia para upsert**
+**Exemplo 2: Invocar um procedimento armazenado durante a cópia para upsert**
 
 Obtenha mais detalhes de [Invocando o procedimento armazenado para o coletor SQL](#invoking-stored-procedure-for-sql-sink).
 
@@ -406,7 +405,7 @@ Ao copiar dados na Instância Gerenciada do Banco de Dados SQL do Azure, um proc
 
 Um procedimento armazenado pode ser usado quando os mecanismos de cópia internos não têm essa finalidade. Isso normalmente é usado ao realizar um upsert (inserção + atualização) ou um processamento adicional (mesclar colunas, pesquisar valores adicionais, inserção em várias tabelas, etc.) antes da inserção final dos dados de origem na tabela de destino.
 
-O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert em uma tabela na Instância Gerenciada. Supondo que os dados de entrada e a tabela "Marketing" do coletor tem três colunas: ProfileID, State e Category. Execute o upsert com base na coluna "ProfileID" e aplique somente a uma categoria específica.
+O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert em uma tabela na Instância Gerenciada. Considerando que os dados de entrada e cada tabela "Marketing" do coletor tenham cada um três colunas: ProfileID, Estado e Categoria. Execute o upsert com base na coluna "ProfileID" e aplique somente a uma categoria específica.
 
 **Conjunto de dados de saída**
 

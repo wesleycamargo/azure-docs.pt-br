@@ -9,17 +9,16 @@ ms.assetid: 484f735b-8464-40ba-a9fc-820e6553159e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d010fd90d96409b262be59f1db4fac9e4cec835c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9b7104d27e7f8c384c742a3988ad7400c232d162
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051552"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023032"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copiar dados de e para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,9 +45,9 @@ O conector do Banco de Dados SQL do Azure dá suporte à autenticação básica.
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com uma atividade de cópia que mova dados bidirecionalmente de um Banco de Dados SQL do Azure usando diferentes ferramentas/APIs.
 
-A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
+Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor: 
 
@@ -66,14 +65,14 @@ Um serviço vinculado do SQL do Azure vincula um banco de dados SQL do Azure ao 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **AzureSqlDatabase** |sim |
-| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |sim |
+| Tipo |A propriedade type deve ser definida como: **AzureSqlDatabase** |SIM |
+| connectionString |Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |SIM |
 
 > [!IMPORTANT]
 > Configure o [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) do servidor de banco de dados para [permitir que os Serviços do Azure acessem o servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se você estiver copiando os dados para o Banco de Dados SQL do Azure de fora do Azure, inclusive a partir das fontes de dados locais com o gateway do data factory, configure o devido intervalo de endereços IP do computador que está enviando os dados para o Banco de Dados SQL do Azure.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para especificar um conjunto de dados de modo a representar dados de entrada ou saída em um banco de dados SQL Azure, defina a propriedade de tipo do conjunto de dados para: **AzureSqlTable**. Defina a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço vinculado do SQL do Azure.  
+Para especificar um conjunto de dados de modo a representar dados de entrada ou saída em um banco de dados SQL do Azure, defina a propriedade de tipo do conjunto de dados para: **AzureSqlTable**. Defina a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço vinculado do SQL do Azure.  
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
@@ -81,7 +80,7 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL Azure à qual o serviço vinculado se refere. |sim |
+| tableName |Nome da tabela ou exibição na instância do Banco de Dados SQL Azure à qual o serviço vinculado se refere. |SIM |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
@@ -148,7 +147,7 @@ GO
 
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não  |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: “00:30:00” (30 minutos). |Não  |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Inteiro (número de linhas) |Não (padrão: 10000) |
 | sqlWriterCleanupScript |Especifique uma consulta da Atividade de Cópia a executar para que os dados de uma fatia específica sejam removidos. Para saber mais, consulte [cópia repetida](#repeatable-copy). |Uma instrução de consulta. |Não  |
 | sliceIdentifierColumnName |Especifique um nome de coluna para a Atividade de Cópia a preencher com o identificador de fatias gerado automaticamente, que é usado para limpar os dados de uma fatia específica ao executar novamente. Para saber mais, consulte [cópia repetida](#repeatable-copy). |Nome de uma coluna com tipo de dados de binário (32). |Não  |
@@ -253,7 +252,7 @@ Consulte a seção [Propriedades do tipo de conjunto de dados do SQL Azure](#dat
 
 **Conjunto de dados de saída de Blob do Azure:**
 
-Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
+Dados são gravados em um novo blob a cada hora (frequência: horas, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
 ```JSON
 {
@@ -649,7 +648,7 @@ Ao mover dados bidirecionalmente no Banco de Dados SQL do Azure, os mapeamentos 
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Duplo |
-| imagem |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
@@ -664,7 +663,7 @@ Ao mover dados bidirecionalmente no Banco de Dados SQL do Azure, os mapeamentos 
 | sql_variant |Objeto * |
 | text |String, Char[] |
 | tempo real |timespan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fd37c0c118812bb3554b19fec9bf5ae3f33a2fdc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122829"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54314103"
 ---
 Os tamanhos de VM otimizados para GPU são máquinas virtuais especializadas disponíveis com um ou vários GPUs NVIDIA. Esses tamanhos são projetados para cargas de trabalho de visualização e com muita computação e muitos gráficos. Este artigo fornece informações sobre o número e o tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda de rede também são incluídos para cada tamanho neste agrupamento. 
 
@@ -108,9 +108,9 @@ A máquina virtual da série NDv2 é uma nova adição à família de GPUs proje
 <br>
 
 
-| Tamanho              | vCPU’s | GPU              | Memória  | NICs (Máx.) | Máx. tamanho do disco           | Máx. de discos de dados (1023 GB cada) | Largura de banda de rede máxima | 
-|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
-| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporário 1344 / 2948XIO | 32    | 24,000 Mbps             | 
+| Tamanho              | vCPU | GPU              | Memória  | NICs (Máx.) | Máx. tamanho do disco           | Máx. de discos de dados (1023 GB cada) | Largura de banda de rede máxima | 
+|-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
+| Standard_ND40s_v2 | 40   | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporário 1344 / 2948XIO | 32                             | 24,000 Mbps           |
 
 ## <a name="nd-series"></a>Série ND
 

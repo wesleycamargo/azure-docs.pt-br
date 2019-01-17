@@ -9,17 +9,16 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 414a6042d064a1dece7025dc277533d40ef2aa64
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781906"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024035"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
 > [!NOTE]
@@ -55,10 +54,10 @@ Você pode criar fábricas de dados usando um dos SDKs/ferramentas a seguir:
 * **Azure PowerShell** Veja [Criar e monitorar o Azure Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para ver um tutorial/passo a passo da criação de uma fábrica de dados usando o PowerShell. Confira o conteúdo de [Referência de cmdlets do Data Factory][adf-powershell-reference] na Biblioteca do MSDN para obter uma documentação abrangente de cmdlets de Data Factory.
 * **Biblioteca de classes .NET** Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Data Factory. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET](data-factory-create-data-factories-programmatically.md) para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Confira a [Referência da Biblioteca de Classes de Data Factory][msdn-class-library-reference] para obter uma documentação abrangente sobre o SDK do .NET de Data Factory.
 * **REST API** Você também pode usar a API REST exposta pelo serviço do Azure Data Factory para criar e implantar fábricas de dados. Confira a [Referência da API REST de Data Factory][msdn-rest-api-reference] para obter uma documentação abrangente da API REST de Data Factory.
-* **Modelo do Azure Resource Manager** Consulte [Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para obter detalhes.
+* **Modelo do Azure Resource Manager** Para obter detalhes, veja [Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md).
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso renomear um Data Factory?
-Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
+ Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Posso mover uma fábrica de dados de uma assinatura do Azure para outra?
 Sim. Use o botão **Mover** na folha do data factory, conforme mostrado no diagrama a seguir:
@@ -72,8 +71,8 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | --- | --- |
 | [Cluster HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Lote do Azure](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades de Machine Learning: execução do Lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
-| [Análise Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades de Machine Learning: Execução de lote e Recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como o Azure Data Factory se compara com o SSIS (SQL Server Integration Services)? 
@@ -118,7 +117,7 @@ Se você estiver usando seu próprio cluster HDInsight (BYOC – traga seu próp
 * [Usando um Cluster HDInsight com metastores e contas de armazenamento alternativas][hdinsight-alternate-storage]
 * [Usar contas de armazenamento adicionais com o HDInsight Hive][hdinsight-alternate-storage-2]
 
-Se você estiver usando um cluster sob demanda que é criado pelo serviço Data Factory, deverá especificar contas de armazenamento adicionais para o serviço vinculado HDInsight para que o serviço Data Factory possa registrá-los em seu nome. Na definição de JSON para o serviço vinculado sob demanda, use a propriedade **additionalLinkedServiceNames** para especificar contas de armazenamento alternativas, como mostrado no trecho de JSON a seguir:
+Se você estiver usando um cluster sob demanda que é criado pelo serviço Data Factory, deverá especificar contas de armazenamento adicionais para o serviço vinculado HDInsight para que o serviço Data Factory possa registrá-los em seu nome. Na definição de JSON para o serviço vinculado sob demanda, use a propriedade **additionalLinkedServiceNames** para especificar contas de armazenamento alternativas, como mostrado no snippet de JSON a seguir:
 
 ```JSON
 {

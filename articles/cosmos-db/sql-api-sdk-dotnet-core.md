@@ -1,21 +1,19 @@
 ---
 title: 'O Azure Cosmos DB: SDK, API do .NET Core do SQL e recursos'
 description: Saiba tudo sobre o SDK e a API do .NET Core do SQL, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do .NET Core para Azure Cosmos DB.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.author: sngun
+ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413499"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053544"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB para API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -57,6 +55,14 @@ O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais
 * Novo modelo de objeto, com CosmosClient de nível superior e métodos divididos entre as classes CosmosDatabases, CosmosContainers e CosmosItems.
 * Suporte para fluxos.
 * Atualizado CosmosResponseMessage do servidor para retornar o código de status e somente gerar exceção quando nenhuma resposta for retornada.
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Melhoria na lógica de repetição durante o failover para chamadas de execução de StoredProcedure.
+
+* DocumentClientEventSource foi transformado em singleton. 
+
+* O tempo limite de GatewayAddressCache não está respeitando o RequestTimeout de ConnectionPolicy.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -227,6 +233,7 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](https:
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 de dezembro de 2018 |--- |
 | [2.2.0](#2.2.0) |07 de dezembro de 2018 |--- |
 | [2.1.3](#2.1.3) |15 de outubro de 2018 |--- |
 | [2.1.2](#2.1.2) |04 de outubro de 2018 |--- |

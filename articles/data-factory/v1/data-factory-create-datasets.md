@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77e81dce7857433481f501410419f1067a51c3fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 25e47ecc9d9915ab618bc45f2e95f12bae68c7f0
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020329"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332601"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,18 +31,18 @@ ms.locfileid: "54020329"
 Este artigo descreve o que são conjuntos de dados, como eles são definidos no formato JSON e como são usados em pipelines do Azure Data Factory. Ele fornece detalhes sobre cada seção (por exemplo, estrutura, disponibilidade e política) na definição de JSON do conjunto de dados. O artigo também fornece exemplos de como usar as propriedades **offset**, **anchorDateTime** e **style** em uma definição de JSON do conjunto de dados.
 
 > [!NOTE]
-> Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azure Data Factory](data-factory-introduction.md) para obter uma visão geral. Caso não tenha experiência prática com a criação de data factories, obtenha um melhor entendimento lendo o [tutorial de transformação de dados](data-factory-build-your-first-pipeline.md) e o [tutorial de movimentação de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+> Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azure Data Factory](data-factory-introduction.md) para obter uma visão geral. Caso não tenha experiência prática com a criação de data factories, obtenha um melhor entendimento lendo o [tutorial de transformação de dados](data-factory-build-your-first-pipeline.md) e o [tutorial de movimentação de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Visão geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você poderá usar uma atividade de cópia para copiar os dados de um SQL Server local para um armazenamento de Blobs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, poderá usar uma segunda atividade de cópia para copiar os dados de saída para o SQL Data Warehouse do Azure, no qual as soluções de relatório de BI (business intelligence) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [Pipelines e atividades no Azure Data Factory](data-factory-create-pipelines.md).
 
-Uma atividade pode usar zero ou mais **conjuntos de dados** de entrada e gerar um ou mais conjuntos de dados de saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade. Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Por exemplo, um conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta no armazenamento de Blobs dos quais o pipeline deve ler os dados. 
+Uma atividade pode usar zero ou mais **conjuntos de dados** de entrada e gerar um ou mais conjuntos de dados de saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade. Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Por exemplo, um conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta no armazenamento de Blobs dos quais o pipeline deve ler os dados.
 
-Antes de criar um conjunto de dados, crie um **serviço vinculado** para vincular o armazenamento de dados ao data factory. Serviços vinculados são como cadeias de conexão, que definem as informações de conexão necessárias para o Data Factory para se conectar a recursos externos. Conjuntos de dados identificam dados em armazenamentos de dados vinculados, como tabelas SQL, arquivos, pastas e documentos. Por exemplo, um serviço vinculado do Armazenamento do Azure vincula uma conta de armazenamento ao data factory. Um conjunto de dados de Blob do Azure representa o contêiner de blob e a pasta que contém os blobs de entrada a ser processado. 
+Antes de criar um conjunto de dados, crie um **serviço vinculado** para vincular o armazenamento de dados ao data factory. Serviços vinculados são como cadeias de conexão, que definem as informações de conexão necessárias para o Data Factory para se conectar a recursos externos. Conjuntos de dados identificam dados em armazenamentos de dados vinculados, como tabelas SQL, arquivos, pastas e documentos. Por exemplo, um serviço vinculado do Armazenamento do Azure vincula uma conta de armazenamento ao data factory. Um conjunto de dados de Blob do Azure representa o contêiner de blob e a pasta que contém os blobs de entrada a ser processado.
 
 Veja abaixo um cenário de exemplo. Para copiar dados do armazenamento de Blobs para um banco de dados SQL, crie dois serviços vinculados: Armazenamento do Azure e Banco de Dados SQL do Azure. Em seguida, crie dois conjuntos de dados: O conjunto de dados de Blob do Azure (que se refere ao serviço vinculado do Armazenamento do Azure) e o conjunto de dados de Tabela do SQL do Azure (que se refere ao serviço vinculado do Banco de Dados SQL do Azure). Os serviços vinculados do Armazenamento do Azure e do Banco de Dados SQL do Azure contêm cadeias de conexão que o Data Factory usa em tempo de execução para se conectar ao Armazenamento do Azure e ao Banco de Dados SQL do Azure, respectivamente. O conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta de blobs que contém os blobs de entrada no armazenamento de Blobs. O conjunto de dados de Tabela do SQL do Azure especifica a tabela do SQL no banco de dados SQL para o qual os dados serão copiados.
 
-O seguinte diagrama mostra a relação entre pipeline, atividade, conjunto de dados e serviço vinculado no Data Factory: 
+O seguinte diagrama mostra a relação entre pipeline, atividade, conjunto de dados e serviço vinculado no Data Factory:
 
 ![Relação entre pipeline, atividade e conjunto de dados, serviços vinculados](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
 
@@ -70,14 +70,14 @@ Um conjunto de dados no Data Factory é definido no formato JSON da seguinte man
             "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
             "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
         },
-       "policy":
-        {      
+        "policy":
+        {
         }
     }
 }
 ```
 
-A tabela a seguir descreve as propriedades no JSON acima:   
+A tabela a seguir descreve as propriedades no JSON acima:
 
 | Propriedade | DESCRIÇÃO | Obrigatório | Padrão |
 | --- | --- | --- | --- |
@@ -115,8 +115,8 @@ Observe os seguintes pontos:
 
 * **type** foi definido como AzureSqlTable.
 * A propriedade de tipo **tableName** (específica ao tipo AzureSqlTable) foi definida como MyTable.
-* **linkedServiceName** se refere a um serviço vinculado do tipo AzureSqlDatabase, que é definido no próximo snippet de JSON. 
-* **Frequência de disponibilidade** é definida como Dia e **intervalo** como 1. Isso significa que a fatia do conjunto de dados é gerada diariamente.  
+* **linkedServiceName** se refere a um serviço vinculado do tipo AzureSqlDatabase, que é definido no próximo snippet de JSON.
+* **Frequência de disponibilidade** é definida como Dia e **intervalo** como 1. Isso significa que a fatia do conjunto de dados é gerada diariamente.
 
 **AzureSqlLinkedService** é definido da seguinte maneira:
 
@@ -136,13 +136,12 @@ Observe os seguintes pontos:
 No snippet de JSON anterior:
 
 * **type** foi definido como AzureSqlDatabase.
-* A propriedade de tipo **connectionString** especifica informações para se conectar a um banco de dados SQL.  
+* A propriedade de tipo **connectionString** especifica informações para se conectar a um banco de dados SQL.
 
-Como você pode ver, o serviço vinculado define como se conectar a um banco de dados SQL. O conjunto de dados define qual tabela é usada como uma entrada e saída para a atividade em um pipeline.   
+Como você pode ver, o serviço vinculado define como se conectar a um banco de dados SQL. O conjunto de dados define qual tabela é usada como uma entrada e saída para a atividade em um pipeline.
 
 > [!IMPORTANT]
-> A menos que um conjunto de dados seja produzido pela pipeline, ele deverá ser marcado como **externo**. Essa configuração geralmente se aplica às entradas da primeira atividade em um pipeline.   
-
+> A menos que um conjunto de dados seja produzido pela pipeline, ele deverá ser marcado como **externo**. Essa configuração geralmente se aplica às entradas da primeira atividade em um pipeline.
 
 ## <a name="Type"></a> Tipo de conjunto de dados
 O tipo do conjunto de dados depende do armazenamento de dados que você usa. Consulte a tabela a seguir para obter uma lista de armazenamentos de dados com suporte pelo Data Factory. Clique em um armazenamento de dados para saber como criar um serviço vinculado e um conjunto de dados para esse armazenamento de dados.
@@ -182,7 +181,7 @@ No exemplo na seção anterior, o tipo do conjunto de dados é definido como **A
 A seção **estrutura** é opcional. Ela define o esquema do conjunto de dados contendo uma coleção de nomes e tipos de dados de colunas. Use a seção de estrutura para fornecer informações de tipo que são usadas para converter tipos e mapear colunas da origem para o destino. No seguinte exemplo, o conjunto de dados tem três colunas: `slicetimestamp`, `projectname` e `pageviews`. Elas são do tipo String, String e Decimal, respectivamente.
 
 ```json
-structure:  
+structure:
 [
     { "name": "slicetimestamp", "type": "String"},
     { "name": "projectname", "type": "String"},
@@ -201,15 +200,14 @@ Cada coluna da seção Estrutura contém as seguintes propriedades:
 
 As diretrizes a seguir ajudam você a determinar quando incluir informações de estrutura e o que incluir na seção **estrutura**.
 
-* **Para fontes de dados estruturadas**, especifique a seção de estrutura somente se desejar mapear colunas de origem para colunas do coletor; além disso, seus nomes não são os mesmos. Esse tipo de fonte de dados estruturada armazena informações de esquema de dados e de tipo juntamente com os próprios dados. Exemplos de fontes de dados estruturadas incluem SQL Server, Oracle e tabela do Azure. 
+* **Para fontes de dados estruturadas**, especifique a seção de estrutura somente se desejar mapear colunas de origem para colunas do coletor; além disso, seus nomes não são os mesmos. Esse tipo de fonte de dados estruturada armazena informações de esquema de dados e de tipo juntamente com os próprios dados. Exemplos de fontes de dados estruturadas incluem SQL Server, Oracle e tabela do Azure.
   
     Como as informações de tipo já estão disponíveis para fontes de dados estruturadas, não inclua informações de tipo quando incluir a seção de estrutura.
-* **Para o esquema em fontes de dados de leitura (especificamente o armazenamento de Blobs)**, você pode optar por armazenar os dados sem armazenar nenhuma informação de tipo ou de esquema juntamente com os dados. Para esses tipos de fontes de dados, inclua a estrutura quando desejar mapear as colunas de origem para as colunas do coletor. Também inclua a estrutura quando o conjunto de dados for uma entrada para uma atividade de cópia e os tipos de dados do conjunto de dados de origem precisarem ser convertidos em tipos nativos para o coletor. 
+* **Para o esquema em fontes de dados de leitura (especificamente o armazenamento de Blobs)**, você pode optar por armazenar os dados sem armazenar nenhuma informação de tipo ou de esquema juntamente com os dados. Para esses tipos de fontes de dados, inclua a estrutura quando desejar mapear as colunas de origem para as colunas do coletor. Também inclua a estrutura quando o conjunto de dados for uma entrada para uma atividade de cópia e os tipos de dados do conjunto de dados de origem precisarem ser convertidos em tipos nativos para o coletor.
     
     O Data Factory dá suporte aos seguintes valores para fornecer informações de tipo na estrutura: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset e Timespan**. Esses valores são valores de tipo baseados em NET e em conformidade com CLS (Common Language Specification).
 
-O Data Factory executa conversões de tipo automaticamente ao mover dados de um armazenamento de dados de origem para um armazenamento de dados do coletor. 
-  
+O Data Factory executa conversões de tipo automaticamente ao mover dados de um armazenamento de dados de origem para um armazenamento de dados do coletor.
 
 ## <a name="dataset-availability"></a>Disponibilidade do conjunto de dados
 A seção **disponibilidade** em um conjunto de dados define a janela de processamento (por exemplo, por hora, diária ou semanal) do conjunto de dados. Para obter mais informações sobre janelas de atividades, consulte [Agendamento e execução](data-factory-scheduling-and-execution.md).
@@ -217,21 +215,21 @@ A seção **disponibilidade** em um conjunto de dados define a janela de process
 A seguinte seção de disponibilidade especifica que o conjunto de dados de saída é gerado a cada hora ou o conjunto de dados de entrada está disponível a cada hora:
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 1    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 1
 }
 ```
 
-Se o pipeline tem as seguintes horas de início e término:  
+Se o pipeline tem as seguintes horas de início e término:
 
 ```json
     "start": "2016-08-25T00:00:00Z",
     "end": "2016-08-25T05:00:00Z",
 ```
 
-O conjunto de dados de saída é gerado de hora em hora, dentro dos horários de início e término do pipeline. Portanto, cinco fatias de conjunto de dados são geradas por esse pipeline, uma para cada janela de atividades (00h à 1h, 1h às 2h, 2h às 3h, 3h às 4h e 4h às 5h). 
+O conjunto de dados de saída é gerado de hora em hora, dentro dos horários de início e término do pipeline. Portanto, cinco fatias de conjunto de dados são geradas por esse pipeline, uma para cada janela de atividades (00h à 1h, 1h às 2h, 2h às 3h, 3h às 4h e 4h às 5h).
 
 A tabela a seguir descreve as propriedades que você pode usar na seção de disponibilidade:
 
@@ -244,7 +242,7 @@ A tabela a seguir descreve as propriedades que você pode usar na seção de dis
 | deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/>Observe que, se **anchorDateTime** e **offset** forem especificados, o resultado será um deslocamento combinado. |Não  |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
-Por padrão, as fatias diárias (`"frequency": "Day", "interval": 1`) começam às 00h (meia-noite) em UTC (Tempo Universal Coordenado). Se desejar que a hora de início para hora UTC de 6 horas em vez disso, define o deslocamento, conforme mostrado no snippet a seguir: 
+Por padrão, as fatias diárias (`"frequency": "Day", "interval": 1`) começam às 00h (meia-noite) em UTC (Tempo Universal Coordenado). Se desejar que a hora de início para hora UTC de 6 horas em vez disso, define o deslocamento, conforme mostrado no snippet a seguir:
 
 ```json
 "availability":
@@ -258,11 +256,11 @@ Por padrão, as fatias diárias (`"frequency": "Day", "interval": 1`) começam �
 No exemplo a seguir, o conjunto de dados é gerado uma vez a cada 23 horas. A primeira fatia começa na hora especificada pela **anchorDateTime**, que é definida como `2017-04-19T08:00:00` (UTC).
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 23,    
-    "anchorDateTime":"2017-04-19T08:00:00"    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 23,
+    "anchorDateTime":"2017-04-19T08:00:00"
 }
 ```
 
@@ -320,16 +318,16 @@ A menos que um conjunto de dados seja gerado pelo Data Factory, ele deverá ser 
 
 | NOME | DESCRIÇÃO | Obrigatório | Valor padrão |
 | --- | --- | --- | --- |
-| dataDelay |O tempo de atraso da verificação da disponibilidade dos dados externos da divisão especificada. Por exemplo, é possível atrasar uma verificação por hora usando essa configuração.<br/><br/>A configuração se aplica somente à hora atual.  Por exemplo, se agora forem 13hs e se esse valor for 10 minutos, a validação começará às 13:10hs.<br/><br/>Observe que essa configuração não afeta as fatias do passado. Fatias com **Hora de Término da Fatia** + **dataDelay** < **Agora** são processadas sem atrasos.<br/><br/>Horas maiores que 23h59 horas devem ser especificadas com o formato `day.hours:minutes:seconds`. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1.00:00:00. Se você usar 24:00:00, isso será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. |Não  |0 |
+| dataDelay |O tempo de atraso da verificação da disponibilidade dos dados externos da divisão especificada. Por exemplo, é possível atrasar uma verificação por hora usando essa configuração.<br/><br/>A configuração se aplica somente à hora atual. Por exemplo, se agora forem 13hs e se esse valor for 10 minutos, a validação começará às 13:10hs.<br/><br/>Observe que essa configuração não afeta as fatias do passado. Fatias com **Hora de Término da Fatia** + **dataDelay** < **Agora** são processadas sem atrasos.<br/><br/>Horas maiores que 23h59 horas devem ser especificadas com o formato `day.hours:minutes:seconds`. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1.00:00:00. Se você usar 24:00:00, isso será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. |Não  |0 |
 | retryInterval |O tempo de espera entre uma falha e a próxima tentativa. Essa configuração se aplica à hora atual. Se a tentativa anterior falhou, a próxima tentativa ocorrerá após o período de **retryInterval**. <br/><br/>Se agora for 1:00 PM, iniciaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação tiver falhado, a próxima repetição será às 13h + 1min (duração) + 1min (intervalo de repetição) = 13h02. <br/><br/>Para fatias no passado, não haverá nenhum atraso. A repetição acontece imediatamente. |Não  |00:01:00 (1 minuto) |
 | retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se essa propriedade for definida como 10 minutos, a validação deverá ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.<br/><br/>Se todas as tentativas para a validação atingirem o tempo limite, a fatia será marcada como **TimedOut**. |Não  |00:10:00 (10 minutos) |
 | maximumRetry |O número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. |Não  |3 |
 
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
-Você pode criar conjuntos de dados usando uma destas ferramentas ou SDKs: 
+Você pode criar conjuntos de dados usando uma destas ferramentas ou SDKs:
 
-- Assistente de Cópia 
+- Assistente de Cópia
 - Portal do Azure
 - Visual Studio
 - PowerShell
@@ -338,18 +336,17 @@ Você pode criar conjuntos de dados usando uma destas ferramentas ou SDKs:
 - API do .NET
 
 Consulte os seguintes tutoriais para obter instruções passo a passo para criar pipelines e conjuntos de dados usando uma destas ferramentas ou SDKs:
- 
+
 - [Crie um pipeline com uma atividade de transformação de dados](data-factory-build-your-first-pipeline.md)
 - [Crie um pipeline com uma atividade de movimentação de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-Depois que um pipeline é criado e implantado, você pode gerenciar e monitorar seus pipelines usando as folhas do portal do Azure ou o aplicativo de Monitoramento e Gerenciamento. Consulte os seguintes tópicos para obter instruções passo a passo: 
+Depois que um pipeline é criado e implantado, você pode gerenciar e monitorar seus pipelines usando as folhas do portal do Azure ou o aplicativo de Monitoramento e Gerenciamento. Consulte os seguintes tópicos para obter instruções passo a passo:
 
 - [Monitorar e gerenciar pipelines usando as folhas do portal do Azure](data-factory-monitor-manage-pipelines.md)
 - [Monitorar e gerenciar pipelines usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md)
 
-
 ## <a name="scoped-datasets"></a>Conjuntos de dados com escopo
-Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a propriedade **datasets** . Esses conjuntos de dados só podem ser usados por atividades dentro deste pipeline, não por atividades em outros pipelines. O exemplo a seguir define um pipeline com dois conjuntos de dados (InputDataset-rdc e OutputDataset-rdc) a serem usados no pipeline.  
+Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a propriedade **datasets** . Esses conjuntos de dados só podem ser usados por atividades dentro deste pipeline, não por atividades em outros pipelines. O exemplo a seguir define um pipeline com dois conjuntos de dados (InputDataset-rdc e OutputDataset-rdc) a serem usados no pipeline.
 
 > [!IMPORTANT]
 > Há suporte apenas para conjuntos de dados com escopo com pipelines avulsos (em que **pipelineMode** é definido como **OneTime**). Confira [Pipeline avulso](data-factory-create-pipelines.md#onetime-pipeline) para obter detalhes.
@@ -448,5 +445,5 @@ Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para obter mais informações sobre pipelines, consulte [Criar pipelines](data-factory-create-pipelines.md). 
-- Para obter mais informações sobre como os pipelines são agendados e executados, consulte [Agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md). 
+- Para obter mais informações sobre pipelines, consulte [Criar pipelines](data-factory-create-pipelines.md).
+- Para obter mais informações sobre como os pipelines são agendados e executados, consulte [Agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md).

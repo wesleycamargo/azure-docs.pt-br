@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1cd7e504a614203218cb06b337becf36b992cf1d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d586f28b426732433c027c950f8193e7503c72b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018221"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330790"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados bidirecionalmente em um sistema de arquivos local usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Você pode copiar dados dos seguintes armazenamentos de dados **para um sistema 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> A Atividade de Cópia não exclui o arquivo de origem depois que ele é copiado com êxito para o destino. Se precisar excluir o arquivo de origem após uma cópia bem-sucedida, crie uma atividade personalizada para excluir o arquivo e use a atividade no pipeline. 
+> A Atividade de Cópia não exclui o arquivo de origem depois que ele é copiado com êxito para o destino. Se precisar excluir o arquivo de origem após uma cópia bem-sucedida, crie uma atividade personalizada para excluir o arquivo e use a atividade no pipeline.
 
 ## <a name="enabling-connectivity"></a>Habilitando a conectividade
 O Data Factory dá suporte à conexão de e para um sistema de arquivos local por meio do **Gateway de Gerenciamento de Dados**. Você deve instalar o Gateway de Gerenciamento de Dados no seu ambiente local para o serviço Data Factory para se conectar a qualquer armazenamento de dados local com suporte, incluindo o sistema de arquivos. Para saber mais sobre o Gateway de Gerenciamento de Dados e para obter instruções passo a passo sobre como configurar o gateway, confira [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md). Com exceção do Gateway de Gerenciamento de Dados, não é necessário instalar nenhum outro binário para se comunicar de e para o sistema de arquivos local. Você deve instalar e usar o Gateway de gerenciamento de dados, mesmo se o sistema de arquivos estiver em uma VM IaaS do Azure. Para obter informações detalhadas sobre o gateway, consulte [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md).
@@ -51,13 +51,13 @@ Para usar um compartilhamento de arquivos do Linux, instale o [Samba](https://ww
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com uma atividade de cópia que mova dados bidirecionalmente de/para um sistema de arquivos usando ferramentas/APIs diferentes.
 
-A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
 Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
-1. Criar uma **data factory**. Um data factory pode conter um ou mais pipelines. 
+1. Criar uma **data factory**. Um data factory pode conter um ou mais pipelines.
 2. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory. Por exemplo, se você estiver copiando dados de um Armazenamento de Blobs do Azure para um sistema de arquivos local, crie dois serviços vinculados para vincular seu sistema de arquivos local e a Conta de Armazenamento do Azure para seu data factory. Para propriedades do serviço vinculado que são específicas para um sistema de arquivos local, consulte a seção de [propriedades do serviço vinculado](#linked-service-properties).
 3. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de blobs e a pasta que contém os dados de entrada. E você cria outro conjunto de dados para especificar o nome do arquivo e da pasta (opcional) no sistema de arquivos. Para propriedades de conjunto de dados específicas do sistema de arquivos local, consulte a seção de [propriedades do conjunto de dados](#dataset-properties).
 4. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa BlobSource como fonte e FileSystemSink como coletor para a atividade de cópia. De modo similar, se estiver copiando de um sistema de arquivos local para o Armazenamento de Blobs do Azure, você usará FileSystemSource e BlobSink na atividade de cópia. Para propriedades da atividade de cópia específicas do sistema de arquivos local, consulte a seção de [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para o armazenamento de dados.
@@ -161,7 +161,7 @@ Neste exemplo, {Slice} é substituído pelo valor da variável de sistema SliceS
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -254,7 +254,7 @@ Como uma primeira etapa, configure o Gateway de Gerenciamento de Dados conforme 
 
 **Conjunto de dados de entrada do sistema de arquivos local:**
 
-Dados são coletados de um novo arquivo a cada hora. As propriedades folderPath e fileName são determinadas com base na hora de início da fatia.  
+Dados são coletados de um novo arquivo a cada hora. As propriedades folderPath e fileName são determinadas com base na hora de início da fatia.
 
 A configuração `"external": "true"` informa ao Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade nele.
 
@@ -383,13 +383,13 @@ Dados são gravados em um novo blob a cada hora (frequência: horas, intervalo: 
 O pipeline contém uma atividade de cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo de **fonte** está definido como **FileSystemSource** e o tipo de **coletor** está definido como **BlobSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T19:00:00",
     "description":"Pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "OnpremisesFileSystemtoBlob",
         "description": "copy activity",
@@ -423,8 +423,8 @@ O pipeline contém uma atividade de cópia que está configurada para usar os co
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -572,13 +572,13 @@ Dados são copiados para um novo arquivo a cada hora. folderPath e fileName para
 O pipeline contém uma atividade de cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo de **fonte** está definido como **SqlSource** e o tipo de **coletor** está definido como **FileSystemSink**. A consulta SQL que é especificada para a propriedade **SqlReaderQuery** seleciona os dados da última hora a serem copiados.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T20:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLtoOnPremisesFile",
         "description": "copy activity",
@@ -613,11 +613,10 @@ O pipeline contém uma atividade de cópia que está configurada para usar os co
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
-
 
 Você também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de coletor na definição da atividade de cópia. Para obter detalhes, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapear colunas de conjunto de dados no Azure Data Factory).
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6357640ceeb7c5f1bde4eea85aa5265990935f4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257200"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157149"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Publicar uma oferta do Cortana Intelligence usando o Portal do Cloud Partner
 
@@ -126,7 +126,7 @@ As instruções a seguir mostram como criar um vídeo usando o Skype for Busines
 3. [Inicie a gravação](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)
 4. Depois de parar a gravação, [use o gerenciador de gravações para publicar a gravação](https://support.office.com/article/Recording-Manager-save-and-publish-59a3beb7-c700-40cf-ab21-bc82a2b06351)
 
-Carregue o vídeo gravado em um serviço que permita que você gere uma URL compartilhada. Por exemplo, um [link convidado no OneDrive ou Sharepoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
+Carregue o vídeo gravado em um serviço que permita que você gere uma URL compartilhada. Por exemplo, um [link convidado no OneDrive ou SharePoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
 
 ### <a name="supported-regions"></a>Regiões com suporte
 
@@ -153,8 +153,8 @@ Selecione os processos de negócios que descrevem melhor sua solução. Se seu a
 
 ### <a name="trial-info"></a>Informações da avaliação gratuita
 
--   **URL da avaliação gratuita de SaaS:** insira a URL para a experiência de avaliação gratuita do seu aplicativo.
--   **URL da avaliação gratuita de Test Drive:** insira a URL para a experiência de Test Drive do seu aplicativo.
+-   **URL de avaliação SaaS:** insira a URL para a experiência de avaliação gratuita do seu aplicativo.
+-   **URL de Avaliação de Test Drive:** insira a URL para a experiência de Test Drive gratuita do seu aplicativo.
 
 Para obter mais informações sobre as avaliações gratuitas, consulte **Tipo de aplicativo** na próxima seção deste artigo.
 
@@ -292,7 +292,7 @@ Insira os termos de uso do aplicativo. Os clientes do AppSource precisam aceitar
 
 Selecione um sistema CRM no qual seus clientes potenciais serão armazenados. 
 
-Selecione **Tabela do Azure** se estiver usando um destes sistemas de CRM: Salesforce, Marketo ou Microsoft Dynamics CRM. 
+Selecione **Tabela do Azure** se você estiver usando um destes sistemas CRM: Salesforce, Marketo, Microsoft Dynamics CRM. 
 
 Para obter mais informações sobre o sistema CRM que deseja usar, selecione um dos links a seguir para sistemas com suporte.
 

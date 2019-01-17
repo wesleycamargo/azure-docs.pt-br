@@ -11,24 +11,24 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: b91d405b8ada1446a477dc10a116b5dfdf349131
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440039"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063906"
 ---
-# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de log do Azure: processar eventos do Azure Key Vault usando Hubs de Eventos
+# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de Integração de Logs do Azure: Processar eventos do Azure Key Vault usando Hubs de Eventos
 
 >[!IMPORTANT]
 > O recurso Integração de log do Azure será preterido em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer para prosseguir com a análise da postagem [Usar o Azure Monitor para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Você pode usar a Integração de Log do Azure para recuperar eventos registrados e disponibilizá-los ao seu SIEM (sistema de informações de segurança e gerenciamento de evento). Este tutorial mostra um exemplo de como a Integração de Log do Azure pode ser usada para processar os logs adquiridos por meio de Hubs de Eventos do Azure.
 
-É o método preferencial para integrar os logs do Azure usando o conector do Azure Monitor do seu fornecedor SIEM e seguindo estas [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
+O método preferencial para integrar os logs do Azure é usando o conector do Azure Monitor do seu fornecedor de SIEM e seguindo estas [instruções](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor de SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária (se o SIEM for compatível com a Integração de Logs do Azure) até que o conector esteja disponível.
 
  
-Use este tutorial para se familiarizar com a forma como a Integração de Log do Azure e os Hubs de Eventos funcionam juntos, seguindo as etapas de exemplo e assim entender como cada etapa dá suporte à solução. Em seguida, você poderá pegar o que aprendeu aqui para criar suas próprias etapas para dar suporte a requisitos exclusivos da sua empresa.
+Use este tutorial para se familiarizar com a forma como a Integração de Log do Azure e os Hubs de Eventos funcionam juntos, seguindo as etapas de exemplo e assim entender como cada etapa dá suporte à solução. Em seguida, você poderá usar o que aprendeu aqui para criar suas próprias etapas para dar suporte a requisitos exclusivos da sua empresa.
 
 >[!WARNING]
 As etapas e comandos neste tutorial não devem ser copiados e colados. Elas são apenas exemplos. Não use os comandos do PowerShell "no estado em que se encontram" em seu ambiente dinâmico. Você deve personalizá-los com base em seu ambiente exclusivo.
@@ -58,7 +58,7 @@ Antes de concluir as etapas neste artigo, você precisará do seguinte:
 
 1. [Integração de log do Azure](https://www.microsoft.com/download/details.aspx?id=53324) instalada. Para instalá-la:
 
-   a. Use a Área de Trabalho Remota para conectar-se ao sistema mencionado na etapa 2.   
+    a. Use a Área de Trabalho Remota para conectar-se ao sistema mencionado na etapa 2.   
    b. Copie o instalador da integração de log do Azure no sistema. Você pode [baixar os arquivos de instalação](https://www.microsoft.com/download/details.aspx?id=53324).   
    c. Inicie o instalador e aceite os Termos de Licença para Software Microsoft.   
    d. Se você vai fornecer informações de telemetria, deixe a caixa de seleção marcada. Se você preferir não enviar informações de uso à Microsoft, desmarque a caixa de seleção.
@@ -71,7 +71,7 @@ Antes de concluir as etapas neste artigo, você precisará do seguinte:
 
    Depois de ter pelo menos o PowerShell 5.0, você continuar para instalar a versão mais recente:
    
-   a. Em uma janela do PowerShell, insira o comando ```Install-Module Azure```. Conclua as etapas de instalação.    
+    a. Em uma janela do PowerShell, insira o comando ```Install-Module Azure```. Conclua as etapas de instalação.    
    b. Insira o comando ```Install-Module AzureRM```. Conclua as etapas de instalação.
 
    Para obter mais informações, consulte [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
@@ -80,7 +80,7 @@ Antes de concluir as etapas neste artigo, você precisará do seguinte:
 ## <a name="create-supporting-infrastructure-elements"></a>Criar elementos de suporte da infraestrutura
 
 1. Abra uma janela do PowerShell com privilégios elevados e acesse **c:\Program Files\Microsoft Azure Log Integration**.
-1. Importe os cmdlets do AzLog executando o script LoadAzLogModule.ps1. Insira o comando `.\LoadAzLogModule.ps1`. (Observe o ".\" nesse comando.) Você deverá ver algo assim:</br>
+1. Importe os cmdlets do AzLog executando o script LoadAzLogModule.ps1. Insira o comando `.\LoadAzLogModule.ps1`. (Observe o ".\"" no comando.) Você deverá ver algo assim:</br>
 
    ![Lista de módulos carregados](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -93,7 +93,7 @@ Antes de concluir as etapas neste artigo, você precisará do seguinte:
 
    ![Janela do PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Crie variáveis para armazenar valores que serão usados posteriormente. Insira cada uma das seguintes opções nas linhas do PowerShell. Talvez seja necessário ajustar os valores de acordo com seu ambiente.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (O nome da sua assinatura pode ser diferente. Você pode ver isso como parte da saída do comando anterior.)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (O nome da sua assinatura pode ser diferente. Você pode ver isso como parte da saída do comando anterior.)
     - ```$location = 'West US'``` (Essa variável será usada para passar o local em que os recursos devem ser criados. Você pode alterar essa variável para qualquer outro local da sua escolha.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (O nome pode ser qualquer um, contanto que tenha apenas letras minúsculas e números).
@@ -121,7 +121,7 @@ Antes de concluir as etapas neste artigo, você precisará do seguinte:
     ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
 1. Obtenha todos os possíveis locais do Azure e adicione os nomes a uma variável que possa ser usada em uma etapa posterior:
     
-    a. ```$locationObjects = Get-AzureRMLocation```    
+     a. ```$locationObjects = Get-AzureRMLocation```    
     b. ```$locations = @('global') + $locationobjects.location```
     
     Se você inserir `$locations` nesse momento, verá os nomes de local sem as informações adicionais retornadas pelo Get-AzureRmLocation.
@@ -129,7 +129,7 @@ Antes de concluir as etapas neste artigo, você precisará do seguinte:
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
-    Para obter mais informações sobre o perfil de log do Azure, consulte [Visão geral do Log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+    Para obter mais informações sobre o perfil de log do Azure, consulte [Visão geral do Log de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
 > Você poderá obter uma mensagem de erro ao tentar criar um perfil de log. Em seguida, você poderá examinar a documentação para o Get-AzureRmLogProfile e o Remove-AzureRmLogProfile. Se você executar o Get-AzureRmLogProfile, verá as informações sobre o perfil de log. Você pode excluir o perfil de log existente inserindo o comando ```Remove-AzureRmLogProfile -name 'Log Profile Name' ```.
@@ -161,7 +161,7 @@ As solicitações precisam ser enviados para o Key Vault para gerar a atividade 
    ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Definir e ler um segredo para gerar entradas de log adicionais:
     
-   a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+    a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Segredo retornado](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 

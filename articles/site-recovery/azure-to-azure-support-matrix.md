@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 40ee4fe15b2fde917c1d056a1454b95b9655b465
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999723"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103751"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
 
@@ -44,6 +44,9 @@ Este artigo resume as configurações e os componentes com suporte quando você 
 
 É possível replicar e recuperar VMs entre duas regiões quaisquer dentro do mesmo cluster geográfico. Clusters geográficos são definidos mantendo a latência de dados e a soberania em mente.
 
+>[!NOTE]
+>Caso não possa ver uma região em um cluster Geográfico durante a habilitação da replicação, verifique se sua assinatura tem acesso para criar a máquina virtual nessa região. Caso contrário, acione uma solicitação de suporte em "Tipo de problema" na assinatura.
+>
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
 América | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Centro-Norte dos EUA

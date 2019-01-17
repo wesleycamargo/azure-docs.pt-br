@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e229fcc2c9eb6b8e1b49293dfd741a2f96f62871
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974685"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077378"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -108,6 +108,12 @@ Sim, você pode adicionar novas VMs a um grupo de replicação existente quando 
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Posso modificar as VMs que estão replicando adicionando ou redimensionando discos?
 
 Para replicação do VMware no Azure, você pode modificar o tamanho do disco. Se você quiser adicionar novos discos, precisará adicionar o disco e reativar a proteção para a VM.
+
+### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Posso migrar máquinas locais para um novo vCenter sem afetar a replicação em andamento?
+Não, migrar ou alterar o vCenter terá impacto sobre a replicação em andamento. Você precisa configurar o ASR com o novo vCenter e habilitar a replicação de máquinas.
+
+### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>É possível replicar no cache/conta de armazenamento de destino que tem uma rede virtual (com firewalls da Armazenamento do Azure) configurada?
+Não, o Azure Site Recovery não é compatível com a replicação no Armazenamento em rede virtual.
 
 ## <a name="configuration-server"></a>Servidor de configuração
 
@@ -225,9 +231,10 @@ O Azure foi desenvolvido para resiliência. O Site Recovery foi projetado para f
 Sim, se você fez failover no Azure poderá fazer failback para um local diferente, se o original não estiver disponível. [Saiba mais](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Por que preciso de uma VPN ou ExpressRoute para fazer failback?
-
 Ao fazer failback do Azure, os dados do Azure são copiados de volta para a VM local e o acesso privado é necessário.
 
+### <a name="can-i-resize-the-azure-vm-after-failover"></a>Eu posso redimensionar a VM do Azure após failover?
+Não, você não pode alterar o tamanho da VM de destino após o failover.
 
 
 ## <a name="automation-and-scripting"></a>Automação e scripts

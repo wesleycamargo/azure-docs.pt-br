@@ -9,17 +9,16 @@ ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 678913796edafe86e19d8907e3a2e29ec15ffa90
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: def99a1b98970c09f28e7bfc7f44084c0f5b3c6e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047070"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018380"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados bidirecionalmente no SQL Data Warehouse do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,9 +51,9 @@ O conector do SQL Data Warehouse do Azure dá suporte à autenticação básica.
 ## <a name="getting-started"></a>Introdução
 Você pode criar um pipeline com uma atividade de cópia que mova dados de um banco de dados bidirecionalmente em um SQL Data Warehouse do Azure usando diferentes ferramentas/APIs.
 
-A maneira mais fácil de criar um pipeline que copia dados de/para o Azure SQL Data Warehouse é usar o Assistente de cópia de dados. Consulte o [Tutorial: carregar dados no SQL Data Warehouse com o Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) para ver uma rápida explicação passo a passo sobre como criar um pipeline usando o Assistente para cópia de dados.
+A maneira mais fácil de criar um pipeline que copia dados de/para o Azure SQL Data Warehouse é usar o Assistente de cópia de dados. Consulte [Tutorial: Carregar dados no SQL Data Warehouse com o Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) para ver uma rápida explicação passo a passo sobre como criar um pipeline usando o Assistente para cópia de dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -72,8 +71,8 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **AzureSqlDW** |sim |
-| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |sim |
+| Tipo |A propriedade type deve ser definida como: **AzureSqlDW** |SIM |
+| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. |SIM |
 
 > [!IMPORTANT]
 > Configure o [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e o servidor do banco de dados para [permitir que os Serviços do Azure acessem o servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se você estiver copiando os dados para o Azure SQL Data Warehouse de fora do Azure, inclusive a partir das fontes de dados locais com o gateway do data factory, configure o devido intervalo de endereços IP do computador que está enviando os dados para o Azure SQL Data Warehouse.
@@ -85,7 +84,7 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela ou exibição no banco de dados SQL Data Warehouse do Azure ao qual o serviço vinculado se refere. |sim |
+| tableName |Nome da tabela ou exibição no banco de dados SQL Data Warehouse do Azure ao qual o serviço vinculado se refere. |SIM |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
@@ -154,7 +153,7 @@ GO
 | rejectSampleValue |Determina o número de linhas a serem recuperadas antes de o PolyBase recalcular o percentual de linhas rejeitadas. |1, 2, … |Sim, se **rejectType** for **percentual** |
 | useTypeDefault |Especifica como tratar valores ausentes nos arquivos de texto delimitados quando PolyBase recupera dados do arquivo de texto.<br/><br/>Saiba mais sobre essa propriedade na seção Argumentos em [CRIAR FORMATO DE ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (padrão) |Não  |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não  |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: “00:30:00” (30 minutos). |Não  |
 
 #### <a name="sqldwsink-example"></a>Exemplo de SqlDWSink
 
@@ -195,7 +194,7 @@ O SQL Data Warehouse PolyBase dá suporte diretamente ao Blob do Azure e ao Azur
 
 Se os requisitos não forem atendidos, o Azure Data Factory verificará as configurações e automaticamente reverterá para o mecanismo BULKINSERT da movimentação de dados.
 
-1. O **serviço vinculado de origem** é do tipo: **AzureStorage** ou **AzureDataLakeStore com autenticação da entidade de serviço**.  
+1. O **serviço vinculado de origem** é do tipo: **AzureStorage** ou **AzureDataLakeStore** com autenticação da entidade de serviço.  
 2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStore**, e o tipo de formato nas propriedades `type` é **OrcFormat**, **ParquetFormat** ou **TextFormat** com as configurações abaixo:
 
    1. `rowDelimiter` deve ser **\n**.
@@ -357,7 +356,7 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Duplo |
-| imagem |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
@@ -372,7 +371,7 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 | sql_variant |Objeto * |
 | text |String, Char[] |
 | tempo real |timespan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
@@ -453,7 +452,7 @@ Configurar “external”: “true” informa ao serviço Data Factory que o con
 ```
 **Conjunto de dados de saída de Blob do Azure:**
 
-Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
+Dados são gravados em um novo blob a cada hora (frequência: horas, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
 ```JSON
 {
