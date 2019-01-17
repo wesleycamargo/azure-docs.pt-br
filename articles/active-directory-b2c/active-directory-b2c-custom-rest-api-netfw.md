@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb0ad8efcd73b304ea5c68f0d3c45a38ce1b80e8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557269"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304900"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário
 
@@ -50,7 +50,7 @@ Visão geral:
 * Usar o serviço RESTful no percurso do usuário.
 * Enviar e ler declarações de entrada no seu código.
 * Validar o nome do usuário.
-* Retornar um número de fidelidade. 
+* Retornar um número de fidelidade.
 * Adicionar o número de fidelidade a um JWT (JSON Web Token).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -77,11 +77,11 @@ Conclua as etapas no artigo [Introdução às políticas personalizadas](active-
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>Etapa 2: Preparar o ponto de extremidade da API REST
 
 ### <a name="step-21-add-data-models"></a>Etapa 2.1: Adicionar modelos de dados
-Os modelos representam as declarações de entrada e os dados de declarações de saída em seu serviço RESTful. O código lê os dados de entrada desserializando o modelo de declarações de entrada de uma cadeia de caracteres JSON para um objeto C# (seu modelo). A ASP.NET Web API desserializa automaticamente o modelo de declarações de saída para JSON e, em seguida, grava os dados serializados no corpo da mensagem de resposta HTTP. 
+Os modelos representam as declarações de entrada e os dados de declarações de saída em seu serviço RESTful. O código lê os dados de entrada desserializando o modelo de declarações de entrada de uma cadeia de caracteres JSON para um objeto C# (seu modelo). A ASP.NET Web API desserializa automaticamente o modelo de declarações de saída para JSON e, em seguida, grava os dados serializados no corpo da mensagem de resposta HTTP.
 
 Crie um modelo que representa as declarações de entrada fazendo o seguinte:
 
-1. Se o Gerenciador de Soluções ainda não estiver aberto, selecione **Exibir** > **Gerenciador de Soluções**. 
+1. Se o Gerenciador de Soluções ainda não estiver aberto, selecione **Exibir** > **Gerenciador de Soluções**.
 2. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos**, selecione **Adicionar** e Classe.
 
     ![Adicionar modelo](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -128,7 +128,7 @@ Crie um modelo que representa as declarações de entrada fazendo o seguinte:
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
@@ -241,20 +241,20 @@ A declaração `loyaltyNumber` ainda não está definida no nosso esquema. Adici
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>Etapa 5: Adicionar um provedor de declarações 
-Cada provedor de declarações deve ter um ou mais perfis técnicos, os quais determinam os pontos de extremidade e os protocolos necessários para se comunicar com o provedor de declarações. 
+## <a name="step-5-add-a-claims-provider"></a>Etapa 5: Adicionar um provedor de declarações
+Cada provedor de declarações deve ter um ou mais perfis técnicos, os quais determinam os pontos de extremidade e os protocolos necessários para se comunicar com o provedor de declarações.
 
-Um provedor de declarações pode ter vários perfis técnicos por vários motivos. Por exemplo, é possível definir vários perfis técnicos, pois o provedor de declarações dá suporte a vários protocolos, os pontos de extremidade podem ter diferentes capacidades ou as versões podem conter declarações em diferentes níveis de garantia. Pode ser aceitável liberar declarações confidenciais em um percurso do usuário, mas não em outro. 
+Um provedor de declarações pode ter vários perfis técnicos por vários motivos. Por exemplo, é possível definir vários perfis técnicos, pois o provedor de declarações dá suporte a vários protocolos, os pontos de extremidade podem ter diferentes capacidades ou as versões podem conter declarações em diferentes níveis de garantia. Pode ser aceitável liberar declarações confidenciais em um percurso do usuário, mas não em outro.
 
 O seguinte snippet de código XML contém um nó de provedor de declarações com dois perfis técnicos:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: Define o serviço RESTful. 
-   * `Proprietary` é descrito como protocolo para um provedor baseado em RESTful. 
-   * `InputClaims` define as declarações que serão enviadas do Azure AD B2C ao serviço REST. 
+* **TechnicalProfile Id="REST-API-SignUp"**: Define o serviço RESTful.
+   * `Proprietary` é descrito como protocolo para um provedor baseado em RESTful.
+   * `InputClaims` define as declarações que serão enviadas do Azure AD B2C ao serviço REST.
 
    Neste exemplo, o conteúdo da declaração `givenName` é enviado ao serviço REST como `firstName`, o conteúdo da declaração `surname` é enviado ao serviço REST como `lastName` e `email` é enviado no estado em que se encontra. O elemento `OutputClaims` define as declarações que são recuperadas do serviço RESTful para o Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adiciona um perfil técnico de validação a um perfil técnico existente (definido na política de base). Durante o percurso de inscrição, o perfil técnico de validação invoca o perfil técnico anterior. Se o serviço RESTful retornar um erro HTTP 409 (um erro de conflito), a mensagem de erro será exibida para o usuário. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adiciona um perfil técnico de validação a um perfil técnico existente (definido na política de base). Durante o percurso de inscrição, o perfil técnico de validação invoca o perfil técnico anterior. Se o serviço RESTful retornar um erro HTTP 409 (um erro de conflito), a mensagem de erro será exibida para o usuário.
 
 Localize o nó `<ClaimsProviders>` e adicione o seguinte snippet de código XML ao nó `<ClaimsProviders>`:
 
@@ -329,7 +329,7 @@ Depois de adicionar a nova declaração, o código de terceira parte confiável 
 
 2. Selecione **Estrutura de Experiência de Identidade**.
 
-3. Abra **Todas as Políticas**. 
+3. Abra **Todas as Políticas**.
 
 4. Selecione **Carregar Política**.
 
@@ -354,7 +354,7 @@ Depois de adicionar a nova declaração, o código de terceira parte confiável 
 
     ![Testar sua política](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  Na caixa **Nome**, digite um nome (diferente de "Teste").  
+4. Na caixa **Nome**, digite um nome (diferente de "Teste").  
     O Azure AD B2C inscreve o usuário e, em seguida, envia um loyaltyNumber para o aplicativo. Observe o número neste JWT.
 
 ```
@@ -381,7 +381,7 @@ Depois de adicionar a nova declaração, o código de terceira parte confiável 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Opcional) Baixar os arquivos e o código da política completos
 * Depois de concluir o passo a passo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md), recomendamos que você crie o cenário usando seus próprios arquivos de política personalizados. Fornecemos os [Arquivos de política de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw) como referência.
 * É possível baixar o código completo em [Solução de exemplo do Visual Studio para referência](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
-    
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Proteja sua API RESTful com a autenticação básica (nome de usuário e senha)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [Proteja sua API RESTful com certificados de cliente](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

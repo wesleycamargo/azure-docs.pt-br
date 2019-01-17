@@ -1,19 +1,19 @@
 ---
 title: Carregar imagens para o aplicativo Azure IoT Central | Microsoft Docs
 description: Como um construtor, saiba como preparar e carregar imagens para o aplicativo Azure IoT Central.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: b55b9929129b882f893b1fea58b7061131daffb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+manager: philmea
+ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005131"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198602"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para o aplicativo Azure IoT Central
 
@@ -23,7 +23,7 @@ Este artigo descreve como, um construtor, você pode personalizar o aplicativo C
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
-1. Um aplicativo Azure IoT Central. Para obter mais informações, consulte o [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+1. Um aplicativo Azure IoT Central. Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 1. Uma ferramenta para dimensionar e redimensionar arquivos de imagens.
 
 ## <a name="choose-where-to-use-custom-images"></a>Escolher onde usar imagens personalizadas

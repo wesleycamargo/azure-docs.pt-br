@@ -3,7 +3,7 @@ title: Gerenciar custos efetivamente para o SQL Server em máquinas virtuais do 
 description: Fornece práticas recomendadas para a escolha do modelo de preços certo de máquina virtual do SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
-ms.author: jroth
-ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496471"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330782"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Diretrizes de preços para VMs do Azure do SQL Server
 

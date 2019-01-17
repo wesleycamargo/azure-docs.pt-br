@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 238d84c32a145c00648ce3923efaa86a8fa3d08e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f71f1e086e584d1d26b067de001bf83d15bf7961
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971709"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243671"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Descubra e use notebooks de exemplo
 
@@ -33,7 +33,7 @@ Após identificar um notebook que você gostaria de explorar, aqui estão alguns
 
 - O [conjunto inicial do Azure Notebooks](https://notebooks.azure.com/#sample-redirect) inclui introduções para Python, R e F#, em conjunto com notebooks demonstrando os Serviços do Microsoft Machine Learning, o acesso a dados e alguns exercícios de ciência de dados.
 - [Introdução ao Jupyter Notebooks](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
-- [Introdução à Ciência de Dados](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/code_listings), por Jake Vanderplas.
+- [Introdução à Ciência de Dados](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks), por Jake Vanderplas.
 - [Galeria de notebooks interessantes](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (Projeto do Jupyter no GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Instruções de física do [Departamento de Física do Imperial College of London](https://notebooks.azure.com/cvanbreu/libraries)

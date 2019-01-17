@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971096"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321561"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -36,7 +36,7 @@ Os pré-requisitos a seguir serão necessários para concluir essa solução:
 ## <a name="scenario-introduction-hello-toll"></a>Introdução ao cenário: "Olá, pedágio!"
 Uma praça de pedágio é um fenômeno comum. Você se depara com elas em várias estradas, pontes e túneis em todo o mundo. Cada praça de pedágio tem várias cabines do pedágio. Em cabines manuais, você para e paga o pedágio para um atendente. Em cabines automatizadas, um sensor sobre cada uma das cabines lê um cartão RFID fixado ao para-brisa do veículo conforme você passa pela cabine. É fácil visualizar a passagem dos veículos por essas estações de pedágio como uma transmissão de eventos sobre quais operações interessantes podem ser executadas.
 
-![Imagem de carros em cabines de pedágio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
+![Imagem de carros em cabines de pedágio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>Dados de entrada
 Essa solução funciona com dois fluxos de dados. Sensores instalados na entrada e na saída das praças de pedágio produzem o primeiro fluxo. O segundo fluxo é um conjunto de dados de pesquisa estático que contém dados de registro dos veículos.

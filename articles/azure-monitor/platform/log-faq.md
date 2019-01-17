@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107205"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214735"
 ---
 # <a name="log-analytics-faq"></a>Perguntas frequentes do Log Analytics
 Essas Perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Log Analytics no Microsoft Azure. Se você tiver alguma pergunta adicional sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -63,7 +63,7 @@ R: Para exibir os Logs da VM, você precisará receber permissão de leitura par
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>P. Por que consigo acessar meu workspace no portal do OMS, mas recebo o erro "Você não tem acesso" no portal do Azure?  
 
-R: Para acessar um workspace no Azure, você deve ter permissões do Azure atribuídas. Há alguns casos em que talvez você não tenha as permissões de acesso apropriadas. Nesses casos, seu administrador deve conceder a você as permissões no Azure. Confira [Portal do OMS migrando para o Azure](/../../azure-monitor/platform/oms-portal-transition.md) para saber mais.
+R: Para acessar um workspace no Azure, você deve ter permissões do Azure atribuídas. Há alguns casos em que talvez você não tenha as permissões de acesso apropriadas. Nesses casos, seu administrador deve conceder a você as permissões no Azure. Confira [Portal do OMS migrando para o Azure](oms-portal-transition.md) para saber mais.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P. Por que não consigo ver a entrada do Designer de Exibição nos Logs? 
 R: O Designer de Exibição só está disponível nos Logs para os usuários atribuídos com permissões de Colaborador ou superior.

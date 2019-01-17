@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e31c957e9ef24079d6917109ec9c5f85928bfbd7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545307"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260968"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure
 
@@ -207,5 +207,5 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 
 * [Saiba mais sobre logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md)
 * [Transmitir logs de diagnóstico de recurso os **Hubs de Eventos**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
-* [Alterar as configurações de diagnóstico do recurso usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Alterar as configurações de diagnóstico do recurso usando a API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analisar logs do Armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

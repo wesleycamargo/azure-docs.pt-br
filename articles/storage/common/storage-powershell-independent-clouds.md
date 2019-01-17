@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f7d5fcf1905200bc214a3ff42db9b7b511768dd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628333"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214888"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
 
@@ -37,7 +37,7 @@ Estes exemplos exigem a versão 0.7 ou posterior do módulo do Azure PowerShell.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Execute o cmdlet [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) para ver os ambientes do Azure disponíveis:
+Execute o cmdlet [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) para ver os ambientes do Azure disponíveis:
    
 ```powershell
 Get-AzEnvironment
@@ -71,7 +71,7 @@ O sufixo de ponto de extremidade para cada um desses ambientes é diferente do p
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Obter o ponto de extremidade usando Get-AzEnvironment 
 
-Recupere o sufixo de ponto de extremidade usando [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). O ponto de extremidade é a propriedade *StorageEndpointSuffix* do ambiente. Os snippets de código a seguir mostram como fazer isso. Todos esses comandos retornam algo como “core.cloudapp.net” ou “core.cloudapi.de”, etc. Acrescente-o ao serviço de armazenamento para acessar esse serviço. Por exemplo, “queue.core.cloudapi.de” acessará o serviço Fila na nuvem alemã.
+Recupere o sufixo de ponto de extremidade usando [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). O ponto de extremidade é a propriedade *StorageEndpointSuffix* do ambiente. Os snippets de código a seguir mostram como fazer isso. Todos esses comandos retornam algo como “core.cloudapp.net” ou “core.cloudapi.de”, etc. Acrescente-o ao serviço de armazenamento para acessar esse serviço. Por exemplo, “queue.core.cloudapi.de” acessará o serviço Fila na nuvem alemã.
 
 Este snippet de código recupera todos os ambientes e o sufixo do ponto de extremidade para cada um.
 

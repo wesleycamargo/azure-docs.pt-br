@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117258"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214446"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com o Azure Monitor
 
@@ -47,7 +47,7 @@ Os aplicativos só são confiáveis se a infraestrutura subjacente é confiável
 - Adicione [soluções de monitoramento](insights/solutions-inventory.md) a diferentes aplicativos e serviços em seu ambiente.
 
 
-A [infraestrutura como código ](/devops/learn/what-is-infrastructure-as-code) é o gerenciamento da infraestrutura em um modelo descritivo com o mesmo controle de versão que as equipes do DevOps usam para o código-fonte. Ela assegura mais confiabilidade e escalabilidade ao ambiente e permite que você aproveite processos semelhantes usados para gerenciar os aplicativos.
+A [infraestrutura como código ](/azure/devops/learn/what-is-infrastructure-as-code) é o gerenciamento da infraestrutura em um modelo descritivo com o mesmo controle de versão que as equipes do DevOps usam para o código-fonte. Ela assegura mais confiabilidade e escalabilidade ao ambiente e permite que você aproveite processos semelhantes usados para gerenciar os aplicativos.
 
 -  Use os [modelos do Gerenciador de Recursos](platform/template-workspace-configuration.md) para habilitar o monitoramento e configurar alertas em um grande conjunto de recursos.
 - Use o [Azure Policy](../governance/policy/overview.md) para aplicar diferentes regras aos recursos. Isso garante que eles permaneçam compatíveis com seus padrões empresariais e contratos de nível de serviço. 
@@ -63,7 +63,7 @@ A Integração Contínua/Implantação Contínua permite integrar e implantar au
 
 
 - Use o [Azure Pipelines](/azure/devops/pipelines) para implementar a Implantação Contínua e automatizar todo o processo, desde a confirmação de código até a produção com base nos testes de CI/CD.
-- Use o [Quality Gates](/devops/pipelines/release/approvals/gates) para integrar o monitoramento na pré-implantação ou pós-implantação. Isso garante que você esteja alcançando as principais métricas de integridade/desempenho (KPIs) à medida que os aplicativos passam do desenvolvimento à produção. E também assegura que as diferenças no ambiente de infraestrutura ou escala não estejam impactando negativamente os KPIs.
+- Use o [Quality Gates](/azure/devops/pipelines/release/approvals/gates) para integrar o monitoramento na pré-implantação ou pós-implantação. Isso garante que você esteja alcançando as principais métricas de integridade/desempenho (KPIs) à medida que os aplicativos passam do desenvolvimento à produção. E também assegura que as diferenças no ambiente de infraestrutura ou escala não estejam impactando negativamente os KPIs.
 - [Mantenha instâncias de monitoramento separadas](../azure-monitor/app/separate-resources.md) entre seus diferentes ambientes de implantação como Dev, Test, Canary e Prod. Isso garante que os dados coletados sejam relevantes entre os aplicativos e a infraestrutura associados. Se você precisar correlacionar dados entre ambientes, poderá usar [gráficos com vários recursos no Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou criar [consultas entre recursos no Log Analytics](log-query/cross-workspace-query.md).
 
 

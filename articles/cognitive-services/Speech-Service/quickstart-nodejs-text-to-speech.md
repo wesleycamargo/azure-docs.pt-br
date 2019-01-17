@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Converter texto em fala, Node.js - Serviços de Fala'
+title: 'Início rápido: Converter texto em fala, Node.js - Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá como converter texto em fala usando Node.js e API REST de Conversão de Texto em Fala. O texto de exemplo incluído neste guia é estruturado como Linguagem de marcação de síntese de Fala (SSML). Isso permite que você escolha a voz e o idioma da resposta de Fala.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e2319262b669cd5a03fa3e50bf3e534e7974c72d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8cc676355f432a25550b337e5de747c4956d3142
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550617"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358874"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Início Rápido: Converter texto em fala usando Node.js
 
@@ -43,7 +43,8 @@ const request = require('request');
 const fs = require('fs');
 // Requires readline-sync to read command line inputs
 const readline = require('readline-sync');
-
+// Requires xmlbuilder to build the SSML body
+const xmlbuilder = require('xmlbuilder');
 ```
 
 > [!NOTE]
@@ -126,6 +127,18 @@ Finalmente, você fará uma solicitação ao serviço. Se a solicitação for ob
 // You can also change the voice and output formats. See:
 // https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech
 function saveAudio(accessToken) {
+    // Create the SSML request.
+    let xml_body = xmlbuilder.create('speak')
+      .att('version', '1.0')
+      .att('xml:lang', 'en-us')
+      .ele('voice')
+      .att('xml:lang', 'en-us')
+      .att('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+      .txt(text)
+      .end();
+    // Convert the XML into a string to send in the TTS request.
+    let body = xml_body.toString();
+
     let options = {
         method: 'POST',
         baseUrl: 'https://westus.tts.speech.microsoft.com/',
@@ -137,7 +150,7 @@ function saveAudio(accessToken) {
             'X-Microsoft-OutputFormat': 'riff-24khz-16bit-mono-pcm',
             'Content-Type': 'application/ssml+xml'
         },
-        body: '<speak version=\'1.0\' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang=\'en-US\'>\n<voice  name=\'Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)\'>' + text + '</voice> </speak>'
+        body: body
     };
     // This function makes the request to convert speech to text.
     // The speech is returned as the response.
@@ -181,9 +194,10 @@ Remova todas as informações confidenciais do código-fonte do seu aplicativo d
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [Explorar exemplos do Node.js no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
 
 ## <a name="see-also"></a>Consulte também
 
+* [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [Criar fontes de voz personalizada](how-to-customize-voice-font.md)
 * [Grave amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)

@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 9b721ab614bf1797604fe342de117c78ba703f96
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 01/10/2019
+ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557590"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232117"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Recursos de visualização do Azure Stream Analytics
 
@@ -26,10 +26,6 @@ Os seguintes recursos estão em pré-visualização pública. Você pode aprovei
 ### <a name="integration-with-azure-machine-learning"></a>Integração com o Azure Machine Learning
 
 Você pode dimensionar os trabalhos do Stream Analytics com as funções de Aprendizado de Máquina (ML). Para saber mais sobre como usar as funções do ML em seu trabalho do Stream Analytics, visite [Dimensionar seu trabalho do Stream Analytics com as funções do Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Confira um cenário do mundo real com [Realizando análise de sentimentos usando o Azure Stream Analytics e o Aprendizado de Máquina do Azure](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="session-windows"></a>Janela de sessão
-
-O Stream Analytics tem suporte nativo para funções de janela, permitindo que os desenvolvedores criem trabalhos de processamento de streaming complexos com o mínimo de esforço. As [janelas de sessão](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) agrupam eventos que chegam em momentos semelhantes, filtrando períodos de tempo em que não há dados. Para saber mais sobre as funções de janelas, visite [Introdução às funções de janelas do Stream Analytics](stream-analytics-window-functions.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>Saída de blob, o particionamento por meio de tempo personalizado
 

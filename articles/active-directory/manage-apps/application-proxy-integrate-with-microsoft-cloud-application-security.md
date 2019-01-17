@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 33da0b09339460d66650c492ec125461bc0980b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729818"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215092"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configurar o monitoramento de acesso de aplicativo em tempo real com Microsoft Cloud App Security e Azure Active Directory
 Configure um aplicativo local no Azure AD (Azure Active Directory) para usar o MCAS (Microsoft Cloud App Security) para monitoramento em tempo real. O MCAS usa o Controle de Aplicativos de Acesso Condicional para monitorar e controlar sessões em tempo real com base em políticas de acesso condicional. Você pode aplicar essas políticas a aplicativos locais que usam o Proxy de Aplicativo no Azure AD (Azure Active Directory).
@@ -27,7 +27,7 @@ A seguir, são apresentados alguns exemplos dos tipos de políticas que podem se
 - Use certificados do cliente ou conformidade de dispositivos para bloquear o acesso a aplicativos específicos de dispositivos não gerenciados.
 - Restrinja sessões de usuários de redes não corporativas. É possível conceder acesso restrito a usuários que acessam um aplicativo de fora da rede corporativa. Por exemplo, esse acesso restrito pode impedir o usuário de baixar documentos confidenciais.
 
-Para obter mais informações, consulte [Proteger aplicativos com Controle de Aplicativos de Acesso Condicional do Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad.md).
+Para obter mais informações, consulte [Proteger aplicativos com Controle de Aplicativos de Acesso Condicional do Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad).
 
 ## <a name="requirements"></a>Requisitos
 

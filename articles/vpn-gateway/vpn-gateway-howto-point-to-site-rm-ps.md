@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: c579bb32fdd43c95f027e6c9f5a6ef656d059d60
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f688c0e277f807ff27731c103ca407807052c9d3
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847398"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199741"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Para isso, configure uma conexão ponto a site em uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
 
@@ -62,7 +62,7 @@ Nesta seção, entre e declare os valores usados para esta configuração. Os va
 
 ### <a name="sign-in"></a>Entrar
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="declare-variables"></a>Declarar variáveis
 

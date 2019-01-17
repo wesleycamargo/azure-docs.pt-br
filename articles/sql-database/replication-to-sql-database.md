@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: a4b1b4a7e106ad9dcd1746030daac562d7f123bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041519"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330153"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação para bancos de dados únicos e agrupados do Banco de Dados SQL
 
@@ -111,6 +111,7 @@ Crie uma publicação e uma assinatura push. Para obter mais informações, cons
 
 ## <a name="see-also"></a>Veja também  
 
+- [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Criar uma Assinatura Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Tipos de Replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

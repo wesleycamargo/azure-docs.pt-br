@@ -1,18 +1,18 @@
 ---
 title: Sobre o Planejador de Implantação do Azure Site Recovery para recuperação de desastres de VMs do VMware para o Azure | Microsoft Docs
 description: Aprenda sobre o Planejador de Implantação do Azure Site Recovery para recuperação de desastres de VMs VMware para o Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 58dc344cc7ab40218a122e34a9032276107a944c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: mayg
+ms.openlocfilehash: 9a9129d376c0a39c54f297fcae883f8d90016970
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964451"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320558"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Planejador de Implantação do Azure Site Recovery para VMware para o Azure
 Este artigo é o guia de usuário do Planejador de Implantações do Azure Site Recovery para implantações de produção do VMware para o Azure.

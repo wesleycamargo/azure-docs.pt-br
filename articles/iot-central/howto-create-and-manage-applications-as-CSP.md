@@ -3,17 +3,17 @@ title: Criar e gerenciar aplicativos do Azure IoT Central como um CSP | Microsof
 description: Como um CSP, como criar um aplicativo do Azure IoT Central em nome de seu cliente.
 services: iot-central
 ms.service: iot-central
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/29/2018
 ms.topic: conceptual
-manager: peterpr
-ms.openlocfilehash: b72b2183cb796602f05a0a6858d4de108d3cc2c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+manager: philmea
+ms.openlocfilehash: 73c3c57df215a66d914f5ea75475f74eff05a1f0
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964791"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200285"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como um CSP, criar e gerenciar um aplicativo do Azure IoT Central em nome de seu cliente 
 

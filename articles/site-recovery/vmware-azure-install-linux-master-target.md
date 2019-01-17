@@ -1,17 +1,19 @@
 ---
 title: Instalar o servidor de destino mestre do Linux para o failback no site local | Microsoft Docs
 description: Saiba como configurar um servidor de destino mestre do Linux para o failback em um site local durante a recuperação de desastre de VMs do VMware no Azure usando o Azure Site Recovery.
-author: nsoneji
+author: mayurigupta13
+services: site-recovery
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.author: mayg
+ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974347"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321391"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 

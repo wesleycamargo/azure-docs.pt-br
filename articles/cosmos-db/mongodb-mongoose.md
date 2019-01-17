@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 34ec22550106f03bc90c95b407af088327b7837f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6cdfa7492a9916cc3e2300ad71e21acfb68e3d30
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036164"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352233"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conectar um aplicativo Mongoose do Node.js ao Azure Cosmos DB
 
@@ -183,7 +183,7 @@ O comportamento de Mongoose padrão é criar uma coleção do MongoDB toda vez q
 
 1. Agora, ao ir ao portal do Azure, você observa duas coleções criadas no Azure Cosmos DB.
 
-    ![Tutorial de Node.js – Captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com vários nomes de coleção realçados – banco de dados do nó][mutiple-coll]
+    ![Tutorial de Node.js – Captura de tela do portal do Azure, mostrando uma conta do Azure Cosmos DB, com vários nomes de coleção realçados – banco de dados do nó][multiple-coll]
 
 1. Por fim, vamos ler os dados do Azure Cosmos DB. Como estamos usando o modelo operacional de Mongoose padrão, as leituras são as mesmas que quaisquer outras leituras com o Mongoose.
 
@@ -313,4 +313,4 @@ Como você pode ver, é fácil trabalhar com Mongoose discriminators. Portanto, 
 - Explore [exemplos](mongodb-samples.md) do MongoDB com a API do Azure Cosmos DB para MongoDB.
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
+[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

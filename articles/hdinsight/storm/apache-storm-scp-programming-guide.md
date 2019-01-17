@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631814"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332091"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 O SCP é uma plataforma para a criação de aplicativos de processamento de dados em tempo real, confiáveis, consistentes e de alto desempenho. Ele é baseado no [Apache Storm](https://storm.incubator.apache.org/) , um sistema de processamento de fluxo projetado pelas comunidades de OSS. O Storm foi projetado por Nathan Marz e tornou-se um software livre por meio do Twitter. Ele aproveita o [Apache ZooKeeper](https://zookeeper.apache.org/), outro projeto da Apache, para habilitar uma coordenação distribuída e gerenciamento de estado altamente confiáveis. 
@@ -228,7 +228,7 @@ O objeto `StateStore` tem principalmente os seguintes métodos:
     /// <summary>
     /// Retrieve all states that were previously uncommitted, excluding all aborted states 
     /// </summary>
-    /// <returns>Uncommited States</returns>
+    /// <returns>Uncommitted States</returns>
     public IEnumerable<State> GetUnCommitted();
 
     /// <summary>
@@ -249,7 +249,7 @@ O objeto `StateStore` tem principalmente os seguintes métodos:
     /// List all the committed states
     /// </summary>
     /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+    public IEnumerable<Registry> Committed();
 
     /// <summary>
     /// List all the Aborted State in the StateStore

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634415"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213222"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Fila do Azure com o Azure PowerShell
 
@@ -77,7 +77,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-O exemplo a seguir primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primária. Em seguida, ele chama o cmdlet [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) para criar uma fila denominada 'queuename'.
+O exemplo a seguir primeiro estabelece uma conexão com o armazenamento do Azure usando o contexto de conta de armazenamento, que inclui o nome da conta de armazenamento e sua chave de acesso primária. Em seguida, ele chama o cmdlet [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) para criar uma fila denominada 'queuename'.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -88,7 +88,7 @@ Para obter informações sobre convenções de nomenclatura do serviço Fila do 
 
 ## <a name="retrieve-a-queue"></a>Recuperar uma fila
 
-Você pode consultar e recuperar uma lista de todas as filas em uma conta de armazenamento ou de uma fila específica. Os exemplos a seguir demonstram como recuperar todas as filas na conta de armazenamento e uma fila específica; os dois comandos utilizam o cmdlet [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue).
+Você pode consultar e recuperar uma lista de todas as filas em uma conta de armazenamento ou de uma fila específica. Os exemplos a seguir demonstram como recuperar todas as filas na conta de armazenamento e uma fila específica; os dois comandos utilizam o cmdlet [Get-AzStorageQueue](/powershell/module/az.storage/Get-AzStorageQueue).
 
 ```powershell
 # Retrieve a specific queue

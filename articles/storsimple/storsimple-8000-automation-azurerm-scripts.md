@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d9c428e3fa8d9fe964b83ae345bb70fd49a6ce1a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26373934"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215296"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Usar scripts com base no SDK do Azure Resource Manager para gerenciar dispositivos StorSimple
 
@@ -27,13 +27,13 @@ Este artigo descreve como os scripts baseados no SDK do Azure Resource Manager p
 
 Este artigo se aplica aos dispositivos StorSimple da série 8000 em execução apenas no Portal do Azure.
 
-## <a name="sample-scripts"></a>Exemplos de scripts
+## <a name="sample-scripts"></a>Scripts de exemplo
 
 Os scripts de exemplo a seguir estão disponíveis para automatizar vários trabalhos do StorSimple.
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Tabela de scripts de exemplo com base no SDK do Azure Resource Manager
 
-| Script do Azure Resource Manager                    | Descrição                                                                                                                                                                                                       |
+| Script do Azure Resource Manager                    | DESCRIÇÃO                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Esse script permite que você autorize seu dispositivo StorSimple para alterar a chave de criptografia de dados do serviço.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Esse script cria um Dispositivo de Nuvem StorSimple 8010 ou 8020. O dispositivo de nuvem pode ser configurado e registrado com o serviço StorSimple Data Manager.                                                       |
@@ -63,7 +63,7 @@ Antes de começar, verifique se você tem:
 
 *   Azure Powershell instalado. Para instalar os módulos do Azure PowerShell:
     * Em um ambiente do Windows, execute as etapas em [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). Você pode instalar o Azure PowerShell em seu host do Windows Server para o StorSimple, se estiver usando um.
-    * Em um ambiente do Linux ou MacOS, execute as etapas em [Instalar e configurar o Azure PowerShell no MacOS ou Linux](https://docs.microsoft.com/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
+    * Em um ambiente do Linux ou MacOS, execute as etapas em [Instalar e configurar o Azure PowerShell no MacOS ou Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0).
 
 Para saber mais sobre como usar o Azure PowerShell, acesse [Introdução ao uso do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 

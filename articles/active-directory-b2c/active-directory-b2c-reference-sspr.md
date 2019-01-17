@@ -10,18 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c9d6a66a9d54c75fbb20775f0ae4de4d22a7d599
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3d2019101abf1086a58d0224ab31f2aa27afe8de
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840853"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54350584"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configure a redefinição de senha de autoatendimento para seus clientes
+
 Com o recurso de redefinição de senha de autoatendimento, seus clientes que tenham se registrado com contas locais poderão redefinir as respectivas senhas por conta própria. Isso reduz significativamente a sobrecarga da equipe de suporte, principalmente se milhões de clientes usarem seu aplicativo regularmente. Atualmente, usar um endereço de email verificado é o único método de recuperação com suporte.
 
 > [!NOTE]
-> Este artigo aplica-se à redefinição de senha por autoatendimento usada no contexto do fluxo de usuário de **Entrada** V1 que usa **Entrada na Conta Local** como o provedor de identidade. Se você precisar de fluxos de usuários de redefinição de senha totalmente personalizáveis invocados do seu aplicativo, consulte [este artigo](active-directory-b2c-reference-policies.md#create-a-password-reset-user-flow).
+> Este artigo aplica-se à redefinição de senha por autoatendimento usada no contexto do fluxo de usuário de **Entrada** V1 que usa **Entrada na Conta Local** como o provedor de identidade. Se você precisar de fluxos de usuários de redefinição de senha totalmente personalizáveis invocados do seu aplicativo, consulte [este artigo](active-directory-b2c-reference-policies.md).
 > 
 > 
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584438"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232746"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Criar um aplicativo de processamento de imagens - C&#35;
 
@@ -97,9 +97,6 @@ Você pode executar o aplicativo de amostra para ver como ele interage com você
    |Reconhecer texto (OCR) | Usa a operação [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) para reconhecer e extrair texto impresso de uma imagem. Você pode escolher o idioma a ser usado ou deixe computacional detectar automaticamente o idioma. |
    |Reconhecer texto V2 (em inglês) | Usa o [reconhecer texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) e [obter resultado da operação de reconhecer texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) operações para reconhecer e extrair texto impresso ou escrito à mão de uma imagem de forma assíncrona. |
    |Obter a miniatura | Usa o [miniatura obter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) operação para gerar uma miniatura de uma imagem local ou remota. |
-
-   > [!IMPORTANT]
-   > A Microsoft recebe as imagens carregadas e pode usá-las para melhorar a API de Pesquisa Visual Computacional e os serviços relacionados. Ao enviar uma imagem, você confirma que seguiu nosso [Código de Conduta do Desenvolvedor](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    A captura de tela a seguir ilustra a página fornecida para o cenário Analyze Image, após analisar uma imagem de amostra.
    ![Captura de tela da página de imagem Analisar](../Images/Analyze_Image_Example.PNG)

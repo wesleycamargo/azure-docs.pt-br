@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d36179685e2098455e00186827d35e6de18bf975
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5396fefca3a60dea7a503f8b4e84cc575753ea30
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892752"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229108"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicionar uma camada de imagem ao um mapa
 
@@ -31,7 +31,7 @@ Este artigo mostra como você pode sobrepor uma imagem para um conjunto fixo de 
 
 ## <a name="add-an-image-layer"></a>Adicionar uma camada de imagem
 
-Este exemplo mostra como sobrepor uma imagem de um [mapa de Newark Nova Jersey de 1922]((https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)) no mapa.
+Este exemplo mostra como sobrepor uma imagem de um [mapa de Newark Nova Jersey de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa.
 
 <br/>
 
@@ -40,7 +40,7 @@ Este exemplo mostra como sobrepor uma imagem de um [mapa de Newark Nova Jersey d
 
 No código acima, o primeiro bloco do código constrói um objeto de mapa. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-No segundo bloco de código, uma [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é criada, passando uma URL para uma imagem e coordenadas para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`.
+No segundo bloco de código, uma [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é criada, passando uma URL para uma imagem e coordenadas para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ## <a name="import-a-kml-ground-overlay"></a>Importar uma sobreposição de terra KML
 

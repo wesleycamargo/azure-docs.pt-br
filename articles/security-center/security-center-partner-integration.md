@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 97153f4e11f9346083718a83dc7bcd292dc503c7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 25975739f7992a8e7a5318775b99d05715863ed1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580732"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260101"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -33,29 +33,12 @@ A Central de Segurança facilita a criação de soluções de segurança integra
 
 Atualmente, as soluções de segurança integradas incluem:
 
-- Proteção de ponto de extremidade ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) e [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - Firewall de aplicativo Web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html), [Gateway de Aplicativo do Azure](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Firewall de próxima geração ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) e [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Avaliação de vulnerabilidade ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) e [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
 > A Central de Segurança não instala o Microsoft Monitoring Agent em soluções de virtualização de parceiro porque a maioria dos fornecedores de segurança proíbe agentes externos em execução em suas soluções.
->
->
-
-
-| Proteção do ponto de extremidade               | Plataformas                             | Instalação da Central de Segurança | Descoberta da Central de Segurança |
-|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | Não, Integrado no SO           | SIM                       |
-| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão                | SIM                       |
-| Trend Micro – Todas as versões         | Família Windows Server                 | Não                            | SIM                       |
-| Symantec v12.1.1100+              | Família Windows Server                 | Não                            | SIM                       |
-| McAfee v10+                       | Família Windows Server                 | Não                            | SIM                       |
-| Kaspersky                         | Família Windows Server                 | Não                            | Não                         |
-| Sophos                            | Família Windows Server                 | Não                            | Não                         |
-
-> [!NOTE]
-> A detecção do System Center Endpoint Protection (SCEP) em uma máquina virtual do Windows Server 2008 R2 exige que o SCEP seja instalado após o PowerShell 3.0 (ou uma versão superior).
 >
 >
 
@@ -140,7 +123,7 @@ Este guia de início rápido mostra como:
 #### <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
 
-Para percorrer este guia de início rápido, você deverá estar no tipo de preço Standard da Central de Segurança. Você pode experimentar a Central de Segurança Standard sem nenhum custo. O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard. Para saber mais, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Para percorrer este guia de início rápido, você deverá estar no tipo de preço Standard da Central de Segurança. Você pode experimentar a Central de Segurança Standard sem nenhum custo. O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 Você também precisa de um [computador Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux) com o serviço Syslog que já esteja conectado à Central de Segurança.
 

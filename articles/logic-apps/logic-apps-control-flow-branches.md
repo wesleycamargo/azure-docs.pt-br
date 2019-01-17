@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 68f7df2ab004477fae5df1d200fcd44929465e93
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233116"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232236"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou unir branches paralelos para ações de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
@@ -37,7 +37,7 @@ Para executar etapas independentes ao mesmo tempo, você pode adicionar branches
 
 ![Executar as etapas em paralelo](media/logic-apps-control-flow-branches/parallel.png)
 
-Seu aplicativo lógico espera que todos os branches estejam concluídos antes de continuar o fluxo de trabalho. Os branches em paralelo são executados somente quando seus valores de propriedade `runAfter` corresponderem ao status da etapa pai concluída. Por exemplo, `branchAction1` e `branchAction2` estão definidos para serem executados apenas quando `parentAction` tiver concluído com o status `Succeded`.
+Seu aplicativo lógico espera que todos os branches estejam concluídos antes de continuar o fluxo de trabalho. Os branches em paralelo são executados somente quando seus valores de propriedade `runAfter` corresponderem ao status da etapa pai concluída. Por exemplo, `branchAction1` e `branchAction2` estão definidos para serem executados apenas quando `parentAction` tiver concluído com o status `Succeeded`.
 
 > [!NOTE]
 > Antes de começar, seu aplicativo lógico já deve ter uma etapa onde você possa adicionar branches paralelos.

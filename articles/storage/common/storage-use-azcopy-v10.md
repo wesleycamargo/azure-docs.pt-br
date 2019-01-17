@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: af45081df280f5542b5ba70892ee74c05b3e99cc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2d0f3292a12505249ebc8594c58234a0c6e81a8a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808104"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212491"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transferir dados com o AzCopy v10 (Versão Prévia)
 
@@ -55,7 +55,7 @@ AzCopy v10 não exige uma instalação. Abra um aplicativo de linha de comando p
 
 O AzCopy v10 permite que você use as seguintes opções ao autenticar-se com o Armazenamento do Azure:
 - **Azure Active Directory [Com suporte no Blob e ADLS Gen2]**. Use ```.\azcopy login``` para entrar usando o Azure Active Directory.  O usuário deve ter a [função "Colaborador de Dados de Blob de Armazenamento" atribuída](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) para gravar no Armazenamento de Blobs usando a autenticação do Azure Active Directory.
-- **Tokens SAS [Com suporte no serviço Blob e Arquivo]**. Anexe o token SAS ao caminho do blob na linha de comando para usá-lo. Você pode gerar um token SAS usando o Portal do Azure, o [Gerenciador de Armazenamento](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), o [PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStorageblobsastoken) ou outras ferramentas de sua escolha. Para obter mais informações, confira [exemplos](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Tokens SAS [Com suporte no serviço Blob e Arquivo]**. Anexe o token SAS ao caminho do blob na linha de comando para usá-lo. Você pode gerar um token SAS usando o Portal do Azure, o [Gerenciador de Armazenamento](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), o [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) ou outras ferramentas de sua escolha. Para obter mais informações, confira [exemplos](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 ## <a name="getting-started"></a>Introdução
 

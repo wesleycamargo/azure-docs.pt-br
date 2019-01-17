@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191319"
+ms.locfileid: "54201101"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Use o roteamento dependente dos dados para rotear uma consulta para o banco de dados apropriado
 
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * O parâmetro **key** é usado como uma chave de pesquisa no mapa de fragmentos para determinar o banco de dados apropriado para a solicitação.
 * **connectionString** é usado para transmitir somente as credenciais do usuário para a conexão desejada. Não há nenhum nome de banco de dados ou nome do servidor incluído nesta *connectionString* pois o método determina o banco de dados e o servidor usando o **ShardMap**.
-* O **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deverá ser definido como **ConnectionOptions.Validate** em um ambiente em que os mapeamentos de fragmento possam ser alterados e as linhas possam ser movidas para outros bancos de dados como resultado de operações de divisão ou mesclagem. Essa validação envolve uma breve consulta no mapa de fragmentos local no banco de dados de destino (não no mapa de fragmentos global) antes que a conexão seja entregue ao aplicativo.
+* O **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deverá ser definido como **ConnectionOptions.Validate** em um ambiente em que os mapeamentos de fragmento possam ser alterados e as linhas possam ser movidas para outros bancos de dados como resultado de operações de divisão ou mesclagem. Essa validação envolve uma breve consulta no mapa de fragmentos local no banco de dados de destino (não no mapa de fragmentos global) antes que a conexão seja entregue ao aplicativo.
 
 Se a validação em relação ao mapa de fragmentos local falhar (indicando que o cache está incorreto), o Gerenciador de Mapa de Fragmentos consultará o mapa de fragmentos global para obter o novo valor correto para a pesquisa, atualizará o cache e obterá e retornará a conexão de banco de dados apropriada.
 

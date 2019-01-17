@@ -1,23 +1,21 @@
 ---
-title: Roteiro de algoritmo - Azure Machine Learning Studio Machine learning|Microsoft Docs
+title: Página de dicas úteis do algoritmo de Machine Learning
+titleSuffix: Azure Machine Learning Studio
 description: Uma página de dicas úteis de algoritmo de Machine Learning que pode ser impressa o ajuda a escolher o algoritmo certo para o seu modelo de previsão no Azure Machine Learning Studio.
-keywords: folha de consulta de algoritmo, folha de consulta, algoritmo de aprendizado de máquina
 services: machine-learning
-author: ericlicoding
-ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddc3a9829dc05ac1c1df450091789e4cad2b2f5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274469"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264301"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Folha de referências de algoritmo de aprendizado de máquina para o Azure Machine Learning Studio
 

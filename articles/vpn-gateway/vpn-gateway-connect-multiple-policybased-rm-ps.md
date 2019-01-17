@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: yushwang
-ms.openlocfilehash: 46555bf121e674b82c0c7dd39f74ee3708fc4439
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4996fa23e28b4ba840cc8c97e167484be08a0573
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850628"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199453"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conectar gateways VPN do Azure a vários dispositivos VPN com base em políticas locais usando o PowerShell
 
@@ -83,7 +83,7 @@ Verifique se você concluiu a [Parte 3 do artigo Configurar a política de IPsec
 
 #### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. Conectar a assinatura e declarar as variáveis
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 Declare as variáveis. Para este exercício, usamos as seguintes variáveis:
 

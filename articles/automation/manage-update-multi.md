@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679512"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214021"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -113,7 +113,11 @@ A tabela a seguir descreve as fontes conectadas às quais essa solução dá sup
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 
-Um exame é executado duas vezes por dia para cada computador Windows gerenciado. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o status foi alterado. Se o status for alterado, uma verificação de conformidade será iniciada. Uma exame é executado a cada 3 horas para cada computador Linux gerenciado.
+Depois que um computador conclui uma verificação de conformidade com a atualização, o agente encaminha as informações em massa para o Log do Azure Analytics. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
+
+Além do agendamento da verificação, a verificação de conformidade de atualizações será iniciada em 15 minutos se o MMA estiver sendo reiniciado antes da instalação da atualização e após a instalação da atualização.
+
+Para um computador Linux, a verificação de conformidade é executada a cada 3 horas por padrão. Se o agente MMA for reiniciado, uma verificação de conformidade é iniciada dentro de 15 minutos.
 
 Pode demorar entre 30 minutos e 6 horas para o painel exibir os dados atualizados dos computadores gerenciados.
 

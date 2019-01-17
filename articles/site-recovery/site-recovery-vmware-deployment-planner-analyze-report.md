@@ -1,18 +1,18 @@
 ---
 title: Analisar o relatório do Planejador de Implantação do Azure Site Recovery para recuperação de desastre do VMware para o Azure | Microsoft Docs
 description: Este artigo descreve como analisar o relatório gerado pela recuperação de desastres do Azure Site Recovery Planner for VMware para o Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 995c4bbbde87315e92c182fbc91b58ee34cda04e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: ecb1d4cca5ebc8a699988c6556b080ffa810eca8
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839544"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319838"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analise o relatório do Azure Site Recovery Deployment Planner para recuperação de desastre do VMware no Azure
 
@@ -53,7 +53,7 @@ A planilha de recomendações do relatório do VMware para o Azure apresenta os 
 
 **Nome do Servidor**: O nome ou o endereço IP do host VMware vCenter ou ESXi sobre cujas VMss é gerado o relatório.
 
-**RPO desejado**: O objetivo de ponto de recuperação para sua implantação. Por padrão, a largura de banda de rede necessária é calculada para valores de RPO de 15, 30 e 60 minutos. Com base na seleção, os valores afetados são atualizados na planilha. Se você tiver usado o parâmetro *DesiredRPOinMin* ao gerar o relatório, esse valor será mostrado na lista suspensa RPO Desejado.
+**RPO desejado**: Objetivo de ponto de recuperação para sua implantação. Por padrão, a largura de banda de rede necessária é calculada para valores de RPO de 15, 30 e 60 minutos. Com base na seleção, os valores afetados são atualizados na planilha. Se você tiver usado o parâmetro *DesiredRPOinMin* ao gerar o relatório, esse valor será mostrado na lista suspensa RPO Desejado.
 
 ### <a name="profiling-overview"></a>Visão geral da criação de perfil
 
