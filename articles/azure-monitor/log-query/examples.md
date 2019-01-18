@@ -208,7 +208,7 @@ Perf
 ## <a name="protection-status"></a>Status de proteção
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Computadores com duração de status de proteção sem geração de relatórios
-Este exemplo lista os computadores que tinham um status de proteção _Sem geração de relatórios_ e a duração pela qual apresentaram esse status.
+Este exemplo lista os computadores que tinham um status de proteção _Not Reporting_ e a duração pela qual apresentaram esse status.
 
 ```Kusto
 ProtectionStatus
