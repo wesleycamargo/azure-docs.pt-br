@@ -97,7 +97,7 @@ Depois de treinar o classificador, obtenha a chave de previsão e a URL de ponto
 
 ## <a name="create-reviews-for-review-tool"></a>Criar análises para a ferramenta de Análise
 
-Nas seções anteriores, você observou os métodos que examinam se há conteúdo para adulto e conteúdo sexual nas imagens recebidas (Content Moderator), com celebridades (Pesquisa Visual Computacional) e vários outros objetos (Visão Personalizada). Em seguida, confira o método **CreateReview**, que carrega as imagens, com todas as suas marcas aplicadas (passadas como _Metadados_), à ferramenta de Análise do Content Moderator, de modo que possam estar disponíveis para análise humana. 
+Nas seções anteriores, você observou os métodos que examinam se há conteúdo para adulto e conteúdo sexual nas imagens recebidas (Content Moderator), com celebridades (Pesquisa Visual Computacional) e vários outros objetos (Visão Personalizada). Em seguida, confira o método **CreateReview**, que carrega as imagens, com todas as suas marcas aplicadas (passadas como _Metadata_), à ferramenta de Análise do Content Moderator, de modo que possam estar disponíveis para análise humana. 
 
 [!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
