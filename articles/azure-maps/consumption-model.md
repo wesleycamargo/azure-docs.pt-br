@@ -18,8 +18,8 @@ ms.locfileid: "34600622"
 # <a name="consumption-model"></a>Modelo de consumo
 
 O roteamento online fornece um conjunto de parâmetros para uma descrição detalhada do modelo de consumo específico do veículo.
-Dependendo do valor de **vehicleEngineType**, há suporte para dois modelos de consumo principais: _Combustão_ e _Elétrico_. Especificar parâmetros que pertencem a modelos diferentes na mesma solicitação é um erro.
-O modelo de consumo não pode ser usado com os valores de **travelMode** _bicicleta_ e _pedestre_.
+Dependendo do valor de **vehicleEngineType**, há suporte para dois modelos de consumo principais: _Combustion_ e _Electric_. Especificar parâmetros que pertencem a modelos diferentes na mesma solicitação é um erro.
+O modelo de consumo não pode ser usado com os valores de **travelMode** _bicycle_ e _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Restrições de parâmetro de modelo de consumo
 
@@ -38,7 +38,7 @@ Em ambos os modelos de consumo, especificar explicitamente alguns parâmetros re
 
 ## <a name="combustion-consumption-model"></a>Modelo de consumo de combustão
 
-O modelo de consumo de combustão é usado quando **vehicleEngineType** é definido como _combustão_.
+O modelo de consumo de combustão é usado quando **vehicleEngineType** é definido como _combustion_.
 A lista de parâmetros que pertencem a esse modelo está abaixo. Consulte a seção Parâmetros para ver uma descrição detalhada.
 
 * constantSpeedConsumptionInLitersPerHundredkm
@@ -53,7 +53,7 @@ A lista de parâmetros que pertencem a esse modelo está abaixo. Consulte a seç
 
 ## <a name="electric-consumption-model"></a>Modelo de consumo elétrico
 
-O modelo de consumo elétrico é usado quando **vehicleEngineType** é definido como _elétrico_.
+O modelo de consumo elétrico é usado quando **vehicleEngineType** é definido como _electric_.
 A lista de parâmetros que pertencem a esse modelo está abaixo. Consulte a seção Parâmetros para ver uma descrição detalhada.
 
 * constantSpeedConsumptionInkWhPerHundredkm
