@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352675"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388467"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adicionar Kubernetes para o Azure Stack Marketplace
 
@@ -60,9 +60,9 @@ Crie um plano, uma oferta e uma assinatura para o item do Marketplace do Kuberne
 
     e. Selecione **oferecem**. Selecione o nome da oferta que você criou. Anote a ID da assinatura.
 
-## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>Criar uma entidade de serviço e as credenciais no AD FS
+## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Criar uma entidade de serviço e as credenciais no AD FS
 
-Se você usar o Active Directory Federated Services (AD FS) para seu serviço de gerenciamento de identidade, você precisará criar uma entidade de serviço para usuários que estão implantando um cluster Kubernetes.
+Se você usar o Active Directory Federated Services (AD FS) para seu serviço de gerenciamento de identidade, você precisará criar um serviço principal para usuários que estão implantando um cluster Kubernetes.
 
 1. Criar e exportar um certificado a ser usado para criar a entidade de serviço. O seguinte trecho de código abaixo mostra como criar um certificado autoassinado. 
 
@@ -104,7 +104,7 @@ Se você usar o Active Directory Federated Services (AD FS) para seu serviço de
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Crie entidade de serviço usando o certificado.
+2. Crie a entidade usando o certificado de serviço.
 
     - Você precisa que as seguintes partes de informações:
 
@@ -117,7 +117,7 @@ Se você usar o Active Directory Federated Services (AD FS) para seu serviço de
     - Abra o PowerShell com um prompt com privilégios elevados. Execute o script a seguir com os parâmetros atualizados para seus valores:
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -132,7 +132,7 @@ Se você usar o Active Directory Federated Services (AD FS) para seu serviço de
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -167,7 +167,7 @@ Se você usar o Active Directory Federated Services (AD FS) para seu serviço de
         $ServicePrincipal
         ```
 
-    - Os detalhes do princípio de serviço se parecer com o trecho a seguir
+    - Os detalhes da entidade de serviço se parecer com o trecho a seguir
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

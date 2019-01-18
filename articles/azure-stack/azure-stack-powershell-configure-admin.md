@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 7a744520fe2a3b53b1306d4c80a5eca7d86258a7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: eed3cbbcdc02d0d2faa5f9076bd6fc2dd4328bd8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104532"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391060"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Conectar-se ao Azure Stack com o PowerShell como um operador
 
@@ -67,15 +67,13 @@ Conecte-se ao ambiente do Azure Stack operador com o PowerShell com o Azure Acti
 
   # Sign in to your environment
 
-  $cred = get-credential
-
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
-    -TenantId $tenantId `
-    -Credential $cred
+    -TenantId $tenantId
   ```
 
-
+> [!Note]  
+> O AD FS dá suporte apenas a autenticação interativa com identidades de usuário. Se um objeto de credencial for necessário, você deve usar uma entidade de serviço (SPN). Para obter mais informações sobre como configurar uma entidade de serviço com o Azure Stack e AS FS como seu serviço de gerenciamento de identidade, consulte [gerenciar a entidade de serviço do AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="test-the-connectivity"></a>Testar a conectividade
 

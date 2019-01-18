@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: dc6994cd682997dd00e76b57b4996ebad1f73fbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352386"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390686"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Solucionar problemas de implantação no Kubernetes no Azure Stack
 
@@ -47,7 +47,7 @@ O diagrama a seguir mostra o processo geral para implantar o cluster.
     Insira os valores que você precisa configurar o cluster Kubernetes, incluindo:
     -  **Nome de usuário**: O nome de usuário para as máquinas virtuais de Linux que fazem parte do cluster do Kubernetes e DVM.
     -  **Chave pública SSH**: A chave que é usada para a autorização de todas as máquinas Linux que foram criados como parte do cluster do Kubernetes e DVM.
-    -  **Princípio de serviço**: A ID que é usada pelo provedor de nuvem do Azure do Kubernetes. A ID do cliente identificada como a ID do aplicativo quando você criou a entidade de serviço. 
+    -  **Entidade de serviço**: A ID que é usada pelo provedor de nuvem do Azure do Kubernetes. A ID do cliente identificada como a ID do aplicativo quando você criou a entidade de serviço. 
     -  **Segredo do cliente**: Os principais que você criou ao criar a entidade de serviço.
 
 2. Criar a implantação de VM e a extensão de script personalizado.

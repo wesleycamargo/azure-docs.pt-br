@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: cafae6d71401bc44813b2e366f8e72f7b806236b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 8049db848e34b0aa9bc23f08169a8c63f765791a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062768"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389746"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Use perfis de versão de API com o Python no Azure Stack
 
@@ -29,11 +29,12 @@ ms.locfileid: "54062768"
 
 O SDK do Python dá suporte a perfis de versão da API para direcionar diferentes plataformas de nuvem, como o Azure Stack e o Azure global. Você pode usar perfis de API na criação de soluções para uma nuvem híbrida. O SDK do Python dá suporte aos seguintes perfis de API:
 
-1. **latest**  
-    O perfil tem como alvo as versões de API mais recentes para todos os provedores de serviço na plataforma do Azure.
-2. **2017-03-09-perfil**  
-   **2017-03-09-perfil**  
-   O perfil tem como alvo as versões de API provedores de recursos com suporte do Azure Stack.
+- **latest**  
+    Esse perfil tem como alvo as versões de API mais recentes para todos os provedores de serviço na plataforma do Azure.
+- **2018-03-01-hybrid**     
+    Esse perfil tem como alvo as versões de API mais recentes para todos os provedores de recursos na plataforma do Azure Stack.
+- **2017-03-09-profile**  
+    Esse perfil tem como alvo as versões de API mais compatível com provedores de recursos com suporte do Azure Stack.
 
    Para obter mais informações sobre perfis de API e o Azure Stack, consulte [perfis de versão da API de gerenciar no Azure Stack](azure-stack-version-profiles.md).
 
@@ -56,10 +57,19 @@ Para usar o SDK do Python do Azure com o Azure Stack, você deve fornecer os seg
 | ID da assinatura | AZURE_SUBSCRIPTION_ID | O [ID da assinatura](../azure-stack-plan-offer-quota-overview.md#subscriptions) é como você pode acessar ofertas no Azure Stack. |
 | Segredo do cliente | AZURE_CLIENT_SECRET | O segredo do aplicativo principal do serviço salvo quando a entidade de serviço foi criada. |
 | Ponto de extremidade do Gerenciador de recursos | ARM_ENDPOINT | Consulte a [ponto de extremidade de Gerenciador de recursos do Azure Stack](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Local do recurso | AZURE_RESOURCE_LOCATION | A localização de recursos do seu ambiente de pilha do Azure.
 
 ## <a name="python-samples-for-azure-stack"></a>Exemplos de Python para o Azure Stack
 
-Você pode usar os exemplos de código a seguir para executar tarefas comuns de gerenciamento para máquinas virtuais no Azure Stack. Os exemplos de código mostram a você:
+Estes são alguns dos exemplos de código disponíveis para o Azure Stack usando o SDK do Python:
+
+- [Gerenciar recursos e grupos de recursos](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/).
+- [Gerenciar conta de armazenamento](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/).
+- [Gerenciar máquinas virtuais](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/).
+
+## <a name="python-manage-virtual-machine-sample"></a>Exemplo de máquina virtual de gerenciar do Python
+
+Você pode usar o exemplo de código a seguir para executar tarefas comuns de gerenciamento para máquinas virtuais no Azure Stack. O exemplo de código mostra a você como:
 
 - Crie máquinas virtuais:
   - Criar uma máquina virtual Linux
@@ -76,7 +86,7 @@ Você pode usar os exemplos de código a seguir para executar tarefas comuns de 
 - Listar máquinas virtuais
 - Excluir uma máquina virtual
 
-Para examinar o código que executa essas operações, consulte o **run_example()** função no script do Python **Hybrid/unmanaged-disks/example.py** no repositório GitHub [ virtual-máquinas-python-gerenciar](https://github.com/Azure-Samples/virtual-machines-python-manage).
+Para examinar o código que executa essas operações, consulte o **run_example()** função no script do Python **example.py** no repositório GitHub [híbrida-Compute-Python-gerenciar-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
 Cada operação é claramente rotulada com um comentário e uma função de impressão. Os exemplos não são necessariamente na ordem mostrada nessa lista.
 
@@ -99,13 +109,13 @@ Cada operação é claramente rotulada com um comentário e uma função de impr
 4. Clone o repositório:
 
     ```bash
-    git clone https://github.com/Azure-Samples/virtual-machines-python-manage.git
+    git clone https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM.git
     ```
 
 5. Instale as dependências usando o pip:
 
     ```bash
-    cd virtual-machines-python-manage\Hybrid
+    cd Hybrid-Compute-Python-Manage-VM
     pip install -r requirements.txt
     ```
 
@@ -119,6 +129,7 @@ Cada operação é claramente rotulada com um comentário e uma função de impr
     export AZURE_CLIENT_SECRET={your client secret}
     export AZURE_SUBSCRIPTION_ID={your subscription id}
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
+    export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
 8. Para executar este exemplo, Ubuntu 16.04-LTS e imagens do Windows Server 2012-R2-Datacenter devem estar presentes no marketplace do Azure Stack. Eles podem ser qualquer um [baixado do Azure](../azure-stack-download-azure-marketplace-item.md), ou adicionado para o [repositório de imagens de plataforma](../azure-stack-add-vm-image.md).
@@ -126,17 +137,9 @@ Cada operação é claramente rotulada com um comentário e uma função de impr
 9. Execute o exemplo:
 
     ```python
-    python unmanaged-disks\example.py
+    python example.py
     ```
 
-## <a name="notes"></a>Observações
-
-Você pode ficar tentado a tentar recuperar o disco do sistema operacional da VM usando `virtual_machine.storage_profile.os_disk`. Em alguns casos, isso pode fazer o que você deseja, mas lembre-se de que ele fornece um **OSDisk** objeto. Para atualizar o tamanho do disco do sistema operacional, como `example.py` faz, é um **disco** objeto, não um **OSDisk** objeto. `example.py` Obtém o **disco** objeto com as seguintes propriedades:
-
-```python
-os_disk_name = virtual_machine.storage_profile.os_disk.name
-os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
-```
 
 ## <a name="next-steps"></a>Próximas etapas
 

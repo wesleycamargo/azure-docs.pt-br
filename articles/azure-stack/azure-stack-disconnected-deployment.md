@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3262720f52bc75ba5d430e941da25568a105fe0d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276240"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391259"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados de implantação do Azure desconectada, decisões de planejamento para o Azure Stack
 Depois que você decidiu [como você irá integrar o Azure Stack em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, você pode finalizar suas decisões de implantação do Azure Stack.
@@ -49,7 +49,7 @@ O Azure Stack foi projetado para funcionar melhor quando conectado ao Azure, por
 |Marketplace – a capacidade de selecionar e adicionar pacotes de galeria diretamente no Azure Marketplace|Usuários portadores de deficiência – quando você implanta o Azure Stack em um modo desconectado (sem nenhuma conectividade de Internet), não é possível baixar itens do marketplace usando o portal do Azure Stack. No entanto, você pode usar o [ferramenta de distribuição de mercado](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) para baixar os itens do marketplace para um computador que tenha conectividade com a internet e, em seguida, transferi-las para seu ambiente do Azure Stack.|
 |Usando contas de Federação do Active Directory do Azure para gerenciar uma implantação do Azure Stack|Não disponível – Este recurso requer conectividade com o Azure. AD FS com uma instância local do Active Directory deve ser usado em vez disso.|
 |Serviços de Aplicativos|Usuários portadores de deficiência - aplicativos Web pode exigir acesso à Internet para conteúdo atualizado.|
-|Interface de Linha de Comando (CLI)|Usuários portadores de deficiência – CLI tem funcionalidade reduzida em termos de autenticação e provisionamento de princípios de serviço.|
+|Interface de Linha de Comando (CLI)|Usuários portadores de deficiência – CLI tem funcionalidade reduzida em termos de autenticação e provisionamento de entidades de serviço.|
 |Visual Studio – o Cloud discovery|Com deficiências – o Cloud Discovery descobrirá ou nuvens diferentes ou não funcionará em todos os.|
 |Visual Studio – AD FS|Usuários portadores de deficiência – somente o Visual Studio Enterprise dá suporte ao AD FS.
 Telemetria|Não disponível-dados de telemetria para o Azure Stack, assim como os pacotes de galeria de produtos de terceiros que dependem de dados de telemetria.|
@@ -58,7 +58,7 @@ Telemetria|Não disponível-dados de telemetria para o Azure Stack, assim como o
 
 ## <a name="learn-more"></a>Saiba mais
 - Para obter informações sobre casos de uso, compra, parceiros e fornecedores de hardware de OEM, consulte o [do Azure Stack](https://azure.microsoft.com/overview/azure-stack/) página do produto.
-- Para obter informações sobre o roteiro e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [O Azure Stack: Uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Para obter informações sobre o roteiro e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [Azure Stack: Uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Para saber mais sobre pacotes e preços do Microsoft Azure Stack [baixar o. PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Próximas etapas
