@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275662"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413015"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicativo no Azure Stack
 
@@ -71,7 +71,7 @@ Quando você executa o seguinte comando do PowerShell, você precisará fornecer
     Get-AzureStackRootCert.ps1
 ```
 
-#### <a name="get-azurestackrootcertps1-script-parameters"></a>Parâmetros de script Get-AzureStackRootCert.ps1
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
 | Parâmetro | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
 | --- | --- | --- | --- |
@@ -223,7 +223,7 @@ Um [modelo de início rápido de arquitetura de referência](https://github.com/
 
 Quando você usa o modelo do Azure Resource Manager, os usuários já estão criados.
 
-1. Execute os seguintes comandos para criar as contas FileShareOwner e FileShareUser. Substitua `<password>` com seus próprios valores.
+1. Execute os seguintes comandos para criar as contas FileShareOwner e FileShareUser. Substitua `<password>` pelos seus próprios valores.
 
    ``` DOS
    net user FileShareOwner <password> /add /expires:never /passwordchg:no
@@ -327,7 +327,7 @@ Os administradores devem configurar o SSO:
 Siga estas etapas:
 
 1. Abra uma instância do PowerShell como azurestack\AzureStackAdmin.
-2. Vá para o local dos scripts que você baixou e extraiu na [etapa de pré-requisito](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Vá para o local dos scripts que você baixou e extraiu na [etapa de pré-requisito](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Instale o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 4. Execute o **AADIdentityApp.ps1 criar** script. Quando solicitado, insira a ID do locatário do Azure AD que você está usando para sua implantação do Azure Stack. Por exemplo, digite **myazurestack.onmicrosoft.com**.
 5. No **credencial** janela, insira sua conta de administrador de serviço do Azure AD e a senha. Selecione **OK**.
@@ -371,7 +371,7 @@ Os administradores devem configurar o SSO:
 Siga estas etapas:
 
 1. Abra uma instância do PowerShell como azurestack\AzureStackAdmin.
-2. Vá para o local dos scripts que você baixou e extraiu na [etapa de pré-requisito](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Vá para o local dos scripts que você baixou e extraiu na [etapa de pré-requisito](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Instale o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 4. Execute o **ADFSIdentityApp.ps1 criar** script.
 5. No **credencial** janela, insira sua conta de administrador de nuvem do AD FS e a senha. Selecione **OK**.

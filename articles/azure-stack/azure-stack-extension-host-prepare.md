@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: fcd5137792e573c3077a4b9d5e815b9bf20774f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ec7b1ad33ec80593b718bdf86a48269fb469e078
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155058"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413508"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparar para o host de extensão para o Azure Stack
 
@@ -29,8 +29,8 @@ A tabela mostra os novos namespaces e os certificados associados:
 
 | Pasta de implantação | Assunto do certificado necessário e nomes alternativos de entidade (SAN) | Escopo (por região) | Namespace de subdomínio |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Host de extensão de administração | *.adminhosting. \<região >. \<fqdn > (os certificados SSL curinga) | Host de extensão de administração | adminhosting. \<região >. \<fqdn > |
-| Host de extensão público | * .hosting. \<região >. \<fqdn > (os certificados SSL curinga) | Host de extensão público | hospedagem. \<região >. \<fqdn > |
+| Host de extensão de administração | *.adminhosting. \<região >. \<fqdn > (os certificados SSL curinga) | Host de extensão de administração | adminhosting.\<region>.\<fqdn> |
+| Host de extensão público | * .hosting. \<região >. \<fqdn > (os certificados SSL curinga) | Host de extensão público | hosting.\<region>.\<fqdn> |
 
 Os requisitos de certificado detalhadas podem ser encontrados na [requisitos de certificado de infra-estrutura de chave pública do Azure Stack](azure-stack-pki-certs.md) artigo.
 
@@ -129,8 +129,8 @@ Se os registros de host individuais foram configurados para publicar pontos de e
 
 | IP | Nome do host | Tipo |
 |----|------------------------------|------|
-| \<IP &GT; | *. Adminhosting. \<Região >. \<FQDN > | O  |
-| \<IP &GT; | *. Hospedagem. \<Região >. \<FQDN > | O  |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | O  |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | O  |
 
 IPs alocado pode ser recuperado usando o ponto de extremidade com privilégios executando o cmdlet **Get-AzureStackStampInformation**.
 
@@ -201,10 +201,10 @@ As seguintes portas de ponto de extremidade existentes devem ser fechadas nas re
 
 | Ponto de extremidade (VIP) | Protocolo | Portas |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Portal (administrador) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015 |
-| Portal (usuário) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003 |
+| Portal (administrador) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
+| Portal (usuário) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |
 | O Azure Resource Manager (administrador) | HTTPS | 30024 |
-| O Azure Resource Manager (usuário) | HTTPS | 30024 |
+| Azure Resource Manager (user) | HTTPS | 30024 |
 
 ## <a name="next-steps"></a>Próximas etapas
 

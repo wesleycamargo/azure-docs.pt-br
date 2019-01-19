@@ -98,6 +98,16 @@ items:
         href: azure-stack-network-overview.md
       - name: Considerações de rede
         href: azure-stack-network-differences.md
+      - name: Gateways VPN
+        items:
+        - name: Conectar-se usando VPN
+          href: azure-stack-connect-vpn.md
+        - name: Sobre o gateway de VPN
+          href: azure-stack-vpn-gateway-about-vpn-gateways.md
+        - name: Configurar políticas de conexão IPSec/IKE
+          href: azure-stack-vpn-s2s.md
+        - name: Configurações de gateway VPN
+          href: azure-stack-vpn-gateway-settings.md
       - name: iDNS para o Azure Stack
         href: azure-stack-understanding-dns.md
       - name: DNS no Azure Stack
@@ -223,9 +233,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Treinamento e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 256560806e1065ec1ca9cfa9ba1d9f4521755ee8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0a573a5e9c79ffc2a9db52705cf229b3b776df65
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351753"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411689"
