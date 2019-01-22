@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 1bfe79c502361e6cf9616c3ba61e781fb7ce92ac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 390cd17d667785c7bf9531d86dab00bc922a2df5
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032849"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351719"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Expirar os dados com a API do Azure Cosmos DB para MongoDB
 
@@ -55,7 +55,7 @@ O valor de TTL deve ser um int32. Como alternativa, um int64 que se ajusta a um 
 
 O valor de TTL para o documento é opcional. Os documentos sem um valor de TTL podem ser inseridos na coleção.  Nesse caso, o valor de TTL da coleção será respeitado. 
 
-Os documentos a seguir têm valores de vida útil válidos. Assim que os documentos são inseridos, os valores de vida útil do documento substituem valores de vida útil da coleção. Portanto, os documentos serão removidos após 20 segundos.  
+Os documentos a seguir têm valores de vida útil válidos. Assim que os documentos são inseridos, os valores de TTL do documento substituem valores de TTL da coleção. Portanto, os documentos serão removidos após 20 segundos.   
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 

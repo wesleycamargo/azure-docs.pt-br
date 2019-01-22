@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 5e8e675b32bfd4c741b82b1ab341a80adbb0529d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d9b5473e87d83912dd2f33c00e983e346226e4aa
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741633"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242940"
 ---
 # <a name="what-is-azure-custom-vision"></a>O que é a Visão Personalizada do Azure?
 
@@ -27,7 +27,7 @@ O Serviço de Visão Personalizada usa um algoritmo de aprendizado de máquina p
 
 ### <a name="classification-and-object-detection"></a>Classificação e detecção de objetos
 
-A funcionalidade de Visão Personalizada pode ser dividida em dois recursos. A **Classificação de imagens** atribui uma distribuição de classificações para cada imagem. A **Detecção de objetos** é semelhante, mas também retorna as coordenadas na imagem em que as marcas aplicadas podem ser encontradas.
+A funcionalidade de Visão Personalizada pode ser dividida em dois recursos. A **Classificação de imagens** atribui uma distribuição de classificações para cada imagem. Há suporte para modelos de classificação multiclasse (uma marca por imagem) e de vários rótulos (qualquer número de marcas por imagem). A **detecção de objetos** é semelhante à classificação de vários rótulos, mas também retorna as coordenadas na imagem em que os rótulos aplicados podem ser encontrados.
 
 ### <a name="optimization"></a>Otimização
 
@@ -39,6 +39,10 @@ Além disso, você pode escolher entre diversas variedades do algoritmo da Visã
 O Serviço de Visão Personalizada está disponível como um conjunto de SDKs nativos e por meio de uma interface baseada na Web na [página inicial da Visão Personalizada](https://customvision.ai/). Você pode criar, testar e treinar um modelo por uma dessas interfaces, ou por ambas.
 
 ![Página inicial da Visão Personalizada em uma janela do navegador Chrome](media/browser-home.png)
+
+## <a name="data-privacy-and-security"></a>Segurança e privacidade de dados
+
+Assim como ocorre com todos os Serviços Cognitivos, os desenvolvedores que usam o serviço de Visão Personalizada devem estar cientes das políticas da Microsoft em relação aos dados do cliente. Confira a [página de Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) na Central de Confiabilidade da Microsoft para saber mais.
 
 ## <a name="next-steps"></a>Próximas etapas
 

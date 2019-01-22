@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 12/03/2018
-ms.openlocfilehash: 507425a6cffc6f3b49e117ebf5a604bf0d252164
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542009"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352301"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é o Banco de Dados do Azure para o MariaDB?
 
@@ -45,7 +45,7 @@ O serviço Banco de Dados do Azure para MariaDB oferece várias camadas de servi
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
 
-Como você decide quando aumentar ou reduzir? É possível usar os recursos internos de alerta e monitoramento de desempenho do Banco de Dados do Azure para MariaDB, em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o efeito da expansão ou redução dos vCores com base nas suas necessidades de desempenho atuais ou previstas. <!--See [Alerts](howto-alert-on-metric.md) for details.-->
+Como você decide quando aumentar ou reduzir? É possível usar os recursos internos de alerta e monitoramento de desempenho do Banco de Dados do Azure para MariaDB, em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o efeito da expansão ou redução dos vCores com base nas suas necessidades de desempenho atuais ou previstas. Veja [Alertas](howto-alert-metric.md) para obter detalhes.
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenha seus aplicativos e a continuidade dos negócios
 
@@ -55,7 +55,7 @@ O SLA de disponibilidade de 99,99%, líder no setor, do Azure é impulsionado po
 
 Os serviços de banco de dados do Azure têm uma tradição de segurança de dados que o Banco de Dados do Azure para MariaDB mantém. O Banco de Dados do Azure para MariaDB oferece recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam você a monitorar a atividade. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
-O serviço de Banco de Dados do Azure para MariaDB usa criptografia de armazenamento para dados em repouso. Os dados, incluindo dados backups, são criptografados em disco. (Os arquivos temporários criados pelo mecanismo quando são executadas consultas não são criptografados em disco.) O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure. As chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
+O serviço Banco de Dados do Azure para MariaDB usa a criptografia de armazenamento para dados em repouso e está em conformidade com o FIPS 140-2. Os dados, incluindo dados backups, são criptografados em disco. (Os arquivos temporários criados pelo mecanismo quando são executadas consultas não são criptografados em disco.) O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure. As chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
 Por padrão, o serviço de Banco de Dados do Azure para MariaDB é configurado para exigir [segurança de conexão SSL](./concepts-ssl-connection-security.md) para dados em movimento na rede. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo. Como opção, você pode desabilitar a exigência de SSL para conectar ao seu serviço de banco de dados, se seu aplicativo cliente não oferecer suporte à conectividade SSL.
 

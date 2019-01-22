@@ -4,15 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969124"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263193"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -29,7 +29,7 @@ As Migrações para Azure ajudam você a:
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Só é possível acessar as máquinas virtuais (VMs) VMware locais para migração a VMs do Azure. As VMs VMware devem ser gerenciadas por um vCenter Server (versão 5.5, 6.0 ou 6.5).
+- Só é possível acessar as máquinas virtuais (VMs) VMware locais para migração a VMs do Azure. As VMs do VMware precisam ser gerenciadas pelo vCenter Server (versão 5.5, 6.0, 6.5 ou 6.7).
 - Se você quer avaliar as VMs Hyper-V e servidores físicos, use o [Planejador de Implantações do Azure Site Recovery](https://aka.ms/asr-dp-hyperv-doc) para Hyper-V e nossas [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/) para computadores físicos.
 - Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação.
 - Caso deseje descobrir um ambiente maior, você pode dividir a descoberta e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). As Migrações para Azure oferecem suporte a até 20 projetos por assinatura.
@@ -38,6 +38,7 @@ As Migrações para Azure ajudam você a:
     **Geografia** | **Localização de armazenamento**
     --- | ---
     Azure Government | Gov. dos EUA – Virgínia
+    Ásia | Sudeste Asiático
     Europa | Europa Setentrional ou Europa Ocidental
     Estados Unidos | Leste dos EUA ou Centro-oeste dos EUA
 

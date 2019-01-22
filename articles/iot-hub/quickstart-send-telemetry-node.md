@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 379d6cf589012e7b7e4d0f1ec2dc3ba40cec075f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: b33039dab609cb457f1228a958f6a18070c675ac
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514920"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247547"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT, e ler a telemetria do hub com um aplicativo de back-end (Node.js)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Início Rápido: Enviar a telemetria de um dispositivo para um hub IoT e lê-la com um back-end (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -29,9 +29,9 @@ O início rápido usa dois aplicativos Node.js previamente escritos, um para env
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Os dois exemplos de aplicativo executados neste início rápido são escritos usando o Node.js. Você precisa do Node.js v4.x.x ou posterior em seu computador de desenvolvimento.
+Os dois aplicativos de exemplo executados neste início rápido são escritos em Node.js. Você precisa do Node.js v4.x.x ou posterior em seu computador de desenvolvimento.
 
 Você pode fazer o download do Node.js para várias plataformas a partir do [nodejs.org](https://nodejs.org).
 
@@ -54,9 +54,9 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e criar a identidade do dispositivo. 
 
-   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o Hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
-   **MyNodeDevice**: esse é o nome fornecido para o dispositivo registrado. Use MyNodeDevice conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyNodeDevice**: Esse é o nome fornecido para o dispositivo registrado. Use MyNodeDevice conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -65,7 +65,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 1. Execute os seguintes comandos no Azure Cloud Shell para obter a _cadeia de conexão de dispositivo_ referente ao dispositivo que você acabou de registrar:
 
-   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o Hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
@@ -79,7 +79,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 1. Você também precisa de uma _cadeia de conexão de serviço_ para permitir que aplicativos de back-end se conectem ao seu Hub IoT para recuperar as mensagens. O comando abaixo recupera a cadeia de conexão de serviço para o hub IoT:
    
-   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o Hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string --hub-name YourIoTHubName --output table

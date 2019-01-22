@@ -4,17 +4,17 @@ description: Use o Blueprint do Azure para criar, definir e implantar artefatos.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311415"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320677"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e atribuir um Azure Blueprint com a API REST
 
@@ -68,7 +68,7 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
-- `{YourMG}`: substitua pelo nome do seu grupo de gerenciamento
+- `{YourMG}` – substitua isso pela ID do grupo de gerenciamento
 - `{subscriptionId}`: substitua por sua ID da assinatura
 
 1. Crie o objeto _blueprint_ original. O **Corpo da Solicitação** inclui propriedades sobre o blueprint, grupos de recursos que devem ser criados e todos os parâmetros no nível do blueprint. Os parâmetros são definidos durante a atribuição e usados pelos artefatos adicionados nas etapas posteriores.
@@ -130,7 +130,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      }
      ```
 
-1. Adicione a atribuição de função na assinatura. O **Corpo da Solicitação** define o _tipo_ de artefato, as propriedades se alinham com o identificador da definição de função e as identidades de entidade de segurança são passadas como uma matriz de valores. No exemplo a seguir, as identidades de entidade de segurança concedidas à função especificada são configuradas para um parâmetro que é definido durante a atribuição do blueprint.
+1. Adicione a atribuição de função na assinatura. O **Corpo da Solicitação** define o _tipo_ de artefato, as propriedades se alinham com o identificador da definição de função e as identidades de entidade de segurança são passadas como uma matriz de valores. No exemplo a seguir, as identidades de entidade de segurança concedidas à função especificada são configuradas para um parâmetro que é definido durante a atribuição do blueprint. Este exemplo usa a função interna _Colaborador_ com um GUID igual a `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - URI da API REST
 
@@ -150,7 +150,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      }
      ```
 
-1. Adicione a atribuição de política na assinatura. O **Corpo da Solicitação** define o _tipo_ de artefato, as propriedades que se alinham com uma definição de iniciativa ou política e configura a atribuição de política para usar os parâmetros de blueprint definidos na configuração durante a atribuição do blueprint.
+1. Adicione a atribuição de política na assinatura. O **Corpo da Solicitação** define o _tipo_ de artefato, as propriedades que se alinham com uma definição de iniciativa ou política e configura a atribuição de política para usar os parâmetros de blueprint definidos na configuração durante a atribuição do blueprint. Este exemplo usa a política interna _Aplicar a marca e seu valor padrão a grupos de recursos_ com um GUID igual a `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI da API REST
 
@@ -178,7 +178,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      }
      ```
 
-1. Adicione outra atribuição de política para a marca Armazenamento (reutilizando o parâmetro _storageAccountType_) na assinatura. Este artefato de atribuição de política adicional demonstra que um parâmetro definido no blueprint pode ser usado por mais de um artefato. No exemplo, o **storageAccountType** é usado para definir uma marca no grupo de recursos. Esse valor fornece informações sobre a conta de armazenamento que será criada na próxima etapa.
+1. Adicione outra atribuição de política para a marca Armazenamento (reutilizando o parâmetro _storageAccountType_) na assinatura. Este artefato de atribuição de política adicional demonstra que um parâmetro definido no blueprint pode ser usado por mais de um artefato. No exemplo, o **storageAccountType** é usado para definir uma marca no grupo de recursos. Esse valor fornece informações sobre a conta de armazenamento que será criada na próxima etapa. Este exemplo usa a política interna _Aplicar a marca e seu valor padrão a grupos de recursos_ com um GUID igual a `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI da API REST
 
@@ -292,7 +292,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      }
      ```
 
-1. Adicione atribuição de função sob o grupo de recursos. Semelhante à entrada de atribuição de função anterior, o exemplo abaixo usa o identificador da definição para a função **Proprietário** e fornece a ela um parâmetro diferente do blueprint.
+1. Adicione atribuição de função sob o grupo de recursos. Semelhante à entrada de atribuição de função anterior, o exemplo abaixo usa o identificador da definição para a função **Proprietário** e fornece a ela um parâmetro diferente do blueprint. Este exemplo usa a função interna _Proprietário_ com um GUID igual a `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
    - URI da API REST
 

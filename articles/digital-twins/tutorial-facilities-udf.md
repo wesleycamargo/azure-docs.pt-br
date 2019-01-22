@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556094"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229389"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Provisionar seu edifício e monitorar as condições de trabalho com os Gêmeos Digitais do Azure
 
@@ -30,6 +30,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial pressupõe que você já tenha [concluído a configuração dos Gêmeos Digitais do Azure](tutorial-facilities-setup.md). Antes de prosseguir, verifique se você tem:
+
 - Uma [conta do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Uma instância de Gêmeos Digitais em execução. 
 - Os [exemplos de C# dos Gêmeos Digitais](https://github.com/Azure-Samples/digital-twins-samples-csharp) baixados e extraídos do seu computador de trabalho. 
@@ -37,6 +38,7 @@ Este tutorial pressupõe que você já tenha [concluído a configuração dos G�
 - Use o [Visual Studio Code](https://code.visualstudio.com/) para explorar o código de exemplo. 
 
 ## <a name="define-conditions-to-monitor"></a>Definir condições a serem monitoradas
+
 Você pode definir um conjunto de condições específicas a monitorar nos dados de dispositivo ou sensor, chamadas *correspondências*. Em seguida, você pode definir funções chamadas *funções definidas pelo usuário*. As funções definidas pelo usuário executam a lógica personalizada nos dados oriundos de seus dispositivos e espaços quando as condições especificadas pelas correspondências são atendidas. Para obter mais informações, leia [Processamento de dados e funções definidas pelo usuário](concepts-user-defined-functions.md). 
 
 No projeto de exemplo **occupancy-quickstart**, abra o arquivo **src\actions\provisionSample.yaml** no Visual Studio Code. Observe a seção que começa com o tipo de **matchers**. Cada entrada nesse tipo cria uma correspondência com o **Nome** especificado. A correspondência monitorará um sensor do tipo **dataTypeValue**. Observe como ela se relaciona com o espaço chamado *Sala de Foco A1*, que tem um nó **devices** contendo alguns sensores. Para provisionar uma correspondência que vai controlar um desses sensores, seu **dataTypeValue** deverá corresponder ao **dataType** do sensor. 
@@ -48,14 +50,15 @@ Adicione a seguinte correspondência abaixo das correspondências existentes. Ve
         dataTypeValue: Temperature
 ```
 
-Essa correspondência controlará o sensor SAMPLE_SENSOR_TEMPERATURE que você adicionou [no primeiro tutorial](tutorial-facilities-setup.md). Essas linhas também estão presentes no arquivo *provisionSample.yaml* como linhas comentadas. Você pode remover os comentários removendo o caractere `#` na frente de cada linha. 
+Essa correspondência controlará o sensor SAMPLE_SENSOR_TEMPERATURE que você adicionou [no primeiro tutorial](tutorial-facilities-setup.md). Essas linhas também estão presentes no arquivo *provisionSample.yaml* como linhas comentadas. Você pode remover os comentários removendo o caractere `#` na frente de cada linha.
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida pelo usuário
+
 Você pode usar as funções definidas pelo usuário para personalizar o processamento de seus dados de sensor. Elas são um código JavaScript personalizado que pode ser executado dentro da instância dos Gêmeos Digitais do Azure quando ocorrem condições específicas descritas pelas correspondências. Você pode criar correspondências e funções definidas pelo usuário para cada sensor que deseja monitorar. Para obter mais informações, leia [Processamento de dados e funções definidas pelo usuário](concepts-user-defined-functions.md). 
 
-No arquivo de exemplo provisionSample.yaml, procure uma seção que começa com o tipo **userdefinedfunctions**. Esta seção provisiona uma função definida pelo usuário com determinado **Nome**. Essa UDF atua na lista de correspondências em **matcherNames**. Observe como você pode fornecer seu próprio arquivo JavaScript para a UDF como o **script**. 
+No arquivo de exemplo provisionSample.yaml, procure uma seção que começa com o tipo **userdefinedfunctions**. Esta seção provisiona uma função definida pelo usuário com determinado **Nome**. Essa UDF atua na lista de correspondências em **matcherNames**. Observe como você pode fornecer seu próprio arquivo JavaScript para a UDF como o **script**.
 
 Além disso, observe a seção denominada **roleassignments**. Ela atribui a função de Administrador de Espaço à função definida pelo usuário. Essa função permite que ela acesse os eventos que vêm de um dos espaços provisionados. 
 
@@ -188,7 +191,7 @@ Além disso, observe a seção denominada **roleassignments**. Ela atribui a fun
 > [!TIP]
 > Se você receber uma mensagem de erro semelhante a "A operação de E/S foi anulada devido a uma saída de thread ou solicitação do aplicativo" no meio do provisionamento, tente executar o comando novamente. Isso pode acontecer quando o cliente HTTP atingir o tempo limite devido a um problema de rede.
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Simular dados de sensor
 
@@ -202,13 +205,13 @@ Nesta seção, você usará o projeto chamado *device-connectivity* no exemplo. 
     dotnet restore
     ```
 
-1. Abra o arquivo **appSettings.json** em seu editor e edite os valores abaixo:
+1. Abra o arquivo [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) no editor e edite os seguintes valores:
 
     a. **DeviceConnectionString**: Atribua o valor de `ConnectionString` na Janela de Saída da seção anterior. Copie essa cadeia de caracteres na totalidade, entre aspas, para que o simulador possa se conectar corretamente ao hub IoT.
 
    b. **HardwareId** na matriz **Sensores**: Como você está simulando eventos dos sensores provisionados em sua instância dos Gêmeos Digitais do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao nó `sensors` do arquivo provisionSample.yaml.
 
-      Adicione uma nova entrada para o sensor de temperatura. O nó **Sensors** no appSettings.json deve ser semelhante ao seguinte:
+      Adicione uma nova entrada para o sensor de temperatura. O nó **Sensors** em appsettings.json deverá ser semelhante ao seguinte:
 
       ```JSON
       "Sensors": [{
@@ -233,6 +236,7 @@ Nesta seção, você usará o projeto chamado *device-connectivity* no exemplo. 
    > Já que o exemplo de simulação não se comunica diretamente com a instância dos Gêmeos Digitais, ele não requer autenticação.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Obter resultados da função definida pelo usuário
+
 A função definida pelo usuário é executada sempre que sua instância recebe dados de sensor e de dispositivo. Essa seção consulta sua instância dos Gêmeos Digitais do Azure para obter os resultados da função definida pelo usuário. Você verá em tempo real quando uma sala está disponível, se o ar está fresco e se temperatura está correta. 
 
 1. Abra a janela de comando que você usou para provisionar o exemplo, ou uma nova janela de comando, e vá para a pasta **occupancy-quickstart\src** do exemplo novamente.

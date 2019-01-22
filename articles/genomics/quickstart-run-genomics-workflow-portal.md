@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: executar um fluxo de trabalho por meio do Microsoft Genomics'
+title: 'Início Rápido: Executar um fluxo de trabalho por meio do Microsoft Genomics'
 description: O guia de início rápido mostra como carregar dados de entrada no Armazenamento de Blobs do Azure e executar um fluxo de trabalho por meio do serviço Microsoft Genomics.
 services: genomics
 author: grhuynh
@@ -7,26 +7,26 @@ manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: 152aa51c6dee12216dc9e5fac70f43f638c2c8da
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/11/2019
+ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242850"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261682"
 ---
-# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guia de início rápido: executar um fluxo de trabalho por meio do serviço do Microsoft Genomics
+# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início rápido: Executar um fluxo de trabalho por meio do serviço Microsoft Genomics
 
 O início rápido mostra como carregar dados de entrada no Armazenamento de Blobs do Azure e executar um fluxo de trabalho por meio do serviço Microsoft Genomics. O Microsoft Genomics é um serviço seguro e escalonável para análise secundária que pode processar um genoma rapidamente, começando com leituras brutas e produzindo leituras alinhadas e chamadas variáveis. 
 
 Introdução em apenas algumas etapas: 
-1.  Configurar: crie uma conta no Microsoft Genomics por meio do portal do Azure e instale o cliente Microsoft Genomics Python no seu ambiente local. 
-2.  Carregar dados de entrada: crie uma conta de armazenamento do Microsoft Azure por meio do portal do Azure e carregue os arquivos de entrada. Os arquivos de entrada devem estar emparelhados com leituras finais (arquivos FASTQ ou BAM).
-3.  Executar: use a interface de linha de comando do Microsoft Genomics para executar fluxos de trabalho por meio do serviço Microsoft Genomics. 
+1.  Configurar: Crie uma conta do Microsoft Genomics por meio do portal do Azure e instale o cliente do Python para o Microsoft Genomics no ambiente local. 
+2.  Carregar arquivos de entrada: Crie uma conta de armazenamento do Microsoft Azure por meio do portal do Azure e carregue os arquivos de entrada. Os arquivos de entrada devem estar emparelhados com leituras finais (arquivos FASTQ ou BAM).
+3.  Execute: Use a interface de linha de comando do Microsoft Genomics para executar fluxos de trabalho por meio do serviço Microsoft Genomics. 
 
 Para obter mais informações sobre o Microsoft Genomics, consulte [O que é Microsoft Genomics?](overview-what-is-genomics.md)
 
-## <a name="set-up-create-a-microsoft-genomics-account-in-the-azure-portal"></a>Configuração: criar uma conta do Microsoft Genomics no portal do Azure
+## <a name="set-up-create-a-microsoft-genomics-account-in-the-azure-portal"></a>Configurar: Criar uma conta do Microsoft Genomics no portal do Azure
 
 Para criar uma conta do Microsoft Genomics, navegue até o [portal do Azure](https://portal.azure.com/#create/Microsoft.Genomics). Caso ainda não tenha uma assinatura do Azure, crie uma antes de criar uma conta do Microsoft Genomics. 
 
@@ -38,9 +38,9 @@ Configure sua conta do Genomics com as seguintes informações, conforme mostrad
 
  |**Configuração**          |  **Valor sugerido**  | **Descrição do campo** |
  |:-------------       |:-------------         |:----------            |
- |Nome da conta         | MyGenomicsAccount     |Escolha um identificador de conta exclusivo. Para nomes válidos, consulte [Regras de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Assinatura         | O nome da sua assinatura|Essa é a unidade de cobrança para os serviços do Azure. Para obter detalhes sobre sua assinatura, consulte [Assinaturas](https://account.azure.com/Subscriptions) |      
  |Grupo de recursos       | MyResourceGroup       |  Grupos de recursos permitem agrupar vários recursos do Azure (conta de armazenamento, conta genômica, etc.) em um único grupo para um gerenciamento simples. Para saber mais, confira [Grupos de Recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Para obter nomes válidos do grupo de recursos, consulte [Regras de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Nome da conta         | MyGenomicsAccount     |Escolha um identificador de conta exclusivo. Para nomes válidos, consulte [Regras de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Local padrão                   | Oeste dos EUA 2                    |    O serviço está disponível em Oeste dos EUA 2, Europa Ocidental e Sudeste Asiático |
 
 
@@ -51,7 +51,7 @@ Configure sua conta do Genomics com as seguintes informações, conforme mostrad
 
 
 
-## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Configuração: instalar o cliente do Microsoft Genomics Python
+## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Configurar: Instalar o cliente do Python para o Microsoft Genomics
 
 Os usuários precisam instalar o Python e o cliente Microsoft Genomics Python em seu ambiente local. 
 
@@ -59,7 +59,7 @@ Os usuários precisam instalar o Python e o cliente Microsoft Genomics Python em
 
 O cliente Microsoft Genomics Python é compatível com o Python 2.7. A versão 12 ou 2.7.xx posterior; 2.7.15 era a versão mais recente quando este artigo foi escrito; 2.7.14 é a versão sugerida. Você pode encontrar o download [aqui](https://www.python.org/downloads/). 
 
-OBSERVAÇÃO: Python 3.x não é compatível com Python 2.7.xx.  MSGen é um aplicativo Python 2.7. Ao executar o MSGen, verifique se o ambiente ativo do Python está usando uma versão 2.7.xx do Python. Talvez você receba erros ao tentar usar o MSGen com uma versão 3.x do Python.
+OBSERVAÇÃO:  O Python 3.x não é compatível com o Python 2.7.xx.  MSGen é um aplicativo Python 2.7. Ao executar o MSGen, verifique se o ambiente ativo do Python está usando uma versão 2.7.xx do Python. Talvez você receba erros ao tentar usar o MSGen com uma versão 3.x do Python.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Instalar o cliente do Microsoft Genomics
@@ -112,28 +112,22 @@ Caso já tenha seus dados em uma conta de armazenamento do Azure, você precisa 
 
 ![Folha de criação de armazenamento](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Folha de criação de armazenamento")
 
-Configure sua Conta de armazenamento com as informações a seguir, conforme mostrado na imagem anterior. Use a maioria das opções padrão para uma conta de armazenamento, apenas especificando que a conta é de armazenamento de blobs, não para uso geral. O armazenamento de blob pode ser de duas a cinco vezes mais rápido para downloads e uploads. 
+Configure sua Conta de armazenamento com as informações a seguir, conforme mostrado na imagem anterior. Use a maioria das opções padrão para uma conta de armazenamento, apenas especificando que a conta é de armazenamento de blobs, não para uso geral. O armazenamento de blob pode ser de duas a cinco vezes mais rápido para downloads e uploads.  O modelo de implantação padrão, Resource Manager, é recomendado.  
 
 
  |**Configuração**          |  **Valor sugerido**  | **Descrição do campo** |
  |:-------------------------       |:-------------         |:----------            |
- |NOME         | MyStorageAccount     |Escolha um identificador de conta exclusivo. Para nomes válidos, consulte [Regras de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Modelo de Implantação         | Gerenciador de Recursos| O Gerenciador de Recursos é o modelo de implantação recomendado. Para obter mais informações, confira [Noções básicas sobre a implantação do Gerenciador de Recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) |      
- |Tipo de conta       | Armazenamento de blob       |  O armazenamento de blob pode ser de duas a cinco vezes mais rápido para downloads e uploads que o uso geral. |
- |Desempenho                  | Standard                   | O padrão é standard. Para obter mais detalhes sobre as contas de armazenamento standard e premium, consulte [Introdução ao Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
- |Replicação                  | Armazenamento com redundância local                  | O armazenamento com redundância local replica seus dados dentro do datacenter da região em que você criou sua conta de armazenamento. Para obter mais informações, consulte [Replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
- |Transferência segura é necessária                  | Desabilitado                 | Por padrão, ela fica desabilitada. Para obter mais informações sobre a segurança da transferência de dados, consulte [Requerer transferência segura](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)    |
- |Camada de acesso                  | Dinâmica                   | Uma camada de acesso indica que os objetos na conta de armazenamento serão acessados com mais frequência.    |
  |Assinatura         | Sua assinatura do Azure |Para obter detalhes sobre sua assinatura, consulte [Assinaturas](https://account.azure.com/Subscriptions) |      
  |Grupo de recursos       | MyResourceGroup       |  É possível selecionar o mesmo grupo de recursos que a sua conta genômica. Para obter nomes válidos do grupo de recursos, consulte [Regras de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Local padrão                  | Oeste dos EUA 2                  | Use o mesmo local como o local da sua conta genômica para reduzir encargos de saída e reduzir a latência. O serviço do Genomics está disponível em Oeste dos EUA2, Oeste dos EUA 2, Europa Ocidental e Sudeste Asiático    |
- |Redes virtuais                | Desabilitado                   | Por padrão, ela fica desabilitada. Para obter mais informações, consulte [Redes virtuais do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security)    |
+ |Nome da conta de armazenamento         | MyStorageAccount     |Escolha um identificador de conta exclusivo. Para nomes válidos, consulte [Regras de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Local padrão                  | Oeste dos EUA 2                  | Use o mesmo local como o local da sua conta genômica para reduzir encargos de saída e reduzir a latência.  | 
+ |Desempenho                  | Standard                   | O padrão é standard. Para obter mais detalhes sobre as contas de armazenamento standard e premium, consulte [Introdução ao Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
+ |Tipo de conta       | Armazenamento de blob       |  O armazenamento de blob pode ser de duas a cinco vezes mais rápido para downloads e uploads que o uso geral. |
+ |Replicação                  | Armazenamento com redundância local                  | O armazenamento com redundância local replica seus dados dentro do datacenter da região em que você criou sua conta de armazenamento. Para obter mais informações, consulte [Replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
+ |Camada de acesso                  | Dinâmica                   | Uma camada de acesso indica que os objetos na conta de armazenamento serão acessados com mais frequência.    |
 
 
-
-
-
-Clique em criar para criar a conta de armazenamento. Assim como você fez com a criação de sua conta do Genomics, é possível clicar em Notificações na barra de menus superior para monitorar o processo de implantação. 
+Em seguida, clique em `Review + create` para criar a conta de armazenamento. Assim como você fez com a criação de sua conta do Genomics, é possível clicar em Notificações na barra de menus superior para monitorar o processo de implantação. 
 
 
 ## <a name="upload-input-data-to-your-storage-account"></a>Carregue os dados de entrada na sua conta de armazenamento
@@ -156,6 +150,11 @@ Abra o arquivo config.txt que você baixou da sua conta do Genomics. As seções
 
 
 ![Configuração do Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Configuração do Genomics")
+
+
+Caso deseje executar o GATK4, defina o parâmetro `process_name` como gatk4 ou gatk4-promo. Para obter mais informações sobre a promoção do GATK4, visite [esta página](https://aka.ms/msgatk4).
+
+Por padrão, o serviço Genomics gera arquivos VCF. Caso deseje obter uma saída gVCF em vez de uma saída VCF (equivalente a `-emitRefConfidence` no GATK 3.x e `emit-ref-confidence` no GATK 4. x), adicione o parâmetro `emit_ref_confidence` ao `config.txt` e defina-o como `gvcf`, conforme mostrado na figura acima.  Para alterá-la novamente para a saída VCF, remova-a do arquivo `config.txt` ou defina o parâmetro `emit_ref_confidence` como `none`. 
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>Enviar seu fluxo de trabalho para o serviço do Microsoft Genomics e o cliente Microsoft Genomics
 

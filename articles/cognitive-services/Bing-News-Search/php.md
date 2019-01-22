@@ -8,29 +8,31 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f34f86fe7fba09bfbc5a05814fb4e39ee40c003b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: cd9dabfc7e462eace8fb8ae5d01359d19010c137
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252432"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261818"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Início Rápido: Executar uma pesquisa de notícias usando PHP e a API REST de Pesquisa de Notícias do Bing
 
-Este artigo mostra como usar a API de Pesquisa de Notícias do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize o PHP, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
+Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Imagem do Bing e receber uma resposta JSON. Este aplicativo simples do JavaScript envia uma consulta de pesquisa para a API e exibe os resultados brutos.
 
-O código de exemplo foi gravado para funcionar no PHP 5.6.
-
-Veja a [referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) para obter detalhes técnicos sobre as APIs.
+Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará ter a chave de acesso fornecida ao ativar a avaliação gratuita ou poderá usar uma chave de assinatura paga no painel do Azure.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* PHP 5.6 ou posterior
 
-## <a name="bing-news-search"></a>Pesquisa de Notícias do Bing
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
+## <a name="run-the-application"></a>Executar o aplicativo
 
 A [API de Pesquisa de Notícias do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) retorna os resultados das notícias do mecanismo de pesquisa do Bing.
 
@@ -198,8 +200,4 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Percorrendo notícias](paging-news.md)
-> [Usando marcadores de decoração para realçar o texto](hit-highlighting.md)
-> [Pesquisando notícias na Web](search-the-web.md)  
-> [Experimente](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+[Criar um aplicativo Web de página única](tutorial-bing-news-search-single-page-app.md)

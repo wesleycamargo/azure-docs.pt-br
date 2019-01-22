@@ -1,6 +1,6 @@
 ---
-title: Início Rápido - Enviar e receber mensagens para e do Barramento de Serviço do Azure | Microsoft Docs
-description: Neste início rápido, você aprenderá a enviar e receber mensagens do Barramento de Serviço usando o PowerShell e o cliente do .NET Standard
+title: Início Rápido – Usar o Azure PowerShell para criar uma fila do Barramento de Serviço | Microsoft Docs
+description: Neste início rápido, você aprenderá a usar o Azure PowerShell para criar uma fila do Barramento de Serviço. Em seguida, você usará um aplicativo de exemplo para enviar e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 2669b3ad9abc2370b4ecb66596d6edde17c82ddd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242425"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259658"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Início Rápido: Enviar e receber mensagens usando o Azure PowerShell e .NET
-
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Início Rápido: Usar o Azure PowerShell para criar uma fila do Barramento de Serviço
 O Barramento de Serviço do Microsoft Azure é um agente de mensagem de integração empresarial que fornece mensagens seguras e confiabilidade absoluta. Um cenário típico de Barramento de Serviço geralmente envolve o desacoplamento de dois ou mais aplicativos, serviços ou processos e a transferência de alterações de dados ou estado. Esses cenários podem envolver agendamento de vários trabalhos em lotes em outro aplicativo ou serviços, ou cumprimento da ordem de disparo. Por exemplo, uma empresa de varejo pode enviar os dados do ponto de vendas a um back office ou centro de distribuição regional para atualizações de estoque e reabastecimento. Nesse cenário, o aplicativo cliente envia e recebe mensagens de uma fila do Barramento de Serviço.
 
 ![fila](./media/service-bus-quickstart-powershell/quick-start-queue.png)

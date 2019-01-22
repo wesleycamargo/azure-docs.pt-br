@@ -1,6 +1,6 @@
 ---
 title: Transmitir para o hub de eventos habilitado para Kafka – Hubs de Eventos do Azure | Microsoft Docs
-description: Este artigo fornece informações sobre como transmitir nos Hubs de Eventos do Azure usando o protocolo Kafka e APIs.
+description: Este artigo fornece informações sobre como fazer uma transmissão nos Hubs de Eventos do Azure usando o protocolo Kafka e APIs.
 services: event-hubs
 author: basilhariri
 ms.author: bahariri
@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: d6e293b80df1ab227a3100040a54b189f48d8027
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19d903a4083c432ac3932189ad8a6890be9014fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102802"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354222"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Transmitir para Hubs de Eventos do Apache Kafka
 Este guia de início rápido mostra como transmitir para o Kafka habilitado dos Hubs de Eventos sem alterar seus clientes de protocolo ou seus próprio clusters em execução. Você aprenderá a usar seu produtores e os consumidores para se comunicar com os Hubs de Eventos habilitados com Kafka com apenas uma alteração de configuração nos seus aplicativos. Hubs de Eventos do Azure dá suporte para [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -34,13 +34,13 @@ Para concluir este início rápido, você precisa atender aos seguinte pré-requ
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Criar um Kafka habilitado com o namespace dos Hubs de Evento
 
-1. Entre no [Azure portal][Azure portal] e clique em **Criar um recurso** na parte superior esquerda da tela.
+1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Criar um recurso** no canto superior esquerdo da tela.
 
 2. Pesquisar os Hubs de eventos e selecionar as opções mostradas aqui:
     
     ![Exportar para Hubs de Eventos no portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Forneça um nome exclusivo e habilite o Kafka no namespace. Clique em **Criar**.
+3. Forneça um nome exclusivo e habilite o Kafka no namespace. Clique em **Criar**. Observação: Só há suporte para os Hubs de Eventos para Kafka nos Hubs de Eventos das camadas Standard e Dedicado. Os Hubs de Eventos da camada Básica retornarão um Erro de Autorização do Tópico em resposta a todas as operações do Kafka.
     
     ![Criar um namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

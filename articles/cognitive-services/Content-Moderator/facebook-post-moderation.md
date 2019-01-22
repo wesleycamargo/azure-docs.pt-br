@@ -1,25 +1,25 @@
 ---
 title: 'Tutorial: moderação de conteúdo do Facebook – Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Modere páginas do Facebook com o Content Moderator.
+description: Neste tutorial, você aprenderá a usar o Content Moderator baseado em aprendizado de máquina para ajudar a moderar postagens e comentários do Facebook.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255424"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260427"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutorial: Moderação de conteúdo do Facebook com o Content Moderator
 
-Neste tutorial, aprenderemos como usar o Content Moderator baseado na machine-learning para ajudar a moderar as postagens e comentários no Facebook.
+Neste tutorial, você aprenderá a usar o Content Moderator baseado em aprendizado de máquina para ajudar a moderar postagens e comentários do Facebook.
 
 Este tutorial orienta pelas etapas a seguir:
 
@@ -35,7 +35,7 @@ A figura a seguir mostra os blocos de construção da solução.
 
 ## <a name="create-a-content-moderator-team"></a>Criar uma equipe no Content Moderator
 
-Consulte a página de [Início Rápido](quick-start.md) para criar conta no Content Moderator e criar uma equipe.
+Consulte o início rápido [Experimentar o Content Moderator na Web](quick-start.md) para se inscrever no Content Moderator e criar uma equipe.
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>Configurar o fluxo de trabalho de moderação de imagem (limite)
 
@@ -152,10 +152,6 @@ A solução envia todas as imagens e texto publicados na sua página do Facebook
 ## <a name="license"></a>Licença
 
 Todos os SDKs dos Serviços Cognitivos da Microsoft e exemplos são licenciados com a licença do MIT. Para obter mais detalhes, consulte [LICENÇA](https://microsoft.mit-license.org/).
-
-## <a name="developer-code-of-conduct"></a>Código de Conduta do Desenvolvedor
-
-Os desenvolvedores que usam os Serviços Cognitivos, inclusive essa biblioteca de cliente e exemplo, devem seguir o "Código de Conduta do Desenvolvedor para os Serviços Cognitivos da Microsoft", encontrado em http://go.microsoft.com/fwlink/?LinkId=698895.
 
 ## <a name="next-steps"></a>Próximas etapas
 

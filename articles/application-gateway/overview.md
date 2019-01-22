@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714739"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246459"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicativo do Azure?
 
@@ -78,7 +78,7 @@ Por exemplo, as solicitações de `http://contoso.com/video/*` são encaminhadas
 
 ## <a name="multiple-site-hosting"></a>Hospedagem de vários sites
 
-A hospedagem de vários sites permite que você configure mais de um site na mesma instância de gateway de aplicativo. Esse recurso permite que você configure uma topologia mais eficiente para suas implantações adicionando até 20 sites a um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool. Por exemplo, o gateway de aplicativo pode fornecer o tráfego para `contoso.com` e `fabrikam.com` de dois pools de servidores chamados ContosoServerPool e FabrikamServerPool.
+A hospedagem de vários sites permite que você configure mais de um site na mesma instância de gateway de aplicativo. Esse recurso permite que você configure uma topologia mais eficiente para suas implantações, adicionando até 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool. Por exemplo, o gateway de aplicativo pode fornecer o tráfego para `contoso.com` e `fabrikam.com` de dois pools de servidores chamados ContosoServerPool e FabrikamServerPool.
 
 As solicitações de `http://contoso.com` são encaminhadas para ContosoServerPool, e as de `http://fabrikam.com` são encaminhadas para FabrikamServerPool.
 

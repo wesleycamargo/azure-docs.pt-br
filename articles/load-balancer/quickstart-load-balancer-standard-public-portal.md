@@ -1,10 +1,11 @@
 ---
-title: 'Início Rápido: Criar um balanceador de carga padrão – Portal do Azure | Microsoft Docs'
+title: 'Início Rápido: Criar um Standard Load Balancer – portal do Azure'
+titlesuffix: Azure Load Balancer
 description: Este início rápido mostra como criar um balanceador de carga padrão usando o Portal do Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
@@ -17,16 +18,16 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615191"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232661"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga padrão para VMs usando o Portal do Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início rápido: Criar um balanceador de carga padrão para VMs usando o Portal do Azure
 
-O balanceamento de carga fornece um nível mais alto de disponibilidade e escala distribuindo as solicitações de entrada entre várias máquinas virtuais. Você pode usar o Portal do Azure para criar um balanceador de carga para balancear a carga de máquinas virtuais (VMs). Este início rápido mostra como carregar a carga de VMs usando um balanceador de carga padrão.
+O balanceamento de carga fornece um nível mais alto de disponibilidade e escala por distribuir as solicitações de entrada entre várias máquinas virtuais. Você pode usar o Portal do Azure para criar um balanceador de carga para balancear a carga de máquinas virtuais (VMs). Este início rápido mostra como carregar a carga de VMs usando um balanceador de carga padrão.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 

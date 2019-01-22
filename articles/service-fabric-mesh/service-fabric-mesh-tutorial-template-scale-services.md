@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: af733b75780787f07ec28ff45bda6810c3d96baa
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 70620b5ec57f6bf4403ac959c4c69026ae80b887
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888113"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261393"
 ---
-# <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: dimensionar um aplicativo em execução na Malha do Service Fabric
+# <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: Dimensionar um aplicativo em execução na Malha do Service Fabric
 
 Este tutorial é a parte dois de uma série. Saiba como dimensionar manualmente o número de instâncias de serviço de um aplicativo que foi [implantado anteriormente na Malha do Service Fabric](service-fabric-mesh-tutorial-template-deploy-app.md). Quando tiver terminado, você terá um serviço de front-end com três instâncias em execução e um serviço de dados com duas instâncias em execução.
 
@@ -53,7 +53,7 @@ Antes de começar este tutorial:
 
 Uma das principais vantagens da implantação de aplicativos na Malha do Service Fabric é a capacidade de dimensionar e reduzir seus serviços com facilidade. Isso é usado para manipulação de volumes variáveis de carga nos seus serviços ou para melhorar a disponibilidade.
 
-Este tutorial usa uma lista de tarefas como exemplo, a qual foi [implantada anteriormente](service-fabric-mesh-tutorial-template-deploy-app.md) e agora deverá estar em execução. O aplicativo tem dois serviços: WebFrontEnd e ToDoService. Cada serviço foi implantado inicialmente com uma contagem de réplica de 1.  Para exibir o número de réplicas em execução para o serviço WebFrontEnd, execute o seguinte:
+Este tutorial usa uma lista de tarefas como exemplo, que [já foi implantada](service-fabric-mesh-tutorial-template-deploy-app.md) e agora deve estar em execução. O aplicativo tem dois serviços: WebFrontEnd e ToDoService. Cada serviço foi implantado inicialmente com uma contagem de réplica de 1.  Para exibir o número de réplicas em execução para o serviço WebFrontEnd, execute o seguinte:
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp --query "replicaCount"

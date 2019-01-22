@@ -8,96 +8,85 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 17307aaac531924b02c92ac37151d10bfbc48143
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 82769655741fe6dcf1ccbd988e1ad0bfa2a5ec42
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252296"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262160"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Início Rápido: Executar uma pesquisa de notícias usando .Node.js e a API REST de Pesquisa de Notícias do Bing
 
-Este artigo mostra como usar a API de Pesquisa de Notícias do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize o Node.js, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
+Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Imagem do Bing e receber uma resposta JSON. Este aplicativo simples do JavaScript envia uma consulta de pesquisa para a API e exibe os resultados brutos.
 
-O exemplo é escrito em JavaScript e executado no Node.js 6.
+Embora esse aplicativo seja escrito no JavaScript e executado no Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-Veja a [referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para obter detalhes técnicos sobre as APIs.
+O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará ter a chave de acesso fornecida ao ativar a avaliação gratuita ou poderá usar uma chave de assinatura paga no painel do Azure.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* A versão mais recente do [Node.js](https://nodejs.org/en/download/).
 
-## <a name="bing-news-search"></a>Pesquisa de Notícias do Bing
+* A [biblioteca de solicitações JavaScript](https://github.com/request/request)
 
-A [API de Pesquisa de Notícias do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) retorna os resultados das notícias do mecanismo de pesquisa do Bing.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-1. Crie um projeto Node.js em seu IDE ou editor favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-```javascript
-'use strict';
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-let https = require('https');
+1. Crie um novo arquivo JavaScript no seu IDE ou editor favorito e defina o rigor e os requisitos de https.
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    ```javascript
+    'use strict';
+    let https = require('https');
+    ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+2. Crie variáveis para o ponto de extremidade da API, caminho de pesquisa da API de imagem, sua chave de assinatura e o termo de pesquisa.
+    ```javascript
+    let subscriptionKey = 'enter key here';
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/news/search';
+    let term = 'Microsoft';
+    ```
 
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
-// the endpoint for your Bing Search instance in your Azure dashboard.
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/news/search';
+## <a name="handle-and-parse-the-response"></a>Lidar e analisar a resposta
 
-let term = 'Microsoft';
+1. defina uma função chamada `response_handler` que usa uma chamada HTTP, `response`, como um parâmetro. nesta função, execute as seguintes etapas:
 
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // header keys are lower-cased by Node.js
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+    1. Defina uma variável para conter o corpo da resposta JSON.  
+        ```javascript
+        let response_handler = function (response) {
+            let body = '';
+        };
+        ```
 
-let bing_news_search = function (search) {
-  console.log('Searching news for: ' + term);
-  let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + '?q=' + encodeURIComponent(search),
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+    2. Armazene o corpo da resposta quando o sinalizador **dados** for chamado
+        ```javascript
+        response.on('data', function (d) {
+            body += d;
+        });
+        ```
 
-    let req = https.request(request_params, response_handler);
-    req.end();
-}
-bing_news_search(term);
-```
+    3. Quando um sinalizador **end** é sinalizado, o JSON e os cabeçalhos podem ser exibidos.
 
-**Resposta**
+        ```javascript
+        response.on('end', function () {
+            console.log('\nRelevant Headers:\n');
+            for (var header in response.headers)
+                // header keys are lower-cased by Node.js
+                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                     console.log(header + ": " + response.headers[header]);
+            body = JSON.stringify(JSON.parse(body), null, '  ');
+            console.log('\nJSON Response:\n');
+            console.log(body);
+         });
+        ```
+
+## <a name="json-response"></a>Resposta JSON
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -195,8 +184,4 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Percorrendo notícias](paging-news.md)
-> [Usando marcadores de decoração para realçar o texto](hit-highlighting.md)
-> [Pesquisando notícias na Web](search-the-web.md)  
-> [Experimente](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+[Criar um aplicativo Web de página única](tutorial-bing-news-search-single-page-app.md)

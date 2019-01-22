@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 0b232ed8bacfeb896fd5ee6ff9e2a58b71dc1517
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 92c493a59cc14d61b09e59bdf0fa23be72b7137a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162940"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232542"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Quais métodos estão disponíveis para autenticação?
 
 Ouvimos relatórios nos noticiários, senhas roubadas e identidades sendo comprometidas. Exigir um segundo fator além de uma senha imediatamente aumenta a segurança da sua organização. O Microsoft Azure Active Directory (Azure AD) inclui recursos, como a Autenticação Multifator do Microsoft Azure (Azure MFA) e a redefinição de senha de autoatendimento do Azure AD (SSPR), para ajudar os administradores a proteger as organizações e os usuários com métodos de autenticação adicionais.
 
-Quando um usuário precisa acessar um aplicativo confidencial, redefinir sua senha ou habilitar o Windows Hello, pode ser que ele tenha de fornecer verificação adicional de ele é quem diz ser.
+Há muitos cenários que incluem conexão com um aplicativo, redefinição da senha, habilitação do Windows Hello e outros, nos quais os usuários poderão precisar fornecer verificação adicional sobre suas identidades.
 
 Uma verificação adicional pode vir na forma de métodos de autenticação, como:
 
@@ -42,9 +42,9 @@ A redefinição de senha de autoatendimento fornece aos usuários a capacidade d
 
 A redefinição de senha por autoatendimento inclui:
 
-* **Alteração de senha:** sei minha senha, mas desejo alterá-la para uma nova.
-* **Redefinição de senha:** não consigo entrar e desejo redefinir a minha senha usando um ou mais métodos de autenticação aprovados.
-* **Desbloqueio de conta:** não consigo entrar porque a minha conta está bloqueada e quero desbloquear usando um ou mais métodos de autenticação aprovados.
+* **Alteração de senha:** Sei minha senha, mas desejo alterá-la para uma nova.
+* **Redefinição de senha:** Não consigo entrar e desejo redefinir minha senha usando um ou mais métodos de autenticação aprovados.
+* **Desbloqueio de conta:** Não consigo entrar porque minha conta está bloqueada e desejo desbloqueá-la usando um ou mais métodos de autenticação aprovados.
 
 ## <a name="multi-factor-authentication"></a>Autenticação Multifator
 
@@ -56,6 +56,6 @@ A próxima etapa é mergulhar e configurar a redefinição de senha de autoatend
 
 Para se familiarizar com a redefinição de senha de autoatendimento, consulte o [artigo de início rápido para habilitar o SSPR](quickstart-sspr.md).
 
-Saiba mais sobre a redefinição de senha de autoatendimento no artigo [Como funciona a redefinição de senha de autoatendimento do Azure AD](concept-sspr-howitworks.md)
+Saiba mais sobre a redefinição de senha self-service no artigo [Como funciona: Redefinição de senha self-service do Azure AD](concept-sspr-howitworks.md)
 
-Saiba mais sobre a Autenticação Multifator do Azure no artigo [Como funciona a Autenticação Multifator do Azure](concept-mfa-howitworks.md)
+Saiba mais sobre a Autenticação Multifator do Azure no artigo [Como funciona: Autenticação Multifator do Azure](concept-mfa-howitworks.md)

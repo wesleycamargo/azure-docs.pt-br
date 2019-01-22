@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar um Banco de Dados do Azure para o servidor MySQL – CLI do Azure'
+title: 'Início rápido: Criar um Banco de Dados do Azure para o servidor MySQL – CLI do Azure'
 description: Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 7544da2357e5b30ef54260d56cd8c969901f893e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 10c971bfbb68e51c701a74e4540be9b198ae8171
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189160"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359605"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure
 Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure em aproximadamente cinco minutos. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
@@ -57,7 +57,7 @@ admin-password | *senha de segurança* | A senha do usuário administrador. Ele 
 
 
 O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geração de cálculo}\_{vCores} como nestes exemplos:
-+ `--sku-name B_Gen4_1` mapeia para Básico, Gen 4 e 1 vCore.
++ `--sku-name B_Gen4_1` mapeia para Básico, Gen 4 e 1 vCore. Essa opção é o menor SKU disponível.
 + `--sku-name GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizado para Memória, Gen 5 e 2 vCores.
 

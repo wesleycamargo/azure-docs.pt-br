@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 7c7881f08828572c01a5e0decb270c653416ef9b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: de11ebdc38ae5085fef274181084310ccc02a329
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024256"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303999"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando a CLI do Azure
 
@@ -31,7 +31,7 @@ Se você optar por instalar e usar a CLI localmente, este início rápido exigir
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Ao criar um grupo de recursos, você é solicitado a especificar um local. Esse local é onde os seus recursos são executados no Azure. Crie um grupo de recursos usando o comando [az group create][az-group-create].
+Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Ao criar um grupo de recursos, você é solicitado a especificar um local. Essa é a localização na qual os metadados do grupo de recursos são armazenados e na qual os recursos são executados no Azure, caso você não especifique outra região durante a criação de recursos. Crie um grupo de recursos usando o comando [az group create][az-group-create].
 
 O exemplo abaixo cria um grupo de recursos denominado *myAKSCluster* no local *eastus*.
 
@@ -268,7 +268,7 @@ Neste início rápido, foram usadas imagens de contêiner pré-criadas para cria
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você implantou um cluster Kubernetes e um aplicativo de com vários contêineres nele.
+Neste início rápido, você implantou um cluster Kubernetes e um aplicativo de com vários contêineres nele.  [Acesse o painel da Web do Kubernetes][kubernetes-dashboard] para o cluster recém-criado.
 
 Para saber mais sobre o AKS e percorrer um código completo de exemplo de implantação, prossiga para o tutorial de cluster Kubernetes.
 
@@ -297,3 +297,4 @@ Para saber mais sobre o AKS e percorrer um código completo de exemplo de implan
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services
+[kubernetes-dashboard]: kubernetes-dashboard.md

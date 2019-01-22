@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f00de9095e45901f92fcf3004a5f51cfdd709da2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ee26db80e3219c170c77a2bd90f7d1416676333e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724758"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352743"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure por meio da chave de acesso
 
@@ -61,7 +61,7 @@ Mais tarde vamos carregar e baixar um arquivo para a nova conta de armazenamento
 
 ## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-storage-account-access-keys"></a>Conceder acesso de identidade gerenciada atribuído pelo sistema da VM para usar as chaves de acesso da conta de armazenamento
 
-O Armazenamento do Azure não dá suporte nativo a autenticação do Azure AD.  No entanto, você pode usar identidades gerenciadas para recursos do Azure para recuperar as chaves de acesso da conta de armazenamento do Resource Manager e usar essas chaves para acessar o armazenamento.  Nesta etapa, você concede à identidade gerenciada atribuída pelo sistema da VM acesso às chaves para a sua conta de armazenamento.   
+Nesta etapa, você concede à identidade gerenciada atribuída pelo sistema da VM acesso às chaves para a sua conta de armazenamento.   
 
 1. Navegue de volta para sua conta de armazenamento criado recentemente.
 2. Clique no link do **Controle de acesso (IAM)** no painel à esquerda.  

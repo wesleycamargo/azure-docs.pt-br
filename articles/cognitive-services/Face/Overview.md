@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633454"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231879"
 ---
 # <a name="what-is-the-azure-face-api"></a>O que é a API de Detecção Facial do Azure?
 
@@ -72,8 +72,12 @@ Para mais informações sobre identificação de pessoas, confira [API de Identi
 
 Os aplicativos de exemplo a seguir demonstram algumas maneiras de uso da API de Detecção Facial.
 
-- [API de Detecção Facial da Microsoft: Windows Client Library e amostra](https://github.com/Microsoft/Cognitive-Face-Windows): um aplicativo do WPF que demonstra vários cenários de detecção facial, análise e identificação.
+- [API de Detecção Facial da Microsoft: Biblioteca de Clientes do Windows e amostra](https://github.com/Microsoft/Cognitive-Face-Windows) – um aplicativo WPF que demonstra vários cenários de detecção facial, análise e identificação.
 - [Aplicativo UWP FamilyNotes](https://github.com/Microsoft/Windows-appsample-familynotes): um aplicativo UWP (Plataforma Universal do Windows) que usa identificação facial com fala, Cortana, tinta e câmera em um cenário de compartilhamento de anotações em família.
+
+## <a name="data-privacy-and-security"></a>Segurança e privacidade de dados
+
+Assim como ocorre com todos os Serviços Cognitivos, os desenvolvedores que usam o serviço de Detecção Facial devem estar cientes das políticas da Microsoft em relação aos dados do cliente. Confira a [página de Serviços Cognitivos](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) na Central de Confiabilidade da Microsoft para saber mais.
 
 ## <a name="next-steps"></a>Próximas etapas
 

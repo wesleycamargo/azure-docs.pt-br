@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967684"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246238"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -48,7 +48,7 @@ Uma [política](../policy/overview.md) é uma permissão padrão e um sistema de
 
 A inclusão de uma política em um blueprint permite a criação do design ou padrão correto durante a atribuição do blueprint. A inclusão da política faz com que apenas alterações aprovadas ou esperadas possam ocorrer no ambiente para proteger a conformidade com a intenção do blueprint.
 
-Uma política pode ser incluída como um dos muitos _artefatos_ em uma definição de blueprints. Os Blueprints também suportam o uso de parâmetros com políticas e iniciativas.
+Uma política pode ser incluída como um dos muitos _artefatos_ em uma definição de blueprint. Os Blueprints também suportam o uso de parâmetros com políticas e iniciativas.
 
 ## <a name="blueprint-definition"></a>Definição de planta
 

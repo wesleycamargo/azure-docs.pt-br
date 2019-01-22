@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867891"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303293"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>O que é o controle de acesso baseado em função (RBAC)?
 
@@ -78,7 +78,7 @@ O Azure introduziu as operações de dados (atualmente em versão prévia) que p
 
 ### <a name="scope"></a>Escopo
 
-*Escopo* é o limite ao qual o acesso se aplica. Quando você atribui uma função, você pode limitar ainda mais as ações permitidas definindo um escopo. Isso será útil se você quiser tornar alguém um [colaborador do site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
+*Escopo* é o conjunto de recursos ao qual o acesso se aplica. Quando você atribui uma função, você pode limitar ainda mais as ações permitidas definindo um escopo. Isso será útil se você quiser tornar alguém um [colaborador do site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
 
 No Azure, você pode especificar um escopo em vários níveis: [grupo de gerenciamento](../azure-resource-manager/management-groups-overview.md), assinatura, grupo de recursos ou recurso. Os escopos são estruturados em uma relação pai-filho.
 
@@ -99,6 +99,12 @@ O diagrama a seguir mostra um exemplo de uma atribuição de função. Neste exe
 ![Atribuição de função para controlar o acesso](./media/overview/rbac-overview.png)
 
 Você pode criar atribuições de função usando o portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Em cada assinatura, você pode ter até 2.000 atribuições de função. Para criar e remover as atribuições de função, você deve ter a permissão `Microsoft.Authorization/roleAssignments/*`. Essa permissão deve ser concedida pelas funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator).
+
+## <a name="multiple-role-assignments"></a>Atribuições de função múltiplas
+
+O que acontece se você tem várias atribuições de função sobrepostas? O RBAC é um modelo aditivo e, portanto, suas permissões efetivas são a adição das atribuições de função. Considere o exemplo a seguir em que um usuário recebe a função Colaborador no escopo da assinatura e a função Leitor em um grupo de recursos. A adição das permissões de Colaborador e das permissões de Leitor é, efetivamente, a função Colaborador para o grupo de recursos. Portanto, nesse caso, a atribuição de função Leitor não tem nenhum impacto.
+
+![Atribuições de função múltiplas](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Negar atribuições
 
@@ -126,7 +132,7 @@ A seguir estão as etapas gerais que o RBAC usa para determinar se você tem ace
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início Rápido: Conceder acesso a um usuário usando o RBAC e o Portal do Azure](quickstart-assign-role-user-portal.md)
+- [Início Rápido: Conceder acesso a um usuário usando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
 - [Gerenciar acesso usando o RBAC e o Portal do Azure](role-assignments-portal.md)
 - [Entender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
-- [Adoção do Enterprise Cloud: Gerenciamento de acesso a recursos no Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [Adoção da Nuvem Empresarial: Gerenciamento de acesso aos recursos no Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

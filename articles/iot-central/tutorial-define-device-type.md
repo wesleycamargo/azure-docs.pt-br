@@ -1,20 +1,20 @@
 ---
 title: Definir um novo tipo de dispositivo no Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra a você, como um construtor, como definir um novo tipo de dispositivo no seu aplicativo Azure IoT Central. Você define a telemetria, estado, propriedades e configurações para o seu tipo.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+manager: philmea
+ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963577"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199962"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo em seu aplicativo do Azure IoT Central
 
@@ -71,7 +71,7 @@ Para concluir este tutorial, você precisa de um aplicativo Azure IoT Central. S
 
     ![Página Criar aplicativo do Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    Para obter mais informações, consulte [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+    Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 
 ## <a name="create-a-new-custom-device-template"></a>Criar um novo modelo de dispositivo personalizado
 

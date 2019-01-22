@@ -9,22 +9,22 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002630"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230519"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço de Azure Search no portal
 
-O Azure Search é um recurso independente usado para adicionar uma experiência de pesquisa a aplicativos personalizados. Embora o Azure Search seja integrado com facilidade a muitos outros serviços do Azure, você também poderá usá-lo por si só, com aplicativos hospedados em servidores de rede ou com o software em execução em outras plataformas de nuvem. 
+O Azure Search é um recurso independente usado para conectar uma experiência de pesquisa a aplicativos personalizados. Embora o Azure Search seja integrado com facilidade a outros serviços do Azure, você também poderá usá-lo por si só, com aplicativos em servidores de rede ou com o software em execução em outras plataformas de nuvem. 
 
 Neste artigo, saiba como criar um recurso do Azure Search no [portal do Azure](https://portal.azure.com/). 
 
 ![Recurso do Azure Search no portal](media/search-create-service-portal/azure-search-resource-label.png)
 
-Prefere o PowerShell? Use o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda para começar a usá-lo, consulte [Gerenciar o Azure Search com o PowerShell](search-manage-powershell.md) para ter um panorama.
+Prefere o PowerShell? Use o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda para começar a usá-lo, confira [Gerenciar o Azure Search com o PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Assinar (gratuito ou pago)
 

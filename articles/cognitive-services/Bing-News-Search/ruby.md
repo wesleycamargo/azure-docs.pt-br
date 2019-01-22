@@ -8,83 +8,79 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 02b603c0a7e1f84b2677511f73f96eee20a613d9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ebb1e61c832ab60d95a1e8a5938410ebdc7a4a0c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250222"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258847"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Início Rápido: Executar uma pesquisa de notícias usando Ruby e a API REST de Pesquisa de Notícias do Bing
 
-Este artigo mostra como usar a API de Pesquisa de Notícias do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize o Ruby, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
+Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Notícias do Bing e receber uma resposta JSON. Este aplicativo JavaScript simples envia uma consulta de pesquisa para a API e processa os resultados.
 
-O código de exemplo foi escrito para ser executado no Ruby 2.4.
-
-Veja a [referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) para obter detalhes técnicos sobre as APIs.
+Embora esse aplicativo seja escrito no Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará da chave de acesso fornecida quando ativar sua avaliação gratuita. Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Ruby [2.4 ou posterior](https://www.ruby-lang.org/downloads/)
 
-## <a name="bing-news-search"></a>Pesquisa de Notícias do Bing
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-A [API de Pesquisa de Notícias do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) retorna os resultados das Notícias do mecanismo de pesquisa do Bing.
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-1. Crie um projeto Ruby em seu IDE ou editor favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
+
+1. importe os pacotes a seguir em seu arquivo de código.
+
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
+
+2. Crie variáveis para o ponto de extremidade de API, a URL da Pesquisa de notícias, a chave de assinatura e o termo de pesquisa.
+
+    ```ruby
+    accessKey = "enter key here"
+    uri  = "https://api.cognitive.microsoft.com"
+    path = "/bing/v7.0/news/search"
+    term = "Microsoft"
+    ```
+
+## <a name="format-and-make-an-api-request"></a>Formatar e fazer uma solicitação de API
+
+Use as variáveis da última etapa para formatar uma URL de pesquisa para a solicitação da API. Depois, envie a solicitação.
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = "enter key here"
-
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Search instance in your Azure dashboard.
-
-uri  = "https://api.cognitive.microsoft.com"
-path = "/bing/v7.0/news/search"
-
-term = "Microsoft"
-
 uri = URI(uri + path + "?q=" + URI.escape(term))
-
-puts "Searching news for: " + term
-
 request = Net::HTTP::Get.new(uri)
 request['Ocp-Apim-Subscription-Key'] = accessKey
-
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
+   http.request(request)
 end
+```
 
+## <a name="process-and-print-the-json-response"></a>Processar e imprimir a resposta JSON
+
+Depois que a resposta for recebida, você poderá analisar o JSON e imprimir o corpo da resposta e seus cabeçalhos:
+
+```ruby
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
-    # header names are coerced to lowercase
-    if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
-        puts key + ": " + value
-    end
+   # header names are coerced to lowercase
+   if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+      puts key + ": " + value
+   end
 end
-
 puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-**Resposta**
+## <a name="json-response"></a>Resposta JSON
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo:
 
@@ -183,7 +179,4 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Percorrendo notícias](paging-news.md)
-> [Usando marcadores de decoração para realçar o texto](hit-highlighting.md)
-> [Pesquisando notícias na Web](search-the-web.md)  
-> [Experimente](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)
+> [Criar um aplicativo de página única](tutorial-bing-news-search-single-page-app.md)

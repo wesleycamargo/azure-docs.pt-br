@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190317"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359316"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
@@ -59,10 +59,10 @@ version | **10.2** | A versão do mecanismo principal do MariaDB.
 admin-user | **myadmin** | O nome de usuário para o logon de administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
 admin-password | *sua senha* | A senha do usuário administrador. Sua senha deve conter entre 8 e 128 caracteres. Ela precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos.
 
-O valor do parâmetro **sku-name** segue a convenção *tipo de preço*\_*geração de computação*\_*vCores*, conforme mostrado nestes exemplos:
-+ `--sku-name B_Gen5_4` mapeia para o tipo de preço Básico, a geração de computação Gen 5 e 4 vCores.
-+ `--sku-name GP_Gen5_32` mapeia para o tipo de preço Uso Geral, a geração de computação Gen 5 e 32 vCores.
-+ `--sku-name MO_Gen5_2` mapeia para o tipo de preço Otimizado para Memória, a geração de computação Gen 5 e 2 vCores.
+O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geração de cálculo}\_{vCores} como nestes exemplos:
++ `--sku-name B_Gen5_1` é mapeado para Básico, Gen 5 e 1 vCore. Essa opção é o menor SKU disponível.
++ `--sku-name GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
++ `--sku-name MO_Gen5_2` mapeia para Otimizado para Memória, Gen 5 e 2 vCores.
 
 Para obter informações sobre valores válidos por região e camadas, consulte [Tipos de preço](./concepts-pricing-tiers.md).
 

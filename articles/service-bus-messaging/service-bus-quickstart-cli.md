@@ -1,22 +1,22 @@
 ---
-title: Início rápido - Usar CLI do Azure e Java para enviar e receber mensagens do Barramento de Serviço do Azure | Microsoft Docs
-description: Neste início rápido, você aprenderá a enviar e receber mensagens do Barramento de Serviço do Azure usando a CLI do Azure e um aplicativo Java de exemplo
+title: Início Rápido – Usar a CLI do Azure para criar uma fila do Barramento de Serviço | Microsoft Docs
+description: Neste início rápido, você aprenderá a usar a CLI do Azure para criar uma fila do Barramento de Serviço. Em seguida, você usará um aplicativo Java de exemplo para enviar e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 781bca5c3083df9db326e4dc71438c71a7c02bc3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998669"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258317"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Início Rápido: Enviar e receber mensagens usando a CLI do Azure e o Java
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Início Rápido: Usar a CLI do Azure para criar uma fila do Barramento de Serviço
 
 O Barramento de Serviço do Microsoft Azure é um agente de mensagem de integração empresarial que fornece mensagens seguras e confiabilidade. Um cenário típico de Barramento de Serviço geralmente envolve o desacoplamento de dois ou mais aplicativos, serviços ou processos (aplicativos não precisam estar online ao mesmo tempo), transferindo alterações de dados ou estado e enviando mensagens entre os aplicativos. 
 
@@ -24,7 +24,7 @@ Por exemplo, uma empresa de varejo pode enviar os dados do ponto de vendas a um 
 
 ![fila](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-Este início rápido descreve como enviar e receber mensagens com o Barramento de Serviço, usando a CLI do Azure e a biblioteca Java do Barramento de Serviço. Por fim, se você estiver interessado em mais detalhes técnicos poderá [ler uma explicação](#understand-the-sample-code) dos principais elementos do código de exemplo.
+Este início rápido descreve como enviar e receber mensagens com o Barramento de Serviço usando a CLI do Azure e a biblioteca Java do Barramento de Serviço. Por fim, se você estiver interessado em mais detalhes técnicos poderá [ler uma explicação](#understand-the-sample-code) dos principais elementos do código de exemplo.
 
 Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][] antes de começar.
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][
 
 Clique no botão do Cloud Shell no menu, no canto superior direito do portal do Azure e, no menu suspenso **Selecionar ambiente**, selecione **Bash**. 
 
-## <a name="use-cli-to-create-resources"></a>Use CLI para criar recursos
+## <a name="use-the-azure-cli-to-create-resources"></a>Usar a CLI do Azure para criar recursos
 
 No Cloud Shell, no prompt Bash, emita os comandos a seguir para provisionar os recursos do Barramento de Serviço. Certifique-se de substituir todos os espaços reservados pelos valores apropriados:
 
@@ -266,7 +266,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 Neste artigo, você criou um namespace de Barramento de Serviço e outros recursos necessários para enviar e receber mensagens de uma fila. Para saber mais sobre como gravar código para enviar e receber mensagens, continue no tutorial para Barramento de Serviço a seguir:
 
 > [!div class="nextstepaction"]
-> [Atualizar inventário usando CLI e Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Atualizar o estoque usando a CLI do Azure e o Java](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

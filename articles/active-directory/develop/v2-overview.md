@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88904b27e114c27dc7b1051c755d3c831c90554f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286683"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232457"
 ---
 # <a name="about-v20"></a>Sobre a v2.0
 
@@ -30,13 +30,13 @@ A plataforma e o ponto de extremidade v2.0 estavam em versão prévia e foram ap
 > [!NOTE]
 > MSAL Android, iOS e .NET ainda têm recursos em desenvolvimento. Você pode usá-los para criar aplicativos e envie-nos comentários.
 
-A experiência do desenvolvedor do portal do Azure foi atualizada significativamente para incluir todos os seus aplicativos criados com ADAL ou MSAL e para melhorar a usabilidade.
+A experiência [Registros de aplicativo (versão prévia)](quickstart-register-app.md) do portal do Azure foi atualizada consideravelmente para incluir todos os seus aplicativos criados com ADAL ou MSAL e melhorar a usabilidade.
 
 No passado, um desenvolvedor de aplicativos que quisesse dar suporte a contas da Microsoft pessoais e contas corporativas do Azure AD (Azure Active Directory) precisava fazer a integração com dois sistemas separados. O ponto de extremidade e a plataforma v2.0 fornecem uma versão de API de autenticação que simplifica esse processo. Ele permite conexão com os dois tipos de conta por meio de uma integração simples. Os aplicativos que usam o ponto de extremidade v2.0 também podem consumir as APIs REST da [API do Microsoft Graph](https://developer.microsoft.com/graph) usando os dois tipos de conta.
 
 ## <a name="getting-started"></a>Introdução
 
-Escolha sua plataforma de favorita na lista a seguir para criar um aplicativo usando as estruturas e bibliotecas de software livre da Microsoft. Você também pode usar os protocolos OAuth 2.0 e OpenID Connect para enviar e receber mensagens de protocolo diretamente sem usar uma biblioteca de autenticação.
+Escolha sua plataforma favorita na seguinte lista para criar um aplicativo usando as bibliotecas e as estruturas de software livre da Microsoft:
 
 [!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -46,14 +46,12 @@ Saiba mais sobre o que você pode fazer com o ponto de extremidade v2.0 do Azure
 
 * Descobrir os [tipos de aplicativos que você pode criar com o ponto de extremidade v2.0 do Azure AD](v2-app-types.md).
 * Entender as [limitações e restrições](active-directory-v2-limitations.md) do ponto de extremidade v2.0 do Azure AD.
-* Assista a este vídeo para obter uma visão geral do ponto de extremidade v2.0 do Azure AD:
-
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 Explore informações detalhadas sobre a v2.0:
 
+* [Sobre a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md)
 * [Referência de protocolos da v2.0](active-directory-v2-protocols.md)
 * [Referência de tokens de acesso](access-tokens.md)
 * [Referência de tokens de ID](id-tokens.md)

@@ -5,6 +5,7 @@ description: Este tutorial demonstra como criar um Balanceador de Carga Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255322"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230825"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
 
-O balanceamento de carga fornece um nível mais alto de disponibilidade, distribuindo as solicitações de entrada em várias máquinas virtuais. Este tutorial descreve as etapas necessárias para criar um Balanceador de Carga Standard público que balanceia a carga de VMs entre zonas de disponibilidade. Isso ajuda a proteger seus aplicativos e dados contra uma improvável falha ou perda de um datacenter inteiro. Com redundância de zona, uma ou mais zonas de disponibilidade podem falhar e o caminho de dados sobrevive, desde que uma zona da região permaneça íntegra. Você aprenderá como:
+O balanceamento de carga fornece um nível mais alto de disponibilidade, distribuindo as solicitações de entrada em várias máquinas virtuais. Este tutorial descreve as etapas necessárias para criar um Standard Load Balancer público que balanceia a carga de VMs entre zonas de disponibilidade. Isso ajuda a proteger seus aplicativos e dados contra uma improvável falha ou perda de um datacenter inteiro. Com redundância de zona, uma ou mais zonas de disponibilidade podem falhar e o caminho de dados sobrevive, desde que uma zona da região permaneça íntegra. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um Balanceador de Carga Standard

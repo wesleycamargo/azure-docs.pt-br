@@ -4,17 +4,17 @@ description: Como criar uma conta de Automação do Azure e executar um runbook
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 10/18/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 6d473d8874208297e905a5d90a08ffd870ffa8a6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: eea14dc781d2282bcd311b307c41270320007c39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091817"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319709"
 ---
 # <a name="create-an-azure-automation-account"></a>Criar uma conta de Automação do Azure
 
@@ -32,7 +32,7 @@ Entre no Azure em https://portal.azure.com
 
 1. Selecione **Ferramentas de Gerenciamento** e selecione **Automação**.
 
-1. Insira as informações da conta. Para **Criar conta Executar como do Azure**, escolha **Sim** para que os artefatos que simplificam a autenticação do Azure sejam habilitados automaticamente. É importante observar que, ao criar uma Conta de Automação, o nome não pode ser alterado após a escolha. Uma Conta de Automação pode gerenciar recursos em todas as regiões e assinaturas para determinado locatário. Ao concluir, clique em **Criar** para iniciar a implantação da conta de Automação.
+1. Insira as informações da conta. Para **Criar conta Executar como do Azure**, escolha **Sim** para que os artefatos que simplificam a autenticação do Azure sejam habilitados automaticamente. É importante observar que, ao criar uma Conta de Automação, o nome não pode ser alterado após a escolha. *Os nomes de Conta de Automação são exclusivos por região e grupo de recursos. Os nomes de Contas da Automação que foram excluídos podem não estar disponíveis imediatamente.* Uma Conta de Automação pode gerenciar recursos em todas as regiões e assinaturas para determinado locatário. Ao concluir, clique em **Criar** para iniciar a implantação da conta de Automação.
 
     ![Inserir informações sobre a conta de Automação na página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 

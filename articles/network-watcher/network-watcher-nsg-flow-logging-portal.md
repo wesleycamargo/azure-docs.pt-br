@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822459"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332465"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registrar em log o tráfego de rede bidirecionalmente em uma máquina virtual usando o portal do Azure
 
@@ -38,7 +38,7 @@ Um NSG (grupo de segurança de rede) permite filtrar o tráfego de entrada e o t
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE] 
-> A versão 2 dos Logs do Flow está disponível na região Centro-oeste dos EUA. A configuração está disponível por meio do portal do Azure e da API REST. Habilitar Logs de versão 2 em uma região sem suporte salvará Logs de versão 1 em sua conta de armazenamento.
+> A versão 2 dos Logs do Flow está disponível na região Centro-oeste dos EUA. A ativação dos logs da Versão 2 em uma região não suportada resultará na saída dos registros da Versão 1 para sua conta de armazenamento.
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
@@ -212,7 +212,7 @@ O valor de **mac** na saída anterior é o endereço MAC do adaptador de rede qu
 | T            | Protocolo               | Indica se o protocolo do fluxo era TCP (T) ou UDP (U).                                  |
 | O            | Direção              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
 | O             | Ação                 | Indica se o tráfego foi permitido (A) ou negado (D).  
-| C            | Estado de fluxo da **Versão 2 somente** | Captura o estado do fluxo. Os estados possíveis são **B**: iniciar, quando um fluxo for criado. As estatísticas não são fornecidas. **C**: continuando um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: final, quando um fluxo é encerrado. Estatísticas são fornecidas. |
+| C            | Estado de fluxo da **Versão 2 somente** | Captura o estado do fluxo. Os possíveis estados são **B**: Iniciar, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Encerrar, quando um fluxo é encerrado. Estatísticas são fornecidas. |
 | 30 | Pacotes enviados – Origem ao destino **Versão 2 somente** | A quantidade total de pacotes TCP ou UDP enviados da origem ao destino desde a última atualização. |
 | 16978 | Bytes enviados – Origem ao destino **Versão 2 somente** | A quantidade total de bytes de pacote TCP ou UDP enviados da origem para o destino desde a última atualização. O número total de bytes de pacote TCP e UDP enviados da origem para o destino desde os últimos bytes updatePacket inclui o cabeçalho e a carga útil do pacote. | 
 | 24 | Pacotes enviados – Destino para origem **Versão 2 somente** | A quantidade total de pacotes TCP ou UDP enviados do destino para a origem desde a última atualização. |

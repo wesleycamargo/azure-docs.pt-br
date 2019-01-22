@@ -1,5 +1,5 @@
 ---
-title: Tutorial para adicionar e remover usuários automaticamente de associação de grupo dinâmica no Azure Active Directory
+title: Associação de grupo dinâmica para adicionar e remover usuários – tutorial – Azure Active Directory
 description: Neste tutorial, você usa grupos com regras de associação do usuário para adicionar ou remover usuários automaticamente
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 08/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2119bb60cbdc36f62623ce0db52885e17f3d3006
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6efb649142f43a98ea08c99ae853de0fc0c8ea3c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40209130"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321255"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: adicionar ou remover membros do grupo automaticamente
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros do grupo automaticamente
 
 No Azure Active Directory (Azure AD), você pode adicionar ou remover usuários automaticamente para grupos de segurança ou grupos do Office 365, para que você não precise fazê-lo sempre manualmente. Sempre que alterar as propriedades de um usuário ou dispositivo, o Azure AD avalia todas as regras de grupo dinâmico em seu locatário para ver se a alteração deve adicionar ou remover membros.
 

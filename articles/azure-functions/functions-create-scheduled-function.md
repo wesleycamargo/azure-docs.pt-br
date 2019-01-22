@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4809c09b5aa7b8212981cc13589602a365a23a37
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d82e80530d375a9d0f0a6d3f491d3070942ca02f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113607"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331904"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é disparada por um temporizador
 
@@ -43,15 +43,15 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 ## <a name="create-a-timer-triggered-function"></a>Criar uma função disparada por temporizador
 
-1. Expanda seu aplicativo de funções e clique no botão **+** ao lado de **Functions**. Se essa for a primeira função em seu aplicativo de funções, selecione **Função personalizada**. Exibe o conjunto completo de modelos de função.
+1. Expanda seu aplicativo de funções e clique no botão **+** ao lado de **Functions**. Se essa for a primeira função em seu aplicativo de funções, selecione **No portal** e depois **Continuar**. Caso contrário, vá para a etapa três.
 
-    ![Página de início rápido de funções no portal do Azure](./media/functions-create-scheduled-function/add-first-function.png)
+   ![Página de início rápido de funções no portal do Azure](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
-2. No campo de pesquisa, digite `timer` e depois escolha a linguagem desejada para o modelo de gatilho de temporizador. 
+2. Escolha **Mais modelos** e, em seguida, **Concluir e exibir modelos**.
 
-    ![Escolha o modelo de função disparada pelo temporizador.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Início Rápido do Functions, escolher mais modelos](./media/functions-create-scheduled-function/add-first-function.png)
 
-3. Configure o novo gatilho com as configurações conforme especificado na tabela abaixo da imagem.
+3. No campo de pesquisa, digite `timer` e defina o novo gatilho com as configurações especificadas na tabela abaixo da imagem.
 
     ![Criar uma função disparada pelo temporizador no portal do Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
@@ -60,13 +60,13 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
     | **Nome** | Padrão | Define o nome da sua função disparada por temporizador. |
     | **Agenda** | 0 \*/1 \* \* \* \* | Uma [expressão CRON](functions-bindings-timer.md#cron-expressions) de seis campos que agenda sua função para ser executada a cada minuto. |
 
-2. Clique em **Criar**. Uma nova função na linguagem de programação escolhida por você e que é executada a cada minuto é criada.
+4. Clique em **Criar**. Uma nova função na linguagem de programação escolhida por você e que é executada a cada minuto é criada.
 
-3. Verifique a execução, exibindo informações de rastreamento gravadas nos logs.
+5. Verifique a execução, exibindo informações de rastreamento gravadas nos logs.
 
     ![Visualizador de log de função no Portal do Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Agora você altera o agendamento da função para que ela seja executada uma vez por hora em vez de uma vez por minuto. 
+Agora você altera o agendamento da função para que ela seja executada uma vez por hora em vez de uma vez por minuto.
 
 ## <a name="update-the-timer-schedule"></a>Atualizar o agendamento do temporizador
 

@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 88aa9a9003363f86db9214c62adff962bbd345cf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1c948527c919ed8f81f16cf30a986591b414662
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344152"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263542"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -52,9 +52,11 @@ Além disso, a Central de Segurança protege servidores e máquinas virtuais nã
 
 Os eventos coletados dos agentes e do Azure são correlacionados no mecanismo de análise de segurança para fornecer alertas de detecção de ameaças e recomendações (tarefas de proteção) sob medida que você deve seguir para que suas cargas de trabalho fiquem seguras. Você deve investigar esses alertas assim que possível para verificar se ataques mal-intencionados não estão ocorrendo em suas cargas de trabalho.
 
+Quando você habilita a Central de Segurança, a política de segurança interna da Central de Segurança é refletida no Azure Policy como uma iniciativa interna, na categoria Central de Segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da Central de Segurança (camadas Gratuita ou Standard). A iniciativa interna contém somente políticas de Auditoria. Para obter mais informações sobre as políticas da Central de Segurança no Azure Policy, confira [Trabalhando com políticas de segurança](tutorial-security-policy.md).
+
 ## <a name="strengthen-security-posture"></a>Fortalecer a postura de segurança
 
-A Central de Segurança do Azure permite que você fortaleça sua postura de segurança. Isso significa que ajuda você a identificar e executar as tarefas de proteção recomendadas como melhores práticas de segurança e implementá-las em seus aplicativos, serviços de dados e computadores. Isso inclui gerenciar e impor políticas de segurança e verificar se suas máquinas virtuais do Azure, servidores não Azure e serviços PaaS do Azure estão em conformidade. A Central de Segurança fornece as ferramentas de que você precisa para ter um panorama de suas cargas de trabalho, com visibilidade focada no estado de segurança de rede da sua.
+A Central de Segurança do Azure permite que você fortaleça sua postura de segurança. Isso significa que ajuda você a identificar e executar as tarefas de proteção recomendadas como melhores práticas de segurança e implementá-las em seus aplicativos, serviços de dados e computadores. Isso inclui gerenciar e impor políticas de segurança e verificar se suas máquinas virtuais do Azure, servidores não Azure e serviços PaaS do Azure estão em conformidade. A Central de Segurança fornece as ferramentas de que você precisa para ter um panorama de suas cargas de trabalho, com visibilidade focada no estado de segurança de rede da sua. 
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Gerenciar a conformidade e a política de segurança da organização
 

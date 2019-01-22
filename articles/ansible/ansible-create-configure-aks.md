@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: be9de3c10fdfd040b249dd8da568259c599d7215
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c4f78d8bb43b26814dc3a4b94109dfd8719cb48f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050380"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258825"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Criar e configurar clusters do Serviço de Kubernetes do Azure no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar seu AKS (Serviço de Contêiner do Azure). Este artigo mostra como usar o Ansible para criar e configurar um cluster do Serviço de Kubernetes do Azure.
@@ -28,7 +28,10 @@ O Ansible permite que você automatize a implantação e a configuração de rec
 > O Ansible 2.6 é necessário para executar, neste tutorial, os guias estratégicos de exemplo a seguir. 
 
 ## <a name="create-a-managed-aks-cluster"></a>Criar um cluster do AKS gerenciado
-O guia estratégico de exemplo do Ansible a seguir cria um grupo de recursos e um cluster do AKS que reside no grupo de recursos:
+O código desta seção apresenta um guia estratégico de exemplo do Ansible para criar um grupo de recursos e um cluster do AKS que reside no grupo de recursos.
+
+> [!Tip]
+> Para o espaço reservado `your_ssh_key`, insira a chave pública RSA no formato de linha única – começando com "ssh-rsa" (sem as aspas). 
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -99,7 +102,8 @@ A saída do comando **ansible-playbook* é semelhante ao seguinte, mostrando que
 
 O guia estratégico de exemplo na seção anterior define dois nós. Se planeja ter mais ou menos cargas de trabalho de contêiner no cluster, você pode ajustar o número de nós com facilidade. O guia estratégico de exemplo nesta seção aumenta o número de nós de dois nós para três. A modificação da contagem de nós é feita alterando o valor **count** no bloco **agent_pool_profiles**. 
 
-Insira seu próprio `ssh_key`, `client_id` e `client_secret` no bloco **service_principal**:
+> [!Tip]
+> Para o espaço reservado `your_ssh_key`, insira a chave pública RSA no formato de linha única – começando com "ssh-rsa" (sem as aspas). 
 
 ```yaml
 - name: Scale AKS cluster

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 2db8784432398c8e913705d73b0232e36db44084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 14295bca12e64174d03cfd1c2bd8d214d801e8e5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080278"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261053"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET Core
 
@@ -87,7 +87,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
    ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/dotnetcore-quick-start/0007-dc.png)
 
-4. Volte para a página **Visão geral** e examine os painéis de KPI.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem. 
+4. Retorne à página **Visão Geral** e examine os Painéis de KPI.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem. 
 
    ![Grafos de linha do tempo de Visão Geral de Integridade](./media/dotnetcore-quick-start/overview-graphs.png)
 

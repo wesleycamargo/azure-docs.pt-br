@@ -1,5 +1,5 @@
 ---
-title: Configuração do gerenciamento de acesso de aplicativos de autoatendimento no Azure Active Directory | Microsoft Docs
+title: Configurar o gerenciamento de grupos de autoatendimento no Azure AD | Microsoft Docs
 description: Criar e gerenciar grupos de segurança ou grupos do Office 365 no Azure Active Directory e o grupo de segurança de solicitação ou associações de grupo do Office 365
 services: active-directory
 documentationcenter: ''
@@ -10,21 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.date: 09/11/2018
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 7966705df2a352f2011d5f7611277e92d8e2d11a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 541de125ea16b853a6fc6b3dd5a3e75e3bb9b065
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294230"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319368"
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Configurar o Azure Active Directory para gerenciamento de grupo de autoatendimento
+
 Os usuários podem criar e gerenciar seus próprios grupos de segurança ou grupos do Office 365 no Azure Active Directory (Azure AD). Os usuários também podem solicitar associações ao grupo de segurança ou ao grupo do Office 365, e o proprietário do grupo pode aprovar ou recusar a associação. O controle diário da associação de grupo pode ser delegado a pessoas que compreendem o contexto de negócios da associação. Os recursos de gerenciamento de grupo de autoatendimento só estão disponíveis para grupos de segurança e para grupos do Office 365, mas não para grupos de segurança habilitados para email ou listas de distribuição.
 
-Atualmente, o gerenciamento de grupo de autoatendimento serve dois cenários essenciais: gerenciamento de grupo delegado e gerenciamento de grupo de autoatendimento.
+O gerenciamento de grupos de autoatendimento atende a dois cenários: 
 
 * **Gerenciamento de grupo delegado** Um exemplo é um administrador que está gerenciando o acesso a um aplicativo SaaS que a empresa está usando. O gerenciamento desses direitos de acesso está se tornando inconveniente, portanto esse administrador solicita ao proprietário de negócios para criar um novo grupo. O administrador atribui acesso ao aplicativo para o novo grupo e adiciona ao grupo todas as pessoas que já acessam o aplicativo. O proprietário da empresa pode então adicionar mais usuários, e os usuários são automaticamente provisionados para o aplicativo. O proprietário da empresa não precisa esperar que o administrador gerencie o acesso para usuários. Se o administrador conceder a mesma permissão a um gerente de um grupo de negócios diferente, essa pessoa também poderá gerenciar o acesso para seus próprios usuários. O proprietário da empresa ou o gerente não podem exibir nem gerenciar os usuários uns dos outros. O administrador ainda pode ver todos os usuários que têm acesso ao aplicativo e direitos de acesso de bloco, se necessário.
 * **Gerenciamento de grupo de autoatendimento** Um exemplo deste cenário consiste em dois usuários que têm sites do SharePoint Online que eles configuram de forma independente. Eles desejam fornecer às equipes um do outro acesso a seus sites. Para isso, eles podem criar um grupo no Azure AD e, no SharePoint Online, cada um seleciona esse grupo para fornecer acesso a seus sites. Quando alguém deseja acesso, solicita do painel de acesso, e depois da aprovação obtêm acesso a ambos os sites do SharePoint Online automaticamente. Posteriormente, um deles decide que todas as pessoas que acessam o site também devem obter acesso a determinado aplicativo SaaS. O administrador do aplicativo SaaS pode adicionar direitos de acesso ao aplicativo para o site do SharePoint Online. Depois, as solicitações que forem aprovadas darão acesso aos dois sites do SharePoint Online e também ao aplicativo SaaS.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: 9efb3c9bae790efed3d09274b1a77d7b8161d479
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9e425662a698f077c3a1b9b3ff1270384fd61374
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165230"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261240"
 ---
 # <a name="overview-of-azure-devops-projects"></a>Visão geral do Azure DevOps Projects
 
@@ -29,7 +29,7 @@ ms.locfileid: "52165230"
 
 ## <a name="why-should-i-use-devops-projects"></a>Por que devo usar o DevOps Projects?
 
-  O DevOps Projects automatiza a instalação de um pipeline inteiro de CI (integração contínua) e CD (entrega contínua) para o Azure.  É possível iniciar com o código existente ou usar um dos aplicativos de exemplo fornecidos. Em seguida, é possível implantar rapidamente o aplicativo a vários serviços do Azure, como máquinas virtuais, Serviço de Aplicativo, AKS (Serviços de Kubernetes do Azure), Banco de Dados SQL e Azure Service Fabric.  
+  O DevOps Projects automatiza a instalação de um pipeline inteiro de CI (integração contínua) e CD (entrega contínua) para o Azure.  É possível iniciar com o código existente ou usar um dos aplicativos de exemplo fornecidos. Em seguida, você poderá implantar rapidamente esse aplicativo em vários serviços do Azure, como Máquinas Virtuais, Serviço de Aplicativo, AKS (Serviço de Kubernetes do Azure), Banco de Dados SQL do Azure e Azure Service Fabric.  
 
   O DevOps Projects faz todo o trabalho de configuração inicial de um pipeline de DevOps, incluindo tudo desde a configuração do repositório inicial do Git, configuração do pipeline de CI/CD, criação de um recurso do Application Insights para monitorar e fornecer uma única exibição de toda a solução com a criação de um painel do DevOps Projects no portal do Azure.
 

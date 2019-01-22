@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 24975fe0e3c423a3f356bd4a5a961456c511c96b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3cc61cfdfb131babb7fdf4e48553706da1d6ec76
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253027"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303795"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Azure Resource Manager
 
@@ -55,12 +55,12 @@ Para concluir essas etapas, você precisará de cliente SSH. Se você estiver us
 
 1. No portal, navegue até a VM do Linux e em **Visão geral**, clique em **Conectar**.  
 2. **Conecte-se** à VM com um cliente SSH de sua escolha. 
-3. Na janela de terminal, usando CURL, faça uma solicitação para as identidades gerenciadas locais para o ponto de extremidade de recursos do Azure para obter um token de acesso para o Azure Resource Manager.  
+3. Na janela do terminal, usando o `curl`, faça uma solicitação às identidades gerenciadas locais do ponto de extremidade de recursos do Azure para obter um token de acesso para o Azure Resource Manager.  
  
-    A solicitação CURL para o token de acesso está abaixo.  
+    A solicitação do `curl` para o token de acesso é mostrada abaixo.  
     
     ```bash
-    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -H Metadata:true   
     ```
     
     > [!NOTE]

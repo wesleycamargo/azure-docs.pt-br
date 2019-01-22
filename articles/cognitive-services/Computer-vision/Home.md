@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd4eca669936a206241069f1f8a8d9440f45be33
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584013"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229771"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -69,6 +69,10 @@ A Pesquisa Visual Computacional pode analisar imagens que atendem aos seguintes 
 - O tamanho do arquivo da imagem deve ser menor que 4 MB (megabytes)
 - As dimensões da imagem devem ser maiores que 50 x 50 pixels  
   Para OCR, as dimensões da imagem de entrada precisam estar entre 50 x 50 e 4200 x 4200 pixels
+
+## <a name="data-privacy-and-security"></a>Segurança e privacidade de dados
+
+Assim como ocorre com todos os Serviços Cognitivos, os desenvolvedores que usam o serviço de Pesquisa Visual Computacional devem estar cientes das políticas da Microsoft em relação aos dados do cliente. Confira a [página de Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) na Central de Confiabilidade da Microsoft para saber mais.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 53f9850d794061f5aaebc556743291ae8f3305fb
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e4f2362e6baca14c540070a47b2c71fd99465f33
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721282"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305410"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Resource Manager
 
@@ -50,15 +50,15 @@ Usando a identidades gerenciadas para recursos do Azure, seu código pode obter 
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM e usá-lo para chamar o Azure Resource Manager 
 
-Você precisará usar o **PowerShell** nesta parte.  Se você não tiver o **PowerShell** instalado, baixe-o [aqui](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). 
+Você precisará usar o **PowerShell** nesta parte.  Se você não tiver o **PowerShell** instalado, baixe-o [aqui](https://docs.microsoft.com/powershell/azure/overview). 
 
 1.  No portal, navegue até **Máquinas Virtuais** e vá para a máquina virtual do Windows e em **Visão geral**, clique em **Conectar**. 
 2.  Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
 3.  Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o **PowerShell** na sessão remota. 
-4.  Usando Invoke-WebRequest do Powershell, faça uma solicitação para a identidade gerenciada local para o ponto de extremidade de recursos do Azure para obter um token de acesso para o Azure Resource Manager.
+4.  Usando o cmdlet Invoke-WebRequest, faça uma solicitação para a identidade gerenciada local do ponto de extremidade de recursos do Azure para obter um token de acesso para o Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
@@ -75,7 +75,7 @@ Você precisará usar o **PowerShell** nesta parte.  Se você não tiver o **Pow
     $ArmToken = $content.access_token
     ```
     
-    Por fim, chame o Azure Resource Manager usando o token de acesso. Neste exemplo, também estamos usando Invoke-WebRequest do PowerShell para fazer a chamada para o Azure Resource Manager e incluir o token de acesso no cabeçalho de Autorização.
+    Por fim, chame o Azure Resource Manager usando o token de acesso. Neste exemplo, também estamos usando o cmdlet Invoke-WebRequest para fazer a chamada ao Azure Resource Manager e incluir o token de acesso no cabeçalho de Autorização.
     
     ```powershell
     (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089795"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230553"
 ---
 # <a name="what-is-azure-iot-edge"></a>O que é o Azure IoT Edge
 
@@ -27,7 +27,7 @@ O Azure IoT Edge move análises de nuvem e lógica de negócios personalizada pa
 A análise impulsiona o valor comercial em soluções de IoT, mas nem todas as análise precisam estar na nuvem. Se desejar que um dispositivo responda em caso de emergência assim que possível, você pode executar a detecção de anomalias no próprio dispositivo. Da mesma forma, se você deseja reduzir os custos de largura de banda e evitar a transferência de terabytes de dados brutos, você pode executar a limpeza de dados e agregação localmente. Em seguida, envie as informações para a nuvem. 
 
 O Azure IoT Edge é composto de três componentes:
-* Os módulos do IoT Edge são contêineres que executam serviços do Azure, serviços de terceiros ou o seu próprio código. Eles são implantados nos dispositivos do IoT Edge e são executados localmente nesses dispositivos. 
+* Os módulos do IoT Edge são contêineres que executam serviços do Azure, serviços de terceiros ou o seu próprio código. Os módulos são implantados em dispositivos do IoT Edge e executados localmente nesses dispositivos. 
 * O tempo de execução do IoT Edge é executado em cada dispositivo IoT Edge e gerencia os módulos implantados em cada dispositivo. 
 * Uma interface baseada em nuvem permite monitorar e gerenciar dispositivos do IoT Edge remotamente.
 
@@ -37,11 +37,11 @@ Os módulos do IoT Edge são unidades de execução, atualmente implementados co
 
 ### <a name="artificial-intelligence-on-the-edge"></a>Inteligência Artificial na borda
 
-O Azure IoT Edge permite implantar processamento de eventos complexos, aprendizado de máquina, reconhecimento de imagem e outras inteligências artificiais de alto valor sem gravar internamente. Serviços do Azure como o Azure Functions, o Azure Stream Analytics e o Azure Machine Learning podem todos ser executados localmente por meio do Azure IoT Edge; no entanto você não está limitado aos serviços do Azure. Qualquer pessoa é capaz de criar os módulos de IA e disponibilizá-los para uso pela comunidade. 
+O Azure IoT Edge permite implantar processamento de eventos complexos, aprendizado de máquina, reconhecimento de imagem e outros tipos de IA de alto valor sem gravá-la internamente. Serviços do Azure, como Azure Functions, Azure Stream Analytics e Azure Machine Learning, podem ser executados localmente por meio do Azure IoT Edge; no entanto, você não está limitado aos serviços do Azure. Qualquer pessoa é capaz de criar os módulos de IA e disponibilizá-los para uso pela comunidade. 
 
 ### <a name="bring-your-own-code"></a>Traga o seu próprio código
 
-Quando você deseja implantar seu próprio código para seus dispositivos, o Azure IoT Edge também oferece suporte para essa situação. O Azure IoT Edge mantém o mesmo modelo de programação de outros serviços Azure IoT. O mesmo código pode ser executado em um dispositivo ou na nuvem. O Azure IoT Edge oferece suporte para Linux e Windows, portanto você pode codificar para a plataforma de sua escolha. Ele oferece suporte para Java, .NET Core 2.0, Node. js, C e Python para que os desenvolvedores possam codificar na linguagem que já conhecem e usar a lógica de negócios existentes sem gravá-la a partir do zero.
+Quando você deseja implantar seu próprio código para seus dispositivos, o Azure IoT Edge também oferece suporte para essa situação. O Azure IoT Edge mantém o mesmo modelo de programação de outros serviços Azure IoT. O mesmo código pode ser executado em um dispositivo ou na nuvem. O Azure IoT Edge oferece suporte para Linux e Windows, portanto você pode codificar para a plataforma de sua escolha. Ele dá suporte para Java, .NET Core 2.0, Node.js, C e Python, de modo que os desenvolvedores possam codificar em uma linguagem que já conhecem e usar a lógica de negócios existente.
 
 ## <a name="iot-edge-runtime"></a>Tempo de execução do IoT Edge
 
@@ -49,23 +49,21 @@ O tempo de execução do Azure IoT Edge permite lógica personalizada e de nuvem
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém os padrões de segurança do Azure IoT Edge no dispositivo.
-* Garante que os módulos do IoT Edge sempre estão em execução.
-* Fornece um relatório sobre a integridade do módulo para a nuvem para o monitoramento remoto.
-* Facilita a comunicação entre os dispositivos de folha de downstream e o dispositivo IoT Edge.
-* Facilita a comunicação entre os módulos e o dispositivo IoT Edge.
-* Facilita a comunicação entre o dispositivo IoT Edge e a nuvem.
+* Garante que os módulos do IoT Edge sempre estejam em execução.
+* Relata a integridade do módulo à nuvem para monitoramento remoto.
+* Gerencia a comunicação entre dispositivos folha downstream e um dispositivo do IoT Edge, entre módulos em um dispositivo do IoT Edge e entre um dispositivo do IoT Edge e a nuvem.
 
 ![O tempo de execução do IoT Edge envia informações e relatórios para o Hub IoT](./media/about-iot-edge/runtime.png)
 
-Como você usa um dispositivo Azure IoT Edge cabe completamente a você. O tempo de execução geralmente é usado para implantar IA para gateways que agregam e processam dados de vários outros dispositivos locais, no entanto, isso é apenas uma opção. Os dispositivos de folha também podem ser dispositivos do Azure IoT Edge, independentemente deles estarem conectados a um gateway ou diretamente na nuvem.
+A maneira como você usa um dispositivo do Azure IoT Edge é uma decisão inteiramente sua. O tempo de execução costuma ser usado para implantar a IA em gateways que agregam e processam dados de vários outros dispositivos locais; no entanto, esse modelo de implantação é apenas uma opção. Os dispositivos de folha também podem ser dispositivos do Azure IoT Edge, independentemente deles estarem conectados a um gateway ou diretamente na nuvem.
 
-O tempo de execução do Azure IoT Edge é executado em um grande conjunto de dispositivos IoT habilitado usando o tempo de execução de várias maneiras diferentes. Ele oferece suporte a sistemas operacionais Windows e Linux, bem como abstrai detalhes de hardware. Use um dispositivo menor do que um Raspberry Pi 3 se você não estiver processando muitos dados ou escale verticalmente para um servidor industrializado para executar cargas de trabalho com muitos recursos.
+O tempo de execução do Azure IoT Edge é executado em um grande conjunto de dispositivos IoT habilitado usando o tempo de execução de várias maneiras diferentes. Ele dá suporte a sistemas operacionais Windows e Linux e abstrai os detalhes de hardware. Use um dispositivo anterior ao Raspberry Pi 3 caso não esteja processando muitos dados ou um servidor industrializado para executar cargas de trabalho com uso intensivo de recursos.
 
 ## <a name="iot-edge-cloud-interface"></a>Interface de nuvem do IoT Edge
 
 Gerenciar o ciclo de vida de software para dispositivos corporativos é complicado. Gerenciar o ciclo de vida de software para milhões de dispositivos de IoT heterogêneos é ainda mais difícil. As cargas de trabalho devem ser criadas e configuradas para um tipo específico de dispositivo, implantadas na escala de milhões de dispositivos em sua solução e monitoradas para detectar todos os dispositivos com comportamento inadequado. Essas atividades não podem ser feitas por dispositivo e devem ser feitas em escala.
 
-O Azure IoT Edge integra-se perfeitamente aos aceleradores da solução Azure IoT para fornecer um plano de controle de acordo com as necessidades da sua solução. Os serviços de nuvem permitem aos usuários:
+O Azure IoT Edge integra-se perfeitamente aos aceleradores da solução Azure IoT para fornecer um plano de controle de acordo com as necessidades da sua solução. Os serviços de nuvem permitem:
 
 * Criar e configurar uma carga de trabalho a ser executado em um tipo específico de dispositivo.
 * Enviar uma carga de trabalho para um conjunto de dispositivos.

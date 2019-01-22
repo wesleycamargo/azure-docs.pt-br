@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: ad490630d3ce5d625bce05c75c20fa71a7aa2d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014532"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352879"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
@@ -135,7 +135,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 Execute o comando a seguir para criar um procedimento armazenado no banco de dados SQL:
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -302,7 +302,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
     ![Atividade de procedimento armazenado - Conta SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Alterne para a guia **Procedimento armazenado** e execute as etapas a seguir: 
 
-    1. Selecione **sp_write_watermark** para o **Nome do procedimento armazenado**. 
+    1. Para **Nome do procedimento armazenado**, selecione **usp_write_watermark**. 
     2. Para especificar valores para os parâmetros de procedimento armazenado, clique em **Importar parâmetros** e insira os seguintes valores para os parâmetros: 
 
         | NOME | Tipo | Valor | 

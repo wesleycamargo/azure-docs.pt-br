@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 12/14/2018
+ms.date: 01/14/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: f959ce8d29975fc7c667185ef5bc2547825bccc0
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c58c31a0d6238720d643d5b1508a7ec04749887b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406906"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352114"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Mídia v3 do Azure?
 
@@ -34,12 +34,12 @@ Os Serviços de Mídia permitem criar uma série de fluxos de trabalho de mídia
 * Fornecer vídeos em vários formatos, para que eles possam ser reproduzidos em uma série de navegadores e dispositivos. Para a entrega de vídeos sob demanda e transmissões ao vivo a vários clientes (dispositivos móveis, TV, PC, etc.) o conteúdo de vídeo e áudio precisa ser codificado e entregue de forma apropriada. Para ver como entregar e transmitir esse conteúdo, confira [Início Rápido: Codificar e transmitir arquivos](stream-files-dotnet-quickstart.md).
 * Transmita eventos esportivos ao vivo para um público amplo online, como partidas de futebol, basebol, esportes universitários e escolares, e muito mais. 
 * Transmita reuniões públicas e eventos como fóruns, reuniões da câmara de vereadores e órgãos legislativos.
-* Analise o conteúdo do áudio ou vídeo gravado. Por exemplo, para alcançar maior satisfação dos clientes, as organizações podem extrair a conversão de fala em texto e criar índices de pesquisa e painéis. Em seguida, elas podem extrair dados inteligentes sobre reclamações comuns, fontes de reclamações e outros dados relevantes. 
+* Analise o conteúdo do áudio ou vídeo gravado. Por exemplo, para alcançar maior satisfação dos clientes, as organizações podem extrair a conversão de fala em texto e criar índices de pesquisa e painéis. Em seguida, elas podem extrair dados inteligentes sobre reclamações comuns, fontes de reclamações e outros dados relevantes.
 * Crie um serviço de assinatura de vídeo e transmita conteúdo protegido por DRM quando um cliente (por exemplo, um estúdio de cinema) precisar restringir o acesso e uso de um trabalho protegido por direitos autorais.
 * Forneça conteúdo offline para reprodução em aviões, trens e automóveis. Talvez um cliente precise baixar o conteúdo no telefone ou tablet para reprodução quando ele estiver desconectado da rede.
-* Adicione subtítulos e legendas a vídeos para atender a um público mais amplo (por exemplo, pessoas com deficiência auditiva ou que desejam acompanhar a leitura em um idioma diferente). 
-* Implemente uma plataforma de vídeo educacional de aprendizado eletrônico com os Serviços de Mídia do Azure e a [API de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para fazer a conversão de fala em texto de legenda, traduzir para vários idiomas, etc.
-* Habilite a CDN do Microsoft Azure para conseguir um grande dimensionamento para lidar melhor com alta carga instantânea (por exemplo, no início de um evento de lançamento de produto). 
+* Implemente uma plataforma de vídeo educacional de aprendizado eletrônico com os Serviços de Mídia do Azure e a [API de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para fazer a conversão de fala em texto de legenda, traduzir para vários idiomas, etc. 
+* Use os Serviços de Mídia do Azure junto com a [API de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para adicionar subtítulos e legendas a vídeos para abranger um público mais amplo (por exemplo, pessoas com deficiência auditiva ou que desejam acompanhar a leitura em um idioma diferente).
+* Habilite a CDN do Azure para conseguir um dimensionamento grande para lidar melhor com altas cargas instantâneas (por exemplo, o início de um evento de lançamento de produto). 
 
 ## <a name="v3-capabilities"></a>Funcionalidades da v3
 
@@ -72,41 +72,7 @@ Os exemplos disso incluem
 * não retornando as chaves de restrição no get da ContentKeyPolicy, 
 * não retornando a parte da cadeia de caracteres de consulta da URL (para remover a assinatura) de URLs de entrada de HTTP de trabalhos.
 
-O exemplo de .NET a seguir mostra como obter uma chave de assinatura de política existente. Você precisa usar **GetPolicyPropertiesWithSecretsAsync** para obter a chave.
-
-```csharp
-private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
-    IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string contentKeyPolicyName)
-{
-    ContentKeyPolicy policy = await client.ContentKeyPolicies.GetAsync(resourceGroupName, accountName, contentKeyPolicyName);
-
-    if (policy == null)
-    {
-        // Configure and create a new policy.
-        
-        . . . 
-        policy = await client.ContentKeyPolicies.CreateOrUpdateAsync(resourceGroupName, accountName, contentKeyPolicyName, options);
-    }
-    else
-    {
-        var policyProperties = await client.ContentKeyPolicies.GetPolicyPropertiesWithSecretsAsync(resourceGroupName, accountName, contentKeyPolicyName);
-        var restriction = policyProperties.Options[0].Restriction as ContentKeyPolicyTokenRestriction;
-        if (restriction != null)
-        {
-            var signingKey = restriction.PrimaryVerificationKey as ContentKeyPolicySymmetricTokenKey;
-            if (signingKey != null)
-            {
-                TokenSigningKey = signingKey.KeyValue;
-            }
-        }
-    }
-
-    return policy;
-}
-```
+Confira o exemplo [Obter a política de chave de conteúdo – .NET](get-content-key-policy-dotnet-howto.md).
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a v3?
 

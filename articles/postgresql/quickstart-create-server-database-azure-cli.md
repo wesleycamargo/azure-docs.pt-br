@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 39e5042d5116cba96fb3d378fbf42813d33c69c6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 2fd60aa635fdea078a2b5c4b724318798d57573d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191013"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359571"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como criar um Banco de Dados do Azure para o servidor PostgreSQL em um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando a CLI do Azure.
@@ -62,7 +62,7 @@ admin-password | *senha de segurança* | A senha do usuário administrador. Ele 
 
 
 O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geração de cálculo}\_{vCores} como nestes exemplos:
-+ `--sku-name B_Gen4_1` mapeia para Básico, Gen 4 e 1 vCore.
++ `--sku-name B_Gen4_1` mapeia para Básico, Gen 4 e 1 vCore. Essa opção é o menor SKU disponível.
 + `--sku-name GP_Gen5_32` mapeia para Uso Geral, Gen 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizado para Memória, Gen 5 e 2 vCores.
 

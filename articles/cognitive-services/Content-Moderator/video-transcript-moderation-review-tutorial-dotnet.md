@@ -1,27 +1,27 @@
 ---
 title: 'Tutorial: moderar vídeos e transcrições no .NET – Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Como usar o Content Moderator para moderar transcrições e vídeos no .NET.
+description: Este tutorial ajuda a entender como criar uma solução completa de moderação de vídeo e transcrição com moderação assistida por computador e criação de análise com interação humana.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 45f1b4d16bd982e17b67d6fb337e0d917f635851
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118567"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332686"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: moderação de vídeos e transcrições
 
 As APIs de vídeo do Content Moderator permitem moderar vídeos e criar análises de vídeos na ferramenta de análise humana. 
 
-Este tutorial detalhado ajuda a reconhecer como compilar uma solução de moderação de transcrição e vídeo completa com moderação assistida por computador e criação de análise por interação humana.
+Este tutorial ajuda a entender como criar uma solução completa de moderação de vídeo e transcrição com moderação assistida por computador e criação de análise com interação humana.
 
 Baixe o [aplicativo de console C#](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) para este tutorial. O aplicativo de console usa o SDK e os pacotes relacionados para executar as seguintes tarefas:
 
@@ -241,7 +241,7 @@ O código executa as etapas a seguir:
 
 - Verifica para certificar-se de que a configuração em `App.config` contém todos os dados necessários
 - Verifica para certificar-se de que o binário `ffmpeg` está presente
-- Compila o nome do arquivo de saída acrescentando `_c.mp4` ao nome de base do arquivo (como `Example.mp4` -> `E>xample_c.mp4`)
+- Compila o nome do arquivo de saída acrescentando `_c.mp4` ao nome de base do arquivo (como `Example.mp4` -> `Example_c.mp4`)
 - Cria uma cadeia de caracteres da linha de comando para executar a conversão
 - Inicia um processo `ffmpeg` usando a linha de comando
 - Aguarda que o vídeo seja processado

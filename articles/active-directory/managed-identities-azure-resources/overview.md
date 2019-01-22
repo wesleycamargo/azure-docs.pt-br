@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5397ab76afa8c28623f1522ffa773b0895e19f02
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728101"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303931"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -38,9 +38,9 @@ As identidades de gerenciado para a funcionalidade de recursos do Azure é gratu
 
 Os seguintes termos são usados em todas as identidades gerenciadas do conjunto de documentação de recursos do Azure:
 
-- **ID do cliente**: um identificador exclusivo gerado pelo Azure AD vinculado a um aplicativo e entidade de serviço durante o provisionamento inicial.
-- **ID da entidade de segurança**: a ID de objeto do objeto da entidade de serviço da identidade gerenciada usado para permitir acesso baseado em função a um recurso do Azure.
-- **IMDS (Serviço de Metadados de Instância) do Azure**: um ponto de extremidade REST disponível para todas as VMs de IaaS criadas por meio do Azure Resource Manager. O ponto de extremidade está disponível em um endereço IP não roteável conhecido (169.254.169.254) que pode ser acessado somente de dentro da VM.
+- **ID do Cliente** – um identificador exclusivo gerado pelo Azure AD vinculado a um aplicativo e uma entidade de serviço durante o provisionamento inicial.
+- **ID da Entidade de Segurança** – a ID de objeto do objeto da entidade de serviço para a identidade gerenciada usada para permitir acesso baseado em função a um recurso do Azure.
+- **IMDS (Serviço de Metadados de Instância) do Azure** – um ponto de extremidade REST acessível a todas as VMs IaaS criadas por meio do Azure Resource Manager. O ponto de extremidade está disponível em um endereço IP não roteável conhecido (169.254.169.254) que pode ser acessado somente de dentro da VM.
 
 ## Como as identidades gerenciadas dos recursos do Azure funcionam?<a name="how-does-it-work"></a>
 

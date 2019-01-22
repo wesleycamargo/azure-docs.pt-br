@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 00a72c8c7fb42c763a8b0bad1fa3914ac27c496f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406923"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247105"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não disparada por HTTP
 
@@ -51,19 +51,20 @@ Depois de copiar a chave mestra, clique no nome da função para retornar à jan
 
 Abra Postman e siga estas etapas:
 
-1. Insira a **localização de solicitação na caixa de texto URL**. 
-2. **Clique** na guia **Cabeçalhos**.
-3. Insira **x-functions-key** como a primeira **chave** e cole a chave mestra (da área de transferência) na caixa **valor**.
-4. Insira **Content-Type** como a segunda **chave** e insira **application/json** como o **valor**.
+1. Insira a **localização de solicitação na caixa de texto URL**.
+2. Garanta que o método HTTP seja definido como **POST**.
+3. **Clique** na guia **Cabeçalhos**.
+4. Insira **x-functions-key** como a primeira **chave** e cole a chave mestra (da área de transferência) na caixa **valor**.
+5. Insira **Content-Type** como a segunda **chave** e insira **application/json** como o **valor**.
 
     ![Configurações de cabeçalhos do Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-5. **Clique** na guia **Corpo**.
-6. Insira **{ "input": "test" }** como o corpo da solicitação.
+6. **Clique** na guia **Corpo**.
+7. Insira **{ "input": "test" }** como o corpo da solicitação.
 
     ![Configurações de corpo do Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-7. Clique em **Enviar**.
+8. Clique em **Enviar**.
 
     ![Enviando uma solicitação com Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 

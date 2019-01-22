@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993544"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331020"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Balancear a carga de contêineres em um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure
 
@@ -97,7 +97,7 @@ Em seguida, crie um arquivo chamado *hello-web.json* e copie o seguinte conteúd
 }
 ```
 
-Use a CLI do DC/SO para executar o aplicativo. Por padrão, o Marathon implanta o aplicativo no cluster privado. Isso significa que a implantação acima está acessível apenas por meio do balanceador de carga, que geralmente é o comportamento desejado.
+Use a CLI do DC/SO para executar o aplicativo. Por padrão, o Marathon implanta o aplicativo no cluster particular. Isso significa que a implantação acima está acessível apenas por meio do balanceador de carga, que geralmente é o comportamento desejado.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

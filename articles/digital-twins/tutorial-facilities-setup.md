@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: b21e5a87561757e2991a7b9addce0d1f3383204f
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557709"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212185"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implantar os Gêmeos Digitais do Azure e configurar um grafo espacial
 
@@ -33,9 +33,7 @@ No primeiro tutorial desta série, você aprenderá a:
 > * Modificar um aplicativo de exemplo dos Gêmeos Digitais.
 > * Provisionar o prédio.
 
-
 Estes tutoriais usam e modificam os mesmos exemplos que o [início rápido para encontrar salas disponíveis](quickstart-view-occupancy-dotnet.md) usa, para uma cobertura mais detalhada e aprofundada dos conceitos.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +43,7 @@ Estes tutoriais usam e modificam os mesmos exemplos que o [início rápido para 
 
 - Use o [Visual Studio Code](https://code.visualstudio.com/) para explorar o código de exemplo. 
 
-<a id="deploy" />
+<a id="deploy"></a>
 
 ## <a name="deploy-digital-twins"></a>Implantar Gêmeos Digitais
 
@@ -53,8 +51,7 @@ Use as etapas nesta seção para criar uma nova instância do serviço Gêmeos D
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
-
-<a id="permissions" />
+<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Conceder permissões ao aplicativo
 
@@ -64,19 +61,20 @@ Se você já tiver um registro de aplicativo, poderá reutilizá-lo para o exemp
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
-
 ## <a name="configure-the-digital-twins-sample"></a>Configurar o exemplo dos Gêmeos Digitais
 
 Esta seção explora um aplicativo dos Gêmeos Digitais do Azure que se comunica com as [APIs REST dos Gêmeos Digitais](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index). 
 
 ### <a name="download-the-sample"></a>Baixar o exemplo
+
 Se você já tem os exemplos baixados do [início rápido para encontrar salas disponíveis](quickstart-view-occupancy-dotnet.md), pode ignorar estas etapas.
 
-1. Baixe os [exemplos do .NET dos Gêmeos Digitais](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). 
-2. Extraia o conteúdo da pasta ZIP em seu computador. 
+1. Baixe os [exemplos do .NET dos Gêmeos Digitais](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip).
+2. Extraia o conteúdo da pasta ZIP em seu computador.
 
 ### <a name="explore-the-sample"></a>Explorar o exemplo
-Na pasta de exemplo extraída, abra o arquivo **digital-twins-samples-csharp\digital-twins-samples.code-workspace** no Visual Studio Code. Ele contém dois projetos: 
+
+Na pasta de exemplo extraída, abra o arquivo **digital-twins-samples-csharp\digital-twins-samples.code-workspace** no Visual Studio Code. Ele contém dois projetos:
 
 * Você pode usar o exemplo de provisionamento **occupancy-quickstart** para configurar e provisionar um [grafo de inteligência espacial](concepts-objectmodel-spatialgraph.md#graph). Esse grafo é a imagem digitalizada de seus espaços físicos e os recursos presentes neles. Ele usa um [modelo de objeto](concepts-objectmodel-spatialgraph.md#model) que define objetos de um prédio inteligente. Para obter uma lista completa das APIs REST e dos objetos dos Gêmeos Digitais, confira [esta documentação da API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) ou a URL da API de Gerenciamento que foi criada para [sua instância](#deploy).
 
@@ -89,6 +87,7 @@ Na pasta de exemplo extraída, abra o arquivo **digital-twins-samples-csharp\dig
 * O exemplo de simulação **device-connectivity** simula dados de sensor e o envia para o hub IoT que está provisionado para a instância dos Gêmeos Digitais. Você usará essa amostra no [próximo tutorial depois de provisionar o grafo espacial](tutorial-facilities-udf.md#simulate). Os identificadores de sensores e dispositivos que você usou para configurar este exemplo devem ser os mesmos que serão usados para provisionar o grafo.
 
 ### <a name="configure-the-provisioning-sample"></a>Configurar o exemplo de provisionamento
+
 1. Abra uma janela de comando e vá para o exemplo baixado. Execute o comando a seguir:
 
     ```cmd/sh
@@ -101,10 +100,10 @@ Na pasta de exemplo extraída, abra o arquivo **digital-twins-samples-csharp\dig
     dotnet restore
     ```
 
-1. No Visual Studio Code, abra o arquivo **appSettings.json** no projeto **occupancy-quickstart**. Atualize os seguintes valores:
+1. No Visual Studio Code, abra o arquivo [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) no projeto **occupancy-quickstart**. Atualize os seguintes valores:
    * **ClientId**: insira a ID de aplicativo do registro de seu aplicativo do Azure AD. Você anotou essa ID na seção onde [definiu permissões de aplicativo](#permissions).
    * **Tenant**: insira a ID de diretório de seu [locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Você também anotou essa ID na seção onde [definiu permissões de aplicativo](#permissions).
-   * **BaseUrl**: insira a URL da instância dos Gêmeos Digitais. Para obter essa URL, substitua os espaços reservados na URL pelos valores de sua instância: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. Você também pode obter essa URL modificando a URL da API de Gerenciamento na [seção de implantação](#deploy). Substitua **swagger/** por **api/v1.0/**.
+   * **BaseUrl**: insira a URL da instância dos Gêmeos Digitais. Para obter essa URL, substitua os espaços reservados nessa URL pelos valores da instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Você também pode obter essa URL modificando a URL da API de Gerenciamento na [seção de implantação](#deploy). Substitua **swagger/** por **api/v1.0/**.
 
 1. Confira uma lista de recursos dos Gêmeos Digitais que você pode explorar usando o exemplo. Execute o comando a seguir:
 
@@ -112,10 +111,11 @@ Na pasta de exemplo extraída, abra o arquivo **digital-twins-samples-csharp\dig
     dotnet run
     ```
 
-<a id="provision-spaces" />
+<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Entender o processo de provisionamento
-Esta seção mostra como o exemplo provisiona um grafo espacial de um prédio. 
+
+Esta seção mostra como o exemplo provisiona um grafo espacial de um prédio.
 
 No Visual Studio Code, navegue até a pasta **occupancy-quickstart\src\actions** e abra o arquivo **provisionSample.cs**. Observe a seguinte função:
 
@@ -137,15 +137,16 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Essa função usa **provisionSample.yaml** na mesma pasta. Abra esse arquivo e observe a hierarquia de um prédio comercial: *Local*, *Andar*, *Área* e *Salas*. Qualquer um desses espaços físicos pode conter *dispositivos* e *sensores*. Cada entrada tem um modelo predefinido `type`&mdash;por exemplo, Andar, Sala. 
+Essa função usa [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) na mesma pasta. Abra esse arquivo e observe a hierarquia de um prédio comercial: *Local*, *Andar*, *Área* e *Salas*. Qualquer um desses espaços físicos pode conter *dispositivos* e *sensores*. Cada entrada tem um modelo predefinido `type`&mdash;por exemplo, Andar, Sala.
 
 O arquivo de exemplo **yaml** mostra um grafo espacial que usa o modelo de objeto dos Gêmeos Digitais `Default`. Esse modelo fornece nomes genéricos para a maioria dos tipos. Os nomes genéricos são suficientes para um prédio. Os exemplos incluem Temperature para SensorDataType e Map para SpaceBlobType. Um tipo de espaço de exemplo é Room, com subtipos FocusRoom, ConferenceRoom e assim por diante. 
 
 Se você precisou criar um grafo espacial para um local de tipo diferente, como uma fábrica, talvez seja necessário usar um modelo de objeto diferente. Execute o comando `dotnet run GetOntologies` na linha de comando do exemplo de provisionamento para saber quais modelos estão disponíveis para uso. 
 
-Para obter mais informações sobre grafos espaciais e modelos de objeto, leia [Noções básicas sobre modelos de objeto e grafo de inteligência espacial dos Gêmeos Digitais](concepts-objectmodel-spatialgraph.md). 
+Para obter mais informações sobre grafos espaciais e modelos de objeto, leia [Noções básicas sobre modelos de objeto e grafo de inteligência espacial dos Gêmeos Digitais](concepts-objectmodel-spatialgraph.md).
 
 ### <a name="modify-the-sample-spatial-graph"></a>Modificar grafo espacial de exemplo
+
 O arquivo **provisionSample.yaml** contém os seguintes nós:
 
 - **resources**: o nó `resources` cria um recurso do Hub IoT do Azure para se comunicar com os dispositivos em sua configuração. Um hub IoT no nó raiz do grafo pode se comunicar com todos os dispositivos e sensores no grafo.  
@@ -168,22 +169,19 @@ Salve e feche o arquivo provisionSample.yaml. No próximo tutorial, você adicio
 > [!TIP]
 > É possível exibir e modificar seu grafo espacial usando o [Visualizador de Grafos dos Gêmeos Digitais do Azure](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você quiser parar de explorar os Gêmeos Digitais do Azure neste momento, fique à vontade para excluir recursos criados neste tutorial:
 
 1. No menu à esquerda no [portal do Azure](http://portal.azure.com), escolha **Todos os recursos**, marque o grupo de recursos dos Gêmeos Digitais e a opção **Excluir**.
-   
+
     > [!TIP]
     > Se você teve problemas para excluir sua instância de Gêmeos Digitais, lançamos uma atualização de serviço com a correção. Tente novamente excluir a instância.
 
-1. Se necessário, exclua o aplicativo de exemplo em seu computador de trabalho. 
-
+1. Se necessário, exclua o aplicativo de exemplo em seu computador de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber como implementar uma lógica personalizada para monitorar as condições do prédio de exemplo, vá para o próximo tutorial da série: 
 > [!div class="nextstepaction"]
 > [Tutorial: Provisionar o prédio e monitorar as condições de trabalho](tutorial-facilities-udf.md)
-

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Método auxiliar do SDK do Content Moderator para .NET'
+title: 'Início rápido: Criar um cliente de moderação para o .NET – Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Como retornar um cliente do Content Moderator usando o SDK do Content Moderator do Azure para .NET
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0c167de3af8aea6820962e7cc8d0c21f5ba61807
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: aa3c2d5c408969aa3127562607ca8d4e89f44f2e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223252"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262261"
 ---
 # <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Início Rápido: Código auxiliar para retornar um cliente do Content Moderator
 
@@ -31,10 +31,10 @@ Este artigo pressupõe que você já esteja familiarizado com Visual Studio e C#
 
 ## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para serviços do Content Moderator
 
-Antes de usar os serviços do Content Moderator por meio da API REST ou o SDK, você precisa de uma chave de assinatura.
-Consulte o [Início Rápido](quick-start.md) para saber como você pode obter a chave.
+Uma chave de assinatura é necessária antes de usar os serviços do Content Moderator através da API REST ou do SDK.
+Consulte o início rápido [Experimentar o Content Moderator na Web](quick-start.md) para saber como você pode obter a chave.
 
-## <a name="create-your-visual-studio-project"></a>Criar um projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar seu projeto do Visual Studio
 
 1. Criar um novo projeto **Biblioteca de classes (.NET Framework)**.
 

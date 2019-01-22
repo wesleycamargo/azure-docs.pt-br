@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 6ece4d7d0a39f5ea9dd4d9503d3bdd11a4bffd89
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678569"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306328"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: executar uma carga de trabalho paralela com o Lote do Azure usando a API do Python
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do Python
 
 Use o Lote do Azure para executar trabalhos em lote de HPC (computação de alto desempenho) e paralelos em larga escala com eficiência no Azure. Este tutorial percorre um exemplo de Python para executar uma carga de trabalho paralela usando o Lote. Você conhecerá um fluxo de trabalho de aplicativo comum no Lote e como interagir programaticamente com recursos do Armazenamento e do Lote. Você aprenderá como:
 
@@ -65,7 +65,7 @@ Em seu ambiente do Python, instale os pacotes necessários usando `pip`.
 pip install -r requirements.txt
 ```
 
-Abra o arquivo `batch_python_tutorial_ffmpeg.py`. Atualize as cadeias de credenciais da conta de armazenamento e do Lote com os valores exclusivos para suas contas. Por exemplo: 
+Abra o arquivo `config.py`. Atualize as cadeias de credenciais da conta de armazenamento e do Lote com os valores exclusivos para suas contas. Por exemplo: 
 
 
 ```Python
@@ -75,8 +75,6 @@ _BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
 _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
-
-[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
 
 ### <a name="run-the-app"></a>Execute o aplicativo
 

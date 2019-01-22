@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9097a62ca4bfa67fb5eb35e06f7834df6691e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622798"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213086"
 ---
-# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutorial: Como baixar e usar um script para acessar logs de entrada
+# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutorial: Como baixar e usar um script para acessar logs de credenciais
 
 Você pode baixar os dados de atividade de entrada se desejar trabalhar com eles fora do portal do Azure. A opção **Download** no portal do Azure cria um arquivo CSV contendo os 5000 registros mais recentes. Se você precisar de mais flexibilidade, por exemplo, para baixar mais de 5000 registros por vez, ou para baixar os logs em intervalos agendados, use o botão **Script** para gerar um script do PowerShell para baixar seus dados.
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a gerar um script para baixar todos os logs de 
 
 Você precisa de
 
-* Um locatário do Azure Active Directory com uma licença premium (P1/P2). 
+* Um locatário do Azure Active Directory com uma licença premium (P1/P2). Observe que, se você não tiver dados de atividades antes da atualização, serão necessários alguns dias para que os dados sejam exibidos nos relatórios depois que você atualizar para uma licença premium. 
 * Um usuário, que está na função de **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
 * Se você quiser executar o script baixado em seu computador com Windows 10, [configure o módulo do AzureRM e defina a política de execução](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 

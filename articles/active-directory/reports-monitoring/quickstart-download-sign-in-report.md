@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ce242066df427163048a2ef51e79ffd98eadbc7d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653281"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214905"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início Rápido: Baixar um relatório de entrada usando o portal do Azure
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início rápido: Baixar um relatório de entrada usando o portal do Azure
 
 Neste início rápido, você aprenderá a baixar os dados de entrada para seu locatário nas últimas 24 horas.
 
@@ -31,7 +31,7 @@ Neste início rápido, você aprenderá a baixar os dados de entrada para seu lo
 
 Você precisa de:
 
-* Um locatário do Azure Active Directory, com uma licença Premium para exibir o relatório de atividade de entrada. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory.
+* Um locatário do Azure Active Directory, com uma licença Premium para exibir o relatório de atividade de entrada. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory. Observe que, se você não tiver dados de atividades antes da atualização, serão necessários alguns dias para que os dados sejam exibidos nos relatórios depois que você atualizar para uma licença premium.
 * Um usuário, que está na função de **Administrador de Segurança**, **Leitor de Segurança**, **Leitor de Relatório** ou **Administrador Global** para o locatário. Além disso, qualquer usuário no locatário pode acessar suas próprias entradas.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Início Rápido: Baixar um relatório de entrada

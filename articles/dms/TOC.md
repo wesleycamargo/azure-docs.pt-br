@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 493ca6018a7eb94181deff946c6542463507761a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437973"
+---
 # [Documentação do Serviço de Migração de Banco de Dados](index.yml)
 
 # Visão geral
@@ -25,16 +33,27 @@
 ## [Status do cenário de migração de banco de dados](resource-scenario-status.md)
 ## [Visão geral dos pré-requisitos](pre-reqs.md)
 ## [Topologias de rede para migrações de instância gerenciada do banco de dados do Azure SQL](resource-network-topologies.md)
-## [Problemas Conhecidos: migração online para Azure SQL DB](known-issues-azure-sql-online.md)
-## [Problemas Conhecidos: migração online para banco de dados do Azure para MySQL](known-issues-azure-mysql-online.md)
-## [Problemas conhecidos - Migração online para Azure DB do PostgreSQL](known-issues-azure-postgresql-online.md)
-## [Serviço e ferramentas disponíveis para cenários de migração de dados](dms-tools-matrix.md)
+## Problemas conhecidos
+### [Problemas Conhecidos: migração online para Azure SQL DB](known-issues-azure-sql-online.md)
+### [Problemas Conhecidos: migração online para banco de dados do Azure para MySQL](known-issues-azure-mysql-online.md)
+### [Problemas conhecidos - Migração online para Azure DB do PostgreSQL](known-issues-azure-postgresql-online.md)
+## vídeos
+### [Use o Guia de Migração de Banco de Dados](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
+### [O processo de migração e as ferramentas/os serviços recomendados](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
+### [Pré-requisitos de endereço e criar uma instância do DMS](https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/)
+### [Migrar o SQL Server 2008 para a Instância Gerenciada do Banco de Dados SQL do Azure](https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/)
+### [Migrar PostgreSQL para Banco de Dados do Azure para PostgreSQL](https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/)
+### [Monitorar uma migração online e executar substituição](https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/)
+### [Migrar Oracle para o Banco de Dados SQL do Azure](https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/)
+### [Migrar MongoDB para o Azure Cosmos DB](https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/)
+## Ferramentas e orientações
+### [Serviço e ferramentas disponíveis para cenários de migração de dados](dms-tools-matrix.md)
+### [Guia de migração de banco de dados](https://aka.ms/datamigration)
+### [Assistente de migração de dados](https://aka.ms/dma)
+### [Assistente de Migração do SQL Server](https://aka.ms/ssma)
+### [Assistente para Experimentos de Banco de Dados](https://aka.ms/dea-docs)
 ## [Perguntas Frequentes](faq.md)
 ## [Comentários de voz do usuário](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Preços](https://aka.ms/dms-pricing)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=database-migration)
-## [Guia de migração de banco de dados](https://aka.ms/datamigration)
-## [Assistente de migração de dados](https://aka.ms/dma)
-## [Assistente de Migração do SQL Server](https://aka.ms/ssma)
-## [Assistente para Experimentos de Banco de Dados](https://aka.ms/dea-docs)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)

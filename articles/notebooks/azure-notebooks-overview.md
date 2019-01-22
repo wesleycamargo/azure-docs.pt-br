@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713600"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246204"
 ---
 # <a name="overview-of-azure-notebooks"></a>Visão geral do Azure Notebooks
 
@@ -57,7 +57,7 @@ Em resumo, o Azure Notebooks ajuda a realizar seu trabalho com mais eficiência 
 
 O Azure Notebooks é um serviço gratuito, mas cada projeto é limitado a 4 GB de memória e 1 GB de dados para evitar abusos. Os usuários legítimos que excedem esses limites devem resolver um desafio Captcha para continuar a execução de notebooks.
 
-Para liberar todos os limites, associe sua conta com uma assinatura do Azure, o que permite que você selecione as camadas de computação premium.
+Para liberar todos os limites, entre no Azure Notebooks com uma conta usando o Azure Active Directory (como uma conta corporativa). Se essa conta estiver associada a uma assinatura do Azure, você poderá usar as camadas de computação da Máquina Virtual de Ciência de Dados do Azure.
 
 ## <a name="available-kernels-and-environments"></a>Ambientes e kernels disponíveis
 
@@ -91,7 +91,7 @@ Como o Azure Notebooks ainda está em versão prévia, o serviço pode sofrer in
 
 No momento, não é recomendável usar a versão prévia do Azure Notebooks para aplicativos comercialmente críticos ou notebooks e dados confidenciais.
 
-Para discutir suas dúvidas sobre os Azure Notebooks, registre um problema sobre o [repositório GitHub](https://github.com/Microsoft/AzureNotebooks/issues).
+Para discutir suas dúvidas sobre o Azure Notebooks, registre um problema sobre o [repositório GitHub](https://github.com/Microsoft/AzureNotebooks/issues).
 
 ## <a name="next-steps"></a>Próximas etapas  
 

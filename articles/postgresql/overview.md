@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/14/2018
-ms.openlocfilehash: 775c9990c85feb3e9e180af6470e7c9a1aa124f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 318778a83c82b0ddb88f8bbd852442ab389fedb3
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808971"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352250"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é o Banco de Dados do Azure para PostgreSQL?
 
@@ -48,7 +48,7 @@ O SLA (Contrato de Nível de Serviço) de disponibilidade de 99,99% do Azure, qu
 ## <a name="secure-your-data"></a>Proteja seus dados
 Os serviços de banco de dados do Azure têm uma tradição de segurança de dados que o Banco de Dados do Azure para PostgreSQL mantém, com recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam a monitorar atividades. Visite a [Central de Confiabilidade do Azure](https://azure.microsoft.com/overview/trusted-cloud/) para obter informações sobre a segurança da plataforma do Azure.
 
-O serviço Banco de Dados do Azure para PostgreSQL usa a criptografia de armazenamento para dados em repouso. Os dados, incluindo backups, são criptografados no disco (com exceção dos arquivos temporários criados pelo mecanismo durante a execução de consultas). O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
+O serviço Banco de Dados do Azure para PostgreSQL usa a criptografia de armazenamento para dados em repouso e está em conformidade com o FIPS 140-2. Os dados, incluindo backups, são criptografados no disco (com exceção dos arquivos temporários criados pelo mecanismo durante a execução de consultas). O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
 Por padrão, o serviço Banco de Dados do Azure para PostgreSQL está configurado para exigir a [segurança da conexão SSL](./concepts-ssl-connection-security.md) para dados em movimento em toda a rede. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo. Como opção, você pode desabilitar a exigência de SSL para conectar ao seu serviço de banco de dados, se seu aplicativo cliente não oferecer suporte à conectividade SSL.
 

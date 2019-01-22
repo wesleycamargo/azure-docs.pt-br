@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2018
 ms.author: pareshmu
-ms.openlocfilehash: bc7f43c61cef8ef504d24c03c1cdc3e74f404610
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ded3ecd973dae74104bd09a46717ca99e8d3251a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052846"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360064"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -43,7 +43,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **Região Geopolítica** | **Zona** | **Regiões do Azure** | **Locais de ExpressRoute** |
 | --- | --- | --- | --- |
 | **Governo da Austrália** | 1 | Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
-| **Europa** | 1 |França Central, Sul da França, Norte da Europa, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Amsterdã2, Dublin, Londres, Marselha, Newport (Gales), Paris |
+| **Europa** | 1 |França Central, Sul da França, Norte da Europa, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Amsterdã2, Dublin, Londres, Londres2, Marselha, Newport (Gales), Paris |
 | **América do Norte** | 1 |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, Vale do Silício, Washington D.C., Montreal, Cidade de Quebec, Toronto |
 | **Ásia** | 2 |Ásia Oriental, Sudeste Asiático |Hong Kong, Kuala Lumpur, Singapura, Singapura2 |
 | **Austrália** | 2 |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney | 
@@ -83,7 +83,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Londres, Vale do Silício, Singapura, Sydney, Tóquio, Toronto, Washington, D.C. |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Com suporte |Com suporte |Montreal, Toronto, Cidade de Quebec |
 | **[British Telecom](https://globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Com suporte |Com suporte |Amsterdã, Hong Kong, Londres, São Paulo, Vale do Silício, Singapura, Sydney, Tóquio, Washington D.C. |
-| **[C3ntro](https://c3ntro.com/data/express-route/)** |Em breve |Em breve |Miami |
+| **C3ntro** |Em breve |Em breve |Miami |
 | **CDC** | Com suporte | Com suporte | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Com suporte |Com suporte |Las Vegas, Nova York, San Antonio, Vale do Silício, Tóquio, Toronto |
 | **China Telecom Global** |Com suporte |Sem suporte |Hong Kong |
@@ -93,7 +93,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Com suporte |Com suporte |Chicago, Denver, Los Angeles, Nova York, Vale do Silício, Washinton, D.C. |
 | **eir** |Com suporte |Com suporte |Dublin|
 | **Epsilon Global Communications** |Com suporte |Com suporte |Singapura |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Com suporte |Amsterdã, Atlanta, Chicago, Dallas, Dublin, Hong Kong, Londres, Los Angeles, Melbourne, Miami, Nova York, Osaka, Paris, São Paulo, Seattle, Vale do Silício, Singapura, Sydney, Tóquio, Toronto, Washington D.C. |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Com suporte |Amsterdã, Atlanta, Chicago, Dallas, Dublin, Hong Kong, Londres, Londres2, Los Angeles, Melbourne, Miami, Nova York, Osaka, Paris, São Paulo, Seattle, Vale do Silício, Singapura, Sydney, Tóquio, Toronto, Washington, D.C. |
 | **euNetworks** |Com suporte |Com suporte |Amsterdã, Dublin, Londres |
 | **GÉANT** |Com suporte |Com suporte |Amsterdã |
 | **[Global Cloud Exchange (GCX)](http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Com suporte| Com suporte | Chennai, Mumbai |
@@ -130,13 +130,13 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Com suporte |Com suporte |Amsterdã, São Paulo |
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Com suporte |Com suporte |Londres |
 | **Telenor** |Com suporte |Com suporte |Amsterdã, Londres |
-| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Com suporte | Com suporte |Amsterdã, Londres, Washington D.C. |
+| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Com suporte | Com suporte |Amsterdã, Chicago, Dallas, Londres, Washington, D.C. |
 | **Telmex Uninet**| Em breve | Em breve | Dallas+ |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Com suporte |Com suporte |Melbourne, Singapura, Sydney |
 | **[Telus](http://www.telus.com)** |Com suporte |Com suporte |Montreal, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Com suporte |Com suporte |Cidade do Cabo, Joanesburgo |
 | **TIME dotCom** | Com suporte | Com suporte | Kuala Lumpur |
-| **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Com suporte |Com suporte |São Paulo |
+| **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Com suporte |Com suporte |São Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Hong Kong, Londres, Vale do Silício, Singapura, Sydney, Tóquio, Washington, D.C. |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Com suporte |Sem suporte |Londres, Singapura |
 | **Vodafone Idea** | Com suporte | Com suporte | Mumbai2 |
@@ -240,7 +240,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 | **[ThinkTel](http://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  
 | **[United Information Highway (UIH)](https://www.uih.co.th/en/internet-solution/cloud-direct/uih-cloud-direct-for-microsoft-azure-expressroute)**| Equinix | Singapura |
-| **[Venha Pra Nuvem](http://venhapranuvem.com.br/infraestrutura/oferta-especial-digital-edge-expressroute/)** | Equinix | São Paulo |
+| **[Venha Pra Nuvem](http://venhapranuvem.com.br/)** | Equinix | São Paulo |
 | **[Webair](https://www.webair.com/microsoft-express-route-partnership/)**| Megaport | Nova Iorque |
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | Chicago, Vale do Silício, Washington D.C. |
 | **Zain** |Equinix |Londres|
@@ -296,7 +296,7 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | América do Norte |
 | **[Presidio](http://info.presidio.com/microsoft-azure-expressroute)** | América do Norte |
 | **[sol-tec](https://www.sol-tec.com/services)** | Europa |
-| **[Venha Pra Nuvem](http://venhapranuvem.com.br/infraestrutura/oferta-especial-digital-edge-expressroute/)** | América do Sul |
+| **[Venha Pra Nuvem](http://venhapranuvem.com.br/)** | América do Sul |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Austrália |
 
 ## <a name="next-steps"></a>Próximas etapas

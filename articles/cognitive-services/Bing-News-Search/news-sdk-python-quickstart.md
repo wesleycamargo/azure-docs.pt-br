@@ -8,53 +8,68 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 02/14/2018
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 3489a9634cecd776afc8619a81acd72a2649ec36
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7927e680194d682ab9ee48320afa42ba29c676dc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261190"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259488"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Início Rápido: executar uma pesquisa de notícias com o SDK de Pesquisa de Notícias do Bing para Python
 
-O SDK de Pesquisa de Notícias contém a funcionalidade da API REST para consultas na Web e resultados da análise. 
+Use este início rápido para começar a pesquisar notícias com o SDK de Pesquisa de Notícias do Bing para Python. Embora a Pesquisa de Notícias do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
 
-O [código-fonte para amostras do SDK da Pesquisa de Notícias do Bing em Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) está disponível no GitHub.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="application-dependencies"></a>Dependências de aplicativo
-Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [Python](https://www.python.org/) 2.x ou 3.x
 
-Se o Python ainda não estiver instalado, instale-o. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
+É recomendável usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html) para o desenvolvimento com o Python. Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). É necessário instalar um virtualenv para o Python 2.7. Crie um ambiente virtual com:
 
-A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [ módulo venv](https://pypi.python.org/pypi/virtualenv). Você deve instalar virtualenv para Python 2.7.
-```
+```console
 python -m venv mytestenv
 ```
-Instale dependências de SDK de Pesquisa de Notícias do Bing:
-```
-cd mytestenv
+
+Instale as dependências do SDK de Pesquisa de Notícias do Bing com este comando:
+    
+```console
 python -m pip install azure-cognitiveservices-search-newssearch
 ```
-## <a name="news-search-client"></a>Cliente de Pesquisa de Notícias
-Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *Pesquisar*. Adicione importações:
-```
-from azure.cognitiveservices.search.newssearch import NewsSearchAPI
-from msrest.authentication import CognitiveServicesCredentials
 
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-```
-Crie uma instância de `CognitiveServicesCredentials`. Instancie o cliente:
-```
-client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-```
-Pesquise resultados e imprima o primeiro resultado da página da Web:
-```
-news_result = client.news.search(query="Quantum Computing", market="en-us", count=10)
-print("Search news for query \"Quantum Computing\" with market and count")
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
+## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
+
+1. Crie um arquivo do Python em seu IDE ou editor favorito e importe as bibliotecas a seguir. Crie uma variável para a chave de assinatura e o termo de pesquisa.
+
+    ```python
+    from azure.cognitiveservices.search.newssearch import NewsSearchAPI
+    from msrest.authentication import CognitiveServicesCredentials
+    subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    search_term = "Quantum Computing"
+    ```
+
+## <a name="initialize-the-client-and-send-a-request"></a>Inicializar o cliente e enviar uma solicitação
+
+1. Crie uma instância de `CognitiveServicesCredentials`. Instancie o cliente:
+    
+    ```python
+    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
+    ```
+
+2. Envie uma consulta de pesquisa para a API de Pesquisa de Notícias e armazene a resposta.
+
+    ```python
+    news_result = client.news.search(query=search_term, market="en-us", count=10)
+    ```
+
+## <a name="parse-the-response"></a>Analisar a resposta
+
+Se forem encontrados resultados da pesquisa, imprima o primeiro resultado da página da Web:
+
+```python
 if news_result.value:
     first_news_result = news_result.value[0]
     print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
@@ -66,97 +81,9 @@ if news_result.value:
     print("First news provider: {}".format(first_news_result.provider[0].name))
 else:
     print("Didn't see any news result data..")
-
-```
-Pesquise com filtros para obter as notícias mais recentes sobre "Inteligência Artificial" com os parâmetros `freshness` e `sortBy`. Verifique o número de resultados e imprima `totalEstimatedMatches`, `name`, `url`, `description`, `published time` e `name of provider` do primeiro resultado do item de notícias.
-```
-def news_search_with_filtering(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        news_result = client.news.search(
-            query="Artificial Intelligence",
-            market="en-us",
-            freshness="Week",
-            sort_by="Date"
-        )
-        print("\r\nSearch most recent news for query \"Artificial Intelligence\" with freshness and sortBy")
-
-        if news_result.value:
-            first_news_result = news_result.value[0]
-            print("News result count: {}".format(len(news_result.value)))
-            print("First news name: {}".format(first_news_result.name))
-            print("First news url: {}".format(first_news_result.url))
-            print("First news description: {}".format(first_news_result.description))
-            print("First published time: {}".format(first_news_result.date_published))
-            print("First news provider: {}".format(first_news_result.provider[0].name))
-        else:
-            print("Didn't see any news result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
-```
-Pesquise notícias da categoria para filme e entretenimento na TV com pesquisa segura. Verifique o número de resultados e imprima `category`, `name`, `url`, `description`, `published time` e `name of provider` do primeiro resultado do item de notícias.
-```
-def news_category(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        news_result = client.news.category(
-            category="Entertainment_MovieAndTV",
-            market="en-us",
-            safe_search="strict"
-        )
-        print("\r\nSearch category news for movie and TV entertainment with safe search")
-
-        if news_result.value:
-            first_news_result = news_result.value[0]
-            print("News result count: {}".format(len(news_result.value)))
-            print("First news category: {}".format(first_news_result.category))
-            print("First news name: {}".format(first_news_result.name))
-            print("First news url: {}".format(first_news_result.url))
-            print("First news description: {}".format(first_news_result.description))
-            print("First published time: {}".format(first_news_result.date_published))
-            print("First news provider: {}".format(first_news_result.provider[0].name))
-        else:
-            print("Didn't see any news result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
-
-```
-Pesquise tópicos populares de notícias no Bing.  Verifique o número de resultados e imprima `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` e `image Url` do primeiro resultado de notícias.
-```
-def news_trending(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        trending_topics = client.news.trending(market="en-us")
-        print("\r\nSearch news trending topics in Bing")
-
-        if trending_topics.value:
-            first_topic = trending_topics.value[0]
-            print("News result count: {}".format(len(trending_topics.value)))
-            print("First topic name: {}".format(first_topic.name))
-            print("First topic query: {}".format(first_topic.query.text))
-            print("First topic image url: {}".format(first_topic.image.url))
-            print("First topic webSearchUrl: {}".format(first_topic.web_search_url))
-            print("First topic newsSearchUrl: {}".format(first_topic.news_search_url))
-        else:
-            print("Didn't see any topics result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Exemplos do SDK do Python dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-
-
+> [!div class="nextstepaction"]
+[Criar um aplicativo Web de página única](tutorial-bing-news-search-single-page-app.md)

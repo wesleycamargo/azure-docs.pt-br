@@ -4,22 +4,22 @@ description: Etapas para configurar um aplicativo OpenID/OAuth da galeria de apl
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: tutorial
+ms.date: 01/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 1215e0060662e0d5261d3aeac4874e5833131ba3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287431"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260832"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar um aplicativo OpenID/OAuth da galeria de aplicativo do Azure AD
 
@@ -27,19 +27,19 @@ ms.locfileid: "51287431"
 
 1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
 
-    ![Botão do Azure Active Directory](./media/openidoauth-tutorial/tutorial_general_01.png)
+    ![O botão Azure Active Directory](common/select-azuread.png))
 
 2. Acesse **Aplicativos empresariais** > **Todos os aplicativos**.
 
-    ![Folha de aplicativos empresariais](./media/openidoauth-tutorial/tutorial_general_02.png)
+    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
 3. Selecione **Novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![Botão Novo aplicativo](./media/openidoauth-tutorial/tutorial_general_03.png)
+    ![O botão Novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, digite o nome do aplicativo. Selecione o aplicativo desejado no painel de resultados e inscreva-se no aplicativo.
 
-    ![Adicionando aplicativo](./media/openidoauth-tutorial/addfromgallery.png)
+    ![OpenID na lista de resultados](common/search-new-app.png)
 
     > [!NOTE]
     > Para os aplicativos OpenID Connect e OAuth, o botão **Adicionar** está desabilitado por padrão. Aqui o administrador de locatário deve selecionar o botão para se inscrever e dar o consentimento ao aplicativo. Em seguida, o aplicativo é adicionado ao locatário do cliente, onde você pode definir as configurações. Não é necessário adicionar o aplicativo explicitamente.

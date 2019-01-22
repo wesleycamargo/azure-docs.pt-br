@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: 5d7a16ebda088d0ed42021e9def20a398e914ad9
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 29672a75408e42fb9239e5d826784b46e7280805
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158118"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332261"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Criar, alterar ou excluir uma tabela de rotas do Azure usando o Ansible
 O Azure roteia o tráfego automaticamente entre redes virtuais, redes locais e sub-redes do Azure. Se você desejar alterar qualquer roteamento padrão no Azure, poderá criar uma [tabela de rotas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) para fazer isso.
@@ -51,7 +51,7 @@ ansible-playbook route_table_create.yml
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
 Uma sub-rede pode ter zero ou uma tabela de rotas associada a ela. Uma tabela de rotas pode ser associada a zero ou várias sub-redes. Já que tabelas de rotas não são associadas a redes virtuais, você precisa associar uma tabela de rotas a cada sub-rede à qual você deseje associar a tabela de rotas. Todo o tráfego deixando a sub-rede é roteado com base nas rotas que você criou nas tabelas de rota, [as rotas padrão](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default) e as rotas propagadas de uma rede local, se a rede virtual está conectada a um gateway de rede virtual do Azure (ExpressRoute, ou então VPN caso o BGP esteja sendo usado com um gateway de VPN). Você só pode associar uma tabela de rotas a sub-redes em redes virtuais que existem no mesmo local e assinatura do Azure que a tabela de rotas.
 
-Esta seção apresenta um guia estratégico do Ansible de exemplo que cria uma rede virtual e uma sub-rede, depois associa uma tabela de rotas à sub-rede.
+Esta seção apresenta um guia estratégico de exemplo do Ansible que cria uma rede virtual e uma sub-rede e, em seguida, associa uma tabela de rotas à sub-rede.
 
 ```yml
 - hosts: localhost

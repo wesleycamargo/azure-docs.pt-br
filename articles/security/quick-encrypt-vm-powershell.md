@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/14/2019
 ms.author: mstewart
 ms.custom: seodec18
-ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f94ec1a64108cde6ff69a572559960a988a1b7c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087851"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261274"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Início Rápido: Criptografar uma VM de IaaS do Windows com o Azure PowerShell
 
@@ -30,9 +30,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Windows PowerShell ISE
-- Instale ou atualize a [versão mais recente do Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- Instalar ou atualizar para a [última versão do módulo AzureRM do PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)
     - A versão do módulo AzureRM precisa ser 6.0.0 ou superior. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
-- Uma cópia do [script de pré-requisitos do Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+- Uma cópia do [script de pré-requisitos do Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
     - Se você já tem esse script, baixe uma nova cópia, pois ele foi alterado recentemente. 
     - Use **CTRL-A** para selecionar todo o texto e use **CTRL-C** para copiar todo o texto no Bloco de Notas.
     - Salve o arquivo como **ADEPrereqScript.ps1**

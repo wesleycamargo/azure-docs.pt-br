@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036047"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358551"
 ---
-# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: devolver o Azure Data Box e verificar o carregamento de dados para o Azure
+# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verificar o upload de dados para o Azure
 
 Este tutorial descreve como devolver o Azure Data Box e verificar os dados carregados no Azure.
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá sobre tópicos como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se você concluiu todo o [Tutorial: copiar dados para o Azure Data Box e verificar](data-box-deploy-copy-data.md).
+Antes de começar, verifique se você concluiu o [Tutorial: Copiar dados para o Azure Data Box e verificá-los](data-box-deploy-copy-data.md).
 
 ## <a name="ship-data-box-back"></a>Devolver o Data Box
 
@@ -37,9 +37,7 @@ Antes de começar, verifique se você concluiu todo o [Tutorial: copiar dados pa
 
     Se o envio do dispositivo está ocorrendo na Europa, a tela de papel eletrônico não mostra a etiqueta de remessa. Em vez disso, a etiqueta de remessa de devolução está incluído na bolsa transparente sob a etiqueta de remessa de encaminhamento. Remova a etiqueta de remessa antiga e verifique se a etiqueta de remessa está claramente visível.
     
-3. Agende uma coleta com a UPS se devolver o dispositivo nos EUA. Se você estiver devolvendo o dispositivo na Europa com a DHL, solicite a retirada da DHL visitando o site e especificando o número da carta de porte aéreo. Vá para o site da DHL Express do país e escolha **Agendar a recolha pelo serviço de correio > Remessa de eReturn**. 
-
-    Especifique o número da carta de porte e clique em **Agendar retirada** para organizar a retirada.
+3. Agende uma retirada com a UPS se estiver devolvendo o dispositivo. Para agendar uma retirada, ligue para a UPS local (número de chamada gratuita específico do país) ou entregue o Data Box na localização de entrega mais próxima.
 
 4. Após a coleta e registro do Data Box por sua operadora, o status do pedido no portal será atualizado para **Recolhido**. Uma ID de rastreamento também é exibida.
 

@@ -1,13 +1,10 @@
 ---
-title: Exemplo do PowerShell – Balancear a carga do tráfego para VMs para alta disponibilidade – Azure | Microsoft Docs
+title: Exemplo do PowerShell – Balancear a carga do tráfego para VMs para alta disponibilidade – Azure
+titlesuffix: Azure Load Balancer
 description: Este Exemplo de Script do Azure PowerShell mostra como balancear a carga do tráfego para VMs para alta disponibilidade
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: sample
@@ -15,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 31fd1e7d10692a1fbb552a483ae00e0088785a67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0440c7e2d2e79e2b954f975167389cf7698a6370
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181245"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201005"
 ---
-# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemplo de script do Azure PowerShell: balancear a carga do tráfego para VMs para alta disponibilidade
+# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemplo de script do Azure PowerShell: Balancear o tráfego de VMs para alta disponibilidade
 
 Este exemplo de script do Azure PowerShell cria todos os componentes necessários para executar várias máquinas virtuais do Windows definidas em uma configuração de alta disponibilidade e balanceamento de carga. Após a execução do script, você terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure, e acessíveis por meio de um Azure Load Balancer.
 

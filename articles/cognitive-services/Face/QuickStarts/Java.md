@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Detectar faces em uma imagem com a API REST do Azure e Java'
+title: 'Início Rápido: Detectar rostos em uma imagem com a API REST do Azure e Java'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você usará a API de Detecção Facial do Azure com Java para detectar faces em uma imagem.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c035734d443eba01af6f167681ae289401dbcb4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851663"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212865"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início Rápido: Detectar faces em uma imagem usando a API REST e Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Java
 
 Neste início rápido, você usará a API de Detecção Facial do Azure com Java para detectar faces humanas em uma imagem.
 
@@ -31,8 +31,10 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="create-the-java-project"></a>Criar o projeto Java
 
 Crie um novo aplicativo Java de linha de comando em seu IDE e adicione uma classe **Main** com um método **main**. Depois, baixe estas bibliotecas globais do repositório Maven para o diretório `lib` de seu projeto:
-* `org.apache.httpcomponents:httpclient:4.2.4`
+* `org.apache.httpcomponents:httpclient:4.5.6`
+* `org.apache.httpcomponents:httpcore:4.4.10`
 * `org.json:json:20170516`
+* `commons-logging:commons-logging:1.1.2`
 
 ## <a name="add-face-detection-code"></a>Adicionar código de detecção facial
 
@@ -54,7 +56,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -92,7 +94,7 @@ private static final String faceAttributes =
 Adicione o seguinte método ao método **main**. Ele constrói uma chamada REST para a API de Detecção Facial para detectar informações sobre a face na imagem remota (a cadeia de caracteres `faceAttributes` especifica quais atributos de face recuperar). Em seguida, ele grava os dados de saída em uma cadeia de caracteres JSON.
 
 ```Java
-HttpClient httpclient = new DefaultHttpClient();
+HttpClient httpclient = HttpClientBuilder.create().build();
 
 try
 {
@@ -249,4 +251,4 @@ Compile o código e execute-o. Uma resposta bem-sucedida exibirá dados de Detec
 Neste início rápido, você criou um aplicativo de console simples de Java que usa chamadas REST com a API de Detecção Facial do Azure para detectar faces em uma imagem e retornar seus atributos. Agora, saiba como aproveitar mais essa funcionalidade em um aplicativo para Android.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar um aplicativo para Android para detectar e enquadrar faces](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Tutorial: Criar um aplicativo Android para detectar e enquadrar rostos](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

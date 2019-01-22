@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716099"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332057"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -357,7 +357,7 @@ Após a solução ser criada, você revisará o código exclusivo dos projetos d
 
 ### <a name="set-project-references"></a>Definir referências de projeto
 1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito do mouse no projeto ContosoAdsWeb e depois clique em **Referências** - **Adicionar Referências**. Na caixa de diálogo **Gerenciador de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e depois clique em **OK**.
-2. No projeto ContosoAdsWorker, defina uma referência para o projeto ContosAdsCommon.
+2. No projeto ContosoAdsWorker, defina uma referência ao projeto ContosoAdsCommon.
 
     ContosoAdsCommon conterá o modelo de dados e a classe de contexto de Entity Framework, que serão usados por front-end e back-end.
 3. No projeto ContosoAdsWorker, defina uma referência para `System.Drawing`.
@@ -380,7 +380,7 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
 3. No projeto ContosoAdsCloudService, clique com o botão direito do mouse em ContosoAdsWeb abaixo de **Funções** e depois clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Na janela de propriedades de **ContosAdsWeb [Role]**, clique na guia **Configurações** e depois clique em **Adicionar configuração**.
+4. Na janela Propriedades de **ContosoAdsWeb [Função]**, clique na guia **Configurações** e, em seguida, em **Adicionar Configuração**.
 
     Deixe **Configuração de Serviço** definida como **Todas as configurações**.
 5. Adicione uma configuração chamada *StorageConnectionString*. Defina **Tipo** como *ConnectionString* e defina **Valor** como *UseDevelopmentStorage=true*.

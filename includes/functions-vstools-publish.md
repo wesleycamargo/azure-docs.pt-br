@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b290cada86401d91313939a7673998810cb82551
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3ac7d8cc4705fe1b6e80f1e0c7e26d847d761cf6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51028125"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54357021"
 ---
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto e selecione **Publicar**.
 
@@ -21,7 +21,7 @@ ms.locfileid: "51028125"
 
     ![Escolher um destino de publicação](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    Quando você habilita **Executar do Zip**, seu aplicativo de funções no Azure é executado diretamente do pacote de implantação. Para obter mais informações, consulte [Executar o Azure Functions de um arquivo de pacote](../articles/azure-functions/run-functions-from-deployment-package.md).
+    Quando você habilita **Executar do Zip**, o aplicativo de funções no Azure entra no modo somente leitura e é executado diretamente no pacote de implantação. Para obter mais informações, consulte [Executar o Azure Functions de um arquivo de pacote](../articles/azure-functions/run-functions-from-deployment-package.md).
      
     >[!CAUTION]
     >Quando você escolhe **selecionar existente**, todos os arquivos no aplicativo de funções existente no Azure são substituídos pelos arquivos do projeto local. Use essa opção somente quando republicar atualizações para um aplicativo de funções existente.
