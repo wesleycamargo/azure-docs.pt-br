@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7e5f72ca637cb657369a3b384aee666e0935b9d0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103751"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263537"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
 
@@ -44,9 +44,7 @@ Este artigo resume as configurações e os componentes com suporte quando você 
 
 É possível replicar e recuperar VMs entre duas regiões quaisquer dentro do mesmo cluster geográfico. Clusters geográficos são definidos mantendo a latência de dados e a soberania em mente.
 
->[!NOTE]
->Caso não possa ver uma região em um cluster Geográfico durante a habilitação da replicação, verifique se sua assinatura tem acesso para criar a máquina virtual nessa região. Caso contrário, acione uma solicitação de suporte em "Tipo de problema" na assinatura.
->
+
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
 América | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Centro-Norte dos EUA
@@ -59,9 +57,13 @@ China | Leste da China, Norte da China, Norte da China2, Leste da China2
 
 >[!NOTE]
 >
-> Para a região Sul do Brasil, você pode replicar e fazer failover para um dos seguintes: Centro-Sul dos EUA, Centro-oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e regiões do Centro-Norte dos EUA.
->
-> Deve-se observar que o Site Recovery habilitou apenas Sul do Brasil para ser usado como uma região de origem da qual as VMs podem ser protegidas. Não pode ser usada como uma região de recuperação de desastre de destino para nenhuma das regiões do Azure, como o Centro-Sul dos EUA. O motivo é a latência observada devido à distância geográfica, sendo recomendável selecionar qualquer outra região da América que não seja o Sul do Brasil.
+> - Para a região **Sul do Brasil**, você pode replicar e fazer failover para um dos seguintes: Centro-Sul dos EUA, Centro-oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e regiões do Centro-Norte dos EUA. Deve-se observar que o Site Recovery habilitou apenas Sul do Brasil para ser usado como uma região de origem da qual as VMs podem ser protegidas. Ela **não pode ser usada como uma região de recuperação de desastre de destino** para nenhuma das regiões do Azure, como o Centro-Sul dos EUA. O motivo é a latência observada devido à distância geográfica, sendo recomendável selecionar qualquer outra região da América que não seja o Sul do Brasil.
+> 
+> - Se você **não conseguir ver uma região** na qual deseja **criar um cofre**, verifique se sua assinatura tem acesso para criar recursos nessa região. Por exemplo:  Se você não puder criar o cofre no Sul da França, sua assinatura não terá acesso à região Sul da França. Registre um tíquete de suporte com o Tipo de questão "gerenciamento de assinatura", o tipo de problema "outras questões gerais" e o assunto "colocar assinatura na lista de permissões para a região XXX do Azure"
+> 
+> - Caso **não possa ver uma região** em um cluster Geográfico **durante a habilitação da replicação**, verifique se a assinatura tem acesso para criar a máquina virtual nessa região. Por exemplo:  Se você estiver tentando proteger máquinas virtuais da França Central no Sul da França e não vir Sul da França na lista suspensa de regiões, sua assinatura não terá acesso para implantar a VM nessa região. Registre um tíquete de suporte com o Tipo de questão "gerenciamento de assinatura", o tipo de problema "outras questões gerais" e o assunto "colocar assinatura na lista de permissões para a região XXX do Azure"
+> - Você não pode selecionar regiões nos clusters geográficos mencionados acima.
+
 
 ## <a name="cache-storage"></a>Armazenamento em cache
 

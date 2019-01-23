@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad04b229e4c6ace3f87ba6e800c0a7c82eb76d92
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 10c8c0043d04d99ad10e475f903979edb0ddcb70
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633947"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266885"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Instâncias Grandes) no Azure
 
@@ -30,7 +30,7 @@ A instalação do SAP HANA é sua responsabilidade. Você pode começar a instal
 > [!Note]
 > De acordo com a política da SAP, a instalação do SAP HANA deve ser executada por alguém que tenha sido aprovado no exame Certified SAP Technology Associate, no exame de certificação de instalação do SAP HANA ou que seja um integrador de sistema (SI) certificado pela SAP.
 
-Ao planejar a instalação do HANA 2.0, consulte a [Nota de suporte SAP n° 2235581 – SAP HANA: sistemas operacionais com suporte](https://launchpad.support.sap.com/#/notes/2235581/E) para verificar se o sistema operacional é compatível com a versão do SAP HANA que está sendo instalada. O sistema operacional com suporte para o HANA 2.0 é mais restrito do que o sistema operacional com suporte para o HANA 1.0. 
+Ao planejar a instalação do HANA 2.0, consulte a [Nota de suporte SAP nº 2235581 – SAP HANA: sistemas operacionais com suporte](https://launchpad.support.sap.com/#/notes/2235581/E) para verificar se o sistema operacional é compatível com a versão do SAP HANA que está sendo instalada. O sistema operacional com suporte para o HANA 2.0 é mais restrito do que o sistema operacional com suporte para o HANA 1.0. 
 
 > [!IMPORTANT] 
 > Para unidades do Tipo II, atualmente, somente a versão SLES 12 SP2 do sistema operacional tem suporte. 
@@ -85,9 +85,9 @@ A **quinta etapa** é verificar etc/hosts. Conforme as folhas são entregues, el
 > [!IMPORTANT] 
 > Para unidades do Tipo II, atualmente, há suporte apenas para a versão SLES 12 SP2 do sistema operacional. 
 
-O espaço de troca da imagem do sistema operacional fornecida é definido como 2 GB, de acordo com a [Nota de suporte SAP n° 1999997 – Perguntas frequentes: memória do SAP HANA](https://launchpad.support.sap.com/#/notes/1999997/E). Como cliente, se você desejar uma configuração diferente, deverá defini-la por conta própria.
+O espaço de troca da imagem do sistema operacional fornecida é definido como 2 GB, de acordo com a [Nota de suporte SAP nº 1999997 – Perguntas frequentes: memória do SAP HANA](https://launchpad.support.sap.com/#/notes/1999997/E). Como cliente, se você desejar uma configuração diferente, deverá defini-la por conta própria.
 
-[SUSE Linux Enterprise Server 12 SP1 para aplicativos SAP](https://www.suse.com/products/sles-for-sap/hana) é a distribuição do Linux instalada para SAP HANA no Azure (Instâncias Grandes). Essa distribuição particular fornece recursos específicos do SAP “prontos para uso” (incluindo parâmetros predefinidos para executar o SAP em SLES de modo eficaz).
+[SUSE Linux Enterprise Server 12 SP1 para aplicativos SAP](https://www.suse.com/products/sles-for-sap/download/) é a distribuição do Linux instalada para SAP HANA no Azure (Instâncias Grandes). Essa distribuição particular fornece recursos específicos do SAP “prontos para uso” (incluindo parâmetros predefinidos para executar o SAP em SLES de modo eficaz).
 
 Consulte [Biblioteca de recursos/white papers](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) no site do SUSE e [SAP no SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) na SCN (Rede da Comunidade SAP) para obter vários recursos úteis relacionados à implantação do SAP HANA em SLES (incluindo configuração de alta disponibilidade, proteção de segurança específica para operações do SAP e muito mais).
 
@@ -102,7 +102,7 @@ A seguir, há notas de suporte da SAP aplicáveis à implementação do SAP HANA
 - [Nota de suporte SAP n° 1944799 – diretrizes do SAP HANA para instalação do sistema operacional SLES](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 - [Nota de suporte SAP n° 2205917 – configurações de SO recomendadas para o banco de dados do SAP HANA para SLES 12 para aplicativos SAP](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [Nota de suporte SAP n° 1984787 – SUSE Linux Enterprise Server 12: notas de instalação](https://launchpad.support.sap.com/#/notes/1984787)
-- [Nota de suporte SAP n° 171356 – software SAP no Linux: informações gerais](https://launchpad.support.sap.com/#/notes/1984787)
+- [Nota de suporte SAP nº 171356 – software SAP no Linux:  Informações gerais](https://launchpad.support.sap.com/#/notes/1984787)
 - [Nota de suporte SAP n° 1391070 – Soluções UUID do Linux](https://launchpad.support.sap.com/#/notes/1391070)
 
 [Red Hat Enterprise Linux para SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) é outra oferta para execução do SAP HANA em instâncias grandes de HANA. As versões do RHEL 6.7 e 7.2 estão disponíveis. Observe que, ao contrário das VMs do Azure, em que apenas RHEL 7.2 e as versões mais recentes têm suporte, as grandes instâncias HANA também oferecem suporte para RHEL 6.7. No entanto, é recomendável usar uma versão do RHEL 7.x.
@@ -113,13 +113,13 @@ A seguir, há links adicionais e úteis relacionados ao SAP no Red Hat:
 A seguir, há notas de suporte SAP aplicáveis à implementação do SAP HANA no Red Hat:
 
 - [Nota de suporte SAP n° 2009879 – Diretrizes SAP HANA para o sistema operacional RHEL (Red Hat Enterprise Linux)](https://launchpad.support.sap.com/#/notes/2009879/E)
-- [Nota de suporte SAP n° 2292690 – Banco de dados SAP HANA: configurações de sistema operacional recomendadas para RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
-- [Nota de suporte da SAP n° 2247020 – Banco de dados SAP HANA: configurações de sistema operacional recomendadas para RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020)
+- [Nota de suporte SAP nº 2292690 – BD SAP HANA: Configurações do sistema operacional recomendadas para RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
+- [Nota de suporte SAP nº 2247020 – BD SAP HANA: configurações do sistema operacional recomendadas para RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020)
 - [Nota de suporte SAP n° 1391070 – Soluções UUID do Linux](https://launchpad.support.sap.com/#/notes/1391070)
-- [Nota de suporte SAP n° 2228351 – Linux: banco de dados SAP HANA SPS 11 revisão 110 (ou superior) em RHEL 6 ou SLES 11](https://launchpad.support.sap.com/#/notes/2228351)
-- [Nota de suporte SAP n° 2397039 – Perguntas frequentes: SAP em RHEL](https://launchpad.support.sap.com/#/notes/2397039)
-- [Nota de suporte SAP n° 1496410 – Red Hat Enterprise Linux 6.x: instalação e atualização](https://launchpad.support.sap.com/#/notes/1496410)
-- [Nota de suporte SAP n° 2002167 – Red Hat Enterprise Linux 7.x: instalação e atualização](https://launchpad.support.sap.com/#/notes/2002167)
+- [Nota de suporte SAP nº 2228351 – Linux: banco de dados SAP HANA SPS 110 revisão 6 (ou superior) em RHEL 11 ou SLES 11](https://launchpad.support.sap.com/#/notes/2228351)
+- [Nota de suporte SAP nº 2397039 – Perguntas frequentes: SAP em RHEL](https://launchpad.support.sap.com/#/notes/2397039)
+- [Nota de suporte SAP nº 1496410 – Red Hat Enterprise Linux 6.x: instalação e atualização](https://launchpad.support.sap.com/#/notes/1496410)
+- [Nota de suporte SAP nº 2002167 – Red Hat Enterprise Linux 7.x: instalação e atualização](https://launchpad.support.sap.com/#/notes/2002167)
 
 ### <a name="time-synchronization"></a>Sincronização de horário
 
@@ -201,7 +201,7 @@ Para as versões 1.0 do SAP HANA até SPS12, esses parâmetros podem ser definid
 
 Você também pode configurar os parâmetros após a instalação do banco de dados SAP HANA usando a estrutura hdbparam. 
 
-Com o SAP HANA 2.0, a estrutura hdbparam foi preterida. Como resultado, os parâmetros devem ser definidos usando os comandos SQL. Para obter mais informações, consulte [Nota SAP nº 2399079: eliminação de hdbparam no HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
+Com o SAP HANA 2.0, a estrutura hdbparam foi preterida. Como resultado, os parâmetros devem ser definidos usando os comandos SQL. Para saber mais, confira a [Nota SAP nº 2399079: eliminação de hdbparam no HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
 Consulte os [cenários com suporte para HLI](hana-supported-scenario.md) para saber mais sobre o layout de armazenamento para sua arquitetura.
 

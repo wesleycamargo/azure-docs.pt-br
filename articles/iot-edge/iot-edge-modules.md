@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 976b46a26d95b5e252b0df2383ea94b4dd280d24
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094178"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229618"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Entenda os módulos do Azure IoT Edge
 
@@ -30,7 +30,7 @@ O Azure IoT Edge permite que você implante e gerencie a lógica de negócios no
 As imagens de módulo do IoT Edge contêm aplicativos que tiram proveito dos recursos de comunicação, segurança e gerenciamento do tempo de execução do IoT Edge. Você pode desenvolver suas próprias imagens de módulo ou exportar uma de um serviço do Azure com suporte, como o Azure Stream Analytics.
 As imagens existem na nuvem e podem ser atualizadas, alteradas e implantadas em diferentes soluções. Por exemplo, um módulo que usa aprendizado de máquina para prever a saída da linha de produção como uma imagem separada, em comparação com um módulo que usa a visão do computador para controlar um drone. 
 
-Sempre que uma imagem de módulo é implantada em um dispositivo e iniciada pelo tempo de execução do IoT Edge, uma nova instância desse módulo é criada. Dois dispositivos em diferentes partes do mundo poderiam usar a mesma imagem de módulo. No entanto, cada um teria sua própria instância de módulo quando o módulo fosse iniciado no dispositivo. 
+Sempre que uma imagem de módulo é implantada em um dispositivo e iniciada pelo tempo de execução do IoT Edge, uma nova instância desse módulo é criada. Dois dispositivos em diferentes partes do mundo podem usar a mesma imagem de módulo. No entanto, cada dispositivo terá sua própria instância de módulo quando o módulo for iniciado no dispositivo. 
 
 ![Diagrama: imagens de módulo na nuvem, instâncias de módulo em dispositivos](./media/iot-edge-modules/image_instance.png)
 
@@ -53,7 +53,7 @@ Claramente, em cenários nos quais você precisa implantar uma imagem de módulo
 
 Cada instância de módulo também tem um módulo gêmeo correspondente que você pode usar para configurar a instância de módulo. A instância e o gêmeo são associados entre si por meio da identidade de módulo. 
 
-O módulo gêmeo é um documento JSON que armazena as propriedades de configuração e as informações do módulo. Esse conceito é comparável ao conceito de [dispositivo gêmeo](../iot-hub/iot-hub-devguide-device-twins.md) do Hub IoT. A estrutura de um módulo gêmeo é exatamente igual a de um dispositivo gêmeo. As APIs usadas para interagir com os dois tipos de gêmeos também são as mesmas. A única diferença entre os dois é a identidade usada para instanciar o SDK do cliente. 
+O módulo gêmeo é um documento JSON que armazena as propriedades de configuração e as informações do módulo. Esse conceito é comparável ao conceito de [dispositivo gêmeo](../iot-hub/iot-hub-devguide-device-twins.md) do Hub IoT. A estrutura de um módulo gêmeo é igual a de um dispositivo gêmeo. As APIs usadas para interagir com os dois tipos de gêmeos também são as mesmas. A única diferença entre os dois é a identidade usada para instanciar o SDK do cliente. 
 
 ```csharp
 // Create a ModuleClient object. This ModuleClient will act on behalf of a 
@@ -73,9 +73,9 @@ O Azure IoT Edge tem suporte para operações offline nos seus dispositivos IoT 
 Módulos IoT Edge podem estar offline por períodos estentidos por tempo indeterminado enquanto os requisitos seguintes forem cumpridos: 
 
 * **A mensagem de TTL (vida útil) não expirou**. O valor padrão para mensagem TTL é de duas horas, mas pode ser mudado para maior ou menor na Store e outras configurações nas configurações do IoT Edge Hub. 
-* **Módulos não precisam reautenticar com o hub do IoT Edge quando estiverem offline**. Módulos podem apenas autenticar com Hubs Edge que têm uma conexão ativa com um Hub do IoT. Módulos precisam reautenticar se eles forem reiniciados por qualquer razão. Módulos podem ainda enviar mensagens ao Hub Edge depois que seu token SAS expirar. Quando a conectividade voltar, o Hub Edge solicita um novo token do módulo e valida com o Hub IoT. Se for bem sucedido, o Hub Edge envia ao módulo mensagens que ele armazenou, mesmo as mensagens que foram enviadas enquanto o token do módulo estava expirado. 
-* **O módulo que enviar as mensagens enquanto offline ainda é funcional quando a conectividade volta**. Ao reconectar para Hub IoT, o Hub Edge precisa validar um novo token de módulo (se o anterior expirou) antes que possa enviar as mensagens de módulo. Se o módulo não estiver disponível para fornecer um novo token, o Hub Edge não pode agir mas mensagens armazenadas no módulo. 
-* **O Hub Edge tem espaço de disco para armazenar as mensagens**. Por padrão, mensagens são armazenadas no Hub Edge do sistema de arquivos do contêiner. Há uma opção de configuração para especificar um volume montado para armazenar as mensagens. Em qualquer caso, precisa ter espaço disponível para armazenar as mensagens para a entrega designada ao Hub IoT.  
+* **Módulos não precisam reautenticar com o hub do IoT Edge quando estiverem offline**. Módulos podem apenas autenticar com Hubs do IoT Edge que têm uma conexão ativa com um hub IoT. Módulos precisam reautenticar-se ao serem reiniciados por qualquer razão. Os módulos ainda podem ainda enviar mensagens ao hub do IoT Edge depois da expiração do token SAS. Quando a conectividade voltar, o hub do IoT Edge solicita um novo token do módulo e valida com o Hub IoT. Se for bem-sucedido, o hub do IoT Edge enviará ao módulo mensagens que ele armazenou, mesmo as mensagens que foram enviadas enquanto o token do módulo estava expirado. 
+* **O módulo que enviar as mensagens enquanto offline ainda é funcional quando a conectividade volta**. Ao reconectar para Hub IoT, o hub do IoT Edge precisa validar um novo token de módulo (se o anterior tiver expirado) antes que possa enviar as mensagens de módulo. Se o módulo não estiver disponível para fornecer um novo token, o hub do IoT Edge não poderá agir mas mensagens armazenadas no módulo. 
+* **O hub do IoT Edge tem espaço em disco para armazenar as mensagens**. Por padrão, mensagens são armazenadas no hub do IoT Edge do sistema de arquivos do contêiner. Há uma opção de configuração para especificar um volume montado para armazenar as mensagens. Em qualquer caso, precisa ter espaço disponível para armazenar as mensagens para a entrega designada ao Hub IoT.  
 
 Recursos off-line adicionais estão disponíveis na visualização pública. Para obter mais informações, consulte [compreender estendido recursos offline para o IoT Edge dispositivos, módulos e dispositivos filho](offline-capabilities.md).
 

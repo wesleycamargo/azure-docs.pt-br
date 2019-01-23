@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 20311f904356f16b34f64d0aaf6ed438ba692857
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155143"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260457"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Perguntas comuns: Replicação de Azure para Azure
 
@@ -74,10 +74,16 @@ Um ponto de recuperação consistente em termos de falha representa os dados em 
 
 Atualmente, a maioria dos aplicativos pode recuperar-se bem de instantâneos consistente em termos de falha. Um ponto de recuperação consistente em termos de falha geralmente é suficiente para sistemas operacionais sem banco de dados e aplicativos como servidores, servidores DHCP, servidores de impressão.
 
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Qual é a frequência de geração de ponto de recuperação consistente com a falha?
+O Site Recovery cria um ponto de recuperação consistente em termos de falha a cada 5 minutos.
+
 ### <a name="what-is-an-application-consistent-recovery-point"></a>O que é ponto de recuperação consistente em termos de aplicativo? 
 Pontos de recuperação consistentes em termos de aplicativo são criados com base em instantâneos consistentes em termos de aplicativo. Instantâneos consistentes em termos de aplicativo capturam os mesmos dados de instantâneos consistentes em termos de falhas, além de todos os dados na memória e todas as transações em andamento. 
 
 Devido a seu conteúdo extra, instantâneos de aplicativo consistente são os mais envolvidos e levam mais tempo para executar. Recomendamos pontos de recuperação consistentes em termos de aplicativo para sistemas operacionais de banco de dados como o SQL Server.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Qual é a frequência mínima de geração de ponto de recuperação consistente com o aplicativo?
+O Site Recovery consegue criar um ponto de recuperação consistente com o aplicativo com frequência mínima de 1 hora.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>Como os pontos de recuperação são gerados e salvos?
 Para entender como o Site Recovery gera pontos de recuperação, vamos examinar um exemplo da política de replicação que tem uma janela de retenção de ponto de recuperação de 24 horas e um instantâneo de frequência consistente em termos de aplicativo de 1 hora.
@@ -153,6 +159,9 @@ A opção **Últimos processados** executa failover de todas as VMs no plano par
 
 ### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Se estiver replicando entre duas regiões do Azure, o que acontece se minha região primária passar por uma interrupção inesperada?
 É possível disparar um failover após a interrupção. O Site Recovery não precisa de conectividade da região primária para realizar o failover.
+
+### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>O que é um RTO de um failover de máquina virtual?
+O Site Recovery tem um [SLA de RTO de 2 horas](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). No entanto, a maioria das vezes, o Site Recovery faz failover de máquinas virtuais em minutos. É possível calcular o RTO acessando os trabalhos de failover, que mostram o tempo necessário para criar a VM. Para a RTO do plano de recuperação, veja a seção abaixo. 
 
 ## <a name="recovery-plan"></a>Plano de recuperação
 

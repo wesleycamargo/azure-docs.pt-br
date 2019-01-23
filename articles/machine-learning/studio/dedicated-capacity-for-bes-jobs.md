@@ -1,25 +1,8 @@
 ---
-title: Serviço de Lote do Azure para trabalhos do Machine Learning Studio | Microsoft Docs
-description: Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning. O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275186"
+Título: Serviço de Lote do Azure para trabalhos do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Visão geral dos serviços do Lote do Azure para trabalhos do Machine Learning. O processamento de Pool do Lote permite criar pools nos quais é possível enviar trabalhos em lotes.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='Capacidade dedicada para trabalhos de serviço de execução em lote – Azure Machine Learning Studio | Microsoft Docs' ms.date: 19/04/2017
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Serviço de Lote do Azure para trabalhos do Azure Machine Learning Studio
 

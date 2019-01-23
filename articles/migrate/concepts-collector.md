@@ -4,15 +4,15 @@ description: Fornece informações sobre o dispositivo Coletor nas Migrações p
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104193"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262601"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre o dispositivo Coletor
 
@@ -126,12 +126,9 @@ A verificação de conectividade é validada conectando-se a uma lista de URLs.
 
 O Coletor conecta-se ao vCenter Server e consulta os metadados e os contadores de desempenho da VM. Aqui está o que você precisa para a conexão.
 
-- Somente há suporte para o vCenter Server versões 5.5, 6.0 e 6.5.
+- Há suporte apenas para o vCenter Server versões 5.5, 6.0, 6.5 e 6.7.
 - Você precisa de uma conta somente leitura com as permissões resumidas abaixo para descoberta. Somente data centers acessíveis com a conta podem ser acessados para descoberta.
 - Por padrão você se conecta ao vCenter Server com um endereço IP ou FQDN. Se o vCenter Server escutar em uma porta diferente, conecte-se a ele usando o formato *IPAddress:Port_Number* ou *FQDN:Port_Number*.
-- Para coletar dados de desempenho para armazenamento e rede, as configurações de estatísticas do vCenter Server precisam ser definidas como o nível três.
-- Se o nível for inferior a três, a descoberta funcionará, mas os dados de desempenho não serão coletados. Alguns contadores poderão ser coletados, mas outros serão definidos como zero.
-- Se os dados de desempenho de armazenamento e rede não forem coletados, as recomendações de tamanho de avaliação serão baseadas nos dados de desempenho de CPU e memória e nos dados de configuração de adaptadores de rede e disco.
 - O Coletor deve ter uma linha de visão de rede para o vCenter Server.
 
 #### <a name="account-permissions"></a>Permissões da conta

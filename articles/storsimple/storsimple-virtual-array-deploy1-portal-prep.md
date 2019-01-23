@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d87642b93d58d92660a2df71f2561ffe502315a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257258"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244776"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
 
@@ -43,8 +43,8 @@ Consulte os artigos a seguir na sequência prescrita para implantar sua Matriz V
 | **#** | **Nesta etapa** | **Para fazer isso...** | **Use estes documentos.** |
 | --- | --- | --- | --- |
 | 1. |**Configurar o portal do Azure** |Crie e configure o serviço Gerenciador de Dispositivos StorSimple antes do provisionamento de uma Matriz Virtual StorSimple. |[Preparar o portal](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Provisionar o Virtual Array** |Para o Hyper-V, provisione e conecte-se a uma Matriz Virtual StorSimple em um sistema de host que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Para o VMware, provisione e se conecte à Matriz Virtual StorSimple local em um sistema de host que executa o VMware ESXi 5.0, 5.5 ou 6.0.<br></br> |[Provisionar uma matriz virtual no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
-| 3. |**Configurar o Virtual Array** |Para seu servidor de arquivos, execute a configuração inicial, registre seu servidor de arquivos do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar compartilhamentos SMB. <br></br> <br></br> Para o servidor iSCSI, realize a configuração inicial, registre seu servidor iSCSI do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar volumes iSCSI. |[Configurar a matriz virtual como um servidor de arquivos](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configurar a matriz virtual como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
+| 2. |**Provisionar o Virtual Array** |Para o Hyper-V, provisione e conecte-se a uma Matriz Virtual StorSimple em um sistema de host que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Para o VMware, provisione e se conecte a uma Matriz Virtual StorSimple local em um sistema de host que executa o VMware ESXi 5.0, 5.5, 6.0 ou 6.5.<br></br> |[Provisionar uma matriz virtual no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 3. |**Configurar o Virtual Array** |Para seu servidor de arquivos, execute a configuração inicial, registre seu servidor de arquivos do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar compartilhamentos SMB. <br></br> <br></br>  Para o servidor iSCSI, realize a configuração inicial, registre seu servidor iSCSI do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar volumes iSCSI. |[Configurar a matriz virtual como um servidor de arquivos](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configurar a matriz virtual como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Agora, você pode começar a configurar o portal do Azure.
 
@@ -71,7 +71,7 @@ Antes de começar, verifique se:
 
 Antes de implantar um dispositivo virtual, verifique se:
 
-* Você tem acesso a um sistema de host que executa o Hyper-V no Windows Server 2008 R2 ou posterior ou VMware (ESXi 5.0, 5.5 ou 6.0) que pode ser usado para provisionar um dispositivo.
+* Você tem acesso a um sistema host que executa o Hyper-V no Windows Server 2008 R2 ou posterior ou o VMware (ESXi 5.0, 5.5, 6.0 ou 6.5) que pode ser usado para provisionar um dispositivo.
 * O sistema de host é capaz de dedicar os recursos abaixo para provisionar seu dispositivo virtual:
   
   * Um mínimo de quatro núcleos.
@@ -100,11 +100,11 @@ Uma única instância do serviço Gerenciador de Dispositivos StorSimple pode ge
 > Se você não ativou a criação automática de uma conta de armazenamento com seu serviço, você precisará criar pelo menos uma conta de armazenamento depois que você criou com êxito um serviço.
 > 
 > * Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#optional-step-configure-a-new-storage-account-for-the-service) para obter instruções detalhadas.
-> * Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2-get-the-service-registration-key).
+> * Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: obter a chave de registro do serviço](#step-2-get-the-service-registration-key).
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>Etapa 2: Obter a chave de registro do serviço
+## <a name="step-2-get-the-service-registration-key"></a>Etapa 2: Obtenha a chave de registro do serviço
 
 Depois que o serviço Gerenciador de Dispositivos StorSimple estiver em execução, será necessário obter a chave de registro do serviço. Essa chave é usada para registrar e conectar o seu dispositivo StorSimple com o serviço.
 
@@ -137,7 +137,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
    
    * VHDX para Hyper-V no Windows Server 2012 e posterior
    * VHD para Hyper-V no Windows Server 2008 R2 e posterior
-   * VMDK para VMWare ESXi 5.0, 5.5 e 6.0
+   * VMDK para VMWare ESXi 5.0, 5.5, 6.0 ou 6.5
 5. Baixe e descompacte o arquivo em uma unidade local, observando onde o arquivo descompactado está localizado.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Etapa opcional: Configurar uma nova conta de armazenamento para o serviço

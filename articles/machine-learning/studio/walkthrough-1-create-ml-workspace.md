@@ -1,26 +1,8 @@
 ---
-title: 'Etapa 1: Criar um workspace – Azure Machine Learning Studio | Microsoft Docs'
-description: 'Etapa 1 – Desenvolver um passo a passo de solução de previsão: saiba como configurar um novo workspace do Azure Machine Learning Studio.'
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: bc83fa6e3fa7d5ef31515309f5c1cd0b025c8906
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256359"
+Título: “Etapa 1: Criar um workspace” – titleSuffix: Descrição do Azure Machine Learning Studio: “Etapa 1 do passo a passo Desenvolver uma solução de previsão: saiba como configurar um novo workspace do Azure Machine Learning Studio.”
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: garyericson ms.author: garye ms.custom: seodec18 ms.date: 23/03/2017
 ---
 # <a name="walkthrough-step-1-create-an-azure-machine-learning-studio-workspace"></a>Etapa 1 do passo a passo: Criar um workspace do Azure Machine Learning Studio
 Esta é a primeira etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md).

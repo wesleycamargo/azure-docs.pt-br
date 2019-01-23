@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107422"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265406"
 ---
 # <a name="about-azure-vm-backup"></a>Sobre o backup de VM do Azure
 
@@ -55,6 +55,10 @@ Se você quiser instantâneos durante a execução de aplicativos, o Backup do A
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Execute o comando abaixo em um prompt de comando com privilégios elevados (como administrador) para definir a chave do Registro acima:
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **VMs Linux**: Para garantir que suas VMs do Linux sejam consistentes com o aplicativo quando o Backup do Azure tirar um instantâneo, use a estrutura de pré-script e pós-script do Linux. Escreva seus próprios scripts personalizados para garantir a consistência ao gerar um instantâneo de VM.
     -  O Backup do Azure invoca apenas os pré e pós-scripts escritos por você.
     - Se os pré e pós-scripts forem executados com êxito, o Backup do Azure marcará o ponto de recuperação como consistente com o aplicativo. No entanto, você é responsável pela consistência do aplicativo ao usar scripts personalizados.
@@ -132,11 +136,10 @@ Uma operação de restauração é composta por duas tarefas principais: copiar 
 
 Recomendamos seguir essas práticas ao configurar backups de VM:
 
-- Atualizar os cofres para o RP Instantâneo. Analise esses [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e, em seguida, faça o upgrade seguindo estas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - Considere a possibilidade de modificar a hora da política padrão fornecida (por ex.: Se a hora da política padrão for 12h, considere a possibilidade de incrementá-la em minutos) quando os instantâneos de dados forem tirados, a fim de garantir que os recursos sejam usados de forma ideal.
 - Para a VM Premium no recurso RP não Instantâneo, o backup aloca cerca de 50% do espaço total da conta de armazenamento. O serviço de backup exige que esse espaço copie o instantâneo para a mesma conta de armazenamento e para transferi-lo para o cofre.
 - Para restaurar VMs de um único cofre, é altamente recomendável usar [contas de armazenamento v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diferentes para garantir que a conta de armazenamento de destino não seja limitada. Por exemplo, cada VM precisa ter uma conta de armazenamento diferente (se 10 VMs forem restauradas, considere o uso de 10 contas de armazenamento diferentes).
-- As restaurações da camada de armazenamento da Camada 1 (instantâneo) serão concluídas em minutos (pois essa é a mesma conta de armazenamento) em relação à camada de armazenamento da Camada 2 (cofre), que poderá levar várias horas. Recomendamos que você use o recurso [RP Instantâneo](backup-upgrade-to-vm-backup-stack-v2.md) para obter restaurações mais rápidas, nos casos em que os dados estão disponíveis na Camada 1 (se os dados precisarem ser restaurados do cofre, isso levará tempo).
+- As restaurações da camada de armazenamento da Camada 1 (instantâneo) serão concluídas em minutos (pois essa é a mesma conta de armazenamento) em relação à camada de armazenamento da Camada 2 (cofre), que poderá levar várias horas. Recomendamos que você use o recurso [Restauração instantânea](backup-instant-restore-capability.md) para obter restaurações mais rápidas, nos casos em que os dados estão disponíveis na Camada 1 (se os dados precisarem ser restaurados do cofre, isso levará tempo).
 - O limite no número de discos por conta de armazenamento é relativo à intensidade de acesso dos discos por aplicativos executados na VM IaaS. Verifique se vários discos são hospedados em uma única conta de armazenamento. Como prática geral, se 5 a 10 discos ou mais estiverem presentes em uma única conta de armazenamento, balanceie a carga movendo alguns discos para contas de armazenamento separadas.
 
 ## <a name="backup-costs"></a>Custos de backup

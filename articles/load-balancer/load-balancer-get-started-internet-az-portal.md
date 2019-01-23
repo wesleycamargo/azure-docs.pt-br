@@ -1,10 +1,11 @@
 ---
-title: Criar um Standard Load Balancer com front-end com redundância de zona usando o portal do Azure
+title: Criar um Load Balancer com front-end com redundância de zona – portal do Azure
 titlesuffix: Azure Load Balancer
 description: Saiba como criar um Standard Load Balancer público com front-end de endereço IP público com redundância de zona com o portal do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2b898a9228e251003a049b2d82c0b1039eb54114
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135672"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247428"
 ---
-#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Criar um Standard Load Balancer público com front-end com redundância de zona usando o portal do Azure
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Criar um Standard Load Balancer com front-end com redundância de zona usando o portal do Azure
 
-Este artigo segue as etapas para a criação de um [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) público com um front-end com redundância de zona usando um endereço IP Público Standard. Um único endereço IP de front-end em um Load Balancer Standard é com redundância de zona, por padrão.
+Este artigo segue as etapas para a criação de um [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) público com front-end com redundância de zona usando um endereço IP Público Standard. Um único endereço IP de front-end em um Load Balancer Standard é com redundância de zona, por padrão.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

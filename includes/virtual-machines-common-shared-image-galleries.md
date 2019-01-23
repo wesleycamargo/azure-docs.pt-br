@@ -5,20 +5,17 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 48404c8b6f45ab79a9136154c44c7fd44572a3e6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: c65fb1f0f635e79d594a7f080124827e3218f612
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678160"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193278"
 ---
-Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno de suas imagens de VM personalizadas. A Galeria de Imagens Compartilhadas fornece três proposições de valor principais:
-- Gerenciamento simples
-- Escale suas imagens personalizadas
-- Compartilhar suas imagens – compartilhe suas imagens com diferentes usuários, entidades de serviço ou grupos do AD na sua organização, bem como em diferentes regiões, usando a replicação de várias regiões
+Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno de suas imagens de VM gerenciadas personalizadas. Usando uma Galeria de Imagens Compartilhadas, é possível compartilhar suas imagens com diferentes usuários, entidades de serviço ou grupos do AD dentro de sua organização. As imagens compartilhadas podem ser replicadas para várias regiões para dimensionar suas implantações mais rápido.
 
 Uma imagem gerenciada é uma cópia de uma VM completa (incluindo quaisquer discos de dados anexados) ou apenas o disco do SO, dependendo de como você cria a imagem. Quando você cria uma VM a partir da imagem, uma cópia dos VHDs na imagem é usada para criar os discos da nova VM. A imagem gerenciada permanece no armazenamento e pode ser usada repetidamente para criar novas VMs.
 
@@ -28,10 +25,10 @@ O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos:
 
 | Recurso | DESCRIÇÃO|
 |----------|------------|
-| **Imagem gerenciada** | Esta é uma imagem de linha de base que pode ser usada sozinha ou para criar diversas **versões de imagem compartilhada** em uma galeria de imagens.|
+| **Imagem gerenciada** | Esta é uma imagem básica que pode ser usada sozinha ou para criar uma **versão da imagem** em uma galeria de imagens. Imagens gerenciadas são criadas de VMs generalizadas. Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para criar várias VMs e agora pode ser usado para criar versões de imagem compartilhada. |
 | **Galeria de imagens** | Como o Azure Marketplace, uma **galeria de imagens** é um repositório para gerenciar e compartilhar imagens, mas você controla quem tem acesso. |
-| **Imagem da galeria** | As imagens são definidas dentro de uma galeria e transportam informações sobre a imagem e os requisitos para usá-la internamente. Isso inclui se a imagem é Windows ou Linux, notas sobre a versão e requisitos mínimos e máximos de memória. Esse tipo de imagem é um recurso dentro do modelo de implantação do Resource Manager, mas não é usado diretamente para a criação de VMs. É uma definição de um tipo de imagem. |
-| **Versão de imagem compartilhada** | Uma **versão da imagem** é usada para criar uma VM ao usar uma galeria. Você pode ter diversas versões de uma imagem conforme necessário para seu ambiente. Como uma imagem gerenciada, quando você usa uma **versão da imagem** para criar uma VM, a versão da imagem é usada para criar novos discos para a VM. Versões de imagem podem ser usadas várias vezes. |
+| **Definição da imagem** | As imagens são definidas dentro de uma galeria e transportam informações sobre a imagem e os requisitos para usá-la internamente. Isso inclui se a imagem é Windows ou Linux, notas sobre a versão e requisitos mínimos e máximos de memória. É uma definição de um tipo de imagem. |
+| **Versão da imagem** | Uma **versão da imagem** é usada para criar uma VM ao usar uma galeria. Você pode ter diversas versões de uma imagem conforme necessário para seu ambiente. Como uma imagem gerenciada, quando você usa uma **versão da imagem** para criar uma VM, a versão da imagem é usada para criar novos discos para a VM. Versões de imagem podem ser usadas várias vezes. |
 
 <br>
 
@@ -44,21 +41,19 @@ O suporte regional para galerias de imagens compartilhadas está na pré-visuali
 
 | Criar Galeria em  | Replicar Versão para |
 |--------------------|----------------------|
-| Centro-Oeste dos EUA    |Centro-Sul dos Estados Unidos|
-| Leste dos EUA 2          |Leste dos EUA|
-| Centro-Sul dos Estados Unidos   |Leste dos EUA 2|
-| Sudeste Asiático     |Oeste dos EUA|
-| Europa Ocidental        |Oeste dos EUA 2|
-|                    |Centro dos EUA|
-|                    |Centro-Norte dos EUA|
-|                    |Canadá Central|
-|                    |Leste do Canadá|
-|                    |Norte da Europa|
-|                    |Europa Ocidental|
-|                    |Sul da Índia|
-|                    |Sudeste Asiático|
+| Centro-Oeste dos EUA    |Todas as regiões públicas &#42;|
+| Leste dos EUA 2          ||
+| Centro-Sul dos Estados Unidos   ||
+| Sudeste Asiático     ||
+| Europa Ocidental        ||
+| Oeste dos EUA            ||
+| Leste dos EUA            ||
+| Canadá Central     ||
+|                    ||
 
 
+
+&#42; Para replicar para Austrália Central e Austrália Central 2, é necessário incluir sua assinatura na lista de permissões. Para solicitar a inclusão na lista de permissões, acesse: https://www.microsoft.com/en-au/central-regions-eligibility/
 
 ## <a name="scaling"></a>Dimensionamento
 A Galeria de Pesquisa de Imagem permite que você especifique o número de réplicas que você deseja que o Azure mantenha das imagens. Isso ajuda em cenários de implantação de várias VMs, já que as implantações de VM podem ser distribuídas para diferentes réplicas, reduzindo a chance de o processamento de criação de instância ser limitado devido à sobrecarga de uma única réplica.
@@ -67,7 +62,9 @@ A Galeria de Pesquisa de Imagem permite que você especifique o número de répl
 
 
 ## <a name="replication"></a>Replicação
-A Galeria de Imagens Compartilhadas também permite replicar imagens para outras regiões do Azure automaticamente. Cada versão de imagem compartilhada pode ser replicada para diferentes regiões, dependendo do que faz sentido para sua organização. Um exemplo é sempre replicar a imagem mais recente em várias regiões, enquanto todas as versões mais antigas só estão disponíveis em uma região. Isso pode ajudar a economizar nos custos de armazenamento das versões de imagem compartilhada. As regiões para as quais uma versão de Imagem compartilhada é replicada podem ser atualizadas após o horário de criação. O tempo necessário para replicar em diferentes regiões depende da quantidade de dados copiados e do número de regiões para as quais a versão é replicada. Isso pode levar algumas horas em alguns casos. Enquanto a replicação está em andamento, você pode exibir o status da replicação por região. Depois que a replicação de imagem for concluída em uma região, você poderá implantar uma VM ou VMSS usando essa versão de imagem na região.
+A Galeria de Imagens Compartilhadas também permite replicar imagens para outras regiões do Azure automaticamente. Cada versão de imagem compartilhada pode ser replicada para diferentes regiões, dependendo do que faz sentido para sua organização. Um exemplo é sempre replicar a imagem mais recente em várias regiões, enquanto todas as versões mais antigas só estão disponíveis em uma região. Isso pode ajudar a economizar nos custos de armazenamento das versões de imagem compartilhada. 
+
+As regiões para as quais uma versão de Imagem compartilhada é replicada podem ser atualizadas após o horário de criação. O tempo necessário para replicar em diferentes regiões depende da quantidade de dados copiados e do número de regiões para as quais a versão é replicada. Isso pode levar algumas horas em alguns casos. Enquanto a replicação está em andamento, você pode exibir o status da replicação por região. Depois que a replicação de imagem for concluída em uma região, você poderá implantar uma VM ou VMSS usando essa versão de imagem na região.
 
 ![Gráfico mostrando como você pode replicar imagens](./media/shared-image-galleries/replication.png)
 
@@ -87,6 +84,25 @@ Como a versão da Galeria de Imagem Compartilhada, Imagem Compartilhada e Imagem
 Não há custo adicional para usar o serviço de Galeria de Imagens Compartilhadas. Você será cobrado pelos seguintes recursos:
 - Custos de armazenamento do armazenamento das versões de imagem compartilhada. Depende do número de réplicas da versão e o número de regiões em para as quais a versão é replicada.
 - Taxas de saída de rede para replicação da região de origem da versão para as regiões replicadas.
+
+## <a name="sdk-support"></a>Suporte a SDK
+
+Os seguintes SDKs dão suporte à criação de Galerias de Imagens Compartilhadas:
+
+- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](https://docs.microsoft.com/go/azure/)
+
+## <a name="templates"></a>Modelos
+
+Você pode criar um recurso de Galeria de Imagens Compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
+
+- [Criar uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Criar uma Definição de Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Criar uma Versão da Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Criar uma VM por meio de uma Versão da Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes 
 
@@ -221,7 +237,7 @@ Versão da imagem:
 1. A contagem de réplica regionais que especifica o número de réplicas que você deseja criar por região. 
 2. A contagem de réplicas comuns, que é a contagem padrão por região caso a contagem de réplicas regionais não seja especificada. 
 
-Para especificar a contagem de réplicas regionais, passe o local junto com o número de réplicas que você deseja criar nessa região desta maneira: "Centro-Sul dos EUA=2". 
+Para especificar a contagem de réplicas regionais, passe a localização junto com o número de réplicas que você deseja criar nessa região desta maneira: "Centro-Sul dos EUA=2". 
 
 Se a contagem de réplicas regionais não for especificada com cada local, o número de réplicas padrão será a contagem de réplicas comuns que você especificou. 
 

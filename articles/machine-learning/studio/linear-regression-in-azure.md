@@ -1,27 +1,8 @@
 ---
-title: Usando a regressão linear no Machine Learning Studio | Microsoft Docs
-description: 'Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio '
-metakeywords: ''
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276665"
+Título: Usando regressão linear no Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio 
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Usando regressão linear no Azure Machine Learning Studio
 > *Kate Baroni* e *Ben Boatman* são arquitetos de soluções corporativas no Data Insights Center of Excellence da Microsoft. Neste artigo, eles descrevem sua experiência de migração de um pacote existente de análise de regressão para uma solução baseada em nuvem usando o Azure Machine Learning. 

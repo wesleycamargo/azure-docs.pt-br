@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253424"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260310"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão dos Serviços BizTalk do Azure
 
@@ -35,7 +35,7 @@ As notas de versão dos Serviços BizTalk do Microsoft Azure contêm os problema
 ## <a name="update-history"></a>Histórico de atualizações
 ### <a name="october-update"></a>Atualização de outubro
 * Suporte para contas organizacionais:  
-  * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta da Microsoft (como user@live.com). Nesse cenário, somente os usuários de contas da Microsoft podem gerenciar o Serviço BizTalk usando o portal dos Serviços BizTalk. Não é possível usar uma conta organizacional.  
+  * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta Microsoft (como user@live.com). Nesse cenário, somente os usuários de contas da Microsoft podem gerenciar o Serviço BizTalk usando o portal dos Serviços BizTalk. Não é possível usar uma conta organizacional.  
   * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta organizacional no Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Nesse cenário, somente usuários do Azure Active Directory dentro da mesma organização podem gerenciar o Serviço BizTalk usando o portal de Serviços BizTalk. Não é possível usar uma conta da Microsoft.  
 * Ao criar um Serviço BizTalk, você é registrado automaticamente no Portal dos Serviços BizTalk.
   * **Cenário**: você entra no Azure, cria um Serviço BizTalk e seleciona **Gerenciar** pela primeira vez. Quando abre o portal dos Serviços BizTalk, o Serviço BizTalk é registrado automaticamente e está pronto para as suas implantações.  
@@ -97,7 +97,7 @@ Para modificar o Qualificador de uma identidade, exclua o contrato, atualize **I
 ### <a name="as2-attachments"></a>Anexos AS2
 Não há suporte para anexos de mensagens AS2 nos envios ou recebimentos. Especificamente, os anexos são silenciosamente ignorados e o corpo da mensagem é processado como uma mensagem AS2 normal.  
 
-### <a name="resources-remembering-path"></a>Recursos: lembrar o caminho
+### <a name="resources-remembering-path"></a>Recursos: lembrando o caminho
 Ao adicionar **Recursos**, a janela de diálogo pode não lembrar o caminho usado anteriormente para adicionar um recurso. Para lembrar o caminho usado anteriormente, experimente adicionar o site do Portal dos Serviços BizTalk aos **Sites Confiáveis** no Internet Explorer.  
 
 ### <a name="if-you-rename-the-entity-name-of-a-bridge-and-close-the-project-without-saving-changes-opening-the-entity-again-results-in-an-error"></a>Se você renomear o nome da entidade de uma ponte e fechar o projeto sem salvar as alterações, abrir a entidade novamente resultará em um erro
@@ -176,15 +176,15 @@ Considere este cenário:
 Considere os seguintes cenários:  
 
 **Cenário 1: usar certificados baseados em impressão digital para transferência segura de mensagens de uma ponte para um ponto de extremidade de serviço**  
-Considere um cenário em que você usa certificados baseados em impressão digital no seu projeto do Serviço BizTalk. Você atualiza o certificado no Portal dos Serviços BizTalk com o mesmo nome e com uma impressão digital diferente, mas não atualiza o projeto do Serviço BizTalk de forma correspondente. Nesse cenário, a ponte pode continuar a processar as mensagens porque os dados do certificado antigo ainda podem estar no cache do canal. Após isso, o processamento de mensagens falha.  
+ Considere um cenário em que você usa certificados baseados em impressão digital no seu projeto do Serviço BizTalk. Você atualiza o certificado no Portal dos Serviços BizTalk com o mesmo nome e com uma impressão digital diferente, mas não atualiza o projeto do Serviço BizTalk de forma correspondente. Nesse cenário, a ponte pode continuar a processar as mensagens porque os dados do certificado antigo ainda podem estar no cache do canal. Após isso, o processamento de mensagens falha.  
 
-**Solução**: atualizar o certificado no projeto do Serviço BizTalk e reimplantar o projeto.  
+**Solução alternativa**: atualizar o certificado no projeto do Serviço BizTalk e reimplantar o projeto.  
 
 **Cenário 2: usar comportamentos baseados em nome para identificar certificados para transferência segura de mensagens de uma ponte para um ponto de extremidade de serviço**
 
 Considere um cenário onde você usa comportamentos baseados em nome para identificar certificados no seu projeto do Serviço BizTalk. Você atualiza o certificado no Portal dos Serviços BizTalk mas não atualiza o projeto do Serviço BizTalk de forma correspondente. Nesse cenário, a ponte pode continuar a processar as mensagens porque os dados do certificado antigo ainda podem estar no cache do canal. Após isso, o processamento de mensagens falha.  
 
-**Solução**: atualizar o certificado no projeto do Serviço BizTalk e reimplantar o projeto.  
+**Solução alternativa**: atualizar o certificado no projeto do Serviço BizTalk e reimplantar o projeto.  
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>As pontes continuam a processar mensagens mesmo quando o banco de dados SQL está offline
 As pontes de Serviços BizTalk continuam a processar mensagens por algum tempo, mesmo se o Banco de Dados SQL do Microsoft Azure (que armazena as informações em execução como pipelines e artefatos implantados) estiver offline. Isso ocorre porque os Serviços BizTalk usam os artefatos de cache e a configuração da ponte.
@@ -196,27 +196,27 @@ Considere um cenário onde você deseja ler uma mensagem XML no código personal
 ### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>As mensagens enviadas para uma ponte usando WCF não são dimensionadas
 As mensagens enviadas para uma ponte usando WCF não são dimensionadas. Em vez disso, você deve usar HttpWebRequest se desejar ter um cliente escalonável.
 
-### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>ATUALIZAÇÃO: erro no Provedor de Token após a atualização da Visualização dos Serviços BizTalk para Disponibilidade Geral (GA)
+### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>ATUALIZAÇÃO: erro no Provedor de Token após a atualização da versão prévia dos Serviços BizTalk para GA (disponibilidade geral)
 Há um Contrato AS2 ou EDI com lotes ativos. Quando o Serviço BizTalk for atualizado do Preview para o GA, poderá ocorrer o seguinte:
 
-* Erro: o provedor de token não pôde fornecer um token de segurança. O provedor de token retornou a mensagem: o nome remoto não pôde ser resolvido.
+* Erro: O provedor de token não pôde fornecer um token de segurança. O provedor de token retornou a mensagem: O nome remoto não pôde ser resolvido.
 * As tarefas em lote são canceladas.
 
-**Solução**: após o Serviço BizTalk ser atualizado para a Disponibilidade Geral (GA), reimplante o contrato.  
+**Solução alternativa**: após o Serviço BizTalk ser atualizado para GA (disponibilidade geral), reimplante o contrato.  
 
 ### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>ATUALIZAÇÃO: a caixa de ferramentas mostra os ícones de ponte antigos depois de atualizar o SDK dos Serviços BizTalk
 Depois de atualizar uma versão anterior do SDK dos Serviços BizTalk, que tinha ícones antigos representando as pontes, a caixa de ferramentas continua mostrando os ícones antigos das pontes. No entanto, se você adicionar uma ponte à superfície de designer de projeto do Serviço BizTalk, a superfície mostrará o novo ícone.  
 
 **Solução alternativa**. Você pode contornar esse problema excluindo os arquivos .tbd em<system drive> :\Users\<usuário>\AppData\Local\Microsoft\VisualStudio\11.0.  
 
-### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>ATUALIZAÇÃO: a atualização do Portal do BizTalk da Visualização para a GA pode mostrar um erro indicando que a capacidade do EDI não está disponível
+### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>ATUALIZAÇÃO: a atualização do Portal do BizTalk da versão prévia para a GA pode mostrar um erro indicando que a capacidade do EDI não está disponível
 Se você estiver conectado ao Portal dos Serviços BizTalk quando os Serviços BizTalk forem atualizados da Visualização para a GA, poderá obter o seguinte erro no portal:  
 
 Este recurso não está disponível como parte desta edição dos Serviços BizTalk do Microsoft Azure. Para usar esses recursos, mude para uma edição apropriada.  
 
 **Resolução**: saia do portal, feche e abra o navegador e faça logon no portal.  
 
-### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>ATUALIZAÇÃO: os novos dados de rastreamento não aparecem depois que os Serviços BizTalk são atualizados para a GA
+### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>ATUALIZAÇÃO: os novos dados de acompanhamento não aparecem depois que os Serviços BizTalk são atualizados para a GA
 Imagine um cenário no qual você tem uma ponte XML implantada na assinatura de Visualização dos Serviços BizTalk. Você envia mensagens à ponte e o controle de dados correspondente está disponível no Portal dos Serviços BizTalk. Agora, se os bits de tempo de execução do Portal dos Serviços BizTalk e os Serviços BizTalk forem atualizados para a GA e você enviar uma mensagem para o mesmo ponto de extremidade de ponte implantado anteriormente, os dados de rastreamento não aparecerão para mensagens enviadas depois da atualização.  
 
 ### <a name="pipelines-versus-bridges"></a>Pipelines versus pontes

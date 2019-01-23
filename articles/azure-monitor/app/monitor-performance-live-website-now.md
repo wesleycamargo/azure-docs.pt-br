@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189841"
+ms.locfileid: "54199378"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentar aplicativos Web no tempo de execução com o Status Monitor do Application Insights
 
@@ -96,14 +96,14 @@ Estas são algumas etapas que você pode executar para confirmar se a instalaç�
 - Verifique se o arquivo applicationInsights.config está presente no diretório de aplicativo de destino e contém sua ikey.
 
 - Se você suspeitar que faltam dados, poderá executar uma consulta simples no [Analytics](../log-query/get-started-portal.md) para listar todas as funções de nuvem atualmente enviando telemetria.
-
 ```Kusto
 union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ```
 
 - Se você precisar confirmar se o Application Insights foi anexado com êxito, poderá executar [Identificador Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) em uma janela Comando para confirmar que applicationinsights.dll foi carregado pelo IIS.
-
-`handle.exe /p w3wp.exe`
+```cmd
+handle.exe /p w3wp.exe
+```
 
 
 ### <a name="cant-connect-no-telemetry"></a>Não consegue se conectar? Sem telemetria?
@@ -113,17 +113,17 @@ union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ### <a name="unable-to-login"></a>Não é possível efetuar logon
 
 * Se o Status Monitor não conseguir efetuar logon, faça uma instalação de linha de comando em vez disso. O Status Monitor tenta fazer logon para coletar sua ikey, mas você pode fornecê-la manualmente usando o comando: 
-```
+```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 
 ### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Não foi possível carregar o arquivo ou o assembly 'System.Diagnostics.DiagnosticSource'
 
-Você pode receber esse erro depois de habilitar o Application Insights. Isso ocorre porque o instalador substitui essa dll no seu diretório bin.
+Você poderá receber esse erro após habilitar o Application Insights. Isso ocorre porque o instalador substitui essa dll no seu diretório bin.
 Para consertar, atualize seu web.config:
 
-```
+```xml
 <dependentAssembly>
     <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
     <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>

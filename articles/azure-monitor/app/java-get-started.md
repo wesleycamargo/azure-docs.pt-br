@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/10/2019
 ms.author: lagayhar
-ms.openlocfilehash: b662f5c4baa9c4c6e7689f3f463761dbd456f33f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: e16432022c8c8525c95fab46bc61197f67fb8f37
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074165"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260050"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights em um projeto Web Java
 
@@ -359,6 +359,14 @@ Para coletar dados em outras exceções, você tem duas opções:
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Monitorar chamadas de método e dependências externas
 [Instale o Agente Java](java-agent.md) para registrar métodos internos especificados e chamadas feitas por meio de JDBC, com dados de tempo.
 
+## <a name="w3c-distributed-tracing"></a>Rastreamento distribuído do W3C
+
+O SDK do Java do Application Insights passou a dar suporte ao [rastreamento distribuído do W3C](https://w3c.github.io/trace-context/).
+
+A configuração do SDK de entrada será mais bem explicada em nosso artigo sobre [correlação](correlation.md#w3c-distributed-tracing).
+
+A configuração do SDK de saída é definida no arquivo [AI-Agent.xml](java-agent.md).
+
 ## <a name="performance-counters"></a>contadores de desempenho
 Abra **Configurações**, **Servidores** para ver um intervalo de contadores de desempenho.
 
@@ -421,7 +429,7 @@ Seus contadores de desempenho são visíveis como métricas personalizadas em [M
 
 ## <a name="local-forwarder"></a>Encaminhador local
 
-O [encaminhador local](https://docs.microsoft.com/azure/application-insights/local-forwarder) é um agente que coleta telemetria do Application Insights ou do [OpenCensus](https://opencensus.io/) de vários SDKs e estruturas e a encaminha ao Application Insights. Pode ser executado em Windows e Linux.
+O [encaminhador local](https://docs.microsoft.com/azure/application-insights/local-forwarder) é um agente que coleta telemetria do Application Insights ou do [OpenCensus](https://opencensus.io/) de vários SDKs e estruturas e a encaminha ao Application Insights. Ele pode ser executado em Windows e Linux.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
@@ -433,7 +441,7 @@ O [encaminhador local](https://docs.microsoft.com/azure/application-insights/loc
 </Channel>
 ```
 
-Se estiver usando o inicializador SpringBoot, adicione o seguinte ao seu arquivo de configuração (application.properies):
+Se estiver usando o inicializador SpringBoot, adicione o seguinte ao seu arquivo de configuração (application.properties):
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->

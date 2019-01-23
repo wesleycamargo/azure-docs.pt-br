@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994817"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247496"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -53,7 +53,7 @@ Os pools de back-end podem ser formados por NICs, conjuntos de dimensionamento d
 
 ### <a name="what-regions-is-the-service-available-in"></a>Em quais regiões o serviço está disponível?
 
-O Gateway de Aplicativo está disponível em todas as regiões do Azure global. Ele também está disponível no [Azure China](https://www.azure.cn/) e no [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)
+O Gateway de Aplicativo está disponível em todas as regiões do Azure global. Ele também está disponível no [Azure China 21Vianet](https://www.azure.cn/) e no [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>Esta é uma implantação dedicada para minha assinatura ou é compartilhada entre os clientes?
 
@@ -126,7 +126,7 @@ Não, mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 Os Network Security Groups (NSGs) são suportados na sub-rede do gateway de aplicativo com as seguintes restrições:
 
-* Exceções devem ser feitas para o tráfego de entrada nas portas 65503-65534 para o Application Gateway v1 SKU e portas 65200 - 65535 para o v2 SKU. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não poderão iniciar nenhuma alteração nesses pontos de extremidade.
+* Exceções devem ser feitas para o tráfego de entrada nas portas 65503-65534 para o Application Gateway v1 SKU e portas 65200 - 65535 para o v2 SKU. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não podem iniciar nenhuma alteração nesses pontos de extremidade.
 
 * A conectividade de internet de saída não pode ser bloqueada.
 
@@ -137,6 +137,8 @@ Os Network Security Groups (NSGs) são suportados na sub-rede do gateway de apli
 As UDRs (rotas definidas pelo usuário) têm suporte na sub-rede do gateway de aplicativo, desde que não alterem a comunicação de solicitação resposta de ponta a ponta.
 
 Por exemplo, é possível configurar uma UDR na sub-rede do gateway de aplicativo para apontar a um dispositivo de firewall para inspeção de pacote, mas é necessário garantir que o pacote possa alcançar a pós-inspeção de destino pretendida. Não fazer isso poderá resultar em uma investigação de integridade ou um comportamento de roteamento de tráfego incorreto. Isso inclui rotas aprendidas ou rotas 0.0.0.0/0 padrão propagadas por ExpressRoute ou Gateways de VPN na rede virtual.
+
+As UDRs na sub-rede do gateway de aplicativo **não** têm suporte no SKU v2. Para obter mais informações, confira [Dimensionamento automático e o Gateway de Aplicativo com redundância de zona (versão prévia pública)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quais são os limites no Gateway de Aplicativo? Posso aumentar esses limites?
 
@@ -164,7 +166,7 @@ As investigações personalizadas não têm suporte para curingas/regex nos dado
 
 ### <a name="how-are-rules-processed"></a>Como as regras são processadas?
 
-As regras são processadas na ordem em que elas são configuradas. É recomendável que as regras multissites sejam configuradas antes de regras básicas para reduzir a chance de que o tráfego seja roteado para o back-end inadequado, já que a regra básica corresponderia o tráfego com base na porta antes da regra multissite que está sendo avaliada.
+As regras são processadas na ordem em que elas são configuradas. É recomendável que as regras multissites sejam configuradas antes de regras básicas para reduzir a chance de que o tráfego seja roteado para o back-end inadequado, já que a regra básica corresponderia ao tráfego com base na porta antes da regra multissite que está sendo avaliada.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>O que significa o campo Host para investigações personalizadas?
 
@@ -206,11 +208,11 @@ Sim, o SKU Application Gateway v2 suporta escalonamento automático. Para obter 
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>A escala manual aumenta/diminui o tempo de inatividade?
 
-Não há tempo de inatividade, as instâncias são distribuídas entre domínios de atualização e domínios de falha.
+Não há tempo de inatividade. As instâncias são distribuídas entre domínios de atualização e domínios de falha.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Gateway de Aplicativo suporta a drenagem de conexão?
 
-Sim. Você pode configurar o descarregamento de conexão para alterar os membros dentro de um pool de back-end sem interrupções. Isso permitirá conexões existentes para continuar a ser enviado ao seu destino anterior até que essa conexão é fechada ou expira um tempo limite configurável. A drenagem de conexão apenas aguarda a conclusão das conexões atuais em andamento. O Gateway de Aplicativo não está ciente do estado de sessão do aplicativo.
+Sim. Você pode configurar o descarregamento de conexão para alterar os membros dentro de um pool de back-end sem interrupções. Isso permite que as conexões existentes continuem sendo enviadas ao seu destino anterior até essa conexão ser fechada ou um tempo limite configurável expirar. A drenagem de conexão apenas aguarda a conclusão das conexões atuais em andamento. O Gateway de Aplicativo não está ciente do estado de sessão do aplicativo.
 
 ### <a name="what-are-application-gateway-sizes"></a>What are application gateway sizes?
 
@@ -292,7 +294,7 @@ Sim, há suporte para [configuração de conjuntos de criptografia](application-
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>Quantos certificados SSL são suportados?
 
-Há suporte para até 20 certificados SSL.
+Há suporte para até 100 certificados SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>Quantos certificados de autenticação para re-criptografia de back-end são suportados?
 
@@ -374,13 +376,13 @@ Sim, o Gateway de Aplicativo dá suporte a alertas. Os alertas são configurados
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Como faço para analisar as estatísticas de tráfego do Application Gateway?
 
-Você pode exibir e analisar os logs de Acesso por meio de vários mecanismos, como Azure Log Analytics, Excel, Power BI etc.
+É possível exibir e analisar logs do Access por meio de vários mecanismos, como Azure Log Analytics, Excel, Power BI, etc.
 
 Publicamos também um modelo do Resource Manager que instala e executa o popular analisador de logs [GoAccess](https://goaccess.io/) para logs de acesso do Gateway de Aplicativo. O GoAccess fornece valiosas estatísticas de tráfego HTTP, tais como visitantes exclusivos, arquivos solicitados, hosts, sistemas operacionais, navegadores, códigos de status HTTP e muito mais. Para obter mais detalhes, consulte o [arquivo Leiame na pasta de modelo do Resource Manager no GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>A integridade do back-end retorna status desconhecido, o que pode estar causando esse status?
 
-O motivo mais comum é o bloqueio ao acesso do back-end por um NSG ou DNS personalizado. Confira [Integridade do back-end, registro em log de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
+O motivo mais comum é quando o acesso ao back-end está bloqueado por um NSG ou por um DNS personalizado. Confira [Integridade do back-end, registro em log de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
 
 ## <a name="next-steps"></a>Próximas etapas
 

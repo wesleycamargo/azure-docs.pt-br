@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 991199747f51f379ee6f3efe8009ab9166c33ac7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 65ab6b62b1da925880b3197036f52407e868ece7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52831999"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263574"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurar o modo como os usuários finais consentem em um aplicativo no Active Directory do Azure
 Aprenda a configurar a maneira como os usuários consentem com as permissões do aplicativo. Você pode simplificar a experiência do usuário concedendo o consentimento do administrador. Este artigo fornece as diferentes maneiras de configurar o consentimento do usuário. Os métodos se aplicam a todos os usuários finais do locatário do Azure AD (Azure Active Directory). 
@@ -26,6 +26,8 @@ Para obter mais informações sobre o consentimento de aplicativos, consulte a [
 ## <a name="prerequisites"></a>Pré-requisitos
 
 A concessão do consentimento do administrador exige que você faça login como administrador global, administrador do aplicativo ou administrador do aplicativo em nuvem.
+
+Para restringir o acesso aos aplicativos, você precisará exigir a atribuição do usuário e, em seguida, atribuir usuários ou grupos ao aplicativo.  Para obter mais informações, confira [Métodos para atribuir usuários e grupos](methods-for-assigning-users-and-groups.md).
 
 ## <a name="grant-admin-consent-to-enterprise-apps-in-the-azure-portal"></a>Conceder autorização do administrador para aplicativos corporativos no portal do Azure
 

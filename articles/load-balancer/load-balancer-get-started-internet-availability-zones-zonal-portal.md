@@ -1,10 +1,11 @@
 ---
-title: Criar um Standard Load Balancer com endereço IP de front-end de zona - Portal do Azure
+title: Criar um Load Balancer com front-end de zona – portal do Azure
 titlesuffix: Azure Load Balancer
-description: Saiba como criar um Load Balancer Standard público com front-end de endereço IP público de zona com o Portal do Azure
+description: Saiba como criar um Standard Load Balancer com front-end de zona com o portal do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: e109504fe8657436d73870cc022ed4bc81c559f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0a746ace4806495b17462b506f030811247240e2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095297"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247184"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Criar um Load Balancer Standard público com front-end de endereço IP público de zona usando o Portal do Azure
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Criar um Standard Load Balancer com front-end de zona usando o portal do Azure
 
-Este artigo segue as etapas para a criação de um [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) público com um front-end de zona. Para entender como as zonas de disponibilidade funcionam com o Load Balancer Standard, consulte [Zonas de disponibilidade e Load Balancer Standard](load-balancer-standard-availability-zones.md). 
+Este artigo segue as etapas para a criação de um [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) público com configuração de IP de front-end de zona. Para entender como as zonas de disponibilidade funcionam com o Load Balancer Standard, consulte [Zonas de disponibilidade e Load Balancer Standard](load-balancer-standard-availability-zones.md). 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -48,7 +49,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
 7. Em **Grupo de recursos**, clique em **Criar novo** e digite **myResourceGroupZLB** como nome do novo grupo de recursos.
 8. Em **Localização**, selecione **Europa Ocidental** e clique em **OK**. A implantação do balanceador de carga começará e levará alguns minutos para ser concluída com êxito.
 
-    ![criar um Load Balancer Standard com redundância de zona com o Portal do Azure](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
+    ![criar um Standard Load Balancer com redundância de zona com o portal do Azure](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

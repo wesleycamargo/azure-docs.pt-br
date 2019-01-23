@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426247"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306481"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia
 ## <a name="executive-summary"></a>Resumo executivo
@@ -172,7 +172,7 @@ Em muitos casos, o cliente pode estar interessado em criar uma justificativa de 
 
 Por outro lado, você deve ter uma boa compreensão do valor de negócio da operação de uma previsão de demanda de energia (a curto ou a longo prazo). Na verdade, é importante perceber o valor de negócio de cada operação de previsão. Por exemplo, prever uma carga de energia para as próximas 24 horas com precisão pode impedir a produção em excesso ou pode ajudar a impedir sobrecargas na rede, Isso pode ser quantificado em termos de economia financeira diariamente.
 
-Uma fórmula básica para calcular as vantagens financeiras de demanda de previsão solução seria: ![Fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda seria:  ![Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Como o Cortana Intelligence Suite fornece um modelo de preços pré-pagos, não é necessário incorrer em um componente de custo fixo para essa fórmula. Esta fórmula pode ser calculada de forma diária, mensal ou anual.
 
@@ -269,7 +269,7 @@ O Cortana Intelligence Suite pode dar suporte à maioria dos formatos de dados c
 ### <a name="data-ingestion"></a>Ingestão de dados
 Como a previsão da demanda de energia é prevista com constância e com frequência, devemos garantir que os dados brutos estejam fluindo por meio de um processo de ingestão de dados sólido e confiável. O processo de ingestão deve garantir que os dados brutos estejam disponíveis para o processo de previsão no tempo necessário. Isso significa que a frequência da ingestão de dados deve ser maior do que a frequência de previsão.
 
-Por exemplo: se nossa solução de previsão de demanda gerasse uma nova previsão às 8:00 diariamente, precisaríamos garantir que todos os dados coletados durante as últimas 24 horas tivessem sido totalmente ingeridos até esse ponto e tivessem incluído até a última hora de dados.
+Por exemplo:  se nossa solução de previsão de demanda gerasse uma nova previsão às 8:00 diariamente, precisaríamos garantir que todos os dados coletados durante as últimas 24 horas tivessem sido totalmente ingeridos até esse ponto e tivessem incluído até a última hora de dados.
 
 Para fazer isso, o Cortana Intelligence Suite oferece várias maneiras de dar suporte a um processo de ingestão de dados confiável. Isso será discutido em mais detalhes na seção **Implantação** deste documento.
 
@@ -320,21 +320,21 @@ No caso da previsão da demanda, usamos os dados históricos ordenados por hora.
 Nos últimos anos, algoritmos avançados foram desenvolvidos para acomodar a previsão da série temporal e aumentar a precisão da previsão. Discutiremos brevemente alguns deles aqui.
 
 > [!NOTE]
-> Esta seção não destina-se a ser usada como uma visão geral do aprendizado de máquina e da previsão, mas como uma pesquisa rápida de técnicas de modelagem comumente usadas para a previsão da demanda. Para saber mais e para obter material educativo sobre a previsão da série temporal, é altamente recomendável ler o livro online [Forecasting: principles and practice (Previsão: princípios e prática)](https://www.otexts.org/book/fpp).
+> Esta seção não destina-se a ser usada como uma visão geral do aprendizado de máquina e da previsão, mas como uma pesquisa rápida de técnicas de modelagem comumente usadas para a previsão da demanda. Para saber mais e para obter material educativo sobre a previsão da série temporal, é altamente recomendável ler o livro online [Forecasting: principles and practice (Previsão: princípios e prática)](https://www.otexts.org/).
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (Média de Movimentação)**](https://www.otexts.org/fpp/6/2)
+#### <a name="ma-moving-average"></a>**MA (média móvel)**
 A média de movimentação é uma das primeiras técnicas analíticas que foram usadas para a previsão da série temporal e ainda hoje é uma das técnicas mais comumente usadas. Também é a base para técnicas de previsão mais avançadas. Com a média de movimentação, estamos prevendo o próximo ponto de dados ao calcular a média nos pontos K mais recentes, onde K indica a ordem da média de movimentação.
 
 A técnica da média de movimentação tem o efeito de suavização da previsão e, portanto, não pode manipular bem a grande volatilidade nos dados.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (Suavização Exponencial)**](https://www.otexts.org/fpp/7/5)
-A Suavização Exponencial (ETS) é uma família de vários métodos que usam a média ponderada de pontos de dados recentes para prever o próximo ponto de dados. A ideia é atribuir pesos mais altos a valores mais recentes e diminuir gradualmente esse peso para valores medidos mais antigos. Há vários métodos diferentes nessa família, alguns deles incluem o tratamento da periodicidade dos dados como o [Método Sazonal Holt-Winters](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothing"></a>**ETS (Suavização Exponencial)**
+A Suavização Exponencial (ETS) é uma família de vários métodos que usam a média ponderada de pontos de dados recentes para prever o próximo ponto de dados. A ideia é atribuir pesos mais altos a valores mais recentes e diminuir gradualmente esse peso para valores medidos mais antigos. Há vários métodos diferentes nessa família, alguns deles incluem o tratamento da periodicidade dos dados como o Método Sazonal Holt-Winters.
 
 Alguns desses métodos também consideram a periodicidade dos dados.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (Média de Movimentação Integrada de Regressão Automática)**](https://www.otexts.org/fpp/8)
+#### <a name="arima-auto-regression-integrated-moving-average"></a>**ARIMA (média móvel integrada de regressão automática)**
 A Média de Movimentação Integrada de Regressão Automática (ARIMA) é outra família de métodos que é normalmente usada na previsão da série temporal. Ela praticamente combina métodos de regressão automática à média de movimentação. Os métodos de regressão automática usam modelos de regressão ao receberem valores anteriores da série temporal para calcular o próximo ponto de data. Os métodos ARIMA também se aplicam a métodos de diferenciação, que incluem o cálculo da diferença entre os pontos de dados e o uso deles em vez do valor original medido. Por fim, a ARIMA também usa as técnicas de média de movimentação discutidas acima. A combinação de todos esses métodos de várias maneiras é o que constrói a família dos métodos ARIMA.
 
 Atualmente, os métodos ETS e ARIMA são amplamente usados na previsão da demanda de energia e em muitos outros problemas de previsão. Em muitos casos, eles são combinados para oferecer resultados muito precisos.

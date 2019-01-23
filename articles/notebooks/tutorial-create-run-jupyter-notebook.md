@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106662"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244572"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Jupyter Notebook com Python
 
@@ -28,7 +28,7 @@ O notebook completo pode ser encontrado em [GitHub – Exemplos do Azure Noteboo
 
 ## <a name="create-the-project"></a>Criar o projeto
 
-1. Vá até [Azure Notebooks](https://notebooks.azure.com) e entre. (Para obter mais detalhes, consulte [Início Rápido – Entrar no Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
+1. Vá até [Azure Notebooks](https://notebooks.azure.com) e entre. (Para obter mais detalhes, consulte [Início Rápido – Entrar no Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
 1. Em sua página de perfil público, selecione **Meus Projetos** na parte superior da página:
 
@@ -411,17 +411,13 @@ Quando tiver terminado de usar um notebook, use o comando **Arquivo** > **Fechar
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Depurar notebooks usando o Visual Studio Code
 
-Se as células de código no notebook não se comportarem da maneira esperada, você poderá ter bugs no código ou outros problemas. No entanto, além de usar instruções `print` para mostrar o valor das variáveis, um Jupyter Notebook não oferece nenhum facilitador de depuração.
+Se as células de código no notebook não se comportarem da maneira esperada, você poderá ter bugs no código ou outros problemas. No entanto, além de usar instruções `print` para mostrar o valor das variáveis, um ambiente Jupyter típico não oferece nenhum facilitador de depuração.
 
-Felizmente, a extensão do Python para Visual Studio Code pode importar diretamente um Jupyter Notebook como um arquivo de código único com suas células de Markdown nos comentários. Em seguida, você pode executar o depurador do Visual Studio Code para depurar o código, definir pontos de interrupção, examinar o estado e assim por diante. 
+Felizmente, você pode baixar o arquivo *.ipynb* do notebook e, em seguida, abri-lo no Visual Studio Code usando a extensão do Python. A extensão importa diretamente um notebook como um arquivo de código único, preservando as células de Markdown nos comentários. Depois de importar o notebook, você pode usar o depurador do Visual Studio Code para depurar o código, definir pontos de interrupção, examinar o estado e assim por diante. Depois de fazer correções em seu código, você exporta o arquivo *.ipynb* do Visual Studio Code e faz o upload novamente no Azure Notebooks.
 
-Depois de fazer correções em seu código, salve o arquivo *.ipynb* e carregue-o no Azure Notebooks.
+Para obter mais informações, confira [Depurar um Jupyter Notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) na documentação do Visual Studio Code.
 
-Para obter mais informações, consulte os artigos abaixo na documentação do Visual Studio Code:
-
-- [Visão geral dos Notebooks Jupyter no VS Code](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Tutorial do Python - Configurar e executar o depurador](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [Edição - Células de código do Jupyter](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+Confira também [Visual Studio Code – suporte do Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para recursos adicionais do Visual Studio Code para notebooks Jupyter.
 
 ## <a name="next-steps"></a>Próximas etapas
 

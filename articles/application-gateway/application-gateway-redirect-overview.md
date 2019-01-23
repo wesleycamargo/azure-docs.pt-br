@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.openlocfilehash: e6352873ea055965b433fbf3e6e46162890e5fec
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d05d509b67fd26c958e0e2fa2bbd877db26e6521
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200698"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232202"
 ---
 # <a name="application-gateway-redirect-overview"></a>Visão geral do redirecionamento do Gateway de Aplicativo
 
@@ -35,4 +35,4 @@ Com essa alteração, os clientes precisam criar um novo objeto de configuraçã
 
 ### <a name="next-steps"></a>Próximas etapas
 
-[Como configurar o redirecionamento de URL em um gateway de aplicativo](application-gateway-configure-redirect-powershell.md)
+[Configurar o redirecionamento de HTTP para HTTP em um gateway de aplicativo](redirect-http-to-https-portal.md)

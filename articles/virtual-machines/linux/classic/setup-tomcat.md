@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5a5d052052be447ea2ccbd9231d3b03d38c7615c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420074"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266936"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurar o Tomcat7 em uma máquina virtual Linux com o Azure
 O Apache Tomcat (ou simplesmente Tomcat, também chamado anteriormente de Jacarta Tomcat) é um servidor Web de software livre e um contêiner de servlet desenvolvidos pela Apache Software Foundation (ASF). O Tomcat implementa o Java Servlet e especificações de JSP (JavaServer Pages) da Sun Microsystems. O Tomcat fornece um ambiente de servidor Web puramente Java HTTP no qual o código Java será executado. Na configuração mais simples, o Tomcat é executado em um único processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador para o Tomcat são processadas como um thread separado do processo do Tomcat.  
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda como usar o modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. Para usar um modelo do Resource Manager para implantar uma VM Ubuntu com Open JDK e Tomcat, veja [este artigo](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e clássico](../../../resource-manager-deployment-model.md). Este artigo aborda como usar o modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. Para usar um modelo do Resource Manager para implantar uma VM Ubuntu com Open JDK e Tomcat, veja [este artigo](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Neste artigo, você instalará o Tomcat7 em uma imagem do Linux e a implantará no Azure.  
@@ -37,7 +37,7 @@ Você aprenderá:
 * Como preparar a máquina virtual para o Tomcat7.
 * Como instalar o Tomcat7.
 
-Supomos que você já tem uma assinatura do Azure.  Se ainda não tiver uma, você poderá se inscrever para uma avaliação gratuita no [site do Azure](https://azure.microsoft.com/). Se você tiver uma assinatura do MSDN, confira [Preço especial do Microsoft Azure: benefícios do MSDN, MPN e BizSpark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para saber mais sobre o Azure, confira [o que é o Azure?](https://azure.microsoft.com/overview/what-is-azure/).
+Supomos que você já tem uma assinatura do Azure.  Se ainda não tiver uma, você poderá se inscrever para uma avaliação gratuita no [site do Azure](https://azure.microsoft.com/). Se você tiver uma assinatura do MSDN, confira [Preço especial do Microsoft Azure: benefícios para MSDN, MPN e BizSpark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para saber mais sobre o Azure, confira [o que é o Azure?](https://azure.microsoft.com/overview/what-is-azure/).
 
 Este artigo pressupõe que você tenha conhecimento prático básico do Tomcat e Linux.  
 
@@ -141,7 +141,7 @@ Siga as instruções de instalação do `apt-get` documentadas no site do [Azul 
 Você pode usar um comando semelhante ao seguinte para testar se o Java runtime environment está instalado corretamente:  
     java -version  
 
-Você deverá ver uma mensagem semelhante à seguinte: ![Mensagem de instalação bem-sucedida do OpenJDK][14]
+Você deve ver uma página semelhante a esta: ![Mensagem de instalação bem-sucedida do OpenJDK][14]
 
 
 ### <a name="install-tomcat7"></a>Instalar o Tomcat7
@@ -207,12 +207,12 @@ Após conectar, você deverá ver algo semelhante ao seguinte:
 ## <a name="common-issues"></a>Problemas comuns
 ### <a name="cant-access-the-virtual-machine-with-tomcat-and-moodle-from-the-internet"></a>Não é possível acessar a máquina virtual com o Tomcat e o Moodle por meio da Internet
 #### <a name="symptom"></a>Sintoma  
-  O Tomcat está sendo executado, mas você não consegue ver a página padrão do Tomcat com seu navegador.
+   O Tomcat está sendo executado, mas você não consegue ver a página padrão do Tomcat com seu navegador.
 #### <a name="possible-root-cause"></a>Possível causa raiz   
 
   * A porta de escuta do Tomcat não é a mesma que a porta privada do ponto de extremidade da máquina virtual para o tráfego do Tomcat.  
 
-     Verifique as configurações de ponto de extremidade da porta pública e da porta privada e certifique-se de que a porta privada seja a mesma que a porta de escuta do Tomcat. Consulte a seção “Fase 1: Criar uma imagem” deste artigo para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.  
+     Verifique as configurações de ponto de extremidade da porta pública e da porta privada e certifique-se de que a porta privada seja a mesma que a porta de escuta do Tomcat. Confira a seção "Fase 1: Criar uma imagem” deste artigo para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.  
 
      Para determinar a porta de escuta do Tomcat, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/tomcat7/server.xml (versão Debian). Por padrão, a porta de escuta do Tomcat é 8080. Veja um exemplo:  
 

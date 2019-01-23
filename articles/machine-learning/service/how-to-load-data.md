@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fda0f600fa7cb130511f2bd8b53543acfbcc7759
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054277"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263808"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
 
@@ -27,7 +27,25 @@ Neste artigo, você aprenderá diferentes métodos de carregamento de dados usan
 * Conversão de tipos usando inferência durante o carregamento de arquivos
 * Suporte de conexão para o MS SQL Server e o Azure Data Lake Storage
 
-## <a name="load-text-line-data"></a>Carregar dados da linha de texto 
+## <a name="load-data-automatically"></a>Carregar dados automaticamente
+
+Para carregar dados automaticamente sem especificar o tipo de arquivo, use a função `auto_read_file()`. O tipo de arquivo e os argumentos necessários para lê-lo são inferidos automaticamente.
+
+```python
+import azureml.dataprep as dprep
+
+dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+```
+
+Essa função é útil para detectar automaticamente o tipo de arquivo, a codificação e outros argumentos de análise, tudo usando um conveniente ponto de entrada. A função também executa automaticamente as etapas a seguir, normalmente executadas ao carregar dados delimitados:
+
+* Inferir e definir o delimitador
+* Ignorar registros vazios na parte superior do arquivo
+* Inferir e definir a linha de cabeçalho
+
+Como alternativa, se você souber o tipo de arquivo antecipadamente e quiser controlar explicitamente a maneira como ele é analisado, continue seguindo este artigo para conferir as funções especializadas que o SDK oferece.
+
+## <a name="load-text-line-data"></a>Carregar dados da linha de texto
 
 Para ler dados de texto simples em um fluxo de dados, use o `read_lines()` sem especificar parâmetros opcionais.
 
@@ -188,7 +206,7 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 O SDK também pode carregar dados de uma fonte de SQL. Atualmente, somente o Microsoft SQL Server é suportado. Para ler dados de um servidor SQL, crie um objeto `MSSQLDataSource` que contenha os parâmetros de conexão. O parâmetro de senha de `MSSQLDataSource` aceita um objeto `Secret`. Você pode construir um objeto secreto de duas maneiras:
 
-* Registre o segredo e seu valor no mecanismo de execução. 
+* Registre o segredo e seu valor no mecanismo de execução.
 * Crie o segredo com apenas `id` (se o valor secreto já estiver registrado no ambiente de execução) usando `dprep.create_secret("[SECRET-ID]")`.
 
 ```python
@@ -232,7 +250,7 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Se a sua conta de usuário for um membro de mais de um locatário do Azure, será necessário especificar o locatário no formulário de nome de host do URL do AAD.
 
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Crie uma entidade de serviço com a CLI do Azure
@@ -256,7 +274,7 @@ Para configurar a ACL para o sistema de arquivos do Azure Data Lake Storage, use
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-Para configurar o acesso `Read` e `Execute` para o sistema de arquivos do Azure Data Lake Storage, configure a ACL para pastas e arquivos individualmente. Isso é devido ao fato de que o modelo de ACL HDFS subjacente não dá suporte a herança. 
+Para configurar o acesso `Read` e `Execute` para o sistema de arquivos do Azure Data Lake Storage, configure a ACL para pastas e arquivos individualmente. Isso é devido ao fato de que o modelo de ACL HDFS subjacente não dá suporte a herança.
 
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /

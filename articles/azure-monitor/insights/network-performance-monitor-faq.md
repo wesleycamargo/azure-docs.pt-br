@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543981"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232335"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas da Solução do Monitor de Desempenho de Rede
 
@@ -72,7 +72,7 @@ O script configura apenas o firewall do windows localmente. Se você tiver o fir
 Você deve usar pelo menos um agente para cada sub-rede que deseja monitorar.
 
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Qual é o número máximo de agentes que posso usar ou receberei o erro ".... você atingiu seu limite de Configuração"?
-O NPM limita o número de IPs a 5000 IPs por espaço de trabalho. Se um nó tiver ambos os endereços IPv4 e IPv6, isso contará como 2 IPs para esse nó. Portanto, esse limite de 5000 IPs determinaria o limite superior do número de agentes. Você pode excluir os agentes inativos da guia Nós no NPM >> Configurar. O NPM também mantém histórico de todos os IPs que já foram atribuídos à VM que hospeda o agente e estes também contam como IPs separados que contribuem para o limite superior de 5000 IPs. Para liberar IPs do seu espaço de trabalho, você pode usar a página Nós para excluir os IPs que não estão em uso.
+O NPM limita o número de IPs a 5000 IPs por espaço de trabalho. Se um nó tiver ambos os endereços IPv4 e IPv6, isso contará como 2 IPs para esse nó. Portanto, esse limite de 5000 IPs determinaria o limite superior do número de agentes. Você pode excluir os agentes inativos da guia Nós no NPM >> Configurar. O NPM também mantém histórico de todos os IPs que já foram atribuídos à VM que hospeda o agente e eles também contam como IPs separados que contribuem para o limite superior de 5000 IPs. Para liberar IPs do seu espaço de trabalho, você pode usar a página Nós para excluir os IPs que não estão em uso.
 
 ## <a name="monitoring"></a>Monitoramento
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101710"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266738"
 ---
 # <a name="advisor-performance-recommendations"></a>Recomendações de desempenho do Advisor
 
@@ -32,7 +32,7 @@ O Azure Advisor identifica os perfis do Gerenciador de Tráfego com um TTL mais 
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Melhorar o desempenho do banco de dados com o Assistente do BD SQL
 
-O Advisor fornece uma exibição consistente e consolidada de recomendações para todos os seus recursos do Azure. Ele se integra ao Advisor do Banco de Dados SQL para fornecer recomendações de melhoria de desempenho para o banco de dados do SQL Azure. O Advisor do Banco de Dados SQL avalia o desempenho dos bancos de dados do SQL Azure analisando o histórico de uso. Em seguida, ele oferece recomendações que são mais adequadas para execução da carga de trabalho típica do banco de dados. 
+O Advisor fornece uma exibição consistente e consolidada de recomendações para todos os seus recursos do Azure. Ele se integra ao Advisor do Banco de Dados SQL para fornecer recomendações de melhoria de desempenho para o banco de dados do SQL Azure. O Advisor do Banco de Dados SQL avalia o desempenho dos bancos de dados do SQL Azure analisando o histórico de uso. Em seguida, ele oferece recomendações que são mais adequadas para execução da carga de trabalho típica do banco de dados.
 
 > [!NOTE]
 > Para obter recomendações, um banco de dados deve ter aproximadamente uma semana de uso e dentro dessa semana deve haver atividades consistentes. O Assistente do Banco de Dados SQL pode ser otimizado com mais facilidade para padrões de consulta consistentes do que para intermitências irregulares de atividade.
@@ -43,7 +43,7 @@ Para obter mais informações sobre o Assistente do Banco de Dados SQL, consulte
 
 O Azure Advisor integra as práticas recomendadas para melhorar sua experiência com os Serviços de Aplicativos e descobrir recursos relevantes de plataforma. Os exemplos de recomendações dos Serviços de Aplicativos são:
 * Detecção de instâncias nas quais os recursos de memória ou de CPU são esgotados por tempos de execução de aplicativo com opções de mitigação.
-* Detecção de instâncias nas quais a disposição de recursos como aplicativos Web e bancos de dados pode melhorar o desempenho e reduzir custos. 
+* Detecção de instâncias nas quais a disposição de recursos como aplicativos Web e bancos de dados pode melhorar o desempenho e reduzir custos.
 
 Para saber mais sobre recomendações de Serviços de Aplicativos, veja [Práticas recomendadas para o Serviço de Aplicativo do Azure](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
@@ -75,7 +75,10 @@ O Assistente identifica tabelas que não são replicadas, mas que se beneficiari
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migre sua Conta de Armazenamento para o Azure Resource Manager para obter todos os recursos mais recentes do Azure
 
-Migre seu modelo de implantação da Conta de Armazenamento para o ARM (Azure Resource Manager) e usufrua das implantações de modelo, mais opções de segurança e a capacidade de atualizar para uma conta GPv2 para a utilização dos recursos mais recentes do Armazenamento do Microsoft Azure. O Assistente identificará quaisquer contas de armazenamento autônomo que estão usando o modelo de implantação clássico e recomenda a migração para o modelo de implantação do ARM. 
+Migre seu modelo de implantação da Conta de Armazenamento para o ARM (Azure Resource Manager) e usufrua das implantações de modelo, mais opções de segurança e a capacidade de atualizar para uma conta GPv2 para a utilização dos recursos mais recentes do Armazenamento do Microsoft Azure. O Assistente identificará quaisquer contas de armazenamento autônomo que estão usando o modelo de implantação clássico e recomenda a migração para o modelo de implantação do ARM.
+
+> [!NOTE]
+> Foi anunciada a desativação dos alertas clássicos do Azure Monitor em junho de 2019. É recomendável que você atualize sua conta de armazenamento clássica para o ARM para manter a funcionalidade de alertas com a nova plataforma. Para saber mais, confira [Desativação dos alertas clássicos](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 
@@ -92,4 +95,3 @@ Para saber mais sobre as recomendações do Assistente, consulte:
 * [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
-

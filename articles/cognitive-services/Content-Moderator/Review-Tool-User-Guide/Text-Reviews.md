@@ -1,5 +1,5 @@
 ---
-title: Analisar texto no Content Moderator do Azure| Microsoft Docs
+title: Revisar texto no Azure Content Moderator – Content Moderator
 description: Saiba como revisar o texto no Content Moderator para ver a pontuação e detectar marcas. Use as informações para determinar se o conteúdo é apropriado.
 services: cognitive-services
 author: sanjeev3
@@ -7,16 +7,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 005e6ed853cbc6013d74e7ff479097dcbb0a1043
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852088"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259556"
 ---
-# <a name="review-text"></a>Analisar texto
+# <a name="let-human-reviewers-review-text"></a>Deixar os revisores humanos revisarem o texto
 
 É possível usar o Content Moderator do Azure para analisar o texto usando pontuações e marcas detectadas. Usar as informações para determinar se o conteúdo é apropriado. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794236"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322088"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de backup periódico no Azure Service Fabric
 
@@ -45,7 +45,7 @@ Uma política de backup é composta pelas seguintes configurações:
 
 * **Agendamento de backup**: O tempo ou a frequência em que se executa backups periódicos. É possível agendar backups para serem recorrentes e um intervalo especificado ou a uma hora fixa diária/semanalmente.
 
-    1. **Agendamento de backup baseada em frequência**: Esse tipo de agendamento deverá ser usado se for necessário executar backup de dados em intervalos fixos. O intervalo de tempo desejado entre dois backups consecutivos é definido usando o formato ISO8601. O agendamento de backup baseado em frequência é compatível com a resolução de intervalo até minuto.
+    1. **Agendamento de backup baseada em frequência**: Esse tipo de agendamento deverá ser usado se for necessário executar backup de dados em intervalos fixos. O intervalo de tempo desejado entre dois backups consecutivos é definido usando o formato ISO8601. O agendamento de backup baseado em frequência é compatível com a resolução de intervalo ao minuto.
         ```json
         {
             "ScheduleKind": "FrequencyBased",

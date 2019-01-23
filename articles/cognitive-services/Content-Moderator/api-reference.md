@@ -1,7 +1,7 @@
 ---
 title: Referência de API – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Saiba mais sobre as APIs de Análise e moderação de conteúdo para o Content Moderator.
+description: Saiba mais sobre as diversas APIs de Análise e moderação de conteúdo para o Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: ecc22b097c14fc7597d8ee0e31f9691098a2211d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a64b2f7ce54d5ace26ad18c0ca1a9facb66245e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229740"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266953"
 ---
 # <a name="content-moderator-api-reference"></a>Referência da API do Content Moderator
 
-Comece a usar as APIs do Azure Content Moderator das seguintes maneiras: (Consulte também [Gerenciamento de credenciais](review-tool-user-guide/credentials.md).)
+Comece a usar o Azure Content Moderator das seguintes maneiras: (Confira também [Gerenciamento de credenciais](review-tool-user-guide/credentials.md).)
 
 - No portal do Azure, [inscreva-se para as APIs do Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Inscreva-se para [a ferramenta de análise do Content Moderator](https://contentmoderator.cognitive.microsoft.com/). Consulte o [Início Rápido](quick-start.md).
+- Inscreva-se para [a ferramenta de análise do Content Moderator](https://contentmoderator.cognitive.microsoft.com/). Confira [Experimentar o Content Moderator na Web](quick-start.md).
 
 ## <a name="moderation-apis"></a>APIs de Moderação
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 809d892c6238441f5a0bd93382acd7a783a4f0e9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260711"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262210"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -19,7 +19,7 @@ As Migrações para Azure têm um limite de 1500 computadores por projeto e este
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **VMware**: as VMs que você planeja migrar devem ser gerenciadas por um vCenter Server versão 5.5, 6.0 ou 6.5. Além disso, é necessário um host ESXi executando a versão 5.0 ou posterior para implantar a VM de coletor.
+- **VMware**: as VMs que você planeja migrar devem ser gerenciadas pelo vCenter Server versão 5.5, 6.0, 6.5 ou 6.7. Além disso, é necessário um host ESXi executando a versão 5.0 ou posterior para implantar a VM de coletor.
 - **conta do vCenter**: você precisa de uma conta somente leitura para acessar o vCenter Server. O Migrações para Azure usa essa conta para descobrir as VMs locais.
 - **Permissões**: no vCenter Server, você precisa de permissões para criar uma VM importando um arquivo no formato .OVA.
 - **Configurações de estatísticas**: esse requisito só é aplicável ao [modelo de descoberta única](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) que agora foi preterido. Para o modelo de descoberta única, as configurações de estatísticas para o vCenter Server devem ser definidas como nível 3 antes de você iniciar a implantação. O nível de estatísticas deve ser definido como 3 para cada um dos intervalos de coleta do dia, da semana e do mês. Se o nível for inferior ao 3 para cada um dos três intervalos de coleta, a avaliação funcionará, mas os dados de desempenho para armazenamento e rede não serão coletados. As recomendações de tamanho serão feitas então com base nos dados de desempenho para CPU e memória e nos dados de configuração para os adaptadores de rede e de disco.
@@ -138,9 +138,9 @@ Se você tiver vários projetos, você precisará baixar o dispositivo coletor s
 
     Observe que o dispositivo coleta apenas dados de desempenho continuamente e não detecta nenhuma alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, adição de disco, etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
 
-    - Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-la novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+    - Adição de itens (VMs, discos, núcleos, etc.): Para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-la novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
 
-    - Exclusão de VMs: devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
+    - Exclusão de VMs: Devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
 
 3. Em **Copiar credenciais do projeto**, copie a ID e a chave do projeto. Você precisará delas quando configurar o coletor.
 

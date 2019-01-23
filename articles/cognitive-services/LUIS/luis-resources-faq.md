@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714195"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246544"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -84,6 +84,14 @@ Seu sistema deve usar a intenção de pontuação mais alta, independentemente d
 O total de pontos de extremidade no Painel do aplicativo é atualizado periodicamente, mas as métricas associadas à chave de ponto de extremidade de LUIS no portal do Azure são atualizadas com mais frequência.
 
 Se não visualizar ocorrências de ponto de extremidade atualizados no Painel, faça logon no portal do Azure e localize o recurso associado à chave de ponto de extremidade de LUIS e, em seguida, abra **Métricas** para selecionar a métrica **Total de Chamadas**. Se a chave de ponto de extremidade for usada para mais de um aplicativo de LUIS, a métrica no portal do Azure mostrará o número agregado de chamadas de todos os aplicativos de LUIS que a utilizam.
+
+### <a name="is-there-a-powershell-command-to-the-endpoint-quota"></a>Há um comando do PowerShell para a cota de ponto de extremidade?
+
+É possível usar um comando do PowerShell para ver a cota de ponto de extremidade:
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Meu aplicativo de LUIS estava funcionando ontem, mas hoje estou recebendo erros 403. Eu não alterei o aplicativo. Como corrigi-la?
 Seguindo as [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) nas próximas perguntas frequentes para criar uma chave de ponto de extremidade de LUIS e atribuindo-a ao aplicativo. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -194,6 +202,12 @@ Se você selecionar um modelo de LUIS e o botão **Selecionar** no painel de mod
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Que regiões de LUIS são compatíveis com a preparação de fala do Bot Framework?
 [Preparação de fala](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) é compatível apenas com aplicativos LUIS na instância central (EUA).
+
+## <a name="api-programming-strategies"></a>Estratégias de programação de API
+
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Como fazer para obter de modo programático a região LUIS de um recurso? 
+
+Use o exemplo de LUIS para [encontrar região](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) de modo programático usando C# ou Node.Js. 
 
 ## <a name="luis-service"></a>Serviço LUIS
 

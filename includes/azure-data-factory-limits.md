@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 1/8/2019
+ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 203168f27e06d58c192bc5009db077461738011a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 2e9e4fe06f4d3802f6c0b3ff13e6cf6cdc218050
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54122778"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211794"
 ---
 O Data factory é um serviço multilocatário que tem os seguintes limites padrão em vigor para certificar-se de que as assinaturas de clientes são protegidas das cargas de trabalho umas das outras. Entrando em contato com o suporte, é possível aumentar muitos dos limites facilmente em sua assinatura até o limite máximo.
 
@@ -26,6 +26,7 @@ O Data factory é um serviço multilocatário que tem os seguintes limites padr�
 | Total de núcleos de CPU para Tempo(s) de Execução de Integração do Azure-SSIS em uma assinatura | 256 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Execuções de pipeline simultâneas por fábrica de dados (compartilhada entre todos os pipelines na fábrica) | 10.000  | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Máximo de atividades por pipeline (inclui atividades internas para contêineres) | 40 | 40 |
+| Número máximo de Tempo de Integration Runtime Vinculado que pode ser criado usando um único tempo de execução da integração auto-hospedada | 20 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Máximo de parâmetros por pipeline | 50 | 50 |
 | Itens ForEach | 100.000 | 100.000 |
 | Para cada paralelismo | 20 | 50 |

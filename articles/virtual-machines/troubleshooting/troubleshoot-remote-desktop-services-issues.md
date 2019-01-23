@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957685"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215109"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de área de trabalho remota não estiver iniciando uma VM do Azure
 
 Este artigo descreve como solucionar problemas quando você se conecta a uma máquina virtual (VM) do Azure e os Serviços de Área de Trabalho Remota, ou TermService, não estão sendo iniciados ou não são iniciados.
 
 > [!NOTE]  
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e o clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve o uso do modelo de implantação do Gerenciador de Recursos. Recomendamos que você use esse modelo para novas implantações em vez do modelo de implantação clássico.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve o uso do modelo de implantação do Gerenciador de Recursos. Recomendamos que você use esse modelo para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -37,16 +37,16 @@ Ao tentar conectar uma VM, você enfrenta os seguintes cenários:
 
 - Você visualiza remotamente os logs de eventos na VM usando o Visualizador de Eventos. Você vê que os Serviços de Área de Trabalho Remota, TermService, não estão sendo iniciados ou não são iniciados. O log a seguir está um exemplo:
 
-    **Nome de log**: sistema </br>
-    **Origem**: Gerenciador de controle de serviço </br>
-    **Data**: 12/16/2017 11:19:36 AM</br>
-    **A ID de evento**: 7022</br>
-    **Categoria de tarefa**: nenhum</br>
-    **Nível**: erro</br>
-    **Palavras-chave**: clássico</br>
-    **Usuário**: n/d</br>
+    **Nome do log**:      Sistema </br>
+    **Fonte**:        Gerenciador de Controle de Serviço </br>
+    **Data**:          16/12/2017 11:19:36</br>
+    **ID de evento**:      7022</br>
+    **Categoria da Tarefa**: Nenhum</br>
+    **Nível**:         Erro</br>
+    **Palavras-chave**:      Clássico</br>
+    **Usuário**:          N/D</br>
     **Computador**: vm.contoso.com</br>
-    **Descrição**: serviço The Remote Desktop Services parou ao iniciar. 
+    **Descrição**: Os Serviços de Área de Trabalho Remota travaram ao iniciar. 
 
     Você também pode usar o recurso Serial Access Console para procurar esses erros executando a seguinte consulta: 
 
@@ -99,7 +99,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
     |  Erro |  Sugestão |
     |---|---|
-    |5 - ACESSO NEGADO |Consulte o [serviço TermService está parado devido a um erro de Acesso Negado](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Veja [Serviço TermService está desabilitado](#termService-service-is-disabled).  |  
+    |5 - ACESSO NEGADO |Consulte o [Serviço TermService está parado devido a um erro de Acesso Negado](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Veja [Serviço TermService está desabilitado](#termService-service-is-disabled).  |  
     |1058 - ERROR_SERVICE_DISABLED  |Ver [TermService serviço falhar ou travar](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.|
     |1067 - ERROR_PROCESS_ABORTED  |Ver [TermService serviço falhar ou travar](#termService-service-crashes-or-hangs).  |
@@ -112,7 +112,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Serviço TermService está parado devido a um problema de acesso negado
 
-1. Conecte-se ao [Console serial](serial-console-windows.md#) e abra uma instância do PowerShell.
+1. Conecte-se ao [Console serial](serial-console-windows.md) e abra uma instância do PowerShell.
 2. Faça o download da ferramenta Monitor de Processos executando o seguinte script:
 
    ```

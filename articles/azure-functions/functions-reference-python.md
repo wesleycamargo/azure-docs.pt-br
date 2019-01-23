@@ -1,6 +1,6 @@
 ---
 title: Referência de desenvolvedor do Python para o Azure Functions
-description: Entenda como desenvolver funções usando Pythong
+description: Saiba como desenvolver funções usando Python
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 619db07204b88609314d0d3d06709eaa93cb7a43
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188020"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304347"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -317,7 +317,7 @@ The terminal process terminated with exit code: 1
 Para criar e configurar os binários necessários automaticamente, [instale o Docker](https://docs.docker.com/install/) em seu computador local e execute o comando a seguir para publicar usando o [Azure Functions Core Tools](functions-run-local.md#v2) (func). Lembre-se de substituir `<app name>` pelo nome do aplicativo de funções no Azure. 
 
 ```bash
-func azure functionapp <app name> --build-native-deps
+func azure functionapp publish <app name> --build-native-deps
 ```
 
 Nos bastidores, o Core Tools usará Docker para executar a imagem [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) como um contêiner em seu computador local. Usando esse ambiente, ele compilará e instalará os módulos necessários da distribuição de origem antes de empacotá-las para a implantação final no Azure.

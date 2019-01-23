@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
-ms.openlocfilehash: bddb72f2b76d6e652dd26f2e383b7d06fded881b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 297b1d5e683a8ad505a37c43ab74c8b888ec87f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395450"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265746"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Revisar o uso de recursos de serviço do Azure usando a API REST
 
@@ -39,7 +39,7 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-O parâmetro `{subscriptionGuid}` é obrigatório e deve conter uma ID de assinatura que pode ser lida usando a credenciais fornecidas no token de API. O `{reportName}`
+O parâmetro `{subscriptionGuid}` é obrigatório e deve conter uma ID da assinatura que pode ser lida usando as credenciais fornecidas no token de API. O `{reportName}`
 
 Os cabeçalhos a seguir são necessários: 
 
@@ -146,7 +146,7 @@ A `Resource` dimensão permite relatar os custos de recursos específicos.
 
 ### <a name="changing-timeframes"></a>Alterando períodos de tempo
 
-Configure a definição `timeframe` como `Custom` para definir um período de tempo fora das opções integradas de semana e mês até a data.
+Configure a definição de `timeframe` como `Custom` para definir um período fora das opções internas de semana e mês até a data.
 
 ```json
 "timeframe": "Custom",

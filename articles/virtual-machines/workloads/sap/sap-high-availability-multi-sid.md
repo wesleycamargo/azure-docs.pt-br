@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 570c427166c07e93d3c8a7d3be079d9007238243
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 05fda1b4f71f67714b4723e15533d3555d497249
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656815"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321663"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID do SAP NetWeaver
 
@@ -55,7 +55,7 @@ Se você tiver uma implantação do SAP, será possível usar um balanceador de 
 Este artigo aborda como mudar de uma instalação ASCS/SCS única para uma configuração Multi-SID do SAP com a instalação de instâncias em cluster do SAP ASCS/SCS adicionais em um cluster WSFC (Windows Server Failover Clustering) existente. Quando esse processo for concluído, você já terá um cluster multi-SID do SAP configurado.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Você já configurou um cluster WSFC usado para uma instância SAP ASCS/SCS, conforme discutido no [guia para SAP NetWeaver de alta disponibilidade em VMs do Windows][sap-ha-guide] e conforme mostrado neste diagrama.
 
 ![Instância do SAP ASCS/SCS de alta disponibilidade][sap-ha-guide-figure-6001]
@@ -72,7 +72,7 @@ A meta é instalar várias instâncias clusterizadas do SAP ABAP ASCS ou do SAP 
 >O número máximo de instâncias do SAP ASCS/SCS em um cluster WSFC é igual ao número máximo de IPs de front-end privado para cada balanceador de carga interno do Azure.
 >
 
-Para obter mais informações sobre limites do balanceador de carga, consulte “IP de front-end privado por balanceador de carga” em [Limites de Rede: Azure Resource Manager][networking-limits-azure-resource-manager].
+Para obter mais informações sobre limites do balanceador de carga, confira “IP de front-end privado por balanceador de carga” em [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 O cenário completo com dois sistemas SAP de alta disponibilidade seria assim:
 
@@ -208,7 +208,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 Depois que o script tiver sido executado, os resultados serão exibidos no portal do Azure, conforme mostrado na seguinte captura de tela:

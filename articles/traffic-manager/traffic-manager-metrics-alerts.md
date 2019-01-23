@@ -1,8 +1,7 @@
 ---
-title: Métricas e alertas no Gerenciador de Tráfego do Azure | Microsoft Docs
+title: Métricas e alertas no Gerenciador de Tráfego do Azure
 description: Este artigo descreve as métricas disponíveis para o Gerenciador de Tráfego do Azure.
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: bb7817b082da11de3071925d01a3402902410a6f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437955"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200183"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Alertas e métricas do Gerenciador de Tráfego
 
@@ -24,15 +23,15 @@ O Gerenciador de Tráfego fornece balanceamento de carga baseado em DNS, que inc
 
 ## <a name="metrics-available-in-traffic-manager"></a>Métricas disponíveis no Gerenciador de Tráfego 
 
-O Gerenciador de Tráfego fornece as seguintes métricas de acordo com o perfil, que podem ser consumidas por clientes a fim de entender o uso do Gerenciador de Tráfego e o status de seus pontos de extremidade nesse perfil.  
+O Gerenciador de Tráfego fornece as seguintes métricas de acordo com o perfil que os clientes podem usar para entender o uso do Gerenciador de Tráfego e o status de seus pontos de extremidade nesse perfil.  
 
 ### <a name="queries-by-endpoint-returned"></a>Consultas por ponto de extremidade retornado
-Use [esta métrica](../azure-monitor/platform/metrics-supported.md) para exibir o número de consultas processadas por um perfil do Gerenciador de Tráfego durante um período especificado. Também é possível exibir as mesmas informações com uma granularidade de nível de ponto de extremidade que ajuda você a entender quantas vezes um ponto de extremidade retornou nas respostas da consulta do Gerenciador de Tráfego.
+Use [esta métrica](../azure-monitor/platform/metrics-supported.md) para exibir o número de consultas que um perfil do Gerenciador de Tráfego processou durante um período especificado. Também é possível exibir as mesmas informações com uma granularidade de nível de ponto de extremidade que ajuda você a entender quantas vezes um ponto de extremidade retornou nas respostas da consulta do Gerenciador de Tráfego.
 
-No exemplo a seguir, a Figura 1 exibe todas as respostas de consulta retornadas pelo perfil do Gerenciador de Tráfego. 
+No exemplo a seguir, a Figura 1 exibe todas as respostas de consulta que o perfil do Gerenciador de Tráfego retorna. 
 
   
-![Métricas do Gerenciador de Tráfego - exibição agregada de todas as consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+![Exibição agregada de todas as consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
 *Figura 1: Exibição agregada com todas as consultas*
   
@@ -44,10 +43,10 @@ A Figura 2 exibe as mesmas informações, porém, elas são divididas por pontos
 
 ## <a name="endpoint-status-by-endpoint"></a>Status do ponto de extremidade por ponto de extremidade
 Use [esta métrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) para entender o status de integridade dos pontos de extremidade no perfil. Ela usa dois valores:
- - use **1**, se o ponto de extremidade estiver ativo.
+ - use **1** se o ponto de extremidade estiver ativo.
  - use **0**, se o ponto de extremidade estiver inativo.
 
-Essa métrica pode ser exibida como um valor de agregação que representa o status de todas as métricas (Figura 3), ou pode ser dividida (veja a Figura 4) para mostrar o status de pontos de extremidade específicos. No caso anterior, se o nível de agregação for selecionado como **Avg**, o valor dessa métrica será a média aritmética do status de todos os pontos de extremidade. Por exemplo, se um perfil tiver dois pontos de extremidade e apenas um deles estiver íntegro, essa métrica terá um valor de **0,50**, como mostra a Figura 3. 
+Essa métrica pode ser exibida como um valor de agregação que representa o status de todas as métricas (Figura 3), ou pode ser dividida (veja a Figura 4) para mostrar o status de pontos de extremidade específicos. Se o nível de agregação anterior estiver selecionado como **Avg**, o valor dessa métrica será a média aritmética do status de todos os pontos de extremidade. Por exemplo, se um perfil tiver dois pontos de extremidade e apenas um deles estiver íntegro, essa métrica terá um valor de **0,50**, como mostra a Figura 3. 
 
 
 ![Métricas do Gerenciador de Tráfego - exibição composta do status do ponto de extremidade](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
@@ -66,4 +65,4 @@ Além de processar e exibir métricas do Gerenciador de Tráfego, o Azure Monito
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [serviço do Azure Monitor](../azure-monitor/platform/metrics-supported.md)
-- Saiba como [criar um novo gráfico usando o Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)
+- Saiba como [criar um gráfico usando o Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

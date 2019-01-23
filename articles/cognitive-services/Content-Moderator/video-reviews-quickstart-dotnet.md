@@ -1,21 +1,21 @@
 ---
 title: Criar análises de vídeo usando .NET – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Como criar análises de vídeo usando o SDK do Content Moderator para .NET
+description: Este artigo fornece informações e exemplos de código para ajudá-lo a começar rapidamente a usar o SDK do Content Moderator com C# para criar análises de vídeos.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219033"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262504"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar análises de vídeo usando .NET
 
@@ -35,8 +35,7 @@ Este artigo também pressupõe que você já esteja familiarizado com o Visual S
 
 ## <a name="sign-up-for-content-moderator"></a>Inscrever-se no Content Moderator
 
-Uma chave de assinatura é necessária antes de usar os serviços do Content Moderator através da API REST ou do SDK.
-Consulte o [Início Rápido](quick-start.md) para saber como você pode obter a chave.
+Uma chave de assinatura é necessária antes de usar os serviços do Content Moderator através da API REST ou do SDK. Siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o Content Moderator e obter sua chave.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Inscreva-se para uma conta da ferramenta de revisão caso isso ainda não tenha sido concluído na etapa anterior
 

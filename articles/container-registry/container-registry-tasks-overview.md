@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cd2b14dc29f865a162cb1ced605e740a96f7a46a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855743"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329966"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatizar a aplicação de patches no sistema operacional e na estrutura com as Tarefas de ACR
 
@@ -24,10 +24,10 @@ As **Tarefas do ACR** são um pacote de recursos do Registro de Contêiner do Az
 
 Compile e teste imagens de contêiner com as Tarefas do ACR de quatro maneiras:
 
-* [Tarefa rápida](#quick-task): compile e envie por push as imagens de contêiner sob demanda, no Azure, sem a necessidade de uma instalação local do Docker Engine. Pense em `docker build`, `docker push` na nuvem. Compile usando o código-fonte local ou um repositório Git.
-* [Compilar na confirmação de código-fonte](#automatic-build-on-source-code-commit): dispare um build de imagem de contêiner automaticamente quando o código for confirmado em um repositório Git.
-* [Compilar na atualização da imagem base](#automate-os-and-framework-patching): dispare um build de imagem de contêiner quando a imagem base da imagem que foi atualizada.
-* [Tarefas de várias etapas](#multi-step-tasks-preview) (versão prévia): defina tarefas de várias etapas que criam imagens, executam contêineres como comandos e enviam imagens por push para um Registro. Essa versão prévia do recurso das Tarefas do ACR dão suporte à execução de tarefa sob demanda e a operações paralela de build, teste e push de imagem.
+* [Tarefa rápida](#quick-task): Compile e envie por push as imagens de contêiner sob demanda, no Azure, sem a necessidade de uma instalação local do Docker Engine. Pense em `docker build`, `docker push` na nuvem. Compile usando o código-fonte local ou um repositório Git.
+* [Build na confirmação de código-fonte](#automatic-build-on-source-code-commit): Dispare automaticamente um build de imagem de contêiner quando o código é confirmado para um repositório Git.
+* [Compilar na atualização de imagem base](#automate-os-and-framework-patching): Dispare um build de imagem de contêiner quando a imagem base da imagem que foi atualizada.
+* [Tarefas de várias etapas](#multi-step-tasks-preview) (versão prévia): Defina tarefas de várias etapas que criam imagens, executam contêineres como comandos e enviam imagens por push para um Registro. Essa versão prévia do recurso das Tarefas do ACR dão suporte à execução de tarefa sob demanda e a operações paralela de build, teste e push de imagem.
 
 ## <a name="quick-task"></a>Tarefa rápida
 
@@ -65,7 +65,7 @@ Saiba como disparar builds na confirmação do código-fonte no segundo tutorial
 
 O poder das Tarefas do ACR de realmente aprimorar seu fluxo de trabalho de build de contêiner vem da capacidade de detectar uma atualização para uma imagem de base. Quando a imagem base atualizada é enviada por push para o Registro, as Tarefas do ACR podem compilar automaticamente as imagens do aplicativo com base nela.
 
-As imagens de contêiner podem ser amplamente categorizadas em imagens de *base* e imagens de *aplicativo*. Suas imagens de base normalmente incluem o sistema operacional e estruturas de aplicativo com base nos quais seu aplicativo é criado, em conjunto com outras personalizações. Essas imagens básicas são elas próprias baseadas em imagens upstream públicas, por exemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] ou [Node.js][base-node]. Várias das suas imagens de aplicativo podem compartilhar uma imagem de base comum.
+As imagens de contêiner podem ser amplamente categorizadas em imagens de *base* e imagens de *aplicativo*. Suas imagens de base normalmente incluem o sistema operacional e estruturas de aplicativo com base nos quais seu aplicativo é criado, em conjunto com outras personalizações. Essas imagens de base são normalmente baseadas em imagens públicas de upstream, por exemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] ou [Node.js][base-node]. Várias das suas imagens de aplicativo podem compartilhar uma imagem de base comum.
 
 Quando um sistema operacional ou uma imagem de estrutura de aplicativo é atualizado pelo mantenedor upstream, por exemplo, com um patch de segurança crítico de sistema operacional, você deverá também atualizar suas imagens de base para incluir a correção crítica. Cada imagem de aplicativo deve também ser reconstruída para incluir essas correções upstream agora incluídas em sua imagem de base.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390016"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262754"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar o Gerenciamento de API do Azure ao Azure Application Insights
 
@@ -64,8 +64,10 @@ Para que você possa usar as informações do Azure Application Insights, primei
 6. Marque a caixa **Habilitar**.
 7. Selecione o agente anexado na lista suspensa **Destino**.
 8. Insira **100** como **Amostragem (%)** e marque a caixa de seleção **Sempre registrar erros**.
-9. Insira **1024** no campo **Primeiros bytes do corpo**.
-10. Clique em **Salvar**.
+9. Clique em **Salvar**.
+
+> [!WARNING]
+> Substituir o valor padrão **0** no campo **Primeiros bytes do corpo** pode diminuir significativamente o desempenho de suas APIs.
 
 > [!NOTE]
 > Nos bastidores, uma entidade [Diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) chamada 'applicationinsights' é criada no nível da API.
@@ -76,12 +78,12 @@ Para que você possa usar as informações do Azure Application Insights, primei
 | Destino                         | Agente do Azure Application Insights | Especifica o agente do Azure Application Insights a ser usado                                                                                                                                                                                                                                                                                           |
 | Amostragem (%)                        | decimal                           | Valores de 0 a 100 (porcentagem). <br/> Especifica o percentual de solicitações que será registrada no Azure Application Insights. A amostragem de 0% significa zero solicitações registradas, enquanto a amostragem de 100% significa que todas as solicitações foram registradas. <br/> Essa configuração é usada para reduzir as implicações no desempenho das solicitações de registro no Azure Application Insights (confira a seção abaixo). |
 | Sempre registrar erros                   | booleano                           | Se essa configuração for selecionada, todas as falhas serão registradas no Azure Application Insights, independentemente da configuração de **Amostragem**.                                                                                                                                                                                                                  |
-| Opções básicas: cabeçalhos              | list                              | Especifica os cabeçalhos que serão registrados no Azure Application Insights para solicitações e respostas.  Padrão: nenhum cabeçalho é registrado.                                                                                                                                                                                                             |
-| Opções básicas: primeiros bytes do corpo  | inteiro                           | Especifica quantos primeiros bytes do corpo são registrados no Azure Application Insights para solicitações e respostas.  Padrão: o corpo não é registrado.                                                                                                                                                                                              |
-| Opções avançadas: solicitação de front-end  |                                   | Especifica se e como as *solicitações de front-end* serão registradas no Azure Application Insights. A *solicitação de front-end* é uma solicitação recebida no serviço de Gerenciamento de API do Azure.                                                                                                                                                                        |
-| Opções avançadas: resposta de front-end |                                   | Especifica se e como as *respostas de front-end* serão registradas no Azure Application Insights. A *resposta de front-end* é uma resposta de saída no serviço de Gerenciamento de API do Azure.                                                                                                                                                                   |
-| Opções avançadas: solicitação de back-end   |                                   | Especifica se e como as *solicitações de back-end* serão registradas no Azure Application Insights. A *solicitação de back-end* é uma solicitação de saída do serviço de Gerenciamento de API do Azure.                                                                                                                                                                        |
-| Opções avançadas: resposta de back-end  |                                   | Especifica se e como as *respostas de back-end* serão registradas no Azure Application Insights. A *resposta de back-end* é uma resposta recebida no serviço de Gerenciamento de API do Azure.                                                                                                                                                                       |
+| Opções básicas: Cabeçalhos              | list                              | Especifica os cabeçalhos que serão registrados no Azure Application Insights para solicitações e respostas.  Padrão: nenhum cabeçalho é registrado.                                                                                                                                                                                                             |
+| Opções básicas: Primeiros bytes do corpo  | inteiro                           | Especifica quantos primeiros bytes do corpo são registrados no Azure Application Insights para solicitações e respostas.  Padrão: o corpo não é registrado.                                                                                                                                                                                              |
+| Opções avançadas: Solicitação de front-end  |                                   | Especifica se e como as *solicitações de front-end* serão registradas no Azure Application Insights. A *solicitação de front-end* é uma solicitação recebida no serviço de Gerenciamento de API do Azure.                                                                                                                                                                        |
+| Opções avançadas: Resposta de front-end |                                   | Especifica se e como as *respostas de front-end* serão registradas no Azure Application Insights. A *resposta de front-end* é uma resposta de saída no serviço de Gerenciamento de API do Azure.                                                                                                                                                                   |
+| Opções avançadas: Solicitação de back-end   |                                   | Especifica se e como as *solicitações de back-end* serão registradas no Azure Application Insights. A *solicitação de back-end* é uma solicitação de saída do serviço de Gerenciamento de API do Azure.                                                                                                                                                                        |
+| Opções avançadas: Resposta de back-end  |                                   | Especifica se e como as *respostas de back-end* serão registradas no Azure Application Insights. A *resposta de back-end* é uma resposta recebida no serviço de Gerenciamento de API do Azure.                                                                                                                                                                       |
 
 > [!NOTE]
 > Você pode especificar agentes em diferentes níveis, ou seja, um único agente de API ou um agente para todas as APIs.

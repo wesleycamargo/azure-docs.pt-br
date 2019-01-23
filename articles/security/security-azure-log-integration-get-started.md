@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bf39e22c0edc23d2e452d96103c8933e0a47af9e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602181"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304389"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração de Logs do Azure com logs do Diagnóstico do Azure e encaminhamento de eventos do Windows
 
 
 >[!IMPORTANT]
-> O recurso Integração de log do Azure será preterido em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer para prosseguir com a análise da postagem [Usar o Azure Monitor para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> O recurso Integração de log do Azure será preterido em 01/06/2019. Downloads de AzLog foram desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer para prosseguir com a análise da postagem [Usar o Azure Monitor para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Você só deverá usar a integração de log do Azure se um conector do [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) não estiver disponível de seu fornecedor de SIEM (Gerenciamento de Eventos e Informações de Segurança).
 
@@ -85,7 +85,7 @@ Para melhorar o desempenho, você também tem a opção de escalar verticalmente
 
 ## <a name="install-azure-log-integration"></a>Instalar a Integração de Logs do Azure
 
-Para instalar a Integração de Logs do Azure, baixe o arquivo de instalação da [Integração de Logs do Azure](https://www.microsoft.com/download/details.aspx?id=53324). Conclua o processo de instalação. Escolha se as informações de telemetria devem ou não ser fornecidas à Microsoft.
+Executar a rotina de instalação. Escolha se as informações de telemetria devem ou não ser fornecidas à Microsoft.
 
 O serviço de Integração de Logs do Azure coleta os dados telemétricos do computador no qual ele está instalado.  
 
@@ -245,7 +245,6 @@ Você também pode abrir uma [solicitação de suporte](../azure-supportability/
 
 Para saber mais sobre a Integração de Logs do Azure, consulte os seguintes artigos: Antes de experimentar as etapas neste artigo, você deve examinar o artigo Introdução e concluir as etapas dele.
 
-* [Integração de Logs do Azure para logs do Azure](https://www.microsoft.com/download/details.aspx?id=53324). O Centro de Download inclui detalhes, requisitos de sistema e instruções de instalação para a Integração de Logs do Azure.
 * [Introdução à Integração de Logs do Azure](security-azure-log-integration-overview.md). Este documento apresenta a Integração de Logs do Azure, seus principais recursos e como ele funciona.
 * [Etapas de configuração de parceiro](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Essa postagem de blog mostra a você como configurar a Integração de Logs do Azure para trabalhar com as soluções de parceiros Splunk, HP ArcSight e IBM QRadar. Descreve nossas diretrizes atuais sobre como configurar os componentes do SIEM. Entre em contato com seu fornecedor do SIEM para obter detalhes adicionais.
 * [Perguntas frequentes sobre a Integração de Logs do Azure](security-azure-log-integration-faq.md). Este artigo de perguntas comuns responde às perguntas sobre a Integração de Logs do Azure.

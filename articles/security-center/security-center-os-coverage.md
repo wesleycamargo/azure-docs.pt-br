@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608827"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265457"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e recursos compatíveis com a Central de Segurança do Azure
 
@@ -74,10 +74,10 @@ VMs que são executadas em um serviço de nuvem também são compatíveis. Apena
 |Ambiente|Azure|Não Azure|Azure|Não Azure|
 |Alertas de detecção de ameaças VMBA|✔|✔|✔ (em versões compatíveis)|✔|
 |Alertas de detecção de ameaças baseadas em rede|✔|X|✔|X|
-|Integração com o Windows Defender ATP*|✔ (em versões compatíveis)|✔|X|X|
+|Integração com o Windows Defender ATP|✔ (em versões compatíveis)|✔|X|X|
 |Patches ausentes|✔|✔|✔|✔|
 |Configurações de segurança|✔|✔|✔|✔|
-|Programas antimalware|✔|✔|X|X|
+|Proteção do ponto de extremidade|✔|✔|X|X|
 |Acesso à VM JIT|✔|X|✔|X|
 |Controles de aplicativo adaptáveis|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -88,8 +88,27 @@ VMs que são executadas em um serviço de nuvem também são compatíveis. Apena
 |Mapa de rede|✔|X|✔|X|
 |Controles de rede adaptável|✔|X|✔|X|
 
-\* Esses recursos são compatíveis atualmente com a versão prévia pública.
 
+### <a name="supported-endpoint-protection-solutions"></a>Soluções de proteção de ponto de extremidade com suporte
+
+A tabela a seguir fornece uma matriz de:
+ - Se você pode usar a Central de Segurança do Azure para instalar cada solução para você.
+ - Quais soluções de proteção de ponto de extremidade a Central de Segurança pode descobrir. Se uma dessas soluções de proteção de ponto de extremidade for descoberta, a Central de Segurança não recomendará a instalação de uma.
+
+| Proteção do ponto de extremidade| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
+|------|------|-----|-----|
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Integrado no SO| SIM |
+| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão | SIM |
+| Trend Micro – Todas as versões | Família Windows Server  | Não  | SIM |
+| Symantec v12.1.1100+| Família Windows Server  | Não  | SIM |
+| McAfee v10+ | Família Windows Server  | Não  | SIM |
+| Kaspersky| Família Windows Server  | Não  | Não   |
+| Sophos| Família Windows Server  | Não  | Não   |
+
+> [!NOTE]
+> - A detecção do System Center Endpoint Protection (SCEP) em uma máquina virtual do Windows Server 2008 R2 exige que o SCEP seja instalado após o PowerShell 3.0 (ou uma versão superior).
+>
+>
 
 ## <a name="supported-paas-features"></a>Recursos de PaaS compatíveis 
 
@@ -109,6 +128,8 @@ VMs que são executadas em um serviço de nuvem também são compatíveis. Apena
 |Assinatura|✔| ✔|
 
 \* Esses recursos são compatíveis atualmente com a versão prévia pública. 
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

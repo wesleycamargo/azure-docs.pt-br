@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bb5d7306558f46f84d1f4a1b7a61332bf767479f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412781"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267038"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Redefina a senha local do Windows para a VM do Azure offline
 Você pode redefinir a senha local do Windows de uma VM no Azure usando o [portal do Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), desde que o agente convidado do Azure esteja instalado. Esse método é a principal maneira de redefinir uma senha para uma VM do Azure. Caso encontre problemas com o agente convidado do Azure, como não responder ou falhar na instalação após carregamento de uma imagem personalizada, você poderá redefinir manualmente uma senha do Windows. Este artigo fornece detalhes sobre como redefinir uma senha de conta local anexando o disco virtual do SO de origem a outra VM. As etapas descritas neste artigo não se aplicam aos controladores de domínio do Windows. 
@@ -37,6 +37,19 @@ As principais etapas para redefinir uma senha local para uma VM do Windows no Az
 * Desanexe da VM para solução de problemas o disco do SO da VM.
 * Use um modelo do Resource Manager para criar uma VM usando o disco virtual original.
 * Quando a nova VM é inicializada, os arquivos de configuração que você cria atualizam a senha do usuário exigido.
+
+> [!NOTE]
+> Você pode automatizar os processos a seguir:
+>
+> - Criação da VM de solução de problemas
+> - Anexação do disco de SO
+> - Recriação da VM original
+> 
+> Para fazer isso, use os [Scripts de Recuperação de VM do Azure](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Se você optar por usar os Scripts de Recuperação de VM do Azure, use o seguinte processo na seção “Etapas detalhadas”:
+> 1. Ignore as etapas 1 e 2 usando os scripts para anexar o disco do SO da VM afetada a uma VM de recuperação.
+> 2. Siga as etapas 3 a 6 para aplicar as mitigações.
+> 3. Ignore as etapas 7 a 9 usando os scripts para recompilar a VM.
+> 4. Siga as etapas 10 e 11.
 
 ## <a name="detailed-steps"></a>Etapas detalhadas
 

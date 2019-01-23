@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 54979bdaab3d3d49ab3d3a08868dd28e27423e7e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091735"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320270"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a CDN do Azure para o tipo de distribuição de conteúdo
 
@@ -83,7 +83,7 @@ A distribuição na Web geral é a opção mais comum de otimização. Ela foi p
 Um site típico contém conteúdo estático e dinâmico. O conteúdo estático inclui imagens, bibliotecas JavaScript e folhas de estilo que podem ser armazenadas em cache e distribuídas para diferentes usuários. O conteúdo dinâmico é personalizado para um usuário individual, como itens de notícias adaptados a um perfil do usuário. O conteúdo dinâmico, como o conteúdo do carrinho de compras, não é armazenado em cache, pois é exclusivo para cada usuário. A distribuição na Web geral pode otimizar todo o site. 
 
 > [!NOTE]
-> Se você estiver usando o perfil da **CDN do Azure Standard da Akamai**, selecione este tipo de otimização se o tamanho médio do arquivo for menor que 10 MB. Caso contrário, se o tamanho médio do arquivo for maior que 10 MB, selecione **Download de arquivos grandes** na lista suspensa **Otimizado para**.
+> Se você estiver usando o perfil da **CDN do Azure Standard da Akamai**, selecione este tipo de otimização se o tamanho médio do arquivo for menor que 10 MB. Caso contrário, se o tamanho médio do arquivo for maior que 10 MB, selecione **Download de arquivo grande** na lista suspensa **Otimizado para**.
 
 ### <a name="general-media-streaming"></a>Streaming de mídia geral
 

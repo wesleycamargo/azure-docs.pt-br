@@ -1,34 +1,17 @@
 ---
-title: Depurar seu modelo – Azure Machine Learning Studio | Microsoft Docs
-description: Como depurar erros produzidos pelos módulos Modelo de Treinamento e Modelo de Pontuação no Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268879"
+Título: Depurar seu modelo – titleSuffix: Descrição do Azure Machine Learning Studio: Como depurar erros produzidos pelos módulos Modelo de Treinamento e Modelo de Pontuação no Azure Machine Learning Studio.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Depurar seu modelo no Azure Machine Learning Studio
 
-Este artigo explica os motivos possíveis pelos quais uma das seguintes falhas pode ser encontrada durante a execução de um modelo:
+Ao executar um modelo, você poderá encontrar os seguintes erros:
 
 * o módulo [Modelo de Treinamento][train-model] produz um erro 
 * o módulo [Modelo de Pontuação][score-model] produz resultados incorretos 
 
+Este artigo explica as causas possíveis para esses erros.
 
 
 ## <a name="train-model-module-produces-an-error"></a>O módulo Modelo de Treinamento produz um erro
@@ -59,11 +42,11 @@ O módulo [Modelo de Pontuação][score-model] requer duas entradas:
 1. Uma saída do modelo treinado do módulo [Modelo de Treinamento][train-model].
 2. Um conjunto de dados de pontuação diferente do conjunto de dados usado para treinar o modelo.
 
-É possível que, mesmo que o experimento tenha sido bem-sucedido, o módulo [Modelo de Pontuação][score-model] produza resultados incorretos. Vários cenários podem causar isso:
+É possível que, mesmo que o experimento tenha sido bem-sucedido, o módulo [Modelo de Pontuação][score-model] produza resultados incorretos. Vários cenários podem causar esse problema:
 
 1. Se o Rótulo especificado for categórico e um modelo de regressão for treinado nos dados, uma saída incorreta será produzida pelo módulo [Modelo de Pontuação][score-model]. Isso ocorre porque a regressão requer uma variável de resposta contínua. Nesse caso, deve ser mais adequado usar um modelo de classificação. 
 
-2. Da mesma forma, se um modelo de classificação for treinado em um conjunto de dados com números de ponto flutuante na coluna Rótulo, ele pode produzir resultados indesejáveis. Isso ocorre porque a classificação exige uma variável de resposta discreta que permite somente valores que variam em um conjunto finito e, normalmente, um conjunto pequeno de classes.
+2. Da mesma forma, se um modelo de classificação for treinado em um conjunto de dados com números de ponto flutuante na coluna Rótulo, ele pode produzir resultados indesejáveis. Isso ocorre porque a classificação exige uma variável de resposta discreta que permite somente valores que variam em um conjunto finito e pequeno de classes.
 
 3. Se o conjunto de dados de pontuação não contiver todos os recursos usados para treinar o modelo, o [Modelo de Pontuação][score-model] produzirá um erro.
 

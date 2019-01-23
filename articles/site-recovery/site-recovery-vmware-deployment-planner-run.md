@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 5de8bc9acd97016b401bd1c2bcce46f5ab851430
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811555"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321544"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Execute o Azure Site Recovery Deployment Planner para recuperação de desastre do VMware no Azure
 Este artigo é o guia do usuário do Planejador de Implantação do Azure Site Recovery para implantações de produção do VMware para o Azure.
@@ -90,7 +90,7 @@ Durante a criação de perfil, opcionalmente, você pode passar um nome de conta
 
 Você pode executar várias instâncias da ferramenta para diversos conjuntos de VMs. Verifique se os nomes de VM não são repetidos nos conjuntos de criação de perfil. Por exemplo, se tiver criado o perfil de dez VMs (VM1 a VM10) e, após alguns dias, quiser criar o perfil de outras cinco VMs (VM11 a VM15), você poderá executar a ferramenta em outro console de linha de comando para o segundo conjunto de VMs (VM11 a VM15). Verifique se o segundo conjunto de VMs não tem nomes de VM da primeira instância de criação de perfil ou use um diretório de saída diferente para a segunda execução. Se forem usadas duas instâncias da ferramenta para a criação de perfil das mesmas VMs e for usado o mesmo diretório de saída, o relatório gerado será incorreto.
 
-Por padrão, a ferramenta é configurada para analisar e gerar relatórios de até 1000 VMs. Você pode alterar o limite ao mudar o valor da chave MaxVMsSupported no arquivo *ASRDeploymentPlanner.exe.config*.
+Por padrão, a ferramenta é configurada para criar o perfil e gerar relatórios de até 1000 VMs. Você pode alterar o limite ao mudar o valor da chave MaxVMsSupported no arquivo *ASRDeploymentPlanner.exe.config*.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -168,7 +168,7 @@ Após a conclusão da criação de perfil, você poderá executar a ferramenta n
 |-OfferId|(Opcional) A oferta associada a determinada assinatura. O padrão é MS-AZR - 0003P (Pré-pago).|
 |-Currency|(Opcional) A moeda na qual o custo é mostrado no relatório gerado. O padrão é dólar americano ($) ou a última moeda usada.<br>Consulte a lista de [moedas com suporte](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-Por padrão, a ferramenta é configurada para analisar e gerar relatórios de até 1000 VMs. Você pode alterar o limite ao mudar o valor da chave MaxVMsSupported no arquivo *ASRDeploymentPlanner.exe.config*.
+Por padrão, a ferramenta é configurada para criar o perfil e gerar relatórios de até 1000 VMs. Você pode alterar o limite ao mudar o valor da chave MaxVMsSupported no arquivo *ASRDeploymentPlanner.exe.config*.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 3a0b4db77e6dfb8be3a2f943052925001e5f7715
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259776"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332448"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Usando os dados do Azure Blockchain Workbench com o SQL Server Management Studio
 
@@ -43,7 +43,7 @@ Microsoft SQL Server Management Studio permite escrever e testar as consultas ra
     ![Lista de banco de dados](./media/data-sql-management-studio/db-list.png)
 
 5. Para exibir os dados associados a qualquer uma das exibições de banco de dados, você poderá gerar automaticamente uma instrução select usando as etapas a seguir.
-6. Clique com botão direito do mouse em qualquer uma das exibições de banco de dados no Pesquisador de Objetos.
+6. Clique com o botão direito do mouse em qualquer uma das exibições de banco de dados no Pesquisador de Objetos.
 7. Selecione **Exibição de Script como**.
 8. Escolha **SELECIONAR para**.
 9. Selecione **Janela do Editor de Nova Consulta**.

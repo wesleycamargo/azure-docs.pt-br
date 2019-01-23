@@ -1,21 +1,21 @@
 ---
 title: Executar trabalhos de moderação de conteúdo com o console de API – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Saiba como executar trabalhos de moderação de conteúdo no console de API.
+description: Use as operações de trabalho da API de Análise para iniciar trabalhos de moderação de conteúdo de ponta a ponta para conteúdo de imagem ou texto no Content Moderator do Azure.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4d1f96cbf7a94c59476f077cc4e72a26ee9c8296
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227090"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259102"
 ---
 # <a name="start-a-moderation-job-from-the-api-console"></a>Iniciar um trabalho de moderação no console de API
 
@@ -33,8 +33,8 @@ Navegue até a [ferramenta de análise](https://contentmoderator.cognitive.micro
 Para testar a API usando o console online, você precisa de alguns valores para inserir no console:
     
 - `teamName`: use o campo `Id` na tela de credenciais da ferramenta de análise. 
-- `ContentId`: essa cadeia de caracteres é passada para a API e retornada pelo retorno de chamada. **ContentId** é útil para associar identificadores internos ou metadados com os resultados de um trabalho de moderação.- `Workflowname`: o nome do fluxo de trabalho [ que você criou ](Review-Tool-User-Guide/Workflows.md) na seção anterior.
-- `Ocp-Apim-Subscription-Key`: localizado na guia **Configurações**. Para obter mais informações, consulte [Visão Geral](overview.md).
+- `ContentId`: essa cadeia de caracteres é passada para a API e retornada pelo retorno de chamada. **ContentId** é útil para a associação de identificadores internos ou metadados com os resultados de um trabalho de moderação.- `Workflowname`: o nome do [fluxo de trabalho criado](Review-Tool-User-Guide/Workflows.md) na seção anterior.
+- `Ocp-Apim-Subscription-Key`: localizada na guia **Configurações**. Para obter mais informações, consulte [Visão Geral](overview.md).
 
 O acesso ao console de API é a partir da janela **Credenciais**.
 

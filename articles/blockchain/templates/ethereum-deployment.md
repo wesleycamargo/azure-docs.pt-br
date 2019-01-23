@@ -1,6 +1,6 @@
 ---
 title: Modelo de solução de prova de trabalho Ethereum Consortium
-description: Usar o modelo de solução de prova de trabalho Etherereum Consortium para implantar e configurar uma rede Ethereum Consortium de vários membros
+description: Usar o modelo de solução de prova de trabalho Ethereum Consortium para implantar e configurar uma rede Ethereum Consortium de vários membros
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231790"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260526"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modelo de solução de prova de trabalho Ethereum Consortium
 
@@ -82,7 +82,7 @@ Implantar uma rede que fará parte de um consórcio?|Uma rede de consortium perm
 Prefixo de recursos |Cadeia de caracteres usada como base para nomear recursos (2 a 4 caracteres alfanuméricos). Um hash exclusivo é acrescentado à cadeia de caracteres para alguns recursos, enquanto informações específicas do recurso são anexadas.|Caracteres alfanuméricos com comprimento de 2 a 4|ND
 Nome de usuário da VM| Nome de usuário do administrador de cada VM implantada (somente caracteres alfanuméricos)|1 a 64 caracteres |gethadmin
 Tipo de autenticação|O método para autenticar para a máquina virtual. |Senha ou chave pública SSH|Senha
-Senha (Tipo de Autenticação = Senha)|A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve ter três dos seguintes requisitos: um caractere maiúsculo, um caractere minúsculo, um número e um caractere especial. <br />Embora todas as máquinas virtuais tenham inicialmente a mesma senha, você pode alterar a senha após o provisionamento.|12 a 72 caracteres|ND
+Senha (Tipo de Autenticação = Senha)|A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve conter 3 dos requisitos a seguir: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial. <br />Embora todas as VMs tenham inicialmente a mesma senha, você pode alterar a senha após o fornecimento.|12 a 72 caracteres|ND
 Chave SSH (Tipo de autenticação = Chave pública)|A chave de shell segura usada para login remoto.|| ND
 Assinatura| A assinatura para a qual deseja implantar a rede consortium||ND
 Grupo de recursos| O grupo de recursos para o qual implantar a rede do consórcio.||ND
@@ -144,11 +144,11 @@ ID de ConsortiumMember|A ID associada a cada membro que está participando da re
 ID de rede Ethereum|A ID de rede para a rede de Ethereum consortium que está sendo implantada. Cada rede Ethereum tem sua própria ID de rede, sendo que 1 indica a ID para a rede pública. Embora o acesso à rede seja restrito para nós de mineração, ainda é recomendável usar um número grande para evitar colisões.|5 - 999.999.999| 10101010
 Bloco gênese personalizado|Opção para gerar um bloco gênese ou fornecer um personalizado automaticamente.|Sim/Não| Não 
 Senha da conta Ethereum (bloco gênese personalizado = não)|A senha de administrador usada para proteger a conta Ethereum importada para cada nó. A senha deve conter o seguinte: 1 caractere maiúsculo, 1 caractere minúsculo e 1 número.|12 ou mais caracteres|ND
-Senha da chave privada Ethereum (bloco gênese personalizado = não)|A senha usada para gerar a chave privada de ECC associada à conta de Ethereum padrão que é gerada. Uma chave privada gerada previamente não precisa ser passada explicitamente.<br /><br />Considere uma frase secreta com aleatoriedade suficiente para garantir uma chave privada forte e nenhuma sobreposição com outros membros do consortium. A senha deve conter o seguinte no mínimo: 1 caractere maiúsculo, 1 caractere minúsculo e 1 número.<br /><br />Observe que, se dois membros usam a mesma senha as contas geradas serão as mesmas. A mesma senha será útil se uma única organização está tentando implantar em regiões e deseja compartilhar uma única conta (moeda base) em todos os nós.|12 ou mais caracteres|ND
+Senha da chave privada Ethereum (bloco gênese personalizado = não)|A senha usada para gerar a chave privada de ECC associada à conta de Ethereum padrão que é gerada. Uma chave privada gerada previamente não precisa ser passada explicitamente.<br /><br />Considere uma frase secreta com aleatoriedade suficiente para garantir uma chave privada forte e nenhuma sobreposição com outros membros do consortium. A senha deve conter o seguinte, no mínimo: 1 caractere maiúsculo, 1 caractere minúsculo e 1 número.<br /><br />Observe que, se dois membros usam a mesma senha as contas geradas serão as mesmas. A mesma senha será útil se uma única organização está tentando implantar em regiões e deseja compartilhar uma única conta (moeda base) em todos os nós.|12 ou mais caracteres|ND
 Bloco gênese (bloco gênese personalizado = Sim)|Cadeia de caracteres JSON que representa o bloco gênese personalizado. Você pode encontrar mais detalhes sobre o formato do bloco gênese aqui, em Redes personalizadas.<br /><br />Uma conta de Ethereum ainda é criada ao fornecer um bloco gênese personalizado. Considere a especificação de uma conta de Ethereum criada previamente no bloco gênese para não aguardar a mineração.|JSON válido |ND
 Chave compartilhada para conexão|Uma Chave compartilhada para a conexão entre os gateways de VNET.| 12 ou mais caracteres|ND
 URL de dados do Consortium|A URL que indica os dados de configuração relevantes do consortium, fornecidos pela implantação de outro membro. <br /><br />Essas informações são fornecidas por um membro já conectado que tenha uma implantação. Se você implantou o restante da rede, a URL é a saída de implantação de modelo, chamada CONSORTIUM-DATA.||ND
-Gateway de VNET para conectar-se|O caminho do recurso do Gateway de VNET à qual se conectar.<br />Essas informações são fornecidas por um membro já conectado que tenha uma implantação. Se você implantou o restante da rede, a URL está na saída de implantação de modelo, chamada CONSORTIUM_MEMBER_GATEWAY_ID. Observação: Devem ser usadas a URL de dados do consortium do mesmo membro e o recurso de gateway de VNET.||ND
+Gateway de VNET para conectar-se|O caminho do recurso do Gateway de VNET à qual se conectar.<br />Essas informações são fornecidas por um membro já conectado que tenha uma implantação. Se você implantou o restante da rede, a URL está na saída de implantação de modelo, chamada CONSORTIUM_MEMBER_GATEWAY_ID. Observação: devem ser usadas a URL de dados do consortium do mesmo membro e o recurso de gateway de VNET.||ND
 Registrador de ponto de extremidade de informações de ponto a ponto|Ponto de extremidade de informações ponto a ponto fornecido pela implantação de outro membro|Ponto de extremidade válido do primeiro membro no consortium|ND
 Registrador de chave de informações de ponto a ponto|Chave primária de informações ponto a ponto fornecida pela implantação de outro membro|Chave primária válida do primeiro membro no consortium|ND
 
@@ -226,12 +226,12 @@ mn-ethwvu-reg1_2 |mn-ethwvu-reg1000002
 Como primeiro membro (ou um membro conectado) do consortium, você precisa fornecer aos outros membros algumas informações para que possam ingressar e estabelecer sua conexão. Especificamente:
 
 1. **Dados de configuração compartilhados do Consortium**: há um conjunto de dados que são usados para orquestrar a conexão Ethereum entre dois membros. As informações necessárias, como o bloco de gênese, ID de rede consortium e nós de inicialização são gravadas em um arquivo em nós de transação de preenchimento ou outro membro implantado. O local deste arquivo está listado no parâmetro de saída de implantação modelo denominado **CONSORTIUM-DATA**.
-2. **Ponto de extremidade de informações de ponto a ponto**: O ponto de extremidade de registrador de informações de ponto a ponto para obter informações de todos os nós já conectados à rede Ethereum a partir da implantação do Preenchimentos ou outro membro. O banco de dados armazena um conjunto de informações sobre cada nó conectado à rede, informações como nome do host do nó, endereço IP privado e etc. Este é o parâmetro de saída de implantação de modelo denominado **PEER_INFO_ENDPOINT**.
-3. **Chave primária informações de ponto a ponto**: A chave primária de registrador de informações de ponto a ponto é usada para obter acesso à chave primária de informações de ponto a ponto do preenchimento ou outro membro. Este é o parâmetro de saída de implantação de modelo denominado **PEER_INFO_PRIMARY_KEY**.
+2. **Ponto de extremidade de informações de pares**: o ponto de extremidade de registrador de informações de par para obter informações de todos os nós já conectados à rede Ethereum da implantação dos Líderes ou de outro membro. O banco de dados armazena um conjunto de informações sobre cada nó conectado à rede, informações como nome do host do nó, endereço IP privado e etc. Este é o parâmetro de saída de implantação de modelo denominado **PEER_INFO_ENDPOINT**.
+3. **Chave primária de informações de pares**: a chave primária de registrador de informações de pares é usada para obter acesso à chave primária de informações de pares do líder ou de outro membro. Este é o parâmetro de saída de implantação de modelo denominado **PEER_INFO_PRIMARY_KEY**.
 
 
-4. **Gateway de VNET**: Cada membro estabelece uma conexão com a rede blockchain inteira por meio de um membro existente. Para se conectar à rede virtual, é necessário o caminho do recurso para o Gateway de VNET do membro ao qual você está se conectando. Este é o parâmetro de saída de implantação de modelo denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-5. **Chave compartilhada**: Um segredo previamente estabelecido entre dois membros da rede consortium que estabelecem uma conexão. Isso é uma cadeia de caracteres alfanumérica (entre 1 e 128 caracteres) que foi acordada fora do contexto da implantação. (Por exemplo, **MySharedKeyAbc123**)
+4. **Gateway de VNET**: cada membro estabelece uma conexão com a rede blockchain inteira por meio de um membro existente. Para se conectar à rede virtual, é necessário o caminho do recurso para o Gateway de VNET do membro ao qual você está se conectando. Este é o parâmetro de saída de implantação de modelo denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
+5. **Chave compartilhada:** um segredo previamente estabelecido entre dois membros da rede consortium que estabelecem uma conexão. Isso é uma cadeia de caracteres alfanumérica (entre 1 e 128 caracteres) que foi acordada fora do contexto da implantação. (Por exemplo, **MySharedKeyAbc123**)
 
 ### <a name="acceptance-of-new-member"></a>Aceitação do novo membro
 
@@ -243,7 +243,7 @@ Informações adicionais sobre como começar a usar os cmdlets do Azure PowerShe
 
 Será necessário a versão mais recente dos cmdlets do Azure instalados localmente e uma sessão aberta. Certifique-se de fazer logon na sessão com suas credenciais de assinatura do Azure.
 
-**PowerShell: Estabelecer Conexão**
+**PowerShell: estabelecer conexão**
 
 Baixe o módulo do PowerShell e armazene-o localmente. O local do módulo do PowerShell é especificado como o parâmetro de saída de implantação de modelo **PAIR-GATEWAY-PS-MODULE**.
 
@@ -261,24 +261,24 @@ Em seguida, importe o módulo:
 
 Por fim, execute a função com a entrada apropriada:
 
-- **MyGatewayResourceId:** caminho do recurso do seu Gateway. Este é o parâmetro de saída de implantação de modelo denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **MyGatewayResourceId:** Caminho do recurso do gateway. Este é o parâmetro de saída de implantação de modelo denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId:** caminho do recurso do gateway do membro que está ingressando. Isso é fornecido pelo membro que ingressa e o parâmetro de saída de implantação de modelo que também é denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName:** um nome para identificar essa conexão de Gateway.
-- **Chave compartilhada:** o segredo previamente estabelecido entre os dois membros da rede de consortium que estabelecem uma conexão.
+- **ConnectionName:** um nome para identificar essa conexão de gateway.
+- **Chave compartilhada**: o segredo previamente estabelecido entre os dois membros da rede de consortium que estabelecem uma conexão.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId < caminho do recurso do gateway do membro que ingressa > - ConnectionName myConnection - SharedKey "MySharedKeyAbc123"
 
-**xPlat CLI: Estabelecer Conexão**
+**CLI xPlat: estabelecer conexão**
 
 Baixe o script de CLI do Azure e armazene-o localmente. O local do script de CLI do Azure é especificado no parâmetro de implantação de modelo denominado **PAIR-GATEWAY-SCRIPT do AZURE-CLI**.
 
 Execute o script com a entrada apropriada:
 
-- **MyGatewayResourceId:** caminho do recurso do seu Gateway. Este é o parâmetro de saída de implantação de modelo denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **MyGatewayResourceId:** Caminho do recurso do gateway. Este é o parâmetro de saída de implantação de modelo denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId:** caminho do recurso do gateway do membro que está ingressando. Isso é fornecido pelo membro que ingressa e o parâmetro de implantação de modelo de sua implantação também denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName:** um nome para identificar essa conexão de Gateway.
-- **Chave compartilhada:** o segredo previamente estabelecido entre os dois membros da rede de consortium que estabelecem uma conexão.
-- **Localização**: a região do Azure em que o recurso de gateway é implantado.
+- **ConnectionName:** um nome para identificar essa conexão de gateway.
+- **Chave compartilhada**: o segredo previamente estabelecido entre os dois membros da rede de consortium que estabelecem uma conexão.
+- **Localização:** a região do Azure em que o recurso de gateway é implantado.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group

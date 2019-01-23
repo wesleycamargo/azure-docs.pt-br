@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 6eb7993b4dbec3ab4901dc7071d18eae98ab8ae4
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: ac6b008597b6d6e557a0cc412c00c2202231bc3d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079248"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267718"
 ---
 > [!NOTE]
 > Normalmente, solicitações com várias partes requerem três partes:
@@ -26,11 +26,11 @@ ms.locfileid: "54079248"
 >
 > **Content-Type** e **Content-Disposition** variam dependendo do cenário de uso.
 
-Solicitações com várias partes podem ser feitas de forma programática (usando C#), por meio de um cliente REST ou de uma ferramenta como [Postman](https://www.getpostman.com/). Ferramentas de cliente REST podem ter diferentes níveis de suporte para solicitações com várias partes complexas. Verifique qual ferramenta que é mais adequada às suas necessidades.
+Solicitações com várias partes podem ser feitas de forma programática (usando C#), por meio de um cliente REST ou de uma ferramenta como [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). Ferramentas de cliente REST podem ter diferentes níveis de suporte para solicitações com várias partes complexas. As definições de configuração também podem variar ligeiramente de uma ferramenta para outra. Verifique qual ferramenta é mais adequada às suas necessidades.
 
 > [!IMPORTANT]
-> As solicitações multipartes feitas para as APIs do Gerenciamento dos Gêmeos Digitais do Azure são divididas em duas partes:
-> * metadados de blob (como um tipo MIME associado), declarados por **Content-Type** e **Content-Disposition**
+> As solicitações com várias partes feitas para as APIs de Gerenciamento dos Gêmeos Digitais do Azure normalmente são divididas em duas partes:
+> * metadados de blob (como um tipo MIME associado), declarados por **Content-Type** e/ou **Content-Disposition**
 > * Conteúdo do blob, que inclui o conteúdo não estruturado de um arquivo a ser carregado
 >
 > Nenhuma das duas partes é necessária para solicitações de **PATCH**. Ambos são necessários para **POST** ou criam operações.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c37ed908b61ca54957affed3f81526353bc3f53b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c8056bd4912605a4cd3ee333b1be87d4f3a6d5ba
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389557"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198041"
 ---
 # <a name="the-iot-edge-module-certification-process"></a>O processo de certificação do Módulo do IoT Edge
 
@@ -106,7 +106,7 @@ Abaixo estão os principais requisitos que devem ser atendidos para um módulo d
 
 **Controle de versão**
 
--   Os clientes devem poder escolher se desejam atualizar automaticamente um módulo vindo do marketplace ou usar uma versão exata que testaram. Os módulos do marketplace devem seguir o mesmo padrão de controle de versão que o tempo de execução do IoT Edge. Por exemplo:
+-   Os clientes devem poder escolher se desejam atualizar automaticamente um módulo vindo do marketplace ou usar uma versão exata que testaram. Os módulos do marketplace devem seguir o mesmo padrão de controle de versão que o tempo de execução do IoT Edge. Por exemplo: 
 
     -   Marcas sem interrupção, como "1.0", podem ser atualizadas.
 
@@ -118,7 +118,7 @@ Abaixo estão os principais requisitos que devem ser atendidos para um módulo d
     - [C\#](https://hub.docker.com/_/mysql/)
     - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
     - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._product_info?view=azure-java-stable)
+    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
 
 -   Para Módulos que não usam o SDK do Módulo do IoT, insights menos precisos estão disponíveis no Portal do Cloud Partner. Por exemplo, o número de downloads.
 

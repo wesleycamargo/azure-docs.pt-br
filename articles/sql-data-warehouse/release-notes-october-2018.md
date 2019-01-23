@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9160a5f4e3a452682787ff500199e43e7fad0c77
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966816"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213682"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Outubro de 2018
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidos em outubro de 2018.
@@ -41,7 +41,7 @@ O ajuste avançado para o SQL Data Warehouse (SQL DW) do Azure ficou mais simple
 A Recuperação de Banco de Dados Acelerada (ADR) do Azure SQL Data Warehouse está agora na Visualização Pública. O ADR é um novo Mecanismo do SQL Server que melhora bastante a disponibilidade do banco de dados, especialmente na presença de transações de longa duração, reformulando completamente o processo de recuperação atual do zero. Os principais benefícios do ADR são a recuperação rápida e consistente de bancos de dados e a reversão instantânea de transações.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Logs de diagnóstico do Azure Monitor
-O SQL Data Warehouse (SQL DW) agora permite insights aprimorados em cargas de trabalho analíticas, integrando-se diretamente aos logs de diagnóstico do Azure Monitor. Esse novo recurso permite que os desenvolvedores analisem o comportamento da carga de trabalho durante um período prolongado e tomem decisões informadas sobre otimização de consulta ou gerenciamento de capacidade. Introduzimos agora um processo de registro externo por meio de [Logs de diagnóstico do Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) que fornecem informações adicionais sobre a carga de trabalho do data warehouse. Com um único clique de um botão, você agora pode configurar os logs de diagnóstico para os recursos de solução de problemas de desempenho de consulta histórica usando [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Os logs de diagnóstico do Azure Monitor suportam períodos de retenção personalizáveis, salvando os logs em uma conta de armazenamento para fins de auditoria, a capacidade de transmitir logs para hubs de eventos próximos a insights de telemetria em tempo real e a capacidade de analisar logs usando Log Analytics com [queries de log](). Os logs de diagnóstico consistem em visualizações de telemetria de seu data warehouse equivalentes às DMVs de solução de problemas de desempenho mais comumente usadas para o SQL Data Warehouse. Para esta versão inicial, ativamos as visualizações das seguintes visualizações de gerenciamento dinâmico do sistema:
+O SQL Data Warehouse (SQL DW) agora permite insights aprimorados em cargas de trabalho analíticas, integrando-se diretamente aos logs de diagnóstico do Azure Monitor. Esse novo recurso permite que os desenvolvedores analisem o comportamento da carga de trabalho durante um período prolongado e tomem decisões informadas sobre otimização de consulta ou gerenciamento de capacidade. Introduzimos agora um processo de registro externo por meio de [Logs de diagnóstico do Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) que fornecem informações adicionais sobre a carga de trabalho do data warehouse. Com um único clique de um botão, você agora pode configurar os logs de diagnóstico para os recursos de solução de problemas de desempenho de consulta histórica usando [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Os logs de diagnóstico do Azure Monitor dão suporte a períodos de retenção personalizáveis, salvando os logs em uma conta de armazenamento para fins de auditoria, a capacidade de transmitir logs para hubs de eventos próximos a insights de telemetria em tempo real e a capacidade de analisar logs usando Log Analytics com queries de log. Os logs de diagnóstico consistem em visualizações de telemetria de seu data warehouse equivalentes às DMVs de solução de problemas de desempenho mais comumente usadas para o SQL Data Warehouse. Para esta versão inicial, ativamos as visualizações das seguintes visualizações de gerenciamento dinâmico do sistema:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)

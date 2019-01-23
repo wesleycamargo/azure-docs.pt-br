@@ -1,26 +1,8 @@
 ---
-title: Redes Neurais de Net# - Estúdio de Aprendizagem de Azure Machine Learning Studio| Microsoft Docs
-description: Sintaxe para a linguagem de especificação de redes neurais Net#, junto com exemplos de como criar um modelo de rede neural personalizado usando o Net# com o Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: reference
-ms.date: 03/01/2018
-ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631118"
+Título: Redes neurais Net# – titleSuffix: Descrição do Azure Machine Learning Studio: Sintaxe para a linguagem de especificação de redes neurais Net#, junto com exemplos de como criar um modelo de rede neural personalizado usando o Net# com o Azure Machine Learning Studio.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: referência
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/03/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação de rede neural Net # para o Microsoft Azure Machine Learning Studio
 

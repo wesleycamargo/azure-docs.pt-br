@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 756d00786005fb6de26ff363d4e233fc28b48687
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 01d73d9c42f99dde02a801af9967430c9735932d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426835"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320949"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 e o protocolo OpenID Connect
 
@@ -33,11 +33,11 @@ O OpenID Connect é um protocolo de autenticação baseado no OAuth 2.0 que voc�
 
 O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 para uso como um protocolo de *autenticação*, o que permite executar o logon único usando o OAuth. O OpenID Connect apresenta o conceito de um *token de ID*, que é um token de segurança que permite ao cliente verificar a identidade do usuário. O token de ID também obtém informações de perfil básico sobre o usuário. Como o OpenID Connect estende o OAuth 2.0, os aplicativos podem adquirir *access_tokens* com segurança, os quais podem ser usados para acessar os recursos protegidos por um [servidor de autorização](active-directory-v2-protocols.md#the-basics). O ponto de extremidade v2.0 permite também que aplicativos de terceiros registrados no Azure AD emitam tokens de acesso para recursos protegidos, como APIs da Web. Para obter mais informações sobre como configurar um aplicativo para emitir tokens de acesso, consulte [Como registrar um aplicativo com o ponto de extremidade v2.0](quickstart-v2-register-an-app.md). É recomendável que você use o OpenID Connect se estiver criando um [aplicativo Web](v2-app-types.md#web-apps) que fica hospedado em um servidor e é acessado por meio de um navegador.
 
-## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: Entrar
+## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: Conexão
 
 O fluxo de entrada mais básico tem as etapas mostradas no diagrama seguinte. Cada etapa é descrita detalhadamente neste artigo.
 
-![Protocolo OpenID Connect: entrar](./media/v2-protocols-oidc/convergence_scenarios_webapp.png)
+![Protocolo OpenID Connect: Conexão](./media/v2-protocols-oidc/convergence_scenarios_webapp.png)
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>Obter o documento de metadados do OpenID Connect
 
@@ -86,7 +86,7 @@ Quando o aplicativo Web precisa autenticar o usuário, ele pode direcionar o usu
 * A solicitação deve incluir o parâmetro `nonce` .
 
 > [!IMPORTANT]
-> Para solicitar um token de ID com êxito, o registro do aplicativo no [portal de registro](https://apps.dev.microsoft.com) precisa ter a **[Concessão implícita](v2-oauth2-implicit-grant-flow.md)** habilitada para o cliente Web. Se não estiver habilitado, um `unsupported_response` será retornado o erro: "o valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code' "
+> Para solicitar um token de ID com êxito, o registro do aplicativo no [portal de registro](https://apps.dev.microsoft.com) precisa ter a **[Concessão implícita](v2-oauth2-implicit-grant-flow.md)** habilitada para o cliente Web. Se não estiver habilitado, um `unsupported_response` erro será retornado: “O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code' "
 
 Por exemplo: 
 

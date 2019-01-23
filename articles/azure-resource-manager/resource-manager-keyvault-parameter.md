@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 06719f3a92dae805081ea85c346df97ebed0e0dc
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078063"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351502"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
@@ -84,14 +84,14 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-Para usar o modelo do Resource Manager: consulte o [Tutorial: Integrar o Azure Key Vault na implantação de modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
+Para usar o modelo do Resource Manager: Consulte [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
 
 > [!NOTE]
 > Cada serviço do Azure tem requisitos de senha específicos. Por exemplo, os requisitos da máquina virtual do Azure podem ser encontrados em [Quais são os requisitos de senha ao criar uma VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 ## <a name="enable-access-to-the-secret"></a>Habilitar o acesso ao segredo
 
-Além de configurar `enabledForTemplateDeployment` para `true`, o usuário que implanta o modelo deverá ter a `Microsoft.KeyVault/vaults/deploy/action` permissão para o escopo que contém o Key Vault, incluindo o grupo de recursos e Key Vault. Ambas as funções [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Colaborador](../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso. Se você criar o Key Vault, você será o proprietário, portanto, terá a permissão. Se o Key Vault estiver sob uma assinatura diferente, o proprietário do Key Vault deverá conceder o acesso.
+Além de configurar `enabledForTemplateDeployment` para `true`, o usuário que implanta o modelo deverá ter a `Microsoft.KeyVault/vaults/deploy/action` permissão para o escopo que contém o Key Vault, incluindo o grupo de recursos e Key Vault. Ambas as funções [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Colaborador](../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso. Se você criar o Key Vault, você será o proprietário, portanto, terá a permissão. Se o Key Vault estiver sob uma assinatura diferente, o proprietário do Key Vault deverá permitir o acesso.
 
 O procedimento a seguir mostra como criar uma função com a permissão mínima e como atribuir o usuário
 1. Crie um arquivo JSON de definição de função personalizada:

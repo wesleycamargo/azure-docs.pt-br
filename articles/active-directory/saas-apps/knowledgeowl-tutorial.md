@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao KnowledgeOwl | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao KnowledgeOwl | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o KnowledgeOwl.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: e902f5969611dd3b1074e899003abe5067857c04
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80d8d1664100cdfbbf6d537b41823c2db0204040
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446127"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318910"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: integração do Active Directory do Azure ao KnowledgeOwl
+# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integração do Azure Active Directory ao KnowledgeOwl
 
 Neste tutorial, você aprende a integrar o KnowledgeOwl ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o KnowledgeOwl da Galeria
 1. configurar e testar o logon único do AD do Azure
@@ -108,7 +108,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único no Domínio e nas URLs do KnowledgeOwl](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
-    a. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+     a. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -154,7 +154,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | ------------------- | -------------------- | -----|
     | ssoid | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
     
     ![Configurar o logon único](./media/knowledgeowl-tutorial/tutorial_attribute_04.png)
 
@@ -186,11 +186,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
 
-1. Role para baixo até a **Integração de SSO do SAML** e execute as seguintes etapas:
+1. Role até a **Integração de SSO do SAML** e execute as seguintes etapas:
     
     ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. Selecione **Habilitar SSO do SAML**.
+     a. Selecione **Habilitar SSO do SAML**.
 
     b. Copie o valor da **ID da Entidade SP** e cole-o no **Identificador (ID da Entidade)**, que está na seção **Domínio e URLs do KnowledgeOwl** no portal do Azure.
 
@@ -254,7 +254,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no KnowledgeOwl. O KnowledgeOwl dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o KnowledgeOwl, caso ele ainda não exista.
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [equipe de suporte do KnowledgeOwl](mailto:support@knowledgeowl.com).
+>Se você precisar criar um usuário manualmente, contate a [Equipe de suporte do KnowledgeOwl](mailto:support@knowledgeowl.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -291,7 +291,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco KnowledgeOwl no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo do KnowledgeOwl.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384676"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265883"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>A sinalização atingiu o tempo de metadados na transmissão ao vivo
 
@@ -89,7 +89,7 @@ Para o modo simples de RTMP, os Serviços de Mídia oferecem suporte a uma únic
 
 ---------------------------
 
-#### <a name="211-cancelation-and-updates"></a>2.1.1 Cancelamento e atualizações
+#### <a name="211-cancellation-and-updates"></a>2.1.1 Cancelamento e atualizações
 
 As mensagens podem ser canceladas ou atualizadas enviando-se várias mensagens com a mesma hora e ID de apresentação. A hora e ID de apresentação identificam exclusivamente o evento e a última mensagem recebida por um horário de apresentação específico que atende às restrições de pré-inscrição é a mensagem que é tratada. O evento atualizado substitui qualquer mensagem recebida anteriormente. A restrição de pré-inscrição é de quatro segundos. Mensagens recebidas em pelo menos quatro segundos antes do horário da apresentação serão tratadas.
 
@@ -157,7 +157,7 @@ A caixa MediaDataBox (‘mdat’) deve ter o seguinte formato:
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 Cancelamento e atualizações
+### <a name="224-cancellation-and-updates"></a>2.2.4 Cancelamento e atualizações
 As mensagens podem ser canceladas ou atualizadas enviando-se várias mensagens com a mesma hora e ID de apresentação.  A hora e ID de apresentação identificam exclusivamente o evento. A última mensagem recebida por um horário de apresentação específico, que atende às restrições de pré-inscrição, é a mensagem que é tratada. A mensagem atualizada substitui qualquer mensagem recebida anteriormente.  A restrição de pré-inscrição é de quatro segundos. Mensagens recebidas em pelo menos quatro segundos antes do horário da apresentação serão tratadas. 
 
 

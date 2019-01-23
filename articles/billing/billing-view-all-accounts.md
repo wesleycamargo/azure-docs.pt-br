@@ -1,6 +1,6 @@
 ---
 title: Exibir todas as suas contas de cobrança no portal do Azure | Microsoft Docs
-description: Saiba como exibir suas contas de cobrança pessoais e do Enterprise Agreement no portal do Azure.
+description: Saiba como exibir suas contas de cobrança pessoais e do Contrato Enterprise no portal do Azure.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: f27b80a99dbe65d628453c5222ef4fcdf7e0f982
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61eade9aa4edd3f0d6d32dc5a71d6cb97b1e4651
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580381"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261869"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Exibir todas as suas contas de cobrança no portal do Azure  
 
@@ -41,6 +41,6 @@ Para contas de cobrança pessoais, você pode gerenciar e exibir todos os seus e
 
     ![Captura de tela que mostra a lista de contas de armazenamento](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de ajuda, [ crie uma solicitação de suporte ](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

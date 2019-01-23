@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: fba62a7838ad4b8f349e233eef5e8d82450f1453
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949012"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320218"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introdução ao Azure Data Lake Store Gen1 usando o portal do Azure
 
@@ -46,7 +46,7 @@ Antes de começar este tutorial, você deve ter os seguintes itens:
    * **Nome**. Insira um nome exclusivo para a conta do Data Lake Storage Gen1.
    * **Assinatura**. Selecione a assinatura na qual você deseja criar uma conta do Azure Data Lake Storage Gen1.
    * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo** para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   * **Localização**: selecione uma localização onde deseja criar a conta do Data Lake Storage Gen1.
+   * **Localização**: selecione uma localização na qual deseja criar a conta do Data Lake Storage Gen1.
    * **Configurações de Criptografia**. Há três opções:
      
      * **Não habilite a criptografia**.
@@ -123,7 +123,7 @@ Para excluir uma conta do Data Lake Storage Gen1, na folha dele, clique em **Exc
 ![Excluir conta do Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Excluir conta do Data Lake")
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Usar o Azure Data Lake Storage Gen1 para requisitos de Big Data](data-lake-store-data-scenarios.md) 
+* [Use o Armazenamento de Data Lake do Azure Gen1 para requisitos de big data](data-lake-store-data-scenarios.md) 
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
 * [Usar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

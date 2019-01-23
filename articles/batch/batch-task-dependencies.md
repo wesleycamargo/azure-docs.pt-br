@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 40e925fff9d87d8590ea3a83be9e7d93a84d6e26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865226"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266647"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Crie dependências de tarefas para executar tarefas que dependam de outras tarefas
 
@@ -51,7 +51,7 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-No trecho de código anterior, "batchClient" é uma instância da classe [BatchClient][net_batchclient].
+No snippet de código anterior, "batchClient" é uma instância da classe [BatchClient][net_batchclient].
 
 ## <a name="create-dependent-tasks"></a>Criar tarefas dependentes
 Para criar uma tarefa que depende da conclusão de uma ou mais tarefas pai, é possível especificar que a tarefa “depende” das outras tarefas. No .NET do Lote, configure a propriedade [CloudTask][net_cloudtask].[DependsOn][net_dependson] com uma instância da classe [TaskDependencies][net_taskdependencies]:
@@ -65,7 +65,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
-Este trecho de código cria uma tarefa dependente com a identificação da tarefa “Flowers”. A tarefa “Flowers” depende das tarefas “Rain” e “Sun”. A tarefa “Flowers” será agendada para execução em um nó de computação somente após a conclusão bem-sucedida das tarefas “Rain” e “Sun”.
+Este snippet de código cria uma tarefa dependente com a identificação da tarefa “Flowers”. A tarefa “Flowers” depende das tarefas “Rain” e “Sun”. A tarefa “Flowers” será agendada para execução em um nó de computação somente após a conclusão bem-sucedida das tarefas “Rain” e “Sun”.
 
 > [!NOTE]
 > Por padrão, uma tarefa é considerada concluída com êxito quando está no estado **concluído** e seu **código de saída** é `0`. No .NET do Lote, isso significa que o valor da propriedade [CloudTask][net_cloudtask].[State][net_taskstate] é `Completed` e o valor da propriedade [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask é `0`. Para saber como alterar isso, confira a seção [Ações de dependência](#dependency-actions).
@@ -123,7 +123,7 @@ Para criar a dependência, forneça a primeira e a última identificação da ta
 > [!IMPORTANT]
 > Quando você usar os intervalos de ID de tarefa para suas dependências, somente tarefas com IDs que representam valores inteiros serão selecionadas por intervalo. Portanto, o intervalo `1..10` selecionará as tarefas `3` e `7`, mas não `5flamingoes`. 
 > 
-> Zeros à esquerda não são significativos ao avaliar as dependências do intervalo. Portanto, as tarefas com identificadores de cadeia de caracteres `4`, `04` e `004` estarão *dentro* do intervalo e serão todas tratadas como a tarefa `4`. Assim, a primeira a ser concluída atenderá à dependência.
+> Zeros à esquerda não são significativos ao avaliar as dependências do intervalo. Portanto, as tarefas com identificadores de cadeia de caracteres `4`, `04` e `004` estarão *dentro* do intervalo e serão todas tratadas como uma tarefa `4`. Assim, a primeira a ser concluída atenderá à dependência.
 > 
 > Cada tarefa no intervalo deve atender à dependência, concluindo com êxito ou concluindo com uma falha que é mapeada para uma ação de dependência definida como **Atender**. Consulte a seção [Ações de dependência](#dependency-actions) para obter detalhes.
 >
@@ -168,7 +168,7 @@ Para especificar uma ação de dependência no .NET, defina a propriedade [ExitO
 
 A configuração padrão da propriedade **DependencyAction** é **Atender** para o código de saída 0 e **Bloquear** para todas as outras condições de saída.
 
-O trecho de código a seguir define a propriedade **DependencyAction** de uma tarefa pai. Se a tarefa pai é encerrada com um erro de pré-processamento ou com os códigos de erro especificados, a tarefa dependente é bloqueada. Se a tarefa pai é encerrada com qualquer outro erro diferente de zero, a tarefa dependente é qualificada para execução.
+O snippet de código a seguir define a propriedade **DependencyAction** de uma tarefa pai. Se a tarefa pai é encerrada com um erro de pré-processamento ou com os códigos de erro especificados, a tarefa dependente é bloqueada. Se a tarefa pai é encerrada com qualquer outro erro diferente de zero, a tarefa dependente é qualificada para execução.
 
 ```csharp
 // Task A is the parent task.

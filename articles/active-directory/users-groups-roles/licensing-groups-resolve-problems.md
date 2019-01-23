@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 54e562cca800a19829b985e3fd529368350104a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211529"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329461"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Active Directory
 
@@ -53,17 +53,17 @@ As seções a seguir dão uma descrição de cada possível problema e a maneira
 
 ## <a name="not-enough-licenses"></a>Não há licenças suficientes
 
-**Problema:** não há licenças suficientes disponíveis para um dos produtos especificados no grupo. Você precisa adquirir mais licenças para o produto ou liberar as licenças não utilizadas de outros usuários ou grupos.
+**Problema:** Não há licenças suficientes disponíveis para um dos produtos especificados no grupo. Você precisa adquirir mais licenças para o produto ou liberar as licenças não utilizadas de outros usuários ou grupos.
 
 Para ver quantas licenças estão disponíveis, acesse **Azure Active Directory** > **Licenças** > **Todos os produtos**.
 
 Para ver quais usuários e grupos estão consumindo licenças, selecione um produto. Em **Usuários licenciados**, você verá todos os usuários que tiveram licenças atribuídas diretamente ou por meio de um ou mais grupos. Em **Grupos licenciados**, você verá todos os grupos que têm esses produtos atribuídos.
 
-**PowerShell:** os cmdlets do PowerShell reportam esse erro como _CountViolation_.
+**PowerShell:** Os cmdlets do PowerShell relatam esse erro como _CountViolation_.
 
 ## <a name="conflicting-service-plans"></a>Planos de serviço conflitante
 
-**Problema:** um dos produtos especificados no grupo contém um plano de serviço que está em conflito com outro plano de serviço já está atribuído ao usuário por meio de um produto diferente. Alguns planos de serviço são configurados de uma maneira que não possam ser atribuídos ao mesmo usuário que outro plano de serviço relacionado.
+**Problema:** Um dos produtos especificados no grupo contém um plano de serviço que está em conflito com outro plano de serviço já está atribuído ao usuário por meio de um produto diferente. Alguns planos de serviço são configurados de uma maneira que não possam ser atribuídos ao mesmo usuário que outro plano de serviço relacionado.
 
 Considere o exemplo a seguir. Um usuário tem uma licença para o Office 365 Enterprise *E1* atribuída diretamente, com todos os planos habilitados. O usuário foi adicionado a um grupo que tem o Office 365 Enterprise *E3* produto atribuído a ele. O produto E3 contém planos de serviço que não podem se sobrepor aos planos incluídos em E1, portanto, a atribuição de licença de grupo falha com o erro "Planos de serviço conflitantes". Neste exemplo, os planos de serviço conflitantes são:
 
@@ -74,25 +74,25 @@ Para resolver esse conflito, você precisa desabilitar dois dos planos. Você po
 
 A decisão de como resolver conflitantes licenças de produtos sempre pertence ao administrador. O Azure AD não resolve conflitos de licença automaticamente.
 
-**PowerShell:** os cmdlets do PowerShell reportam esse erro como _MutuallyExclusiveViolation_.
+**PowerShell:** Os cmdlets do PowerShell reportam esse erro como _MutuallyExclusiveViolation_.
 
 ## <a name="other-products-depend-on-this-license"></a>Outros produtos dependem desta licença
 
-**Problema:** um dos produtos especificados no grupo contém um plano de serviço deve ser habilitado para outro plano de serviço em outro produto, a função. Esse erro ocorre quando o Azure AD tenta remover o plano de serviço subjacente. Por exemplo, isso pode acontecer quando você remove o usuário do grupo.
+**Problema:** Um dos produtos especificados no grupo contém um plano de serviço deve ser habilitado para outro plano de serviço em outro produto, a função. Esse erro ocorre quando o Azure AD tenta remover o plano de serviço subjacente. Por exemplo, isso pode acontecer quando você remove o usuário do grupo.
 
 Para resolver esse problema, você precisará garantir que o plano necessário ainda esteja atribuído aos usuários por meio de algum outro método ou que os serviços dependentes sejam desabilitados para esses usuários. Depois de fazer isso, você pode remover corretamente a licença de grupo dos usuários.
 
-**PowerShell:** os cmdlets do PowerShell reportam esse erro como _DependencyViolation_.
+**PowerShell:** Os cmdlets do PowerShell reportam esse erro como _DependencyViolation_.
 
 ## <a name="usage-location-isnt-allowed"></a>O local de uso não é permitido
 
-**Problema:** alguns serviços da Microsoft não estão disponíveis em todos os locais devido a leis e regulamentações locais. Para poder atribuir uma licença a um usuário, você deve especificar a propriedade **Local de uso** para o usuário. Você pode especificar o local na seção **Usuário** > **Perfil** > **Configurações** no portal do Azure.
+**Problema:** Alguns serviços da Microsoft não estão disponíveis em todos os locais devido a leis e regulamentos locais. Para poder atribuir uma licença a um usuário, você deve especificar a propriedade **Local de uso** para o usuário. Você pode especificar o local na seção **Usuário** > **Perfil** > **Configurações** no portal do Azure.
 
 Quando o Azure AD tentar atribuir uma licença de grupo a um usuário cujo local de uso não tem suporte, ele falhará e registrará esse erro no usuário.
 
 Para resolver esse problema, remova os usuários locais sem suporte do grupo licenciado. Como alternativa, se os valores atuais de local de uso não representarem o local real do usuário, você poderá modificá-los para que as licenças sejam atribuídas corretamente na próxima vez (se houver suporte para o novo local).
 
-**PowerShell:** os cmdlets do PowerShell reportam esse erro como _ProhibitedInUsageLocationViolation_.
+**PowerShell:** Os cmdlets do PowerShell reportam esse erro como _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
 > Quando o Azure AD atribui licenças de grupo, quaisquer usuários sem um local de uso especificado herdam o local do diretório. É recomendável que os administradores definam os valores de local de uso corretos nos usuários antes de usar o licenciamento baseado em grupo para cumprir as leis e regulamentações locais.
@@ -117,6 +117,12 @@ Você pode atribuir mais de uma licença de produto a um grupo. Por exemplo, voc
 O Azure AD tenta atribuir todas as licenças que são especificadas no grupo para cada usuário. Se o Azure AD não puder atribuir um dos produtos devido a problemas de lógica de negócios, ele não atribuirá outras licenças no grupo também. Um exemplo é se não houver licenças suficientes para todos ou se houver conflitos com outros serviços que estejam habilitados no usuário.
 
 Você pode ver os usuários que não foram atribuídos e verificar quais produtos são afetados por esse problema.
+
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>O que acontece quando um grupo com licenças atribuídas é excluído?
+
+Você deve remover todas as licenças atribuídas a um grupo antes de poder excluí-lo. No entanto, remover licenças de todos os usuários no grupo pode levar tempo. Ao remover atribuições de licença de um grupo, pode haver falhas se o usuário tem uma licença dependente atribuída ou se há um problema de conflito de endereço de proxy que proíbe a remoção da licença. Se um usuário tiver uma licença que é dependente de outra licença que está sendo removida devido à exclusão do grupo, a atribuição de licença ao usuário será convertida de herdada para direta.
+
+Por exemplo, considere um grupo que tenha as licenças do Office 365 E3/E5 atribuídas com um plano de serviço Skype for Business habilitado. Imagine também que alguns membros do grupo têm licenças de conferência de áudio atribuídas diretamente. Quando o grupo é excluído, o licenciamento com base em grupo tentará remover as licenças do Office 365 E3/E5 de todos os usuários. Já que a conferência de áudio é dependente do Skype for Business, para todos os usuários com a conferência de áudio atribuída, o licenciamento com base em grupo converte as licenças do Office 365 E3/E5 para a atribuição de licença direta.
 
 ## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Como gerenciar licenças de produtos com pré-requisitos?
 
@@ -146,8 +152,6 @@ De agora em diante, qualquer usuário adicionado a esse grupo consumirá uma lic
 
 > [!TIP]
 > É possível criar vários grupos para cada plano de serviço de pré-requisito. Por exemplo, se você utilizar tanto o Office 365 Enterprise E1 quanto o Office 365 Enterprise E3 para seus usuários, você poderá criar dois grupos para licença do Microsoft Workplace Analytics: um que use E1 como pré-requisito e o outro que use E3. Isso permite que você distribua o complemento aos usuários E1 e E3 sem consumir licenças adicionais.
-
-
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Como forçar o processamento de licença em um grupo para resolver erros?
 

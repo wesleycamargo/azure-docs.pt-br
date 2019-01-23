@@ -1,7 +1,7 @@
 ---
 title: Balancear a carga de VMs com redundância de zona usando a CLI do Azure
 titlesuffix: Azure Load Balancer
-description: Saiba como criar um Load Balancer Standard público com front-end com redundância de zona usando a CLI do Azure
+description: Saiba como criar um Standard Load Balancer público com front-end com redundância de zona usando a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250800"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197786"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Balancear carga de VMs em todas as zonas de disponibilidade usando a CLI do Azure
 
-Este artigo orienta a criação de um [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) público com um front-end com redundância de zona para obter redundância de zona sem depender de vários registros DNS. Um único endereço IP de front-end tem redundância de zona automaticamente.  Usando um front-end com redundância de zona para o balanceador de carga, com um único endereço IP, será possível acessar qualquer VM em uma rede virtual em uma região que esteja em todas as Zonas de Disponibilidade. Use zonas de disponibilidade para proteger seus aplicativos e dados de uma improvável falha ou perda de um datacenter inteiro.
+Este artigo orienta a criação de um [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) público com um front-end com redundância de zona para obter redundância de zona sem depender de vários registros DNS. Um único endereço IP de front-end tem redundância de zona automaticamente.  Usando um front-end com redundância de zona para o balanceador de carga, com um único endereço IP, será possível acessar qualquer VM em uma rede virtual em uma região que esteja em todas as Zonas de Disponibilidade. Use zonas de disponibilidade para proteger seus aplicativos e dados de uma improvável falha ou perda de um datacenter inteiro.
 
 Para obter mais informações sobre o uso de Zonas de Disponibilidade com o Load Balancer Standard, consulte [Zonas de disponibilidade e Load Balancer Standard](load-balancer-standard-availability-zones.md).
 
@@ -60,7 +60,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Criar um Load Balancer Standard do Azure
+## <a name="create-azure-standard-load-balancer"></a>Criar o Azure Standard Load Balancer
 Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
 - um pool de IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
 - um pool de IP de back-end no qual o pool de front-end envia o tráfego de rede com a carga balanceada.

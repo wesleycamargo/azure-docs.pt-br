@@ -1,28 +1,10 @@
 ---
-title: Experimento simples – Azure Machine Learning Studio | Microsoft Docs
-description: Este tutorial de aprendizado de máquina percorre um teste de ciência de dados. Vamos prever o preço de um carro usando um algoritmo de regressão.
-keywords: teste,regressão linear,algoritmos de aprendizado de máquina,tutorial de aprendizado de máquina,técnicas de modelos de previsão, teste de ciência de dados
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 03/20/2017
-ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262411"
+Título: Experimento simples – titleSuffix: Descrição do Azure Machine Learning Studio: Este tutorial de aprendizado de máquina percorre um teste de ciência de dados. Vamos prever o preço de um carro usando um algoritmo de regressão.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+
+autor: garyericson ms.author: garye ms.custom: seodec18 ms.date: 20/03/2017
 ---
+
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial: crie seu primeiro experimento no de ciência de dados no Azure Machine Learning Studio
 
 Se você nunca usou o **Azure Machine Learning Studio** antes, este tutorial é para você.

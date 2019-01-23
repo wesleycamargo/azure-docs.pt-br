@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139679"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243875"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Excluir um locatário do Azure Active Directory
+
 Quando um locatário é excluído, todos os recursos que estão contidos no locatário também são excluídos. Você precisa preparar o locatário minimizando seus recursos associados antes da exclusão. Somente um administrador global do Azure AD (Azure Active Directory) pode excluir um locatário do Azure AD do portal.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Preparar o locatário para exclusão
@@ -59,17 +60,17 @@ Estado da assinatura | Dados | Acesso a dados
 Ativo (30 dias para avaliação)  | Dados acessíveis a todos    | <li>Os usuários têm acesso normal a aplicativos ou arquivos do Office 365<li>Os administradores têm acesso normal ao Centro de administração e aos recursos do Office 365 
 Expirado (30 dias)   | Dados acessíveis a todos    | <li>Os usuários têm acesso normal a aplicativos ou arquivos do Office 365<li>Os administradores têm acesso normal ao Centro de administração e aos recursos do Office 365
 Desabilitado (30 dias) | Dados acessíveis somente ao administrador  | <li>Os usuários não podem acessar arquivos ou aplicativos do Office 365<li>Os administradores podem acessar o Centro de administração do Office 365, mas não é possível atribuir licenças ou atualizar usuários
-Desprovisionado (30 dias depois de ser desabilitado) | Dados excluídos (excluídos automaticamente se nenhum outro serviço estiver em uso) | <li>Os usuários não podem acessar arquivos ou aplicativos do Office 365<li>Os administradores podem acessar o Centro de administração do Office 365 para comprar e gerenciar outras assinaturas 
+Desprovisionado (30 dias depois de ser desabilitado) | Dados excluídos (excluídos automaticamente se nenhum outro serviço estiver em uso) | <li>Os usuários não podem acessar arquivos ou aplicativos do Office 365<li>Os administradores podem acessar o Centro de administração do Office 365 para comprar e gerenciar outras assinaturas
 
 Você pode colocar uma assinatura no estado **Desprovisionado** a ser excluída após três dias usando o Centro de administração do Microsoft Store para Empresas. Essa funcionalidade chegará em breve ao Centro de administração do Office 365.
 
 1. Entre no [Centro de administração do Microsoft Store para Empresas](https://businessstore.microsoft.com/manage/) com uma conta de Administrador Global do locatário. Se você está tentando excluir o locatário "Contoso" que tem o domínio inicial padrão contoso.onmicrosoft.com, entre com um UPN como admin@contoso.onmicrosoft.com.
 
-2. Acesse a guia **Gerenciar** e selecione **Produtos e Serviços** e, em seguida, escolha a assinatura que deseja cancelar. Depois de clicar em **Cancelar**, atualize a página.
+2. Acesse a guia **Gerenciar** e selecione **Produtos e Serviços**; em seguida, escolha a assinatura que deseja cancelar e selecione **Excluir**.
   
   ![Link de exclusão para excluir assinatura](./media/directory-delete-howto/delete-command.png)
   
-3. Selecione **Excluir** para excluir a assinatura e aceite os termos e condições. Todos os dados serão excluídos permanentemente em até três dias. Se você mudar de ideia, será possível reativar a assinatura durante esse período de três dias.
+3. Selecione **Excluir assinatura** para aceitar os termos e condições e excluir a assinatura. Todos os dados são excluídos permanentemente em até três dias. Se você mudar de ideia, será possível reativar a assinatura durante os próximos três dias.
   
   ![Termos e condições](./media/directory-delete-howto/delete-terms.png)
 

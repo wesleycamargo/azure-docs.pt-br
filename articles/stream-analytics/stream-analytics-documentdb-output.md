@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c5017817c0f823a149dd0f9bced48ecca9f3c488
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106559"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267123"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics para Azure Cosmos DB  
 O Stream Analytics pode direcionar o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para uma saída em JSON, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento aborda algumas práticas recomendadas para implementar essa configuração.
@@ -58,16 +58,17 @@ Para coleções do Microsot Azure Cosmos DB fixas, o Stream Analytics permite qu
 Gravar em vários contêineres fixos está sendo preterido e não é a abordagem recomendada para escalar horizontalmente seu trabalho do Stream Analytics. O artigo [Particionamento e escala no Microsoft Azure Cosmos DB](../cosmos-db/sql-api-partition-data.md) também apresenta detalhes sobre isso.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Configurações do Cosmos DB para saída em JSON
-A criação do Cosmos DB como uma saída no Stream Analytics gera uma solicitação de informações, conforme mostrado abaixo. Esta seção fornece uma explicação da definição de propriedades.
 
+A criação do Cosmos DB como uma saída no Stream Analytics gera uma solicitação de informações, conforme mostrado abaixo. Esta seção fornece uma explicação da definição de propriedades.
 
 ![tela de saída do stream analytics do banco de dados de documentos](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-Campo           | DESCRIÇÃO 
--------------   | -------------
-Alias de saída    | Um alias para se referir a essa saída em sua consulta ASA   
-Nome da conta    | O nome ou o URI do ponto de extremidade da conta do Microsoft Azure Cosmos DB 
-Chave de conta     | A chave de acesso compartilhado da conta do Microsoft Azure Cosmos DB
-Banco de dados        | O nome do banco de dados do Microsoft Azure Cosmos DB
-Nome da coleção | O nome da coleção para a coleção a ser usada. `MyCollection` é uma entrada válida do exemplo – uma coleção denominada `MyCollection` deve existir.  
-ID do documento     | Opcional. O nome da coluna em eventos de saída usado como a chave exclusiva que inserir ou atualizar as operações que devem ser baseadas. Se deixado vazio, todos os eventos serão inseridos, com nenhuma opção de atualização.
+|Campo           | DESCRIÇÃO|
+|-------------   | -------------|
+|Alias de saída    | Um alias para se referir a essa saída em sua consulta do ASA.|
+|Assinatura    | Escolha sua assinatura do Azure.|
+|ID da Conta      | O nome ou o URI do ponto de extremidade da conta do Azure Cosmos DB.|
+|Chave de conta     | A chave de acesso compartilhado da conta do Azure Cosmos DB.|
+|Banco de dados        | O nome do banco de dados do Azure Cosmos DB.|
+|Padrão de nome da coleção | O nome da coleção para a coleção a ser usada. `MyCollection` é uma entrada válida do exemplo – uma coleção denominada `MyCollection` deve existir.  |
+|ID do documento     | Opcional. O nome da coluna em eventos de saída usado como a chave exclusiva que inserir ou atualizar as operações que devem ser baseadas. Se deixado vazio, todos os eventos serão inseridos, com nenhuma opção de atualização.|

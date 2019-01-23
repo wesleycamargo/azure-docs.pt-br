@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 1/15/2019
 ms.author: moderakh
-ms.openlocfilehash: fbb1757cfb1118380e2f7d79566f6dc9832fce23
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 760a54a09dd612cef93de0de1e8ac2fd59b04b26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041486"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329371"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java Async do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 
 <tr><td>**Baixe o SDK**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._asyncdocumentclient?view=azure-java-stable)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -50,6 +50,11 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
+* Corrige o tratamento de respostas de consultas muito grandes.
+* Corrige a manipulação de tokens de recursos ao instanciar um cliente ([GitHub n. 78](https://github.com/Azure/azure-cosmosdb-java/issues/78)).
+* A dependência vulnerável jackson-databind foi atualizada ([GitHub n. 77](https://github.com/Azure/azure-cosmosdb-java/pull/77)).
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * Corrigido um bug de vazamento de recursos.
@@ -125,6 +130,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.3.1](#2.3.1) |15 de janeiro de 2019|--- |
 | [2.3.0](#2.3.0) |29 de novembro 2018|--- |
 | [2.2.2](#2.2.2) |8 de Nov, 2018|--- |
 | [2.2.1](#2.2.1) |2 de Nov, 2018|--- |

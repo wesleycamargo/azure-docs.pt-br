@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2bb9d69487b8576cdae60a1a613a341898495f06
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a354d5d0242bfdbb618eb325c8157a7bed3d3b64
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903692"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263642"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
 Usando o Azure AD (Azure Active Directory), você pode personalizar o tipo de declaração para a declaração de função no token de resposta recebido após a autorização de um aplicativo.
 
@@ -59,7 +59,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
 6. Abra o [Explorador do Graph do Azure AD](https://developer.microsoft.com/graph/graph-explorer) em outra janela e execute as seguintes etapas:
 
-    a. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
+     a. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
 
     b. Você precisa ter permissões suficientes para criar as funções. Selecione **modificar permissões** para obter as permissões.
 
@@ -151,25 +151,29 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
 8. Atualize a tabela **Atributos** para definir um mapeamento personalizado da declaração de função.
 
-9. Na seção **Atributos do Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas abaixo.
+9. Na seção **Atributos & Declarações do Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas abaixo.
 
     | Nome do atributo | Valor do atributo |
     | -------------- | ----------------|
     | Nome da função  | user.assignedroles |
 
-    a. Selecione **Adicionar atributo** para abrir o painel **Adicionar Atributo**.
+     a. Clique no botão **Editar** para abrir a caixa de diálogo **Atributos de usuário**.
+
+      ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. Selecione **Adicionar atributo** para abrir o painel **Gerenciar declarações do usuário**.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       ![Painel “Adicionar Atributo”](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. Na caixa **Nome**, digite o nome do atributo conforme necessário. Este exemplo usa **Nome da Função** como o nome da declaração.
-
-    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+    c. Na caixa **Nome**, digite o nome do atributo conforme necessário. Este exemplo usa **Nome da Função** como o nome da declaração.
 
     d. Deixe a caixa **Namespace** em branco.
 
-    e. Selecione **Ok**.
+    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
+
+    f. Clique em **Salvar**.
 
 10. Para testar seu aplicativo em um logon único iniciado por um provedor de identidade, entre no [Painel de Acesso](https://myapps.microsoft.com) e selecione o bloco do aplicativo. No token SAML, você deve ver todas as funções atribuídas ao usuário com o nome da declaração fornecido.
 
@@ -203,7 +207,7 @@ Para atualizar uma função existente, execute as seguintes etapas:
 
     ![Corpo da solicitação para "PATCH", com "description" e "displayname" realçados](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
 
-    a. Altere o método de **GET** para **PATCH**.
+     a. Altere o método de **GET** para **PATCH**.
 
     b. Copie as funções existentes e cole-as em **Corpo da Solicitação**.
 
@@ -241,7 +245,7 @@ Para excluir uma função existente, execute as seguintes etapas:
 
     ![Corpo da solicitação para "PATCH", com IsEnabled definido como false](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-    a. Altere o método de **GET** para **PATCH**.
+     a. Altere o método de **GET** para **PATCH**.
 
     b. Copie as funções existentes do aplicativo e cole-as em **Corpo da Solicitação**.
 

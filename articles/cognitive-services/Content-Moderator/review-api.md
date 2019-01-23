@@ -1,23 +1,23 @@
 ---
 title: Trabalhos de moderação e revisões humanas no loop – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Aplique supervisão humana a moderação assistido por computador para obter melhores resultados.
+description: Combine moderação assistida por computador com recursos com humanos no circuito usando a API de Análise do Content Moderator do Azure para obter os melhores resultados para a sua empresa.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 1/21/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a348b18d1ecc9c0e4405c54a8e554d932781ec92
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223246"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265338"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Revisões e trabalhos de moderação
+# <a name="content-moderation-jobs-and-reviews"></a>Revisões e trabalhos de moderação de conteúdo
 
 Combine moderação assistida por computador com recursos human-in-the-loop usando a [API de Análise](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) do Content Moderator do Azure para obter os melhores resultados para a sua empresa.
 
@@ -55,12 +55,12 @@ Use a operação `Job.Get` e o identificador de trabalho para obter os detalhes 
 
 Sua entrada inclui as seguintes informações:
 
-- A ID de equipe de análise: O identificador de trabalho retornado pela operação anterior
+- A ID da equipe de revisão: o identificador do trabalho retornado pela operação anterior
 
 A resposta inclui as informações a seguir:
 
 - O identificador da análise criada. (Use essa ID para obter os resultados de análise final.)
-- O status do trabalho (completo ou em andamento): as marcas de moderação atribuída (pares chave-valor).
+- O status do trabalho (completo ou em andamento): As marcas de moderação atribuídas (pares chave-valor).
 - O relatório de execução do trabalho.
  
  

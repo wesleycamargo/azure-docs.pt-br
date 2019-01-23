@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c6d36f3e1cef4fffbe38b0a70d42069577590627
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623152"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212253"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
 
@@ -40,10 +40,14 @@ A tabela a seguir lista as informações de latência para relatórios de ativid
 > **Latência (95º percentil)** refere-se ao tempo em que 95% dos logs serão relatados, e **Latência (99º percentil)** refere-se ao tempo em que 99% dos logs serão relatados. 
 >
 
-| Relatório | Latência (95º percentil) |Latência (99º percentil)|
-| :-- | --- | --- | 
-| Logs de auditoria | 2 minutos  | 5 min  |
-| Entradas | 2 minutos  | 5 min |
+| Relatório | Latência (95º percentil) |Latência (99º percentil)|Intervalo de tempo dentro do qual os logs serão relatados|
+| :-- | --- | --- | --- |
+| Logs de auditoria | 2 minutos  | 5 min  | 2 a 60 minutos |
+| Entradas | 2 minutos  | 5 min | 2 a 120 minutos |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Em quanto tempo devo ver os dados das atividades após obter uma licença Premium?
+
+Se você já tiver dados de atividades com sua licença gratuita, poderá vê-los imediatamente ao atualizar. Se você não tiver nenhum dado, serão necessários um ou dois dias para os dados serem exibidos nos relatórios depois de atualizar para uma licença premium.
 
 ## <a name="security-reports"></a>Relatórios de segurança
 
@@ -78,5 +82,5 @@ A tabela a seguir lista as informações de latência para eventos de risco.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral dos relatórios do Azure AD](overview-reports.md)
-* [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)
+* [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)
 * [Eventos de risco do Azure Active Directory](concept-risk-events.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "22999151"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320066"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de borda no CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -55,7 +55,7 @@ Este painel consiste em:
     ![botão gerenciar da folha Perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
-2. Passe com a seta do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda**.  Clique em **Painel**.
+2. Passe o ponteiro do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda**.  Clique em **Painel**.
    
     O painel de análise de nó de borda é exibido.
 
@@ -70,7 +70,7 @@ O painel contém um gráfico que rastreia uma métrica ao longo do período sele
 * Clique em Exibir o ano anterior para ativar ou desativar uma sobreposição de atividade do ano anterior no mesmo período de tempo para o gráfico. Esse tipo de comparação fornece informações sobre padrões de uso CDN a longo prazo. O canto superior direito do grafo contém uma legenda que indica o código de cor para cada grafo de linha.
 
 #### <a name="updating-the-chart"></a>Atualizando o gráfico
-* Intervalo de tempo: Execute um destes procedimentos:
+* Intervalo de tempo: Execute uma das ações a seguir:
   * Selecione a região desejada na linha do tempo. O gráfico será atualizado com dados que correspondem ao período de tempo selecionado.
   * Clique duas vezes no gráfico para exibir todos os dados históricos disponíveis até um máximo de dois anos.
 * Métrica: Clique no ícone de gráfico que aparece ao lado da métrica desejada. O gráfico e a linha do tempo serão atualizados com dados para a métrica correspondente.
@@ -143,7 +143,7 @@ Cada relatório neste módulo contém um gráfico e as estatísticas de uso de l
     ![botão gerenciar da folha Perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
-2. Passe com a seta do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda**.  Clique em **Objeto grande de HTTP**.
+2. Passe o ponteiro do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda**.  Clique em **Objeto grande de HTTP**.
    
     A tela de relatórios de análise de nó de borda é exibido.
 

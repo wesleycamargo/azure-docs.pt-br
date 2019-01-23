@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623852"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244708"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de entradas de risco no portal do Azure Active Directory
 
@@ -85,12 +85,11 @@ Este relatório também fornece uma opção para:
 
 ![Entradas de risco](./media/concept-risky-sign-ins/93.png)
 
-
 ## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Relatório de entradas arriscadas para as edições Premium do Azure AD
 
 O relatório de entradas arriscadas nas edições Premium do Azure AD fornece:
 
-- Informações agregadas sobre os [tipos de eventos de risco](concept-risk-events.md) que foram detectados
+- Informações agregadas sobre os [tipos de eventos de risco](concept-risk-events.md) que foram detectados. Com o **Azure AD Premium P1 Edition**, as detecções que não são cobertas por sua licença aparecem como o evento de risco **Entrada com risco adicional detectado**. Com o **Azure AD Premium P2 Edition**, você obtém as informações mais detalhadas sobre todas as detecções subjacentes.
 
 - Uma opção para baixar o relatório
 

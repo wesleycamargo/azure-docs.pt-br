@@ -3,7 +3,7 @@ title: Backup automatizado v2 para VMs do Azure do SQL Server 2016/2017 | Micros
 description: Explica o recurso de Backup Automatizado para VMs do SQL Server 2016/2017 em execução no Azure. Este artigo é específico para VMs que usam o Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246813"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331633"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup Automatizado v2 para Máquinas Virtuais do Azure (Resource Manager)
 
@@ -83,13 +84,13 @@ A tabela a seguir descreve as opções que podem ser configuradas para o Backup 
 ## <a name="understanding-full-backup-frequency"></a>Noções básicas sobre a frequência do backup completo
 É importante compreender a diferença entre backups completos diários e semanais. Considere os dois cenários de exemplo a seguir.
 
-### <a name="scenario-1-weekly-backups"></a>Cenário 1: backups semanais
+### <a name="scenario-1-weekly-backups"></a>Cenário 1: Backups semanais
 Você tem uma VM do SQL Server que contém vários bancos de dados grandes.
 
 Na segunda-feira, você habilita o Backup Automatizado v2 com as seguintes configurações:
 
 - Agendamento de backup: **Manual**
-- Frequência do backup completo: **Semanalmente**
+- Frequência do backup completo: **Semanal**
 - Hora de início do backup completo: **01:00**
 - Janela de tempo do backup completo: **1 hora**
 
@@ -101,13 +102,13 @@ Quando chegar terça-feira novamente, o Backup Automatizado começará a fazer o
 
 Este cenário mostra que o Backup Automatizado opera apenas dentro da janela de tempo especificada e cada banco de dados tem o backup feito uma vez por semana. Isso também mostra que é possível que os backups abranjam vários dias no caso de não ser possível concluir todos os backups em um único dia.
 
-### <a name="scenario-2-daily-backups"></a>Cenário 2: backups diários
+### <a name="scenario-2-daily-backups"></a>Cenário 2: Backups diários
 Você tem uma VM do SQL Server que contém vários bancos de dados grandes.
 
 Na segunda-feira, você habilita o Backup Automatizado v2 com as seguintes configurações:
 
 - Agendamento de backup: Manual
-- Frequência do backup completo: Diariamente
+- Frequência do backup completo: Diário
 - Hora de início do backup completo: 22:00
 - Janela de tempo do backup completo: 6 horas
 
@@ -331,7 +332,7 @@ Outra opção é aproveitar o recurso integrado Database Mail para notificaçõe
 ## <a name="next-steps"></a>Próximas etapas
 O Backup Automatizado v2 configura o Backup Gerenciado em VMs do Azure. Portanto, é importante [ler a documentação do Backup Gerenciado](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e suas implicações.
 
-Você pode encontrar outras orientações de backup e de restauração para o SQL Server em VMs do Azure no seguinte artigo: [Backup e restauração do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
+Você pode encontrar outras orientações de backup e de restauração para o SQL Server em VMs do Azure no seguinte artigo: [Backup e restauração para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

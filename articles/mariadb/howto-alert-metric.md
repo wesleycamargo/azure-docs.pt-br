@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 9cc08920c5b8814a3e4b649f4518dce78c7cb38e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160521"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244232"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usar o portal do Azure para configurar alertas de métricas no Banco de Dados do Azure para MariaDB
 
@@ -25,10 +25,9 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 * Chamar um webhook
 
 Você pode configurar e obter informações sobre as regras de alerta usando:
-* [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [CLI (Interface da linha de comando)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API REST do Monitor do Azure](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Criar uma regra de alerta em uma métrica
 1. No [portal do Azure](https://portal.azure.com/), selecione o servidor do Banco de Dados do Azure para MariaDB que você deseja monitorar.
@@ -49,7 +48,7 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
    
    ![Selecionar métrica](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, “Maior que”), o **Limite** (por exemplo, 85%), a **Agregação de Tempo**, o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, “Os últimos 30 minutos”) e **Frequência**.
+7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, “Maior que”), o **Limite** (por exemplo, 85%), a **Agregação de Tempo**, o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Os últimos 30 minutos") e **Frequência**.
    
    Selecione **Concluído** ao concluir.
 

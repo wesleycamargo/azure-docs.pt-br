@@ -1,26 +1,8 @@
 ---
-title: Implantar um serviço da Web do Machine Learning Studio - Azure|Microsoft Docs
-description: Como converter um experimento de treinamento em um experimento preditivo, prepará-lo para implantação e implantá-lo como um serviço da Web do Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2017
-ms.openlocfilehash: 71315b6c36a9e41e5805d5a15bde5b1d1d84f2b5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269916"
+Título: Implantar um serviço Web do Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Como converter um experimento de treinamento em um experimento preditivo, prepará-lo para implantação e implantá-lo como um serviço da Web do Azure Machine Learning Studio.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 06/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Implantar um serviço da web do Azure Machine Learning Studio
 O Azure Machine Learning permite compilar, testar e implantar soluções de análise preditiva.

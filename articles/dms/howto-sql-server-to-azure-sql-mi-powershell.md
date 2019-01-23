@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: c4ccbe8a6f1e1923e83d2bdcbeb2d61429083aee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/15/2019
+ms.openlocfilehash: 93ab8b2aca49fcd0d2f27ec17f7fc519b19bf563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724191"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305140"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrar o SQL Server local para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure PowerShell
 Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2005 ou posterior para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Microsoft Azure PowerShell. Migre bancos de dados de uma instância local do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o módulo `AzureRM.DataMigration` no Microsoft Azure PowerShell.
@@ -186,7 +186,7 @@ $selectedLogins = @("user1", "user2")
 Crie uma lista de trabalhos do agente a serem migradas, conforme mostrado no exemplo abaixo:
 
 >[!NOTE]
->Atualmente, o DMS dá suporte a trabalhos apenas com as etapas de trabalho do subsistema T-SQL.
+>Atualmente, o DMS dá a trabalhos apenas com as etapas de trabalho do subsistema T-SQL.
 
 ```powershell
 $selectedAgentJobs = @("agentJob1", "agentJob2")
@@ -237,6 +237,13 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 {
   write-host "migration task running"
 }
+```
+
+## <a name="deleting-the-dms-instance"></a>Excluir a instância do DMS
+Quando a migração é concluída, você pode excluir a instância do DMS do Azure:
+
+```powershell
+Remove-AzureRmDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

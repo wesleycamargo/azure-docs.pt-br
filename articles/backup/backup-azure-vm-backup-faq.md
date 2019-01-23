@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041281"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332244"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Perguntas frequentes - Backup do Azure
 
@@ -57,14 +57,13 @@ Se você bloquear o grupo de recursos, o serviço de Backup do Azure não conseg
  Não. A data e hora no computador local é local com o atual horário de verão aplicado. O tempo definido para backups agendados pode ser diferente do horário local devido ao horário de verão.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Quantos discos de dados eu posso anexar a uma VM para fazer backup pelo Backup do Azure?
-O Backup do Azure pode fazer backup de VMs com até 16 discos. O suporte para 16 discos é fornecido na [versão mais recente](backup-upgrade-to-vm-backup-stack-v2.md) da pilha de Backup de VM do Azure V2.
+O Backup do Azure pode fazer backup de VMs com até 16 discos. Suporte para 16 discos é fornecido na [Restauração Instantânea](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>O backup do Azure oferece suporte ao disco gerenciado SSD Standard?
-O Backup do Azure oferece suporte aos [discos gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Os discos gerenciados SSD fornecem um novo tipo de armazenamento durável para VMs do Azure. O suporte para discos gerenciado SSD é fornecido na [versão mais recente](backup-upgrade-to-vm-backup-stack-v2.md) da pilha de Backup de VM do Azure V2.
+O Backup do Azure oferece suporte aos [discos gerenciados SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Os discos gerenciados SSD fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerenciados SSD é fornecido na [Restauração Instantânea](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Podemos fazer backup de uma VM com um disco ativado pelo Acelerador de Gravação?
-Os instantâneos não podem ser criados no disco habilitado pelo Acelerador de Gravação. No entanto, o serviço de Backup do Azure pode excluir o disco habilitado pelo Acelerador de Gravação do backup. A exclusão de disco para VMs com discos habilitados pelo Acelerador de Gravação só tem suporte para assinaturas atualizadas da pilha do Backup de VM do Azure V2. Para fazer o upgrade para a pilha de Backup de VM do Azure V2, confira este [artigo](backup-upgrade-to-vm-backup-stack-v2.md). Esse recurso está disponível atualmente no leste do Japão, Europa Setentrional, Sudeste Asiático, Leste dos EUA, Oeste dos EUA 2, Europa Ocidental e Leste dos EUA 2.
-
+Os instantâneos não podem ser criados no disco habilitado pelo Acelerador de Gravação. No entanto, o serviço de Backup do Azure pode excluir o disco habilitado pelo Acelerador de Gravação do backup. A exclusão de disco para VMs com discos habilitados pelo Acelerador de Gravação só tem suporte para assinaturas atualizadas para a Restauração Instantânea.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos do Acelerador de Gravação e do SAP HANA instalados. Como fazer backup?
 O Backup do Azure não pode fazer backup do disco habilitado pelo Acelerador de Gravação, mas pode excluí-lo do backup. No entanto, o backup não fornecerá a consistência do banco de dados porque não são feitos backups de informações do disco habilitado pelo Acelerador de Gravação. Você pode fazer backup de discos com essa configuração se desejar o backup em disco do sistema operacional e o backup dos discos que não são habilitados pelo Acelerador de Gravação.
@@ -77,7 +76,7 @@ Temos uma versão prévia privada para um backup do SAP HANA com um RPO de 15 mi
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Como faço para decidir se quero restaurar somente a discos ou uma VM completa?
 Pense na restauração da VM como uma opção de criação rápida para uma VM do Azure. Essa opção altera os nomes dos discos, os contêineres usados pelos discos, os endereços IP públicos e os nomes das interfaces de rede. A alteração mantém recursos exclusivos quando uma VM é criada. A VM não é adicionada ao conjunto de disponibilidade.
 
-A opção de disco de restauração se você quiser:
+Você pode usar a opção de disco de restauração se você quer:
   * Personalizar a VM que é criada. Por exemplo, alterar o tamanho.
   * Adicionar definições de configurações que não estavam presentes no momento do backup
   * Controlar a convenção de nomenclatura para os recursos que são criados.
@@ -104,7 +103,7 @@ Sim. Mesmo se você excluir a VM, poderá acessar o item de backup correspondent
 Para a VM do Azure do Disco Gerenciado, a restauração dos conjuntos de disponibilidade é ativada ao fornecer uma opção no modelo durante a restauração como discos gerenciados. Este modelo tem o parâmetro de entrada chamado **Conjuntos de disponibilidade**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Como conseguimos desempenhos de restauração mais rápidos?
-Para melhorar o desempenho da restauração, é recomendável que você migre para a pilha de backup de VM V2 e use o [recurso de RP instantâneo](backup-upgrade-to-vm-backup-stack-v2.md).
+Para melhorar o desempenho de restauração, vamos mudar para a funcionalidade de [Restauração Instantânea](backup-instant-restore-capability.md).
 
 ## <a name="manage-vm-backups"></a>Gerenciar backups de VM
 

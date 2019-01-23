@@ -1,5 +1,5 @@
 ---
-title: Balanceamento de carga em várias configurações de IP no Azure
+title: Balanceamento de carga em várias configurações de IP na CLI do Azure
 titlesuffix: Azure Load Balancer
 description: Balanceamento de carga entre as configurações de IP primárias e secundárias.
 services: load-balancer
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: cdfb374bf9245d055c86974debc9a6eb8f0fefd6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 18d5bbd6b4b4c48fee2e01c70dfe696a0c10834a
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164204"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200999"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Balanceamento de carga em várias configurações de IP usando o PowerShell
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082944"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263400"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrar o Azure DevTest Labs em seu pipeline de integração contínua e entrega do Azure DevOps
 Você pode usar a extensão *Tarefas do Azure DevTest Labs* instalada no Azure DevOps para integrar facilmente seu pipeline de build e de lançamento de CI/CD ao Azure DevTest Labs. A extensão instala três tarefas: 
@@ -85,7 +85,7 @@ Esta seção descreve como criar o modelo do Azure Resource Manager que você us
 
 1. Verifique o script no seu sistema de controle do código-fonte. Atribua a ele um nome como **GetLabVMParams.ps1**.
 
-   Quando você executar esse script no agente como parte do pipeline de lançamento e se usar as etapas da tarefa, como *Cópia de arquivo do Azure* ou *PowerShell em computadores de destino*, o script coletará os valores que você precisar para implantar seu aplicativo na VM. Normalmente, você usaria essas tarefas para implantar aplicativos em uma VM do Azure. As tarefas exigem valores como o nome do grupo de recursos da VM, o endereço IP e o FQDN (nome de domínio totalmente qualificado).
+   Quando você executar esse script no agente como parte do pipeline de lançamento e se usar as etapas da tarefa, como *Cópia de arquivo do Azure* ou *PowerShell em computadores de destino*, o script coletará os valores que você precisar para implantar seu aplicativo na VM. Normalmente, você usaria essas tarefas para implantar aplicativos em uma VM do Azure. As tarefas exigem valores como o nome do Grupo de Recursos, o endereço IP e o FQDN (nome de domínio totalmente qualificado) da VM.
 
 ## <a name="create-a-release-pipeline-in-release-management"></a>Criar um pipeline de lançamento no Release Management
 Para criar um pipeline de lançamento, faça o seguinte:

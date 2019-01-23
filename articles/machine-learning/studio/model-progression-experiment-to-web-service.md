@@ -1,26 +1,8 @@
 ---
-title: Como um modelo de Machine Learning Studio se torna um serviço da Web - Azure | Microsoft Docs
-description: Uma visão geral da mecânica de como seu modelo do Azure Machine Learning evolui de um teste de desenvolvimento para um serviço Web operacionalizado.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253860"
+Título: Como um modelo do Machine Learning Studio se torna um serviço Web – titleSuffix: Descrição do Azure Machine Learning Studio: Uma visão geral da mecânica de como seu modelo do Azure Machine Learning evolui de um teste de desenvolvimento para um serviço Web operacionalizado.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 20/03/2017
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo do Machine Learning Studio progride de uma experiência para um serviço da Web operacionalizado
 O Azure Machine Learning Studio fornece uma tela interativa que permite a você desenvolver, executar, testar e iterar um ***teste*** representando um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:

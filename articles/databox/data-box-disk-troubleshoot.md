@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 13e42ae9b25c769a468a8c9839fd1aaf0abf2787
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191693"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213137"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Solucionar problemas no Azure Data Box Disk
 
@@ -96,12 +96,11 @@ Esta seção apresenta detalhes sobre alguns dos principais problemas enfrentado
 
 Isso pode ser devido a um sistema de arquivos não limpo. 
 
-- Remontar uma unidade como leitura não funciona com Data Box Disks. Não há suporte para esse cenário em unidades descriptografadas pelo dislocker. 
-- Remontar como leitura-gravação não funcionará. Você pode ter remontado o dispositivo com sucesso usando o seguinte comando: 
+Remontar uma unidade como leitura e gravação não funciona com Data Box Disks. Não há suporte para esse cenário em unidades descriptografadas pelo dislocker. Você pode ter remontado o dispositivo com sucesso usando o seguinte comando: 
 
     `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
 
-   Embora a remontagem tenha sido bem-sucedida, os dados não persistirão.
+Embora a remontagem tenha sido bem-sucedida, os dados não persistirão.
 
 **Resolução**
 
@@ -125,11 +124,11 @@ Se você vir que sua unidade não tem dados depois de ter sido desmontada (embor
  
 Se esse for o caso, confira a resolução para [unidades sendo montadas como somente leitura](#issue-drive-getting-mounted-as-read-only).
 
-Se esse não for o caso, escolha [baixar logs de diagnóstico](#download-diagnostic-logs) do seu sistema e [contate o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
+Se esse não for o caso, copie os logs da pasta que tem a ferramenta de desbloqueio do Data Box Disk e [entre em contato com o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="deployment-issues-for-windows"></a>Problemas de implantação para Windows
 
-Esta seção apresenta detalhes sobre alguns dos principais problemas enfrentados durante a implantação do Data Box Disk ao usar um cliente Linux para cópia de dados
+Esta seção apresenta detalhes sobre alguns dos principais problemas enfrentados durante a implantação do Data Box Disk ao usar um cliente Windows para cópia de dados
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: Não foi possível desbloquear a unidade do BitLocker
  
@@ -139,7 +138,7 @@ Você usou a senha na caixa de diálogo do BitLocker e tentou desbloquear o disc
 
 **Resolução**
 
-Para desbloquear Data Box Disks, você precisa usar a ferramenta de Desbloqueio do Data Box Disk e fornecer a senha do portal do Azure.
+Para desbloquear Data Box Disks, você precisa usar a ferramenta de Desbloqueio do Data Box Disk e fornecer a senha do portal do Azure. Para obter mais informações, vá para [Tutorial: Desempacotar, conectar e desbloquear o Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: Não foi possível desbloquear nem verificar alguns volumes. Contatar Suporte da Microsoft
  
@@ -155,7 +154,7 @@ Isso indica que você provavelmente não tem a versão apropriada do Windows Pow
 
 Você pode instalar o [Windows PowerShell v5.0](https://www.microsoft.com/download/details.aspx?id=54616) e repetir a operação.
  
-Se você ainda não conseguir desbloquear os volumes, [entre em contato com o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
+Se você ainda não puder desbloquear os volumes, copie os logs da pasta que tem a ferramenta de Desbloqueio do Data Box Disk e [entre em contato com o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

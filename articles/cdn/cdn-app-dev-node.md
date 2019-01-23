@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38301557"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321238"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução ao desenvolvimento de CDN do Azure
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ function cdnDelete() {
 Agora podemos executar o programa do Node.js usando o depurador que preferirmos ou no console.
 
 > [!TIP]
-> Se você estiver usando o Código do Visual Studio como depurador, precisará configurar o ambiente para passar os parâmetros da linha de comando.  O Código do Visual Studio faz isso no arquivo **lanuch.json** .  Procure uma propriedade denominada **args** e adicione uma matriz de valores da cadeia de caracteres aos parâmetros, para que seja semelhante a isto: `"args": ["list", "profiles"]`.
+> Se você estiver usando o Código do Visual Studio como depurador, precisará configurar o ambiente para passar os parâmetros da linha de comando.  O Visual Studio Code faz isso no arquivo **launch.json**.  Procure uma propriedade denominada **args** e adicione uma matriz de valores da cadeia de caracteres aos parâmetros, para que seja semelhante a isto: `"args": ["list", "profiles"]`.
 > 
 > 
 

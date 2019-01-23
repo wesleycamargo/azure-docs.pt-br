@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427056"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231165"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o Modelo de Solução do Cortana Intelligence para previsão de demanda em energia
 ## <a name="overview"></a>**Visão geral**
@@ -163,8 +163,8 @@ As etapas a seguir mostram como visualizar a saída de dados em tempo real dos t
 
 1. Adicione a saída do Power BI ao Stream Analytics (ASA).
 
-   * Você precisa seguir as instruções em [Azure Stream Analytics e Power BI: um painel de análise em tempo real para a visibilidade em tempo real dos dados de streaming](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho do Azure Stream Analytics como seu painel do Power BI.
-   * Localize o trabalho do Stream Analytics em seu [Portal do Azure](https://portal.azure.com). O nome do trabalho deve ser: NomeSolução+"trabalhostreaming"+número aleatório+"asapbi" (ou seja, demostreamingjob123456asapbi).
+   * Você precisa seguir as instruções em [Azure Stream Analytics e Power BI: Um painel de análise em tempo real para a visibilidade em tempo real dos dados de streaming](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho do Azure Stream Analytics como seu painel do Power BI.
+   * Localize o trabalho do Stream Analytics em seu [Portal do Azure](https://portal.azure.com). O nome do trabalho deve ser: NomeDaSolução+"trabalhostreaming"+número aleatório+"asapbi" (ou seja, demostreamingjob123456asapbi).
    * Adicione uma saída do Power BI para o trabalho do ASA. Defina o **Alias de Saída** como **‘PBIoutput’**. Defina o **Nome do Conjunto de Dados** e o **Nome da Tabela** como **‘EnergyStreamData’**. Depois de adicionar a saída, clique em **"Iniciar"** na parte inferior da página para iniciar o trabalho do Stream Analytics. Você deverá receber uma mensagem de confirmação (por exemplo, "Iniciando o trabalho do Stream Analytics myteststreamingjob12345asablob com êxito").
 2. Faça logon no [Power BI online](https://www.powerbi.com)
 
@@ -218,7 +218,7 @@ No pipeline de dados de caminho frio, o principal objetivo é obter a previsão 
 4. (Opcional) Agendar a atualização da fonte de dados.
 
    * Para agendar a atualização dos dados, passe o mouse sobre o conjunto de dados **EnergyBPI-Final**, clique em ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png) e escolha **Agendar Atualização**.
-     **Observação:** se for exibida uma mensagem de aviso, clique em **Editar Credenciais** e verifique se suas credenciais do banco de dados são iguais às descritas na etapa 1.
+     **Observação:** Se for exibida uma mensagem de aviso, clique em **Editar Credenciais** e verifique se suas credenciais do banco de dados são iguais às descritas na etapa 1.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * Expanda a seção **Agendar Atualização** . Ative "manter os dados atualizados".

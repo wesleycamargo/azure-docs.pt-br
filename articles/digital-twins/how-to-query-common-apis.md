@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 0112853bf36c6b7b594400d303234d204b2ea24a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109351"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198636"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar as APIs dos Gêmeos Digitais do Azure para tarefas comuns
 
@@ -26,7 +26,7 @@ Este artigo mostra os padrões de consulta para ajudá-lo a executar cenários c
 
 Esta seção mostra exemplos de consultas para obter mais informações sobre seus espaços provisionados. Faça solicitações GET HTTP autenticadas com as consultas de exemplo, substituindo os espaços reservados pelos valores de sua configuração. 
 
-- Obter nós raiz.
+- Obtenha espaços que não são nós raiz.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?$filter=ParentSpaceId eq null
@@ -38,7 +38,7 @@ Esta seção mostra exemplos de consultas para obter mais informações sobre se
     YOUR_MANAGEMENT_API_URL/spaces?name=Focus Room A1&includes=fullpath,devices,sensors,values,sensorsvalues
     ```
 
-- Obtenha espaços cujo pai seja a ID do espaço determinada e inclua as dependências. 
+- Obtenha espaços e suas informações de sensor/dispositivo, cujo pai é a ID do espaço especificada e quais estão nos níveis dois a cinco [em relação ao espaço determinado](how-to-navigate-apis.md#api-navigation). 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?spaceId=YOUR_SPACE_ID&includes=fullpath,devices,sensors,values,sensorsvalues&traverse=Down&minLevel=1&minRelative=true&maxLevel=5&maxRelative=true
@@ -91,7 +91,7 @@ Esta seção mostra algumas consultas para obter mais informações sobre funç�
     YOUR_MANAGEMENT_API_URL/roleassignments?path=/A_SPATIAL_PATH
     ```
 
-## <a name="queries-for-device-management"></a>Consultas para gerenciamento de dispositivo
+## <a name="queries-for-devices"></a>Consultas para dispositivos
 
 Esta seção mostra alguns exemplos de como você pode usar as APIs de Gerenciamento para obter informações específicas sobre os dispositivos. Todas as chamadas à API precisam ser solicitações GET HTTP autenticadas.
 
@@ -167,7 +167,7 @@ Esta seção mostra alguns exemplos de como você pode usar as APIs de Gerenciam
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true
     ```
 
-- Obtenha a cadeia de conexão do hub IoT para um determinado dispositivo.
+- Obtenha a cadeia de conexão do dispositivo do Hub IoT para seu dispositivo.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_ID?includes=ConnectionString

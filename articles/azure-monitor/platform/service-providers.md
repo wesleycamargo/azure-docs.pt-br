@@ -1,6 +1,6 @@
 ---
 title: Log Analytics para provedores de serviços | Microsoft Docs
-description: O Log Analytics pode ajudar Provedores de Serviços Gerenciados (MSPs), grandes empresas, Fornecedores Independentes de Software (ISVs) e provedores de serviço de hospedagem a gerenciar e monitorar servidores na infraestrutura de nuvem ou no local do cliente.
+description: O Log Analytics pode ajudar MSPs (provedores de serviços gerenciados), grandes empresas, ISVs (fornecedores de software independentes) e provedores de serviço de hospedagem a gerenciar e monitorar servidores locais do cliente ou na infraestrutura de nuvem.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: ac34cc467cc8ff7d231551683da130c0f7565800
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340531"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264760"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics para provedores de serviços
 O Log Analytics pode ajudar provedores de serviços gerenciados (MSPs), grandes empresas, fornecedores de software independentes (ISVs) e provedores de serviço de hospedagem a gerenciar e monitorar servidores no local do cliente ou na infraestrutura de nuvem. 
@@ -63,7 +63,7 @@ As desvantagens dessa arquitetura são:
 * Talvez seja difícil separar os dados entre os clientes quando eles são mesclados em um único workspace. O único método satisfatório para fazer isso é usar o FQDN (nome de domínio totalmente qualificado) do computador ou por meio da ID da assinatura do Azure. 
 * Todos os dados de todos os clientes serão armazenados na mesma região com uma única fatura e as mesmas definições de retenção e configuração.
 * Os serviços de PaaS e de malha do Azure, como o Diagnóstico do Azure e os Logs de Auditoria do Azure, exigem que o espaço de trabalho esteja no mesmo locatário do recurso; portanto, eles não podem enviar os logs para o espaço de trabalho central.
-* Todos os agentes de VM de todos os clientes serão autenticados no workspace central usando a mesma ID de workspace e chave. Não há nenhum método para bloquear os logs de um cliente específico sem interromper outros clientes.
+* Todos os agentes de VM de todos os clientes serão autenticados no workspace central usando a mesma ID e chave do workspace. Não há nenhum método para bloquear os logs de um cliente específico sem interromper outros clientes.
 
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Híbrido – os logs são armazenados no workspace localizado no locatário do cliente e alguns deles são enviados para um local central.

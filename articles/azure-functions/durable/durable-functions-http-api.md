@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340769"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215398"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs HTTP nas Funções Duráveis (Azure Functions)
 
@@ -96,9 +96,9 @@ Todas as APIs HTTP implementadas pela extensão têm os seguintes parâmetros. O
 | taskHub    | Cadeia de consulta    | O nome do [hub de tarefas](durable-functions-task-hubs.md). Se não for especificado, o nome do hub de tarefas do aplicativo de funções será presumido. |
 | connection | Cadeia de consulta    | O **nome** da cadeia de conexão para a conta de armazenamento. Se não for especificada, a cadeia de conexão padrão do aplicativo de funções será presumida. |
 | systemKey  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
-| showInput  | Cadeia de consulta    | Parâmetro opcional. Se definido para `false`, a entrada de execução não será incluída no conteúdo de resposta.|
-| showHistory| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído na carga da resposta.|
-| showHistoryOutput| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, as saídas da atividade serão incluídas no histórico de execução da orquestração.|
+| showInput  | Cadeia de consulta    | Parâmetro opcional; somente solicitação de instância única. Se definido para `false`, a entrada de execução não será incluída no conteúdo de resposta.|
+| showHistory| Cadeia de consulta    | Parâmetro opcional; somente solicitação de instância única. Se definido como `true`, o histórico de execução da orquestração será incluído na carga da resposta.|
+| showHistoryOutput| Cadeia de consulta    | Parâmetro opcional; somente solicitação de instância única. Se definido como `true`, as saídas da atividade serão incluídas no histórico de execução da orquestração.|
 | createdTimeFrom  | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas no ou após o registro de data e hora ISO8601 especificado.|
 | createdTimeTo    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas que foram criadas em ou antes do timestamp ISO8601 especificado.|
 | runtimeStatus    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias retornadas com base em seu status de tempo de execução. Para ver a lista de possíveis valores de status de tempo de execução, consulte o tópico [Consultando Instâncias](durable-functions-instance-management.md). |
@@ -146,7 +146,7 @@ A carga de resposta para os casos de **HTTP 200** e **HTTP 202** é um objeto JS
 | output          | JSON      | A saída JSON da instância. Este campo será `null` se a instância não estiver no estado concluído. |
 | createdTime     | string    | A hora em que a instância foi criada. Usa a notação estendida ISO 8601. |
 | lastUpdatedTime | string    | A hora em que a instância foi persistida pela última vez. Usa a notação estendida ISO 8601. |
-| historyEvents   | JSON      | Uma matriz JSON contendo o histórico de execução da orquestração. Esse campo é `null`, exceto se o parâmetro da cadeia de caracteres de consulta `showHistory` estiver definido como `true`.  |
+| historyEvents   | JSON      | Uma matriz JSON contendo o histórico de execução da orquestração. Esse campo é `null`, exceto se o parâmetro da cadeia de caracteres de consulta `showHistory` estiver definido como `true`. |
 
 Aqui está um exemplo de carga de resposta, incluindo o histórico de execução de orquestração e saídas de atividades (formatado para legibilidade):
 

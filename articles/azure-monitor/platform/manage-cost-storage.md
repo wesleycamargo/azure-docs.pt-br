@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a20e4d713440ca6fe1adaf5b89bff347a8fd0bde
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744081"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332312"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerenciar o uso e custos do Log Analytics
 
@@ -67,7 +66,7 @@ As etapas a seguir descrevem como configurar um limite para gerenciar o volume d
 
 1. No workspace, selecione **Uso e custos estimados** no painel esquerdo.
 2. Na página **Uso e custos estimados** para o workspace selecionado, clique em **Gerenciamento de volume de dados** na parte superior da página. 
-5. O limite diário é **OFF** por padrão – clique em **ON** para habilitá-lo e defina o limite de volume de dados em GB dia.<br><br> ![Configuração do limite de dados do Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. O limite diário é **OFF** por padrão – clique em **ON** para habilitá-lo e defina o limite de volume de dados em GB dia.<br><br> ![Configuração do limite de dados do Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Alerta quando o limite diário for atingido
 Embora uma indicação visual seja apresentada no Portal do Azure quando o limite de dados é alcançado, esse comportamento não alinha-se necessariamente à maneira como você gerencia problemas operacionais que exigem atenção imediata.  Para receber uma notificação de alerta, é possível criar uma nova regra de alerta no Azure Monitor.  Para saber mais, consulte [como criar, exibir e gerenciar alertas](alerts-metric.md).      
@@ -98,6 +97,25 @@ As etapas a seguir descrevem como configurar por quanto tempo os dados de log s�
 ## <a name="legacy-pricing-tiers"></a>Tipos de preço legados
 
 Clientes com um Enterprise Agreement assinados antes de 1º de julho de 2018 ou que já criaram um workspace do Log Analytics em uma assinatura, você ainda terá acesso ao plano *Gratuito*. Se sua assinatura não está vinculada a um registro de EA existente, a camada *Gratuita* não estará disponível quando você criar um workspace em uma nova assinatura após 2 de abril de 2018.  Os dados estarão limitados a 7 dias de retenção para a camada *Gratuita*.  Para o camadas herdadas *autônomo* ou *por nó* , bem como o tipo único de preço atual de 2018, os dados coletados estão disponível para os últimos 31 dias. A camada *Gratuita* tem um limite diário de ingestão de 500 MB e, se perceber que excede consistentemente o volume permitido, poderá alterar o workspace para um outro plano para coletar dados além desse limite. 
+
+> [!NOTE]
+> Para usar os direitos provenientes da aquisição de OMS E1 Suite, OMS E2 Suite OMS ou Complemento do OMS para System Center, escolha o tipo de preço *Por Nó* do Log Analytics.
+
+## <a name="changing-pricing-tier"></a>Alterando o tipo de preço
+
+Se o workspace do Log Analytics tem acesso aos tipos de preço herdados, para alternar entre os tipos de preço herdados:
+
+1. No portal do Azure, no painel de inscrições do Log Analytics, selecione um workspace.
+
+2. No painel de workspace, sob **gerais**, selecione **tipo de preço**.  
+
+3. Sob **tipo de preço**, selecione um tipo de preço e, em seguida, clique em **selecione**.  
+    ![Selecionado o plano de preços](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+Se quiser mover seu workspace para o tipo de preço atual, você precisará [alterar o modelo de preços de monitoramento de sua assinatura no Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model), o que alterará o tipo de preço de todos os workspaces nessa assinatura.
+
+> [!NOTE]
+> Se o seu workspace está vinculado a uma conta de automação, antes de poder selecionar o tipo de preços *Autônomo (por GB)*, deve excluir quaisquer soluções de **Automação e Controle** e desvincular a conta de Automação. Na folha do workspace, em **geral**, clique em **soluções** para ver e excluir soluções. Para desvincular a conta de automação, clique no nome da conta de automação na folha **Tipo de preços**.
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solucionar problemas se o Log Analytics não está mais coletando dados
@@ -136,22 +154,55 @@ Você pode detalhar mais para ver tendências de dados para tipos de dados espec
 
 ### <a name="nodes-sending-data"></a>Nós enviando dados
 
-Para reconhecer o número de nós que relatam dados no último mês, use
+Para reconhecer o número de computadores (nós) que relatam dados a cada dia no último mês, use
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Para ver a contagem de eventos ingeridos por computador, use
+Para obter uma lista de computadores que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos), aproveite a propriedade [_IsBillable](log-standard-properties.md#isbillable):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+Use essas consultas `union withsource = tt *` com moderação como verificações em tipos de dados que são caros para executar. 
+
+Isso pode ser estendido para retornar a contagem de computadores por hora que estão enviando tipos de dados cobrados:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+Para ver os **tamanho** de eventos cobráveis ingeridos por computador, use a `_BilledSize` propriedade que fornece o tamanho em bytes:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Esta consulta substitui o método antigo de consultar isso com o tipo de dados de uso. 
+
+Para ver a **contagem** de eventos ingeridos por computador, use
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Use essa consulta com moderação, pois é caro executar. Se você quiser ver quais tipos de dados estão enviando dados para um computador específico, use:
+Para ver a contagem de eventos faturáveis ingeridos por computador, use 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Se você quiser ver as contagens dos tipos de dados faturáveis que estão enviando dados para um computador específico, use:
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > Alguns dos campos do tipo de dados Uso, ainda no esquema, foram reprovados e seus valores não serão mais preenchidos. Estes são **Computador**, bem como campos relacionados à ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: addd901e1b3a9bb537278082763081a7e39b21da
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824278"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332295"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -33,10 +33,12 @@ Embora os logs de fluxo sejam destinados aos NSGs, eles não são exibidos como 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
- 
+Você pode analisar logs de fluxo e obter percepções sobre seu tráfego de rede usando a [análise de tráfego](traffic-analytics.md).
+
 As mesmas políticas de retenção vistas para outros logs aplicam-se aos logs de fluxo. Você pode definir a política de retenção de log de 1 dia, 2147483647 dias. Se uma política de retenção não for definida, os logs serão mantidos para sempre.
 
-Você também pode analisar logs de fluxo usando a [análise de tráfego](traffic-analytics.md).
+> [!NOTE] 
+> O uso do recurso de política de retenção com o log de fluxo do NSG pode resultar em um alto volume de operações de armazenamento e os custos associados. Se você não precisa do recurso de política de retenção, é recomendável que você defina esse valor como 0.
 
 
 ## <a name="log-file"></a>Arquivo de log
@@ -63,7 +65,7 @@ Logs de fluxo incluem as seguintes propriedades:
                     * **Protocol** - o protocolo do fluxo. Os valores válidos são **T** para TCP e **U** para UDP
                     * **Traffic Flow** - a direção do fluxo do tráfego. Os valores válidos são **I** para entrada e **O** para saída.
                     * **Decisão de tráfego** - se o tráfego foi permitido ou negado. Os valores válidos são **A** para permitido e **D** para negado.
-                    * **Estado de fluxo - versão 2 somente** - captura o estado do fluxo. Os estados possíveis são **B**: iniciar, quando um fluxo for criado. As estatísticas não são fornecidas. **C**: continuando um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: final, quando um fluxo é encerrado. Estatísticas são fornecidas.
+                    * **Estado de fluxo - versão 2 somente** - captura o estado do fluxo. Os possíveis estados são **B**: Início, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Final, quando um fluxo é encerrado. Estatísticas são fornecidas.
                     * **Pacotes - Fonte para destino - Versão 2 Apenas** A quantidade total de pacotes TCP ou UDP enviados da origem ao destino desde a última atualização.
                     * **Bytes enviados - Fonte para destino - Versão 2 Apenas** A quantidade total de bytes de pacotes TCP ou UDP enviados da origem ao destino desde a última atualização. O número total de bytes de pacote TCP e UDP enviados da origem para o destino desde os últimos bytes updatePacket inclui o cabeçalho e a carga útil do pacote.
                     * **Pacotes - Destino para fonte - Versão 2 Apenas** A quantidade total de pacotes TCP ou UDP enviados do destino para a fonte desde a última atualização.
@@ -71,7 +73,7 @@ Logs de fluxo incluem as seguintes propriedades:
 
 ## <a name="nsg-flow-logs-version-2"></a>Versão 2 de logs do fluxo NSG
 > [!NOTE] 
-> A versão 2 dos Logs do Flow está disponível na região Centro-oeste dos EUA. A configuração está disponível por meio do portal do Azure e da API REST. Habilitar Logs de versão 2 em uma região sem suporte salvará Logs de versão 1 produzido para sua conta de armazenamento.
+> A versão 2 dos Logs do Flow está disponível na região Centro-oeste dos EUA. A ativação dos logs da Versão 2 em uma região não suportada resultará na saída dos registros da Versão 1 para sua conta de armazenamento.
 
 Versão 2 dos logs apresenta o estado de fluxo. Você pode configurar qual versão de logs de fluxo receber. Para saber como habilitar os logs de fluxo, consulte [Habilitar o log de fluxo NSG](network-watcher-nsg-flow-logging-portal.md).
 
@@ -79,13 +81,19 @@ O estado de fluxo *B* é registrado quando um fluxo é iniciado. Estado de fluxo
 
 Para os estados de fluxo de continuação *C* e final *E*, as contagens de bytes e pacotes são contagens agregadas do tempo do registro da tupla de fluxo anterior. Referenciando a conversação de exemplo anterior, o número total de pacotes transferidos é 1021 + 52 + 8005 + 47 = 9125. O número total de bytes transferidos é 588096 + 29952 + 4610880 + 27072 = 5256000.
 
-**Exemplo**: fluxo de tuplas de uma conversa TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
+**Exemplo**: Fluxo de tuplas de uma conversa TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
 
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
 
 Para os estados de fluxo de continuação *C* e final *E*, as contagens de bytes e pacotes são contagens agregadas do tempo do registro da tupla de fluxo anterior. Referenciando a conversação de exemplo anterior, o número total de pacotes transferidos é 1021 + 52 + 8005 + 47 = 9125. O número total de bytes transferidos é 588096 + 29952 + 4610880 + 27072 = 5256000.
 
 O texto que segue é um exemplo de um log de fluxo. Como você pode ver, há vários registros que seguem a lista de propriedades descrita na seção anterior.
+
+## <a name="nsg-flow-logging-considerations"></a>Considerações registro em log do fluxo NSG
+
+**Habilite o fluxo de registro em log de fluxo NSG em todos os NSGs anexados a um recurso**: O registro em log de fluxo no Azure é configurado no recurso NSG. Um fluxo só será associado a uma regra de NSG. Em cenários em que vários NSGs são utilizados, é recomendável que o registro em log de fluxo do NSG esteja habilitado em todos os NSGs aplicados a uma sub-rede ou adaptador de rede de um recurso para garantir que todo o tráfego seja registrado. Para obter mais informações sobre os Grupos de Segurança de Rede, confira [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated). 
+
+**Os custos de registro em log de fluxo**: O registro em log de fluxo de NSG é cobrado segundo o volume de log produzido. Um alto volume de tráfego pode resultar em um volume grande de log de fluxo e nos custos associados. Os preços do log de fluxo de NSG não incluem os custos de armazenamento subjacentes. O uso do recurso de política de retenção com o log de fluxo do NSG pode resultar em um alto volume de operações de armazenamento e os custos associados. Se você não precisa do recurso de política de retenção, é recomendável que você defina esse valor como 0. Veja [Preços do Observador de Rede](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) e [Preços do Armazenamento do Azure](https://azure.microsoft.com/en-us/pricing/details/storage/) para obter mais detalhes.
 
 ## <a name="sample-log-records"></a>Registros de log de exemplo
 

@@ -1,9 +1,11 @@
 ---
-title: Perfil aninhados do Gerenciador de Tráfego | Microsoft Docs
+title: Perfis do Aninhados do Gerenciador de Tráfego no Azure
+titlesuffix: Azure Traffic Manager
 description: Este artigo explica o recurso “Perfis Aninhados” do Gerenciador de Tráfego do Azure
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648591"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228819"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfis aninhados do Gerenciador de Tráfego
 
@@ -26,9 +28,9 @@ Cada perfil do Gerenciador de Tráfego especifica um único método de roteament
 
 Os exemplos a seguir ilustram como usar os perfis aninhados do Gerenciador de Tráfego em vários cenários.
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemplo 1: combinando roteamento de tráfego de “Desempenho” e “Ponderado”
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemplo 1: combinando roteamento de tráfego de "Desempenho" e "Ponderado"
 
-Suponha que você implantou um aplicativo nas seguintes regiões do Azure: Oeste dos EUA, Europa Ocidental e Ásia Oriental. Você usa o método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego para distribuir o tráfego para a região mais próxima do usuário.
+Suponha que você tenha implantado um aplicativo nas seguintes regiões do Azure: Oeste dos EUA, Europa Ocidental e Ásia Oriental. Você usa o método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego para distribuir o tráfego para a região mais próxima do usuário.
 
 ![Perfil único do Gerenciador de Tráfego][4]
 

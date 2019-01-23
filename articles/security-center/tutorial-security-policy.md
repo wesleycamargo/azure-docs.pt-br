@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
+ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339325"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259957"
 ---
 # <a name="working-with-security-policies"></a>Trabalhando com políticas de segurança
 
@@ -28,12 +28,15 @@ Este artigo explica como as políticas de segurança são configuradas e como ex
 
 Para obter instruções sobre como definir políticas usando o PowerShell, consulte [Início rápido: crie uma atribuição de política para identificar recursos sem conformidade usando o módulo do PowerShell no RM do Azure](../azure-policy/assign-policy-definition-ps.md).
 
+>[!NOTE]
+> A Central de Segurança iniciou sua integração com o Azure Policy. Os clientes existentes serão migrados automaticamente para a nova iniciativa interna no Azure Policy, ao invés das políticas de segurança anteriores na Central de Segurança. Essa alteração não afetará seus recursos ou o ambiente, exceto a presença da nova iniciativa no Azure Policy.
+
 ## <a name="what-are-security-policies"></a>Quais são políticas de segurança?
 Uma política de segurança define a configuração desejada de suas cargas de trabalho e ajuda a garantir a conformidade com requisitos de regulamentação de segurança ou da empresa. No Azure Policy, você pode definir políticas para suas assinaturas do Azure e adaptá-las ao seu tipo de carga de trabalho ou à sensibilidade de seus dados. Por exemplo, os aplicativos que usam dados regulamentados, como as informações de identificação pessoal, podem exigir um nível mais alto de segurança do que outras cargas de trabalho. Para definir uma política em assinaturas ou em Grupos de gerenciamento, faça-o no [Azure Policy](../azure-policy/azure-policy-introduction.md).
 
-
-
 Suas políticas de segurança direcionam as recomendações de segurança que você recebe na Central de Segurança do Azure. Você pode monitorar a conformidade com eles para ajudá-lo a identificar possíveis vulnerabilidades e atenuar ameaças. Para obter mais informações sobre como determinar a opção apropriada para você, consulte a lista de [políticas de segurança internas](security-center-policy-definitions.md).
+
+Quando você habilita a Central de Segurança, a política de segurança interna da Central de Segurança é refletida no Azure Policy como iniciativa interna, na categoria Central de Segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da Central de Segurança (níveis Gratuito ou Padrão). A iniciativa interna contém somente políticas de auditoria. 
 
 
 ### <a name="management-groups"></a>Grupos de gerenciamento
@@ -53,11 +56,9 @@ Para obter mais informações sobre o Azure Policy, confira [Criar e gerenciar p
 
 Uma política do Azure consiste nos seguintes componentes:
 
-- Uma **diretiva** é uma regra.
+- Um **diretiva** é uma regra.
 - Uma **iniciativa** é uma coleção de políticas.
 - Uma **designação** é a aplicação de uma iniciativa ou política para um escopo específico (grupo de gerenciamento, assinatura ou grupo de recursos).
-
-Um recurso é avaliado em relação às políticas atribuídas a ele e recebe uma taxa de conformidade de acordo com o número de políticas com as quais o recurso tem conformidade.
 
 ## <a name="view-security-policies"></a>Exibir políticas de segurança
 
@@ -76,12 +77,9 @@ Para exibir suas políticas de segurança na Central de Segurança:
   As colunas na tabela são exibidas:
 
  - **Atribuição de iniciativa de política** - Central de Segurança [políticas internas](security-center-policy-definitions.md) e iniciativas atribuídas a uma assinatura ou grupo de gerenciamento.
- - **Conformidade** - Pontuação geral de conformidade para um grupo de gerenciamento, assinatura ou espaço de trabalho. A pontuação é a média ponderada das atribuições. Os fatores de média ponderada para o número de políticas em uma única atribuição e o número de recursos a que se aplica a atribuição.
-
- Por exemplo, se sua assinatura tiver duas VMs e uma iniciativa com cinco políticas atribuídas a ela, você tem 10 avaliações em sua assinatura. Se uma das VMs não tiver conformidade com duas das políticas, a pontuação de conformidade geral da atribuição da assinatura é 80%.
-
  - **Cobertura** - identifica a camada de preços, Free ou Standard, na qual o grupo de gerenciamento, a assinatura ou a área de trabalho está sendo executada.  Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
  - **Configurações** - As assinaturas têm o link **Editar configurações**. Ao selecionar **Editar configurações**, você pode atualizar suas [Configurações da Central de Segurança](security-center-policies-overview.md) para cada assinatura ou grupo de gerenciamento.
+ - **Classificação de segurança** – a [classificação de segurança](security-center-secure-score.md) mostra se sua postura de segurança da carga de trabalho é adequada e ajuda a priorizar recomendações para melhorias.
 
 2. Selecione a assinatura ou o grupo de gerenciamento cujas políticas você deseja visualizar.
 

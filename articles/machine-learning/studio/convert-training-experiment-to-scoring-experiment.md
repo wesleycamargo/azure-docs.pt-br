@@ -1,26 +1,8 @@
 ---
-title: Preparar seu modelo para implantação - Azure Machine Learning Studio | Microsoft Docs
-description: Como preparar seu modelo treinado para implantação como um serviço Web convertendo o teste de treinamento do Machine Learning Studio para um teste preditivo.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/28/2017
-ms.openlocfilehash: ef54281b91147060e9c00bcc6e45e0db0fb8933a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273095"
+Título: Preparar o modelo para implantação – titleSuffix: Descrição do Azure Machine Learning Studio: Como preparar seu modelo treinado para implantação como um serviço Web convertendo o teste de treinamento do Machine Learning Studio para um teste preditivo.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: ericlicoding ms.author: amlstudiodocs ms.date: 28/03/2017
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Como preparar seu modelo para implantação no Azure Machine Learning Studio
 

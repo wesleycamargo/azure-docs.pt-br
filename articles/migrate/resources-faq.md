@@ -4,14 +4,14 @@ description: Apresenta respostas para perguntas frequentes sobre Migrações par
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975467"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230757"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -53,6 +53,7 @@ No momento, as Migrações para Azure dão suporte a Europa, Estados Unidos e ao
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
 Azure Government | Gov. dos EUA – Virgínia
+Ásia | Sudeste Asiático
 Europa | Europa Setentrional ou Europa Ocidental
 Estados Unidos | Leste dos EUA ou Centro-oeste dos EUA
 
@@ -63,6 +64,17 @@ A conexão pode ser pela Internet ou usar o ExpressRoute com emparelhamento púb
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Posso proteger a VM configurada com o modelo OVA?
 
 Componentes adicionais (por exemplo, um antivírus) podem ser adicionados ao modelo OVA, desde que as regras de comunicação e firewall necessários para o dispositivo de Migrações para Azure funcionar sejam deixadas como estão.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Para reforçar o dispositivo de Migrações para Azure, quais são as exclusões de AV (antivírus) recomendadas?
+
+Você precisa excluir as seguintes pastas no dispositivo para o exame antivírus:
+
+- Pasta que contém os binários para o Serviço de Migrações para Azure. Exclua todas as subpastas.
+  %ProgramFiles%\ProfilerService  
+- Aplicativo Web de Migrações para Azure. Exclua todas as subpastas.
+  %SystemDrive%\inetpub\wwwroot
+- Cache local para arquivos de log e Banco de Dados. O serviço Migrações para Azure precisa de acesso RW a essa pasta.
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>Descoberta
 
@@ -136,6 +148,7 @@ Se você tiver um ambiente compartilhado entre locatários e não quiser descobr
 
 Você pode descobrir 1500 máquinas virtuais em um único projeto de migração. Se você tiver mais máquinas em seu ambiente local, [saiba mais](how-to-scale-assessment.md) sobre como você pode descobrir um ambiente grande no Migrações para Azure.
 
+
 ## <a name="assessment"></a>Avaliação
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Suporte a migrações para Azure Enterprise Agreement (EA) com base estimativa de custo?
@@ -144,6 +157,13 @@ As migrações para Azure não oferece suporte a estimativa de custo para [ofert
 
   ![Desconto](./media/resources-faq/discount.png)
 
+### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Qual é a diferença entre o dimensionamento como local e dimensionamento com base em desempenho?
+
+Quando você especifica o critério de dimensionamento para ser dimensionamento local, o recurso Migrações para Azure não considera os dados de desempenho das VMs e tamanhos de VMs com base na configuração local. Se o critério de dimensionamento for baseado em desempenho, o dimensionamento será feito com base nos dados de utilização. Por exemplo, se houver uma VM local com 4 núcleos e 8 GB de memória com 50% de utilização de CPU e 50% de utilização da memória. Se o critério de dimensionamento for dimensionamento local, um SKU de VM do Azure com 4 núcleos e 8 GB de memória será recomendado, no entanto, se o critério de dimensionamento for baseado em desempenho como, um SKU de VM de 2 núcleos e 4 GB será recomendado, pois o percentual de utilização será considerado ao recomendar o tamanho. Da mesma forma, para discos, o dimensionamento de disco depende de duas propriedades de avaliação – tipo de armazenamento e critério de dimensionamento. Se o critério de dimensionamento for baseado em desempenho e o tipo de armazenamento for automático, os valores de IOPS e a taxa de transferência do disco serão considerados para identificar o tipo de disco de destino (Standard ou Premium). Se o critério de dimensionamento for baseado em desempenho e o tipo de armazenamento for premium, um disco premium será recomendado, o SKU de disco premium no Azure será selecionado com base no tamanho do disco local. A mesma lógica é usada para dimensionamento do disco quando o critério de dimensionamento é dimensionamento local e o tipo de armazenamento é standard ou premium.
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Que impacto que a utilização do percentil e o histórico de desempenho têm sobre as recomendações de tamanho?
+
+Essas propriedades só são aplicáveis para o dimensionamento com base no desempenho. O recurso de Migrações para Azure coleta o histórico de desempenho dos computadores locais e o utiliza para recomendar o tipo de disco e tamanho VM no Azure. O dispositivo Coletor cria perfis continuamente do ambiente local para coletar dados de utilização em tempo real a cada 20 segundos. O dispositivo acumula as amostras de 20 segundos e cria um único ponto de dados a cada 15 minutos. Para criar o ponto de dados único, o dispositivo seleciona o valor de pico de todas as amostras de 20 segundos e envia-o para o Azure. Quando você cria uma avaliação no Azure, com base na duração de desempenho e no valor de percentil de histórico de desempenho, o recurso Migrações para Azure calcula o valor de utilização eficiente e o utiliza para dimensionamento. Por exemplo, se você tiver definido a duração de desempenho como 1 dia e o valor de percentil como o percentil 95, o recurso Migrações para Azure usará os pontos de amostra de 15 minutos enviados pelo coletor para o último dia, os classificará em ordem crescente e escolherá o valor do 95º percentil como a utilização efetiva. O valor do 95º percentil garante que você ignore quaisquer desvios que possam ocorrer se você escolher o 99º percentil. Se você quiser escolher o pico de uso para o período e não quiser perder nenhuma exceções, deverá selecionar o 99º percentil.
 
 ## <a name="dependency-visualization"></a>Visualização de dependência
 

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: cc873ad441c93a7fce54c275e9f7d52f0b044319
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118805"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302418"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de visualização pública
 
@@ -35,7 +35,7 @@ Durante a visualização pública, cada assinatura do Azure pode criar ou execut
 
 Por sua vez, cada instância de Gêmeos Digitais do Azure podem ter:
 
-- Exatamente um recurso de **IoTHub**.
+- Exatamente um recurso **IoTHub** inserido, que é criado automaticamente durante o provisionamento do serviço.
 - Exatamente um ponto de extremidade **EventHub** para o tipo de evento **DeviceMessage**.
 - Até três **EventHub**, **ServiceBus** ou **EventGrid** endpoints do tipo de evento **SensorChange**, **SpaceChange**, **TopologyOperation** ou **UdfCustom**.
 

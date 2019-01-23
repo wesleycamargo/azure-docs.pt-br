@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: 522f1cff2d735081daecc8be6384badcd378fd75
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 547291fa5c4a49adff7a080db985388ef152d0b8
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599579"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319776"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Reconhecer como e quando usar uma versão do LUIS
 
-As versões no LUIS são semelhantes às versões na programação tradicional. Cada versão é um instantâneo no tempo do aplicativo. Antes de fazer alterações no aplicativo, crie uma nova versão. É mais fácil voltar para o aplicativo exato e, em seguida, tentar remover e retornar a intenção e os enunciados do aplicativo para um estado anterior. 
+As versões no LUIS são semelhantes às versões na programação tradicional. Cada versão é um instantâneo no tempo do aplicativo. Antes de fazer alterações no aplicativo, crie uma nova versão. É mais fácil voltar para a versão exata e, em seguida, tentar remover intenções e enunciados para um estado anterior.
 
 Crie modelos diferentes do mesmo aplicativo com [versões](luis-how-to-manage-versions.md). 
 

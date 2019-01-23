@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2434c04260c223fdcc03bc7f91a6fd147e1d8503
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616190"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264086"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -21,7 +21,7 @@ O Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo que
 
 Este guia resume as soluções de problemas comuns encontrados no Gerenciador de Armazenamento.
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado autoassinado na cadeia confiável (e erros semelhantes)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado autoassinado na cadeia de certificados (e erros semelhantes)
 
 Erros de certificado são causados por uma das duas seguintes situações:
 
@@ -100,7 +100,7 @@ Se não for possível recuperar as assinaturas após a entrada bem-sucedida, ten
 Se não for possível remover uma conta anexada ou um recurso de armazenamento por meio da interface do usuário, exclua manualmente todos os recursos anexados, excluindo as seguintes pastas:
 
 * Windows: `%AppData%/StorageExplorer`
-* macOS - `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* macOS - `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]

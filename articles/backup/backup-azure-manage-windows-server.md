@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871312"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261495"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
@@ -251,7 +251,7 @@ O dia e a hora em que a consulta termina.
 
 Use **Exportar trabalhos** para criar uma planilha que contém todas as informações do menu Trabalhos. A planilha eletrônica tem uma planilha que contém um resumo de todos os trabalhos e planilhas individuais para cada trabalho.
 
-Para exportar as informações de trabalhos em uma planilha eletrônica, clique em **Exportar trabalhos**. O serviço cria uma planilha eletrônica usando o nome do cofre e data, mas você pode alterar o nome.
+Para exportar as informações de trabalhos em uma planilha eletrônica, clique em **Exportar trabalhos**. O serviço cria uma planilha usando o nome do cofre e a data, mas você pode alterar o nome.
 
 ## <a name="monitor-backup-usage"></a>Monitorar o uso do Backup
 

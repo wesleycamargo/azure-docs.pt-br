@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos problemas conhecidos no serviço de Mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189489"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261223"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -28,6 +28,18 @@ O dispositivo de descoberta contínua apenas coleta dados de desempenho continua
    ![Interromper descoberta](./media/troubleshooting-general/stop-discovery.png)
 
 - Exclusão de VMs: Devido à maneira como o dispositivo é projetado, a exclusão de VMs não é refletida, mesmo se você parar e iniciar a descoberta. Isso ocorre porque os dados das descobertas subsequentes são anexados a descobertas antigas e não substituídos. Nesse caso, você pode simplesmente ignorar a VM no portal, removendo-a do grupo e recalculando a avaliação.
+
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Exclusão de projetos de Migrações para Azure e workspace associado do Log Analytics
+
+Quando você exclui um projeto de Migrações para Azure, o projeto de migração é excluído juntamente com todos os grupos e avaliações. No entanto, se você anexou um workspace do Log Analytics ao projeto, ele não exclui automaticamente o workspace do Log Analytics. Isso ocorre porque o mesmo workspace do Log Analytics pode ser usado para vários casos de uso. Se você desejar excluir o workspace do Log Analytics, precisará fazer isso manualmente.
+
+1. Navegue até o workspace do Log Analytics associado ao projeto.
+    a. Se você ainda não excluiu o projeto de migração, poderá encontrar o link para o workspace na página de visão geral do projeto, na seção Essenciais.
+
+   ![Workspace do LA](./media/troubleshooting-general/LA-workspace.png)
+
+   b. Se você já excluiu o projeto de migração, clique em **Grupos de recursos** no painel à esquerda no portal do Azure e acesse o grupo de recursos no qual o workspace foi criado; em seguida, navegue até ele.
+2. Siga as instruções [neste artigo](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) para excluir o workspace.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Falha na criação do projeto de migração com o erro *As solicitações devem conter cabeçalhos de identidade do usuário*
 
@@ -80,13 +92,13 @@ Você pode acessar a seção **Essentials** na página **Visão geral** do proje
 
    ![Localização do projeto](./media/troubleshooting-general/geography-location.png)
 
-## <a name="collector-errors"></a>Erros de coletor
+## <a name="collector-issues"></a>Problemas no coletor
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>A implantação do Coletor de Migrações para Azure falhou com o erro: O arquivo de manifesto fornecido é inválido: Entrada inválida de manifesto de OVF.
 
 1. Verifique se o arquivo OVA do Coletor de Migrações para Azure será baixado corretamente verificando seu valor de hash. Consulte o [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, baixe o arquivo OVA novamente e repita a implantação.
 2. Se ele ainda falhar e se você estiver usando o VMware vSphere Client para implantar o OVF, tente implantá-lo por meio do vSphere Web Client. Se ele ainda falhar, tente usar outro navegador da Web.
-3. Se você estiver usando o cliente Web do vSphere e tentar implantá-lo no vCenter Server 6.5, tente implantar o arquivo OVA diretamente no host ESXi, seguindo as etapas a seguir:
+3. Se você estiver usando o cliente Web do vSphere e tentar implantá-lo no vCenter Server 6.5 ou 6.7, tente implantar o arquivo OVA diretamente no host ESXi, seguindo as etapas a seguir:
   - Conecte-se ao host ESXi diretamente (em vez do vCenter Server) usando o cliente Web (https://<*endereço IP do host*>/ui)
   - Acesse Página Inicial > Inventário
   - Clique em Arquivo > Implantar modelo OVF > navegue até o arquivo OVA e conclua a implantação
@@ -156,6 +168,17 @@ Se o problema ainda ocorrer na versão mais recente, poderá ser porque o comput
 2. Se a etapa 1 falhar, tente conectar o servidor vCenter no endereço IP.
 3. Identifique o número correto da porta para conectar o vCenter.
 4. Finalmente, verifique se o servidor vCenter está em execução.
+
+### <a name="antivirus-exclusions"></a>Exclusões de antivírus
+
+Para proteger o dispositivo de Migrações para Azure, você precisará excluir as pastas a seguir no dispositivo da verificação antivírus:
+
+- Pasta que contém os binários para o Serviço de Migrações para Azure. Exclua todas as subpastas.
+  %ProgramFiles%\ProfilerService  
+- Aplicativo Web de Migrações para Azure. Exclua todas as subpastas.
+  %SystemDrive%\inetpub\wwwroot
+- Cache local para arquivos de log e Banco de Dados. O serviço Migrações para Azure precisa de acesso RW a essa pasta.
+  %SystemDrive%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>Problemas de visualização de dependência
 

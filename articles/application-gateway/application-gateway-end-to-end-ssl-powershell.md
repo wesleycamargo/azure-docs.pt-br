@@ -2,22 +2,17 @@
 title: Configurar o SSL de ponta a ponta no Gateway de Aplicativo do Azure
 description: Este artigo descreve como configurar o SSL de ponta a ponta com o Gateway de Aplicativo do Azure usando o PowerShell
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32dd31c659e1906e8cf59f4c6d06c2b4436284cd
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945324"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214055"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar o SSL de ponta a ponta usando o Gateway de Aplicativo com o PowerShell
 
@@ -25,7 +20,7 @@ ms.locfileid: "49945324"
 
 O Gateway de Aplicativo do Azure dá suporte à criptografia de tráfego de ponta a ponta. O Gateway de Aplicativo termina a conexão SSL no gateway de aplicativo. O gateway, em seguida, aplica as regras de roteamento ao tráfego, criptografa o pacote novamente e encaminha o pacote para o servidor de back-end apropriado com base nas regras de roteamento definidas. Qualquer resposta do servidor Web passa pelo mesmo processo de volta para o usuário final.
 
-O Gateway de Aplicativo dá suporte para definir opções personalizadas de SSL. Ele também dá suporte para desabilitar as seguintes versões de protocolo: **TLSv1.0**, **TLSv1.1** e **TLSv1.2** como também para definir quais conjuntos de criptografia usar e a ordem de preferência. Para saber mais sobre as opções configuráveis de SSL, acesse [Visão geral da política de SSL](application-gateway-SSL-policy-overview.md).
+O Gateway de Aplicativo dá suporte para definir opções personalizadas de SSL. Ele também dá suporte para desabilitar as seguintes versões do protocolo: **TLSv1.0**, **TLSv1.1** e **TLSv1.2**, bem como definir quais conjuntos de criptografia usar e a ordem de preferência. Para saber mais sobre as opções configuráveis de SSL, acesse [Visão geral da política de SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > O SSL 2.0 e o SSL 3.0 estão desabilitados por padrão e não podem ser habilitados. Eles são considerados não seguros e não podem ser usados com o Gateway de Aplicativo.
@@ -45,9 +40,9 @@ Este cenário:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para configurar o SSL de ponta a ponta com um gateway de aplicativo, um certificado é necessário para o gateway e são necessários certificados para os servidores de back-end. O certificado de gateway é usado para criptografar e descriptografar o tráfego enviado para ele usando SSL. O certificado do gateway precisa estar no formato PFX (Troca de Informações Pessoais). Esse formato de arquivo permite exportar a chave privada que é exigida pelo gateway de aplicativo para realizar a criptografia e descriptografia do tráfego.
+Para configurar o SSL de ponta a ponta com um gateway de aplicativo, um certificado é necessário para o gateway e são necessários certificados para os servidores de back-end. O certificado de gateway é usado para derivar uma chave simétrica conforme a especificação do protocolo SSL. A chave simétrica então é usada para criptografar e descriptografar o tráfego enviado para o gateway. O certificado do gateway precisa estar no formato PFX (Troca de Informações Pessoais). Esse formato de arquivo permite exportar a chave privada que é exigida pelo gateway de aplicativo para realizar a criptografia e descriptografia do tráfego.
 
-Para criptografia SSL de ponta a ponta, o back-end deve estar na lista de permissões do gateway de aplicativo. É necessário carregar o certificado público dos servidores de back-end para o gateway de aplicativo. Adicionar o certificado garante que o gateway de aplicativo se comunique somente com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponta a ponta.
+Para criptografia SSL de ponta a ponta, o back-end deve estar na lista de permissões do gateway de aplicativo. Carregue o certificado público dos servidores de back-end para o gateway de aplicativo. Adicionar o certificado garante que o gateway de aplicativo se comunique somente com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponta a ponta.
 
 O processo de configuração é descrito nas seções a seguir.
 
@@ -258,7 +253,7 @@ As etapas anteriores levaram você pela criação de um aplicativo com SSL de po
 
    ```
 
-   3. Por fim, atualize o gateway. Observe que essa última etapa é uma tarefa de execução demorada. Quando estiver pronto, o SSL de ponta a ponta será configurado no gateway de aplicativo.
+   3. Por fim, atualize o gateway. Esta última etapa é uma tarefa de execução demorada. Quando estiver pronto, o SSL de ponta a ponta será configurado no gateway de aplicativo.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway

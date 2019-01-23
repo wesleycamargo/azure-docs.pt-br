@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: d2db9d426da58b3783b07210165a55cc6ec27658
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: abcf3100dc5252db9e3a5e7b446417333a9b37ca
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185946"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321884"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>As propriedades padrão nos registros do Log Analytics
 Os dados no [Log Analytics](../log-query/log-query-overview.md) são armazenados como um conjunto de registros, cada um com um determinado tipo de dados, com um conjunto exclusivo de propriedades. Muitos tipos de dados terão propriedades padrão comuns a vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como você pode usá-las em consultas.
@@ -84,6 +84,70 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+## <a name="isbillable"></a>\_IsBillable
+A propriedade **\_IsBillable** especifica se os dados ingeridos são faturáveis. Dados com **\_IsBillable** igual a _false_ são coletados de graça e não são cobrados da sua conta do Azure.
+
+### <a name="examples"></a>Exemplos
+Para obter uma lista de computadores que estão enviando os tipos de dados cobrados, use a seguinte consulta:
+
+> [!NOTE]
+> Use consultas com `union withsource = tt *` com moderação, já que a execução de verificações entre diferentes tipos de dados é cara. 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
+
+Isso pode ser estendido para retornar a contagem de computadores por hora que estão enviando tipos de dados cobrados:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
+
+## <a name="billedsize"></a>\_BilledSize
+A propriedade **\_BilledSize** especifica o tamanho em bytes de dados que são cobrados na sua conta do Azure se **\_IsBillable** é true.
+
+### <a name="examples"></a>Exemplos
+Para ver os tamanho de eventos cobráveis ingeridos por computador, use a propriedade `_BilledSize` que fornece o tamanho em bytes:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
+```
+
+Para ver a contagem de eventos ingeridos por computador, use a seguinte consulta:
+
+```Kusto
+union withsource = tt *
+| summarize count() by Computer | sort by count_ nulls last
+```
+
+Para ver a contagem de eventos cobráveis ingeridos por computador, use a seguinte consulta: 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last
+```
+
+Se você quiser ver as contagens dos tipos de dados faturáveis que estão enviando dados para um computador específico, use a seguinte consulta:
+
+```Kusto
+union withsource = tt *
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last 
+```
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

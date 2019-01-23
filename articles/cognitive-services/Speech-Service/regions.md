@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d302fc67225213ad55687797c97c7a2a8a17cc6d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091638"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329500"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões com suporte do Serviço de Fala
 
@@ -46,11 +46,24 @@ O SDK DE fala está disponível nessas regiões para **reconhecimento de Fala** 
 
 ### <a name="intent-recognition"></a>Reconhecimento de intenção
 
-**Reconhecimento de intenção** para o SKD de Fala compartilha suporte de regiões com LUIS. Para obter uma lista completa das regiões disponíveis, consulte [Publicar regiões e ponto de extremidade - LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
+As regiões disponíveis para **reconhecimento de intenção** por meio do SDK de Fala são os seguintes:
 
-As regiões disponíveis para **reconhecimento de intenção** por meio do SDK de Fala estão listadas na [página da região do serviço da API de Reconhecimento Vocal](/azure/cognitive-services/luis/luis-reference-regions).
+ Região global | Região | Parâmetro do SDK de Fala
+ ------|-------|--------
+ Ásia | Ásia Oriental | `eastasia`
+ Ásia | Sudeste Asiático | `southeastasia`
+ Austrália | Leste da Austrália | `australiaeast`
+ Europa | Norte da Europa | `northeurope`
+ Europa | Europa Ocidental | `westeurope`
+ América do Norte | Leste dos EUA | `eastus`
+ América do Norte | Leste dos EUA 2 | `eastus2`
+ América do Norte | Centro-Sul dos Estados Unidos | `southcentralus`
+ América do Norte | Centro-Oeste dos EUA | `westcentralus`
+ América do Norte | Oeste dos EUA | `westus`
+ América do Norte | Oeste dos EUA 2 | `westus2`
+ América do Sul | Sul do Brasil | `brazilsouth`
 
-Para cada região de publicação listada, use o **nome da região API**. Por exemplo, use `westus` para Oeste dos EUA.
+Este é um subconjunto das regiões de publicação compatíveis com o [LUIS (Serviço Inteligente de Reconhecimento Vocal)](/azure/cognitive-services/luis/luis-reference-regions).
 
 ## <a name="rest-apis"></a>APIs REST
 

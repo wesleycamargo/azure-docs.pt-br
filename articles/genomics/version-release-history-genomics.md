@@ -3,28 +3,34 @@ title: Histórico de lançamento de versão – Microsoft Genomics
 titleSuffix: Azure
 description: A Microsoft Genomics atualiza regularmente o cliente Microsoft Genomics Python para correções e novas funcionalidades.
 services: genomics
-author: ruchir
+author: grhuynh
 manager: cgronlun
-ms.author: ruchir
+ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
-ms.date: 11/08/2018
-ms.openlocfilehash: e673d732d1d43e3f58a295a94d11fc42f3618d93
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 01/11/2019
+ms.openlocfilehash: 2037bcf173951769f1627f809352ef60afce2d50
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345855"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260260"
 ---
 # <a name="version-release-history"></a>Histórico de lançamento de versões
 A equipe do Microsoft Genomics atualiza regularmente o cliente Microsoft Genomics Python para correções e novas funcionalidades. 
 
 ## <a name="latest-release"></a>Versão mais recente
-O cliente do Python atual é a versão 0.7.4. Foi lançado em 5 de março de 2018 e suporta a execução de fluxos de trabalho com o GATK 3.5 e o GATK4.
+O cliente do Python atual é a versão 0.8.1. Foi lançado em 3 de dezembro de 2018 e dá suporte à execução de fluxos de trabalho com o GATK 3.5 e o GATK4. Também dá suporte à saída de gVCF.
 
 
 ## <a name="release-history"></a>Histórico de lançamentos 
 São lançadas novas versões do cliente Microsoft Genomics Python aproximadamente duas vezes por ano. Quando são lançadas novas versões do cliente Microsoft Genomics Python, uma lista de correções e recursos é atualizada aqui. Quando novas versões são lançadas, as versões anteriores devem continuar a ter suporte pelo menos por 90 dias. Quando não há suporte para versões anteriores, será indicado nesta página. 
+
+### <a name="version-081"></a>Versão 0.8.1
+A versão 0.8.1 inclui correções de bugs secundários.  
+
+### <a name="version-080"></a>Versão 0.8.0
+Versão 0.8.0 inclui suporte para GATK4 e saída de gVCFs.  
 
 ### <a name="version-074"></a>Versão 0.7.4
 Versão 0.7.4 inclui suporte para aceitar tokens SAS em vez de chaves de conta na entrada `config.txt`. Para obter mais informações, consulte [Início rápido de tokens SAS de entrada](quickstart-input-sas.md). 

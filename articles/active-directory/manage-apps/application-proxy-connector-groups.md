@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 52dc78b03a1be73763b5a3c494404f4d439d04ca
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139017"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198024"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicativos em redes e locais separados usando grupos de conectores
 
@@ -73,7 +73,7 @@ Para aplicativos instalados no IaaS para acesso à nuvem, os grupos de conector 
 
 Veja um exemplo de uma organização que tem diversas máquinas virtuais conectadas à própria rede virtual IaaS hospedada. Para permitir que os funcionários usem esses aplicativos, essas redes privadas são conectadas à rede corporativa usando VPN site a site. Isso proporciona uma boa experiência para os funcionários locais. Mas, talvez não seja ideal para funcionários remotos, pois exige uma infraestrutura local adicional para rotear o acesso, como você pode ver no diagrama a seguir:
 
-![Rede IaaS do Azure](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Rede IaaS do AzureAD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Com os grupos de conectores do Proxy de Aplicativo Azure AD, você pode permitir que um serviço comum proteja o acesso a todos os aplicativos sem criar dependências adicionais em sua rede corporativa:
 

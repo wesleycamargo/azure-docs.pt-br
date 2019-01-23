@@ -1,27 +1,8 @@
 ---
-title: Execute scripts de aprendizado de máquina em Python - Azure Machine Learning Studio| Microsoft Docs
-description: Descreve os princípios de design subjacentes ao suporte a scripts Python no Azure Machine Learning Studio e a cenários, recursos e limitações de uso básico.
-keywords: aprendizado de máquina em python, pandas, python pandas, scripts python, executar scripts python
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: f0fa2401e37e15137e9d5387d1395baf64b0fe61
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274064"
+Título: Executar scripts de aprendizado de máquina do Python – titleSuffix: Descrição do Azure Machine Learning Studio: Descreve os princípios de design subjacentes ao suporte a scripts Python no Azure Machine Learning Studio e a cenários, recursos e limitações de uso básico.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Executar scripts Python de aprendizado de máquina no Azure Machine Learning Studio
 

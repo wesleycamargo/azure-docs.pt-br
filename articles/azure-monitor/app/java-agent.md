@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: c0478b320afca1b82a79fa43e7b60c29a2cb2e7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997921"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262125"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e métodos de tempos de execução em aplicativos Web em Java
 
@@ -34,7 +34,7 @@ Se você [instrumentou seu aplicativo Web em Java com o Application Insights][ja
 Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
-1. No computador que está executando o servidor Java, [baixe o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se de realizar o download para a mesma versão do Agente Java como o núcleo do Application Insights Java SDK e pacotes da web. 
+1. No computador que está executando o servidor Java, [baixe o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se de baixar a mesma versão do Agente Java que o núcleo e os pacotes da Web do SDK de Java do Application Insights.
 2. Edite o script de inicialização do servidor de aplicativos e adicione a seguinte JVM:
    
     `javaagent:`*caminho completo para o arquivo JAR do agente*
@@ -89,6 +89,32 @@ Defina o conteúdo do arquivo xml. Edite o exemplo a seguir para incluir ou omit
 Você precisa habilitar a exceção de relatórios e o tempo de método para métodos individuais.
 
 Por padrão, `reportExecutionTime` é true e `reportCaughtExceptions` é false.
+
+### <a name="spring-boot-agent-additional-config"></a>Configurações adicionais do Spring Boot Agent
+
+`java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+> [!NOTE]
+> IA-Agent.xml e o arquivo jar do agente devem estar na mesma pasta. Frequentemente, eles são colocados juntos na pasta `/resources` do projeto. 
+
+#### <a name="enable-w3c-distributed-tracing"></a>Habilite o rastreamento distribuído do W3C
+
+Adicione o seguinte ao AI-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> O modo de compatibilidade com versões anteriores está habilitado por padrão e o parâmetro enableW3CBackCompat é opcional e deve ser usado apenas quando você quiser desativá-lo. 
+
+Idealmente, esse seria o caso quando todos os seus serviços fossem atualizados para a versão mais recente dos SDKs com suporte para o protocolo W3C. É altamente recomendável migrar para a versão mais recente dos SDKs do W3C com suporte assim que possível.
+
+Verifique se **ambas as configurações de [entrada](correlation.md#w3c-distributed-tracing) e saídas (agente)** são exatamente as mesmas.
 
 ## <a name="view-the-data"></a>Exibir os dados
 No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][metrics].

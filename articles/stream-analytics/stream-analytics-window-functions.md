@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 2650058e277bc0338c779655ce381be046fb120a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893636"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231641"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela do Stream Analytics
 Em cenários de streaming em tempo real, executar operações nos dados contidos nas janelas temporais é um padrão comum. O Stream Analytics tem suporte nativo para funções de janela, permitindo que os desenvolvedores criem trabalhos de processamento de streaming complexos com o mínimo de esforço.
 
-Há quatro tipos de janelas temporais para escolher: janelas [**Em cascata**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**De salto**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**Deslizante**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) e [**Sessão**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Use as funções de janela na cláusula [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) da sintaxe de consulta em seus trabalhos do Stream Analytics.
+Você pode escolher entre quatro tipos de janelas temporais: [**em cascata**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**salto**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**deslizante**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) e [**sessão**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Use as funções de janela na cláusula [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) da sintaxe de consulta em seus trabalhos do Stream Analytics.
 
 Todas as operações de [janela](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) resultam no **fim** da janela. A saída da janela será um evento único baseado na função agregada usada. O evento de saída terá o carimbo de data/hora do término da janela e todas as funções de janela serão definidas com um comprimento fixo. 
 
@@ -40,7 +40,7 @@ As funções da Janela Deslizante, diferentemente das Janelas em Cascata e de Sa
 
 ![Janela deslizante do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
-## <a name="session-window-preview"></a>Janela de Sessão (Visualização)
+## <a name="session-window"></a>Janela de sessão
 As funções de janela de sessão agrupam os eventos que chegam em momentos semelhantes, filtrando períodos de tempo em que não há nenhum dado. Possuem três parâmetros principais: tempo limite, duração máxima e chave de particionamento (opcional).
 
 ![Janela de sessão do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)

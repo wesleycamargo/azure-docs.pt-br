@@ -1,20 +1,21 @@
 ---
-title: Definir e usar fluxos de trabalho no Azure Content Moderator | Microsoft Docs
-description: Saiba como criar fluxos de trabalho personalizados com base nas suas políticas de conteúdo.
+title: Definir e usar fluxos de trabalho de moderação de conteúdo – Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Você pode usar o designer de fluxo de trabalho do Azure Content Moderator e APIs para definir os fluxos de trabalho personalizados e limites com base nas suas políticas de conteúdo.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: dfe3ba8a2ef1bcbc69ef585b504a9367d9420bf0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 265d5a2bd6a256d287e6ae164e883ade783f960f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363423"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262397"
 ---
 # <a name="define-test-and-use-workflows"></a>Definir, testar e usar fluxos de trabalho
 

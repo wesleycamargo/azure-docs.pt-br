@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5d90e9440758f457aca591e5c2792c6670868685
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721962"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245473"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser usados no Active Directory B2C
 
@@ -41,7 +41,7 @@ Essas etapas podem variar um pouco com base no tipo de aplicativo que você est�
 
 ## <a name="web-applications"></a>Aplicativos Web
 
-Para os aplicativos Web (incluindo .NET, PHP, Java, Ruby, Python e Node.js) hospedados em um servidor e acessados por meio de um navegador, o Azure AD B2C dá suporte ao [OpenID Connect](active-directory-b2c-reference-protocols.md) para todas as experiências de usuário. Isso inclui gerenciamento de entrada, de inscrição e de perfil. Na implementação do OpenID Connect do Azure AD B2C, o aplicativo Web inicia essas experiências de usuário emitindo solicitações de autenticação para o Azure AD. O resultado da solicitação é um `id_token`. Esse token de segurança representa a identidade do usuário. Ele também fornece informações sobre o usuário na forma de declarações:
+Para os aplicativos Web (incluindo .NET, PHP, Java, Ruby, Python e Node.js) hospedados em um servidor e acessados por meio de um navegador, o Azure AD B2C dá suporte ao [OpenID Connect](active-directory-b2c-reference-protocols.md) para todas as experiências de usuário. Na implementação do OpenID Connect do Azure AD B2C, o aplicativo Web inicia as experiências de usuário emitindo solicitações de autenticação para o Microsoft Azure Active Directory. O resultado da solicitação é um `id_token`. Esse token de segurança representa a identidade do usuário. Ele também fornece informações sobre o usuário na forma de declarações:
 
 ```
 // Partial raw id_token
@@ -68,7 +68,7 @@ Em aplicativos Web, cada execução de uma [política](active-directory-b2c-refe
 6. O `id_token` é validado e um cookie de sessão é definido.
 7. A página de segurança é retornada para o usuário.
 
-Validação do `id_token` usando uma chave de assinatura pública recebida do Azure AD é suficiente para verificar a identidade do usuário. Isso também define um cookie de sessão que pode ser usado para identificar o usuário nas solicitações de página subsequentes.
+Validação do `id_token` usando uma chave de assinatura pública recebida do Azure AD é suficiente para verificar a identidade do usuário. Esse processo também define um cookie de sessão que pode ser usado para identificar o usuário nas solicitações de página subsequentes.
 
 Para ver esse cenário em ação, experimente um destes exemplos de código de entrada de aplicativo Web em nossa seção [Introdução](active-directory-b2c-overview.md).
 
@@ -124,58 +124,18 @@ Para configurar o fluxo de credencial do cliente, consulte [Azure Active Directo
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Cadeias de API Web (fluxo Em nome de)
 
-Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo AD B2C do Azure. Esse cenário é comum em clientes nativos que têm um back-end de API Web. Isso chama um serviço online da Microsoft como a API do Graph do AD do Azure.
+Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo AD B2C do Azure. Esse cenário é comum em clientes nativos que têm um back-end de API Web que chama um serviço online da Microsoft, como a API do Graph do Azure AD.
 
 Esse cenário de API Web encadeado pode ter suporte usando a concessão credencial de portador JWT do OAuth 2.0, também conhecida como fluxo Em nome de.  No entanto, o fluxo em nome de não está implementado atualmente no Azure AD B2C.
 
-### <a name="reply-url-values"></a>Valores da URL de resposta
-
-No momento, os aplicativos registrados no Azure AD B2C estão restritos a um conjunto limitado de valores para URLs de resposta. O URL de resposta para serviços e aplicativos Web deve começar com o esquema `https`, e todos os valores de URL de resposta devem compartilhar um único domínio DNS. Por exemplo, você não pode registrar um aplicativo Web que tenha uma destas URLs de resposta:
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-O sistema de registro compara o nome DNS completo da URL de resposta existente ao nome DNS da URL de resposta que você está adicionando. A solicitação para adicionar o nome DNS falhará se alguma das condições abaixo for verdadeira:
-
-- Se o nome DNS completo da URL de resposta nova não coincidir com o nome DNS da URL de resposta existente.
-- Se o nome DNS completo da URL de resposta nova não for um subdomínio da URL de resposta existente.
-
-Por exemplo, se o aplicativo tiver esta URL de resposta:
-
-`https://login.contoso.com`
-
-Você pode adicionar a ele, desta forma:
-
-`https://login.contoso.com/new`
-
-Nesse caso, os nome DNS corresponde exatamente. Ou você pode fazer isto:
-
-`https://new.login.contoso.com`
-
-Nesse caso, você está se referindo a um subdomínio DNS logon.contoso.com. Se você quiser ter um aplicativo com login-east.contoso.com e login-west.contoso.com como URLs de resposta, deverá adicionar as seguintes URLs de resposta nesta ordem:
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Os dois últimos podem ser adicionados porque eles são subdomínios da primeira URL de resposta, contoso.com. 
-
-Quando você cria aplicativos móveis/nativo, você define uma **URI de redirecionamento** em vez de uma **URL de reprodução**. Há duas considerações importantes ao escolher um URI de redirecionamento:
-
-- **Exclusivo**: O esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. No exemplo `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` é o esquema. Esse padrão deve ser seguido. Se dois aplicativos compartilharem o mesmo esquema, o usuário verá a caixa de diálogo **escolher aplicativo**. Se o usuário fizer uma escolha incorreta, o logon falhará.
-- **Completo**: O URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra após o domínio. Por exemplo, `//contoso/` funciona e `//contoso` falha. Certifique-se de que não haja caracteres especiais, como sublinhados, no URI de redirecionamento.
-
 ### <a name="faulted-apps"></a>Aplicativos com falha
 
-Aplicativos do Azure AD B2C NÃO devem ser editados:
+Não edite aplicativos Azure AD B2C das seguintes maneiras:
 
 - Em outros portais de gerenciamento de aplicativos, como o  [Portal de Registro de Aplicativos](https://apps.dev.microsoft.com/).
 - Usando a API do Graph ou o PowerShell.
 
-Se você editar o aplicativo do Azure AD B2C fora do portal do Azure, ele se tornará um aplicativo com falha e não poderá mais ser usado com o Azure AD B2C. Você precisa excluir o aplicativo e criá-lo novamente.
+Se você editar o aplicativo do Azure AD B2C fora do portal do Azure, ele se tornará um aplicativo com falha e não poderá mais ser usado com o Azure AD B2C. Exclua o aplicativo e crie-o novamente.
 
 Para excluir o aplicativo, acesse o [Portal de Registro de Aplicativos](https://apps.dev.microsoft.com/) e exclua o aplicativo lá. Para que o aplicativo fique visível, você precisa ser o proprietário do aplicativo (e não apenas um administrador do locatário).
 

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: f220aee3fa0d9a79723383fc31fec0eed2554bb4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833679"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261546"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Crie uma conta do Video Indexer conectada ao Azure
 
@@ -97,6 +97,9 @@ Pesquise **Microsoft.Media** e **Microsoft.EventGrid**. Se não estiver no estad
 ## <a name="connect-to-azure-manually-advanced-option"></a>Conectar o Azure manualmente (opção avançada)
 
 Se a conexão com o Azure falhar, você poderá tentar solucionar o problema, conectando manualmente.
+
+> [!NOTE]
+> É altamente recomendável ter as seguintes três contas na mesma região: a conta do Video Indexer que você está conectando com a conta dos Serviços de Mídia, bem como a conta de armazenamento do Azure conectada à mesma conta dos Serviços de Mídia.
 
 ### <a name="create-and-configure-a-media-services-account"></a>Criar e configurar uma conta de Serviços de Mídia
 

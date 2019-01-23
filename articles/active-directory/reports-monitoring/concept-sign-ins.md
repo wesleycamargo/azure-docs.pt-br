@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653349"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245082"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -44,7 +44,7 @@ Este tópico fornece uma visão geral das atividades de entradas.
 * Além disso, qualquer usuário (não administrador) pode acessar suas próprias entradas 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
-* O locatário deve ter uma licença do Azure AD Premium associada a ele para ver todo o relatório de atividade de entrada. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory.
+* O locatário deve ter uma licença do Azure AD Premium associada a ele para ver todo o relatório de atividade de entrada. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory. Observe que, se você não tiver dados das atividades antes da atualização, eles demorarão alguns dias para ser exibidos nos relatórios depois de atualizar para uma licença premium.
 
 ## <a name="sign-ins-report"></a>Relatório de entradas
 
@@ -54,7 +54,7 @@ O relatório de entradas de usuário fornece respostas para as seguintes pergunt
 * Quantos usuários entraram em uma semana?
 * Qual é o status dessas entradas?
 
-É possível acessar o relatório de entradas, selecionando **Entradas** na seção **Atividade** da folha **Azure Active Directory** no [portal do Azure](https://portal.azure.com).
+É possível acessar o relatório de entradas, selecionando **Entradas** na seção **Atividade** da folha **Azure Active Directory** no [portal do Azure](https://portal.azure.com). Observe que alguns registros de entrada podem levar até duas horas para ser exibidos no portal.
 
 ![Atividade de entrada](./media/concept-sign-ins/61.png "Atividade de entrada")
 
@@ -233,6 +233,12 @@ Quando você clica em um dia no grafo de uso do aplicativo, pode obter uma lista
 A opção **Entradas** oferece uma visão geral completa de todos os eventos de entrada para seus aplicativos.
 
 ![Atividade de entrada](./media/concept-sign-ins/11.png "Atividade de entrada")
+
+## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
+
+É possível exibir logs de atividades do Office 365 no [Centro de Administração do Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora os logs de atividades do Office 365 e do Azure AD compartilhem muitos dos recursos de diretório, somente o Centro de Administração do Office 365 oferece uma exibição completa dos logs de atividades do Office 365. 
+
+Você também pode acessar os logs de atividade do Office 365 de modo programático usando as [APIs de gerenciamento do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 

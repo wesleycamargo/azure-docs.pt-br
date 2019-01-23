@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: alkarche
-ms.openlocfilehash: 042d41e9125e5d4fa0af04fd6edeba5f0b33123a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1140c23a0aa5344119c35434316ec73cc3918f90
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001598"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198364"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Integrar um Aplicativo de funções com uma rede Virtual do Azure
 Este tutorial passo a passo mostra como usar o Azure Functions para conectar-se aos recursos em uma VNET do Azure. 
@@ -117,7 +117,7 @@ Seu Aplicativo de funções está conectado à Internet e sua rede virtual. O pr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O Azure Functions em execução no serviço do Plano do Serviço de Aplicativo estão em execução no mesmo serviço de aplicativos web, portanto, toda documentação para Aplicativos Web se aplicará às Funções dedicadas.
+O Azure Functions em execução no serviço do Plano do Serviço de Aplicativo está em execução no mesmo serviço de aplicativos Web, portanto, toda documentação dos Aplicativos Web se aplicará ao Functions dedicado.
 
 1. [Saiba mais sobre a integração de rede virtual com o Serviço de Aplicativo / Funções aqui](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 1. [Saiba mais sobre redes virtuais no Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)

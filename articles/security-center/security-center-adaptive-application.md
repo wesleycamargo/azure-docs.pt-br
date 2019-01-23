@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846242"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262890"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicativo adaptáveis na Central de Segurança do Azure
 Saiba como configurar o controle de aplicativo na Central de Segurança do Azure usando este passo a passo.
@@ -122,7 +122,7 @@ Depois de selecionar Criar, o Azure Security Center cria automaticamente as regr
    > - Como mencionado anteriormente, por padrão, uma nova política de controle de aplicativo sempre é configurada no modo *Auditoria*. 
    >
 
-4. Em **Extensão de política**, você pode adicionar qualquer caminho de aplicativo que você deseja permitir. Depois de adicionar esses caminhos, a Central de Segurança atualiza a política de whielisting do aplicativo nas VMs dentro do grupo selecionado de VMS e cria as regras apropriadas para esses aplicativos, além das regras que já estão em vigor.
+4. Em **Extensão de política**, você pode adicionar qualquer caminho de aplicativo que você deseja permitir. Após você adicionar esses caminhos, a Central de Segurança atualiza a política de lista de permissões do aplicativo nas VMs dentro do grupo selecionado de VMs e cria as regras apropriadas para esses aplicativos, além das regras que já estão em vigor.
 
 5. Examinar as violações atuais existentes listados na **alertas recentes** seção. Clique em cada linha para ser redirecionado para a página **Alertas** na Central de Segurança do Azure e exibir todos os alertas que foram detectados pela Central de Segurança do Azure nas VMs associadas.
   - **Alertas**: quaisquer violações registradas.

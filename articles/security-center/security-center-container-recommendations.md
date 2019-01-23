@@ -14,15 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5f6334f80b9c48832facba97b816d254baeb94bc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5cb1fe623062816955278da7b0a9e63cbc19254
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341296"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258468"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Entenda as recomendações do contêiner da Central de Segurança do Azure
 
+Enquanto migra seus aplicativos monolíticos para executar aplicativos nativos de nuvem, em contêiner e críticos, pode aproveitar os recursos dos contêineres, incluindo implantação e atualização fáceis e rápidas. Conforme o número de contêineres implantados continua aumentando, soluções de segurança precisam estar em vigor para fornecer visibilidade sobre o estado de segurança de seus contêineres e ajudar a protegê-los de ameaças.
+
+A Central de Segurança do Azure oferece os recursos a seguir para ajudá-lo a proteger seus contêineres:
+
+- **Visibilidade de contêineres hospedados em máquinas IaaS Linux**<br>Na Central de Segurança do Azure, a guia Contêineres exibe todas as máquinas virtuais implantadas com o Docker. Ao explorar os problemas de segurança em uma máquina virtual, a Central de Segurança fornece informações adicionais relacionadas aos contêineres na máquina, como a versão do Docker e o número de imagens em execução no host.
+
+    ![guia contêiner](./media/security-center-container-recommendations/docker-recommendation.png)
+
+
+- **Recomendações de segurança com base no parâmetro de comparação do CIS para Docker**<br>A Central de Segurança examina as configurações do Docker e fornece visibilidade sobre configurações incorretas, oferecendo uma lista de todas as regras com falha que foram avaliadas. A Central de Segurança fornece diretrizes para ajudá-lo a resolver esses problemas rapidamente e economizar tempo. A Central de Segurança avalia continuamente as configurações do Docker e fornece o estado mais recente delas.
+
+    ![guia contêiner](./media/security-center-container-recommendations/container-cis-benchmark.png)
+
+- **Detecção de ameaças a contêineres em tempo real**<br> A Central de Segurança fornece detecção de ameaças em tempo real para os contêineres em máquinas Linux com o componente AuditD. Os alertas identificam várias atividades suspeitas do Docker, como a criação de um contêiner com privilégios no host, uma indicação de servidor SSH (Secure Shell) em execução dentro de um contêiner do Docker ou o uso de mineradores de criptografia. É possível usar essas informações para corrigir os problemas rapidamente e aumentar a segurança de seus contêineres.
+
+    ![guia contêiner](./media/security-center-container-recommendations/docker-threat-detection.png)
 
 ## <a name="recommendations"></a>Recomendações
 Use as tabelas abaixo como referência para ajudá-lo a entender os contêineres disponíveis hospedados em máquinas IaaS Linux e a avaliação de segurança de suas configurações do Docker.

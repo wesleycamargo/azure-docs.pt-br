@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352916"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264743"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 
@@ -209,7 +209,7 @@ Antes mesmo da restauração dos bancos de dados de locatário, você poderá pr
 
 1. No ISE do PowerShell, no script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina esta propriedade:
 
-    $DemoScenario = 3: provisione um novo locatário na região de recuperação.
+    $DemoScenario = 3: provisionar um novo locatário na região de recuperação.
 
 2. Para executar o script, selecione F5.
 
@@ -262,7 +262,7 @@ Nesta tarefa, você atualiza bancos de dados de locatário restaurados. O proces
 
 2. No ISE do PowerShell, nos scripts ...\Learning Modules\Business Continuity e Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o seguinte valor:
 
-    $DemoScenario = 4: exclua um evento de um locatário na região de recuperação.
+    $DemoScenario = 4: excluir um evento de um locatário na região de recuperação.
 
 3. Para executar o script, selecione F5.
 
@@ -320,13 +320,13 @@ Se você seguiu o tutorial, o script reativa imediatamente o Fabrikam Jazz club 
   
 1. No ISE do PowerShell, no script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, verifique se o processo de Sincronização do catálogo ainda está em execução em sua instância do PowerShell. Se necessário, reinicie-o ao definir:
 
-    $DemoScenario = 1: inicie a sincronização do servidor de locatário, o pool e informações de configuração do banco de dados com o catálogo.
+    $DemoScenario = 1: iniciar a sincronização do servidor de locatário, do pool e de informações de configuração do banco de dados com o catálogo.
 
     Para executar o script, selecione F5.
 
 2.  Então, para iniciar o processo de repatriação, defina:
 
-    $DemoScenario = 5: repatrie o aplicativo para sua região original.
+    $DemoScenario = 5: repatriar o aplicativo para sua região original.
 
     Para executar o script de recuperação em uma nova janela do PowerShell, selecione F5. A repatriação leva vários minutos e pode ser monitorada na janela do PowerShell.
 
@@ -352,7 +352,7 @@ O processo de restauração cria todos os recursos de recuperação em um grupo 
 
 1. No ISE do PowerShell, no script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina:
     
-    $DemoScenario = 6: exclua recursos obsoletos da região de recuperação.
+    $DemoScenario = 6: excluir recursos obsoletos da região de recuperação.
 
 2. Para executar o script, selecione F5.
 

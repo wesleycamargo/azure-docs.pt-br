@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3fec0952f4b164327942d5dee108f89b17613042
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3b5425bd9f86bce289cc1f60c088febfd8f05ee3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015532"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332618"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados de/para o Data Lake Storage Gen1 usando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Você pode copiar dados dos seguintes armazenamentos de dados para o **Azure Dat
 ## <a name="supported-authentication-types"></a>Tipos de autenticação com suporte
 O conector do Data Lake Store dá suporte a esses tipos de autenticação:
 * Autenticação de entidade de serviço
-* Autenticação de credencial do usuário (OAuth) 
+* Autenticação de credencial do usuário (OAuth)
 
 É recomendável que você use a autenticação de entidade de serviço, especialmente para uma cópia de dados agendada. O comportamento de expiração do token pode ocorrer com autenticação de credenciais do usuário. Para obter os detalhes de configuração, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties).
 
@@ -58,12 +58,12 @@ Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal d
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
-1. Criar uma **data factory**. Um data factory pode conter um ou mais pipelines. 
-2. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory. Por exemplo, se você está copiando dados de um Armazenamento de Blobs do Azure para um Azure Data Lake Store, crie dois serviços vinculados para vincular sua Conta de Armazenamento do Azure e o Azure Data Lake Store ao data factory. Para propriedades do serviço vinculado que são específicas do Azure Data Lake Store, consulte a seção de [propriedades do serviço vinculado](#linked-service-properties). 
+1. Criar uma **data factory**. Um data factory pode conter um ou mais pipelines.
+2. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory. Por exemplo, se você está copiando dados de um Armazenamento de Blobs do Azure para um Azure Data Lake Store, crie dois serviços vinculados para vincular sua Conta de Armazenamento do Azure e o Azure Data Lake Store ao data factory. Para propriedades do serviço vinculado que são específicas do Azure Data Lake Store, consulte a seção de [propriedades do serviço vinculado](#linked-service-properties).
 2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de blobs e a pasta que contém os dados de entrada. Em seguida, você cria outro conjunto de dados para o caminho de pasta e arquivo no Data Lake Store que contém os dados copiados do Armazenamento de Blobs. Para propriedades do conjunto de dados que são específicas do Azure Data Lake Store, consulte a seção [propriedades do conjunto de dados](#dataset-properties).
-3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa BlobSource como fonte e AzureDataLakeStoreSink como coletor para a atividade de cópia. De modo similar, se você estiver copiando do Azure Data Lake Store para o Armazenamento de Blobs do Azure, use AzureDataLakeStoreSource e BlobSink na atividade de cópia. Para propriedades da atividade de cópia que são específicas do Azure Data Lake Store, consulte a seção de [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para o seu armazenamento de dados.  
+3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa BlobSource como fonte e AzureDataLakeStoreSink como coletor para a atividade de cópia. De modo similar, se você estiver copiando do Azure Data Lake Storage para o Armazenamento de Blobs do Azure, use AzureDataLakeStoreSource e BlobSink na atividade de cópia. Para propriedades da atividade de cópia que são específicas do Azure Data Lake Store, consulte a seção de [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para o seu armazenamento de dados.
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter exemplos com definições de JSON das entidades do Data Factory usadas para copiar dados bidirecionalmente em um Azure Data Lake Store, confira a seção [Exemplos de JSON](#json-examples-for-copying-data-to-and-from-data-lake-store) neste artigo.
+Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON. Para obter exemplos com definições de JSON das entidades do Data Factory usadas para copiar dados bidirecionalmente em um Azure Data Lake Store, confira a seção [Exemplos de JSON](#json-examples-for-copying-data-to-and-from-data-lake-store) neste artigo.
 
 As seções que a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas ao Data Lake Store.
 
@@ -80,7 +80,7 @@ Um serviço vinculado vincula um armazenamento de dados a um data factory. Crie 
 ### <a name="service-principal-authentication-recommended"></a>Autenticação de entidade de serviço (recomendada)
 Para usar a autenticação de entidade de serviço, registre uma entidade de aplicativo no Azure AD (Azure Active Directory) e conceda a ela o acesso ao Data Lake Store. Para encontrar as etapas detalhadas, consulte [Autenticação de serviço a serviço](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anote os seguintes valores, que são usados para definir o serviço vinculado:
 * ID do aplicativo
-* Chave do aplicativo 
+* Chave do aplicativo
 * ID do locatário
 
 > [!IMPORTANT]
@@ -233,7 +233,7 @@ Para encontrar detalhes sobre as classes do Data Factory usadas no código, cons
     ```
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para especificar um conjunto de dados para representar os dados de entrada em um Data Lake Store, defina a propriedade **type** do conjunto de dados para **AzureDataLakeStore**. Defina a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço vinculado do Data Lake Store. Para obter uma lista completa das seções e propriedades JSON disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções de um conjunto de dados no JSON, como **structure**, **availability** e **policy** são similares para todos os tipos de conjunto de dados (Banco de Dados SQL do Azure, Blob do Azure e tabela do Azure, por exemplo). A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização e o formato dos dados no armazenamento de dados. 
+Para especificar um conjunto de dados para representar os dados de entrada em um Data Lake Store, defina a propriedade **type** do conjunto de dados para **AzureDataLakeStore**. Defina a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço vinculado do Data Lake Store. Para obter uma lista completa das seções e propriedades JSON disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções de um conjunto de dados no JSON, como **structure**, **availability** e **policy** são similares para todos os tipos de conjunto de dados (Banco de Dados SQL do Azure, Blob do Azure e tabela do Azure, por exemplo). A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização e o formato dos dados no armazenamento de dados.
 
 A seção **typeProperties** do conjunto de um conjunto de dados do tipo **AzureDataLakeStore** contém a seguinte propriedade:
 
@@ -264,14 +264,14 @@ No exemplo a seguir, o ano, o mês, o dia e a hora de `SliceStart` são extraíd
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-Para obter mais detalhes sobre conjuntos de dados de série temporal, agendamento e fatias, consulte os artigos [Conjuntos de dados no Azure Data Factory](data-factory-create-datasets.md) e [Agendamento e execução com o Data Factory](data-factory-scheduling-and-execution.md). 
+Para obter mais detalhes sobre conjuntos de dados de série temporal, agendamento e fatias, consulte os artigos [Conjuntos de dados no Azure Data Factory](data-factory-create-datasets.md) e [Agendamento e execução com o Data Factory](data-factory-scheduling-and-execution.md).
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -284,7 +284,6 @@ As propriedades disponíveis na seção **typeProperties** de uma atividade vari
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | **recursive** |Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. |True (valor padrão), False |Não  |
-
 
 **AzureDataLakeStoreSink** dá suporte às seguintes propriedades na seção **typeProperties**:
 
@@ -308,7 +307,7 @@ Esta seção descreve o comportamento resultante da operação de cópia para di
 Para obter detalhes, consulte o artigo [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>Exemplos JSON para cópia de dados de e para o Data Lake Store
-Os exemplos a seguir fornecem as definições de JSON de exemplo. Você pode usar essas definições de exemplo para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de e para o Data Lake Store e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados _diretamente_ de qualquer uma das fontes para qualquer um dos coletores com suporte. Para obter mais informações, consulte a seção "Fontes de dados e formatos com suporte" no artigo [Mover dados usando a Atividade de Cópia](data-factory-data-movement-activities.md).  
+Os exemplos a seguir fornecem as definições de JSON de exemplo. Você pode usar essas definições de exemplo para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de e para o Data Lake Store e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados _diretamente_ de qualquer uma das fontes para qualquer um dos coletores com suporte. Para obter mais informações, consulte a seção "Fontes de dados e formatos com suporte" no artigo [Mover dados usando a Atividade de Cópia](data-factory-data-movement-activities.md).
 
 ### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Exemplo: Copiar dados do Armazenamento de Blobs do Azure para o Azure Data Lake Store
 O código de exemplo nessa seção mostra:
@@ -319,7 +318,7 @@ O código de exemplo nessa seção mostra:
 * Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureDataLakeStore](#dataset-properties).
 * Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e [AzureDataLakeStoreSink](#copy-activity-properties).
 
-O exemplo mostra como os dados de série temporal do Armazenamento de Blobs do Azure são copiados para o Data Lake Store de hora em hora. 
+O exemplo mostra como os dados de série temporal do Armazenamento de Blobs do Azure são copiados para o Data Lake Store de hora em hora.
 
 **Serviço vinculado de armazenamento do Azure**
 
@@ -428,68 +427,67 @@ O exemplo a seguir copia dados para o Data Lake Store. Os novos dados são copia
 ```JSON
 {
     "name": "AzureDataLakeStoreOutput",
-      "properties": {
+    "properties": {
         "type": "AzureDataLakeStore",
         "linkedServiceName": "AzureDataLakeStoreLinkedService",
         "typeProperties": {
             "folderPath": "datalake/output/"
         },
         "availability": {
-              "frequency": "Hour",
-              "interval": 1
+            "frequency": "Hour",
+            "interval": 1
         }
-      }
+    }
 }
 ```
-
 
 **Atividade de cópia em um pipeline com uma origem de blob e um coletor Data Lake Store**
 
 No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para usar os conjuntos de dados de entrada e saída. A atividade de cópia está programada para ser executado a cada hora. Na definição de JSON do pipeline, o tipo `source` é definido como `BlobSource` e o tipo `sink` é definido como `AzureDataLakeStoreSink`.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
     "properties":
-    {  
+    {
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline with copy activity",
         "activities":
-        [  
-              {
+        [
+            {
                 "name": "AzureBlobtoDataLake",
                 "description": "Copy Activity",
                 "type": "Copy",
                 "inputs": [
-                  {
-                    "name": "AzureBlobInput"
-                  }
+                    {
+                        "name": "AzureBlobInput"
+                    }
                 ],
                 "outputs": [
-                  {
-                    "name": "AzureDataLakeStoreOutput"
-                  }
+                    {
+                        "name": "AzureDataLakeStoreOutput"
+                    }
                 ],
                 "typeProperties": {
                     "source": {
                         "type": "BlobSource"
-                      },
-                      "sink": {
+                    },
+                    "sink": {
                         "type": "AzureDataLakeStoreSink"
-                      }
+                    }
                 },
-                   "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
                 },
                 "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
                 }
-              }
+            }
         ]
     }
 }
@@ -504,7 +502,7 @@ O código de exemplo nessa seção mostra:
 * Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 * Um [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que usa [AzureDataLakeStoreSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-O código copia dados da série temporal do Data Lake Store para um Blob do Azure de hora em hora. 
+O código copia dados da série temporal do Data Lake Store para um Blob do Azure de hora em hora.
 
 **Serviço vinculado do Azure Data Lake Store**
 
@@ -547,7 +545,7 @@ Nesse exemplo, configurar `"external"` e `true` informa ao serviço Data Factory
 ```json
 {
     "name": "AzureDataLakeStoreInput",
-      "properties":
+    "properties":
     {
         "type": "AzureDataLakeStore",
         "linkedServiceName": "AzureDataLakeStoreLinkedService",
@@ -563,16 +561,16 @@ Nesse exemplo, configurar `"external"` e `true` informa ao serviço Data Factory
         "external": true,
         "availability": {
             "frequency": "Hour",
-              "interval": 1
+            "interval": 1
         },
         "policy": {
-              "externalData": {
+            "externalData": {
                 "retryInterval": "00:01:00",
                 "retryTimeout": "00:10:00",
                 "maximumRetry": 3
-              }
+            }
         }
-      }
+    }
 }
 ```
 **Conjunto de dados de saída do blob do Azure**
@@ -640,47 +638,47 @@ No exemplo a seguir, os dados são gravados em um novo blob de hora em hora (`"f
 No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para usar os conjuntos de dados de entrada e saída. A atividade de cópia está programada para ser executado a cada hora. Na definição de JSON do pipeline, o tipo `source` é definido como `AzureDataLakeStoreSource` e o tipo `sink` é definido como `BlobSink`.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for copy activity",
-        "activities":[  
-              {
+        "activities":[
+            {
                 "name": "AzureDakeLaketoBlob",
                 "description": "copy activity",
                 "type": "Copy",
                 "inputs": [
-                  {
-                    "name": "AzureDataLakeStoreInput"
-                  }
+                    {
+                        "name": "AzureDataLakeStoreInput"
+                    }
                 ],
                 "outputs": [
-                  {
-                    "name": "AzureBlobOutput"
-                  }
+                    {
+                        "name": "AzureBlobOutput"
+                    }
                 ],
                 "typeProperties": {
                     "source": {
                         "type": "AzureDataLakeStoreSource",
-                      },
-                      "sink": {
+                    },
+                    "sink": {
                         "type": "BlobSink"
-                      }
+                    }
                 },
-                   "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
                 },
                 "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
                 }
-              }
-         ]
+            }
+        ]
     }
 }
 ```

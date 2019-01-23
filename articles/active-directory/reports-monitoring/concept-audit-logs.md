@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 03206baf0e70e7be247e9848bfd5a80a1a1e1b35
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624651"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247751"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
@@ -45,7 +45,7 @@ Este artigo fornece uma visão geral do relatório de auditoria.
 
 ## <a name="audit-logs"></a>Logs de auditoria
 
-Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **Logs de auditoria** na seção **Atividade** do **Azure Active Directory**. 
+Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **Logs de auditoria** na seção **Atividade** do **Azure Active Directory**. Observe que os logs de auditoria podem ter uma latência de, no máximo, uma hora. Por isso, os dados da atividade de auditoria podem demorar esse período para aparecer no portal após a conclusão da tarefa.
 
 ![Logs de auditoria](./media/concept-audit-logs/61.png "Logs de auditoria")
 
@@ -178,6 +178,11 @@ Se você quiser revisar os dados de auditoria relacionados aos aplicativos, pode
 
 ![Logs de auditoria](./media/concept-audit-logs/25.png "Logs de auditoria")
 
+## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
+
+É possível exibir logs de atividades do Office 365 no [Centro de Administração do Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora os logs de atividades do Office 365 e do Azure AD compartilhem muitos dos recursos de diretório, somente o Centro de Administração do Office 365 oferece uma exibição completa dos logs de atividades do Office 365. 
+
+Você também pode acessar os logs de atividade do Office 365 de modo programático usando as [APIs de gerenciamento do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 

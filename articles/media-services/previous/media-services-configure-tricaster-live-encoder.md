@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 8084f32ac8cc2184d93796468ad66fb73398e876
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e3a3a9946c3352be0409d1a773408e17302911fc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783775"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304798"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador NewTek TriCaster para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
@@ -39,19 +39,22 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 >
 >
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
 * Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Inicie a ferramenta e conecte-se à sua conta do AMS.
 
 ## <a name="tips"></a>Dicas
+
 * Sempre que possível, use uma conexão de Internet com fio.
 * Uma boa regra geral ao determinar os requisitos de largura de banda é dobrar as taxas de bits de transmissão. Embora isso não seja um requisito obrigatório, isso ajuda a reduzir o impacto do congestionamento da rede.
 * Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 
 ## <a name="create-a-channel"></a>Criar um canal
-1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
+
+1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...**  no menu.
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
@@ -75,24 +78,26 @@ Enquanto o canal é iniciado, você pode [configurar o codificador](media-servic
 >
 >
 
-## <a id=configure_tricaster_rtmp></a>Configurar o codificador do NewTek TriCaster
+## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configurar o codificador do NewTek TriCaster
+
 Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
 
 **Vídeo**:
 
 * Codec: H.264
-* Perfil: Alto (nível 4.0)
-* Taxa de bits: 5.000 kbps
+* Perfil: Alto (Nível 4.0)
+* Taxa de bits: 5.000 Kbps
 * Quadro-chave: 2 segundos (60 segundos)
 * Taxa de quadros: 30
 
 **Áudio**:
 
 * Codec: AAC (LC)
-* Taxa de bits: 192 kbps
+* Taxa de bits: 192 Kbps
 * Taxa de amostragem: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Etapas da configuração
+
 1. Crie um novo projeto do **NewTek TriCaster** dependendo de qual fonte de entrada de vídeo está sendo usada.
 2. Depois de entrar nesse projeto, encontre o botão **Transmissão** e clique no ícone de engrenagem ao lado dele para acessar o menu de configuração da transmissão.
 
@@ -131,6 +136,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 >
 
 ## <a name="test-playback"></a>Reprodução de teste
+
 Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **Player de Mídia do Azure**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
@@ -140,6 +146,7 @@ Se a transmissão for exibida no player, isso significa que o codificador foi co
 Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Confira o artigo de [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.  
 
 ## <a name="create-a-program"></a>Criar um programa
+
 1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ativo** na ferramenta AMSE, clique com o botão direito do mouse na área do programa e selecione **Criar Novo Programa**.  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
@@ -156,12 +163,15 @@ Se um erro for recebido, será necessário redefinir o canal e ajustar as config
 A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.  
 
 ## <a name="troubleshooting"></a>solução de problemas
+
 Confira o artigo de [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.
 
 ## <a name="next-step"></a>Próxima etapa
+
 Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

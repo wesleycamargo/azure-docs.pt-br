@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1e51d55fcc20230dff20ca18d58a13e6ed32905b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192702"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305138"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Visualização: Criar uma galeria de imagem compartilhada com o Azure PowerShell 
 
@@ -49,7 +49,7 @@ Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada ex
  
 ## <a name="create-vms-from-an-image"></a>Criar VMs de uma imagem
 
-Depois que a versão da imagem estiver completa, você poderá criar uma ou mais novas VMs. Usar o conjunto de parâmetros simplificado para o cmdlet [New-AzureRMVM](), você apenas precisa fornecer a ID da imagem da versão da imagem. 
+Depois que a versão da imagem estiver completa, você poderá criar uma ou mais novas VMs. Usar o conjunto de parâmetros simplificado para o cmdlet [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm), você apenas precisa fornecer a ID da imagem da versão da imagem. 
 
 Este exemplo cria uma VM chamada *myVMfromImage* no *myResourceGroup* no datacenter do *Leste dos EUA*.
 

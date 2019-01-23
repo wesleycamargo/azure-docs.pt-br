@@ -1,21 +1,21 @@
 ---
-title: Moderar o conteúdo por meio de revisões humanas com o console de API – Content Moderator
+title: Moderar o conteúdo usando revisões humanas com o console de API – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Saiba como criar revisões humanas no console de API do Content Moderator.
+description: Use as operações de revisão da API de Revisão para criar revisões de imagem ou texto para moderação humana.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9d2daad06ad6cb97fe562db98cab57c4ed970a60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219746"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260202"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Criar análises a partir do console de API
 
@@ -26,10 +26,10 @@ Depois que um moderador humano revisa as marcas atribuídas automaticamente e os
 ## <a name="use-the-api-console"></a>Usar o console de API
 Para testar a API usando o console online, você precisa de alguns valores para inserir no console:
 
-- **teamName**: O nome da equipe que você criou quando configurou sua conta da ferramenta de análise. 
-- **ContentId**: esta cadeia de caracteres é passada para a API e retornada por meio do retorno de chamada. A ContentId é útil para a associação de identificadores internos ou metadados com os resultados de um trabalho de moderação.
+- **teamName**: o nome da equipe que você criou quando configurou sua conta da ferramenta de revisão. 
+- **ContentId**: essa cadeia de caracteres é passada para a API e retornada pelo retorno de chamada. A ContentId é útil para a associação de identificadores internos ou metadados com os resultados de um trabalho de moderação.
 - **Metadados**: pares de valores-chave personalizados retornados ao ponto de extremidade de API durante o retorno de chamada. Se a chave for um código curto que é definido na ferramenta de análise, ele aparece como uma marca.
-- **Ocp-Apim-Subscription-Key**: localizado na guia **Configurações**. Para obter mais informações, confira a [Visão geral](overview.md).
+- **Ocp-Apim-Subscription-Key**: localizada na guia **Configurações**. Para mais informações, confira [Visão Geral](overview.md).
 
 É a maneira mais simples de acessar um console de teste da janela **Credenciais**.
 

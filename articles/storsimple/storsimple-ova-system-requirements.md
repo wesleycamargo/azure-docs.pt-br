@@ -12,16 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24815221"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245184"
 ---
-# <a name="storsimple-virtual-array-system-requirements"></a>Requisitos do sistema da StorSimple Virtual Array
+# <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da matriz virtual StorSimple
 ## <a name="overview"></a>Visão geral
 Este artigo descreve os requisitos de sistema importantes para o seu Microsoft Azure StorSimple Virtual Array e para os clientes de armazenamento que acessam a matriz. Recomendamos que você examine as informações com atenção antes de implantar o sistema StorSimple e consulte-as, quando necessário, durante a implantação e operação subsequente.
 
@@ -42,7 +42,7 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 | **Hipervisor** | **Versão** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e posterior |
-| VMware ESXi |5.0, 5.5 e 6.0 <br> (Não há suporte para o 6.5.) |
+| VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
 
 > [!IMPORTANT]
 > Não instale as ferramentas do VMware no StorSimple Virtual Array. Isso resulta em uma configuração sem suporte.
@@ -94,13 +94,13 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 
 | **Porta No.<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Obrigatório** | **Observações** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
-| TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
+| TCP 80 (HTTP) |Saída |WAN |Não  |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
+| TCP 443 (HTTPS) |Saída |WAN |SIM |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
 | UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> Observe que, caso esteja implantando um servidor de arquivos, recomendamos usar o servidor DNS local. |
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet.<br></br> Observe que, caso esteja implantando um servidor de arquivos, recomendamos sincronizar a hora com os controladores de domínio do Active Directory. |
-| TCP 80 (HTTP) |No |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> Observe que o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS. |
-| TCP 443 (HTTPS) |No |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. |
-| TCP 3260 (iSCSI) |No |LAN |Não |Esta porta é usada para acessar dados em iSCSI. |
+| TCP 80 (HTTP) |No |LAN |SIM |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> Observe que o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS. |
+| TCP 443 (HTTPS) |No |LAN |SIM |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. |
+| TCP 3260 (iSCSI) |No |LAN |Não  |Esta porta é usada para acessar dados em iSCSI. |
 
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 
@@ -117,7 +117,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 > [!NOTE]
 > 
 > * Os IPs do dispositivo (de origem) sempre devem estar configurados para todas as interfaces de rede habilitadas para a nuvem. 
-> * Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> * Os IPs de destino devem ser definidos como [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653)(Intervalos de IP do datacenter do Azure).
 > 
 > 
 

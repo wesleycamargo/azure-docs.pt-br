@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d6060c1774b2ad09c3b813bc107b73309dae801
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 05f6208788060459e67a787507a56adeed980e2d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020210"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318987"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Requisitos do sistema do Azure Data Box Edge (versão prévia)
 
@@ -76,7 +76,9 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 > [!NOTE]
 > - Os IPs do dispositivo (de origem) sempre devem estar configurados para todas as interfaces de rede habilitadas para a nuvem.
-> - Os IPs de destino devem ser definidos como [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653)(Intervalos de IP do datacenter do Azure).
+> - Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+
+### <a name="url-patterns-for-gateway-feature"></a>Padrões de URL para o recurso de gateway
 
 |    Padrão de URL                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Componente ou funcionalidade                                                                           |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -89,6 +91,15 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 |    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Pacote de suporte                                                                                      |
 |    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Serviço de telemetria no Windows, confira a atualização da telemetria de experiência do usuário e de diagnóstico      |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
+
+
+### <a name="url-patterns-for-compute-feature"></a>Padrões de URL para o recurso de computação
+
+| Padrão de URL                      | Componente ou funcionalidade                     |   |
+|----------------------------------|---------------------------------------------|---|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de Contêiner da Microsoft (obrigatório)               |   |
+| https://\*.azurecr.io                     | Registros de contêiner pessoal e de terceiros (opcional) |   |
+| https://\*.azure-devices.net              | Acesso do Hub IoT (obrigatório)                             |   |
 
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 

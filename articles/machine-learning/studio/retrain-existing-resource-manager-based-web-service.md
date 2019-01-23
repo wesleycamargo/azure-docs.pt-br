@@ -1,26 +1,8 @@
 ---
-title: Treinar novamente um serviço Web do Studio preditivo existente – Azure Machine Learning Studio | Microsoft Docs
-description: Saiba como treinar novamente um modelo e atualizar o serviço da Web para usar o modelo recém-treinado no Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/07/2017
-ms.openlocfilehash: d24cfd8dce42ee920c87fa2c3593a860468a6160
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250545"
+Título: Treinar novamente um serviço Web de previsão existente no Studio – titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como treinar novamente um modelo e atualizar o serviço da Web para usar o modelo recém-treinado no Azure Machine Learning Studio.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 07/11/2017
 ---
 # <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Treinar novamente um serviço Web preditivo existente do Azure Machine Learning Studio
 

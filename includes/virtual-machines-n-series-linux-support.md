@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: df7d8815eeb588e4e99041844642b6721e25dad7
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a1200494eac2d60083a6608d1af91379d8298070
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585617"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201492"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e drivers com suporte
 
@@ -26,7 +26,7 @@ Os drivers NVIDIA CUDA para VMs das séries NC, NCv2, NCv3, ND e NDv2 (opcional 
 
 | Distribuição | Driver |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/> CentOS 7.3 ou 7.4, HPC baseado em CentOS 7.4 | NVIDIA CUDA 10.0, branch do driver R410 |
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> Baseado em CentOS 7.3, 7.4, 7.5, 7.6, Baseado em CentOS 7.4 HPC | NVIDIA CUDA 10.0, branch do driver R410 |
 
 ### <a name="nvidia-grid-drivers"></a>Drivers NVIDIA GRID
 
@@ -34,7 +34,7 @@ A Microsoft redistribui os instaladores do driver NVIDIA GRID para VMs das séri
 
 | Distribuição | Driver |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/>Com base em CentOS 7.3 ou 7.4 | NVIDIA GRID 7, driver branch R410|
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>Baseado em CentOS 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7, driver branch R410|
 
 > [!WARNING] 
 > A instalação de software de terceiros em produtos do Red Hat pode afetar os termos de suporte do Red Hat. Consulte o [artigo da Base de conhecimento do Red Hat](https://access.redhat.com/articles/1067).

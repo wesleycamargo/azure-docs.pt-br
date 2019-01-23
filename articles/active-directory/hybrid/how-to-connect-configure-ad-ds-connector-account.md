@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c7b1d74c7750a281f8c961789d39a7ae323f304e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809872"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304033"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de Conta do AD DS Connector 
 
-Um novo módulo do PowerShell [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) nomeado foi introduzido com o build 1.1.880.0 (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões do Active Directory corretas para sua implantação do Azure AD Connect. 
+O novo módulo do PowerShell chamado [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) foi introduzido com o build 1.1.880.0 (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões do Active Directory corretas para sua implantação do Azure AD Connect. 
 
 ## <a name="overview"></a>Visão geral 
 Os seguintes cmdlets do PowerShell pode ser usado para configurar as permissões do Active Directory da conta do conector do AD DS, para cada recurso que fingir habilitar no Azure AD Connect. Para evitar problemas, você deve preparar permissões do Active Directory com antecedência sempre desejar instalar o Azure AD Connect usando uma conta de domínio personalizado para se conectar à sua floresta. Esse módulo ADSyncConfig também pode ser usado para configurar permissões após a implantação do Azure AD Connect.
@@ -280,7 +280,7 @@ Por exemplo:
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 Esse cmdlet definirá as seguintes permissões: 

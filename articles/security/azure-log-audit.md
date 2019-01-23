@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874552"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306243"
 ---
 # <a name="azure-logging-and-auditing"></a>Log e auditoria do Azure
 
@@ -29,6 +29,7 @@ O Azure fornece uma ampla gama de opções de registro de log e auditoria de seg
 > Determinadas recomendações neste artigo podem resultar em maior uso de recursos de computação, rede ou dados e aumentar os custos de licença ou assinatura.
 
 ## <a name="types-of-logs-in-azure"></a>Tipos de logs no Azure
+
 Os aplicativos em nuvem são complexos com muitas partes móveis. Os logs fornecem dados para ajudar a manter seus aplicativos em funcionamento. Os logs ajudam você a solucionar problemas anteriores ou evitar potenciais problemas. E eles podem ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que, de outra forma, exigiriam intervenção manual.
 
 Os logs do Azure são categorizados nos seguintes tipos:
@@ -52,6 +53,7 @@ A tabela a seguir lista os tipos mais importantes de logs disponíveis no Azure:
 |Dados do processo/alertas de segurança|    Alertas da Central de Segurança do Azure, alertas do Azure Log Analytics|   Fornece informações e alertas de segurança.|  APIs REST, JSON|
 
 ### <a name="activity-logs"></a>Logs de atividade
+
 Os [logs de atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos em sua assinatura. Os logs de atividades eram conhecidos como “logs de auditoria” ou “logs operacionais”, pois eles relatam [eventos de plano de controle](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) de suas assinaturas. 
 
 Os logs de atividades ajudam você a determinar o "o quê, quem e quando" para operações de gravação (ou seja, PUT, POST ou DELETE). Os logs de atividades também ajudam a entender o status da operação e outras propriedades relevantes. Os logs de atividade não incluem operações de leitura (GET).
@@ -81,6 +83,7 @@ Cenários de integração para um evento de log de atividades:
 É possível usar uma conta de armazenamento ou um [namespace de hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) que não está na mesma assinatura que está emitindo o log. Qualquer que seja a pessoa que define a configuração deve ter o devido acesso [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para ambas as assinaturas.
 
 ### <a name="azure-diagnostics-logs"></a>Logs de diagnóstico do Azure
+
 Os logs de diagnóstico do Azure são emitidos por um recurso que fornece dados avançados e frequentes sobre a operação do recurso. O conteúdo desses logs varia de acordo com o tipo de recurso. Por exemplo, os [logs do sistema de eventos do Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) são uma categoria de logs de diagnóstico para VMs e [logs de blobs, de tabelas e de filas são](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) categorias de logs de diagnóstico para contas de armazenamento. Os logs de diagnóstico são diferentes dos logs de atividades, que fornecem insights sobre as operações que foram executadas em recursos em sua assinatura.
 
 ![Diagramas de logs de diagnóstico do Azure](./media/azure-log-audit/azure-log-audit-fig2.png)
@@ -107,7 +110,7 @@ Os logs de diagnóstico do Azure oferecem várias opções de configuração, co
 |Azure Search|[Habilitação e uso da análise de tráfego de pesquisa](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
 |Repositório Azure Data Lake|[Acessar os logs de diagnóstico do Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts<br>Microsoft.DataLakeStore/accounts|Audit<br>Requests|
 |Análise Azure Data Lake|[Acessar os logs de diagnóstico do Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts<br>Microsoft.DataLakeAnalytics/accounts|Audit<br>Requests|
-|Aplicativo Lógico do Azure|[Esquema de controle personalizado dos Aplicativos Lógicos B2B](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows<br>Microsoft.Logic/integrationAccounts|WorkflowRuntime<br>IntegrationAccountTrackingEvents|
+|Aplicativos Lógicos do Azure|[Esquema de controle personalizado dos Aplicativos Lógicos B2B](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows<br>Microsoft.Logic/integrationAccounts|WorkflowRuntime<br>IntegrationAccountTrackingEvents|
 |Lote do Azure|[Logs de diagnóstico do Lote do Azure](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
 |Automação do Azure|[Log Analytics para Automação do Azure](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
 |Hubs de eventos do Azure|[Logs de diagnóstico dos Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces<br>Microsoft.EventHub/namespaces|ArchiveLogs<br>OperationalLogs|
@@ -115,6 +118,7 @@ Os logs de diagnóstico do Azure oferecem várias opções de configuração, co
 |Barramento de Serviço do Azure|[Logs de diagnóstico dos Barramento de Serviço](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Relatórios do Azure Active Directory
+
 O Azure AD (Azure Active Directory) inclui relatórios de segurança, de atividades e de auditoria para o diretório de um usuário. O [relatório de auditoria do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) ajuda a identificar as ações privilegiadas que ocorreram na instância do Azure AD do usuário. Ações com privilégios incluem alterações de elevação (por exemplo, criação de funções ou redefinições de senha), alteração de configurações de política (por exemplo, políticas de senha) ou alterações na configuração de diretório (por exemplo, as alterações às configurações de federação de domínio).
 
 Os relatórios fornecem o registro de auditoria para o nome do evento, o usuário que executou a ação, o recurso de destino afetado pela alteração e a data e hora (em UTC). Os usuários podem recuperar a lista de eventos de auditoria do Azure AD por meio do [portal do Azure](https://portal.azure.com/), conforme descrito em [Exibir os logs de auditoria](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
@@ -143,6 +147,7 @@ Os eventos no relatório de auditoria do Azure AD são mantidos por 180 dias.
 Se você estiver interessado em manter os eventos de auditoria por mais tempo, use a API de Relatórios para efetuar o pull dos [eventos de auditoria](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) regularmente para um armazenamento de dados separado.
 
 ### <a name="virtual-machine-logs-that-use-azure-diagnostics"></a>Logs de máquina virtual que usam o Diagnóstico do Azure
+
 O [Diagnóstico do Azure](https://docs.microsoft.com/azure/azure-diagnostics) é a funcionalidade do Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de qualquer uma das várias fontes. As compatíveis no momento são as [funções de trabalho e Web do serviço de nuvem do Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me).
 
 ![Logs de máquina virtual que usam o Diagnóstico do Azure](./media/azure-log-audit/azure-log-audit-fig3.png)
@@ -160,6 +165,7 @@ O [Diagnóstico do Azure](https://docs.microsoft.com/azure/azure-diagnostics) é
 * [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando um modelo do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="storage-analytics"></a>Análise de Armazenamento
+
 A [Análise de Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) registra em log e fornece dados de métrica para uma conta de armazenamento. Você pode usar esses dados para rastrear solicitações, analisar tendências de uso e diagnosticar problemas com sua conta de armazenamento. O log da Análise de Armazenamento está disponível para os [serviços de Armazenamento de Blobs, de Filas e de Tabelas do Azure](https://docs.microsoft.com/azure/storage/storage-introduction). A análise de armazenamento registra informações detalhadas sobre solicitações bem-sucedidas e com falha para um serviço de armazenamento.
 
 Você pode usar essas informações para monitorar solicitações individuais e diagnosticar problemas com um serviço de armazenamento. As solicitações são registradas em uma base de melhor esforço. As entradas de log são criadas somente se há solicitações feitas no ponto de extremidade de serviço. Por exemplo, se uma conta de armazenamento tiver atividades em seu ponto de extremidade de blob, mas não em seus pontos de extremidade de tabela ou fila, somente os logs pertencentes ao serviço de Armazenamento de Blobs serão criados.
@@ -185,6 +191,7 @@ A Análise de Armazenamento registra os seguintes tipos de solicitações anôni
 | As solicitações feitas pela própria análise de armazenamento, como criação de log ou exclusão, não estão conectadas. Uma lista completa dos dados registrados está documentada em [Mensagens de operações e status registradas da Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) e [Formato do log da Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). | Todas as outras solicitações anônimas com falha não estão conectadas. Uma lista completa dos dados registrados está documentada em [Mensagens de operações e status registradas da Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) e [Formato do log da Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
 ### <a name="azure-networking-logs"></a>Logs de rede do Azure
+
 O log e monitoramento de rede no Azure é completo e abrange duas categorias amplas:
 
 * [Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Monitoramento de rede baseado em cenário fornecido com os recursos do Observador de Rede. Esse serviço inclui a captura de pacotes, próximo salto, verificação do fluxo de IP, exibição do grupo de segurança e logs de fluxo de NSG. O monitoramento no nível do cenário fornece uma exibição completa dos recursos de rede em contraste com o monitoramento de recursos de rede individual.
@@ -271,9 +278,9 @@ A tabela a seguir lista e descreve cenários de integração:
 | --------------------- | :---------- |
 |[Mapa do aplicativo](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Os componentes de seu aplicativo, com as principais métricas e alertas.||
 |[Pesquisa de diagnóstico para dados da instância](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| pesquise e filtre eventos como solicitações, exceções, chamadas de dependência, rastreamentos de log e exibições de página.||
-|[Metrics Explorer para dados agregados](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|explore, filtre e segmente dados agregados, como taxas de solicitações, falhas e exceções; tempos de resposta e tempos de carregamento de página.||
+|[Metrics Explorer para dados agregados](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|explore, filtre e segmente dados agregados, como taxas de solicitações, falhas e exceções; tempos de resposta e tempos de carregamento de página.||
 |[Painéis](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|faça um mashup de dados de vários recursos e compartilhe com outras pessoas. Excelente para aplicativos com vários componentes e para exibição contínua no ambiente de equipe.||
-|[Live Metrics Stream](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|quando implantar um novo build, acompanhe esses indicadores de desempenho quase em tempo real para verificar se tudo está funcionando conforme esperado.||
+|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|quando implantar um novo build, acompanhe esses indicadores de desempenho quase em tempo real para verificar se tudo está funcionando conforme esperado.||
 |[Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|responda perguntas difíceis sobre o desempenho e o uso do seu aplicativo usando essa poderosa linguagem de consulta.||
 |[Alertas automáticos e manuais](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Alertas automáticos se adaptam aos padrões normais de telemetria do seu aplicativo e são disparados quando há algo fora do padrão normal. Você também pode definir alertas em níveis específicos de métricas padrão ou personalizadas.||
 |[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Exiba dados de desempenho no código. Vá até o código dos rastreamentos de pilha.||
@@ -282,6 +289,7 @@ A tabela a seguir lista e descreve cenários de integração:
 |[Exportação contínua](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Exportação em massa de dados brutos para armazenamento no momento de sua chegada.||
 
 ### <a name="azure-security-center-alerts"></a>Alertas da Central de Segurança do Azure
+
 A detecção de ameaças da Central de Segurança do Azure funciona coletando informações de segurança de seus recursos do Azure, de rede e de soluções de parceiros conectados automaticamente. Ele analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças. Os alertas de segurança são priorizados na Central de Segurança, juntamente com recomendações sobre como corrigir a ameaça. Para obter mais informações, confira [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro).
 
 ![Diagrama da Central de Segurança do Azure](./media/azure-log-audit/azure-log-audit-fig7.png)
@@ -296,7 +304,7 @@ A Central de Segurança emprega análise de segurança avançada, que vai além 
 
 Muitas operações de segurança e equipes de resposta a incidentes contam com uma solução SIEM como ponto de partida para separação e investigação de alertas de segurança. Com a Integração de Logs do Azure, você pode sincronizar alertas da Central de Segurança e eventos de segurança da máquina virtual, coletados pelos logs de auditoria e diagnóstico do Azure, com sua solução SIEM ou Log Analytics quase em tempo real.
 
-## <a name="log-analytics"></a>Log Analytics 
+## <a name="log-analytics"></a>Log Analytics
 
 O Log Analytics é um serviço no Azure que ajuda a coletar e analisar dados gerados por recursos nos ambientes locais e de nuvem. Ele fornece informações em tempo real usando a pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e todos os seus servidores, independentemente de sua localização física.
 
@@ -309,6 +317,7 @@ As fontes conectadas são os computadores e outros recursos que geram dados os c
 [Fontes de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) são os vários tipos de dados coletados de cada fonte conectada. Essas fontes incluem eventos e [dados de desempenho](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) de agentes [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) e Linux, além de fontes como [logs do IIS](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) e [logs de texto personalizado](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). Você configura cada fonte de dados que deseja coletar e a configuração é fornecida automaticamente para cada fonte conectada.
 
 Há quatro maneiras de [coletar logs e métricas para os serviços do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
+
 * Direcionar o Diagnóstico do Azure para o Log Analytics (**Diagnóstico** na tabela a seguir)
 
 * Diagnóstico do Azure para o Armazenamento do Azure e para o Log Analytics (**Armazenamento** na tabela a seguir)
@@ -331,7 +340,7 @@ Há quatro maneiras de [coletar logs e métricas para os serviços do Azure](htt
 |Hub IoT do Azure| Microsoft.Devices/<br>IotHubs||     Diagnósticos||
 |Cofre da Chave do Azure|   Microsoft.KeyVault/<br>vaults|  Diagnósticos  || [Análise do Cofre de Chaves](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnósticos|||
-|Aplicativo Lógico do Azure|  Microsoft.Logic/<br>workflows|  Diagnósticos|    Diagnósticos||
+|Aplicativos Lógicos do Azure|  Microsoft.Logic/<br>workflows|  Diagnósticos|    Diagnósticos||
 ||Microsoft.Logic/<br>integrationAccounts||||
 |Grupos de segurança de rede|   Microsoft.Network/<br>networksecuritygroups|Diagnósticos||   [Análise do Grupo de Segurança de Rede do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Cofres de recuperação|   Microsoft.RecoveryServices/<br>vaults|||[Análise dos Serviços de Recuperação do Azure (Visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
@@ -351,7 +360,8 @@ Há quatro maneiras de [coletar logs e métricas para os serviços do Azure](htt
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integração de log com sistemas SIEM locais
-Com a [Integração do Logs do Azure](https://www.microsoft.com/download/details.aspx?id=53324), você pode integrar registros brutos de recursos do Azure a seu sistema de SIEM (Segurança da informação e gerenciamento de evento) local.
+
+Com a Integração de Logs do Azure, você pode integrar registros brutos de recursos do Azure a seu sistema de SIEM (gerenciamento de evento e informações de segurança) local. Downloads de AzLog foram desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer para prosseguir com a análise da postagem [Usar o Azure Monitor para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 ![Diagrama de Integração de Log](./media/azure-log-audit/azure-log-audit-fig9.png)
 

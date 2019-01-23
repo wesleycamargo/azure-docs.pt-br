@@ -1,27 +1,8 @@
 ---
-title: Importar dados para o Machine Learning Studio de fontes de dados online - Azure | Microsoft Docs
-description: Este artigo descreve o suporte para a importação de dados online de diversas fontes e as informações necessárias para a transmissão de dados dessas fontes para um experimento de Azure Machine Learning Studio.
-keywords: importar dados, formato de dados, tipos de dados, fontes de dados, dados de treinamento
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: a81765620b31af8a23d70d35cf8f86fc4b8e0033
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256087"
+Título: Importar dados para o Machine Learning Studio de fontes de dados online – titleSuffix: Descrição do Azure Machine Learning Studio: Este artigo descreve o suporte para a importação de dados online de diversas fontes e as informações necessárias para a transmissão de dados dessas fontes para um experimento de Azure Machine Learning Studio.
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: artigo
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 29/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Importar dados no Azure Machine Learning Studio de fontes de dados online 
 Este artigo descreve o suporte para a importação de dados online de diversas fontes e as informações necessárias para a transmissão de dados dessas fontes para um experimento de Azure Machine Learning Studio.

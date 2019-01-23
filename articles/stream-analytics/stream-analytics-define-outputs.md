@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6d7c8aa73f72f6db93c6ef78c333c36e1d26b74e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 805df837d5d33c5f21799e39145c62e71afdb4b5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995058"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231386"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Entender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para um trabalho do Azure Stream Analytics. As saídas permitem armazenar e salvar os resultados do trabalho do Stream Analytics. Usando os dados de saída, você pode fazer mais análise de negócios e data warehouse de seus dados.
@@ -73,6 +73,8 @@ Para renovar a autorização, **Pare** seu trabalho > vá para sua saída do Dat
 | Nome de Usuário | O nome de usuário, que tem acesso para gravar no banco de dados. O Stream Analytics dá suporte apenas a autenticação do SQL. |
 | Senha | A senha para se conectar ao banco de dados. |
 | Tabela | O nome da tabela em que a saída é gravada. O nome da tabela diferencia maiúsculas de minúsculas e o esquema da tabela deve corresponder exatamente ao número de campos e seus tipos sendo gerados por sua saída de trabalho. |
+|Herdar esquema de partição| Permite herdar o esquema de partição da etapa de consulta anterior para possibilitar uma topologia totalmente paralela com vários gravadores na tabela. Para obter mais informações, confira [Saída do Azure Stream Analytics para Banco de Dados SQL do Azure](stream-analytics-sql-output-perf.md).|
+|Corresponder contagem do lote| O número limite máximo recomendado de registros enviados com cada transação de inserção em massa.|
 
 > [!NOTE]
 > Atualmente, há suporte para a oferta do Banco de Dados SQL uma saída do trabalho do Stream Analytics. No entanto, não há suporte para a execução de uma Máquina Virtual do Azure que executa o SQL Server com um banco de dados anexado. Isso está sujeito à mudança em versões futuras.

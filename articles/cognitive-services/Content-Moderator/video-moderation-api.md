@@ -1,5 +1,5 @@
 ---
-title: Analise o conteúdo de vídeo para material censurável em C#
+title: Analisar conteúdo de vídeo para material censurável em C# – Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Como analisar o conteúdo de vídeo de vários materiais questionáveis usando o SDK do Content Moderator for .NET
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 70fe30e53635203d80aca2406c52b2ec08d0035c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008276"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265508"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analise o conteúdo de vídeo para material censurável em C#
 
