@@ -1,30 +1,137 @@
 ---
 layout: HubPage
 hide_bc: false
-title: Documentação do Azure Active Directory - Tutoriais, Referência de API | Microsoft Docs
-description: O Azure Active Directory (Azure AD) é o serviço de gerenciamento de identidades e diretório baseado em nuvem multilocatário da Microsoft que combina os principais serviços de diretório, gerenciamento do acesso de aplicativos e proteção de identidade em uma única solução.
+title: 'Documentação do Azure Active Directory - Tutoriais, Referência de API | Microsoft Docs'
+description: 'O Azure Active Directory (Azure AD) é o serviço de gerenciamento de identidades e diretório baseado em nuvem multilocatário da Microsoft que combina os principais serviços de diretório, gerenciamento do acesso de aplicativos e proteção de identidade em uma única solução.'
 services: active-directory
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 11/30/2018
+ms.date: 01/16/2019
 ms.author: mtillman
-ms.openlocfilehash: 38efd682c530e79bdea3747bd6f14faa10d399c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723339"
 ---
+
 <div id="main" class="v2">
     <div class="container">
         <h1>Documentação do Azure Active Directory</h1>
-        <p>O Azure Active Directory (Azure AD) é um serviço de gerenciamento de identidades e diretórios multilocatário baseado em nuvem.</p>
-        <hr style="margin: 30px 0;" />
+        <p>O Azure Active Directory (Azure AD) é um serviço de gerenciamento de identidades e diretórios multilocatário baseado em nuvem.</p><p></p>
+        <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
+            <li>
+                <a href="fundamentals/active-directory-whatis.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_overview.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>O que é o Azure AD?</h3>
+                                <p>Saiba mais sobre o Azure Active Directory, incluindo os tipos de licenças disponíveis e os recursos associados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/add-custom-domain.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_get-started.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Adicionar um nome de domínio personalizado</h3>
+                                <p>Saiba como adicionar nomes de domínio da sua organização para criar nomes de usuário familiares.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/customize-branding.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Adicionar identidade visual da empresa</h3>
+                                <p>Saiba como adicionar o logotipo e o esquema de cores da sua organização às páginas de entrada do Azure AD.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/add-users-azure-active-directory.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Criar um grupo e adicionar membros</h3>
+                                <p>Saiba como criar um grupo básico e como adicionar ou remover membros.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Atribuir funções aos usuários</h3>
+                                <p>Saiba como atribuir e remover funções para os usuários, com base nas permissões necessárias.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="/learn/modules/secure-azure-resources-with-conditional-access/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Aprenda</h3>
+                                <p>Saiba como proteger seus recursos do Azure com acesso condicional</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+        </ul>
         <ul class="pivots">
             <li>
                 <a href="#products"></a>
@@ -35,59 +142,6 @@ ms.locfileid: "52723339"
                             <li class="fullSpan">
                                 <a href="#index1" data-linktype="self-bookmark"></a>
                                 <ul class="cardsF cols cols4" id="index1" style="float: left; display: flex; width: 100%; border-bottom: 1px var(--grey-lighter) solid;">  
-                                    <li>
-                                        <ul class="cardsB panelContent" id="cardtypes-B" style="float: left; display: flex; width: 100%;">
-                                            <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="fundamentals/index.yml">Conhecer os conceitos básicos</a></h3> 
-                                                                    <p>
-                                                                        <a href="fundamentals/active-directory-whatis.md">O que é o AD do Azure?</a><br>
-                                                                        <a href="fundamentals/add-custom-domain.md">Como adicionar um nome de domínio personalizado</a><br>
-                                                                        <a href="fundamentals/customize-branding.md">Adicionar identidade visual da empresa</a><br>
-                                                                        <a href="fundamentals/add-users-azure-active-directory.md">Criar um grupo e adicionar membros</a><br>
-                                                                        <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Atribuir funções a usuários</a><br>
-                                                                        <a href="fundamentals/active-directory-how-subscriptions-associated-directory.md">Associar uma assinatura do Azure</a><br>
-                                                                        <a href="fundamentals/index.yml"><i>Ver mais &gt;</i></a>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="/learn/">Desenvolver suas habilidades com o Microsoft Learn</a></h3> 
-                                                                    <p>
-                                                                        <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Proteger seus recursos do Azure com acesso condicional</a><br>
-                                                                        <a href="/learn/browse/?products=azure-active-directory"><i>Mais aprendizado interativo &gt;</i></a><br>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>
                                         <div class="cardSize">
                                             <div class="cardPadding">
@@ -125,13 +179,6 @@ ms.locfileid: "52723339"
                                                             <a href="/azure/active-directory-b2c/index"><i>Ver mais &gt;</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="conditional-access/index.yml">Acesso condicional</a></h3>
-                                                        <p>
-                                                            <a href="conditional-access/overview.md">O que é acesso condicional?</a><br>
-                                                            <a href="conditional-access/app-based-mfa.md">Exigir MFA para aplicativos específicos</a><br>
-                                                            <a href="conditional-access/location-condition.md">Condições com base no local</a><br>
-                                                            <a href="conditional-access/index.yml"><i>Ver mais &gt;</i></a>
-                                                            </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,7 +189,15 @@ ms.locfileid: "52723339"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="develop/index.yml">Desenvolvedores</a></h3>
+                                                        <h3><a href="conditional-access/index.yml">Acesso condicional</a></h3>
+                                                        <p>
+                                                            <a href="conditional-access/overview.md">O que é acesso condicional?</a><br>
+                                                            <a href="conditional-access/app-based-mfa.md">Exigir MFA para aplicativos específicos</a><br>
+                                                            <a href="conditional-access/location-condition.md">Condições com base no local</a><br>
+                                                            <a href="conditional-access/index.yml"><i>Ver mais &gt;</i></a>
+                                                            </p>
+                                                        <br><br>
+                                                           <h3><a href="develop/index.yml">Desenvolvedores</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">Sobre a plataforma de identitdade da Microsoft</a><br>
                                                             <a href="develop/v2-oauth2-auth-code-flow.md">Conceda o fluxo de código OAuth 2.0</a><br>
@@ -166,6 +221,16 @@ ms.locfileid: "52723339"
                                                             <a href="/azure/active-directory-domain-services/index"><i>Ver mais &gt;</i></a>
                                                         </p>
                                                         <br><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
                                                         <h3><a href="users-groups-roles/index.yml">Usuários corporativos</a></h3>
                                                         <p>
                                                             <a href="users-groups-roles/groups-create-rule.md">Criar um grupo dinâmico</a><br>
@@ -181,16 +246,7 @@ ms.locfileid: "52723339"
                                                             <a href="hybrid/how-to-connect-install-custom.md">Instalação personalizada do Azure AD Connect</a><br>
                                                             <a href="hybrid/index.yml"><i>Ver mais &gt;</i></a>
                                                         </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
+                                                        <br><br>
                                                         <h3><a href="governance/index.yml">Governança de identidade</a></h3>
                                                         <p>
                                                             <a href="governance/create-access-review.md">Criar uma revisão de acesso</a><br>
@@ -206,8 +262,17 @@ ms.locfileid: "52723339"
                                                             <a href="identity-protection/howto-unblock-user.md">Como desbloquear usuários</a><br>
                                                             <a href="identity-protection/index.yml"><i>Ver mais &gt;</i></a>
                                                         </p>
-                                                        <br><br>
-                                                        <h3><a href="managed-identities-azure-resources/index.yml">Identidades gerenciadas para os recursos do Azure</a></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3><a href="privileged-identity-management/index.yml">Identidades gerenciadas para os recursos do Azure</a></h3>
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Usar uma VM do Windows para acessar o SQL do Azure</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Usar uma VM do Azure para a aquisição de tokens</a><br>
