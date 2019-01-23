@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7f7fe545c10d80fc5a201923679b7d61623786fb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193783"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229839"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -109,7 +109,7 @@ O Monitor de Desempenho de Rede usa transações sintéticas para monitorar o de
 
 4. Na página **Configuração**, você vê a opção de instalar agentes do Log Analytics e configurar os agentes para monitoramento na visualização **Configurações Comuns**. Como explicado anteriormente, se você instalou e configurou os agentes do Log Analytics, selecione a exibição **Configuração** para configurar o recurso que você deseja usar. 
 
-   **Monitor de Desempenho**: escolha qual protocolo usar para transações sintéticas na **regra de monitor de desempenho Padrão** e clique em **Salvar e continuar**. Esta seleção de protocolo só mantém a regra padrão gerada pelo sistema. Você precisa escolher o protocolo sempre que criar uma regra de Monitor de Desempenho explicitamente. Você sempre pode mover para as configurações de regra **Padrão** na guia do **Monitor de Desempenho** (que aparece depois de concluir a configuração do dia 0) e alterar o protocolo mais tarde. Se você não quiser o recurso de Monitor de Desempenho, você pode desabilitar a regra padrão nas configurações de regra **Padrão** na guia do **Monitor de Desempenho**.
+   **Monitor de Desempenho**: escolha qual protocolo usar para transações sintéticas na **regra de monitor de desempenho Padrão** e clique em **Salvar e continuar**. Esta seleção de protocolo só mantém a regra padrão gerada pelo sistema. Você precisa escolher o protocolo sempre que criar uma regra de Monitor de Desempenho explicitamente. Você sempre pode mover para as configurações de regra **Padrão** na guia do **Monitor de Desempenho** (que aparece depois de concluir a configuração do dia 0) e alterar o protocolo mais tarde. Se você não deseja usar a funcionalidade de Monitor de Desempenho, você pode desabilitar a regra padrão nas configurações de regra **Padrão** na guia do **Monitor de Desempenho**.
 
    ![Execução do Monitor de Desempenho](media/network-performance-monitor/npm-synthetic-transactions.png)
     
@@ -270,7 +270,7 @@ Se for um usuário NPM criando um alerta por meio do Portal do Azure:
 4. Quando o alerta for criado com êxito, você poderá usar o link Gerenciar Alertas para gerenciar seus alertas. 
 
 Cada vez que você cria um alerta, o NPM cria uma regra de alerta de log de consulta com base no Azure Monitor. Essa consulta é disparada a cada 5 minutos por padrão. O monitor do Azure não cobra pelas primeiras 250 regras de alerta criadas de log e quaisquer regras de alerta acima limitam de 250 regras de alerta de log serão cobradas de acordo com os [alertas de preços na página de preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-As notificações são cobradas separadamente de acordo com as [notificações de preços na página de preço do Azure Monitor ](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+As notificações são cobradas separadamente de acordo com as [notificações de preços na página de preço do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 
 ## <a name="pricing"></a>Preços

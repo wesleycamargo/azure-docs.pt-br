@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606751"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246867"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ O Azure impõe uma cota de IOPS por disco de dados. Essas cotas são diferentes 
 
 > [!NOTE]
 > Para se beneficiar do Azure exclusivo do [SLA de única VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) todos os discos anexados precisam ser do tipo de Armazenamento Premium do Azure, incluindo o VHD de base.
->
+
+
+> [!NOTE]
+> Não há suporte para a hospedagem de arquivos de dados principais (arquivos de dados e log) de bancos de dados SAP em hardware de armazenamento localizado em datacenters de terceiros colocalizados adjacentes a datacenters do Azure. Para cargas de trabalho SAP, apenas armazenamento que é representado como nativo do serviço do Azure tem suporte para os arquivos de log de transações e dados de bancos de dados SAP.
+> 
 
 O posicionamento de arquivos de banco de dados e arquivos de log/refazer e o tipo de Armazenamento do Azure usado devem ser definidos por requisitos de taxa de transferência, latência e IOPS. Para ter IOPS suficiente, você poderá ser forçado a aproveitar vários discos ou usar um disco de Armazenamento Premium maior. No caso de usar vários discos, você criaria uma distribuição de software entre discos, que contêm os arquivos de dados ou arquivos de log/refazer. Nesses casos, o IOPS e SLAs de discos do Armazenamento Premium subjacentes ou o máximo de discos de IOPS de armazenamento Standard do Azure que podem ser obtido da taxa de transferência de disco são cumulativos para o conjunto resultante de distribuição.
 

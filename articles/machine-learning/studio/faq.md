@@ -1,26 +1,8 @@
 ---
-title: Perguntas frequentes sobre o Machine Learning Studio (FAQs) - Azure | Microsoft Docs
-description: 'Azure Machine Learning Studio: perguntas frequentes sobre faturamento, funcionalidades e limitações de um serviço de nuvem para modelagem preditiva simplificada.'
-keywords: introdução ao aprendizado de máquina, modelagem preditiva, o que é aprendizado de máquina
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/02/2017
-ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091267"
+Título: Perguntas frequentes sobre o Machine Learning Studio – titleSuffix: Descrição do Azure Machine Learning Studio: “Azure Machine Learning Studio: perguntas frequentes sobre faturamento, funcionalidades e limitações de um serviço de nuvem para modelagem preditiva simplificada.”
+serviços: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceitual
+
+autor: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/06/2017
 ---
 # <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Perguntas frequentes do Azure Machine Learning Studio: Cobrança, funcionalidades, limitações e suporte
 Aqui estão algumas perguntas frequentes e as respostas correspondentes sobre o Azure Machine Learning, um serviço de nuvem para o desenvolvimento de modelos de previsão e soluções de operacionalização por meio de serviços Web. Essas perguntas frequentes fornecem perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583061"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201067"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e restauração de máquinas virtuais criptografadas usando o Backup do Azure
 Este artigo descreve as etapas para fazer backup e restaurar VMs (máquinas virtuais) usando o Backup do Azure. Ele também oferece detalhes sobre os cenários com suporte, os pré-requisitos e as etapas de solução de problemas para casos de erro.
@@ -128,6 +128,8 @@ Use as etapas a seguir para fornecer as permissões relevantes para o Backup ace
 Após as permissões terem sido concedidas com êxito, você poderá continuar com a habilitação do backup para VMs criptografadas.
 
 ## <a name="restore-an-encrypted-vm"></a>Restaurar uma VM criptografada
+O Backup do Azure agora dá suporte à restauração de [VM criptografada do Azure sem o Azure AD](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad), além da oferta anterior de restaurar o suporte para VM criptografada do Azure com o Azure AD.<br>
+
 Para restaurar uma VM criptografada, primeiro restaure os discos seguindo as etapas na seção "Restaurar discos com backup" em [Escolha uma configuração de restauração de VM](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Depois disso, você pode usar uma das seguintes opções:
 
 * Use as etapas do PowerShell em [Criar uma VM de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar uma VM completa de discos restaurados.

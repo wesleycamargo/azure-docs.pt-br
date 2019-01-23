@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: b0aaa27164c84a06c6fad92d5036a00ca5a319f8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 10b82a6c51f8fc31b5b6f4b8c661f764fc6b309d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421722"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198823"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Azure Active Directory com o Tableau Online
+# <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Azure Active Directory ao Tableau Online
 
 Neste tutorial, você aprenderá a integrar o Tableau Online ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Tableau Online da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/tableauonline-tutorial/tutorial_tableauonline_url.png)
     
-    a. Na caixa de texto **URL de Logon**, digite a URL: `https://sso.online.tableau.com`
+     a. Na caixa de texto **URL de Logon**, digite a URL: `https://sso.online.tableau.com`
 
     b. Na caixa de texto **Identificador**, digite a URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
 
@@ -138,7 +138,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Na seção **Corresponder Instruções de Declaração**, insira o nome de instrução de declaração do Provedor de Identidade correspondente para **endereço de email**, **nome** e **sobrenome**. Para obter essas informações do Azure AD: 
   
-    a. No portal do Azure, acesse a página de integração de aplicativos do **Tableau Online**.
+     a. No portal do Azure, acesse a página de integração de aplicativos do **Tableau Online**.
     
     b. Na seção Atributos, marque a caixa de seleção **“Exibir e editar todos os outros atributos de usuário”**. 
     

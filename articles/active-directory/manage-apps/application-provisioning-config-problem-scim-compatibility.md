@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: aa7169e29ec46abc1c7de2858a118745e7363411
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6aa4be204070423f91a2a4494b89a0bb8c8f5926
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587204"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258708"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -54,7 +54,7 @@ Para obter informações sobre como migrar um trabalho de provisionamento pré-e
 Sim. Se você já estiver usando essa instância de aplicativo para logon único e precisa migrar o trabalho de provisionamento existente para incluir as correções mais recentes, siga o procedimento abaixo. Este procedimento descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para remover o trabalho de provisionamento antigo do seu aplicativo SCIM existente e criar um novo que exibe o novo comportamento.
 
 > [!NOTE]
-> Se seu aplicativo ainda estiver em desenvolvimento e ainda não tiver sido implantado para o logon único ou provisionamento do usuário, a solução mais fácil é excluir a entrada do aplicativo na seção **Microsoft Azure Active Directory > Aplicativos Enterprise** do portal do Azure e simplesmente adicionar uma nova entrada para o aplicativo usando a opção **Criar aplicativo > Inexistente na galeria**. Isso é uma alternativa para executar o procedimento abaixo.
+> Se o aplicativo ainda estiver em desenvolvimento e ainda não tiver sido implantado para o logon único ou provisionamento do usuário, a solução mais fácil será excluir a entrada do aplicativo na seção **Microsoft Azure Active Directory > Aplicativos Empresariais** do portal do Azure e simplesmente adicionar uma nova entrada para o aplicativo usando a opção **Criar aplicativo > Inexistente na galeria**. Isso é uma alternativa para executar o procedimento abaixo.
  
 1. Entre no portal do Azure em: https://portal.azure.com.
 2. Na seção **Azure Active Directory > Aplicativos Enterprise** do portal do Azure, localize e selecione o seu aplicativo de SCIM.

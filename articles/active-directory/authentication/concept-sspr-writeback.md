@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 06a3ac4520a40369c095e57f8e92978fdb280b51
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040533"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359572"
 ---
 # <a name="what-is-password-writeback"></a>O que é write-back de senha?
 
@@ -42,7 +42,7 @@ O Write-back de senha fornece:
 * **Não exige nenhuma regra de firewall de entrada**: o write-back de senha usa uma retransmissão do Barramento de Serviço do Azure como um canal de comunicação subjacente. Toda a comunicação é de saída pela porta 443.
 
 > [!Note]
-> Contas de usuários existentes em grupos protegidos no Active Directory local não podem ser usadas com o write-back de senha. Para obter mais informações sobre grupos protegidos, consulte [Contas e grupos protegidos do Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+> Contas de usuários existentes em grupos protegidos no Active Directory local não podem ser usadas com o write-back de senha. Contas de administrador existentes em grupos protegidos no AD local podem ser usadas com o write-back de senha. Para obter mais informações sobre grupos protegidos, consulte [Contas e grupos protegidos do Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento do write-back de senha
@@ -58,6 +58,7 @@ Para usar o write-back de senha, você deve ter uma das licenças a seguir atrib
 * Microsoft 365 E3 ou A3
 * Microsoft 365 E5 ou A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > Os planos de licenciamento do Office 365 autônomo *não oferecem suporte à/ao "Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local"* e exigem que você tenha um dos planos anteriores para que esse recurso funcione.

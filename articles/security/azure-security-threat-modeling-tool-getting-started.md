@@ -3,9 +3,9 @@ title: Introdução - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Esta é uma visão geral mais detalhada que destaca o Threat Modeling Tool em ação.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096767"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359469"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introdução ao Threat Modeling Tool
 
-A equipe de Ferramentas de Segurança Corporativa e na Nuvem lançou este ano a versão prévia do Threat Modeling Tool como um componente gratuito**[clique para baixar](https://aka.ms/tmtpreview)**. A alteração no mecanismo de entrega nos permite efetuar push dos aprimoramentos mais recentes e correções de bug para os clientes toda vez que eles abrem a ferramenta, facilitando a manutenção e o uso da ferramenta.
+A Microsoft Threat Modeling Tool 2018 foi lançada em GA em setembro de 2018 como um componente gratuito do tipo **[clique para baixar](https://aka.ms/threatmodelingtool)**. A alteração no mecanismo de entrega nos permite efetuar push dos aprimoramentos mais recentes e correções de bug para os clientes toda vez que eles abrem a ferramenta, facilitando a manutenção e o uso da ferramenta.
 Este artigo explica o processo de como começar a usar a abordagem de modelagem de ameaça do Microsoft Security Development Lifecycle (SDL), além de mostrar como usar a ferramenta para desenvolver excelentes modelos de ameaça como um alicerce do seu processo de segurança.
 
 Este artigo se baseia no conhecimento existente da abordagem de modelagem de ameaça do SDL. Para fazer uma análise rápida, confira **[Aplicativos Web de modelagem de ameaça](https://msdn.microsoft.com/library/ms978516.aspx)** e uma versão arquivada do artigo do MSDN **[Descubra falhas de segurança usando a abordagem STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)**, publicado em 2006.
@@ -67,14 +67,14 @@ Nesta seção, vamos seguir:
 
 Eles passarão pelo processo de desenvolver o primeiro modelo de ameaça.
 
-> Ricardo: Olá Cristina, estive trabalhando no diagrama do modelo de ameaça e quero me certificar de que entendemos os detalhes. Você pode me ajudar a examiná-lo?
+> Ricardo: Olá Cristina, estive trabalhando no diagrama do modelo de risco e quero me certificar de que entendemos os detalhes. Você pode me ajudar a examiná-lo?
 > Cristina: Com certeza. Vamos conferir isso.
 > Ricardo abre a ferramenta e compartilha sua tela com Cristina.
 
-![Modelo básico de ameaça](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
+![Modelo Básico de Ameaça](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Certo, parece claro, mas você pode me explicar?
-> Ricardo: Claro! Esta é a explicação:
+> Ricardo: Certo! Esta é a explicação:
 > - Nosso usuário humano é representado como uma entidade externa — um quadrado
 > - Ele está enviando comandos para nosso servidor Web — o círculo
 > - O servidor Web está consultando um banco de dados (duas linhas paralelas)
@@ -111,7 +111,7 @@ A descrição faz com que ele perceba a importância de adicionar um mecanismo d
 Depois que Ricardo verificou as ameaças na categoria de Divulgação de Informações, ele percebeu que o plano de controle de acesso exigia algumas contas somente leitura para auditoria e geração de relatório. Ele se perguntou se essa deveria ser uma nova ameaça, mas as mitigações eram as mesmas, de modo que ele anotou a ameaça corretamente.
 Ele também pensou um pouco mais sobre a divulgação de informações e percebeu que as fitas de backup precisariam de criptografia, um trabalho para a equipe de operações.
 
-As ameaças que não se aplicam ao design devido às mitigações existentes ou garantias de segurança podem ser alteradas para "Não Aplicável" no menu suspenso Status. Há mais três opções: Não iniciada – seleção padrão, Precisa de investigação – usada para acompanhamento de itens e Mitigada – depois que foram totalmente trabalhadas.
+As ameaças que não se aplicam ao design devido às mitigações existentes ou garantias de segurança podem ser alteradas para "Não Aplicável" no menu suspenso Status. Há três outras opções: Não iniciada – seleção padrão, Precisa de investigação – usada para acompanhamento de itens e Mitigada – depois que todo o trabalho possível foi realizado.
 
 ## <a name="reports--sharing"></a>Relatórios e compartilhamento
 
@@ -143,4 +143,4 @@ A abordagem à modelagem de ameaça que apresentamos aqui é consideravelmente s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Envie seus comentários, dúvidas e preocupações para tmtextsupport@microsoft.com. **[Baixe](https://aka.ms/tmtpreview)** a ferramenta Threat Modeling Tool para começar a usá-la hoje mesmo.
+Envie seus comentários, dúvidas e preocupações para tmtextsupport@microsoft.com. **[Baixe](https://aka.ms/threatmodelingtool)** a ferramenta Threat Modeling Tool para começar a usá-la hoje mesmo.
