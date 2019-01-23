@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: 28bd314e2dd179d83d2880e3acbf39805b54d333
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2861b0d1b7ac24a8e881ff052b865ca0384a55d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263943"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464762"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>A multilocação no Azure Stack
 
@@ -158,3 +158,5 @@ Se você não quiser mais vários locatários no Azure Stack, você pode desabil
 
 - [Gerenciar provedores delegados](azure-stack-delegated-provider.md)
 - [Conceitos principais de pilha do Azure](azure-stack-key-features.md)
+- [Gerenciar o uso e a cobrança para o Azure Stack como um Provedor de Serviços de Nuvem](azure-stack-add-manage-billing-as-a-csp.md)
+- [Adicionar o locatário para uso e cobrança para o Azure Stack](azure-stack-csp-howto-register-tenants.md)

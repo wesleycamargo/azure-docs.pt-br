@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 170cf458496d91a28260296e2aba803d76fbc06b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 90910580fd7fc766376569de3ce43fc5ce297e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388825"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469195"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de escala no Azure Stack
 
@@ -148,9 +148,25 @@ Quando você executa a ação de reparo, você precisa especificar o endereço I
 
 Para executar a ação de reparo, abra um prompt do PowerShell com privilégios elevados e execute o seguinte cmdlet:
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Shutdown
+
+O **desligamento** fist ação move todas as cargas de trabalho ativas para os nós restantes na mesma unidade de escala. Em seguida, a ação desliga normalmente o nó de unidade de escala.
+
+Depois de iniciar um nó que foi desligado, você precisará executar o [retomar](#resume) ação. As cargas de trabalho anteriores que estavam em execução no nó não realizar o failback.
+
+Se a operação de desligamento falhar, tente o [drenar](#drain) operação seguido da operação de desligamento.
+
+Para executar a ação de desligamento, abra um prompt do PowerShell com privilégios elevados e execute o seguinte cmdlet:
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
