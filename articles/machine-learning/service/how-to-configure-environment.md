@@ -1,7 +1,7 @@
 ---
 title: Configurar um ambiente de desenvolvimento do Python
 titleSuffix: Azure Machine Learning service
-description: Saiba como configurar um ambiente de desenvolvimento ao trabalhar com o serviço do Azure Machine Learning. Neste artigo, você aprenderá como usar os ambientes do Conda, criar arquivos de configuração e configurar o Jupyter Notebooks, Azure Notebooks, os IDEs, editores de códigos e a Máquina Virtual de Ciência de Dados.
+description: Saiba como configurar um ambiente de desenvolvimento ao trabalhar com o serviço do Azure Machine Learning. Neste artigo, você aprenderá como usar os ambientes do Conda, criar arquivos de configuração e configurar Jupyter Notebooks, Azure Notebooks, Azure Databricks, IDEs, editores de códigos e Máquina Virtual de Ciência de Dados.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/14/2018
 ms.custom: seodec18
-ms.openlocfilehash: 46a1872d2ac5d1670620148edf7ee273580826d3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811266"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353219"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -108,7 +108,7 @@ O SDK do Azure Machine Learning funciona na versão da DSVM para Ubuntu ou Windo
             az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
             ```    
 
-2. O SDK do Azure Machine Learning já está instalado na DSVM. Para usar o ambiente Conda que contém o SDK, use um dos seguintes comandos:
+2. O SDK do Azure Machine Learning já está instalado na DSVM. Para usar o ambiente do Conda que contém o SDK, use um dos seguintes comandos:
 
     * Para DSVM do Ubuntu:
 
@@ -212,7 +212,7 @@ O procedimento na seção [Computador local](#local) instala componentes opciona
 
 ### <a id="vscode"></a>Visual Studio Code
 
-O Visual Studio Code é um editor de código multiplataforma. Ele se baseia em uma instalação local do Python 3 e do Conda para suporte de Python, mas fornece ferramentas adicionais para trabalhar com Inteligência Artificial. Ele também dá suporte para selecionar o ambiente Conda de dentro do editor de código.
+O Visual Studio Code é um editor de código multiplataforma. Ele se baseia em uma instalação local do Python 3 e do Conda para suporte de Python, mas fornece ferramentas adicionais para trabalhar com Inteligência Artificial. Ele também dá suporte para selecionar o ambiente do Conda de dentro do editor de código.
 
 Para usar o Visual Studio Code para desenvolvimento, faça o seguinte:
 
@@ -242,12 +242,55 @@ Use uma versão personalizada do SDK do Azure Machine Learning para Azure Databr
 
 Para preparar o cluster do Databricks e obter notebooks de exemplo:
 
-1. Crie um [cluster do Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) com o Databricks Runtime versão 4.x (alta simultaneidade preferencial) com o Python 3. 
+1. Crie um [cluster do Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) com as seguintes configurações:
 
-1. Para instalar e anexar o SDK do Azure Machine Learning do pacote PyPi `azureml-sdk[databricks]` do Python ao cluster, [crie uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library).  
-    Quando concluir, a biblioteca será anexada conforme mostrado na imagem a seguir. Esteja ciente destes [problemas comuns do Databricks](resource-known-issues.md#databricks).
+    | Configuração | Valor |
+    |----|---|
+    | Nome do cluster | nomedoseucluster |
+    | Databricks Runtime | Qualquer tempo de execução não ML (não ML 4.x, 5.x) |
+    | Versão do Python | 3 |
+    | Trabalhos | 2 ou superior |
 
-   ![SDK instalado no Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+    Use essas configurações somente se você for usar o aprendizado de máquina automatizado no Databricks:
+    
+    |   Configuração | Valor |
+    |----|---|
+    | Tipos de VM do nó de trabalho | Uma VM otimizada para memória é preferível |
+    | Habilitar o dimensionamento automático | Desmarcar |
+    
+    O número de nós de trabalho no seu cluster do Databricks determina o número máximo de iterações simultâneas em configurações de ML Automatizado.  
+
+    São necessários alguns minutos para criar o cluster. Aguarde até que o cluster está em execução antes de continuar.
+
+1. Instale um pacote de SDK do Azure Machine Learning e anexe-o ao cluster.  
+
+    * [Crie uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) com uma dessas configurações (_escolher apenas uma dessas opções_):
+    
+        * Para instalar o SDK do Azure Machine Learning _sem_ a funcionalidade de aprendizado de máquina automatizado:
+            | Configuração | Valor |
+            |----|---|
+            |Fonte | Carregar Python Egg ou PyPI
+            |Nome do PyPi | azureml-sdk[databricks]
+    
+        * Para instalar o SDK do Azure Machine Learning _com_ aprendizado de máquina automatizado:
+            | Configuração | Valor |
+            |----|---|
+            |Fonte | Carregar Python Egg ou PyPI
+            |Nome do PyPi | azureml-sdk[automl_databricks]
+    
+    * Não selecione **Anexar automaticamente a todos os clusters**
+
+    * Selecione **Anexar** ao lado do nome do cluster
+
+    * Verifique se não há nenhum erro até que o status seja alterado para **Anexado**. Isso poderá levar alguns minutos.
+
+    Se você tiver uma versão antiga do SDK, anule sua seleção das bibliotecas instaladas do cluster e mova-a para a lixeira. Instale a nova versão do SDK e reinicie o cluster. Se houver um problema depois de fazer isso, desanexe e anexe novamente o cluster.
+
+    Quando concluir, a biblioteca será anexada conforme mostrado nas imagens a seguir. Esteja ciente destes [problemas comuns do Databricks](resource-known-issues.md#databricks).
+
+    * Se você instalou o SDK do Azure Machine Learning _sem_ aprendizado de máquina automatizado ![SDK sem aprendizado de máquina automatizado instalado no Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+
+    * Se você instalou o SDK do Azure Machine Learning _com_ aprendizado de máquina automatizado ![SDK com aprendizado de máquina automatizado instalado no Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
    Se esta etapa falhar, reinicie o cluster fazendo o seguinte:
 
@@ -257,13 +300,12 @@ Para preparar o cluster do Databricks e obter notebooks de exemplo:
 
    c. Na guia **Bibliotecas**, selecione **Reiniciar**.
 
-1. Baixe o [arquivo morto do notebook do SDK do Azure Machine Learning/Azure Databricks](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc).
+1. Baixe o [arquivo morto do notebook do SDK do Azure Machine Learning/Azure Databricks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc).
 
    >[!Warning]
    > Muitos notebooks de exemplo estão disponíveis para uso com o serviço do Azure Machine Learning. Apenas [esses notebooks de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionam com o Azure Databricks.
-   > 
 
-1.  [Importe esse arquivo morto](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) no cluster do Databricks e comece a explorar, conforme descrito na página [Notebooks do Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks).
+1.  [Importe o arquivo de arquivo morto](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) no cluster do Databricks e comece a explorar, conforme descrito na página [Notebooks do Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks).
 
 
 ## <a id="workspace"></a>Criar um arquivo de configuração do workspace
@@ -311,6 +353,6 @@ Para usar esse arquivo de seu código, use `ws=Workspace.from_config()`. Esse c�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Treinar um modelo no Azure Machine Learning com o conjunto de dados MNIST](tutorial-train-models-with-aml.md)
-- [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk)
-- [SDK de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk)
+- [Treinar um modelo](tutorial-train-models-with-aml.md) no Azure Machine Learning com o conjunto de dados do MNIST
+- Veja a referência do [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk)
+- Saiba mais sobre o [SDK de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk)

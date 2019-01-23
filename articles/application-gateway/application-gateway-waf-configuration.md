@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: bed406f90c8da62919337c1fa9f30221b0ba8d90
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752717"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353185"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de solicitação e listas de exclusões de firewall do aplicativo Web
 
@@ -22,10 +22,10 @@ O WAF (firewall de aplicativo Web) do Gateway de Aplicativo do Azure fornece pro
 
 ![Limites de tamanho de solicitação](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
 
-O firewall do aplicativo Web permite aos usuários configurar limites de tamanho de solicitação dentro de limites inferior e superior. As duas configurações de limites de tamanho a seguir estão disponíveis:
+O firewall do aplicativo Web permite a você configurar limites de tamanho de solicitação dentro de limites inferior e superior. As duas configurações de limites de tamanho a seguir estão disponíveis:
 
 - O campo de tamanho de corpo de solicitação máximo é especificado em KBs e controla o limite de tamanho de solicitação geral excluindo qualquer carregamento de arquivo. Este campo pode variar de mínimo de 1 KB para o valor máximo de 128 KB. O valor padrão para o tamanho do corpo da solicitação é 128 KB.
-- O campo de limite de carregamento de arquivo é especificado em MB e controla o tamanho máximo de carregamento de arquivos permitido. Esse campo pode ter um valor mínimo de 1 MB e um máximo de 500 MB. O valor padrão para o limite de carregamento de arquivos é 100 MB.
+- O campo de limite de carregamento de arquivo é especificado em MB e controla o tamanho máximo de carregamento de arquivos permitido. Esse campo pode ter um valor mínimo de 1 MB e um máximo de 500 MB para instâncias de SKU grande, enquanto o SKU médio tem um máximo de 100 MB. O valor padrão para o limite de carregamento de arquivos é 100 MB.
 
 O WAF também oferece um botão configurável para ativar ou desativar a inspeção de corpo da solicitação. Por padrão, a inspeção de corpo da solicitação está habilitada. Se a inspeção de corpo da solicitação estiver desativada, o WAF não avalia o conteúdo do corpo da mensagem HTTP. Nesses casos, o WAF continua a impor regras de WAF no URI, cookies e cabeçalhos. Se a inspeção do corpo da solicitação estiver desativada, o campo de tamanho máximo do corpo da solicitação não será aplicável e não poderá ser definido. Desativar a inspeção de corpo da solicitação permite que mensagens maiores que 128 KB sejam enviadas ao WAF, mas o corpo da mensagem não é inspecionado quanto a vulnerabilidades.
 
@@ -33,7 +33,7 @@ O WAF também oferece um botão configurável para ativar ou desativar a inspeç
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
-As listas de exclusão de WAF permitem aos usuários omitir certos atributos de solicitação de uma avaliação de WAF. Um exemplo comum são os tokens inseridos do Active Directory que são usados para autenticação ou campos de senha. Esses atributos são propensos a conter os caracteres especiais que podem disparar um falso positivo das regras de WAF. Depois que um atributo é adicionado à lista de exclusão do WAF, ele não é levado em consideração por nenhuma regra do WAF configurada e ativa. As listas de exclusão são globais em escopo.
+As listas de exclusões do WAF permitem a você omitir certos atributos de solicitação de uma avaliação do WAF. Um exemplo comum são os tokens inseridos do Active Directory que são usados para autenticação ou campos de senha. Esses atributos são propensos a conter os caracteres especiais que podem disparar um falso positivo das regras de WAF. Depois que um atributo é adicionado à lista de exclusões do WAF, ele não é levado em consideração por nenhuma regra do WAF configurada e ativa. As listas de exclusão são globais em escopo.
 
 Os seguintes atributos podem ser adicionados a listas de exclusão:
 
@@ -55,6 +55,40 @@ A seguir estão os operadores de critérios de correspondência com suporte:
 - **Contém**: Esse operador corresponde com todos os campos de solicitação que contenham o valor do seletor especificado.
 
 Em todos os casos, a correspondência diferencia maiúsculas de minúsculas e a expressão regular não é permitida como seletor.
+
+### <a name="examples"></a>Exemplos
+
+O seguinte snippet do Azure PowerShell demonstra o uso de exclusões:
+
+```azurepowershell
+// exclusion 1: exclude request head start with xyz
+// exclusion 2: exclude request args equals a
+
+$exclusion1 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
+
+$exclusion2 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
+
+// add exclusion lists to the firewall config
+
+$firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+```
+
+O seguinte snippet de código JSON demonstra o uso de exclusões:
+
+```json
+"webApplicationFirewallConfiguration": {
+          "enabled": "[parameters('wafEnabled')]",
+          "firewallMode": "[parameters('wafMode')]",
+          "ruleSetType": "[parameters('wafRuleSetType')]",
+          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
+          "disabledRuleGroups": [],
+          "exclusions": [
+            {
+                "matchVariable": "RequestArgNames",
+                "selectorMatchOperator": "StartsWith",
+                "selector": "a^bc"
+            }
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

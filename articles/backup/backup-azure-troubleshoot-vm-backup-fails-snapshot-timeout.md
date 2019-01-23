@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789850"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353950"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de Backup do Azure: Problemas com o agente ou extensão
 
@@ -52,7 +52,7 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 * Esse problema também pode ocorrer se vários backups são disparados por dia. No momento, é recomendável fazer apenas um backup por dia, já que os pontos de recuperação instantâneos são mantidos por 7 dias e apenas 18 pontos de recuperação instantâneos podem ser associados a uma VM em um determinado momento. <br>
 
 Ação recomendada:<br>
-Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repita a operação para disparar a limpeza. 
+Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repita a operação para disparar a limpeza.
 > [!NOTE]
     > O serviço de backup cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de Backup. O formato de nomenclatura do grupo de recursos criado pelo serviço de Backup é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
@@ -105,14 +105,14 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 **Erro de código**: UserErrorUnsupportedDiskSize <br>
 **Mensagem de erro**: Atualmente, o Backup do Azure não dá suporte a tamanhos de disco maiores que 1.023 GB <br>
 
-Sua operação de backup pode falhar ao fazer o backup da VM com tamanho de disco maior que 1023 GB, pois o seu cofre não é atualizado para a pilha V2 do VM Backup do Azure. A atualização para a pilha V2 do Backup do VMware do Azure fornecerá suporte de até 4 TB. Analise esses [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e, em seguida, faça o upgrade seguindo estas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+Sua operação de backup pode falhar ao fazer o backup da VM com tamanho de disco maior que 1.023 GB, pois o seu cofre não é atualizado para Restauração Instantânea. A atualização para Restauração Instantânea dará suporte a até 4 TB, confira este [artigo](backup-instant-restore-capability.md).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - Atualmente, o Backup do Azure não suporta discos SSD padrão
 
 **Erro de código**: UserErrorStandardSSDNotSupported <br>
 **Mensagem de erro**: Atualmente, o Backup do Azure não dá suporte para discos SSD padrão <br>
 
-Atualmente, o Backup do Azure oferece suporte a discos SSD padrão apenas para os vaults atualizados para a pilha V2 do VM Backup do Azure. Analise esses [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) e, em seguida, faça o upgrade seguindo estas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+Atualmente, o Backup do Azure dá suporte a discos SSD Standard apenas para os cofres atualizados para a [Restauração Instantânea](backup-instant-restore-capability.md).
 
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
@@ -122,33 +122,8 @@ Devido ao requisito de implantação, a VM não tem acesso à Internet. Ou, talv
 
 Para funcionar corretamente, a extensão de Backup exige conectividade com endereços IP públicos do Azure. A extensão envia comandos para um ponto de extremidade de armazenamento do Azure (URL de HTTP) para gerenciar os instantâneos da VM. Se a extensão não tiver acesso à Internet pública, o backup, eventualmente, falhará.
 
-É possível implantar um servidor proxy para rotear o tráfego VM.
-##### <a name="create-a-path-for-https-traffic"></a>Criar um caminho para o tráfego HTTP
-
-1. Se você tiver restrições de rede (por exemplo, um grupo de segurança de rede), implante um servidor proxy HTTPs para rotear o tráfego.
-2. Para permitir o acesso à Internet por meio do servidor proxy HTTP, adicione regras ao grupo de segurança de rede, se você tiver um.
-
-Para saber como configurar um proxy HTTP para backups VM, veja [Preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
-A VM de backup ou o servidor proxy por meio do qual o tráfego é roteado requer acesso a endereços IP públicos do Azure
-
 ####  <a name="solution"></a>Solução
-Para resolver o problema, tente usar um dos seguintes métodos:
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Permitir o acesso ao armazenamento do Azure correspondente à região
-
-Você pode usar [marcas de serviço](../virtual-network/security-overview.md#service-tags) para permitir conexões ao armazenamento da região específica. Verifique se a regra que permite o acesso à conta de armazenamento tem prioridade maior que a regra que bloqueia o acesso à Internet.
-
-![Grupo de segurança de rede com marcas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-Para entender o procedimento passo a passo para configurar marcações de serviço, assista [este vídeo](https://youtu.be/1EjLQtbKm1M).
-
-> [!WARNING]
-> As marcas de serviço de armazenamento estão em versão prévia. Eles estão disponíveis somente em regiões específicas. Para obter a lista de regiões, consulte [Marcas de serviço para armazenamento](../virtual-network/security-overview.md#service-tags).
-
-Se você usa o Managed Disks do Azure, pode ser necessário abrir outra porta (porta 8443) nos firewalls.
-
-Além disso, se sua sub-rede não tiver uma rota para o tráfego de saída da Internet, você precisará adicionar um ponto de extremidade de serviço com a marca de serviço "Microsoft.Storage" à sua sub-rede.
+Para resolver o problema de rede, confira [Estabelecer conectividade de rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado na VM, mas sem resposta (para VMs do Windows)
 

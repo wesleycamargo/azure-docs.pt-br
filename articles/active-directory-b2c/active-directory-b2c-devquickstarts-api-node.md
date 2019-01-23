@@ -10,15 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 47b501fef8d6e0e3fecf944e3b67d563b8cce5eb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5c89673f6154c77a40fb71ae483151998596e7fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117904"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354409"
 ---
-# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Proteger uma API Web usando Node.js
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
+# <a name="secure-a-web-api-by-using-nodejs-in-azure-active-directory-b2c"></a>Proteger uma API Web usando o Node.js no Azure Active Directory B2C
 
 Com o Active Directory B2C do Azure (AD do Azure), você pode proteger uma API Web usando tokens de acesso do OAuth 2.0. Esses tokens permitem que os aplicativos cliente que usem o AD B2C do Azure se autentiquem na API. Este artigo mostra como criar uma API de "lista de tarefas" que permite aos usuários adicionar e listar tarefas. A API Web é protegida usando o Azure AD B2C e permite que apenas usuários autenticados gerenciem sua lista de tarefas pendentes.
 
@@ -36,7 +35,7 @@ Para realizar este exemplo, você precisa:
 3. Configurar um aplicativo cliente para chamar a API Web de "lista de tarefas pendentes".
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório AD B2C do Azure
-Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário.  Um diretório é um contêiner para todos os usuários, aplicativos, grupos e muito mais.  Se você ainda não tiver um, [crie um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir.
+Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário.  Um diretório é um contêiner para todos os usuários, aplicativos, grupos e muito mais.  Se você ainda não tiver um, [crie um diretório B2C](tutorial-create-tenant.md) antes de prosseguir.
 
 ## <a name="create-an-application"></a>Criar um aplicativo
 Em seguida, você precisa criar um aplicativo no diretório B2C, que dá ao Azure AD algumas informações de que ele precisa para se comunicar de forma segura com o aplicativo. Nesse caso, o aplicativo cliente e a API Web são representados por uma única **ID de aplicativo**, pois eles abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
@@ -47,17 +46,13 @@ Em seguida, você precisa criar um aplicativo no diretório B2C, que dá ao Azur
 * Copie a **ID de aplicativo** atribuída ao aplicativo. Você precisa destes dados mais tarde.
 
 ## <a name="create-your-policies"></a>Criar suas políticas
-No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). O aplicativo contém duas experiências de identidade: inscrever-se e entrar. Você precisa criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  Ao criar as três políticas, não deixe de:
+No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém duas experiências de identidade: inscrever-se e entrar. Você precisa criar uma política de cada tipo.  Ao criar as políticas, não se esqueça de:
 
 * Escolher o **Nome de exibição** e outros atributos de inscrição em sua política de inscrição.
 * Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas.  Você pode escolher outras declarações também.
 * Copie o **Nome** de cada política após criá-la. Ele deve ter o prefixo `b2c_1_`.  Mais tarde, você precisará desses nomes de política.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-Depois de criar as três políticas, você estará pronto para compilar o aplicativo.
-
-Para saber mais sobre o funcionamento das políticas no Azure AD B2C, comece com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Depois de criar as políticas, você estará pronto para compilar o aplicativo.
 
 ## <a name="download-the-code"></a>Baixar o código
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). Para compilar o exemplo à medida que avançar, [baixe um projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). Também é possível clonar o esqueleto:

@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 11/14/2018
-ms.openlocfilehash: 9385ccf61f8cb8de0b3a459ac00c05b32d2630e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 99039c4d6abb8a839886e9d623e92c9fb2c41787
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536875"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353321"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é o Banco de Dados do Azure para MySQL?
 O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional na nuvem da Microsoft com base no mecanismo de banco de dados [MySQL Community Edition](https://www.mysql.com/products/community/), versões 5.6 e 5.7. O Banco de Dados do Azure para MySQL fornece:
@@ -47,7 +47,7 @@ O SLA (Contrato de Nível de Serviço) de disponibilidade de 99,99% do Azure, qu
 ## <a name="secure-your-data"></a>Proteja seus dados
 Os serviços de banco de dados do Azure têm uma tradição de segurança de dados que o Banco de Dados do Azure para MySQL mantém, com recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam a monitorar atividades. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
-O serviço Banco de Dados do Azure para MySQL usa a criptografia de armazenamento para dados em repouso. Os dados incluindo backups são criptografados no disco (com exceção dos arquivos temporários que são criados pelo mecanismo durante a execução de consultas). O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
+O serviço Banco de Dados do Azure para MySQL usa a criptografia de armazenamento para dados em repouso e está em conformidade com FIPS 140-2. Os dados incluindo backups são criptografados no disco (com exceção dos arquivos temporários que são criados pelo mecanismo durante a execução de consultas). O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
 Por padrão, o serviço Banco de Dados do Azure para MySQL está configurado para exigir a [segurança da conexão SSL](./concepts-ssl-connection-security.md) para dados em movimento em toda a rede. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo. Como opção, você pode desabilitar a exigência de SSL para conectar ao seu serviço de banco de dados, se seu aplicativo cliente não oferecer suporte à conectividade SSL.
 

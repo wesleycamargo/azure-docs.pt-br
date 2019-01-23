@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 4/12/2018
+ms.date: 1/16/2019
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714824"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353049"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
 O **Log de Atividades do Azure** é um log que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo descreve o esquema de evento por categoria de dados. O esquema dos dados é diferente e depende se você está lendo os dados no portal, no PowerShell, na CLI ou diretamente por meio da API REST comparado à [transmissão dos dados para o armazenamento ou para os Hubs de Eventos usando um Perfil de Log](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema disponibilizado por meio do portal, do PowerShell, da CLI e da API REST. Um mapeamento dessas propriedades para o [esquema de logs de diagnóstico do Azure](./tutorial-dashboards.md) é fornecido no final do artigo.
@@ -648,6 +648,123 @@ Esta categoria contém o registro das novas recomendações geradas para os serv
 | properties.recommendationCategory | Categoria da recomendação. Os valores possíveis são "Alta Disponibilidade", "Desempenho", "Segurança" e "Custo" |
 | properties.recommendationImpact| Impacto da recomendação. Os valores possíveis são "Alto", "Médio" ou "Baixo" |
 | properties.recommendationRisk| Risco da recomendação. Os valores possíveis são "Erro", "Aviso" e "Nenhum" |
+
+## <a name="policy"></a>Política
+
+Essa categoria contém registros de todas as operações de ação de efeito executadas pelo [Azure Policy](../../governance/policy/overview.md). Os exemplos dos tipos de eventos que você vê nessa categoria incluem _Auditar_ e _Negar_. Cada ação tomada pelo Policy é modelada como uma operação em um recurso.
+
+### <a name="sample-policy-event"></a>Evento do Policy de exemplo
+
+```json
+{
+    "authorization": {
+        "action": "Microsoft.Resources/checkPolicyCompliance/read",
+        "scope": "/subscriptions/<subscriptionID>"
+    },
+    "caller": "33a68b9d-63ce-484c-a97e-94aef4c89648",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.azure.com/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "appid": "1d78a85d-813d-46f0-b496-dd72f50a3ec0",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "description": "",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Policy",
+        "localizedValue": "Policy"
+    },
+    "eventTimestamp": "2019-01-15T13:19:56.1227642Z",
+    "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy/events/13bbf75f-36d5-4e66-b693-725267ff21ce/ticks/636831551961227642",
+    "level": "Warning",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Authorization/policies/audit/action",
+        "localizedValue": "Microsoft.Authorization/policies/audit/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Sql",
+        "localizedValue": "Microsoft SQL"
+    },
+    "resourceType": {
+        "value": "Microsoft.Resources/checkPolicyCompliance",
+        "localizedValue": "Microsoft.Resources/checkPolicyCompliance"
+    },
+    "resourceId": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-01-15T13:20:17.1077672Z",
+    "subscriptionId": "<subscriptionID>",
+    "properties": {
+        "isComplianceCheck": "True",
+        "resourceLocation": "westus2",
+        "ancestors": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "policies": "[{\"policyDefinitionId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.
+            Authorization/policyDefinitions/5775cdd5-d3d3-47bf-bc55-bb8b61746506/\",\"policyDefiniti
+            onName\":\"5775cdd5-d3d3-47bf-bc55-bb8b61746506\",\"policyDefinitionEffect\":\"Deny\",\"
+            policyAssignmentId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.Authorization
+            /policyAssignments/991a69402a6c484cb0f9b673/\",\"policyAssignmentName\":\"991a69402a6c48
+            4cb0f9b673\",\"policyAssignmentScope\":\"/subscriptions/<subscriptionID>\",\"policyAssig
+            nmentParameters\":{}}]"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="policy-event-property-descriptions"></a>Descrições de propriedade de evento do Policy
+
+| Nome do elemento | DESCRIÇÃO |
+| --- | --- |
+| autorização | Matriz de propriedades RBAC do evento. Para os novos recursos, estes são a ação e o escopo da solicitação que disparou a avaliação. Para recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
+| chamador | Para novos recursos, a identidade que iniciou uma implantação. Para recursos existentes, o GUID do grupo de recursos de Insights do Microsoft Azure Policy. |
+| canais | Eventos do Policy usam apenas o canal "Operation". |
+| declarações | O token JWT usado pelo Active Directory para autenticar o usuário ou o aplicativo a fim de executar essa operação no Resource Manager. |
+| correlationId | Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
+| Descrição | Este campo fica em branco para eventos do Policy. |
+| eventDataId | Identificador exclusivo de um evento. |
+| eventName | "BeginRequest" ou "EndRequest". "BeginRequest" é usado para avaliações de auditIfNotExists e deployIfNotExists atrasadas e quando um efeito deployIfNotExists inicia uma implantação de modelo. Todas as outras operações retornam "EndRequest". |
+| categoria | Declara um evento de log de atividades como pertencente a "Policy". |
+| eventTimestamp | Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
+| ID | Identificador exclusivo do evento no recurso específico. |
+| level | Nível do evento. Audit usa "Warning" e Deny usa "Error". Um erro auditIfNotExists ou deployIfNotExists pode gerar "Warning" ou "Error", dependendo da gravidade. Todos os outros eventos do Policy usam "Informational". |
+| operationId | Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
+| operationName | Nome da operação e se correlaciona diretamente com o efeito do Policy. |
+| resourceGroupName | Nome do grupo de recursos do recurso avaliado. |
+| resourceProviderName | Nome do provedor de recursos do recurso avaliado. |
+| resourceType | Para os novos recursos, é o tipo que está sendo avaliado. Para recursos existentes, retorna "Microsoft.Resources/checkPolicyCompliance". |
+| ResourceId | ID de recurso do recurso avaliado. |
+| status | Cadeia de caracteres que descreve o status do resultado da avaliação do Policy. A maioria das avaliações do Policy retornam "Succeeded", mas um efeito de negação retorna "Failed". Erros em auditIfNotExists ou deployIfNotExists também retornam "Failed". |
+| subStatus | Este campo fica em branco para eventos do Policy. |
+| submissionTimestamp | Carimbo de hora quando o evento tornou-se disponível para consulta. |
+| subscriptionId | ID de assinatura do Azure. |
+| properties.isComplianceCheck | Retorna "False" quando um novo recurso é implantado ou propriedades do Resource Manager de um recurso existente são atualizadas. Todos os outros [gatilhos de avaliação](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) resultam em "True". |
+| properties.resourceLocation | A região do Azure do recurso que está sendo avaliado. |
+| properties.ancestors | Uma lista separada por vírgulas de grupos de gerenciamento pai ordenados desde o pai direto até o avô mais distante. |
+| properties.policies | Inclui detalhes sobre a definição de política, a atribuição, o efeito e os parâmetros dos quais essa avaliação do Policy resulta. |
+| relatedEvents | Este campo fica em branco para eventos do Policy. |
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Mapeamento de esquema de logs de diagnóstico
 

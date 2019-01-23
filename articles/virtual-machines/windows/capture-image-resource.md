@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: ac5ad9d0067205411c56562264aed81f8a5751bc
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 9dc57876467deb24a763a3c3772209e3e2e0ca0d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267446"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360030"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
-Um recurso de imagem gerenciada pode ser criado de uma VM (máquina virtual) generalizada que é armazenada como um disco gerenciado ou um disco não gerenciado em uma conta de armazenamento. Em seguida, a imagem pode ser usada para criar várias VMs. 
+Um recurso de imagem gerenciada pode ser criado de uma VM (máquina virtual) generalizada que é armazenada como um disco gerenciado ou um disco não gerenciado em uma conta de armazenamento. Em seguida, a imagem pode ser usada para criar várias VMs. Para obter informações de como as imagens gerenciadas são cobradas, confira [Preço do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM Windows usando Sysprep
 

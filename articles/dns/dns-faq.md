@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 663ba97ce96244aa890bef45d1229c12ca170802
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880141"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352913"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes do DNS do Azure
 
@@ -94,7 +94,7 @@ O recurso de redirecionamento de URL é rastreado no backlog de DNS do Azure. Us
 
 Sim. O DNS do Azure suporta o conjunto de codificação ASCII estendido para conjuntos de registros TXT. Mas você deve usar a versão mais recente das APIs REST do Azure, SDKs, PowerShell e CLI. Versões anteriores a 1º de outubro de 2017 ou SDK 2.1 não suportam o conjunto ASCII estendido. 
 
-Por exemplo, um usuário pode fornecer uma string como o valor para um registro TXT que possui o caractere ASCII estendido \ 128. Um exemplo é "abcd\128efgh". O DNS do Azure usa o valor de byte desse caractere, que é 128, na representação interna. No momento da resolução do DNS, esse valor de byte é retornado na resposta. Observe também que "abc" e "\097\098\099" são intercambiáveis com relação à resolução. 
+Por exemplo, você pode fornecer uma string como o valor para um registro TXT que tem o caractere ASCII estendido \128. Um exemplo é "abcd\128efgh". O DNS do Azure usa o valor de byte desse caractere, que é 128, na representação interna. No momento da resolução do DNS, esse valor de byte é retornado na resposta. Observe também que "abc" e "\097\098\099" são intercambiáveis com relação à resolução. 
 
 Seguimos as regras de escape de formatação mestre de arquivo da zona [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) para registros TXT. Por exemplo, `\` agora realmente escapa de tudo pelo RFC. Se você especificar `A\B` como o valor do registro TXT, ele será representado e resolvido como apenas `AB`. Se você realmente quer que o registro TXT tenha `A\B` na resolução, você precisa escapar de `\` novamente. Como exemplo, especifique `A\\B`.
 
@@ -195,7 +195,7 @@ Para configurar IDNs no DNS do Azure, converta o nome da zona ou o nome do conju
 
 O suporte para domínios privados é implementado usando o recurso Zonas Privadas. Esse recurso está disponível atualmente em visualização pública. As zonas privadas são gerenciadas usando as mesmas ferramentas que as zonas DNS do Azure voltadas para a Internet. Eles são resolvíveis apenas de dentro de suas redes virtuais especificadas. Para mais informações, consulte a [visão geral](private-dns-overview.md).
 
-Neste momento, as zonas privadas não têm suporte no portal do Azure. 
+Atualmente, as zonas privadas não têm suporte no portal do Azure.
 
 Para obter informações sobre outras opções de DNS interno no Azure, consulte [Resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -217,7 +217,7 @@ Sim. Os clientes podem associar até 10 redes virtuais de resolução com uma ú
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Uma rede virtual que pertence a uma assinatura diferente pode ser adicionada como uma rede virtual de resolução a uma zona privada?
 
-Sim. O usuário deve ter permissão de operação de gravação nas redes virtuais e na zona DNS privada. A permissão de gravação pode ser concedida para várias funções do RBAC. Por exemplo, a função de RBAC do Colaborador da Rede Clássica tem permissões de gravação nas redes virtuais. Para obter mais informações sobre funções do RBAC, consulte [Controle de acesso baseado em função](../role-based-access-control/overview.md).
+Sim. Você precisa ter permissão de operação de gravação nas redes virtuais e na zona DNS privado. A permissão de gravação pode ser concedida para várias funções do RBAC. Por exemplo, a função de RBAC do Colaborador da Rede Clássica tem permissões de gravação nas redes virtuais. Para obter mais informações sobre funções do RBAC, consulte [Controle de acesso baseado em função](../role-based-access-control/overview.md).
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Os registros DNS da máquina de virtual que são registrados automaticamente em uma zona privada serão excluídos automaticamente quando as máquinas virtuais forem excluídas pelo cliente?
 
@@ -257,7 +257,7 @@ Sim. Durante a pré-visualização pública, existem as seguintes limitações.
 * Se uma rede virtual de registro for especificada, os registros DNS das VMs dessa rede virtual que estão registradas na zona privada não poderão ser visualizados ou recuperados do PowerShell, da CLI ou das APIs. Os registros da VM são registrados e resolvidos com sucesso.
 * O DNS reverso funciona apenas para o espaço IP privado na rede virtual de registro.
 * O DNS reverso de um IP privado que não está registrado na zona privada retorna "internal.cloudapp.net" como o sufixo DNS. Este sufixo não pode ser resolvido. Um exemplo é um IP privado para uma máquina virtual em uma rede virtual vinculada como uma rede virtual de Resolução a uma zona privada.
-* Uma rede virtual não pode ter nenhuma máquina virtual com uma NIC conectada quando se conecta pela primeira vez a uma zona privada como uma rede virtual de Registro ou Resolução. Em outras palavras, a rede virtual deve estar vazia. A rede virtual pode, então, não ficar vazia para futuras vinculações como uma rede virtual de Registro ou Resolução a outras zonas privadas. 
+* Uma rede virtual precisa estar vazia quando é vinculada pela primeira vez a uma zona privada como uma rede virtual de registro ou de resolução. A rede virtual pode, então, não ficar vazia para futuras vinculações como uma rede virtual de Registro ou Resolução a outras zonas privadas.
 * O encaminhamento condicional não é suportado, por exemplo, para permitir a resolução entre o Azure e as redes locais. Saiba como os clientes podem realizar esse cenário por meio de outros mecanismos. Veja [Resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Existem cotas ou limites em zonas ou registros para zonas privadas?

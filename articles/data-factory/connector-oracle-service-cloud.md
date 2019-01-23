@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3cf59db2e6f8fcffd9eefc38fcd22c25ba646456
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b65bcfa5252a150c8101322eaf6d84ce46eef755
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018629"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352284"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copiar dados do Oracle Service Cloud usando o Azure Data Factory (versão prévia)
 
@@ -47,7 +47,7 @@ As propriedades a seguir são compatíveis com o serviço Oracle Service Cloud v
 | Tipo | A propriedade type deve ser definida como: **OracleServiceCloud** | SIM |
 | host | A URL da instância do Oracle Service Cloud.  | SIM |
 | Nome de Usuário | O nome de usuário que você usa para acessar o serviço Oracle Service Cloud.  | SIM |
-| Senha | A senha correspondente ao nome de usuário fornecido na chave do nome de usuário. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | SIM |
+| Senha | A senha correspondente ao nome de usuário fornecido na chave do nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | SIM |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |

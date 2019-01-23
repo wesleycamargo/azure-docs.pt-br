@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788201"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354171"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -29,6 +29,22 @@ O Azure Media Services permite entregar eventos ao vivo para seus clientes na nu
 - Componentes nos Serviços de Mídia, que permitem a você ingerir, visualizar, empacotar, gravar, criptografar e transmitir o evento ao vivo para seus clientes ou para um CDN para distribuição posterior.
 
 Este artigo fornece uma visão geral detalhada, orientação e inclui diagramas dos principais componentes envolvidos na transmissão ao vivo com os Serviços de Mídia.
+
+## <a name="live-streaming-workflow"></a>Fluxo de trabalho de streaming ao vivo
+
+Aqui estão as etapas para um fluxo de trabalho de streaming ao vivo:
+
+1. Crie um **evento ao vivo**.
+2. Crie um novo objeto de **ativo**.
+3. Crie um **LiveOutput** e use o nome do ativo que você criou.
+4. Crie uma **Política de Streaming** e uma **Chave de Conteúdo** se quiser criptografar o conteúdo com DRM.
+5. Se não estiver usando o DRM, crie um **localizador de streaming** com os tipos internos de **política de streaming**.
+6. Liste os caminhos na **política de streaming** para retornar as URLs a serem usadas (elas são determinísticas).
+7. Obtenha o nome do host para o **ponto de extremidade de streaming** do qual você deseja transmitir (verifique se o ponto de extremidade de streaming está em execução). 
+8. Combine a URL da etapa 6 com o nome do host na etapa 7 para obter a URL completa.
+9. Se quiser que o **evento ao vivo** deixe de ser visível, você precisará interromper o evento de streaming, excluindo o **localizador de streaming**.
+
+Para obter mais informações, consulte um [tutorial de streaming ao vivo](stream-live-tutorial-with-api.md) que se baseia o [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) exemplo.
 
 ## <a name="overview-of-main-components"></a>Visão geral dos componentes principais
 
@@ -89,9 +105,10 @@ O artigo a seguir contém uma tabela que compara os recursos dos dois tipos de L
 
 Uma [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite que você controle as propriedades da transmissão ao vivo, como quanto do fluxo é gravado (por exemplo, a capacidade do DVR na nuvem) e se os espectadores podem ou não assistir à exibição transmissão ao vivo. A relação entre um relacionamento **LiveEvent** e seu **LiveOutput** é similar à transmissão de televisão tradicional, onde um canal (**LiveEvent**) representa um fluxo constante de vídeo e uma gravação (**LiveOutput**) tem o escopo definido para um segmento de tempo específico (por exemplo, notícias noturnas das 18h30 às 19h00). Você pode gravar televisão usando um gravador de vídeo digital (DVR) - o recurso equivalente no LiveEvents é gerenciado por meio da propriedade ArchiveWindowLength. É uma duração de tempo ISO-8601 (por exemplo, PTHH: MM: SS), que especifica a capacidade do DVR e pode ser definida de um mínimo de 3 minutos a um máximo de 25 horas.
 
-
 > [!NOTE]
-> **LiveOutput** s inicie a criação e pare quando for excluído. Quando você exclui **LiveOutput**, não está excluindo o **Ativo** subjacente e o conteúdo no Ativo.  
+> **LiveOutput** s inicie a criação e pare quando for excluído. Quando exclui o **LiveOutput**, você não está excluindo o **ativo** subjacente e o conteúdo no ativo. 
+>
+> Se você tiver publicado **localizadores de streaming** no ativo para o **LiveOutput**, o evento (até a duração da janela de DVR) continuará a ser exibido até a hora de término do **localizador de streaming** ou até você excluir o localizador, o que ocorrer primeiro.   
 
 Para obter mais informações, consulte [Usando o DVR na nuvem](live-event-cloud-dvr.md).
 
@@ -110,21 +127,6 @@ Para obter informações detalhadas, consulte [estados e cobrança](live-event-s
 ## <a name="latency"></a>Latency
 
 Para obter informações detalhadas sobre a latência do LiveEvents, consulte [Latência](live-event-latency.md).
-
-## <a name="live-streaming-workflow"></a>Fluxo de trabalho de streaming ao vivo
-
-Aqui estão as etapas para um fluxo de trabalho de streaming ao vivo:
-
-1. Crie um LiveEvent.
-2. Crie um novo objeto de ativo.
-3. Crie um LiveOutput e use o nome do ativo que você criou.
-4. Crie uma política de Streaming e a chave de conteúdo, se você pretende criptografar seu conteúdo com DRM.
-5. Se não estiver usando o DRM, crie um localizador de Streaming com os tipos internos de política de Streaming.
-6. Liste os caminhos na política de Streaming para retornar as URLs a serem usadas (esses são determinísticas).
-7. Obtenha o nome do host para o ponto de extremidade de Streaming, você deseja transmitir do. 
-8. Combine a URL da etapa 6 com o nome do host na etapa 7 para obter a URL completa.
-
-Para obter mais informações, consulte um [tutorial de streaming ao vivo](stream-live-tutorial-with-api.md) que se baseia o [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) exemplo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

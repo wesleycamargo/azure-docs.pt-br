@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b712b576e1dd47698de66889d4edf9dda026a16c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 65d6685947c5796a65985aff0b789223736df0b8
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017983"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354273"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Copiar dados do Google AdWords usando o Azure Data Factory (versão prévia)
 
@@ -46,11 +46,11 @@ As propriedades a seguir são compatíveis com o serviço vinculado do Google Ad
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como: **GoogleAdWords** | SIM |
 | clientCustomerID | A ID do cliente da conta do AdWords para a qual você deseja buscar dados do relatório.  | SIM |
-| developerToken | O token de desenvolvedor associado à conta de gerenciador que você usa para permitir acesso à API do AdWords.  Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | SIM |
+| developerToken | O token de desenvolvedor associado à conta de gerenciador que você usa para permitir acesso à API do AdWords.  Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | SIM |
 | authenticationType | O mecanismo de autenticação OAuth 2.0 usado para autenticação. ServiceAuthentication só pode ser usado em IR auto-hospedado. <br/>Valores permitidos são: **ServiceAuthentication**, **UserAuthentication** | SIM |
-| refreshToken | O token de atualização obtido do Google para autorizar o acesso ao AdWords para UserAuthentication. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | Não  |
-| clientId | A ID do cliente do aplicativo Google usado para adquirir o token de atualização. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | Não  |
-| clientSecret | O segredo do cliente do aplicativo Google usado para adquirir o token de atualização. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). | Não  |
+| refreshToken | O token de atualização obtido do Google para autorizar o acesso ao AdWords para UserAuthentication. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Não  |
+| clientId | A ID do cliente do aplicativo Google usado para adquirir o token de atualização. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Não  |
+| clientSecret | O segredo do cliente do aplicativo Google usado para adquirir o token de atualização. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Não  |
 | email | A ID de e-mail da conta de serviço que é usada para ServiceAuthentication e que só pode ser usada em IR auto-hospedado.  | Não  |
 | keyFilePath | O caminho completo para o arquivo chave .p12 que é usado para autenticar o endereço de e-mail da conta de serviço e que só pode ser usado em IR auto-hospedado.  | Não  |
 | trustedCertPath | O caminho completo do arquivo .pem que contém certificados de autoridade de certificação confiáveis para verificar o servidor ao se conectar via SSL. Essa propriedade só pode ser definida ao usar o SSL em IR auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o IR.  | Não  |

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: ee7a9c407a26f9334a854c98793db8fc01244e2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 65e4c6d66e410e8cd761128028b7a47e21db86eb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994667"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354494"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparar-se para fazer backup de VMs do Azure
 
@@ -61,8 +61,6 @@ Este artigo descreve como se preparar para fazer o backup de uma VM do Azure usa
     - Não é necessário especificar contas de armazenamento para armazenar os dados de backup. O cofre e o serviço de Backup do Azure lidam com isso automaticamente.
 - Verifique se o agente de VM está instalado em VMs do Azure que você deseja fazer backup.
 
-
-
 ### <a name="install-the-vm-agent"></a>Instalar o agente de VM
 
 Para habilitar o backup, o Backup do Azure instala uma extensão de backup (VM Snapshot ou VM Snapshot Linux) no agente da VM que é executado na VM do Azure.
@@ -79,12 +77,14 @@ Se você tiver problemas para fazer backup da VM do Azure, use a tabela a seguir
 
 ### <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 
-A extensão de backup em execução na VM deve ter acesso de saída aos endereços IP públicos do Azure. Para permitir o acesso, você pode:
+A extensão de backup em execução na VM deve ter acesso de saída aos endereços IP públicos do Azure.
 
+> [!NOTE]
+> Não é necessário acesso de rede de saída explícito para a VM do Azure para se comunicar com o Serviço de Backup do Azure. No entanto, determinadas máquinas virtuais mais antigas podem enfrentar problemas e falhar com o erro **ExtensionSnapshotFailedNoNetwork**. Para superar esse erro, escolha uma das opções a seguir para permitir que a extensão de backup se comunique com endereços IP públicos do Azure para fornecer um caminho claro para o tráfego de backup.
 
-- **Regras NSG**: Permitir os [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Você pode adicionar uma regra que permita acesso ao serviço de Backup do Azure usando [uma marca de serviço](../virtual-network/security-overview.md#service-tags) em vez de permitir cada intervalo de endereço individualmente e ter que gerenciá-los ao longo do tempo.
+- **Regras NSG**: Permitir os [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Você pode adicionar uma regra que permita acesso ao serviço de Backup do Azure usando [uma marca de serviço](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure) em vez de permitir cada intervalo de endereço individualmente e ter que gerenciá-los ao longo do tempo. Para obter mais informações sobre a tag de serviço, confira este [artigo](../virtual-network/security-overview.md#service-tags).
 - **Proxy**: Implante um servidor de proxy HTTP para rotear o tráfego.
-- **Firewall do Azure**: permite o tráfego por meio do Firewall do Azure na VM, usando uma marca de FQDN para o serviço de Backup do Azure.
+- **Firewall do Azure**: Permite o tráfego por meio do Firewall do Azure na VM, usando uma tag de FQDN para o serviço de Backup do Azure
 
 Ao decidir entre uma das opções, considere as vantagens e desvantagens.
 
@@ -94,22 +94,17 @@ Ao decidir entre uma das opções, considere as vantagens e desvantagens.
 **Proxy HTTP** | É permitido o controle granular em relação às URLs de armazenamento.<br/><br/> Único ponto de acesso à Internet para VMs.<br/><br/> Custos adicionais para o proxy.
 **Marcas de FQDN** | Simples de usar se você tiver o Firewall do Azure configurado em uma sub-rede da VNet | Não é possível criar suas próprias marcas de FQDN ou modificar os FQDNs em uma marca.
 
-
-
 Se você usa o Managed Disks do Azure, pode ser necessário abrir outra porta (porta 8443) nos firewalls.
-
-
 
 ### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configurar uma regra NSG para permitir o acesso de saída ao Azure
 
 Se sua VM do Azure tiver acesso gerenciado por um NSG, permita o acesso de saída do armazenamento de backup aos intervalos e portas necessários.
 
-
-
 1. Na VM > **Rede**, clique em **Adicionar regra de porta de saída**.
-- Se você tiver uma regra que nega o acesso, a nova regra de permissão deverá ser maior. Por exemplo, se você tiver uma regra **Deny_All** definida com prioridade 1000, a nova regra deverá ser definida com um valor inferior a 1000.
+
+  - Se você tiver uma regra que nega o acesso, a nova regra de permissão deverá ser maior. Por exemplo, se você tiver uma regra **Deny_All** definida com prioridade 1000, a nova regra deverá ser definida com um valor inferior a 1000.
 2. Em **Adicionar regra de segurança de saída**, clique em **Avançado**.
-3. Em Fonte, escolha **VirtualNetwork**.
+3. Em **Fonte**, escolha **VirtualNetwork**.
 4. Nos **Intervalos de porta de origem**, digite um asterisco (*) para permitir o acesso de saída de qualquer porta.
 5. Em **Destino**, escolha **Marca de Serviço**. Na lista, escolha Armazenamento.<region>. A região é a região em que o cofre e as VMs que você deseja fazer backup estão localizados.
 6. Em **Intervalos de portas de destino**, escolha a porta.
@@ -117,9 +112,9 @@ Se sua VM do Azure tiver acesso gerenciado por um NSG, permita o acesso de saíd
     - VM com discos não gerenciados e conta de armazenamento não criptografada: 80
     - VM com discos não gerenciados e conta de armazenamento criptografada: 443 (configuração padrão)
     - VM gerenciada: 8443.
-1. Em **Protocolo**, escolha **TCP**.
-2. Em **Prioridade**, dê a ele um valor de prioridade menor que qualquer regra de negação maior.
-3. Forneça um nome e descrição para a regra e, em seguida, clique em **OK**.
+7. Em **Protocolo**, escolha **TCP**.
+8. Em **Prioridade**, dê a ele um valor de prioridade menor que qualquer regra de negação maior.
+9. Forneça um nome e descrição para a regra e, em seguida, clique em **OK**.
 
 Você pode aplicar a regra NSG a várias VMs para permitir o acesso de saída ao Azure para o Backup do Azure.
 
@@ -127,12 +122,12 @@ Este vídeo orienta você durante o processo.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
+> [!WARNING]
+> As marcas de serviço de armazenamento estão em versão prévia. Eles estão disponíveis somente em regiões específicas. Para obter a lista de regiões, consulte [Marcas de serviço para armazenamento](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="route-backup-traffic-through-a-proxy"></a>Rotear o tráfego de backup por meio de um proxy
 
 Você pode rotear o tráfego de backup por um proxy e, em seguida, fornecer o acesso de proxy aos intervalos necessários do Azure.
-
 Configure sua VM do proxy para permitir o seguinte:
 
 - A VM do Azure deve rotear todo o tráfego HTTP voltado para a Internet pública por meio do proxy.
@@ -167,8 +162,9 @@ Se você não tiver um proxy de conta do sistema, configure um da seguinte manei
 
 #### <a name="allow-incoming-connections-on-the-proxy"></a>Permitir conexões de entrada no proxy
 
-1. Permite conexões de entrada nas configurações do proxy.
-2. Por exemplo, abra o **Firewall do Windows com Segurança Avançada**.
+Permite conexões de entrada nas configurações do proxy.
+
+- Por exemplo, abra o **Firewall do Windows com Segurança Avançada**.
     - Clique com o botão direito do mouse em **Regras de Entrada** > **Nova Regra**.
     - Em **Tipo de Regra** escolha **Personalizado** > **Avançar**.
     - Em **Programa**, escolha **Todos os Programas** > **Avançar**.
@@ -186,13 +182,13 @@ No NSG **NSF-lockdown**, permita o tráfego de qualquer porta em 10.0.0.5 para q
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
+
 ### <a name="allow-firewall-access-with-fqdn-tag"></a>Permitir o acesso do firewall com marca de FQDN
 
 Você pode configurar o Firewall do Azure para permitir o acesso de saída para o tráfego de rede para o Backup do Azure.
 
 - [Saiba como](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) implantar o Firewall do Azure.
 - [Leia sobre](https://docs.microsoft.com/azure/firewall/fqdn-tags) as marcas de FQDN.
-
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
@@ -227,7 +223,7 @@ Depois que o cofre é criado, ele aparece na lista de cofres de Serviços de Rec
 
 ## <a name="set-up-storage-replication"></a>Configurar a replicação de armazenamento
 
-Por padrão, seu cofre tem [armazenamento com redundância geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). É recomendável usar o GRS no backup principal, mas você pode usar o [armazenamento localmente redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) como uma opção mais barata. 
+Por padrão, seu cofre tem [armazenamento com redundância geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). É recomendável usar o GRS no backup principal, mas você pode usar o [armazenamento localmente redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) como uma opção mais barata.
 
 Modifique a replicação de armazenamento da seguinte maneira:
 
@@ -285,5 +281,5 @@ Depois de habilitar o backup:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Solucionar problemas que ocorrem com os [agentes de VM do Azure](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou o [backup de VM do Azure](backup-azure-vms-troubleshoot.md).
+- Solucionar problemas que ocorrem com os [agentes de VM do Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou o [backup de VM do Azure](backup-azure-vms-troubleshoot.md).
 - [Fazer backup de VMs do Azure](backup-azure-vms-first-look-arm.md)

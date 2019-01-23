@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b824d122a5d26c17c41a0e2ea1c595c9e2dd7206
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274731"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354341"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gerenciar o acesso ao gerenciamento do Azure com acesso condicional
 
@@ -32,7 +32,7 @@ Para criar uma política de gerenciamento do Azure, você seleciona **Microsoft 
 
 ![Acesso condicional para o gerenciamento do Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-A política que você cria se aplica a todos os pontos de gerenciamento do Azure, incluindo o Portal Clássico do Azure, o Portal do Azure, o provedor do Azure Resource Manager, APIs de Gerenciamento de Serviço clássicas e o Azure PowerShell. Observe que a política se aplica ao Azure PowerShell, que chama a API do Azure Resource Manager. Não se aplica ao [PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-adv2), que chama o Microsoft Graph.
+A política que você cria se aplica a todos os pontos de gerenciamento do Azure, incluindo o portal do Azure, o provedor do Azure Resource Manager, APIs de Gerenciamento de Serviço clássicas, o Azure PowerShell e o portal do administrador de assinaturas do Visual Studio. Observe que a política se aplica ao Azure PowerShell, que chama a API do Azure Resource Manager. Não se aplica ao [PowerShell do Azure Active Directory](/powershell/azure/active-directory/install-adv2), que chama o Microsoft Graph.
 
 > [!CAUTION]
 > Verifique se você entende como o acesso condicional funciona antes de configurar uma política para gerenciar o acesso ao gerenciamento do Azure. Verifique se você não criou nenhuma condição que possa bloquear o seu próprio acesso ao portal.

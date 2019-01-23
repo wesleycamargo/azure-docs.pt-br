@@ -7,20 +7,19 @@ author: Juliako
 writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240215"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359980"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming 
 
@@ -28,20 +27,26 @@ ms.locfileid: "50240215"
 
 No AMS (Serviços de Mídia do Microsoft Azure), um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo cliente player ou à CDN (Rede de Distribuição de Conteúdo) para distribuição posterior. Os Serviços de Mídia também fornecem integração perfeita da CDN do Azure. O fluxo de saída do serviço StreamingEndpoint pode ser um fluxo ao vivo, um vídeo por demanda ou um download progressivo do seu ativo na conta dos Serviços de Mídia. Cada conta dos Serviços de Mídia do Azure inclui um StreamingEndpoint padrão. StreamingEndpoints adicionais podem ser criados na conta. Há duas versões do StreamingEndpoints, 1.0 e 2.0. A partir de 10 de janeiro de 2017, todas as contas AMS recém-criadas incluirão a versão 2.0 **padrão** do StreamingEndpoint. Pontos de extremidade de streaming adicionais que você adicionar nessa conta também terão a versão 2.0. Essa alteração não afetará as contas existentes; StreamingEndpoints existente estarão na versão 1.0 e poderão ser atualizados para a versão 2.0. Com essa alteração, haverá alterações de comportamento, cobrança e recurso (para obter mais informações, confira a seção **Tipos e versões de streaming** documentada abaixo).
 
-Além disso, a partir da versão 2.15 (lançados em janeiro de 2017), os Serviços de Mídia do Azure adicionaram as seguintes propriedades à entidade do Ponto de Extremidade de Streaming: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Para obter uma visão detalhada dessas propriedades, clique [aqui](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+As seguintes propriedades foram adicionadas ao Serviços de Mídia do Azure na entidade de ponto de extremidade de streaming: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime** e **StreamingEndpointVersion**. Para obter uma visão detalhada dessas propriedades, clique [aqui](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 Quando você cria uma conta dos Serviços de Mídia do Azure, um ponto de extremidade de streaming padrão é criado para você no estado **Parado**. Não é possível excluir o ponto de extremidade de streaming padrão. Dependendo da disponibilidade da Azure CDN na região de destino, por padrão, o ponto de extremidade de streaming recém-criado padrão também inclui integração com o provedor de CDN “StandardVerizon”. 
-
->[!NOTE]
->A integração do Azure CDN pode ser desabilitada antes de iniciar o ponto de extremidade de streaming.
+                
+> [!NOTE]
+> A integração do Azure CDN pode ser desabilitada antes de iniciar o ponto de extremidade de streaming. O `hostname` e a URL de streaming permanecerão iguais se você habilitar ou não a CDN.
 
 Este tópico fornece uma visão geral das principais funcionalidades fornecidas pelos ponto de extremidade de streaming.
+
+## <a name="naming-conventions"></a>Convenções de nomenclatura
+
+Para o ponto de extremidade padrão: `{AccountName}.streaming.mediaservices.windows.net`
+
+Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Tipos e versões de streaming
 
 ### <a name="standardpremium-types-version-20"></a>Tipos Standard/Premium (versão 2.0)
 
-A partir da versão dos Serviços de Mídia de janeiro de 2017, você terá dois tipos de streaming: **Standard** e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
+Começando com a versão dos Serviços de Mídia de janeiro de 2017, há dois tipos de streaming: **Standard** e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
 
 Tipo|DESCRIÇÃO
 ---|---

@@ -7,32 +7,32 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315546"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354545"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
-No Azure Search, um [serviço é provisionado](search-create-service-portal.md) em um tipo de preço ou SKU fixo durante o tempo de vida do serviço. Os tipos incluem: **Gratuito**, **Básico** ou **Standard**, considerando que **Standard** está disponível em várias configurações e capacidades. A maioria dos clientes inicia com a camada **Gratuita** para avaliação e, em seguida, mudam para a **Standard** para desenvolvimento e implantações de produção. Você pode concluir todos os guias de início rápido e tutoriais na camada **Gratuita**, incluindo os de pesquisa cognitiva com uso intensivo de recurso. 
+No Azure Search, um [recurso é criado](search-create-service-portal.md) em um tipo de preço ou SKU fixo durante o tempo de vida do serviço. Os tipos incluem: **Gratuito**, **Básico** ou **Standard**, considerando que **Standard** está disponível em várias configurações e capacidades. A maioria dos clientes inicia com a camada **Gratuita** para avaliação e, em seguida, mudam para a **Standard** para desenvolvimento e implantações de produção. Você pode concluir todos os guias de início rápido e tutoriais na camada **Gratuita**, incluindo os de pesquisa cognitiva com uso intensivo de recurso. 
 
 Os níveis determinam a capacidade, não os recursos, e são diferenciados por:
 
 + Número de índices que você pode criar
 + Tamanho e velocidade de partições (armazenamento físico)
 
-Embora todos os níveis, incluindo a camada **Gratuita**, geralmente ofereçam paridade de recursos, cargas de trabalho maiores podem exigir requisitos de níveis mais altos. Por exemplo, a indexação de [pesquisa cognitiva](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingem o tempo limite em um serviço gratuito, a menos que o conjunto de dados seja muito pequeno.
+Embora todos os níveis, incluindo a camada **Gratuita**, geralmente ofereçam paridade de recursos, cargas de trabalho maiores podem exigir requisitos de níveis mais altos. Por exemplo, a indexação de [pesquisa cognitiva](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingem o tempo limite em um serviço gratuito, a menos que o conjunto de dados seja pequeno.
 
 > [!NOTE] 
 > A exceção à paridade de recursos são os [indexadores](search-indexer-overview.md), que não estão disponíveis no S3HD.
 >
 
-Dentro de um nível, você pode [ajustar os recursos de partição e de réplica](search-capacity-planning.md) para ajuste de desempenho. Embora você possa começar com dois ou três de cada, você poderá aumentar temporariamente seu poder computacional para uma carga de trabalho de indexação pesada. A capacidade de ajustar os níveis de recursos dentro de uma camada adiciona flexibilidade, mas também complica um pouco a análise. Talvez você precise experimentar para verificar se um nível mais baixo com maior de recursos/réplicas oferece melhor desempenho e valor do que um nível superior com menor alocação de recursos. Para saber mais sobre quando e por que você deve ajustar a capacidade, confira [Considerações sobre desempenho e otimização](search-performance-optimization.md).
+Dentro de um nível, você pode [ajustar os recursos de partição e de réplica](search-capacity-planning.md) para ajuste de desempenho. Você pode começar com dois ou três de cada e depois aumentar temporariamente seu poder computacional para uma carga de trabalho de indexação pesada. A capacidade de ajustar os níveis de recursos dentro de uma camada adiciona flexibilidade, mas também complica um pouco a análise. Talvez você precise experimentar para verificar se um nível mais baixo com maior de recursos/réplicas oferece melhor desempenho e valor do que um nível superior com menor alocação de recursos. Para saber mais sobre quando e por que você deve ajustar a capacidade, confira [Considerações sobre desempenho e otimização](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -40,23 +40,46 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## <a name="how-billing-works"></a>Como funciona a cobrança
 
-No Azure Search, o conceito de cobrança mais importante a ser entendido é o de *UA* (unidade de pesquisa). Como Azure Search depende de réplicas e partições para funcionar, não faz sentido cobrar de apenas uma maneira ou de outra. Em vez disso, a cobrança baseia-se em uma combinação de ambos. 
+No Azure Search, há quatro maneiras que você pode incorrer em custos quando você cria um recurso de pesquisa no portal:
+
+* Adicionando réplicas e partições usadas para tarefas regulares de indexação e de consulta. Você começa com uma de cada, mas pode aumentar uma ou ambas para adicionar capacidade, escolhendo níveis adicionais de alocação de recursos e pagando por eles. 
+* Encargos de saída de dados durante a indexação. Ao efetuar pull de dados de uma fonte de dados do Banco de Dados SQL do Azure ou do Cosmos DB, você verá cobranças pela transação na fatura para esses recursos.
+* Apenas para [pesquisa cognitiva](cognitive-search-concept-intro.md), a extração da imagem durante a decodificação de documentos é cobrada apenas com base no número de imagens extraídas dos documentos. A extração de texto atualmente é gratuita.
+* Apenas para [pesquisa cognitiva](cognitive-search-concept-intro.md), aprimoramentos com base em [habilidades cognitivas internas](cognitive-search-predefined-skills.md) são cobrados segundo um recurso dos Serviços Cognitivos. Aprimoramentos são cobrados com a mesma taxa usada se você executa a tarefa usando os Serviços Cognitivos diretamente.
+
+Se você não estiver usando [pesquisa cognitiva](cognitive-search-concept-intro.md) nem [indexadores do Azure Search](search-indexer-overview.md), seus únicos custos serão relacionados às réplicas e partições em uso ativo, para cargas de trabalho de indexação e consulta regulares.
+
+### <a name="billing-for-general-purpose-indexing-and-queries"></a>Cobrança para indexação e consultas de uso geral
+
+Em operações do Azure Search, o conceito de cobrança mais importante a ser entendido é o de UA (*unidade de pesquisa*). Já que Azure Search depende de réplicas e partições para indexação e consultas, não faz sentido cobrar de apenas uma maneira ou de outra. Em vez disso, a cobrança baseia-se em uma combinação de ambos. 
 
 UA é o produto da *réplica* e das *partições* usadas por um serviço: **`(R X P = SU)`**
 
-Cada serviço começa com 1 UA (uma réplica multiplicada por uma partição) como o mínimo. O máximo para qualquer serviço é 36 SUs, o que pode ser obtido de várias maneiras: 6 partições x 6 ou réplicas ou 3 partições x 12 réplicas, para citar alguns. 
-
-É comum usar menos do que a capacidade total. Por exemplo, um serviço de 3 réplicas e 3 partições cobrado como 9 UAs. 
+Cada serviço começa com uma UA (uma réplica multiplicada por uma partição) como o mínimo. O máximo para qualquer serviço é 36 SUs, o que pode ser obtido de várias maneiras: 6 partições x 6 ou réplicas ou 3 partições x 12 réplicas, para citar alguns. É comum usar menos do que a capacidade total. Por exemplo, um serviço de 3 réplicas e 3 partições cobrado como 9 UAs. 
 
 A taxa de cobrança é **por hora por UA**, e cada nível tem uma taxa maior progressivamente. Os níveis mais altos são fornecidos com partições maiores e mais rápidas, contribuindo para uma taxa horária geral maior para esse nível. As taxas de cada camada podem ser encontradas em [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/). 
 
 A maioria dos clientes coloca apenas uma parte da capacidade total online, mantendo o restante em reserva. Em termos de cobrança, esse é o número de partições e réplicas que você colocar online, calculado usando a fórmula de UA, que determina o que você realmente paga por hora.
 
-### <a name="tips-for-reducing-costs"></a>Dicas para reduzir os custos
+### <a name="billing-for-image-extraction-in-cognitive-search"></a>Cobrança para extração de imagens na pesquisa cognitiva
+
+Se você está extraindo imagens de arquivos em um pipeline de indexação de pesquisa cognitiva, você é cobrado por essa operação em sua fatura do Azure Search. Em uma [configuração do indexador](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters), o parâmetro que dispara a extração de imagens é **imageAction**. Se **imageAction** é definido como nenhum (padrão), não há encargos para a extração de imagens.
+
+O preço está sujeito a alterações, mas sempre está documentado na página [Detalhes de preços](https://azure.microsoft.com/pricing/details/search/) do Azure Search. 
+
+### <a name="billing-for-built-in-skills-in-cognitive-search"></a>Cobrança de habilidades internas na pesquisa cognitiva
+
+Quando você configura um pipeline de aprimoramento, quaisquer [habilidades internas](cognitive-search-predefined-skills.md) usadas no pipeline baseiam-se em modelos de aprendizado de máquina. Esses modelos são fornecidos pelos Serviços Cognitivos. O uso desses modelos durante a indexação é cobrado com a mesma taxa aplicada se você solicita o recurso diretamente.
+
+Por exemplo, imagine um cenário com um pipeline que consiste em OCR (reconhecimento óptico de caracteres) usado em arquivos JPEG de imagem digitalizada, em que o texto resultante é enviado para um índice de Azure Search para consultas de pesquisa de forma livre. Seu pipeline de indexação incluiria um indexador com a [habilidade de OCR](cognitive-search-skill-ocr.md), a qual seria uma habilidade [anexada a um recurso dos Serviços Cognitivos](cognitive-search-attach-cognitive-services.md). Quando você executasse o indexador, as cobranças pela execução de OCR apareceriam em sua fatura de Recursos Cognitivos.
+
+## <a name="tips-for-reducing-costs"></a>Dicas para reduzir os custos
 
 Não é possível desligar o serviço para reduzir a fatura. Os recursos dedicados operam 24 horas, 7 dias da semana, alocados para seu uso exclusivo durante o tempo de vida do serviço. A única maneira de reduzir uma fatura é, reduzindo as réplicas e partições para um nível baixo que ainda forneça um desempenho aceitável e [conformidade com o SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Uma alavanca para reduzir os custos é escolher um nível com uma taxa por hora mais baixa. As tarifas por hora do S1 são menores do que as do S2 ou do S3. Você pode provisionar um serviço destinado a uma projeção de carga mais baixa. Se você exceder o serviço, crie um segundo serviço em níveis superiores, recompile os índices em um segundo serviço e, em seguida, exclua o primeiro. Se você já fez planejamento de capacidade para servidores locais, você sabe que é comum "comprar a mais" para poder lidar com o crescimento projetado. Mas, com um serviço de nuvem, você pode buscar uma economia de custo de forma agressiva porque você não está limitado a uma compra específica. Você sempre pode mudar para um serviço de nível superior quando o atual é insuficiente.
+Uma alavanca para reduzir os custos é escolher um nível com uma taxa por hora mais baixa. As tarifas por hora do S1 são menores do que as do S2 ou do S3. Supondo que você provisiona um serviço que visa a extremidade inferior do suas projeções de carga, se você excede a capacidade do serviço, você pode criar um segundo serviço em camadas maiores, recompilar os índices em um segundo serviço e, em seguida, excluir o primeiro. 
+
+Se você já fez planejamento de capacidade para servidores locais, você sabe que é comum "comprar a mais" para poder lidar com o crescimento projetado. Mas, com um serviço de nuvem, você pode buscar uma economia de custo de forma agressiva porque você não está limitado a uma compra específica. Você sempre pode mudar para um serviço de nível superior quando o atual é insuficiente.
 
 ### <a name="capacity-drill-down"></a>Capacidade de fazer drill down
 
@@ -143,9 +166,9 @@ O número de índice e o tamanho são igualmente relevantes para sua análise po
 
 **Considerações sobre volume de consultas**
 
-Consultas por segundo (QPS) é uma medida que obtém importância durante o ajuste de desempenho, mas geralmente não é uma consideração de camada, a menos que você espera um volume muito alto de consulta desde o início.
+A QPS (consultas por segundo) é uma medida que obtém importância durante o ajuste de desempenho, mas geralmente não é uma consideração de camada, a menos que você espera um volume alto de consulta desde o início.
 
-Todas as camadas padrão podem fornecer um equilíbrio entre réplicas para partições, dando suporte a retorno mais rápido de consulta por meio de réplicas adicionais para carregar as partições adicionais e balanceamento para processamento paralelo. Você pode ajustar o desempenho depois que o serviço é fornecido.
+As camadas padrão podem fornecer um equilíbrio entre réplicas para partições, dando suporte a retorno mais rápido de consulta por meio de réplicas adicionais para carregar as partições adicionais e balanceamento para processamento paralelo. Você pode ajustar o desempenho depois que o serviço é fornecido.
 
 O cliente que espera volumes de consulta sustentadas do início deve considerar camadas maiores, apoiado por hardware mais potente. Você pode colocar as partições e réplicas offline ou até mesmo alternar para um serviço de camada inferior, se os volumes de consulta não materializarem. Para obter mais informações sobre como calcular a taxa de transferência de consulta, consulte [desempenho do Azure Search e otimização](search-performance-optimization.md).
 
@@ -158,13 +181,13 @@ A camada **Gratuita** não vêm com [SLAs (contratos de nível de serviço)](htt
 
 + Saiba como criar índices eficientes e as metodologias de atualização são o mínimo de impacto. Nós recomendamos [análise de tráfego de pesquisa](search-traffic-analytics.md) para as informações obtidas na atividade de consulta.
 
-+ Permitir que as métricas criem uma solução alternativa para consultas e coletar dados sobre padrões de uso (consultas durante o horário comercial, a indexação de horário de pico) e usar esses dados para informar as decisões de provisionamento de serviço futuro. Enquanto não é prático em um nível por hora ou diariamente, você pode ajustar dinamicamente partições e recursos para acomodar alterações planejadas em volumes de consulta, ou não planejado, mas alterações prolongadas se os níveis se mantiverem longo o suficiente para justificar a executar uma ação.
++ Permitir que as métricas criem uma solução alternativa para consultas e coletar dados sobre padrões de uso (consultas durante o horário comercial, a indexação de horário de pico) e usar esses dados para informar as decisões de provisionamento de serviço futuro. Embora não seja prático fazê-lo em uma cadência horária ou diária, você pode ajustar dinamicamente partições e recursos para acomodar alterações planejadas em volumes de consulta ou alterações não planejadas, mas prolongadas se os níveis se mantiverem por tempos suficientemente longos para garantir a execução de uma ação.
 
 + Lembre-se de que a única desvantagem de provisionamento é que talvez você precise subdividir um serviço se os requisitos reais forem maiores que o previsto. Para evitar a interrupção do serviço, crie um novo serviço na mesma assinatura em uma camada superior e execute-o lado a lado até todos os aplicativos e solicitações de novo ponto de extremidade de destino.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Inicie com uma camada **Gratuita** crie um índice inicial com um subconjunto de seus dados para entender suas características. A estrutura de dados no Azure é um índice invertido, onde o tamanho e complexidade de um índice invertido são determinados pelo conteúdo. Lembre-se de que o conteúdo altamente redundante tende a resultar em um índice menor que o conteúdo altamente irregular. Como tal, suas características de conteúdo em vez do tamanho do conjunto de dados que determina os requisitos de armazenamento de índice.
+Inicie com uma camada **Gratuita** crie um índice inicial com um subconjunto de seus dados para entender suas características. A estrutura de dados no Azure é um índice invertido, onde o tamanho e complexidade de um índice invertido são determinados pelo conteúdo. Lembre-se de que o conteúdo altamente redundante tende a resultar em um índice menor que o conteúdo altamente irregular. Como tal, são as características de conteúdo e não o tamanho do conjunto de dados que determinam os requisitos de armazenamento de índice.
 
 Depois que você tiver uma ideia inicial do tamanho do índice, [provisione um serviço faturável](search-create-service-portal.md) em uma das camadas discutidas neste artigo, seja camada**Básico** ou **Padrão**. Relaxe quaisquer restrições artificiais em subconjuntos de dados e [recrie o índice](search-howto-reindex.md) para incluir todos os dados que você realmente deseja que sejam pesquisados.
 

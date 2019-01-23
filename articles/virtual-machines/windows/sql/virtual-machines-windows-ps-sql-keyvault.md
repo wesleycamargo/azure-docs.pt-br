@@ -3,7 +3,7 @@ title: Integrar o Key Vault ao SQL Server em VMs do Windows no Azure (Resource M
 description: Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração do Cofre da Chave do Azure com máquinas virtuais do SQL Server criadas com o Gerenciador de Recursos.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/30/2018
-ms.author: jroth
-ms.openlocfilehash: d80526768c59bbb746408a026915b3228747e18a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 6ad8eea21c10726b2c3eaf1e10bfd5efba4d1e48
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251163"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358685"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurar a Integração do Azure Key Vault para SQL Server em Máquinas Virtuais do Azure (Resource Manager)
 
@@ -36,6 +37,10 @@ Se você estiver executando o SQL Server em máquinas locais, existirão [etapas
 Quando esse recurso está habilitado, ele instala automaticamente o SQL Server Connector, configura o provedor de EKM a fim de acessar o Cofre da Chave do Azure e cria a credencial para permitir que você acesse seu cofre. Ao examinar as etapas da documentação local mencionada anteriormente, é possível ver que esse recurso automatiza as etapas 2 e 3. A única coisa que você ainda precisará fazer manualmente é criar o cofre da chave e as chaves. A partir daí, toda a configuração de sua VM do SQL será automatizada. Quando esse recurso concluir a configuração, você poderá executar instruções T-SQL para começar a criptografar seus bancos de dados ou backups como faria normalmente.
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
+
+  >[!NOTE]
+  > O provedor de EKM versão 1.0.4.0 está instalado na VM do SQL Server por meio da [extensão IaaS do SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). Atualizar a extensão IaaS do SQL não atualizará a versão do provedor. Considere a possibilidade de atualizar manualmente a versão do provedor EKM se necessário (por exemplo, ao migrar para uma Instância Gerenciada do SQL).
+
 
 ## <a name="enabling-and-configuring-akv-integration"></a>Habilitando e configurando a integração de AKV
 Você pode habilitar a integração de AKV durante o provisionamento ou configurá-la para VMs existentes.

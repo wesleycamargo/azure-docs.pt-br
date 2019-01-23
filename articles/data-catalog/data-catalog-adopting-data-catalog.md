@@ -8,12 +8,12 @@ ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ec646ad1e9e1330a7e0b3f3f0576cee9d58c08e1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406491"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353253"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
 Este artigo o ajuda a começar a adotar o **Catálogo de Dados do Azure** em sua organização. Para adotar com êxito o **Catálogo de Dados do Azure**, convém concentrar-se em três itens principais: definir sua visão, identificar casos de uso de negócios em sua organização e escolher um projeto-piloto.
@@ -66,7 +66,7 @@ Aqui estão algumas dicas para identificar casos de uso:
 * **Defina as metas da equipe** - como a equipe atinge suas metas? Não se concentre ainda no Catálogo de Dados, pois você deseja ser objetivo nessa etapa. Lembre-se: o foco são os resultados de negócios, não a tecnologia.
 * **Defina o problema de negócios** - quais são os problemas enfrentados pela equipe ao localizar e aprender sobre os ativos de dados? Por exemplo, informações sobre fontes de dados importantes podem ser localizadas em pastas de trabalho do Excel em uma pasta de rede, e a equipe pode gastar muito tempo localizando as pastas de trabalho.
 * **Entenda a cultura da equipe relacionada às alterações** - muitos desafios de adoção estão relacionados com a resistência às alterações, em vez da implementação de uma nova ferramenta. A maneira como uma equipe reage às alterações é importante ao identificar os casos de uso, pois o processo existente pode estar em vigor porque "é assim que sempre fizemos" ou "se não está quebrado, para que consertar?". A adoção de qualquer nova ferramenta ou processo sempre é mais fácil quando as pessoas afetadas entendem o valor a ser obtido com a alteração e apreciam a importância dos problemas a serem resolvidos.
-* **Mantenha o foco relacionado a ativos de dados** - ao abordar os problemas de negócios enfrentados por uma equipe, você precisa "eliminar o supérfluo" e se concentrar no que é relevante para aproveitar os ativos de dados corporativos de forma mais eficiente.
+* **Mantenha o foco relacionado a ativos de dados** – ao abordar os problemas empresariais enfrentados por uma equipe, você precisa "eliminar o supérfluo" e se concentrar no que é relevante para aproveitar os ativos de dados corporativos de forma mais eficaz.
 
 Aqui estão alguns casos de uso de exemplo relacionados ao Catálogo de Dados:
 

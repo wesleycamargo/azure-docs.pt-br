@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f72d15707d9f56b9e9b5a5d527d1204007c40afa
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 03acd7c283fd1296af06dd19d0170a4b3c65eeb3
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621965"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352488"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure Active Directory
 
@@ -214,6 +214,42 @@ Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chav
 
     d. Copie o valor da chave.
 
+## <a name="troubleshoot-errors-in-the-reporting-api"></a>Solucionar problemas de erros na API de relatório
+
+Esta seção lista as mensagens de erro comuns que você pode encontrar ao acessar relatórios de atividades usando a API do MS Graph e as etapas para a resolução.
+
+### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>500 Erro interno do servidor HTTP ao acessar o ponto de extremidade do Microsoft Graph V2
+
+No momento, não há suporte para o ponto de extremidade do Microsoft Graph v2 – acesse os logs de atividades usando o ponto de extremidade do Microsoft Graph v1.
+
+### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Erro: Falha ao obter as funções de usuário do AD Graph
+
+Você pode receber essa mensagem de erro ao tentar acessar entradas usando o Explorador do Graph. Verifique se que você está conectado à sua conta usando os dois botões de conexão na interface do usuário do Explorador do Graph, conforme é mostrado na imagem a seguir. 
+
+![Explorador do Graph](./media/troubleshoot-graph-api/graph-explorer.png)
+
+### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Erro: Falha ao fazer a verificação da licença Premium do AD Graph 
+
+Se você encontrar essa mensagem de erro ao tentar acessar entradas usando o Explorador do Graph, escolha **Modificar permissões** em sua conta na barra de navegação à esquerda e selecione **Tasks.ReadWrite** e **Directory.Read.All**. 
+
+![Modificar a interface do usuário de permissões](./media/troubleshoot-graph-api/modify-permissions.png)
+
+
+### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Erro: O locatário não é B2C ou não tem uma licença Premium
+
+O acesso a relatórios de entrada requer uma licença do Azure Active Directory Premium 1 (P1). Se essa mensagem de erro for exibida quando você acessar as entradas, verifique se o locatário está licenciado com uma licença do Azure AD P1.
+
+### <a name="error-user-is-not-in-the-allowed-roles"></a>Erro: O usuário não está nas funções permitidas 
+
+Se essa mensagem de erro for exibida quando você tentar acessar os logs de auditoria ou as entradas usando a API, verifique se sua conta faz parte da função **Leitor de segurança** ou **Leitor de relatório** no locatário do Azure Active Directory. 
+
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>Erro: O aplicativo não tem a permissão 'Ler dados do diretório' do AAD 
+
+Siga as etapas nos [Pré-requisitos para acessar a API de relatório do Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para garantir que seu aplicativo esteja em execução com o conjunto certo de permissões. 
+
+### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Erro: O aplicativo não tem a permissão 'Ler todos os dados do log de auditoria' da API do MSGraph
+
+Siga as etapas nos [Pré-requisitos para acessar a API de relatório do Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para garantir que seu aplicativo esteja em execução com o conjunto certo de permissões. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: ecdb36af786d96a5b343d11cd689642d59528445
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 81d9fc7babef7c1d14a0acc420d0c16c05b83215
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888521"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354312"
 ---
 # <a name="state-management-with-service-fabric"></a>Gerenciamento de estado com o Service Fabric
 
@@ -30,7 +30,7 @@ Contêineres frequentemente usam discos temporários. Discos temporários são e
 
 ### <a name="service-fabric-reliable-volume"></a>Reliable Volume do Service Fabric
 
-O Reliable Volume do Service Fabric é um driver de volume do Docker usado para montar um volume local para um contêiner. Leituras e gravações são operações locais e rápidas. Os dados são replicados para fora dos nós secundários, tornando-os altamente disponíveis. Failover também é rápido. Quando um contêiner falha, ele fará failover para um nó que já tem uma cópia dos seus dados. Por exemplo, consulte [Como implantar um aplicativo com o Reliable Volume do Service Fabric.](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter)
+O Reliable Volume do Service Fabric é um driver de volume do Docker usado para montar um volume local para um contêiner. Leituras e gravações são operações locais e rápidas. Os dados são replicados para fora dos nós secundários, tornando-os altamente disponíveis. Failover também é rápido. Quando um contêiner falha, ele fará failover para um nó que já tem uma cópia dos seus dados. Por exemplo, confira [Como implantar um aplicativo com o Reliable Volume do Service Fabric](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
 
 ### <a name="azure-files-volume"></a>Volume de Armazenamento de Arquivos
 

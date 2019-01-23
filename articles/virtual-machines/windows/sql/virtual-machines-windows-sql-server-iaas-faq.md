@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339392"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358976"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas freqüentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -49,13 +49,19 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
    Sim. O Azure mantém apenas uma imagem por versão principal e edição. Por exemplo, quando um novo service pack do SQL Server é lançado, o Azure adiciona uma nova imagem à galeria para esse service pack. A imagem do SQL Server para o service pack anterior é removida imediatamente do Portal do Azure. No entanto, ela ainda estará disponível para provisionamento do PowerShell pelos próximos três meses. Depois de três meses, a imagem do service pack anterior não estará mais disponível. Essa política de remoção também se aplica quando uma versão do SQL Server se torna incompatível quando ela atinge o final de seu ciclo de vida.
 
+
+1. **É possível implantar uma imagem mais antiga do SQL Server que não está visível no portal do Azure?**
+
+   Sim, usando o PowerShell. Para obter mais informações sobre como implantar VMs do SQL Server usando o PowerShell, confira [Como provisionar máquinas virtuais do SQL Server com o Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+
 1. **Posso criar uma imagem de VHD de uma VM do SQL Server?**
 
    Sim, mas há algumas considerações. Se implantar esse VHD a uma nova VM no Azure, você não obtém a seção Configuração do SQL Server no portal. Você deve, então, gerenciar as opções de configuração do SQL Server por meio do PowerShell. Além disso, você será cobrado à taxa da VM do SQL em que sua imagem foi originalmente baseada. Isso acontece mesmo se você remover o SQL Server do VHD antes de implantar. 
 
 1. **É possível definir configurações não mostradas na galeria de máquinas virtuais (por exemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-    Não. Para imagens da galeria de máquinas virtuais que incluem o SQL Server, você deve selecionar uma das imagens fornecidas.
+    Não. Para imagens da galeria de máquinas virtuais que incluem o SQL Server, você deve selecionar uma das imagens fornecidas, seja pelo portal do Azure ou via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+
 
 ## <a name="creation"></a>Criação
 

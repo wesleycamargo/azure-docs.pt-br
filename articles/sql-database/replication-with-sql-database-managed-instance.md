@@ -1,59 +1,33 @@
 ---
-title: Replicação com a Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre o uso da Replicação do SQL Server com a Instância Gerenciada do Banco de Dados SQL do Azure
+title: Configurar a replicação na Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre como configurar a replicação transacional na Instância Gerenciada do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547585"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360081"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>Replicação com a Instância Gerenciada do Banco de Dados SQL
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurar a replicação na Instância Gerenciada do Banco de Dados SQL do Azure
 
-A replicação está disponível para versão prévia pública na [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md). Uma Instância Gerenciada pode hospedar bancos de dados publicadores, distribuidores e assinantes.
-
-## <a name="common-configurations"></a>Configurações comuns
-
-De modo geral, o publicador e o distribuidor devem, ambos, estar na nuvem ou ser locais. Há suporte para as seguintes configurações:
-
-- **Publicador com distribuidor local na instância gerenciada**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   Os bancos de dados publicador e distribuidor são configurados em uma única instância gerenciada.
-
-- **Publicador com distribuidor remoto na instância gerenciada**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   O publicador e o distribuidor são configurados em duas instâncias gerenciadas. Nesta configuração:
-
-  - As duas instâncias gerenciadas estão na mesma vNet.
-
-  - As duas instâncias gerenciadas estão no mesmo local.
-
-- **Publicador e distribuidor locais com assinante na instância gerenciada**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   Nesta configuração, um Banco de Dados SQL do Azure é um assinante. Essa configuração dá suporte à migração do local para o Azure. Na função de assinante, o Banco de Dados SQL não requer a Instância Gerenciada. No entanto, você pode usar uma Instância Gerenciada do Banco de Dados SQL como uma etapa na migração do local para o Azure. Para obter mais informações sobre assinantes no Banco de Dados SQL do Azure, confira [Replicação no Banco de Dados SQL](replication-to-sql-database.md).
+A replicação transacional permite replicar dados de bancos de dados do SQL Server ou da Instância Gerenciada do Banco de Dados SQL do Azure para a Instância Gerenciada ou enviar por push as alterações feitas nos bancos de dados na Instância Gerenciada para outro SQL Server, outro banco de dados individual do Azure ou outra Instância Gerenciada. A replicação está em versão prévia pública na [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md). Uma Instância Gerenciada pode hospedar bancos de dados publicadores, distribuidores e assinantes. Confira [Configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para obter as configurações disponíveis.
 
 ## <a name="requirements"></a>Requisitos
 
 A configuração com publicador e distribuidor no Banco de Dados SQL do Azure requer:
 
-- Instância Gerenciada do Banco de Dados SQL do Azure.
+- Uma Instância Gerenciada do Banco de Dados SQL do Azure que não esteja na configuração de recuperação de desastre geográfico.
 
    >[!NOTE]
    >Bancos de Dados SQL do Azure não configurados com a Instância Gerenciada podem ser apenas assinantes.
@@ -74,7 +48,13 @@ Suporta:
 
 - Os assinantes podem ser locais, bancos de dados únicos no Banco de Dados SQL do Azure ou bancos de dados em pool nos pools elásticos do Banco de Dados SQL do Azure.
 
-- Replicação unidirecional ou bidirecional
+- Replicação unidirecional ou bidirecional.
+
+Não há suporte para os seguintes recursos:
+
+- Assinaturas atualizáveis.
+
+- Replicação geográfica ativa.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Exemplo de configuração de publicação e distribuição
 
@@ -87,7 +67,7 @@ Suporta:
 
    Nos scripts de exemplo abaixo, substitua `<Publishing_DB>` pelo nome do banco de dados.
 
-4. Crie um usuário do banco de dados com Autenticação SQL para o distribuidor. Consulte [Criar usuários de banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use uma senha segura.
+4. Crie um usuário do banco de dados com Autenticação SQL para o distribuidor. Use uma senha segura.
 
    Nos scripts de exemplo abaixo, use `<SQL_USER>` e `<PASSWORD>` com o usuário e a senha do banco de dados dessa Conta do SQL Server.
 
@@ -188,15 +168,8 @@ Suporta:
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>Limitações
-
-Não há suporte para os seguintes recursos:
-
-- Assinaturas atualizáveis
-
-- Replicação geográfica ativa
-
+   
 ## <a name="see-also"></a>Veja também
 
+- [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [O que é uma Instância Gerenciada?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

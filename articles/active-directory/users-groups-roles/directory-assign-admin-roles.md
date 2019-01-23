@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/16/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 75fe35a22ccae249b734f05bd4adcaf8ddcab9f8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 50fbafdf714e6071ffac6f9f18d0802ecc1e574d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995092"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360047"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -49,7 +49,8 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador de Dispositivo de Nuvem](#cloud-device-administrator)**: Os usuários nessa função podem habilitar, desabilitar e excluir dispositivos no Azure AD e ler chaves do Windows 10 BitLocker (se houver) no portal do Azure. A função não concede permissões para gerenciar nenhuma outra propriedade no dispositivo.
 
-* **[Administrador de Conformidade](#compliance-administrator)**: Os usuários com essa função têm permissões de gerenciamento no Centro de Conformidade e Segurança do Office 365 e no Centro de administração do Exchange. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Administrador de Conformidade](#compliance-administrator)**: Os usuários com essa função têm permissões para gerenciar recursos relacionados à conformidade no Centro de conformidade do Microsoft 365, no Centro de segurança do Microsoft 365, no Centro de administração do Microsoft 365 e no Azure. Os usuários também podem gerenciar todos os recursos no Centro de administração do Exchange, no Gerenciador de Conformidade e no Centro de administração do Teams e do Skype for Business, além de criar tíquetes de suporte para o Azure e o Microsoft 365. Há mais informações disponíveis em [Sobre as funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). 
+
 
 * **[Administrador do Acesso Condicional](#conditional-access-administrator)**: Usuários com essa função têm a capacidade de gerenciar as configurações de acesso condicional do Azure Active Directory.
   > [!NOTE]
@@ -195,6 +196,7 @@ Pode criar e gerenciar todos os aspectos de registros de aplicativo e aplicativo
 | microsoft.aad.directory/appRoleAssignments/read | Leia appRoleAssignments no Active Directory do Azure. |
 | microsoft.aad.directory/appRoleAssignments/update | Atualize o appRoleAssignments no Active Directory do Azure. |
 | microsoft.aad.directory/appRoleAssignments/delete | Exclua appRoleAssignments em Azure Active Directory. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/basic/read | Ler policies.applicationConfiguration property em Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/basic/update | Atualize policies.applicationConfiguration property em Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Crie políticas no Active Directory do Azure. |
@@ -202,15 +204,18 @@ Pode criar e gerenciar todos os aspectos de registros de aplicativo e aplicativo
 | microsoft.aad.directory/policies/applicationConfiguration/owners/read | Ler policies.applicationConfiguration property em Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/update | Atualize policies.applicationConfiguration property em Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Ler policies.applicationConfiguration property em Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Atualize as propriedades básicas em servicePrincipals no Active Directory do Azure. |
-| microsoft.aad.directory/servicePrincipals/create | Criar servicePrincipals em Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/delete | Excluir servicePrincipals em Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Atualize a propriedade Approleassignedto no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Atualizar servicePrincipals.appRoleAssignments property em Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/update | Atualizar servicePrincipals.owners property em Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/audience/update | Atualizar a propriedade servicePrincipals.audience no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/authentication/update | Atualizar a propriedade servicePrincipals.authentication no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/basic/update | Atualize as propriedades básicas em servicePrincipals no Active Directory do Azure. |
+| microsoft.aad.directory/servicePrincipals/create | Criar servicePrincipals em Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/credentials/update | Atualizar a propriedade servicePrincipals.credentials no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/delete | Excluir servicePrincipals em Azure Active Directory. |
+| microsoft.aad.dimicrosoft.aad.directory/servicePrincipals/owners/updaterectory/servicePrincipals/owners/update | Atualizar servicePrincipals.owners property em Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/permissions/update | Atualizar a propriedade servicePrincipals.permissions no Azure Active Directory. |
 | microsoftmicrosoft.aad.directory/servicePrincipals/policies/update.aad.directory/servicePrincipals/policies/update | Atualizar servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.reports/applicationAuditLogs/read | Ler applicationAuditLogs nos relatórios do AD do Azure. |
-| microsoft.aad.reports/applicationSignInReports/read | Leia applicationSignInReports nos relatórios do Microsoft Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
@@ -230,7 +235,7 @@ Pode criar registros de aplicativos independentemente da configuração "Usuári
 Pode executar tarefas comuns de relacionadas à cobrança, como atualizar informações de pagamento.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -238,10 +243,10 @@ Pode executar tarefas comuns de relacionadas à cobrança, como atualizar inform
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | Atualize as propriedades básicas em organização no Azure Active Directory. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Atualize a propriedade organization.trustedCAsForPasswordlessAuth no Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.commerce.billing/allEntities/allTasks | Gerencie todos os aspectos de cobrança do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
@@ -249,15 +254,15 @@ Pode executar tarefas comuns de relacionadas à cobrança, como atualizar inform
 Pode acessar e gerenciar ferramentas de gerenciamento da Área de Trabalho e serviços, incluindo o Intune.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerenciar todos os aspectos da Análise de Área de Trabalho. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
@@ -279,6 +284,7 @@ Pode criar e gerenciar todos os aspectos de registros de aplicativo e aplicativo
 | microsoft.aad.directory/appRoleAssignments/create | Crie appRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/update | Atualize o appRoleAssignments no Active Directory do Azure. |
 | microsoft.aad.directory/appRoleAssignments/delete | Exclua appRoleAssignments em Azure Active Directory. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Crie políticas no Active Directory do Azure. |
 | microsoft.aad.directory/policies/applicationConfiguration/basic/read | Ler policies.applicationConfiguration property em Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/basic/update | Atualize policies.applicationConfiguration property em Azure Active Directory. |
@@ -288,13 +294,16 @@ Pode criar e gerenciar todos os aspectos de registros de aplicativo e aplicativo
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Ler policies.applicationConfiguration property em Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Atualize a propriedade Approleassignedto no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Atualizar servicePrincipals.appRoleAssignments property em Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/audience/update | Atualizar a propriedade servicePrincipals.audience no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/authentication/update | Atualizar a propriedade servicePrincipals.authentication no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/basic/update | Atualize as propriedades básicas em servicePrincipals no Active Directory do Azure. |
 | microsoft.aad.directory/servicePrincipals/create | Criar servicePrincipals em Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/credentials/update | Atualizar a propriedade servicePrincipals.credentials no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/delete | Excluir servicePrincipals em Azure Active Directory. |
 | microsoft.aad.dimicrosoft.aad.directory/servicePrincipals/owners/updaterectory/servicePrincipals/owners/update | Atualizar servicePrincipals.owners property em Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/permissions/update | Atualizar a propriedade servicePrincipals.permissions no Azure Active Directory. |
 | microsoftmicrosoft.aad.directory/servicePrincipals/policies/update.aad.directory/servicePrincipals/policies/update | Atualizar servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.reports/applicationAuditLogs/read | Ler applicationAuditLogs nos relatórios do AD do Azure. |
-| microsoft.aad.reports/applicationSignInReports/read | Leia applicationSignInReports nos relatórios do Microsoft Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
@@ -305,11 +314,12 @@ Acesso completo para gerenciar os dispositivos no Azure AD.
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.aad.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
 | Microsoft.AAD.Directory/Devices/Delete | Exclua dispositivos no Azure Active Directory. |
 | Microsoft.AAD.Directory/Devices/Disable | Desabilite dispositivos no Azure Active Directory. |
 | microsoft.aad.directory/devices/enable | Habilite dispositivos no Azure Active Directory. |
-| microsoft.aad.reports/applicationAuditLogs/read | Ler applicationAuditLogs nos relatórios do AD do Azure. |
-| microsoft.aad.reports/applicationSignInReports/read | Leia applicationSignInReports nos relatórios do Microsoft Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 
@@ -317,15 +327,17 @@ Acesso completo para gerenciar os dispositivos no Azure AD.
 Pode gerenciar todos os aspectos do Azure AD e dos serviços da Microsoft que usam identidades do Azure AD.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Criar e excluir todos os recursos e ler e atualizar as propriedades padrão em microsoft.aad.cloudAppSecurity. |
 | microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Criar e excluir administrativeUnits e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.aad.directory/applications/allProperties/allTasks | Criar e excluir aplicativos e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/allProperties/allTasks | Criar e excluir appRoleAssignments e ler e atualizar todas as propriedades no Azure Active Directory. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
 | microsoft.aad.directory/contacts/allProperties/allTasks | Criar e excluir contatos e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.aad.directory/contracts/allProperties/allTasks | Criar e excluir contratos e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.aad.directory/devices/allProperties/allTasks | Criar e excluir dispositivos e ler e atualizar todas as propriedades no Azure Active Directory. |
@@ -347,45 +359,49 @@ Pode gerenciar todos os aspectos do Azure AD e dos serviços da Microsoft que us
 | microsoft.aad.directory/serviceAction/enableDirectoryFeature | Pode executar a ação de serviço Enabledirectoryfeature no Azure Active Directory |
 | microsoft.aad.directory/serviceAction/getAvailableExtentionProperties | Pode executar a ação de serviço Getavailableextentionproperties no Azure Active Directory |
 | microsoft.aad.directory/servicePrincipals/allProperties/allTasks | Criar e excluir servicePrincipals e ler e atualizar todas as propriedades no Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.aad.directory/subscribedSkus/allProperties/allTasks | Criar e excluir subscribedSkus e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.aad.directory/users/allProperties/allTasks | Criar e excluir usuários e ler e atualizar todas as propriedades no Azure Active Directory. |
 | microsoft.aad.directorySync/allEntities/allTasks | Executar todas as ações no Azure AD Connect. |
 | microsoft.aad.identityProtection/allEntities/allTasks | Criar e excluir todos os recursos e ler e atualizar propriedades padrão em microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
-| microsoft.aad.reports/applicationAuditLogs/read | Ler applicationAuditLogs nos relatórios do AD do Azure. |
-| microsoft.aad.reports/applicationSignInReports/read | Leia applicationSignInReports nos relatórios do Microsoft Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
+| microsoft.azure.advancedThreatProtection/allEntities/read | Ler todos os recursos em microsoft.azure.advancedThreatProtection. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Gerencie todos os aspectos da proteção de informações do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.commerce.billing/allEntities/allTasks | Gerencie todos os aspectos de cobrança do Office 365. |
 | microsoft.intune/allEntities/allTasks | Gerencie todos os aspectos do Intune. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft.office365.complianceManager/allEntities/allTasks | Gerenciar todos os aspectos do Gerenciador de conformidade do Office 365 |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerenciar todos os aspectos da Análise de Área de Trabalho. |
 | Microsoft.office365.Exchange/allEntities/allTasks | Gerencie todos os aspectos do Exchange Online. |
 | Microsoft.office365.lockbox/allEntities/allTasks | Gerenciar todos os aspectos do Cofre de cliente do Office 365 |
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read | Ler securityMessages em microsoft.office365.messageCenter. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Gerencie todos os aspectos do Power BI. |
 | Microsoft.office365.protectionCenter/allEntities/allTasks | Gerencie todos os aspectos do Centro de proteção do Office 365. |
+| microsoft.office365.securityComplianceCenter/allEntities/allTasks | Criar e excluir todos os recursos e ler e atualizar as propriedades padrão em microsoft.office365.securityComplianceCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | Microsoft.office365.SharePoint/allEntities/allTasks | Criar e excluir todos os recursos e ler e atualizar propriedades padrão em microsoft.office365.sharepoint. |
 | Microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerencie todos os aspectos do Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Gerencie todos os aspectos do Dynamics 365. |
+| microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Ler todos os recursos em microsoft.windows.defenderAdvancedThreatProtection. |
 
 ### <a name="compliance-administrator"></a>Administrador de conformidade
 Pode ler e gerenciar a configuração de conformidade e relatórios no Azure AD e no Office 365.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft.office365.complianceManager/allEntities/allTasks | Gerenciar todos os aspectos do Gerenciador de conformidade do Office 365 |
 | Microsoft.office365.Exchange/allEntities/allTasks | Gerencie todos os aspectos do Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
@@ -405,21 +421,22 @@ Pode gerenciar os recursos de acesso condicional.
 | microsoft.aad.directory/policies/conditionalAccess/owners/read | Ler a propriedade policies.conditionalAccess no Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Atualize a propriedade policies.conditionalAccess no Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Ler a propriedade policies.conditionalAccess no Azure Active Directory. |
+| microsoft.aad.directory/policies/conditionalAccess/tenantDefault/update | Atualize a propriedade policies.conditionalAccess no Azure Active Directory. |
 
 ### <a name="crm-service-administrator"></a>Administrador de serviços do CRM
 Pode gerenciar todos os aspectos do produto Dynamics 365.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Gerencie todos os aspectos do Dynamics 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
@@ -427,13 +444,13 @@ Pode gerenciar todos os aspectos do produto Dynamics 365.
 Pode aprovar solicitações de suporte da Microsoft para acessar dados organizacionais do cliente.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft.office365.lockbox/allEntities/allTasks | Gerenciar todos os aspectos do Cofre de cliente do Office 365 |
 
 ### <a name="device-administrators"></a>Administradores de Dispositivo
@@ -451,12 +468,8 @@ Pode ler informações básicas do diretório. Para conceder acesso a aplicativo
 | --- | --- |
 | microsoft.aad.directory/administrativeUnits/basic/read | Ler as propriedades básicas em administrativeUnits no Azure Active Directory. |
 | microsoft.aad.directory/administrativeUnits/members/read | Ler a propriedade Administrativeunits no Azure Active Directory. |
-| microsoft.aad.directory/applications/audience/read | Leia a propriedade applications.audience no Active Directory do Azure. |
-| microsoft.aad.directory/applications/authentication/read | Leia a propriedade applications.authentication no Azure Active Directory. |
 | microsoft.aad.directory/applications/basic/read | Ler as propriedades básicas em aplicativos do Azure Active Directory. |
-| microsoft.aad.directory/applications/credentials/read | Leia a propriedade applications.credentials no Active Directory do Azure. |
 | Microsoft.AAD.Directory/Applications/Owners/Read | Ler a propriedade Owners no Azure Active Directory. |
-| microsoft.aad.directory/applications/permissions/read | Leia a propriedade applications.permissions no Azure Active Directory. |
 | microsoft.aad.directory/applications/policies/read | Leia a propriedade applications.policies no Active Directory do Azure. |
 | microsoft.aad.directory/contacts/basic/read | Ler as propriedades básicas em contatos no Azure Active Directory. |
 | microsoft.aad.directory/contacts/memberOf/read | Ler a propriedade Contacts no Azure Active Directory. |
@@ -494,8 +507,6 @@ Pode ler informações básicas do diretório. Para conceder acesso a aplicativo
 | microsoft.aad.directory/umicrosoft.aad.directory/users/appRoleAssignments/readsers/appRoleAssignments/read | Leia a propriedade users.appRoleAssignments no Active Directory do Azure. |
 | microsoft.aad.directory/users/basic/read | Leia as propriedades básicas dos usuários no Azure Active Directory. |
 | microsoft.aad.directory/users/directReports/read | Leia a propriedade users.directReports no Active Directory do Azure. |
-| microsoft.aad.directory/users/invitedBy/read | Leia a propriedade users.invitedBy no Active Directory do Azure. |
-| microsoft.aad.directory/users/invitedUsers/read | Leia a propriedade users.invitedUsers no Active Directory do Azure. |
 | microsoft.aad.directory/users/manager/read | Leia a propriedade users.manager no Active Directory do Azure. |
 | microsoft.aad.directory/users/memberOf/read | Leia a propriedade users.memberOf no Active Directory do Azure. |
 | microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Leia a propriedade users.oAuth2PermissionGrants no Active Directory do Azure. |
@@ -516,18 +527,23 @@ Apenas usado pelo serviço do Azure AD Connect.
 | Microsoft.AAD.Directory/Policies/Owners/Read | Ler a propriedade Owners no Azure Active Directory. |
 | Microsoft.AAD.Directory/Policies/Owners/Update | Atualize a propriedade Owners no Azure Active Directory. |
 | microsoft.aad.directory/policies/policiesAppliedTo/read | Ler a propriedade policies.policiesAppliedTo no Azure Active Directory. |
+| microsoft.aad.directory/policies/tenantDefault/update | Atualizar a propriedade policies.tenantDefault no Azure Active Directory. |
 | microsoft.aad.directormicrosoft.aad.directory/servicePrincipals/appRoleAssignedTo/ready/servicePrincipals/appRoleAssignedTo/read | Ler a propriedade Approleassignedto no Ler a propriedade Approleassignedto no Azure Active Directory.Azure Active Directory. |
 | microsoftmicrosoft.aad.directory/servicePrincipals/appRoleAssignedTo/update.aad.directory/servicePrincipals/appRoleAssignedTo/update | Atualize a propriedade Approleassignedto no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Ler a propriedade ServicePrincipals.AppRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Atualizar servicePrincipals.appRoleAssignments property em Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/audience/update | Atualizar a propriedade servicePrincipals.audience no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/authentication/update | Atualizar a propriedade servicePrincipals.authentication no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/basic/read | Ler as propriedades básicas em entidades de serviço no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/basic/update | Atualize as propriedades básicas em servicePrincipals no Active Directory do Azure. |
 | microsoft.aad.directory/servicePrincipals/create | Criar servicePrincipals em Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/credentials/update | Atualizar a propriedade servicePrincipals.credentials no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/memberOf/read | Ler a propriedade Serviceprincipals no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Ler a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/read | Ler a propriedade Serviceprincipals no Azure Active Directory. |
 | microsoft.aad.dimicrosoft.aad.directory/servicePrincipals/owners/updaterectory/servicePrincipals/owners/update | Atualizar servicePrincipals.owners property em Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/ownedObjects/read | Ler a propriedade Serviceprincipals no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/permissions/update | Atualizar a propriedade servicePrincipals.permissions no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/read | Ler a propriedade servicePrincipals.policies no Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Atualizar servicePrincipals.policies property in Azure Active Directory. |
 | microsoft.aad.directorySync/allEntities/allTasks | Executar todas as ações no Azure AD Connect. |
@@ -558,13 +574,12 @@ Pode ler e gravar informações básicas do diretório. Para conceder acesso a a
 Pode gerenciar todos os aspectos do produto Exchange.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | Atualize a propriedade groups.unified no Active Directory do Azure. |
 | microsoft.aad.directory/groups/unified/basic/update | Atualizar as propriedades básicas de Grupos do Office 365. |
 | microsoft.aad.directory/groups/unified/create | Criar Grupos do Office 365. |
@@ -573,6 +588,7 @@ Pode gerenciar todos os aspectos do produto Exchange.
 | microsoft.aad.directory/groups/unified/owners/update | Atualizar a propriedade de Grupos do Office 365. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft.office365.Exchange/allEntities/allTasks | Gerencie todos os aspectos do Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
@@ -585,9 +601,7 @@ Pode convidar usuários convidados independentemente da configuração "membros 
 | microsoft.aad.directory/umicrosoft.aad.directory/users/appRoleAssignments/readsers/appRoleAssignments/read | Leia a propriedade users.appRoleAssignments no Active Directory do Azure. |
 | microsoft.aad.directory/users/basic/read | Leia as propriedades básicas dos usuários no Azure Active Directory. |
 | microsoft.aad.directory/users/directReports/read | Leia a propriedade users.directReports no Active Directory do Azure. |
-| microsoft.aad.directory/users/invitedBy/read | Leia a propriedade users.invitedBy no Active Directory do Azure. |
 | microsoft.aad.directory/users/inviteGuest | Convidar usuários convidados no Azure Active Directory. |
-| microsoft.aad.directory/users/invitedUsers/read | Leia a propriedade users.invitedUsers no Active Directory do Azure. |
 | microsoft.aad.directory/users/manager/read | Leia a propriedade users.manager no Active Directory do Azure. |
 | microsoft.aad.directory/users/memberOf/read | Leia a propriedade users.memberOf no Active Directory do Azure. |
 | microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Leia a propriedade users.oAuth2PermissionGrants no Active Directory do Azure. |
@@ -600,11 +614,12 @@ Pode redefinir senhas para não administradores e Administradores de Assistênci
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidar todos os tokens de atualização de usuário no Azure Active Directory. |
 | Microsoft.AAD.Directory/Users/Password/Update | Atualize senhas para todos os usuários no Active Directory do Azure. Consulte a documentação online para obter mais detalhes. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
@@ -612,7 +627,7 @@ Pode redefinir senhas para não administradores e Administradores de Assistênci
 Pode gerenciar todos os aspectos do produto de Proteção de Informações do Azure.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -628,7 +643,7 @@ Pode gerenciar todos os aspectos do produto de Proteção de Informações do Az
 Pode gerenciar todos os aspectos do produto Intune.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -638,6 +653,7 @@ Pode gerenciar todos os aspectos do produto Intune.
 | Microsoft.AAD.Directory/Contacts/Create | Crie contatos no Azure Active Directory. |
 | Microsoft.AAD.Directory/Contacts/Delete | Exclua contatos no Azure Active Directory. |
 | microsoft.aad.directory/devices/basic/update | Atualize as propriedades básicas em dispositivos no Azure Active Directory. |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
 | Microsoft.AAD.Directory/Devices/Create | Crie dispositivos no Azure Active Directory. |
 | Microsoft.AAD.Directory/Devices/Delete | Exclua dispositivos no Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredOwners/update | Atualize a propriedade registeredowners no Azure Active Directory. |
@@ -658,6 +674,7 @@ Pode gerenciar todos os aspectos do produto Intune.
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.intune/allEntities/allTasks | Gerencie todos os aspectos do Intune. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="license-administrator"></a>Administrador de Licenças
 Pode gerenciar licenças de produto em usuários e grupos.
@@ -666,23 +683,23 @@ Pode gerenciar licenças de produto em usuários e grupos.
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Gerenciar licenças em usuários no Azure Active Directory. |
 | microsoft.aad.directory/users/usageLocation/update | Atualizar a propriedade users.usageLocation no Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 
 ### <a name="lync-service-administrator"></a>Administrador de serviços do Lync
 Pode gerenciar todos os aspectos do produto Skype for Business.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | Microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerencie todos os aspectos do Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
@@ -691,20 +708,20 @@ Pode gerenciar todos os aspectos do produto Skype for Business.
 Pode ler as mensagens e as atualizações para sua organização somente no Centro de Mensagens do Office 365. 
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
 
 ### <a name="partner-tier1-support"></a>Suporte de camada 1 do parceiro
 Não use – não se destina para uso geral.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -726,9 +743,9 @@ Não use – não se destina para uso geral.
 | Microsoft.AAD.Directory/Users/Password/Update | Atualize senhas para todos os usuários no Active Directory do Azure. Consulte a documentação online para obter mais detalhes. |
 | Microsoft.AAD.Directory/Users/Restore | Restaurar usuários excluídos no Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Atualize a propriedade users.userPrincipalName no Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
@@ -736,7 +753,7 @@ Não use – não se destina para uso geral.
 Não use – não se destina para uso geral.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -761,9 +778,9 @@ Não use – não se destina para uso geral.
 | Microsoft.AAD.Directory/Users/Password/Update | Atualize senhas para todos os usuários no Active Directory do Azure. Consulte a documentação online para obter mais detalhes. |
 | Microsoft.AAD.Directory/Users/Restore | Restaurar usuários excluídos no Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Atualize a propriedade users.userPrincipalName no Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
@@ -771,16 +788,16 @@ Não use – não se destina para uso geral.
 Pode gerenciar todos os aspectos do produto Power BI.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Gerencie todos os aspectos do Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
@@ -788,7 +805,7 @@ Pode gerenciar todos os aspectos do produto Power BI.
 Pode gerenciar atribuições de função do AD do Azure e todos os aspectos do Privileged Identity Management.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -801,14 +818,14 @@ Pode gerenciar atribuições de função do AD do Azure e todos os aspectos do P
 Pode ler relatórios de entrada e de auditoria.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.reports/applicationAuditLogs/read | Ler applicationAuditLogs nos relatórios do AD do Azure. |
-| microsoft.aad.reports/applicationSignInReports/read | Leia applicationSignInReports nos relatórios do Microsoft Azure Active Directory. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
@@ -817,25 +834,27 @@ Pode ler relatórios de entrada e de auditoria.
 Pode ler relatórios e informações de segurança e gerenciar a configuração no Azure AD e o Office 365.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/applications/policies/update | Atualize a propriedade applications.policies no Azure Active Directory. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
 | microsoft.aad.directory/policies/basic/update | Atualize as propriedades básicas em políticas no Azure Active Directory. |
 | Microsoft.AAD.Directory/Policies/Create | Crie políticas no Active Directory do Azure. |
 | Microsoft.AAD.Directory/Policies/Delete | Exclua policies em Azure Active Directory. |
 | Microsoft.AAD.Directory/Policies/Owners/Update | Atualize a propriedade Owners no Azure Active Directory. |
+| microsoft.aad.directory/policies/tenantDefault/update | Atualizar a propriedade policies.tenantDefault no Azure Active Directory. |
 | microsoftmicrosoft.aad.directory/servicePrincipals/policies/update.aad.directory/servicePrincipals/policies/update | Atualizar servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Ler todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.aad.identityProtection/allEntities/update | Atualize todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityMmicrosoft.aad.privilegedIdentityManagement/allEntities/readanagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
-| microsoft.aad.reports/applicationAuditLogs/read | Ler applicationAuditLogs nos relatórios do AD do Azure. |
-| microsoft.aad.reports/applicationSignInReports/read | Leia applicationSignInReports nos relatórios do Microsoft Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft.office365.protectionCenter/allEntities/Read | Ler todos os aspectos do Centro de Proteção do Office 365. |
 | Microsoft.office365.protectionCenter/allEntities/Update | Atualize todos os recursos em microsoft.office365.protectionCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
@@ -844,18 +863,19 @@ Pode ler relatórios e informações de segurança e gerenciar a configuração 
 Pode ler relatórios e informações de segurança no Azure AD e no Office 365.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.aad.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Ler a propriedade devices.bitLockerRecoveryKeys no Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Ler todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityMmicrosoft.aad.privilegedIdentityManagement/allEntities/readanagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
-| microsoft.aad.reports/applicationAuditLogs/read | Ler applicationAuditLogs nos relatórios do AD do Azure. |
-| microsoft.aad.reports/applicationSignInReports/read | Leia applicationSignInReports nos relatórios do Microsoft Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft.office365.protectionCenter/allEntities/Read | Ler todos os aspectos do Centro de Proteção do Office 365. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 
@@ -863,15 +883,15 @@ Pode ler relatórios e informações de segurança no Azure AD e no Office 365.
 Pode ler informações de integridade do serviço e gerenciar os tíquetes de suporte.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
@@ -879,13 +899,12 @@ Pode ler informações de integridade do serviço e gerenciar os tíquetes de su
 Pode gerenciar todos os aspectos do serviço SharePoint.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | Atualize a propriedade groups.unified no Active Directory do Azure. |
 | microsoft.aad.directory/groups/unified/basic/update | Atualizar as propriedades básicas de Grupos do Office 365. |
 | microsoft.aad.directory/groups/unified/create | Criar Grupos do Office 365. |
@@ -894,6 +913,7 @@ Pode gerenciar todos os aspectos do serviço SharePoint.
 | microsoft.aad.directory/groups/unified/owners/update | Atualizar a propriedade de Grupos do Office 365. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | Microsoft.office365.SharePoint/allEntities/allTasks | Criar e excluir todos os recursos e ler e atualizar propriedades padrão em microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
@@ -902,16 +922,15 @@ Pode gerenciar todos os aspectos do serviço SharePoint.
 Pode gerenciar recursos de reuniões e chamadas no serviço do Microsoft Teams.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.directory/policies/basic/read | Ler as propriedades básicas em políticas no Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
@@ -920,37 +939,35 @@ Pode gerenciar recursos de reuniões e chamadas no serviço do Microsoft Teams.
 Pode solucionar problemas de comunicação no Teams usando ferramentas avançadas.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.directory/policies/basic/read | Ler as propriedades básicas em políticas no Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 
 ### <a name="teams-communications-support-specialist"></a>Especialista em Suporte de Comunicações do Teams
 Pode solucionar problemas de comunicação no Teams equipes usando ferramentas básicas.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.directory/policies/basic/read | Ler as propriedades básicas em políticas no Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 
 ### <a name="teams-service-administrator"></a>Administrador de Serviços do Teams
 Pode gerenciar o serviço do Microsoft Teams.
 
   > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -963,10 +980,9 @@ Pode gerenciar o serviço do Microsoft Teams.
 | microsoft.aad.directory/groups/unified/delete | Excluir Grupos do Office 365. |
 | microsoft.aad.directory/groups/unified/members/update | Atualizar associação de Grupos do Office 365. |
 | microsoft.aad.directory/groups/unified/owners/update | Atualizar a propriedade de Grupos do Office 365. |
-| microsoft.aad.directory/policies/basic/read | Ler as propriedades básicas em políticas no Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
@@ -1002,9 +1018,9 @@ Pode gerenciar todos os aspectos de usuários e grupos, incluindo a redefiniçã
 | Microsoft.AAD.Directory/Users/Password/Update | Atualize senhas para todos os usuários no Active Directory do Azure. Consulte a documentação online para obter mais detalhes. |
 | Microsoft.AAD.Directory/Users/Restore | Restaurar usuários excluídos no Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Atualize a propriedade users.userPrincipalName no Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 

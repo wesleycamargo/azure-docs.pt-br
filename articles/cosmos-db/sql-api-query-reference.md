@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044375"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354458"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Referência de sintaxe SQL do Azure Cosmos DB 
 
@@ -2331,7 +2331,7 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
  **Sintaxe**  
   
 ```  
-SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
+SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
 ```  
   
  **Argumentos**  
@@ -2342,7 +2342,7 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     É qualquer expressão numérica válida.  
+     É qualquer expressão numérica válida para denotar o caractere de início e término.    
   
  **Tipos de retorno**  
   
@@ -2543,7 +2543,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a>ARRAY_CONTAINS  
-Retorna um valor booliano que indica se a matriz contém o valor especificado. Pode especificar se a correspondência é completa ou parcial. 
+Retorna um valor booliano que indica se a matriz contém o valor especificado. Você pode verificar uma correspondência parcial ou completa de um objeto usando uma expressão booliana no comando. 
 
  **Sintaxe**  
   
@@ -2563,7 +2563,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 -   `bool_expr`  
   
-     É qualquer expressão booliana.       
+     É qualquer expressão booliana. Se ele for definido como ' true' e se o valor de pesquisa especificado for um objeto, o comando procurará uma correspondência parcial (o objeto de pesquisa é um subconjunto de um dos objetos). Se ele for definido como 'false', o comando procurará uma correspondência completa de todos os objetos dentro da matriz. O valor padrão, se não especificado, é false. 
   
  **Tipos de retorno**  
   

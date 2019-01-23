@@ -6,22 +6,22 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 337ee0edc3d6e644415b2b3f7524d829d0e3c692
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246459"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359265"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs e formatos de fluxo de trabalho do Media Encoder Premium
+
 > [!NOTE]
 > Para questões de Codificador Premium, email mepd@microsoft.com.
 > 
@@ -38,9 +38,11 @@ Este documento contém uma lista de formatos de arquivo de entrada e saída e co
 **Fluxo de trabalho do Media Encoder Premium** dá suporte a legendas codificadas descritas [nesta](#closed_captioning) seção 
 
 ## <a id="input_formats"></a>Codecs e formatos de entrada de fluxo de trabalho do Media Encoder Premium
+
 A seção a seguir lista os codecs e formatos de arquivo aos quais esse processador de mídia dá suporte como entrada.
 
 ### <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
+
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -51,6 +53,7 @@ A seção a seguir lista os codecs e formatos de arquivo aos quais esse processa
 * AVI (8 bits/10 bits descompactado)
 
 ### <a name="input-video-codecs"></a>Codecs de vídeo de entrada
+
 * AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra
 * DNxHD ávido (em MXF)
 * DVCPro/DVCProHD (em MXF)
@@ -61,6 +64,7 @@ A seção a seguir lista os codecs e formatos de arquivo aos quais esse processa
 * Windows Media Video/VC-1
 
 ### <a name="input-audio-codecs"></a>Codecs de áudio de entrada
+
 * AES (SMPTE 331M e 302M, AES3-2003)
 * Dolby® E
 * Dolby® Digital (AC3)
@@ -71,9 +75,11 @@ A seção a seguir lista os codecs e formatos de arquivo aos quais esse processa
 * WAV/PCM
 
 ## <a id="output_format"></a>Codecs e formatos de saída de fluxo de trabalho do Media Encoder Premium
+
 A seção a seguir lista os codecs e formatos de arquivo com suporte como a saída desse processador de mídia.
 
 ### <a name="output-containerfile-formats"></a>Formatos de contêiner/arquivo de saída
+
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM e AS02)
 * DPP (incluindo AS11)
@@ -85,6 +91,7 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>Codecs de vídeo de saída
+
 * AVC (H. 264; 8 bits; até perfil, nível elevado 5.2; 4K Ultra HD; Intra AVC)
 * DNxHD ávido (em MXF)
 * DVCPro/DVCProHD (em MXF)
@@ -92,8 +99,13 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 * MPEG-1
 * Windows Media Video/VC-1
 * Criação de miniaturas JPEG
+* HEVC (H.265; 8 e 10 bits, Main e Main 10 Profile)
+
+  O suporte a HDR 10 está disponível em determinados cenários, entre em contato com mepd@microsoft.com para obter mais informações
+
 
 ### <a name="output-audio-codecs"></a>Codecs de áudio de saída
+
 * AES (SMPTE 331M e 302M, AES3-2003)
 * Dolby® Digital (AC3)
 * Dolby ® Digital Plus (E-AC3) até 7.1
@@ -106,6 +118,7 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 >Se você codificar para Dolby® Digital (AC3), a saída só poderá ser gravada em um arquivo ISO MP4.
 
 ## <a id="closed_captioning"></a>Suporte a legenda codificada
+
 Na ingestão, o **fluxo de trabalho do Media Encoder Premium** dá suporte a:
 
 1. Arquivos SCC
@@ -122,14 +135,18 @@ Na saída, as seguintes opções estão disponíveis:
 5. Arquivo de legenda SRT
 6. Fluxos de legenda DVB
 
-Observação: nem todos os formatos de saída acima têm suporte para fornecimento por meio de streaming nos Serviços de Mídia do Azure.
+> [!NOTE]
+> Nem todos os formatos de saída acima têm suporte à entrega por meio de streaming nos Serviços de Mídia do Azure.
 
 ## <a name="known-issues"></a>Problemas conhecidos
+
 Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio. 
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

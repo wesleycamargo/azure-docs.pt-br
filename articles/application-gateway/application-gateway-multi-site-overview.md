@@ -1,38 +1,30 @@
 ---
-title: Hospedagem de vários sites no Gateway de Aplicativo do Azure | Microsoft Docs
-description: Esta página fornece uma visão geral do suporte a vários sites do Gateway de Aplicativo.
-documentationcenter: na
+title: Hospedagem de vários sites no Gateway de Aplicativo do Azure
+description: Esta página fornece uma visão geral do suporte a vários sites do Gateway de Aplicativo do Azure.
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: ''
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04aca43e7220b0d5f644ca4f03db3a7442972728
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22704754"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358461"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedagem de vários sites do Gateway de Aplicativo
 
-A hospedagem de vários sites permite que você configure mais de um aplicativo Web na mesma instância do Application Gateway. Esse recurso permite que você configure a topologia mais eficiente para suas implantações adicionando até 20 sites a um Gateway de Aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. No exemplo a seguir, o Application Gateway está fornecendo o tráfego para contoso.com e fabrikam.com de dois pools de servidores de back-end chamados ContosoServerPool e FabrikamServerPool.
+A hospedagem de vários sites permite que você configure mais de um aplicativo Web na mesma instância do Application Gateway. Esse recurso permite que você configure a topologia mais eficiente para suas implantações adicionando até 100 sites a um Gateway de Aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. No exemplo a seguir, o Application Gateway está fornecendo o tráfego para contoso.com e fabrikam.com de dois pools de servidores de back-end chamados ContosoServerPool e FabrikamServerPool.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
 > [!IMPORTANT]
 > As regras são processadas na ordem em que elas são listadas no portal. É altamente recomendável configurar primeiro os ouvintes de vários locais para configurar um ouvinte básico.  Isso irá garantir que o tráfego seja roteado para o back-end correto. Se um ouvinte básico for listado primeiro e corresponder a uma solicitação de entrada, ele é processado por esse ouvinte.
 
-As solicitações de http://contoso.com são roteadas para ContosoServerPool e as de http://fabrikam.com são roteadas para FabrikamServerPool.
+As solicitações de http://contoso.com são encaminhadas para ContosoServerPool, e as de http://fabrikam.com são encaminhadas para FabrikamServerPool.
 
-Da mesma forma, dois subdomínios do mesmo domínio pai podem ser hospedados na mesma implantação do Gateway de Aplicativo. Exemplos de uso de subdomínios podem incluir http://blog.contoso.com e http://app.contoso.com hospedado em uma implantação do gateway de aplicativo única.
+Da mesma forma, dois subdomínios do mesmo domínio pai podem ser hospedados na mesma implantação do Gateway de Aplicativo. Exemplos de uso de subdomínios podem incluir http://blog.contoso.com e http://app.contoso.com hospedados em uma implantação de gateway de aplicativo único.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Cabeçalhos de host e SNI (Indicação de Nome de Servidor)
 
@@ -46,7 +38,7 @@ No momento, um Application Gateway obtém um único endereço IP público que es
 
 ## <a name="listener-configuration-element"></a>Elemento de configuração do ouvinte
 
-O elemento de configuração HTTPListener existente é aprimorado para dar suporte aos elementos de indicação de nome de servidor e nome de host que são usados pelo Gateway de Aplicativo para rotear o tráfego para o pool de back-end adequado. O exemplo de código a seguir é o trecho de código do elemento HttpListeners do arquivo de modelo.
+O elemento de configuração HTTPListener existente é aprimorado para dar suporte aos elementos de indicação de nome de servidor e nome de host que são usados pelo Gateway de Aplicativo para rotear o tráfego para o pool de back-end adequado. O exemplo de código a seguir é o snippet de código do elemento HttpListeners do arquivo de modelo.
 
 ```json
 "httpListeners": [
@@ -130,4 +122,3 @@ Não há nenhuma alteração necessária na regra de roteamento. A regra de rote
 ## <a name="next-steps"></a>Próximas etapas
 
 Depois de conhecer várias opções de hospedagem de site, vá para [criar um Application Gateway usando a hospedagem de vários sites](application-gateway-create-multisite-azureresourcemanager-powershell.md) para criar um Application Gateway com capacidade de dar suporte a mais de um aplicativo Web.
-

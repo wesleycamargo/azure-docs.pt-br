@@ -9,20 +9,26 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 8f3bcc3c631f17880c66e482234effcc4ea6424d
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744515"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359622"
 ---
 # <a name="streaming-endpoints"></a>Ponto de extremidade de streaming
 
 No AMS (Serviços de Mídia do Microsoft Azure), a entidade [Ponto de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player cliente ou a uma CDN (Rede de Distribuição de Conteúdo) para distribuição adicional. O fluxo de saída de um serviço de Ponto de Extremidade de Streaming pode ser uma transmissão ao vivo ou um Ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Não é possível excluir o Ponto de Extremidade de Streaming **padrão**. Ponto de Extremidade de Streaming adicionais podem ser criados na conta. Para começar a transmitir vídeos, é necessário iniciar o ponto de extremidade de streaming do qual deseja transmitir o vídeo. 
 
-## <a name="streamingendpoint-types"></a>Tipos de Ponto de Extremidade de Streaming  
+## <a name="naming-convention"></a>Convenção de nomenclatura
+
+Para o ponto de extremidade padrão: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+## <a name="types"></a>Tipos  
 
 Há dois tipos de **Ponto de Extremidade de Streaming**: **Standard** e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocadas para o ponto de extremidade de streaming. 
 
@@ -37,13 +43,16 @@ A tabela descreve os tipos:
 
 Na maioria dos casos, é necessário ter a CDN habilitada. No entanto, se você estiver antecipando uma simultaneidade máxima menor que 500 visualizadores, então, é recomendável desabilitar a CDN, já que a CDN dimensiona melhor com simultaneidade.
 
+> [!NOTE]
+> O ponto de extremidade de streaming `hostname` e a URL de streaming permanecem os mesmos, independentemente de você habilitar a CDN ou não.
+
 ### <a name="detailed-explanation-of-how-caching-works"></a>Explicação detalhada de como o armazenamento em cache funciona
 
 Não há nenhum valor de largura de banda específico ao adicionar a CDN porque a quantidade de largura de banda necessária para um ponto de extremidade de streaming habilitado para CDN varia. Depende muito do tipo de conteúdo, da popularidade, das taxas de bits e dos protocolos. A CDN está apenas armazenando em cache o que está sendo solicitado. Isso significa que o conteúdo popular será atendido diretamente pela CDN – contanto que o fragmento de vídeo seja armazenado em cache. É provável que o conteúdo ao vivo seja armazenado em cache, porque normalmente há muitas pessoas assistindo exatamente o mesmo conteúdo. O conteúdo sob demanda pode ser um pouco mais complicado porque você pode ter algum conteúdo que seja popular e outro que não seja. Se você tem milhões de ativos de vídeo em que nenhum deles é popular (apenas 1 ou 2 visualizadores por semana), mas tem milhares de pessoas assistindo a todos os diferentes vídeos, a CDN torna-se muito menos eficaz. Com essa perda no cache, você aumenta a carga no ponto de extremidade de streaming.
  
 Também é necessário considerar como o streaming adaptável funciona. Cada fragmento de vídeo individual é armazenado em cache como sua própria entidade. Por exemplo, se a primeira vez que um determinado vídeo é assistido e a pessoa ignora assistindo apenas alguns segundos de trechos aleatórios, apenas os fragmentos de vídeo associados ao que a pessoa assistiu são armazenados em cache no CDN. Com o streaming adaptável, você normalmente tem de 5 a 7 taxas de bits diferentes de vídeo. Se uma pessoa estiver assistindo a uma taxa de bits e outra pessoa estiver assistindo a uma taxa de bits diferente, cada uma delas será armazenada separadamente na CDN. Mesmo que duas pessoas estejam assistindo a mesma taxa de bits, é possível que estejam transmitindo por stream em diferentes protocolos. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) é armazenado em cache separadamente. Portanto, cada taxa de bits e protocolo são armazenados em cache separadamente e apenas os fragmentos de vídeo que foram solicitados são armazenados em cache.
  
-## <a name="streamingendpoint-properties"></a>Propriedades StreamingEndpoint 
+## <a name="properties"></a>propriedades 
 
 Esta seção fornece detalhes sobre algumas das propriedades do StreamingEndpoint. Para exemplos de como criar um novo ponto de extremidade de streaming e descrições de todas as propriedades, consulte [Ponto de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 

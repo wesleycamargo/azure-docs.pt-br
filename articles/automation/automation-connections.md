@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9687276323598d8600aa6930df8ef18bcc171cc1
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284533"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358823"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de conexão na Automação do Azure
 
@@ -23,7 +23,17 @@ Um ativo de conexão da Automação contém as informações necessárias para s
 Ao criar uma conexão, você deve especificar um *tipo de conexão*. O tipo de conexão é um modelo que define um conjunto de propriedades. A conexão define valores para cada propriedade definida em seu tipo de conexão. Tipos de conexão são adicionados à automação do Azure nos módulos de integração ou criados com a [API de automação do Azure](https://msdn.microsoft.com/library/azure/mt163818.aspx) se o módulo de integração inclui um tipo de conexão e é importado para sua conta de automação. Caso contrário, você precisará criar um arquivo de metadados para especificar um tipo de conexão de automação.  Para saber mais sobre isso, veja [Módulos de integração](automation-integration-modules.md).  
 
 >[!NOTE]
->Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é armazenada no Key Vault. Antes de armazenar um ativo seguro, a chave é carregada do Key Vault e usada para criptografar o ativo.
+>Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é armazenada em um Key Vault gerenciado pelo sistema. Antes de armazenar um ativo seguro, a chave é carregada do Key Vault e usada para criptografar o ativo. Esse processo é gerenciado pela Automação do Azure.
+
+## <a name="connection-types"></a>Tipos de conexão
+
+Há três tipos de conexões internas disponíveis na Automação do Azure:
+
+* **Azure** – essa conexão pode ser usada para gerenciar os recursos clássicos.
+* **AzureClassicCertificate** – essa conexão é usada pela conta **AzureClassicRunAs**.
+* **AzureServicePrincipal** – essa conexão é usada pela conta **AzureRunAs**.
+
+Na maioria dos casos você não precisa criar um recurso de conexão, pois ele é criado quando você cria uma [conta RunAs](manage-runas-account.md).
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
 

@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253067"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359826"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Conclua os pré-requisitos para a criação de grupos de disponibilidade AlwaysOn em máquinas virtuais do Azure
 
 Este tutorial mostra como concluir os pré-requisitos para criar um [grupo de disponibilidade Always On do SQL Server nas máquinas virtuais (VMs) do Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md). Quando você tiver concluído os pré-requisitos, terá um controlador de domínio, duas VMs do SQL Server e um servidor testemunha em um único grupo de recursos.
 
-**Tempo estimado**: pode levar algumas horas para concluir os pré-requisitos. Grande parte desse tempo é gasto na criação de máquinas virtuais.
+**Tempo estimado**: Pode levar algumas horas para concluir os pré-requisitos. Grande parte desse tempo é gasto na criação de máquinas virtuais.
 
 O diagrama a seguir ilustra o que você cria no tutorial.
 
@@ -108,7 +108,7 @@ A nova rede virtual tem uma sub-rede, chamada **Admin**. Os controladores de dom
 
     Se **SQL-HA-RG** não estiver visível, encontre-o clicando em **Grupos de Recursos** e filtrando pelo nome do grupo de recursos.
 2. Clique em **autoHAVNET** na lista de recursos. 
-3. Na rede virtual **autoHAVNET**, em **Configurações**, clique em **Sub-redes**.
+3. Na rede virtual **autoHAVNET**, em **Configurações**, selecione **Sub-redes**.
 
     Observe a sub-rede que você já criou.
 
@@ -135,7 +135,7 @@ A tabela a seguir resume as definições de configuração de rede:
 
 ## <a name="create-availability-sets"></a>Criar conjuntos de disponibilidade
 
-Antes de criar máquinas virtuais, você precisará criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planejados ou não. Um conjunto de disponibilidade do Azure é um grupo lógico de recursos que o Azure coloca em domínios de falha física e em domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade terão recursos de energia e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não serão desativados para manutenção ao mesmo tempo. Para obter informações adicionais, consulte [Gerenciar a disponibilidade de máquinas virtuais](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Antes de criar máquinas virtuais, você precisará criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planejados ou não. Um conjunto de disponibilidade do Azure é um grupo lógico de recursos que o Azure coloca em domínios de falha física e em domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade terão recursos de energia e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não serão desativados para manutenção ao mesmo tempo. Para saber mais, veja [Gerenciar a disponibilidade de máquinas virtuais](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Você precisará de dois conjuntos de disponibilidade. Um é para os controladores de domínio. A segunda é para as VMs do SQL Server.
 
@@ -189,7 +189,7 @@ A tabela a seguir mostra as configurações para esses dois computadores:
 | **Sub-rede** |administrador |
 | **Endereço IP público** |*Mesmo nome que a VM* |
 | **Grupo de segurança de rede** |*Mesmo nome que a VM* |
-| **Conjunto de disponibilidade** |adavailabilityset </br>**Domínios de falha**: 2</br>**Domínio de atualização**: 2|
+| **Conjunto de disponibilidade** |adavailabilityset </br>**Domínios de falha**: 2 </br>**Domínio de atualização**: 2|
 | **Diagnostics** |habilitado |
 | **Conta de armazenamento de diagnóstico** |*Criada automaticamente* |
 
@@ -368,10 +368,10 @@ Em seguida, crie três VMs: duas VMs do SQL Server e uma VM para um nó de clust
 | Página | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | Selecione o item da galeria apropriado |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise no Windows Server 2016** |**SQL Server 2016 SP1 Enterprise no Windows Server 2016** |
-| **Noções básicas** |**Nome** = cluster-fsw<br/>**Nome de usuário** = DomainAdmin<br/>**Senha** = Contoso!0000<br/>**Assinatura** = Sua assinatura<br/>**Grupo de recursos** = SQL-HA-RG<br/>**Local** = Seu local do Azure |**Nome** = sqlserver-0<br/>**Nome de usuário** = DomainAdmin<br/>**Senha** = Contoso!0000<br/>**Assinatura** = Sua assinatura<br/>**Grupo de recursos** = SQL-HA-RG<br/>**Local** = Seu local do Azure |**Nome** = sqlserver-1<br/>**Nome de usuário** = DomainAdmin<br/>**Senha** = Contoso!0000<br/>**Assinatura** = Sua assinatura<br/>**Grupo de recursos** = SQL-HA-RG<br/>**Local** = Seu local do Azure |
-| **Tamanho** |**TAMANHO** = DS1\_V2 (1 vCPU, 3,5 GB) |**TAMANHO** = DS2\_V2 (2 vCPUs, 7 GB)</br>O tamanho deve dar suporte ao armazenamento SSD (Suporte a disco Premium. )) |**TAMANHO** = DS2\_V2 (2 vCPUs, 7 GB) |
-| **Configurações** |**Armazenamento**: use discos gerenciados.<br/>**Rede virtual** = autoHAVNET<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** gerado automaticamente.<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**Conjunto de disponibilidade** = sqlAvailabilitySet<br/> |**Armazenamento**: use discos gerenciados.<br/>**Rede virtual** = autoHAVNET<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** gerado automaticamente.<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**Conjunto de disponibilidade** = sqlAvailabilitySet<br/> |**Armazenamento**: use discos gerenciados.<br/>**Rede virtual** = autoHAVNET<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** gerado automaticamente.<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**Conjunto de disponibilidade** = sqlAvailabilitySet<br/> |
-| **Definições do SQL Server** |Não aplicável |**Conectividade SQL** = Particular (em rede virtual)<br/>**Porta** = 1433<br/>**Autenticação SQL** = Desabilitar<br/>**Configuração de armazenamento** = Geral<br/>**Aplicação de patch automatizada** = Domingo às 2:00<br/>**Backup automatizado** = Desabilitado</br>**Integração do Cofre de Chaves do Azure** = Desabilitado |**Conectividade SQL** = Particular (em rede virtual)<br/>**Porta** = 1433<br/>**Autenticação SQL** = Desabilitar<br/>**Configuração de armazenamento** = Geral<br/>**Aplicação de patch automatizada** = Domingo às 2:00<br/>**Backup automatizado** = Desabilitado</br>**Integração do Cofre de Chaves do Azure** = Desabilitado |
+|  **Noções básicas** |**Nome** = cluster-fsw<br/>**Nome de usuário** = DomainAdmin<br/>**Senha** = Contoso!0000<br/>**Assinatura** = Sua assinatura<br/>**Grupo de recursos** = SQL-HA-RG<br/>**Local** = Seu local do Azure |**Nome** = sqlserver-0<br/>**Nome de usuário** = DomainAdmin<br/>**Senha** = Contoso!0000<br/>**Assinatura** = Sua assinatura<br/>**Grupo de recursos** = SQL-HA-RG<br/>**Local** = Seu local do Azure |**Nome** = sqlserver-1<br/>**Nome de usuário** = DomainAdmin<br/>**Senha** = Contoso!0000<br/>**Assinatura** = Sua assinatura<br/>**Grupo de recursos** = SQL-HA-RG<br/>**Local** = Seu local do Azure |
+|  **Tamanho** |**TAMANHO** = DS1\_V2 (1 vCPU, 3,5 GB) |**TAMANHO** = DS2\_V2 (2 vCPUs, 7 GB)</br>O tamanho deve dar suporte ao armazenamento SSD (Suporte a disco Premium. )) |**TAMANHO** = DS2\_V2 (2 vCPUs, 7 GB) |
+|  **Configurações** |**Armazenamento**: Usar discos gerenciados.<br/>**Rede virtual** = autoHAVNET<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** gerado automaticamente.<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**Conjunto de disponibilidade** = sqlAvailabilitySet<br/> |**Armazenamento**: Usar discos gerenciados.<br/>**Rede virtual** = autoHAVNET<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** gerado automaticamente.<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**Conjunto de disponibilidade** = sqlAvailabilitySet<br/> |**Armazenamento**: Usar discos gerenciados.<br/>**Rede virtual** = autoHAVNET<br/>**Sub-rede** = sqlsubnet(10.1.1.0/24)<br/>**Endereço IP público** gerado automaticamente.<br/>**Grupo de segurança de rede** = Nenhum<br/>**Monitorando Diagnóstico** = Habilitado<br/>**Conta de armazenamento de diagnóstico** = Use uma conta de armazenamento gerada automaticamente<br/>**Conjunto de disponibilidade** = sqlAvailabilitySet<br/> |
+|  **Definições do SQL Server** |Não aplicável |**Conectividade SQL** = Particular (em rede virtual)<br/>**Porta** = 1433<br/>**Autenticação SQL** = Desabilitar<br/>**Configuração de armazenamento** = Geral<br/>**Aplicação de patch automatizada** = Domingo às 2:00<br/>**Backup automatizado** = Desabilitado</br>**Integração do Cofre de Chaves do Azure** = Desabilitado |**Conectividade SQL** = Particular (em rede virtual)<br/>**Porta** = 1433<br/>**Autenticação SQL** = Desabilitar<br/>**Configuração de armazenamento** = Geral<br/>**Aplicação de patch automatizada** = Domingo às 2:00<br/>**Backup automatizado** = Desabilitado</br>**Integração do Cofre de Chaves do Azure** = Desabilitado |
 
 <br/>
 
@@ -462,6 +462,10 @@ Para adicionar os Recursos de Clustering de Failover, realize as etapas a seguir
 6. Clique em **Instalar** para adicionar os recursos.
 
 Repita essas etapas na outra VM do SQL Server.
+
+  >[!NOTE]
+  > Esta etapa, além de ingressar realmente as VMs do SQL Server ao cluster de failover, agora pode ser automatizada com um modelo de Início Rápido do Azure. Para obter mais informações, confira [Criar o WSFC, o ouvinte e configurar o ILB para um grupo de disponibilidade Always On em uma VM do SQL Server com os modelos de Início Rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurar o firewall em cada VM do SQL Server
 

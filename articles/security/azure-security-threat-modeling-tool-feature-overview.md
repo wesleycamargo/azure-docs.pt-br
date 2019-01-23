@@ -3,9 +3,9 @@ title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Conheça todos os recursos disponíveis no Threat Modeling Tool
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754738"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359333"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso Threat Modeling Tool
 
@@ -119,7 +119,7 @@ Quando você abre o aplicativo, você verá a tela de **Boas-vindas**.
 
 ### <a name="open-a-model"></a>Abrir um modelo
 
-Passar o mouse sobre **Abrir um Modelo** mostra duas opções: **Abrir deste computador** e **Abrir do OneDrive**. A primeira opção abre a tela de **Abertura de arquivo**. A segunda opção leva você através do processo de entrada para OneDrive. Após a autenticação bem-sucedida, você pode selecionar arquivos e pastas.
+Passe o mouse sobre **Abrir um Modelo** para mostrar duas opções: **Abrir Deste Computador** e **Abrir do OneDrive**. A primeira opção abre a tela de **Abertura de arquivo**. A segunda opção leva você através do processo de entrada para OneDrive. Após a autenticação bem-sucedida, você pode selecionar arquivos e pastas.
 
 ![Abrir modelo](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
@@ -140,7 +140,7 @@ Quando você abrir ou criar um novo modelo, o modo de exibição de **Design** a
 Você pode adicionar elementos na grade de duas maneiras:
 
 - **Arrastar e soltar**: Arraste o elemento desejado para a grade. Em seguida, use as propriedades de elemento para fornecer informações adicionais.
-- **Clicar com o botão direito**: Clique com o botão direito do mouse em qualquer lugar na grade e selecione os itens no menu suspenso. Uma representação genérica do elemento selecionado aparecerá na tela.
+- **Clicar com o botão direito do mouse**: Clique com o botão direito do mouse em qualquer lugar na grade e selecione os itens no menu suspenso. Uma representação genérica do elemento selecionado aparecerá na tela.
 
 ### <a name="connect-elements"></a>Conectar elementos
 

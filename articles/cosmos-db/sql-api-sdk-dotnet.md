@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 470813b1a51db183476dd046dc102eb89d73debd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051944"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354562"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB para a API do SQL: Downloads e notas sobre a versão
 > [!div class="op_single_selector"]
@@ -265,7 +265,7 @@ ms.locfileid: "54051944"
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Suporte adicionado para contas de banco de dados de várias regiões.
 * Suporte adicionado para repetição de solicitações limitadas.  O usuário pode personalizar o número de repetições e o tempo máximo de espera configurando a propriedade ConnectionPolicy.RetryOptions.
-* Nova interface IDocumentClient adicionada que define as assinaturas de todos os métodos e propriedades de DocumenClient.  Como parte dessa alteração, também foram alterados os métodos de extensão que criam IQueryable e IOrderedQueryable para métodos na própria classe DocumentClient.
+* Nova interface IDocumentClient adicionada que define as assinaturas de todos os métodos e propriedades de DocumentClient.  Como parte dessa alteração, também foram alterados os métodos de extensão que criam IQueryable e IOrderedQueryable para métodos na própria classe DocumentClient.
 * Opção de configuração adicionada para definir ServicePoint.ConnectionLimit de um determinado URI de ponto de extremidade do Azure Cosmos DB.  Use ConnectionPolicy.MaxConnectionLimit para alterar o valor padrão, que é definido como 50.
 * IPartitionResolver e sua implementação foram preteridos.  O suporte para IPartitionResolver agora é obsoleto. Recomendamos que você use Coleções Particionadas para taxa de transferência e armazenamento superiores.
 

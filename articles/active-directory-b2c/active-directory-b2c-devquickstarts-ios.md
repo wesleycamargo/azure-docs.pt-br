@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e6e0904efdb86376688710a94920cdb44c2804ec
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842265"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353117"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure Active Directory B2C: Entrar usando um aplicativo iOS
 
@@ -29,7 +29,7 @@ A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e Open
 Se você ainda não conhece o OAuth2 ou o OpenID Connect, grande parte desta configuração de exemplo poderá não fazer muito sentido para você. Recomendamos que você examine uma breve [visão geral do protocolo que documentamos aqui](active-directory-b2c-reference-protocols.md).
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório AD B2C do Azure
-Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos e muito mais. Se você ainda não tiver um, [crie um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir.
+Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos e muito mais. Se você ainda não tiver um, [crie um diretório B2C](tutorial-create-tenant.md) antes de prosseguir.
 
 ## <a name="create-an-application"></a>Criar um aplicativo
 Em seguida, você precisa criar um aplicativo em seu diretório B2C. O registro do aplicativo dá ao Azure AD as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Para criar um aplicativo móvel, siga [estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
@@ -39,13 +39,11 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. O registro 
 * Configure um **URI de redirecionamento** com um esquema personalizado (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Você precisará desse URI posteriormente.
 
 ## <a name="create-your-user-flows"></a>Criar seus fluxos de usuário
-No Azure AD B2C, toda experiência do usuário é definida por um [fluxo de usuário](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Crie este fluxo de usuário, conforme descrito no [artigo de referência de fluxo de usuário](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Ao criar as duas políticas, não se esqueça de:
+No Azure AD B2C, toda experiência do usuário é definida por um [fluxo de usuário](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Ao criar as duas políticas, não se esqueça de:
 
 * Em **Atributos de inscrição**, selecione o atributo **Nome de exibição**.  É possível selecionar outros atributos também.
 * Em **Declarações do aplicativo**, selecione as declarações **Nome de exibição** e **ID de Objeto do Usuário**. É possível selecionar outras declarações também.
 * Copie o **Nome** de cada usuário após criá-lo. Seu nome de fluxo de usuário é prefixado com `b2c_1_` quando você salva o fluxo de usuário.  Você precisará do nome de fluxo do usuário mais tarde.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Depois de criar os fluxos de usuário, você estará pronto para compilar o aplicativo.
 

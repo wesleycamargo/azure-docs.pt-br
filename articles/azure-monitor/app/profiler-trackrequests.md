@@ -1,6 +1,6 @@
 ---
 title: Escrever código para acompanhar as solicitações com o Azure Application Insights | Microsoft Docs
-description: Escrever código para acompanhar as solicitações com o Application Insights para que você possa obter perfis para suas solicitações
+description: Escrever código para acompanhar as solicitações com o Application Insights para que você possa obter perfis para suas solicitações.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 20f408d9dd32c3fd7a0e319e4051483e3aa54dd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 978f9a341eec2f16b9f6fe3d164e97805d7a8e93
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081440"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359623"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Escrever código para acompanhar as solicitações com o Application Insights
 
-Para ver os perfis para o seu aplicativo na página de desempenho, o Application Insights precisa estar controlando solicitações para seu aplicativo. O Application Insights pode acompanhar automaticamente as solicitações para aplicativos que são criados em estruturas que já estão instrumentadas, como ASP.net e ASP.Net Core. Mas para outros aplicativos, como funções de trabalho do serviço de nuvem do Azure e APIs sem monitoração de estado do Service Fabric, sua necessidade de escrever código para dizer o Application Insights onde suas solicitações começam e terminam. Uma vez que você escreveu esse código, solicitações de telemetria serão enviadas ao Application Insights e você verá a telemetria na página desempenho e perfis serão coletados para essas solicitações. 
+Para exibir os perfis para o seu aplicativo na página de desempenho, o Azure Application Insights precisa estar controlando as solicitações para o aplicativo. O Application Insights pode acompanhar automaticamente as solicitações para aplicativos criados em estruturas já instrumentadas. Dois exemplos disso são o ASP.NET e ASP.NET Core. 
 
-Aqui estão as etapas necessárias para controlar as solicitações manualmente:
+Para outros aplicativos, tais como funções de trabalho dos Serviços de Nuvem do Azure e APIs sem estado do Service Fabric, você precisa escrever código para informar ao Application Insights onde suas solicitações começam e terminam. Depois que você tiver escrito esse código, as solicitações de telemetria serão enviadas ao Application Insights. Você pode ver a telemetria na página Desempenho e perfis são coletados para essas solicitações. 
 
+Para acompanhar solicitações manualmente, faça o seguinte:
 
   1. No início do tempo de vida do aplicativo, adicione o código a seguir:  
 
@@ -36,7 +37,7 @@ Aqui estão as etapas necessárias para controlar as solicitações manualmente:
         ```
       Para obter mais informações essa configuração de chave de Instrumentação global, consulte [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md) (Usando o Service Fabric com o Application Insights).  
 
-  1. Para qualquer parte do código que você deseje instrumentar, adicione-a entre uma instrução `StartOperation<RequestTelemetry>` **USING**, como no exemplo a seguir:
+  1. Para qualquer parte do código que você deseje instrumentar, adicione-a entre uma instrução `StartOperation<RequestTelemetry>` **using**, como no exemplo a seguir:
 
         ```csharp
         using Microsoft.ApplicationInsights;

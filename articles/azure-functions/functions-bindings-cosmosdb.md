@@ -10,12 +10,12 @@ ms.service: azure-functions; cosmos-db
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 19a6ebaeb0c643c82277656ebade576c79ed0211
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 112442c280ee4b1b263a30c8976ea6d51f04e036
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001950"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359724"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
@@ -33,7 +33,7 @@ Este artigo explica como trabalhar com associações do [Azure Cosmos DB](../cos
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> As associações do Azure Cosmos DB têm suporte apenas para usar com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados de sua função usando o cliente estático para sua API, incluindo a [Azure Cosmos DB para API do MongoDB](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), a [API do Cassandra](../cosmos-db/cassandra-introduction.md), a [API do Gremlin](../cosmos-db/graph-introduction.md) e a [API de Tabela](../cosmos-db/table-introduction.md).
+> As associações do Azure Cosmos DB têm suporte apenas para usar com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados de sua função usando o cliente estático para sua API, incluindo a [API do Azure Cosmos DB para MongoDB](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), a [API do Cassandra](../cosmos-db/cassandra-introduction.md), a [API do Gremlin](../cosmos-db/graph-introduction.md) e a [API de Tabela](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 

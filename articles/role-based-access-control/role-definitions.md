@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 065695f9ce0f0d8dfbb9a43877131c8ab7fada5e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715763"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354307"
 ---
 # <a name="understand-role-definitions"></a>Compreender as definições de função
 
@@ -172,6 +172,14 @@ Para visualizar e trabalhar com operações de dados, você deve ter as versões
 | [Azure para Java](/java/azure/) | 1.9.0 ou posterior |
 | [Azure para Python](/python/azure) | 0.40.0 ou posterior |
 | [SDK do Azure para Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 ou posterior |
+
+Para exibir e usar as operações de dados na API REST, você precisa definir o parâmetro **api-version** para a seguinte versão ou outra posterior:
+
+- 2018-01-01-preview
+
+O portal do Azure também permite aos usuários procurar e gerenciar o conteúdo de contêineres de blob e de filas por meio da experiência de versão prévia do Azure AD. Para ver e gerenciar o conteúdo de um contêiner de fila ou de blob, clique em **Explorar dados usando a versão prévia do Azure AD** na Visão geral da conta de armazenamento.
+
+![Explorar os contêineres de blobs e de filas usando a versão prévia do Azure AD](./media/role-definitions/rbac-dataactions-browsing.png)
 
 ## <a name="actions"></a>Ações
 

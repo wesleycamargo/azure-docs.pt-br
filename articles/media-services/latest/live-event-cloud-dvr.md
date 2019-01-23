@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407959"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352352"
 ---
 # <a name="using-a-cloud-dvr"></a>Usando um DVR em nuvem
 
@@ -36,7 +36,10 @@ Um **LiveEvent** suporta até três **LiveOutput**  em execução simultânea, p
  Enquanto o **LiveEvent** estiver em execução, você pode criar programaticamente uma segunda **LiveOutput** simultânea no início de um programa (ou 5 minutos antes para fornecer algumas alças para aparar mais tarde). Este segundo **LiveOutput** pode ser excluído cinco minutos depois que o programa for finalizado. Com este segundo **Recurso**, você pode criar um novo **StreamingLocator** para publicar este programa como um recurso sob demanda no catálogo de seu aplicativo. Você pode repetir esse processo várias vezes para outros limites do programa ou destaques que deseja compartilhar como vídeos sob demanda, enquanto o feed "Live" da primeira **LiveOutput** continua transmitindo o feed linear. 
 
 > [!NOTE]
-> **LiveOutput** s inicie a criação e pare quando for excluído. Quando você exclui **LiveOutput**, não está excluindo o **Ativo** subjacente e o conteúdo no Ativo.  
+> **LiveOutput** s inicie a criação e pare quando for excluído. Quando exclui o **LiveOutput**, você não está excluindo o **ativo** subjacente e o conteúdo no ativo. 
+>
+> Se você tiver publicado **localizadores de streaming** no ativo para o **LiveOutput**, o evento (até a duração da janela de DVR) continuará a ser exibido até a hora de término do **localizador de streaming** ou até você excluir o localizador, o que ocorrer primeiro.   
+  
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406321"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353134"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>O que há de novo no Catálogo de Dados do Azure
 As atualizações do **Catálogo de Dados do Azure** são liberadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário; algumas versões se concentram em funcionalidades de serviço de back-end. Esta página destaca as novas funcionalidades voltadas para o usuário adicionadas ao serviço Catálogo de Dados do Azure.
@@ -137,8 +137,8 @@ Em maio de 2016, os seguintes recursos foram adicionados ao Catálogo de Dados d
 
 * O Glossário de Negócios que permite que os administradores de catálogo definam termos e hierarquias de negócios para criar um vocabulário comum ao negócio. Os usuários podem marcar ativos de dados registrados com os termos do glossário para facilitar sua descoberta e a compreensão do conteúdo do catálogo. Para saber mais, confira [Como configurar o glossário de negócios para Marcação Governada](data-catalog-how-to-business-glossary.md)  
 * Aprimoramentos no Glossário de Negócios do Catálogo de Dados que permitem aos usuários atualizar vários termos do glossário em uma única operação. Os usuários podem selecionar vários termos para editar os seguintes campos:
-  * Termo Pai: o usuário pode escolher um novo termo pai e todos os termos selecionados são atualizados para serem filhos do termo pai selecionado. Se todos os termos selecionados tiverem o mesmo pai, esse pai será mostrado na caixa de texto. Caso contrário, o campo de termo pai será deixado em branco.   
-  * Marcas e Participantes: os usuários podem adicionar e remover marcas e participantes para vários termos do glossário usando a mesma experiência que a marcação de vários ativos de dados.
+  * Termo Pai: O usuário pode escolher um novo termo pai e todos os termos selecionados são atualizados para serem filhos do termo pai selecionado. Se todos os termos selecionados tiverem o mesmo pai, esse pai será mostrado na caixa de texto. Caso contrário, o campo de termo pai será deixado em branco.   
+  * Marcas e participantes: Os usuários podem adicionar e remover marcas e participantes para vários termos do glossário usando a mesma experiência que a marcação de vários ativos de dados.
 
 > [!NOTE]
 > O glossário de negócios está disponível somente na Standard Edition do Catálogo de Dados do Azure. A Edição Gratuita não fornece recursos para marcação controlada ou um glossário de negócios.
@@ -153,7 +153,7 @@ Em fevereiro de 2016, os seguintes recursos foram adicionados ao Catálogo de Da
 
 * Uma nova e reformulada experiência de seleção de fonte de dados na ferramenta de registro de fonte de dados do Catálogo de Dados do Azure. A ferramenta de registro de fonte de dados foi atualizada para facilitar a localização e seleção nas fontes de dados com suporte no Catálogo de Dados do Azure.
 * Suporte para 10 idiomas adicionais no portal do Catálogo de Dados do Azure e para a ferramenta de registro de fonte de dados. Além do inglês, a experiência do Catálogo de Dados do Azure agora está disponível em alemão, espanhol, francês, italiano, japonês, coreano, português do Brasil, russo, chinês simplificado e chinês tradicional. A experiência de usuário do Catálogo de Dados do Azure é localizada de acordo com as preferências de idioma definidas no Windows ou no navegador da Web do usuário.
-* Suporte para replicação geográfica dos dados do Catálogo de Dados do Azure para recuperação de desastre e continuidade dos negócios. Todo o conteúdo do Catálogo de Dados do Azure, incluindo os metadados de fonte de dados e as anotações de crowdsourcing, agora é replicado entre duas regiões do Azure sem custo adicional para os clientes. As regiões do Azure são pré-emparelhadas, em pelo menos 800 km de distância, e seguem o mapeamento descrito em [BCDR (Continuidade dos negócios e recuperação de desastres): Regiões Emparelhadas do Azure](../best-practices-availability-paired-regions.md).
+* Suporte para replicação geográfica dos dados do Catálogo de Dados do Azure para recuperação de desastre e continuidade dos negócios. Todo o conteúdo do Catálogo de Dados do Azure, incluindo os metadados de fonte de dados e as anotações de crowdsourcing, agora é replicado entre duas regiões do Azure sem custo adicional para os clientes. As regiões do Azure são pré-emparelhadas a, pelo menos, 800 km de distância e seguem o mapeamento descrito em [BCDR (continuidade dos negócios e recuperação de desastres): Regiões Combinadas do Azure](../best-practices-availability-paired-regions.md).
 * Suporte para alterar a assinatura do Azure usada pelo Catálogo de Dados do Azure. Os administradores do Catálogo de Dados do Azure podem usar a página Configurações no portal do Catálogo de Dados do Azure para selecionar uma assinatura diferente do Azure para a cobrança.
 
 ## <a name="whats-new-for-january-2016"></a>Novidades para janeiro de 2016
@@ -263,6 +263,6 @@ Em agosto de 2015, os seguintes recursos foram adicionados ao Catálogo de Dados
 * Suporte para fornecer informações de solicitação de acesso de fontes de dados registradas. Para qualquer ativo de dados registrado, os usuários agora podem fornecer instruções para solicitação de acesso, incluindo links de email ou URLs, a fim de integrar facilmente com ferramentas e processos existentes.
 * Dicas de ferramenta para marcas e especialistas, para facilitar a descoberta de quais usuários forneceram quais metadados para os ativos de dados registrados.
 * Adicionamos um novo botão "Usuário" e o menu à nossa barra de navegação superior. Esse menu permite que o usuário veja a conta usada para fazer logon no Catálogo de Dados do Azure e para sair, se desejado. Esse menu também exibe o nome do catálogo, que é importante para os desenvolvedores que usam o API REST do Catálogo de Dados do Azure.
-* Somente para Standard Edition: ao adicionar proprietários aos ativos de dados, o Catálogo de Dados do Azure agora dá suporte a contas de usuário e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário de ativos de dados selecionados, você pode inserir o nome para exibição do grupo ou o endereço de email do UPN do grupo, se houver.
+* Somente para Standard Edition: Ao adicionar proprietários aos ativos de dados, o Catálogo de Dados do Azure agora dá suporte a contas de usuário e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário de ativos de dados selecionados, você pode inserir o nome para exibição do grupo ou o endereço de email do UPN do grupo, se houver.
 * Suporte para fontes de dados do Armazenamento do Blobs do Azure. Agora, os usuários podem registrar e descobrir os blobs e diretórios de armazenamento do Azure.
 

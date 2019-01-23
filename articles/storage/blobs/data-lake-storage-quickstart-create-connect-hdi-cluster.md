@@ -6,14 +6,14 @@ author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792878"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353848"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Início Rápido: Configurar clusters no HDInsight
 
@@ -25,6 +25,10 @@ Um cluster Hadoop é composto por várias máquinas virtuais (nós), usadas para
 >A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado. Saiba como [excluir um cluster.](../../hdinsight/hdinsight-delete-cluster.md)
 
 Uma conta de armazenamento com os recursos do Data Lake Storage Gen2 é usada como a camada de dados neste início rápido. Com seu serviço de namespace hierárquico e o [driver do Hadoop](data-lake-storage-abfs-driver.md), o Data Lake Storage Gen2 é otimizado para processamento e análise distribuídos. Os dados armazenados em uma conta de armazenamento com o Data Lake Storage Gen2 habilitado persistem mesmo depois que um cluster do HDInsight é excluído.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Você precisará criar uma identidade gerenciada atribuída pelo usuário e, em seguida, atribuir a **Função de Colaborador de Armazenamento de Blobs** à identidade. Confira [Criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## <a name="cluster-setup-methods"></a>Métodos de instalação de cluster
 
@@ -104,8 +108,7 @@ Durante a configuração, para o ponto de extremidade de armazenamento padrão v
 
 ![Configurações de armazenamento de cluster: Pontos de extremidade de armazenamento compatível com HDFS](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
-> [!IMPORTANT]
-> **Desabilite o acesso ao Data Lake Store**. Essas configurações se referem à antiga funcionalidade do *Data Lake Store* e precisam ser desabilitadas para que os recursos do *Data Lake Storage* operem corretamente.
+Em **Identidade gerenciada atribuída ao usuário**, não deixe de selecionar a identidade gerenciada atribuída ao usuário e gerenciada por ele que você criou como um pré-requisito deste artigo.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 

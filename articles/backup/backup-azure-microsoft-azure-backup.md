@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728269"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351604"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Este artigo explica como preparar o ambiente para fazer backup de cargas de trab
 >
 >
 
-Você também pode proteger cargas de trabalho de IaaS (infraestrutura como serviço), como VMs no Azure.
+O MABS implantado em uma VM do Azure pode fazer backup de VMs no Azure, mas elas devem estar no mesmo domínio para habilitar a operação de backup. O processo para fazer backup de uma VM do Azure é o mesmo que o usado para fazer backup de VMs localmente; no entanto, implantar o MABS no Azure tem algumas limitações. Para obter mais informações sobre as limitações, confira [DPM como uma máquina virtual do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece informações e procedimentos para a restauração de VMs implantadas usando o modelo do Gerenciador de Recursos.

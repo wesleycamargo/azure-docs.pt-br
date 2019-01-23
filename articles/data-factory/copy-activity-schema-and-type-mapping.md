@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1a3855b7b95224e0f872764f6710f9fa907780a7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025446"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358704"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 Este artigo descreve como a atividade de cópia do Azure Data Factory faz o mapeamento de esquema e de tipo de dados dos dados de origem para os dados do coletor ao executar a cópia dos dados.

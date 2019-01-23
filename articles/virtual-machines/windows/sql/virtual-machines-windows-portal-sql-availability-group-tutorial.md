@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51238068"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359707"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupos de disponibilidade Sempre ativo na VM do Azure manualmente
 
@@ -51,6 +51,9 @@ A tabela a seguir lista os pré-requisitos que precisam ser concluídos antes de
 
 
 Antes de iniciar o tutorial, você precisará [Concluir os pré-requisitos para a criação de Grupos de Disponibilidade AlwaysOn em Máquinas Virtuais do Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Se esses pré-requisitos já foram concluídos,vá para [Criar Cluster](#CreateCluster).
+
+  >[!NOTE]
+  > Muitas das etapas neste tutorial podem ser automatizadas usando um modelo de Início Rápido do Azure. Para obter mais informações, confira [Criar o WSFC, o ouvinte e configurar o ILB para um grupo de disponibilidade Always On em uma VM do SQL Server com os modelos de Início Rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->

@@ -1,18 +1,18 @@
 ---
-title: 'Como configurar o OpenVPN no Gateway de VPN do Azure: PowerShell | Microsoft Docs'
+title: 'Como configurar o OpenVPN para Gateway de VPN do Azure: PowerShell | Microsoft Docs'
 description: Etapas para configurar o OpenVPN para Gateway de VPN do Azure
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 958f4f46ec6ba407df7c739b7c62aa1489458485
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1dad960b0877cddf3be9afc01e3e687ebe4702c0
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408269"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357820"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>Configurar OpenVPN para o Gateway de VPN ponto a site do Azure (versão prévia)
 
@@ -21,7 +21,7 @@ Este artigo ajuda você a configurar o OpenVPN no Gateway de VPN do Azure. O art
 > [!IMPORTANT]
 > Essa versão prévia pública é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
-## <a name="register"></a>Registrar esse recurso
+## <a name="register"></a>Registrar este recurso
 
 Clique em **TryIt** nestas etapas para registrar esse recurso com facilidade usando o Azure Cloud Shell.
 
@@ -47,7 +47,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="vnet"></a>1. Criar uma VPN ponto a site
 
-Se você ainda não tiver um ambiente de ponto a site funcionando, siga as instruções para criar um. Veja [Criar uma VPN ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway de VPN ponto a site com a autenticação de certificado nativa do Azure.
+Se você ainda não tiver um ambiente de ponto a site funcionando, siga as instruções para criar um. Veja [Criar uma VPN ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway de VPN ponto a site com a autenticação de certificado nativa do Azure. Observe que o SKU Básico não é compatível para IKEv2 ponto a site.
 
 ## <a name="cmdlets"></a>2. Instalar cmdlets do PowerShell
 

@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c2d121106218c0965cd8f4e07776cf8d2578543f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651445"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354154"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como usar o pacote de conteúdo do Power BI do Azure Active Directory
 
@@ -101,13 +101,45 @@ Se você quiser atualizar o pacote de conteúdo para uma versão mais recente:
 
 Após verificar se a nova versão do pacote de conteúdo funciona conforme o esperado, você poderá remover a versão antiga, se necessário, excluindo os relatórios e os conjuntos de dados subjacentes associados a esse pacote de conteúdo.
 
-## <a name="still-having-issues"></a>Ainda está com problemas? 
+## <a name="troubleshoot-content-pack-errors"></a>Solucionar problemas com erros do pacote de conteúdo
 
-Confira nosso [guia de solução de problemas](troubleshoot-content-pack.md). Para obter ajuda geral com o Power BI, confira esses [artigos de ajuda](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+Ao trabalhar com o pacote de conteúdo, é possível encontrar os seguintes erros: 
+
+- [Falha na atualização](#refresh-failed) 
+- [Falha ao atualizar as credenciais de fonte de dados](#failed-to-update-data-source-credentials) 
+- [Importação de dados muito demorada](#data-import-is-too-slow) 
+
+Para obter ajuda geral com o Power BI, confira esses [artigos de ajuda](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+
+### <a name="refresh-failed"></a>Falha na atualização 
+ 
+**Como esse erro ocorre**: Email do Power BI ou status com falha no histórico de atualizações. 
+
+
+| Causa | Como corrigir |
+| ---   | ---        |
+| Erros de falha na atualização podem ser causados quando as credenciais dos usuários que se conectam ao pacote de conteúdo foram redefinidas, mas não atualizadas nas configurações de conexão do pacote de conteúdo. | No Power BI, localize o conjunto de dados correspondente ao painel de logs de atividades do Azure AD (**Logs de atividades do Azure Active Directory**), escolha programar atualização e insira as credenciais do Azure AD. |
+| Uma atualização poderá falhar devido a problemas de dados no pacote de conteúdo subjacente. | [Registre um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+ 
+### <a name="failed-to-update-data-source-credentials"></a>Falha ao atualizar as credenciais de fonte de dados 
+ 
+**Como esse erro ocorre**: No Power BI ao conectar o pacote de conteúdo dos logs de atividades do Azure AD. 
+
+| Causa | Como corrigir |
+| ---   | ---        |
+| O usuário de conexão não é um administrador global, um leitor de segurança ou um administrador de segurança. | Use uma conta que seja um administrador global, um leitor de segurança ou um administrador de segurança para acessar os pacotes de conteúdo. |
+| Seu locatário não é um locatário Premium ou não tem, pelo menos, um usuário com um Arquivo de licença Premium. | [Registre um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+### <a name="data-import-is-too-slow"></a>A importação de dados é muito lenta 
+ 
+**Como esse erro ocorre**: No Power BI, após conectar o pacote de conteúdo, o processo de importação de dados começará a preparar o painel para os logs de atividades do Azure AD. Você verá a mensagem: **Importando dados...** sem qualquer outro andamento.  
+
+| Causa | Como corrigir |
+| ---   | ---        |
+| Dependendo do tamanho do locatário, essa etapa poderá demorar de alguns minutos a 30 minutos. | Se a mensagem não for alterada para mostrar o painel dentro de uma hora, [registre um ticket de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+  
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Instalar pacote de conteúdo do Power BI](quickstart-install-power-bi-content-pack.md).
-* [Solucionar problemas com erros do pacote de conteúdo](troubleshoot-content-pack.md).
 * [O que são relatórios do Azure AD?](overview-reports.md).
