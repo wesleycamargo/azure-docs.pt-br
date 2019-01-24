@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716609"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808724"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Mídia v2 para v3
 
@@ -43,15 +43,16 @@ E se você tiver um serviço de vídeo desenvolvido hoje em dia sobre as [APIs h
 
 ### <a name="new-features"></a>Novos recursos
 
-* Para processamento de trabalho baseado em arquivo, você pode usar um URL HTTP (S) como entrada.
-    Você não precisa ter conteúdo já armazenado no Azure, nem precisa criar Ativos.
+* Para processamento de trabalho baseado em arquivo, você pode usar um URL HTTP (S) como entrada.<br/>Você não precisa ter conteúdo já armazenado no Azure, nem precisa criar Ativos.
 * Introduz o conceito de [Transformações](transforms-jobs-concept.md) para processamento de trabalho baseado em arquivo. Uma transformação pode ser usada para criar configurações reutilizáveis, criar modelos do Azure Resource Manager e isolar configurações de processamento entre vários clientes ou locatários.
 * Um Ativo pode ter [vários StreamingLocators](streaming-locators-concept.md), cada um com diferentes configurações de Dynamic Packaging e Dynamic Encryption.
 * [A proteção de conteúdo](content-key-policy-concept.md) suporta recursos de várias chaves.
 * Você pode transmitir eventos ao vivo de até 24 horas longa quando usar os Serviços de Mídia do Microsoft Azure para transcodificação uma contribuição de taxa de bits única de feed em um fluxo de saída que tem várias taxas de bits.
-* Novo suporte a streaming ao vivo de baixa latência no LiveEvents.
+* Novo suporte a streaming ao vivo de baixa latência no LiveEvents. Para obter mais informações, consulte [latência](live-event-latency.md).
 * A Versão Prévia do LiveEvent dá suporte para Empacotamento Dinâmico e Criptografia Dinâmica. Isso permite proteção de conteúdo na Versão Prévia, bem como empacotamento HLS e DASH.
 * LiveOutput é mais simples de usar do que a entidade Program nas APIs v2. 
+* Suporte aprimorado do RTMP (maior estabilidade e mais suporte de codificador de código-fonte).
+* Ingestão segura de RTMPS.<br/>Quando você cria um LiveEvent, obtém 4 URLs de ingestão. As 4 URLs de ingestão são quase idênticas, têm o mesmo token de streaming (AppId) e apenas a parte do número da porta é diferente. Duas das URLs são primárias e de backup para RTMPS.   
 * Você tem controle de acesso baseado em função (RBAC) sobre suas entidades. 
 
 ## <a name="changes-from-v2"></a>Alterações da v2

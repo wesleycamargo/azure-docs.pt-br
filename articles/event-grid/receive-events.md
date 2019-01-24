@@ -6,14 +6,14 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: 7d8ee60f033d824a3ff83a7c6948c72160e24c1d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: bb82ef542db09b3b7f864c4901107e1c5c0827f6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584278"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464758"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos em um ponto de extremidade HTTP
 
@@ -52,7 +52,7 @@ Clique no link "Exibir Arquivos" no Azure Functions (painel mais à direita no p
 
 A primeira coisa a fazer é manipular eventos `Microsoft.EventGrid.SubscriptionValidationEvent`. Sempre que alguém assina um evento, a Grade de Eventos envia um evento de validação para o ponto de extremidade com um `validationCode` na carga de dados. O ponto de extremidade é necessário para ecoar no corpo da resposta a fim de [provar que o ponto de extremidade é válido e pertence a você](security-authentication.md#webhook-event-delivery). Se você estiver usando um [Gatilho da Grade de Eventos](../azure-functions/functions-bindings-event-grid.md), em vez de uma Função disparada por WebHook, a validação do ponto de extremidade será tratada para você. Se você usar um serviço de API de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), você não poderá ecoar programaticamente o código de validação. Para esses serviços, você pode validar manualmente a assinatura usando uma URL de validação que é enviada no evento de validação de assinatura. Copie essa URL na propriedade `validationUrl` e envie uma solicitação GET por meio de um cliente REST ou pelo navegador da web.
 
-A validação manual está em visualização. Para usá-lo, instale a [extensão da Grade de Eventos](/cli/azure/azure-cli-extensions-list) para a [CLI do Azure](/cli/azure/install-azure-cli). Você pode instalá-la com `az extension add --name eventgrid`. Se você estiver usando a API REST, certifique-se de que está usando `api-version=2018-05-01-preview`.
+A validação manual está em visualização. Para usá-lo, instale a [extensão da Grade de Eventos](/cli/azure/azure-cli-extensions-list) para a [CLI do Azure](/cli/azure/install-azure-cli). Você pode instalá-la com `az extension add --name eventgrid`. Se você estiver usando a API REST, certifique-se de usar `api-version=2018-05-01-preview`.
 
 Em C#, a função `DeserializeEventGridEvents()` desserializa os eventos da Grade de Eventos. Essa função desserializa os dados do evento para o tipo apropriado como StorageBlobCreatedEventData. Use a classe `Microsoft.Azure.EventGrid.EventTypes` para obter tipos e nomes de eventos com suporte.
 

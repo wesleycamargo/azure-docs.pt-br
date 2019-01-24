@@ -3,18 +3,18 @@ title: Migrar do Orchestrator para Automação do Azure
 description: Descreve como migrar runbooks e pacotes de integração do System Center Orchestrator para a Automação do Azure.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275260"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432890"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrando do Orchestrator para a Automação do Azure (Beta)
 Os runbooks no [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) são baseados nas atividades de pacotes de integração que são escritos especificamente para o Orchestrator, enquanto os runbooks na Automação do Azure são baseados no Windows PowerShell.  [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na Automação do Azure têm uma aparência semelhante aos runbooks do Orchestrator, com suas atividades representando cmdlets do PowerShell, runbooks filhos e ativos.
@@ -134,3 +134,4 @@ Os runbooks no Orchestrator iniciam outros runbooks com a atividade **Invocar Ru
 * [Runbook Worker Híbrido](automation-hybrid-runbook-worker.md)
 * [Atividades padrão do Orchestrator](https://technet.microsoft.com/library/hh403832.aspx)
 * [Baixar o Kit de Ferramentas de Migração do System Center Orchestrator](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
+

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 1e5fcbee664271058ac1c7fa80bb285e09b8579a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 38852e80948f9937ce2711ee3d29d6a37e1da5c3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862189"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428572"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usar a Automação do Azure para disparar um trabalho
 
@@ -30,11 +30,11 @@ Este artigo explica como você pode usar o recurso de transformação de dados d
  
 Este artigo fornece detalhes sobre como criar um runbook de Automação do Azure e, em seguida, usá-lo para iniciar um trabalho de transformação de dados. Para saber mais sobre como iniciar a transformação de dados por meio do SDK do .NET, acesse [Usar o SDK do .NET para acionar os trabalhos de transformação de dados](storsimple-data-manager-dotnet-jobs.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você tem:
 
-*   Microsoft Azure PowerShell instalado no computador do cliente. [Fazer o download do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+*   Microsoft Azure PowerShell instalado no computador do cliente. [Fazer o download do Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 *   Uma definição de trabalho configurada corretamente em um serviço do Gerenciador de Dados StorSimple dentro de um grupo de recursos.
 *   Fazer o download do arquivo  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) no repositório GitHub. 
 *   Fazer o download do script [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) no repositório GitHub.

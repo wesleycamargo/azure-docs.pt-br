@@ -3,7 +3,7 @@ title: Instalar o Azure AD Connect usando permissões de administrador do SQL de
 description: Este tópico descreve uma atualização do Azure AD Connect que permite a instalação usando uma conta que tenha somente permissões de dbo do SQL.
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: jparsons
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b951f541487d70bccb8a709f79a3674ef22eba3a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e4f1e60424e058f805e89fc3291cfa9a28390c8d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309545"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474891"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect usando permissões de administrador do SQL delegado
 Antes da compilação mais recente do Azure AD Connect, não havia suporte para delegação administrativa ao implantar configurações que exigiam SQL.  Os usuários que desejavam instalar o Azure AD Connect precisavam ter permissões de administrador do servidor (SA) no servidor SQL.
@@ -40,11 +40,11 @@ Administrador do Azure AD Connect|Instala o Azure AD Connect e especifica a cont
 Para provisionar o banco de dados fora da banda e instalar o Azure AD Connect com permissões do proprietário do banco de dados, use as etapas a seguir.
 
 >[!NOTE]
->Embora não seja necessário, é **altamente recomendável** que o agrupamento Latin1_General_CI_AS seja selecionado ao criar o banco de dados.
+>Embora não seja necessário, é **altamente recomendável** que a ordenação Latin1_General_CI_AS seja selecionada ao criar o banco de dados.
 
 
-1.  Peça ao Administrador do SQL para criar o banco de dados ADSync com uma sequência de agrupamento sem diferenciar maiúsculas de minúsculas **(Latin1_General_CI_AS)**.  O banco de dados deve ser nomeado **ADSync**.  O modelo de recuperação, o nível de compatibilidade e o tipo de conteúdo serão atualizados para os valores corretos quando o Azure AD Connect for instalado.  No entanto, a sequência de agrupamento deve ser definida corretamente pelo administrador do SQL ou então o Azure AD Connect bloqueará a instalação.  Para recuperar, o SA deve excluir e recriar o banco de dados.</br>
-![Agrupamento](./media/how-to-connect-install-sql-delegation/sql4.png)
+1.  Peça ao Administrador do SQL para criar o banco de dados ADSync com uma sequência de ordenação sem diferenciar maiúsculas de minúsculas **(Latin1_General_CI_AS)**.  O banco de dados deve ser nomeado **ADSync**.  O modelo de recuperação, o nível de compatibilidade e o tipo de conteúdo serão atualizados para os valores corretos quando o Azure AD Connect for instalado.  No entanto, a sequência de ordenação deve ser definida corretamente pelo administrador do SQL ou então o Azure AD Connect bloqueará a instalação.  Para recuperar, o SA deve excluir e recriar o banco de dados.</br>
+![Ordenação](./media/how-to-connect-install-sql-delegation/sql4.png)
 2.  Conceda as seguintes permissões ao administrador do Azure AD Connect e à conta de serviço do domínio:
     - Logon do SQL 
     - Direitos do **proprietário do banco de dados (dbo)**.  </br>

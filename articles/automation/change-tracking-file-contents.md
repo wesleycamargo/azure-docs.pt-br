@@ -3,18 +3,18 @@ title: Exibir alterações de conteúdo do arquivo com a Automação do Azure
 description: Use o recurso de alteração de conteúdo do arquivo do Controle de Alterações para exibir o conteúdo de um arquivo que foi alterado.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869920"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437994"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Exibir o conteúdo de um arquivo que está sendo controlado com o Controle de Alterações
 
@@ -52,7 +52,7 @@ As etapas a seguir mostram como habilitar o Controle de Alterações para um arq
 
 1. Preencha as informações de caminho do arquivo e selecione **Verdadeiro** em **Carregar conteúdo do arquivo para todas as configurações**. Essa configuração habilita o controle de conteúdo do arquivo somente para esse caminho de arquivo.
 
-   ![Adicionar um arquivo do Linux](./media/change-tracking-file-contents/add-linux-file.png)
+   ![Adicionar um arquivo do linux](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## <a name="viewing-the-contents-of-a-tracked-file"></a>Exibindo o conteúdo de um arquivo controlado
 
@@ -76,3 +76,4 @@ Visite o tutorial sobre Controle de Alterações para saber mais sobre o uso da 
 > [Solucionar problemas de alterações em seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
 * Use [Pesquisas de log no Log Analytics](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados do controle de alterações.
+

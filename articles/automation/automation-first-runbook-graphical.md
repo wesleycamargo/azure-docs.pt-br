@@ -4,18 +4,18 @@ description: Tutorial que orienta você pela criação, teste e publicação de 
 keywords: runbook, modelo de runbook, automação de runbook, runbook do azure
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6a9e6bbf3bc507a4d45af03c791104c9490cd36f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195889"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426775"
 ---
 # <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
 
@@ -28,7 +28,7 @@ ms.locfileid: "34195889"
 
 Este tutorial orienta você durante a criação de um [runbook gráfico](automation-runbook-types.md#graphical-runbooks) na Automação do Azure. Você começa com um runbook simples, que é testado e publicado enquanto aprende como acompanhar o status do trabalho do runbook. Em seguida, você modifica o runbook para gerenciar os recursos do Azure, neste caso, iniciando uma máquina virtual do Azure. Depois, você conclui o tutorial, tornando o runbook mais robusto adicionando parâmetros de runbook e links condicionais.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -179,7 +179,7 @@ Nosso runbook atualmente inicia a máquina virtual no grupo de recursos especifi
 
 ## <a name="create-a-conditional-link"></a>Criar um link condicional
 
-Agora, modifique o runbook para que ele tente iniciar a máquina virtual apenas se ela ainda não tiver iniciado. Faça isso adicionando um cmdlet **Get-AzureRmVM** ao runbook que obtém o status do nível da instância da máquina virtual. Em seguida, adicione um módulo de código do Fluxo de Trabalho do PowerShell denominado **Obter Status** com um trecho de código do PowerShell para determinar se o estado da máquina virtual está em execução ou parado. Um link condicional do módulo **Obter Status** apenas executa **Start-AzureRmVM** se o estado de execução atual é interrompido. Por fim, envie uma mensagem para informar se a VM foi iniciada com êxito ou não usando o cmdlet Write-Output do PowerShell.
+Agora, modifique o runbook para que ele tente iniciar a máquina virtual apenas se ela ainda não tiver iniciado. Faça isso adicionando um cmdlet **Get-AzureRmVM** ao runbook que obtém o status do nível da instância da máquina virtual. Em seguida, adicione um módulo de código do Fluxo de Trabalho do PowerShell denominado **Obter Status** com um snippet de código do PowerShell para determinar se o estado da máquina virtual está em execução ou parado. Um link condicional do módulo **Obter Status** apenas executa **Start-AzureRmVM** se o estado de execução atual é interrompido. Por fim, envie uma mensagem para informar se a VM foi iniciada com êxito ou não usando o cmdlet Write-Output do PowerShell.
 
 1. Abra o **MyFirstRunbook-Graphical** no editor gráfico.
 1. Remova o link entre **Especificar Id de Assinatura** e **Start-AzureRmVM** clicando nele e pressionando a tecla *Delete*.
@@ -194,7 +194,7 @@ Agora, modifique o runbook para que ele tente iniciar a máquina virtual apenas 
 1. Crie um link de **Get-AzureRmVM** para **Código**.  
 1. Clique em **Código** e no painel de Configuração, altere o rótulo para **Obter Status**.
 1. Selecione o parâmetro **Código** e a página **Editor de Código** aparecerá.  
-1. No editor de código, cole o seguinte trecho de código:
+1. No editor de código, cole o seguinte snippet de código:
 
     ```powershell-interactive
      $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText
@@ -228,5 +228,6 @@ Agora, modifique o runbook para que ele tente iniciar a máquina virtual apenas 
 
 * Para saber mais sobre a Criação Gráfica, veja [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
 * Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
-* Para começar a usar os runbooks do fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
+* Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
+
 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2018
+ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 8d6865349f103278131a02c2385557fb53ee24f5
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f558c6fcfa864b142209712a536adf1be97122cf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720585"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389257"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoramento e diagnóstico no Azure Service Fabric
 
@@ -41,9 +41,12 @@ Também temos um tutorial com a maneira [configurar isso para aplicativos .NET](
 Um usuário está no controle sobre qual telemetria é proveniente de seus aplicativos, pois um usuário escreve o código em si, mas o que sobre o diagnóstico da plataforma do Service Fabric? Uma das metas do Service Fabric é manter os aplicativos resilientes a falhas de hardware. Esse objetivo é conseguido por meio da capacidade de serviços de sistema da plataforma para detectar problemas de infraestrutura e rápidas failover de cargas de trabalho para outros nós no cluster. Mas, neste caso específico, e se os próprios serviços do sistema tiverem problemas? Ou se, ao tentar implantar ou mover uma carga de trabalho, as regras para a veiculação de serviços forem violadas? O Service Fabric fornece diagnósticos para esses e mais para garantir que você seja informado sobre a atividade que ocorre em seu cluster. Alguns cenários de amostra para monitoramento de cluster incluem:
 
 O Service Fabric fornece um conjunto abrangente de eventos fora da caixa. Esses [eventos do Service Fabric](service-fabric-diagnostics-events.md) podem ser acessados por meio do EventStore ou do canal operacional (canal de eventos exposto pela plataforma). 
-* EventStore - o EventStore é um recurso oferecido pela plataforma que fornece eventos de plataforma do Service Fabric disponíveis no Service Fabric Explorer e por meio da API REST. Você pode ver uma exibição de instantâneo do que está acontecendo em seu cluster para cada entidade, por exemplo, nó, serviço, aplicativo e consulta com base na hora do evento. Você também pode ler mais sobre o EventStore na [Visão geral do EventStore](service-fabric-diagnostics-eventstore.md).    
 
 * Canais de eventos do Service Fabric - No Windows, eventos do Service Fabric estão disponíveis a partir de um único provedor ETW com um conjunto de `logLevelKeywordFilters` relevante usado para escolher entre os canais Operacional e Dados e Mensagens - é assim que separamos eventos do Service Fabric de saída para serem filtrados conforme necessário. No Linux, todos os eventos do Service Fabric são fornecidos por meio de LTTng e são colocados em uma tabela de Armazenamento, de onde eles podem ser filtrados conforme necessário. Esses canais contém eventos curados e estruturados que podem ser usados para entender melhor o estado do cluster. O Diagnóstico é habilitado por padrão no momento da criação do cluster, que cria uma tabela de Armazenamento do Azure onde os eventos desses canais são enviados para a consulta no futuro. 
+
+* EventStore - o EventStore é um recurso oferecido pela plataforma que fornece eventos de plataforma do Service Fabric disponíveis no Service Fabric Explorer e por meio da API REST. Você pode ver uma exibição de instantâneo do que está acontecendo em seu cluster para cada entidade, por exemplo, nó, serviço, aplicativo e consulta com base na hora do evento. Você também pode ler mais sobre o EventStore na [Visão geral do EventStore](service-fabric-diagnostics-eventstore.md).    
+
+![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
 
 Os diagnósticos fornecidos estão na forma de um conjunto abrangente de eventos prontos para uso. Esses [eventos do Service Fabric](service-fabric-diagnostics-events.md) ilustram as ações feitas pela plataforma em entidades diferentes, como Nós, Aplicativos, Serviços, Partições, etc. No último cenário acima, se um nó fosse desativado, a plataforma emitiria um evento `NodeDown` e você poderia ser notificado imediatamente por sua ferramenta de monitoramento preferida. Outros exemplos comuns incluem `ApplicationUpgradeRollbackStarted` ou `PartitionReconfigured` durante um failover. **Os mesmos eventos estão disponíveis nos clusters Windows e Linux.**
 

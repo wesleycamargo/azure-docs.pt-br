@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: b720e07b3da446d3b6fcb106e94e9cc36128bb8c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 62ccf86d138ff71706aca4c19f548f175e6c09ce
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230638"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447608"
 ---
 # <a name="get-started"></a>Início Rápido: criar um Standard Load Balancer usando o Azure PowerShell
 Este início rápido mostra a você como criar um Standard Load Balancer usando o Azure PowerShell. Para testar o balanceador de carga, implante duas VMs (máquinas virtuais) que executam o Windows Server e balanceie a carga de um aplicativo Web entre as VMs. Para saber mais sobre o Standard Load Balancer, consulte [O que é o Standard Load Balancer](load-balancer-standard-overview.md).
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. 
+Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -281,7 +281,7 @@ O parâmetro `-AsJob` cria a VM como uma tarefa em segundo plano, para que os pr
  
 Instale o IIS com uma página da Web personalizada em ambas as VMs de back-end da seguinte maneira:
 
-1. Obtenha o endereço IP Público do Balanceador de Carga. Usando `Get-AzureRmPublicIPAdress`, obtenha o endereço IP Público do Balanceador de Carga.
+1. Obtenha o endereço IP Público do Balanceador de Carga. Usando `Get-AzureRmPublicIPAddress`, obtenha o endereço IP Público do Balanceador de Carga.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

@@ -3,19 +3,19 @@ title: Selecionar um contrato de página no Azure Active Directory B2C | Microso
 description: Saiba como selecionar um contrato de página no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e2e6da5df434ffd217b0521d4a13cd8ec713d5a1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b2debff99e9492c251c8ffba6c0707a6cb6e6743
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110499"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855679"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selecionar um contrato de página no Azure Active Directory B2C usando políticas personalizadas
 
@@ -59,7 +59,7 @@ Para configurar um contrato de página, use a tabela a seguir para encontrar val
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Encontre mais informações sobre como você pode personalizar a interface do usuário de seus aplicativos em [Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+Encontre mais informações sobre como personalizar a interface do usuário dos seus aplicativos em [Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 
 
 

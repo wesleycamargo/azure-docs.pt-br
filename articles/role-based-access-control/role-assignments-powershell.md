@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a22b35ff9455f0849dd407df163ac3f8895dd874
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 31fa2b670b6492b7496c147ef72688c3c0121fa5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304628"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429711"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>Gerenciar o acesso usando RBAC e Azure PowerShell
 
@@ -30,7 +30,7 @@ O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira de g
 Para gerenciar o acesso, você precisa de um dos seguintes:
 
 * [PowerShell no Azure Cloud Shell](/azure/cloud-shell/overview)
-* [PowerShell do Azure](/powershell/azure/install-azurerm-ps)
+* [PowerShell do Azure](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="list-roles"></a>Listar funções
 

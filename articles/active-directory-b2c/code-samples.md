@@ -3,19 +3,19 @@ title: Exemplos de código do Azure Active Directory B2C | Microsoft Docs
 description: Exemplos de código para os aplicativos móveis, de desktop, Web e de página única no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: ffb60ab07ef21a94a7ba978fe354948f18479a37
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d78d3193cfc01fefec7e04f751432dc053b7f8ec
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446553"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846108"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemplos de código do Azure Active Directory B2C
 
@@ -47,4 +47,4 @@ As tabelas a seguir fornecem links para exemplos de aplicativos, incluindo iOS, 
 | Amostra | DESCRIÇÃO |
 |--------| ----------- |
 | [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Um aplicativo de página única (SPA) que chama uma API Web. A autenticação é feita com o Azure AD B2C aproveitando MSAL.js. | 
-| [javascript-hellojs-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp) | Um aplicativo de página única implementado com um back-end da API Web ASP.NET, que inscreve e conecta usuários usando o Azure AD B2C e chama a API Web usando os tokens de acesso OAuth 2.0. |
+| [javascript-hellojs-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp) | Um aplicativo de página única implementado com um back-end da ASP.NET Web API, que inscreve e conecta usuários usando o Azure AD B2C e chama a API Web usando os tokens de acesso OAuth 2.0. |

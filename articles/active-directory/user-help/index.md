@@ -1,22 +1,17 @@
 ---
 layout: LandingPage
-title: Ajuda do usuário para autenticação, aplicativos e gerenciamento de dispositivos – Azure Active Directory | Microsoft Docs
-description: A ajuda do usuário é para as pessoas que precisam de ajuda para configurar e usar informações de segurança, verificação em duas etapas, redefinições de senha de autoatendimento, gerenciamento de dispositivo, aplicativo Microsoft Authenticator e portal Meus Aplicativos.
+title: 'Ajuda do usuário para autenticação, aplicativos e gerenciamento de dispositivos – Azure Active Directory | Microsoft Docs'
+description: 'A ajuda do usuário é para as pessoas que precisam de ajuda para configurar e usar informações de segurança, verificação em duas etapas, redefinições de senha de autoatendimento, gerenciamento de dispositivo, aplicativo Microsoft Authenticator e portal Meus Aplicativos.'
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41928637"
 ---
+
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Ajuda do usuário para autenticação, aplicativos e gerenciamento de dispositivo
 
 Criamos esse conteúdo para ajudá-lo a configurar e usar informações de segurança, verificação em duas etapas, para saber como redefinir suas próprias senhas, para configurar e adicionar seus dispositivos do Azure Active Directory e para configurar e usar o aplicativo Microsoft Authenticator e o portal Meus Aplicativos.

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: b8a69b44714a24c78bf4077c27b5bf5633cc56d3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5015bd59a417481303c6ef2156feec9092a95a5b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431759"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464588"
 ---
-# <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Amostra de script da CLI do Azure: Criar uma zona DNS e o registro
+# <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Exemplo de script da CLI do Azure: Criar uma zona e registro de DNS
 
 Este exemplo de script da CLI do Azure cria um registro e uma zona DNS para um nome de domínio. 
 
@@ -75,7 +75,7 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | Cria uma zona DNS do Azure. |
-| [az network dns record-set a add-record](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-add-record) | Adiciona um registro *A* a uma zona DNS. |
+| [az network dns record-set a add-record](/cli/azure/network/dns/record-set) | Adiciona um registro *A* a uma zona DNS. |
 | [az network dns record-set list](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-list) | Lista todos os conjuntos de registros *A* em uma zona DNS. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383265"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431661"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>Configurar o Alcance Global do ExpressRoute (versão prévia)
 Este artigo ajuda você a configurar o Alcance Global do ExpressRoute usando o PowerShell. Para obter mais informações, confira [Alcance Global do ExpressRouteRoute](expressroute-global-reach.md).
@@ -26,7 +26,7 @@ Este artigo ajuda você a configurar o Alcance Global do ExpressRoute usando o P
 
 Antes de iniciar a configuração, confirme o seguinte:
 
-* Se você instalou a versão mais recente do Azure PowerShell. Para obter mais informações, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* Se você instalou a versão mais recente do Azure PowerShell. Para obter mais informações, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * Que você entende os [fluxos de trabalho](expressroute-workflows.md) de provisionamento de circuito do ExpressRoute.
 * Que seus circuitos do ExpressRoute estão no estado provisionado.
 * Que o emparelhamento privado do Azure está configurado em seus circuitos do ExpressRoute.  

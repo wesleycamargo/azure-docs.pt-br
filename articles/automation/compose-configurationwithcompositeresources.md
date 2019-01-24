@@ -4,18 +4,18 @@ description: Aprenda como redigir configurações usando recursos compostos na C
 keywords: dsc do powershell, configuração de estado desejada, powershell dsc azure, recursos compostos
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a1297b6cd84a012ff54f7d902c92687b2e284fe2
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b82457d8a7ce70ecfde32ba625ef610a3772213c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606896"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432184"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compor configurações de DSC na configuração do estado de automação do Azure (DSC) usando recursos compostos
 

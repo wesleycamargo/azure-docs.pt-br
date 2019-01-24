@@ -3,19 +3,19 @@ title: Exemplos de transformação de declarações boolianas do esquema do Iden
 description: Exemplos de transformação de declarações boolianas do esquema do Identity Experience Framework do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6e9337fb5e336c506fc43e13eeb7fdbfaf636a7
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1afbf8e8473e12992b7f031ac9835a58e1089b0d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432555"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853265"
 ---
 # <a name="boolean-claims-transformations"></a>Transformações de declarações boolianas
 
@@ -62,7 +62,7 @@ Verifica se os valores boolianos de duas declarações são iguais e gera uma ex
 
 | item | TransformationClaimType  | Tipo de Dados  | Observações |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | booleano | O ClaimType a ser declarado. |
+| InputClaim | InputClaim | booleano | O ClaimType a ser declarado. |
 | InputParameter |valueToCompareTo | booleano | O valor a ser comparado (true ou false). |
 
 A transformação de declarações **AssertBooleanClaimIsEqualToValue** é sempre executada por meio de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados do perfil técnico autodeclarado **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controlam a mensagem de erro que o perfil técnico apresenta ao usuário.
@@ -111,7 +111,7 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 - Declarações de entrada:
     - **inputClaim**: false
     - **valueToCompareTo**: true
-- Resultado: erro gerado
+- Resultado: Erro gerado
 
 ## <a name="notclaims"></a>NotClaims
 
@@ -119,7 +119,7 @@ Executa uma operação Not do inputClaim booliano e define o outputClaim com o r
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | booleano | A declaração a ser operada. |
+| InputClaim | InputClaim | booleano | A declaração a ser operada. |
 | OutputClaim | outputClaim | booleano | Os ClaimTypes que são produzidos após a invocação desse ClaimsTransformation (true ou false). |
 
 Use essa transformação de declaração para realizar a negação lógica em uma declaração.
