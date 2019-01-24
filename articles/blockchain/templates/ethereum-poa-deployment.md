@@ -1,6 +1,6 @@
 ---
 title: Consórcio de prova de autoridade do Ethereum – Azure
-description: Usar o modelo de solução de prova de autoridade Etherereum Consortium para implantar e configurar uma rede Ethereum consortium de vários membros
+description: Usar o modelo de solução de prova de autoridade Ethereum Consortium para implantar e configurar uma rede Ethereum consortium de vários membros
 services: azure-blockchain
 keywords: ''
 author: CodyBorn
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974039"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260373"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Prova de autoridade do consórcio Ethereum
 

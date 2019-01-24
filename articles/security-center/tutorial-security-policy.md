@@ -56,7 +56,7 @@ Para obter mais informações sobre o Azure Policy, confira [Criar e gerenciar p
 
 Uma política do Azure consiste nos seguintes componentes:
 
-- Um **diretiva** é uma regra.
+- Uma **diretiva** é uma regra.
 - Uma **iniciativa** é uma coleção de políticas.
 - Uma **designação** é a aplicação de uma iniciativa ou política para um escopo específico (grupo de gerenciamento, assinatura ou grupo de recursos).
 

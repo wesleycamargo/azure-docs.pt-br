@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: e733b82e1b5870d98de5d65771bd621d9bffdf44
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024877"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354256"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>A atividade de obtenção de metadados no Azure Data Factory
-A atividade GetMetadata pode ser usada para recuperar metadados de todos os dados no Azure Data Factory. Essa atividade pode ser utilizada nos seguintes cenários:
+A atividade GetMetadata pode ser usada para recuperar **metadados** de todos os dados no Azure Data Factory. Essa atividade pode ser utilizada nos seguintes cenários:
 
 - Validar as informações de metadados de todos os dados
 - Disparar um pipeline quando os dados estão prontos/disponíveis
@@ -33,14 +33,14 @@ A seguinte funcionalidade está disponível no fluxo de controle:
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-A Atividade GetMetadata coleta um conjunto de dados como uma entrada obrigatória e gera informações de metadados disponíveis como saída da atividade. No momento, há suporte para os seguintes conectores com metadados recuperáveis correspondentes, e o tamanho máximo de metadados com suporte é de até **1 MB**.
+A Atividade GetMetadata coleta um conjunto de dados como uma entrada obrigatória e gera informações de metadados disponíveis como saída da atividade. No momento, há suporte para os seguintes conectores com metadados recuperáveis correspondentes e o tamanho máximo de metadados com suporte é de até **1 MB**.
 
 >[!NOTE]
 >Se você executar GetMetadata atividade em um tempo de execução de integração auto-hospedada, a funcionalidade mais recente é suportada na versão 3.6 ou acima. 
 
 ### <a name="supported-connectors"></a>Conectores com suporte
 
-Armazenamento de Arquivos
+**Armazenamento de Arquivos**
 
 | Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | tamanho<br>(arquivo) | criado<br>(arquivo/pasta) | lastModified<br>(arquivo/pasta) |childItems<br>(pasta) |contentMD5<br>(arquivo) | estrutura<br/>(arquivo) | ColumnCount<br>(arquivo) | exists<br>(arquivo/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |

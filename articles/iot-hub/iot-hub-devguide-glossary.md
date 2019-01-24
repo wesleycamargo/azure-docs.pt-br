@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 7599fbe05b99466ed1d1a3db17156888cf9ea353
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338277"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320071"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -40,8 +40,8 @@ Há _SDKs de dispositivo_ disponíveis para vários idiomas que permitem que voc
 ## <a name="azure-iot-service-sdks"></a>SDKs do serviço IoT do Azure
 Há _SDKs de serviço_ disponíveis para vários idiomas que permitem que você crie [aplicativos de back-end](#back-end-app) que interagem com um hub IoT. Os tutoriais do Hub IoT mostram como usar esses SDKs de serviço. Você pode encontrar o código-fonte e obter mais informações sobre os SDKs de serviço neste [repositório](https://github.com/Azure/azure-iot-sdks) GitHub.
 
-## <a name="azure-iot-hub-toolkit"></a>Kit de ferramentas do Azure Hub IoT
-O [Kit de ferramentas do Hub IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente Kit de ferramentas do Azure IoT) é uma extensão do Visual Studio Code multiplataforma, o código-fonte aberto que ajuda você a gerenciar dispositivos no VS Code e o Hub IoT do Azure. Kit de ferramentas do Hub IoT do Azure, os desenvolvedores de IoT podem desenvolver o projeto de IoT no VS Code com facilidade.
+## <a name="azure-iot-tools"></a>Ferramentas do Azure IoT
+As [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) são uma extensão multiplataforma do Visual Studio Code, o código-fonte aberto que ajuda você a gerenciar dispositivos no VS Code e o Hub IoT do Azure. Com as Ferramentas do Azure IoT, os desenvolvedores de IoT podem desenvolver o projeto de IoT no VS Code com facilidade.
 
 ## <a name="azure-portal"></a>Portal do Azure
 O [portal do Microsoft Azure](https://portal.azure.com) é um local central no qual você pode provisionar e gerenciar os recursos do Azure. Ele organiza seu conteúdo usando _folhas_.
@@ -114,9 +114,6 @@ O [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/to
 ## <a name="device-identity"></a>Identidade do dispositivo
 A identidade do dispositivo é o identificador exclusivo atribuído a cada dispositivo registrado no [registro de identidade](#identity-registry).
 
-## <a name="module-identity"></a>Identidade de módulo
-A identidade de módulo é o identificador exclusivo atribuído a cada módulo que pertence a um dispositivo. A identidade do módulo também é registrada no [registro de identidade](#identity-registry).
-
 ## <a name="device-management"></a>Gerenciamento de dispositivos
 O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao gerenciamento dos dispositivos na sua solução de IoT incluindo planejamento, provisionamento, configuração, monitoramento e desativação.
 
@@ -131,15 +128,6 @@ O provisionamento de dispositivos é o processo de adição dos [dados de dispos
 
 ## <a name="device-twin"></a>Dispositivo gêmeo
 Um [dispositivo gêmeo](iot-hub-devguide-device-twins.md) é um documento JSON que armazena informações de estado do dispositivo, como metadados, configurações e condições. O [Hub IoT](#iot-hub) persiste um dispositivo gêmeo para cada dispositivo que você provisiona no hub IoT. Os dispositivos gêmeos permitem sincronizar [condições de dispositivo](#device-condition) e configurações entre o dispositivo e o back-end da solução. Você pode consultar dispositivos gêmeos para localizar dispositivos específicos e consultar o status de operações de longa duração.
-
-## <a name="module-twin"></a>Módulo Gêmeo
-Semelhante a um dispositivo gêmeo, um módulo gêmeo é um documento JSON que armazena informações de estado do módulo, como metadados, configurações e condições. O Hub IoT persiste um módulo gêmeo para cada identidade de módulo que você provisionar com uma identidade do dispositivo no seu Hub IoT. Os módulos gêmeos permitem sincronizar condições de módulo e configurações entre o módulo e o back-end da solução. Você pode consultar módulos gêmeos para localizar módulos específicos e consultar o status de operações de longa duração.
-
-## <a name="twin-queries"></a>Consultas de gêmeos
-As [consultas de dispositivo e módulo gêmeo](iot-hub-devguide-query-language.md) usam a linguagem de consulta do Hub IoT semelhante ao SQL para recuperar informações dos seus dispositivos e módulos gêmeos. Você pode usar a mesma linguagem de consulta do Hub IoT para recuperar informações sobre [](#job) em execução em seu hub IoT.
-
-## <a name="twin-synchronization"></a>Sincronização gêmea
-A sincronização gêmea usa as [propriedades desejadas](#desired-properties) em dispositivos ou módulos gêmeos para configurar seus dispositivos e recuperar as [propriedades relatadas](#reported-properties) de dispositivos ou módulos para armazenar no gêmeo.
 
 ## <a name="direct-method"></a>Método direto
 Um [método direto](iot-hub-devguide-direct-methods.md) é uma maneira de disparar um método a fim de executá-lo em um dispositivo chamando uma API em seu hub IoT.
@@ -190,6 +178,17 @@ Os aceleradores de solução do Azure IoT incluem vários serviços do Azure par
 
 ## <a name="job"></a>Trabalho
 O back-end de sua solução pode usar [trabalhos](iot-hub-devguide-jobs.md) para agendar e controlar atividades em um conjunto de dispositivos registrados no Hub IoT. As atividades incluem atualização de [propriedades desejadas](#desired-properties) do dispositivo gêmeo, atualização de [marcas](#tags) do dispositivo gêmeo e invocação de [métodos diretos](#direct-method). O [Hub IoT](#iot-hub) também usa  para [importar e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) do [registro de identidade](#identity-registry).
+
+## <a name="modules"></a>Módulos
+No lado do dispositivo, os SDKs do dispositivo do Hub IoT permitem criar [módulos](iot-hub-devguide-module-twins.md) em que cada um abre uma conexão independente com o Hub IoT. Essa funcionalidade permite usar namespaces separados para diferentes componentes em seu dispositivo.
+
+A identidade do módulo e o módulo gêmeo fornecem os mesmos recursos que a [identidade do dispositivo](#device-identity) e o [dispositivo gêmeo](#device-twin), mas com granularidade mais precisa. Essa granularidade mais fina permite que dispositivos capazes, como dispositivos baseados em sistema operacional ou dispositivos de firmware que gerenciam vários componentes, isolem a configuração e as condições de cada um desses componentes.
+
+## <a name="module-identity"></a>Identidade de módulo
+A identidade de módulo é o identificador exclusivo atribuído a cada módulo que pertence a um dispositivo. A identidade do módulo também é registrada no [registro de identidade](#identity-registry).
+
+## <a name="module-twin"></a>Módulo Gêmeo
+Semelhante a um dispositivo gêmeo, um módulo gêmeo é um documento JSON que armazena informações de estado do módulo, como metadados, configurações e condições. O Hub IoT persiste um módulo gêmeo para cada identidade de módulo que você provisionar com uma identidade do dispositivo no seu Hub IoT. Os módulos gêmeos permitem sincronizar condições de módulo e configurações entre o módulo e o back-end da solução. Você pode consultar módulos gêmeos para localizar módulos específicos e consultar o status de operações de longa duração.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) é um dos protocolos de mensagens com suporte do [Hub IoT](#iot-hub) para comunicação com dispositivos. Para saber mais sobre os protocolos de mensagens com suporte do Hub IoT, consulte [Enviar e receber mensagens com o Hub IoT](iot-hub-devguide-messaging.md).
@@ -256,6 +255,12 @@ Os dispositivos coletam dados de telemetria, como a velocidade do vento ou a tem
 
 ## <a name="token-service"></a>Serviço de token
 Você pode usar um serviço de token para implementar um mecanismo de autenticação para seus dispositivos. Ele usa uma [política de acesso compartilhado](#shared-access-policy) do Hub IoT com permissões **DeviceConnect** para criar tokens *device-scoped*. Esses tokens permitem que um dispositivo se conecte ao seu Hub IoT. Um dispositivo usa um mecanismo de autenticação personalizado para se autenticar no serviço de token. Se o dispositivo for autenticado com êxito, o serviço de token emitirá um token SAS para o dispositivo a ser usado para acessar o hub IoT.
+
+## <a name="twin-queries"></a>Consultas de gêmeos
+As [consultas de dispositivo e módulo gêmeo](iot-hub-devguide-query-language.md) usam a linguagem de consulta do Hub IoT semelhante ao SQL para recuperar informações dos seus dispositivos e módulos gêmeos. Você pode usar a mesma linguagem de consulta do Hub IoT para recuperar informações sobre [](#job) em execução em seu hub IoT.
+
+## <a name="twin-synchronization"></a>Sincronização gêmea
+A sincronização gêmea usa as [propriedades desejadas](#desired-properties) em dispositivos ou módulos gêmeos para configurar seus dispositivos e recuperar as [propriedades relatadas](#reported-properties) de dispositivos ou módulos para armazenar no gêmeo.
 
 ## <a name="x509-client-certificate"></a>Certificado de cliente X.509
 Um dispositivo pode usar um certificado X.509 para se autenticar no [Hub IoT](#iot-hub). O uso de um certificado x.509 é uma alternativa ao uso de um [token SAS](#shared-access-signature).
