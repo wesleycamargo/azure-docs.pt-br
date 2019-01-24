@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306447"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819332"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura do Azure Stack
 
@@ -41,7 +41,7 @@ Como a infraestrutura é executado no hardware bem definida e software, Azure St
 Porque o Azure Stack é entregue como um sistema integrado, a postura de segurança da infraestrutura do Azure Stack é definida pela Microsoft. Assim como no Azure, locatários são responsáveis por definir a postura de segurança de suas cargas de trabalho de locatário. Este documento fornece conhecimento básico sobre a postura de segurança da infraestrutura do Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Dados com criptografia em repouso
-Todos os dados de infraestrutura e locatário do Azure Stack são criptografados em repouso usando o Bitlocker. Essa criptografia protege contra a perda física ou o roubo de componentes de armazenamento do Azure Stack. Para obter mais informações, consulte [dados com criptografia em repouso no Azure Stack](azure-stack-security-bitlocker.md).
+Todos os dados de infraestrutura e locatário do Azure Stack são criptografados em repouso usando o BitLocker. Essa criptografia protege contra a perda física ou o roubo de componentes de armazenamento do Azure Stack. Para obter mais informações, consulte [dados com criptografia em repouso no Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Dados em criptografia de trânsito
 Os componentes da infraestrutura do Azure Stack comunicar-se usando canais criptografados com o TLS 1.2. Certificados de criptografia são automaticamente gerenciados pela infra-estrutura. 
