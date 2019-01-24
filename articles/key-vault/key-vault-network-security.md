@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 09a19b92a496650f94be208d4f463f1fb3fa4256
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d95ede3b6e99d6791a2642c6059281dedca3fcf2
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001848"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423153"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
@@ -79,7 +79,7 @@ Segue como configurar redes virtuais e firewalls do Key Vault usando a CLI 2.0 d
 
 Segue como configurar redes virtuais e firewalls do Key Vault usando o PowerShell:
 
-1. Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) mais recente e [conecte](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) mais recente e [conecte](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Liste as regras de rede virtual disponíveis. Se você ainda não definiu regras para esse cofre de chaves, a lista estará vazia.
    ```PowerShell

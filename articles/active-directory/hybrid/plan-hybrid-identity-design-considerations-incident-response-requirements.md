@@ -4,7 +4,7 @@ description: Determine recursos de monitoramento e emissão de relatórios que p
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: baa1d1fec6438b937ba783adcc86c4f74fa1a6db
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5a5b166e9b90ede5f5c51b2c288ce1d2d6290ba6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306035"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464826"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de resposta a incidentes para sua solução de identidade híbrida
 As organizações de médio ou grande porte provavelmente terão uma [resposta a incidentes de segurança](https://technet.microsoft.com/library/cc700825.aspx) para ajudar o departamento de TI a tomar as ações devidas de acordo com o nível do incidente. O sistema de gerenciamento de identidade é um componente importante do processo de resposta a incidentes, pois ele pode ser usado para ajudar a identificar quem executou uma ação específica em relação ao destino. A solução de identidade híbrida deve ser capaz de fornecer recursos de monitoramento e emissão de relatórios que podem ser aproveitados pelo departamento de TI para realizar ações de identificação e redução de ameaças potenciais. Um plano de resposta a incidentes comum terá as seguintes fases como parte do plano:

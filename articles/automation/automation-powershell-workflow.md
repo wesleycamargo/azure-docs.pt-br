@@ -3,18 +3,18 @@ title: Aprender sobre Fluxo de Trabalho do PowerShell para Automação do Azure
 description: Este artigo é concebido como uma lição rápida para autores familiarizados com o PowerShell para entender as diferenças entre o PowerShell e o fluxo de trabalho do PowerShell e conceitos aplicáveis aos runbooks de Automação.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b60e1639a1c32763c4759720fe61b0e571fc9dd1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437088"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436800"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprender sobre os principais conceitos de Fluxo de Trabalho do Windows PowerShell para runbooks de Automação
 
@@ -296,3 +296,4 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
+

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: 275c954ac54aab5ab4b41f4d6f6610a01573483f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.subservice: autoscale
+ms.openlocfilehash: c30ec060eca2bc0c2f5a85565ec6ed23bce6be4e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319062"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464741"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introdução ao dimensionamento automático usando métricas personalizadas no Azure
 Este artigo descreve como dimensionar seu recurso usando métricas personalizadas no portal do Azure.
@@ -51,3 +51,4 @@ Parabéns. Agora você criou com êxito a configuração de dimensionamento para
 [5]: ./media/autoscale-custom-metric/scale-setting-new-web-app.png
 [6]: ./media/autoscale-custom-metric/scale-by-custom-metric.png
 [7]: ./media/autoscale-custom-metric/autoscale-setting-custom-metrics-ai.png
+

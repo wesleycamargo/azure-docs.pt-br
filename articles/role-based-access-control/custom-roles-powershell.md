@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c8e5f34bb6b38a3f187d86a1ebc0c7019c7f1046
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6020aa0a770075526d8d07c94b847b5933a26c2a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437011"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428101"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>Criar funções personalizadas usando o Azure PowerShell
 
 Se as [funções internas](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como criar e gerenciar o acesso usando o Azure PowerShell.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar funções personalizadas, você precisará:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de acesso do usuário](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) instalado localmente
+- [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) instalado localmente
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
 
@@ -296,6 +296,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: Criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas no Azure](custom-roles.md)
 - [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)

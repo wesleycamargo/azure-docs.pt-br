@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 05609f016988720360c51fe529de2f389206406f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d9e0848b7e4598d03e5d8d8b15ff4cde3316884d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978685"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850868"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando a CLI do Azure
 
@@ -64,7 +64,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede
 
-Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). Você pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). Você pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -121,7 +121,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>Adicionar a porta HTTP
 
-Você pode usar [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network_application_gateway_frontend_port_create) para adicionar a porta HTTP ao gateway de aplicativo.
+Você pode usar [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port) para adicionar a porta HTTP ao gateway de aplicativo.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Adicione a configuração de redirecionamento de HTTP para HTTPS ao gateway de aplicativo usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
+Adicione a configuração de redirecionamento de HTTP para HTTPS ao gateway de aplicativo usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -161,7 +161,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Adicionar a regra de roteamento
 
-Adicione a regra de roteamento chamada *rule2* com a configuração de redirecionamento ao gateway de aplicativo usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network_application_gateway_rule_create).
+Adicione a regra de roteamento chamada *rule2* com a configuração de redirecionamento ao gateway de aplicativo usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule).
 
 ```azurecli-interactive
 az network application-gateway rule create \

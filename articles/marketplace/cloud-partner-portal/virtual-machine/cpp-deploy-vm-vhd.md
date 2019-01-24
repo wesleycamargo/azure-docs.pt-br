@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9157ce7f8f16bc60a6d5c16fa992a5402cf2d7ad
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190723"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434165"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implantar uma VM por meio dos seus VHDs
 
@@ -37,7 +37,7 @@ Para obter mais informações sobre imagens de VM consulte os posts de blog abai
 
 Se você ainda não fez isso, instale o Azure PowerShell e CLI do Azure, usando as instruções a seguir:
 
-- [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
 - [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 

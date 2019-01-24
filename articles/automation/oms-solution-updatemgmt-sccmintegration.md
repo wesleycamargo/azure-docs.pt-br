@@ -3,18 +3,18 @@ title: Direcionar atualizações usando coleções do SCCM na Automação do Azu
 description: Este artigo destina-se a ajudá-lo a configurar o System Center Configuration Manager com esta solução para gerenciar atualizações de computadores gerenciados pelo SCCM.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f3ab50c4fdc080b157212bcc662a2acf6629483d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c3b595e9c4d4b98814d1b68adede97204bf3eb96
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097957"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422721"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integrar o System Center Configuration Manager com o Gerenciamento de Atualizações
 
@@ -51,3 +51,4 @@ Para gerenciar atualizações para as VMs do Windows Server que são clientes do
 Após essa alteração de configuração, crie uma nova implantação seguindo as etapas descritas em [Criar uma Implantação de Atualização](automation-tutorial-update-management.md#schedule-an-update-deployment) e selecione **Grupos importados** no menu suspenso **Tipo** para selecionar a coleção adequada do Gerenciador de Configurações.
 
 ## <a name="next-steps"></a>Próximas etapas
+

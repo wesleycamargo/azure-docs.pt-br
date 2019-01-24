@@ -3,19 +3,19 @@ title: As trocas de declarações da API REST como uma etapa de orquestração n
 description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C que se integram a uma API.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7d62e0044d91af72ac8fea0271d7fc131e9c0a03
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556553"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852517"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração
 

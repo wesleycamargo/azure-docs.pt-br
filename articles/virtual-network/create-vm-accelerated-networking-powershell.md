@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: de69cdf69f30639d048dccd7d433c86f6cb9db7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3ba7e8129d577faa87544f8feded51a14559eb51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894170"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435525"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com Rede Acelerada
 
@@ -35,8 +35,8 @@ Os benefícios da rede acelerada aplicam-se somente à VM em que ela está habil
 
 ## <a name="benefits"></a>Benefícios
 * **Latência menor/mais pps (pacotes por segundo):** remover o comutador virtual do caminho de dados elimina o tempo que os pacotes gastam no host para processamento da política e aumenta o número de pacotes que podem ser processados dentro da VM.
-* **Tremulação reduzida:** processamento de comutador virtual depende da quantidade de política que precisa ser aplicada e da carga de trabalho da CPU que está fazendo o processamento. O descarregamento da imposição de política para o hardware remove essa variabilidade ao entregar pacotes diretamente à VM, removendo a comunicação do host para a VM e todas as interrupções e mudanças de contexto de software.
-* **Menor utilização da CPU:** ignorar o comutador virtual no host resulta em menor utilização da CPU para processar o tráfego de rede.
+* **Tremulação reduzida:** o processamento de comutador virtual depende da quantidade de política que precisa ser aplicada e da carga de trabalho da CPU que está fazendo o processamento. O descarregamento da imposição de política para o hardware remove essa variabilidade ao entregar pacotes diretamente à VM, removendo a comunicação do host para a VM e todas as interrupções e mudanças de contexto de software.
+* **Utilização de CPU reduzida:** ignorar o comutador virtual no host resulta em menor utilização da CPU para processar o tráfego de rede.
 
 ## <a name="limitations-and-constraints"></a>Limitações e Restrições
 
@@ -48,7 +48,7 @@ As seguintes distribuições têm suporte imediato da Galeria do Azure:
 ### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
 A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/Fs
 
-Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. As séries compatíveis são: D/DSv3, E/ESv3, Fsv2 e Ms/Mms
+Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. Essas séries com suporte são: D/DSV3, E/esv3, Fsv2 e Ms/Mms
 
 Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -56,7 +56,7 @@ Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM 
 Disponível em todas as regiões do Azure públicas e na Nuvem do Azure Governamental.
 
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Habilitando Rede Acelerada em uma VM em execução
-Um tamanho de VM suportado sem rede acelerada habilitada só pode ter o recurso habilitado quando ele for interrompido e desalocado.
+Um tamanho de VM com suporte sem rede acelerada habilitada só pode ter o recurso habilitado quando ele for interrompido e desalocado.
 
 ### <a name="deployment-through-azure-resource-manager"></a>Implantação por meio do Azure Resource Manager
 Máquinas virtuais (clássicas) não podem ser implantadas com Rede Acelerada.
@@ -67,7 +67,7 @@ Embora este artigo forneça etapas para criar uma máquina virtual com a rede ac
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Instale o [Azure PowerShell](/powershell/azure/install-azurerm-ps), versão 5.1.1 ou posterior. Para localizar a versão atualmente instalada, execute `Get-Module -ListAvailable AzureRM`. Se você precisar instalar ou atualizar, instale a versão mais recente do módulo AzureRM por meio da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureRM). Em uma sessão do PowerShell, faça logon em uma conta do Azure usando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
+Instale o [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps), versão 5.1.1 ou posterior. Para localizar a versão atualmente instalada, execute `Get-Module -ListAvailable AzureRM`. Se você precisar instalar ou atualizar, instale a versão mais recente do módulo AzureRM por meio da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureRM). Em uma sessão do PowerShell, faça logon em uma conta do Azure usando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNic* e *myVM*.
 
@@ -216,9 +216,9 @@ A Rede Acelerada agora está habilitada para sua VM.
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Habilitar Rede Acelerada em VMs existentes
 Se você tiver criado uma VM sem Rede Acelerada, será possível habilitar esse recurso em uma VM existente.  A VM deve dar suporte à Rede Acelerada atendendo aos pré-requisitos a seguir que também estão descritos acima:
 
-* A VM deve ser um tamanho com suporte para Rede Acelerada
+* A VM deve ter um tamanho com suporte para Rede Acelerada
 * A VM deve ser uma imagem da Galeria do Azure com suporte (e a versão de kernel do Linux)
-* Todas as VMs em um conjunto de disponibilidade ou VMSS devem ser interrompido/desalocadas antes de se habilitar Rede Acelerada em uma NIC
+* Todas as VMs em um conjunto de disponibilidade ou VMSS devem ser interrompidas/desalocadas antes de se habilitar a Rede Acelerada em uma NIC
 
 ### <a name="individual-vms--vms-in-an-availability-set"></a>VMs individuais e VMs em um conjunto de disponibilidade
 Primeiro interrompa/desaloque a VM ou, se for um Conjunto de Disponibilidade, todas as VMs no conjunto:
@@ -228,7 +228,7 @@ Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
-Importante: observe que se sua VM tiver sido criada individualmente, sem um conjunto de disponibilidade, você só precisará parar/desalocar a VM individual para habilitar a Rede Acelerada.  Se sua VM tiver sido criada com um conjunto de disponibilidade, todas as VMs contidas no conjunto de disponibilidade precisarão ser interrompidas/desalocadas antes de habilitar a Rede Acelerada em qualquer uma das NICs. 
+Importante: observe que se sua VM tiver sido criada individualmente, sem um conjunto de disponibilidade, você só precisará interromper/desalocar a VM individual para habilitar a Rede Acelerada.  Se sua VM tiver sido criada com um conjunto de disponibilidade, todas as VMs contidas no conjunto de disponibilidade precisarão ser interrompidas/desalocadas antes de habilitar a Rede Acelerada em qualquer uma das NICs. 
 
 Uma vez interrompida, habilite a Rede Acelerada na NIC de sua VM:
 
@@ -294,7 +294,7 @@ VMs com Rede Acelerada habilitada só podem ser redimensionadas para VMs com sup
 
 Uma VM com Rede Acelerada habilitada não pode ser redimensionada para uma instância de VM que não oferece suporte a Rede Acelerada usando a operação de redimensionamento.  Em vez disso, para redimensionar uma dessas VMs: 
 
-* Interrompa/desaloque a VM ou, em um conjunto de disponibilidade/VMSS, pare/desaloque todas as VMs no conjunto/VMSS.
+* Interrompa/desaloque a VM ou, em um conjunto de disponibilidade/VMSS, interrompa/desaloque todas as VMs no conjunto/VMSS.
 * A Rede Acelerada deve ser desabilitada na NIC da VM ou, se em um conjunto de disponibilidade/VMSS, todas as VMs no conjunto/VMSS.
 * Quando a Rede Acelerada é desabilitada, a VM/o conjunto de disponibilidade/o VMSS podem ser movidos para um novo tamanho que não oferece suporte para Rede Acelerada e reiniciados.  
 

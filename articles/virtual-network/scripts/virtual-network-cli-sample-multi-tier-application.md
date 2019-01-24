@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: ce3e86abc714a06d722a23115f8d89080e188ce5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 134135d2cfa337bf2c2d7379327df83b429a35b1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946129"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851565"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Criar uma rede de exemplo do script de aplicativos de várias camadas
 
@@ -50,14 +50,14 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma rede v
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede virtual do Azure e uma sub-rede front-end. |
-| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Cria uma sub-rede back-end. |
+| [az network subnet create](/cli/azure/network/vnet/subnet) | Cria uma sub-rede back-end. |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Cria um endereço IP público para acessar a VM da Internet. |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Cria as interfaces de rede virtual e as anexa às sub-redes de front-end e back-end da rede virtual. |
-| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Cria NSG (grupos de segurança de rede) associados às sub-redes de front-end e back-end. |
+| [az network nsg create](/cli/azure/network/nsg) | Cria NSG (grupos de segurança de rede) associados às sub-redes de front-end e back-end. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Cria regras NSG que permitem ou bloqueiam portas específicas para sub-redes específicas. |
-| [az vm create](/cli/azure/vm#az_vm_create) | Cria máquinas virtuais e anexa um NIC a cada VM. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas. |
+| [az vm create](/cli/azure/vm) | Cria máquinas virtuais e anexa um NIC a cada VM. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas. |
 | [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos e todos os seus recursos contidos nele. |
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 6b3f862acd5aba39a7ad6eb0ce2f0a9b4a9e5307
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973648"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467478"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual Linux completa com a CLI do Azure
 Para criar rapidamente uma VM (máquina virtual) no Azure, você pode usar um único comando da CLI do Azure que usa valores padrão para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, um endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controle de seu ambiente no uso em produção, você pode criar esses recursos antecipadamente e depois adicionar suas VMs a eles. Este artigo orienta você sobre como criar uma VM e cada um dos recursos de suporte, um por um.
@@ -333,7 +333,7 @@ Saída:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Criar um adaptador de rede virtual
-Os adaptadores de rede virtual estão disponíveis por meio de programação porque você pode aplicar regras ao seu uso. Dependendo do [tamanho da VM](sizes.md), você pode anexar várias NICs virtuais a uma VM. No comando [az network nic create](/cli/azure/network/nic#az_network_nic_create) a seguir, você cria um adaptador de rede nomeado *myNic* e associa-o ao seu grupo de segurança de rede. O endereço IP público *myPublicIP* também é associado ao adaptador de rede virtual.
+Os adaptadores de rede virtual estão disponíveis por meio de programação porque você pode aplicar regras ao seu uso. Dependendo do [tamanho da VM](sizes.md), você pode anexar várias NICs virtuais a uma VM. No comando [az network nic create](/cli/azure/network/nic) a seguir, você cria um adaptador de rede nomeado *myNic* e associa-o ao seu grupo de segurança de rede. O endereço IP público *myPublicIP* também é associado ao adaptador de rede virtual.
 
 ```azurecli
 az network nic create \

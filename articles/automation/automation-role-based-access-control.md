@@ -4,18 +4,18 @@ description: O RBAC (controle de acesso baseado em função) permite o gerenciam
 keywords: rbac de automação, controle de acesso baseado em função, rbac azure
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727895"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424312"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controle de acesso com base em função na Automação do Azure
 
@@ -428,3 +428,4 @@ Quando um usuário, que é atribuído à função de operador de automação nos
 * Para obter informações sobre as diversas maneiras de configurar o RBAC para a Automação do Azure, consulte [gerenciar o RBAC com o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter detalhes sobre diferentes maneiras de iniciar um runbook, confira [Iniciando um runbook](automation-starting-a-runbook.md)
 * Para obter informações sobre os diferentes tipos de runbook, consulte [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+

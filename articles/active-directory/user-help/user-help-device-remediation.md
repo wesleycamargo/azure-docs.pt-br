@@ -3,7 +3,7 @@ title: Possíveis motivos para a mensagem de erro "Você não pode acessar esse 
 description: Solucione os possíveis motivos pelos quais você recebe a mensagem de erro "Você não pode acessar esse lugar daqui".
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.component: user-help
@@ -12,22 +12,22 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: c34b096766b6b7dda26c51559bf58e40d95715e7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: eb924a612188d905eb6c7127067fed2fd4b0f218
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651073"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825520"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis motivos para a mensagem de erro "Você não pode acessar esse lugar daqui"
-Ao acessar a aplicativos Web ou serviços internos da sua organização, você pode receber uma mensagem de erro que diz **Você não pode acessar esse lugar daqui**. Essa mensagem significa que a sua organização aplicou política que está impedindo o dispositivo de acessar recursos da organização. Talvez você precise entrar em contato com o suporte técnico para corrigir esse problema, mas consulte aqui algumas coisas que você pode tentar primeiro.
+Ao acessar a aplicativos Web ou serviços internos da sua organização, você pode receber uma mensagem de erro que diz **Você não pode acessar esse lugar daqui**. Essa mensagem significa que sua organização aplicou uma política que está impedindo o dispositivo de acessar recursos da organização. Talvez você precise entrar em contato com o suporte técnico para corrigir esse problema, mas consulte aqui algumas coisas que você pode tentar primeiro.
 
 ## <a name="make-sure-youre-using-a-supported-browser"></a>Verifique se você está usando um navegador com suporte
-Se você receber a mensagem **Você não pode acessar esse lugar daqui** informando que você está tentando acessar sites da sua organização a partir de um navegador sem suporte, verifique qual navegador você está executando.
+Se você receber a mensagem **Você não pode acessar esse lugar daqui** informando que está tentando acessar sites da organização por meio de um navegador sem suporte, verifique qual navegador você está executando.
 
 ![Mensagem de erro relacionada ao suporte ao navegador](media/user-help-device-remediation/browser-version.png)
 
-Para corrigir esse problema, você deve instalar e executar um navegador com suporte, com base em seu sistema operacional. Se você estiver usando o Windows 10, os navegadores com suporte incluem o Microsoft Edge, o Internet Explorer e o Google Chrome. Se você estiver usando um sistema operacional diferente, verifique a lista completa dos [navegadores compatíveis](../conditional-access/technical-reference.md#supported-browsers).
+Para corrigir esse problema, você deve instalar e executar um navegador com suporte, com base em seu sistema operacional. Se você está usando o Windows 10, os navegadores com suporte incluem o Microsoft Edge, o Internet Explorer e o Google Chrome. Se você estiver usando um sistema operacional diferente, verifique a lista completa dos [navegadores compatíveis](../conditional-access/technical-reference.md#supported-browsers).
 
 ## <a name="make-sure-youre-using-a-supported-operating-system"></a>Verifique se você está usando um sistema operacional compatível
 Verifique se você está executando uma versão compatível do sistema operacional, incluindo:
@@ -43,7 +43,7 @@ Verifique se você está executando uma versão compatível do sistema operacion
 Para corrigir esse problema, instale e execute um sistema operacional compatível.
 
 ## <a name="make-sure-your-device-is-joined-to-your-network"></a>Verifique se o dispositivo está adicionado à sua rede
-Se você receber a mensagem **Você não pode acessar esse lugar daqui** informando que seu dispositivo não está em conformidade com a política de acesso da sua organização, verifique se você o adicionou à rede da sua organização.
+Se você receber a mensagem **Você não pode acessar esse lugar daqui** para informar que o dispositivo não está em conformidade com a política de acesso da organização, verifique se você o adicionou à rede da organização.
 
 ![Mensagem de erro relacionada à conexão à rede](media/user-help-device-remediation/network-version.png)
 

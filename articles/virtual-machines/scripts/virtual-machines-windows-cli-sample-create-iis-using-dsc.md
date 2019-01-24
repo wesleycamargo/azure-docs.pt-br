@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: bb3f10c44ddf8ded35f4d80b599cda7d44226652
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6cc689471247af3782e7e733be463cfc3e21afe5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654650"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478426"
 ---
 # <a name="create-a-vm-with-iis-using-dsc"></a>Criar uma máquina virtual com o IIS usando a DSC
 
@@ -52,7 +52,7 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
 | [az vm extension set](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Adicione a Extensão de Script Personalizado à máquina virtual que invoca um script para instalar o IIS. |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/vm#az_vm_open_port) | Cria uma regra de grupo de segurança de rede para permitir o tráfego de entrada. Neste exemplo, a porta 80 está aberta para tráfego HTTP. |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/vm) | Cria uma regra de grupo de segurança de rede para permitir o tráfego de entrada. Neste exemplo, a porta 80 está aberta para tráfego HTTP. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas

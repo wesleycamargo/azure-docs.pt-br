@@ -7,14 +7,14 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5637d409233abc68983bd7cf1e55f406f15e3b59
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582551"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432981"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Reconheça os resultados da verificação de agente do Windows no Gerenciamento de Atualizações
 
@@ -202,3 +202,4 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>Próximas etapas
 
 Para solucionar mais problemas com os trabalhadores de runbook híbridos, consulte [Solucionar problemas de trabalhadores de runbook híbridos](hybrid-runbook-worker.md).
+

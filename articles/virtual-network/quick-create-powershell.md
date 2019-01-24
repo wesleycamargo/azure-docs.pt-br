@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 725e03ded6d6f2e3b5d7a41d2053f418a5933ef8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ade8329e6e42fae9f3232617488a6d4a69f8ef1f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023236"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437378"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Início Rápido: Criar uma rede virtual usando o PowerShell
 
@@ -29,7 +29,7 @@ Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Se você decidir instalar e usar o PowerShell localmente, este início rápido exigirá que você use o módulo do AzureRM PowerShell versão 5.4.1 ou posterior. Para localizar a versão instalada, execute `Get-Module -ListAvailable AzureRM`. Consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps) para instalação e atualização de informações.
+Se você decidir instalar e usar o PowerShell localmente, este início rápido exigirá que você use o módulo do AzureRM PowerShell versão 5.4.1 ou posterior. Para localizar a versão instalada, execute `Get-Module -ListAvailable AzureRM`. Consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) para instalação e atualização de informações.
 
 Por fim, se você estiver executando o PowerShell localmente, também precisará executar `Connect-AzureRmAccount`. Esse comando cria uma conexão com o Azure.
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários para o Azure AD, SSO, Logon único
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 45f99ac99c54caab17ba7b74dc09a46c335c8fe4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185062"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476335"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Aprofundamento de segurança da Autenticação de Passagem do Azure Active Directory
 
@@ -212,6 +212,6 @@ Para atualizar automaticamente um Agente de Autenticação:
 - [Migrar do AD FS para Autenticação de Passagem](https://aka.ms/adfstoptadpdownload) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
 - [Bloqueio inteligente](../authentication/howto-password-smart-lockout.md): Configure a capacidade de Bloqueio Inteligente no seu locatário para proteger contas de usuário.
 - [Como funciona](how-to-connect-pta-how-it-works.md): Conheça as noções básicas de como funciona a Autenticação de Passagem do Azure AD.
-- [Perguntas frequentes](how-to-connect-pta-faq.md): Encontre respostas para as perguntas frequentes.
+- [Perguntas frequentes](how-to-connect-pta-faq.md): encontre respostas para as perguntas frequentes.
 - [Solucionar problemas](tshoot-connect-pass-through-authentication.md): Saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.
 - [SSO Contínuo do Azure AD](how-to-connect-sso.md): Saiba mais sobre esse recurso complementar.

@@ -3,19 +3,19 @@ title: Sobre resolvedores de declaração em políticas personalizadas do Azure 
 description: Saiba mais sobre como os resolvedores de declarações são usados em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 6b7f3dc79e3b4c06b2b974e0cdca0bf20221c3ad
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852367"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845003"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 

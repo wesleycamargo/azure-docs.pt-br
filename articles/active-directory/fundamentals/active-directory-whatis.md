@@ -3,18 +3,18 @@ title: O que é o Active Directory do Azure? | Microsoft Docs
 description: Saiba mais sobre o Azure Active Directory, incluindo a terminologia necessária, o público-alvo, noções básicas de licenciamento e os recursos associados.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085919"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450210"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure? 
 O Azure AD (Azure Active Directory) é o serviço de gerenciamento de acesso e identidade baseado em nuvem da Microsoft. O Azure AD ajuda seus funcionários a entrar e a acessar recursos em:

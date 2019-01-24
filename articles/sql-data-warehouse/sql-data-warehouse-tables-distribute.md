@@ -10,17 +10,17 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b272dd1c5b12c9f171c7e8c7c346f4d6cd4b777
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575365"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413865"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para tabelas distribuídas no SQL Data Warehouse do Azure
 Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure.
 
-Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para obter mais informações, consulte [SQL Data Warehouse do Azure – Arquitetura MPP (processamento paralelo massivo)](massively-parallel-processing-mpp-architecture.md). 
+Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no SQL Data Warehouse.  Para obter mais informações, consulte [SQL Data Warehouse do Azure – Arquitetura MPP (processamento paralelo massivo)](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
 Uma tabela distribuída é exibida como uma única tabela, mas as linhas são armazenadas em 60 distribuições. As linhas são distribuídas com um algoritmo round-robin ou hash.  
@@ -29,11 +29,11 @@ Uma tabela distribuída é exibida como uma única tabela, mas as linhas são ar
 
 Outra opção de armazenamento de tabela é replicar uma pequena tabela em todos os nós de computação. Para obter mais informações, confira [Criação de diretrizes para tabelas replicadas](design-guidance-for-replicated-tables.md). Para escolher rapidamente entre as três opções, consulte tabelas distribuídas na [visão geral de tabelas](sql-data-warehouse-tables-overview.md). 
 
-Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.  Por exemplo, considere estas perguntas:
+Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.  Por exemplo, considere estas perguntas:
 
-- Qual é o tamanho da tabela?   
-- Com que frequência a tabela é atualizada?   
-- Há tabelas de dimensões e fatos no data warehouse?   
+- Qual é o tamanho da tabela?   
+- Com que frequência a tabela é atualizada?   
+- Há tabelas de dimensões e fatos no data warehouse?   
 
 
 ### <a name="hash-distributed"></a>Tabelas distribuídas por hash
@@ -147,7 +147,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;

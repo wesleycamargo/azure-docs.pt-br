@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a479218ff8bd5addf4273b23c06380859e0ea08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 415f58d9c6880bc7ef9ba6b6ba3f575fae382f04
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782895"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806872"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Carregando ativos no Azure Media Clipper
 Os ativos podem ser carregados no Azure Media Clipper por dois métodos:
@@ -101,7 +101,7 @@ subclipper.ready(function () {
 > É recomendável encadear o método Load () com o método ready(handler), conforme mostrado no exemplo anterior. O exemplo anterior garante que o widget está pronto antes de carregar os ativos.
 
 > [!NOTE]
-> Para que as URLs da miniatura funcionem como esperado na linha do tempo do Clipper, elas devem ser distribuídas uniformemente no vídeo (de acordo com a duração) e em ordem cronológica dentro da matriz. Use o seguinte trecho de predefinição JSON como uma referência de exemplo para a geração de imagens com o processador “Media Encoder Standard”:
+> Para que as URLs da miniatura funcionem como esperado na linha do tempo do Clipper, elas devem ser distribuídas uniformemente no vídeo (de acordo com a duração) e em ordem cronológica dentro da matriz. Use o seguinte snippet de predefinição JSON como uma referência de exemplo para a geração de imagens com o processador “Media Encoder Standard”:
 
 ```json
 {
@@ -136,7 +136,7 @@ Como alternativa, você pode carregar ativos dinamicamente por meio de um retorn
     // - take: int value used for pagination in the back-end that allows defining the number of assets to include in the response.
     // - type: ('filter', 'asset') value that will be used in the back-end to filter assets by type.
     //
-    // Returns: a Promise object that, when resolved, retuns an object containing an array of assets (input contract)
+    // Returns: a Promise object that, when resolved, returns an object containing an array of assets (input contract)
     //          that satisfies the filter parameters, plus optionally the total types of files available:
     // {
     //  total: 100,

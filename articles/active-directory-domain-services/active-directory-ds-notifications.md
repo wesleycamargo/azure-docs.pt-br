@@ -4,7 +4,7 @@ description: Configurações de notificação para o Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ebac78ff3912d2aafba97b020b37df16020bd7fb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958518"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853656"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Configurações de notificação no Azure AD Domain Services
 
@@ -29,13 +29,13 @@ As notificações para o Azure AD Domain Services permitem que você receba uma 
 Esse recurso só está disponível para domínios gerenciados que não estão em redes virtuais clássicas.
 
 
-## <a name="how-to-check-your-azure-ad-domain-services-email-notification-settings"></a>Como verificar suas configurações de notificação de email do Azure AD Domain Services
+## <a name="how-to-check-your-azure-ad-domain-services-email-notification-settings"></a>Como verificar suas configurações de notificação por email do Azure AD Domain Services
 
 1. Navegue até a página [Azure Active Directory Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure
 2. Escolha seu domínio gerenciado na tabela
 3. No painel de navegação esquerdo, escolha **Configurações de notificação**
 
-A página mostra todos os destinatários de email para notificações por email para o Azure AD Domain Services.
+A página mostra todos os destinatários de email para as notificações por email do Azure AD Domain Services.
 
 ## <a name="what-does-an-email-notification-look-like"></a>Qual é a aparência de uma notificação por email?
 
@@ -46,7 +46,7 @@ A imagem a seguir contém um exemplo de uma notificação por email:
 O email especifica o domínio gerenciado no qual o alerta está presente, além do horário de detecção e um link para a página de integridade do Azure AD Domain Services no Portal do Azure.
 
 > [!WARNING]
-> Sempre certifique-se de que o email é proveniente de um remetente verificado da Microsoft antes de clicar em links em seus emails. Os emails sempre são provenientes do email azure-noreply@microsoft.com
+> Verifique sempre se o remetente do email é verificado pela Microsoft, antes de clicar em links contidos em emails. Os emails sempre são provenientes do email azure-noreply@microsoft.com
 >
 
 
@@ -90,7 +90,7 @@ Se um alerta for resolvido, o alerta desaparecerá do Portal do Azure. O motivo 
 
 Se você não conseguir acessar a página de configurações de notificação no Portal do Azure, você não terá as permissões para editar o Azure AD Domain Services. Entre em contato com seu administrador global para obter permissões de edição dos recursos do Azure AD Domain Services ou para ser removido da lista de destinatários.
 
-#### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Não parece que estou recebendo notificações por email, embora eu tenha fornecido meu endereço de email. Por quê?
+#### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Apesar de ter fornecido meu endereço de email, não estou recebendo as notificações por email. Por quê?
 
 Verifique se a notificação está em sua pasta de spam ou lixo eletrônico e inclua o remetente na lista de permissões (azure-noreply@microsoft.com).
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 4ead84ef415dcb85682b15414380055d8799b54c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bbeccd03fffb699c95d52d50ec5c45e38b43ef51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051213"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430391"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Usar o PowerShell para fazer backup e restaurar compartilhamentos de arquivos do Azure
 
@@ -34,7 +34,7 @@ Para exibir a referência do cmdlet **AzureRm.RecoveryServices.Backup** do Power
 ## <a name="setup-and-registration"></a>Configuração e registro
 
 > [!NOTE]
-> Como observado em [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), o suporte para novos recursos no módulo AzureRM termina em novembro de 2018. O suporte para backup de compartilhamentos de arquivos do Azure é oferecido com o novo módulo PowerShell Az que agora está disponível para o público em geral.
+> Como observado em [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0), o suporte para novos recursos no módulo AzureRM termina em novembro de 2018. O suporte para backup de compartilhamentos de arquivos do Azure é oferecido com o novo módulo PowerShell Az que agora está disponível para o público em geral.
 
 Siga estas etapas para começar:
 

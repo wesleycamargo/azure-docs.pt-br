@@ -3,19 +3,19 @@ title: Aplicativos de página única usando fluxo implícito no Azure Active Dir
 description: Saiba como criar aplicativos de página única diretamente utilizando fluxo implícito do OAuth 2.0 com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9e72eafc49167848996328774f7d18198667aa3d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3df6795eb470f123be294f942560c9fb6d817d8d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845239"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856138"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: credenciais do aplicativo de página única utilizando fluxo implícito do OAuth 2.0
 
@@ -70,7 +70,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### <a name="use-an-edit-profile-user-flow"></a>Usar um fluxo de usuário de edição de perfil
+### <a name="use-an-edit-profile-user-flow"></a>Usar um fluxo de usuário do perfil de edição
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6

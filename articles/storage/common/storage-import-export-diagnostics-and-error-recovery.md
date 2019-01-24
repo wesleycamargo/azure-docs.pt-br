@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 2a54752f933b91265d0aa8add61ca0707615931b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a5c25cd5836c3bde630684eff24da7dc8b62fc6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526320"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855798"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnóstico e recuperação de erro para trabalhos de Importação/Exportação do Azure
-Para cada unidade processada, o serviço de Importação/Exportação do Azure cria um log de erros na conta de armazenamento associada. Também é possível habilitar o log detalhado definindo a propriedade `LogLevel` como `Verbose` ao chamar as operações [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).
+Para cada unidade processada, o serviço de Importação/Exportação do Azure cria um log de erros na conta de armazenamento associada. Também é possível habilitar o log detalhado definindo a propriedade `LogLevel` como `Verbose` ao chamar as operações [Put Job](/rest/api/storageimportexport/jobs) ou [Update Job Properties](/rest/api/storageimportexport/jobs).
 
  Por padrão, os logs são gravados em um contêiner denominado `waimportexport`. Você pode especificar outro nome definindo a propriedade `DiagnosticsPath` ao chamar as operações `Put Job` ou `Update Job Properties`. Os logs são armazenados como blobs de blocos com a seguinte convenção de nomenclatura: `waies/jobname_driveid_timestamp_logtype.xml`.
 
- É possível recuperar o URI dos logs de um trabalho chamando a operação [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). O URI do log detalhado é retornado na propriedade `VerboseLogUri` de cada unidade, enquanto o URI do log de erros é retornado na propriedade `ErrorLogUri`.
+ É possível recuperar o URI dos logs de um trabalho chamando a operação [Get Job](/rest/api/storageimportexport/jobs). O URI do log detalhado é retornado na propriedade `VerboseLogUri` de cada unidade, enquanto o URI do log de erros é retornado na propriedade `ErrorLogUri`.
 
 É possível usar os dados de log para identificar os problemas a seguir.
 

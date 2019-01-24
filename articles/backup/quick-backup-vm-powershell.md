@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 2/14/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7971c1399cc905353e271e8774c0e7ad36ca79a9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 873c6f8b815b99425efb578e5129099493e8c657
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869239"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437871"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer backup de uma máquina virtual no Azure com o PowerShell
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do ou em scripts. Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Este artigo fornece detalhes sobre como fazer backup de uma VM (máquina virtual) com o módulo do Azure PowerShell. Você também pode executar essas etapas com a [CLI do Azure ](quick-backup-vm-cli.md) ou o [portal do Azure](quick-backup-vm-portal.md).
 
 Este início rápido habilita o backup em uma VM do Azure existente. Se você precisar criar uma máquina virtual, poderá [criar uma máquina virtual com o Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-Este início rápido requer o módulo Azure PowerShell versão 4.4 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este início rápido requer o módulo Azure PowerShell versão 4.4 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure

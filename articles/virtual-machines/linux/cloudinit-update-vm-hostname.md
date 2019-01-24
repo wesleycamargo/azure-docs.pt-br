@@ -14,18 +14,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: e985111a28805f861242240a5c2e3d7b6664be4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 140c542b71ff87f6b7a846888da06e58fa03ce10
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996104"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855322"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Usar cloud-init para definir o nome do host para uma VM Linux no Azure
 Este artigo mostra como usar [cloud-init](https://cloudinit.readthedocs.io) para configurar um nome do host específico em uma VM (máquina virtual) ou em um VMSS (conjuntos de dimensionamento de máquinas virtuais) no momento do provisionamento no Azure. Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure. Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
 
 ## <a name="set-the-hostname-with-cloud-init"></a>Defina o nome do host com a inicialização de nuvem
-Por padrão, o nome do host é o mesmo que o nome da VM quando você cria uma nova máquina virtual no Azure.  Para executar um script cloud-init para alterar esse nome do host padrão ao criar uma VM no Azure com [az vm create](/cli/azure/vm#az_vm_create), especifique o arquivo cloud-init com a opção `--custom-data`.  
+Por padrão, o nome do host é o mesmo que o nome da VM quando você cria uma nova máquina virtual no Azure.  Para executar um script cloud-init para alterar esse nome do host padrão ao criar uma VM no Azure com [az vm create](/cli/azure/vm), especifique o arquivo cloud-init com a opção `--custom-data`.  
 
 Para ver o processo de atualização em ação, crie um arquivo no shell atual denominado *cloud_init_hostname.txt* e cole a seguinte configuração. Para este exemplo, crie o arquivo no Cloud Shell, não no seu computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor cloud_init_hostname.txt` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  
 
@@ -40,7 +40,7 @@ Antes de implantar essa imagem, você precisa criar um grupo de recursos com o c
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az_vm_create) e especifique o arquivo de inicialização de nuvem com `--custom-data cloud_init_hostname.txt` da seguinte maneira:
+Agora, crie uma VM com [az vm create](/cli/azure/vm) e especifique o arquivo de inicialização de nuvem com `--custom-data cloud_init_hostname.txt` da seguinte maneira:
 
 ```azurecli-interactive 
 az vm create \

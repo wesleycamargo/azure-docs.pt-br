@@ -3,9 +3,9 @@ title: Barramento de Serviço do Azure para a visão geral da integração da Gr
 description: Descrição do sistema de mensagens do Barramento de Serviço e integração da Grade de Eventos
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
-ms.author: spelluru
-ms.openlocfilehash: c5dcfcb61903c3dbb92e942a5d3dca264ad454e3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: aschhab
+ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834376"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856903"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -152,7 +152,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
-Verifique se o Azure PowerShell está instalado. [Baixe o instalador](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de Administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
+Verifique se o Azure PowerShell está instalado. [Baixe o instalador](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.4.0). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de Administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount

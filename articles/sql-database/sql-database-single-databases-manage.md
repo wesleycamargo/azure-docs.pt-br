@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 52caae38c21fe403735b8479ec2e721ef38f521e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/17/2019
+ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845783"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388604"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerenciar servidores lógicos e bancos de dados únicos no Banco de Dados SQL do Azure
 
@@ -57,7 +57,7 @@ Para gerenciar um banco de dados existente, navegue até a página **bancos de d
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: Gerenciar servidores lógicos e bancos de dados
 
-Para criar e gerenciar os servidores lógicos Azure SQL, banco de dados únicos em pool e firewalls do servidor lógico com o Azure PowerShell, usam os seguintes cmdlet do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Para criar e gerenciar os servidores lógicos Azure SQL, banco de dados únicos em pool e firewalls do servidor lógico com o Azure PowerShell, usam os seguintes cmdlet do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > Para scripts de exemplo do PowerShell, consulte [Usar o PowerShell para criar um único Banco de Dados SQL do Azure e configurar uma regra de firewall de servidor lógico](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorar e escalar de um único Banco de Dados SQL usando o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).

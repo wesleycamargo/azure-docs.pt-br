@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a662a61d737dbb620d07fa6d114649e70c082796
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b69cc0bcff8f791e0740b30f5521a2a7b36af3b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329762"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437650"
 ---
 # <a name="migrate-a-classic-vm-to-use-a-managed-disk"></a>Migrar uma VM clássica para usar um disco gerenciado 
 
@@ -93,7 +93,7 @@ Prepare seu aplicativo para o tempo de inatividade. Para fazer uma migração li
 
 Prepare seu aplicativo para o tempo de inatividade. Para fazer uma migração limpa, você precisa interromper todo o processamento no sistema atual. Só então você pode colocá-lo em estado consistente, podendo então migrar para a nova plataforma. A duração do tempo de inatividade depende da quantidade de dados nos discos para migração.
 
-Esta parte exige o módulo do Azure PowerShell, versão 6.0.0 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Você também precisa executar `Connect-AzureRmAccount` para criar uma conexão com o Azure.
+Esta parte exige o módulo do Azure PowerShell, versão 6.0.0 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Você também precisa executar `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 
 Crie variáveis para parâmetros comuns.

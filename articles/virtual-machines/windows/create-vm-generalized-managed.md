@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8acbb33b396aa617936eb0333bd68fea60532425
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c452341567055e0272c8e6a90c43d6b886d6a928
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404649"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425587"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM por meio de uma imagem gerenciada
 
@@ -43,7 +43,7 @@ Antes de criar uma nova VM, você precisará [criar uma imagem de VM gerenciada]
 
 Você pode usar o PowerShell para criar uma VM por meio de uma imagem usando o conjunto de parâmetro simplificado definido para o novo cmdlet do [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). A imagem precisa estar no mesmo grupo de recursos no qual você criará a VM.
 
-Este exemplo requer o módulo do AzureRM, versão 5.6.0 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este exemplo requer o módulo do AzureRM, versão 5.6.0 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 O parâmetro simplificado definido para [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) requer apenas que você forneça um nome, um grupo de recursos e o nome da imagem para criar uma VM de uma imagem. New-AzureRmVm usará o valor do parâmetro **-Name** como o nome de todos os recursos que cria automaticamente. Neste exemplo, fornecemos nomes mais detalhados para cada recurso, mas permitimos ao cmdlet criá-los automaticamente. Você também pode criar recursos, como a rede virtual, antecipadamente e passar o nome do recurso para o cmdlet. New-AzureRmVm usará os recursos existentes se puder encontrá-los pelo nome.
 

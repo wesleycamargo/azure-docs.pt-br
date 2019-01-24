@@ -3,19 +3,19 @@ title: Rastrear o comportamento do usuário usando eventos no Application Insigh
 description: Saiba como ativar os logs de eventos no Application Insights a partir de jornadas do usuário do Azure AD B2C usando políticas personalizadas (visualização).
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d7097886b746c225bb420f9a96e2b7ef5c95c913
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 758b9f68349dac025cb3b848f95dd05700637a6a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684725"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849832"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Rastrear o comportamento do usuário no Azure Active Directory B2C usando o Application Insights
 

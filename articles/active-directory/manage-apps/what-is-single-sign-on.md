@@ -3,7 +3,7 @@ title: Logon único para aplicativos – Azure Active Directory | Microsoft Docs
 description: Saiba como escolher um método de logon único ao configurar aplicativos no Azure AD (Azure Active Directory). Use o logon único para que os usuários não precisem se lembrar de senhas para cada aplicativo e para simplificar a administração de gerenciamento de conta.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: b7e75753f8d7a9316dd1cc644dc22c42ef284736
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 452ec35f9a759bd09befb8c5a03a7fc5b3fb8ed2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190036"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463347"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Logon único para aplicativos no Azure Active Directory
 Saiba como escolher o método de logon único mais apropriado ao configurar aplicativos no Azure AD (Azure Active Directory). 

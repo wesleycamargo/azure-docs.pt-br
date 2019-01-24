@@ -3,18 +3,18 @@ title: Saída de runbook e mensagens na Automação do Azure
 description: Descreve como criar e recuperar a saída e mensagens de erro de runbooks na Automação do Azure.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc1ef2a3ab09ec5b86d1dc0b4c139afd43ba356d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969117"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431207"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
 A maioria dos runbooks de Automação do Azure tem alguma forma de saída. Essa saída pode ser uma mensagem de erro para o usuário ou um objeto complexo que você pretende usar com outro runbook. O Windows PowerShell oferece [vários fluxos](/powershell/module/microsoft.powershell.core/about/about_redirection) para o envio da saída de um script ou de um de fluxo de trabalho. A Automação do Azure trabalha com cada um desses fluxos de maneira diferente. Siga as melhores práticas sobre como usar cada uma delas ao criar um runbook.
@@ -234,4 +234,5 @@ Para saber mais sobre como configurar a integração com o Log Analytics para co
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
 * Para entender como criar e usar runbooks filho, consulte [Runbooks filho na Automação do Azure](automation-child-runbooks.md)
+
 

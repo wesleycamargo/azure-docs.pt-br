@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091019"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402329"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral de Hubs de Eventos Dedicados
 
@@ -32,7 +32,7 @@ A tabela a seguir compara os tipos de serviço disponíveis dos Hubs de Eventos.
 | --- |:---:|:---:|:---:|
 | Eventos de entrada | Pagamento por milhão de eventos | Incluso |
 | Unidade de taxa de transferência (entrada de 1 MB/s, saída de 2 MB/s) | Pagamento por hora | Incluso |
-| Tamanho da mensagem | 256 KB | 1 MB |
+| Tamanho da mensagem | 1 MB | 1 MB |
 | Políticas do publicador | SIM | SIM |   
 | Grupos de consumidores | 20 | 20 |
 | Reprodução de mensagem | SIM | SIM |
@@ -47,7 +47,6 @@ A tabela a seguir compara os tipos de serviço disponíveis dos Hubs de Eventos.
 Os seguintes benefícios estão disponíveis ao usar os Hubs de Eventos Dedicados:
 
 * Hospedagem de único locatário, sem ruído de outros locatários.
-* O tamanho de mensagem aumenta para 1 MB em comparação aos 256 KB para Standard.
 * Desempenho repetível em todas as ocasiões.
 * Capacidade garantida para atender às suas necessidades de pico.
 * Inclui o recurso [Capturar](event-hubs-capture-overview.md) dos Hubs de Eventos para fornecer integração com microlote e retenção de longo prazo.

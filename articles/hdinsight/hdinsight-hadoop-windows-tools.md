@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: 4b6eb0aa7011226fda667370f3e854081b795ae6
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d336d659a15f5b4cb1cbc917a8ae10ab8224d029
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744863"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426311"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabalhar no ecossistema Apache Hadoop no HDInsight por meio de um computador com Windows
 
@@ -30,7 +30,7 @@ Exemplos de tarefas que você pode fazer com o PowerShell:
 * [Executar consultas do Apache Hive usando o PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Gerenciar clusters com o PowerShell](hdinsight-administer-use-powershell.md).
 
-Execute as etapas para [instalar e configurar o Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) para obter a versão mais recente. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets para o Azure Resource Manager, confira [Migrar para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
+Execute as etapas para [instalar e configurar o Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) para obter a versão mais recente. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets para o Azure Resource Manager, confira [Migrar para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilitários que você pode executar em um navegador
 Os utilitários a seguir tem uma interface de usuário na Web que é executada em um navegador Web:

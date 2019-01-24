@@ -3,19 +3,19 @@ title: Visão geral da Automação do Azure
 description: Saiba como usar a Automação do Azure para automatizar o ciclo de vida de infraestrutura e de aplicativos.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: automação do azure, DSC, powershell, configuração de estado desejado, gerenciamento de atualizações, controle e alterações, inventário, runbooks, pyhon, gráfico
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958688"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434046"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
@@ -87,3 +87,4 @@ A Automação do Azure é gerenciada em todo o ciclo de vida da infraestrutura e
 
 > [!div class="nextstepaction"]
 > [Criar uma conta de Automação](automation-quickstart-create-account.md)
+

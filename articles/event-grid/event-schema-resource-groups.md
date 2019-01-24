@@ -2,25 +2,25 @@
 title: Esquema de evento grupo de recursos da Grade de Eventos do Azure
 description: Descreve as propriedades que são fornecidas para eventos de grupos de recursos com a Grade de Eventos do Azure
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 2b570fdb42c29c6ad68add32be660ef57f1eec1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310565"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468294"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Esquema de eventos para assinatura da Grade de Eventos do Azure
 
-Este artigo fornece as propriedades e o esquema de eventos de grupo de recursos. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema de eventos de grupo de recursos. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
 Grupos de recursos e as assinaturas do Azure emitem os mesmos tipos de evento. Os tipos de eventos estão relacionados a alterações de recursos ou ações. A principal diferença é que grupos de recursos de emissão de eventos para os recursos no grupo de recursos e as assinaturas do Azure emitem eventos de recursos entre a assinatura.
 
-Eventos de recursos são criados para PUT, PATCH, POST e excluir operações que são enviadas para `management.azure.com`. OBTER operações não criam eventos. Operações enviadas para o plano de dados (como `myaccount.blob.core.windows.net`) não criar eventos. Os eventos de ação fornecem dados de evento para operações como listar as chaves para um recurso.
+Eventos de recursos são criados para PUT, PATCH, POST e excluir operações que são enviadas para `management.azure.com`. Operações GET não criam eventos. Operações enviadas para o plano de dados (como `myaccount.blob.core.windows.net`) não criar eventos. Os eventos de ação fornecem dados de evento para operações como listar as chaves para um recurso.
 
 Quando você assina eventos para um grupo de recursos, seu ponto de extremidade recebe todos os eventos para esse grupo de recursos. Os eventos podem incluir eventos que você deseja ver, como a atualização de uma máquina virtual, mas também eventos que talvez não são importantes para você, como gravar uma nova entrada no histórico de implantação. Você pode receber todos os eventos no seu ponto de extremidade e escrever um código que processa os eventos que você deseja manipular. Ou, você pode definir um filtro ao criar a assinatura de evento.
 

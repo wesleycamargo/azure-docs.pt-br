@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 2b1aca07fe60a328dac9d3724454a21835026a53
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2f9728fc3304534619fbd3a8b44abf6bab78887a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063838"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436032"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Criar um Hub IoT usando um modelo do Azure Resource Manager (.NET)
 
@@ -203,7 +203,7 @@ Agora que você implantou um Hub IoT usando um modelo do Azure Resource Manager 
 
 * Leia sobre as funcionalidades da [API REST do provedor de recursos Hub IoT][lnk-rest-api].
 * Leia a [Visão geral do Azure Resource Manager][lnk-azure-rm-overview] para saber mais sobre os recursos do Azure Resource Manager.
-* Para obter a sintaxe JSON e as propriedades a serem usadas nos modelos, confira [Tipos de recurso de Microsoft.Devices](/azure/templates/microsoft.devices/iothub-allversions).
+* Para obter a sintaxe e as propriedades de JSON a serem usadas em modelos, consulte [Tipos de recurso Microsoft.Devices](/azure/templates/microsoft.devices/iothub-allversions).
 
 Para saber mais sobre como desenvolver para o Hub IoT, veja os seguintes artigos:
 
@@ -218,7 +218,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md

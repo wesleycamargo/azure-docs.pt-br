@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.subservice: logs
+ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353049"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438228"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
 O **Log de Atividades do Azure** é um log que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo descreve o esquema de evento por categoria de dados. O esquema dos dados é diferente e depende se você está lendo os dados no portal, no PowerShell, na CLI ou diretamente por meio da API REST comparado à [transmissão dos dados para o armazenamento ou para os Hubs de Eventos usando um Perfil de Log](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema disponibilizado por meio do portal, do PowerShell, da CLI e da API REST. Um mapeamento dessas propriedades para o [esquema de logs de diagnóstico do Azure](./tutorial-dashboards.md) é fornecido no final do artigo.
@@ -795,3 +795,4 @@ Ao transmitir o Log de Atividades do Azure para uma conta de armazenamento ou um
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../../azure-monitor/platform/activity-logs-overview.md)
 * [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+

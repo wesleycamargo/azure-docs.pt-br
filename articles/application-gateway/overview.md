@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246459"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448935"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicativo do Azure?
 
@@ -102,7 +102,7 @@ O recurso de afinidade de sessão baseada em cookies é útil quando você desej
 
 ## <a name="websocket-and-http2-traffic"></a>Tráfego do WebSocket e HTTP/2
 
-O Gateway de Aplicativo fornece suporte nativo para os protocolos WebSocket e HTTP/2. Não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket. O suporte a HTTP/2 pode ser habilitado por meio do Azure PowerShell.
+O Gateway de Aplicativo fornece suporte nativo para os protocolos WebSocket e HTTP/2. Não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket.
 
 Os protocolos WebSocket e HTTP/2 permitem uma comunicação full duplex entre um servidor e um cliente em uma conexão TCP de execução longa. Isso permite uma comunicação mais interativa entre o servidor Web e o cliente, que pode ser bidirecional, sem a necessidade de sondagem, necessária nas implementações baseadas em HTTP. Esses protocolos têm baixa sobrecarga, ao contrário do HTTP, e podem reutilizar a mesma conexão TCP para várias solicitações/respostas, resultando em uma utilização mais eficiente de recursos. Esses protocolos foram projetados para funcionar em portas HTTP tradicionais de 80 e 443.
 
@@ -113,6 +113,22 @@ Os cabeçalhos HTTP permitem que o cliente e o servidor passem informações adi
 O Gateway de Aplicativo agora dá suporte à capacidade de rescrever cabeçalhos das solicitações HTTP de entrada, bem como das respostas HTTP de saída. Você poderá adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação/resposta são transferidos entre os pools de back-end e do cliente. Você pode reescrever campos de cabeçalho padrão (definidos no [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)), bem como não padrão.  
 
 Para obter mais informações sobre essa versão prévia pública do recurso, confira [Reescrever cabeçalhos HTTP](rewrite-http-headers.md).
+
+## <a name="sizing"></a>Dimensionamento
+
+O Gateway de Aplicativo atualmente é oferecido em 3 tamanhos: **Pequeno**, **Médio** e **Grande**. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
+
+Para obter uma lista completa de limites do gateway de aplicativo, consulte [Limites de serviço do Gateway de Aplicativo](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+A tabela a seguir mostra uma produtividade de desempenho médio para cada instância do gateway de aplicativo com o descarregamento SSL habilitado:
+
+| Tamanho médio de resposta de página de back-end | Pequena | Média | grande |
+| --- | --- | --- | --- |
+| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Esses valores são valores aproximados para uma produtividade do Gateway de Aplicativo. A produtividade real depende de diversos detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para fornecer de uma página. Para obter números de desempenho exatos, você deve executar seus próprios testes. Esses valores são fornecidos apenas para a orientação do planejamento de capacidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

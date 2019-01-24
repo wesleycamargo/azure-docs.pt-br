@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c5667d5fafdc01e8568f459b675d91ace9b8869a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 381c9a2af0f1743509db4495603c0e26da5c1736
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023746"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474512"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou excluir um adaptador de rede
 
@@ -31,14 +31,14 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
-- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
+- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial requer o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
 
 ## <a name="create-a-network-interface"></a>Criar um adaptador de rede
 
-Ao criar uma máquina virtual usando o Portal do Azure, o portal cria um adaptador de rede com as configurações padrão para você. Se você preferir especificar todas as configurações de seu adaptador de rede, crie um adaptador de rede com configurações personalizadas e anexe-o a uma máquina virtual durante a criação de uma (usando o PowerShell ou a CLI do Azure). Você também pode criar um adaptador de rede e adicioná-lo a uma máquina virtual existente (usando o PowerShell ou a CLI do Azure). Para saber como criar uma máquina virtual com um adaptador de rede existente ou como adicionar um, ou remover adaptadores de rede de máquinas virtuais existente, veja [Adicionar ou remover adaptadores de rede](virtual-network-network-interface-vm.md). Antes de criar um adaptador de rede, você deve ter uma [rede virtual](manage-virtual-network.md#create-a-virtual-network) existente no mesmo local e assinatura na qual criou um adaptador de rede.
+Ao criar uma máquina virtual usando o Portal do Azure, o portal cria um adaptador de rede com as configurações padrão para você. Se você preferir especificar todas as configurações de seu adaptador de rede, crie um adaptador de rede com configurações personalizadas e anexe-o a uma máquina virtual durante a criação de uma (usando o PowerShell ou a CLI do Azure). Você também pode criar um adaptador de rede e adicioná-lo a uma máquina virtual existente (usando o PowerShell ou a CLI do Azure). Para saber como criar uma máquina virtual com um adaptador de rede existente ou como adicionar um, ou remover adaptadores de rede de máquinas virtuais existente, veja [Adicionar ou remover adaptadores de rede](virtual-network-network-interface-vm.md). Antes de criar um adaptador de rede, você deve ter uma [rede virtual](manage-virtual-network.md) existente no mesmo local e assinatura na qual criou um adaptador de rede.
 
 1. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 2. Selecione **+ Adicionar** em **interfaces de Rede**.
@@ -69,7 +69,7 @@ O portal não fornece a opção de atribuir o adaptador de rede a grupos de segu
 |Ferramenta|Comando|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
-|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface#create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Ver as configurações de adaptador de rede
 
@@ -112,7 +112,7 @@ O servidor DNS é atribuído pelo servidor DHCP do Azure ao adaptador de rede de
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[az network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Habilitar ou desabilitar o encaminhamento de IP
@@ -133,7 +133,7 @@ A configuração deve ser habilitada para cada adaptador de rede conectado à m�
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[az network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="change-subnet-assignment"></a>Alterar atribuição de sub-rede
@@ -158,7 +158,7 @@ Você pode alterar a sub-rede, mas não a rede virtual, à qual o adaptador de r
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Adicionar ou remover de grupos de segurança de aplicativo
 
-Você só pode adicionar ou remover um adaptador de rede de um grupo de segurança de aplicativo usando o portal quando o adaptador de rede está conectado a uma máquina virtual. Você só pode usar o PowerShell ou a CLI do Azure para adicionar ou remover um adaptador de rede de um grupo de segurança de aplicativo usando o portal quando o adaptador de rede está conectado a uma máquina virtual. Saiba mais sobre [Grupos de segurança de aplicativo](security-overview.md#application-security-groups) e como [criar um grupo de segurança de aplicativo](manage-network-security-group.md#create-an-application-security-group).
+Você só pode adicionar ou remover um adaptador de rede de um grupo de segurança de aplicativo usando o portal quando o adaptador de rede está conectado a uma máquina virtual. Você só pode usar o PowerShell ou a CLI do Azure para adicionar ou remover um adaptador de rede de um grupo de segurança de aplicativo usando o portal quando o adaptador de rede está conectado a uma máquina virtual. Saiba mais sobre [Grupos de segurança de aplicativo](security-overview.md#application-security-groups) e como [criar um grupo de segurança de aplicativo](manage-network-security-group.md).
 
 1. Na caixa *Pesquisar recursos, serviços e documentos* na parte superior do portal, comece a digitar o nome de uma máquina virtual que tem o adaptador de rede que você deseja adicionar a ou remover de um grupo de segurança de aplicativo. Quando o nome da VM for exibido nos resultados da pesquisa, selecione-o.
 2. Em **CONFIGURAÇÕES**, selecione **Rede**.  Selecione **Configurar os grupos de segurança de aplicativo**, selecione os grupos de segurança de aplicativo aos quais deseja adicionar o adaptador de rede, ou desmarque os grupos de segurança de aplicativo dos quais deseja remover o adaptador de rede e, em seguida, selecione **Salvar**. Somente os adaptadores de rede que existem na mesma rede virtual podem ser adicionados ao mesmo grupo de segurança de aplicativo. O grupo de segurança do aplicativo precisa existir no mesmo local que o adaptador de rede.
@@ -167,7 +167,7 @@ Você só pode adicionar ou remover um adaptador de rede de um grupo de seguran�
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[az network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="associate-or-dissociate-a-network-security-group"></a>Associar ou desassociar um Grupo de Segurança de Rede
@@ -199,7 +199,7 @@ Quando você exclui um adaptador de rede, os endereços MAC ou IP atribuídos a 
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network nic delete](/cli/azure/network/nic#az_network_nic_delete)|
+|CLI|[az network nic delete](/cli/azure/network/nic)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## <a name="resolve-connectivity-issues"></a>Resolver problemas de conectividade

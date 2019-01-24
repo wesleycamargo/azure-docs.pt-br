@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338576"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429082"
 ---
-# <a name="traffic-analytics"></a>Análise de tráfego
+# <a name="traffic-analytics"></a>Análise de Tráfego
 
 Análise de Tráfego é uma solução baseada em nuvem, que oferece visibilidade sobre atividade de usuário e aplicativo nas redes em nuvem. Análise de Tráfego analisa os logs de fluxo de grupo de segurança da rede (NSG) do Observador de Rede para fornecer informações sobre o fluxo de tráfego em sua nuvem do Azure. Com a Análise de Tráfego, você pode:
 
@@ -99,9 +99,6 @@ A conta deve ser um membro de uma das [funções internas](../role-based-access-
 |                   | Colaborador            |
 |                   | Leitor                 |
 |                   | Colaborador de rede    |
-|Clássico            | Administrador de conta  |
-|                   | Administrador de serviço  |
-|                   | Coadministrador       |
 
 Se a conta não estiver atribuída a uma das funções internas, ela deverá ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) à qual são atribuídas as ações a seguir, no nível da assinatura:
 
@@ -176,7 +173,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 
 Repita as etapas anteriores para quaisquer outros NSGs para os quais você deseja habilitar a Análise de Tráfego. Os dados de logs de fluxo são enviados para o workspace, portanto, certifique-se de que as leis e regulamentações locais em seu país permitem o armazenamento de dados na região onde está o workspace.
 
-Também é possível configurar a análise de tráfego usando o cmdlet do PowerShell [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) no módulo do PowerShell do AzureRm versão 6.2.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Também é possível configurar a análise de tráfego usando o cmdlet do PowerShell [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) no módulo do PowerShell do AzureRm versão 6.2.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="view-traffic-analytics"></a>Exibir Análise de Tráfego
 

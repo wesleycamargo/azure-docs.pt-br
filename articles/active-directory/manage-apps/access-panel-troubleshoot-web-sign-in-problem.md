@@ -4,7 +4,7 @@ description: Orientação para solução de problemas que você pode encontrar a
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: d2670d8f018fc26b7017fba40b5aff4310900dab
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 34a4da2c14b84b9e539fc2d3e755a523cf3574c9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188684"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847230"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problema ao entrar no site do painel de acesso
 
@@ -64,7 +64,7 @@ Para SSO baseado em senha, os navegadores do usuário final podem ser:
 
 -   Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior
 
--   Microsoft Edge na Edição de Aniversário do Windows 10 ou posterior 
+-   O Microsoft Edge na Edição de Aniversário do Windows 10 ou posterior 
 
 -   Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
 
@@ -159,7 +159,7 @@ Para redefinir a senha de um usuário, siga estas etapas:
 
 Para habilitar a redefinição de senha por autoatendimento, siga estas etapas de implantação:
 
--   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Permitir que os usuários redefinam suas senhas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 -   [Permitir que os usuários redefinam ou alterem suas senhas locais do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 

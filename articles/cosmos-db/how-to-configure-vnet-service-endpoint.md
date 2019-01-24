@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 37cc7dcb3157459f6f6387323cc44d6f97954e92
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ac5dd4d43ec6e0248a5a9939015a344bad421280
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035807"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438976"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Acessar Microsoft Azure Cosmos DB a partir de redes virtuais
 
@@ -87,7 +87,7 @@ Para garantir que você tenha acesso às métricas do Microsoft Azure Cosmos DB 
 
 Use as etapas a seguir para configurar um ponto de extremidade de serviço para uma conta de banco de dados do Microsoft Azure Cosmos DB usando o Azure PowerShell:  
 
-1. Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) e [faça login em](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) e [faça login em](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
 
 1. Habilite o ponto de extremidade de serviço para uma sub-rede existente de uma rede virtual.  
 

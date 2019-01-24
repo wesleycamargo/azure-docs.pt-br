@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7cfcb71567931b1581618cf8f2239fb004befff8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087024"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845615"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerenciar políticas para impor a conformidade
 
@@ -160,12 +160,12 @@ Inclua um corpo de solicitação semelhante ao exemplo a seguir:
 
 Antes de continuar com o exemplo do PowerShell, certifique-se de ter instalado a versão mais recente do Azure PowerShell. Parâmetros de política foram adicionados na versão 3.6.0. Se você tiver uma versão mais antiga, os exemplos retornarão um erro indicando que o parâmetro não pode ser encontrado.
 
-Você pode criar uma definição de política usando o cmdlet `New-AzureRmPolicyDefinition`.
+Você pode criar uma definição de política usando o cmdlet `New-AzPolicyDefinition`.
 
 Para criar uma definição de política de um arquivo, passe o caminho para o arquivo. Para um arquivo externo, use o exemplo a seguir:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -DisplayName 'Deny cool access tiering for storage' `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
@@ -174,7 +174,7 @@ $definition = New-AzureRmPolicyDefinition `
 Para um arquivo local, use o exemplo a seguir:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -Description 'Deny cool access tiering for storage' `
     -Policy 'c:\policies\coolAccessTier.json'
@@ -183,7 +183,7 @@ $definition = New-AzureRmPolicyDefinition `
 Para criar uma definição de política com uma regra embutida, use o exemplo a seguir:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
+$definition = New-AzPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
     "if": {
         "allOf": [{
                 "field": "type",
@@ -238,7 +238,7 @@ $parameters = '{
     }
 }'
 
-$definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
+$definition = New-AzPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
 ```
 
 ### <a name="view-policy-definitions-with-powershell"></a>Exibir definições de política com o PowerShell
@@ -246,7 +246,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 
 Para visualizar todas as definições de política em sua assinatura, utilize o seguinte comando:
 
 ```azurepowershell-interactive
-Get-AzureRmPolicyDefinition
+Get-AzPolicyDefinition
 ```
 
 Ele retorna todas as definições de política disponíveis, incluindo políticas internas. Cada política é retornada no seguinte formato:

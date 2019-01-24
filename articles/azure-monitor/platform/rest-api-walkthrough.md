@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
-ms.component: ''
-ms.openlocfilehash: 0f08101c7948d7f3e211f8764458c2eaeacb0859
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: ''
+ms.openlocfilehash: 91b4d96caf59a8be67381aa6b420a3f759220025
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330612"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472952"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Passo a passo da API REST de Monitoramento do Azure
 Este artigo mostra como executar autenticação para que o seu código possa usar a [referência de API REST do Monitor do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -698,3 +698,4 @@ Invoke-RestMethod -Uri $request `
 * Visualize as [Métricas compatíveis com o Azure Monitor](metrics-supported.md).
 * Verifique a [referência da API REST do Monitor do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Verifique a [Biblioteca de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+

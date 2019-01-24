@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103937"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473802"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -293,3 +293,4 @@ A experiência do portal nas máquinas virtuais mostra determinados contadores d
 - Se os dados armazenados possuem nomes dos contadores no idioma inglês. Se os nomes dos contadores não estiverem em inglês, o gráfico de métrica do portal não será capaz de reconhecê-los. **Atenuação**: altere o idioma do computador para inglês para as contas do sistema. Para fazes isso, selecione **Painel de Controle** > **Região** > **Administrativo** > **Copiar Configurações**. Em seguida, desmarque **Tela de boas-vindas e contas do sistema** de modo que o idioma personalizado não seja aplicado à conta do sistema.
 
 - Se estiver utilizando caracteres curinga (\*) nos nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado quando os contadores de desempenho são enviados ao coletor do armazenamento do Azure. **Atenuação**: para garantir que você possa usar curingas e fazer com que o portal expanda (\*), encaminhe seus contadores de desempenho para o [coletor "Azure Monitor"](diagnostics-extension-schema.md#diagnostics-extension-111).
+

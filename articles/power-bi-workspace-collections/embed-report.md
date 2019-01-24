@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 94476486ed87662f3d6b989b8d5360dd792f8824
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: caa877a265fb8665e062cc0069247bca0994c4bf
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041173"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857090"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Inserir um relatório nas Coleções de Workspaces do Power BI
 
@@ -84,7 +84,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 As Coleções de Workspaces do Power BI usam tokens de inserção, que são Tokens Web JSON assinados por HMAC. Os tokens são assinados com a chave de acesso de sua Coleção de Workspaces do Power BI. Os tokens de inserção, por padrão, são usados para fornecer acesso somente leitura a um relatório a ser inserido em um aplicativo. Tokens de inserção são emitidos para um relatório específico e devem ser associados uma URL de inserção.
 
-Tokens de acesso devem ser criados no servidor conforme as chaves de acesso são usadas para assinar/criptografar os tokens. Para obter informações sobre como criar um token de acesso, consulte [Autenticação e autorização com Coleções de Workspaces do Power BI](app-token-flow.md). Você também pode examinar o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Aqui está um exemplo de qual seria a aparência disso usando o SDK do .NET para o Power BI.
+Tokens de acesso devem ser criados no servidor conforme as chaves de acesso são usadas para assinar/criptografar os tokens. Para obter informações sobre como criar um token de acesso, consulte [Autenticação e autorização com Coleções de Workspaces do Power BI](app-token-flow.md). Você também pode examinar o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN). Aqui está um exemplo de qual seria a aparência disso usando o SDK do .NET para o Power BI.
 
 Você usa a ID de relatório que você recuperou anteriormente. Depois de criar o token de inserção, você usará a chave de acesso para gerar o token que você pode usar da perspectiva do javascript. A *classe PowerBIToken* exige que você instale o [pacote NuGet do Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
@@ -146,8 +146,8 @@ O relatório será inserido automaticamente com base no tamanho do respectivo co
 ## <a name="see-also"></a>Consulte também
 
 [Introdução a exemplos](get-started-sample.md)  
-[Autenticando e autorizando em Coleções de Espaços de Trabalho do Power BI](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[Autenticando e autorizando em Coleções de Workspaces do Power BI](app-token-flow.md)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Pacote JavaScript do Power BI](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 [Pacote NuGet da API do Power BI](https://www.nuget.org/profiles/powerbi)

@@ -3,19 +3,19 @@ title: Habilitar a restrição etária no Azure Active Directory B2C | Microsoft
 description: Saiba mais sobre como identificar menores de idade usando seu aplicativo.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: ddc4b7b899385eb7388198973460386a4a0af10c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291089"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845746"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitar a restrição etária no Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ O Azure AD B2C usa as informações que o usuário insere para identificar se s�
 
 A restrição etária envolve dois valores de idade: a idade que alguém não é mais considerado menor e a idade em que um menor deve ter consentimento dos pais. A tabela a seguir lista as regras de idade que são usadas para definir um menor e um consentimento de autorização de menor.
 
-| País | Nome do país | Idade de consentimento de menor | Idade menor |
+| País/Região | Nome do país | Idade de consentimento de menor | Idade menor |
 | ------- | ------------ | ----------------- | --------- |
 | Padrão | Nenhum | Nenhum | 18 |
 | AE | Emirados Árabes Unidos | Nenhum | 21 |

@@ -3,18 +3,18 @@ title: Enviar eventos de Armazenamento de Blobs para o ponto de extremidade da W
 description: Use a Grade de Eventos do Azure e o portal do Azure para criar a conta de armazenamento de Blobs e faça uma assinatura dos seus respectivos eventos. Envie os eventos para um Webhook.
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b8b06a540af99cad45bed4068dd55773eaf38d0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086956"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468566"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início Rápido: Encaminhar eventos de Armazenamento de Blobs para o ponto de extremidade da Web com o portal do Azure
 

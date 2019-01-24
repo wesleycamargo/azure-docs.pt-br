@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387422"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413542"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Encontrar um endereço usando o serviço de pesquisa do Azure Maps
 
@@ -158,7 +158,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
     |-----|------------|
     | número | verdadeiro |
 
-    Se o parâmetro de consulta [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é enviado com a solicitação, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição ajustada para o número.
+    Se o parâmetro de consulta [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) é enviado com a solicitação, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição ajustada para o número.
   
 6. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
@@ -166,7 +166,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
     |-----|------------|
     | returnSpeedLimit | verdadeiro |
   
-    Quando o parâmetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna o limite de velocidade indicado.
+    Quando o parâmetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) é definido, a resposta retorna o limite de velocidade indicado.
 
 7. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
@@ -174,7 +174,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
     |-----|------------|
     | returnRoadUse | verdadeiro |
 
-    Quando o [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta for definido, a resposta retorna a matriz de uso de estrada para códigos geográficos reversos no nível da rua.
+    Quando o [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) parâmetro de consulta for definido, a resposta retorna a matriz de uso de estrada para códigos geográficos reversos no nível da rua.
 
 8. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
@@ -182,7 +182,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
     |-----|------------|
     | roadUse | verdadeiro |
 
-    Você pode restringir a consulta invertida de geocodificação para um tipo específico de estrada usando o parâmetro de consulta [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
+    Você pode restringir a consulta invertida de geocodificação para um tipo específico de estrada usando o parâmetro de consulta [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse).
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Pesquise o cruzamento usando Pesquisa Invertida de Endereço de Cruzamento
 

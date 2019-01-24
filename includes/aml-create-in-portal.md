@@ -9,32 +9,30 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 8bbdd2d49171ee8f4e7eb3cc0def1c7a6e59806b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193277"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54489525"
 ---
-Entre no [portal do Microsoft Azure](https://portal.azure.com/) usando as credenciais de assinatura do Azure que você usará. 
-
-O painel de workspace do portal é compatível apenas com os navegadores Microsoft Edge, Chrome e Firefox.
+1. Entre no [portal do Microsoft Azure](https://portal.azure.com/) usando as credenciais de assinatura do Azure que você usará. 
 
    ![Portal do Azure](./media/aml-create-in-portal/portal-dashboard.png)
 
-No canto superior esquerdo do Portal, selecione **Criar um recurso**.
+1. No canto superior esquerdo do Portal, selecione **Criar um recurso**.
 
    ![Criar um recurso no Portal do Azure](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-Na barra de pesquisa, digite **Machine Learning**. Selecione o resultado da pesquisa do **Espaço de trabalho de serviço de Machine Learning**.
+1. Na barra de pesquisa, digite **Machine Learning**. Selecione o resultado da pesquisa do **Espaço de trabalho de serviço de Machine Learning**.
 
    ![Pesquisa de workspace](./media/aml-create-in-portal/allservices-search.PNG)
 
-No painel **Workspace do Machine Learning**, role até a parte inferior e selecione **Criar** para começar.
+1. No painel **Workspace do Machine Learning**, role até a parte inferior e selecione **Criar** para começar.
 
    ![Criar](./media/aml-create-in-portal/portal-create-button.png)
 
-No painel **Espaço de trabalho de serviço ML**, configure seu espaço de trabalho.
+1. No painel **Espaço de trabalho de serviço ML**, configure seu espaço de trabalho.
 
    Campo|DESCRIÇÃO
    ---|---
@@ -45,10 +43,10 @@ No painel **Espaço de trabalho de serviço ML**, configure seu espaço de traba
 
    ![Criar workspace](./media/aml-create-in-portal/workspace-create.png)
 
-Para iniciar o processo de criação, selecione **Criar**. Pode demorar um pouco para o workspace ser criado.
+1. Para iniciar o processo de criação, selecione **Criar**. Pode demorar um pouco para o workspace ser criado.
 
-Para verificar o status da implantação, selecione o ícone de notificações **sino** na barra de ferramentas.
+1. Para verificar o status da implantação, selecione o ícone de notificações **sino** na barra de ferramentas.
+
+1. Quando o processo é finalizado, será exibida uma mensagem de êxito da implantação. Ele também está presente na seção notificações. Para exibir o novo espaço de trabalho, selecione **Ir para o recurso**.
 
    ![Status de criação do espaço de trabalho](./media/aml-create-in-portal/notifications.png)
-
-Quando o processo é finalizado, será exibida uma mensagem de êxito da implantação. Ele também está presente na seção notificações. Para exibir o novo espaço de trabalho, selecione **Ir para o recurso**.

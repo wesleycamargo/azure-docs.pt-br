@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3c0d7d3aed08c6dbbcac5f25e91edd8e27e64440
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246544"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429354"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -75,7 +75,7 @@ Examine as [práticas recomendadas](luis-concept-best-practices.md) para obter o
 O LUIS transforma em [token](luis-glossary.md#token) o enunciado com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor em token estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como fazer para criar e atribuir uma chave de ponto de extremidade de LUIS?
-[Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md#create-luis-endpoint-key) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Atribuir a tecla](luis-how-to-manage-keys.md#assign-endpoint-key) na página **[Chaves e pontos de extremidade](luis-how-to-manage-keys.md)**. Não há uma API correspondente para essa ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md#use-endpoint-key-in-query).
+[Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Atribuir a tecla](luis-how-to-azure-subscription.md) na página **[Chaves e pontos de extremidade](luis-how-to-azure-subscription.md)**. Não há uma API correspondente para essa ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Como fazer para interpretar as pontuações de LUIS?
 Seu sistema deve usar a intenção de pontuação mais alta, independentemente do seu valor. Por exemplo, uma pontuação inferior a 0,5 (menor que 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a [pontuação](luis-concept-prediction-score.md) da intenção mais provável.

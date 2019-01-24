@@ -3,19 +3,19 @@ title: Autenticação, inscrição, edição de perfil no Azure Active Directory
 description: Como compilar um aplicativo Web com gerenciamento de entrada, de inscrição e de perfis usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fc32cf40266bdad1aa5365b30a27210ad735f299
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 96cdbca1b0a5a75c24b9d0e75eaf1fc861bf764a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354375"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843116"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure Active Directory B2C: Compilar um aplicativo da área de trabalho do Windows
 Ao usar o Azure Active Directory B2C (Azure AD), você poderá adicionar recursos poderosos de gerenciamento de identidades de autoatendimento para seu aplicativo da área de trabalho em poucas etapas. Este artigo mostra como criar um aplicativo “lista de tarefas pendentes” do WPF (Windows Presentation Foundation) do .NET que inclui a inscrição, a entrada e o gerenciamento de perfil de usuário. O aplicativo inclui suporte para a inscrição e a entrada usando um nome de usuário ou um email. Ele também incluirá o suporte para a inscrição e a entrada usando contas sociais como o Facebook e o Google.
