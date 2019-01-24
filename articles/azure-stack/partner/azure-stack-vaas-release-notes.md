@@ -13,18 +13,28 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce16ab3b723b9a6c87c7b980e3cc76c389609da6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319640"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847893"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notas de versão para a validação como um serviço
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Este artigo apresenta as notas de versão para a validação de pilha do Azure como um serviço.
+
+## <a name="version-405"></a>Versão 4.0.5
+17 de janeiro de 2019
+
+-  Teste de identificação de disco atualizado para inconsistências de pool de armazenamento do endereço. Versão: 5.1.14.0  -> 5.1.15.0
+-  Azure Stack mensal verificação de atualização atualizado para o endereço aprovado inconsistências de validação de software e conteúdo. Versão: 5.1.14.0  -> 5.1.15.0
+-  Verificação do pacote de extensão de OEM atualizado para executar as verificações necessárias *antes de* a etapa de atualização do Azure Stack. Versão: 5.1.14.0  -> 5.1.15.0
+-  Correções de bugs internas
+
+
 
 ## <a name="version-402"></a>Versão 4.0.2
 
