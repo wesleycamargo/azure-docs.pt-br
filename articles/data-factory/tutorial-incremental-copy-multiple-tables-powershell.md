@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 464e15b7fce706f07ff6a28c39fd4247fd8bf381
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3902e6ae93159266de9f9e9cc0f355a37976a8ed
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352641"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425655"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
@@ -222,7 +222,7 @@ END
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 1. Defina uma variável para o nome do grupo de recursos que você usa nos comandos do PowerShell posteriormente. Copie o seguinte texto de comando para o PowerShell, especifique um nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) entre aspas duplas e, em seguida, execute o comando. Um exemplo é `"adfrg"`. 

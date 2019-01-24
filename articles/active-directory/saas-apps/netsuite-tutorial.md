@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 05e565d58faefbfc80815635afa38595177ad353
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: f93f6d01019b38fc157732ee221a5f73a156e809
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807458"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810390"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutorial: Integração do Azure Active Directory ao NetSuite
 
@@ -127,7 +127,7 @@ Para configurar o logon único do Azure AD com o NetSuite, execute as seguintes 
 
     ![image](common/edit-attribute.png)
 
-6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas:
+6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas:
     
     | NOME | Atributo de Origem | 
     | ---------------| --------------- |

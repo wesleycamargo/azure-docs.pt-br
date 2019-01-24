@@ -15,12 +15,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
-ms.openlocfilehash: 62ac70134c1bdf9d178d59723ff73561049a4bbf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: disks
+ms.openlocfilehash: ee3f24b7e7a0e4242337aabedc87515b7fabbb9a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993061"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467937"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não gerenciados em Managed Disks
 
@@ -37,7 +38,7 @@ Este artigo mostra como converter VMs usando a CLI do Azure. Se você precisar i
 ## <a name="convert-single-instance-vms"></a>Converter VMs de instância única
 Esta seção aborda como converter suas VMs de instância única do Azure de discos não gerenciados em discos gerenciados. (Se suas VMs estão em uma conjunto de disponibilidade, consulte a próxima seção.) Você pode usar este processo para converter as VMs de discos (SSD) não gerenciados Premium em Managed Disks Premium ou discos (HDD) não gerenciados Standard em Managed Disks Standard.
 
-1. Desaloque a VM usando [az vm deallocate](/cli/azure/vm#az_vm_deallocate). O seguinte exemplo desaloca a VM `myVM` no grupo de recursos chamado `myResourceGroup`:
+1. Desaloque a VM usando [az vm deallocate](/cli/azure/vm). O seguinte exemplo desaloca a VM `myVM` no grupo de recursos chamado `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -71,7 +72,7 @@ Todas as VMs no conjunto de disponibilidade devem ser desalocadas antes de conve
         --output table
     ```
 
-2. Desaloque todas as VMs usando [az vm deallocate](/cli/azure/vm#az_vm_deallocate). O seguinte exemplo desaloca a VM `myVM` no grupo de recursos chamado `myResourceGroup`:
+2. Desaloque todas as VMs usando [az vm deallocate](/cli/azure/vm). O seguinte exemplo desaloca a VM `myVM` no grupo de recursos chamado `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM

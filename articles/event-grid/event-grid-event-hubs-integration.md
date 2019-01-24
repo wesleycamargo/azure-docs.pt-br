@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 12/13/2018
+ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 450cbf4deace7d3edc1fcb50b8c3d8a91e936012
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6e8ca9d3a7fbdf1926ac642ac60a37d298af0129
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385407"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476845"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir Big Data para um data warehouse
 A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações (eventos) de aplicativos e serviços. Por exemplo, ele pode disparar uma função do Azure para processar dados de Hubs de Eventos que foram capturados em um Armazenamento de Blobs do Azure ou Azure Data Lake Storage e migrar os dados para outros repositórios de dados. Este [Exemplo de integração de Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar a Hubs de Eventos com a Grade de Eventos para migrar com perfeição dados dos Hubs de Eventos capturados do Armazenamento de Blobs para um SQL Data Warehouse.

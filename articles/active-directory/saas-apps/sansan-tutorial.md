@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e14f923b1e25f5fbc522cd39763ac53ddf37617
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6bd84e42bf46885a9dced363724538cbd4d2066a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872247"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: Integração do Azure Active Directory com Sansan
 
@@ -224,7 +224,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/sansan-tutorial/create_aaduser_04.png) 
 
-     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

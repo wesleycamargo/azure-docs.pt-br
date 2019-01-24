@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7f00799d-e3e9-4ba9-ae4a-fbca843ac5db
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 8b8ff27413888e1745bd9a83e2e2e8c7b77fba34
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ae38276e4ae3cd838a1cdb7f80712f80b0b928b8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847041"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Tutorial: Integração do Azure Active Directory ao MCM
 
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/mcm-tutorial/tutorial_mcm_url.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://myaba.co.uk/client-access/<companyname>/saml.php`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://myaba.co.uk/client-access/<companyname>/saml.php`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://myaba.co.uk/<companyname>`
 
@@ -156,7 +156,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/mcm-tutorial/create_aaduser_04.png) 
 
-     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

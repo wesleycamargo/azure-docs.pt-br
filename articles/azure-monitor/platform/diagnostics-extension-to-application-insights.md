@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 2580d49fb7ab0779f81f1315b9765a0dc4745cb6
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: a808dc3e924d3f1800790bdb83cb4ce65112480b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078211"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470130"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico do Serviço de Nuvem, da máquina virtual ou do Service Fabric ao Application Insights
 Serviços de nuvem, máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e o Service Fabric usam a extensão do Diagnóstico do Azure para coletar dados.  O Diagnóstico do Azure envia dados às tabelas do Armazenamento do Azure.  No entanto, também é possível redirecionar todos os dados, ou um subconjunto deles, para outros locais usando a extensão do Diagnóstico do Azure 1.5 ou posterior.
@@ -218,3 +218,4 @@ Na configuração anterior, as linhas a seguir apresentam estes significados:
 * Saiba como [exibir as informações de diagnóstico do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) no Application Insights.
 * Use o [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) para habilitar a extensão do Diagnóstico do Azure para seu aplicativo.
 * Use o [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) para habilitar a extensão do Diagnóstico do Azure para seu aplicativo
+

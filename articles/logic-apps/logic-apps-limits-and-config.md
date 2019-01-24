@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: ef3d26112c631ee0ed3c754394339092020add53
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332533"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469723"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -265,7 +265,7 @@ Todos os aplicativos lógicos na mesma região usam os mesmos intervalos de ende
 
 Para dar suporte às chamadas que [conectores gerenciados pela Microsoft](../connectors/apis-list.md) fazem, configure seu firewall com *todos* os endereços IP [de saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços são exibidos sob o título **De saída** nesta seção e são classificados por região. 
 
-Para o [Azure Governamental](/azure-government/documentation-government-welcome) e [Azure China 21Vianet](/azure/china/china-welcome), os endereços IP reservados para conectores não estão disponíveis no momento.
+Para o [Azure Governamental](../azure-government/documentation-government-overview.md) e [Azure China 21Vianet](/azure/china/china-welcome), os endereços IP reservados para conectores não estão disponíveis no momento.
 
 > [!IMPORTANT]
 > 

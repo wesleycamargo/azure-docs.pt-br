@@ -3,7 +3,7 @@ title: Adicionar identidade visual à página de entrada de sua organização �
 description: Instruções sobre como adicionar a identidade visual da organização à página de entrada do Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 0ce0d42e37bcc5c936798947bacf0232891c24ab
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7abfa0e52abb594668935d325835e3ef25818aa2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090305"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452394"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). As páginas de entrada aparecem quando os usuários entram nos aplicativos baseados na Web da organização, como o Office 365, que usam o Azure AD como provedor de identidade.

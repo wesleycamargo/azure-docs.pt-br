@@ -3,18 +3,18 @@ title: Gerenciando dados da Automação do Azure
 description: Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure.  Atualmente, inclui a Retenção de dados e o backup da Recuperação de desastres na Automação do Azure.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140175"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428470"
 ---
 # <a name="managing-azure-automation-data"></a>Gerenciando dados da Automação do Azure
 Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure.
@@ -76,4 +76,5 @@ A tabela a seguir mostra os emparelhamentos disponíveis das regiões primárias
 | Leste do Japão |Oeste do Japão |
 
 No evento improvável de os dados de uma região primária serem perdidos, a Microsoft tentará recuperá-los. Se não for possível recuperar os dados primários, o failover geográfico será executado e os clientes afetados receberão uma notificação em suas assinaturas.
+
 

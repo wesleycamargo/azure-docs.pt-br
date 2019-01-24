@@ -4,7 +4,7 @@ description: Aborda como realizar a instalação autônoma do Conector de roxy d
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 05/17/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3f8ef9ea3a46dde77ac27e7105148ac886f9212d
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 2b0d81a6afb754f03f49b72592f4e04106d2a088
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362930"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467938"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação autônoma para o conector de Proxy de Aplicativo do Azure AD
 
@@ -63,7 +63,7 @@ Há dois métodos que você pode usar para registrar o conector:
         .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
 
 ### <a name="register-the-connector-using-a-token-created-offline"></a>Registrar o conector usando um token criado offline
-1. Crie um token offline usando a classe AuthenticationContext, usando os valores nesse trecho de código ou cmdlets do PowerShell abaixo:
+1. Crie um token offline usando a classe AuthenticationContext, usando os valores nesse snippet de código ou cmdlets do PowerShell abaixo:
 
     **Usando C#:**
 

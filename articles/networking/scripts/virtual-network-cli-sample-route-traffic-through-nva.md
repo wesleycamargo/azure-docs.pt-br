@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 62077f45d96e96a7fef35cf025740849d2b99445
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 110e8c6a57cd2cdfedec808e073f04b70a55362d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141197"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465559"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Rotear o tráfego por meio de uma solução de virtualização de rede
 
@@ -51,10 +51,10 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma rede v
 | Comando | Observações |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede virtual do Azure e uma sub-rede front-end. |
+| [az network vnet create](/cli/azure/network/vnet) | Cria uma rede virtual do Azure e uma sub-rede front-end. |
 | [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Cria as sub-redes back-end e DMZ. |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Cria um endereço IP público para acessar a VM da Internet. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Cria uma interface de rede virtual e habilita o encaminhamento IP nela. |
+| [az network nic create](/cli/azure/network/nic) | Cria uma interface de rede virtual e habilita o encaminhamento IP nela. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Cria um grupo de segurança de rede (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Cria regras de NSG que permitem as portas HTTP e HTTPS de entrada para a VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Associa os NSGs e tabelas de rotas às sub-redes. |

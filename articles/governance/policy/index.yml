@@ -1,70 +1,64 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 02922cea6e26b820dc193d73ef38f9e716a477be
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233031"
 documentType: LandingData
 title: Documentação do Azure Policy
 metadata:
-  title: Documentação do Azure Policy — Tutoriais, Referência de API
-  description: O Azure Policy ajuda você a gerenciar e impedir problemas de TI com definições de políticas que impõem regras e efeitos para seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço. Aprenda a criar, atribuir e gerenciar definições de políticas com nossos guias de início rápido, tutoriais e exemplos.
+  title: 'Documentação do Azure Policy — Tutoriais, Referência de API'
+  description: 'O Azure Policy ajuda você a gerenciar e impedir problemas de TI com definições de políticas que impõem regras e efeitos para seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço. Aprenda a criar, atribuir e gerenciar definições de políticas com nossos guias de início rápido, tutoriais e exemplos.'
   services: azure-policy
   author: DCtheGeek
   manager: carmonm
   ms.service: azure-policy
   ms.topic: landing-page
-  ms.date: 09/18/2018
+  ms.date: 01/23/2019
   ms.author: dacoulte
 abstract:
-  description: O Azure Policy ajuda você a gerenciar e impedir problemas de TI com definições de políticas que impõem regras e efeitos para seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço. Aprenda a criar, atribuir e gerenciar definições de políticas com nossos guias de início rápido, tutoriais e exemplos.
+  description: 'O Azure Policy ajuda você a gerenciar e impedir problemas de TI com definições de políticas que impõem regras e efeitos para seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço. Aprenda a criar, atribuir e gerenciar definições de políticas com nossos guias de início rápido, tutoriais e exemplos.'
 sections:
-- title: Guia de início rápido de 5 minutos
-  items:
-  - type: paragraph
-    text: Aprenda como criar, atribuir e gerenciar definições de políticas no Azure.
-  - type: list
-    style: icon48
+  - title: Guia de início rápido de 5 minutos
     items:
-    - image:
-        src: ./media/portal.svg
-      text: Portal do Azure
-      href: ./assign-policy-portal
-    - image:
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: ./assign-policy-powershell
-    - image:
-        src: ./media/cli.svg
-      text: CLI do Azure
-      href: ./assign-policy-azurecli
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: Aprenda como criar, atribuir e gerenciar definições de políticas no Azure.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Aprenda como criar, atribuir e gerenciar definições de políticas no Azure.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/portal.svg
+            text: Portal do Azure
+            href: ./assign-policy-portal
+          - image:
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: ./assign-policy-powershell
+          - image:
+              src: ./media/cli.svg
+            text: CLI do Azure
+            href: ./assign-policy-azurecli
+  - title: Tutoriais Passo a Passo
     items:
-    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Criar e gerenciar o Azure Policy</a>
-- title: Exemplos
-  items:
-  - type: paragraph
-    text: Use os exemplos JSON a seguir para ajudar a criar as definições de política no Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Aprenda como criar, atribuir e gerenciar definições de políticas no Azure.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Criar e gerenciar o Azure Policy</a>
+  - title: Exemplos
     items:
-    - html: <a href="/azure/governance/policy/samples/index">PowerShell do Azure</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Use os exemplos JSON a seguir para ajudar a criar as definições de política no Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/governance/policy/samples/index">PowerShell do Azure</a>
+  - title: Referência
     items:
-    - title: Linha de comando
-      html: <p><a href="/cli/azure/policy">CLI do Azure</a></p>
-    - title: PowerShell
-      html: <p><a href="/powershell/module/azurerm.resources/#policies">PowerShell do Azure</a></p>
-    - title: API REST
-      html: <p><a href="/rest/api/policy-insights/policyevents">Eventos</a></p><p><a href="/rest/api/policy-insights/policystates">Estados</a></p><p><a href="/rest/api/resources/policyassignments">Atribuições</a></p><p><a href="/rest/api/resources/policydefinitions">Definições de Política</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definições de Iniciativas</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Recursos Acompanhados por Política</a></p><p><a href="/rest/api/policy-insights/remediations">Correções</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/cli/azure/policy">CLI do Azure</a></p>
+          - title: PowerShell
+            html: '<p><a href="/powershell/module/az.resources/#policies">PowerShell do Azure</a></p>'
+          - title: API REST
+            html: <p><a href="/rest/api/policy-insights/policyevents">Eventos</a></p><p><a href="/rest/api/policy-insights/policystates">Estados</a></p><p><a href="/rest/api/resources/policyassignments">Atribuições</a></p><p><a href="/rest/api/resources/policydefinitions">Definições de Política</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definições de Iniciativas</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Recursos Acompanhados por Política</a></p><p><a href="/rest/api/policy-insights/remediations">Correções</a></p>

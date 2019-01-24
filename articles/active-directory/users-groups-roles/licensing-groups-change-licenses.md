@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: f675ff0dfaf183c2efd177c7888549e6976fbe6d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319411"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389473"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Como migrar de forma segura usuários entre licenças de produto usando o licenciamento baseado em grupo
 
@@ -85,7 +85,7 @@ O snippet a seguir mostra como automatizar o processo de migração para uma ope
 > [!NOTE]
 > O código de exemplo usa as funções do PowerShell que estão incluídas na [última seção](#powershell-automation-of-migration-and-verification-steps) deste artigo.
 
-```
+```powershell
 # A batch of users that we want to migrate in this iteration.
 # The batch can be specified as an array of User Principal Names (string) or ObjectIds (Guid).
 # Note: The batch can be loaded from a text file that represents a larger batch of users that we want to migrate.
@@ -128,7 +128,7 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 **Saída de exemplo (migração de dois usuários)**
 
-```
+```powershell
 Verifying initial assumptions:
 Enough TailspinOnline:ENTERPRISEPREMIUM licenses available (13) for users: 2.
 migrationuser@tailspinonline.com                OK
@@ -215,7 +215,7 @@ O snippet a seguir mostra como automatizar o processo de migração para uma ope
 > [!NOTE]
 > O código de exemplo usa as funções do PowerShell que estão incluídas na [última seção](#powershell-automation-of-migration-and-verification-steps) deste artigo.
 
-```
+```powershell
 # A batch of users that we want to migrate in this iteration.
 # The batch can be specified as an array of User Principal Names (string) or ObjectIds (Guid).
 # Note: The batch can be loaded from a text file that represents a larger batch of users that we want to migrate.
@@ -265,7 +265,7 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 **Saída de exemplo (migração de dois usuários)**
 
-```
+```powershell
 Verifying initial assumptions:
 Enough TailspinOnline:ENTERPRISEPACK licenses available (61) for users: 2.
 migrationuser@tailspinonline.com                OK
@@ -321,7 +321,7 @@ Esta seção contém o código do PowerShell que é necessário para executar os
 
 Para executar o código, use as instruções nas [bibliotecas do Azure AD PowerShell v1.0](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Antes de você executar o script, execute o cmdlet `connect-msolservice` para entrar no locatário.
 
-```
+```powershell
 # BEGIN: Helper functions that are used in the scripts.
 
 # GetUserObject function
@@ -523,7 +523,7 @@ function IsExpectedLicenseStateForGroup
     # The license is expected to be fully assigned from the group and not in an error state.
     if([string]::IsNullOrEmpty($expectedError))
     {
-        # Check if the assigned license is inherted from the expected group and without an error on it.
+        # Check if the assigned license is inherited from the expected group and without an error on it.
         return (UserHasLicenseAssignedFromThisGroup $user $skuId $groupId)
     }
     # The license is expected to be in the specific error state on the specific group.
@@ -614,7 +614,7 @@ function VerifyAssumptionsForUser
         return $false
     }
 
-    # 2. The user does't have the same source license assigned from another group at the same time,
+    # 2. The user doesn't have the same source license assigned from another group at the same time,
     #    and the user doesn't have the source license assigned directly.
     [Guid[]]$otherObjectsAssigningLicense = GetObjectIdsAssigningLicense $user $sourceSkuId | Where {$_ -ne $sourceGroupId}
     foreach($otherObject in $otherObjectsAssigningLicense)

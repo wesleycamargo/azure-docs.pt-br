@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e6d6c47726b21a241b379366bd1fde6c6b90e223
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392395"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462005"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Solucionar problemas de uma VM do Linux anexando o disco do SO a uma VM de recuperação com a CLI do Azure
 Se a VM (máquina virtual) do Linux tiver um erro de disco ou de inicialização, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida em `/etc/fstab` que impede que a VM possa ser inicializada corretamente. Este artigo fornece detalhes sobre como usar a CLI do Azure para conectar o disco rígido virtual a outra VM do Linux para corrigir erros e recriar a VM original. 
@@ -35,7 +35,7 @@ O processo de solução de problemas é o seguinte:
 
 Para a máquina virtual que usa o disco gerenciado, consulte [Solucionar problemas de uma VM de disco gerenciado anexando um novo disco de SO](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
-Para realizar essas etapas de solução de problemas, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
+Para realizar essas etapas de solução de problemas, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios valores. Os nomes de parâmetro de exemplo incluem `myResourceGroup`, `mystorageaccount` e `myVM`.
 
@@ -69,7 +69,7 @@ Discos rígidos virtuais e VMs são dois recursos distintos no Azure. Um disco r
 
 A primeira etapa para recuperar a VM é excluir o recurso de VM em si. A exclusão da VM deixa os discos rígidos virtuais na conta de armazenamento. Depois que a VM for excluída, você anexa o disco rígido virtual a outra VM para solucionar os erros.
 
-Exclua a VM com [az vm delete](/cli/azure/vm#az_vm_delete). O seguinte exemplo exclui a VM chamada `myVM` do grupo de recursos chamado `myResourceGroup`:
+Exclua a VM com [az vm delete](/cli/azure/vm). O seguinte exemplo exclui a VM chamada `myVM` do grupo de recursos chamado `myResourceGroup`:
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 

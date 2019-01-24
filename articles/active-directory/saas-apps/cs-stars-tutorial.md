@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Active Directory do Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5704d151-afb8-40a4-b286-8bacd4f279ee
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 14b5f13070554328a47cd80185efb487d887a6d5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e26c89cf015cca74dab769cce6d25a7ab2e22622
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832898"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: Integração do Microsoft Azure Active Directory ao CS Stars
 
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/cs-stars-tutorial/tutorial_csstars_url.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.csstars.com/enterprise/default.cmdx?ssoclient=<uniqueid>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.csstars.com/enterprise/default.cmdx?ssoclient=<uniqueid>`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.csstars.com/enterprise/`
 
@@ -157,7 +157,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/cs-stars-tutorial/create_aaduser_04.png) 
 
-     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

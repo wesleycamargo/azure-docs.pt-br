@@ -4,7 +4,7 @@ description: Entenda como usar a guia Conectores no Synchronization Service Mana
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 592fcd80b80ecbd101dd559aa8baf78a60aaa517
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5c3931fd75ea8e0780b8a7b4f613c865267074c1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306845"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466798"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
 
@@ -66,7 +66,7 @@ A ação de espaço do conector de pesquisa é útil para encontrar objetos e so
 
 Comece selecionando um **escopo**. É possível pesquisar com base nos dados (RDN, DN, Âncora, Subárvore) ou no estado do objeto (todas as outras opções).  
 ![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-Por exemplo, se fizer uma pesquisa em Subárvore, você obterá todos os objetos em uma UO.  
+ Por exemplo, se fizer uma pesquisa em Subárvore, você obterá todos os objetos em uma UO.  
 ![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Nessa grade, é possível selecionar um objeto, selecionar **propriedades** e [segui-lo](tshoot-connect-object-not-syncing.md) do espaço conector de origem, passando pelo metaverso, até o espaço conector de destino.
 

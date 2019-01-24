@@ -5,7 +5,7 @@ services: active-directory
 keywords: classificação de segurança de identidade, Azure AD, acesso seguro aos recursos da empresa
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: fundamentals
@@ -17,12 +17,12 @@ ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: it-pro
-ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c2b9a2691b6a9a56b3433c656bc6ecb661e5f26a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092054"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448407"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>O que é a classificação de segurança de identidade no Azure Active Directory? (Versão prévia pública)
 

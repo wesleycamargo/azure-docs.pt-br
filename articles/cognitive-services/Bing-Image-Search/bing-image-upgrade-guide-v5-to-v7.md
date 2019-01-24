@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 2192e3d2a344a31717c59c813123ed0c807a2841
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c62ed151e1b09482c227f59ee5264de01d425255
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256546"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477800"
 ---
 # <a name="bing-image-search-api-upgrade-guide"></a>Guia de atualização da API de Pesquisa de Imagem do Bing
 
@@ -74,9 +74,9 @@ Bloqueado|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Renomeado o parâmetro de consulta `modulesRequested` para [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules).  
+- Renomeado o parâmetro de consulta `modulesRequested` para [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).  
 
-- Renomeadas as Anotações para Marcações. Consulte o parâmetro de consulta [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules) para Marcações.  
+- Renomeadas as Anotações para Marcações. Consulte o parâmetro de consulta [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) para Marcações.  
 
 - Alterada a lista de mercados com suporte do valor do filtro ShoppingSources para apenas en-US. Consulte [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype).  
 
@@ -98,7 +98,7 @@ Bloqueado|InvalidRequest.Blocked
 - Os parâmetros de consulta a seguir agora são válidos apenas com o ponto de extremidade `/images/details`.  
 
     -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken)  
-    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules)  
+    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)  
     -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl)  
     -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
     -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  

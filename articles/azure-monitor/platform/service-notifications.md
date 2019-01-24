@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.subservice: logs
+ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190690"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474023"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
 
@@ -95,3 +95,4 @@ Properties.communicationId | A comunicação à qual esse evento está associado
 ## <a name="next-steps"></a>Próximas etapas
 Receber [notificações de alerta sempre que uma notificação de integridade do serviço](../../azure-monitor/platform/alerts-activity-log-service-notifications.md) é postada.  
 Saiba mais sobre os [alertas do log de atividades](../../azure-monitor/platform/activity-log-alerts.md).
+

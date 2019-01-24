@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 88a95bb5-c17c-474f-bb92-1f80f5344b5a
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 536db4e4927c03cafff35a3e811727a566c79dbd
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 53d1bf57a4a6471fa224de5296484857ed388486
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062801"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821542"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: Integração do Azure Active Directory ao Adobe Experience Manager
 
@@ -80,8 +80,8 @@ Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o Logon Único do Adobe Experience Manager](#configure-adobe-experience-manager-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Criar um usuário de teste do Adobe Experience Manager](#create-adobe-experience-manager-test-user)** – para ter um equivalente de Brenda Fernandes no Adobe Experience Manager que esteja vinculado à representação de usuário do Azure AD.
-5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Adobe Experience Manager](#create-adobe-experience-manager-test-user)** – para ter um equivalente de Brenda Fernandes no Adobe Experience Manager que esteja vinculado à representação de usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -271,4 +271,3 @@ Ao clicar no bloco do Adobe Experience Manager no Painel de Acesso, você dever�
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

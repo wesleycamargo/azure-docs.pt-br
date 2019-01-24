@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ea555097-bf62-45dd-9b45-b75c50324a69
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 088fc2b7aeb318481a81387770f1dcef2883241d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 153c6517560614b8a1eb9c0241aefc121b391d19
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064093"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integração do Azure Active Directory ao Administrador do Zscaler Internet Access
 
@@ -78,8 +78,8 @@ Para configurar e testar o logon único do Azure AD com o Administrador do Zscal
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do Administrador do Zscaler Internet Access](#configure-zscaler-internet-access-administrator-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Criar um usuário de teste do Administrador do Zscaler Internet Access](#create-zscaler-internet-access-administrator-test-user)** – para ter um equivalente de Brenda Fernandes no Administrador do Zscaler Internet Access que esteja vinculado à representação do usuário no Azure AD.
-5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Administrador do Zscaler Internet Access](#create-zscaler-internet-access-administrator-test-user)** – para ter um equivalente de Brenda Fernandes no Administrador do Zscaler Internet Access que esteja vinculado à representação do usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -105,25 +105,25 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
     ![Informações de logon único de Domínio e URLs do Administrador do Zscaler Internet Access](common/idp-intiated.png)
 
      a. Na caixa de texto **Identificador**, digite uma URL de acordo com seus requisitos:
-    
+
     | |
     |--|
     | `https://admin.zscaler.net` |
-    | `https://admin.zscalerone.net` | 
+    | `https://admin.zscalerone.net` |
     | `https://admin.zscalertwo.net` |
     | `https://admin.zscalerthree.net` |
     | `https://admin.zscloud.net` |
     | `https://admin.zscalerbeta.net` |
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL de acordo com seus requisitos:
-    
+
     | |
     |--|
     | `https://admin.zscaler.net/adminsso.do` |
-    | `https://admin.zscalerone.net/adminsso.do` | 
-    | `https://admin.zscalertwo.net/adminsso.do` | 
-    | `https://admin.zscalerthree.net/adminsso.do` | 
-    | `https://admin.zscloud.net/adminsso.do` | 
+    | `https://admin.zscalerone.net/adminsso.do` |
+    | `https://admin.zscalertwo.net/adminsso.do` |
+    | `https://admin.zscalerthree.net/adminsso.do` |
+    | `https://admin.zscloud.net/adminsso.do` |
     | `https://admin.zscalerbeta.net/adminsso.do` |
 
 5. O aplicativo de Administrador do Zscaler Internet Access espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos e Declarações do Usuário**.
@@ -151,11 +151,11 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
     > [!NOTE]
     > Clique [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) para saber como configurar a Função no Azure AD
 
-4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Administrador do Zscaler Internet Access**, copie a URL apropriada, de acordo com suas necessidades.
+8. Na seção **Configurar o Administrador do Zscaler Internet Access**, copie a URL apropriada, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -170,13 +170,13 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
 1. Em outra janela do navegador da Web, faça logon na interface do usuário do Administrador do Zscaler Internet Access.
 
 2. Acesse **Administração > Gerenciamento de Administradores**, execute as seguintes etapas e clique em Salvar:
-   
+
     ![Administração](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administração")
 
      a. Marque a opção **Habilitar Autenticação SAML**.
 
     b. Clique em **Upload** para fazer upload do certificado de assinatura SAML do Azure que você baixou do portal do Azure para o **Certificado SSL Público**.
-    
+
     c. Opcionalmente, para segurança extra, adicione os detalhes do **Emissor** para verificar o Emissor da resposta SAML.
 
 3. Na interface do usuário do Administrador, execute as seguintes etapas:
@@ -245,7 +245,7 @@ Para obter as etapas de como criar uma conta Administrador, consulte a documenta
 
 https://help.zscaler.com/zia/adding-admins
 
-### <a name="test-single-sign-on"></a>Testar logon único 
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -258,4 +258,3 @@ Ao clicar no bloco do Zscaler Internet Access Administrator no Painel de Acesso,
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

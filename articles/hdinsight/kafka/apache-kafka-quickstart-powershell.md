@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 1dd80cffe64e6c93a0681400d067182f1a74afff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6883ebe1e103f9ed1f06aa4ee0e6281667fc46b8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581841"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424924"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Apache Kafka no cluster do HDInsight
 
@@ -33,7 +33,7 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* PowerShell do Azure. Para saber mais, veja o documento [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* PowerShell do Azure. Para saber mais, veja o documento [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 * Um cliente SSH. As etapas neste documento usam SSH para se conectar ao cluster.
 

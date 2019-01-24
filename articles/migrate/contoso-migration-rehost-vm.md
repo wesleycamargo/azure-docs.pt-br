@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6bdb319eb89c3dad8b3602b0ec4561b962fcc868
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608691"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823344"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migração para Contoso: Hospedar novamente um aplicativo local para VMs do Azure
 
@@ -66,7 +66,7 @@ A equipe de nuvem da Contoso fixou metas para esta migração. Essas metas são 
 
 ## <a name="solution-design"></a>Design da solução
 
-Depois de fixar as metas e os requisitos, a Contoso projeta e examina uma solução de implantação e identifica o processo de migração, incluindo os serviços do Azure que ela usará para a migração.
+Depois de fixar metas e requisitos, a Contoso cria e examina uma solução de implantação e identifica o processo de migração, incluindo os serviços do Azure que ela usará para a migração.
 
 ### <a name="current-app"></a>Aplicativo atual
 

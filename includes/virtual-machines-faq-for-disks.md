@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553536"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841388"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -101,6 +101,10 @@ Os clientes podem tirar um instantâneo de seus discos gerenciados e, em seguida
 
 Sim, há suporte para discos gerenciados e não gerenciados. Recomendamos que você use discos gerenciados para novas cargas de trabalho e migre suas cargas de trabalho atuais para discos gerenciados.
 
+**Posso posicionar discos gerenciados e não gerenciados na mesma VM?**
+
+ Não.
+
 **Se eu criar um disco de 128 GB e aumentar o tamanho para 130 GB, serei cobrado pelo próximo tamanho de disco (256 GiB)?**
 
 Sim.
@@ -124,10 +128,6 @@ O Azure Managed Disks atualmente dá suporte apenas a discos gerenciados de arma
 **Onde posso encontrar modelos do Azure Resource Manager de exemplo para criar VMs com discos gerenciados?**
 * [Lista de modelos que usam o Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**Posso posicionar discos gerenciados e não gerenciados na mesma VM?**
-
- Não.
 
 **Ao criar um disco a partir de um blob, existe alguma relação existente com esse blob de origem?**
 

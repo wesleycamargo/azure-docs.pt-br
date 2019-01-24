@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e546e8ba-821a-4942-9545-c84b0670beab
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec300052b00af451003a86a72a7154b1114d5484
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843641"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: Integração do Azure Active Directory com o Pacific Timesheet
 
@@ -134,7 +134,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 1. Para configurar o logon único no lado do **Pacific Timesheet**, é necessário enviar o **Certificado (Base64)** baixado, a **URL do Serviço de Logon Único SAML** e a **ID da Entidade SAML** para a [equipe de suporte do Pacific Timesheet](https://www.pacifictimesheet.com/support). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -160,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/pacific-timesheet-tutorial/create_aaduser_04.png) 
 
-     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259658"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426838"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Início Rápido: Usar o Azure PowerShell para criar uma fila do Barramento de Serviço
 O Barramento de Serviço do Microsoft Azure é um agente de mensagem de integração empresarial que fornece mensagens seguras e confiabilidade absoluta. Um cenário típico de Barramento de Serviço geralmente envolve o desacoplamento de dois ou mais aplicativos, serviços ou processos e a transferência de alterações de dados ou estado. Esses cenários podem envolver agendamento de vários trabalhos em lotes em outro aplicativo ou serviços, ou cumprimento da ordem de disparo. Por exemplo, uma empresa de varejo pode enviar os dados do ponto de vendas a um back office ou centro de distribuição regional para atualizações de estoque e reabastecimento. Nesse cenário, o aplicativo cliente envia e recebe mensagens de uma fila do Barramento de Serviço.
@@ -263,4 +263,4 @@ Neste artigo, você criou um namespace de Barramento de Serviço e outros recurs
 > [Atualizar inventário usando o portal do Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Instalar e configurar o Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Instalar e configurar o Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

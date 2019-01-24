@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c3e142c65cdfe00fb26694063f7733d62882cc0c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5be96fc93a5a6636ccac6faf456458b3bcb8423a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267361"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413712"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot do LUIS em C# com o Bot Framework 3.x e o bot de aplicativo Web do Azure
 
@@ -153,7 +153,7 @@ No portal do Azure, clique em **Testar no Webchat** para testar o bot. Digite me
 > É possível treinar novamente seu aplicativo LUIS sem nenhuma modificação no código do seu bot. Confira [Add example utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) (Adicionar declarações de exemplo) e [treinar e testar seu aplicativo LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Baixar o bot para depurar
-Se o bot não estiver funcionando, baixe o projeto para seu computador local e continue com a [depuração](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
+Se o bot não estiver funcionando, baixe o projeto para seu computador local e continue com a [depuração](https://docs.microsoft.com/bot-framework/bot-service-debug-bot). 
 
 ## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre o Bot Framework
 Saiba mais sobre o [Bot Framework](https://dev.botframework.com/) e os SDKs [3.x](https://github.com/Microsoft/BotBuilder) e [4.x](https://github.com/Microsoft/botbuilder-dotnet).

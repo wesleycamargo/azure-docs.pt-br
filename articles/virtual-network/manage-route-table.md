@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 45c7a07231cbdcdc64ec348ed425a62b63bd822a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3381bf32bfd3df538641b11b35a64b53fda6744f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016555"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466866"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -29,7 +29,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
-- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
+- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
@@ -96,7 +96,7 @@ Se sua rede virtual está conectada a um gateway de VPN do Azure, não associe a
 
 **Comandos**
 
-- CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
+- CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Desassociar uma tabela de rotas de uma sub-rede
@@ -111,7 +111,7 @@ Quando você desassocia uma tabela de rota de uma sub-rede, o Azure roteia o tr�
 
 **Comandos**
 
-- CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
+- CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
 
 ## <a name="delete-a-route-table"></a>Excluir uma tabela de rotas
@@ -156,7 +156,7 @@ Uma tabela de rotas contém zero ou várias rotas. Para saber mais sobre as info
 
 **Comandos**
 
-- CLI do Azure: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
+- CLI do Azure: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>Exibir detalhes de uma rota
@@ -181,7 +181,7 @@ Uma tabela de rotas contém zero ou várias rotas. Para saber mais sobre as info
 
 **Comandos**
 
-- CLI do Azure: [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_update)
+- CLI do Azure: [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
 
 ## <a name="delete-a-route"></a>Excluir uma rota

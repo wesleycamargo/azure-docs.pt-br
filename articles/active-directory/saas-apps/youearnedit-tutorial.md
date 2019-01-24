@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd65d6a5d210b4b0549236ec39844e36480b10c9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5b3746a1e29f436c277fd238e13fd46010941824
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790251"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825979"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Azure Active Directory ao YouEarnedIt
 
@@ -78,8 +78,8 @@ Para configurar e testar o logon único do AD do Azure com o YouEarnedIt, você 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do YouEarnedIt](#configure-youearnedit-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Criar um usuário de teste no YouEarnedIt](#create-youearnedit-test-user)** – para ter um equivalente de Brenda Fernandes no YouEarnedIt que esteja vinculado à representação do usuário no Azure AD.
-5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste no YouEarnedIt](#create-youearnedit-test-user)** – para ter um equivalente de Brenda Fernandes no YouEarnedIt que esteja vinculado à representação do usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -104,22 +104,24 @@ Para configurar o logon único do Azure AD com o YouEarnedIt, execute as seguint
 
     ![Informações de logon único de URLs e Domínio do YouEarnedIt](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões: 
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões:
+
     | Ambiente  | Padrão  |
     |:--- |:--- |
     | Produção | `https://<company name>.youearnedit.com/users/sign_in` |
     | Área restrita  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. Na caixa de texto **Identificador**, digite uma URL usando os seguintes padrões:
+
     | Ambiente  | Padrão  |
     |:--- |:--- |
     | Produção | `<company name>.youearnedit.com` |
     | Área restrita  |`<company name>.sandbox.youearnedit.com` |
 
-    > [!NOTE] 
+    > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contact your assigned YouEarnedIt Customer Success manager to get these values.
 
-4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
@@ -192,11 +194,10 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 Nesta seção, você criará um usuário chamado Brenda Fernandes no YouEarnedIt. Por favor, trabalhe com o seu gerente atribuído ao YouEarnedIt Customer Success para adicionar os usuários na plataforma YouEarnedIt.
 
->[!NOTE]
->O YouEarnedIt espera que o Provedor de Identidade forneça um EmailAddress ou um UserName no atributo NameID. A autenticação falhará se um UserName ou um EmailAddress correspondente não for encontrado no banco de dados ou se não for uma correspondência exata. Isso exigirá que as contas sejam importadas para o sistema do YouEarnedIt antes da integração de SSO (normalmente por meio da importação de API ou CSV).
+> [!NOTE]
+> O YouEarnedIt espera que o Provedor de Identidade forneça um EmailAddress ou um UserName no atributo NameID. A autenticação falhará se um UserName ou um EmailAddress correspondente não for encontrado no banco de dados ou se não for uma correspondência exata. Isso exigirá que as contas sejam importadas para o sistema do YouEarnedIt antes da integração de SSO (normalmente por meio da importação de API ou CSV).
 
-
-### <a name="test-single-sign-on"></a>Testar logon único 
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -209,4 +210,3 @@ Ao clicar no bloco do YouEarnedIt no painel de acesso, você será conectado aut
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

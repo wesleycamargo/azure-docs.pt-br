@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021026"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412862"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -52,7 +52,12 @@ Você pode usar as seguintes ferramentas para criar ou configurar uma rede virtu
 * Um arquivo de configuração de rede (netcfg - somente para Redes Virtuais clássicas). Consulte o artigo [Configurar uma VNet usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quais intervalos de endereço posso usar em minhas redes virtuais?
-Qualquer intervalo de endereços IP definido na [RFC 1918](http://tools.ietf.org/html/rfc1918). Por exemplo, 10.0.0.0/16.
+Qualquer intervalo de endereços IP definido na [RFC 1918](http://tools.ietf.org/html/rfc1918). Por exemplo, 10.0.0.0/16. Não é possível adicionar os seguintes intervalos de endereços:
+* 224.0.0.0/4 (Multicast)
+* 255.255.255.255/32 (Broadcast)
+* 127.0.0.0/8 (Loopback)
+* 169.254.0.0/16 (Link-local)
+* 168.63.129.16/32 (DNS interno)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Posso ter endereços IP públicos em minhas redes virtuais?
 Sim. Para obter mais informações sobre intervalos de endereços IP públicos, consulte [Criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Os endereços IP públicos não são acessíveis diretamente da Internet.

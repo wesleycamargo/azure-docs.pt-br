@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: e0a5d6180c7dfa94abf8dd738c8017a3b332dfd8
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/17/2019
+ms.openlocfilehash: 9d7131c6ed1808725f59e53488bedb5ef81a77c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598797"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389409"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (visualização)
 
@@ -80,7 +80,7 @@ A Expansão de Leitura está habilitada por padrão em [Instância Gerenciada](s
 
 ### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: Ativar e desativar o Escalonamento de Leitura
 
-Gerenciar a Expansão de leitura no Microsoft Azure PowerShell requer a versão de dezembro de 2016 do Microsoft Azure PowerShell ou mais recente. Para a versão mais recente do PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Gerenciar a Expansão de leitura no Microsoft Azure PowerShell requer a versão de dezembro de 2016 do Microsoft Azure PowerShell ou mais recente. Para a versão mais recente do PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 Habilitar ou desabilitar a escala leitura no Azure PowerShell invocando o cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) e passando o valor desejado – `Enabled` ou `Disabled` – para o parâmetro `-ReadScale`. Como alternativa, você pode usar o cmdlet [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) para criar um novo banco de dados com escala de leitura habilitada.
 

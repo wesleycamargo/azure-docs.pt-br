@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/17/2019
 ms.author: douglasl
-ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 80b594eb8d926465f37771e2e6911f9ab3e63f1f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191778"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423809"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração e entrega contínua (CI / CD) no Azure Data Factory
 
@@ -727,7 +727,7 @@ Aqui está uma amostra de modelo de implantação que você pode importar em Pip
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Script de amostra para parar e reiniciar gatilhos e limpar
 
-Aqui está um exemplo de script para parar os gatilhos antes da implantação e reiniciar os gatilhos posteriormente. O script também inclui código para excluir recursos que foram removidos. Para instalar a versão mais recente do Azure PowerShell, consulte [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
+Aqui está um exemplo de script para parar os gatilhos antes da implantação e reiniciar os gatilhos posteriormente. O script também inclui código para excluir recursos que foram removidos. Para instalar a versão mais recente do Azure PowerShell, consulte [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param
@@ -748,7 +748,7 @@ Write-Host "Getting triggers"
 $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 $triggersTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
 $triggerNames = $triggersTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
-$activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and $_.properties.pipelines.Count -gt 0} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
+$activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and ($_.properties.pipelines.Count -gt 0 -or $_.properties.pipeline.pipelineReference -ne $null)} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
 $deletedtriggers = $triggersADF | Where-Object { $triggerNames -notcontains $_.Name }
 $triggerstostop = $triggerNames | where { ($triggersADF | Select-Object name).name -contains $_ }
 

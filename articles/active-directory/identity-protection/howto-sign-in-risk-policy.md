@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 4b48ffb450459891118d5f526bbc73c4a2577ddd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 1c3b7dc8e027169db51ab9ef50634a69a43cd3e0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268826"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462055"
 ---
-# <a name="how-to-configure-the-sign-in-risk-policy"></a>Como: configurar a política de risco de entrada
+# <a name="how-to-configure-the-sign-in-risk-policy"></a>Como: Configurar a política de risco de entrada
 
 O Azure Active Directory detecta [tipos de evento de risco](../reports-monitoring/concept-risk-events.md#risk-event-types) em tempo real e offline. Cada evento de risco que tiver sido detectado para a entrada de um usuário contribui para um conceito lógico chamado entrada de risco. Uma entrada de risco é um indicador de uma tentativa de logon que pode não ter sido realizada pelo proprietário legítimo de uma conta de usuário.
 

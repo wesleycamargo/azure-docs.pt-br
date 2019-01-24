@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: b34d5f061eae297b635e2249143240668a4c2b08
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: autoscale
+ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325238"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467343"
 ---
 # <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
 O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -150,3 +150,4 @@ Além de usar os alertas do log de atividades, você também pode configurar as 
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

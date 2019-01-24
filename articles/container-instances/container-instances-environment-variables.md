@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 4dde10c5cb4a764a268b8b9d3ebfaebc008e13ed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: ce6c3364c594bc515abd9f0c02bd69bf500e4f4e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162494"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436562"
 ---
 # <a name="set-environment-variables"></a>Configurar variáveis de ambiente
 
@@ -20,9 +20,9 @@ A definição de variáveis de ambiente nas suas instâncias de contêiner permi
 
 Por exemplo, se você executar a imagem de contêiner [microsoft/aci-wordcount][aci-wordcount], poderá modificar o comportamento especificando as variáveis de ambiente a seguir:
 
-*NumWords*: O número de palavras enviadas para STDOUT.
+*NumWords*: o número de palavras enviadas para STDOUT.
 
-*MinLength*: O número mínimo de caracteres em uma palavra a serem contados. Um número mais alto ignora palavras comuns como "de" e "a" ou “o”.
+*MinLength*: o número mínimo de caracteres em uma palavra para que ela seja contada. Um número mais alto ignora palavras comuns como "de" e "a" ou “o”.
 
 Se for necessário passar segredos como variáveis de ambiente, as Instâncias de Contêiner do Azure dão suporte a [valores seguros](#secure-values) para contêineres do Windows e do Linux.
 
@@ -255,6 +255,6 @@ Cenários baseados em tarefas, como o processamento em lote de um grande conjunt
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

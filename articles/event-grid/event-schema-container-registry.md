@@ -2,22 +2,22 @@
 title: Esquema de evento de Registro de Contêiner de Grade de Eventos do Azure
 description: Descreve as propriedades fornecidas para eventos de Registro de Contêiner com a Grade de Eventos do Azure
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/13/2018
-ms.author: tomfitz
-ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.date: 01/13/2019
+ms.author: spelluru
+ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141201"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462837"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de evento de Grade de Eventos do Azure para Registro de Contêiner
 
-Este artigo apresenta as propriedades e o esquema para eventos de Registro de Contêiner. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+Este artigo apresenta as propriedades e o esquema para eventos de Registro de Contêiner. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 
@@ -113,7 +113,7 @@ O objeto de dados tem as seguintes propriedades:
 | Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | ID | string | A ID do evento. |
-| timestamp | string | A hora em que o evento ocorreu. |
+|  timestamp | string | A hora em que o evento ocorreu. |
 | ação | string | A ação que abrange o evento fornecido. |
 | destino | objeto | O destino do evento. |
 | solicitação | objeto | A solicitação que gerou o evento. |

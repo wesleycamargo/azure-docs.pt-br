@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: fdad2893-41f4-4056-b6d2-ec3d050eb350
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 1949e8fc648aac5772c12d2c38e233dc53ca8b17
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f372d0a1a9d16801103380559332bff282c7e096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797044"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Tutorial: Integração do Azure Active Directory ao CorpTax
 

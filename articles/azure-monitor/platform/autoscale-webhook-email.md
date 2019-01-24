@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: c655f117009c0c7c682ad92a951edc7e12255bc2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: autoscale
+ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325243"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463296"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
 Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
@@ -120,3 +120,4 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 | oldCapacity |SIM |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
 | newCapacity |SIM |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
 | propriedades |Não  |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |
+

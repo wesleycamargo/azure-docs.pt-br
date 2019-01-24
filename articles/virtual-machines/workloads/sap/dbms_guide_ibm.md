@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/11/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 945dcf5776867a9b892a879569a4b58890cb1975
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2c496f78650be6fc19197c82dc9534fbd256ac45
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075132"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422585"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do IBM DB2 Azure para carga de trabalho do SAP
 
@@ -235,7 +235,7 @@ ms.locfileid: "39075132"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -321,16 +321,16 @@ As seguintes notas SAP estão relacionadas ao SAP no Azure em relação à área
 
 | Número da observação | Title |
 | --- | --- |
-| [1928533] |Aplicativos SAP no Azure: tipos de VM do Azure e produtos com suporte |
-| [2015553] |SAP no Microsoft Azure: pré-requisitos de suporte |
+| [1928533] |Aplicativos SAP no Azure: Produtos suportados e tipos de VM do Azure |
+| [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Métricas-chave de monitoramento para SAP no Microsoft Azure |
-| [1409604] |Virtualização no Windows: monitoramento avançado |
-| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
+| [1409604] |Virtualização no Windows: Monitoramento Avançado |
+| [2191498] |SAP no Linux com o Azure: Monitoramento Avançado |
 | [2233094] |DB6: Aplicativos SAP no Azure usando o IBM DB2 para Linux, UNIX e Windows - informações adicionais |
-| [2243692] |Linux na VM do Microsoft Azure (IaaS): problemas de licença SAP |
-| [1984787] |SUSE LINUX Enterprise Server 12: notas de instalação |
-| [2002167] |Red Hat Enterprise Linux 7.x: instalação e atualização |
+| [2243692] |Linux na VM (IaaS) do Microsoft Azure: Problemas de licença do SAP |
+| [1984787] |SUSE Linux Enterprise Server 12: Notas de instalação |
+| [2002167] |Red Hat Enterprise Linux 7.x: Instalação e atualização |
 | [1597355] |Recomendação de troca de espaço para Linux |
 
 Como uma pré-leitura para este documento, você deve ler o documento [Considerações para implantação de DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md), bem como outros guias de [carga de trabalho do SAP na documentação do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 

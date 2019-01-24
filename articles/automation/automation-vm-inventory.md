@@ -3,19 +3,19 @@ title: Gerenciar uma máquina virtual do Azure com a coleta de inventário | Mic
 description: Gerenciar uma máquina virtual com a coleta de inventário
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: inventário, automação, alteração, acompanhamento
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403603"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426039"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerenciar uma Máquina Virtual do Azure com a coleta de inventário
 
@@ -116,7 +116,7 @@ Para remover sua máquina virtual do gerenciamento de inventário:
 3. Na lista, selecione a máquina virtual que você deseja desconectar. A máquina virtual tem uma marca de seleção verde ao lado de **Este workspace** na coluna **Conexão OMS**.
 
    >[!NOTE]
-   >Agora, o OMS é chamado de Log Analytics.
+   >O OMS agora é chamado de Log Analytics.
    
 4. Na parte superior da página seguinte, selecione **Desconectar**.
 5. Na janela de confirmação, selecione **Sim**.
@@ -126,3 +126,4 @@ Para remover sua máquina virtual do gerenciamento de inventário:
 
 * Para saber mais sobre o gerenciamento de alterações em configurações de arquivos e do Registro em suas máquinas virtuais, consulte [Controlar alterações de software em seu ambiente com a solução Controle de Alterações](../log-analytics/log-analytics-change-tracking.md).
 * Para saber mais sobre como gerenciar atualizações de pacote e do Windows para máquinas virtuais, consulte [A solução de Gerenciamento de Atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).
+

@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 86a9c454-596d-4902-829a-fe126708f739
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 88388be1a0687c3e56fd39dde2f70e40cf578f2a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0e389f43586bd88f1d03a6cb8d714908d299977f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841040"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826387"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Tutorial: Integração do Azure Active Directory com o PurelyHR
 
@@ -180,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/purelyhr-tutorial/create_aaduser_04.png) 
 
-     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

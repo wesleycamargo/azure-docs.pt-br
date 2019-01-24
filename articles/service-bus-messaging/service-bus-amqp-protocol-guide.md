@@ -3,23 +3,23 @@ title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eve
 description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542502"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856699"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -134,7 +134,7 @@ Uma chamada de "recebimento" no nível de API se traduz em *fluxo* performativo 
 
 O bloqueio de uma mensagem é liberado quando a transferência é incorporada a um dos estados terminais*accepted*, *rejected* ou *released*. A mensagem será removida do Barramento de Serviço quando o estado terminal for *accepted*. Ela permanece no Barramento de Serviço e será entregue ao próximo receptor quando a transferência atingir qualquer um dos outros estados. O Barramento de Serviço move automaticamente a mensagem na fila de mensagens mortas da entidade quando atingir a contagem máxima de entregas permitida para a entidade devido a versões ou rejeições repetidas.
 
-Embora as APIs do Barramento de Serviço não exponham diretamente tal opção hoje, um cliente do protocolo AMQP de nível inferior pode usar o modelo de crédito de link para ativar a interação do "estilo pull" de emissão de uma unidade de crédito para cada solicitação de recebimento em um modelo de "estilo push", emitindo um grande número de créditos de link e recebendo mensagens assim que estiverem disponíveis sem qualquer interação adicional. O push tem suporte por meio das configurações da propriedade [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) . Quando elas forem diferentes de zero, o cliente AMQP as usará como o crédito de link.
+Embora as APIs do Barramento de Serviço não exponham diretamente tal opção hoje, um cliente do protocolo AMQP de nível inferior pode usar o modelo de crédito de link para ativar a interação do "estilo pull" de emissão de uma unidade de crédito para cada solicitação de recebimento em um modelo de "estilo push", emitindo um grande número de créditos de link e recebendo mensagens assim que estiverem disponíveis sem qualquer interação adicional. O push tem suporte por meio das configurações da propriedade [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) . Quando elas forem diferentes de zero, o cliente AMQP as usará como o crédito de link.
 
 Nesse contexto, é importante entender que o relógio de expiração do bloqueio na mensagem dentro da entidade começa quando a mensagem é retirada da entidade, e não quando a mensagem é colocada na conexão. Sempre que o cliente indicar que está pronto para receber mensagens, emitindo um crédito de link, espera-se portanto que ele esteja efetuando ativamente pull de mensagens pela rede e esteja pronto para lidar com elas. Caso contrário, o bloqueio da mensagem pode ter expirado de a mensagem ter sido entregue. O uso do controle de fluxo de crédito de link deve refletir diretamente a preparação para lidar com mensagens disponíveis expedidas para o receptor.
 
@@ -227,14 +227,14 @@ Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa d
 | para |Identificador de destino definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Rótulo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | reply-to |Identificador reply-path definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |Identificador de correlação definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| content-type |Identificador content-type definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| correlation-id |Identificador de correlação definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-type |Identificador content-type definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Identificador content-encoding definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
 | absolute-expiry-time |Declara em qual instante absoluto a mensagem expira. Ignorado na entrada (a vida útil do cabeçalho é observada), autoritativo na saída. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |Declara a hora em que a mensagem foi criada. Não é usado pelo Barramento de Serviço |Não é acessível por meio da API do Barramento de Serviço. |
 | group-id |Identificador definido pelo aplicativo para um conjunto relacionado de mensagens. Usado para sessões do Barramento de Serviço. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Contador que identifica o número de sequência relativa da mensagem em uma sessão. Ignorado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>Anotações de mensagem
 

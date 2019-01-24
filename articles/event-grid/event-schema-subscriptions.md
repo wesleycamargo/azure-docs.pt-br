@@ -2,21 +2,21 @@
 title: Esquema de evento de assinatura de Grade de Eventos do Azure
 description: Descreve as propriedades que são fornecidas para eventos de assinatura com a Grade de Eventos do Azure
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ae6513c503b930d9c953f5245a9c98ea096109bb
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 04bb19c074edff08677d759fb386608f6905e979
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310225"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473428"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos para assinatura da Grade de Eventos do Azure para hubs de eventos
 
-Este artigo fornece as propriedades e o esquema para eventos de assinatura do Azure. Para obter uma introdução a esquemas de evento, consulte [esquema de evento da Grade de Eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos de assinatura do Azure. Para obter uma introdução a esquemas de evento, consulte [esquema de evento da Grade de Eventos do Azure](event-schema.md).
 
 Grupos de recursos e as assinaturas do Azure emitem os mesmos tipos de evento. Os tipos de eventos estão relacionados a alterações de recursos ou ações. A principal diferença é que grupos de recursos de emissão de eventos para os recursos no grupo de recursos e as assinaturas do Azure emitem eventos de recursos entre a assinatura.
 

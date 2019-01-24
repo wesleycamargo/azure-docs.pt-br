@@ -3,18 +3,18 @@ title: Agendas na Automação do Azure
 description: As agendas de automação são usadas para agendar o início automático de runbooks na Automação do Azure. Descreve como criar e gerenciar uma agenda para que você possa iniciar um runbook automaticamente em um determinado momento ou em um agendamento recorrente.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294757"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437209"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendando um runbook na Automação do Azure
 
@@ -129,3 +129,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a usar runbooks na Automação do Azure, confira [Iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
+
