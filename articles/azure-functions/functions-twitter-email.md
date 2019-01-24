@@ -125,7 +125,7 @@ O Functions fornece uma ótima maneira de descarregar tarefas de processamento e
     ```
     Esse código de função retorna uma categoria de cor com base na pontuação de sentimento recebida na solicitação. 
 
-4. Para testar a função, clique em **Testar** na extremidade direita para expandir a guia Teste. Digite um valor de `0.2` para o **corpo da solicitação`0.2`e clique em **Executar**. Um valor **VERMELHO** é retornado no corpo da resposta. 
+4. Para testar a função, clique em **Testar** na extremidade direita para expandir a guia Teste. Digite um valor de `0.2` para o **corpo da solicitação`0.2`e clique em **Executar**. Um valor **RED** é retornado no corpo da resposta. 
 
     ![Testar a função no portal do Azure](./media/functions-twitter-email/07-function-test.png)
 
@@ -211,11 +211,11 @@ Agora que a detecção de sentimento está configurada, você pode adicionar uma
 
     ![Pontuação](media/functions-twitter-email/17-function-input-score.png)
 
-Agora, sua função é disparada quando uma pontuação de sentimento é enviada do aplicativo lógico. Uma categoria com codificação de cores é retornada para o aplicativo lógico pela função. Em seguida, adicione uma notificação por email que é enviada quando um valor de sentimento **vermelho** é retornado pela função. 
+Agora, sua função é disparada quando uma pontuação de sentimento é enviada do aplicativo lógico. Uma categoria com codificação de cores é retornada para o aplicativo lógico pela função. Em seguida, adicione uma notificação por email que é enviada quando um valor de sentimento **RED** é retornado pela função. 
 
 ## <a name="add-email-notifications"></a>Adicionar notificações por email
 
-A última parte do fluxo de trabalho é disparar um email quando o sentimento foi classificado como _VERMELHO_. Este tópico usa um conector do Outlook.com. Você pode executar etapas semelhantes para usar um conector Gmail ou Outlook do Office 365.   
+A última parte do fluxo de trabalho é disparar um email quando o sentimento foi classificado como _RED_. Este tópico usa um conector do Outlook.com. Você pode executar etapas semelhantes para usar um conector Gmail ou Outlook do Office 365.   
 
 1. No Designer de Aplicativos Lógicos, clique em **Nova etapa** > **Adicionar uma condição**. 
 
@@ -260,7 +260,7 @@ Agora que o fluxo de trabalho foi concluído, você poderá habilitar o aplicati
  
     ![Exibir os logs da função](media/functions-twitter-email/sent.png)
 
-5. Quando um sentimento potencialmente negativo é detectado, você recebe um email. Se você ainda não recebeu um email, poderá alterar o código de função para retornar VERMELHO sempre que:
+5. Quando um sentimento potencialmente negativo é detectado, você recebe um email. Se você ainda não recebeu um email, poderá alterar o código de função para retornar RED sempre que:
 
     ```csharp
     return (ActionResult)new OkObjectResult("RED");
