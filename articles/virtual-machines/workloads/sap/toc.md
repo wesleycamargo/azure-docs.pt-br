@@ -63,9 +63,9 @@
 ### [Implantação do DBMS de Máquinas Virtuais do SAP ASE Azure para carga de trabalho do SAP](dbms_guide_sapase.md)
 ### [SAP MaxDB, liveCache e implantação do Servidor de Conteúdo no Azure](dbms_guide_maxdb.md)
 ### Disponibilidade do SAP HANA em Máquinas Virtuais do Azure
-### [SAP HANA na visão geral de disponibilidade do Azure](sap-hana-availability-overview.md)
-### [SAP HANA na disponibilidade do Azure dentro de uma região do Azure](sap-hana-availability-one-region.md)
-### [SAP HANA na disponibilidade do Azure em regiões do Azure](sap-hana-availability-across-regions.md)
+#### [SAP HANA na visão geral de disponibilidade do Azure](sap-hana-availability-overview.md)
+#### [SAP HANA na disponibilidade do Azure dentro de uma região do Azure](sap-hana-availability-one-region.md)
+#### [SAP HANA na disponibilidade do Azure em regiões do Azure](sap-hana-availability-across-regions.md)
 ## [SAP Business One em Máquinas Virtuais do Azure](business-one-azure.md)
 ## [SAP IDES no guia de implantação do Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Conector SAP LaMa para o Azure](lama-installation.md)

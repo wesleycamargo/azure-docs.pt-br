@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 99491fdc9758c5ec930db5f584f009eb6705f789
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e9c2bf52cb1999381d7d1cde3a8f62710514b915
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231235"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884497"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tamanhos de máquina virtual com suporte no Azure Stack
 
@@ -39,11 +39,11 @@ Tamanhos de VM de uso geral fornecem uma taxa de CPU para memória equilibrada. 
 
 |Tamanho – tamanho\nome |vCPU     |Memória | Tamanho máximo do disco temporário | Taxa de transferência de disco do SO máxima: (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Taxa de transferência do disco de dados máxima (IOPS) | Máximo de NICs |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
-|**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1 x 300  |1   |
-|**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2 / 2 x 300  |1   |
-|**A2\Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4 / 4 x 300  |1   |
-|**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8 x 300  |1   |
-|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16 X 300 |1   |
+|**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |1   |
+|**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2 / 2x300  |1   |
+|**A2\Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4 / 4x300  |1   |
+|**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8x300  |1   |
+|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |1   |
 
 ### <a name="standard-a"></a>Um padrão 
 |Tamanho     |vCPU     |Memória (GiB) | Armazenamento temporário (GiB)  | Taxa de transferência do disco do SO máxima (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Discos de dados máximos / taxa de transferência (IOPS) | Máximo de NICs |    
@@ -82,7 +82,7 @@ Tamanhos de VM de uso geral fornecem uma taxa de CPU para memória equilibrada. 
 ### <a name="ds-series"></a>Série DS
 |Tamanho     |vCPU     |Memória (GiB) | Armazenamento temporário (GiB)  | Taxa de transferência do disco do SO máxima (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Discos de dados máximos / taxa de transferência (IOPS) | Máximo de NICs |
 |-----------------|----|----|-----|-----|------|-------------|---------|
-|**Standard_DS1** |1   |3,5 |7    |1000 |4000  |4 / 4 x 2300   |1 |
+|**Standard_DS1** |1   |3,5 |7    |1000 |4000  |4 / 4x2300   |1 |
 |**Standard_DS2** |2   |7   |14   |1000 |8000  |8 / 8x2300   |2 |
 |**Standard_DS3** |4   |14  |28   |1000 |16000 |16 / 16x2300 |4 |
 |**Standard_DS4** |8   |28  |56   |1000 |32000 |32 / 32x2300 |8 |
@@ -99,7 +99,7 @@ Tamanhos de VM de uso geral fornecem uma taxa de CPU para memória equilibrada. 
 ### <a name="dsv2-series"></a>Série DSv2
 |Tamanho     |vCPU     |Memória (GiB) | Armazenamento temporário (GiB)  | Taxa de transferência do disco do SO máxima (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Discos de dados máximos / taxa de transferência (IOPS) | Máximo de NICs |
 |--------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_DS1_v2** |1   |3,5 |7   |1000 |4000  |4 / 4 x 2300   |1 |
+|**Standard_DS1_v2** |1   |3,5 |7   |1000 |4000  |4 / 4x2300   |1 |
 |**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8 / 8x2300   |2 |
 |**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16 / 16x2300 |4 |
 |**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 |
@@ -124,7 +124,7 @@ Tamanhos de VM de uso geral fornecem uma taxa de CPU para memória equilibrada. 
 
 |Tamanho     |vCPU     |Memória (GiB) | Armazenamento temporário (GiB)  | Taxa de transferência do disco do SO máxima (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Discos de dados máximos / taxa de transferência (IOPS) | Máximo de NICs |
 |------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_F1s**  |1   |2   |4   |1000 |4000  |4 / 4 x 2300   |2 |
+|**Standard_F1s**  |1   |2   |4   |1000 |4000  |4 / 4x2300   |2 |
 |**Standard_F2s**  |2   |4   |8   |1000 |8000  |8 / 8x2300   |2 |
 |**Standard_F4s**  |4   |8   |16  |1000 |16000 |16 / 16x2300 |4 |
 |**Standard_F8s**  |8   |16  |32  |1000 |32000 |32 / 32x2300 |8 |
@@ -134,14 +134,14 @@ Tamanhos de VM de uso geral fornecem uma taxa de CPU para memória equilibrada. 
 ### <a name="fsv2-series"></a>Série Fsv2
 *Requer a versão do Azure Stack 1804 ou posterior* 
 
-|Tamanho     |vCPU     |Memória (GiB) | Armazenamento temporário (GiB)  | Taxa de transferência do disco do SO máxima (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Discos de dados máximos / taxa de transferência (IOPS) | Máximo de NICs / esperados de largura de banda de rede (Mbps) |
-|---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |Moderado |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |Moderado |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |Alto     |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |Alto     |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |Alto  |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |Extremamente Alto  |
+|Tamanho     |vCPU     |Memória (GiB) | Armazenamento temporário (GiB)  | Taxa de transferência do disco do SO máxima (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Discos de dados máximos / taxa de transferência (IOPS) |
+|---------------------|----|----|-----|-----|-------|--------------|
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |
 
 
 ## <a name="memory-optimized"></a>Otimizado para memória
@@ -173,7 +173,7 @@ Tamanhos de VM otimizados para fornecem uma alta taxa de memória / CPU foi proj
 |**Standard_D14_v2** |16  |112 |800  |500 |48000  |64 / 64x500  |8 |
 
 
-### <a name="mo-dsv2"></a>Série DSv2
+### <a name="mo-dsv2"></a>DSv2-series
 |Tamanho     |vCPU     |Memória (GiB) | Armazenamento temporário (GiB)  | Taxa de transferência do disco do SO máxima (IOPS) | Taxa de transferência máxima do armazenamento temporário (IOPS) | Discos de dados máximos / taxa de transferência (IOPS) | Máximo de NICs |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |8 / 8x2300    |2 |

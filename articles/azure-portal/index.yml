@@ -1,17 +1,17 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ceab905b2baf87446238d44151146b5066e55335
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1d3ad4bd85237851b1aa5ab4c6f0899e19c02c97
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079699"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901489"
 documentType: LandingData
 title: Documentação de personalização do portal do Azure
 metadata:
   description: Saiba como personalizar o portal do Azure.
   services: azure portal
   documentationcenter: ''
-  author: cwatson-cat
+  author: kfollis
   manager: dougeby
   editor: ''
   ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
@@ -21,7 +21,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.workload: na
   ms.date: 10/08/2018
-  ms.author: cwatson
+  ms.author: kfollis
 abstract:
   description: O portal do Azure é um console unificado e baseado na Web que permite compilar, gerenciar e monitorar tudo, desde aplicativos Web simples até aplicativos complexos na nuvem. Ele inclui um painel personalizável e opções de acessibilidade.
 sections:
@@ -42,7 +42,7 @@ sections:
       title: Atalhos do teclado
     - href: /azure/azure-portal/azure-portal-dashboards
       html: <p>Crie vários painéis e compartilhe-os com outras pessoas que têm acesso às assinaturas do Azure.</p>
-      title: Criar e compartilhar o painel do Azure
+      title: Criar e compartilhar painéis do Azure
     - href: /azure/azure-portal/azure-portal-dashboard-share-access
       html: <p>Publique e compartilhe um painel com outros usuários em sua organização.</p>
       title: Compartilhar painéis usando o RBAC
