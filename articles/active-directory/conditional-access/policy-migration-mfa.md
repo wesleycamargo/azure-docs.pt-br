@@ -5,7 +5,7 @@ services: active-directory
 keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 20a15bf94826df0b058be59ff242c46878ea26dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 042553e08868a5874a162ad2f4669c92a0a0a5ec
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630068"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452268"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrar uma política clássica que exige autenticação multifator no portal do Azure 
 
@@ -89,7 +89,7 @@ O processo de migração consiste nas seguintes etapas:
 
     ![Acesso condicional](./media/policy-migration/05.png)
 
-    a. Se você tiver todos os usuários selecionados em sua política clássica, clique em **Todos os usuários**. 
+     a. Se você tiver todos os usuários selecionados em sua política clássica, clique em **Todos os usuários**. 
 
     ![Acesso condicional](./media/policy-migration/35.png)
 
@@ -107,7 +107,7 @@ O processo de migração consiste nas seguintes etapas:
 
     ![Acesso condicional](./media/policy-migration/08.png)
 
-    a. Clique em **Selecionar aplicativos**.
+     a. Clique em **Selecionar aplicativos**.
 
     b. Clique em **Selecionar**.
 
@@ -121,7 +121,7 @@ O processo de migração consiste nas seguintes etapas:
 
     ![Acesso condicional](./media/policy-migration/26.png)
 
-    a. Na seção **Controles de acesso**, clique em **Conceder**.
+     a. Na seção **Controles de acesso**, clique em **Conceder**.
 
     ![Acesso condicional](./media/policy-migration/27.png)
 

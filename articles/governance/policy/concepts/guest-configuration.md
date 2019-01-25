@@ -4,17 +4,17 @@ description: Saiba como o Azure Policy usa a configuração do convidado para au
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1ea87dc01048a2747a668db7a5b1f22b37ed9213
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0a571084819c5dfed3f8d6891b59032ef2eecdd6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310055"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856393"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -48,8 +48,8 @@ Para registrar o provedor de recursos da Configuração de Convidado por meio do
 Para registrar o provedor de recursos da Configuração de Convidado por meio do PowerShell, execute o seguinte comando:
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
-Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
+# Login first with Connect-AzAccount if not using Cloud Shell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 ```
 
 ### <a name="validation-tools"></a>Ferramentas de validação

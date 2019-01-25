@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b772aa314316906a4079e3d6b8b4e0aeb0f54fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022981"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434233"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um Azure-SSIS Integration Runtime no Azure Data Factory
 Este artigo fornece etapas para o provisionamento do Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF). Em seguida, você pode usar o SSDT (SQL Server Data Tools) ou o SSMS (SQL Server Management Studio) para implantar e executar os pacotes do SSIS (SQL Server Integration Services) neste tempo de execução de integração no Azure. 
@@ -50,7 +50,7 @@ Quando você provisiona o Azure SSIS IR, o Azure Feature Pack para SSIS e o Acce
     - Você está hospedando o SSISDB no Banco de Dados SQL do Azure com pontos de extremidade de serviço de rede virtual ou Instância Gerenciada dentro de uma rede virtual. 
     - Você quer se conectar a armazenamentos de dados locais de pacotes SSIS em execução em seu Azure-SSIS IR. 
 
-- **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps), se você quiser executar um script do PowerShell para provisionar o Azure-SSIS IR. 
+- **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps), se você quiser executar um script do PowerShell para provisionar o Azure-SSIS IR. 
 
 ### <a name="region-support"></a>Suporte de regiões
 Para obter uma lista de regiões do Azure nas quais o ADF e o Azure-SSIS IR estão disponíveis, confira [Disponibilidade do ADF + SSIS IR por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 

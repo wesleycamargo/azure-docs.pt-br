@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c63e7d03c0fc17e9892617aaeca94803c671acea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b0548ec2bb580c2898f610f00fd5ba911b314114
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194780"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integração do Azure Active Directory ao InstaVR Viewer
 
@@ -79,8 +79,8 @@ Para configurar e testar o logon único do Azure AD com o InstaVR Viewer, você 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do InstaVR Viewer](#configure-instavr-viewer-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Criar um usuário de teste do InstaVR Viewer](#create-instavr-viewer-test-user)** – para ter um equivalente de Brenda Fernandes no InstaVR Viewer que esteja vinculado à representação do usuário no Azure AD.
-5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do InstaVR Viewer](#create-instavr-viewer-test-user)** – para ter um equivalente de Brenda Fernandes no InstaVR Viewer que esteja vinculado à representação do usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -105,13 +105,13 @@ Para configurar o logon único do Azure AD com o InstaVR Viewer, execute as segu
 
     ![Informações de logon único de domínio e URLs do InstaVR Viewer](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`.
-    
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+
     > [!NOTE]
     > Não há nenhum padrão fixo para a URL de Logon. Ela é gerada quando o cliente do InstaVR Viewer realiza o empacotamento da Web. Ela é exclusiva para cada cliente e pacote. Para obter a URL de Logon exata, você precisa fazer logon em sua instância do InstaVR Viewer e executar o empacotamento de Web.
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`. 
-    
+    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+
     > [!NOTE]
     > O valor do Identificador não é real. Atualize esse valor com o valor do Identificador real, que é explicado posteriormente neste tutorial.
 

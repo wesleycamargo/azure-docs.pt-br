@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cbf58f7e5553f10087c854428a6a369cbb8c3bf9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f43c3072660ce4b9ca68c2bc58d1c752ce474e28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194796"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integração do Azure Active Directory ao Cisco Umbrella
 
@@ -78,8 +78,8 @@ Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do Cisco Umbrella](#configure-cisco-umbrella-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Criar um usuário de teste do Cisco Umbrella](#create-cisco-umbrella-test-user)** – para ter um equivalente de Brenda Fernandes no Cisco Umbrella vinculado à representação do usuário no Azure AD.
-5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Cisco Umbrella](#create-cisco-umbrella-test-user)** – para ter um equivalente de Brenda Fernandes no Cisco Umbrella vinculado à representação do usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -106,11 +106,11 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
      a. Se desejar configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
-    b. Clique em **definir URLs adicionais**.
+    b. Clique em **Definir URLs adicionais**.
 
     c. Na caixa de texto **URL de Logon**, digite uma URL: `https://login.umbrella.com/sso`
 
-4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Download** para baixar o **XML de metadados** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Download** para baixar o **XML de metadados** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
@@ -128,7 +128,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 1. Em outra janela do navegador, entre em seu site da empresa do Cisco Umbrella como administrador.
 
-2.  No lado esquerdo do menu, clique em **Admin**, navegue até **Autenticação** e, em seguida, clique em **SAML**.
+2. No lado esquerdo do menu, clique em **Admin**, navegue até **Autenticação** e, em seguida, clique em **SAML**.
 
     ![O administrador](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
@@ -144,7 +144,6 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Avançar](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-
 6. Na **Opção A: Carregar arquivo XML**, carregue o arquivo **XML de Metadados de Federação** que você baixou do portal do Azure. Depois de carregar os metadados, os valores abaixo são populados automaticamente; em seguida, clique em **Avançar**.
 
     ![Escolher o arquivo ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
@@ -155,7 +154,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 8. Clique em **SALVAR**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
@@ -215,7 +214,7 @@ No caso do Cisco Umbrella, o provisionamento é uma tarefa manual.
 
 1. Em outra janela do navegador, entre em seu site da empresa do Cisco Umbrella como administrador.
 
-2.  No lado esquerdo do menu, clique em **Admin** e navegue até **Contas**.
+2. No lado esquerdo do menu, clique em **Admin** e navegue até **Contas**.
 
     ![A conta](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
@@ -237,7 +236,7 @@ No caso do Cisco Umbrella, o provisionamento é uma tarefa manual.
 
     g. Clique em **CRIAR**.
 
-### <a name="test-single-sign-on"></a>Testar logon único 
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -250,4 +249,3 @@ Ao clicar no bloco do Cisco Umbrella no Painel de Acesso, você deverá ser cone
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

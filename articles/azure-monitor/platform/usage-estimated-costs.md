@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
-ms.component: ''
-ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.subservice: ''
+ms.openlocfilehash: c326c255636bac7e698a64044e9ab65c8c05d01c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001610"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460712"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorar uso e custos estimados
 
@@ -112,7 +112,7 @@ Para mover uma assinatura para o novo modelo de preços, basta marcar a caixa de
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Mudança automatizada para o novo modelo de preços
 
-Os scripts a seguir exigem o módulo do Azure PowerShell. Para verificar se você tem a versão mais recente, confira [Instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+Os scripts a seguir exigem o módulo do Azure PowerShell. Para verificar se você tem a versão mais recente, confira [Instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.1.0).
 
 Quando você tiver a versão mais recente do Azure PowerShell, primeiro precisará executar ``Connect-AzureRmAccount``.
 

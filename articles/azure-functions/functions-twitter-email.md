@@ -125,7 +125,7 @@ O Functions fornece uma ótima maneira de descarregar tarefas de processamento e
     ```
     Esse código de função retorna uma categoria de cor com base na pontuação de sentimento recebida na solicitação. 
 
-4. Para testar a função, clique em **Testar** na extremidade direita para expandir a guia Teste. Digite um valor de `0.2` para o **corpo da solicitação`0.2`e clique em **Executar**. Um valor **RED** é retornado no corpo da resposta. 
+4. Para testar a função, clique em **Testar** na extremidade direita para expandir a guia Teste. Digite um valor de `0.2` para o **corpo da solicitação**e clique em **Executar**. Um valor **RED** é retornado no corpo da resposta. 
 
     ![Testar a função no portal do Azure](./media/functions-twitter-email/07-function-test.png)
 

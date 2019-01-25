@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879461"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826608"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração para Contoso: Hospedar novamente um aplicativo local em uma Instância Gerenciada do Banco de Dados SQL e VM do Azure
 
@@ -238,7 +238,7 @@ A Contoso considera estes fatores:
     
 *Precisa de mais ajuda?*
 
-Saiba como [configurar rotas para uma Instância Gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route).
+Saiba como [configurar rotas para uma Instância Gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
 ### <a name="create-a-managed-instance"></a>Criar uma Instância Gerenciada
 
@@ -432,7 +432,7 @@ Para configurar o ambiente de origem, os administradores da Contoso fazem o segu
 
 Agora os administradores da Contoso configuram o ambiente de replicação de destino:
 
-1. Em **Preparar infraestrutura** > **Destino**, eles selecionam as configurações de destino.
+1. Em **Preparar infraestrutura** > **Destino**, selecionam as configurações de destino.
 2. O Site Recovery verifica se há uma conta de armazenamento e rede no destino especificado.
 
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
@@ -519,7 +519,7 @@ Os administradores da Contoso precisam criar um projeto do Serviço de Migraçã
         ![O serviço de migração de banco de dados – definir configurações de migração](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Eles salvam as configurações de migração e, em seguida, executam a migração.
-6. Em **Visão geral**, eles monitoram o status da migração.
+6. Na **Visão geral**, eles monitoram o status da migração.
 
     ![Serviço de migração de banco de dados - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
