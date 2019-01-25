@@ -279,8 +279,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Transações elásticas
       href: sql-database-elastic-transactions-overview.md
-    - name: Trabalhos de Banco de Dados elástico
-      href: elastic-jobs-overview.md
   - name: Comparação de recursos do SQL
     href: sql-database-features.md
   - name: Monitoramento e ajuste
@@ -307,6 +305,12 @@ items:
         href: sql-database-performance.md
       - name: Recomendações de desempenho do consultor do banco de dados
         href: sql-database-advisor.md
+  - name: Carregar e mover dados
+    items:
+    - name: Sincronização de Dados SQL
+      href: sql-database-sync-data.md
+    - name: Replicação transacional
+      href: sql-database-managed-instance-transactional-replication.md
   - name: Recursos de bancos de dados
     items:
     - name: Recursos de bancos de dados
@@ -317,6 +321,8 @@ items:
       href: sql-database-in-memory.md
     - name: Tabelas temporais
       href: sql-database-temporal-tables.md
+    - name: Automação de trabalho
+      href: sql-database-job-automation-overview.md
 - name: Guias de instruções
   items:
   - name: Visão geral
@@ -329,12 +335,14 @@ items:
       href: sql-database-cloud-migrate.md
     - name: Gerenciar Banco de Dados SQL após migração
       href: sql-database-manage-after-migration.md
-    - name: Configurar replicação transacional
+    - name: Configurar replicação
       href: replication-to-sql-database.md
     - name: Configurar a detecção de ameaças
       href: sql-database-threat-detection.md
     - name: Configurar retenção de backup usando o armazenamento de BLOBs do Azure
       href: sql-database-long-term-backup-retention-configure.md
+    - name: Configurar trabalhos de Banco de Dados Elástico
+      href: elastic-jobs-overview.md
     - name: Configurar mascaramento de dados dinâmicos
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: Configurar replicação geográfica - Portal
@@ -439,8 +447,6 @@ items:
       href: sql-database-export.md
     - name: Sincronização de dados
       items:
-      - name: Sincronização de Dados SQL
-        href: sql-database-sync-data.md
       - name: Agente de Sincronização de Dados
         href: sql-database-data-sync-agent.md
       - name: Replicar alterações de esquema
@@ -682,9 +688,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar trabalho elástico (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 500fd22c19e0aab2cbecf0267329d5a86a5ccda2
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 95ea4f676202fe06a1761c98ddb7e3e1a6f12708
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230894"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447982"
