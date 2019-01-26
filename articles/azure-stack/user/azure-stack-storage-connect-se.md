@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d6d1373a97b62d54d5bfc2595ee773a242af877a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386767"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913437"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Conectar-se o Gerenciador de armazenamento para uma assinatura do Azure Stack ou uma conta de armazenamento
 
@@ -37,7 +37,10 @@ Depois de se conectar a uma assinatura do Azure Stack ou uma conta de armazename
 
 Você precisa ter acesso direto para o Azure Stack ou uma conexão VPN para o Gerenciador de armazenamento acessar a assinatura do Azure Stack. Para saber como configurar uma conexão VPN ao Azure Stack, confira [Como conectar-se com o Azure Stack com VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-Para o Kit de desenvolvimento do Azure Stack, você precisa exportar o certificado raiz da autoridade do Azure Stack.
+Para o Azure Stack desenvolvimento ASDK (Kit), você precisa exportar o certificado raiz da autoridade do Azure Stack.
+
+> [!Note]  
+> Para o ASDK, se você estiver se conectando ao seu ASDK por meio de VPN, não use o certificado raiz (CA.cer) que foi criado durante o processo de configuração VPN.  Isso é um certificado codificado em DER e não permitirá que o Gerenciador de armazenamento para recuperar as assinaturas do Azure Stack. Siga as etapas a seguir para exportar um certificado codificado em Base 64 para usar com o Gerenciador de armazenamento.
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exportar e importar o certificado do Azure Stack
 

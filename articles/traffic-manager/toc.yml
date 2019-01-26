@@ -78,6 +78,8 @@ items:
     href: traffic-manager-load-balancing-azure.md
   - name: Medir desempenho do Gerenciador de Tráfego
     href: traffic-manager-performance-considerations.md
+  - name: Habilitar logs de diagnóstico
+    href: traffic-manager-diagnostic-logs.md
   - name: Usar o Azure PowerShell para gerenciar o Gerenciador de Tráfego
     href: traffic-manager-powershell-arm.md
   - name: Apontar seu domínio da Internet para o Gerenciador de Tráfego
@@ -134,9 +136,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
   - name: vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
-ms.openlocfilehash: ab7f91c93ee513dcd8139e525e14cf5c84747772
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d444e2c8fec0d1adb0ac18756cbdecc751e9dc97
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354239"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079096"
