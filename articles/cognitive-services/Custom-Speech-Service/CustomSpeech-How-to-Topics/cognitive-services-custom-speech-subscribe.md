@@ -25,7 +25,7 @@ Para começar a usar o Serviço de Fala Personalizada do Azure, primeiro você p
 ## <a name="get-a-subscription-key"></a>Obter uma chave de assinatura
 1. Você pode obter uma chave de assinatura no portal do Azure em uma das duas maneiras:
 
-    * Vá para o [portal do Azure](https://ms.portal.azure.com), e adicione uma nova API de Serviços Cognitivos procurando por _Serviços Cognitivos_ e, em seguida, selecionando **APIs de Serviços Cognitivos**.
+    * Vá para o [portal do Azure](https://ms.portal.azure.com), e adicione uma nova API de Serviços Cognitivos procurando por _Cognitive Services_ e, em seguida, selecionando **APIs de Serviços Cognitivos**.
 
       ![Pesquisa de Serviços Cognitivos](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 
