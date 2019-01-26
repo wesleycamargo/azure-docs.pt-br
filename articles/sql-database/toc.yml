@@ -307,12 +307,6 @@ items:
         href: sql-database-performance.md
       - name: Recomendações de desempenho do consultor do banco de dados
         href: sql-database-advisor.md
-  - name: Carregar e mover dados
-    items:
-    - name: Sincronização de Dados SQL
-      href: sql-database-sync-data.md
-    - name: Replicação transacional
-      href: sql-database-managed-instance-transactional-replication.md
   - name: Recursos de bancos de dados
     items:
     - name: Recursos de bancos de dados
@@ -335,7 +329,7 @@ items:
       href: sql-database-cloud-migrate.md
     - name: Gerenciar Banco de Dados SQL após migração
       href: sql-database-manage-after-migration.md
-    - name: Configurar replicação
+    - name: Configurar replicação transacional
       href: replication-to-sql-database.md
     - name: Configurar a detecção de ameaças
       href: sql-database-threat-detection.md
@@ -445,6 +439,8 @@ items:
       href: sql-database-export.md
     - name: Sincronização de dados
       items:
+      - name: Sincronização de Dados SQL
+        href: sql-database-sync-data.md
       - name: Agente de Sincronização de Dados
         href: sql-database-data-sync-agent.md
       - name: Replicar alterações de esquema
@@ -686,9 +682,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar trabalho elástico (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 634018a1807e23700141ac11a961bd1b1411b8a8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 500fd22c19e0aab2cbecf0267329d5a86a5ccda2
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331394"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230894"
