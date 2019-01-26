@@ -47,12 +47,24 @@ items:
   items:
   - name: Visão geral
     href: user-help-auth-app-overview.md
-  - name: Introdução
+  - name: Baixar e instalar o aplicativo
     href: microsoft-authenticator-app-how-to.md
-  - name: Backup e recuperação
-    href: microsoft-authenticator-app-backup-and-recovery.md
-  - name: Entrar com o telefone
+  - name: Adicionar visão geral das contas
+    href: microsoft-authenticator-app-add-accounts-overview.md
+    items:
+    - name: Adicionar uma conta corporativa ou de estudante
+      href: microsoft-authenticator-app-add-work-account.md
+    - name: Adicionar uma conta pessoal da Microsoft
+      href: microsoft-authenticator-app-add-personal-account.md
+    - name: Adicionar uma conta pessoal que não seja da Microsoft
+      href: microsoft-authenticator-app-add-non-microsoft-account.md
+    - name: Adicionar uma conta manualmente
+      href: microsoft-authenticator-app-add-account-manual.md
+    expanded: true
+  - name: Entrar usando o aplicativo Microsoft Authenticator
     href: microsoft-authenticator-app-phone-signin-faq.md
+  - name: Fazer backup e recuperar suas contas
+    href: microsoft-authenticator-app-backup-and-recovery.md
   - name: Perguntas frequentes
     href: microsoft-authenticator-app-faq.md
 - name: Ajuda do portal Meus aplicativos
@@ -73,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: Solucionar problema da mensagem "Você não pode chegar lá"
     href: user-help-device-remediation.md
-ms.openlocfilehash: 27d0d3300a19d4c27bec48ebf411c7ac3ee6ad87
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9ccadb31ce331d3a9dc64aa26d5e8edab900cd1e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649578"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904090"

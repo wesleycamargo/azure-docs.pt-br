@@ -40,19 +40,19 @@ items:
   - name: Entidades
     href: entities-overview.md
     items:
-    - name: Filtros de Conta e Ativo
+    - name: Filtros de Conta e Filtros de Ativo
       href: filters-dynamic-manifest-overview.md
     - name: Ativos
       href: assets-concept.md
-    - name: Políticas da chave de conteúdo
+    - name: Políticas da Chave de Conteúdo
       href: content-key-policy-concept.md
-    - name: LiveEvents e LiveOutputs
+    - name: Eventos ao Vivo e Saídas Dinâmicas
       href: live-events-outputs-concept.md
-    - name: Pontos de extremidade de streaming
+    - name: Ponto de extremidade de streaming
       href: streaming-endpoint-concept.md
-    - name: Localizadores de streaming
+    - name: Localizadores de Streaming
       href: streaming-locators-concept.md
-    - name: Políticas de streaming
+    - name: Políticas de Streaming
       href: streaming-policy-concept.md
     - name: Transformações e Trabalhos
       href: transforms-jobs-concept.md
@@ -203,9 +203,9 @@ items:
     href: frequently-asked-questions.md
   - name: Nuvens e regiões do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: dfafe49ba2f520bdc44c5a3e3cad0201d6e56da5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c30302fa289ade85870db3e89fa70f5e79f61a99
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810849"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881368"
