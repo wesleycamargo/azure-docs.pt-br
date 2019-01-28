@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bc044c8b59c939163336ecab01546fc26a7a2643
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6e5bcd6d9923b4051d44d51ff1a2534bc5e02f41
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805141"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445653"
 ---
 <a name="publish-an-azure-managed-application-to-azure-marketplace"></a>Publicar um aplicativo gerenciado pelo Azure no Azure Marketplace 
 ========================================================
@@ -88,7 +88,7 @@ Um SKU aparece sob a oferta pai no Azure Marketplace, embora apareça como sua p
 
 3.  Uma exibição de \"Editor\" de nova oferta aparece e você pode começar a criar.
 
-4.  Os \"formulários\" que precisam ser preenchidos estão visíveis à esquerda no modo de exibição \"Editor\". Cada \"formulário\" consiste em um conjunto de campos que devem ser preenchidos. Campos necessários são marcados com um asterisco vermelho (\*).
+4.  Os \"formulários\" que precisam ser preenchidos estão visíveis à esquerda no modo de exibição \"Editor\". Cada \"formulário\" consiste em um conjunto de campos que devem ser preenchidos. Os campos obrigatórios estão marcados com um asterisco vermelho (\*).
 
     > Há quatro formas principais de criar um Aplicativo Gerenciado
 

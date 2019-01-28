@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 493ba5853173c34fbd58236c1a2dd2b28dc59a90
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e5ed2abca6c9a8bab6ee0df7a8aa05e40b48de5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064285"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Tutorial: Integração do Azure Active Directory ao Cisco Spark
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Cisco Spark, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do Cisco Spark](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://web.ciscospark.com/#/signin`
+    a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://web.ciscospark.com/#/signin`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://idbroker.webex.com/<companyname>`
 
@@ -139,7 +139,7 @@ Para configurar o logon único do Azure AD com o Cisco Spark, execute as seguint
 
     g. Clique em **Salvar**.
 
-7. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com suas necessidades e salve-o no computador.
+7. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o Cisco Spark, execute as seguint
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon
+    a. URL de logon
 
     b. Identificador do Azure Ad
 
@@ -187,7 +187,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -238,7 +238,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Cisco Spark
 
     ![Configurar o logon único](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
 

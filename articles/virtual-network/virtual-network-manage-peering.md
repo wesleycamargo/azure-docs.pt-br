@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 39cb9f606e6829fe8265a40216de5312c3e7e60b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 10f8b6b2b1ab6249eff4776c8cba869d72f448c5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075183"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851667"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
 
@@ -32,7 +32,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o portal, abra https://portal.azure.come faça logon com uma conta que tenha as [permissões necessárias](#permissions) para trabalhar com emparelhamentos.
-- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar `Connect-AzureRmAccount` com uma conta que tenha [permissões necessárias](#permissions) para trabalhar com o emparelhamento, para criar uma conexão com o Azure.
+- Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar `Connect-AzureRmAccount` com uma conta que tenha [permissões necessárias](#permissions) para trabalhar com o emparelhamento, para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se você estiver executando a CLI do Azure localmente, também precisará executar `az login` com uma conta que tenha [permissões necessárias](#permissions) para trabalhar com o emparelhamento, para criar uma conexão com o Azure.
 
 A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
@@ -87,7 +87,7 @@ Antes de alterar um emparelhamento, familiarize-se com os [requisitos e restriç
 
 **Comandos**
 
-- **CLI do Azure**: [az network vnet peering list](/cli/azure/network/vnet/peering#az_network_vnet_peering_list) para listar emparelhamentos para uma rede virtual, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) para mostrar as configurações de um emparelhamento específico e [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) para alterar as configurações de emparelhamento.|
+- **CLI do Azure**: [az network vnet peering list](/cli/azure/network/vnet/peering) para listar emparelhamentos para uma rede virtual, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) para mostrar as configurações de um emparelhamento específico e [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) para alterar as configurações de emparelhamento.|
 - **PowerShell**: [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) para recuperar as configurações de emparelhamento de modo de exibição e [AzureRmVirtualNetworkPeering conjunto](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) para alterar as configurações.
 
 ## <a name="delete-a-peering"></a>Excluir um emparelhamento
@@ -107,7 +107,7 @@ Se você deseja que as redes virtuais se comuniquem, às vezes, mas não sempre,
 
 **Comandos**
 
-- **CLI do Azure**: [az network vnet peering delete](/cli/azure/network/vnet/peering#az_network_vnet_peering_delete)
+- **CLI do Azure**: [az network vnet peering delete](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
 
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições 
