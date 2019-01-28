@@ -74,9 +74,9 @@ Você pode criar uma variável e declarar seu tipo de dados e o valor inicial, t
 
    | Propriedade | Obrigatório | Valor |  DESCRIÇÃO |
    |----------|----------|-------|--------------|
-   | NOME | SIM | <*variable-name*> | O nome da variável para incrementar | 
-   | Tipo | SIM | <*variable-type*> | O tipo de dados para a variável | 
-   | Valor | Não  | <*start-value*> | O valor inicial da variável <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor inicial da variável. | 
+   | Name | SIM | <*variable-name*> | O nome da variável para incrementar | 
+   | Type | SIM | <*variable-type*> | O tipo de dados para a variável | 
+   | Value | Não  | <*start-value*> | O valor inicial da variável <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor inicial da variável. | 
    ||||| 
 
    ![Inicializar variável](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -210,8 +210,8 @@ Para aumentar ou *incrementar* uma variável com um valor constante, adicione a 
 
    | Propriedade | Obrigatório | Valor |  DESCRIÇÃO |
    |----------|----------|-------|--------------|
-   | NOME | SIM | <*variable-name*> | O nome da variável para incrementar | 
-   | Valor | Não  | <*increment-value*> | O valor usado para incrementar a variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor específico para incrementar sua variável. | 
+   | Name | SIM | <*variable-name*> | O nome da variável para incrementar | 
+   | Value | Não  | <*increment-value*> | O valor usado para incrementar a variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor específico para incrementar sua variável. | 
    |||| 
 
    Por exemplo:  
@@ -330,8 +330,8 @@ Estas são as propriedades para a ação **Diminuir variável**:
 
 | Propriedade | Obrigatório | Valor |  DESCRIÇÃO |
 |----------|----------|-------|--------------|
-| NOME | SIM | <*variable-name*> | O nome da variável para diminuir | 
-| Valor | Não  | <*increment-value*> | O valor para diminuição da variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para sempre conhecer o valor específico para diminuir a variável. | 
+| Name | SIM | <*variable-name*> | O nome da variável para diminuir | 
+| Value | Não  | <*increment-value*> | O valor para diminuição da variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para sempre conhecer o valor específico para diminuir a variável. | 
 ||||| 
 
 Se você alternar do editor do modo de exibição de designer para código, veja como a ação **Diminuir variável** aparece dentro da sua definição de aplicativo lógico, que está no formato JSON.
@@ -365,8 +365,8 @@ Estas são as propriedades para a ação **Definir variável**:
 
 | Propriedade | Obrigatório | Valor |  DESCRIÇÃO | 
 |----------|----------|-------|--------------| 
-| NOME | SIM | <*variable-name*> | O nome da variável para alterar | 
-| Valor | SIM | <*new-value*> | O valor que você quer atribuir à variável. Ambos devem ter o mesmo tipo de dados. | 
+| Name | SIM | <*variable-name*> | O nome da variável para alterar | 
+| Value | SIM | <*new-value*> | O valor que você quer atribuir à variável. Ambos devem ter o mesmo tipo de dados. | 
 ||||| 
 
 > [!NOTE]
@@ -423,8 +423,8 @@ Estas são as propriedades para as ações **Acrescentar a...**:
 
 | Propriedade | Obrigatório | Valor |  DESCRIÇÃO | 
 |----------|----------|-------|--------------| 
-| NOME | SIM | <*variable-name*> | O nome da variável para alterar | 
-| Valor | SIM | <*append-value*> | O valor que você deseja acrescentar, que pode ser de qualquer tipo | 
+| Name | SIM | <*variable-name*> | O nome da variável para alterar | 
+| Value | SIM | <*append-value*> | O valor que você deseja acrescentar, que pode ser de qualquer tipo | 
 |||||  
 
 Se você alternar do editor do modo de exibição de designer para código, veja como a ação **Anexar à variável de matriz** aparece dentro da sua definição de aplicativo lógico, que está no formato JSON.
