@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0b934e7ac5b297b5c7349a9a9985f6c50d62d19f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 17fac6455ca225363726b347c428d176e78a1ff9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791941"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912792"
 documentType: LandingData
 title: Documentação da API de Pesquisa de Notícias do Bing
 titleSuffix: Azure Cognitive Services
 metadata:
   title: Documentação da API de Pesquisa de Notícias do Bing - Tutoriais, guias de início rápido, referências de API | Microsoft Docs
-  description: Saiba como usar a API de Pesquisa de Notícias do Bing para obter notícias da Web relevantes para as consultas de usuário. Os tutoriais mostram como criar aplicativos que usam o serviço.
+  description: Saiba como usar a API de Pesquisa de Notícias do Bing para pesquisar notícias na Web.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -19,29 +19,50 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: A API de Pesquisa de Notícias do Bing fornece uma experiência semelhante ao Bing Notícias, retornando uma lista de artigos de notícias que o Bing considera relevantes para a consulta de um usuário.
+  description: A API de Pesquisa de Notícias do Bing permite que você integre as funcionalidades de pesquisa de notícias do Bing aos seus aplicativos. Ao enviar consultas de pesquisa com a API, você pode obter artigos de notícias relevantes de várias categorias e fontes, como no bing.com/news.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-news-search/search-the-web
+      html: <p>Saiba mais sobre a API de Pesquisa de Notícias do Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: O que é a API de Pesquisa de Notícias do Bing?
+    - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
+      html: <p>Saiba como enviar solicitações de pesquisa para a API de Pesquisa de Notícias do Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Enviar consultas de pesquisa
+    - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
+      html: <p>Saiba como pesquisar vários tipos e categorias de notícias.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Pesquisar notícias
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: 'Comece a usar a API de Pesquisa de Notícias do Bing, fazendo uma consulta e exibindo a resposta JSON:'
+    text: 'Pesquise notícias na Web usando:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: news-search-sdk-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: news-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: news-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -49,7 +70,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: news-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Desenvolva aplicativos usando a API de Pesquisa de Notícias do Bing:'
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Aplicativo Web de página única</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">Código-fonte</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">Aplicativo Web de página única</a>
 - title: Exemplos
   items:
   - type: paragraph

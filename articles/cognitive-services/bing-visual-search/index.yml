@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 62bb4c70c2a5068c90196acc2a1898ceeaa6945c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 337c48d96a2ee679eda24500d9cb1a8d2581b2c7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787659"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912894"
 documentType: LandingData
-title: Documentação da Pesquisa Visual do Bing
+title: Documentação da API da Pesquisa Visual do Bing
 metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
-  title: Documentação da Pesquisa Visual do Bing - Tutoriais, Referência de API
-  description: Saiba como usar a API da Pesquisa Visual do Bing para obter insights sobre uma imagem. Os tutoriais mostram como criar aplicativos que usam o serviço.
+  title: Documentação da API da Pesquisa Visual do Bing – tutoriais, inícios rápidos, referências da API | Microsoft Docs
+  description: Saiba como usar a API da Pesquisa Visual do Bing para obter insights sobre uma imagem.
   services: cognitive-services
   author: swhite-msft
   manager: rosh
@@ -19,15 +19,36 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/24/2018
+  ms.date: 01/16/2019
   ms.author: scottwhi
 abstract:
-  description: A API da Pesquisa Visual do Bing fornece uma experiência semelhante ao Bing.com/images, retornando insights sobre uma imagem, como imagens visualmente semelhantes, fontes de compras de produtos encontrados na imagem e pesquisas relacionadas.
+  description: A API da Pesquisa Visual do Bing fornece detalhes de imagem semelhantes aos mostrados em Bing.com/images. Ao carregar uma imagem ou fornecer uma URL de imagem, essa API pode identificar uma variedade de detalhes sobre ela, incluindo imagens visualmente semelhantes, fontes de compra, páginas da Web que incluem a imagem e muito mais.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-visual-search/overview
+      html: <p>Saiba mais sobre a API da Pesquisa Visual do Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: O que é a API da Pesquisa Visual do Bing?
+    - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
+      html: <p>Saiba como enviar solicitações de pesquisa para a API da Pesquisa Visual do Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Enviar consultas de pesquisa
+    - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
+      html: <p>Use um token de insights da API de Pesquisa de Imagem do Bing para carregar uma imagem na API da Pesquisa Visual do Bing</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Pesquisar notícias
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: 'Comece a usar a API da Pesquisa Visual do Bing, enviando uma imagem para o Bing e recebendo insights sobre a imagem:'
+    text: 'Obtenha insights sobre uma imagem usando a API da Pesquisa Visual do Bing:'
   - type: table
     style: dataMatrix
     columns:
@@ -40,12 +61,12 @@ sections:
     - image:
         src: media/index/logo_python.svg
     rows:
-    - title: Sua primeira consulta
+    - title: ''
       values:
-      - href: quickstarts/csharp
-      - href: quickstarts/java
-      - href: quickstarts/nodejs
-      - href: quickstarts/python
+      - href: visual-search-sdk-c-sharp
+      - href: java
+      - href: visual-search-sdk-node
+      - href: visual-search-sdk-python
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
@@ -53,7 +74,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-visual-search-single-page-app">Aplicativo Web de página única</a> | <a href="tutorial-bing-visual-search-single-page-app-source">Código-fonte</a>
+    - html: <a href="tutorial-bing-visual-search-single-page-app">Aplicativo Web de página única</a>
 - title: Referência
   items:
   - type: list
