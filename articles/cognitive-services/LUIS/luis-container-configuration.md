@@ -32,10 +32,10 @@ Esse contêiner tem as seguintes configurações:
 |--|--|--|
 |SIM|[ApiKey](#apikey-setting)|Usado para rastrear informações de cobrança.|
 |Não |[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte a dados telemétricos do [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) para seu contêiner.|
-|SIM|[Cobrança](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
+|SIM|[Billing](#billing-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
 |SIM|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
 |Não |[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
-|Não |[Registro em log](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
+|Não |[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
 |SIM|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
 
 > [!IMPORTANT]
