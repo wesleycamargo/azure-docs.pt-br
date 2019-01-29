@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 87e3f03ce5d4c65d5c4b1754300f5d57feca2a49
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7e6c54add856a69e1750b0b6ca0a058c2d80bfd8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416504"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101713"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Validar a integração do AD FS para o Azure Stack
 
@@ -29,7 +29,7 @@ Use a ferramenta de verificador de preparação do Azure Stack (AzsReadinessChec
 Valida o verificador de preparação:
 
 * O *metadados de Federação* contém os elementos XML válidos para a federação.
-* O *certificado SSL do AD FS* pode ser recuperado e uma cadeia de confiança pode ser criado. No carimbo do AD FS devem confiar a cadeia de certificados SSL. O certificado deve ser assinado pelo mesmo *autoridade de certificação* como os certificados de implantação do Azure Stack ou por um parceiro de autoridade raiz confiável. Para obter a lista completa dos parceiros de autoridade raiz confiável, consulte [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* O *certificado SSL do AD FS* pode ser recuperado e uma cadeia de confiança pode ser criado. No carimbo do AD FS devem confiar a cadeia de certificados SSL. O certificado deve ser assinado pelo mesmo *autoridade de certificação* usado para os certificados de implantação do Azure Stack ou por um parceiro de autoridade raiz confiável. Para obter a lista completa dos parceiros de autoridade raiz confiável, consulte [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * O *certificado de autenticação do AD FS* é confiável e não está de expiração.
 
 Para obter mais informações sobre a integração do datacenter do Azure Stack, consulte [integração de datacenter do Azure Stack – identidade](azure-stack-integrate-identity.md).
@@ -114,9 +114,9 @@ Os exemplos a seguir fornecem orientação sobre as falhas comuns de validação
 
 `Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
 
-**Causa**: Autoload PowerShell Falha ao carregar o módulo do verificador de preparação corretamente.
+**Causa**: Autoload PowerShell Falha ao carregar o módulo de preparação verificador corretamente.
 
-**Resolução**: importar o módulo do verificador de preparação explicitamente. Copie e cole o código a seguir no PowerShell e atualização \<versão\> com o número da versão atualmente instalada.
+**Resolução**: Importe o módulo do verificador de preparação explicitamente. Copie e cole o código a seguir no PowerShell e atualização \<versão\> com o número da versão atualmente instalada.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

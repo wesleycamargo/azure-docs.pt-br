@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/22/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: daf524e6802fbb0548ff2d30d32dc6fbd4bc68cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c8e78ead58c34a62851fddc5a12504bc5747a27b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476386"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092315"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparar para o host de extensão para o Azure Stack
 
@@ -127,10 +127,10 @@ Use um computador que possa se conectar ao ponto de extremidade do Azure Stack c
 > Essa etapa não será necessária se você tiver usado a delegação de zona DNS para a integração do DNS.
 Se os registros de host individuais foram configurados para publicar pontos de extremidade do Azure Stack, você precisa criar dois registros de host adicionais:
 
-| IP | Nome do host | Tipo |
+| IP | Nome do Host | Tipo |
 |----|------------------------------|------|
-| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | O  |
-| \<IP> | *.Hosting.\<Region>.\<FQDN> | O  |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
 
 IPs alocado pode ser recuperado usando o ponto de extremidade com privilégios executando o cmdlet **Get-AzureStackStampInformation**.
 
@@ -187,7 +187,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 | Ponto de extremidade (VIP) | Protocolo | Portas |
 |----------------|----------|-------|
 | AdminHosting | HTTPS | 443 |
-| Hosting | HTTPS | 443 |
+| Hospedagem | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Atualizar regras de publicação existentes (habilitação de postagem de host de extensão)
 

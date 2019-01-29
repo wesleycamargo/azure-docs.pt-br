@@ -10,28 +10,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a4a9fefa98d30d0f9815a935f000c8a663dffd21
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 6716f9b959169d6aa9bc5546f6f69c26bdd23320
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514189"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099842"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Geração de solicitação de assinatura de certificados de pilha do Azure
 
-A ferramenta de verificador de preparação do Azure Stack descrita neste artigo está disponível [da Galeria do PowerShell](https://aka.ms/AzsReadinessChecker). A ferramenta cria solicitações de assinatura de certificado (SAC) adequado para uma implantação do Azure Stack. Certificados devem ser solicitados, gerados e validados com tempo suficiente para testar antes da implantação.
+Você pode usar o verificador de preparação de pilha do Azure para criar o certificado de assinatura CSRs (solicitações) adequado para uma implantação do Azure Stack. Certificados devem ser solicitados, gerados e validados com tempo suficiente para testar antes da implantação. Você pode obter a ferramenta [da Galeria do PowerShell](https://aka.ms/AzsReadinessChecker).
 
-A ferramenta de verificador de preparação do Azure Stack (AzsReadinessChecker) realiza as seguintes solicitações de certificado:
+Você pode usar a ferramenta de verificador de preparação do Azure Stack (AzsReadinessChecker) para solicitar os seguintes certificados:
 
- - **Solicitações de certificado padrão**  
-    Solicitação de acordo com a [gerar certificados de PKI para implantação do Azure Stack](azure-stack-get-pki-certs.md).
+ - **Solicitações de certificado padrão** acordo com a [gerar certificados de PKI para implantação do Azure Stack](azure-stack-get-pki-certs.md).
  - **Plataforma como serviço**  
     Você pode solicitar os nomes do plataforma como serviço (PaaS) para certificados conforme especificado na [requisitos de certificado de infra-estrutura de chave pública do Azure Stack - certificados de PaaS opcionais](azure-stack-pki-certs.md#optional-paas-certificates).
-
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +36,7 @@ O sistema deve atender aos seguintes pré-requisitos antes de gerar o CSR(s) par
 
  - Verificador de preparação do Microsoft Azure Stack
  - Atributos de certificado:
-    - Nome da região
+    - Nome de região
     - Nome de domínio totalmente qualificado (FQDN) externo
     - Assunto
  - Windows 10 ou Windows Server 2016
@@ -53,43 +50,43 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure:
 
 1.  Instale AzsReadinessChecker em um prompt do PowerShell (5.1 ou superior), executando o seguinte cmdlet:
 
-    ````PowerShell  
+    ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
-    ````
+    ```
 
-2.  Declare a **assunto** como um dicionário ordenado. Por exemplo:  
+2.  Declare a **assunto** como um dicionário ordenado. Por exemplo: 
 
-    ````PowerShell  
+    ```PowerShell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
-    ````
+    ```
     > [!note]  
     > Se for fornecido um nome comum (CN) será substituído pelo primeiro nome DNS da solicitação de certificado.
 
-3.  Declare um diretório de saída que já existe. Por exemplo: 
+3.  Declare um diretório de saída que já existe. Por exemplo:
 
-    ````PowerShell  
+    ```PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
-    ````
+    ```
 4.  Declare o sistema de identidade
 
     Azure Active Directory
 
     ```PowerShell
     $IdentitySystem = "AAD"
-    ````
+    ```
 
     Serviços de Federação do Active Directory (AD FS)
 
     ```PowerShell
     $IdentitySystem = "ADFS"
-    ````
+    ```
 
 5. Declarar **nome da região** e uma **FQDN externo** destinado para a implantação do Azure Stack.
 
     ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
-    ````
+    ```
 
     > [!note]  
     > `<regionName>.<externalFQDN>` constitui a base na qual todos os nomes DNS externos no Azure Stack são criados, neste exemplo, o portal seria `portal.east.azurestack.contoso.com`.  
@@ -98,7 +95,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure:
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
+    ```
 
     Para incluir serviços de PaaS, especifique a opção ```-IncludePaaS```
 
@@ -106,13 +103,13 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure:
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
+    ```
 
     Para incluir serviços de PaaS, especifique a opção ```-IncludePaaS```
     
 8. Examine a saída:
 
-    ````PowerShell  
+    ```PowerShell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
     
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
@@ -123,7 +120,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure:
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
     New-AzsCertificateSigningRequest Completed
-    ````
+    ```
 
 9.  Enviar o **. REQ** arquivo gerado para a sua autoridade de certificação (interna ou pública).  O diretório de saída de **New-AzsCertificateSigningRequest** contém o CSR(s) necessárias ao envio de uma autoridade de certificação.  O diretório também contém, para referência, um diretório filho que contém o arquivo INF (s) usada durante a geração de solicitação de certificado. Certifique-se de que sua autoridade de certificação gera certificados usando sua solicitação gerada que atendem a [requisitos de PKI do Azure Stack](azure-stack-pki-certs.md).
 

@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4cb8ffe218ef1cd64b93201eddbbd09bb16026db
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 477d0bcebf8f699c49e0cf769a54ef3ae52a3a76
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087382"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096018"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Backup e recuperação de dados para o Azure Stack com o serviço de Backup de infraestrutura
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Você pode fazer backup e restaurar a configuração e os dados de serviço usando o serviço de Backup de infraestrutura. Cada instalação do Azure Stack contém uma instância do serviço. Você pode usar os backups criados pelo serviço para a reimplantação da nuvem do Azure Stack para restaurar dados do Azure Resource Manager, segurança e identidade.
 
@@ -37,7 +37,7 @@ Antes de habilitar o serviço de backup, verifique se você tem [requisitos em v
 
 Os serviços de contenham os seguintes recursos.
 
-| Recurso                                            | DESCRIÇÃO                                                                                                                                                |
+| Recurso                                            | Descrição                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Serviços de infraestrutura de backup                     | Coordene o backup em um subconjunto dos serviços de infraestrutura no Azure Stack. Se houver um desastre, os dados podem ser restaurados como parte da reimplantação. |
 | Compactação e criptografia de dados exportados de Backup | Dados de backup são compactados e criptografados pelo sistema antes que ele seja exportado para o local de armazenamento externo fornecido pelo administrador.                |
@@ -47,7 +47,7 @@ Os serviços de contenham os seguintes recursos.
 
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Verifique os requisitos para o serviço de Backup de infraestrutura
 
-- **Local de armazenamento**  
+- **Localização de armazenamento**  
   Você precisa de um compartilhamento de arquivos acessíveis a partir do Azure Stack que pode conter sete backups. Cada backup é cerca de 10 GB. O compartilhamento deve ser capaz de armazenar 140 GB de backups. Para obter mais informações sobre como selecionar um local de armazenamento para o serviço de Backup de infraestrutura do Azure Stack, consulte [requisitos de controlador de Backup](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Credenciais**  
   Você precisa de uma conta de usuário de domínio e as credenciais, por exemplo, você pode usar as credenciais de administrador do Azure Stack.

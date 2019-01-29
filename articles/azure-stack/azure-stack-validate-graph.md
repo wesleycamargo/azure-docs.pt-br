@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fbc6e7586e116df1fa19c6c9e0c5a5b17f00d646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416216"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096749"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Validar a integração do gráfico para o Azure Stack
 
@@ -94,7 +94,7 @@ Os seguintes pré-requisitos devem estar em vigor.
     Invoke-AzsGraphValidation Completed
     ```
 
-Em ambientes de produção, teste a conectividade de rede da estação de trabalho de um operador não é totalmente uma indicação da conectividade disponível para o Azure Stack. Rede de VIP público do carimbo do Azure Stack será necessário a conectividade para o tráfego LDAP para realizar a integração de identidade.
+Em ambientes de produção, teste a conectividade de rede da estação de trabalho de um operador não é totalmente uma indicação da conectividade disponível para o Azure Stack. Rede de VIP público do carimbo de pilha do Azure precisa de conectividade para o tráfego LDAP para realizar a integração de identidade.
 
 ## <a name="report-and-log-file"></a>Arquivo de log e relatório
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945579"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177892"
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recurso de provedor
 O termo *provedor* aplica-se para o administrador de serviço e quaisquer provedores delegados. Operadores do Azure Stack e provedores delegados podem usar a API de uso do provedor para exibir o uso de seus locatários diretos. Por exemplo, conforme mostrado no diagrama, P0 pode chamar o provedor de API para obter informações de uso do P1 e uso direto do P2 e P1 podem chamar para obter informações de uso sobre P3 e P4.
@@ -27,7 +27,7 @@ O termo *provedor* aplica-se para o administrador de serviço e quaisquer proved
 ![Modelo conceitual da hierarquia de provedor](media/azure-stack-provider-resource-api/image1.png)
 
 ## <a name="api-call-reference"></a>Referência da API chamada
-### <a name="request"></a>Solicitação
+### <a name="request"></a>Solicitar
 A solicitação obtém detalhes de consumo para as assinaturas solicitadas e para o período de tempo solicitado. Não há nenhum corpo de solicitação.
 
 Essa API de uso é um provedor de API, portanto, o chamador deve ser atribuído a uma função de leitor, colaborador ou proprietário na assinatura do provedor.
@@ -37,7 +37,7 @@ Essa API de uso é um provedor de API, portanto, o chamador deve ser atribuído 
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token-value} |
 
 ### <a name="arguments"></a>Argumentos
-| **argumento** | **Descrição** |
+| **Argumento** | **Descrição** |
 | --- | --- |
 | *armendpoint* |Azure Resource Manager ponto de extremidade do seu ambiente do Azure Stack. A convenção do Azure Stack é que o nome do ponto de extremidade do Azure Resource Manager está no formato `https://adminmanagement.{domain-name}`. Por exemplo, para o kit de desenvolvimento, se o nome de domínio estiver *local.azurestack.external*, em seguida, o ponto de extremidade do Gerenciador de recursos é `https://adminmanagement.local.azurestack.external`. |
 | *subId* |ID da assinatura do usuário que faz a chamada. |
@@ -48,7 +48,7 @@ Essa API de uso é um provedor de API, portanto, o chamador deve ser atribuído 
 | *api-version* |Versão do protocolo que é usado para fazer essa solicitação. Esse valor é definido como *2015-06-01-preview*. |
 | *continuationToken* |Token recuperado da última chamada para o provedor de API de uso. Esse token é necessária quando uma resposta é maior que 1.000 linhas, e ele atua como um indicador para o progresso. Se o token não estiver presente, os dados são recuperados a partir do início do dia ou hora, com base na granularidade passado. |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 OBTER /subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = diária & subscriberId = sub1.1 & api-version = 1.0
 
 ```json
@@ -78,7 +78,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Detalhes da resposta
-| **argumento** | **Descrição** |
+| **Argumento** | **Descrição** |
 | --- | --- |
 | *ID* |ID exclusiva da agregação de uso. |
 | *name* |Nome da agregação de uso. |
@@ -86,7 +86,7 @@ meterID1",
 | *subscriptionId* |Identificador de assinatura do usuário do Azure Stack. |
 | *usageStartTime* |UTC hora de início do bucket de uso ao qual pertence essa agregação de uso.|
 | *usageEndTime* |UTC hora de término do bucket de uso ao qual pertence essa agregação de uso. |
-| *instanceData* |Pares de chave-valor de detalhes da instância (em um novo formato):<br> *resourceUri*: totalmente qualificado do ID do recurso, que inclui os grupos de recursos e o nome da instância. <br> *local*: região na qual esse serviço é executado. <br> *marcas*: as marcas de recurso que são especificadas pelo usuário. <br> *additionalInfo*: mais detalhes sobre o recurso que foi consumido, por exemplo, o tipo de imagem ou a versão do sistema operacional. |
+| *instanceData* |Pares de chave-valor de detalhes da instância (em um novo formato):<br> *resourceUri*: ID de recurso totalmente qualificado, que inclui os grupos de recursos e o nome da instância. <br> *local*: Região na qual esse serviço é executado. <br> *tags*: Marcas de recurso que são especificadas pelo usuário. <br> *additionalInfo*: Para obter mais detalhes sobre o recurso que foi consumido, por exemplo, a versão do sistema operacional ou imagem do tipo. |
 | *quantity* |Quantidade de consumo de recursos que ocorreram nesse período. |
 | *meterId* |ID exclusiva para o recurso que foi consumido (também chamado de *ResourceID*). |
 

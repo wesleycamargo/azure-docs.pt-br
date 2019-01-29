@@ -10,19 +10,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bf725a20a7c030b0a835439c0f97f23b3cbef71
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086498"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097829"
 ---
 # <a name="use-the-azure-stack-portal"></a>Usar o portal do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Você pode usar o portal do Azure Stack para assinar as ofertas públicas e usar os serviços que fornecem essas ofertas. Se você já usou o portal do Azure global, você já está familiarizado com o funcionamento do site.
 
@@ -60,12 +60,12 @@ Se você precisar de orientação sobre como usar os serviços disponíveis, pod
 
     Em particular, sugerimos que você examine os artigos a seguir para começar a usar:
 
-    - [Considerações da chave: usando os serviços ou criação de aplicativos para o Azure Stack](azure-stack-considerations.md)
+    - [Considerações importantes: Usando os serviços ou criação de aplicativos para o Azure Stack](azure-stack-considerations.md)
     - No **usar serviços** seção da documentação, há um artigo de considerações para cada serviço. A página de considerações descreve as diferenças entre o serviço oferecido no Azure e o mesmo serviço oferecidos no Azure Stack. Por exemplo, consulte [considerações sobre VM](azure-stack-vm-considerations.md). Pode haver outras informações na **usar serviços** seção que é exclusiva para o Azure Stack.
 
       Você pode usar a documentação do Azure como referência geral para um serviço, mas você deve estar ciente dessas diferenças. Entender que a documentação contém links sobre o **tutoriais de início rápido** bloco aponte para documentação do Azure.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Se você precisar de suporte, entre em contato com seu provedor de serviço ou da organização para obter ajuda.
 
@@ -73,4 +73,4 @@ Se você estiver usando o Kit de desenvolvimento do Azure Stack, o [Fórum do Az
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Considerações da chave: usando os serviços ou criação de aplicativos para o Azure Stack](azure-stack-considerations.md)
+[Considerações importantes: Usando os serviços ou criação de aplicativos para o Azure Stack](azure-stack-considerations.md)

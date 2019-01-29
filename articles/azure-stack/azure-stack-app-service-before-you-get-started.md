@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ec34b99f48fbe7b634d7d143e8e108e8f2868f67
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413015"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182720"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicativo no Azure Stack
 
@@ -73,7 +73,7 @@ Quando você executa o seguinte comando do PowerShell, você precisará fornecer
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
-| Parâmetro | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
+| Parâmetro | Obrigatório ou opcional | Valor padrão | Descrição |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Obrigatório | AzS-ERCS01 | Ponto de extremidade com privilégios |
 | CloudAdminCredential | Obrigatório | AzureStack\CloudAdmin | Credencial de conta de domínio para que os administradores de nuvem do Azure Stack |
@@ -98,9 +98,9 @@ Para criar os certificados, siga estas etapas:
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>AppServiceCerts.ps1 criar parâmetros de script
 
-| Parâmetro | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
+| Parâmetro | Obrigatório ou opcional | Valor padrão | Descrição |
 | --- | --- | --- | --- |
-| pfxPassword | Obrigatório | Nulo | Senha que ajuda a proteger a chave privada do certificado |
+| pfxPassword | Obrigatório | Null | Senha que ajuda a proteger a chave privada do certificado |
 | DomainName | Obrigatório | local.azurestack.external | Sufixo de região e o domínio de pilha do Azure |
 
 ### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Certificados necessários para a implantação de produção do Azure Stack do serviço de aplicativo do Azure
@@ -118,7 +118,7 @@ O certificado de domínio padrão é colocado na função de Front-End. Aplicati
 
 O certificado deve estar no formato. pfx e deve ser um certificado curinga do assunto de três. Esse requisito permite que um certificado cobrir o domínio padrão e o ponto de extremidade SCM para operações de controle do código-fonte.
 
-| Formatar | Exemplo |
+| Formato | Exemplo |
 | --- | --- |
 | \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
 | \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
@@ -128,7 +128,7 @@ O certificado deve estar no formato. pfx e deve ser um certificado curinga do as
 
 O certificado de API é colocado na função de gerenciamento. O provedor de recursos usa para ajudar a proteger chamadas de API. O certificado para publicação deve conter um assunto que corresponda à entrada DNS de API.
 
-| Formatar | Exemplo |
+| Formato | Exemplo |
 | --- | --- |
 | api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -136,7 +136,7 @@ O certificado de API é colocado na função de gerenciamento. O provedor de rec
 
 O certificado para a função publicador protege o tráfego FTPS para proprietários de aplicativo ao carregar o conteúdo. O certificado para publicação deve conter um assunto que corresponda à entrada DNS FTPS.
 
-| Formatar | Exemplo |
+| Formato | Exemplo |
 | --- | --- |
 | ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
@@ -149,7 +149,7 @@ Permite que o certificado para o aplicativo de identidade:
 
 O certificado para a identidade deve conter um assunto que corresponda ao formato a seguir.
 
-| Formatar | Exemplo |
+| Formato | Exemplo |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
@@ -331,7 +331,7 @@ Siga estas etapas:
 3. [Instale o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 4. Execute o **AADIdentityApp.ps1 criar** script. Quando solicitado, insira a ID do locatário do Azure AD que você está usando para sua implantação do Azure Stack. Por exemplo, digite **myazurestack.onmicrosoft.com**.
 5. No **credencial** janela, insira sua conta de administrador de serviço do Azure AD e a senha. Selecione **OK**.
-6. Insira o caminho do arquivo de certificado e a senha do certificado para o [certificado criado anteriormente](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado criado para esta etapa por padrão é **sso.appservice.local.azurestack.external.pfx**.
+6. Insira o caminho do arquivo de certificado e a senha do certificado para o [certificado criado anteriormente](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). O certificado criado para esta etapa por padrão é **sso.appservice.local.azurestack.external.pfx**.
 7. O script cria um novo aplicativo na instância do AD do Azure do locatário. Anote a ID do aplicativo que é retornada na saída do PowerShell. Você precisará dessas informações durante a instalação.
 8. Abra uma nova janela do navegador e entrar para o [portal do Azure](https://portal.azure.com) como administrador de serviço do Azure Active Directory.
 9. Abra o provedor de recursos do Azure AD.
@@ -345,14 +345,14 @@ Siga estas etapas:
     Create-AADIdentityApp.ps1
 ```
 
-| Parâmetro | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
+| Parâmetro | Obrigatório ou opcional | Valor padrão | Descrição |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Obrigatório | Nulo | ID de locatário do Azure AD. Forneça o GUID ou uma cadeia de caracteres. Um exemplo é myazureaaddirectory.onmicrosoft.com. |
-| AdminArmEndpoint | Obrigatório | Nulo | Ponto de extremidade de administração do Azure Resource Manager. Um exemplo é adminmanagement.local.azurestack.external. |
-| TenantARMEndpoint | Obrigatório | Nulo | Ponto de extremidade do locatário do Azure Resource Manager. Um exemplo é management.local.azurestack.external. |
-| AzureStackAdminCredential | Obrigatório | Nulo | Credencial de administrador de serviço de AD do Azure. |
-| CertificateFilePath | Obrigatório | Nulo | **Caminho completo** para o arquivo de certificado do aplicativo de identidade gerado anteriormente. |
-| CertificatePassword | Obrigatório | Nulo | Senha que ajuda a proteger a chave privada do certificado. |
+| DirectoryTenantName | Obrigatório | Null | ID de locatário do Azure AD. Forneça o GUID ou uma cadeia de caracteres. Um exemplo é myazureaaddirectory.onmicrosoft.com. |
+| AdminArmEndpoint | Obrigatório | Null | Ponto de extremidade de administração do Azure Resource Manager. Um exemplo é adminmanagement.local.azurestack.external. |
+| TenantARMEndpoint | Obrigatório | Null | Ponto de extremidade do locatário do Azure Resource Manager. Um exemplo é management.local.azurestack.external. |
+| AzureStackAdminCredential | Obrigatório | Null | Credencial de administrador de serviço de AD do Azure. |
+| CertificateFilePath | Obrigatório | Null | **Caminho completo** para o arquivo de certificado do aplicativo de identidade gerado anteriormente. |
+| CertificatePassword | Obrigatório | Null | Senha que ajuda a proteger a chave privada do certificado. |
 | Ambiente | Opcional | AzureCloud | O nome do ambiente de nuvem com suporte na qual o serviço do Graph do Azure Active Directory de destino está disponível.  Valores permitidos: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Criar um aplicativo de serviços de Federação do Active Directory
@@ -375,19 +375,19 @@ Siga estas etapas:
 3. [Instale o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 4. Execute o **ADFSIdentityApp.ps1 criar** script.
 5. No **credencial** janela, insira sua conta de administrador de nuvem do AD FS e a senha. Selecione **OK**.
-6. Forneça o caminho do arquivo de certificado e a senha do certificado para o [certificado criado anteriormente](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado criado para esta etapa por padrão é **sso.appservice.local.azurestack.external.pfx**.
+6. Forneça o caminho do arquivo de certificado e a senha do certificado para o [certificado criado anteriormente](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). O certificado criado para esta etapa por padrão é **sso.appservice.local.azurestack.external.pfx**.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1
 ```
 
-| Parâmetro | Obrigatório ou opcional | Valor padrão | DESCRIÇÃO |
+| Parâmetro | Obrigatório ou opcional | Valor padrão | Descrição |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Obrigatório | Nulo | Ponto de extremidade de administração do Azure Resource Manager. Um exemplo é adminmanagement.local.azurestack.external. |
-| PrivilegedEndpoint | Obrigatório | Nulo | O ponto de extremidade com privilégios. Um exemplo é AzS-ERCS01. |
-| CloudAdminCredential | Obrigatório | Nulo | Credencial de conta de domínio para que os administradores de nuvem do Azure Stack. Um exemplo é Azurestack\CloudAdmin. |
-| CertificateFilePath | Obrigatório | Nulo | **Caminho completo** ao arquivo do PFX de certificado do aplicativo de identidade. |
-| CertificatePassword | Obrigatório | Nulo | Senha que ajuda a proteger a chave privada do certificado. |
+| AdminArmEndpoint | Obrigatório | Null | Ponto de extremidade de administração do Azure Resource Manager. Um exemplo é adminmanagement.local.azurestack.external. |
+| PrivilegedEndpoint | Obrigatório | Null | O ponto de extremidade com privilégios. Um exemplo é AzS-ERCS01. |
+| CloudAdminCredential | Obrigatório | Null | Credencial de conta de domínio para que os administradores de nuvem do Azure Stack. Um exemplo é Azurestack\CloudAdmin. |
+| CertificateFilePath | Obrigatório | Null | **Caminho completo** ao arquivo do PFX de certificado do aplicativo de identidade. |
+| CertificatePassword | Obrigatório | Null | Senha que ajuda a proteger a chave privada do certificado. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

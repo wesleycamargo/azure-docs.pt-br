@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 1629c4b62fb04e057c38261a33fd3bc759b279c1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: cedc1ec84c049d779f09c31be1aa1a3af63dfe5b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267395"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094148"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Implantar uma solução de nuvem híbrida com o Azure e o Azure Stack
 
@@ -302,7 +302,7 @@ Quando você cria seu aplicativo web em um ambiente de serviço de aplicativo é
 
 1. No Azure, encontre o plano de serviço de aplicativo para os sites que você deseja escalar horizontalmente e, em seguida, selecione **Scale-out (plano do serviço de aplicativo)**.
 
-    ![Expansão](media/azure-stack-solution-hybrid-cloud/image16.png)
+    ![Escalar horizontalmente](media/azure-stack-solution-hybrid-cloud/image16.png)
 
 2. Selecione **habilitar o dimensionamento automático**.
 
@@ -428,7 +428,7 @@ Em seguida, você configurará o ponto de extremidade do Azure.
 
 Depois que ambos os pontos de extremidade são configurados, eles são listados em **perfil do Gerenciador de tráfego** quando você seleciona **pontos de extremidade**. O exemplo na captura de tela a seguir mostra dois pontos de extremidade, com informações de status e a configuração para cada um deles.
 
-![Pontos de extremidade](media/azure-stack-solution-hybrid-cloud/image20.png)
+![Pontos de Extremidade](media/azure-stack-solution-hybrid-cloud/image20.png)
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Configurar o Application Insights, monitoramento e alertas
 
