@@ -47,7 +47,7 @@ A seguinte lista de métodos V2 e V3 identifica as APIs e os métodos da V3 que 
 | GetLanguagesForTranslate     | [Idiomas](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Serviço de fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | Speak     | [Serviço de fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detectar     | [Detect](reference/v3-0-detect.md)         |
+| Detect     | [Detect](reference/v3-0-detect.md)         |
 | DetectArray     | [Detect](reference/v3-0-detect.md)         |
 | AddTranslation     | [API do Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [API do Microsoft Translator Hub](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ O preço do Microsoft Translator V3 é definido da mesma maneira que o da V2; po
 
 | Método da V3   | Caracteres contados para cobrança |
 |:----------- |:-------------|
-| Linguagens     | Nenhum caractere enviado, nenhum contado, nenhum encargo.          |
+| Languages     | Nenhum caractere enviado, nenhum contado, nenhum encargo.          |
 | Translate     | A contagem é baseada em quantos caracteres são enviado para tradução e para quantos idiomas os caracteres são traduzidos. Cinquenta caracteres enviados e cinco idiomas solicitados serão 50 x 5.           |
 | Transliterate     | O número de caracteres enviados para transliteração é contado.         |
 | Dictionary lookup & example     | O número de caracteres enviados para pesquisa no Dicionário e exemplos é contato.         |
 | BreakSentence     | Sem Encargos.       |
-| Detectar     | Sem Encargos.      |
+| Detect     | Sem Encargos.      |
 
 ## <a name="v3-end-points"></a>Pontos de extremidade da V3
 
