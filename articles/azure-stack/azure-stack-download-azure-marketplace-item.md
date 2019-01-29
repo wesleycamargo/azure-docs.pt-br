@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 0fcdb2324868528e62e69fa0ce24ab2334052ced
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 186e5ed062be8210f4efa0bdaf134f3af51d268b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245405"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094121"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Baixar itens do marketplace do Azure para o Azure Stack
 
@@ -58,7 +58,7 @@ Sua implantação do Azure Stack deve ter conectividade com a internet e ser [re
 
     O portal exibe a lista de itens disponíveis para download do Azure Marketplace. Você pode clicar em cada item para exibir sua descrição e informações adicionais sobre ele, incluindo o tamanho do download. 
 
-    [ ![Lista de Marketplace](media/azure-stack-download-azure-marketplace-item/image03sm.png "lista do Marketplace") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
+    [ ![Marketplace list](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace list") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
 
 4. Selecione o item que você deseja e, em seguida, selecione **baixar**. Tempos de download variam de acordo.
 
@@ -184,7 +184,7 @@ Há duas partes que compõem esse cenário:
       [ ![Serviço BLOB](media/azure-stack-download-azure-marketplace-item/blob-service.png "serviço Blob") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. Selecione o contêiner que você deseja usar e, em seguida, selecione **carregue** para abrir o **carregar blob** painel.  
-      [ ![Recipiente](media/azure-stack-download-azure-marketplace-item/container.png "contêiner") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
+      [ ![Container](media/azure-stack-download-azure-marketplace-item/container.png "Container") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
    4. No painel de Upload de blob, navegue até os arquivos de pacote e o disco para carregar no armazenamento e, em seguida, selecione **carregar**: [ ![Carregue](media/azure-stack-download-azure-marketplace-item/uploadsm.png "carregar") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
@@ -232,9 +232,9 @@ Há duas partes que compõem esse cenário:
 
 Com o lançamento do Azure Stack PowerShell 1.3.0, agora você pode adicionar extensões de máquina Virtual. Por exemplo: 
 
-````PowerShell
+```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
-````
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 
