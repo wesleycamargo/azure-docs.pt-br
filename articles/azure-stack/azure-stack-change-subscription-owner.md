@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: c9288d47dc9df8604c7eb676ba5d93f91a6b0063
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959189"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245677"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Alterar o proprietário para uma assinatura de usuário do Azure Stack
 
@@ -28,7 +29,7 @@ Operadores do Azure Stack podem usar o PowerShell para alterar o proprietário d
 
 Há dois tipos de *proprietários* que são atribuídos a uma assinatura:
 
-- **Proprietário de cobrança**: por padrão, o proprietário de cobrança é a conta de usuário que obtém a assinatura de uma oferta e, em seguida, possui a relação de cobrança para essa assinatura. Essa conta também é um administrador da assinatura. Somente uma conta de usuário pode ter essa designação em uma assinatura. Um proprietário de cobrança geralmente é um líder de equipe ou organização. 
+- **Proprietário de cobrança**: Por padrão, o proprietário de cobrança é a conta de usuário que obtém a assinatura de uma oferta e, em seguida, possui a relação de cobrança para essa assinatura. Essa conta também é um administrador da assinatura. Somente uma conta de usuário pode ter essa designação em uma assinatura. Um proprietário de cobrança geralmente é um líder de equipe ou organização. 
 
   Use o cmdlet PowerShell do [AzsUserSubscription conjunto](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) para alterar o proprietário de cobrança.  
 
@@ -45,9 +46,9 @@ Execute o seguinte script para alterar o proprietário de cobrança de uma assin
 
 Substitua os seguintes valores no script antes da execução: 
  
-- **$ArmEndpoint**: especifique o ponto de extremidade do Gerenciador de recursos para o seu ambiente.  
-- **$TenantId**: especificar sua ID de locatário. 
-- **$SubscriptionId**: especificar sua ID de assinatura.
+- **$ArmEndpoint**: Especifique o ponto de extremidade do Gerenciador de recursos para o seu ambiente.  
+- **$TenantId**: Especifique a ID do locatário. 
+- **$SubscriptionId**: Especificar sua ID de assinatura.
 - **$OwnerUpn**: Especifique uma conta como **user@example.com** adicionar como o novo proprietário de cobrança.  
 
 ```PowerShell   

@@ -15,12 +15,13 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.lastreviewed: 10/23/2018
+ms.openlocfilehash: 8587b40bf6963d57fd510aefc17de4385b871590
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993833"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249030"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutorial: Oferecer bancos de dados MySQL altamente disponíveis
 
@@ -77,7 +78,7 @@ Use as etapas nesta seção para implantar o servidor MySQL cluster usando o [My
    - Senha de raiz do aplicativo. Forneça uma senha alfanumérica de 12 caracteres com **sem caracteres especiais**
    - Nome do banco de dados de aplicativo (o padrão é bitnami)
    - Número de VMs para criar de réplica de banco de dados do MySQL (o padrão é 2)
-   - Selecione a assinatura para usar
+   - Selecionar a assinatura a ser usada
    - Selecione o grupo de recursos para usar ou criar um novo
    - Selecione o local (o padrão é o local para ASDK)
 

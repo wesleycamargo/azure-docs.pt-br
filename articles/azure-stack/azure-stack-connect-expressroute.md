@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: ee247dcadd7ba8574bbdae1e25b0e39ca1ebc2da
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: b12e696260793a79bab6b384fc7be810eb2a803c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246221"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240821"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Conectar-se a pilha do Azure para o Azure usando o Azure ExpressRoute
 
@@ -295,7 +296,7 @@ O roteador é uma máquina virtual do Windows Server (AzS-BGPNAT01) que executa 
 
 Depois de concluir a configuração do Azure Stack, você pode implantar os recursos do Azure. A figura a seguir mostra um exemplo de uma rede virtual do locatário no Azure. Você pode usar qualquer nome e o esquema de endereçamento para sua rede virtual no Azure. No entanto, o intervalo de endereços das redes virtuais no Azure e o Azure Stack deve ser exclusivo e não deve se sobrepor.
 
-*Figura 3. Redes virtuais do Azure*
+*Figura 3. Azure VNets*
 
 ![Redes virtuais do Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 

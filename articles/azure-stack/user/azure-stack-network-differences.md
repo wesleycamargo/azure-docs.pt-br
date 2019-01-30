@@ -10,12 +10,13 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: a02166b6dedb91a1a82a0b5a77e693c1fe390957
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: f0e3eca0c38a47e7107e52464e889580dd0b1b8a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104550"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243565"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações sobre a rede do Azure Stack
 
@@ -42,12 +43,12 @@ Este artigo fornece uma visão geral das considerações exclusivas para a rede 
 |  | Pontos de extremidade de serviço | Suporte para conexão de (sem Internet) interno para serviços do Azure. | Ainda não tem suporte. |
 | Há suporte apenas para IPv4. | Políticas do Ponto de Extremidade do Serviço | Com suporte | Ainda não tem suporte. |
 |  | Túneis de serviço | Com suporte | Ainda não tem suporte.  |
-| Grupos de Segurança de Rede | Regras de segurança aumentadas | Com suporte | Ainda não tem suporte. |
+| Grupos de segurança de rede | Regras de segurança aumentadas | Com suporte | Ainda não tem suporte. |
 |  | Regras de segurança efetivas | Com suporte | Ainda não tem suporte. |
 |  | Grupos de segurança do aplicativo | Com suporte | Ainda não tem suporte. |
 | Gateways de Rede Virtual | Gateway VPN ponto a Site | Com suporte | Ainda não tem suporte. |
 |  | Gateway de rede virtual para rede virtual | Com suporte | Ainda não tem suporte. |
-|  | Tipo de Gateway de rede virtual | Azure dá suporte a VPN<br> Rota Expressa <br> Net Hyper | O Azure Stack oferece suporte a apenas o tipo de VPN no momento. |
+|  | Tipo de Gateway de rede virtual | Azure dá suporte a VPN<br> ExpressRoute <br> Net Hyper | O Azure Stack oferece suporte a apenas o tipo de VPN no momento. |
 |  | SKUs de Gateway VPN | Suporte para Basic, GW1, GW2, GW3, padrão de alto desempenho, excepcionalmente alto desempenho. | Suporte para Basic, Standard e SKUs de alto desempenho. |
 |  | Tipo de VPN | Azure suporta baseado em políticas e com base em rota. | O Azure Stack dá suporte a rota com base apenas. |
 |  | Configurações BGP | O Azure suporta a configuração de endereço de emparelhamento via protocolo BGP e peso do par. | Endereço de emparelhamento via protocolo BGP e peso do par são configurados automaticamente no Azure Stack. Não há nenhuma maneira para o usuário definir essas configurações com seus próprios valores. |
@@ -55,7 +56,7 @@ Este artigo fornece uma visão geral das considerações exclusivas para a rede 
 |  | Redimensionamento do gateway | O Azure suporta o redimensionamento do gateway após a implantação. | Redimensionamento não suportado. |
 |  | Configuração ativo/ativo | Com suporte | Ainda não tem suporte. |
 |  | UsePolicyBasedTrafficSelectors | O Azure suporta usando seletores de tráfego baseado em políticas com conexões de gateway de baseado em rota. | Ainda não tem suporte. |
-| Load Balancer | SKU | Básica e balanceadores de carga padrão têm suporte | Há suporte para apenas o Load Balancer básico.  Não há suporte para a propriedade SKU. |
+| Balanceador de carga | SKU | Básica e balanceadores de carga padrão têm suporte | Há suporte para apenas o Load Balancer básico.  Não há suporte para a propriedade SKU. |
 |  | Zonas | Há suporte para zonas de disponibilidade. | Ainda não tem suporte |
 |  | Suporte a regras NAT de entrada para pontos de extremidade de serviço | O Azure suporta especificando pontos de extremidade de serviço para regras de NAT de entrada. | O Azure Stack ainda não dá suporte pontos de extremidade de serviço, portanto, elas não podem ser especificadas. |
 |  | Protocolo | Dá suporte ao Azure especificando GRE ou ESP. | Não há suporte para a classe de protocolo no Azure Stack. |
@@ -69,9 +70,9 @@ Este artigo fornece uma visão geral das considerações exclusivas para a rede 
 |  | Versão do endereço IP privado | Há suporte para IPv6 e IPv4. | Há suporte apenas para IPv4. |
 | Observador de Rede | Recursos de monitoramento de rede de locatário de observador de rede | Com suporte | Ainda não tem suporte. |
 | CDN | Perfis de rede de distribuição de conteúdo | Com suporte | Ainda não tem suporte. |
-| Application gateway | Balanceamento de carga de camada 7 | Com suporte | Ainda não tem suporte. |
+| Gateway de Aplicativo | Balanceamento de carga de camada 7 | Com suporte | Ainda não tem suporte. |
 | Gerenciador de Tráfego | Rotear o tráfego de entrada para desempenho ideal do aplicativo e a confiabilidade. | Com suporte | Ainda não tem suporte. |
-| Rota Expressa | Configure uma conexão privada, rápida aos serviços de nuvem da Microsoft de suas instalações de infraestrutura ou a colocação do local. | Com suporte | Suporte para conexão do Azure Stack a um circuito do Expressroute. |
+| ExpressRoute | Configure uma conexão privada, rápida aos serviços de nuvem da Microsoft de suas instalações de infraestrutura ou a colocação do local. | Com suporte | Suporte para conexão do Azure Stack a um circuito do Expressroute. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,7 +4,7 @@ description: Esta é a página do Azure AD Connect Health sobre como monitorar a
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3d74a78d60959dc404165d0ac8c4483b8bd36a29
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278830"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464069"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para saber mais sobre como monitorar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health para Sincronização](how-to-connect-health-sync.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md).
@@ -44,7 +44,7 @@ A Análise de Uso do Azure AD Connect Health analisa o tráfego de autenticaçã
 
 Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para alterar o agrupamento, clique no gráfico de análise de uso e selecione Editar gráfico. Em seguida, você pode especificar o intervalo de tempo, selecionar uma métrica diferente e alterar o agrupamento. Você pode exibir a distribuição do tráfego de autenticação com base em diferentes “métricas” e agrupar cada métrica usando parâmetros relevantes "agrupar por" descritos na seção a seguir:
 
-**Métrica: Total de solicitações** – Número total de solicitações processadas por servidores AD FS.
+**Métrica: total de solicitações** – Número total de solicitações processadas por servidores AD FS.
 
 |Agrupar Por | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
@@ -56,16 +56,16 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 | Local de rede | Agrupa o total de solicitações com base no local de rede do usuário. Pode ser qualquer intranet ou extranet. Esse agrupamento é útil para saber qual é a porcentagem do tráfego que está vindo da intranet em comparação com a extranet. |
 
 
-**Métrica: Total de solicitações com falha** – O número total de solicitações com falha processadas pelo serviço de federação. (Essa métrica só está disponível no AD FS para o Windows Server 2012 R2)
+**Métrica: total de solicitações com falha** – O número total de solicitações com falha processadas pelo serviço de federação.  (Essa métrica só está disponível no AD FS para o Windows Server 2012 R2)
 
 |Agrupar Por | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
-| Tipo de erro | Mostra o número de erros com base nos tipos de erro predefinidos. Esse agrupamento é útil para entender os tipos comuns de erros. <ul><li>Nome de usuário ou senha incorretos: erros causados por nome de usuário ou senha incorretos.</li> <li>"Bloqueio de extranet": falhas devido a solicitações recebidas de um usuário que foi bloqueado da extranet </li><li> "Senha expirada": falhas devido a usuários que fazem logon com uma senha expirada.</li><li>"Conta desabilitada": falhas devido a usuários que fazem logon com uma conta desabilitada.</li><li>"Autenticação do dispositivo": falhas devido a usuários que não foram autenticados usando a Autenticação do Dispositivo.</li><li>"Autenticação de Certificado de Usuário": falhas devido a usuários que não foram autenticados devido a um certificado inválido.</li><li>"MFA": falhas devido ao usuário que não foi autenticado usando a Autenticação Multifator.</li><li>"Outras Credenciais": "Autorização de Emissão": falhas devido a falhas de autorização.</li><li>"Delegação de Emissão": falhas devido a erros de delegação de emissão.</li><li>"Aceitação de Token": falhas causadas pelo ADFS rejeitando o token de um provedor de identidade de terceiros.</li><li>"Protocolo": falha devido a erros de protocolo.</li><li>"Desconhecido": envolve tudo. Quaisquer outras falhas que não se encaixam nas categorias definidas.</li> |
+| Tipo de erro | Mostra o número de erros com base nos tipos de erro predefinidos. Esse agrupamento é útil para entender os tipos comuns de erros. <ul><li>Nome de usuário ou senha incorreta: erros devido a nome de usuário ou senha incorreta.</li> <li>“Bloqueio de extranet”: falhas devido às solicitações recebidas de um usuário que foi bloqueado da extranet </li><li> “Senha expirada”: falhas devido a usuários que fazem logon com uma senha expirada.</li><li>"Conta desabilitada": falhas devido a usuários que fazem logon com uma conta desabilitada.</li><li>“Autenticação do dispositivo”: falhas devido a usuários que não foram autenticados usando a Autenticação do Dispositivo.</li><li>“Autenticação de certificado de usuário”: falhas devido a usuários que não foram autenticados devido a um certificado inválido.</li><li>"MFA": falhas devido ao usuário que não foi autenticado usando a Autenticação Multifator.</li><li>"Outra credencial": “Autorização de emissão”: falhas devido a falhas de autorização.</li><li>"Delegação de emissão": falhas devido a erros de delegação de emissão.</li><li>"Aceitação de token": falhas causadas pelo ADFS rejeitando o token de um provedor de identidade de terceiros.</li><li>"Protocolo": falha devido a erros de protocolo.</li><li>“Desconhecido”: capturar tudo. Quaisquer outras falhas que não se encaixam nas categorias definidas.</li> |
 | Servidor | Agrupa os erros com base no servidor. Esse agrupamento é útil para entender a distribuição de erros entre servidores. A distribuição desigual poderia ser um indicador de um servidor em um estado com falha. |
 | Local de rede | Agrupa os erros com base no local de rede das solicitações (intranet versus extranet). Esse agrupamento é útil para entender que tipo de solicitações está falhando. |
 |  Aplicativo | Agrupa as falhas com base no aplicativo de destino (terceira parte confiável). Esse agrupamento é útil para entender qual aplicativo de destino está tendo maior número de erros. |
 
-**Métrica: Contagem de usuários** – número médio de usuários exclusivos autenticando-se ativamente usando o AD FS
+**Métrica: contagem de usuários** – número médio de usuários exclusivos autenticando-se ativamente usando o AD FS
 
 |Agrupar Por | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
@@ -82,7 +82,7 @@ Ao selecionar a opção de filtro na parte superior da folha, você pode filtrar
 ## <a name="top-50-users-with-failed-usernamepassword-logins"></a>50 principais usuários com logons com falha de nome de usuário/senha
 Um dos motivos comuns para a falha de uma solicitação de autenticação em um servidor do AD FS é uma solicitação com credenciais inválidas, ou seja, um nome de usuário ou uma senha incorretos. Costuma acontecer par aos usuários devido a senhas complexas, senhas esquecidas ou erros de digitação.
 
-Mas há outros motivos que podem resultar em um número inesperado de solicitações manipuladas pelos servidores do AD FS, tais como: um aplicativo que armazena em cache as credenciais de usuário e as credenciais expiram ou um usuário mal-intencionado tenta entrar em uma conta com uma série de senhas conhecidas. Estes dois exemplos são motivos válidos que poderiam levar a um aumento nas solicitações.
+Porém, há outros motivos que podem fazer com que um número inesperado de solicitações seja manipulado pelos servidores do AD FS, como: um aplicativo que armazena em cache credenciais de usuário e as credenciais expiram ou um usuário mal-intencionado que tenta entrar em uma conta com uma série de senhas conhecidas. Estes dois exemplos são motivos válidos que poderiam levar a um aumento nas solicitações.
 
 O Azure AD Connect Health para ADFS fornece um relatório sobre os 50 principais usuários com falhas em tentativas de logon devido a um nome de usuário ou uma senha inválidos. Esse relatório é obtido com o processamento dos eventos de auditoria gerados por todos os servidores do AD FS nos farms.
 
@@ -132,7 +132,7 @@ Além disso, é possível que um único endereço IP tente vários logons em rel
 > 
 
 ### <a name="what-is-in-the-report"></a>O que o relatório exibe
-Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. O relatório fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
 | Item do relatório | DESCRIÇÃO |
 | ------- | ----------- |

@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716019"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247724"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Implantar o ASDK da linha de comando
 O ASDK é um ambiente de teste e desenvolvimento que você pode implantar para avaliar e demonstrar os serviços e recursos do Azure Stack. Para obtê-lo em funcionamento, você precisa preparar o ambiente hardware e executar alguns scripts (Isso levará várias horas). Depois disso, você pode entrar portais do administrador e usuário para começar a usar o Azure Stack.
@@ -105,7 +106,7 @@ Para implantar o kit de desenvolvimento **usando o AD FS como o provedor de iden
 
 Em implantações do AD FS, o serviço de diretório do carimbo de padrão é usado como o provedor de identidade. A conta padrão para entrar com é azurestackadmin@azurestack.local, e a senha será definida como o que é fornecido como parte dos comandos de instalação do PowerShell.
 
-O processo de implantação pode levar algumas horas, período durante o qual o sistema é reinicializado automaticamente uma vez. Quando a implantação for bem-sucedida, o console do PowerShell exibe: **COMPLETE: a ação 'Implantação'**. Se a implantação falhar, você pode tentar executar o script novamente usando o parâmetro-execute novamente. Ou, você pode [reimplantar ASDK](asdk-redeploy.md) do zero.
+O processo de implantação pode levar algumas horas, período durante o qual o sistema é reinicializado automaticamente uma vez. Quando a implantação bem-sucedida, exibe o console do PowerShell: **CONCLUA: A ação 'Implantação'**. Se a implantação falhar, você pode tentar executar o script novamente usando o parâmetro-execute novamente. Ou, você pode [reimplantar ASDK](asdk-redeploy.md) do zero.
 
 > [!IMPORTANT]
 > Se você quiser monitorar o progresso da implantação após a reinicialização do host ASDK, você deve entrar como AzureStack\AzureStackAdmin. Se você entrar como um administrador local depois que o computador host é reiniciado (e ingressado no domínio azurestack. local), você não verá o progresso da implantação. Não execute novamente a implantação, em vez disso, entre como azurestack para validar que ele está em execução.

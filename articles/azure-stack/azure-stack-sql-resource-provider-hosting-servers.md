@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362051"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239461"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 
@@ -61,8 +62,8 @@ Há outras opções para a implantação de VMs do SQL, incluindo modelos na [Ga
 
 Você pode criar um usuário administrativo com menos privilégios que um sysadmin SQL. O usuário precisa apenas de permissões para as seguintes operações:
 
-* Banco de dados: Criar, alterar com contenção (para Always On apenas), soltar, de Backup
-* Grupo de disponibilidade: Alter, unir, adicionar ou remover banco de dados
+* Banco de Dados: Criar, alterar com contenção (para Always On apenas), soltar, de Backup
+* Grupo de disponibilidade: Alterar, unir, adicionar ou remover banco de dados
 * Logon: Criar, selecionar, alterar, descartar, revogar
 * Operações Select: \[mestre\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases, \[mestre\].\[ sys\].\[ dm_os_sys_memory\], como SERVERPROPERTY, \[mestre\].\[ sys\].\[ availability_groups\] (AlwaysOn), sys. master_files
 
@@ -86,7 +87,7 @@ Para adicionar um servidor de hospedagem autônomo que já está configurado, si
 
 2. Selecione **todos os serviços** &gt; **recursos ADMINISTRATIVOS** &gt; **servidores de hospedagem SQL**.
 
-   ![Servidores de hospedagem SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![SQL Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
    Sob **servidores de hospedagem SQL**, o provedor de recursos do SQL pode se conectar a instâncias do SQL Server que servirá como back-end do provedor de recursos.
 

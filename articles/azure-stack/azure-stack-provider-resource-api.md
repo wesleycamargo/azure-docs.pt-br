@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.lastreviewed: 01/25/2018
+ms.openlocfilehash: 9568ac58e646be03d367fe466ae972955f23488c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177892"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252227"
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recurso de provedor
 O termo *provedor* aplica-se para o administrador de serviço e quaisquer provedores delegados. Operadores do Azure Stack e provedores delegados podem usar a API de uso do provedor para exibir o uso de seus locatários diretos. Por exemplo, conforme mostrado no diagrama, P0 pode chamar o provedor de API para obter informações de uso do P1 e uso direto do P2 e P1 podem chamar para obter informações de uso sobre P3 e P4.
@@ -27,7 +28,7 @@ O termo *provedor* aplica-se para o administrador de serviço e quaisquer proved
 ![Modelo conceitual da hierarquia de provedor](media/azure-stack-provider-resource-api/image1.png)
 
 ## <a name="api-call-reference"></a>Referência da API chamada
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 A solicitação obtém detalhes de consumo para as assinaturas solicitadas e para o período de tempo solicitado. Não há nenhum corpo de solicitação.
 
 Essa API de uso é um provedor de API, portanto, o chamador deve ser atribuído a uma função de leitor, colaborador ou proprietário na assinatura do provedor.
@@ -48,7 +49,7 @@ Essa API de uso é um provedor de API, portanto, o chamador deve ser atribuído 
 | *api-version* |Versão do protocolo que é usado para fazer essa solicitação. Esse valor é definido como *2015-06-01-preview*. |
 | *continuationToken* |Token recuperado da última chamada para o provedor de API de uso. Esse token é necessária quando uma resposta é maior que 1.000 linhas, e ele atua como um indicador para o progresso. Se o token não estiver presente, os dados são recuperados a partir do início do dia ou hora, com base na granularidade passado. |
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 OBTER /subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = diária & subscriberId = sub1.1 & api-version = 1.0
 
 ```json

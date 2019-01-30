@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968725"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246476"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Recuperar da perda de dados catastrófica
 
-*Aplica-se a: sistemas integrados do Azure Stack.*
+*Aplica-se a: Sistemas integrados do Azure Stack.*
 
 O Azure Stack executa serviços do Azure em seu datacenter. O Azure Stack pode executar em ambientes pequenos como quatro nós instalado em um único rack. Em contraste, o Azure é executado em mais de 40 regiões em vários data centers e várias zonas em cada região. Recursos do usuário podem abranger vários servidores, racks, datacenters e regiões. Com o Azure Stack, você atualmente só tem a opção de implantar sua nuvem inteira em um único rack. Isso expõe sua nuvem ao risco de eventos catastróficos no seu datacenter ou falhas devido a bugs do produto principal. Quando um desastre, a instância do Azure Stack fica offline. Todos os dados é potencialmente irrecuperável.
 

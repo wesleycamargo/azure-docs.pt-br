@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.lastreviewed: 09/28/2018
+ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886817"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246357"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Usar perfis de versão da API Java no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O SDK do Java para o Azure Stack Resource Manager fornece ferramentas para ajudá-lo a criar e gerenciar sua infraestrutura. Provedores de recursos no SDK incluem computação, rede, armazenamento, serviços de aplicativos, e [KeyVault](../../key-vault/key-vault-whatis.md). O SDK do Java incorpora perfis da API, incluindo as dependências no arquivo POM. XML que carrega os módulos corretos no arquivo. Java. No entanto, você pode adicionar vários perfis como dependências, como o **2018-03-01-hybrid**, ou **mais recente** como o perfil do Azure. Usar essas dependências carrega o módulo correto para que quando você cria o tipo de recurso, você pode selecionar qual versão de API desses perfis que você deseja usar. Isso permite que você use as versões mais recentes no Azure, enquanto desenvolve contra as mais recentes versões de API para o Azure Stack. Usar o SDK do Java permite uma experiência de desenvolvedor de nuvem híbrida real. Os perfis de API no SDK do Java permitem o desenvolvimento em nuvem híbrida, ajudando você a alternar entre os recursos globais do Azure e recursos no Azure Stack.
 
@@ -77,8 +78,8 @@ Use as etapas a seguir para instalar o SDK do Java:
 
 4.  Os pacotes que precisam ser instaladas depende da versão de perfil que você deseja usar. Os nomes de pacote para as versões de perfil são:
     
-   - **com.microsoft.Azure.Profile\_2018\_03\_01\_híbrido**
-   - **com.microsoft.Azure**
+   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure**
       - **latest**
 
 5.  Se não estiver disponível, crie uma assinatura e salve a ID da assinatura para uso posterior. Para obter instruções sobre como criar uma assinatura, consulte [criar assinaturas de ofertas no Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
@@ -149,9 +150,9 @@ Arquivo JSON de exemplo:
 
 ## <a name="existing-api-profiles"></a>Perfis de API existentes
 
-1.  **com.microsoft.Azure.Profile\_2018\_03\_01\_híbrida**: perfil mais recente criado para o Azure Stack. Use esse perfil para os serviços sejam mais compatíveis com o Azure Stack como são 1808 carimbo ou adicional.
+1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Perfil mais recente criado para o Azure Stack. Use esse perfil para os serviços sejam mais compatíveis com o Azure Stack como são 1808 carimbo ou adicional.
 
-2.  **com.microsoft.Azure**: consiste nas versões mais recentes de todos os serviços de perfil. Use as versões mais recentes de todos os serviços.
+2.  **com.microsoft.azure**: Consiste nas versões mais recentes de todos os serviços de perfil. Use as versões mais recentes de todos os serviços.
 
 Para obter mais informações sobre perfis de API e o Azure Stack, consulte o [perfis de resumo da API](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 

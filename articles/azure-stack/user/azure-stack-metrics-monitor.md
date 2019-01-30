@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: fbd4552a9e40f16a6fedec4e04be0d7d6d39351d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.lastreviewed: 12/01/2018
+ms.openlocfilehash: 54d12cc709c9579fcd056bef22bdf767c81f8e61
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724478"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246942"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Como consumir dados de monitoramento do Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Você pode encontrar os dados de monitoramento em um único lugar com o pipeline do Azure Monitor, assim como Monitor do Azure no Azure global. Mas nem todos os dados de monitoramento encontrados no Azure global está disponível no Azure Stack. Neste artigo, você pode encontrar um resumo das várias maneiras que você pode programaticamente ingerir dados de monitoramento do serviço.
  
@@ -33,7 +34,7 @@ Você pode encontrar os dados de monitoramento em um único lugar com o pipeline
 | Métricas em nível de plataforma do Azure Monitor | Métricas | [Métricas compatíveis com o Azure Monitor no Azure Stack](azure-stack-metrics-supported.md) | API REST |
 | Calcular métricas de sistema operacional convidado (por exemplo, a contagem de desempenho) | Métricas | Windows e máquinas virtuais do Linux | Tabela de armazenamento ou blob:<br>Windows ou o diagnóstico do Linux do Azure <br>Hub de eventos:<br>Diagnóstico do Windows Azure |
 | Métricas de armazenamento | Métricas | Armazenamento do Azure | Tabela de armazenamento:<br>Análise de Armazenamento |
-| Log de atividades | Eventos | Todos os serviços do Azure | API REST:<br>API de eventos do Azure Monitor |
+| Log de atividades | Eventos | Todos os Serviços do Azure | API REST:<br>API de eventos do Azure Monitor |
 | Logs do sistema operacional convidado (por exemplo, o IIS, ETW, syslogs) de computação | Eventos | Windows e máquinas virtuais do Linux | Tabela de armazenamento ou blob:<br>Windows ou o diagnóstico do Linux do Azure <br>Hub de eventos:<br>Diagnóstico do Windows Azure |
 | Logs de armazenamento | Eventos | Armazenamento do Azure | Tabela de armazenamento:<br>Análise de Armazenamento |
 

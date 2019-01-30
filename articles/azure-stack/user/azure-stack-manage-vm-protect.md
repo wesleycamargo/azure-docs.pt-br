@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 759ea6b8e4981b3ea198077cabf9df7966d6e883
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243621"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242953"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteger máquinas virtuais implantadas no Azure Stack
 
@@ -64,9 +65,9 @@ Planeje sua estratégia de recuperação de backup e recuperação de desastre p
 
 Você precisará determinar a quantidade de tempo de inatividade e perda de dados que sua empresa pode tolerar para cada aplicativo. Quantificando o tempo de inatividade e perda de dados, você pode criar um plano de recuperação que minimiza o impacto de um desastre em sua organização. Para cada aplicativo, considere:
 
- - **Objetivo de tempo de recuperação (RTO)**  
+ - **RTO (objetivo de tempo de recuperação)**  
 O RTO é o tempo máximo aceitável que um aplicativo pode ficar indisponível após um incidente. Por exemplo, o RTO é de 90 minutos significa que você deve ser capaz de restaurar o aplicativo para um estado de execução dentro de 90 minutos desde o início de um desastre. Se você tiver um baixo RTO, você pode manter uma segunda implantação continuamente em execução no modo de espera para proteger contra uma interrupção regional.
- - **Objetivo de ponto de recuperação (RPO)**  
+ - **RPO (objetivo de ponto de recuperação)**  
 RPO é a duração máxima de perda de dados é aceitável durante um desastre. Por exemplo, se você armazena dados em um único banco de dados, com nenhuma replicação para outros bancos de dados, e executar backups a cada hora, poderá perder até uma hora de dados.
 
 RTO e RPO são os requisitos de negócios. Conduza uma avaliação de risco para definir o RTO e RPO do aplicativo.

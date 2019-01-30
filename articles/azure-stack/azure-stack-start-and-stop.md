@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6da81ab90a87285f9e1874e3f10eff4570124192
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: b8d13377b2fb1545ecf88645a5e19bf5eab24c74
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344006"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238128"
 ---
 # <a name="start-and-stop-azure-stack"></a>Iniciar e parar o Azure Stack
 Você deve seguir os procedimentos neste artigo para desligar e reiniciar os serviços do Azure Stack corretamente. Desligamento será desligar fisicamente todo o ambiente do Azure Stack. Inicialização liga todas as funções de infraestrutura e retorna a recursos de locatário para o estado de energia que estavam antes do desligamento.

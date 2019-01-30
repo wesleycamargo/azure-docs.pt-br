@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613088"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249673"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server no Azure Stack Marketplace perguntas Frequentes
 
@@ -37,10 +38,10 @@ Em seguida, se quaisquer conjuntos de dimensionamento de máquina Virtual se ref
 
 A Microsoft oferece duas versões de imagens do Windows Server por meio do Marketplace do Azure Stack:
 
-- **Pague à medida que você use**: essas imagens executar os medidores de Windows do preço total. 
-   Quem deve usar: os clientes do Enterprise Agreement (EA) que usam o *modelo de cobrança de consumo*; CSPs que não desejam usar o licenciamento de SPLA.
-- **Traga sua própria licença (BYOL)**: medidores básicos de executar essas imagens.
-   Quem deve usar: os clientes do EA com uma licença do Windows Server; CSPs que usam o licenciamento de SPLA.
+- **Pague à medida que você use**: Essas imagens executar os medidores de Windows do preço total. 
+   Quem deve usar: Os clientes do Enterprise Agreement (EA) que usam o *modelo de cobrança de consumo*; CSPs que não desejam usar o licenciamento de SPLA.
+- **Traga sua própria licença (BYOL)**: Essas imagens execute medidores básicos.
+   Quem deve usar: Clientes do EA com uma licença do Windows Server; CSPs que usam o licenciamento de SPLA.
 
 Não há suporte para o benefício de uso de híbrido do Azure (AHUB) no Azure Stack. Os clientes que licenciam por meio do modelo de "Capacidade" devem usar a imagem BYOL. Se você estiver testando com o Azure Stack desenvolvimento ASDK (Kit), você pode usar qualquer uma dessas opções.
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359401"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449564"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas frequentes
 
@@ -192,7 +192,9 @@ Para obter mais informações, acesse [Recursos de segurança do Data Box](data-
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>P. Concluí a etapa Preparar para o envio e desliguei o dispositivo. Ainda posso adicionar mais dados ao Data Box?
 a. Sim. Você pode ligar o dispositivo e adicionar mais dados. Você precisará executar a etapa **Preparar para o envio** novamente após a cópia dos dados.
-  
+
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>P. Recebi meu dispositivo e ele não está inicializando? Como posso enviar novamente o dispositivo?
+a. Se seu dispositivo não estiver inicializando, acesse seu pedido no portal do Azure. Baixe uma etiqueta de remessa e afixe-a no dispositivo. Para obter mais informações, acesse [Baixar a etiqueta de remessa](data-box-portal-admin.md#download-shipping-label).
 
 ## <a name="verify-and-upload"></a>Verificar e carregar
 

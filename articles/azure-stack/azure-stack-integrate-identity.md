@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
+ms.lastreviewed: 01/23/19
 keywords: ''
-ms.openlocfilehash: 4f599379de07a9628ee81425ddac2374411bdf97
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852755"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246240"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
 Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
@@ -118,7 +119,7 @@ Serviço do Graph no Azure Stack usa os seguintes protocolos e portas para se co
 
 Serviço do Graph no Azure Stack usa os seguintes protocolos e portas para se comunicar com o destino do Active Directory:
 
-|Tipo|Porta|Protocolo|
+|Type|Porta|Protocolo|
 |---------|---------|---------|
 |LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|

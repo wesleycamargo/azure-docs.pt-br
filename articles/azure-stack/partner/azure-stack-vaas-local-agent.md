@@ -13,13 +13,14 @@ ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53309eceaab566836cef5f73dff2b69db5d9c135
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 23bbcbf6947100db26f31562c44f8073e16e986f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102406"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239334"
 ---
 # <a name="deploy-the-local-agent"></a>Implantar o agente local
 
@@ -77,7 +78,7 @@ O Azure Stack é o sistema em teste. A máquina não deve ser parte da pilha do 
 
     **Parâmetros**
 
-    | Parâmetro | Descrição |
+    | Parâmetro | DESCRIÇÃO |
     | --- | --- |
     | aadServiceAdminUser | O usuário de administrador global para seu locatário do Azure AD. Por exemplo pode ser, vaasadmin@contoso.onmicrosoft.com. |
     | aadServiceAdminPassword | A senha para o usuário administrador global. |
@@ -112,14 +113,14 @@ Os testes executados ações remotas. O computador que executa os testes deve te
 
 1. Abra o Windows PowerShell em um prompt elevado.
 
-2. Execute o seguinte comando:
+2. Execute o comando a seguir:
 
     ```PowerShell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
     ```
 
       **Parâmetros**  
-    | Parâmetro | Descrição |
+    | Parâmetro | DESCRIÇÃO |
     | --- | --- |
     | VaaSUserId | ID de usuário usada para entrar no Portal do VaaS (por exemplo, UserName@Contoso.com) |
     | VaaSTenantId | ID de locatário do Azure AD para a conta do Azure registrado com a validação como um serviço. |

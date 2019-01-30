@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304340"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246755"
 ---
 # <a name="optimize-sql-server-performance"></a>Otimizar o desempenho do SQL Server
 
@@ -120,7 +121,7 @@ A unidade de armazenamento temporário, rotulada como a **1!d** unidade, não é
 
 - Determine o número de discos associados ao seu pool de armazenamento com base nas suas expectativas de carga. Tenha em mente que tamanhos de máquina virtual diferente permite que diferentes números de discos de dados anexados. Para obter mais informações, consulte [tamanhos de máquina Virtual com suporte no Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Para obter o máximo possível de IOPS para discos de dados, a recomendação é adicionar o número máximo de discos de dados com suporte pelo seu [tamanho da máquina virtual](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) e usar a distribuição de disco.
-- **Tamanho da unidade de alocação NTFS:** Ao formatar o disco de dados, é recomendável que você use um tamanho de unidade de alocação de 64 KB para arquivos de log e dados, bem como em TempDB.
+- **Tamanho da unidade de alocação NTFS:** Ao formatar o disco de dados, recomendamos o uso de um tamanho de unidade de alocação de 64 KB para arquivos de dados e de log e também para o TempDB.
 - **Práticas recomendadas de gerenciamento de disco:** Ao remover um disco de dados, pare o serviço do SQL Server durante a alteração. Além disso, não altere as configurações de cache nos discos que ele não fornece qualquer melhorias de desempenho.
 
 > [!WARNING]  

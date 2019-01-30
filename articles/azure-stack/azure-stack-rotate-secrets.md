@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e4131bc8f038957e52b914937b2d45e670be8f5f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157268"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251343"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Girar os segredos no Azure Stack
 
@@ -62,13 +63,13 @@ O Azure Stack oferece suporte a rotação secreta com certificados externos de u
 
 |Certificação instalada|Autoridade de certificação para girar|Com suporte|O Azure Stack versões com suporte|
 |-----|-----|-----|-----|
-|De autoassinado|Para o Enterprise|Sem suporte||
+|De autoassinado|To Enterprise|Sem suporte||
 |De autoassinado|Para autoassinado|Sem suporte||
 |De autoassinado|Para o público<sup>*</sup>|Com suporte|1803 & mais tarde|
-|Da empresa|Para o Enterprise|Suporte desde que os clientes usam a mesma autoridade de certificação como usados na implantação corporativa|1803 & mais tarde|
+|Da empresa|To Enterprise|Suporte desde que os clientes usam a mesma autoridade de certificação como usados na implantação corporativa|1803 & mais tarde|
 |Da empresa|Para autoassinado|Sem suporte||
 |Da empresa|Para o público<sup>*</sup>|Com suporte|1803 & mais tarde|
-|Do público<sup>*</sup>|Para o Enterprise|Sem suporte|1803 & mais tarde|
+|Do público<sup>*</sup>|To Enterprise|Sem suporte|1803 & mais tarde|
 |Do público<sup>*</sup>|Para autoassinado|Sem suporte||
 |Do público<sup>*</sup>|Para o público<sup>*</sup>|Com suporte|1803 & mais tarde|
 
@@ -135,9 +136,9 @@ Executar a rotação do segredo usando as instruções a seguir corrigirá esses
 > Montagem do compartilhamento de arquivos deve ter aparência **\\ \\ \<IPAddress >\\\<ShareName >\\** e ela deve conter uma pasta  **Certificates\AAD** ou **Certificates\ADFS** dentro.
 >
 > Por exemplo: 
-> - Compartilhamento de arquivos =  **\\ \\ \<IPAddress >\\\<ShareName >\\**
+> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath =  **\\ \\ \<IPAddress >\\\<ShareName > \Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
 ## <a name="rotating-external-secrets"></a>Girando segredos externos
 
@@ -297,13 +298,13 @@ O **SecretRotation início** cmdlet gira os segredos de infraestrutura de um sis
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Tipo | Obrigatório | Position | Padrão | DESCRIÇÃO |
+| Parâmetro | Type | Obrigatório | Position | Padrão | DESCRIÇÃO |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Cadeia de caracteres  | Falso  | nomeado  | Nenhum  | O caminho de compartilhamento de arquivos para o **\Certificates** diretório contendo externa de todos os certificados de ponto de extremidade de rede. Necessário apenas para segredos externos para girar. Diretório de término deve estar **\Certificates**. |
 | CertificatePassword | SecureString | Falso  | nomeado  | Nenhum  | A senha para todos os certificados fornecidos no PfXFilesPath. Valor obrigatório se PfxFilesPath é fornecida quando segredos externos são girados. |
 | Interna | Cadeia de caracteres | Falso | nomeado | Nenhum | Sinalizador interno deve ser usado sempre que um operador do Azure Stack deseja girar segredos de infraestrutura interna. |
 | PathAccessCredential | PSCredential | Falso  | nomeado  | Nenhum  | A credencial do PowerShell para o compartilhamento de arquivos do **\Certificates** diretório contendo externa de todos os certificados de ponto de extremidade de rede. Necessário apenas para segredos externos para girar.  |
-| Executar novamente | SwitchParameter | Falso  | nomeado  | Nenhum  | Execute novamente deve ser usado sempre que a rotação do segredo é uma nova tentativa após uma tentativa com falha. |
+| ReRun | SwitchParameter | Falso  | nomeado  | Nenhum  | Execute novamente deve ser usado sempre que a rotação do segredo é uma nova tentativa após uma tentativa com falha. |
 
 ### <a name="examples"></a>Exemplos
 

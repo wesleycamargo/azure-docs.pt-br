@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: cca5fe492032c74a9922780f197065e9c2b40ad3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966103"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241145"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Práticas recomendadas do serviço de Backup de infraestrutura
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Você pode seguir as práticas recomendadas quando você implanta e gerencia o Azure Stack em seu datacenter para ajudar a reduzir a perda de dados no caso de uma falha catastrófica.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Serviço de aplicativo no Azure Stack: atualização de domínio de falha | Microsoft Docs'
+title: 'Serviço de aplicativo no Azure Stack: Atualização de domínio de falha | Microsoft Docs'
 description: Como redistribuir o serviço de aplicativo do Azure no Azure Stack em domínios de falha
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: d361b4165c1fbbf79321e3f6d2ade711f9173c56
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.lastreviewed: 09/05/2018
+ms.openlocfilehash: 249e4b466e9be567111aaa22b40ca3e5dadb6cac
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267208"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246374"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Como redistribuir o serviço de aplicativo do Azure no Azure Stack em domínios de falha
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Com a atualização 1802, Azure Stack agora dá suporte a distribuição de cargas de trabalho entre domínios de falha, um recurso que é essencial para alta disponibilidade.
 

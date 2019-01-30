@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Firstbird | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Firstbird | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Firstbird.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: acab1200-32d3-4f4b-953f-f2a7e812b6a3
 ms.service: Azure-Active-Directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4de6323d3cf6c642ea7714eabf45200e1be0c269
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d11674632599afa190237b2a4a516d7cce6e2150
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883624"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810237"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Tutorial: Integração do Azure Active Directory com o Firstbird
+# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Tutorial: Integração do Azure Active Directory ao Firstbird
 
 Neste tutorial, você aprenderá a integrar o Firstbird ao Azure AD (Azure Active Directory).
 A integração do Firstbird ao Azure AD oferece os seguintes benefícios:
@@ -79,8 +79,8 @@ Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do Firstbird](#configure-firstbird-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Criar um usuário de teste do Firstbird](#create-firstbird-test-user)** – para ter um equivalente de Brenda Fernandes no Firstbird que esteja vinculado à representação de usuário do Azure AD.
-5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Firstbird](#create-firstbird-test-user)** – para ter um equivalente de Brenda Fernandes no Firstbird que esteja vinculado à representação de usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -105,16 +105,16 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Informações de logon único em Domínio e URLs do Firstbird](common/idp_intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company-domain>.auth.1brd.com/saml/sp`.
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company-domain>.auth.1brd.com/saml/sp`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o padrão a seguir: `https://<company-domain>.auth.1brd.com/saml/callback`.
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company-domain>.auth.1brd.com/saml/callback`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     ![Informações de logon único em Domínio e URLs do Firstbird](common/metadata_upload_additional_signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<company-domain>.1brd.com/login`.
-    
+    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<company-domain>.1brd.com/login`
+
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte do Firstbird](mailto:support@firstbird.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
@@ -154,7 +154,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 ### <a name="configure-firstbird-single-sign-on"></a>Configurar o logon único do Firstbird
 
-Depois de concluir essas etapas, envie ao Firstbird o XML de Metadados de Federação em uma solicitação de suporte via email para [support@firstbird.com](mailto:support@firstbird.com) com o assunto: "Configuração de SSO".
+Depois de concluir essas etapas, envie ao Firstbird o XML de metadados de federação em uma solicitação de suporte via email para [support@firstbird.com](mailto:support@firstbird.com) com o assunto: "Configuração de SSO".
 
 O Firstbird armazenará adequadamente a configuração no sistema e ativará o SSO para sua conta. Depois disso, um membro da equipe de suporte entrará em contato para verificar a configuração.
 

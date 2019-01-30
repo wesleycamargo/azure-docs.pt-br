@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: a9ca61d7845c427429282885c658f4a4cb9b7b7a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: ff7513f197b3035b88748e2e73c38789d9010d9c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097649"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251309"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Usando o ponto de extremidade privilegiado no Azure Stack
 
@@ -108,7 +109,7 @@ Antes de iniciar este procedimento para um sistema integrado, certifique-se de q
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Dicas para usar o ponto de extremidade com privilégios 
 
-Conforme mencionado acima, o PEP é um [JEA PowerShell](https://docs.microsoft.com/powershell/jea/overview) ponto de extremidade. Além de fornecer uma camada de segurança forte, um ponto de extremidade JEA reduz alguns dos recursos básicos do PowerShell, como o preenchimento com tab ou scripts. Se você tentar qualquer tipo de operação de script, a operação falhará com o erro **ScriptsNotAllowed**. Esse comportamento é esperado.
+Conforme mencionado acima, o PEP é um [JEA PowerShell](https://docs.microsoft.com/powershell/jea/overview) ponto de extremidade. Além de fornecer uma camada de segurança forte, um ponto de extremidade JEA reduz alguns dos recursos básicos do PowerShell, como o preenchimento com tab ou scripts. Se você tentar qualquer tipo de operação de script, a operação falhará com o erro **ScriptsNotAllowed**. Este comportamento é esperado.
 
 Portanto, por exemplo, para obter a lista de parâmetros para um cmdlet, você execute o seguinte comando:
 

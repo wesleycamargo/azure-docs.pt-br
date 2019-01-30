@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 03/20/2018
+ms.openlocfilehash: 9288ffa406b0e5765b35fa9b23aa13dee5754e9a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971888"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240014"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Serviço de aplicativo no Azure Stack update notas de versão 1
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Essas notas de versão descrevem os aperfeiçoamentos e correções no serviço de aplicativo do Azure no Azure Stack Update 1 e todos os problemas conhecidos. Problemas conhecidos são divididos em questões relacionadas diretamente para a implantação, o processo de atualização e a problemas com a compilação (após a instalação).
 
@@ -202,13 +203,13 @@ Troca de slot de site é dividida nesta versão. Para restaurar a funcionalidade
 
 Se você optar por implantar em uma rede virtual existente e um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB. Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
 
-- Fonte: qualquer
+- Origem: Qualquer
 - Intervalo de porta de origem: *
 - Destino: Endereços IP
-- Intervalo de endereços IP de destino: intervalo de IPs para seu servidor de arquivos
+- Intervalo de endereços IP de destino: Intervalo de IPs para seu servidor de arquivos
 - Intervalo de porta de destino: 445
 - Protocolo: TCP
-- Ação: permitir
+- Ação: PERMITIR
 - Prioridade: 700
 - Nome: Outbound_Allow_SMB445
 

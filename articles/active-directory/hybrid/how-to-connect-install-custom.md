@@ -1,11 +1,11 @@
 ---
-title: Instalação personalizada do Azure AD Connect | Microsoft Docs
+title: 'Azure AD Connect: Instalação personalizada| Microsoft Docs'
 description: Este documento fornece detalhes sobre as opções de instalação personalizada para o Azure AD Connect. Use estas instruções para instalar o Active Directory por meio do Azure AD Connect.
 services: active-directory
 keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do AD do Azure
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1cdf332e34df5f0b3d2058ba5980b67582f14a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 394f61f9fca06f5471edc62e99be8fa6bb415e40
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248819"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471626"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](how-to-connect-install-express.md) não satisfaz à sua implantação ou a topologia.
@@ -114,7 +114,7 @@ Se você planeja usar a [filtragem baseada em grupo](#sync-filtering-based-on-gr
 
 Também é possível que alguns domínios não estejam acessíveis devido a restrições de firewall. Esses domínios estão desmarcados por padrão e têm um aviso.  
 ![Domínios inacessíveis](./media/how-to-connect-install-custom/unreachable.png)  
-Se for mostrado este aviso, verifique se os domínios realmente não podem ser acessados e se o aviso é esperado.
+ Se for mostrado este aviso, verifique se os domínios realmente não podem ser acessados e se o aviso é esperado.
 
 ### <a name="uniquely-identifying-your-users"></a>Identificando seus usuários com exclusividade
 
@@ -129,14 +129,14 @@ A correspondência entre os recursos de florestas permite que você defina como 
 | [Atributo de email](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Essa opção associa usuários e contatos quando o atributo de email tem o mesmo valor em florestas diferentes. Será recomendável usar essa opção quando seus contatos tiverem sido criados com GALSync. Se esta opção for escolhida, os Objetos de usuário cujo Atributo de email não são preenchidos não serão sincronizados para o Azure AD. |
 | [ObjectSID e msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Essa opção associa um usuário habilitado em uma floresta de conta com um usuário desabilitado em uma floresta de recursos. No Exchange, essa configuração é conhecida como uma caixa de correio vinculada. Essa opção também pode ser usada se você usar somente o Lync e o Exchange não estiver presente na floresta de recursos. |
 | sAMAccountName e MailNickName |Essa opção une atributos onde é esperada a ID de entrada para que o usuário possa ser encontrado. |
-| Um atributo específico |Essa opção permite que você selecione seu próprio atributo. Se esta opção for escolhida, os Objetos de usuário cujo Atributo (selecionado) de email não são preenchidos não serão sincronizados para o Azure AD. **Limitação:** escolha um atributo que já possa ser encontrado no metaverso. Se você escolher um atributo personalizado (que não esteja no metaverso), o assistente não poderá ser concluído. |
+| Um atributo específico |Essa opção permite que você selecione seu próprio atributo. Se esta opção for escolhida, os Objetos de usuário cujo Atributo (selecionado) de email não são preenchidos não serão sincronizados para o Azure AD. **Limitação**: escolha um atributo que já possa ser encontrado no metaverso. Se você escolher um atributo personalizado (que não esteja no metaverso), o assistente não poderá ser concluído. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Selecione como os usuários devem ser identificados no Azure AD - âncora de origem
 O atributo sourceAnchor é um atributo imutável durante o tempo de vida de um objeto de usuário. É a chave primária de vinculação de usuário local com o usuário no AD do Azure.
 
 | Configuração | DESCRIÇÃO |
 | --- | --- |
-| Permitir que o Azure gerencie a âncora de origem para mim | Selecione esta opção se deseja que Azure AD escolha o atributo para você. Se você selecionar essa opção, o assistente do Azure AD Connect aplicará a lógica de seleção de atributo sourceAnchor descrita na seção do artigo [Azure AD Connect: conceitos de design - Usando o atributo ms-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). O assistente informará qual atributo foi selecionado como atributo de âncora de origem após a conclusão da instalação personalizada. |
+| Permitir que o Azure gerencie a âncora de origem para mim | Selecione esta opção se deseja que Azure AD escolha o atributo para você. Se você selecionar essa opção, o assistente do Azure AD Connect aplicará a lógica de seleção de atributo sourceAnchor descrita na seção do artigo [Azure AD Connect: Conceitos de design – usando ms-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). O assistente informará qual atributo foi selecionado como atributo de âncora de origem após a conclusão da instalação personalizada. |
 | Um atributo específico | Selecione esta opção se você quiser especificar um atributo existente do AD como o atributo sourceAnchor. |
 
 Como o atributo não pode ser alterado, você deve planejar um bom atributo para usar. Um bom candidato é objectGUID. Esse atributo não será alterado, a menos que a conta de usuário seja movida entre florestas/domínios. Evite atributos que seriam alterados quando uma pessoa casasse ou mudasse de cargo. Você não pode usar atributos com um caractere @-sign, portanto, email e userPrincipalName não podem ser usados. O atributo também diferencia maiúsculas de minúsculas. Portanto, se você mover um objeto entre florestas, preserve as maiúsculas/minúsculas. Os atributos binários são codificados em base64, mas outros tipos de atributo permanecem no estado não codificado. Em cenários de federação e em algumas interfaces do AD do Azure, esse atributo também é conhecido como immutableID. Mais informações sobre a âncora de origem podem ser encontradas nos [conceitos de design](plan-connect-design-concepts.md#sourceanchor).
@@ -159,7 +159,7 @@ Essa tela permite que você selecione os recursos opcionais para seus cenários 
 >[!WARNING]
 >O Azure AD Connect versão **1.0.8641.0** e anteriores se baseia no Serviço de Controle de Acesso do Azure para write-back de senha.  Este serviço será desativado em **7 de novembro de 2018**.  Se você estiver usando qualquer uma dessas versões do Azure AD Connect e tiver habilitado o write-back de senha, os usuários poderão perder a capacidade de alterar ou redefinir as respectivas senhas depois que o serviço for desativado. O write-back de senha com essas versões do Azure AD Connect não será compatível.
 >
->Para obter mais informações sobre o Serviço de Controle de Acesso do Azure, veja [Como migrar do Serviço de Controle de Acesso do Azure](../develop/active-directory-acs-migration.md)
+>Para obter mais informações sobre o serviço de Controle de Acesso do Azure, consulte [Como: Migrar do serviço de Controle de Acesso do Azure](../develop/active-directory-acs-migration.md)
 >
 >Para baixar a versão mais recente do Azure AD Connect, clique [aqui](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
 
@@ -371,12 +371,12 @@ O Azure AD Connect verificará as configurações de DNS para você quando você
 
 **Verificações de conectividade da intranet**
 
-* Resolver o FQDN da federação: o Azure AD Connect verifica se o FQDN da federação pode ser resolvido pelo DNS a fim de garantir a conectividade. Se o Azure AD Connect não puder resolver o FQDN, a verificação falhará. Certifique-se de que um exista um registro DNS para o FQDN do serviço de federação para concluir com êxito a verificação.
-* Registro DNS A: o Azure AD Connect verifica se há um registro A para seu serviço de Federação. Na ausência de um registro A, a verificação falhará. Crie um registro A, e não um registro CNAME, para o FQDN da federação a fim de concluir com êxito a verificação.
+* Resolva o FQDN da federação: o Azure AD Connect verifica se o FQDN da federação pode ser resolvido pelo DNS a fim de garantir a conectividade. Se o Azure AD Connect não puder resolver o FQDN, a verificação falhará. Certifique-se de que um exista um registro DNS para o FQDN do serviço de federação para concluir com êxito a verificação.
+* Registro de DNS A: o Azure AD Connect verifica se há um registro A para seu serviço de federação. Na ausência de um registro A, a verificação falhará. Crie um registro A, e não um registro CNAME, para o FQDN da federação a fim de concluir com êxito a verificação.
 
 **Verificações de conectividade da extranet**
 
-* Resolver o FQDN da federação: o Azure AD Connect verifica se o FQDN da federação pode ser resolvido pelo DNS a fim de garantir a conectividade.
+* Resolva o FQDN da federação: o Azure AD Connect verifica se o FQDN da federação pode ser resolvido pelo DNS a fim de garantir a conectividade.
 
 ![Concluído](./media/how-to-connect-install-custom/completed.png)
 
@@ -385,7 +385,7 @@ O Azure AD Connect verificará as configurações de DNS para você quando você
 Para validar se a autenticação de ponta a ponta é bem-sucedida, execute manualmente um ou mais os seguintes testes:
 
 * Uma vez que a sincronização foi concluída, use a tarefa adicional de logon federada Verifique se no Azure AD Connect para verificar a autenticação para uma conta de usuário local de sua escolha.
-* Valide que você pode entrar a partir de um navegador de um computador de ingresso no domínio na intranet: conecte-se a https://myapps.microsoft.com e verifique a entrada com sua conta conectada. A conta interna de administrador do AD DS não está sincronizada e não pode ser usada para a verificação.
+* Confirme se você pode entrar em um navegador de um computador de ingresso no domínio na intranet: Conecte-se ao https://myapps.microsoft.com e verifique a entrada com sua conta conectada. A conta interna de administrador do AD DS não está sincronizada e não pode ser usada para a verificação.
 * Valide que você pode entrar em um dispositivo da extranet. Em um computador doméstico ou em um dispositivo móvel, conecte-se a https://myapps.microsoft.com e forneça suas credenciais.
 * Valide a entrada do cliente avançado. Conecte-se a https://testconnectivity.microsoft.com, escolha a guia **Office 365** e escolha o **Teste de Logon Único do Office 365**.
 
@@ -416,7 +416,7 @@ Após a instalação, saia e entre novamente no Windows antes de usar o Gerencia
 
 Agora que você tem o Azure AD Connect instalado, é possível [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).
 
-Saiba mais sobre estes recursos, que foram habilitados com a instalação: [impedir exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).
+Saiba mais sobre estes recursos que foram habilitados com a instalação: [Impedir exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](how-to-connect-sync-feature-scheduler.md).
 

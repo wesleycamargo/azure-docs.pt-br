@@ -13,16 +13,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: 4641dce6fe8518016ee85cd480de6d11354fe170
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 09d3d996e4c939d6691162d66f303536a3f2038d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037203"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239257"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorar as atualizações no Azure Stack usando o ponto de extremidade com privilégios
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Você pode usar o [ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md) para monitorar o progresso de uma pilha do Azure atualização executada e retomar uma atualização com falha na execução da última etapa bem-sucedida portal do Azure Stack ficar indisponível.  Usando o portal do Azure Stack é o método recomendado para gerenciar atualizações no Azure Stack.
 
@@ -35,7 +36,7 @@ Os seguintes novos cmdlets de PowerShell para gerenciamento de atualizações s�
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Verifique se que os cmdlets estão disponíveis
-Como os cmdlets são novos no pacote de atualização 1710 para o Azure Stack, o processo de atualização 1710 precisa ir até um determinado ponto antes que o recurso de monitoramento está disponível. Normalmente, os cmdlets estão disponíveis se o status no portal do administrador indica que a atualização 1710 está no **reinicie o armazenamento de Hosts** etapa. Especificamente, a atualização do cmdlet ocorre durante **etapa: executando etapa 2.6 - lista de permissões de atualização PrivilegedEndpoint**.
+Como os cmdlets são novos no pacote de atualização 1710 para o Azure Stack, o processo de atualização 1710 precisa ir até um determinado ponto antes que o recurso de monitoramento está disponível. Normalmente, os cmdlets estão disponíveis se o status no portal do administrador indica que a atualização 1710 está no **reinicie o armazenamento de Hosts** etapa. Especificamente, a atualização do cmdlet ocorre durante a **etapa: Executando etapa 2.6 - lista de permissões de atualização PrivilegedEndpoint**.
 
 Você também pode determinar se os cmdlets estão disponíveis por meio de programação, consultando a lista de comandos do ponto de extremidade com privilégios. Para fazer isso, execute os seguintes comandos do host de ciclo de vida do hardware ou de uma estação de trabalho de acesso privilegiado. Além disso, certifique-se de que o ponto de extremidade com privilégios é um host confiável. Para obter mais informações, consulte a etapa 1 [acessar o ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
 

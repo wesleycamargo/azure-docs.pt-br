@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104090"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243633"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar um item do Marketplace
 
@@ -128,7 +129,7 @@ ms.locfileid: "54104090"
 
 ### <a name="identity-information"></a>Informações de identidade
 
-| NOME | Obrigatório | Tipo | Restrições | DESCRIÇÃO |
+| NOME | Obrigatório | Type | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | NOME |X |Cadeia de caracteres |[A-Za-z0-9]+ | |
 | Publicador |X |Cadeia de caracteres |[A-Za-z0-9]+ | |
@@ -136,7 +137,7 @@ ms.locfileid: "54104090"
 
 ### <a name="metadata"></a>Metadados
 
-| NOME | Obrigatório | Tipo | Restrições | DESCRIÇÃO |
+| NOME | Obrigatório | Type | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Cadeia de caracteres |Recomendação de 80 caracteres |O portal não pode exibir o nome do item normalmente se ele tiver mais de 80 caracteres. |
 | PublisherDisplayName |X |Cadeia de caracteres |Recomendação de 30 caracteres |O portal não pode exibir o nome do Editor normalmente se ele for maior que 30 caracteres. |
@@ -165,7 +166,7 @@ Cada item do Marketplace deve ser marcada com uma categoria que identifica onde 
 
 Cada item do Marketplace pode incluir vários links para conteúdo adicional. Os links são especificados como uma lista de nomes e URIs:
 
-| NOME | Obrigatório | Tipo | Restrições | DESCRIÇÃO |
+| NOME | Obrigatório | Type | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Cadeia de caracteres |Máximo de 64 caracteres | |
 | Uri |X |URI | | |
@@ -174,7 +175,7 @@ Cada item do Marketplace pode incluir vários links para conteúdo adicional. Os
 
 Além dos metadados anteriores, os autores do Marketplace podem fornecer dados de par chave/valor personalizado da seguinte forma:
 
-| NOME | Obrigatório | Tipo | Restrições | DESCRIÇÃO |
+| NOME | Obrigatório | Type | Restrições | DESCRIÇÃO |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Cadeia de caracteres |Máximo de 25 caracteres | |
 | Valor |X |Cadeia de caracteres |Máximo de 30 caracteres | |

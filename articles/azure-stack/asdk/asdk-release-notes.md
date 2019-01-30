@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d1ff154c42709f0c672b30f7ec51a436fb44ce13
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/21/2018
+ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724735"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240337"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK 
  
@@ -420,7 +421,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 
 <!-- 2403291 - IS ASDK --> 
 - Você pode não ter o uso da barra de rolagem horizontal na parte inferior do portais do administrador e usuário. Se você não pode acessar a barra de rolagem horizontal, use a trilha para navegar até uma folha anterior no portal, selecionando o nome da folha você quer exibir na lista de navegação estrutural na parte superior esquerda do portal.
-  ![Navegação estrutural](media/asdk-release-notes/breadcrumb.png)
+  ![Breadcrumb](media/asdk-release-notes/breadcrumb.png)
 
 <!-- TBD -  IS ASDK --> 
 - Excluindo resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos de usuário ou grupo de recursos inteiro e, em seguida, exclua as assinaturas do usuário.

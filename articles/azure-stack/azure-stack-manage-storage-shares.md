@@ -14,12 +14,13 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 4267984ba2a08b4cc7c32a7b7d8442f19d5842d0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095459"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249088"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para o Azure Stack 
 
@@ -77,7 +78,7 @@ As opções para liberar espaço em um contêiner anexado [são limitadas](#move
 ## <a name="monitor-shares"></a>Compartilhamentos de monitor
 Use o PowerShell ou o portal de administração para monitorar compartilhamentos para que você possa entender quando o espaço livre é limitado. Quando você usa o portal, você receberá alertas sobre compartilhamentos que têm espaço suficiente.    
 
-### <a name="use-powershell"></a>Use o PowerShell
+### <a name="use-powershell"></a>Usar o PowerShell
 Como um operador de nuvem, você pode monitorar a capacidade de armazenamento de um compartilhamento usando o PowerShell **Get-AzsStorageShare** cmdlet. O cmdlet Get-AzsStorageShare retorna o espaço total, alocado e livre em bytes em cada um dos compartilhamentos.   
 ![Exemplo: Retornar espaço livre para compartilhamentos](media/azure-stack-manage-storage-shares/free-space.png)
 

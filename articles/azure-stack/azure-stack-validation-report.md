@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 44530a1c4eec0f2efca7357438366dd7b6abe42a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 10/23/2018
+ms.openlocfilehash: 1545fa3c1c94edc98e53b3579e5617a6bf16461c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093335"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238850"
 ---
 # <a name="azure-stack-validation-report"></a>Relatório de validação de pilha do Azure
 Use o verificador de preparação de pilha do Azure para executar validações que dão suporte à implantação e manutenção de um ambiente do Azure Stack. A ferramenta grava os resultados em um arquivo de relatório. JSON. O relatório exibe dados resumidos e detalhados sobre o estado de pré-requisitos para implantação do Azure Stack. O relatório também exibe informações sobre a rotação de segredos para implantações de pilha do Azure existente.  
@@ -87,7 +88,7 @@ PSBoundParameters :
 ```
 
 ## <a name="view-the-report-summary"></a>Exibir o relatório de resumo
-Para exibir um resumo do relatório, você pode adicionar o **-resumo** alternar para o final da linha de comando do PowerShell. Por exemplo: 
+Para exibir um resumo do relatório, você pode adicionar o **-resumo** alternar para o final da linha de comando do PowerShell. Por exemplo:  
  > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary`  
 
 O resumo mostra as validações que não têm resultados e indica a aprovação ou reprovação para validações forem concluídas. A saída é semelhante ao seguinte:
@@ -122,7 +123,7 @@ Para exibir um relatório que é filtrado em um único tipo de validação, use 
 - Certificado
 - AzureRegistration
 - AzureIdentity
-- Graph
+- Grafo
 - ADFS
 - Trabalhos   
 - Todos  

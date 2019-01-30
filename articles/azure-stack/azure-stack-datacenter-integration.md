@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 09/12/2018
+ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962674"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251870"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Datacenter para sistemas integrados do Azure Stack
 Se você estiver interessado em um sistema integrado do Azure Stack, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões de infraestrutura importante para o seu sistema de vários nó do Azure Stack. Ajuda a compreender essas considerações ao trabalhar com o fornecedor do hardware OEM como implantar o Azure Stack para seu datacenter.  
@@ -196,7 +197,7 @@ Para replicar dados para um local secundário e orquestrar o failover de aplicat
 ## <a name="learn-more"></a>Saiba mais
 
 - Para obter informações sobre casos de uso, compra, parceiros e fornecedores de hardware de OEM, consulte o [do Azure Stack](https://azure.microsoft.com/overview/azure-stack/) página do produto.
-- Para obter informações sobre o roteiro e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [do Azure Stack: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Para obter informações sobre o roteiro e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [Azure Stack: Uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Modelos de conexão de implantação de pilha do Azure](azure-stack-connection-models.md)

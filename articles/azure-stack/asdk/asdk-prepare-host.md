@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b5314ce874c253151b88882b086257f96612c019
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: ec7b56a7324f3c8c3e3459639e4fd00e92d93e8f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615379"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249741"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Preparar o computador de host ASDK
 Antes de instalar o ASDK no computador host, o ambiente ASDK deve estar preparado para a instalação. Quando o computador de host do kit de desenvolvimento foi preparado, ele será inicializado do disco rígido de máquina virtual CloudBuilder.vhdx para iniciar a implantação de ASDK.
@@ -47,13 +48,13 @@ Antes de instalar o ASDK no computador host, o ambiente do computador host ASDK 
 
     ![](media/asdk-prepare-host/1.PNG) 
 
-5. No **Cloudbuilder selecione vhdx** página do instalador, navegue até e selecione o **cloudbuilder.vhdx** arquivo que você baixou e extraiu na [as etapas anteriores](asdk-download.md). Nessa página, você também pode, opcionalmente, habilitar o **adicionar drivers** caixa de seleção se você precisar adicionar drivers adicionais para o computador de host do kit de desenvolvimento. Clique em **Próximo**.  
+5. No **Cloudbuilder selecione vhdx** página do instalador, navegue até e selecione o **cloudbuilder.vhdx** arquivo que você baixou e extraiu na [as etapas anteriores](asdk-download.md). Nessa página, você também pode, opcionalmente, habilitar o **adicionar drivers** caixa de seleção se você precisar adicionar drivers adicionais para o computador de host do kit de desenvolvimento. Clique em **Avançar**.  
 
     ![](media/asdk-prepare-host/2.PNG)
 
 6. Sobre o **configurações opcionais** , forneça o administrador local informações de conta para o computador de host do kit de desenvolvimento e, em seguida, clique em **próxima**. Você também pode fornecer valores para as seguintes configurações opcionais:
-  - **ComputerName**: essa opção define o nome do host do kit de desenvolvimento. O nome deve atender aos requisitos de FQDN e deve ser de 15 caracteres ou menos. O padrão é um nome aleatório gerado pelo Windows.
-  - **Configuração de IP estático**: define a sua implantação usar um endereço IP estático. Caso contrário, quando o instalador for reinicializado no cloudbuilder.vhdx, as interfaces de rede são configuradas com DHCP.
+  - **ComputerName**: Essa opção define o nome do host do kit de desenvolvimento. O nome deve atender aos requisitos de FQDN e deve ser de 15 caracteres ou menos. O padrão é um nome aleatório gerado pelo Windows.
+  - **Configuração de IP estático**: Define sua implantação usar um endereço IP estático. Caso contrário, quando o instalador for reinicializado no cloudbuilder.vhdx, as interfaces de rede são configuradas com DHCP.
 
     ![](media/asdk-prepare-host/3.PNG)
 

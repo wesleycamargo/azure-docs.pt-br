@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 2139b4c9a26aba829a0bfbe5cb5a56f2a8918aa7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263504"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239852"
 ---
 # <a name="redeploy-the-asdk"></a>Reimplantar o ASDK
 Neste artigo, você aprenderá como reimplantar o Azure Stack desenvolvimento ASDK (Kit) em um ambiente de não produção. Como atualizar o ASDK não tiver suporte, você precisará completamente reimplantá-lo para mover para uma versão mais recente. Também é possível reimplantar o ASDK a qualquer momento que você apenas deseja começar do zero.

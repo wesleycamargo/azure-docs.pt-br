@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Folloze | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Folloze | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Folloze.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b6265bbf-8216-4229-bda7-8dd1023a5f80
 ms.service: Azure-Active-Directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 121e5ec57dd8ec87c0b7156dc761e0d9bd7b76eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78752c7a3c47c8a61b179998533dbe9081c0a5ff
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883643"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810305"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutorial: integração do Azure Active Directory com o Folloze
+# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutorial: Integração do Azure Active Directory ao Folloze
 
 Neste tutorial, você aprenderá a integrar o Folloze ao Azure AD (Azure Active Directory).
 A integração do Folloze ao Azure AD oferece os seguintes benefícios:
@@ -79,8 +79,8 @@ Para configurar e testar o logon único do Azure AD com o Folloze, você precisa
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do Folloze](#configure-folloze-single-sign-on)** - para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Criar de um usuário de teste do Folloze](#create-folloze-test-user)** - para ter um equivalente de Brenda Fernandes no Folloze vinculado à representação do usuário no Azure AD.
-5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar de um usuário de teste do Folloze](#create-folloze-test-user)** - para ter um equivalente de Brenda Fernandes no Folloze vinculado à representação do usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -116,7 +116,7 @@ Para configurar o logon único do Azure AD com o Folloze, execute as seguintes e
     | Email | user.othermail |
     | Nameasemail | user.userprincipalname |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new_save_attribute.png)
 

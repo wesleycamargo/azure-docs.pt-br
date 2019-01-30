@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: a4e04bc9071f4f677230d112a7baa708e9e8dc34
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340181"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243225"
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede do Azure Stack para ajudá-lo a decidir como se integrar melhor a pilha do Azure em seu ambiente de rede existente. 
@@ -29,7 +30,7 @@ Este artigo fornece informações de infraestrutura de rede do Azure Stack para 
 > Para resolver nomes DNS externos do Azure Stack (por exemplo, www.bing.com), você precisa fornecer os servidores DNS para encaminhar solicitações DNS. Para obter mais informações sobre os requisitos de DNS do Azure Stack, consulte [integração de datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Design de rede física
-A solução do Azure Stack requer uma infraestrutura física resiliente e altamente disponível para dar suporte a seus serviços e a operação. Uplinks a partir do ToR comutadores de borda são limitadas a SFP + ou mídia SFP28 e 1 GB, 10 GB ou velocidades de 25 GB. Verifique com seu fornecedor de hardware do fabricante original do equipamento (OEM) para disponibilidade. O diagrama a seguir apresenta nosso design recomendado:
+A solução do Azure Stack requer uma infraestrutura física resiliente e altamente disponível para dar suporte a seus serviços e à operação. Uplinks a partir do ToR comutadores de borda são limitadas a SFP + ou mídia SFP28 e 1 GB, 10 GB ou velocidades de 25 GB. Verifique com seu fornecedor de hardware do fabricante original do equipamento (OEM) para disponibilidade. O diagrama a seguir apresenta nosso design recomendado:
 
 ![Design de rede do Azure Stack recomendado](media/azure-stack-network/recommended-design.png)
 

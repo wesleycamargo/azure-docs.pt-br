@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: sethm
-ms.openlocfilehash: b0236a790200feec7f1d16724f351882056b2cd5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.lastreviewed: 11/29/2018
+ms.openlocfilehash: 2e1b7257e7ffc4460d86018a6318e33f95e01700
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678518"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246257"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gerenciar a política do Azure usando o módulo de política do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O módulo de política do Azure Stack permite que você configure uma assinatura do Azure com o mesmo controle de versão e a disponibilidade do serviço como o Azure Stack. O módulo usa o [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) para criar uma política do Azure, o que limita os tipos de recursos e serviços disponíveis em uma assinatura. Crie uma atribuição de política no escopo apropriado, usando o [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet. Depois de configurar a política, você pode usar sua assinatura do Azure para desenvolver aplicativos direcionados para o Azure Stack.
 

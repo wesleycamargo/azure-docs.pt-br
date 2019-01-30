@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247564"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250632"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referência de cmdlet Start-AzsReadinessChecker
 
@@ -325,7 +326,7 @@ Especifica os valores válidos da implantação do Azure Stack sistema de identi
 |Digite:                       |Cadeia de caracteres        |
 |Posição:                   |nomeado         |
 |Valor padrão:              |Nenhum          |
-|Valores válidos:                |'ADD', 'ADFS'  |
+|Valores válidos:                |'AAD','ADFS'  |
 |Aceite entrada de pipeline:      |Falso         |
 |Aceite caracteres curinga: |Falso         |
 
@@ -397,7 +398,7 @@ Especifica um dicionário ordenado do assunto para a geração de solicitação 
 
 > -RequestType
 
-Especifica o tipo de SAN da solicitação de certificado. Valores válidos MultipleCSR, SingleCSR.
+Especifica o tipo de SAN da solicitação de certificado. Valid values MultipleCSR, SingleCSR.
 
 - *MultipleCSR* gera várias solicitações de certificado, uma para cada serviço.
 - *SingleCSR* gera uma solicitação de certificado para todos os serviços.
@@ -407,7 +408,7 @@ Especifica o tipo de SAN da solicitação de certificado. Valores válidos Multi
 |Digite:                       |Cadeia de caracteres   |
 |Posição:                   |nomeado    |
 |Valor padrão:              |Nenhum     |
-|Valores válidos:                |'MultipleCSR', 'SingleCSR' |
+|Valores válidos:                |'MultipleCSR','SingleCSR' |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite caracteres curinga: |Falso    |
 
@@ -452,7 +453,7 @@ Especifica a instância dos serviços do Azure que contém as contas, diretório
 |Digite:                       |Cadeia de caracteres   |
 |Posição:                   |nomeado    |
 |Valor padrão:              |Nenhum     |
-|Valores válidos:                |'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
+|Valores válidos:                |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite caracteres curinga: |Falso    |
 
@@ -507,7 +508,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Portal de administração, Admin do ARM, púb
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
 |Posição:                   |nomeado    |
-|Valor padrão:              |. \Certificates |
+|Valor padrão:              |.\Certificates |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite caracteres curinga: |Falso    |
 
@@ -531,7 +532,7 @@ Especifica se Mostrar relatório de resumo, apenas omite detalhes.
 |Digite:                       |Cadeia de caracteres   |
 |Posição:                   |nomeado    |
 |Valor padrão:              |Todos      |
-|Valores válidos:                |'Certificado de ', 'AzureRegistration', 'AzureIdentity', 'Trabalhos', 'Todos' |
+|Valores válidos:                |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite caracteres curinga: |Falso    |
 
@@ -552,7 +553,7 @@ Remove o histórico de execução e validação anterior e grava as validações
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |
-|Aliases:                    |CF                |
+|Aliases:                    |cf                |
 |Posição:                   |nomeado             |
 |Valor padrão:              |Falso             |
 |Aceite entrada de pipeline:      |Falso             |
@@ -566,7 +567,7 @@ Especifica o caminho personalizado para salvar o relatório de prontidão para J
 |----------------------------|------------------|
 |Digite:                       |Cadeia de caracteres            |
 |Posição:                   |nomeado             |
-|Valor padrão:              |$ENV: TEMP\AzsReadinessChecker  |
+|Valor padrão:              |$ENV:TEMP\AzsReadinessChecker  |
 |Aceite entrada de pipeline:      |Falso             |
 |Aceite caracteres curinga: |Falso             |
 
@@ -576,7 +577,7 @@ Solicita sua confirmação antes de executar o cmdlet.
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |
-|Aliases:                    |CF                |
+|Aliases:                    |cf                |
 |Posição:                   |nomeado             |
 |Valor padrão:              |Falso             |
 |Aceite entrada de pipeline:      |Falso             |
@@ -588,7 +589,7 @@ Mostra o que aconteceria se o cmdlet fosse executado. O cmdlet não é executado
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |
-|Aliases:                    |Wi                |
+|Aliases:                    |wi                |
 |Posição:                   |nomeado             |
 |Valor padrão:              |Falso             |
 |Aceite entrada de pipeline:      |Falso             |

@@ -15,13 +15,14 @@ ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: quying
+ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: ae32138dffa296a4aad9917897e180d364f189fc
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037815"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240804"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Tutorial: tornar bancos de dados SQL disponível para seus usuários do Azure Stack
 
@@ -69,7 +70,7 @@ Agora que você implantou o provedor de recursos do SQL Server e criado uma ofer
     - **Nome do banco de dados**: SQLdb
     - **Tamanho máximo em MB**: 100
     - **Assinatura**: TestSQLOffer
-    - **Grupo de recursos**: SQL-RG
+    - **Grupo de Recursos**: SQL-RG
 3. Selecione **configurações de logon**, insira as credenciais para o banco de dados e, em seguida, selecione **Okey**.
 4. Selecione **SKU** > selecione a SKU do SQL que você criou para o servidor de hospedagem SQL > e, em seguida, selecione **Okey**.
 5. Selecione **Criar**.

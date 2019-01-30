@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: cedc1ec84c049d779f09c31be1aa1a3af63dfe5b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 5f142192571bdd15a33575a425d75baf3e5caea2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094148"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243480"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Implantar uma solução de nuvem híbrida com o Azure e o Azure Stack
 
@@ -302,7 +303,7 @@ Quando você cria seu aplicativo web em um ambiente de serviço de aplicativo é
 
 1. No Azure, encontre o plano de serviço de aplicativo para os sites que você deseja escalar horizontalmente e, em seguida, selecione **Scale-out (plano do serviço de aplicativo)**.
 
-    ![Escalar horizontalmente](media/azure-stack-solution-hybrid-cloud/image16.png)
+    ![Expansão](media/azure-stack-solution-hybrid-cloud/image16.png)
 
 2. Selecione **habilitar o dimensionamento automático**.
 
@@ -428,7 +429,7 @@ Em seguida, você configurará o ponto de extremidade do Azure.
 
 Depois que ambos os pontos de extremidade são configurados, eles são listados em **perfil do Gerenciador de tráfego** quando você seleciona **pontos de extremidade**. O exemplo na captura de tela a seguir mostra dois pontos de extremidade, com informações de status e a configuração para cada um deles.
 
-![Pontos de Extremidade](media/azure-stack-solution-hybrid-cloud/image20.png)
+![Pontos de extremidade](media/azure-stack-solution-hybrid-cloud/image20.png)
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Configurar o Application Insights, monitoramento e alertas
 

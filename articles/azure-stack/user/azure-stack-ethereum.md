@@ -11,12 +11,13 @@ ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.openlocfilehash: 1d0e04e4fbc964400e8b5c1544344864f7e757a7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.lastreviewed: 11/02/2018
+ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019415"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239223"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Implantar uma rede de blockchain Ethereum no Azure Stack
 
@@ -72,7 +73,7 @@ O modelo de líder de consortium configura a superfície do primeiro membro na r
     NAMEPREFIX | A cadeia de caracteres usada como base para nomear os recursos implantados. | Caracteres alfanuméricos com comprimento de 1 a 6 | Eth
     TIPO DE AUTENTICAÇÃO | O método para autenticar para a máquina virtual. | Senha ou chave pública SSH | Senha
     ADMINUSERNAME | Nome de usuário do administrador de cada VM implantada | 1 a 64 caracteres | gethadmin
-    ADMINPASSWORD (tipo de autenticação = senha)| A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve ter três dos seguintes requisitos: um caractere maiúsculo, um caractere minúsculo, um número e um caractere especial. <br />Embora todas as máquinas virtuais tenham inicialmente a mesma senha, você pode alterar a senha após o provisionamento.|12 a 72 caracteres|
+    ADMINPASSWORD (tipo de autenticação = senha)| A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve conter 3 dos requisitos a seguir: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial. <br />Embora todas as VMs tenham inicialmente a mesma senha, você pode alterar a senha após o fornecimento.|12 a 72 caracteres|
     ADMINSSHKEY (tipo de autenticação = sshPublicKey) | A chave de shell segura usada para login remoto. | |
     GENESISBLOCK | Cadeia de caracteres JSON que representa o bloco gênese personalizado.  Especificando um valor para esse parâmetro é opcional. | |
     ETHEREUMACCOUNTPSSWD | A senha de administrador usada para proteger a conta de Ethereum. | |
@@ -122,7 +123,7 @@ Para verificar a implantação do líder, procure o site de administração do l
     NAMEPREFIX | A cadeia de caracteres usada como base para nomear os recursos implantados. | Caracteres alfanuméricos com comprimento de 1 a 6 | Eth
     TIPO DE AUTENTICAÇÃO | O método para autenticar para a máquina virtual. | Senha ou chave pública SSH | Senha
     ADMINUSERNAME | Nome de usuário do administrador de cada VM implantada | 1 a 64 caracteres | gethadmin
-    ADMINPASSWORD (tipo de autenticação = senha)| A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve ter três dos seguintes requisitos: um caractere maiúsculo, um caractere minúsculo, um número e um caractere especial. <br />Embora todas as máquinas virtuais tenham inicialmente a mesma senha, você pode alterar a senha após o provisionamento.|12 a 72 caracteres|
+    ADMINPASSWORD (tipo de autenticação = senha)| A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. A senha deve conter 3 dos requisitos a seguir: 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial. <br />Embora todas as VMs tenham inicialmente a mesma senha, você pode alterar a senha após o fornecimento.|12 a 72 caracteres|
     ADMINSSHKEY (tipo de autenticação = sshPublicKey) | A chave de shell segura usada para login remoto. | |
     CONSORTIUMMEMBERID | A ID associada a cada membro da rede consortium.   | Essa ID deve ser exclusiva na rede. | 0
     NUMMININGNODES | Número de nós de mineração. | Entre 2 e 15. | 2

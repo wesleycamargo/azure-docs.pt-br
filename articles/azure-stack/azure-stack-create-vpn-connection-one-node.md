@@ -15,13 +15,14 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: scottnap
+ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 65bf3d7eb84f4a4e6fe6d74bd08c41ba4d9dd637
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078895"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247214"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Criar uma conexão de VPN site a site entre duas redes virtuais em diferentes ambientes de Kit de desenvolvimento do Azure Stack
 ## <a name="overview"></a>Visão geral
@@ -35,7 +36,7 @@ O diagrama a seguir mostra o que a configuração de conexão deve ter aparênci
 ### <a name="before-you-begin"></a>Antes de começar
 Para concluir a configuração de conexão, certifique-se de que você tenha os seguintes itens antes de começar:
 
-* Dois servidores e outros pré-requisitos que atendem aos requisitos de hardware do Kit de desenvolvimento do Azure Stack, conforme descrito em [guia de início rápido: avaliar o Kit de desenvolvimento do Azure Stack](azure-stack-deploy-overview.md). 
+* Dois servidores e outros pré-requisitos que atendem aos requisitos de hardware do Kit de desenvolvimento do Azure Stack, conforme descrito em [guia de início rápido: Avaliar o Kit de desenvolvimento do Azure Stack](azure-stack-deploy-overview.md). 
 * O [Kit de desenvolvimento do Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/) pacote de implantação.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Implante os ambientes do Kit de desenvolvimento do Azure Stack
@@ -55,7 +56,7 @@ A tabela a seguir resume a configuração de rede para ambos os ambientes do Kit
 |---------|---------|---------|
 |Nome da rede virtual     |VNET-01|VNET-02 |
 |Espaço de endereço de rede virtual |10.0.10.0/23|10.0.20.0/23|
-|Nome da sub-rede     |Subrede-01|Subnet-02|
+|Nome da sub-rede     |Subnet-01|Subnet-02|
 |Intervalo de endereços da sub-rede|10.0.10.0/24 |10.0.20.0/24 |
 |Gateway de sub-rede     |10.0.11.0/24|10.0.21.0/24|
 |Endereço BGPNAT externo     |         |         |
@@ -164,7 +165,7 @@ Para validar os dados que trafegam por meio de conexão de VPN, você precisa de
 2. Vá para **Marketplace**e, em seguida, selecione **computação**.
 3. Na lista de imagens de máquina virtual, selecione a **Windows Server 2016 Datacenter Eval** imagem.
 4. Sobre o **Noções básicas** folha, na **nome**, insira **VM01**.
-5. Insira um nome de usuário válido e uma senha. Use essa conta para entrar na VM após sua criação.
+5. Insira um nome de usuário e uma senha válidos. Use essa conta para entrar na VM após sua criação.
 6. Fornecer um **assinatura**, **grupo de recursos**, e **local**e, em seguida, selecione **Okey**.
 7. Sobre o **tamanho** folha para esta instância, selecione um tamanho de máquina virtual e, em seguida, selecione **selecione**.
 8. Sobre o **configurações** folha, aceite os padrões. Certifique-se de que o **VNET-01** rede virtual está selecionada. Verificar se a sub-rede é definida como **10.0.10.0/24**. Depois, selecione **OK**.
@@ -207,7 +208,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
 3. Na lista de recursos de rede, selecione **gateway de rede Virtual**.
 4. Na **nome**, insira **GW2**.
 5. Para escolher uma rede virtual, selecione **rede Virtual**. Em seguida, selecione **VNET-02** na lista.
-6. Selecione **endereço IP público**. Quando o **escolher endereço IP público** folha abrir, selecione **criar novo**.
+6. Selecione **Endereço IP público**. Quando o **escolher endereço IP público** folha abrir, selecione **criar novo**.
 7. Na **nome**, insira **GW2-PiP**e, em seguida, selecione **Okey**.
 8. Por padrão, para **tipo de VPN**, **baseado em rota** está selecionado.
     Manter o **baseado em rota** tipo de VPN.
@@ -242,7 +243,7 @@ Criar uma máquina virtual em POC2 agora e colocá-lo em sua sub-rede VM em sua 
 2. Vá para **Marketplace**e, em seguida, selecione **computação**.
 3. Na lista de imagens de máquina virtual, selecione a **Windows Server 2016 Datacenter Eval** imagem.
 4. Sobre o **Noções básicas** folha, para **nome**, insira **VM02**.
-5. Insira um nome de usuário válido e uma senha. Use essa conta para entrar na máquina virtual após sua criação.
+5. Insira um nome de usuário e uma senha válidos. Use essa conta para entrar na máquina virtual após sua criação.
 6. Fornecer um **assinatura**, **grupo de recursos**, e **local**e, em seguida, selecione **Okey**.
 7. Sobre o **tamanho** folha, selecione uma máquina virtual de tamanho para esta instância e, em seguida, selecione **selecione**.
 8. Sobre o **configurações** folha, você pode aceitar os padrões. Certifique-se de que o **VNET-02** rede virtual está selecionado e verificar se a sub-rede é definida como **10.0.20.0/24**. Selecione **OK**.
@@ -325,7 +326,7 @@ Para garantir que você envia o tráfego por meio de conexão site a site, certi
      ![Botão conectar](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 5. Entre com a conta que você configurou quando criou a máquina virtual.
 6. Abrir com privilégios elevados **Windows PowerShell** janela.
-7. Insira **ipconfig/all**.
+7. Enter **ipconfig /all**.
 8. Na saída, localize o **endereço IPv4**, em seguida, salve o endereço para uso posterior. Esse é o endereço que você executará ping de POC2. No ambiente de exemplo, o endereço é **10.0.10.4**, mas, em seu ambiente, pode ser diferente. Ela deverá cair dentro de **10.0.10.0/24** sub-rede que você criou anteriormente.
 9. Para criar uma regra de firewall que permite que a máquina virtual para responder a pings, execute o seguinte comando do PowerShell:
 
@@ -342,7 +343,7 @@ Para garantir que você envia o tráfego por meio de conexão site a site, certi
 4. Na folha da máquina virtual, clique em **Conectar**.
 5. Entre com a conta que você configurou quando criou a máquina virtual.
 6. Abrir com privilégios elevados **Windows PowerShell** janela.
-7. Insira **ipconfig/all**.
+7. Enter **ipconfig /all**.
 8. Você deve ver um endereço IPv4 que esteja dentro **10.0.20.0/24**. No ambiente de exemplo, é o endereço **10.0.20.4**, mas seu endereço pode ser diferente.
 9. Para criar uma regra de firewall que permite que a máquina virtual para responder a pings, execute o seguinte comando do PowerShell:
 

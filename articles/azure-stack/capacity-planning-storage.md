@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 9ea46860817d60c2ffbde68c0fc5ae6f6ca14877
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368944"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245143"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Planejamento de capacidade de armazenamento de pilha do Azure
 As seções a seguir fornecem a capacidade de armazenamento do Azure Stack informações de planejamento para ajudar no planejamento de necessidades de armazenamento de soluções.
 
 ## <a name="uses-and-organization-of-storage-capacity"></a>Usos e organização de capacidade de armazenamento
-A configuração hiperconvergente do Azure Stack permite o compartilhamento de dispositivos físicos de armazenamento. São três divisões principais do armazenamento disponível entre a infraestrutura de armazenamento temporário de máquinas virtuais do locatário e o backup de blobs, tabelas e filas dos serviços de armazenamento do Azure consistente (ACS) de armazenamento.
+A configuração hiperconvergente do Azure Stack permite o compartilhamento de dispositivos de armazenamento físico. São três divisões principais do armazenamento disponível entre a infraestrutura de armazenamento temporário de máquinas virtuais do locatário e o backup de blobs, tabelas e filas dos serviços de armazenamento do Azure consistente (ACS) de armazenamento.
 
 ## <a name="spaces-direct-cache-and-capacity-tiers"></a>Cache e os níveis de capacidade de espaços diretos
-Não há capacidade de armazenamento usada para o sistema operacional, registro em log local, despejos de memória e outro armazenamento temporário de infra-estrutura precisa. Essa capacidade de armazenamento local é separar (dispositivos e capacidade) de dispositivos de armazenamento colocados sob gerenciamento da configuração de espaços de armazenamento diretos. O restante dos dispositivos de armazenamento é colocado em um único pool de capacidade de armazenamento, independentemente do número de servidores na unidade de escala. Esses dispositivos são de dois tipos: Cache e a capacidade.  Os dispositivos de Cache são apenas – Cache. Espaços diretos consumirá esses dispositivos para write-back e cache de leitura. As capacidades desses dispositivos de Cache, embora usado, não serão confirmadas à capacidade formatada, "visível" dos formatada-discos virtuais. Os dispositivos de capacidade são usados para essa finalidade e fornecem o "local de residência" dos dados gerenciados por espaços de armazenamento.
+Não há capacidade de armazenamento usada para o sistema operacional, registro em log local, despejos de memória e outro armazenamento temporário de infra-estrutura precisa. Essa capacidade de armazenamento local é separar (dispositivos e capacidade) de dispositivos de armazenamento colocados sob gerenciamento da configuração de espaços de armazenamento diretos. O restante dos dispositivos de armazenamento é colocado em um único pool de capacidade de armazenamento, independentemente do número de servidores na unidade de escala. Esses dispositivos são de dois tipos: O cache e capacidade.  Os dispositivos de Cache são apenas – Cache. Espaços diretos consumirá esses dispositivos para write-back e cache de leitura. As capacidades desses dispositivos de Cache, embora usado, não serão confirmadas à capacidade formatada, "visível" dos formatada-discos virtuais. Os dispositivos de capacidade são usados para essa finalidade e fornecem o "local de residência" dos dados gerenciados por espaços de armazenamento.
 
 Toda a capacidade de armazenamento é alocada e gerenciada diretamente pela infraestrutura do Azure Stack. O operador precisa tomar decisões sobre a configuração, a alocação, ou lidar com opções quando se trata de uma expansão de capacidade. Essas decisões de design foram feitas para alinhar com os requisitos da solução e são automatizados durante a instalação/implantação inicial ou durante a expansão da capacidade. Detalhes sobre a resiliência, capacidade reservada para recompilações e outros detalhes foram consideradas como parte do design. 
 

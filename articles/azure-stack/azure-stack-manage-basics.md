@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972381"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239665"
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração do Azure Stack
 Há várias coisas que você precisa saber se você é novo para a administração do Azure Stack. Este guia fornece uma visão geral de sua função como um operador do Azure Stack, e o que é preciso dizer que os usuários para que eles se tornarem rapidamente produtivos.
@@ -63,7 +64,7 @@ Esses serviços exigem configuração adicional antes que você pode torná-los 
 
 **Roteiro de serviço**
 
-O Azure Stack continuará a adicionar suporte para serviços do Azure. Para o roteiro projetado, consulte o [do Azure Stack: uma extensão do Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) white paper. Você também pode monitorar o [postagens de blog do Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) para ver anúncios sobre novas.
+O Azure Stack continuará a adicionar suporte para serviços do Azure. Para o roteiro projetado, consulte o [Azure Stack: Uma extensão do Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) white paper. Você também pode monitorar o [postagens de blog do Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) para ver anúncios sobre novas.
 
 ## <a name="what-account-should-i-use"></a>Qual conta devo usar?
 Há algumas considerações de conta, que você deve estar atento ao gerenciar o Azure Stack. Especialmente em implantações usando o Windows Server Active Directory Federation Services (AD FS) como o provedor de identidade em vez do Azure AD (Active Directory do Azure). As considerações de conta a seguir se aplicam a sistemas integrados do Azure Stack e implantações de ASDK:
@@ -108,7 +109,7 @@ Você precisará permitir que os usuários saber como trabalhar com os serviços
 
 Não há informações que os usuários devem entender antes de usar os serviços e aplicativos no Azure Stack. Por exemplo, há requisitos específicos de versão de API e PowerShell. Além disso, há alguns deltas de recurso entre um serviço no Azure e o serviço equivalente no Azure Stack. Certifique-se de que seus usuários examine os seguintes artigos:
 
-- [Considerações da chave: usando os serviços ou criação de aplicativos para o Azure Stack](user/azure-stack-considerations.md)
+- [Considerações importantes: Usando os serviços ou criação de aplicativos para o Azure Stack](user/azure-stack-considerations.md)
 - [Considerações para máquinas virtuais no Azure Stack](user/azure-stack-vm-considerations.md)
 - [Armazenamento: diferenças e considerações](user/azure-stack-acs-differences.md)
 

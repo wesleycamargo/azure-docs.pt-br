@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: e0de6b26499b4a5166db411eccee543be43c8352
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: fdc75f169ebd4b85e5e413277c265922fb27dfdb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245983"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239716"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>Operações de manutenção do provedor de recursos do MySQL
 
@@ -177,7 +178,7 @@ Para coletar logs da máquina virtual bloqueada, você pode usar o ponto de extr
 
 - **Get-AzsDBAdapterLog**. Este comando cria um pacote de zip dos logs de diagnóstico do provedor de recursos e salva o arquivo na unidade de usuário da sessão. Você pode executar esse comando sem parâmetros e as últimas quatro horas de logs são coletadas.
 
-- **Remover AzsDBAdapterLog**. Este comando remove os pacotes existentes do log no provedor de recursos de VM.
+- **Remove-AzsDBAdapterLog**. Este comando remove os pacotes existentes do log no provedor de recursos de VM.
 
 ### <a name="endpoint-requirements-and-process"></a>Processo e requisitos de ponto de extremidade
 

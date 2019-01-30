@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 3caa45064c41b641aa913e210aa698d818d5355e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 2111fe6a70f45559faeb3e0f8096548dcc7b48bc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970256"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238934"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Solução de problemas do Microsoft Azure Stack desenvolvimento ASDK (Kit)
 Este documento fornece informações de solução de problemas comuns para o ASDK. Se você estiver tendo um problema que não esteja documentado, certifique-se de verificar a [Fórum do MSDN do Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obter assistência adicional e informações.  

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024936"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244242"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública do Azure Stack
 
@@ -71,22 +72,22 @@ Para sua implantação, [Região] e [externalfqdn] valores devem coincidir com a
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | Portal público | portal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
 | Portal de administração | adminportal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
-| Público do Gerenciador de recursos do Azure | gerenciamento. &lt;região >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| Administração do Gerenciador de recursos do Azure | adminmanagement. &lt;região >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager Public | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Administração do Gerenciador de recursos do Azure | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Blobs | blob.&lt;region>.&lt;fqdn> |
-| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Tabelas | tabela. &lt;região >. &lt;fqdn > |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Tabelas | table.&lt;region>.&lt;fqdn> |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Armazenamento de Filas | queue.&lt;region>.&lt;fqdn> |
-| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Key Vault | cofre. &lt;região >. &lt;fqdn > |
-| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) |  Cofre de chaves interno |  adminvault. &lt;região >. &lt;fqdn > |
-| Host de extensão de administração | *.adminhosting. \<região >. \<fqdn > (os certificados SSL curinga) | Host de extensão de administração | adminhosting. \<região >. \<fqdn > |
-| Host de extensão público | * .hosting. \<região >. \<fqdn > (os certificados SSL curinga) | Host de extensão público | hospedagem. \<região >. \<fqdn > |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) | Key Vault | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado SSL curinga) |  Cofre de chaves interno |  adminvault.&lt;region>.&lt;fqdn> |
+| Host de extensão de administração | *.adminhosting. \<região >. \<fqdn > (os certificados SSL curinga) | Host de extensão de administração | adminhosting.\<region>.\<fqdn> |
+| Host de extensão público | * .hosting. \<região >. \<fqdn > (os certificados SSL curinga) | Host de extensão público | hosting.\<region>.\<fqdn> |
 
 Se você implantar o Azure Stack usando o modo de implantação do AD do Azure, você precisará solicitar certificados listados na tabela anterior. No entanto, se você implantar o Azure Stack usando o modo de implantação do AD FS, você também deve solicitar certificados descritos na tabela a seguir:
 
 |Pasta de implantação|Assunto do certificado necessário e nomes alternativos de entidade (SAN)|Escopo (por região)|Namespace de subdomínio|
 |-----|-----|-----|-----|
-|ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL)|ADFS|*&lt;region>.&lt;fqdn>*|
-|Grafo|graph.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL)|Grafo|*&lt;region>.&lt;fqdn>*|
+|ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate)|ADFS|*&lt;region>.&lt;fqdn>*|
+|Grafo|graph.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate)|Grafo|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]
@@ -104,9 +105,9 @@ A tabela a seguir descreve os pontos de extremidade e os certificados necessári
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL e MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL curinga)|dbadapter.*&lt;region>.&lt;fqdn>*|
 |Serviço de Aplicativo|Certificado SSL de padrão de tráfego da Web|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL curinga do domínio Multi<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|Serviço de Aplicativo|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|Serviço de Aplicativo|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|Serviço de Aplicativo|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificado SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|Serviço de Aplicativo|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|Serviço de Aplicativo|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|Serviço de Aplicativo|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL Certificate<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> requer um certificado com vários nomes alternativos da entidade de caractere curinga. Curinga várias SANs em um único certificado não pode ter suporte por todas as autoridades de certificação pública 
 

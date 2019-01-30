@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: ad76e19e324c29c277e72f1e93d2b505984b50ba
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 10a333e8521c781a223c767660ae6acaa1286929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368985"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251803"
 ---
 # <a name="azure-stack-capacity-planning"></a>Planejamento de capacidade do Azure Stack
 Ao avaliar uma solução de pilha do Azure, há opções de configuração de hardware que têm um impacto direto na capacidade geral da nuvem do Azure Stack. Essas são as opções clássicas da CPU, densidade de memória, configuração de armazenamento e geral escala da solução ou número de servidores. Ao contrário de uma solução de virtualização tradicionais, não é aplicável a aritmética simple desses componentes para determinar a capacidade utilizável. O primeiro motivo para isso é que o Azure Stack é projetado para hospedar os componentes de infraestrutura ou gerenciamento de dentro da solução em si. O segundo motivo é que alguns de capacidade da solução está reservado para dar suporte à resiliência; a atualização de software da solução de forma a minimizar as interrupções de cargas de trabalho de locatário.

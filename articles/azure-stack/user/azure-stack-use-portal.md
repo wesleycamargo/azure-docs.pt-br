@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 0bf725a20a7c030b0a835439c0f97f23b3cbef71
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097829"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252040"
 ---
 # <a name="use-the-azure-stack-portal"></a>Usar o portal do Azure Stack
 
@@ -65,7 +66,7 @@ Se você precisar de orientação sobre como usar os serviços disponíveis, pod
 
       Você pode usar a documentação do Azure como referência geral para um serviço, mas você deve estar ciente dessas diferenças. Entender que a documentação contém links sobre o **tutoriais de início rápido** bloco aponte para documentação do Azure.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 Se você precisar de suporte, entre em contato com seu provedor de serviço ou da organização para obter ajuda.
 

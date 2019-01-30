@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339671"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252296"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integração do datacenter do Azure Stack - DNS
 Ser capaz de acessar pontos de extremidade do Azure Stack (**portal**, **adminportal**, **gerenciamento**, **adminmanagement**, etc.)  de fora do Azure Stack, você precisa integrar os serviços de DNS do Azure Stack com os servidores DNS que hospedam as zonas DNS que você deseja usar no Azure Stack.
@@ -121,7 +122,7 @@ Se a máquina virtual de implantação não está mais disponível ou está inac
 
 A maneira mais simples e segura para integrar o Azure Stack com sua infraestrutura DNS é fazer o encaminhamento condicional da zona do servidor que hospeda a zona pai. Essa abordagem é recomendada se você tem controle direto sobre os servidores DNS que hospedam a zona pai para seu namespace DNS externo do Azure Stack.
 
-Se você não estiver familiarizado com como fazer o encaminhamento condicional com o DNS, consulte o seguinte artigo do TechNet: [atribuir um encaminhador condicional para um nome de domínio](https://technet.microsoft.com/library/cc794735), ou a documentação específica para sua solução de DNS.
+Se você não estiver familiarizado com como fazer condicional de encaminhamento de DNS, consulte o seguinte artigo do TechNet: [Atribuir um encaminhador condicional para um nome de domínio](https://technet.microsoft.com/library/cc794735), ou a documentação específica para sua solução de DNS.
 
 Em cenários em que você especificou que a zona de DNS de pilha do Azure externo para se parecer com um domínio filho de seu nome de domínio corporativo, o encaminhamento condicional não pode ser usado. Delegação de DNS deve ser configurada.
 

@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08335f676437a32aa2240298be4680633eff16ba
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.lastreviewed: 09/05/2018
+ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432963"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250037"
 ---
 # <a name="back-up-azure-stack"></a>Fazer backup do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Execute um backup sob demanda no Azure Stack com backup em vigor. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para Azure Stack ](azure-stack-powershell-install.md). Para entrar Azure Stack, consulte [usando o portal de administrador no Azure Stack](azure-stack-manage-portals.md).
 

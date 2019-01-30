@@ -15,13 +15,14 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
+ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: 7c4f8fd3d7a4885893a126c63776a5e241dc0f91
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 59a113739734c5e1a29de7e5876f255906ef5323
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246527"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252278"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Tutorial: tornar as máquinas virtuais disponíveis para seus usuários do Azure Stack
 
@@ -64,7 +65,7 @@ As ofertas são grupos de um ou mais planos que os provedores apresentam aos usu
 
 1. Selecione **Services**. Na lista de serviços, escolha **Microsoft. Compute**, **Network**, e **Microsoft. Storage**. Escolher **selecionar** para adicionar esses serviços ao plano.
 
-   ![Serviços do plano](media/azure-stack-tutorial-tenant-vm/image05.png)
+   ![Serviços de plano](media/azure-stack-tutorial-tenant-vm/image05.png)
 
 1. Selecione **cotas**e, em seguida, selecione o primeiro serviço que você deseja criar uma cota para. Para uma cota de IaaS, use o exemplo a seguir como um guia para configurar as cotas para os serviços de computação, rede e armazenamento.
 
@@ -112,7 +113,7 @@ Agora que você criou uma oferta, você pode testá-lo. Você deve entrar como u
    - Para um sistema integrado, a URL varia com base na região de seu operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se você estiver usando o Kit de desenvolvimento do Azure Stack, o endereço do portal é https://portal.local.azurestack.external.
 
-   ![Obtenha uma assinatura](media/azure-stack-tutorial-tenant-vm/image10.png)
+   ![Obter uma assinatura](media/azure-stack-tutorial-tenant-vm/image10.png)
 
    b. Na **obter uma assinatura**, insira um nome para sua assinatura na **nome de exibição** campo. Selecione **oferecem**e, em seguida, escolha uma das ofertas na **escolher uma oferta** lista. Selecione **Criar**.
 

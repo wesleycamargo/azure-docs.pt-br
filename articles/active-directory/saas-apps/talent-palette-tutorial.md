@@ -4,7 +4,7 @@ description: Saiba como configurar o logon único entre o Active Directory do Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 839dbf54-b636-477b-9cf8-157374c78e7a
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/30/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 7362b3279afc365db2a303de1b450c4e35e48874
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7438480d046be6242829060ce8ee936dd1cfb588
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883637"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Tutorial: Integração do Azure Active Directory ao Talent Palette
 
@@ -79,8 +79,8 @@ Para configurar e testar o logon único do AD do Azure com o Talent Palette, voc
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do Talent Palette](#configure-talent-palette-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Criar um usuário de teste do Talent Palette](#create-talent-palette-test-user)** – para ter um equivalente de Brenda Fernandes no Talent Palette que esteja vinculado à representação de usuário no Azure AD.
-5. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Talent Palette](#create-talent-palette-test-user)** – para ter um equivalente de Brenda Fernandes no Talent Palette que esteja vinculado à representação de usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -105,13 +105,13 @@ Para configurar o logon único do AD do Azure com o Talent Palette, execute as s
 
     ![Informações de logon único de URLs e Domínio do Talent Palette](common/both_replyurl.png)
 
-    Na caixa de texto **URL de resposta**, digite uma URL usando o seguinte padrão: `https://talent-p.net/saml/acs/<tenantID>`.
+    Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     ![Informações de logon único de URLs e Domínio do Talent Palette](common/both_signonurl.png)
-   
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://talent-p.net/saml/sso/<tenantID>`.
+
+    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://talent-p.net/saml/sso/<tenantID>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Talent Palette](mailto:talent-support@pa-consul.co.jp) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

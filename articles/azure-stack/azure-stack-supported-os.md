@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: cd44aa1dcc0ac5f97d39dee91fb547a333cb6ccf
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247700"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247843"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operacionais convidados com suporte no Azure Stack
 
@@ -69,7 +70,7 @@ Distribuições do Linux listadas como disponíveis no Marketplace incluem o nec
 | SLES 12SP3 | 64 bits | SUSE | Sim |
 | Ubuntu 14.04-LTS | 64 bits | Canônico | Sim |
 | Ubuntu 16.04-LTS | 64 bits | Canônico | Sim |
-| 18.04-LTS do Ubuntu | 64 bits | Canônico | Sim |
+| Ubuntu 18.04-LTS | 64 bits | Canônico | Sim |
 
 Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e Azure Stack: Perguntas frequentes](https://access.redhat.com/articles/3413531).
 

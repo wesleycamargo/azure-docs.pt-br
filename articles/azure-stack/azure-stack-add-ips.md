@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986410"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251615"
 ---
 # <a name="add-public-ip-addresses"></a>Adicionar endereços IP públicos
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*  
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*  
 
 Saiba como adicionar mais endereços IP públicos para o Azure Stack.  Neste artigo, nos referimos aos endereços externos, como endereços IP públicos, mas no Azure Stack isso se refere à adição de blocos de endereço IP à sua rede externa.  Se essa rede externa é roteável de Internet pública ou estiver em uma Intranet e usa o espaço de endereço privado realmente não importam para os fins deste artigo.  As etapas são os mesmos. 
 
@@ -49,7 +50,7 @@ A primeira coisa que você precisará fazer é obter o bloco de endereço que vo
 5.  Clique no IP público de pools de bloco de uso.
 6.  Clique no botão Adicionar IP pool.
 7.  Forneça um nome para o Pool de IP.  O nome escolhido é apenas para que você possa identificar facilmente o pool de IP para que você pode chamá-lo que você quiser.  Ele é uma boa prática para tornar o nome que o mesmo que o intervalo de endereços, mas que não é necessária.
-8.   Insira o bloco de endereço que você deseja adicionar na notação CIDR.  Por exemplo: 192.168.203.0/24
+8.   Insira o bloco de endereço que você deseja adicionar na notação CIDR.  Por exemplo:  192.168.203.0/24
 9.  Quando você fornece um intervalo CIDR válido no campo endereço do intervalo (bloco CIDR) o endereço IP inicial, endereço IP final e campos de endereços IP disponíveis serão preenchidos automaticamente.  Elas são somente leitura e geradas automaticamente para que você não pode alterá-las sem modificar o valor no campo de intervalo de endereço.
 10. Depois de revisar as informações sobre a folha e confirmando que tudo parece corrigi, clique em Okey para confirmar a alteração e adicionar o intervalo de endereços para o Azure Stack.
 
