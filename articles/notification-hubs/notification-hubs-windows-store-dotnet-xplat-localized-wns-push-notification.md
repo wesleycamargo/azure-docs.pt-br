@@ -3,8 +3,8 @@ title: Enviar notificações localizadas para aplicativos Windows usando Hubs de
 description: Saiba como usar os Hubs de Notificação do Azure para enviar notificações localizadas de últimas notícias.
 services: notification-hubs
 documentationcenter: windows
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: c454f5a3-a06b-45ac-91c7-f91210889b25
 ms.service: notification-hubs
@@ -13,29 +13,31 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 0e78b00e49b2ef468e693abfdcde8a138313ba63
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 9f5177b4474152cf54eb7ea9eb935a0ba81dc760
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918568"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451316"
 ---
-# <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações localizadas para aplicativos Windows usando Hubs de Notificação do Azure
+# <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações localizadas por push para aplicativos Windows usando Hubs de Notificação do Microsoft Azure
+
 > [!div class="op_single_selector"]
 > * [C# da Windows Store](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 ## <a name="overview"></a>Visão geral
-Este tutorial mostra como enviar notificações localizadas para dispositivos móveis registrados com o serviço de Hubs de Notificação. No tutorial, você atualiza aplicativos criados no [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) para suportar os seguintes cenários: 
+
+Este tutorial mostra como enviar notificações localizadas para dispositivos móveis registrados com o serviço de Hubs de Notificação. No tutorial, atualize os aplicativos criados no [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) para dar suporte aos seguintes cenários:
 
 - O aplicativo da Windows Store permite que dispositivos cliente especifiquem um idioma e se inscrevam em diferentes categorias de últimas notícias.
-- O aplicativo de back-end transmite notificações usando recursos **tag** e **modelo** dos Hubs de Notificação do Azure.
+- O aplicativo de back-end transmite notificações usando os recursos **tag** e **template** dos Hubs de Notificação do Microsoft Azure.
 
-Quando você concluir o tutorial, o aplicativo móvel permite registrar categorias que lhe interessam e também especificar um idioma no qual deseja receber as notificações. O aplicativo de back-end envia notificações que são localizadas por idioma e dispositivo. 
+Quando você concluir o tutorial, o aplicativo móvel permite registrar categorias que lhe interessam e também especificar um idioma no qual deseja receber as notificações. O aplicativo de back-end envia notificações que são localizadas por idioma e dispositivo.
 
-Neste tutorial, você aprenderá como: 
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Atualizar aplicativo do Windows para oferecer suporte a informações de localidade
@@ -43,9 +45,10 @@ Neste tutorial, você aprenderá como:
 > * Testar o aplicativo
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Concluir o [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md). 
 
-No [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), você criou um aplicativo usando **tags** para assinar notificações para diferentes **categorias** de notícias. Neste tutorial, você usa o recurso **modelo** de Hubs de Notificação para entregar facilmente notificações de últimas notícias **localizadas**.
+Conclua o [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+
+No [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), você criou um aplicativo que usou **tags** para assinar notificações para diferentes **categorias** de notícias. Neste tutorial, você usa o recurso **modelo** de Hubs de Notificação para entregar facilmente notificações de últimas notícias **localizadas**.
 
 Em um alto nível, os modelos são uma maneira de especificar o formato no qual um dispositivo específico deve receber uma notificação. O modelo especifica o formato exato da carga referindo-se às propriedades que fazem parte da mensagem enviada por seu aplicativo de back-end. Neste tutorial, o aplicativo de back-end envia uma mensagem que não reconhece a localidade que contém todos os idiomas suportados:
 
@@ -69,12 +72,12 @@ Os dispositivos se registram com um modelo que faz referência à propriedade co
 </toast>
 ```
 
-Para saber mais sobre modelos, consulte o artigo [Modelos](notification-hubs-templates-cross-platform-push-messages.md). 
+Para saber mais sobre modelos, confira [Push Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos de push).
 
 ## <a name="update-windows-app-to-support-locale-information"></a>Atualizar aplicativo do Windows para oferecer suporte a informações de localidade
 
-1. Abra a solução do Visual Studio que você criou para o [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md). 
-2. Atualize seu **MainPage.xaml** para incluir uma caixa de combinação de localidade:
+1. Abra a solução do Visual Studio que você criou para o [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+2. Atualize o arquivo `MainPage.xaml` da solução para incluir uma caixa de combinação de localidade:
 
     ```xml
     <Grid Margin="120, 58, 120, 80"  
@@ -106,9 +109,9 @@ Para saber mais sobre modelos, consulte o artigo [Modelos](notification-hubs-tem
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
     ```
-2. Na sua classe de **Notificações**, adicione o parâmetro de localidade a seus métodos **StoreCategoriesAndSubscribe** e **SubscribeToCateories**.
+3. Na classe `Notifications`, adicione um parâmetro de localidade aos métodos `StoreCategoriesAndSubscribe` e `SubscribeToCateories`.
 
-    ```csharp   
+    ```csharp
     public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
     {
         ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
@@ -133,11 +136,11 @@ Para saber mais sobre modelos, consulte o artigo [Modelos](notification-hubs-tem
     }
     ```
 
-    Em vez de chamar o método *RegisterNativeAsync*, chame *RegisterTemplateAsync*. Você deve registrar um formato de notificação específico no qual o modelo depende da localidade. Você também pode fornecer um nome para o modelo (“localizedWNSTemplateExample”), já que talvez você deseje registrar mais de um modelo (por exemplo, um para as notificações do sistema e outro para blocos). Você também precisa nomeá-los para atualizar ou excluí-los.
-   
+    Em vez de chamar o método `RegisterNativeAsync`, chame `RegisterTemplateAsync`. Você deve registrar um formato de notificação específico no qual o modelo depende da localidade. Você também pode fornecer um nome para o modelo (“localizedWNSTemplateExample”), já que talvez você deseje registrar mais de um modelo (por exemplo, um para as notificações do sistema e outro para blocos). Você também precisa nomeá-los para atualizar ou excluí-los.
+
     Se um dispositivo registrar vários modelos com a mesma marca, uma mensagem de entrada direcionada para aquela marca resultará em várias notificações entregues ao dispositivo (um para cada modelo). Esse comportamento é útil quando a mesma mensagem lógica precisa resultar em várias notificações visuais, por exemplo, mostrando uma notificação e uma notificação do sistema em um aplicativo da Windows Store.
-3. Adicione o seguinte método para recuperar a localidade armazenada:
-   
+4. Adicione o seguinte método para recuperar a localidade armazenada:
+
     ```csharp
     public string RetrieveLocale()
     {
@@ -146,8 +149,8 @@ Para saber mais sobre modelos, consulte o artigo [Modelos](notification-hubs-tem
     }
     ```
 
-4. No **MainPage.xaml.cs**, atualize o manipulador de clique de botão recuperando o valor atual da caixa de combinação Locale e fornecendo-o à chamada para a classe Notifications, conforme mostrado:
-   
+5. No arquivo `MainPage.xaml.cs`, atualize o manipulador de clique de botão para recuperar o valor atual da caixa de combinação Localidade e forneça-o à chamada para a classe `Notifications`:
+
     ```csharp
     private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
     {
@@ -170,9 +173,9 @@ Para saber mais sobre modelos, consulte o artigo [Modelos](notification-hubs-tem
         await dialog.ShowAsync();
     }
     ```
-4. Por fim, em seu arquivo App.xaml.cs, certifique-se de atualizar seu método `InitNotificationsAsync` para recuperar a localidade e usá-la ao inscrever-se:
+6. Por fim, no arquivo `App.xaml.cs`, atualize o método `InitNotificationsAsync` para recuperar a localidade e use-a ao inscrever-se:
 
-    ```csharp   
+    ```csharp
     private async void InitNotificationsAsync()
     {
         var result = await notifications.SubscribeToCategories(notifications.RetrieveLocale());
@@ -188,6 +191,7 @@ Para saber mais sobre modelos, consulte o artigo [Modelos](notification-hubs-tem
     ```
 
 ## <a name="send-localized-notifications-from-your-back-end"></a>Enviar notificações localizadas de seu back-end
+
 Ao enviar notificações de modelos, você só precisa fornecer um conjunto de propriedades. Nesse tutorial, o aplicativo de back-end envia o conjunto de propriedades contendo a versão localizada das notícias atuais, por exemplo:
 
 ```json
@@ -198,22 +202,20 @@ Ao enviar notificações de modelos, você só precisa fornecer um conjunto de p
 }
 ```
 
-Nesta seção, você deve atualizar o projeto de aplicativo de console na solução. Modifique o método `SendTemplateNotificationAsync` no aplicativo de console que você criou anteriormente, com o código a seguir: 
+Nesta seção, você deve atualizar o projeto de aplicativo de console na solução. Modifique o método `SendTemplateNotificationAsync` no aplicativo de console que você criou anteriormente, com o código a seguir:
 
 > [!IMPORTANT]
-> Especifique o nome e a cadeia de caracteres da conexão com acesso completo para o hub de notificação no código. 
-
+> Especifique o nome e a cadeia de caracteres da conexão com acesso completo para o hub de notificação no código.
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
 {
     // Define the notification hub.
-    NotificationHubClient hub = 
-        NotificationHubClient.CreateClientFromConnectionString(
-            "<connection string with full access>", "<hub name>");
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(
+        "<connection string with full access>", "<hub name>");
 
-    // Sending the notification as a template notification. All template registrations that contain 
-    // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
+    // Sending the notification as a template notification. All template registrations that contain
+    // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications.
     // This includes APNS, GCM, WNS, and MPNS template registrations.
     Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
@@ -239,29 +241,29 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-Esta simples chamada entrega a notícia correta localizada a **todos** os dispositivos, independentemente da plataforma, enquanto o Hub de Notificação cria e entrega a carga de trabalho nativa correta a todos os dispositivos inscritos em uma marca específica.
+Essa simples chamada entrega a notícia correta localizada a **todos** os dispositivos, independentemente da plataforma, enquanto o Hub de Notificação cria e entrega o conteúdo nativo correto a todos os dispositivos inscritos em uma marca específica.
 
 ## <a name="test-the-app"></a>Testar o aplicativo
+
 1. Execute o aplicativo do Universal Windows Store. Aguarde até ver a mensagem **registro bem-sucedido**.
 
     ![Registro e aplicativos móveis](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-1. Selecione as **categorias** e a **localidade**e clique em **Assinar**. O aplicativo converte as categorias selecionadas em rótulos e solicita um novo registro do dispositivo para os rótulos selecionados do hub de notificação.
+2. Selecione as **categorias** e a **localidade**e clique em **Assinar**. O aplicativo converte as categorias selecionadas em rótulos e solicita um novo registro do dispositivo para os rótulos selecionados do hub de notificação.
 
     ![Aplicativo móvel](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-2.  Você verá uma mensagem de **confirmação** sobre as **assinaturas**. 
+3. Você verá uma mensagem de **confirmação** sobre as **assinaturas**.
 
     ![Mensagem de assinatura](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
-1. Depois de receber uma confirmação, execute o **aplicativo de console** para enviar notificações para cada categoria e em cada idioma com suporte. Verifique se você só receberá uma notificação para as categorias que você se inscreveu e a mensagem para a localidade que você selecionou. 
+4. Depois de receber uma confirmação, execute o **aplicativo de console** para enviar notificações para cada categoria e em cada idioma com suporte. Verifique se você só receberá uma notificação para as categorias que você se inscreveu e a mensagem para a localidade que você selecionou.
 
     ![Mensagens de notificação](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
- 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu como enviar notificações localizadas por push para dispositivos específicos que têm tags associadas seus registros. Para saber como enviar notificações por push para usuários específicos que podem estar usando mais de um dispositivo, vá para o tutorial a seguir: 
+
+Neste tutorial, você aprendeu como enviar notificações localizadas por push para dispositivos específicos que têm tags associadas seus registros. Para saber como enviar notificações por push para usuários específicos que podem estar usando mais de um dispositivo, vá para o tutorial a seguir:
 
 > [!div class="nextstepaction"]
 >[Notificações por push para usuários específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
-
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -277,7 +279,6 @@ Neste tutorial, você aprendeu como enviar notificações localizadas por push p
 [Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -288,7 +289,6 @@ Neste tutorial, você aprendeu como enviar notificações localizadas por push p
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx

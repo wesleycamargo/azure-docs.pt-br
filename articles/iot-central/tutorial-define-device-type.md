@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199962"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412896"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo em seu aplicativo do Azure IoT Central
 
@@ -75,7 +75,7 @@ Para concluir este tutorial, você precisa de um aplicativo Azure IoT Central. S
 
 ## <a name="create-a-new-custom-device-template"></a>Criar um novo modelo de dispositivo personalizado
 
-Como um construtor, você pode criar e editar os modelos de dispositivo no seu aplicativo. Quando você cria um modelo de dispositivo, o Azure IoT Central gera um dispositivo simulado a partir do modelo. O dispositivo simulado gera telemetria que permite que você teste o comportamento do seu aplicativo antes de você conectar um dispositivo físico.
+Como um construtor, você pode criar e editar os modelos de dispositivo no seu aplicativo. Quando você cria um modelo de dispositivo, o Azure IoT Central gera um dispositivo simulado a partir do modelo. O dispositivo simulado gera telemetria que permite que você teste o comportamento do seu aplicativo antes de você conectar um dispositivo real.
 
 Para adicionar um novo modelo de dispositivo ao seu aplicativo, você precisa ir até a página **Construtor do aplicativo**. Para fazer isso, escolha o **Construtor de aplicativo** no menu de navegação à esquerda.
 
@@ -155,7 +155,7 @@ As etapas a seguir mostram como criar um novo modelo de dispositivo de **Ar-cond
 
 ## <a name="define-event-measurement"></a>Definir uma medida de evento
 
-Você pode usar o Evento para definir dados pontuais que são enviados pelo dispositivo para indicar algo significativo, como um erro ou falha de um componente. Assim como as medidas de telemetria, o Azure IoT Central pode simular eventos de dispositivo para que você possa testar o comportamento do seu aplicativo antes de conectar um dispositivo físico. Você define as medidas de evento para o tipo de dispositivo na exibição **Medidas**.
+Você pode usar o Evento para definir dados pontuais que são enviados pelo dispositivo para indicar algo significativo, como um erro ou falha de um componente. Assim como as medidas de telemetria, o Azure IoT Central pode simular eventos de dispositivo para que você possa testar o comportamento do seu aplicativo antes de conectar um dispositivo real. Você define as medidas de evento para o tipo de dispositivo na exibição **Medidas**.
 
 1. Para adicionar a medida de evento **Erro de motor do ventilador**, escolha **Nova medida**. Em seguida, escolha **Evento** como o tipo de medida:
 
@@ -191,7 +191,7 @@ Você pode usar o Evento para definir dados pontuais que são enviados pelo disp
 
 ## <a name="define-state-measurement"></a>Definir medida de Estado
 
-Você pode usar o Estado para definir e visualizar o estado do dispositivo ou seu componente ao longo de um período de tempo. Assim como as medidas de telemetria, o Azure IoT Central pode simular o estado do dispositivo para que você possa testar o comportamento do seu aplicativo antes de conectar um dispositivo físico. Você define as medidas de estado para o seu tipo de dispositivo na exibição **Medidas**.
+Você pode usar o Estado para definir e visualizar o estado do dispositivo ou seu componente ao longo de um período de tempo. Assim como as medidas de telemetria, o Azure IoT Central pode simular um estado de dispositivo para que você possa testar o comportamento do seu aplicativo antes de conectar um dispositivo real. Você define as medidas de estado para o seu tipo de dispositivo na exibição **Medidas**.
 
 1. Para adicionar a medida **Modo ventilação**, escolha **Nova medida**. Em seguida, escolha **Estado** como o tipo de medida:
 

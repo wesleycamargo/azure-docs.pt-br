@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: d0d02f491f14cc6e0664d79bcfd2cda44d433b5b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706000"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389955"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -93,7 +93,7 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 1. Você verá o **painel** do laboratório. 
     
     ![Painel de laboratório de sala de aula](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. Alterne para a página **Máquinas virtuais** e confirme que você vê cinco máquinas virtuais no estado **Não Atribuído**. Essas máquinas virtuais ainda não foram atribuídas aos alunos. Elas devem estar no estado **Parado**. Você pode iniciar a VM de um aluno, conectar-se à VM, parar a VM e excluir a VM nesta página. Você pode iniciá-los nesta página ou permitir que os alunos iniciem as máquinas virtuais. 
+4. Alterne para a página **Máquinas virtuais** selecionando Máquinas virtuais no menu esquerdo ou selecionando o bloco Máquinas virtuais. Confirme que você vê cinco máquinas virtuais no estado **Não atribuído**. Essas máquinas virtuais ainda não foram atribuídas aos alunos. Elas devem estar no estado **Parado**. Você pode iniciar a VM de um aluno, conectar-se à VM, parar a VM e excluir a VM nesta página. Você pode iniciá-los nesta página ou permitir que os alunos iniciem as máquinas virtuais. 
 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -112,19 +112,12 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 ## <a name="send-registration-link-to-students"></a>Enviar link de registro para estudantes
 
 1. Alterne para a exibição de **Usuários** se ainda não estiver na página. 
-2. Selecione o bloco **Obter link de registro**.
+2. Selecione **Obter link de registro** na barra de ferramentas.
+1. Na caixa de diálogo **Registro de usuário**, selecione o botão **Copiar**. O link é copiado para a área de transferência.
 
-    ![Link de registro do aluno](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. Na caixa de diálogo **Registro de usuário**, selecione o botão **Copiar**. O link é copiado para a área de transferência. 
-
-    ![Link de registro do aluno](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. Na caixa de diálogo **Registro de usuário**, selecione **Fechar**. 
-4. Compartilhe o link de registro com um aluno para que ele possa se registrar para a aula. Caso a configuração **Restringir opção** esteja habilitada e você tenha uma lista de usuários na lista, faça as seguintes ações:
-    1. Selecione o **endereço de email** do usuário na lista. 
-    2. Você vê uma janela do seu programa de email padrão com o endereço do campo **PARA** preenchido. 
-    3. Cole a **URL de registro** que você copiou anteriormente. 
-    4. Envie o **email**.
-
+    ![Link de registro](../media/tutorial-setup-classroom-lab/registration-link.png)
+1. Na caixa de diálogo **Registro de usuário**, selecione **Fechar**. 
+2. Compartilhe o link de registro com um aluno para que ele possa se registrar para a aula.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você criou um laboratório de sala de aula e configurou o laboratório. Para saber como um aluno pode acessar uma VM no laboratório usando o link de registro, vá para o seguinte tutorial:

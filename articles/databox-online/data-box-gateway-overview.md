@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9670d67fa1eb79e9e5e8c81726c10cc78767fb74
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165310"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435451"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>O que é o Azure Data Box Gateway (versão prévia)? 
 
@@ -27,7 +27,7 @@ O Data Box Gateway é um dispositivo virtual baseado em uma máquina virtual pro
 
 O Data Box Gateway pode ser usado para transferir dados para a nuvem, como arquivamento na nuvem, recuperação de desastre ou caso haja a necessidade de processar seus dados em escala de nuvem. Veja a seguir os vários cenários em que o Data Box Gateway pode ser usado para a transferência de dados.
 
-- **Arquivamento na nuvem** – Copie centenas de TBs de dados para o armazenamento do Azure usando o Gateway do Data Box de uma maneira segura e eficiente. Os dados podem ser ingeridos uma vez ou continuamente para cenários de arquivamento.
+- **Arquivamento na nuvem** – Copie centenas de TBs de dados para o armazenamento do Azure usando o Data Box Gateway de uma maneira segura e eficiente. Os dados podem ser ingeridos uma vez ou continuamente para cenários de arquivamento.
 
 - **Agregação de dados** – Agregue dados de várias fontes em um único local no Armazenamento do Microsoft Azure para análise e processamento de dados.  
 
@@ -39,7 +39,10 @@ O Data Box Gateway tem os seguintes benefícios:
 
 - **Transferência de dados fácil** – Facilita a movimentação de dados para dentro e fora do Azure, tanto quanto trabalhar em um compartilhamento de rede local.  
 - **Alto desempenho** – Acaba com a complicação do transporte de dados de rede com transferências de alto desempenho para e do Azure. 
-- **Acesso rápido** – armazena em cache os arquivos mais recentes para acesso rápido de arquivos locais.  
+- **Acesso rápido e altas taxas de ingestão de dados durante o horário comercial** – o Data Box Gateway tem um cache local que você define como o tamanho da capacidade local quando o dispositivo virtual é provisionado. O tamanho do disco de dados deve ser especificado de acordo com os [requisitos mínimos do dispositivo virtual](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). O cache local oferece os seguintes benefícios:
+    - O cache local permite a ingestão de dados a uma alta taxa. Quando a alta quantidade de dados é ingerida durante o horário comercial de pico, o cache pode manter os dados e carregá-los para a nuvem.
+    - O cache local permite acesso de leitura rápido até um determinado limite. Até que o dispositivo esteja 50-60% cheio, todas as leituras dele são acessadas do cache, criando-as mais rapidamente. Depois que o espaço usado no dispositivo ultrapassa esse limite, o dispositivo é iniciado para remover arquivos locais. 
+ 
 - **Uso de largura de banda limitado** – Os dados podem ser gravados no Azure, mesmo quando a rede tem uma restrição para limitar o uso durante o horário comercial de pico.  
 
 ## <a name="key-capabilities"></a>Principais recursos
@@ -67,7 +70,7 @@ O dispositivo virtual Data Box Gateway tem as seguintes especificações:
 | Processadores virtuais (núcleos)   | Mínimo de 4 |            
 | Memória  | Mínimo de 8 GB|
 | Disponibilidade|Nó único|
-| Discos| Disco do sistema operacional: 250 GB <br> Disco de dados: mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
+| Discos| Disco do sistema operacional: 250 GB <br> Disco de dados: Mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
 | Interfaces de rede|1 ou mais adaptadores de rede virtual|
 | Protocolos de compartilhamento de arquivo nativo|SMB e NFS  |
 | Segurança| Autenticação para desbloquear o acesso ao dispositivo e aos dados <br> Dados em trânsito criptografados usando a criptografia AES de 256 bits|
@@ -78,15 +81,15 @@ O dispositivo virtual Data Box Gateway tem as seguintes especificações:
 
 A solução Data Box Gateway é composta pelo recurso de Data Box Gateway, dispositivo virtual de Data Box Gateway e uma interface do usuário da Web local.
 
-* **Dispositivo virtual de Gateway do Data Box** – Um dispositivo baseado em uma máquina virtual provisionada em seu ambiente virtualizado ou hipervisor e que permite que você envie dados para o Azure. 
+* **Dispositivo virtual de Data Box Gateway** – um dispositivo baseado em uma máquina virtual provisionada em seu ambiente virtualizado ou hipervisor e que permite que você envie dados para o Azure. 
     
-* **Recurso de Gateway do Data Box** – um recurso no portal do Azure que permite gerenciar um dispositivo de Gateway do Data Box de uma interface da Web que você pode acessar de diferentes localizações geográficas. Use o recurso de Data Box Gateway para criar e gerenciar recursos, exibir e gerenciar dispositivos e alertas e gerenciar compartilhamentos.  
+* **Recurso de Data Box Gateway** – um recurso no portal do Azure que permite gerenciar um dispositivo de Data Box Gateway de uma interface da Web que você pode acessar de diferentes localizações geográficas. Use o recurso de Data Box Gateway para criar e gerenciar recursos, exibir e gerenciar dispositivos e alertas e gerenciar compartilhamentos.  
 
     <!--![The Data Box Gateway service in Azure portal](media/data-box-overview/data-box-Gateway-service1.png)-->
 
     <!--For more information, go to [Use the Data Box Gateway service to administer your Data Box Gateway device](data-box-gateway-portal-ui-admin.md).-->
 
-* **Interface do usuário da Web local do Data Box** – Use a interface do usuário da Web local para executar diagnósticos, desligar e reiniciar o dispositivo de Gateway do Data Box, exibir logs de cópia e contatar o Suporte da Microsoft para apresentar uma solicitação de serviço.
+* **Interface do usuário da Web local do Data Box** – Use a interface do usuário da Web local para executar diagnósticos, desligar e reiniciar o dispositivo de Data Box Gateway, exibir logs de cópia e contatar o Suporte da Microsoft para apresentar uma solicitação de serviço.
 
     <!--![The Data Box Gateway local web UI](media/data-box-gateway-overview/data-box-gateway-local-web-ui.png)-->
 

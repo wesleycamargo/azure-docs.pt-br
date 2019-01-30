@@ -4,7 +4,7 @@ description: Um tutorial que o conduz pelo processo de usar uma identidade geren
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 6e8f7f18196eb23900c815048e12d57a238d08f7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4396ab093b20e4a7fb89ddbfe821be117bb8ebfb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423049"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438670"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar a API do Azure AD Graph
 
@@ -64,9 +64,9 @@ Usando a identidades gerenciadas para recursos do Azure, seu código pode obter 
 Neste tutorial, você concederá à identidade da VM a capacidade de consultar associações de grupo usando a permissão de aplicativo ```Directory.Read.All```. Para conceder essa permissão, você precisará de uma conta de usuário que recebeu a atribuição da função de Administrador Global no Microsoft Azure AD. Normalmente, uma permissão de aplicativo é concedida visitando o registro do aplicativo no portal do Azure e adicionando a permissão nele. No entanto, identidades gerenciadas para recursos do Azure não registram objetos de aplicativo no Microsoft Azure AD, registrando apenas as entidades de serviço. Para registrar a permissão de aplicativo, você usará a ferramenta de linha de comando do Microsoft Azure AD PowerShell. 
 
 Azure AD Graph:
-- AppId de entidade de serviço (usada ao conceder permissão ao aplicativo): 00000002-0000-0000-c000-000000000000
+- AppId da Entidade de Serviço (usado ao conceder permissão de aplicativo): 00000002-0000-0000-c000-000000000000
 - ID do recurso (usada ao solicitar o token de acesso de identidades gerenciadas para recursos do Azure): https://graph.windows.net
-- Referência de escopo de permissão: [referência de permissões do Microsoft Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Referência de escopo de permissão: [Referência das permissões do grafo do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-azure-ad-powershell"></a>Conceder permissões de aplicativo usando o PowerShell do Azure AD
 

@@ -9,25 +9,23 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 12/04/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14c500d77cc0e67aaade5e6be490f599f39bfad5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e3569f560224ab8c9a64ababb2fcea7e96e87367
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807713"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812447"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início Rápido: usar o portal do Azure para começar a usar o Azure Machine Learning
 
-Neste início rápido, você usa o portal do Azure para criar um espaço de trabalho do Azure Machine Learning. Esse workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Machine Learning. Este início rápido usa recursos de nuvem e não exige nenhuma instalação. Para configurar seu próprio servidor do Jupyter Notebook em vez disso, confira [Início Rápido: usar Python para começar a usar o Azure Machine Learning](quickstart-create-workspace-with-python.md).  
+Use o portal do Azure para criar um workspace do Azure Machine Learning. Esse workspace é o bloco fundamental na nuvem para experimentação, treinamento e implantação de modelos de aprendizado de máquina com o serviço do Machine Learning. Este início rápido usa recursos de nuvem e não exige nenhuma instalação. Para configurar seu próprio servidor do Jupyter Notebook em vez disso, confira [Início Rápido: usar Python para começar a usar o Azure Machine Learning](quickstart-create-workspace-with-python.md).  
  
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
-
 Neste início rápido, você realiza as seguintes ações:
 
 * Criar um workspace na assinatura do Azure.
-* Experimente isso com o Python em um Azure Notebook e registre em log valores em várias iterações.
+* Experimente com o Python em um Jupyter Notebook e registre valores em várias iterações.
 * Exibir os valores registrados em log em seu workspace.
 
 Os seguintes recursos do Azure serão adicionados automaticamente ao workspace quando estiverem disponíveis regionalmente:
@@ -46,14 +44,14 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Na página do espaço de trabalho, selecione `Explore your Azure Machine Learning service Workspace`.
-
- ![Explorar o workspace](./media/quickstart-get-started/explore_aml.png)
-
 
 ## <a name="use-the-workspace"></a>Usar o workspace
 
-Agora veja como um workspace ajuda você a gerenciar seus scripts de aprendizado de máquina. Nesta seção, você executa as seguintes etapas:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+
+
+
+Agora, saiba como um workspace ajuda a gerenciar seus scritps de aprendizado de máquina. Nesta seção, você executa as seguintes etapas:
 
 * Abra um notebook no Azure Notebooks.
 * Execute o código que cria alguns valores registrados em log.
@@ -63,46 +61,57 @@ Este exemplo mostra como o espaço de trabalho pode ajudar a manter o controle d
 
 ### <a name="open-a-notebook"></a>Abra um notebook 
 
-O Azure Notebooks fornece uma plataforma de nuvem gratuita para Jupyter Notebooks que está previamente configurada com tudo o que você precisa para executar o Machine Learning.  
+O [Azure Notebooks](https://notebooks.azure.com) fornece uma plataforma de nuvem gratuita para Jupyter Notebooks que está previamente configurada com tudo o que você precisa para executar o Machine Learning. No workspace, é possível iniciar essa plataforma para começar a usar o workspace do Serviço do Azure Machine Learning.
 
-Selecione `Open Azure Notebooks` para tentar seu primeiro experimento.
+1. Na página Workspace, selecione **Explore o seu workspace de serviço do Azure Machine Learning**.
+
+ ![Explorar o workspace](./media/quickstart-get-started/explore_aml.png)
+
+1. Selecione **Abrir Azure Notebooks** para fazer seu primeiro experimento no Azure Notebooks.  O Azure Notebooks é um serviço separado que permite executar notebooks Jupyter gratuitamente na nuvem.  Quando você usa esse link para o serviço, informações sobre como se conectar ao seu workspace serão adicionadas à biblioteca criada no Azure Notebooks.
 
  ![Abrir Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
 
-Sua organização poderá exigir [consentimento do administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) antes de poder entrar.
+1. Entre no Azure Notebooks.  Lembre-se de entrar no Azure Notebooks com a mesma conta usada para entrar no portal do Azure. Sua organização poderá exigir [consentimento do administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) antes de poder entrar.
 
-Entre no Azure Notebooks com a mesma conta usada para entrar no portal do Azure.  Depois de entrar, uma nova guia é aberta e um prompt `Clone Library` é exibido. Selecione `Clone`.
+1. Depois de entrar, uma nova guia é aberta e um prompt `Clone Library` é exibido. A clonagem dessa biblioteca carregará um conjunto de notebooks e outros arquivos na sua conta do Azure Notebooks.  Esses arquivos ajudarão você a explorar as capacidades do Azure Machine Learning.
 
+1. Desmarque a opção **Público** para não compartilhar suas informações de workspace com outras pessoas.
+
+1. Selecione **Clonar**.
+
+ ![Clonar uma biblioteca](./media/quickstart-get-started/clone.png)
+
+1. Se vir que o status do projeto é interrompido, clique em **Executar em computação gratuita** para usar o servidor de notebook gratuito.
+
+    ![Executar um projeto em computação gratuita](./media/quickstart-get-started/run-project.png)
 
 ### <a name="run-the-notebook"></a>Executar o notebook
 
-Junto com dois notebooks, você verá um arquivo `config.json`. Este arquivo de configuração contém informações sobre o espaço de trabalho que você criou.  
+Na lista de arquivos para este projeto, você vê um arquivo `config.json`. Este arquivo de configuração contém informações sobre o workspace que você criou no portal do Azure.  Esse arquivo permite que seu código se conecte e adicione informações ao seu workspace.
 
-Selecione `01.run-experiment.ipynb` para abrir o notebook.
+1. Selecione **01.run experiment.ipynb** para abrir o notebook.
 
-Execute as células uma de cada vez (Shift+Enter). Ou selecione `Cells` > `Run All` para executar o notebook inteiro. Quando você vir um asterisco __*__ ao lado de uma célula, significa que ela está em execução. Após o código para a célula ser concluído, um número é exibido. 
+1. A área de status informará para aguardar até o kernel ser iniciado.  A mensagem desaparecerá depois que o kernel estiver pronto.
+
+    ![Aguardar até o kernel iniciar](./media/quickstart-get-started/wait-for-kernel.png)
+
+1. Depois que o kernel tiver iniciado, execute as células uma de cada vez usando **Shift+Enter**. Ou selecione **Células** > **Executar todas** para executar o notebook inteiro. Quando você vir um asterisco, __*__, ao lado de uma célula, significa que ela ainda está em execução. Após o código para a célula ser concluído, um número é exibido. 
+
+1. Siga as instruções no notebook para autenticar sua assinatura do Azure.
 
 Depois de concluir a execução de todas as células no bloco de anotações, você poderá exibir os valores registrados em seu workspace.
 
 ## <a name="view-logged-values"></a>Exibir valores registrados em log
 
-Depois de executar todas as células no notebook, volte à página do portal.  
+1. A saída da célula `run` contém um link para o portal do Azure para exibir os resultados do experimento em seu workspace. 
 
-Selecione `View Experiments`.
+    ![Exibir experimentos](./media/quickstart-get-started/view_exp.png)
 
-![Exibir experimentos](./media/quickstart-get-started/view_exp.png)
+1. Clique no **Link para o portal do Azure** para exibir informações sobre a execução em seu workspace.  Esse link abre seu workspace no portal do Azure.
 
-Feche o pop-up `Reports`.
+1. Os gráficos dos valores registrados que você vê foram criados automaticamente no workspace. Sempre que registra diversos valores com o mesmo parâmetro de nome, um gráfico é gerado automaticamente para você.
 
-Selecione `my-first-experiment`.
-
-Confira informações sobre a execução que você acabou de realizar. Role a página para baixo para encontrar a tabela de execuções. Selecione o link de número de execução.
-
- ![Link do histórico de execução](./media/quickstart-get-started/report.png)
-
-Você verá gráficos criados automaticamente dos valores registrados. Sempre que registra diversos valores com o mesmo parâmetro de nome, um gráfico é gerado automaticamente para você.
-
-   ![Exibir histórico](./media/quickstart-get-started/plots.png)
+   ![Exibir histórico](./media/quickstart-get-started/web-results.png)
 
 Já que o código para aproximar o pi usa valores aleatórios, seus gráficos mostrarão valores diferentes.  
 

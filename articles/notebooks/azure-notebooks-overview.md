@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246204"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848590"
 ---
 # <a name="overview-of-azure-notebooks"></a>Visão geral do Azure Notebooks
 
 O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação. O [Jupyter](https://jupyter.org/) (anteriormente conhecido como IPython) é um projeto de código-fonte aberto que permite que você combine facilmente um texto de Markdown, um código executável, dados persistentes, gráficos e visualizações em uma única tela compartilhável chamada de *notebook* (imagem cortesia de jupyter.org):
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Notebooks Jupyter")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exemplos de Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a essa poderosa combinação de código, gráficos e texto explicativo, o Jupyter popularizou muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformações, simulações numéricas, modelagens estatísticas e o desenvolvimento de modelos de aprendizado de máquina.
 
@@ -57,7 +57,7 @@ Em resumo, o Azure Notebooks ajuda a realizar seu trabalho com mais eficiência 
 
 O Azure Notebooks é um serviço gratuito, mas cada projeto é limitado a 4 GB de memória e 1 GB de dados para evitar abusos. Os usuários legítimos que excedem esses limites devem resolver um desafio Captcha para continuar a execução de notebooks.
 
-Para liberar todos os limites, entre no Azure Notebooks com uma conta usando o Azure Active Directory (como uma conta corporativa). Se essa conta estiver associada a uma assinatura do Azure, você poderá usar as camadas de computação da Máquina Virtual de Ciência de Dados do Azure.
+Para liberar todos os limites, entre no Azure Notebooks com uma conta usando o Azure Active Directory (como uma conta corporativa). Se essa conta estiver associada a uma assinatura do Azure, você poderá conectar quaisquer instâncias da Máquina Virtual de Ciência de Dados do Azure dentro dessa assinatura. Para obter mais informações, consulte [Gerenciar e configurar projetos – nível de computação](configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="available-kernels-and-environments"></a>Ambientes e kernels disponíveis
 

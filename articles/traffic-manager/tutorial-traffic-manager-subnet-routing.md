@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 8243130fc9752a47661b4c80826000d573da35c8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2cd3fdc9387952277c25fa07c62a0faae2993089
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053067"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478239"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Direcionar o tráfego para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 
-Este artigo descreve como configurar o método de roteamento de tráfego de sub-rede. O método de roteamento de tráfego de **sub-rede** permite que você mapeie um conjunto de intervalos de endereços IP para pontos de extremidade específicos e quando o Gerenciador de Tráfego recebe uma solicitação, ele inspeciona o IP de origem da solicitação e retorna o ponto de extremidade associado a ele. 
+Este artigo descreve como configurar o método de roteamento de tráfego de sub-rede. O método de roteamento de tráfego de **sub-rede** permite que você mapeie um conjunto de intervalos de endereços IP para pontos de extremidade específicos e quando o Gerenciador de Tráfego recebe uma solicitação, ele inspeciona o IP de origem da solicitação e retorna o ponto de extremidade associado a ele.
 
 Neste tutorial, usando o roteamento da sub-rede, dependendo do endereço IP de consulta do usuário, o tráfego é roteado para um site interno ou um site de produção.
 
@@ -41,11 +41,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 Para ver o Gerenciador de Tráfego em ação, este tutorial exige que você implante o seguinte:
 - dois sites básicos em execução em diferentes regiões do Azure - **Leste dos EUA** (serve como site interno) e **Europa Ocidental** (serve como site de produção).
-- duas VMs de teste para testar o Gerenciador de Tráfego do Microsoft Azure - uma VM no **Leste dos EUA** e a segunda VM na **Europa Ocidental**. 
+- duas VMs de teste para testar o Gerenciador de Tráfego do Microsoft Azure - uma VM no **Leste dos EUA** e a segunda VM na **Europa Ocidental**.
 
 As VMs de teste são usadas para ilustrar como o Traffic Manager roteia o tráfego de usuários para o site interno ou para o site de produção com base na sub-rede de onde a consulta do usuário se origina.
 
-### <a name="sign-in-to-azure"></a>Entrar no Azure 
+### <a name="sign-in-to-azure"></a>Entrar no Azure
 
 Entre no Portal do Azure em https://portal.azure.com.
 
@@ -93,37 +93,37 @@ Nesta seção, você criará duas VMs, *InternalWebsite* e *ProdWebsite*, nas re
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Instalar o IIS e personalizar a página da Web padrão
 
-Nesta seção, você deve instalar o servidor IIS em duas VMs - *myIISVMEastUS*  & *myIISVMWEurope*e, em seguida, atualizar a página padrão do site. A página do site personalizada mostra o nome da VM que você está se conectando ao visitar o site em um navegador da web.
+Nesta seção, você deve instalar o servidor IIS em duas VMs - *myIISVMEastUS* & *myIISVMWEurope*e, em seguida, atualizar a página padrão do site. A página do site personalizada mostra o nome da VM que você está se conectando ao visitar o site em um navegador da web.
 
 1. Clique em **Todos os recursos** no menu esquerdo e, em seguida, na lista de recursos, clique em *myIISVMEastUS*, que está localizado no grupo de recursos *myResourceGroupTM1*.
-2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**. 
-3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM. 
+2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**.
+3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 4. Selecione **OK**.
 5. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão.
 6. Na área de trabalho do servidor, navegue até **Ferramentas Administrativas do Windows**>**Gerenciador do Servidor**.
 7. Inicie o Windows PowerShell na VM, *InternalWebsite* e use os comandos a seguir para instalar o servidor do IIS e atualizar o arquivo htm padrão.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
     ```
 8. Feche a conexão RDP com a VM *InternalWebsite*.
 9. Repita as etapas de 1 a 6 criando uma conexão de RDP com a VM *ProdWebsite* dentro do grupo de recursos *myResourceGroupTM2* para instalar o IIS e personalizar sua página da Web padrão.
 10. Inicie o Windows PowerShell na VM *ProdWebsite* e use os comandos a seguir para instalar o servidor do IIS e atualizar o arquivo htm padrão.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
     ```
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Configurar nome DNS para as VMs que executam IIS
@@ -185,12 +185,12 @@ Crie um perfil de Gerenciador de Tráfego que permite que você retorne pontos d
     | Grupo de recursos          | Selecione **Existing** e insira *myResourceGroupTM1*. |
     | |                              |
     |
-  
+
     ![Criar um perfil do Gerenciador de Tráfego](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
 
-Adicione as duas VMs executando os servidores IIS, *InternalWebsite*  & *ProdWebsite*, para rotear tráfego de usuário com base na sub-rede da consulta do usuário.
+Adicione as duas VMs executando os servidores IIS, *InternalWebsite* & *ProdWebsite*, para rotear tráfego de usuário com base na sub-rede da consulta do usuário.
 
 1. Na barra de pesquisa do portal, pesquise o nome do Perfil do Gerenciador de Tráfego que você criou na seção anterior e selecione o perfil do gerenciador de tráfego nos resultados que são exibidos.
 2. Em **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade** e clique em **Adicionar**.
@@ -205,9 +205,8 @@ Adicione as duas VMs executando os servidores IIS, *InternalWebsite*  & *ProdWeb
     |  Configurações de roteamento da sub-rede    |   Adicione o endereço IP da VM de teste *UserVMUS*. Toda consulta de usuário originada dessa VM será direcionada para o *InternalWebSiteEndpoint*.    |
 
 4. Repita as etapas 2 e 3 para adicionar outro ponto de extremidade chamado *ProdWebsiteEndpoint* para o endereço IP público *ProdWebsite-ip* que está associado à VM do servidor do IIS denominado *ProdWebsite*. Para **Configurações de roteamento de sub-rede**, adicione o endereço IP da VM de teste *UserVMEurope*. Toda consulta de usuário dessa VM de teste será encaminhada para o ponto de extremidade *myProdWebsiteEndpoint*.
-5.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
+5. Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
- 
 ## <a name="test-traffic-manager-profile"></a>Testar perfil de Gerenciador de Tráfego
 Nesta seção, você testa como o Gerenciador de Tráfego encaminha o tráfego de usuário de uma determinada sub-rede para um ponto de extremidade específico. Para exibir o Gerenciador de Tráfego em ação, conclua as seguintes etapas:
 1. Determine o nome DNS do seu perfil do Gerenciador de Tráfego.
@@ -216,26 +215,26 @@ Nesta seção, você testa como o Gerenciador de Tráfego encaminha o tráfego d
     - Na VM de teste (*UserVMEurope*) que está localizada na região do **Europa Ocidental**, em um navegador da Web, navegue até o nome DNS do seu perfil do Gerenciador de Tráfego.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Determinar o nome DNS do Perfil do Gerenciador de Tráfego
-Neste tutorial, para manter a simplicidade, você usará o nome DNS do perfil do Gerenciador de Tráfego do Microsoft Azure para visitar os sites da Web. 
+Neste tutorial, para manter a simplicidade, você usará o nome DNS do perfil do Gerenciador de Tráfego do Microsoft Azure para visitar os sites da Web.
 
 Você pode determinar o nome DNS do seu perfil do Gerenciador de Tráfego conforme a seguir:
 
-1.  Na barra de pesquisa do portal, procure o nome do **Perfil do Gerenciador de Tráfego** criado na seção anterior. Nos resultados exibidos, clique no perfil do gerenciador de tráfego.
+1. Na barra de pesquisa do portal, procure o nome do **Perfil do Gerenciador de Tráfego** criado na seção anterior. Nos resultados exibidos, clique no perfil do gerenciador de tráfego.
 1. Clique em **Visão Geral**.
 2. O **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego criado recentemente. Nas implantações de produção, você configura um nome de domínio intuitivo para apontar para o nome de domínio do Gerenciador de Tráfego, usando um registro DNS CNAME.
 
 ### <a name="view-traffic-manager-in-action"></a>Ver o Gerenciador de Tráfego em ação
-Nesta seção, você pode ver que o Gerenciador de Tráfego é a ação. 
+Nesta seção, você pode ver que o Gerenciador de Tráfego é a ação.
 
 1. Selecione **Todos os recursos** no menu esquerdo e, em seguida, na lista de recursos, clique em *myUserVMUS*, que está localizado no grupo de recursos *myResourceGroupTM1*.
-2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**. 
-3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM. 
+2. Na página **Visão geral**, clique em **Conectar**e, em seguida, em **Conectar-se a máquina virtual**, selecione **Fazer download do arquivo RDP**.
+3. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 4. Selecione **OK**.
-5. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão. 
+5. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão.
 1. Em um navegador da Web na VM *UserVMUS*, digite o nome DNS do seu perfil do Gerenciador de Tráfego para exibir o site. Como o endereço IP da VM *UserVMUS* está associado ao ponto de extremidade *myInternalWebsiteEndpoint*, o navegador da Web inicia o servidor do site de teste *InternalWebsite*.
 
-2. Em seguida, conecte-se à VM *UserVMEurope* localizada na **Europa Ocidental** seguindo as etapas 1 a 5 e navegue até o nome de domínio de perfil do Gerenciador de Tráfego dessa VM. Como o endereço IP da VM *UserVMEurope* está associado ao ponto de extremidade *myProductionWebsiteEndpoint*, o navegador da Web inicia o servidor do site de teste *ProdWebsite*. 
-  
+2. Em seguida, conecte-se à VM *UserVMEurope* localizada na **Europa Ocidental** seguindo as etapas 1 a 5 e navegue até o nome de domínio de perfil do Gerenciador de Tráfego dessa VM. Como o endereço IP da VM *UserVMEurope* está associado ao ponto de extremidade *myProductionWebsiteEndpoint*, o navegador da Web inicia o servidor do site de teste *ProdWebsite*.
+
 ## <a name="delete-the-traffic-manager-profile"></a>Excluir o perfil do Gerenciador de Tráfego
 Quando não for mais necessário, exclua os grupos de recursos (**ResourceGroupTM1** e **ResourceGroupTM2**). Para fazer isso, selecione o grupo de recursos (**ResourceGroupTM1** ou **ResourceGroupTM2**) e, em seguida, selecione **Excluir**.
 
@@ -244,5 +243,3 @@ Quando não for mais necessário, exclua os grupos de recursos (**ResourceGroupT
 - Saiba mais sobre o [método de roteamento de tráfego ponderado](traffic-manager-configure-weighted-routing-method.md).
 - Saiba mais sobre o [método de roteamento de prioridade](traffic-manager-configure-priority-routing-method.md).
 - Saiba mais sobre o [método de roteamento geográfico](traffic-manager-configure-geographic-routing-method.md).
-
-

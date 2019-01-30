@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042131"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452948"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemplos de consulta SQL para consultar dados do Azure Cosmos DB
 
@@ -506,7 +506,7 @@ Você também pode aninhar as chamadas no operador, como na consulta a seguir.
 
 Assim como outros operadores de consulta, se as propriedades mencionadas na expressão condicional estiverem faltando em algum item, ou se os tipos comparados forem diferentes, esses itens serão excluídos dos resultados da consulta.
 
-O operador de União (??) pode ser usado para verificar de modo eficaz a presença de uma propriedade (ou seja, é definido) em um item. Esse operador é útil ao consultar dados semiestruturados ou dados de tipos mistos. Por exemplo, a consulta retorna o "lastName" se estiver presente ou o "surname" se não estiver.
+O operador Unir (??) pode ser usado para verificar de modo eficaz a presença de uma propriedade em um item. Esse operador é útil ao consultar dados semiestruturados ou dados de tipos mistos. Por exemplo, a consulta retorna o "lastName" se estiver presente ou o "surname" se não estiver.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

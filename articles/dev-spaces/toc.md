@@ -28,6 +28,7 @@
 ### [Usar um feed NuGet personalizado](how-to/use-custom-nuget-feed.md)
 ### [Usar kubectl com Espaços de Desenvolvimento do Azure](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [Atualizar ferramentas do Azure Dev Spaces](how-to/upgrade-tools.md)
+### [Continuidade dos negócios e recuperação de desastres para o Azure Dev Spaces](how-to/dev-spaces-business-continuity.md)
 
 ## [Solução de problemas](troubleshooting.md)
 

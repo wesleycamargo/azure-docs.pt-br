@@ -3,7 +3,7 @@ title: Roteiro de instalação do Azure AD Connect e do Azure AD Connect Health.
 description: Este documento é uma visão geral das opções de instalação e caminhos disponíveis para instalar o Azure AD Connect e o Connect Health.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 149c6436101750811af9ba3051ab715dd9eac021
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253186"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462328"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roteiro de instalação do Azure AD Connect e do Azure AD Connect Health
 
@@ -55,7 +55,7 @@ Você também deve se preparar para questões [operacionais](how-to-connect-sync
 |Topologias com suporte | [Topologias para o Azure AD Connect](plan-connect-topologies.md)|
 |Conceitos de design | [Conceitos de design do Azure AD Connect](plan-connect-design-concepts.md)|
 |Contas usadas para instalação | [Mais informações sobre permissões e as credenciais de Conexão do AD do Azure](reference-connect-accounts-permissions.md)|
-|Planejamento operacional | [Sincronização do Azure AD Connect: considerações e tarefas operacionais](how-to-connect-sync-operations.md)|
+|Planejamento operacional | [Sincronização do Azure AD Connect: tarefas operacionais e considerações](how-to-connect-sync-operations.md)|
 |Opções de entrada de usuário | [Opções de entrada de usuário do Azure AD Connect](plan-connect-user-signin.md)|
 
 ## <a name="configure-sync-features"></a>Configurar recursos de sincronização
@@ -82,7 +82,7 @@ O recurso para [impedir exclusões acidentais](how-to-connect-sync-feature-preve
 |write-back de senha | [Introdução ao gerenciamento de senhas](../authentication/quickstart-sspr.md)|
 |Write-back de dispositivo | [Habilitando write-back de dispositivo no Azure AD Connect](how-to-connect-device-writeback.md)|
 |impedir exclusões acidentais | [Sincronização do Azure AD Connect: impedir exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
-|Atualização automática | [Azure AD Connect: Atualização automática](how-to-connect-install-automatic-upgrade.md)|
+|Atualização automática | [Azure AD Connect: atualização automática](how-to-connect-install-automatic-upgrade.md)|
 
 ## <a name="customize-azure-ad-connect-sync"></a>Personalizar a sincronização do Azure AD Connect
 A sincronização do Azure AD Connect vem com uma configuração padrão que tem como objetivo funcionar para a maioria dos clientes e topologias. Porém, sempre há situações em que a configuração padrão não funciona e deve ser ajustada. Há suporte para fazer alterações, conforme documentado nesta seção e nos tópicos vinculados.
@@ -98,9 +98,9 @@ O modelo de configuração em sincronização é chamado de [provisionamento dec
 | --- | --- |
 |Todos os artigos sobre a sincronização do Azure AD Connect | [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)|
 |conceitos técnicos | [Sincronização do Azure AD Connect: conceitos técnicos](how-to-connect-sync-technical-concepts.md)|
-|Noções básicas sobre a configuração padrão | [Sincronização do Azure AD Connect: Noções básicas sobre a configuração padrão](concept-azure-ad-connect-sync-default-configuration.md)|
-|Noções básicas sobre usuários e contatos | [Azure AD Connect Sync: noções básicas sobre usuários e contatos](concept-azure-ad-connect-sync-user-and-contacts.md)|
-|provisionamento declarativo | [Azure AD Connect Sync: noções básicas sobre expressões de provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
+|Noções básicas sobre a configuração padrão | [Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão](concept-azure-ad-connect-sync-default-configuration.md)|
+|Noções básicas sobre usuários e contatos | [Sincronização do Azure AD Connect: noções básicas sobre usuários e contatos](concept-azure-ad-connect-sync-user-and-contacts.md)|
+|provisionamento declarativo | [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
 |Alterar a configuração padrão | [Práticas recomendadas para alterar a configuração padrão](how-to-connect-sync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Configurar recursos de federação
@@ -158,13 +158,13 @@ O portal do Azure AD Connect Health mostra exibições de alertas, monitoramento
     
 ![Portal do Azure AD Connect Health](./media/whatis-hybrid-identity-health/portalsidebar.png)
 
-* **Início rápido**: quando você seleciona essa opção, a folha **Início Rápido** será aberta. Você pode baixar o agente do Azure AD Connect Health selecionando **obter ferramentas**. Você também pode acessar a documentação e fornecer comentários.
-* **Azure Active Directory Connect (Sincronização)**: essa opção mostra seus servidores do Azure AD Connect que o Azure AD Connect Health está monitorando atualmente. A entrada **Erros de sincronização** mostrará os erros básicos de sincronização de seu primeiro serviço de sincronização integrado por categorias. Quando você seleciona a entrada **Sincronizar serviços**, a folha abre mostra informações sobre os servidores do Azure AD Connect. Leia mais sobre os recursos em [usando o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md).
-* **Serviços de Federação do Active Directory**: essa opção mostra todos os serviços do AD FS que o Azure AD Connect Health está monitorando no momento. Quando você seleciona uma instância, a folha abre mostra informações sobre essa instância de serviço. Essas informações incluem uma análise de visão geral, propriedades, alertas, monitoramento e análise de uso. Leia mais sobre os recursos em [usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md).
+* **Início rápido**: quando você seleciona essa opção, a folha **Início Rápido** é aberta. Você pode baixar o agente do Azure AD Connect Health selecionando **obter ferramentas**. Você também pode acessar a documentação e fornecer comentários.
+* **Azure Active Directory Connect (sincronização)**: essa opção mostra os servidores do Azure AD Connect que o Azure AD Connect Health está monitorando atualmente. A entrada **Erros de sincronização** mostrará os erros básicos de sincronização de seu primeiro serviço de sincronização integrado por categorias. Quando você seleciona a entrada **Sincronizar serviços**, a folha abre mostra informações sobre os servidores do Azure AD Connect. Leia mais sobre os recursos em [usando o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md).
+* **Serviços de Federação do Active Directory (AD FS)**: essa opção mostra todos os serviços do AD FS que o Azure AD Connect Health está monitorando no momento. Quando você seleciona uma instância, a folha abre mostra informações sobre essa instância de serviço. Essas informações incluem uma análise de visão geral, propriedades, alertas, monitoramento e análise de uso. Leia mais sobre os recursos em [usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md).
 * **Active Directory Domain Services**: essa opção mostra todas as florestas do AD DS que o Azure AD Connect Health está monitorando no momento. Quando você seleciona uma floresta, a folha abre mostra informações sobre essa floresta. As informações incluem uma visão geral de informações essenciais, o painel de Controladores de Domínio, o painel de Status de Replicação, alertas e monitoramento. Leia mais sobre os recursos em [usando o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md).
-* **Configurar**: Esta seção inclui opções para ativar ou desativar o seguinte:
+* **Configurar**: esta seção inclui opções para ativar ou desativar o seguinte:
 
-  - A entrada **Configurações** inclui configurações básicas dos agentes. A configuração de upgrade automático permite atualizar automaticamente o agente do Azure AD Connect Health para a versão mais recente automática: você será atualizado automaticamente para a versão mais recente do agente do Azure AD Connect Health quando ela estiver disponível. Isso é habilitado por padrão. Permitir que o Microsoft acesse os dados de integridade do seu diretório Azure AD para fins de solução de problemas: se isso estiver habilitado, a Microsoft será capaz de ver os mesmos dados que você vê. Essas informações podem ajudar na solução de problemas e a obter ajuda para problemas. Isso está desabilitado por padrão.
+  - A entrada **Configurações** inclui configurações básicas dos agentes. A configuração de atualização automática habilita automaticamente a atualização do agente do Azure AD Connect Health para a versão mais recente: Você será automaticamente atualizado para as versões mais recentes do Agente do Azure AD Connect Health quando elas forem disponibilizadas. Isso é habilitado por padrão. Permitir que o Microsoft acesse os dados de integridade do seu diretório Azure AD para fins de solução de problemas: se isso estiver habilitado, a Microsoft será capaz de ver os mesmos dados que você vê. Essas informações podem ajudar na solução de problemas e a obter ajuda para problemas. Isso está desabilitado por padrão.
 * **Controle de acesso baseado em função (IAM)** é a seção para gerenciar o acesso aos dados do Connect Health na base de funções. 
 
 ## <a name="next-steps"></a>Próximas etapas

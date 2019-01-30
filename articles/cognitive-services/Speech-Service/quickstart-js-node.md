@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Reconhecer fala em JavaScript no Node.js usando o SDK do Serviço de Fala'
+title: 'Início rápido: Reconhecer fala, Node.js – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer fala em JavaScript em um Node.js usando o SDK do Serviço de Fala
+description: Use este guia para criar um aplicativo de console de conversão de fala em texto usando o SDK de Fala para Node.js. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e0ae916687ca32835dd8daf6e5059b8f6eea0ff6
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724414"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382178"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em JavaScript no Node.js usando o SDK do Serviço de Fala
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Início rápido: Reconhecer fala com o SDK de Fala para Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,9 +29,9 @@ O aplicativo é baseado no [Speech SDK de Serviços Cognitivos](https://aka.ms/c
 * Uma chave de assinatura do Azure para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
 * Uma versão atual do [Node.js](https://nodejs.org).
 
-## <a name="create-a-new-project-folder"></a>Crie uma nova pasta de projeto
+## <a name="create-a-new-project"></a>Criar um novo projeto
 
-Crie uma nova pasta vazia e inicialize-a como um novo projeto JavaScript e Node.js.
+Crie uma pasta e inicialize o projeto.
 
 ```sh
 npm init -f
@@ -39,13 +39,17 @@ npm init -f
 
 Isso iniciará os arquivos package.json com valores padrão. Você provavelmente desejará editar esse arquivo mais tarde.
 
-## <a name="install-the-speech-sdk-for-javascript-into-that-folder"></a>Instale o Speech SDK para JavaScript nessa pasta
+## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
-Adicione o Speech SDK por meio de `npm install microsoft-cognitiveservices-speech-sdk` ao seu projeto do Node.js.
+Adicione o SDK de Fala ao seu projeto do Node.js.
 
-Isso vai baixar e instalar a versão mais recente do Speech SDK e qualquer pré-requisito necessário do npmjs. O SDK será instalado no diretório `node_modules` dentro de sua pasta de projeto.
+```
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
-## <a name="using-the-speech-sdk"></a>Usando o Speech SDK
+Isso baixa e instala a versão mais recente do SDK de Fala e quaisquer pré-requisitos necessários do npmjs. O SDK será instalado no diretório `node_modules` dentro de sua pasta de projeto.
+
+## <a name="use-the-speech-sdk"></a>Usar o SDK de Fala
 
 Crie um novo arquivo na pasta, chamada `index.js`, e abra este arquivo com um editor de texto.
 
@@ -58,7 +62,7 @@ Adicione o seguinte código JavaScript:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
-## <a name="running-the-sample-from-command-line"></a>Executando o exemplo de linha de comando
+## <a name="run-the-sample"></a>Execute o exemplo
 
 Para iniciar o aplicativo, adapte `YourSubscriptionKey`, `YourServiceRegion` e `YourAudioFile.wav` à sua configuração. Em seguida, você poderá executá-lo chamando o comando a seguir:
 
@@ -88,7 +92,7 @@ SpeechRecognitionResult {
 }
 ```
 
-## <a name="running-the-sample-from-visual-studio-code"></a>Executando o exemplo do Visual Studio Code
+## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalar e usar o SDK de Fala com o Visual Studio Code
 
 Você também pode executar o exemplo do Visual Studio Code. Siga estas etapas para instalar, abrir e executar o início rápido:
 

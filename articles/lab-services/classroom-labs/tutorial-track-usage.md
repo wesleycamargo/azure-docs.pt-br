@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 93d7a6e884cf02fa41838d4a07644c122a43823b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707088"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823820"
 ---
-# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Acompanhar o uso de um laboratório no Azure Lab Services
+# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: acompanhar o uso de um laboratório no Azure Lab Services
 Este tutorial mostra como um criador/proprietário de laboratório pode acompanhar o uso de um laboratório.
 
 Neste tutorial, você executa as seguintes ações:
@@ -37,14 +37,14 @@ Neste tutorial, você executa as seguintes ações:
 1. Navegue até [Site do Azure Lab Services](https://labs.azure.com). 
 2. Selecione **Iniciar sessão** e insira suas credenciais. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft.
 3. Na página **Meus Laboratórios**, selecione o laboratório do qual você deseja acompanhar o uso. 
-4. Selecione a guia **Usuários**. Você verá os alunos que foram registrados no laboratório. Selecione **Link de registro**, copie o link e envie-o a um novo aluno que ainda não tenha sido registrado no laboratório. 
+4. Selecione **Usuários** no menu à esquerda ou no bloco **Usuários**. Você verá os alunos que foram registrados no laboratório. Selecione **Link de registro**, copie o link e envie-o a um novo aluno que ainda não tenha sido registrado no laboratório. 
 
     ![Usuários registrados](../media/tutorial-track-usage/registered-users.png)
 
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Exibir o uso de VMs no laboratório 
 
 1. Selecione **Máquinas Virtuais** no menu à esquerda. 
-2. Confirme se você vê o status das máquinas virtuais e o número de horas em que as VMs estão em execução. O tempo gasto em uma VM de estudante não é contado em relação ao tempo de uso mostrado na última coluna. 
+2. Confirme se você vê o status das máquinas virtuais e o número de horas em que as VMs estão em execução. O tempo que um proprietário de laboratório gasta em uma VM de aluno não é contado em relação ao tempo de uso mostrado na última coluna. 
 
     ![Uso de VM](../media/tutorial-track-usage/vm-usage.png)
 
@@ -55,6 +55,8 @@ Conforme você passar o mouse sobre uma linha na lista da máquina virtual, ver�
 - Iniciar uma VM
 - Parar uma VM
 - Excluir uma VM
+
+Você também pode usar os botões de barra de ferramentas para iniciar, parar ou excluir uma VM. 
 
 
 

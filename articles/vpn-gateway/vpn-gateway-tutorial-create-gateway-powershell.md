@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8e3cdd99c99a300d7f1198826ae881373e179414
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340586"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433689"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Criar e gerenciar o gateway de VPN com o módulo Microsoft Azure PowerShell
 
@@ -40,7 +40,7 @@ O diagrama a seguir mostra a rede virtual e o gateway da VPN criados como parte 
 
 [!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.3 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. 
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.3 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. 
 
 ## <a name="common-network-parameter-values"></a>Valores de parâmetros de rede comuns
 
@@ -74,7 +74,7 @@ New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-O gateway VPN do Azure fornece conectividade entre locais e a funcionalidade do servidor VPN de P2S para sua rede virtual. Adicione o gateway VPN a uma rede virtual existente ou crie uma nova rede virtual e o gateway. Este exemplo cria uma nova rede virtual com três sub-redes: GatewaySubnet de front-end e back-end usando [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) e [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
+O gateway VPN do Azure fornece conectividade entre locais e a funcionalidade do servidor VPN de P2S para sua rede virtual. Adicione o gateway VPN a uma rede virtual existente ou crie uma nova rede virtual e o gateway. Este exemplo cria uma rede virtual com três sub-redes: Front-end, back-end e GatewaySubnet usando [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) e [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 
 ```azurepowershell-interactive
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
@@ -115,8 +115,8 @@ New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 ```
 
 Valores de parâmetros de execução:
-* GatewayType: usar o **Vpn** para conexões site a site e VNet a VNet
-* VpnType: use **RouteBased** para interagir com dispositivos mais largos do intervalo de VPN e mais recursos de roteamento
+* GatewayType: use **Vpn** para conexões site a site e VNet a VNet
+* VpnType: use **RouteBased** para interagir com um intervalo mais amplo de dispositivos VPN e mais recursos de roteamento
 * GatewaySku: **VpnGw1** é o padrão; altere-o para VpnGw2 ou VpnGw3 se precisar de taxas de transferência mais altas ou mais conexões. Para obter mais informações, confira [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Concluída a criação de gateway, crie uma conexão entre a rede virtual e outro VNet ou crie uma conexão entre a rede virtual e um local. Você também pode configurar uma conexão P2S para sua rede virtual em um computador cliente.

@@ -8,28 +8,28 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 098973e2ece3477ec87b154c0304c4ca7e0246d1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163249"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427603"
 ---
-# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Concluir a distribuição de um piloto da Autenticação Multifator do Azure
+# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Concluir uma distribuição de um piloto da Autenticação Multifator do Azure
 
 Neste tutorial, você aprende a configurar uma política de acesso condicional, habilitando a Autenticação Multifator do Azure (MFA do Azure) ao fazer logon no portal do Azure. A política é implantada e testada em um grupo específico de usuários piloto. A implantação do Azure MFA usando o acesso condicional fornece uma flexibilidade significativa para organizações e administradores em comparação com o método tradicional imposto.
 
 > [!div class="checklist"]
 > * Habilitar a Autenticação Multifator do Microsoft Azure
-> * Testar a Autenticação Multifator do Azure
+> * Testar a Autenticação Multifator do Microsoft Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um locatário de trabalho do Azure AD com pelo menos uma licença de avaliação habilitada.
 * Uma conta com privilégios de Administrador Global.
-* Um usuário de teste não-administrador com uma senha que você sabe para teste, se você precisar criar um usuário, confira o artigo [Início Rápido: adicionar novos usuários ao Azure Active Directory](../add-users-azure-active-directory.md).
+* Um usuário de teste não administrador com uma senha que você sabe para testar. Se você precisar criar um usuário, confira o artigo [Início Rápido: Adicionar novos usuários ao Azure Active Directory](../add-users-azure-active-directory.md).
 * Um grupo piloto para testar que o usuário não-administrador é membro, ou se você precisar criar um grupo, confira o artigo [Criar um grupo e adicionar membros ao Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-azure-multi-factor-authentication"></a>Habilitar a Autenticação Multifator do Microsoft Azure
@@ -53,7 +53,7 @@ Neste tutorial, você aprende a configurar uma política de acesso condicional, 
 1. Defina a alternância **Habilitar política** para **Ativado**
 1. Clique em **Criar**
 
-## <a name="test-azure-multi-factor-authentication"></a>Testar a Autenticação Multifator do Azure
+## <a name="test-azure-multi-factor-authentication"></a>Testar a Autenticação Multifator do Microsoft Azure
 
 Para provar que a política de acesso condicional funciona, você testa o logon em um recurso que não deve exigir o MFA e, em seguida, no portal do Azure que requer o MFA.
 
@@ -66,7 +66,7 @@ Para provar que a política de acesso condicional funciona, você testa o logon 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você decidir que você não deseja mais usar a funcionalidade configurada como parte deste tutorial, faça a seguinte alteração.
+Se você decidir que não deseja mais usar a funcionalidade configurada como parte deste tutorial, faça a alteração a seguir.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Navegue até **Azure Active Directory**, **Acesso condicional**.

@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f311f951e09e064b8eac779b1082c666fe029479
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a89768a5cf02cc8d4cdce670bdfb5b90f504bdf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977225"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447455"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início Rápido: Atualizar um aplicativo no Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início rápido: atualizar um aplicativo no Azure Active Directory
 
 Os desenvolvedores corporativos e os provedores de SaaS (software como serviço) que registraram aplicativos no Azure AD (Azure Active Directory) podem precisar configurar seus aplicativos para acessar outros recursos, como APIs Web, disponibilizá-los em outras organizações, entre outras ações.
 
@@ -111,7 +111,7 @@ A seção a seguir mostra como expor escopos de acesso modificando o manifesto d
   ```
 
   > [!NOTE]
-  > O valor da `id` precisa ser gerado de modo programático ou usando uma ferramenta de geração de GUID, como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). O `id` representa um identificador exclusivo para o escopo exposto pela API Web. Depois que um cliente está configurado adequadamente com permissões para acessar a sua API Web, o Azure AD emite um token de acesso OAuth2.0. Quando o cliente chama a API Web, ele apresenta o token de acesso que tem a declaração de escopo (scp) definida para as permissões solicitadas no seu registro de aplicativo.
+  > O valor `id` precisa ser gerado de modo programático ou usando uma ferramenta de geração de GUID como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). O `id` representa um identificador exclusivo para o escopo exposto pela API Web. Depois que um cliente está configurado adequadamente com permissões para acessar a sua API Web, o Azure AD emite um token de acesso OAuth2.0. Quando o cliente chama a API Web, ele apresenta o token de acesso que tem a declaração de escopo (scp) definida para as permissões solicitadas no seu registro de aplicativo.
   >
   > É possível expor escopos adicionais posteriormente conforme a necessidade. Lembre-se de que a API Web pode expor vários escopos associados a uma variedade de funções diferentes. O recurso pode controlar o acesso à API Web em tempo de execução, avaliando declarações de escopo (`scp`) no token de acesso OAuth 2.0 recebido.
 
@@ -190,7 +190,7 @@ Para obter mais informações sobre as alterações de aplicativo necessárias p
 
 - [Como entrar em qualquer usuário do Azure AD (Active Directory) usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md)
 - A lista de [Exemplos de código de multilocatário](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant).
-- [Início rápido: adicionar identidade visual da empresa à sua página de entrada no Azure AD](../fundamentals/customize-branding.md)
+- [Início Rápido: adicionar identidade visual da empresa à sua página de entrada no Azure AD](../fundamentals/customize-branding.md)
 
 ## <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Habilitando a concessão implícita do OAuth 2.0 para aplicativos de página única
 

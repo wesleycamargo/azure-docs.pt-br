@@ -3,19 +3,19 @@ title: O que é o Azure Active Directory B2C? | Microsoft Docs
 description: Saiba mais sobre como você pode criar e gerenciar sua experiência de conexão de aplicativo usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724019"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844986"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
 
@@ -102,11 +102,11 @@ No Azure AD B2C, um locatário representa a sua organização e é um diretório
 
 Vincule o locatário do Azure AD B2C à assinatura do Azure para habilitar todas as funcionalidades e pagar pelos encargos de uso. Para permitir que seus clientes entrem em seu aplicativo, registre-o em um locatário do Azure AD B2C.
 
-Antes de configurar seu aplicativo para usar o Azure AD B2C, primeiro crie um locatário Azure AD B2C e registre seu aplicativo. Para registrar seu aplicativo, conclua as etapas em [Tutorial: Registrar um aplicativo para habilitar a inscrição e entrar usando o Azure AD B2C](tutorial-register-applications.md).
+Antes de configurar seu aplicativo para usar o Azure AD B2C, primeiro crie um locatário Azure AD B2C e registre seu aplicativo. Para registrar seu aplicativo, conclua as etapas no [Tutorial: registrar um aplicativo para habilitar a inscrição e entrada usando o Azure AD B2C](tutorial-register-applications.md).
   
-Se você for um desenvolvedor de aplicativos web ASP.NET, configure seu aplicativo para autenticar contas usando as etapas no [Tutorial: habilitar um aplicativo web para autenticar com contas usando o Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
+Se você for um desenvolvedor de aplicativos Web ASP.NET, configure seu aplicativo para autenticar contas usando as etapas no [Tutorial: habilitar um aplicativo Web para autenticar com contas usando o Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
 
-Se você for um desenvolvedor de aplicativo da área de trabalho, configure seu aplicativo para autenticar contas usando as etapas no [Tutorial: habilitar um aplicativo da área de trabalho para autenticar com contas usando o Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
+Se você for um desenvolvedor de aplicativos de desktop, configure seu aplicativo para autenticar contas usando as etapas no [Tutorial: habilitar um aplicativo de desktop para autenticar com contas usando o Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
 
 Se você for um desenvolvedor de aplicativo de página única usando Node.js, configure seu aplicativo para autenticar contas usando as etapas no [Tutorial: habilitar um aplicativo de página única para autenticar com contas usando o Azure AD B2C](active-directory-b2c-tutorials-spa.md).
 
@@ -115,4 +115,4 @@ Se você for um desenvolvedor de aplicativo de página única usando Node.js, co
 Começar a configurar seu aplicativo para a experiência de inscrição e entrada ao continuar o tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar um locatário do Azure Active Directory B2C](tutorial-create-tenant.md)
+> [Tutorial: criar um locatário do Azure Active Directory B2C](tutorial-create-tenant.md)

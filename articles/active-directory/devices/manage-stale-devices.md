@@ -4,7 +4,7 @@ description: Saiba como o gerenciamento de dispositivos pode ajudar você a cont
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: overview
 ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 53474d2d364b26f4d54e1917e4aa50bc6f0e5280
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249359"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449581"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Como gerenciar os dispositivos obsoletos no Azure AD
+# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Como: gerenciar os dispositivos obsoletos no Azure AD
 
 O ideal é que, para concluir o ciclo de vida, o registro dos dispositivos registrados seja cancelado quando eles não forem mais necessários. No entanto, devido a dispositivos perdidos, roubados ou quebrados, por exemplo, ou reinstalações do sistema operacional, normalmente você tem dispositivos obsoletos em seu ambiente. Como administrador de TI, você provavelmente deseja ter um método para remover dispositivos obsoletos para poder focar em seus recursos ao gerenciar dispositivos que realmente requerem gerenciamento.
 

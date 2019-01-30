@@ -9,32 +9,54 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 12/04/2018
-ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 1/17/2019
+ms.openlocfilehash: d5660d1a4d5d2a26af57e2a2411552e3f6267379
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557879"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389140"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Quais são os produtos de aprendizado de máquina na Microsoft?
 
 A Microsoft fornece uma variedade de opções de produto para compilar, implantar e gerenciar seu modelos de aprendizado de máquina. Compare esses produtos e escolha o que você precisa para desenvolver com mais eficiência soluções de aprendizado de máquina.
 
-| Produto de aprendizado de máquina | O que é | O que você pode fazer com ele |
+
+**Opções baseadas em nuvem**
+
+As seguintes opções estão disponíveis para o aprendizado de máquina na nuvem do Azure.
+
+| Opções&nbsp;de nuvem | O que é | O que você pode fazer com ele |
 |-|-|-|
-| ***Na nuvem*** | | |
 | [Serviço do Azure Machine Learning](#azure-machine-learning-services) | O serviço de nuvem gerenciado para ML  | Treinar, implantar e gerenciar modelos no Azure usando o Python e a CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interface visual do tipo arrastar&ndash;e&ndash;soltar para ML | Criar, experimentar e implantar modelos usando algoritmos pré-configurados |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interface visual do tipo arrastar&ndash;e&ndash;soltar para ML | Criar, experimentar e implantar modelos usando algoritmos pré-configurados (Python e R)|
 | [Azure Databricks](#azure-databricks) | Plataforma de análise com base no Spark | Crie e implante modelos e fluxos de trabalho de dados |
 | [Serviços Cognitivos do Azure](#azure-cognitive-services) | Serviços do Azure com modelos predefinidos de ML e IA | Adicione facilmente recursos inteligentes aos seus aplicativos |
 | [Máquina Virtual de Ciência de Dados do Azure](#azure-data-science-virtual-machine) | Máquina virtual com as ferramentas de ciência de dados previamente instaladas | Desenvolver soluções de ML em um ambiente de pré-configurado |
-| ***Configuração local***<br>*(servidores locais também podem ser executados em uma máquina virtual na nuvem)* | | |
+
+**Opções locais**
+
+As opções a seguir estão disponíveis para aprendizado de máquina local. Os servidores locais também podem ser executados em uma máquina virtual na nuvem.
+
+| Opções&nbsp;locais | O que é | O que você pode fazer com ele |
+|-|-|-|
 | [Serviços de Machine Learning do SQL Server](#sql-server-machine-learning-services) | Mecanismo de análise inserido em SQL | Compilar e implantar modelos dentro do SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Servidor empresarial autônomo para análise de previsão | Compilar e implantar modelos com R e Python |
-| ***Ferramentas do Desenvolvedor*** | | |
+
+**Ferramentas de desenvolvimento**
+
+As ferramentas de desenvolvimento a seguir estão disponíveis para aprendizado de máquina.
+
+| Ferramentas&nbsp;de desenvolvimento | O que é | O que você pode fazer com ele |
+|-|-|-|
 | [ML.NET](#mlnet) | Código-fonte aberto, SDK de ML multiplataforma | Desenvolver soluções de ML para aplicativos .NET |
 | [Windows ML](#windows-ml) | Plataforma do Windows 10 ML | Avaliar modelos treinados em um dispositivo Windows 10 |
+
+
+
+
+
+
 
 ## <a name="azure-machine-learning-service"></a>Serviço do Azure Machine Learning
 

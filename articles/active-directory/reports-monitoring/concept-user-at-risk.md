@@ -3,7 +3,7 @@ title: Usuários sinalizados para o relatório de risco na segurança no portal 
 description: Saiba mais sobre os usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9a7a3877970d5ecf3b86471b94fbb1bf6e5efbb4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: de9cf73ba7ad68d84e43a7774617959f9c3789ee
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621064"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810747"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Relatório de usuários sinalizados para risco no portal do Azure
 
@@ -33,7 +33,7 @@ Os eventos de risco detectados são usados para calcular:
 
 - **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
 
-Para saber como configurar as políticas que disparam esses eventos de risco, veja [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md). 
+Para saber como configurar as políticas que disparam esses eventos de risco, consulte [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md). 
 
 ![Entradas de risco](./media/concept-user-at-risk/10.png)
 
@@ -55,19 +55,16 @@ Os usuários sinalizados para relatório de risco nas edições gratuita e bási
 
 ![Entradas de risco](./media/concept-user-at-risk/03.png)
 
-A seleção de um usuário abre a respectiva folha de dados de usuário. Você pode examinar o histórico de entradas dos usuários em risco e redefinir a senha, se necessário.
-
-![Entradas de risco](./media/concept-user-at-risk/46.png)
-
+A seleção de um usuário fornece informações de entrada. Você pode examinar o histórico de entradas dos usuários em risco e redefinir a senha, se necessário.
 
 Essa caixa de diálogo fornece uma opção para:
 
 - Baixar o relatório
-
 - Pesquisar usuários
 
-![Entradas de risco](./media/concept-user-at-risk/16.png)
+    ![Entradas de risco](./media/concept-user-at-risk/16.png)
 
+Para obter informações mais detalhadas, você precisa de uma licença premium.
 
 ## <a name="users-at-risk-report-for-azure-ad-premium-editions"></a>Relatório de usuários em risco para as edições premium do Azure AD
 

@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8ea4a615cff02cad1030f10b408fe047f1208a60
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819213"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451707"
 ---
-# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutorial: Solucionar e corrigir problemas do dispositivo
+# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutorial: Corrigir problemas do dispositivo
 
 Neste tutorial, você usará o acelerador da solução de Monitoramento Remoto para identificar e corrigir problemas com seus dispositivos IoT conectados. Use os alertas no painel do acelerador de solução para identificar problemas e, depois, execute trabalhos remotos para corrigir esses problemas.
 
@@ -84,6 +84,6 @@ Você pode verificar se a temperatura do dispositivo caiu exibindo a telemetria 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este tutorial mostrou como usar alertas para identificar problemas com seus dispositivos e como agir nesses dispositivos para resolver os problemas. Para saber como conectar um dispositivo físico ao seu acelerador de solução, continue lendo os artigos de instrução.
+Este tutorial mostrou como usar alertas para identificar problemas com seus dispositivos e como agir nesses dispositivos para resolver os problemas. Para saber como conectar um dispositivo real ao seu acelerador de solução, continue lendo os artigos de instrução.
 
 Agora que você aprendeu a gerenciar os problemas com o dispositivo, a próxima etapa sugerida é saber como [Conectar seu dispositivo ao acelerador de solução de Monitoramento Remoto](iot-accelerators-connecting-devices.md).

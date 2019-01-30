@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b43dac7f81b92ac504427dab164d23d9ebb1ec03
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955330"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411400"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -59,10 +59,11 @@ O dispositivo Data Box tem os seguintes recursos nesta versão.
 | Especificações                                          | DESCRIÇÃO              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | <50 lb                |
-| Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            
+| Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            
 | Espaço em rack                                              | 7 U quando colocado no rack em seu lado (não pode ser montado em rack)|
 | Cabos necessários                                         | 1 x cabo de alimentação (incluído) <br> 2 cabos de conector RJ-45 <br> 2 x cabos de cobre SFP+ Twinax|
 | Capacidade de armazenamento                                        | Dispositivo de 100 TB tem capacidade utilizável de 80 TB após a proteção RAID 5|
+| Classificação de energia                                            | A unidade de fornecimento de energia é classificada para 700 W. <br> Normalmente, a unidade extrai 375 W.|
 | Interfaces de rede                                      | 2 x interface de 1 GbE – MGMT, DADOS 3. <br> MGMT – para o gerenciamento, o não configurável pelo usuário, usado para a configuração inicial <br> DATA3 – para os dados, configurável pelo usuário e dinâmico por padrão <br> MGMT e DATA 3 também podem funcionar como 10 GbE <br> 2 x interface de 10 GbE – DATA 1, DATA 2 <br> Ambos são para os dados, pode ser configurado como dinâmicos (padrão) ou estático |
 | Mídia de transferência de dados                                     | Conector RJ-45, Ethernet de 10 GbE de cobre SFP+  |
 | Segurança                                                | Caixa do dispositivo reforçada com parafusos personalizados invioláveis <br> Adesivos invioláveis colocados na parte inferior do dispositivo|

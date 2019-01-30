@@ -11,19 +11,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2018
+ms.date: 01/18/2019
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 3d0f24331243c22fa356de7778a89185df2cde4e
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003203"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421905"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
-# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Tutorial: Configurar os dispositivos a partir de um serviço back-end
+# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Tutorial: Configurar seus dispositivos de um serviço de back-end
 
 Além de receber telemetria dos dispositivos, talvez seja necessário configurar os dispositivos a partir do serviço back-end. Ao enviar uma configuração desejada aos dispositivos, você também pode querer receber atualizações de conformidade e status desses dispositivos. Por exemplo, você pode definir uma faixa de temperatura operacional de destino para um dispositivo ou coletar informações de versão de firmware dos dispositivos.
 
@@ -42,7 +42,7 @@ Neste tutorial, você executa as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os dois exemplos de aplicativo executados neste início rápido são escritos usando o Node.js. Você precisa do Node.js v4.x.x ou posterior em seu computador de desenvolvimento.
 
@@ -117,7 +117,7 @@ O código a seguir obtém um dispositivo gêmeo do objeto de cliente:
 
 ### <a name="sample-desired-properties"></a>Exemplo de propriedades desejadas
 
-É possível estruturar as propriedades desejadas de qualquer maneira que seja conveniente ao aplicativo. Este exemplo usa uma propriedade de nível superior chamada **fanOn** e agrupa as propriedades restantes em **componentes** separados. O trecho de código JSON a seguir mostra a estrutura das propriedades desejadas que este tutorial usa:
+É possível estruturar as propriedades desejadas de qualquer maneira que seja conveniente ao aplicativo. Este exemplo usa uma propriedade de nível superior chamada **fanOn** e agrupa as propriedades restantes em **componentes** separados. O snippet de código JSON a seguir mostra a estrutura das propriedades desejadas que este tutorial usa:
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
@@ -135,7 +135,7 @@ O manipulador a seguir reage apenas às alterações feitas na propriedade desej
 
 No exemplo de propriedades desejadas JSON mostrado anteriormente, o nó **clima** em **componentes** contém duas propriedades, **minTemperature** e **maxTemperature**.
 
-Um objeto **gêmeo** local do dispositivo armazena um conjunto completo de propriedades desejadas e relatadas. A variável **delta** enviada do back-end pode atualizar apenas um subconjunto de propriedades desejadas. No trecho de código a seguir, se o dispositivo simulado receber uma atualização apenas para um dos valores **minTemperature** e **maxTemperature**, ele usará o valor no gêmeo local para o outro valor para configurar o dispositivo:
+Um objeto **gêmeo** local do dispositivo armazena um conjunto completo de propriedades desejadas e relatadas. A variável **delta** enviada do back-end pode atualizar apenas um subconjunto de propriedades desejadas. No snippet de código a seguir, se o dispositivo simulado receber uma atualização apenas para um dos valores **minTemperature** e **maxTemperature**, ele usará o valor no gêmeo local para o outro valor para configurar o dispositivo:
 
 [!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
 
@@ -145,7 +145,7 @@ O objeto **gêmeo** local armazena um conjunto completo de propriedades desejada
 
 As propriedades desejadas enviadas do back-end não indicam qual operação está sendo executada em uma propriedade desejada específica. O código precisa inferir a operação do conjunto atual de propriedades desejadas armazenadas localmente e as alterações enviadas do hub.
 
-O trecho de código a seguir mostra como o dispositivo simulado manipula operações de inserção, atualização e exclusão na lista de **componentes** nas propriedades desejadas. É possível ver como utilizar valores **nulos** para indicar que um componente deve ser excluído:
+O snippet de código a seguir mostra como o dispositivo simulado manipula operações de inserção, atualização e exclusão na lista de **componentes** nas propriedades desejadas. É possível ver como utilizar valores **nulos** para indicar que um componente deve ser excluído:
 
 [!code-javascript[Handle components](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]
 
@@ -155,15 +155,15 @@ Vimos como um dispositivo implementa manipuladores para receber atualizações d
 
 Para exibir o código de exemplo do dispositivo simulado que recebe as propriedades desejadas, navegue até a pasta **iot-hub/Tutorials/DeviceTwins** no projeto Node.js de exemplo transferido por download. Em seguida, abra o arquivo ServiceClient.js em um editor de texto.
 
-O trecho de código a seguir mostra como conectar o registro de identidade do dispositivo e acessar o gêmeo para um dispositivo específico:
+O snippet de código a seguir mostra como conectar o registro de identidade do dispositivo e acessar o gêmeo para um dispositivo específico:
 
 [!code-javascript[Create registry and get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=getregistrytwin&highlight=2,6 "Create registry and get twin")]
 
-O trecho de código a seguir mostra diferentes *patches* de propriedade desejada que o aplicativo de back-end envia ao dispositivo:
+O snippet de código a seguir mostra diferentes *patches* de propriedade desejada que o aplicativo de back-end envia ao dispositivo:
 
 [!code-javascript[Patches sent to device](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=patches&highlight=2,12,26,41,56 "Patches sent to device")]
 
-O trecho de código a seguir mostra como o aplicativo de back-end envia uma atualização de propriedade desejada a um dispositivo:
+O snippet de código a seguir mostra como o aplicativo de back-end envia uma atualização de propriedade desejada a um dispositivo:
 
 [!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
 
@@ -201,7 +201,7 @@ O aplicativo de back-end recebe informações de estado de um dispositivo como p
 
 ### <a name="send-reported-properties-from-a-device"></a>Enviar propriedades relatadas de um dispositivo
 
-É possível enviar atualizações para valores de propriedade relatados como um patch. O trecho de código a seguir mostra um modelo para o patch enviado pelo dispositivo simulado. O dispositivo simulado atualiza os campos no patch antes de enviá-lo ao hub:
+É possível enviar atualizações para valores de propriedade relatados como um patch. O snippet de código a seguir mostra um modelo para o patch enviado pelo dispositivo simulado. O dispositivo simulado atualiza os campos no patch antes de enviá-lo ao hub:
 
 [!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
 
@@ -211,7 +211,7 @@ O dispositivo simulado usa a função a seguir para enviar o patch que contém a
 
 ### <a name="process-reported-properties"></a>Processar propriedades relatadas
 
-Um aplicativo de back-end acessa os valores de propriedade relatados atuais para um dispositivo por meio do dispositivo gêmeo. O trecho de código a seguir mostra como o aplicativo de back-end lê os valores da propriedade relatada do dispositivo simulado:
+Um aplicativo de back-end acessa os valores de propriedade relatados atuais para um dispositivo por meio do dispositivo gêmeo. O snippet de código a seguir mostra como o aplicativo de back-end lê os valores da propriedade relatada do dispositivo simulado:
 
 [!code-javascript[Display reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]
 

@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a86547ad3eddb57328a2a0358ac453c979b84d37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 21f2081f5aae0bb93cb9066407140f5fd35dc06d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163257"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424013"
 ---
-# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Concluir uma distribuição piloto de redefinição de senha de autoatendimento do Azure AD
+# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Concluir uma distribuição piloto de redefinição de senha self-service do Azure AD
 
 Neste tutorial, você habilitará uma distribuição piloto de SSPR (redefinição de senha de autoatendimento) do Azure AD em sua organização e testá-la usando uma conta que não seja de administrador.
 
@@ -33,7 +33,7 @@ Neste tutorial, você habilitará uma distribuição piloto de SSPR (redefiniç�
 
 ## <a name="enable-self-service-password-reset"></a>Habilitar a redefinição de senha por autoatendimento
 
-1. Entre no [Portal do Azure](https://portal.azure.com) usando uma conta de Administrador Global.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de Administrador Global.
 1. Navegue até o **Azure Active Directory** e selecione **Redefinição de senha**.
 1. Comece com um grupo piloto habilitando a senha de autoatendimento para um subconjunto de usuários de sua organização.
    * Na página **Propriedades**, na opção **Redefinição da Senha de Autoatendimento Habilitada**, escolha **Selecionado** e selecione um grupo piloto.

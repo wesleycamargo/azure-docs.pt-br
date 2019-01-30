@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f7bf5e233307703dca522974d52a86bc193186b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465824"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848726"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: criar e implantar máquinas virtuais altamente disponíveis com a CLI do Azure
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com a CLI do Azure
 
 Neste tutorial, você aprenderá a aumentar a disponibilidade e a confiabilidade de suas soluções de Máquina Virtual no Azure usando uma funcionalidade chamada Conjuntos de Disponibilidade. Os Conjuntos de disponibilidade garantem que as VMs implantadas no Azure sejam distribuídas entre vários clusters de hardware isolados. Isso garante que, se ocorrer uma falha de hardware ou de software no Azure, apenas um subconjunto de suas VMs será afetado e a solução geral permanecerá disponível e operacional.
 
@@ -70,7 +70,7 @@ Os Conjuntos de Disponibilidade permitem que você isole os recursos em "domíni
 
 As VMs devem ser criadas dentro do conjunto de disponibilidade para assegurar a distribuição correta pelo hardware. Uma VM existente não pode ser adicionada a um conjunto de disponibilidade após sua criação.
 
-Quando uma VM é criada com [az vm create](/cli/azure/vm#az_vm_create), você usa o parâmetro `--availability-set` para especificar o nome do conjunto de disponibilidade.
+Quando uma VM é criada com [az vm create](/cli/azure/vm), você usa o parâmetro `--availability-set` para especificar o nome do conjunto de disponibilidade.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309852"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464248"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: aprenda sobre a governança de máquina virtual do Linux com a CLI do Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Aprender sobre a governança de máquina virtual do Linux com a CLI do Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -177,7 +177,7 @@ Você pode aplicar [marcas](../../azure-resource-manager/resource-group-using-ta
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-Para aplicar marcas a uma máquina virtual, use o comando [az resource tag](/cli/azure/resource#az_resource_tag). Nenhuma marca existente no recurso é mantida.
+Para aplicar marcas a uma máquina virtual, use o comando [az resource tag](/cli/azure/resource). Nenhuma marca existente no recurso é mantida.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -188,7 +188,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>Localizar recursos por marca
 
-Para localizar recursos com um nome e valor da marca, use o comando [az resource list](/cli/azure/resource#az_resource_list):
+Para localizar recursos com um nome e valor da marca, use o comando [az resource list](/cli/azure/resource):
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name

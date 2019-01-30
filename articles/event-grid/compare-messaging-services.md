@@ -2,19 +2,19 @@
 title: Comparação de mensagens do Azure – Grade de Eventos, Hubs de Eventos, Barramento de Serviço
 description: Descreve os três serviços de mensagens do Azure – Grade de Eventos do Azure, Hubs de Eventos e Barramento de Serviço. Recomenda que serviço usar para cenários diferentes.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
 ms.date: 12/07/2018
-ms.author: tomfitz
+ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166516"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469841"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os três serviços de mensagens do Azure – Grade de Eventos, Hubs de Eventos e Barramento de Serviço
 
@@ -77,7 +77,7 @@ Ele tem as seguintes características:
 
 ### <a name="service-bus"></a>Barramento de Serviço
 
-O Barramento de Serviço destina-se a aplicativos empresariais tradicionais. Esses aplicativos empresariais tradicionais exigem transações, ordenação, detecção de duplicidades e consistência instantânea. O Barramento de Serviço permite que os aplicativos nativos de nuvem forneçam gerenciamento de transição de estado confiável para os processos empresariais. Ao manipular mensagens de alto valor que não podem ser perdidas ou duplicadas, use o Barramento de Serviço do Azure. O Barramento de Serviço também facilita a comunicação altamente segura em soluções de nuvem híbrida e pode se conectar a sistemas locais existentes para soluções de nuvem.
+O Barramento de Serviço destina-se a aplicativos empresariais tradicionais. Esses aplicativos empresariais tradicionais exigem transações, ordenação, detecção de duplicidades e consistência instantânea. O Barramento de Serviço permite que os aplicativos [nativos de nuvem](https://azure.microsoft.com/overview/cloudnative/) forneçam gerenciamento de transição de estado confiável para os processos empresariais. Ao manipular mensagens de alto valor que não podem ser perdidas ou duplicadas, use o Barramento de Serviço do Azure. O Barramento de Serviço também facilita a comunicação altamente segura em soluções de nuvem híbrida e pode se conectar a sistemas locais existentes para soluções de nuvem.
 
 O Barramento de Serviço é um sistema de mensagens agenciado. Ele armazena mensagens de maneira confiável em um "agente" (por exemplo, uma fila) até que a parte consumidora esteja pronta para recebê-las.
 

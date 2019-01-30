@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 61e040fc2f7ff70794b49204e3dea01375637641
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0c71062bded65f8aa7c259c0678ee6675e2dab38
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336569"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432210"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Criar e gerenciar VMs Windows com o módulo do Azure PowerShell
 
@@ -39,11 +39,11 @@ O diagrama a seguir mostra a topologia para este tutorial:
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.3 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.3 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="requirements"></a>Requisitos
 
-Concluir o primeiro tutorial: "[Criar gateway VPN com o Microsoft PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)" para criar os seguintes recursos:
+Conclua o tutorial primeiro: "[Criar gateway VPN com o Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)" para criar os seguintes recursos:
 
 1. O grupo de recursos (TestRG1), a rede virtual (VNet1) e GatewaySubnet
 2. Gateway VPN (VNet1GW)
@@ -140,7 +140,7 @@ O Gateway de VPN do Microsoft Azure oferece suporte ao protocolo de roteamento B
 * Gateway de rede loca ASN
 * Gateway de rede local BGP par de endereço IP
 
-Se você não configurou as propriedades BGP, use os seguintes comandos para adicionar essas propriedades para o gateway VPN e o gateway de rede local: [conjunto Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) e [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
+Se você não configurou as propriedades BGP, use os seguintes comandos para adicionar essas propriedades para o gateway VPN e o gateway de rede local: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) e [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -168,7 +168,7 @@ Você pode desabilitar BGP pela alteração do valor de propriedade "-EnableBGP"
 Você pode aplicar uma política de IPsec/IKE opcional para especificar a combinação exata de algoritmos de criptografia IPsec/IKE e restrições de chave de conexão, em vez de usar as [propostas padrão](vpn-gateway-about-vpn-devices.md#ipsec). O script de exemplo a seguir cria uma política de IPsec/IKE diferente com os parâmetros e os algoritmos seguintes:
 
 * IKEv2: AES256, SHA256, DHGroup14
-* IPsec: AES128, SHA1, PFS14, SA Tempo de vida 14.400 segundos & 102,400,000 KB
+* IPsec: AES128, SHA1, PFS14, SA Tempo de vida 14.400 segundos e 102.400.000 KB
 
 ```azurepowershell-interactive
 $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 `

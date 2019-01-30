@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039938"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382886"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores que executam o Windows Server 2008 para o Azure
 
@@ -119,7 +119,7 @@ Selecione e verifique os recursos de destino.
 1. Para criar uma nova política de replicação, clique em **Infraestrutura de Site Recovery** > **Políticas de Replicação** > **+Política de Replicação**.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limite de RPO**, especifique o limite de RPO (objetivo de pontos de recuperação). Um alerta será gerado se o RPO de replicação exceder esse limite.
-4. Em **Retenção do ponto de recuperação**, especifique qual será a duração (em horas) da janela de retenção para cada ponto de recuperação. VMs replicadas podem ser recuperadas para qualquer ponto em uma janela. Há suporte para retenção de até 24 horas para máquinas replicadas para armazenamento premium e 72 horas para o armazenamento padrão.
+4. Em **Retenção do ponto de recuperação**, especifique qual será a duração (em horas) da janela de retenção para cada ponto de recuperação. Os servidores replicados podem ser recuperados para qualquer ponto nesta janela. Há suporte para retenção de até 24 horas para máquinas replicadas para armazenamento premium e 72 horas para o armazenamento padrão.
 5. Em **Frequência de instantâneos consistentes com o aplicativo**, especifique **Desativado**. Clique em **OK** para criar a política.
 
 A política é associada automaticamente ao servidor de configuração.
@@ -154,13 +154,13 @@ Execute um failover para as máquinas que você deseja migrar.
 2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Selecione o ponto de recuperação mais recente.
 3. Selecione **Desligar o computador antes do início do failover**. O Site Recovery tentará desligar o servidor antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 4. Verifique se a VM do Azure aparece no Azure, conforme o esperado.
-5. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Concluir Migração**. Isso faz o seguinte:
+5. Em **Itens replicados**, clique com o botão direito do mouse no servidor > **Concluir Migração**. Isso faz o seguinte:
 
-    - Conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
+    - Conclui o processo de migração, interrompe a replicação do servidor e a cobrança do Site Recovery para o servidor.
     - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas.
 
    ![Migração completa](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **Não cancele um failover em andamento**: a replicação da VM é interrompida antes do início do failover. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.
+> **Não cancele um failover em andamento**: A replicação do servidor é interrompida antes do início do failover. Se você cancelar um failover em andamento, o failover será interrompido, mas o servidor não continuará replicando.

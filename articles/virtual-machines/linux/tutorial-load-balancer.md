@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470873"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856410"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Balancear carga de Máquinas Virtuais do Linux no Azure para criar um aplicativo altamente disponível com a CLI do Azure
+# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: balancear carga de máquinas virtuais do Linux no Azure para criar um aplicativo altamente disponível com a CLI do Azure
 
 O balanceamento de carga fornece um nível mais alto de disponibilidade, distribuindo as solicitações de entrada em várias máquinas virtuais. Neste tutorial, você aprenderá sobre os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e fornecem alta disponibilidade. Você aprenderá como:
 
@@ -53,7 +53,7 @@ Se você seguiu o tutorial anterior para [criar um conjunto de escala de máquin
 
 
 ## <a name="create-azure-load-balancer"></a>Criar o balanceador de carga do Azure
-Esta seção fornece detalhes sobre como criar e configurar cada componente do balanceador de carga. Antes de criar seu balanceador de carga, crie um grupo de recursos com o [az group create](/cli/azure/group#az_group_create). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupLoadBalancer* no local *eastus*:
+Esta seção fornece detalhes sobre como criar e configurar cada componente do balanceador de carga. Antes de criar seu balanceador de carga, crie um grupo de recursos com o [az group create](/cli/azure/group). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupLoadBalancer* no local *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
@@ -226,7 +226,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Agora, você podecriar as VMs com [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria três VMs e gera chaves SSH, se elas ainda não existirem:
+Agora, você podecriar as VMs com [az vm create](/cli/azure/vm). O exemplo a seguir cria três VMs e gera chaves SSH, se elas ainda não existirem:
 
 ```bash
 for i in `seq 1 3`; do

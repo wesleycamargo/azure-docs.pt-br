@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988505"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463755"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerenciar redes virtuais do Azure para Máquinas Virtuais do Linux com a CLI do Azure
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerenciar redes virtuais do Azure para máquinas virtuais do Linux com a CLI do Azure
 
 As máquinas virtuais do Azure usam a rede do Azure para comunicação de rede interna e externa. Este tutorial explica como implantar duas máquinas virtuais e configurar a rede do Azure para essas VMs. Os exemplos neste tutorial supõem que as VMs estão hospedando um aplicativo Web com um back-end de banco de dados. No entanto, não há implantação de aplicativo no tutorial. Neste tutorial, você aprenderá como:
 
@@ -208,7 +208,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-A VM de front-end só está acessível nas portas *22* e *80*. Todos os outros tráfegos de entrada são bloqueados no grupo de segurança de rede. Ele pode ser útil para visualizar as configurações de regra do NSG. Retorne a configuração da regra do NSG como comando [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
+A VM de front-end só está acessível nas portas *22* e *80*. Todos os outros tráfegos de entrada são bloqueados no grupo de segurança de rede. Ele pode ser útil para visualizar as configurações de regra do NSG. Retorne a configuração da regra do NSG como comando [az network rule list](/cli/azure/network/nsg/rule). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -285,7 +285,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-A VM de back-end só está acessível nas portas *22* e *3306* da sub-rede de front-end. Todos os outros tráfegos de entrada são bloqueados no grupo de segurança de rede. Ele pode ser útil para visualizar as configurações de regra do NSG. Retorne a configuração da regra do NSG como comando [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
+A VM de back-end só está acessível nas portas *22* e *3306* da sub-rede de front-end. Todos os outros tráfegos de entrada são bloqueados no grupo de segurança de rede. Ele pode ser útil para visualizar as configurações de regra do NSG. Retorne a configuração da regra do NSG como comando [az network rule list](/cli/azure/network/nsg/rule). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table

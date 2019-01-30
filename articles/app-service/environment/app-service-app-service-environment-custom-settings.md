@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2016
+ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6463759dbd217cd054f838c09c7cfcf99a06aa2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271344"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390828"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
-Como os Ambientes de Serviço de Aplicativo são isolados em um único cliente, há certas definições de configuração que podem ser aplicadas exclusivamente a Ambientes de Serviço de Aplicativo. Este artigo documenta as várias personalizações específicas que estão disponíveis para Ambientes de Serviço de Aplicativo.
+Como os ASEs (Ambientes do Serviço de Aplicativo) são isolados em um único cliente, há certas definições de configuração que podem ser aplicadas exclusivamente a Ambientes de Serviço de Aplicativo. Este artigo documenta as várias personalizações específicas que estão disponíveis para Ambientes de Serviço de Aplicativo.
 
 Se você não tiver um Ambiente do Serviço de Aplicativo, consulte [Como criar um Ambiente do Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -65,10 +65,11 @@ Como alternativa, você pode atualizar o Ambiente de Serviço de Aplicativo usan
 No entanto, você envia a alteração, isso demora aproximadamente 30 minutos, multiplicados pelo número de front-ends no Ambiente de Serviço de Aplicativo, para que a alteração tenha efeito.
 Por exemplo, se um Ambiente de Serviço de Aplicativo tiver quatro front-ends, levará aproximadamente duas horas para que a atualização de configuração seja concluída. Embora a alteração de configuração esteja sendo revertida, nenhuma outra operação de colocação em escala ou operação de alteração pode ocorrer no Ambiente de Serviço de Aplicativo.
 
-## <a name="disable-tls-10"></a>Desabilitar o TLS 1.0
-Uma dúvida recorrente dos clientes, principalmente daqueles lidando com auditorias de conformidade de PCI, é como desabilitar explicitamente o TLS 1.0 para seus aplicativos.
+## <a name="disable-tls-10-and-tls-11"></a>Desabilitar o TLS 1.0 e TLS 1.1
 
-O TLS 1.0 pode ser desabilitado por meio da seguinte entrada de **clusterSettings** :
+Se você deseja gerenciar as configurações de TLS em um aplicativo por aplicativo, é possível usar as orientações fornecidas com a documentação [Impor configurações de TLS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions). 
+
+Se desejar desabilitar todo o tráfego de TLS 1.0 e TLS 1.1 para todos os aplicativos em um ASE, você poderá definir a seguinte entrada **clusterSettings**:
 
         "clusterSettings": [
             {
@@ -76,6 +77,8 @@ O TLS 1.0 pode ser desabilitado por meio da seguinte entrada de **clusterSetting
                 "value": "1"
             }
         ],
+
+O nome da configuração informa 1.0, mas quando configurado, ele desabilita o TLS 1.0 e TLS 1.1.
 
 ## <a name="change-tls-cipher-suite-order"></a>Mudar a ordem do pacote de criptografia TLS
 Outra pergunta feita pelos clientes é se eles podem modificar a lista de criptografia negociada pelo seu servidor e isso pode ser feito modificando **clusterSettings** conforme mostrado abaixo. A lista de pacotes de criptografia disponíveis pode ser recuperada [neste artigo do MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).

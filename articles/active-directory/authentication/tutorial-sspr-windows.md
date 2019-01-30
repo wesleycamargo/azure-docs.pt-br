@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437139"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430663"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Redefinição de senha do Azure AD a partir da tela de logon
 
@@ -32,6 +32,7 @@ Neste tutorial, você permitirá que os usuários redefinam suas senhas na tela 
    * [Computador ingressado no Azure AD](../device-management-azure-portal.md) ou
    * [Computador ingressado no Azure AD Híbrido](../device-management-hybrid-azuread-joined-devices-setup.md) com conectividade de rede para um controlador de domínio.
 * A redefinição de senha de autoatendimento do Azure AD deve ser habilitada.
+* Se os seus computadores com Windows 10 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` deverá ter permissão.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar o link Redefinir senha usando o Intune
 
@@ -126,8 +127,6 @@ As configurações de política a seguir são conhecidas por interferir com a ca
    * Explorer.exe é substituído por um shell personalizado
 
 Esse recurso não funciona para redes com autenticação de rede 802.1x implantada e a opção "Executar imediatamente antes do logon do usuário". Para redes com autenticação de rede 802.1x implantada, é recomendável usar a autenticação de computador para habilitar esse recurso.
-
-Se os seus computadores com Windows 10 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para passwordreset.microsoftonline.com e ajax.aspnetcdn.com deverá ter permissão.
 
 Para cenários Ingressados em Domínio Híbrido, existe um cenário em que o fluxo de trabalho SSPR será concluído sem necessidade de um controlador de domínio do Active Directory. Conectividade com um controlador de domínio é necessária para usar a nova senha pela primeira vez.
 

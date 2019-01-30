@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5b8d5e639711b91d380b5f14de48be6a80fb0263
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d0fbabdae9b560a882bd4681eb9e681fd2a0398a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820760"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101763"
 documentType: LandingData
 title: Documentação do Azure Monitor
 metadata:
@@ -16,7 +16,7 @@ metadata:
   ms.service: azure-monitor
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 01/22/2019
+  ms.date: 01/25/2019
   ms.author: bwren
 abstract:
   description: O Azure Monitor, que agora inclui o Log Analytics e o Application Insights, fornece ferramentas sofisticadas para coletar e analisar a telemetria, o que permite que você maximize o desempenho e a disponibilidade dos seus recursos e aplicativos locais e de nuvem. Ele ajuda a entender o desempenho de seus aplicativos, além de identificar de maneira proativa os problemas que os estão afetando e os recursos dos quais eles dependem.
@@ -63,7 +63,7 @@ sections:
       text: Alertas e auditoria de assinatura
       href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
   - type: paragraph
-    text: Saiba como começar a monitorar seu aplicativo com o Azure Application Insights.
+    text: Saiba como começar a monitorar seu aplicativo com o Azure Monitor Application Insights.
   - type: list
     style: icon48
     items:

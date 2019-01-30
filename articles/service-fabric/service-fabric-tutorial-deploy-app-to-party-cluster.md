@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 076ddbd722966709cbe386123acafb57f5def0be
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 194999ca7036e174e702d1f997f072da3e9a2dc5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318450"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382287"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implantar um aplicativo do Service Fabric em um cluster no Azure
 
@@ -86,7 +86,7 @@ Na guia **Cluster**, insira o **Nome do cluster** (por exemplo, "mytestcluster")
 
 ![Criar um cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-Na guia **Certificado**, insira a senha e o caminho de saída para o certificado de cluster. Um certificado autoassinado é criado como um arquivo PFX e salvo no caminho de saída especificado.  O certificado é usado para a segurança de nó para nó e de cliente para nó.  Um certificado autoassinado não deve ser usado para clusters de produção.  Esse certificado é usado pelo Visual Studio para se autenticar no cluster e implantar aplicativos. Selecione **Importar certificado** para instalar o PFX no repositório de certificados CurrentUser\My do computador.  Clique em **Próximo**.
+Na guia **Certificado**, insira a senha e o caminho de saída para o certificado de cluster. Um certificado autoassinado é criado como um arquivo PFX e salvo no caminho de saída especificado.  O certificado é usado para segurança de nó para nó e de cliente para nó.  Um certificado autoassinado não deve ser usado para clusters de produção.  Esse certificado é usado pelo Visual Studio para se autenticar no cluster e implantar aplicativos. Selecione **Importar certificado** para instalar o PFX no repositório de certificados CurrentUser\My do computador.  Clique em **Próximo**.
 
 ![Criar um cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

@@ -31,12 +31,6 @@ items:
   items:
   - name: Migrar de v2 para v3
     href: migrate-from-v2-to-v3.md
-  - name: Contas
-    items:
-    - name: Cotas e limitações
-      href: limits-quotas-constraints.md
-    - name: Contas de armazenamento
-      href: storage-account-concept.md
   - name: Entidades
     href: entities-overview.md
     items:
@@ -63,13 +57,6 @@ items:
       href: media-encoder-standard-formats.md
     - name: Escada de taxa de bits adaptável Autogen
       href: autogen-bitrate-ladder.md
-  - name: Lidando com os eventos da Grade de Eventos
-    href: reacting-to-media-services-events.md
-  - name: Proteção de conteúdo
-    href: content-protection-overview.md
-    items:
-    - name: Sistema de DRM múltiplo com controle de acesso
-      href: design-multi-drm-system-with-access-control.md
   - name: Analisando o conteúdo
     href: analyzing-video-audio-files-concept.md
   - name: Streaming de eventos ao vivo
@@ -85,8 +72,23 @@ items:
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
-  - name: Player de Mídia do Azure
+  - name: Monitoramento
+    items:
+    - name: Grade de Eventos
+      href: reacting-to-media-services-events.md
+  - name: Proteção de conteúdo
+    href: content-protection-overview.md
+    items:
+    - name: Sistema de DRM múltiplo com controle de acesso
+      href: design-multi-drm-system-with-access-control.md
+  - name: Reproduzir
     href: use-azure-media-player.md
+  - name: Contas
+    items:
+    - name: Cotas e limitações
+      href: limits-quotas-constraints.md
+    - name: Contas de armazenamento
+      href: storage-account-concept.md
 - name: Guias de instruções
   items:
   - name: Introdução
@@ -203,9 +205,9 @@ items:
     href: frequently-asked-questions.md
   - name: Nuvens e regiões do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: c30302fa289ade85870db3e89fa70f5e79f61a99
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c5c099f346cffabc6f925609f27ff9cab7dd155e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881368"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095865"

@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 0fe4a9f05e0f6d1abed7b906cc5cd89854885ae5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 42477a69616024ae9564d3665a47ff00161ea792
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53992848"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451032"
 ---
 # <a name="what-is-text-analytics"></a>O que é a Análise de Texto?
 
@@ -68,7 +68,7 @@ Todos os pontos de extremidade da API de Análise de Texto aceitam dados de text
 
 | Limite | Valor |
 |------------------------|---------------|
-| Tamanho máximo de um único documento | Cinco mil caracteres conforme medido pelo `String.Length`. |
+| Tamanho máximo de um único documento | Cinco mil caracteres conforme medido pelo [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamanho máximo de toda a solicitação | 1 MB |
 | Número máximo de documentos em uma solicitação | Mil documentos |
 

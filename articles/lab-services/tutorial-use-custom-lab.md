@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470856"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422891"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acessar um laboratório no Azure DevTest Labs
 Neste tutorial, você usa o laboratório que foi criado no [Tutorial: Criar um laboratório no Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -68,14 +68,16 @@ Depois que você usar a VM, cancelar a VM seguindo estas etapas:
 1. Na página de máquina virtual, selecione **Cancelar** na barra de ferramentas. 
 
     ![Cancelar VM](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. A VM é desligada antes que seja cancelada. 
+1. A VM é desligada antes que seja cancelada. É possível ver o status dessa operação em notificações.  
+3. Navegue de volta para a página DevTest Lab clicando no nome do laboratório no menu de navegação estrutural na parte superior. 
+    
+    ![Navegar de volta para o laboratório](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. Confirme que você vê a VM na lista de **Máquinas virtuais requisitáveis** na parte inferior.
 
-    ![Cancelar status](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. Depois da operação de cancelamento, você verá a VM na lista de **Máquinas de virtuais solicitáveis** na parte inferior. 
     
 ## <a name="next-steps"></a>Próximas etapas
 Este tutorial mostrou como acessar e usar um laboratório que foi criado usando o Azure DevTest Labs. Para obter mais informações sobre como acessar e usar máquinas virtuais em um laboratório, consulte 
 
 > [!div class="nextstepaction"]
-> [Como usar VMs em um laboratório](devtest-lab-add-vm.md)
+> [Como: Usar VMs em um laboratório](devtest-lab-add-vm.md)
 

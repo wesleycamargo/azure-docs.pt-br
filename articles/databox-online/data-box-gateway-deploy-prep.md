@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: b8aac8a6a666bf3f360ef2867ff15933ad72dbd7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166977"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452965"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparar para implantar o Azure Data Box Gateway (visualização)
+# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparar para implantar o Azure Data Box Gateway (versão prévia)
 
 
 Este é o primeiro tutorial da série de tutoriais de implantação necessários para implantar completamente o seu Azure Data Box Gateway. Este tutorial descreve como preparar o portal do Azure para implantar o recurso Data Box Gateway. 
@@ -43,8 +43,8 @@ Consulte os tutoriais a seguir na sequência prescrita para implantar o Data Box
 | --- | --- | --- | 
 | 1. |**[Preparar o portal do Azure para o Data Box Gateway](data-box-gateway-deploy-prep.md)** |Crie e configure o recurso de Gateway da caixa de dados antes do provisionamento de um dispositivo virtual do Data Box Gateway. |
 | 2. |**[Provisione o Data Box Gateway no Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Provisione o Data Box Gateway no VMware](data-box-gateway-deploy-provision-vmware.md)**|Para o Hyper-V, forneça e conecte-se a um dispositivo virtual do Data Box Gateway em um sistema host que execute o Hyper-V no Windows Server 2016 ou no Windows Server 2012 R2. <br><br><br> Para o VMware, provisione e conecte-se a um dispositivo virtual de Data Box Gateway em um sistema de host executando o VMware ESXi 6.0 ou 6.5.<br></br> |
-| 3. |**[Conectar-se, configurar, ativar o Gateway de caixa de dados](data-box-gateway-deploy-connect-setup-activate.md)** |Conectar-se a interface do usuário da Web local, conclua a configuração do dispositivo e ativar o dispositivo. Em seguida, é possível provisionar compartilhamentos SMB.  |
-| 4. |**[Transferir dados com o Gateway da caixa de dados](data-box-gateway-deploy-add-shares.md)** |Adicionar compartilhamentos, conecte-se aos compartilhamentos via SMB ou NFS. |
+| 3. |**[Conectar-se, configurar, ativar o Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md)** |Conectar-se a interface do usuário da Web local, conclua a configuração do dispositivo e ativar o dispositivo. Em seguida, é possível provisionar compartilhamentos SMB.  |
+| 4. |**[Transferir dados com o Data Box Gateway](data-box-gateway-deploy-add-shares.md)** |Adicionar compartilhamentos, conecte-se aos compartilhamentos via SMB ou NFS. |
 
 Agora, você pode começar a configurar o portal do Azure.
 
@@ -147,7 +147,7 @@ A chave de ativação é usada para registrar todos os dispositivos do Data Box 
 
 > [!IMPORTANT]
 > - A chave de ativação expira 3 dias depois de ser gerada. 
-> - Se a chave tiver epxired, gere uma nova chave. A chave antiga não é válida.
+> - Se a chave expirou, gere uma nova. A chave antiga não é válida.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -161,11 +161,11 @@ Neste tutorial, você aprendeu sobre os tópicos do Data Box Gateway, como:
 Avance para o próximo tutorial para aprender a provisionar uma máquina virtual para o Data Box Gateway. Dependendo do sistema operacional host, consulte as instruções detalhadas em:
 
 > [!div class="nextstepaction"]
-> [Provisionar um Gateway de dados de caixa no Hyper-V](./data-box-gateway-deploy-provision-hyperv.md)
+> [Provisionar um Data Box Gateway no Hyper-V](./data-box-gateway-deploy-provision-hyperv.md)
 
 OU
 
 > [!div class="nextstepaction"]
-> [Provisionar um Gateway de dados de caixa no VMware](./data-box-gateway-deploy-provision-vmware.md)
+> [Provisionar um Data Box Gateway no VMware](./data-box-gateway-deploy-provision-vmware.md)
 
 

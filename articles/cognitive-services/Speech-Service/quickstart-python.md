@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Reconhecer fala no Python usando o SDK do Serviço de Fala'
+title: 'Início rápido: Reconhecer fala, Python – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconhecer fala no Python usando o SDK do Serviço de Fala
+description: Use este guia para criar um aplicativo de console de conversão de fala em texto usando o SDK de Fala para Python. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7610b12b351b2652df7ade603711d4d92e587292
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 40869457ce933368e17a2054dfca50fc4505fa22
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723902"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381584"
 ---
-# <a name="quickstart-using-the-speech-service-from-python"></a>Início Rápido: Usando o serviço de fala do Python
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -39,7 +39,7 @@ Antes de começar, aqui está uma lista de pré-requisitos:
 
 * No Windows, você também precisa de [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para sua plataforma.
 
-## <a name="get-the-speech-sdk-python-package"></a>Obter o pacote do Python do Speech SDK
+## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -61,7 +61,7 @@ Se você tiver um problema ou não tiver um recurso, dê uma olhada em nossa [p�
 
 ## <a name="create-a-python-application-using-the-speech-sdk"></a>Criar um aplicativo Python usando o Speech SDK
 
-### <a name="running-the-sample-in-a-terminal"></a>Executando o exemplo em um terminal
+### <a name="run-the-sample"></a>Execute o exemplo
 
 Você pode copiar o [código](#quickstart-code) neste início rápido para um arquivo de origem `quickstart.py` e executá-lo no seu IDE ou no console
 
@@ -71,11 +71,11 @@ python quickstart.py
 
 ou você pode baixar este tutorial de início rápido como um [Jupyter](https://jupyter.org) Notebook do [repositório de exemplos de Fala de Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) e executá-lo como um notebook.
 
-### <a name="quickstart-code"></a>Código de início rápido
+### <a name="sample-code"></a>Exemplo de código
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-### <a name="installing-the-speech-sdk-python-package-and-running-the-sample-in-visual-studio-code"></a>Instalando o pacote do Python do Speech SDK e executando o exemplo no Visual Studio Code
+### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalar e usar o SDK de Fala com o Visual Studio Code
 
 1. [Baixe](https://www.python.org/downloads/) e instale uma versão de 64 bits (3.5 ou posterior) do Python em seu computador.
 1. [Baixe](https://code.visualstudio.com/Download) e instale o Visual Studio Code.

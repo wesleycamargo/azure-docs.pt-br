@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093600"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849967"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -93,15 +93,23 @@ O Gerenciamento de Custos do Azure também fornece recomendações de economia d
 
 ## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para gastos incomuns
 
-Você pode alertar os stakeholders automaticamente sobre riscos de anomalia de gastos e de excesso de gastos. Você pode criar alertas com rapidez e facilidade usando relatórios que dão suporte para alertas com base no orçamento e nos limites de custo.
+Os alertas permitem que você notifique automaticamente outros stakeholders sobre anomalias de gastos e riscos de excesso de gastos. Você pode criar alertas usando relatórios que dão suporte para alertas com base no orçamento e nos limites de custo.
 
-Crie um alerta para qualquer gasto usando qualquer relatório de custo. Neste exemplo, use o relatório Custo Real ao Longo do Tempo para ser notificado quando os gastos da VM do Azure se aproximarem do seu orçamento total. Todas as etapas abaixo são necessárias para criar o alerta. No menu na parte superior do portal, clique em **Custos** > **Análise de Custo** > **Custo Real ao Longo do Tempo**. Defina **Grupos** para **Serviço** e defina **Filtrar no serviço** para **Azure/VM**. Na parte superior direita do relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**.
+Este exemplo usa o relatório **Custo real ao longo do tempo** para enviar uma notificação quando os gastos em uma VM do Azure se aproximarem do seu orçamento total. Nesse cenário, você tem um orçamento total de US$ 20.000 e deseja receber uma notificação quando os custos estiverem se aproximando da metade de seu orçamento, US$ 9.000, e um alerta adicional quando os custos atingirem US$ 10.000.
 
-Na caixa Salvar ou Agendar este relatório, use a guia **Agendamento** para enviar o relatório para o seu email usando a frequência desejada. Selecione **Enviar por email**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email. Clique na guia **Limite** e selecione **Custo Real versus Limite**. Se você tiver um orçamento total de US$ 20.000 e desejar ser notificado quando os custos se aproximarem da metade, crie um **Alerta vermelho** em US$ 10.000 e um **Alerta amarelo** em US$ 9.000. Não inclua vírgulas nos valores inseridos. Em seguida, escolha o número de alertas consecutivos. Quando você receber o número total de alertas especificado, não será enviado mais nenhum alerta. Salve o relatório agendado.
+1. No menu na parte superior do portal do Cloudyn, selecione **Custos** > **Análise de custo** > **Custo real ao longo do tempo**. 
+2. Defina **Grupos** para **Serviço** e defina **Filtrar no serviço** para **Azure/VM**. 
+3. Na parte superior direita do relatório, selecione **Ações** e, em seguida, selecione **Agendar relatório**.
+4. Para enviar um email a si mesmo com o relatório a intervalos programados, selecione a guia **Agendamento** na caixa de diálogo **Salvar ou Agendar este relatório**. Selecione **Enviar por email**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email. 
+5. Selecione a guia **Limite** e selecione **Custo real versus Limite**. 
+   1. Na caixa de limite **Alerta vermelho**, insira 10000. 
+   2. Na caixa de limite **Alerta amarela**, insira 9000. 
+   3. Na caixa **Número de alertas consecutivos**, digite o número de alertas consecutivos para receber. Depois que você receber o número total de alertas especificado, não será enviado mais nenhum alerta. 
+6. Clique em **Salvar**.
 
 ![Exemplo mostrando alertas amarelos e vermelhos com base nos limites de gastos](./media/tutorial-review-usage/schedule-alert01.png)
 
-Você também pode escolher a métrica de limite Percentual de Custo versus Limite para criar alertas. Com essa métrica, você pode usar porcentagens do orçamento, em vez de valores de moeda.
+Você também pode escolher a métrica de limite **Percentual de custo versus orçamento** para criar alertas. Isso permite que você especifique os limites como porcentagens do orçamento, em vez de valores de moeda.
 
 ## <a name="export-data"></a>Exportar dados
 
